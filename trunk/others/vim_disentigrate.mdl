@@ -1,0 +1,107 @@
+# Exported from NWmax 0.5-beta at 2/15/2004 11:29:10 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_disentigrate
+filedependancy Unknown
+newmodel vim_disentigrate
+setsupermodel vim_disentigrate NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_disentigrate
+node dummy vim_disentigrate
+  parent NULL
+endnode
+node emitter vim_disentigrateH
+  parent vim_disentigrate
+  position 0.0 0.0 2.7408
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.556863 0.87451 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 100.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.447059 0.396078 0.262745 
+     colorEnd 0.831373 0.721569 0.580392 
+     alphaStart 1.0
+     alphaEnd 0.1
+     sizeStart 1.0
+     sizeEnd 4.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 500.0
+     lifeExp 5.0
+     mass 10.0
+     spread 360.0
+     particleRot 0.0
+     velocity 3.0
+     randvel 0.0
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 30
+     frameStart 0
+     frameEnd 15
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_disentigrate
+#NWmaxANIM ASCII
+newanim impact vim_disentigrate
+    length 2.0
+    transtime 0.25
+    animroot vim_disentigrate
+    node dummy vim_disentigrate
+        parent NULL
+    endnode
+    node emitter vim_disentigrateH
+        parent vim_disentigrate
+        positionkey
+            0.0 0.0 0.0 2.7408
+            1.96667 0.0 0.0 2.7408
+            2.0 0.0 0.0 -182.637
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.96667 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim impact vim_disentigrate
+donemodel vim_disentigrate

@@ -1,0 +1,24 @@
+2DA V2.0
+
+   LABEL       ReqType ReqParam1      ReqParam2 
+0  Dwarf       RACE    0              ****      
+1  DSDwarf     RACE    33             ****      
+2  Mul         RACE    38             ****      
+3  DarkDwarf   RACE    47             ****      
+4  GullyDwarf  RACE    48             ****      
+5  FirebldDwrf RACE    106            ****      
+6  ArcticDwarf RACE    151            ****      
+7  GoldDwarf   RACE    152            ****      
+8  GreyDwarf   RACE    153            ****      
+9  GlacrDwarf  RACE    154            ****      
+10 Urdunnir    RACE    155            ****      
+11 WildDwarf   RACE    156            ****      
+12 Korobokuru  RACE    245            ****      
+13 CraftWeapon SKILL   26             5         
+14 CraftArmor  SKILL   25             5         
+15 WeapProfMar FEATOR  45             ****      
+16 ProfWaraxe  FEATOR  7933           ****      
+17 PowerAtk    FEAT    28             ****      
+18 Base_Attack BAB     6              ****      
+19 ScriptVar   VAR     PRC_PrereqAlag 0         
+20 ScriptVar   VAR     PRC_AllowAlag  0         

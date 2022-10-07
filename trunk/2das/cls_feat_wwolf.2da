@@ -1,0 +1,24 @@
+2DA V2.0
+
+   FeatLabel                     FeatIndex List GrantedOnLevel OnMenu 
+0  FEAT_PRESTIGE_LYCANTHROPE     3527      3    1              0      
+1  FEAT_PRESTIGE_WEREWOLFCLASS_1 3524      3    1              0      
+2  FEAT_PRESTIGE_WOLF_FORM       3518      3    1              1      
+3  FEAT_PRESTIGE_WEREWOLF_FORM   3519      3    2              1      
+4  FEAT_PRESTIGE_WOLF_EMPATHY    3521      3    2              1      
+5  IronWill                      22        3    1              0      
+6  LowLightVision                354       3    1              0      
+7  WeponProfCreature             289       3    2              0      
+8  SkillAffinitySpot             239       3    1              0      
+9  WeapFocusCreature             291       3    3              0      
+10 Alertness                     0         3    4              0      
+11 Knockdown                     23        3    4              0      
+12 WeapSpecCreature              290       3    5              0      
+13 FEAT_PRESTIGE_WOLFCLASS_1     3522      2    -1             0      
+14 FEAT_PRESTIGE_WOLFCLASS_2     3523      2    -1             0      
+15 FEAT_PRESTIGE_WEREWOLFCLASS_2 3525      2    -1             0      
+16 FEAT_PRESTIGE_WEREWOLFCLASS_3 3526      2    -1             0      
+17 FEAT_EPIC_BLINDING_SPEED      491       0    -1             1      
+18 DefArrow                      8         0    -1             0      
+19 TwoWeap                       41        0    -1             0      
+20 Ambidex                       1         0    -1             0      

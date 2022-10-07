@@ -1,0 +1,166 @@
+# Exported from NWmax 0.7 at 8/9/2004 8:28:59 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_deepsleep
+filedependancy Unknown
+newmodel smp_deepsleep
+setsupermodel smp_deepsleep NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_deepsleep
+node dummy smp_deepsleep
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent smp_deepsleep
+  position 0.0 0.0 7.5
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.541176 0.0313726 0.431373 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.235294 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.5
+  alphaEnd 0.5
+  sizeStart 0.5
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 300
+  lifeExp 10.0
+  mass 0.2
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.4
+  randvel 2.0
+  bounce_co 0.4
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter02
+  parent smp_deepsleep
+  position 0.0 0.0 7.5
+  orientation -1.0 0.0 0.0 -1.5708
+  wirecolor 0.541176 0.0313726 0.431373 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.996079 1.0 0.592157 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.5
+  alphaEnd 0.5
+  sizeStart 0.5
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 300
+  lifeExp 10.0
+  mass 0.2
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.4
+  randvel 2.0
+  bounce_co 0.4
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_deepsleep
+#NWmax ANIM ASCII
+newanim impact smp_deepsleep
+  length 13.0
+  transtime 0.25
+  animroot smp_deepsleep
+  event 0.0 detonate
+    node dummy smp_deepsleep
+        parent NULL
+    endnode
+    node emitter AuroraEmitter01
+        parent smp_deepsleep
+    endnode
+    node emitter AuroraEmitter02
+        parent smp_deepsleep
+    endnode
+doneanim impact smp_deepsleep
+donemodel smp_deepsleep

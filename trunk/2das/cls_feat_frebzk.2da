@@ -1,0 +1,26 @@
+2DA V2.0
+
+   FeatLabel                           FeatIndex List GrantedOnLevel OnMenu 
+0  Great_Cleave                        391       3    2              0      
+1  Imp_Power_Att                       19        3    5              0      
+2  FRENZY_1                            4300      3    1              1      
+3  FRENZY_2                            4301      3    3              0      
+4  FRENZY_3                            4302      3    5              0      
+5  FRENZY_4                            4303      3    7              0      
+6  FRENZY_5                            4304      3    9              0      
+7  GREATER_FRENZY                      4305      3    8              0      
+8  INSPIRE_FRENZY_1                    4306      3    6              1      
+9  INSPIRE_FRENZY_2                    4307      3    8              0      
+10 INSPIRE_FRENZY_3                    4308      3    10             0      
+11 FREBZK_IMPROVED_POWER_ATTACK        4310      3    5              0      
+12 SUPREME_POWER_ATTACK                4311      3    10             0      
+13 REMOVE_FRENZY                       4309      3    1              1      
+14 REMAIN_CONSCIOUS                    4313      3    2              0      
+15 DEATHLESS_FRENZY                    4314      3    4              0      
+16 FEAT_EPIC_BLINDING_SPEED            491       0    -1             1      
+17 DefArrow                            8         0    -1             0      
+18 TwoWeap                             41        0    -1             0      
+19 Ambidex                             1         0    -1             0      
+20 FEAT_NEW_POWER_ATTACK               3143      0    99             1      
+21 FEAT_NEW_IMPROVED_POWER_ATTACK      3144      0    99             1      
+22 FEAT_PRC_POWER_ATTACK_QUICKS_RADIAL 3179      0    99             1      

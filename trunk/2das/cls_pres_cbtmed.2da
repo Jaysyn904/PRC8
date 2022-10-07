@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1        ReqParam2 
+0 Concentration SKILL   1                4         
+1 Heal          SKILL   4                8         
+2 CombatCasting FEAT    7                ****      
+3 Dodge         FEAT    10               ****      
+4 ScriptVar     VAR     PRC_AllowCbtMed  0         
+5 ScriptVar     VAR     PRC_PrereqCbtMed 0         

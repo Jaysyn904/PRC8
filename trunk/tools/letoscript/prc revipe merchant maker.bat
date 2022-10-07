@@ -1,0 +1,1 @@
+Moneo.exe "prc recipe merchant maker.ls" -> test.log

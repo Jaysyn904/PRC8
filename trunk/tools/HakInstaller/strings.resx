@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root xmlns="http://tempuri.org/strings.xsd">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="VersionFormat">
+		<value>NWN{1}{2} version {0} installed.</value>
+	</data>
+	<data name="PathFormat">
+		<value>Install Path: {0}</value>
+	</data>
+	<data name="ViewHakFile">
+		<value>View Hak File</value>
+	</data>
+	<data name="ViewModFile">
+		<value>View Module File</value>
+	</data>
+	<data name="ViewHakFileFormat">
+		<value>View Hak {0}</value>
+	</data>
+	<data name="ViewModFileFormat">
+		<value>View Module {0}</value>
+	</data>
+	<data name="XP2Name">
+		<value>Hordes of the Underdark Campaign</value>
+	</data>
+	<data name="XP1Name">
+		<value>Shadows of Undrentide Campaign</value>
+	</data>
+	<data name="OCName">
+		<value>Neverwinter Original Campaign</value>
+	</data>
+	<data name="HifsOverwritesModule">
+		<value>Some module content is going to get overwritten by haks being installed into the module.  The module may not play correctly, do you wish to continue?</value>
+	</data>
+	<data name="ModuleOverwritesHifs">
+		<value>Some content being added will be ignored because it is contained in haks already in the module.  The module may not play correctly, do you wish to continue?</value>
+	</data>
+	<data name="ValidateNWNVersionError">
+		<value>The {0} custom content cannot be installed because it requires at least version {1} of NWN, and you are currently running version {2}.</value>
+	</data>
+	<data name="ValidateMissingFilesError">
+		<value>The {0} custom content cannot be installed because the following files are missing: {1}</value>
+	</data>
+	<data name="NoHIFS">
+		<value>There is no custom content to install.  The installer will now close.</value>
+	</data>
+	<data name="ValidateNWNXP1Error">
+		<value>The {0} custom content cannot be installed because it requires the Shadows of Undrentide expansion.</value>
+	</data>
+	<data name="ValidateNWNXP2Error">
+		<value>The {0} custom content cannot be installed because it requires the Hordes of the Underdark expansion.</value>
+	</data>
+	<data name="SingleHIFTitle">
+		<value>{0} {1} Module Updater</value>
+	</data>
+	<data name="VersionFormatXP1">
+		<value>, SoU</value>
+	</data>
+	<data name="VersionFormatXP2">
+		<value>, HotU</value>
+	</data>
+</root>

@@ -1,0 +1,3 @@
+Each member can have his or her own folder here. This is intended as a place to store things that people are working on, so that they aren't lost if there is a problem with the files, harddrive crash, or something similar.
+
+When you have finished working on a file, please delete it from CVS.

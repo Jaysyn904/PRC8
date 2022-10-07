@@ -1,0 +1,258 @@
+# Exported from Wayland's NWN Maxscript v0.3b at 6/30/2003 8:46:47 AM
+# mdl file
+#
+filedependancy Unknown
+newmodel vim_frostspike
+setsupermodel vim_frostspike NULL
+classification Character
+setanimationscale 1.0
+beginmodelgeom vim_frostspike
+node dummy vim_frostspike
+    parent NULL
+endnode
+node emitter sparks
+    parent vim_frostspike
+    position 0.0 0.004431 0.003026
+    orientation -1.0 0.0 0.0 -3.14159
+    scale 1.0
+    colorStart 0.341176 0.796079 0.964706
+    colorEnd 1.000000 1.000000 1.000000
+    alphaStart 1.000000
+    alphaEnd 0.700000
+    sizeStart 0.120000
+    sizeEnd 0.000000
+    sizeStart_y 0.000000
+    sizeEnd_y 0.000000
+    frameStart 0
+    frameEnd 15
+    birthrate 30
+    spawnType 0
+    lifeExp 0.200000
+    mass 0.000000
+    spread 6.283190
+    particleRot 0.000000
+    velocity 10.000000
+    randvel 1.000000
+    fps 16
+    random 0
+    inherit 1
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 0.000000
+    ysize 0.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Explosion
+    render Motion_Blur
+    Blend Lighten
+    deadspace 0.174533
+    blurlength 0.800000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 0.000000
+    blastLength 0.000000
+    twosidedtex 0
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_Sparks
+    xgrid 4
+    ygrid 4
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+node emitter Frost
+    parent vim_frostspike
+    position 0.0 0.004431 0.00559
+    orientation 1.0 0.0 0.0 -3.14159
+    scale 1.0
+    colorStart 0.407843 0.803922 0.988235
+    colorEnd 0.407843 0.803922 0.988235
+    alphaStart 1.000000
+    alphaEnd 0.000000
+    sizeStart 0.000000
+    sizeEnd 1.300000
+    sizeStart_y 0.000000
+    sizeEnd_y 0.000000
+    frameStart 0
+    frameEnd 15
+    birthrate 50
+    spawnType 0
+    lifeExp 0.100000
+    mass 0.000000
+    spread 6.283190
+    particleRot 0.000000
+    velocity 2.000000
+    randvel 0.000000
+    fps 16
+    random 0
+    inherit 1
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 0.000000
+    ysize 0.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Explosion
+    render Aligned_to_Particle_Dir
+    Blend Lighten
+    deadspace 0.209440
+    blurlength 10.000000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 0.000000
+    blastLength 0.000000
+    twosidedtex 1
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_Sparks
+    xgrid 4
+    ygrid 4
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+node emitter cloud
+    parent vim_frostspike
+    position 0.0 0.0 9.9e-005
+    orientation 1.0 0.0 0.0 0.0
+    scale 1.0
+    colorStart 0.607843 0.890196 0.996079
+    colorEnd 0.866667 0.964706 1.000000
+    alphaStart 1.000000
+    alphaEnd 0.000000
+    sizeStart 0.500000
+    sizeEnd 2.000000
+    sizeStart_y 0.000000
+    sizeEnd_y 0.000000
+    frameStart 0
+    frameEnd 15
+    birthrate 0
+    spawnType 0
+    lifeExp 2.000000
+    mass -0.070000
+    spread 1.047200
+    particleRot 0.600000
+    velocity 0.000000
+    randvel 0.300000
+    fps 16
+    random 1
+    inherit 0
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 0.000000
+    ysize 0.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Fountain
+    render Normal
+    Blend Lighten
+    deadspace 0.000000
+    blurlength 10.000000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 0.000000
+    blastLength 0.000000
+    twosidedtex 0
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_Smoke01a
+    xgrid 4
+    ygrid 4
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+node emmiter Emmiter Red
+    parent vim_frostspike
+    position -0.00118714 0.0128809 0.0
+    orientation 1.0 0.0 0.0 0.0
+    scale 0.933707
+    colorStart 0.341176 0.796079 0.964706
+    colorEnd 1.000000 1.000000 1.000000
+    alphaStart 1.000000
+    alphaEnd 0.700000
+    sizeStart 0.120000
+    sizeEnd 0.000000
+    sizeStart_y 0.000000
+    sizeEnd_y 0.000000
+    frameStart 0
+    frameEnd 15
+    birthrate 30
+    spawnType 0
+    lifeExp 0.200000
+    mass 0.000000
+    spread 6.283190
+    particleRot 0.000000
+    velocity 10.000000
+    randvel 1.000000
+    fps 16
+    random 0
+    inherit 1
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 0.000000
+    ysize 0.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Explosion
+    render Motion_Blur
+    Blend Lighten
+    deadspace 0.174533
+    blurlength 0.800000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 1.000000
+    blastLength 1.000000
+    twosidedtex 0
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_ice
+    xgrid 4
+    ygrid 4
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+endmodelgeom vim_frostspike
+donemodel vim_frostspike

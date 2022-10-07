@@ -1,0 +1,2693 @@
+# Exported from NWmax 0.7 at 6/17/2004 12:39:35 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_forbidance
+filedependancy smp_forbidance.gmax
+newmodel smp_forbidance
+setsupermodel smp_forbidance NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_forbidance
+node dummy smp_forbidance
+  parent NULL
+endnode
+node emitter Particles_Red_to_White_Grav03
+  parent smp_forbidance
+  position -5.9658 -6.01699 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef04
+  parent Particles_Red_to_White_Grav03
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav04
+  parent smp_forbidance
+  position -5.9658 -2.77238 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef05
+  parent Particles_Red_to_White_Grav04
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav05
+  parent smp_forbidance
+  position -5.9658 0.324564 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef06
+  parent Particles_Red_to_White_Grav05
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav06
+  parent smp_forbidance
+  position -5.9658 3.41526 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef07
+  parent Particles_Red_to_White_Grav06
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav07
+  parent smp_forbidance
+  position -5.9658 6.05835 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef08
+  parent Particles_Red_to_White_Grav07
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav08
+  parent smp_forbidance
+  position -2.78861 -6.01699 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef09
+  parent Particles_Red_to_White_Grav08
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav09
+  parent smp_forbidance
+  position -2.78861 -2.77238 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef10
+  parent Particles_Red_to_White_Grav09
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav10
+  parent smp_forbidance
+  position -2.78861 0.324564 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef11
+  parent Particles_Red_to_White_Grav10
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav11
+  parent smp_forbidance
+  position -2.78861 3.41526 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef12
+  parent Particles_Red_to_White_Grav11
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav12
+  parent smp_forbidance
+  position -2.78861 6.05835 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef13
+  parent Particles_Red_to_White_Grav12
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav13
+  parent smp_forbidance
+  position 0.103301 -6.01699 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef14
+  parent Particles_Red_to_White_Grav13
+  position -0.00738332 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav14
+  parent smp_forbidance
+  position 0.103301 -2.77238 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef15
+  parent Particles_Red_to_White_Grav14
+  position -0.00738332 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav15
+  parent smp_forbidance
+  position 0.103301 0.324564 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef16
+  parent Particles_Red_to_White_Grav15
+  position -0.00738332 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav16
+  parent smp_forbidance
+  position 0.103301 3.41526 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef17
+  parent Particles_Red_to_White_Grav16
+  position -0.00738332 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav17
+  parent smp_forbidance
+  position 0.103301 6.05835 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef18
+  parent Particles_Red_to_White_Grav17
+  position -0.00738332 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav18
+  parent smp_forbidance
+  position 3.0565 -6.01699 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef19
+  parent Particles_Red_to_White_Grav18
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav19
+  parent smp_forbidance
+  position 3.0565 -2.77238 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef20
+  parent Particles_Red_to_White_Grav19
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav20
+  parent smp_forbidance
+  position 3.0565 0.324564 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef21
+  parent Particles_Red_to_White_Grav20
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav21
+  parent smp_forbidance
+  position 3.0565 3.41526 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef22
+  parent Particles_Red_to_White_Grav21
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav22
+  parent smp_forbidance
+  position 3.0565 6.05835 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef23
+  parent Particles_Red_to_White_Grav22
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav23
+  parent smp_forbidance
+  position 5.93027 -6.01699 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef24
+  parent Particles_Red_to_White_Grav23
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav24
+  parent smp_forbidance
+  position 5.93027 -2.77238 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef25
+  parent Particles_Red_to_White_Grav24
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav25
+  parent smp_forbidance
+  position 5.93027 0.324564 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef26
+  parent Particles_Red_to_White_Grav25
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav26
+  parent smp_forbidance
+  position 5.93027 3.41526 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef27
+  parent Particles_Red_to_White_Grav26
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Particles_Red_to_White_Grav27
+  parent smp_forbidance
+  position 5.93027 6.05835 0.0751754
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 914.4
+  ySize 914.4
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass -0.5
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 15.0
+  drag 1.0
+endnode
+node reference AuroraRef28
+  parent Particles_Red_to_White_Grav27
+  position -0.00738342 -0.0143854 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom smp_forbidance
+#NWmax ANIM ASCII
+newanim impact smp_forbidance
+  length 1.0
+  transtime 0.25
+  animroot smp_forbidance
+    node dummy smp_forbidance
+        parent NULL
+    endnode
+    node emitter Particles_Red_to_White_Grav03
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Particles_Red_to_White_Grav03
+    endnode
+    node emitter Particles_Red_to_White_Grav04
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Particles_Red_to_White_Grav04
+    endnode
+    node emitter Particles_Red_to_White_Grav05
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Particles_Red_to_White_Grav05
+    endnode
+    node emitter Particles_Red_to_White_Grav06
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef07
+        parent Particles_Red_to_White_Grav06
+    endnode
+    node emitter Particles_Red_to_White_Grav07
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef08
+        parent Particles_Red_to_White_Grav07
+    endnode
+    node emitter Particles_Red_to_White_Grav08
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef09
+        parent Particles_Red_to_White_Grav08
+    endnode
+    node emitter Particles_Red_to_White_Grav09
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef10
+        parent Particles_Red_to_White_Grav09
+    endnode
+    node emitter Particles_Red_to_White_Grav10
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef11
+        parent Particles_Red_to_White_Grav10
+    endnode
+    node emitter Particles_Red_to_White_Grav11
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef12
+        parent Particles_Red_to_White_Grav11
+    endnode
+    node emitter Particles_Red_to_White_Grav12
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef13
+        parent Particles_Red_to_White_Grav12
+    endnode
+    node emitter Particles_Red_to_White_Grav13
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef14
+        parent Particles_Red_to_White_Grav13
+    endnode
+    node emitter Particles_Red_to_White_Grav14
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef15
+        parent Particles_Red_to_White_Grav14
+    endnode
+    node emitter Particles_Red_to_White_Grav15
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef16
+        parent Particles_Red_to_White_Grav15
+    endnode
+    node emitter Particles_Red_to_White_Grav16
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef17
+        parent Particles_Red_to_White_Grav16
+    endnode
+    node emitter Particles_Red_to_White_Grav17
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef18
+        parent Particles_Red_to_White_Grav17
+    endnode
+    node emitter Particles_Red_to_White_Grav18
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef19
+        parent Particles_Red_to_White_Grav18
+    endnode
+    node emitter Particles_Red_to_White_Grav19
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef20
+        parent Particles_Red_to_White_Grav19
+    endnode
+    node emitter Particles_Red_to_White_Grav20
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef21
+        parent Particles_Red_to_White_Grav20
+    endnode
+    node emitter Particles_Red_to_White_Grav21
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef22
+        parent Particles_Red_to_White_Grav21
+    endnode
+    node emitter Particles_Red_to_White_Grav22
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef23
+        parent Particles_Red_to_White_Grav22
+    endnode
+    node emitter Particles_Red_to_White_Grav23
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef24
+        parent Particles_Red_to_White_Grav23
+    endnode
+    node emitter Particles_Red_to_White_Grav24
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef25
+        parent Particles_Red_to_White_Grav24
+    endnode
+    node emitter Particles_Red_to_White_Grav25
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef26
+        parent Particles_Red_to_White_Grav25
+    endnode
+    node emitter Particles_Red_to_White_Grav26
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef27
+        parent Particles_Red_to_White_Grav26
+    endnode
+    node emitter Particles_Red_to_White_Grav27
+        parent smp_forbidance
+        birthratekey
+            0.0 0 
+            1.0 150 
+        endlist
+    endnode
+    node reference AuroraRef28
+        parent Particles_Red_to_White_Grav27
+    endnode
+doneanim impact smp_forbidance
+#NWmax ANIM ASCII
+newanim duration smp_forbidance
+  length 0.333333
+  transtime 0.25
+  animroot smp_forbidance
+    node dummy smp_forbidance
+        parent NULL
+    endnode
+    node emitter Particles_Red_to_White_Grav03
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Particles_Red_to_White_Grav03
+    endnode
+    node emitter Particles_Red_to_White_Grav04
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Particles_Red_to_White_Grav04
+    endnode
+    node emitter Particles_Red_to_White_Grav05
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Particles_Red_to_White_Grav05
+    endnode
+    node emitter Particles_Red_to_White_Grav06
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef07
+        parent Particles_Red_to_White_Grav06
+    endnode
+    node emitter Particles_Red_to_White_Grav07
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef08
+        parent Particles_Red_to_White_Grav07
+    endnode
+    node emitter Particles_Red_to_White_Grav08
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef09
+        parent Particles_Red_to_White_Grav08
+    endnode
+    node emitter Particles_Red_to_White_Grav09
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef10
+        parent Particles_Red_to_White_Grav09
+    endnode
+    node emitter Particles_Red_to_White_Grav10
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef11
+        parent Particles_Red_to_White_Grav10
+    endnode
+    node emitter Particles_Red_to_White_Grav11
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef12
+        parent Particles_Red_to_White_Grav11
+    endnode
+    node emitter Particles_Red_to_White_Grav12
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef13
+        parent Particles_Red_to_White_Grav12
+    endnode
+    node emitter Particles_Red_to_White_Grav13
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef14
+        parent Particles_Red_to_White_Grav13
+    endnode
+    node emitter Particles_Red_to_White_Grav14
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef15
+        parent Particles_Red_to_White_Grav14
+    endnode
+    node emitter Particles_Red_to_White_Grav15
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef16
+        parent Particles_Red_to_White_Grav15
+    endnode
+    node emitter Particles_Red_to_White_Grav16
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef17
+        parent Particles_Red_to_White_Grav16
+    endnode
+    node emitter Particles_Red_to_White_Grav17
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef18
+        parent Particles_Red_to_White_Grav17
+    endnode
+    node emitter Particles_Red_to_White_Grav18
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef19
+        parent Particles_Red_to_White_Grav18
+    endnode
+    node emitter Particles_Red_to_White_Grav19
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef20
+        parent Particles_Red_to_White_Grav19
+    endnode
+    node emitter Particles_Red_to_White_Grav20
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef21
+        parent Particles_Red_to_White_Grav20
+    endnode
+    node emitter Particles_Red_to_White_Grav21
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef22
+        parent Particles_Red_to_White_Grav21
+    endnode
+    node emitter Particles_Red_to_White_Grav22
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef23
+        parent Particles_Red_to_White_Grav22
+    endnode
+    node emitter Particles_Red_to_White_Grav23
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef24
+        parent Particles_Red_to_White_Grav23
+    endnode
+    node emitter Particles_Red_to_White_Grav24
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef25
+        parent Particles_Red_to_White_Grav24
+    endnode
+    node emitter Particles_Red_to_White_Grav25
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef26
+        parent Particles_Red_to_White_Grav25
+    endnode
+    node emitter Particles_Red_to_White_Grav26
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef27
+        parent Particles_Red_to_White_Grav26
+    endnode
+    node emitter Particles_Red_to_White_Grav27
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            0.333333 150 
+        endlist
+    endnode
+    node reference AuroraRef28
+        parent Particles_Red_to_White_Grav27
+    endnode
+doneanim duration smp_forbidance
+#NWmax ANIM ASCII
+newanim cessation smp_forbidance
+  length 1.0
+  transtime 0.25
+  animroot smp_forbidance
+    node dummy smp_forbidance
+        parent NULL
+    endnode
+    node emitter Particles_Red_to_White_Grav03
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Particles_Red_to_White_Grav03
+    endnode
+    node emitter Particles_Red_to_White_Grav04
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Particles_Red_to_White_Grav04
+    endnode
+    node emitter Particles_Red_to_White_Grav05
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Particles_Red_to_White_Grav05
+    endnode
+    node emitter Particles_Red_to_White_Grav06
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef07
+        parent Particles_Red_to_White_Grav06
+    endnode
+    node emitter Particles_Red_to_White_Grav07
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef08
+        parent Particles_Red_to_White_Grav07
+    endnode
+    node emitter Particles_Red_to_White_Grav08
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef09
+        parent Particles_Red_to_White_Grav08
+    endnode
+    node emitter Particles_Red_to_White_Grav09
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef10
+        parent Particles_Red_to_White_Grav09
+    endnode
+    node emitter Particles_Red_to_White_Grav10
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef11
+        parent Particles_Red_to_White_Grav10
+    endnode
+    node emitter Particles_Red_to_White_Grav11
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef12
+        parent Particles_Red_to_White_Grav11
+    endnode
+    node emitter Particles_Red_to_White_Grav12
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef13
+        parent Particles_Red_to_White_Grav12
+    endnode
+    node emitter Particles_Red_to_White_Grav13
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef14
+        parent Particles_Red_to_White_Grav13
+    endnode
+    node emitter Particles_Red_to_White_Grav14
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef15
+        parent Particles_Red_to_White_Grav14
+    endnode
+    node emitter Particles_Red_to_White_Grav15
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef16
+        parent Particles_Red_to_White_Grav15
+    endnode
+    node emitter Particles_Red_to_White_Grav16
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef17
+        parent Particles_Red_to_White_Grav16
+    endnode
+    node emitter Particles_Red_to_White_Grav17
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef18
+        parent Particles_Red_to_White_Grav17
+    endnode
+    node emitter Particles_Red_to_White_Grav18
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef19
+        parent Particles_Red_to_White_Grav18
+    endnode
+    node emitter Particles_Red_to_White_Grav19
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef20
+        parent Particles_Red_to_White_Grav19
+    endnode
+    node emitter Particles_Red_to_White_Grav20
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef21
+        parent Particles_Red_to_White_Grav20
+    endnode
+    node emitter Particles_Red_to_White_Grav21
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef22
+        parent Particles_Red_to_White_Grav21
+    endnode
+    node emitter Particles_Red_to_White_Grav22
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef23
+        parent Particles_Red_to_White_Grav22
+    endnode
+    node emitter Particles_Red_to_White_Grav23
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef24
+        parent Particles_Red_to_White_Grav23
+    endnode
+    node emitter Particles_Red_to_White_Grav24
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef25
+        parent Particles_Red_to_White_Grav24
+    endnode
+    node emitter Particles_Red_to_White_Grav25
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef26
+        parent Particles_Red_to_White_Grav25
+    endnode
+    node emitter Particles_Red_to_White_Grav26
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef27
+        parent Particles_Red_to_White_Grav26
+    endnode
+    node emitter Particles_Red_to_White_Grav27
+        parent smp_forbidance
+        birthratekey
+            0.0 150 
+            1.0 0 
+        endlist
+    endnode
+    node reference AuroraRef28
+        parent Particles_Red_to_White_Grav27
+    endnode
+doneanim cessation smp_forbidance
+donemodel smp_forbidance

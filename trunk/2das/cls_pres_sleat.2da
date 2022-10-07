@@ -1,0 +1,10 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1           ReqParam2 
+0 Alertness     FEAT    0                   ****      
+1 WFoc_Creature FEATOR  291                 ****      
+2 WFoc_Unarmed  FEATOR  100                 ****      
+3 Base_Attack   BAB     5                   ****      
+4 Lore          SKILL   7                   2         
+5 ScriptVar     VAR     PRC_AllowSoulEater  0         
+6 ScriptVar     VAR     PRC_PrereqSoulEater 0         

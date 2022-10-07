@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1         ReqParam2 
+0 BaseAttack BAB     4                 ****      
+1 Lore       SKILL   7                 4         
+2 Bluff      SKILL   23                4         
+3 Intimidate SKILL   24                4         
+4 DrgnThrall FEAT    3989              ****      
+5 ScriptVar  VAR     PRC_TalonOfTiamat 0         

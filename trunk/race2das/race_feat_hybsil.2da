@@ -1,0 +1,15 @@
+2DA V2.0
+
+   FeatLabel                 FeatIndex 
+0  dodge                     10        
+1  mobility                  26        
+2  FEAT_IMMUNITY_POISON      3590      
+3  SkillAff_Jump             4752      
+4  Natural_Armor_2           4761      
+5  Race_Fey                  4718      
+6  SkillAFFSearch            238       
+7  FEAT_HYBSIL_PASS_WO_TRACE 5381      
+8  FEAT_HYBSIL_MIRROR_IMAGE  5382      
+9  FEAT_HYBSIL_DANCLIGHTS    5383      
+10 FEAT_HYBSIL_JUMP          5384      
+11 Small                     375       

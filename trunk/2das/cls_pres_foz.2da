@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1    ReqParam2 
+0 Concentration SKILL   1            9         
+1 StillMind     FEAT    208          ****      
+2 Wild_Talent   FEAT    4831         ****      
+3 Base_Attack   BAB     4            ****      
+4 ScriptVar     VAR     PRC_AllowFoZ 0         

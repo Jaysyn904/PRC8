@@ -1,0 +1,14 @@
+2DA V2.0
+
+   NAME   STRREF   BASERESREF       BONUS PARAM1 PARAM2 
+0  ****   ****     ****             ****  ****   ****   
+1  Bat    16834912 prc_pnpfam_bat   sk    6      3      
+2  Hawk   16834913 prc_pnpfam_hawk  sk    17     3      
+3  Raven  16834914 prc_pnpfam_raven sk    20     3      
+4  Rat    16834915 prc_pnpfam_rat   sv    1      3      
+5  Snake  16834916 prc_pnpfam_snake sk    23     3      
+6  Cat    16834917 prc_pnpfam_cat   sk    8      3      
+7  Weasel 16834918 prc_pnpfam_weasl sv    2      3      
+8  Owl    16834919 prc_pnpfam_owl   sk    17     3      
+9  Lizard ****     ****             sk    28     3      
+10 Toad   ****     ****             hp    3      ****   

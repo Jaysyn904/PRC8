@@ -1,0 +1,92 @@
+# Exported from NWmax 0.7 at 7/27/2004 12:00:32 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: vpr_boltglory
+filedependancy Unknown
+newmodel vpr_boltglory
+setsupermodel vpr_boltglory NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom vpr_boltglory
+node dummy vpr_boltglory
+  parent NULL
+endnode
+node emitter bolt
+  parent vpr_boltglory
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -4.71239
+  wirecolor 0.52549 0.0235294 0.0235294 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 50.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.964706 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.9
+  alphaEnd 0.9
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.2
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 2.0
+  drag 1.0
+endnode
+node reference AuroraRef01
+  parent bolt
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -1.68587e-007
+  wirecolor 0.109804 0.584314 0.694118 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom vpr_boltglory
+donemodel vpr_boltglory

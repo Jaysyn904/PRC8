@@ -1,0 +1,360 @@
+# Exported from NWmax 0.5-beta at 3/5/2004 3:14:46 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_pfe_cold
+filedependancy vdr_pfe_cold.gmax
+newmodel vdr_pfe_cold
+setsupermodel vdr_pfe_cold NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_pfe_cold
+node dummy vdr_pfe_cold
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vdr_pfe_cold
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 1.0 0.0
+  wirecolor 0.835294 0.603922 0.898039 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.0 0.996348 0.393151
+  orientation 0.0 1.0 0.0 0.0
+  wirecolor 0.101961 0.694118 0.345098 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.709804 0.960784 1.0 
+     colorEnd 0.737255 1.0 0.992157 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 100.0
+     lifeExp 3.0
+     mass 0.3
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flake
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent Dummy01
+  position 0.0 0.996496 0.404943
+  orientation 0.0 0.0 1.0 0.0
+  wirecolor 0.894118 0.721569 0.6 
+     update_sel 2
+     update Single
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.5
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp -1.0
+     mass 0.0
+     spread 0.0
+     particleRot -0.1
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.5
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter03
+  parent Dummy01
+  position 0.0 0.996496 0.404943
+  orientation 0.0 0.0 1.0 0.0
+  wirecolor 0.560784 0.878431 0.341176 
+     update_sel 2
+     update Single
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.5
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp -1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.4
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.5
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent Dummy01
+  position 0.0 0.996496 0.404943
+  orientation 0.0 0.0 1.0 0.0
+  wirecolor 0.580392 0.694118 0.101961 
+     update_sel 2
+     update Single
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 1.0
+     ySize 1.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.5
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp -1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_lensring
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.5
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_pfe_cold
+#NWmaxANIM ASCII
+newanim impact vdr_pfe_cold
+    length 1.16667
+    transtime 0.25
+    animroot vdr_pfe_cold
+    node dummy vdr_pfe_cold
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vdr_pfe_cold
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy01
+    endnode
+doneanim impact vdr_pfe_cold
+#NWmaxANIM ASCII
+newanim duration vdr_pfe_cold
+    length 1.33333
+    transtime 0.25
+    animroot vdr_pfe_cold
+    node dummy vdr_pfe_cold
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vdr_pfe_cold
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.14159
+            1.0 0.0 0.0 -1.0 -4.70366
+            1.33333 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy01
+    endnode
+doneanim duration vdr_pfe_cold
+donemodel vdr_pfe_cold

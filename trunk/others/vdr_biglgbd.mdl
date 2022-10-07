@@ -1,0 +1,223 @@
+#MAXMODEL ASCII
+# model: vdr_biglgbd
+filedependancy vdr_biglgbd.max
+newmodel vdr_biglgbd
+setsupermodel vdr_biglgbd NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vdr_biglgbd
+node dummy vdr_biglgbd
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_biglgbd
+  #part-number 1
+  ambientonly 0
+  shadow 1
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 1
+  fadingLight 0
+  flareradius 2.0
+  position 0.0 10.0 5.0
+  orientation 0.0 0.0 0.0 0.0
+  radius 0.0
+  multiplier 3
+  color 0.0 0.0 0.0
+endnode
+node light AuroraLight02
+  parent vdr_biglgbd
+  #part-number 2
+  ambientonly 0
+  shadow 1
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 1
+  fadingLight 0
+  flareradius 2.0
+  position 8.660254 -5.0 5.0
+  orientation 0.0 0.0 0.0 0.0
+  radius 0.0
+  multiplier 3
+  color 0.0 0.0 0.0
+endnode
+node light AuroraLight03
+  parent vdr_biglgbd
+  #part-number 3
+  ambientonly 0
+  shadow 1
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 1
+  fadingLight 0
+  flareradius 2.0
+  position -8.660254 -5.0 5.0
+  orientation 0.0 0.0 0.0 0.0
+  radius 0.0
+  multiplier 3
+  color 0.0 0.0 0.0
+endnode
+endmodelgeom vdr_biglgbd
+
+#MAXANIM ASCII
+newanim impact vdr_biglgbd
+  length 0.3
+  transtime 0.25
+  animroot vdr_biglgbd
+node dummy vdr_biglgbd
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_biglgbd
+  #part-number 1
+  colorkey 2
+    0.0 0.0 0.0 0.0
+    0.3 0.0 1.0 0.0
+  radiuskey 2
+    0.0 0.0
+    0.3 10.0
+endnode
+node light AuroraLight02
+  parent vdr_biglgbd
+  #part-number 2
+  colorkey 2
+    0.0 0.0 0.0 0.0
+    0.3 0.0 1.0 0.0
+  radiuskey 2
+    0.0 0.0
+    0.3 10.0
+endnode
+node light AuroraLight03
+  parent vdr_biglgbd
+  #part-number 3
+  colorkey 2
+    0.0 0.0 0.0 0.0
+    0.3 0.0 1.0 0.0
+  radiuskey 2
+    0.0 0.0
+    0.3 10.0
+endnode
+doneanim impact vdr_biglgbd
+
+#MAXANIM ASCII
+newanim duration vdr_biglgbd
+  length 6.0
+  transtime 0.25
+  animroot vdr_biglgbd
+node dummy vdr_biglgbd
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_biglgbd
+  #part-number 1
+  colorkey 9
+    0.00 0.0 1.0 0.0
+    0.75 0.0 0.75 0.75
+    1.50 0.0 0.0 1.0
+    2.25 0.0 0.75 0.75
+    3.00 0.0 1.0 0.0
+    3.75 0.0 0.75 0.75
+    4.50 0.0 0.0 1.0
+    5.25 0.0 0.75 0.75
+    6.00 0.0 1.0 0.0
+  radiuskey 2
+    0.0 10.0
+    6.0 10.0
+  positionkey 4
+    0.0 0.0 10.0 5.0
+    2.0 8.660254 -5.0 5.0
+    4.0 -8.660254 -5.0 5.0
+    6.0 0.0 10.0 5.0
+endnode
+node light AuroraLight02
+  parent vdr_biglgbd
+  #part-number 2
+  colorkey 9
+    0.00 0.0 0.75 0.75
+    0.75 0.0 0.0 1.0
+    1.50 0.0 0.75 0.75
+    2.25 0.0 1.0 0.0
+    3.00 0.0 0.75 0.75
+    3.75 0.0 0.0 1.0
+    4.50 0.0 0.75 0.75
+    5.25 0.0 1.0 0.0
+    6.00 0.0 0.75 0.75
+  radiuskey 2
+    0.0 10.0
+    6.0 10.0
+  positionkey 4
+    0.0 8.660254 -5.0 5.0
+    2.0 -8.660254 -5.0 5.0
+    4.0 0.0 10.0 5.0
+    6.0 8.660254 -5.0 5.0
+endnode
+node light AuroraLight03
+  parent vdr_biglgbd
+  #part-number 3
+  colorkey 9
+    0.00 0.0 0.0 1.0
+    0.75 0.0 0.75 0.75
+    1.50 0.0 1.0 0.0
+    2.25 0.0 0.75 0.75
+    3.00 0.0 0.0 1.0
+    3.75 0.0 0.75 0.75
+    4.50 0.0 1.0 0.0
+    5.25 0.0 0.75 0.75
+    6.00 0.0 0.0 1.0
+  radiuskey 2
+    0.0 10.0
+    6.0 10.0
+  positionkey 4
+    0.0 -8.660254 -5.0 5.0
+    2.0 0.0 10.0 5.0
+    4.0 8.660254 -5.0 5.0
+    6.0 -8.660254 -5.0 5.0
+endnode
+doneanim duration vdr_biglgbd
+
+#MAXANIM ASCII
+newanim cessation vdr_biglgbd
+  length 1
+  transtime 0.25
+  animroot vdr_biglgbd
+node dummy vdr_biglgbd
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_biglgbd
+  #part-number 1
+  colorkey 2
+    0.0 0.0 1.0 0.0
+    1.0 0.0 0.0 0.0
+  radiuskey 2
+    0.0 10.0
+    1.0 0.0
+endnode
+node light AuroraLight02
+  parent vdr_biglgbd
+  #part-number 2
+  colorkey 2
+    0.0 0.0 1.0 0.0
+    1.0 0.0 0.0 0.0
+  radiuskey 2
+    0.0 10.0
+    1.0 0.0
+endnode
+node light AuroraLight03
+  parent vdr_biglgbd
+  #part-number 3
+  colorkey 2
+    0.0 0.0 1.0 0.0
+    1.0 0.0 0.0 0.0
+  radiuskey 2
+    0.0 10.0
+    1.0 0.0
+endnode
+doneanim cessation vdr_biglgbd
+
+donemodel vdr_biglgbd

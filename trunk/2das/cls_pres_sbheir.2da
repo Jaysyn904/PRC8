@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1        ReqParam2 
+0 Lore        SKILL   7                7         
+1 ScriptVar   VAR     PRC_AllowSBHeir  0         
+2 ScriptVar   VAR     PRC_DivSpell1    0         
+3 ScriptVar   VAR     PRC_PrereqSBHeir 0         
+4 Base_Attack BAB     7                ****      

@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1      ReqParam2 
+0 AttackBonus   BAB     5              ****      
+1 Lore          SKILL   7              7         
+2 Intimidate    SKILL   24             3         
+3 Cleave        FEAT    6              ****      
+4 PowerAtk      FEAT    28             ****      
+5 DirtyFighting FEAT    425            ****      
+6 ScriptVar     VAR     PRC_Allow_Rava 0         
+7 ScriptVar     VAR     PRC_ExAlignTN  0         

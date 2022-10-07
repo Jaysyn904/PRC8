@@ -1,0 +1,19 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Wind Wall: On Exit
+//:: Spell FileName PHS_S_WindWallB
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+    On Exit: Remove these effects (from our creators one):
+    80% ranged consealment.
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+    // Exit - remove effects
+    PHS_AOE_OnExitEffects(PHS_SPELL_WIND_WALL);
+}

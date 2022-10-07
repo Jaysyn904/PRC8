@@ -1,0 +1,14 @@
+//:://////////////////////////////////////////////
+//:: FileName: "at_fwords_npca"
+/*   Purpose:
+*/
+//:://////////////////////////////////////////////
+//:: Created By: Boneshank
+//:: Last Updated On: March 13, 2004
+//:://////////////////////////////////////////////
+
+void main()
+{
+    object oPC = GetPCSpeaker();
+    ExecuteScript("fwords_npca", oPC);
+}

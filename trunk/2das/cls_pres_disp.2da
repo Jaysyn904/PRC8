@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL                     ReqType ReqParam1     ReqParam2 
+0 AttackBonus               BAB     6             ****      
+1 PowerAtk                  FEAT    28            ****      
+2 Expertise                 FEAT    389           ****      
+3 FEAT_DISCIPLE_OF_DARKNESS FEAT    4012          ****      
+4 ScriptVar                 VAR     PRC_AllowDisp 0         

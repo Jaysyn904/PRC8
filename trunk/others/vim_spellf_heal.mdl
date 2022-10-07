@@ -1,0 +1,154 @@
+#MAXMODEL ASCII
+# model: vim_spellf_heal
+filedependancy vim_spellf_heal.max
+newmodel vim_spellf_heal
+setsupermodel vim_spellf_heal NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vim_spellf_heal
+node dummy vim_spellf_heal
+  parent NULL
+  #part-number 0
+endnode
+node dummy Dummy01
+  parent vim_spellf_heal
+  #part-number 1
+  position 0 0 0
+  orientation 0 -1 0 -3.14159012
+endnode
+node emitter OmenEmitter01
+  parent Dummy01
+  #part-number 2
+  p2p 1
+  p2p_sel 0
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 -0.300000012
+  orientation -1 0 0 -3.7349999
+  colorStart 0.25 0.25 0.25
+  colorEnd 0.25 0.25 0.25
+  alphaStart 1
+  alphaEnd 0.100000001
+  sizeStart 0.100000001
+  sizeEnd 0.5
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 300
+  lifeExp 3
+  mass 0
+  spread 6.28318977
+  particleRot 0
+  velocity 1
+  randvel 1
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 1
+  grav 4
+  threshold 0
+endnode
+node reference OmenRef01
+  parent OmenEmitter01
+  #part-number 3
+  refModel fx_ref
+  reattachable 0
+  position 0 0.625386 0.927173018
+  orientation -1 0 0 -2.5481801
+endnode
+node light AuroraLight01
+  parent vim_spellf_heal
+  #part-number 4
+  ambientonly 0
+  shadow 0
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 2
+  fadingLight 0
+  flareradius 0
+  position 0 0 0.664234996
+  orientation -0.577350259 0.577350259 0.577350259 -2.09439993
+  radius 2
+  multiplier 3
+  color 0.25 0.25 0.25
+endnode
+endmodelgeom vim_spellf_heal
+
+#MAXANIM ASCII
+newanim impact vim_spellf_heal
+  length 3.96667004
+  transtime 0.25
+  animroot vim_spellf_heal
+node dummy vim_spellf_heal
+  parent NULL
+  #part-number 0
+endnode
+node dummy Dummy01
+  parent vim_spellf_heal
+  #part-number 1
+  orientationkey 5
+    0 0 -1 0 -3.14159012
+    0.233333007 0.707106769 -0.707106769 0 -3.14159012
+    0.466666996 1 0 0 -3.14159012
+    0.699999988 0.707106769 0.707106769 0 -3.14159012
+    0.966666996 0.0784591287 0.996917307 0 -3.14159012
+endnode
+node emitter OmenEmitter01
+  parent Dummy01
+  #part-number 2
+  birthratekey 5
+    0 300
+    0.0333333015 300
+    0.93333298 300
+    0.966666996 300
+    1 0
+endnode
+node dummy OmenRef01
+  parent OmenEmitter01
+  #part-number 3
+endnode
+node light AuroraLight01
+  parent vim_spellf_heal
+  #part-number 4
+  colorkey 7
+    0 0.25 0.25 0.25
+    0.133332998 0.25 0.25 0.25
+    0.266667008 0.25 0.25 0.25
+    0.433333009 0.25 0.25 0.25
+    0.56666702 0.25 0.25 0.25
+    0.766667008 0.25 0.25 0.25
+    0.966666996 0 0 0
+endnode
+doneanim impact vim_spellf_heal
+
+donemodel vim_spellf_heal

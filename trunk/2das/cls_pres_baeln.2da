@@ -1,0 +1,25 @@
+2DA V2.0
+
+   LABEL          ReqType ReqParam1      ReqParam2 
+0  ScriptVar      VAR     PRC_AllowBaeln 0         
+1  Concentrate    SKILL   1              5         
+2  Elf            RACE    1              ****      
+3  HalfElf        RACE    4              ****      
+4  DarksunElf     RACE    34             ****      
+5  DarksunHalfelf RACE    35             ****      
+6  Kagonesti      RACE    44             ****      
+7  Sylvanesti     RACE    45             ****      
+8  FrstlrdElf     RACE    107            ****      
+9  Aquatic_Elf    RACE    161            ****      
+10 Avariel        RACE    162            ****      
+11 Drow_female    RACE    163            ****      
+12 Drow_male      RACE    164            ****      
+13 SnowElf        RACE    165            ****      
+14 Sun_Elf        RACE    166            ****      
+15 Wild_Elf       RACE    167            ****      
+16 Wood_Elf       RACE    168            ****      
+17 Half_Drow      RACE    183            ****      
+18 Feyri          RACE    201            ****      
+19 NoLichLevels   VAR     PRC_NoLich     0         
+20 Spellcraft     SKILL   16             14        
+21 ScriptVar      VAR     PRC_AllSpell6  0         

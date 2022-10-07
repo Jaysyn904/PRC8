@@ -1,0 +1,564 @@
+# Exported from NWmax 0.5-beta at 3/9/2004 6:17:33 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_sp_resist
+filedependancy vdr_resistance.gmax
+newmodel vdr_sp_resist
+setsupermodel vdr_sp_resist NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_sp_resist
+node dummy vdr_sp_resist
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vdr_sp_resist
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.0313726 0.431373 0.52549 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.0 0.368131 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.898039 0.65098 0.843137 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.0470588 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vdr_sp_resist
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -3.14159
+  wirecolor 0.0313726 0.431373 0.52549 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy02
+  position 0.0 0.368131 0.0
+  orientation 0.0 1.0 0.0 -6.28319
+  wirecolor 0.898039 0.65098 0.843137 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.0470588 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy03
+  parent vdr_sp_resist
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -1.5708
+  wirecolor 0.0313726 0.431373 0.52549 
+endnode
+node emitter AuroraEmitter03
+  parent Dummy03
+  position 0.0 0.368131 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.898039 0.65098 0.843137 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.0470588 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy04
+  parent vdr_sp_resist
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -4.71239
+  wirecolor 0.0313726 0.431373 0.52549 
+endnode
+node emitter AuroraEmitter04
+  parent Dummy04
+  position 0.0 0.368131 0.0
+  orientation 0.975609 0.219515 0.0 0.0
+  wirecolor 0.898039 0.65098 0.843137 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.0470588 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_sp_resist
+#NWmaxANIM ASCII
+newanim impact vdr_sp_resist
+    length 1.33333
+    transtime 0.25
+    animroot vdr_sp_resist
+    node dummy vdr_sp_resist
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vdr_sp_resist
+    endnode
+    node dummy Dummy01
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 -6.28319
+            0.833333 0.0 0.0 1.0 -4.71239
+            1.0 0.0 0.0 1.0 -3.14159
+            1.16667 0.0 0.0 1.0 -1.5708
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+    node dummy Dummy02
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.71239
+            0.333333 0.0 0.0 0.0 -6.28319
+            0.5 0.0 0.0 1.0 -4.71239
+            0.666667 0.0 0.0 1.0 -3.14159
+            0.833333 0.0 0.0 1.0 -1.5708
+            1.0 0.0 0.0 0.0 -1.3328e-007
+            1.16667 0.0 0.0 -1.0 -1.5708
+            1.33333 0.0 0.0 -1.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+    endnode
+    node dummy Dummy03
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.5708
+            0.166667 0.0 0.0 -1.0 -3.14159
+            0.333333 0.0 0.0 -1.0 -4.71239
+            0.5 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 1.0 -4.71239
+            0.833333 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -1.5708
+            1.16667 0.0 0.0 0.0 -1.39785e-007
+            1.33333 0.0 0.0 -1.0 -1.5708
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+    endnode
+    node dummy Dummy04
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.71239
+            0.166667 0.0 0.0 0.0 -6.28319
+            0.333333 0.0 0.0 1.0 -4.71239
+            0.5 0.0 0.0 1.0 -3.14159
+            0.666667 0.0 0.0 1.0 -1.5708
+            0.833333 0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 -1.0 -1.5708
+            1.16667 0.0 0.0 -1.0 -3.14159
+            1.33333 0.0 0.0 -1.0 -4.71239
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+    endnode
+doneanim impact vdr_sp_resist
+#NWmaxANIM ASCII
+newanim duration vdr_sp_resist
+    length 1.33333
+    transtime 0.25
+    animroot vdr_sp_resist
+    node dummy vdr_sp_resist
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vdr_sp_resist
+    endnode
+    node dummy Dummy01
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 -6.28319
+            0.833333 0.0 0.0 1.0 -4.71239
+            1.0 0.0 0.0 1.0 -3.14159
+            1.16667 0.0 0.0 1.0 -1.5708
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+    node dummy Dummy02
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.71239
+            0.333333 0.0 0.0 0.0 -6.28319
+            0.5 0.0 0.0 1.0 -4.71239
+            0.666667 0.0 0.0 1.0 -3.14159
+            0.833333 0.0 0.0 1.0 -1.5708
+            1.0 0.0 0.0 0.0 -1.3328e-007
+            1.16667 0.0 0.0 -1.0 -1.5708
+            1.33333 0.0 0.0 -1.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+    endnode
+    node dummy Dummy03
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.5708
+            0.166667 0.0 0.0 -1.0 -3.14159
+            0.333333 0.0 0.0 -1.0 -4.71239
+            0.5 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 1.0 -4.71239
+            0.833333 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -1.5708
+            1.16667 0.0 0.0 0.0 -1.39785e-007
+            1.33333 0.0 0.0 -1.0 -1.5708
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+    endnode
+    node dummy Dummy04
+        parent vdr_sp_resist
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.71239
+            0.166667 0.0 0.0 0.0 -6.28319
+            0.333333 0.0 0.0 1.0 -4.71239
+            0.5 0.0 0.0 1.0 -3.14159
+            0.666667 0.0 0.0 1.0 -1.5708
+            0.833333 0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 -1.0 -1.5708
+            1.16667 0.0 0.0 -1.0 -3.14159
+            1.33333 0.0 0.0 -1.0 -4.71239
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+    endnode
+doneanim duration vdr_sp_resist
+#NWmaxANIM ASCII
+newanim cessation vdr_sp_resist
+    length 1.66667
+    transtime 0.25
+    animroot vdr_sp_resist
+    node dummy vdr_sp_resist
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vdr_sp_resist
+    endnode
+    node dummy Dummy01
+        parent vdr_sp_resist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+    node dummy Dummy02
+        parent vdr_sp_resist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+    endnode
+    node dummy Dummy03
+        parent vdr_sp_resist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+    endnode
+    node dummy Dummy04
+        parent vdr_sp_resist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+    endnode
+doneanim cessation vdr_sp_resist
+donemodel vdr_sp_resist

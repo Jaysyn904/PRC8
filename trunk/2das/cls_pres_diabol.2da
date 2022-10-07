@@ -1,0 +1,13 @@
+2DA V2.0
+
+   LABEL      ReqType ReqParam1       ReqParam2 
+0  ScriptVar  VAR     PRC_ArcSpell3   0         
+1  Bluff      SKILL   23              3         
+2  ScriptVar  VAR     PRC_AllowDiablo 0         
+3  Intimidate SKILL   24              3         
+4  Lore       SKILL   7               8         
+5  EB_Hand    FEATOR  3390            ****      
+6  EB_Head    FEATOR  3391            ****      
+7  EB_Chest   FEATOR  3392            ****      
+8  EB_Arm     FEATOR  3393            ****      
+9  EB_Neck    FEATOR  3394            ****      

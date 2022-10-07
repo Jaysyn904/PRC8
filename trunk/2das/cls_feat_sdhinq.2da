@@ -1,0 +1,16 @@
+2DA V2.0
+
+   FeatLabel                FeatIndex List GrantedOnLevel OnMenu 
+0  ShadowInq_PierceShadows  5234      3    1              1      
+1  Shadowbane_SacredStealth 5233      3    2              1      
+2  ShadowInq_Smite          5232      3    2              1      
+3  ShadowInq_Merciless      5231      3    5              0      
+4  ShadowInq_Righteous      5230      3    8              0      
+5  ShadowInq_BurningLight   5229      3    9              1      
+6  BurnSpell                5225      3    2              1      
+7  ArmProfLgt               3         3    1              0      
+8  ArmProfMed               4         3    1              0      
+9  ArmProfHvy               2         3    1              0      
+10 Shield                   32        3    1              0      
+11 WeapProfSim              46        3    1              0      
+12 WeapProfMar              45        3    1              0      

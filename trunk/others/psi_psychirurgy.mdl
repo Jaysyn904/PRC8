@@ -1,0 +1,550 @@
+# Exported from NWmax 0.8 b60 at 4/2/2006 8:55:31 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_psychirurgy
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_psychirurgy
+setsupermodel psi_psychirurgy NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_psychirurgy
+node dummy psi_psychirurgy
+  parent NULL
+endnode
+node dummy rotator_joint
+  parent psi_psychirurgy
+  position 0.0 -3.05176e-007 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.109804 0.584314 
+endnode
+node emitter rotator_01
+  parent rotator_joint
+  position 0.0 1.5 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.839216 0.6 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.94902 0.423529 
+  colorEnd 0.956863 0.662745 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.1
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass -0.75
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 25.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter rotator_02
+  parent rotator_joint
+  position 1.5 3.05176e-007 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.839216 0.6 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.94902 0.423529 
+  colorEnd 0.956863 0.662745 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.1
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass -0.75
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 25.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter rotator_03
+  parent rotator_joint
+  position -1.5 3.05176e-007 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.839216 0.6 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.94902 0.423529 
+  colorEnd 0.956863 0.662745 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.1
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass -0.75
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 25.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter rotator_04
+  parent rotator_joint
+  position 0.0 -1.5 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.839216 0.6 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.94902 0.423529 
+  colorEnd 0.956863 0.662745 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.1
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass -0.75
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 25.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter purp_glow
+  parent psi_psychirurgy
+  position 0.0 0.0 -0.0914509
+  orientation 0.0 -1.0 0.0 0.0
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 150.0
+  ySize 150.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.564706 0.0 1.0 
+  colorEnd 1.0 0.0 0.964706 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 2.0
+  mass -0.25
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 100.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter sparkles
+  parent psi_psychirurgy
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.345098 0.694118 0.101961 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 150.0
+  ySize 150.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass -0.4
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+endmodelgeom psi_psychirurgy
+
+#NWmax ANIM ASCII
+newanim impact psi_psychirurgy
+  length 3.0
+  transtime 0.25
+  animroot psi_psychirurgy
+    node dummy psi_psychirurgy
+        parent NULL
+    endnode
+    node dummy rotator_joint
+        parent psi_psychirurgy
+        positionkey
+            0.0 0.0 -3.05176e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.2 0.0 0.0 -1.0 -1.5708
+            0.4 0.0 0.0 -1.0 -3.14159
+            0.6 0.0 0.0 -1.0 -4.71239
+            0.8 0.0 0.0 0.0 -6.28319
+            1.0 0.0 0.0 1.0 -4.71239
+            1.2 0.0 0.0 1.0 -3.14159
+            1.4 0.0 0.0 1.0 -1.5708
+            1.6 0.0 0.0 0.0 0.0
+            1.8 0.0 0.0 -1.0 -1.5708
+            2.0 0.0 0.0 -1.0 -3.14159
+            2.2 0.0 0.0 -1.0 -4.71239
+            2.4 0.0 0.0 0.0 -6.28319
+            2.6 0.0 0.0 1.0 -4.71239
+            2.8 0.0 0.0 1.0 -3.14159
+            3.0 0.0 0.0 1.0 -1.5708
+        endlist
+    endnode
+    node emitter rotator_01
+        parent rotator_joint
+        positionkey
+            0.0 0.0 1.5 0.0
+            1.8 0.0 0.75 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+        birthratekey
+            0.0 0 
+            0.333333 35 
+            1.8 35 
+            2.33333 0 
+        endlist
+    endnode
+    node emitter rotator_02
+        parent rotator_joint
+        positionkey
+            0.0 1.5 3.05176e-007 0.0
+            1.8 0.75 3.05176e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+        birthratekey
+            0.0 0 
+            0.333333 35 
+            1.8 35 
+            2.33333 0 
+        endlist
+    endnode
+    node emitter rotator_03
+        parent rotator_joint
+        positionkey
+            0.0 -1.5 3.05176e-007 0.0
+            1.8 -0.75 3.05176e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+        birthratekey
+            0.0 0 
+            0.333333 35 
+            1.8 35 
+            2.33333 0 
+        endlist
+    endnode
+    node emitter rotator_04
+        parent rotator_joint
+        positionkey
+            0.0 0.0 -1.5 0.0
+            1.8 0.0 -0.75 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+        birthratekey
+            0.0 0 
+            0.333333 35 
+            1.8 35 
+            2.33333 0 
+        endlist
+    endnode
+    node emitter purp_glow
+        parent psi_psychirurgy
+        birthratekey
+            0.0 0 
+            0.333333 100 
+            1.8 100 
+            2.33333 0 
+        endlist
+        xsizekey
+            0.0 150.0 
+            1.8 150.0 
+        endlist
+        ysizekey
+            0.0 150.0 
+            1.8 150.0 
+        endlist
+    endnode
+    node emitter sparkles
+        parent psi_psychirurgy
+        birthratekey
+            0.0 0 
+            0.333333 50 
+            1.8 50 
+            2.33333 0 
+        endlist
+    endnode
+doneanim impact psi_psychirurgy
+
+donemodel psi_psychirurgy

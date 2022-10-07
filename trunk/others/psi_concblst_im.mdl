@@ -1,0 +1,177 @@
+# Exported from NWmax 0.8 b60 at 4/2/2006 12:44:18 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_concblst_im
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_concblst_im
+setsupermodel psi_concblst_im NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_concblst_im
+node dummy psi_concblst_im
+  parent NULL
+endnode
+node emitter bouncy_glow_balls
+  parent psi_concblst_im
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -6.28319
+  wirecolor 0.898039 0.65098 0.843137 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.396078 0.0 0.992157 
+  colorEnd 0.498039 1.0 0.815686 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.0
+  mass 0.5
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.5
+  randvel 2.0
+  bounce_co 1.0
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter streak_out
+  parent psi_concblst_im
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -6.28319
+  wirecolor 0.0313726 0.431373 0.52549 
+  update_sel 3
+  update Explosion
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.815686 1.0 0.933333 
+  colorEnd 0.196078 1.0 0.745098 
+  alphaStart 1.0
+  alphaEnd 0.25
+  sizeStart 0.15
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 125
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.5
+  randvel 2.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+endmodelgeom psi_concblst_im
+
+#NWmax ANIM ASCII
+newanim impact psi_concblst_im
+  length 1.0
+  transtime 0.25
+  animroot psi_concblst_im
+  event 0.0 detonate
+    node dummy psi_concblst_im
+        parent NULL
+    endnode
+    node emitter bouncy_glow_balls
+        parent psi_concblst_im
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            1.0 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter streak_out
+        parent psi_concblst_im
+    endnode
+doneanim impact psi_concblst_im
+
+donemodel psi_concblst_im

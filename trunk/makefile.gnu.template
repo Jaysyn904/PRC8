@@ -1,0 +1,431 @@
+# Include the file with the NWN_DIR definition and version number
+include config.make
+
+# Specify targets that do not correspond to files
+.PHONY : default all clean install hak nsis rar
+
+# Suffixes for inference rules. Delete the default list first
+.SUFFIXES:
+.SUFFIXES: .nss .ncs .erf .hak .zip .rar
+
+#SHELL := $(ComSpec)
+
+MAKEDIR = .
+
+NULL :=
+SPACE := $(NULL) # One space between
+
+# Names of the output files.
+RAR                     = $(OUTPATH)\PRC$(PRC_VERSION).rar
+ERF                     = $(OUTPATH)\prc_consortium.erf
+TLK                     = $(TLKPATH)\prc_consortium.tlk
+HIF                     = $(OUTPATH)\PRC\ Pack.hif
+MISCRESOURCES           = $(OUTPATH)\PRCModuleUpdater.exe
+INCLUDEHAK              = $(OUTPATH)\prc_include.hak
+SCRIPTSHAK              = $(OUTPATH)\prc_scripts.hak
+SPELLSHAK               = $(OUTPATH)\prc_spells.hak
+EPICSPELLSCRIPTSHAK     = $(OUTPATH)\prc_epicspells.hak
+2DASHAK                 = $(OUTPATH)\prc_2das.hak
+MISCHAK                 = $(OUTPATH)\prc_misc.hak
+TEXTURESHAK             = $(OUTPATH)\prc_textures.hak
+CRAFT2DASHAK            = $(OUTPATH)\prc_craft2das.hak
+RACEHAK                 = $(OUTPATH)\prc_race.hak
+PSIONICSHAK             = $(OUTPATH)\prc_psionics.hak
+NEWSPELLBOOKHAK         = $(OUTPATH)\prc_newspellbook.hak
+
+# The NSIS script used to build setup.exe
+INSTALLSCRIPT	        = Setup\install.nsi
+
+# The list of include paths to look for nss include files.  If there are multiple
+# folders separate by ',', eg. include1,include2,include3
+NSSINCLUDE              = include
+
+# If an install path for NSIS is not given, assume "C:\program files\nsis"
+ifndef NSISPATH
+NSISPATH		        = C:\program files\nsis
+endif
+
+# If no pretty install version is defined then just use the PRC_VERSION
+ifndef PRC_INSTALLVERSION
+PRC_INSTALLVERSION	    = PRC_VERSION
+endif
+
+# Define the locations of the various EXE's used by the makefile.  All
+# should be in the tools folder, except the script compiler which
+# comes with NWN.
+RARCOMPILER		= tools\rar
+ERFCOMPILER 	= tools\erf
+NSSCOMPILER 	= tools\nwnnsscomp
+NSISCOMPILER	= "$(NSISPATH)\makensis.exe"
+SED				= tools\ssed
+
+
+# Redefine various paths set by the bat file to give them prettier more
+# generic names.
+OUTPATH                 = CompiledResources
+ERFFILESPATH            = $(MAKEERFPATH)
+2DAPATH                 = $(MAKE2DAPATH)
+OBJPATH                 = $(MAKEOBJSPATH)
+SPELLOBJPATH            = $(MAKESPELLOBJSPATH)
+EPICSPELLOBJSPATH       = $(MAKEEPICSPELLOBJSPATH)
+SRCPATH                 = $(MAKESCRIPTPATH)
+SPELLSRCPATH            = $(MAKESPELLSPATH)
+EPICSPELLSRCPATH        = $(MAKEEPICSPELLSCRIPTPATH)
+TLKPATH                 = $(MAKETLKPATH)
+CRAFT2DASPATH           = $(MAKECRAFT2DASPATH)
+RACE2DASPATH            = $(MAKERACE2DASPATH)
+RACESRCPATH             = $(MAKERACESRCPATH)
+RACEOBJSPATH            = $(MAKERACEOBJSPATH)
+PSIONICSSRCPATH         = $(MAKEPSIONICSSRCPATH)
+PSIONICSOBJSPATH        = $(MAKEPSIONICSOBJSPATH)
+NEWSPELLBOOKSRCPATH     = $(MAKENEWSPELLBOOKPATH)
+NEWSPELLBOOKOBJSPATH    = $(MAKENEWSPELLBOOKOBJSPATH)
+MISCPATH                = $(MAKEMISCPATH)
+INCLUDEPATH             = include
+
+# Paths for the various folders in the NWN install directory.
+NWN_ERF			= $(NWN_DIR)\erf
+NWN_HAK			= $(NWN_DIR)\hak
+NWN_TLK			= $(NWN_DIR)\tlk
+
+# Arguments for various rules
+NSS_FLAGS		= -cgoq -I "$(MAKEDIR)\include"
+
+# variables to hold all of the contents of the various directories.
+
+ERFFILES=~~~erffiles~~~
+
+INCLUDE=~~~include~~~
+
+SCRIPTS=~~~scripts~~~
+
+SPELLS=~~~spells~~~
+
+EPICSPELLSCRIPTS=~~~epicspellscripts~~~
+
+OBJS=~~~objs~~~
+
+SPELLOBJS=~~~spellobjs~~~
+
+EPICSPELLOBJS=~~~epicspellobjs~~~
+
+2DAS=~~~2das~~~
+
+GFX=~~~gfx~~~
+
+OTHERS=~~~others~~~
+
+CRAFT2DAS=~~~craft2das~~~
+
+RACE2DAS=~~~race2das~~~
+
+RACESCRIPTS=~~~racescripts~~~
+
+RACEOBJS=~~~raceobjs~~~
+
+PSIONICSSCRIPTS=~~~psionicsscripts~~~
+
+PSIONICSOBJS=~~~psionicsobjs~~~
+
+NEWSPELLBOOKSCRIPTS=~~~newspellbook~~~
+
+NEWSPELLBOOKOBJS=~~~newspellbookobjs~~~
+
+#
+# Top level virtual rules that just associate pretty text names with various
+# targets
+#
+
+default: all
+
+# The top rule is the one run by default, we want to build the hak and install.
+all: hak
+
+# Rule to build the rar file.
+rar: hak $(RAR)
+
+# Rule to build the 2.x haks
+hak: $(SCRIPTSHAK) $(2DASHAK) $(MISCHAK) $(TEXTURESHAK) $(ERF) \
+	$(SPELLSHAK) $(EPICSPELLSCRIPTSHAK) $(RACEHAK) $(PSIONICSHAK) $(NEWSPELLBOOKHAK) \
+	$(CRAFT2DASHAK) $(INCLUDEHAK) $(HIF) install
+
+# Rule to build the NSIS installer.
+nsis:
+	@echo Setup$(PRC_VERSION).exe
+	@$(NSISCOMPILER) /DPRCVERSION=$(PRC_VERSION) \
+		/DPRCINSTALLVERSION=$(PRC_INSTALLVERSION) /V1 $(INSTALLSCRIPT)
+
+
+#################################################################################
+# Rules to install content in NWN begin here
+
+# Rule that does the real work to install the content
+# to the NWN install directory.
+install:
+	@echo Installing PRC files
+	-@copy /y "$(ERF)"                 "$(NWN_ERF)" >nul
+	-@copy /y "$(INCLUDEHAK)"          "$(NWN_HAK)" >nul
+	-@copy /y "$(TLK)"                 "$(NWN_TLK)" >nul
+	-@copy /y "$(SCRIPTSHAK)"          "$(NWN_HAK)" >nul
+	-@copy /y "$(SPELLSHAK)"           "$(NWN_HAK)" >nul
+	-@copy /y "$(2DASHAK)"             "$(NWN_HAK)" >nul
+	-@copy /y "$(MISCHAK)"             "$(NWN_HAK)" >nul
+	-@copy /y "$(TEXTURESHAK)"         "$(NWN_HAK)" >nul
+	-@copy /y "$(CRAFT2DASHAK)"        "$(NWN_HAK)" >nul
+	-@copy /y "$(EPICSPELLSCRIPTSHAK)" "$(NWN_HAK)" >nul
+	-@copy /y "$(RACEHAK)"             "$(NWN_HAK)" >nul
+	-@copy /y "$(PSIONICSHAK)"         "$(NWN_HAK)" >nul
+	-@copy /y "$(NEWSPELLBOOKHAK)"     "$(NWN_HAK)" >nul
+	-@copy /y "$(HIF)"                 "$(NWN_HAK)" >nul
+
+# Rule to install all the override files.  This one is a bit tricky, the '!'
+# operator tells nmake to run the rule once for each target, and $** will
+# expand to each target once, so this in effect copies every file in the
+# OVERRIDEFILES variable to NWN_OVERRIDE.
+#installoverrides: $(OVERRIDEFILES)
+#	!@copy /y "$**" "$(NWN_OVERRIDE)" >nul
+
+# Rules to install content in NWN end here
+#################################################################################
+#################################################################################
+# Rule for cleaning
+
+clean:
+	-@del "$(ERF)"                      2>nul
+	-@del "$(INCLUDEHAK)"               2>nul
+	-@del "$(TLK)"                      2>nul
+	-@del "$(SCRIPTSHAK)"               2>nul
+	-@del "$(SPELLSHAK)"                2>nul
+	-@del "$(2DASHAK)"                  2>nul
+	-@del "$(MISCHAK)"                  2>nul
+	-@del "$(TEXTURESHAK)"              2>nul
+	-@del "$(CRAFT2DASHAK)"             2>nul
+	-@del "$(EPICSPELLSCRIPTSHAK)"      2>nul
+	-@del "$(RACEHAK)"                  2>nul
+	-@del "$(PSIONICSHAK)"              2>nul
+	-@del "$(NEWSPELLBOOKHAK)"          2>nul
+	-@del "$(HIF)"                      2>nul
+	-@del "$(RAR)"                      2>nul
+	-@del $(OBJPATH)\*.ncs              2>nul
+	-@del $(SPELLOBJPATH)\*.ncs         2>nul
+	-@del $(EPICSPELLOBJSPATH)\*.ncs    2>nul
+	-@del $(RACEOBJSPATH)\*.ncs         2>nul
+	-@del $(PSIONICSOBJSPATH)\*.ncs     2>nul
+	-@del $(NEWSPELLBOOKOBJSPATH)\*.ncs 2>nul
+
+#################################################################################
+
+#
+# Rules to build the final targets
+#
+
+# This rule builds the 2.x RAR
+$(RAR): $(SCRIPTSHAK) $(2DASHAK) $(TEXTURESHAK) $(MISCHAK) $(ERF) \
+        $(OVERRIDEFILES) $(TLK) $(MISCRESOURCES) $(CRAFT2DASHAK) \
+        $(EPICSPELLSCRIPTSHAK) $(SPELLSHAK) $(RACEHAK) $(INCLUDEHAK) \
+        $(HIF) $(PSIONICSHAK) $(NEWSPELLBOOKHAK)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(RARCOMPILER)" a -ep -inul $@ $^
+
+
+# Rule to build the 2.0 ERF file.  Only areas should be in here, they are
+# the only things that do not work in hak files.
+$(ERF): $(ERFFILES)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $^
+
+# Rule to build the include ERF, containing the nss files in the include directory
+$(INCLUDEHAK): $(INCLUDE)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(INCLUDEPATH)\*.nss
+#	@"$(ERFCOMPILER)" -c $@ $^
+
+# Rule to build the 2.0 scripts HAK file.
+$(SCRIPTSHAK): $(OBJS) $(SCRIPTS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(SRCPATH)\*.nss
+	@"$(ERFCOMPILER)" -u $@ $(OBJPATH)\*.ncs >nul
+# The old version. This one seems to have hit the command line too long problem.
+#	@"$(ERFCOMPILER)" -c $@ $(SCRIPTS)
+#	@"$(ERFCOMPILER)" -u $@ $(OBJS) >nul
+#
+# At some point we may need to use the below method to generate the hak
+# it will add the files to the hak one at a time to prevent command line
+# too long errors, but it runs orders of magnitude slower.
+#	@"$(ERFCOMPILER)" -c $@ howto.txt >nul
+#	!@"$(ERFCOMPILER)" -u $@ $** >nul
+
+$(SPELLSHAK): $(SPELLOBJS) $(SPELLS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(SPELLSRCPATH)\*.nss
+	@"$(ERFCOMPILER)" -u $@ $(SPELLOBJPATH)\*.ncs >nul
+#	@"$(ERFCOMPILER)" -c $@ $(SPELLS) >nul
+#	@"$(ERFCOMPILER)" -u $@ $(SPELLOBJS) >nul
+
+
+# Rule to build the 2.0 scripts HAK file.
+$(EPICSPELLSCRIPTSHAK): $(EPICSPELLOBJS) $(EPICSPELLSCRIPTS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(EPICSPELLSRCPATH)\*.nss
+	@"$(ERFCOMPILER)" -u $@ $(EPICSPELLOBJSPATH)\*.ncs >nul
+#	@"$(ERFCOMPILER)" -c $@ $(EPICSPELLSCRIPTS)
+#	@"$(ERFCOMPILER)" -u $@ $(EPICSPELLOBJS) >nul
+
+
+# Rule to build the 2.0 scripts HAK file.
+$(RACEHAK): $(RACE2DAS) $(RACEOBJS) $(RACESCRIPTS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(RACE2DASPATH)\*.2da
+	@"$(ERFCOMPILER)" -u $@ $(RACESRCPATH)\*.nss >nul
+	@"$(ERFCOMPILER)" -u $@ $(RACEOBJSPATH)\*.ncs >nul
+
+
+# Rule to build the 2.0 scripts HAK file.
+$(PSIONICSHAK): $(PSIONICSSCRIPTS) $(PSIONICSOBJS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(PSIONICSSRCPATH)\*.nss
+	@"$(ERFCOMPILER)" -u $@ $(PSIONICSOBJSPATH)\*.ncs >nul
+#	@"$(ERFCOMPILER)" -c $@ $(PSIONICSSCRIPTS)
+#	@"$(ERFCOMPILER)" -u $@ $(PSIONICSOBJS) >nul
+
+# Rule to build the 2.0 scripts HAK file.
+$(NEWSPELLBOOKHAK): $(NEWSPELLBOOKSCRIPTS) $(NEWSPELLBOOKOBJS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(NEWSPELLBOOKSRCPATH)\*.nss
+	@"$(ERFCOMPILER)" -u $@ $(NEWSPELLBOOKOBJSPATH)\*.ncs >nul
+#	@"$(ERFCOMPILER)" -c $@ $(NEWSPELLBOOKSCRIPTS)
+#	@"$(ERFCOMPILER)" -u $@ $(NEWSPELLBOOKOBJS) >nul
+
+
+# Rule to build the 2.0 2das HAK file.
+$(2DASHAK): $(2DAS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	"$(ERFCOMPILER)" -c $@ $(2DAPATH)\*.2da
+#	@"$(ERFCOMPILER)" -c $@ $^
+
+
+# Rule to build the 2.0 textures HAK file.
+$(TEXTURESHAK): $(GFX)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $^
+
+
+# Rule to build the 2.0 misc HAK file.
+$(MISCHAK): $(OTHERS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $(MISCPATH)\*.*
+#	Another hak that broke on too many parameters
+#	@"$(ERFCOMPILER)" -c $@ $**
+
+
+
+# Rule to build the 2.0 craft HAK file.
+$(CRAFT2DASHAK): $(CRAFT2DAS)
+	@echo $(@F)
+	-@del "$@" 2>nul
+	@"$(ERFCOMPILER)" -c $@ $^
+
+# Rule to build the HIF file from it's template.
+$(HIF): PRCPackTemplate.hif config.make
+	@echo $(@F)
+	@-del "$@" 2>nul
+	@type PRCPackTemplate.hif | $(SED) -R "s/XXXversionXXX/$(PRC_INSTALLVERSION)/" >"$@"
+
+#
+# Rule to add makefile dependencies.  This will run makedep to build the include
+# file dependencies for all source scripts files that get built to object files
+# (i.e. it ignores include scripts files).
+#
+depends:
+	@echo Updating dependencies
+	@java -jar tools\prc.jar makedep -a -n -s$(NSSINCLUDE),$(SRCPATH),$(SPELLSRCPATH),$(EPICSPELLSRCPATH),$(RACESRCPATH),$(PSIONICSSRCPATH),$(NEWSPELLBOOKSRCPATH) -o$(MAKEFILE) objs.temp spellobjs.temp epicspellobjs.temp raceobjs.temp psionicsobjs.temp newspellbookobjs.temp
+
+#	@echo Start: %TIME% >> time.txt
+#	@java -jar tools\prc.jar makedep -a -n -s$(NSSINCLUDE),$(SRCPATH),$(SPELLSRCPATH),$(EPICSPELLSRCPATH),$(RACESRCPATH),$(PSIONICSSRCPATH),$(NEWSPELLBOOKSRCPATH) -o$(MAKEFILE) objs.temp spellobjs.temp epicspellobjs.temp raceobjs.temp psionicsobjs.temp newspellbookobjs.temp
+#	@echo End: %TIME% >> time.txt
+#
+#	@tools\makedep -a -w -n -l -s$(SRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(OBJS)
+#	@tools\makedep -a -w -n -l -s$(SPELLSRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(SPELLOBJS)
+#	@tools\makedep -a -w -n -l -s$(EPICSPELLSRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(EPICSPELLOBJS)
+#	@tools\makedep -a -w -n -l -s$(RACESRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(RACEOBJS)
+#	@tools\makedep -a -w -n -l -s$(PSIONICSSRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(PSIONICSOBJS)
+#	@tools\makedep -a -w -n -l -s$(NEWSPELLBOOKSRCPATH) -i$(NSSINCLUDE) -o$(MAKEFILE) $(NEWSPELLBOOKOBJS)
+
+
+# The code below will compile scripts by copying them to the TEMPPATH and doing the
+# compile there.  This can be used along with an include directory to get all scripts
+# to use the shared include files.  These lines need to replace the 2 compile lines
+# (the lines after the echo) in each of the inference rules below.
+#	@copy /y "$(MAKEDIR)\$<" "$(MAKEDIR)\$(TEMPPATH)"
+#	@"$(NSSCOMPILER)" "$(MAKEDIR)\$(TEMPPATH)\$(<F)" "$(MAKEDIR)\$(@D)" >nul
+#	-@del "$(MAKEDIR)\$(TEMPPATH)\$(<F)" 2>nul
+# 	-@del "$(MAKEDIR)\$(@R).ndb" 2>nul
+
+# Inference rule to compile scripts.
+#{$(SRCPATH)\}.nss{$(OBJPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#{$(SPELLSRCPATH)\}.nss{$(SPELLOBJPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#{$(EPICSPELLSRCPATH)\}.nss{$(EPICSPELLOBJSPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#{$(RACESRCPATH)\}.nss{$(RACEOBJSPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#{$(PSIONICSSRCPATH)\}.nss{$(PSIONICSOBJSPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#{$(NEWSPELLBOOKSRCPATH)\}.nss{$(NEWSPELLBOOKOBJSPATH)\}.ncs:
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+
+#$(OBJPATH)\%.ncs : $(SRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#$(SPELLOBJPATH)\%.ncs : $(SPELLSRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#$(EPICSPELLOBJSPATH)\%.ncs : $(EPICSPELLSRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#%$(RACEOBJSPATH)\%.ncs : $(RACESRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#$(PSIONICSOBJSPATH)\%.ncs : $(PSIONICSSRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+#
+#$(NEWSPELLBOOKOBJSPATH)\%.ncs : $(NEWSPELLBOOKSRCPATH)\%.nss
+#	@echo $(<F)
+#	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+
+.nss.ncs:
+	@echo $(<F)
+	@"$(NSSCOMPILER)" $(NSS_FLAGS) "$(MAKEDIR)\$<" "$(MAKEDIR)\$@"
+
+#################################################################################
+# Depends updates will go here. DO NOT ADD ANYTING BELOW THIS LINE!
+

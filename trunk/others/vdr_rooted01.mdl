@@ -1,0 +1,144 @@
+#MAXMODEL ASCII
+# model: vdr_rooted
+filedependancy vdr_rooted.max
+newmodel vdr_rooted
+setsupermodel vdr_rooted NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vdr_rooted
+node dummy vdr_rooted
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter01
+  parent vdr_rooted
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Billboard_to_World_Z
+  blend Lighten
+  texture tof_v_haltu
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0.05
+  orientation 0 0 0 0
+  colorStart 1 0 0
+  colorEnd 1 0 0
+  alphaStart 0
+  alphaEnd 0
+  sizeStart 3.0
+  sizeEnd 3.0
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 3
+  frameEnd 3
+  birthrate 1
+  lifeExp 4
+  mass 0
+  spread 0
+  particleRot -0.2
+  velocity 0
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vdr_rooted
+
+#MAXANIM ASCII
+newanim impact vdr_rooted
+  length 0.300000012
+  transtime 0.25
+  animroot vdr_rooted
+node dummy vdr_rooted
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter01
+  parent vdr_rooted
+  #part-number 1
+  alphaStartkey 3
+    0 -0.400000006
+    0.266667008 0.5
+    0.300000012 0.5
+  alphaEndkey 3
+    0 -0.400000006
+    0.266667008 0.5
+    0.300000012 0.5
+endnode
+doneanim impact vdr_rooted
+
+#MAXANIM ASCII
+newanim duration vdr_rooted
+  length 1.33333004
+  transtime 0.25
+  animroot vdr_rooted
+node dummy vdr_rooted
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter01
+  parent vdr_rooted
+  #part-number 1
+  alphaStartkey 3
+    0 0.5
+    0.833333015 0.800000012
+    1.33333004 0.5
+  alphaEndkey 3
+    0 0.5
+    0.833333015 0.800000012
+    1.33333004 0.5
+endnode
+doneanim duration vdr_rooted
+
+#MAXANIM ASCII
+newanim cessation vdr_rooted
+  length 1
+  transtime 0.25
+  animroot vdr_rooted
+node dummy vdr_rooted
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter01
+  parent vdr_rooted
+  #part-number 1
+  alphaStartkey 2
+    0 0.5
+    0.666666985 -0.5
+  alphaEndkey 2
+    0 0.5
+    0.666666985 -0.5
+endnode
+doneanim cessation vdr_rooted
+
+donemodel vdr_rooted

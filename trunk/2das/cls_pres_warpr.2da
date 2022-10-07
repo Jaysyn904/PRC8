@@ -1,0 +1,12 @@
+2DA V2.0
+
+  LABEL                    ReqType ReqParam1        ReqParam2 
+0 Cleric                   CLASS   2                ****      
+1 ScriptVar                VAR     PRC_AllowWarPrst 0         
+2 BAB                      BAB     5                ****      
+3 CombatCasting            FEAT    7                ****      
+4 Persuade                 SKILL   12               5         
+5 Destruction_Domain_Power FEATOR  313              ****      
+6 War_Domain_Power         FEATOR  306              ****      
+7 Strength_Domain_Power    FEATOR  307              ****      
+8 Protection_Domain_Power  FEATOR  308              ****      

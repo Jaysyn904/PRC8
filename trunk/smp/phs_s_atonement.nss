@@ -1,0 +1,33 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Atonement
+//:: Spell FileName PHS_S_Atonement
+//:://////////////////////////////////////////////
+//:: In Game Spell desctiption
+//:://////////////////////////////////////////////
+    Abjuration
+    Level: Clr 5, Drd 5
+    Components: V, S, M, F, DF, XP
+    Casting Time: 1 hour
+    Range: Touch
+    Target: Living creature touched
+    Duration: Instantaneous
+    Saving Throw: None
+    Spell Resistance: Yes
+
+    Description.
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+
+
+
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+
+}

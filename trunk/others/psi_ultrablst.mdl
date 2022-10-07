@@ -1,0 +1,101 @@
+# Exported from NWmax 0.8 b45 at 7/12/2005 5:04:13 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_ultrablst
+filedependancy Unknown
+newmodel psi_ultrablst
+setsupermodel psi_ultrablst NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_ultrablst
+node dummy psi_ultrablst
+  parent NULL
+endnode
+node emitter explosion
+  parent psi_ultrablst
+  position -0.0454358 0.0868789 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 3
+  update Explosion
+  render_sel 6
+  render Aligned_to_Particle_Dir
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.607843 0.262745 1.0 
+  colorEnd 0.768628 0.560784 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.5
+  sizeEnd 0.2
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 1.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 5.0
+  randvel 5.0
+  bounce_co 1.2
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom psi_ultrablst
+#NWmax ANIM ASCII
+newanim impact psi_ultrablst
+  length 2.0
+  transtime 0.25
+  animroot psi_ultrablst
+  event 0.0 detonate
+  event 0.0333333 detonate
+  event 0.0666667 detonate
+  event 0.1 detonate
+  event 0.133333 detonate
+  event 0.166667 detonate
+    node dummy psi_ultrablst
+        parent NULL
+    endnode
+    node emitter explosion
+        parent psi_ultrablst
+    endnode
+doneanim impact psi_ultrablst
+donemodel psi_ultrablst

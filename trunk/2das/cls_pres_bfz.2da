@@ -1,0 +1,13 @@
+2DA V2.0
+
+   LABEL        ReqType ReqParam1       ReqParam2 
+0  MoveSilently SKILL   8               8         
+1  Lore         SKILL   7               8         
+2  Hide         SKILL   5               8         
+3  WeapProfEx   FEATOR  44              ****      
+4  ProfKukri    FEATOR  7922            ****      
+5  IronWill     FEAT    22              ****      
+6  ScriptVar    VAR     PRC_AllowBFZ    0         
+7  ScriptVar    VAR     PRC_DivSpell2   0         
+8  ScriptVar    VAR     PRC_SneakLevel1 0         
+9  ScriptVar    VAR     PRC_PrereqBFZ   0         

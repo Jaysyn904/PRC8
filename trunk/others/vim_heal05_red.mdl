@@ -1,0 +1,385 @@
+#MAXMODEL ASCII
+# model: vim_heal05_red
+filedependancy vim_heal05_red.max
+newmodel vim_heal05_red
+setsupermodel vim_heal05_red NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vim_heal05_red
+node dummy vim_heal05_red
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter022
+  parent vim_heal05_red
+  #part-number 1
+  p2p 0
+  p2p_sel 0
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0.00365541992
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 -6.9890001e-007 16.9890003
+  orientation -1 0 0 -3.14159012
+  xsize 100
+  ysize 100
+  threshold 0
+  combinetime 0
+  colorStart 1 0.592157006 0.0117646996
+  colorEnd 1 0.709803998 0.294117987
+  alphaStart 0
+  alphaEnd 1
+  sizeStart 0.200000003
+  sizeEnd 0.150000006
+  sizeStart_y 0
+  sizeEnd_y 5
+  birthrate 200
+  lifeExp 0.5
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 50
+  randvel 1
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 3
+  drag 0.400000006
+endnode
+node light AuroraLight01
+  parent vim_heal05_red
+  #part-number 2
+  ambientonly 1
+  shadow 0
+  isdynamic 0
+  affectdynamic 1
+  lightpriority 3
+  fadingLight 0
+  flareradius 0
+  position 0.00116925 0.0549326986 0.835826993
+  orientation 0 0 0 0
+  radius 5
+  multiplier 1
+  color 0 0.819607973 0.968627989
+endnode
+node emitter Splat
+  parent vim_heal05_red
+  #part-number 3
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Billboard_to_World_Z
+  blend Lighten
+  texture fxpa_flare02
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0.200268999
+  orientation 0 0 0 0
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0
+  sizeStart 0
+  sizeEnd 0
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 1
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+node emitter sparks
+  parent vim_heal05_red
+  #part-number 4
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.000282946014 0.00365665997 0.0218401998
+  orientation 0 0 0 0
+  xsize 60
+  ysize 60
+  threshold 0
+  combinetime 0
+  colorStart 1 1 1
+  colorEnd 1 0.701960981 0.505882025
+  alphaStart 0.800000012
+  alphaEnd 0
+  sizeStart 2
+  sizeEnd 0.5
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 1
+  mass 0
+  spread 0.872664988
+  particleRot 0
+  velocity 3
+  randvel 1
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+node emitter WIND_Dummy
+  parent vim_heal05_red
+  #part-number 5
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Explosion
+  render Normal
+  blend Lighten
+  texture NULL
+  xgrid 0
+  ygrid 0
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 8
+  blastLength 1.29999995
+  position -0.00249214005 0.000424422004 0.390377998
+  orientation 0 0 0 0
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 0
+  alphaEnd 0
+  sizeStart 0
+  sizeEnd 0
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 1
+  lifeExp 0
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+endmodelgeom vim_heal05_red
+
+#MAXANIM ASCII
+newanim impact vim_heal05_red
+  length 2.63333011
+  transtime 0.25
+  animroot vim_heal05_red
+  event 0 detonate
+node dummy vim_heal05_red
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter022
+  parent vim_heal05_red
+  #part-number 1
+  birthratekey 5
+    0 200
+    0.0333333015 200
+    1.23333001 200
+    1.26666999 200
+    1.29999995 0
+endnode
+node light AuroraLight01
+  parent vim_heal05_red
+  #part-number 2
+  positionkey 16
+    0 0.00116925 0.0549326986 0.835826993
+    0.0666666999 -0.0470504016 0.0233577993 0.835826993
+    0.100000001 -0.0469610989 -0.0177411996 0.835826993
+    0.166666999 0.0904773995 0.0304653998 0.835826993
+    0.233333007 -0.0278369002 -0.0877678022 0.835826993
+    0.300000012 -0.0928540975 0.204065993 0.835826993
+    0.366667002 -0.111932002 -0.324434996 0.835826993
+    0.433333009 0.218434006 0.0429552011 0.835826993
+    0.5 -0.302598 0.223471999 0.835826993
+    0.56666702 -0.0247843005 -0.0882316008 0.835826993
+    0.633333027 0.127058998 0.0638447031 0.835826993
+    1.10000002 -0.266342998 -0.192837998 0.835826993
+    1.23333001 0.11468 0.256334007 0.835826993
+    1.33333004 -0.266342998 -0.192837998 0.835826993
+    1.83333004 0.36559999 -0.129538998 0.835826993
+    2.46667004 0.0538517013 0.150398001 0.835826993
+  colorkey 18
+    0 0 0.819607973 0.968627989
+    0.233333007 0 0 0.235293999
+    0.300000012 0 0 0.235293999
+    0.366667002 0 0 0.235293999
+    0.433333009 0.0470587015 0.137254998 0.235293999
+    0.56666702 0 0.0117646996 0.294117987
+    0.633333027 0 0 0.325489998
+    0.666666985 0.082352899 0.0470587984 0.815685987
+    0.866666973 0.0549019985 0.262744993 0.933333993
+    0.899999976 0 0 0.235293999
+    0.966666996 0.0549014993 0.141176999 0.235293999
+    1.03332996 0 0 0.235293999
+    1.10000002 0.0549019985 0.0901961029 0.235293999
+    1.23333001 0.329412013 0.349020004 0.619607985
+    1.33333004 0 0.662744999 0.909803987
+    1.76666999 0 0.819607973 0.968627989
+    1.83333004 0 0.678430974 0.929412007
+    2.46667004 0 0 0
+  radiuskey 9
+    0 5
+    0.166666999 5
+    0.5 5
+    0.56666702 5
+    0.966666996 6
+    1.63332999 5
+    1.83333004 5
+    2.46667004 5
+    2.56666994 -15
+endnode
+node emitter Splat
+  parent vim_heal05_red
+  #part-number 3
+  birthratekey 7
+    0 0
+    0.433333009 0
+    0.466666996 6
+    1.13332999 4
+    1.66666996 5
+    1.83333004 4
+    1.86667001 0
+  sizeStartkey 6
+    0 0
+    0.433333009 0
+    0.466666996 0
+    0.666666985 8
+    1.66666996 8
+    1.83333004 0
+  sizeEndkey 4
+    0.466666996 0
+    0.666666985 5
+    1.66666996 5
+    1.83333004 0
+endnode
+node emitter sparks
+  parent vim_heal05_red
+  #part-number 4
+  birthratekey 4
+    0.433333009 0
+    0.466666996 60
+    1.66666996 60
+    1.79999995 0
+endnode
+node emitter WIND_Dummy
+  parent vim_heal05_red
+  #part-number 5
+endnode
+doneanim impact vim_heal05_red
+
+donemodel vim_heal05_red

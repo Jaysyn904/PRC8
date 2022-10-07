@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1       ReqParam2 
+0 Lore      SKILL   7               8         
+1 Familiar  FEAT    303             ****      
+2 ScriptVar VAR     PRC_ArcSpell2   0         
+3 ScriptVar VAR     PRC_AllowBonded 0         

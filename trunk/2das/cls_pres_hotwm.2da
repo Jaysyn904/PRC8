@@ -1,0 +1,12 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1        ReqParam2 
+0 BaseAttack    BAB     4                ****      
+1 Bluff         SKILL   23               4         
+2 Hide          SKILL   5                4         
+3 Lore          SKILL   7                4         
+4 MoveSilently  SKILL   8                4         
+5 SenseMotive   SKILL   30               4         
+6 Dragontouched FEAT    3889             ****      
+7 ScriptVar     VAR     PRC_SplAtkLevel2 0         
+8 ScriptVar     VAR     PRC_AllowHotWM   0         

@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1           ReqParam2 
+0 Truespeak SKILL   29                  10        
+1 ScriptVar VAR     PRC_AllowBrimstone  0         
+2 ScriptVar VAR     PRC_DivSpell4       0         
+3 ScriptVar VAR     PRC_PrereqBrimstone 0         

@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL           ReqType ReqParam1         ReqParam2 
+0 ScriptVar       VAR     PRC_PresWildMage  0         
+1 ScriptVar       VAR     PRC_AllowWildMage 0         
+2 Lore            SKILL   7                 4         
+3 MagicalAptitude FEAT    4416              ****      
+4 Spellcraft      SKILL   16                8         
+5 UMD             SKILL   19                4         

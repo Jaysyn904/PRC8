@@ -1,0 +1,31 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Arcane Sight, Greater
+//:: Spell FileName PHS_S_ArcaneShtG
+//:://////////////////////////////////////////////
+//:: In Game Spell desctiption
+//:://////////////////////////////////////////////
+    Divination
+    Level: Sor/Wiz 7
+    Components: V, S
+    Casting Time: 1 standard action
+    Range: Personal
+    Target: You
+    Duration: 1 min./level (D)
+
+    Description.
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+    Rating: As arcane sight. More powerful!
+
+    Placeholder script.
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+
+}

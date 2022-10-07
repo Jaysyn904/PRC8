@@ -1,0 +1,402 @@
+# Exported from NWmax 0.5-beta at 1/16/2004 1:41:51 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_regenerate
+filedependancy vim_regenerate.gmax
+newmodel vim_regenerate
+setsupermodel vim_regenerate NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_regenerate
+node dummy vim_regenerate
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_regenerate
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.333333 0.109804 0.694118 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 1.0
+     ySize 1.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.588235 1.0 
+     colorEnd 0.0 1.0 0.870588 
+     alphaStart 1.0
+     alphaEnd 0.1
+     sizeStart 2.1
+     sizeEnd 2.1
+     sizeStart_y 0.1
+     sizeEnd_y 0.1
+     birthrate 30.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 5.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_strk_b
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 10
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter p2p
+  parent vim_regenerate
+  position 1.5332 0.0 0.0200969
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 1
+     update Fountain
+     render_sel 2
+     render Linked
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.964706 
+     colorEnd 0.0 0.917647 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.6
+     sizeEnd 0.6
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 5.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_lightning2
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 30
+     frameStart 0
+     frameEnd 3
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 1
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 2.0
+     p2p_bezier3 2.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node reference OmenRef01
+  parent p2p
+  position -2.94121 -0.0139397 0.0179958
+  orientation -0.922185 0.0 0.386749 -6.28319
+  wirecolor 0.894118 0.6 0.721569 
+     refModel fx_ref
+     reattachable 1
+     Dummy Dummy
+endnode
+node emitter p2p01
+  parent vim_regenerate
+  position -1.4441 0.0 -0.014116
+  orientation 0.0 0.0 -1.0 -3.14159
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 1
+     update Fountain
+     render_sel 2
+     render Linked
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.964706 
+     colorEnd 0.0 0.917647 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.6
+     sizeEnd 0.6
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 5.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_lightning2
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 30
+     frameStart 0
+     frameEnd 3
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 1
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 -2.0
+     p2p_bezier3 -2.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node reference OmenRef02
+  parent p2p01
+  position -2.94121 -0.0139397 0.0179958
+  orientation 0.922185 0.0 -0.386749 -2.26968e-007
+  wirecolor 0.894118 0.6 0.721569 
+     refModel fx_ref
+     reattachable 1
+     Dummy Dummy
+endnode
+node emitter p2p02
+  parent vim_regenerate
+  position 0.0420512 -0.0111369 -0.014116
+  orientation 0.0 0.0 -1.0 -4.70366
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 1
+     update Fountain
+     render_sel 2
+     render Linked
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.964706 
+     colorEnd 0.0 0.917647 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.6
+     sizeEnd 0.6
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 5.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_lightning2
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 30
+     frameStart 0
+     frameEnd 3
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 1
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 -2.0
+     p2p_bezier3 -2.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node reference OmenRef04
+  parent p2p02
+  position -2.94121 -0.0139397 0.0179958
+  orientation 0.922185 0.0 -0.386749 -2.26968e-007
+  wirecolor 0.894118 0.6 0.721569 
+     refModel fx_ref
+     reattachable 1
+     Dummy Dummy
+endnode
+node emitter p2p03
+  parent vim_regenerate
+  position 0.0680324 2.96606 0.0200969
+  orientation 0.0 0.0 -1.0 -1.56207
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 1
+     update Fountain
+     render_sel 2
+     render Linked
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.964706 
+     colorEnd 0.0 0.917647 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.6
+     sizeEnd 0.6
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 5.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_lightning2
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 30
+     frameStart 0
+     frameEnd 3
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 1
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 2.0
+     p2p_bezier3 2.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node reference OmenRef03
+  parent p2p03
+  position -2.94121 -0.0139397 0.0179958
+  orientation -1.0 0.0 0.0 -6.28319
+  wirecolor 0.894118 0.6 0.721569 
+     refModel fx_ref
+     reattachable 1
+     Dummy Dummy
+endnode
+endmodelgeom vim_regenerate
+donemodel vim_regenerate

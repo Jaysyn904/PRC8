@@ -1,0 +1,1017 @@
+# Exported from NWmax 0.7 at 6/8/2004 12:28:53 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_rainbowpat
+filedependancy smp_rainbow.gmax
+newmodel smp_rainbowpat
+setsupermodel smp_rainbowpat NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_rainbowpat
+node dummy smp_rainbowpat
+  parent NULL
+endnode
+node emitter Red
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef01
+  parent Red
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Blue
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 0.225459 -0.947334 -0.227435 -1.63359
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.0 0.0470588 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef02
+  parent Blue
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter teal
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 0.439016 0.78392 0.439016 -1.81188
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.0 1.0 0.917647 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef03
+  parent teal
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Green
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 1.0 0.0 0.0 -1.46608
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.164706 1.0 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef04
+  parent Green
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Yellow
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 0.959907 0.100457 0.261701 -2.43552
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.964706 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef05
+  parent Yellow
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter Purple
+  parent smp_rainbowpat
+  position 0.0 -1.5258e-007 3.49062
+  orientation 1.0 0.0 0.0 -4.04044
+  wirecolor 0.0235294 0.52549 0.443137 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 609.6
+  ySize 609.6
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.0 0.847059 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.15
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 30.0
+  drag 1.0
+endnode
+node reference AuroraRef06
+  parent Purple
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom smp_rainbowpat
+#NWmax ANIM ASCII
+newanim impact smp_rainbowpat
+  length 1.0
+  transtime 0.25
+  animroot smp_rainbowpat
+    node dummy smp_rainbowpat
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter Red
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.0 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent Red
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.0 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Blue
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.694 -0.168075 0.700082 -2.8114
+            1.0 -0.694 -0.168075 0.700082 -2.8114
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef02
+        parent Blue
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.0 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter teal
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.657435 0.368181 -0.657435 -2.43603
+            1.0 -0.657435 0.368181 -0.657435 -2.43603
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef03
+        parent teal
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.0 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Green
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -1.67552
+            1.0 -1.0 0.0 0.0 -1.67552
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Green
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.0 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Yellow
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.795871 0.565251 -0.216979 -0.898806
+            1.0 -0.795871 0.565251 -0.216979 -0.898806
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Yellow
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.0 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Purple
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.0 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -0.898845
+            1.0 1.0 0.0 0.0 -0.898845
+        endlist
+        birthratekey
+            0.0 0 
+            1.0 75 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Purple
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.0 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim impact smp_rainbowpat
+#NWmax ANIM ASCII
+newanim duration smp_rainbowpat
+  length 0.333333
+  transtime 0.25
+  animroot smp_rainbowpat
+    node dummy smp_rainbowpat
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter Red
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.333333 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent Red
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            0.333333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Blue
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.694 -0.168075 0.700082 -2.8114
+            0.333333 -0.694 -0.168075 0.700082 -2.8114
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef02
+        parent Blue
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            0.333333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter teal
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.657435 0.368181 -0.657435 -2.43603
+            0.333333 -0.657435 0.368181 -0.657435 -2.43603
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef03
+        parent teal
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            0.333333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Green
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -1.67552
+            0.333333 -1.0 0.0 0.0 -1.67552
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Green
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.333333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Yellow
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.795871 0.565251 -0.216979 -0.898806
+            0.333333 -0.795871 0.565251 -0.216979 -0.898806
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Yellow
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.333333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Purple
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            0.333333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -0.898845
+            0.333333 1.0 0.0 0.0 -0.898845
+        endlist
+        birthratekey
+            0.0 75 
+            0.333333 75 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Purple
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.333333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim duration smp_rainbowpat
+#NWmax ANIM ASCII
+newanim cessation smp_rainbowpat
+  length 3.66667
+  transtime 0.25
+  animroot smp_rainbowpat
+    node dummy smp_rainbowpat
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter Red
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.33333 -1.0 0.0 0.0 -3.14159
+            3.63333 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent Red
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.33333 1.0 0.0 0.0 -3.14159
+            3.63333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Blue
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.694 -0.168075 0.700082 -2.8114
+            1.33333 -0.694 -0.168075 0.700082 -2.8114
+            3.63333 -0.694 -0.168075 0.700082 -2.8114
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef02
+        parent Blue
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.33333 1.0 0.0 0.0 -3.14159
+            3.63333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter teal
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.657435 0.368181 -0.657435 -2.43603
+            1.33333 -0.657435 0.368181 -0.657435 -2.43603
+            3.63333 -0.657435 0.368181 -0.657435 -2.43603
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef03
+        parent teal
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            1.33333 1.0 0.0 0.0 -3.14159
+            3.63333 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Green
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -1.67552
+            1.33333 -1.0 0.0 0.0 -1.67552
+            3.63333 -1.0 0.0 0.0 -1.67552
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef04
+        parent Green
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.33333 -1.0 0.0 0.0 -3.14159
+            3.63333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Yellow
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 -0.795871 0.565251 -0.216979 -0.898806
+            1.33333 -0.795871 0.565251 -0.216979 -0.898806
+            3.63333 -0.795871 0.565251 -0.216979 -0.898806
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef05
+        parent Yellow
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.33333 -1.0 0.0 0.0 -3.14159
+            3.63333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter Purple
+        parent smp_rainbowpat
+        positionkey
+            0.0 0.0 -1.5258e-007 3.49062
+            1.33333 0.0 -1.5258e-007 3.49062
+            3.63333 0.0 -1.5258e-007 3.49062
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -0.898845
+            1.33333 1.0 0.0 0.0 -0.898845
+            3.63333 1.0 0.0 0.0 -0.898845
+        endlist
+        birthratekey
+            0.0 75 
+            1.33333 0 
+        endlist
+    endnode
+    node reference AuroraRef06
+        parent Purple
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            3.63333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.33333 -1.0 0.0 0.0 -3.14159
+            3.63333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim cessation smp_rainbowpat
+donemodel smp_rainbowpat

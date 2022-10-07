@@ -1,0 +1,432 @@
+#MAXMODEL ASCII
+# model: vim_heal04_pur
+filedependancy vim_heal04_pur.max
+newmodel vim_heal04_pur
+setsupermodel vim_heal04_pur NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vim_heal04_pur
+node dummy vim_heal04_pur
+  parent NULL
+  #part-number 0
+endnode
+node emitter sunbeam
+  parent vim_heal04_pur
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 -0.045924399
+  orientation -1 0 0 -4.71238995
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 0.843137026 0.713725984 0
+  colorEnd 0.843137026 0.576470971 0
+  alphaStart 0.5
+  alphaEnd 0.300000012
+  sizeStart 0.699999988
+  sizeEnd 0
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 0.699999988
+  mass 0
+  spread 6.28318977
+  particleRot 0
+  velocity 1.5
+  randvel 0
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+node emitter Sparkles
+  parent vim_heal04_pur
+  #part-number 2
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 -0.0527015999
+  orientation -0.862855971 0.357407004 -0.357407004 -4.56541014
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 0.588235021 0.223528996 1
+  colorEnd 0.784313977 0.592157006 1
+  alphaStart 1
+  alphaEnd 0.300000012
+  sizeStart 1
+  sizeEnd 0
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 0.200000003
+  mass 0
+  spread 6.28318977
+  particleRot 0
+  velocity 3
+  randvel 0
+  bounce_co 0
+  blurlength 10
+  fps 0
+  frameStart 0
+  frameEnd 0
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+node light flash
+  parent vim_heal04_pur
+  #part-number 3
+  ambientonly 0
+  shadow 0
+  isdynamic 0
+  affectdynamic 1
+  lightpriority 3
+  fadingLight 0
+  flareradius 0
+  position -0.00110271003 -0.00159217999 0.816897988
+  orientation 0 0 0 0
+  radius 5
+  multiplier 1
+  color 0 0.745097995 0.988234997
+endnode
+node emitter Explosion01
+  parent vim_heal04_pur
+  #part-number 4
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_starbnw
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 1.02599001
+  orientation -0.928808272 0.370557129 -0.00161688053 -3.14969993
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 0.843137026 0.713725984 0
+  colorEnd 0.843137026 0.576470971 0
+  alphaStart 1
+  alphaEnd 0.100000001
+  sizeStart 0.0500000007
+  sizeEnd 0.360000014
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 1
+  mass 0.0199999996
+  spread 2.09439993
+  particleRot 0
+  velocity 0.899999976
+  randvel 0.699881971
+  bounce_co 0
+  blurlength 10
+  fps 16
+  frameStart 0
+  frameEnd 3
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+node emitter Explosion
+  parent vim_heal04_pur
+  #part-number 5
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_starbnw
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 1.01689005
+  orientation 0 -1 0 -3.14159012
+  xsize 0
+  ysize 0
+  threshold 0
+  combinetime 0
+  colorStart 1 1 1
+  colorEnd 0.588235021 0.223528996 1
+  alphaStart 1
+  alphaEnd 0.0909091011
+  sizeStart 0.0363636017
+  sizeEnd 0.363635987
+  sizeStart_y 0
+  sizeEnd_y 0
+  birthrate 0
+  lifeExp 1
+  mass 0.0181818008
+  spread 2.09439993
+  particleRot 0
+  velocity 0.909090996
+  randvel 0.699881971
+  bounce_co 0
+  blurlength 10
+  fps 16
+  frameStart 0
+  frameEnd 3
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  grav 0
+  drag 0
+endnode
+endmodelgeom vim_heal04_pur
+
+#MAXANIM ASCII
+newanim impact vim_heal04_pur
+  length 2.63333011
+  transtime 0.25
+  animroot vim_heal04_pur
+node dummy vim_heal04_pur
+  parent NULL
+  #part-number 0
+endnode
+node emitter sunbeam
+  parent vim_heal04_pur
+  #part-number 1
+  birthratekey 5
+    0.699999988 0
+    0.766667008 100
+    1.46667004 90
+    1.5 11
+    1.53332996 0
+endnode
+node emitter Sparkles
+  parent vim_heal04_pur
+  #part-number 2
+  birthratekey 5
+    0.699999988 0
+    0.766667008 80
+    1.63332999 90
+    1.66666996 11
+    1.70000005 0
+endnode
+node light flash
+  parent vim_heal04_pur
+  #part-number 3
+  colorkey 5
+    0 0 0.745097995 0.988234997
+    0.0333333015 0 0.745097995 0.988234997
+    0.699999988 0.0470587984 0.784313977 0.917647004
+    1.60000002 0 0.572548985 0.972549021
+    1.96667004 0 0 0
+  radiuskey 4
+    0 5
+    0.0333333015 5
+    0.699999988 5
+    1.60000002 5
+endnode
+node emitter Explosion01
+  parent vim_heal04_pur
+  #part-number 4
+  alphaStartkey 1
+    0.300000012 1
+  alphaEndkey 1
+    0.300000012 1
+  birthratekey 6
+    0 0
+    0.266667008 0
+    0.300000012 133
+    0.800000012 133
+    0.833333015 0
+    0.93333298 0
+  bounce_cokey 1
+    0.300000012 0
+  colorStartkey 1
+    0.300000012 0.843137026 0.713725984 0
+  colorEndkey 1
+    0.300000012 0.843137026 0.576470971 0
+  combinetimekey 1
+    0.300000012 0
+  dragkey 1
+    0.300000012 0
+  fpskey 1
+    0.300000012 16
+  frameStartkey 1
+    0.300000012 0
+  frameEndkey 1
+    0.300000012 3
+  gravkey 1
+    0.300000012 0
+  lightningDelaykey 1
+    0.300000012 0
+  lightningRadiuskey 1
+    0.300000012 0
+  lightningScalekey 1
+    0.300000012 0
+  masskey 1
+    0.300000012 0.200000003
+  p2p_bezier2key 1
+    0.300000012 0
+  p2p_bezier3key 1
+    0.300000012 0
+  sizeStartkey 1
+    0.300000012 0.5
+  sizeEndkey 1
+    0.300000012 0
+  velocitykey 1
+    0.300000012 0
+  xsizekey 1
+    0.300000012 0
+  ysizekey 1
+    0.300000012 0
+endnode
+node emitter Explosion
+  parent vim_heal04_pur
+  #part-number 5
+  alphaStartkey 1
+    0.333332986 1
+  alphaEndkey 1
+    0.333332986 1
+  birthratekey 6
+    0 0
+    0.300000012 0
+    0.333332986 100
+    0.800000012 100
+    0.833333015 0
+    0.93333298 0
+  bounce_cokey 1
+    0.333332986 0
+  colorStartkey 1
+    0.333332986 1 1 1
+  colorEndkey 1
+    0.333332986 0.588235021 0.223528996 1
+  combinetimekey 1
+    0.333332986 0
+  dragkey 1
+    0.333332986 0
+  fpskey 1
+    0.333332986 16
+  frameStartkey 1
+    0.333332986 0
+  frameEndkey 1
+    0.333332986 3
+  gravkey 1
+    0.333332986 0
+  lightningDelaykey 1
+    0.333332986 0
+  lightningRadiuskey 1
+    0.333332986 0
+  lightningScalekey 1
+    0.333332986 0
+  masskey 1
+    0.333332986 0.200000003
+  p2p_bezier2key 1
+    0.333332986 0
+  p2p_bezier3key 1
+    0.333332986 0
+  sizeStartkey 1
+    0.333332986 0.400000006
+  sizeEndkey 1
+    0.333332986 0
+  velocitykey 1
+    0.333332986 0
+  xsizekey 1
+    0.333332986 0
+  ysizekey 1
+    0.333332986 0
+endnode
+doneanim impact vim_heal04_pur
+
+donemodel vim_heal04_pur

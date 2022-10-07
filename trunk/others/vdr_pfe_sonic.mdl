@@ -1,0 +1,110 @@
+# Exported from NWmax 0.5-beta at 3/5/2004 2:50:59 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_pfe_sonic
+filedependancy vdr_pfe_fire.gmax
+newmodel vdr_pfe_sonic
+setsupermodel vdr_pfe_sonic NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_pfe_sonic
+node dummy vdr_pfe_sonic
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vdr_pfe_sonic
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.65098 0.898039 0.898039 
+     update_sel 1
+     update Fountain
+     render_sel 3
+     render Billboard_to_Local_Z
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 0.262745 0.992157 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 2.0
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp 5.0
+     mass 0.5
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 1.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_ring02
+     twosidedtext 1
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_pfe_sonic
+#NWmaxANIM ASCII
+newanim impact vdr_pfe_sonic
+    length 1.16667
+    transtime 0.25
+    animroot vdr_pfe_sonic
+    node dummy vdr_pfe_sonic
+        parent NULL
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_pfe_sonic
+    endnode
+doneanim impact vdr_pfe_sonic
+#NWmaxANIM ASCII
+newanim duration vdr_pfe_sonic
+    length 1.33333
+    transtime 0.25
+    animroot vdr_pfe_sonic
+    node dummy vdr_pfe_sonic
+        parent NULL
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_pfe_sonic
+    endnode
+doneanim duration vdr_pfe_sonic
+donemodel vdr_pfe_sonic

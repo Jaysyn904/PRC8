@@ -1,0 +1,1 @@
+Moneo.exe golem.ls -> test.log

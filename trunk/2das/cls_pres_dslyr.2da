@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1        ReqParam2 
+0 Concentration SKILL   1                5         
+1 Lore          SKILL   7                5         
+2 Persuade      SKILL   12               5         
+3 Perform       SKILL   11               10        
+4 Dragonsong    FEAT    3440             ****      
+5 ScriptVar     VAR     PRC_AllowDraSong 0         

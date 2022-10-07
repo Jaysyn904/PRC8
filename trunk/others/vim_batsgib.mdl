@@ -1,0 +1,102 @@
+# Exported from NWmax 0.5-beta at 2/10/2004 5:16:02 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_batsgib
+filedependancy gib1.gmax
+newmodel vim_batsgib
+setsupermodel vim_batsgib NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_batsgib
+node dummy vim_batsgib
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_batsgib
+  position 0.0 0.0 1.39653
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 1.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp -1.0
+     mass 2.0
+     spread 360.0
+     particleRot 3.0
+     velocity 1.0
+     randvel 0.0
+     bounce_co 0.2
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture NULL
+     twosidedtext 0
+     xgrid 0
+     ygrid 0
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     chunk wht_m_bone
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_batsgib
+#NWmaxANIM ASCII
+newanim impact vim_batsgib
+    length 16.3333
+    transtime 0.25
+    animroot vim_batsgib
+    event 0.0333333 detonate
+    node dummy vim_batsgib
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vim_batsgib
+    endnode
+    node emitter AuroraEmitter01
+        parent vim_batsgib
+    endnode
+doneanim impact vim_batsgib
+donemodel vim_batsgib

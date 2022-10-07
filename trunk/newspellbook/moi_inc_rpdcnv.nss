@@ -1,0 +1,377 @@
+//:://////////////////////////////////////////////
+//:: Rapid Meldshaping choice script
+//:: moi_inc_rpdcnv
+//:://////////////////////////////////////////////
+/*
+    @author Stratovarius - 2019.12.21
+*/
+//:://////////////////////////////////////////////
+//:://////////////////////////////////////////////
+
+#include "moi_inc_moifunc"
+#include "inc_dynconv"
+
+//////////////////////////////////////////////////
+/* Constant defintions                          */
+//////////////////////////////////////////////////
+
+const int STAGE_SELECT_MELD               = 0;
+const int STAGE_SELECT_CHAKRA             = 1;
+const int STAGE_CONFIRM_SELECTION         = 2;
+const int STAGE_SELECT_UNSHAPE_MELD       = 3;
+const int STAGE_CONFIRM_UNSHAPE_SELECTION = 4;
+
+const int CHOICE_BACK_TO_LSELECT    = -1;
+const int STRREF_SELECTED_HEADER1   = 16824209; // "You have selected:"
+const int STRREF_SELECTED_HEADER2   = 16824210; // "Is this correct?"
+const int STRREF_YES                = 4752;     // "Yes"
+const int STRREF_NO                 = 4753;     // "No"
+
+const int SORT       = TRUE; // If the sorting takes too much CPU, set to FALSE
+const int DEBUG_LIST = FALSE;
+
+//////////////////////////////////////////////////
+/* Function defintions                          */
+//////////////////////////////////////////////////
+
+void PrintList(object oMeldshaper)
+{
+    string tp = "Printing list:\n";
+    string s = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Head");
+    if(s == ""){
+        tp += "Empty\n";
+    }
+    else{
+        tp += s + "\n";
+        s = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + s);
+        while(s != ""){
+            tp += "=> " + s + "\n";
+            s = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + s);
+        }
+    }
+
+    DoDebug(tp);
+}
+
+/**
+ * Creates a linked list of entries that is sorted into alphabetical order
+ * as it is built.
+ * Assumption: mystery names are unique.
+ *
+ * @param oMeldshaper     The storage object aka whomever is gaining powers in this conversation
+ * @param sChoice The choice string
+ * @param nChoice The choice value
+ */
+void AddToTempList(object oMeldshaper, string sChoice, int nChoice)
+{
+    if(DEBUG_LIST) DoDebug("\nAdding to temp list: '" + sChoice + "' - " + IntToString(nChoice));
+    if(DEBUG_LIST) PrintList(oMeldshaper);
+    // If there is nothing yet
+    if(!GetLocalInt(oMeldshaper, "PRC_RebindConvo_ListInited"))
+    {
+        SetLocalString(oMeldshaper, "PRC_RebindConvo_List_Head", sChoice);
+        SetLocalInt(oMeldshaper, "PRC_RebindConvo_List_" + sChoice, nChoice);
+
+        SetLocalInt(oMeldshaper, "PRC_RebindConvo_ListInited", TRUE);
+    }
+    else
+    {
+        // Find the location to instert into
+        string sPrev = "", sNext = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Head");
+        while(sNext != "" && StringCompare(sChoice, sNext) >= 0)
+        {
+            if(DEBUG_LIST) DoDebug("Comparison between '" + sChoice + "' and '" + sNext + "' = " + IntToString(StringCompare(sChoice, sNext)));
+            sPrev = sNext;
+            sNext = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + sNext);
+        }
+
+        // Insert the new entry
+        // Does it replace the head?
+        if(sPrev == "")
+        {
+            if(DEBUG_LIST) DoDebug("New head");
+            SetLocalString(oMeldshaper, "PRC_RebindConvo_List_Head", sChoice);
+        }
+        else
+        {
+            if(DEBUG_LIST) DoDebug("Inserting into position between '" + sPrev + "' and '" + sNext + "'");
+            SetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + sPrev, sChoice);
+        }
+
+        SetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + sChoice, sNext);
+        SetLocalInt(oMeldshaper, "PRC_RebindConvo_List_" + sChoice, nChoice);
+    }
+}
+
+/**
+ * Reads the linked list built with AddToTempList() to AddChoice() and
+ * deletes it.
+ *
+ * @param oMeldshaper A PC gaining powers at the moment
+ */
+void TransferTempList(object oMeldshaper)
+{
+    string sChoice = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Head");
+    int    nChoice = GetLocalInt   (oMeldshaper, "PRC_RebindConvo_List_" + sChoice);
+
+    DeleteLocalString(oMeldshaper, "PRC_RebindConvo_List_Head");
+    string sPrev;
+
+    if(DEBUG_LIST) DoDebug("Head is: '" + sChoice + "' - " + IntToString(nChoice));
+
+    while(sChoice != "")
+    {
+        // Add the choice
+        AddChoice(sChoice, nChoice, oMeldshaper);
+
+        // Get next
+        sChoice = GetLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + (sPrev = sChoice));
+        nChoice = GetLocalInt   (oMeldshaper, "PRC_RebindConvo_List_" + sChoice);
+
+        if(DEBUG_LIST) DoDebug("Next is: '" + sChoice + "' - " + IntToString(nChoice) + "; previous = '" + sPrev + "'");
+
+        // Delete the already handled data
+        DeleteLocalString(oMeldshaper, "PRC_RebindConvo_List_Next_" + sPrev);
+        DeleteLocalInt   (oMeldshaper, "PRC_RebindConvo_List_" + sPrev);
+    }
+
+    DeleteLocalInt(oMeldshaper, "PRC_RebindConvo_ListInited");
+}
+
+void main()
+{
+    object oMeldshaper = GetPCSpeaker();
+    int nValue = GetLocalInt(oMeldshaper, DYNCONV_VARIABLE);
+    int nStage = GetStage(oMeldshaper);
+	int nClass = CLASS_TYPE_INCARNATE; 
+	// From the epic feat 
+	if (GetLocalInt(oMeldshaper, "RapidMeldshaping") == 18976) nClass = GetPrimaryIncarnumClass(oMeldshaper);
+    string sMeldFile = GetMeldFile(); 
+
+    // Check which of the conversation scripts called the scripts
+    if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort
+        return;
+
+    if(nValue == DYNCONV_SETUP_STAGE)
+    {
+        if(DEBUG) DoDebug("moi_inc_rpdcnv: Running setup stage for stage " + IntToString(nStage));
+        // Check if this stage is marked as already set up
+        // This stops list duplication when scrolling
+        if(!GetIsStageSetUp(nStage, oMeldshaper))
+        {
+            if(DEBUG) DoDebug("moi_inc_rpdcnv: Stage was not set up already");
+			if(nStage == STAGE_SELECT_UNSHAPE_MELD)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Building meld selection");
+                
+                SetHeader("Choose the soulmeld you wish to unshape. You will be able to replace this with one new soulmeld");
+               
+                int i;
+                for(i = 1; i < 22 ; i++)
+                {
+                    int nMeld = GetIsChakraUsed(oMeldshaper, i, nClass);
+                    
+                    if (DEBUG) DoDebug("nMeld: "+IntToString(nMeld));
+                    
+                    // Something was stored in the Chakra
+                    if(nMeld) 
+                    {
+						AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nMeld))), i, oMeldshaper);  
+                    }
+                }
+
+                // Set the next, previous and wait tokens to default values
+                SetDefaultTokens();
+                // Set the convo quit text to "Abort"
+                SetCustomToken(DYNCONV_TOKEN_EXIT, GetStringByStrRef(DYNCONV_STRREF_ABORT_CONVO));
+            }            
+            // Selection confirmation stage
+            else if(nStage == STAGE_CONFIRM_UNSHAPE_SELECTION)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Building selection confirmation");
+                // Build the confirmation query
+                int nSpellId = GetIsChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nChakra"), nClass);
+                string sToken = "You have chosen to unshape "+"\n\n"; 
+                sToken += GetStringByStrRef(StringToInt(Get2DACache("spells", "SpellDesc", nSpellId)))+"\n\n";
+                sToken += GetStringByStrRef(STRREF_SELECTED_HEADER2); // "Is this correct?"
+                SetHeader(sToken);
+
+                AddChoice(GetStringByStrRef(STRREF_YES), TRUE, oMeldshaper); // "Yes"
+                AddChoice(GetStringByStrRef(STRREF_NO), FALSE, oMeldshaper); // "No"
+            }
+			else if(nStage == STAGE_SELECT_CHAKRA)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Building chakra selection");
+                
+                SetHeader("Choose the chakra you wish to fill with a soulmeld.");
+               
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_CROWN    , nClass)) AddChoice("Crown",     CHAKRA_CROWN    , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_FEET     , nClass)) AddChoice("Feet",      CHAKRA_FEET     , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_HANDS    , nClass)) AddChoice("Hands",     CHAKRA_HANDS    , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_ARMS     , nClass)) AddChoice("Arms",      CHAKRA_ARMS     , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_BROW     , nClass)) AddChoice("Brow",      CHAKRA_BROW     , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_SHOULDERS, nClass)) AddChoice("Shoulders", CHAKRA_SHOULDERS, oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_THROAT   , nClass)) AddChoice("Throat",    CHAKRA_THROAT   , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_WAIST    , nClass)) AddChoice("Waist",     CHAKRA_WAIST    , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_HEART    , nClass)) AddChoice("Heart",     CHAKRA_HEART    , oMeldshaper);
+				if (!GetIsChakraUsed(oMeldshaper, CHAKRA_SOUL     , nClass)) AddChoice("Soul",      CHAKRA_SOUL     , oMeldshaper);
+				
+				// Only show the double chakra if the basic one is already used up
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_CROWN    , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_CROWN    , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_CROWN    , oMeldshaper)) AddChoice("Crown",     CHAKRA_DOUBLE_CROWN    , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_FEET     , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_FEET     , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_FEET     , oMeldshaper)) AddChoice("Feet",      CHAKRA_DOUBLE_FEET     , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_HANDS    , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_HANDS    , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_HANDS    , oMeldshaper)) AddChoice("Hands",     CHAKRA_DOUBLE_HANDS    , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_ARMS     , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_ARMS     , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_ARMS     , oMeldshaper)) AddChoice("Arms",      CHAKRA_DOUBLE_ARMS     , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_BROW     , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_BROW     , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_BROW     , oMeldshaper)) AddChoice("Brow",      CHAKRA_DOUBLE_BROW     , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_SHOULDERS, nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_SHOULDERS, nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_SHOULDERS, oMeldshaper)) AddChoice("Shoulders", CHAKRA_DOUBLE_SHOULDERS, oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_THROAT   , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_THROAT   , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_THROAT   , oMeldshaper)) AddChoice("Throat",    CHAKRA_DOUBLE_THROAT   , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_WAIST    , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_WAIST    , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_WAIST    , oMeldshaper)) AddChoice("Waist",     CHAKRA_DOUBLE_WAIST    , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_HEART    , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_HEART    , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_HEART    , oMeldshaper)) AddChoice("Heart",     CHAKRA_DOUBLE_HEART    , oMeldshaper);
+				if (GetIsChakraUsed(oMeldshaper, CHAKRA_SOUL     , nClass) && !GetIsChakraUsed(oMeldshaper, CHAKRA_DOUBLE_SOUL     , nClass) && GetHasFeat(FEAT_DOUBLE_CHAKRA_SOUL     , oMeldshaper)) AddChoice("Soul",      CHAKRA_DOUBLE_SOUL     , oMeldshaper);				
+
+                // Set the next, previous and wait tokens to default values
+                SetDefaultTokens();
+                // Set the convo quit text to "Abort"
+                SetCustomToken(DYNCONV_TOKEN_EXIT, GetStringByStrRef(DYNCONV_STRREF_ABORT_CONVO));
+            }
+            else if(nStage == STAGE_SELECT_MELD)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Building level selection");
+                
+                int nMeldCount = GetMaxShapeSoulmeldCount(oMeldshaper, nClass);
+                
+                SetHeader("Choose the soulmeld to shape. You can shape "+IntToString(nMeldCount)+" soulmelds in total. You have "+IntToString(nMeldCount - GetTotalShapedMelds(oMeldshaper, nClass))+" remaining");
+                int nChakra = GetLocalInt(oMeldshaper, "nChakra");
+               
+                string sSpell, sChakra, sClass;
+                int i;
+                for(i = 0; i < 100 ; i++)
+                {
+                    sSpell = Get2DACache(sMeldFile, "SpellID", i);
+                    sChakra = Get2DACache(sMeldFile, ChakraToString(nChakra), i);
+                    sClass = GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", nClass)));
+                    int nTest = StringToInt(Get2DACache(sMeldFile, sClass, i));
+                    
+                    if (DEBUG) DoDebug("sSpell: "+sSpell+" sChakra: "+sChakra+" sClass: "+sClass+" nTest: "+IntToString(nTest));
+                    
+                    // Non-blank row, not shaped already, it can be attached to the chosen Chakra, and it's for the right class
+                    if(nTest && sSpell != "" && !GetIsMeldShaped(oMeldshaper, StringToInt(sSpell), nClass) && StringToInt(sChakra) == nChakra) 
+                    {
+						AddChoice(GetStringByStrRef(StringToInt(Get2DACache(sMeldFile, "Name", i))), StringToInt(sSpell), oMeldshaper);  
+                    }
+                }
+                AddChoice("Back to Chakra Selection", CHOICE_BACK_TO_LSELECT, oMeldshaper);
+
+                // Set the next, previous and wait tokens to default values
+                SetDefaultTokens();
+                // Set the convo quit text to "Abort"
+                SetCustomToken(DYNCONV_TOKEN_EXIT, GetStringByStrRef(DYNCONV_STRREF_ABORT_CONVO));
+            }
+            // Selection confirmation stage
+            else if(nStage == STAGE_CONFIRM_SELECTION)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Building selection confirmation");
+                // Build the confirmation query
+                string sToken = GetStringByStrRef(STRREF_SELECTED_HEADER1) + "\n\n"; // "You have selected:"
+                int nSpellId = GetLocalInt(oMeldshaper, "nMeld");
+                //sToken += GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellId)))+"\n";
+                sToken += GetStringByStrRef(StringToInt(Get2DACache("spells", "SpellDesc", nSpellId)))+"\n\n";
+                sToken += GetStringByStrRef(STRREF_SELECTED_HEADER2); // "Is this correct?"
+                SetHeader(sToken);
+
+                AddChoice(GetStringByStrRef(STRREF_YES), TRUE, oMeldshaper); // "Yes"
+                AddChoice(GetStringByStrRef(STRREF_NO), FALSE, oMeldshaper); // "No"
+            }            
+        }
+
+        // Do token setup
+        SetupTokens();
+    }
+    else if(nValue == DYNCONV_EXITED)
+    {
+        if(DEBUG) DoDebug("moi_inc_rpdcnv: Running exit handler");
+        // End of conversation cleanup
+        DeleteLocalInt(oMeldshaper, "nMeld");
+    }
+    else if(nValue == DYNCONV_ABORTED)
+    {
+        // This section should never be run, since aborting this conversation should
+        // always be forbidden and as such, any attempts to abort the conversation
+        // should be handled transparently by the system
+    }
+    // Handle PC response
+    else
+    {
+        int nChoice = GetChoice(oMeldshaper);
+        if(DEBUG) DoDebug("moi_inc_rpdcnv: Handling PC response, stage = " + IntToString(nStage) + "; nChoice = " + IntToString(nChoice) + "; choice text = '" + GetChoiceText(oMeldshaper) +  "'");
+        if(nStage == STAGE_SELECT_UNSHAPE_MELD)
+        {
+           	if(DEBUG) DoDebug("moi_inc_rpdcnv: Chakra selected");
+           	SetLocalInt(oMeldshaper, "nChakra", nChoice);
+           	nStage = STAGE_CONFIRM_UNSHAPE_SELECTION;
+
+            MarkStageNotSetUp(STAGE_SELECT_UNSHAPE_MELD, oMeldshaper);
+        }        
+        else if(nStage == STAGE_CONFIRM_UNSHAPE_SELECTION)
+        {     
+        	if (nChoice)
+        	{
+        		PRCRemoveSpellEffects(GetIsChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nChakra"), nClass), oMeldshaper, oMeldshaper);
+        		DeleteLocalInt(oMeldshaper, "nChakra");
+        		nStage = STAGE_SELECT_CHAKRA; 
+        	}		
+            else
+            {
+				nStage = STAGE_SELECT_UNSHAPE_MELD; 
+				DeleteLocalInt(oMeldshaper, "nChakra");
+            }
+            MarkStageNotSetUp(STAGE_CONFIRM_UNSHAPE_SELECTION, oMeldshaper);        
+        }
+        else if(nStage == STAGE_SELECT_CHAKRA)
+        {
+           	if(DEBUG) DoDebug("moi_inc_rpdcnv: Chakra selected");
+           	SetLocalInt(oMeldshaper, "nChakra", nChoice);
+           	nStage = STAGE_SELECT_MELD;
+
+            MarkStageNotSetUp(STAGE_SELECT_CHAKRA, oMeldshaper);
+        }        
+        else if(nStage == STAGE_SELECT_MELD)
+        {
+            if(nChoice == CHOICE_BACK_TO_LSELECT)
+            {
+                if(DEBUG) DoDebug("moi_inc_rpdcnv: Returning to Chakra selection");
+                nStage = STAGE_SELECT_CHAKRA;
+                DeleteLocalInt(oMeldshaper, "nChakra");
+            }        
+           	else
+           	{	
+           		if(DEBUG) DoDebug("moi_inc_rpdcnv: Meld selected");
+           		SetLocalInt(oMeldshaper, "nMeld", nChoice);
+           		nStage = STAGE_CONFIRM_SELECTION;
+           	}	
+
+            MarkStageNotSetUp(STAGE_SELECT_MELD, oMeldshaper);
+        }
+        else if(nStage == STAGE_CONFIRM_SELECTION)
+        {     
+        	if (nChoice)
+        	{
+        		ShapeSoulmeld(oMeldshaper, GetLocalInt(oMeldshaper, "nMeld"));
+        		MarkMeldShaped(oMeldshaper, GetLocalInt(oMeldshaper, "nMeld"), nClass);
+        		SetChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nMeld"), GetLocalInt(oMeldshaper, "nChakra"), nClass);
+        		DeleteLocalInt(oMeldshaper, "nMeld");
+        		DeleteLocalInt(oMeldshaper, "nChakra");
+        		AllowExit(DYNCONV_EXIT_FORCE_EXIT); 
+        	}		
+            else
+            {
+           		nStage = STAGE_SELECT_CHAKRA;	
+            }
+            MarkStageNotSetUp(STAGE_CONFIRM_SELECTION, oMeldshaper);        
+        }        
+
+        if(DEBUG) DoDebug("moi_inc_rpdcnv: New stage: " + IntToString(nStage));
+
+        // Store the stage value. If it has been changed, this clears out the choices
+        SetStage(nStage, oMeldshaper);
+    }
+}

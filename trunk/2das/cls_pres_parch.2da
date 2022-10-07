@@ -1,0 +1,10 @@
+2DA V2.0
+
+  LABEL           ReqType ReqParam1        ReqParam2 
+0 Base_Attack     BAB     7                ****      
+1 PBShot          FEAT    27               ***       
+2 ScriptVar       VAR     PRC_AllowPArcher 0         
+3 RapidShot       FEAT    30               ****      
+4 CraftWeapon     SKILL   26               10        
+5 WeapFocLongBow  FEATOR  101              ****      
+6 WeapFocShortBow FEATOR  102              ****      

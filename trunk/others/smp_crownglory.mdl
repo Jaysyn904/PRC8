@@ -1,0 +1,740 @@
+# Exported from NWmax 0.7 at 6/17/2004 2:59:00 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_crownglory
+filedependancy smp_crownglory.gmax
+newmodel smp_crownglory
+setsupermodel smp_crownglory NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_crownglory
+node dummy smp_crownglory
+  parent NULL
+endnode
+node dummy Dummy01
+  parent smp_crownglory
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.345098 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.000480079 0.29973 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.647059 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 1.0 0.917647 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 20
+  lifeExp 1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy Dummy02
+  parent smp_crownglory
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -3.14159
+  wirecolor 0.0313726 0.0313726 0.533333 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy02
+  position 0.000486728 0.303026 0.0
+  orientation 0.0 -1.0 0.0 -6.28318
+  wirecolor 0.894118 0.647059 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 1.0 0.917647 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 20
+  lifeExp 1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy Dummy03
+  parent smp_crownglory
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -1.5708
+  wirecolor 0.0235294 0.52549 0.443137 
+endnode
+node emitter AuroraEmitter03
+  parent Dummy03
+  position 0.00052606 0.302562 0.0
+  orientation 0.942951 -0.332932 0.0 0.0
+  wirecolor 0.894118 0.647059 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 1.0 0.917647 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 20
+  lifeExp 1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy Dummy04
+  parent smp_crownglory
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -4.71239
+  wirecolor 0.239216 0.52549 0.0235294 
+endnode
+node emitter AuroraEmitter04
+  parent Dummy04
+  position 0.000506609 0.296856 0.0
+  orientation 0.995396 -0.0958498 0.0 0.0
+  wirecolor 0.894118 0.647059 0.839216 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 1.0 0.917647 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 20
+  lifeExp 1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter05
+  parent smp_crownglory
+  position 0.0 0.0 0.162821
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.0313726 0.239216 0.541176 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 15.0
+  ySize 15.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.917647 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 30
+  lifeExp 1.0
+  mass -0.25
+  spread 3.14159
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flarel
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_crownglory
+#NWmax ANIM ASCII
+newanim impact smp_crownglory
+  length 1.33333
+  transtime 0.25
+  animroot smp_crownglory
+    node dummy smp_crownglory
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 -6.28319
+            0.833333 0.0 0.0 1.0 -4.71239
+            1.0 0.0 0.0 1.0 -3.14159
+            1.16667 0.0 0.0 1.0 -1.5708
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 0 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy02
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.71239
+            0.333333 0.0 0.0 0.0 -6.28319
+            0.5 0.0 0.0 1.0 -4.71239
+            0.666667 0.0 0.0 1.0 -3.14159
+            0.833333 0.0 0.0 1.0 -1.5708
+            1.0 0.0 0.0 0.0 0.0
+            1.16667 0.0 0.0 -1.0 -1.5708
+            1.33333 0.0 0.0 -1.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+        birthratekey
+            0.0 0 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy03
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.5708
+            0.166667 0.0 0.0 -1.0 -3.14159
+            0.333333 0.0 0.0 -1.0 -4.71239
+            0.5 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 1.0 -4.71239
+            0.833333 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -1.5708
+            1.16667 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 -1.0 -1.5708
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+        birthratekey
+            0.0 0 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy04
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.71239
+            0.166667 0.0 0.0 0.0 -6.28319
+            0.333333 0.0 0.0 1.0 -4.71239
+            0.5 0.0 0.0 1.0 -3.14159
+            0.666667 0.0 0.0 1.0 -1.5708
+            0.833333 0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 -1.0 -1.5708
+            1.16667 0.0 0.0 -1.0 -3.14159
+            1.33333 0.0 0.0 -1.0 -4.71239
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+        birthratekey
+            0.0 0 
+            1.33333 20 
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent smp_crownglory
+        birthratekey
+            0.0 0 
+            1.33333 30 
+        endlist
+    endnode
+doneanim impact smp_crownglory
+#NWmax ANIM ASCII
+newanim duration smp_crownglory
+  length 1.33333
+  transtime 0.25
+  animroot smp_crownglory
+    node dummy smp_crownglory
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 -6.28319
+            0.833333 0.0 0.0 1.0 -4.71239
+            1.0 0.0 0.0 1.0 -3.14159
+            1.16667 0.0 0.0 1.0 -1.5708
+            1.33333 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 20 
+            0.666667 30 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy02
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.71239
+            0.333333 0.0 0.0 0.0 -6.28319
+            0.5 0.0 0.0 1.0 -4.71239
+            0.666667 0.0 0.0 1.0 -3.14159
+            0.833333 0.0 0.0 1.0 -1.5708
+            1.0 0.0 0.0 0.0 0.0
+            1.16667 0.0 0.0 -1.0 -1.5708
+            1.33333 0.0 0.0 -1.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+        birthratekey
+            0.0 20 
+            0.666667 30 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy03
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.5708
+            0.166667 0.0 0.0 -1.0 -3.14159
+            0.333333 0.0 0.0 -1.0 -4.71239
+            0.5 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 1.0 -4.71239
+            0.833333 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -1.5708
+            1.16667 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 -1.0 -1.5708
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+        birthratekey
+            0.0 20 
+            0.666667 30 
+            1.33333 20 
+        endlist
+    endnode
+    node dummy Dummy04
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.71239
+            0.166667 0.0 0.0 0.0 -6.28319
+            0.333333 0.0 0.0 1.0 -4.71239
+            0.5 0.0 0.0 1.0 -3.14159
+            0.666667 0.0 0.0 1.0 -1.5708
+            0.833333 0.0 0.0 0.0 0.0
+            1.0 0.0 0.0 -1.0 -1.5708
+            1.16667 0.0 0.0 -1.0 -3.14159
+            1.33333 0.0 0.0 -1.0 -4.71239
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+        birthratekey
+            0.0 20 
+            0.666667 30 
+            1.33333 20 
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent smp_crownglory
+        birthratekey
+            0.0 30 
+            0.666667 50 
+            1.33333 30 
+        endlist
+    endnode
+doneanim duration smp_crownglory
+#NWmax ANIM ASCII
+newanim cessation smp_crownglory
+  length 1.66667
+  transtime 0.25
+  animroot smp_crownglory
+    node dummy smp_crownglory
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.11921
+            0.5 0.0 0.0 -1.0 -4.71976
+            0.666667 0.0 0.0 -1.0 -4.70129
+            0.833333 0.0 0.0 -1.0 -6.2643
+            1.0 0.0 0.0 1.0 -4.70789
+            1.16667 0.0 0.0 1.0 -3.12297
+            1.33333 0.0 0.0 1.0 -1.56759
+            1.5 0.0 0.0 -1.0 -0.0102555
+            1.66667 0.0 0.0 -1.0 -1.56378
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 20 
+            1.66667 0 
+        endlist
+    endnode
+    node dummy Dummy02
+        parent smp_crownglory
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.71239
+            0.333333 0.0 0.0 -1.0 -6.2608
+            0.5 0.0 0.0 1.0 -4.70502
+            0.666667 0.0 0.0 1.0 -4.72349
+            0.833333 0.0 0.0 1.0 -3.16048
+            1.0 0.0 0.0 1.0 -1.56935
+            1.16667 0.0 0.0 -1.0 -0.0155641
+            1.33333 0.0 0.0 -1.0 -1.5702
+            1.5 0.0 0.0 -1.0 -3.14911
+            1.66667 0.0 0.0 -1.0 -4.70491
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+        birthratekey
+            0.0 20 
+            1.66667 0 
+        endlist
+    endnode
+    node dummy Dummy03
+        parent smp_crownglory
+        orientationkey
+            0.166667 0.0 0.0 -1.0 -3.1416
+            0.333333 0.0 0.0 -1.0 -4.69001
+            0.5 0.0 0.0 1.0 -6.27581
+            0.666667 0.0 0.0 -1.0 -6.27209
+            0.833333 0.0 0.0 1.0 -4.73127
+            1.0 0.0 0.0 1.0 -3.14386
+            1.16667 0.0 0.0 1.0 -1.55892
+            1.33333 0.0 0.0 1.0 -0.00519233
+            1.5 0.0 0.0 -1.0 -1.575
+            1.66667 0.0 0.0 -1.0 -3.13357
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+        birthratekey
+            0.0 20 
+            1.66667 0 
+        endlist
+    endnode
+    node dummy Dummy04
+        parent smp_crownglory
+        orientationkey
+            0.166667 0.0 0.0 1.0 -6.28318
+            0.333333 0.0 0.0 1.0 -4.73477
+            0.5 0.0 0.0 1.0 -3.13422
+            0.666667 0.0 0.0 1.0 -3.15269
+            0.833333 0.0 0.0 1.0 -1.58968
+            1.0 0.0 0.0 -1.0 -0.00390976
+            1.16667 0.0 0.0 -1.0 -1.58882
+            1.33333 0.0 0.0 -1.0 -3.14405
+            1.5 0.0 0.0 -1.0 -4.7221
+            1.66667 0.0 0.0 -1.0 -6.27608
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+        birthratekey
+            0.0 20 
+            1.66667 0 
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent smp_crownglory
+        birthratekey
+            0.0 30 
+            1.66667 0 
+        endlist
+    endnode
+doneanim cessation smp_crownglory
+donemodel smp_crownglory

@@ -1,0 +1,18 @@
+2DA V2.0
+
+   FeatLabel                      FeatIndex List GrantedOnLevel OnMenu 
+0  Juggernaut_SuperiorBR          5241      3    3              0      
+1  Juggernaut_HealingImmunity     5242      3    3              0      
+2  Juggernaut_ExtendedCharge      5243      3    2              0      
+3  Juggernaut_Perfection          5244      3    2              0      
+4  Juggernaut_ChargeBonus         5245      3    2              0      
+5  Juggernaut_Reserved            5246      3    1              0      
+6  Juggernaut_ExpertBR            5247      3    1              0      
+7  Juggernaut_ArmorSpikes         5248      3    1              0      
+8  FEAT_IMMUNITY_ABILITY_DECREASE 3584      3    5              0      
+9  Improved_Fortification         4580      3    2              0      
+10 FEAT_IMMUNITY_DEATH            3586      3    4              0      
+11 FEAT_IMMUNITY_MIND_SPELLS      3588      3    3              0      
+12 FEAT_IMMUNITY_SNEAKATTACK      3591      3    2              0      
+13 PowerfulCharge                 3506      3    1              0      
+14 GreaterPowerfulCharge          3507      3    5              0      

@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1        ReqParam2 
+0 Base_Attack BAB     4                ****      
+1 Lore        SKILL   7                8         
+2 ImpUnarmed  FEAT    21               ****      
+3 CmbtCast    FEAT    7                ****      
+4 Dodge       FEAT    10               ****      
+5 StunFist    FEAT    39               ****      
+6 ScriptVar   VAR     PRC_AllowSacFist 0         
+7 ScriptVar   VAR     PRC_DivSpell1    0         

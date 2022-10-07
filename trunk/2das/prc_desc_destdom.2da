@@ -1,0 +1,13 @@
+2DA V2.0
+
+           Label                     Name     School Innate SpellID 
+0          Contagion                 777      N      3      27      
+1          Inflict_Critical_Wounds   392      N      4      435     
+2          Inflict_Light_Wounds_Mass 16824704 N      5      3213    
+3          Harm                      827      N      6      77      
+4          Disintergrate             16830238 T      6      3111    
+5          Earthquake                384      V      8      426     
+6          Implosion                 837      V      9      87      
+7          Inflict_Light_Wounds      389      N      1      432     
+8          Slay_Living               914      N      5      164     
+9          Crumble                   3837     T      6      512     

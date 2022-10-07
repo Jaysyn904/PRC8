@@ -1,0 +1,230 @@
+#MAXMODEL ASCII
+# model: vcm_hitpower
+filedependancy vcm_hitpower.max
+newmodel vcm_hitpower
+setsupermodel vcm_hitpower NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vcm_hitpower
+node dummy vcm_hitpower
+  parent NULL
+  #part-number 0
+endnode
+node emitter cloud
+  parent vcm_hitpower
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 1
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 1
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_Smoke01a
+  xgrid 4
+  ygrid 4
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0.0990509018 9.92655987e-005
+  orientation 0 0 0 0
+  colorStart 0.7 0.7 0.7
+  colorEnd 1.0 1.0 1.0
+  alphaStart 1
+  alphaEnd 0
+  sizeStart 0.5
+  sizeEnd 1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 15
+  birthrate 0
+  lifeExp 1
+  mass 0
+  spread 1.04719996
+  particleRot 0.600000024
+  velocity 0
+  randvel 0.600000024
+  fps 16
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter spark
+  parent vcm_hitpower
+  #part-number 2
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 1
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Explosion
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_dot01
+  xgrid 0
+  ygrid 0
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0.0990509018 0
+  orientation 0 0 0 0
+  colorStart 0.7 0.7 0.7
+  colorEnd 1.0 1.0 1.0
+  alphaStart 1
+  alphaEnd 0.0199999996
+  sizeStart 0.0240000002
+  sizeEnd 0.00999999978
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 10
+  lifeExp 2
+  mass 1.5
+  spread 6.28318977
+  particleRot 0
+  velocity 3
+  randvel 1
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0.300000012
+  blurlength 0.0700007007
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter sparks
+  parent vcm_hitpower
+  #part-number 3
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 1
+  renderorder 0
+  spawntype 0
+  update Explosion
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_strk_b
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0.174532995
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0.00443131989 0.00302643003
+  orientation -1 0 0 -3.14159012
+  colorStart 0.7 0.7 0.7
+  colorEnd 1.0 1.0 1.0
+  alphaStart 0.699999988
+  alphaEnd 0.699999988
+  sizeStart 0.0500000007
+  sizeEnd 0
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 54
+  lifeExp 0.230000004
+  mass 0
+  spread 6.28318977
+  particleRot 0
+  velocity 2
+  randvel 0.5
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 0.800000012
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vcm_hitpower
+
+#MAXANIM ASCII
+newanim impact vcm_hitpower
+  length 0.633333027
+  transtime 0.25
+  animroot vcm_hitpower
+  event 0 detonate
+  event 0 detonate
+node dummy vcm_hitpower
+  parent NULL
+  #part-number 0
+endnode
+node emitter cloud
+  parent vcm_hitpower
+  #part-number 1
+  birthratekey 5
+    0 0
+    0.0333333015 0
+    0.0666666999 15
+    0.233333007 10
+    0.266667008 0
+endnode
+node emitter spark
+  parent vcm_hitpower
+  #part-number 2
+endnode
+node emitter sparks
+  parent vcm_hitpower
+  #part-number 3
+endnode
+doneanim impact vcm_hitpower
+
+donemodel vcm_hitpower

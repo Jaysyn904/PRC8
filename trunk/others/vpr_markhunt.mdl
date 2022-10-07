@@ -1,0 +1,76 @@
+#MAXMODEL ASCII
+# model: vpr_markhunt
+filedependancy vpr_markhunt.max
+newmodel vpr_markhunt
+setsupermodel vpr_markhunt NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vpr_markhunt
+node dummy vpr_markhunt
+  parent NULL
+  #part-number 0
+endnode
+node emitter OmenEmitter01
+  parent vpr_markhunt
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Normal
+  blend Lighten
+  texture fxpa_flare1
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 0.3 1 0
+  colorEnd 0.3 1 0
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 3
+  birthrate 1
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 15
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vpr_markhunt
+donemodel vpr_markhunt

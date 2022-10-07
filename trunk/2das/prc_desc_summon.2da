@@ -1,0 +1,25 @@
+2DA V2.0
+
+           Label                        Name     School Innate SpellID 
+0          Summon_Creature_I            924      C      1      174     
+1          Summon_Creature_II           925      C      2      175     
+2          Summon_Creature_III          926      C      3      176     
+3          Summon_Creature_IV           927      C      4      177     
+4          Summon_Creature_IX           932      C      9      178     
+5          Summon_Creature_V            928      C      5      179     
+6          Summon_Creature_VI           929      C      6      180     
+7          Summon_Creature_VII          930      C      7      181     
+8          Summon_Creature_VIII         931      C      8      182     
+9          SummonUndeadI                16847420 C      1      1784    
+10         SummonUndeadII               16847422 C      2      1785    
+11         SummonUndeadIII              16847424 C      3      1786    
+12         SummonUndeadIV               16847426 C      4      1787    
+13         SummonUndeadV                16847428 C      5      1788    
+14         Epic_Spell_Summon_Aberration 16833497 C      9      4060    
+15         ABYSSAL_MIGHT                16829470 C      3      2514    
+16         Creeping_Doom                6330     C      7      364     
+17         Elemental_Swarm              798      C      9      48      
+18         Storm_of_Vengeance           923      C      9      173     
+19         Epic_Spell_Twinfiend         16833515 C      9      4066    
+20         Dragon_Knight                8671     C      9      638     
+21         DRAGON_ALLY                  16832490 C      7      3388    

@@ -1,0 +1,358 @@
+# Exported from NWmax 0.7 at 7/10/2004 1:32:07 AM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_tempstasis
+filedependancy Unknown
+newmodel smp_tempstasis
+setsupermodel smp_tempstasis NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_tempstasis
+node dummy smp_tempstasis
+  parent NULL
+endnode
+node dummy rotator
+  parent smp_tempstasis
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.6 
+endnode
+node emitter AuroraEmitter01
+  parent rotator
+  position -1.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 25.0
+  ySize 25.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 1.0
+  mass -0.25
+  spread 1.5708
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.2
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter02
+  parent rotator
+  position 1.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 25.0
+  ySize 25.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 1.0
+  mass -0.25
+  spread 1.5708
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.2
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter03
+  parent rotator
+  position 0.0 1.0 0.0
+  orientation 0.0 0.0 -1.0 -1.5708
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 25.0
+  ySize 25.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 1.0
+  mass 0.25
+  spread 1.5708
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.2
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter04
+  parent rotator
+  position 0.0 -1.0 0.0
+  orientation 0.0 0.0 -1.0 -1.5708
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 25.0
+  ySize 25.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 1.0
+  mass 0.25
+  spread 1.5708
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.2
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_tempstasis
+#NWmax ANIM ASCII
+newanim impact smp_tempstasis
+  length 1.33333
+  transtime 0.25
+  animroot smp_tempstasis
+    node dummy smp_tempstasis
+        parent NULL
+    endnode
+    node dummy rotator
+        parent smp_tempstasis
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 1.0 -1.5708
+            0.666667 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -4.71239
+            1.33333 0.0 0.0 -1.0 -6.28318
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent rotator
+    endnode
+    node emitter AuroraEmitter02
+        parent rotator
+    endnode
+    node emitter AuroraEmitter03
+        parent rotator
+    endnode
+    node emitter AuroraEmitter04
+        parent rotator
+    endnode
+doneanim impact smp_tempstasis
+#NWmax ANIM ASCII
+newanim duration smp_tempstasis
+  length 1.33333
+  transtime 0.25
+  animroot smp_tempstasis
+    node dummy smp_tempstasis
+        parent NULL
+    endnode
+    node dummy rotator
+        parent smp_tempstasis
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 1.0 -1.5708
+            0.666667 0.0 0.0 1.0 -3.14159
+            1.0 0.0 0.0 1.0 -4.71239
+            1.33333 0.0 0.0 -1.0 -6.28318
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent rotator
+    endnode
+    node emitter AuroraEmitter02
+        parent rotator
+    endnode
+    node emitter AuroraEmitter03
+        parent rotator
+    endnode
+    node emitter AuroraEmitter04
+        parent rotator
+    endnode
+doneanim duration smp_tempstasis
+donemodel smp_tempstasis

@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1        ReqParam2 
+0 Persuade      SKILL   12               2         
+1 Concentration SKILL   1                4         
+2 Lore          SKILL   7                8         
+3 Spellcraft    SKILL   16               8         
+4 Alertness     FEAT    0                ****      
+5 ExtSpell      FEAT    12               ****      
+6 ScriptVar     VAR     PRC_AllowHarperM 0         
+7 ScriptVar     VAR     PRC_ArcSpell3    0         

@@ -1,0 +1,516 @@
+# Exported from NWmax 0.5-beta at 2/27/2004 2:07:05 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_prismwall
+filedependancy vdr_prismwall.gmax
+newmodel vdr_prismwall
+setsupermodel vdr_prismwall NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_prismwall
+node dummy vdr_prismwall
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vdr_prismwall
+  position -2.0 0.0 3.0
+  orientation 0.0 1.0 0.0 -1.5708
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 600.0
+     ySize 400.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.726275 0.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.7
+     sizeEnd 0.3
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 130.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vdr_prismwall
+  position 0.0 2.0 3.0
+  orientation 0.57735 0.57735 0.57735 -2.0944
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 600.0
+     ySize 400.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.964706 0.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.7
+     sizeEnd 0.3
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 130.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter03
+  parent vdr_prismwall
+  position 0.0 -2.0 3.0
+  orientation 0.57735 0.57735 0.57735 -2.0944
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 600.0
+     ySize 400.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.988235 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.7
+     sizeEnd 0.3
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 130.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent vdr_prismwall
+  position 2.0 0.0 3.0
+  orientation 0.0 1.0 0.0 -1.5708
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 600.0
+     ySize 400.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.0705882 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.7
+     sizeEnd 0.3
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 130.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter05
+  parent vdr_prismwall
+  position 0.0 -2.64106e-007 6.0
+  orientation 0.0 1.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 400.0
+     ySize 400.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.117647 1.0 0.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.7
+     sizeEnd 0.3
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 100.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_prismwall
+#NWmaxANIM ASCII
+newanim impact vdr_prismwall
+    length 0.0333333
+    transtime 0.25
+    animroot vdr_prismwall
+    node dummy vdr_prismwall
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vdr_prismwall
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_prismwall
+    endnode
+    node emitter AuroraEmitter02
+        parent vdr_prismwall
+    endnode
+    node emitter AuroraEmitter03
+        parent vdr_prismwall
+    endnode
+    node emitter AuroraEmitter04
+        parent vdr_prismwall
+    endnode
+    node emitter AuroraEmitter05
+        parent vdr_prismwall
+    endnode
+doneanim impact vdr_prismwall
+#NWmaxANIM ASCII
+newanim duration vdr_prismwall
+    length 1.33333
+    transtime 0.25
+    animroot vdr_prismwall
+    node dummy vdr_prismwall
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vdr_prismwall
+        positionkey
+            0.0 0.0 -0.5 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -1.5708
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_prismwall
+        positionkey
+            0.0 -2.0 0.0 3.0
+        endlist
+        orientationkey
+            0.0 -0.707107 0.0 -0.707107 -3.14159
+        endlist
+        colorStartkey
+            0.166667 1.0 0.870588 0.0 
+            0.333333 0.164706 1.0 0.0 
+            0.5 0.0 1.0 0.917647 
+            0.666667 0.235294 0.0 1.0 
+            0.833333 0.917647 0.0 1.0 
+            1.0 0.0705882 1.0 0.0 
+            1.16667 0.0 1.0 0.847059 
+            1.33333 1.0 0.0 0.0 
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent vdr_prismwall
+        positionkey
+            0.0 0.0 2.0 3.0
+        endlist
+        orientationkey
+            0.0 -0.57735 0.57735 -0.57735 -2.09439
+        endlist
+        colorStartkey
+            0.0 0.964706 0.0 1.0 
+            0.166667 0.988235 1.0 0.0 
+            0.333333 0.0 0.0470588 1.0 
+            0.5 0.0 1.0 0.0 
+            0.666667 1.0 0.0 0.0 
+            0.833333 0.0 1.0 0.964706 
+            1.0 1.0 0.0 0.870588 
+            1.16667 0.282353 1.0 0.0 
+            1.33333 1.0 0.0 0.964706 
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent vdr_prismwall
+        positionkey
+            0.0 0.0 -2.0 3.0
+        endlist
+        orientationkey
+            0.0 -0.57735 0.57735 -0.57735 -2.09439
+        endlist
+        colorStartkey
+            0.0 0.0 0.988235 1.0 
+            0.166667 0.0 0.117647 1.0 
+            0.333333 0.164706 1.0 0.0 
+            0.5 1.0 0.0 0.0 
+            0.666667 1.0 0.917647 0.0 
+            0.833333 1.0 0.0 0.964706 
+            1.0 0.972549 0.0 0.0 
+            1.16667 1.0 0.870588 0.0 
+            1.33333 0.0 1.0 0.964706 
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent vdr_prismwall
+        positionkey
+            0.0 2.0 0.0 3.0
+        endlist
+        orientationkey
+            0.0 -0.707107 0.0 -0.707107 -3.14159
+        endlist
+        colorStartkey
+            0.0 0.0 1.0 0.0705882 
+            0.166667 1.0 0.0 0.0 
+            0.333333 0.0 0.0 1.0 
+            0.5 1.0 0.870588 0.0 
+            0.666667 0.0 1.0 0.0705882 
+            0.833333 0.964706 0.0 1.0 
+            1.0 0.0 0.988235 1.0 
+            1.16667 0.952941 0.988235 0.0117647 
+            1.33333 0.282353 1.0 0.0 
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent vdr_prismwall
+        positionkey
+            0.0 0.0 -2.64106e-007 6.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+        endlist
+        colorStartkey
+            0.0 0.117647 1.0 0.0 
+            0.166667 0.0 1.0 0.847059 
+            0.333333 0.0 0.0 1.0 
+            0.5 0.964706 0.0 1.0 
+            0.666667 1.0 0.0 0.0 
+            0.833333 0.988235 0.905882 0.0 
+            1.0 0.0 0.0 1.0 
+            1.16667 0.917647 0.0 1.0 
+            1.33333 0.235294 1.0 0.0 
+        endlist
+    endnode
+doneanim duration vdr_prismwall
+donemodel vdr_prismwall

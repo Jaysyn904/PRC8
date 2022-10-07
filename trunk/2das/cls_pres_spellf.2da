@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL                  ReqType ReqParam1        ReqParam2 
+0 FEAT_SPELLFIRE_WIELDER FEAT    4368             ****      
+1 Endurance              FEAT    2568             ****      
+2 Concentration          SKILL   1                8         
+3 Lore                   SKILL   7                2         
+4 Spellcraft             SKILL   16               2         
+5 ScriptVar              VAR     PRC_Allow_Spellf 0         

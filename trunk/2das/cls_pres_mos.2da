@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL            ReqType ReqParam1        ReqParam2 
+0 DeathDomain      FEATOR  310              ****      
+1 EvilDomain       FEATOR  315              ****      
+2 ProtectionDomain FEATOR  308              ****      
+3 Concentration    SKILL   1                10        
+4 Spellcraft       SKILL   16               10        
+5 ScriptVar        VAR     PRC_AllowShrouds 0         

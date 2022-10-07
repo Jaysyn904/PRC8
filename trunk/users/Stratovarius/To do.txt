@@ -1,0 +1,91 @@
+-----------------------------------------------------
+3.1
+-----------------------------------------------------
+
+-----------------------------------------------------
+Primary
+-----------------------------------------------------
+
+Truenaming:
+
+Truenamer
+62/63 Utterances
+4 Prestige Classes
+
+Truenamer Class: See the Named to go.
+
+Truename PrCs:
+Acolyte of the Ego - Unstarted
+Fiendbinder - Unstarted
+
+Utterances: Incarnation of Angels skipped, needs Primo to work on templates.
+
+-----------------------------------------------------
+Secondary
+-----------------------------------------------------
+
+Base Classes:
+Dread Necromancer - All to do, Spells
+Beguiler - All to do, Spells
+
+Psionic PrCs:
+Metamind - All to do
+Psion Uncarnate - All to do
+Pyrokineticist - All to do
+Cryokineticist - All to do
+
+Normal PrCs:
+Stormsinger - All to do
+Blood Magus - Check what is done and what needs doing.
+
+Pale master -> 3.1:
+Fighter vassal -> Use TNecro
+Incorp vassal
+Cleric vassal
+Summon Undead
+Summon Greater Undead
+Poke attacks
+Death Touch -> create undead on failed save
+
+Domains (PGtF):
+Balance
+Cold
+Mentalism
+Repose
+Suffering
+Trade
+
+-----------------------------------------------------
+Feats to do in spare time
+-----------------------------------------------------
+
+Complete Divine:
+
+Cheetah's Speed
+Elephant's Hide
+Extra Wildshape
+Grizzly Claws
+Oaken Resilience
+Quicken Turning
+Sacred Healing
+True Believer
+Wolverine's Rage
+
+Complete Warrior:
+Axiomatic Strike
+Dash
+Extend Rage
+Extra Rage
+Extra Smiting
+Freezing the Lifeblood
+Improved Rapid Shot
+Intimidating Rage
+Karmic Strike
+Weakening Touch
+Divine Cleansing
+Divine Resistance
+Divine Vigor
+Sacred Vengeance
+
+Champions of Ruin:
+Doomspeak

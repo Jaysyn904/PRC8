@@ -1,0 +1,47 @@
+Metal: Keen Edge 3, Blade Barrier 5, Iron Body 8 *Special: Weapon Prof (Martial) for free
+Storm: Call Lightning (3), Gust of Wind (4), Ice Storm (6), SoV (8) *Special: Electric resist 5/-
+Portal: Benign Transposition (2), DDoor (4), Banishment (5), Gate (8) 
+Force: Mage Armor (1), Magic Missle (2), Forceblast (3), Improved Mage Armor (4)
+Slime: Grease (1) Melf's Acid Arrow (2), Evard's Black Tentacles (5), Drown (6), Mass Drown (9) *Special: Rebuke Oozes as if they were undead
+Tyranny: Fear (3), Mass Charm (8), Dominate Monster (9) *Special: +2 DC for compulsion effects
+Domination: Dominate Person (4), Mass Charm (7), True Domination (as dominate person, but +4 on the DC) (8) *Special: Spell Focus (Enchantment) for free 
+Spider: Web (2), Spider Skin (3), Viscid Glob (5), Creeping Doom (8) *Special: Rebuke spiders as if they were undead.
+Undeath: Animate Dead (2), Control Undead (5), Create Greater Undead (7), Finger of Death (8) *Special: Extra Turning for free
+Time: Expeditiuous Retreat (1), Haste (4), Mass Haste (7), Premonition (9) *Special: Improved Initiative for free
+Dwarf: Glyph (3), Impact (4), Stoneskin (5), Pro. Spells (8) *Special: Great Fortitude for free
+Charm: Charm Person (3), Mass Charm (7), True Domination (8) *Special: Increase CHA by 4 for 1 minute 1/day
+Elf: True Strike (1), Cat's Grace (2), Sunburst (8) *Special: Point Blank Shot for free
+Family: Shield Other (2), Hero's Feast (6), Protection from Spells (7) *Special: Aura 1/day, 1 rnd/lvl, +4 dodge ac
+Fate: Bestow Curse (2), Legion's Curse of Impending Blades (3), Premonition (8) *Special: Uncanny Dodge I for free
+Gnome: Colour Spray (1), Blur (2), Mirror Image (3), Prismatic Spray (7)
+Halfling: Camouflage (1), Cat's Grace (2), Freedom (3), Improved Invisibility (6) *Special: Add cha mod to jump, climb, hide, and ms checks for 10 minutes
+Illusion: Blur (2), Mirror Image (3), PKiller (4), Weird (9)
+Hatred: Bestow Curse (2), Blood Frenzy (3), Righteous Might (4), Wail of the Banshee (9) *Special: 1/day, +2 atk, saves, ac for 1 turn.
+Nobility: Charm Person (2), Heroism (3), Greater Heroism (5), Dominate Monster (9) *Special: 1/day for 1 rnd/cha mod, add +2 saves, attks, skills, and dmg
+Ocean: Snilloc's Snowball (1), Snilloc's Snowball Swarm (2), Drown (5), Mass Drown (8)
+Orc: Prayer (2), DPower (3), Dominate Monster (8), PW:Kill (9)
+Renewal: Restoration (3), Raise Dead (4), Ressurection (6), Greater Restore (7)
+Retribution: Death Armor (2), Elemental Shield (4), SoV (8)
+Rune: Glyph of Warding (3), Recall (4), Greater Glyph of Warding (6) *Special: Scribe Scroll for free
+Scaleykind: Magic Fang (1), Serpent's Sigh (3), Greater Magic Fang (4), Viscid Glob (4), Creeping Doom (9) *Special: Rebuke snake-like creatures
+Spells: Lesser Spell Breach (4), Spell Mantle (5), Greater Spell Breach (6), Protection from Spells (7) *Special: +2 to concentration and spellcraft checks
+
+------
+
+REVISIONS:
+
+Air: Call Lightning (3), Gust of Wind (4), Chain Lightning (6), Great Thunderclap (7) *Turn/Rebuke ONLY earth elementals
+Fire: Burning Bolts (2), Fireball (4), Firestorm (7), Delayed Blast Fireball (8) *Turn/Rebuke ONLY water elementals
+Water: Ice Storm (4), CoCold (5), Drown (7), Mass Drown (9) *Turn/Rebuke ONLY fire elementals
+Good: Lesser Planar Binding (4), Stoneskin (5), Planar Binding (6), Greater Planar Binding (9)
+Death: Fear (3), Enervation (5), Slay Living (6), Wail of the Banshee (9)  *Death Touch: 1d6/cleric lvl, if this adds up to more hp than they have, kill
+Destruction: Slay Living (5), Crumble (6), Disintegrate (7), Implosion (8)
+Animal: Cat's Grace (2), Hold Animal (3), Dominate Monster (8), Shapechange (9)
+Earth: Stoneskin (4), Acid Storm (6), Stonehold (7), Bombardment (8) *Turn/Rebuke ONLY air elementals
+Evil: Negative Energy Ray (1), Negative Energy Burst (3), Enervation (4), Finger of Death (7), Energy Drain (8)
+Healing: Cure Serious (2), Mass Cure Serious (4), Heal (5), 
+Plant: Entangle (1), Barkskin (2), Creeping Doom (7), Unyielding Roots (9)
+Sun: Bless Weapon (1), Searing Light (2), Sunbeam (7), Sunburst (8)
+Travel: Exp Retreat (1), Freedom (3), Haste (4), DDoor (5).
+War: Legion's Conviction (2), Legion's Shield of Faith (3), Aura of Vitality (7), Mantle of Egregrious Might (9)
+Strength: Lionheart (1), Divine Power (3), Righteous Might (4), Stoneskin (5)

@@ -1,0 +1,351 @@
+# Exported from NWmax 0.7 at 8/11/2004 9:14:38 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_doombolt
+filedependancy smp_doombolt_vpr.gmax
+newmodel smp_doombolt
+setsupermodel smp_doombolt NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_doombolt
+node dummy smp_doombolt
+  parent NULL
+endnode
+node emitter sparks
+  parent smp_doombolt
+  position 0.000314682 -5.51057e-005 0.000220792
+  orientation 0.0 0.707107 0.707107 -3.14159
+  wirecolor 0.894118 0.6 0.721569 
+  update_sel 1
+  update Fountain
+  render_sel 6
+  render Aligned_to_Particle_Dir
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 30.0
+  ySize 30.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.92549 0.827451 1.0 
+  colorEnd 0.564706 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 2.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.0
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter sparks01
+  parent smp_doombolt
+  position 0.000314682 -5.51057e-005 0.000220792
+  orientation -0.57735 0.57735 0.57735 -2.09439
+  wirecolor 0.894118 0.6 0.721569 
+  update_sel 1
+  update Fountain
+  render_sel 6
+  render Aligned_to_Particle_Dir
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 30.0
+  ySize 30.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.92549 0.827451 1.0 
+  colorEnd 0.564706 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 2.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.0
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter sparks02
+  parent smp_doombolt
+  position 0.000314682 -5.51057e-005 0.000220792
+  orientation -1.0 0.0 0.0 -1.5708
+  wirecolor 0.894118 0.6 0.721569 
+  update_sel 1
+  update Fountain
+  render_sel 6
+  render Aligned_to_Particle_Dir
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 30.0
+  ySize 30.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.92549 0.827451 1.0 
+  colorEnd 0.564706 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 2.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.0
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter sparks03
+  parent smp_doombolt
+  position 0.000314682 -5.51057e-005 0.000220792
+  orientation -0.57735 -0.57735 -0.57735 -2.09439
+  wirecolor 0.894118 0.6 0.721569 
+  update_sel 1
+  update Fountain
+  render_sel 6
+  render Aligned_to_Particle_Dir
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 30.0
+  ySize 30.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.92549 0.827451 1.0 
+  colorEnd 0.564706 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 2.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.0
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter smoke
+  parent smp_doombolt
+  position 0.0 -5.51057e-005 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.721569 0.894118 0.6 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.470588 0.0 1.0 
+  colorEnd 0.470588 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.6
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 60
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.4
+  velocity 0.3
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_smoke01
+  twosidedtex 0
+  xgrid 4
+  ygrid 4
+  fps 8
+  frameStart 0
+  frameEnd 15
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_doombolt
+donemodel smp_doombolt

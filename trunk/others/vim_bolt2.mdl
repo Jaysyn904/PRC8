@@ -1,0 +1,95 @@
+# Exported from NWmax 0.4-beta at 11/26/2003 7:58:19 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_bolt2
+filedependancy Unknown
+newmodel vim_bolt2
+setsupermodel vim_bolt2 NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_bolt2
+node dummy vim_bolt2
+  parent NULL
+endnode
+node emitter p2ptest
+  parent vim_bolt2
+  position 0.069389 1.21787 0.00633194
+  orientation 0.102024 0.725939 0.680149 -2.91493
+  wirecolor 0.721569 0.603922 0.894118 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 30.0
+     ySize 30.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0823529 0.439216 0.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.6
+     sizeEnd 0.6
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 10.0
+     lifeExp 1.0
+     mass -1.0
+     spread 45.0
+     particleRot 6.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 3.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 1
+     p2p_type Gravity
+     p2p_sel 2
+     p2p_bezier2 -1.0
+     p2p_bezier3 -4.0
+     grav 2.0
+     drag 1.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node reference p2ptest
+  parent p2ptest
+  position 0.0655625 0.111946 1.20449
+  orientation 0.616762 -0.452229 0.644278 -4.02425
+  wirecolor 0.223529 0.0313726 0.533333 
+     refModel fx_ref
+     reattachable 1
+     Dummy Dummy
+endnode
+endmodelgeom vim_bolt2
+donemodel vim_bolt2

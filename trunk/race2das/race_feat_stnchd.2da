@@ -1,0 +1,37 @@
+2DA V2.0
+
+   FeatLabel                FeatIndex 
+0  Race_Outsider            4716      
+1  darkvision               228       
+2  Natural_Armor_4          4735      
+3  WeapProfSim              46        
+4  WeapProfSim_Dart         7914      
+5  WeapProfSim_Light_Mace   7908      
+6  WeapProfSim_Morningstar  7923      
+7  WeapProfSim_Shortspear   7927      
+8  WeapProfSim_Sickle       7929      
+9  WeapProfSim_Sling        7930      
+10 ArmProfLgt               3         
+11 ArmProfMed               4         
+12 Shield                   32        
+13 WeapProfMar              45        
+14 WeapProfMar_Battleaxe    7903      
+15 WeapProfMar_Greataxe     7913      
+16 WeapProfMar_Greatsword   7912      
+17 WeapProfMar_Halberd      7909      
+18 WeapProfMar_Handaxe      7919      
+19 WeapProfMar_Heavy_Flail  7917      
+20 WeapProfMar_Light_Flail  7905      
+21 WeapProfMar_Light_Hammer 7918      
+22 WeapProfMar_Longbow      7907      
+23 WeapProfMar_Longsword    7902      
+24 WeapProfMar_Rapier       7924      
+25 WeapProfMar_Scimitar     7925      
+26 WeapProfMar_Shortbow     7910      
+27 WeapProfMar_Shortsword   7901      
+28 WeapProfMar_Throwing_Axe 7931      
+29 WeapProfMar_Trident      7932      
+30 WeapProfMar_Warhammer    7906      
+31 FEAT_IMMUNE_ACID         4782      
+32 Immune_poison            4732      
+33 Stonechild_Magic_Stone   5179      

@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1      ReqParam2 
+0 ScriptVar   VAR     PRC_AllowKotMC 0         
+1 Base_Attack BAB     6              ****      
+2 Persuade    SKILL   12             4         
+3 Bluff       SKILL   23             4         

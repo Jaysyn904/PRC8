@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1            ReqParam2 
+0 TurnUndead FEAT    294                  ****      
+1 ScriptVar  VAR     PRC_AllowRubyKnight  0         
+2 ScriptVar  VAR     PRC_PrereqRubyKnight 0         
+3 Intimidate SKILL   24                   4         
+4 Hide       SKILL   5                    4         
+5 Lore       SKILL   7                    8         

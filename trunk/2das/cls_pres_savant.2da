@@ -1,0 +1,6 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1      ReqParam2 
+0 ScriptVar VAR     PRC_ArcSpell3  0         
+1 ScriptVar VAR     PRC_AllowElSav 0         
+2 Lore      SKILL   7              8         

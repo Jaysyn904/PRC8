@@ -1,0 +1,110 @@
+# Exported from NWmax 0.5-beta at 2/15/2004 12:50:11 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_dimdoor3
+filedependancy Unknown
+newmodel vim_dimdoor3
+setsupermodel vim_dimdoor3 NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_dimdoor3
+node dummy vim_dimdoor3
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_dimdoor3
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.54902 0.345098 0.882353 
+     update_sel 1
+     update Fountain
+     render_sel 4
+     render Billboard_to_World_Z
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.917647 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 5.0
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 70.0
+     lifeExp 3.5
+     mass -0.3
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_ring02
+     twosidedtext 1
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_dimdoor3
+#NWmaxANIM ASCII
+newanim impact vim_dimdoor3
+    length 1.66667
+    transtime 0.25
+    animroot vim_dimdoor3
+    node dummy vim_dimdoor3
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vim_dimdoor3
+    endnode
+    node emitter AuroraEmitter01
+        parent vim_dimdoor3
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.63333 0.0 0.0 0.0
+            1.66667 0.0 0.0 -370.639
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            1.63333 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim impact vim_dimdoor3
+donemodel vim_dimdoor3

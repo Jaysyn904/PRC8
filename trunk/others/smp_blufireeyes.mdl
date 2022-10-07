@@ -1,0 +1,150 @@
+# Exported from NWmax 0.7 at 8/29/2004 3:51:30 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_blufireeyes
+filedependancy blue_firey_eyes.gmax
+newmodel smp_blufireeyes
+setsupermodel smp_blufireeyes NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_blufireeyes
+node dummy smp_blufireeyes
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent smp_blufireeyes
+  position -0.00333 0.074094 -0.1075
+  orientation 0.9701 0.127716 -0.206387 -1.13563
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.72549 0.803922 1.0 
+  colorEnd 0.0901961 0.196078 1.0 
+  alphaStart 0.5
+  alphaEnd 1.0
+  sizeStart 0.06
+  sizeEnd 0.12
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 12
+  lifeExp 0.5
+  mass -0.005
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flame05
+  twosidedtex 0
+  xgrid 4
+  ygrid 4
+  fps 10
+  frameStart 0
+  frameEnd 15
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter02
+  parent smp_blufireeyes
+  position 0.0583613 0.074094 -0.1075
+  orientation 0.9701 0.127716 -0.206387 -1.13563
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.72549 0.803922 1.0 
+  colorEnd 0.0901961 0.196078 1.0 
+  alphaStart 0.5
+  alphaEnd 1.0
+  sizeStart 0.06
+  sizeEnd 0.12
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 12
+  lifeExp 0.5
+  mass -0.005
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flame05
+  twosidedtex 0
+  xgrid 4
+  ygrid 4
+  fps 10
+  frameStart 0
+  frameEnd 15
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_blufireeyes
+donemodel smp_blufireeyes

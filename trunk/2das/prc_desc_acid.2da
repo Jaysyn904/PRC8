@@ -1,0 +1,17 @@
+2DA V2.0
+
+           Label               Name     School Innate SpellID 
+0          Acid_Fog            750      C      6      0       
+1          Melfs_Acid_Arrow    865      C      2      115     
+2          Acid_Splash         383      C      0      424     
+3          Mestils_Acid_Breath 3869     C      3      523     
+4          Mestils_Acid_Sheath 3871     C      5      524     
+5          Acid_Orb            16830216 C      4      3100    
+6          Acid_Storm          16830228 V      6      3106    
+7          Lesser_Acid_Orb     16830348 C      1      3144    
+8          Greenfire           16830503 V      3      3187    
+9          Elemental_Strike    16789960 V      4      3875    
+10         Energy_Surge        16826672 T      3      1827    
+11         Seething_Eyebane    16829582 T      1      2579    
+12         Serpents_Sigh       16830265 V      3      3127    
+13         Hellball            8673     V      9      636     

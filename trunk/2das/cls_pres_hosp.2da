@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL          ReqType ReqParam1     ReqParam2 
+0 Ride           SKILL   27            5         
+1 Heal           SKILL   4             5         
+2 AttackBonus    BAB     4             ****      
+3 ScriptVar      VAR     PRC_AllowHosp 0         
+4 MountedCombat  FEAT    1087          ****      
+5 MountedArchery FEAT    1088          ****      

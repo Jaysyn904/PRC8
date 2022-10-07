@@ -1,0 +1,13 @@
+2DA V2.0
+
+   Label                           Level FeatID IPFeatID SpellID RealSpellID ReqFeat 
+0  10                              ****  ****   ****     ****    ****        ****    
+1  DragonShaman_BeguilingInfluence 1     7595   4795     18269   18001       ****    
+2  DragonShaman_BreathOfTheNight   1     7596   4796     18270   18002       ****    
+3  DragonShaman_Darkness           1     7597   4797     18271   18003       ****    
+4  DragonShaman_DeafeningRoar      1     7598   4798     18272   18004       ****    
+5  DragonShaman_DraconicKnowledge  1     7599   4799     18273   18005       ****    
+6  DragonShaman_EndureExposure     1     7600   4800     18274   18006       ****    
+7  DragonShaman_MagicInsight       1     7601   4801     18275   18007       ****    
+8  DragonShaman_ScaldingGust       1     7602   4802     18276   18008       ****    
+9  DragonShaman_SeeTheUnseen       1     7603   4803     18277   18009       ****    

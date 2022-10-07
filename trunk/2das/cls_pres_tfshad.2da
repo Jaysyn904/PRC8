@@ -1,0 +1,13 @@
+2DA V2.0
+
+   LABEL        ReqType ReqParam1         ReqParam2 
+0  BlindFight   FEAT    408               ****      
+1  Dodge        FEAT    10                ****      
+2  Mobility     FEAT    26                ****      
+3  SpringAttack FEAT    392               ****      
+4  Lore         SKILL   7                 2         
+5  Hide         SKILL   5                 10        
+6  MoveSilently SKILL   8                 10        
+7  ScriptVar    VAR     PRC_AllowShaLow   0         
+8  ScriptVar    VAR     PRC_PrereqTelflam 0         
+9  ScriptVar    VAR     PRC_SneakLevel2   0         

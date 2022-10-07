@@ -1,0 +1,536 @@
+# Exported from NWmax 0.5-beta at 3/15/2004 8:15:51 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_ent_shield
+filedependancy Unknown
+newmodel vim_ent_shield
+setsupermodel vim_ent_shield NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_ent_shield
+node dummy vim_ent_shield
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vim_ent_shield
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 1.0 -0.1309
+  wirecolor 0.443137 0.52549 0.0235294 
+endnode
+node emitter OmenEmitter02
+  parent Dummy01
+  position 1.30633 -0.0247295 -0.0410335
+  orientation 1.0 0.0 0.0 -1.5708
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 200.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 0.643137 1.0 0.356863 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate -100.312
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.5
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter WIND_Dummy
+  parent vim_ent_shield
+  position -0.00249214 0.000424422 0.390378
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 1.0 1.0 1.0 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.0
+     alphaEnd 0.0
+     sizeStart 0.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp 0.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture NULL
+     twosidedtext 0
+     xgrid 0
+     ygrid 0
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 8.0
+     blastLength 1.3
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vim_ent_shield
+  position -7.39565e-005 0.000424998 0.0
+  orientation 0.0 0.0 -1.0 -1.43117
+  wirecolor 0.101961 0.694118 0.345098 
+endnode
+node emitter OmenEmitter03
+  parent Dummy02
+  position -1.37626 -0.0247294 -0.0410335
+  orientation 1.0 0.0 0.0 -1.5708
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 200.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 0.0 0.964706 1.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate -100.312
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.5
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter OmenEmitter04
+  parent Dummy02
+  position 1.30633 -0.0247295 -0.0410335
+  orientation 1.0 0.0 0.0 -1.5708
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 200.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 0.870588 0.356863 1.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate -100.312
+     lifeExp 1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.5
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_ent_shield
+#NWmaxANIM ASCII
+newanim duration vim_ent_shield
+    length 1.96667
+    transtime 0.25
+    animroot vim_ent_shield
+    event 0.0 detonate
+    event 0.0666667 detonate
+    node dummy vim_ent_shield
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vim_ent_shield
+        positionkey
+            1.96667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -0.1309
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.14159
+            0.966667 0.0 0.0 -1.0 -4.71239
+            1.3 0.0 0.0 0.0 0.0
+            1.96667 0.0 0.0 1.0 -0.124667
+        endlist
+    endnode
+    node emitter OmenEmitter02
+        parent Dummy01
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 0.564706 0.505882 0.996079 
+            0.166667 0.505882 1.0 0.960784 
+            0.333333 0.505882 1.0 0.505882 
+            0.5 0.937255 1.0 0.505882 
+            0.666667 1.0 0.505882 0.505882 
+            0.833333 1.0 0.505882 0.937255 
+            1.0 0.588235 0.505882 1.0 
+            1.16667 0.505882 1.0 0.984314 
+            1.33333 0.588235 1.0 0.505882 
+            1.5 1.0 0.937255 0.505882 
+            1.66667 1.0 0.356863 0.356863 
+            1.83333 0.356863 0.403922 1.0 
+            1.96667 0.643137 1.0 0.356863 
+        endlist
+    endnode
+    node emitter WIND_Dummy
+        parent vim_ent_shield
+    endnode
+    node dummy Dummy02
+        parent vim_ent_shield
+        positionkey
+            1.96667 -7.39565e-005 0.000424998 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.43117
+            0.333333 0.0 0.0 -1.0 -3.13287
+            0.666667 0.0 0.0 -1.0 -4.70366
+            0.966667 0.0 0.0 -1.0 -6.27446
+            1.3 0.0 0.0 -1.0 -1.56207
+            1.96667 0.0 0.0 -1.0 -1.4374
+        endlist
+    endnode
+    node emitter OmenEmitter03
+        parent Dummy02
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 1.0 0.0823529 0.92549 
+            0.166667 0.505882 1.0 0.92549 
+            0.333333 1.0 0.0 0.0 
+            0.5 0.0 1.0 0.211765 
+            0.666667 0.964706 0.0 1.0 
+            0.833333 1.0 0.635294 0.0 
+            1.0 0.505882 1.0 0.960784 
+            1.16667 0.564706 0.505882 1.0 
+            1.33333 1.0 0.505882 0.505882 
+            1.5 0.988235 1.0 0.0 
+            1.66667 0.635294 1.0 0.0 
+            1.83333 0.0 0.0470588 1.0 
+            1.96667 0.0 0.964706 1.0 
+        endlist
+    endnode
+    node emitter OmenEmitter04
+        parent Dummy02
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 0.564706 0.505882 0.996079 
+            0.166667 0.6 1.0 0.505882 
+            0.333333 1.0 0.92549 0.505882 
+            0.5 1.0 0.505882 0.505882 
+            0.666667 1.0 0.505882 0.901961 
+            0.833333 0.541176 0.505882 1.0 
+            1.0 0.0 1.0 0.917647 
+            1.16667 0.0 1.0 0.0 
+            1.33333 0.964706 1.0 0.0 
+            1.5 1.0 0.0 0.0 
+            1.66667 0.235294 1.0 0.0 
+            1.83333 0.356863 0.403922 1.0 
+            1.96667 0.870588 0.356863 1.0 
+        endlist
+    endnode
+doneanim duration vim_ent_shield
+#NWmaxANIM ASCII
+newanim cessation vim_ent_shield
+    length 1.96667
+    transtime 0.25
+    animroot vim_ent_shield
+    event 0.0 detonate
+    event 0.0666667 detonate
+    node dummy vim_ent_shield
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vim_ent_shield
+        positionkey
+            1.96667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -0.1309
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.14159
+            0.966667 0.0 0.0 -1.0 -4.71239
+            1.3 0.0 0.0 0.0 0.0
+            1.96667 0.0 0.0 1.0 -0.124667
+        endlist
+    endnode
+    node emitter OmenEmitter02
+        parent Dummy01
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 0.564706 0.505882 0.996079 
+            0.166667 0.505882 1.0 0.960784 
+            0.333333 0.505882 1.0 0.505882 
+            0.5 0.937255 1.0 0.505882 
+            0.666667 1.0 0.505882 0.505882 
+            0.833333 1.0 0.505882 0.937255 
+            1.0 0.588235 0.505882 1.0 
+            1.16667 0.505882 1.0 0.984314 
+            1.33333 0.588235 1.0 0.505882 
+            1.5 1.0 0.937255 0.505882 
+            1.66667 1.0 0.356863 0.356863 
+            1.83333 0.356863 0.403922 1.0 
+            1.96667 0.643137 1.0 0.356863 
+        endlist
+    endnode
+    node emitter WIND_Dummy
+        parent vim_ent_shield
+    endnode
+    node dummy Dummy02
+        parent vim_ent_shield
+        positionkey
+            1.96667 -7.39565e-005 0.000424998 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.43117
+            0.333333 0.0 0.0 -1.0 -3.13287
+            0.666667 0.0 0.0 -1.0 -4.70366
+            0.966667 0.0 0.0 -1.0 -6.27446
+            1.3 0.0 0.0 -1.0 -1.56207
+            1.96667 0.0 0.0 -1.0 -1.4374
+        endlist
+    endnode
+    node emitter OmenEmitter03
+        parent Dummy02
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 1.0 0.0823529 0.92549 
+            0.166667 0.505882 1.0 0.92549 
+            0.333333 1.0 0.0 0.0 
+            0.5 0.0 1.0 0.211765 
+            0.666667 0.964706 0.0 1.0 
+            0.833333 1.0 0.635294 0.0 
+            1.0 0.505882 1.0 0.960784 
+            1.16667 0.564706 0.505882 1.0 
+            1.33333 1.0 0.505882 0.505882 
+            1.5 0.988235 1.0 0.0 
+            1.66667 0.635294 1.0 0.0 
+            1.83333 0.0 0.0470588 1.0 
+            1.96667 0.0 0.964706 1.0 
+        endlist
+    endnode
+    node emitter OmenEmitter04
+        parent Dummy02
+        birthratekey
+            0.0 49.6877 
+            0.966667 49.6877 
+            1.23333 -95.3123 
+            1.3 -100.312 
+        endlist
+        colorStartkey
+            0.0 0.564706 0.505882 0.996079 
+            0.166667 0.6 1.0 0.505882 
+            0.333333 1.0 0.92549 0.505882 
+            0.5 1.0 0.505882 0.505882 
+            0.666667 1.0 0.505882 0.901961 
+            0.833333 0.541176 0.505882 1.0 
+            1.0 0.0 1.0 0.917647 
+            1.16667 0.0 1.0 0.0 
+            1.33333 0.964706 1.0 0.0 
+            1.5 1.0 0.0 0.0 
+            1.66667 0.235294 1.0 0.0 
+            1.83333 0.356863 0.403922 1.0 
+            1.96667 0.870588 0.356863 1.0 
+        endlist
+    endnode
+doneanim cessation vim_ent_shield
+donemodel vim_ent_shield

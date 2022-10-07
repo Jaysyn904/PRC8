@@ -1,0 +1,1199 @@
+# Exported from NWmax 0.8 b60 at 4/4/2006 2:26:23 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_astralseed
+#local file: C:\3dsmax7\scenes\psi_astralseed.max
+filedependancy psi_astralseed.max
+newmodel psi_astralseed
+setsupermodel psi_astralseed NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_astralseed
+node dummy psi_astralseed
+  parent NULL
+endnode
+node emitter gravity01
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.176471 0.698039 1.0 
+  colorEnd 0.176471 0.603922 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture psi_soulface
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_ref01
+  parent gravity01
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity02
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation -0.634141 0.744187 0.209883 -0.836946
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.176471 0.698039 1.0 
+  colorEnd 0.176471 0.603922 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture psi_soulface
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_ref02
+  parent gravity02
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity03
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 0.606705 -0.775373 -0.175232 -0.713154
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.176471 0.698039 1.0 
+  colorEnd 0.176471 0.603922 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture psi_soulface
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_ref03
+  parent gravity03
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity04
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 0.0 -1.0 0.0 -1.5708
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.176471 0.698039 1.0 
+  colorEnd 0.176471 0.603922 1.0 
+  alphaStart 0.8
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture psi_soulface
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_ref04
+  parent gravity04
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node trimesh crystal
+  parent psi_astralseed
+  position -0.000212765 0.99453 -0.197068
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+  tilefade 0
+  scale 1.0
+  render 1
+  Shadow 1
+  beaming 0
+  inheritcolor 0
+  rotatetexture 0
+  alpha 1.0
+  transparencyhint 0
+  selfillumcolor 0.0 1.0 0.611765 
+  Diffuse 1.0 1.0 1.0 
+  Specular 0.0 0.0 0.0 
+  center 4.76837e-007 -4.76837e-007 18.7732 
+  ambient 1.0 1.0 1.0 
+  diffuse 1.0 1.0 1.0 
+  specular 0.0 0.0 0.0 
+  shininess 10.0
+  bitmap psi_crystal
+  verts 10
+    0.0 0.0 0.0
+    0.0512068 0.0 0.14506
+    0.0 0.0512067 0.14506
+    -0.0512067 0.0 0.14506
+    0.0 -0.0512068 0.14506
+    0.0512068 0.0 0.241465
+    0.0 0.0512067 0.241465
+    -0.0512067 0.0 0.241465
+    0.0 -0.0512068 0.241465
+    0.0 0.0 0.375465
+  faces 16
+    0 2 1  8  10 11 12  3
+    0 3 2  8  13 14 15  3
+    0 4 3  8  16 17 18  3
+    0 1 4  8  0 19 20  3
+    1 6 5  8  21 22 23  3
+    1 2 6  8  24 25 26  3
+    2 7 6  8  27 28 29  3
+    2 3 7  8  2 30 31  3
+    3 8 7  8  32 33 34  3
+    3 4 8  8  3 35 36  3
+    4 5 8  8  37 38 39  3
+    4 1 5  8  4 1 40  3
+    5 6 9  8  41 42 43  3
+    6 7 9  8  6 44 45  3
+    7 8 9  8  7 46 47  3
+    8 5 9  8  8 5 9  3
+  tverts 48
+    0.0 0.0 0
+    1.0 0.0 0
+    0.0 0.0 0
+    0.0 0.0 0
+    0.0 0.0 0
+    1.0 0.0 0
+    0.0 0.0 0
+    0.0 0.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    0.0 0.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    0.0 0.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    0.0 0.0 0
+    1.0 1.0 0
+    0.0 1.0 0
+    1.0 1.0 0
+    0.0 0.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+    1.0 0.0 0
+    1.0 1.0 0
+endnode
+node emitter gravity_white01
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.807843 0.929412 1.0 
+  colorEnd 0.768628 0.890196 1.0 
+  alphaStart 0.6
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_white_ref01
+  parent gravity_white01
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity_white02
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 0.0 -1.0 0.0 -1.57281
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.807843 0.929412 1.0 
+  colorEnd 0.768628 0.890196 1.0 
+  alphaStart 0.6
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_white_ref02
+  parent gravity_white02
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity_white03
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation -0.652073 0.456745 0.605132 -1.03682
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.807843 0.929412 1.0 
+  colorEnd 0.768628 0.890196 1.0 
+  alphaStart 0.6
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_white_ref03
+  parent gravity_white03
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter gravity_white04
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 0.0815164 -0.53908 -0.838301 -1.3801
+  wirecolor 0.341176 0.878431 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 350.0
+  ySize 350.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.807843 0.929412 1.0 
+  colorEnd 0.768628 0.890196 1.0 
+  alphaStart 0.6
+  alphaEnd 0.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.25
+  mass 0.0
+  spread 0.0
+  particleRot -0.4
+  velocity 0.2
+  randvel 0.3
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 8.0
+  Drag 0.4
+endnode
+node reference grativity_white_ref04
+  parent gravity_white04
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.839216 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter explode_ring01
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.603922 0.843137 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp 0.3
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_ringwave
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter explode_ring02
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 1.0 0.0 0.0 -1.58185
+  wirecolor 0.603922 0.843137 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp 0.3
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_ringwave
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter explode_ring03
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation 0.675725 -0.737154 0.0 -0.72662
+  wirecolor 0.603922 0.843137 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp 0.3
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_ringwave
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter explode_ring04
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation -0.591728 0.805095 0.0409947 -0.813692
+  wirecolor 0.603922 0.843137 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp 0.3
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_ringwave
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+node emitter explode_ring05
+  parent psi_astralseed
+  position 0.0 1.0 0.0
+  orientation -0.554387 -0.735465 0.389547 -2.13653
+  wirecolor 0.603922 0.843137 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp 0.3
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_ringwave
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+endmodelgeom psi_astralseed
+
+#NWmax ANIM ASCII
+newanim impact psi_astralseed
+  length 3.66667
+  transtime 0.25
+  animroot psi_astralseed
+  event 3.3 detonate
+    node dummy psi_astralseed
+        parent NULL
+    endnode
+    node emitter gravity01
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_ref01
+        parent gravity01
+    endnode
+    node emitter gravity02
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_ref02
+        parent gravity02
+    endnode
+    node emitter gravity03
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_ref03
+        parent gravity03
+    endnode
+    node emitter gravity04
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_ref04
+        parent gravity04
+    endnode
+    node trimesh crystal
+        parent psi_astralseed
+        positionkey
+            0.0 -0.000212765 0.99453 -0.197068
+            3.3 -0.000212765 0.99453 -0.197068
+            3.33333 -0.000212765 0.99453 -1970.7
+            3.66667 -0.000212765 0.99453 -1970.7
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            3.3 0.0 0.0 0.0 0.0
+            3.33333 0.0 0.0 0.0 0.0
+            3.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter gravity_white01
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_white_ref01
+        parent gravity_white01
+    endnode
+    node emitter gravity_white02
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_white_ref02
+        parent gravity_white02
+    endnode
+    node emitter gravity_white03
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_white_ref03
+        parent gravity_white03
+    endnode
+    node emitter gravity_white04
+        parent psi_astralseed
+        birthratekey
+            0.0 0 
+            0.5 40 
+            2.83333 40 
+            3.33333 0 
+        endlist
+    endnode
+    node reference grativity_white_ref04
+        parent gravity_white04
+    endnode
+    node emitter explode_ring01
+        parent psi_astralseed
+    endnode
+    node emitter explode_ring02
+        parent psi_astralseed
+    endnode
+    node emitter explode_ring03
+        parent psi_astralseed
+    endnode
+    node emitter explode_ring04
+        parent psi_astralseed
+    endnode
+    node emitter explode_ring05
+        parent psi_astralseed
+    endnode
+doneanim impact psi_astralseed
+
+donemodel psi_astralseed

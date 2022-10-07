@@ -1,0 +1,192 @@
+# Exported from NWmax 0.5-beta at 3/20/2004 6:38:07 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_earthqk
+filedependancy vff_earthquake.gmax
+newmodel vim_earthqk
+setsupermodel vim_earthqk NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_earthqk
+node dummy vim_earthqk
+  parent NULL
+endnode
+node emitter Sparkles02
+  parent vim_earthqk
+  position 0.0 0.000557861 -0.200158
+  orientation 1.0 -2.99583e-005 -0.000133258 -4.53935e-007
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 12.0
+     ySize 12.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.07
+     sizeEnd 0.07
+     sizeStart_y 1.8
+     sizeEnd_y 0.0
+     birthrate 400.0
+     lifeExp -1.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 0
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 3.0
+     drag 0.4
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Sparkles01
+  parent vim_earthqk
+  position 0.0 0.0 -0.200158
+  orientation 1.0 -2.99583e-005 -0.000133258 -4.53935e-007
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 12.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.07
+     sizeEnd 0.07
+     sizeStart_y 1.8
+     sizeEnd_y 1.8
+     birthrate 400.0
+     lifeExp -1.0
+     mass 0.0
+     spread 0.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 0
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 3.0
+     drag 0.4
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_earthqk
+#NWmaxANIM ASCII
+newanim impact vim_earthqk
+    length 6.33333
+    transtime 0.25
+    animroot vim_earthqk
+    node dummy vim_earthqk
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vim_earthqk
+    endnode
+    node emitter Sparkles02
+        parent vim_earthqk
+        positionkey
+            0.0 0.0 -10.0288 -0.200158
+            0.333333 -2.05963 -6.90113 -0.200158
+            0.666667 0.00558075 -3.99092 -0.200158
+            1.0 -1.17845 -0.000544586 -0.200158
+            1.33333 -0.004758 2.95978 -0.200158
+            1.66667 -1.73214 6.55664 -0.200158
+            2.0 -0.0203665 9.01714 -0.200158
+        endlist
+    endnode
+    node emitter Sparkles01
+        parent vim_earthqk
+        positionkey
+            0.0 0.0 -10.0293 -0.200158
+            0.333333 -0.902759 -6.90169 -0.200158
+            0.666667 2.02398 -3.99148 -0.200158
+            1.0 0.185356 -0.00110245 -0.200158
+            1.33333 1.56244 2.95922 -0.200158
+            1.66667 -0.0947308 6.55609 -0.200158
+            2.0 -0.0203665 9.01658 -0.200158
+        endlist
+    endnode
+doneanim impact vim_earthqk
+donemodel vim_earthqk

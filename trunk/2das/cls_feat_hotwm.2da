@@ -1,0 +1,21 @@
+2DA V2.0
+
+   FeatLabel                     FeatIndex List GrantedOnLevel OnMenu 
+0  **Class_feats**               ****      **** ****           ****   
+1  FEAT_DRACONIC_SENSES          3897      3    1              0      
+2  FEAT_DRAGONFIRE_STRIKE        3949      3    3              1      
+3  Masters_Gift                  3951      3    7              0      
+4  FEAT_IMP_DRAGONFIRE_STRIKE    3950      3    9              0      
+5  True_Stealth                  3952      3    10             1      
+6  ****                          ****      **** ****           ****   
+7  **Bonus_Feats**               ****      **** ****           ****   
+8  FEAT_SPECIAL_SNEAK_ATTACK_1D6 3939      2    -1             0      
+9  FEAT_SPECIAL_SNEAK_ATTACK_2D6 3940      2    -1             0      
+10 FEAT_SPECIAL_SNEAK_ATTACK_3D6 3941      2    -1             0      
+11 FEAT_SPECIAL_SNEAK_ATTACK_4D6 3942      2    -1             0      
+12 FEAT_SPECIAL_SNEAK_ATTACK_5D6 3943      2    -1             0      
+13 FEAT_SPECIAL_SKIRMISH_1D6     3944      2    -1             0      
+14 FEAT_SPECIAL_SKIRMISH_2D6     3945      2    -1             0      
+15 FEAT_SPECIAL_SKIRMISH_3D6     3946      2    -1             0      
+16 FEAT_SPECIAL_SKIRMISH_4D6     3947      2    -1             0      
+17 FEAT_SPECIAL_SKIRMISH_5D6     3948      2    -1             0      

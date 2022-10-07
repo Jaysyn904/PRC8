@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1           ReqParam2 
+0 Alertness   FEAT    0                   ****      
+1 Track       FEAT    2569                ****      
+2 Lore        SKILL   7                   4         
+3 Search      SKILL   14                  4         
+4 SenseMotive SKILL   30                  2         
+5 Spot        SKILL   17                  2         
+6 ScriptVar   VAR     PRC_PrereqWitchborn 0         
+7 ScriptVar   VAR     PRC_AllowWitchborn  0         

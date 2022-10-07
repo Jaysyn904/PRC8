@@ -1,0 +1,102 @@
+# Exported from NWmax 0.8 b56 at 12/18/2005 9:56:51 AM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_reagony
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_reagony
+setsupermodel psi_reagony NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_reagony
+node dummy psi_reagony
+  parent NULL
+endnode
+node emitter light_explode
+  parent psi_reagony
+  position 0.0 0.0 -0.27502
+  orientation 1.0 0.0 0.0 -4.71239
+  wirecolor 0.894118 0.6 0.721569 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 40.0
+  ySize 80.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.988235 1.0 
+  colorEnd 0.807843 0.996079 1.0 
+  alphaStart 1.0
+  alphaEnd 0.1
+  sizeStart 0.2
+  sizeEnd 0.05
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 1.3
+  randvel 1.8
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom psi_reagony
+#NWmax ANIM ASCII
+newanim impact psi_reagony
+  length 1.16667
+  transtime 0.25
+  animroot psi_reagony
+    node dummy psi_reagony
+        parent NULL
+    endnode
+    node emitter light_explode
+        parent psi_reagony
+        birthratekey
+            0.0 0 
+            0.133333 175 
+            1.0 175 
+            1.16667 0 
+        endlist
+    endnode
+doneanim impact psi_reagony
+donemodel psi_reagony

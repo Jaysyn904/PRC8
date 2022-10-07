@@ -1,0 +1,24 @@
+2DA V2.0
+
+   LABEL               ReqType ReqParam1         ReqParam2 
+0  Hide                SKILL   5                 4         
+1  Spot                SKILL   17                6         
+2  CraftWeapon         SKILL   26                3         
+3  PBShot              FEAT    27                ****      
+4  RapidShot           FEAT    30                ****      
+5  WeapProfSim         FEATOR  46                ****      
+6  WeapProfDruid       FEATOR  48                ****      
+7  WeapProfMonk        FEATOR  49                ****      
+8  WeapProfRogue       FEATOR  50                ****      
+9  WeapProfEx          FEATOR  7930              ****      
+10 Base_Attack         BAB     5                 ****      
+11 Halfling            RACE    3                 ****      
+12 DSHalfling          RACE    37                ****      
+13 Kender              RACE    49                ****      
+14 GlimmerskinHalfling RACE    109               ****      
+15 GhostwiseHalfling   RACE    190               ****      
+16 TundraHalfling      RACE    191               ****      
+17 StrongheartHalfling RACE    192               ****      
+18 TallfellowHalfling  RACE    193               ****      
+19 DeepHalfling        RACE    194               ****      
+20 ScriptVar           VAR     PRC_AllowWarsling 0         

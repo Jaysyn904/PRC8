@@ -1,0 +1,18 @@
+2DA V2.0
+
+   FeatLabel                FeatIndex List GrantedOnLevel OnMenu 
+0  FEAT_BLARCH_POISON_BLOOD 4200      3    1              1      
+1  FEAT_BLARCH_ACID_BLOOD   4201      3    2              0      
+2  FEAT_BLARCH_REGEN_1      4202      3    4              0      
+3  FEAT_BLARCH_REGEN_2      4203      3    7              0      
+4  FEAT_BLARCH_BBOW_1       4204      3    3              0      
+5  FEAT_BLARCH_BBOW_2       4205      3    6              0      
+6  FEAT_BLARCH_BBOW_3       4206      3    9              0      
+7  FEAT_BLARCH_SNEAK_1      4207      3    5              0      
+8  FEAT_BLARCH_SNEAK_2      4208      3    8              0      
+9  FEAT_BLARCH_SNEAK_3      4209      3    10             0      
+10 FEAT_EPIC_BLINDING_SPEED 491       0    -1             1      
+11 DefArrow                 8         0    -1             0      
+12 TwoWeap                  41        0    -1             0      
+13 Ambidex                  1         0    -1             0      
+14 FEAT_LINGERING_DAMAGE    3099      0    -1             0      

@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1       ReqParam2 
+0 BaseAttack BAB     3               ****      
+1 ScriptVar  VAR     PRC_DivSpell3   0         
+2 TurnUndead FEAT    294             ****      
+3 ScriptVar  VAR     PRC_AllowSwiftW 0         

@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1      ReqParam2 
+0 Lore          SKILL   7              6         
+1 Concentration SKILL   1              6         
+2 ScriptVar     VAR     PRC_ArcSpell2  0         
+3 ScriptVar     VAR     PRC_PsiPower2  0         
+4 ScriptVar     VAR     PRC_AllowCereb 0         

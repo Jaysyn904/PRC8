@@ -1,0 +1,270 @@
+# Exported from NWmax 0.5-beta at 3/17/2004 2:50:45 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vpr_magmissle
+filedependancy Unknown
+newmodel vpr_magmissle
+setsupermodel vpr_magmissle NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vpr_magmissle
+node dummy vpr_magmissle
+  parent NULL
+endnode
+node light AuroraLight02
+  parent vpr_magmissle
+  position -0.000731277 0.0812304 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 1.0 1.0 1.0 
+  radius 5.0
+  multiplier 2.0
+  color 0.871537 0.623593 0.0 
+  ambientonly 0
+  nDynamicType 0
+  affectDynamic 1
+  shadow 1
+  lightpriority 1
+  fadingLight 1
+endnode
+node emitter fire
+  parent vpr_magmissle
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 6
+     render Aligned_to_Particle_Dir
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 0.0 0.0 0.0 
+     colorEnd 0.262745 0.262745 0.262745 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 7.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 220.0
+     lifeExp 0.2
+     mass 0.0
+     spread 6.28319
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flame00
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter sparks
+  parent vpr_magmissle
+  position 0.0 -0.040911 0.0
+  orientation 0.57735 -0.57735 -0.577351 -2.09439
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 1
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.87451 0.690196 0.294118 
+     colorEnd 0.662745 0.266667 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.7
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 50.0
+     lifeExp 1.0
+     mass 0.0
+     spread 3.49066
+     particleRot 0.5
+     velocity 1.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sparks
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 15
+     frameStart 0
+     frameEnd 15
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node light AuroraLight01
+  parent vpr_magmissle
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 1.0 1.0 1.0 
+  radius 200.0
+  multiplier 1.0
+  color 1.0 0.607843 0.486275 
+  ambientonly 0
+  nDynamicType 0
+  affectDynamic 1
+  shadow 1
+  lightpriority 1
+  fadingLight 0
+  flareradius 100.0
+  texturenames 5
+    FXPA_LENSFLARE
+    fxpa_flarel
+    FXPA_LENSRING
+    FXPA_LENSRING
+    fxpa_flarel
+  flaresizes 5
+    10.0
+    3.0
+    4.0
+    7.0
+    10.0
+  flarepositions 5
+    1.0
+    0.9
+    0.8
+    0.5
+    0.0
+  flarecolorshifts 5
+    0.0 0.0 0.0
+    0.0 0.0 0.0
+    0.0 0.0 0.0
+    0.0 0.0 0.0
+    0.0 0.0 0.0
+endnode
+endmodelgeom vpr_magmissle
+#NWmaxANIM ASCII
+newanim travel01 vpr_magmissle
+    length 0.533333
+    transtime 0.25
+    animroot vpr_magmissle
+    node dummy vpr_magmissle
+        parent NULL
+    endnode
+    node light AuroraLight02
+        parent vpr_magmissle
+        positionkey
+            0.0 -0.000731277 0.0812304 0.0
+            0.533333 -0.000731277 0.0812304 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.533333 0.0 0.0 0.0 0.0
+        endlist
+        colorkey
+            0.0333333 0.890196 0.701961 0.137255 
+            0.1 0.929411 0.866667 0.435294 
+            0.133333 0.890196 0.701961 0.137255 
+            0.2 0.929411 0.866667 0.435294 
+            0.233333 0.890196 0.701961 0.137255 
+            0.3 0.929411 0.866667 0.435294 
+            0.4 0.890196 0.701961 0.137255 
+            0.466667 0.929411 0.866667 0.435294 
+            0.5 0.0 0.0 0.0 
+        endlist
+    endnode
+    node emitter fire
+        parent vpr_magmissle
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.533333 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -2.6226e-006
+            0.533333 -1.0 0.0 0.0 -2.6226e-006
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vpr_magmissle
+    endnode
+    node emitter sparks
+        parent vpr_magmissle
+        positionkey
+            0.0 0.0 -0.040911 0.0
+            0.533333 0.0 -0.040911 0.0
+        endlist
+        orientationkey
+            0.0 -0.577351 -0.577351 0.577349 -2.0944
+            0.533333 -0.577351 -0.577351 0.577349 -2.0944
+        endlist
+    endnode
+    node light AuroraLight01
+        parent vpr_magmissle
+    endnode
+doneanim travel01 vpr_magmissle
+donemodel vpr_magmissle

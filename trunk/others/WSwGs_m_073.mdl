@@ -1,0 +1,17 @@
+# Exported from NWmax 0.6 at 09/08/2006 07:53:55
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: WSwGs_m_073
+filedependancy bonesnap.gmax
+newmodel WSwGs_m_073
+setsupermodel WSwGs_m_073 NULL
+classification Character
+setanimationscale 1.0
+#NWmax GEOM  ASCII
+beginmodelgeom WSwGs_m_073
+node dummy WSwGs_m_073
+  parent NULL
+endnode
+endmodelgeom WSwGs_m_073
+donemodel WSwGs_m_073

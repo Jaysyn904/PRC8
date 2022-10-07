@@ -1,0 +1,67 @@
+# HIF files may consist of any of the following tags.  All tags are optional.
+# Tags that support multiple data items may have the data comma separated and/or
+# may have multiple entries.  If a multiple entries are given for a tag that only
+# supports 1 value then the fist value in the file is used.  Blank lines are ignored
+# as are lines starting with a '#'.
+#
+# Tag format is 
+#
+# <tag> : <value1>, <value2>, ..., <valuen>
+#
+# All white space is optional, and tags may also be given on multiple lines
+# as follows:
+#
+# <tag> : <value1>
+# <tag> : <value2>
+# ...
+# <tag> : <valuen>
+#
+# The following tags are supported:
+#
+# erf : Imports the listed erf files into the module
+# module.Hak : haks to add to the module
+# module.CustomTlk : Custom tlk file for the module, only 1 value.
+# module.Cache : Adds the given scripts the module's script cache.
+# module.OnAcquireItem : Assigns script(s) to handle this module event
+# module.OnActivateItem : Assigns script(s) to handle this module event
+# module.OnClientEnter : Assigns script(s) to handle this module event
+# module.OnClientLeave : Assigns script(s) to handle this module event
+# module.OnCutsceneAbort : Assigns script(s) to handle this module event
+# module.OnHeartbeat : Assigns script(s) to handle this module event
+# module.OnModuleLoad : Assigns script(s) to handle this module event
+# module.OnModuleStart : Assigns script(s) to handle this module event
+# module.OnPlayerDeath : Assigns script(s) to handle this module event
+# module.OnPlayerDying : Assigns script(s) to handle this module event
+# module.OnPlayerEquipItem : Assigns script(s) to handle this module event
+# module.OnPlayerLevelUp : Assigns script(s) to handle this module event
+# module.OnPlayerRest : Assigns script(s) to handle this module event
+# module.OnPlayerUnEquipItem : Assigns script(s) to handle this module event
+# module.OnPlayerRespawn : Assigns script(s) to handle this module event
+# module.OnUnaquireItem : Assigns script(s) to handle this module event
+# module.OnUserDefined : Assigns script(s) to handle this module event
+
+# Import there ERF files into the module.
+erf : spellpak.erf, prc_consortium.erf
+
+# Haks and custom tlk's used by the module.
+module.Hak : spellPRCMerge.hak, spellPak.hak, prc_consortium.hak
+module.CustomTlk : spellsPRCMerge.tlk
+
+# Events that need to be wired up.
+module.OnClientEnter : prc_onenter
+module.OnPlayerLevelUp : prc_levelup
+module.OnPlayerEquipItem : prc_equip
+module.OnPlayerUnequipItem : prc_unequip
+
+# Cache PRC scripts for better performance.
+module.Cache : screen_targets
+module.Cache : prc_caster_level
+module.Cache : set_damage_type
+module.Cache : change_metamagic
+module.Cache : add_spell_dc
+module.Cache : add_spell_penetr
+module.Cache : add_damage
+module.Cache : add_damageshield
+module.Cache : add_randdamage
+module.Cache : add_healing
+module.Cache : add_hitpoints

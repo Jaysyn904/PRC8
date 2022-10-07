@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL           ReqType ReqParam1       ReqParam2 
+0 ScriptVar       VAR     PRC_AllowWWolf  0         
+1 TrueLyncathrope FEATOR  3520            ****      
+2 IronWill        FEATOR  22              ****      
+3 ScriptVar       VAR     PRC_PrereqWWolf 0         

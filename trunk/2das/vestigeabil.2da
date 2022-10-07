@@ -1,0 +1,177 @@
+2DA V2.0
+
+    Ability                        Vestige     VestigeNum 
+0   ****                           ****        ****       
+1   Darkvision                     Amon        1          
+2   "Fire Breath"                  Amon        1          
+3   "Ram Attack"                   Amon        1          
+4   "Dwarven Step"                 Aym         2          
+5   "Halo of Fire"                 Aym         2          
+6   "Improved Disarm"              Aym         2          
+7   "Medium Armor Proficiency"     Aym         2          
+8   "Resistance to Fire"           Aym         2          
+9   "Ruinous Attack"               Aym         2          
+10  "Hide Bonus"                   Leraje      3          
+11  "Low-Light Vision"             Leraje      3          
+12  "Point Blank Shot"             Leraje      3          
+13  Ricochet                       Leraje      3          
+14  "Weapon Proficiency"           Leraje      3          
+15  "Disguise Self"                Naberius    4          
+16  "Faster Ability Healing"       Naberius    4          
+17  "Naberius's Skills"            Naberius    4          
+18  "Persuasive Words"             Naberius    4          
+19  "Silver Tongue"                Naberius    4          
+20  "Cold Iron and Magic Attacks"  Ronove      5          
+21  "Far Hand"                     Ronove      5          
+22  "Ronove's Fists"               Ronove      5          
+23  Sprint                         Ronove      5          
+24  "Mad Soul"                     DahlverNar  6          
+25  "Maddening Moan"               DahlverNar  6          
+26  "Natural Armor"                DahlverNar  6          
+27  "Shield Self"                  DahlverNar  6          
+28  "Confusing Touch"              Haagenti    7          
+29  "Immunity to Transformation"   Haagenti    7          
+30  "Shield Proficiency"           Haagenti    7          
+31  "Weapon Proficiency"           Haagenti    7          
+32  "Arcane Eye"                   Malphas     8          
+33  Invisibility                   Malphas     8          
+34  "Poison Use"                   Malphas     8          
+35  "Sneak Attack"                 Malphas     8          
+36  "Call Armor"                   Savnok      9          
+37  "Heavy Armor Proficiency"      Savnok      9          
+38  "Move Ally"                    Savnok      9          
+39  "Savnok's Armor"               Savnok      9          
+40  "Jester's Mirth"               Andromalius 10         
+41  "Locate Item"                  Andromalius 10         
+42  "See the Unseen"               Andromalius 10         
+43  "Sense Trickery"               Andromalius 10         
+44  "Sneak Attack"                 Andromalius 10         
+45  "Aura of Sadness"              Focalor     11         
+46  "Focalor's Breath"             Focalor     11         
+47  "Lightning Strike"             Focalor     11         
+48  "Water Breathing"              Focalor     11         
+49  "Heavy Magic"                  Karsus      12         
+50  "Karsus's Senses"              Karsus      12         
+51  "Karsus's Touch"               Karsus      12         
+52  "Karsus's Will"                Karsus      12         
+53  "Paimon's Blades"              Paimon      13         
+54  "Paimon's Dexterity"           Paimon      13         
+55  "Paimon's Skills"              Paimon      13         
+56  "Uncanny Dodge"                Paimon      13         
+57  "Whirlwind Attack"             Paimon      13         
+58  "Dance of Death"               Paimon      13         
+59  "Earth and Air Mastery"        Agares      14         
+60  "Earthshaking Step"            Agares      14         
+61  "Elemental Companion"          Agares      14         
+62  "Immunity to Fear"             Agares      14         
+63  "Weapon Proficiency"           Andras      15         
+64  Mount                          Andras      15         
+65  "Saddle Sure"                  Andras      15         
+66  "Smite Good or Evil"           Andras      15         
+67  "Sow Discord"                  Andras      15         
+68  "Sure Blows"                   Andras      15         
+69  "Buer's Knowledge"             Buer        16         
+70  "Buer's Purity"                Buer        16         
+71  "Delay Diseases and Poisons"   Buer        16         
+72  "Fast Healing"                 Buer        16         
+73  "Healing Gift"                 Buer        16         
+74  Track                          Buer        16         
+75  "Animal Friend"                Eurynome    17         
+76  "Damage Reduction"             Eurynome    17         
+77  "Eurynome's Maul"              Eurynome    17         
+78  "Poison Blood"                 Eurynome    17         
+79  "Deeper Darkness"              Tenebrous   18         
+80  "See in Darkness"              Tenebrous   18         
+81  "Touch of the Void"            Tenebrous   18         
+82  "Turn Undead"                  Tenebrous   18         
+83  "Vessel of Emptiness"          Tenebrous   18         
+84  "Psionic Boon"                 Arete       19         
+85  Resistance                     Arete       19         
+86  "Damage Reduction"             Arete       19         
+87  Repletion                      Arete       19         
+88  "Angelic Lore"                 Astaroth    20         
+89  "Astaroth's Breath"            Astaroth    20         
+90  "Honeyed Tongue"               Astaroth    20         
+91  "Master Craftsman"             Astaroth    20         
+92  "Word of Astaroth"             Astaroth    20         
+93  "Detect Undead"                Acererak    21         
+94  "Hide from Undead"             Acererak    21         
+95  "Lich's Energy Immunities"     Acererak    21         
+96  "Paralyzing Touch"             Acererak    21         
+97  "Undead Healing"               Acererak    21         
+98  "Balam's Cunning"              Balam       22         
+99  "Icy Glare"                    Balam       22         
+100 Prescience                     Balam       22         
+101 "Weapon Finesse"               Balam       22         
+102 "Awe of Dantalion"             Dantalion   23         
+103 "Dantalion Knows"              Dantalion   23         
+104 "Read Thoughts"                Dantalion   23         
+105 "Thought Travel"               Dantalion   23         
+106 "Acidic Glare"                 Geryon      24         
+107 "All-Around Vision"            Geryon      24         
+108 "See in Darkness"              Geryon      24         
+109 "Swift Flight"                 Geryon      24         
+110 "Air Blast"                    Otiax       25         
+111 "Concealing Mist"              Otiax       25         
+112 "Open Portal"                  Otiax       25         
+113 Unlock                         Otiax       25         
+114 "Aura of Despair"              Chupoclops  26         
+115 "Ethereal Watcher"             Chupoclops  26         
+116 Bite                           Chupoclops  26         
+117 Pounce                         Chupoclops  26         
+118 Soulsense                      Chupoclops  26         
+119 "Inaccessible Mind"            Haures      27         
+120 "Incorporeal Movement"         Haures      27         
+121 "Major Image"                  Haures      27         
+122 "Phantasmal Killer"            Haures      27         
+123 "Cold Iron Claws"              Ipos        28         
+124 "Flash of Insight"             Ipos        28         
+125 "Ipos's Influence"             Ipos        28         
+126 Rend                           Ipos        28         
+127 "Freedom of Movement"          Shax        29         
+128 "Immunity to Electricity"      Shax        29         
+129 "Storm Strike"                 Shax        29         
+130 Aversion                       Zagan       30         
+131 "Improved Grapple"             Zagan       30         
+132 Scent                          Zagan       30         
+133 Constrict                      Zagan       30         
+134 "Lizard Bane"                  Zagan       30         
+135 "Fear Aura"                    Vanus       31         
+136 "Free Ally"                    Vanus       31         
+137 "Noble Disdain"                Vanus       31         
+138 "Vanus's Ears"                 Vanus       31         
+139 "Psionic Boon"                 TheTriad    32         
+140 "Gorn's Knowledge"             TheTriad    32         
+141 "Rujsha's Justice"             TheTriad    32         
+142 "Mintar's Honor"               TheTriad    32         
+143 City-Dweller                   Desharis    33         
+144 "Infinite Doors"               Desharis    33         
+145 "Smite Natural Soul"           Desharis    33         
+146 "Spirits of the City"          Desharis    33         
+147 "Alien Form"                   Zceryll     34         
+148 "Alien Mind"                   Zceryll     34         
+149 "Bolts of Madness"             Zceryll     34         
+150 "Summon Alien"                 Zceryll     34         
+151 "Chromatic Strike"             Eligor      35         
+152 "Eligor's Skill in the Saddle" Eligor      35         
+153 "Eligor's Strength"            Eligor      35         
+154 "Eligor's Resilience"          Eligor      35         
+155 "Heavy Armor Proficiency"      Eligor      35         
+156 "Death Attack"                 Marchosias  36         
+157 "Fiery Retribution"            Marchosias  36         
+158 "Smoke Form"                   Marchosias  36         
+159 "Silent and Sure"              Marchosias  36         
+160 "Ashardalon's Creed"           Ashardalon  37         
+161 "Ashardalon's Presence"        Ashardalon  37         
+162 "Ashardalon's Vigor"           Ashardalon  37         
+163 "Fiend's Heart"                Ashardalon  37         
+164 "Damage Reduction"             Halphax     38         
+165 "Halphax's Knowledge"          Halphax     38         
+166 Imprison                       Halphax     38         
+167 "Iron Defenses"                Halphax     38         
+168 "Secure Shelter"               Halphax     38         
+169 Blindsight                     Orthos      39         
+170 Displacement                   Orthos      39         
+171 "Whirlwind Breath"             Orthos      39         
+172 "Psionic Boon"                 Abysm       40         
+173 Overpower                      Abysm       40         

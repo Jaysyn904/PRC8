@@ -1,0 +1,243 @@
+# Exported from NWmax 0.8 b45 at 7/15/2005 8:42:30 AM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_shadbody
+filedependancy Unknown
+newmodel psi_shadbody
+setsupermodel psi_shadbody NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_shadbody
+node dummy psi_shadbody
+  parent NULL
+endnode
+node emitter smoke
+  parent psi_shadbody
+  position 0.0 0.0 0.0522221
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.694118 0.101961 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 1
+  Blend Normal
+  spawnType 0
+  xSize 100.0
+  ySize 100.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.0 0.0 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 0.8
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 30
+  lifeExp 2.3
+  mass -0.15
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.01
+  randvel 0.01
+  bounce_co 0.0
+  blurlength 60.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_smoke01
+  twosidedtex 1
+  xgrid 4
+  ygrid 4
+  fps 10
+  frameStart 0
+  frameEnd 15
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter smoke_grav
+  parent psi_shadbody
+  position 0.0 0.0 0.05
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 1
+  Blend Normal
+  spawnType 0
+  xSize 275.0
+  ySize 275.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.0 0.0 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 0.1
+  sizeEnd 0.6
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 100.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_smoke01
+  twosidedtex 0
+  xgrid 4
+  ygrid 4
+  fps 10
+  frameStart 0
+  frameEnd 15
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  drag 0.0
+endnode
+node reference smoke_gravity_ref
+  parent smoke_grav
+  position 0.0 0.0 0.05
+  orientation -1.0 0.0 0.0 -3.1416
+  wirecolor 0.423529 0.0313726 0.533333 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom psi_shadbody
+#NWmax ANIM ASCII
+newanim impact psi_shadbody
+  length 0.666667
+  transtime 0.25
+  animroot psi_shadbody
+  event 0.0 blur_start
+  event 0.666667 blur_start
+    node dummy psi_shadbody
+        parent NULL
+    endnode
+    node emitter smoke
+        parent psi_shadbody
+        birthratekey
+            0.0 0 
+            0.666667 30 
+        endlist
+    endnode
+    node emitter smoke_grav
+        parent psi_shadbody
+        birthratekey
+            0.0 0 
+            0.666667 75 
+        endlist
+    endnode
+    node reference smoke_gravity_ref
+        parent smoke_grav
+    endnode
+doneanim impact psi_shadbody
+#NWmax ANIM ASCII
+newanim duration psi_shadbody
+  length 0.666667
+  transtime 0.25
+  animroot psi_shadbody
+  event 0.0 blur_start
+  event 0.666667 blur_start
+    node dummy psi_shadbody
+        parent NULL
+    endnode
+    node emitter smoke
+        parent psi_shadbody
+        birthratekey
+            0.0 30 
+            0.666667 30 
+        endlist
+    endnode
+    node emitter smoke_grav
+        parent psi_shadbody
+        birthratekey
+            0.0 75 
+            0.666667 75 
+        endlist
+    endnode
+    node reference smoke_gravity_ref
+        parent smoke_grav
+    endnode
+doneanim duration psi_shadbody
+#NWmax ANIM ASCII
+newanim cessation psi_shadbody
+  length 0.666667
+  transtime 0.25
+  animroot psi_shadbody
+  event 0.0 blur_start
+  event 0.666667 blur_end
+    node dummy psi_shadbody
+        parent NULL
+    endnode
+    node emitter smoke
+        parent psi_shadbody
+        birthratekey
+            0.0 30 
+            0.666667 0 
+        endlist
+    endnode
+    node emitter smoke_grav
+        parent psi_shadbody
+        birthratekey
+            0.0 75 
+            0.666667 0 
+        endlist
+    endnode
+    node reference smoke_gravity_ref
+        parent smoke_grav
+    endnode
+doneanim cessation psi_shadbody
+donemodel psi_shadbody

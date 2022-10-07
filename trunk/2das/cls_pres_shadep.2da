@@ -1,0 +1,15 @@
+2DA V2.0
+
+   LABEL       ReqType ReqParam1        ReqParam2 
+0  Lore        SKILL   7                8         
+1  Spellcraft  SKILL   16               8         
+2  ShadowWeave FEAT    2960             ****      
+3  Silent      FEATOR  33               ****      
+4  StillSpell  FEATOR  37               ****      
+5  MaxSpell    FEATOR  25               ****      
+6  Empower     FEATOR  11               ****      
+7  ExtSpell    FEATOR  12               ****      
+8  Quicken     FEATOR  29               ****      
+9  ScriptVar   VAR     PRC_AllowShadAde 0         
+10 ScriptVar   VAR     PRC_ArcSpell3    0         
+11 ScriptVar   VAR     PRC_PrereqShadAd 0         
