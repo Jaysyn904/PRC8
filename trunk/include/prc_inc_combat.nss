@@ -1157,6 +1157,8 @@ int GetIsMonkWeaponTypeOrUnarmed(int iWeaponType)
 {
     return  (   iWeaponType == BASE_ITEM_INVALID
                 || iWeaponType == BASE_ITEM_KAMA
+				|| iWeaponType == BASE_ITEM_SAI
+				|| iWeaponType == BASE_ITEM_NUNCHAKU
             );
 }
 
@@ -8949,4 +8951,3 @@ void PerformAttack(object oDefender, object oAttacker,
     else
         AttackLoopMain(oDefender, oAttacker, 0, 1, 0, iAttackBonusMod, sAttackVars, sMainWeaponDamage, sOffHandWeaponDamage, sSpellBonusDamage);
 }
-

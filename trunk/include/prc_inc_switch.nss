@@ -771,9 +771,12 @@ const string MARKER_Q                                = "Marker_Q";
 const string PRC_STAFF_CASTER_LEVEL                  = "PRC_STAFF_CASTER_LEVEL";
 
 /**
+ * [DEFUNCT]
  * A wand must be equipped before it can cast a spell
  * 
  * Any value above 0 turns off the requirement to have a wand equipped to use it
+ *
+ * This switch is defunct, wands must *always* be equipped to use them.
  */
 const string PRC_EQUIP_WAND                          = "PRC_EQUIP_WAND";
 
@@ -2384,6 +2387,7 @@ const string PRC_DB_MYSQL                            = "PRC_DB_MYSQL";
 
 
 /**
+ * [DEFUNCT]
  * This will precache 2da files into the database.
  * The first time a module runs with this set it will lag a lot for a long time
  * as the game does 2da reads.
@@ -2394,28 +2398,33 @@ const string PRC_DB_MYSQL                            = "PRC_DB_MYSQL";
 const string PRC_DB_PRECACHE                         = "PRC_DB_PRECACHE";
 
 /**
+ * [DEFUNCT]
  * TODO: Write description.
  */
 const string PRC_USE_LETOSCRIPT                      = "PRC_USE_LETOSCRIPT";
 
 /**
+ * [DEFUNCT]
  * Set this to 1 if using build 18
  */
 const string PRC_LETOSCRIPT_PHEONIX_SYNTAX           = "PRC_LETOSCRIPT_PHEONIX_SYNTAX";
 
 /**
+ * [DEFUNCT]
  * Set this to 1 to have Letoscript convert stat boosts on the hide to
  * permanent ones.
  */
 const string PRC_LETOSCRIPT_FIX_ABILITIES            = "PRC_LETOSCRIPT_FIX_ABILITIES";
 
 /**
+ * [DEFUNCT]
  * Letoscript needs a string named PRC_LETOSCRIPT_NWN_DIR set to the
  * directory of NWN. If it doesnt work, try different slash options: // \\ / \
  */
 const string PRC_LETOSCRIPT_NWN_DIR                  = "PRC_LETOSCRIPT_NWN_DIR";
 
 /**
+ * [DEFUNCT]
  * Switch so that Unicorn will use the SQL database for SCO/RCO
  * Must have the zeoslib.dlls installed for this
  *
@@ -2424,6 +2433,7 @@ const string PRC_LETOSCRIPT_NWN_DIR                  = "PRC_LETOSCRIPT_NWN_DIR";
 const string PRC_LETOSCRIPT_UNICORN_SQL              = "PRC_LETOSCRIPT_UNICORN_SQL";
 
 /**
+ * [DEFUNCT]
  * This is a string, not integer.
  * If the IP is set, Letoscript will use ActivatePortal instead of booting.
  * The IP and Password must be correct for your server or bad things will happen.
@@ -2436,6 +2446,7 @@ const string PRC_LETOSCRIPT_UNICORN_SQL              = "PRC_LETOSCRIPT_UNICORN_S
 const string PRC_LETOSCRIPT_PORTAL_IP                = "PRC_LETOSCRIPT_PORTAL_IP";
 
 /**
+ * [DEFUNCT]
  * This is a string, not integer.
  * If the IP is set, Letoscript will use ActivatePortal instead of booting.
  * The IP and Password must be correct for your server or bad things will happen.
@@ -2448,6 +2459,7 @@ const string PRC_LETOSCRIPT_PORTAL_IP                = "PRC_LETOSCRIPT_PORTAL_IP
 const string PRC_LETOSCRIPT_PORTAL_PASSWORD          = "PRC_LETOSCRIPT_PORTAL_PASSWORD";
 
 /**
+ * [DEFUNCT]
  * If set you must be using Unicorn.
  * Will use getnewest bic instead of filename reconstruction (which fails if
  * multiple characters have the same name)
@@ -2459,10 +2471,11 @@ const string PRC_NWNX_FUNCS                          = "PRC_NWNX_FUNCS";
 
 
 /******************************************************************************\
-*                              ConvoCC switches                                *
+*                          ConvoCC switches  [DEFUNCT]                         *
 \******************************************************************************/
 
 /**
+ * [DEFUNCT]
  * Activates the ConvoCC.
  * This doesn't turn on the database and letoscript as well, which you must
  * do yourself.
@@ -2473,16 +2486,19 @@ const string PRC_NWNX_FUNCS                          = "PRC_NWNX_FUNCS";
 const string PRC_CONVOCC_ENABLE                      = "PRC_CONVOCC_ENABLE";
 
 /**
+ * [DEFUNCT]
  * Avariel characters have bird wings.
  */
 const string PRC_CONVOCC_AVARIEL_WINGS               = "PRC_CONVOCC_AVARIEL_WINGS";
 
 /**
+ * [DEFUNCT]
  * Fey'ri characters have bat wings.
  */
 const string PRC_CONVOCC_FEYRI_WINGS                 = "PRC_CONVOCC_FEYRI_WINGS";
 
 /**
+ * [DEFUNCT]
  * Aasimar characters have the option of angel wings
  * Note: Not set by PRC_CONVOCC_ENFORCE_PNP_RACIAL as it isn't part of PnP
  */
@@ -2490,33 +2506,39 @@ const string PRC_CONVOCC_FEYRI_WINGS                 = "PRC_CONVOCC_FEYRI_WINGS"
 const string PRC_CONVOCC_AASIMAR_WINGS               = "PRC_CONVOCC_AASIMAR_WINGS";
 
 /**
+ * [DEFUNCT]
  * Fey'ri characters have a demonic tail.
  */
 const string PRC_CONVOCC_FEYRI_TAIL                  = "PRC_CONVOCC_FEYRI_TAIL";
 
 /**
+ * [DEFUNCT]
  * Teifling characters have the option of a demonic tail.
  */
 const string PRC_CONVOCC_TIEFLING_TAIL               = "PRC_CONVOCC_TIEFLING_TAIL";
 
 /**
+ * [DEFUNCT]
  * Force Drow characters to be of the correct gender for their race.
  */
 const string PRC_CONVOCC_DROW_ENFORCE_GENDER         = "PRC_CONVOCC_DROW_ENFORCE_GENDER";
 
 /**
+ *[DEFUNCT]
  * Force Genasi clerics to select the relevant elemental domain as one of
  * their feats.
  */
 const string PRC_CONVOCC_GENASI_ENFORCE_DOMAINS      = "PRC_CONVOCC_GENASI_ENFORCE_DOMAINS";
 
 /**
+ *[DEFUNCT]
  * Female Rakshasa use the female rakshasa model. Use together with PRC_CONVOCC_USE_RACIAL_APPEARANCES
  * @see PRC_CONVOCC_USE_RACIAL_APPEARANCES
  */
 const string PRC_CONVOCC_RAKSHASA_FEMALE_APPEARANCE = "PRC_CONVOCC_RAKSHASA_FEMALE_APPEARANCE";
 
 /**
+ *[DEFUNCT]
  * A combination switch to turn on all the racial enforcement settings.
  * @see PRC_CONVOCC_RAKSHASA_FEMALE_APPEARANCE
  * @see PRC_CONVOCC_GENASI_ENFORCE_DOMAINS
@@ -2529,6 +2551,7 @@ const string PRC_CONVOCC_RAKSHASA_FEMALE_APPEARANCE = "PRC_CONVOCC_RAKSHASA_FEMA
 const string PRC_CONVOCC_ENFORCE_PNP_RACIAL          = "PRC_CONVOCC_ENFORCE_PNP_RACIAL";
 
 /**
+ * [DEFUNCT]
  * Note: feat enforcement switches don't do anything (TODO?)
  */
 
@@ -2563,11 +2586,13 @@ const string PRC_CONVOCC_ENFORCE_FEAT_LOLTHS_MEAT   = "PRC_CONVOCC_ENFORCE_FEAT_
 
 
 /**
+ *[DEFUNCT]
  * A combination switch to turn on all the feat enforcement settings. Doesn't do anything
  */
 const string PRC_CONVOCC_ENFORCE_FEATS               = "PRC_CONVOCC_ENFORCE_FEATS";
 
 /**
+ * [DEFUNCT]
  * Stops players from changing their wings. Turning this on gives players only the "none" choice
  * at the wing stage of the convoCC. Use in conjuction with the wing switches.
  * @see PRC_CONVOCC_AVARIEL_WINGS
@@ -2577,6 +2602,7 @@ const string PRC_CONVOCC_ENFORCE_FEATS               = "PRC_CONVOCC_ENFORCE_FEAT
 const string PRC_CONVOCC_DISALLOW_CUSTOMISE_WINGS    = "PRC_CONVOCC_DISALLOW_CUSTOMISE_WINGS";
 
 /**
+ * [DEFUNCT]
  * Stops players from changing their tail. Turning this on gives players only the "none" choice
  * at the tail stage of the convoCC. Use in conjuction with the tail switches.
  * @see PRC_CONVOCC_FEYRI_TAIL
@@ -2585,17 +2611,20 @@ const string PRC_CONVOCC_DISALLOW_CUSTOMISE_WINGS    = "PRC_CONVOCC_DISALLOW_CUS
 const string PRC_CONVOCC_DISALLOW_CUSTOMISE_TAIL     = "PRC_CONVOCC_DISALLOW_CUSTOMISE_TAIL";
 
 /**
+ * [DEFUNCT]
  * Stops players from changing their model at all. Doesn't do anything
  */
 const string PRC_CONVOCC_DISALLOW_CUSTOMISE_MODEL    = "PRC_CONVOCC_DISALLOW_CUSTOMISE_MODEL";
 
 /**
+ * [DEFUNCT]
  * Players are only given a choice of appearances that match their race. For most races, this is the
  * default appearance defined in racialtypes.2da.
  * @see PRC_CONVOCC_RAKSHASA_FEMALE_APPEARANCE
  */
 const string PRC_CONVOCC_USE_RACIAL_APPEARANCES      = "PRC_CONVOCC_USE_RACIAL_APPEARANCES";
 /**
+ * [DEFUNCT]
  * Player can only choose a portrait that matches their race as in portraits.2da. Because
  * Bioware's elf, dwarf etc. subrace portraits are labelled as eg. 'elf' not 'drow' and because
  * half elves have no portraits, this is actually done on appearance and not on race for PCs using
@@ -2604,17 +2633,20 @@ const string PRC_CONVOCC_USE_RACIAL_APPEARANCES      = "PRC_CONVOCC_USE_RACIAL_A
 const string PRC_CONVOCC_USE_RACIAL_PORTRAIT         = "PRC_CONVOCC_USE_RACIAL_PORTRAIT";
 
 /**
+ * [DEFUNCT]
  * Players can only select from the player voicesets. NPC voicesets are not
  * complete, so wont play sounds for many things such as emotes.
  */
 const string PRC_CONVOCC_ONLY_PLAYER_VOICESETS       = "PRC_CONVOCC_ONLY_PLAYER_VOICESETS";
 
 /**
+ * [DEFUNCT]
  * Only allows players to select voiceset of the same gender as their character.
  */
 const string PRC_CONVOCC_RESTRICT_VOICESETS_BY_SEX   = "PRC_CONVOCC_RESTRICT_VOICESETS_BY_SEX";
 
 /**
+ * [DEFUNCT]
  * Allow players to keep their exisiting voiceset.
  * The ConvoCC cannot allow players to select custom voiceset, so the only way
  * for players to have them is to select them in the Bioware character creator
@@ -2623,6 +2655,7 @@ const string PRC_CONVOCC_RESTRICT_VOICESETS_BY_SEX   = "PRC_CONVOCC_RESTRICT_VOI
 const string PRC_CONVOCC_ALLOW_TO_KEEP_VOICESET      = "PRC_CONVOCC_ALLOW_TO_KEEP_VOICESET";
 
 /**
+ * [DEFUNCT]
  * Allow players to keep their exisiting portrait.
  * The ConvoCC cannot allow players to select custom portraits, so the only way
  * for players to have them is to select them in the Bioware character creator
@@ -2631,12 +2664,14 @@ const string PRC_CONVOCC_ALLOW_TO_KEEP_VOICESET      = "PRC_CONVOCC_ALLOW_TO_KEE
 const string PRC_CONVOCC_ALLOW_TO_KEEP_PORTRAIT      = "PRC_CONVOCC_ALLOW_TO_KEEP_PORTRAIT";
 
 /**
+ * [DEFUNCT]
  * Only allow players to select portraits of the same gender as their character.
  * Most of the NPC portraits do not have a gender so are also removed.
  */
 const string PRC_CONVOCC_RESTRICT_PORTRAIT_BY_SEX    = "PRC_CONVOCC_RESTRICT_PORTRAIT_BY_SEX";
 
 /**
+ * [DEFUNCT]
  * This option give players the ability to start with racial hit dice for some
  * of the more powerful races. These are defined in ECL.2da.
  * For these races, players do not pick a class in the ConvoCC but instead
@@ -2650,12 +2685,14 @@ const string PRC_CONVOCC_RESTRICT_PORTRAIT_BY_SEX    = "PRC_CONVOCC_RESTRICT_POR
 const string PRC_CONVOCC_ENABLE_RACIAL_HITDICE       = "PRC_CONVOCC_ENABLE_RACIAL_HITDICE";
 
 /**
+ * [DEFUNCT]
  * This option allows players to keep their skillpoints from one level to
  * the next, if they want to.
  */
 const string PRC_CONVOCC_ALLOW_SKILL_POINT_ROLLOVER  = "PRC_CONVOCC_ALLOW_SKILL_POINT_ROLLOVER";
 
 /**
+ * [DEFUNCT]
  * This will identify new characters based on XP as in v1.3
  * This is less secure than using the encrypted key.
  * @see PRC_CONVOCC_ENCRYPTION_KEY
@@ -2663,6 +2700,7 @@ const string PRC_CONVOCC_ALLOW_SKILL_POINT_ROLLOVER  = "PRC_CONVOCC_ALLOW_SKILL_
 const string PRC_CONVOCC_USE_XP_FOR_NEW_CHAR         = "PRC_CONVOCC_USE_XP_FOR_NEW_CHAR";
 
 /**
+ * [DEFUNCT]
  * This is the key used to encrypt characters' names if USE_XP_FOR_NEW_CHAR
  * is false in order to identify returning characters. It should be in the
  * range 1-100.
@@ -2678,6 +2716,7 @@ const string PRC_CONVOCC_USE_XP_FOR_NEW_CHAR         = "PRC_CONVOCC_USE_XP_FOR_N
 const string PRC_CONVOCC_ENCRYPTION_KEY              = "PRC_CONVOCC_ENCRYPTION_KEY";
 
 /**
+ * [DEFUNCT]
  * As requested, an option to alter the amount of points available in the stat
  * point-buy at character creation.
  * Default: 30
@@ -2685,12 +2724,14 @@ const string PRC_CONVOCC_ENCRYPTION_KEY              = "PRC_CONVOCC_ENCRYPTION_K
 const string PRC_CONVOCC_STAT_POINTS                 = "PRC_CONVOCC_STAT_POINTS";
 
 /**
- * As requirested, if set this will give a number of bonus feats equal to this
+ * [DEFUNCT]
+ * As requested, if set this will give a number of bonus feats equal to this
  * value to each created character, similar to human Quick To Master feat.
  */
 const string PRC_CONVOCC_BONUS_FEATS                 = "PRC_CONVOCC_BONUS_FEATS";
 
 /**
+ * [DEFUNCT]
  * As requested, this will cap the maximum a stat can start at, excluding racial
  * modifies.
  * Default: 18
@@ -2698,17 +2739,20 @@ const string PRC_CONVOCC_BONUS_FEATS                 = "PRC_CONVOCC_BONUS_FEATS"
 const string PRC_CONVOCC_MAX_STAT                    = "PRC_CONVOCC_MAX_STAT";
 
 /**
+ * [DEFUNCT]
  * As requested, this will change the skill point multplier at level 1.
  * Default: 4
  */
 const string PRC_CONVOCC_SKILL_MULTIPLIER            = "PRC_CONVOCC_SKILL_MULTIPLIER";
 
 /**
+ * [DEFUNCT]
  * As requested, this will give a bonus to skill points after multiplication.
  */
 const string PRC_CONVOCC_SKILL_BONUS                 = "PRC_CONVOCC_SKILL_BONUS";
 
 /**
+ * [DEFUNCT]
  * When set, the convoCC NO LONGER STARTS AUTOMATICALLY on logging in. It must be called
  * by a script in the module. This allows the module builder to start the convoCC from a
  * particular area or trigger's On Enter event. The script should call the convoCC with
@@ -2719,6 +2763,7 @@ const string PRC_CONVOCC_SKILL_BONUS                 = "PRC_CONVOCC_SKILL_BONUS"
 const string PRC_CONVOCC_CUSTOM_START_LOCATION       = "PRC_CONVOCC_CUSTOM_START_LOCATION";
 
 /**
+ * [DEFUNCT]
  * When set, this switch causes a custom script to be used to determine whether a PC should go
  * through the convoCC or not.
  * The script must:
@@ -2740,6 +2785,7 @@ const string PRC_CONVOCC_CUSTOM_START_LOCATION       = "PRC_CONVOCC_CUSTOM_START
 const string PRC_CONVOCC_CUSTOM_ENTER_SCRIPT          = "PRC_CONVOCC_CUSTOM_ENTER_SCRIPT";
 
 /**
+ * [DEFUNCT]
  * When set, this switch causes a custom script to be executed at the last stage of the convoCC,
  * just before booting the player. The script must be named 'ccc_custom_exit'.
  * Possible uses include: giving PCs gold and/or equipment, giving PCs PW items
