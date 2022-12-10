@@ -29,7 +29,8 @@ Lizard Bane: Zagan’s grants you +2 melee attack and +2d6 damage on melee attacks
 
 void main()
 {
-    object oBinder = PRCGetSpellTargetObject(); 
+    object oBinder = PRCGetSpellTargetObject();
+	object oSkin = GetPCSkin(oBinder);	
 
     effect eLink = EffectLinkEffects(EffectVisualEffect(VFX_DUR_ANTILIFE_SHELL), EffectPact(oBinder));
     
@@ -40,6 +41,7 @@ void main()
 		eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SPOT, 4));
 		eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_LISTEN, 4));
 		eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SEARCH, 4));
+		IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 	}	
 	if (!GetIsVestigeExploited(oBinder, VESTIGE_ZAGAN_LIZARD_BANE))
 	{

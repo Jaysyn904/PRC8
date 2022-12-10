@@ -86,6 +86,28 @@ void main()
     //timestop noncombat equip
     DoTimestopEquip(oPC, oItem);
 	
+//:: Clear Echoblade effect if weapon is changed
+	int nBaseItem = GetBaseItemType(oItem);
+	
+	effect eEffect = GetFirstEffect(oPC);
+	
+	if (nBaseItem == BASE_ITEM_AMULET || nBaseItem == BASE_ITEM_ARMOR ||  nBaseItem == BASE_ITEM_ARROW ||  nBaseItem == BASE_ITEM_BELT ||  nBaseItem == BASE_ITEM_BOLT ||  nBaseItem == BASE_ITEM_BOOTS 
+	||  nBaseItem == BASE_ITEM_BRACER ||  nBaseItem == BASE_ITEM_BULLET ||  nBaseItem == BASE_ITEM_CBLUDGWEAPON ||  nBaseItem == BASE_ITEM_CLOAK ||  nBaseItem == BASE_ITEM_CPIERCWEAPON 
+	||  nBaseItem == BASE_ITEM_CREATUREITEM ||  nBaseItem == BASE_ITEM_CSLASHWEAPON ||  nBaseItem == BASE_ITEM_CSLSHPRCWEAP ||  nBaseItem == BASE_ITEM_GLOVES ||  nBaseItem == BASE_ITEM_HELMET 
+	||  nBaseItem == BASE_ITEM_RING ||  nBaseItem == BASE_ITEM_LARGESHIELD ||  nBaseItem == BASE_ITEM_RING ||  nBaseItem == BASE_ITEM_SMALLSHIELD ||  nBaseItem == BASE_ITEM_TOWERSHIELD)  
+	{
+		return;
+	}
+	else
+	{
+		while(GetIsEffectValid(eEffect))
+		{
+			if(GetEffectTag(eEffect) == "Echoblade")
+			RemoveEffect(oPC, eEffect);
+			eEffect = GetNextEffect(oPC);
+		}	
+	}	
+	
 //:: Saint / Holy Touch doesn't work w/ ranged weapons
 	if (GetHasTemplate(TEMPLATE_SAINT, oPC))
 	{

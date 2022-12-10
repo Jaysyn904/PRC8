@@ -64,14 +64,15 @@ void main()
     SetLocalInt(oDead, "PC_Damage", 0);
 
     // Do Lolth's Meat for the killer
-    if(GetAbilityScore(oDead, ABILITY_INTELLIGENCE) > 4 && GetHasFeat(FEAT_LOLTHS_MEAT, oKiller))
+    if(GetAbilityScore(oDead, ABILITY_INTELLIGENCE) >= 4 && GetHasFeat(FEAT_LOLTHS_MEAT, oKiller))
     {
-        effect eLink = EffectSavingThrowIncrease(SAVING_THROW_ALL, 1, SAVING_THROW_TYPE_ALL);
+        /*effect eLink = EffectSavingThrowIncrease(SAVING_THROW_ALL, 1, SAVING_THROW_TYPE_ALL);
                eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1, ATTACK_BONUS_MISC));
                eLink = EffectLinkEffects(eLink, EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_DIVINE));
 
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oKiller, RoundsToSeconds(GetHitDice(oKiller)));
-        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_EVIL_HELP), oKiller);
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oKiller, RoundsToSeconds(5));
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_EVIL_HELP), oKiller);*/
+        ExecuteScript("prc_lolthmeat", oKiller);
     }
 	
 	// Do Mind Cleave feat

@@ -15,6 +15,8 @@
 #include "inc_item_props"
 #include "prc_x2_itemprop"
 
+//:: void main (){}
+
 /**
  * All of the following functions use the following parameters:
  *
@@ -199,7 +201,54 @@ int IsProficient(object oPC, int nBaseItem)
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_TRIDENT, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC);
+				 
+        case BASE_ITEM_DOUBLE_SCIMITAR:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_DOUBLE_SCIMITAR, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
+				
+        case BASE_ITEM_FALCHION:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_FALCHION, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);				
 
+        case BASE_ITEM_GOAD:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_GOAD, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);	
+
+        case BASE_ITEM_HEAVY_MACE:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_HEAVY_MACE, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC);	
+				
+        case BASE_ITEM_HEAVY_PICK:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_HEAVY_PICK, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);					
+
+        case BASE_ITEM_LIGHT_PICK:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_LIGHT_PICK, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);
+				
+        case BASE_ITEM_KATAR:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_KATAR, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
+
+        case BASE_ITEM_MAUL:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_MAUL, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);
+
+        case BASE_ITEM_NUNCHAKU:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_NUNCHAKU, oPC)
+				|| GetHasFeat(FEAT_WEAPON_PROFICIENCY_MONK, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
+				
+        case BASE_ITEM_SAI:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_SAI, oPC)
+				|| GetHasFeat(FEAT_WEAPON_PROFICIENCY_MONK, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
+
+        case BASE_ITEM_SAP:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_SAP, oPC)
+				|| GetHasFeat(FEAT_WEAPON_PROFICIENCY_ROGUE, oPC)
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);
+				
         //special case: counts as martial for dwarves
         case BASE_ITEM_DWARVENWARAXE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_DWARVEN_WARAXE, oPC)
@@ -210,15 +259,15 @@ int IsProficient(object oPC, int nBaseItem)
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_WHIP, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
 
-        case BASE_ITEM_ELF_LIGHTBLADE:
+        case BASE_ITEM_ELVEN_LIGHTBLADE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_LIGHTBLADE, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
 
-        case BASE_ITEM_ELF_THINBLADE:
+        case BASE_ITEM_ELVEN_THINBLADE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_THINBLADE, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
 
-        case BASE_ITEM_ELF_COURTBLADE:
+        case BASE_ITEM_ELVEN_COURTBLADE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_COURTBLADE, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
                  
@@ -351,26 +400,26 @@ int GetWeaponProfFeatByType(int nBaseType)
       case BASE_ITEM_WHIP:
           return FEAT_WEAPON_PROFICIENCY_WHIP;
 
-      case BASE_ITEM_ELF_LIGHTBLADE:
+      case BASE_ITEM_ELVEN_LIGHTBLADE:
           return FEAT_WEAPON_PROFICIENCY_ELVEN_LIGHTBLADE;
 
-      case BASE_ITEM_ELF_THINBLADE:
+      case BASE_ITEM_ELVEN_THINBLADE:
           return FEAT_WEAPON_PROFICIENCY_ELVEN_THINBLADE;
 
-      case BASE_ITEM_ELF_COURTBLADE:
+      case BASE_ITEM_ELVEN_COURTBLADE:
           return FEAT_WEAPON_PROFICIENCY_ELVEN_COURTBLADE;
-          
-      case BASE_ITEM_PICK_HEAVY:
+
+      case BASE_ITEM_HEAVY_PICK:
           return FEAT_WEAPON_PROFICIENCY_HEAVY_PICK;
           
-      case BASE_ITEM_PICK_LIGHT:
+      case BASE_ITEM_LIGHT_PICK:
           return FEAT_WEAPON_PROFICIENCY_LIGHT_PICK;      
 
       case BASE_ITEM_SAI:
           return FEAT_WEAPON_PROFICIENCY_SAI;
           
       case BASE_ITEM_NUNCHAKU:
-          return FEAT_WEAPON_PROFICIENCY_NUNCHUKU; 
+          return FEAT_WEAPON_PROFICIENCY_NUNCHAKU; 
           
       case BASE_ITEM_FALCHION:
           return FEAT_WEAPON_PROFICIENCY_FALCHION;
@@ -381,7 +430,7 @@ int GetWeaponProfFeatByType(int nBaseType)
       case BASE_ITEM_KATAR:
           return FEAT_WEAPON_PROFICIENCY_KATAR;
           
-      case BASE_ITEM_MACE_HEAVY:
+      case BASE_ITEM_HEAVY_MACE:
           return FEAT_WEAPON_PROFICIENCY_HEAVY_MACE; 
           
       case BASE_ITEM_MAUL:
@@ -472,7 +521,7 @@ void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
 {
     // fluffyamoeba - going to assume redundant local var clearing isn't worth tradeoff
     int nBaseType = GetBaseItemType(oItem);
-    if(nBaseType == BASE_ITEM_ELF_LIGHTBLADE)
+    if(nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE)
     {
         if(DEBUG) DoDebug("Clearing Lightblade variables.");
         SetCompositeAttackBonus(oPC, "LightbladeWF" + IntToString(nHand), 0, nHand);
@@ -482,7 +531,7 @@ void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
           if(GetHasFeat(FEAT_IMPROVED_CRITICAL_SHORT_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
               RemoveSpecificProperty(oItem, ITEM_PROPERTY_KEEN, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
     }
-    else if(nBaseType == BASE_ITEM_ELF_THINBLADE)
+    else if(nBaseType == BASE_ITEM_ELVEN_THINBLADE)
     {
         SetCompositeAttackBonus(oPC, "ThinbladeWF" + IntToString(nHand), 0, nHand);
         SetCompositeAttackBonus(oPC, "ThinbladeEpicWF" + IntToString(nHand), 0, nHand);
@@ -491,7 +540,7 @@ void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
           if(GetHasFeat(FEAT_IMPROVED_CRITICAL_LONG_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
               RemoveSpecificProperty(oItem, ITEM_PROPERTY_KEEN, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
     }
-    else if(nBaseType == BASE_ITEM_ELF_COURTBLADE)
+    else if(nBaseType == BASE_ITEM_ELVEN_COURTBLADE)
     {
         SetCompositeAttackBonus(oPC, "CourtbladeWF" + IntToString(nHand), 0, nHand);
         SetCompositeAttackBonus(oPC, "CourtbladeEpicWF" + IntToString(nHand), 0, nHand);
@@ -522,6 +571,13 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
       case BASE_ITEM_RAPIER:
       case BASE_ITEM_SCIMITAR:
       case BASE_ITEM_THROWINGAXE:
+	  case BASE_ITEM_MAUL:
+	  case BASE_ITEM_FALCHION:
+	  case BASE_ITEM_HEAVY_PICK:
+	  case BASE_ITEM_LIGHT_PICK:
+	  case BASE_ITEM_LIGHT_LANCE:
+	  case BASE_ITEM_GOAD:
+	  case BASE_ITEM_SAP:	  
            return TRUE;
 
       //special case: counts as martial for dwarves
@@ -630,8 +686,8 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
     DoProficiencyCheck(oPC, oItem, nHand);
 
     //simulate Weapon Finesse for Elven *blades
-    if((nBaseType == BASE_ITEM_ELF_LIGHTBLADE || nBaseType == BASE_ITEM_ELF_THINBLADE 
-       || nBaseType == BASE_ITEM_ELF_COURTBLADE) && GetHasFeat(FEAT_WEAPON_FINESSE, oPC) && nElfFinesse > 0)
+    if((nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE || nBaseType == BASE_ITEM_ELVEN_THINBLADE 
+       || nBaseType == BASE_ITEM_ELVEN_COURTBLADE) && GetHasFeat(FEAT_WEAPON_FINESSE, oPC) && nElfFinesse > 0)
     {
       if(nHand == ATTACK_BONUS_ONHAND)
             SetCompositeAttackBonus(oPC, "ElfFinesseRH", nElfFinesse, nHand);
@@ -664,11 +720,11 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
 
     //Handle feat bonuses for Lightblade, thinblade, and courtblade
     //using else if so they don't overlap.
-    /*if(nBaseType == BASE_ITEM_ELF_LIGHTBLADE)
+    /*if(nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE)
         DoEquipLightblade(oPC, oItem, nHand);
-    else if(nBaseType == BASE_ITEM_ELF_THINBLADE)
+    else if(nBaseType == BASE_ITEM_ELVEN_THINBLADE)
         DoEquipThinblade(oPC, oItem, nHand);
-    else if(nBaseType == BASE_ITEM_ELF_COURTBLADE)
+    else if(nBaseType == BASE_ITEM_ELVEN_COURTBLADE)
         DoEquipCourtblade(oPC, oItem, nHand);*/
         // Beamdog allowing us to do feats means we don't need this any more
         

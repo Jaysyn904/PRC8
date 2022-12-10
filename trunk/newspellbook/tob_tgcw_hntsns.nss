@@ -29,6 +29,7 @@
 
 void main()
 {
+	
     if (!PreManeuverCastCode())
     {
     // If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell
@@ -37,8 +38,10 @@ void main()
 
 // End of Spell Cast Hook
 
-    object oInitiator    = OBJECT_SELF;
-    object oTarget       = PRCGetSpellTargetObject();
+    object oInitiator   = OBJECT_SELF;
+    object oTarget      = PRCGetSpellTargetObject();
+	object oSkin 		= GetPCSkin(oInitiator);
+	
     struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
 
     if(move.bCanManeuver)
@@ -57,5 +60,6 @@ void main()
     	if (GetLocalInt(oInitiator, "TigerFangSharpClaw"))  eScent = EffectLinkEffects(eScent, EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_BASE_WEAPON));       	       
 	eScent = ExtraordinaryEffect(eScent);
 	SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eScent, oTarget);
+	IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     }
 }

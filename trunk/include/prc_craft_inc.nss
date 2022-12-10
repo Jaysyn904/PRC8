@@ -1246,9 +1246,9 @@ int GetWeaponType(int nBaseItem)
         case BASE_ITEM_SHURIKEN:
         case BASE_ITEM_DWARVENWARAXE:
         case BASE_ITEM_WHIP:
-        case BASE_ITEM_ELF_LIGHTBLADE:
-        case BASE_ITEM_ELF_THINBLADE:
-        case BASE_ITEM_ELF_COURTBLADE:
+        case BASE_ITEM_ELVEN_LIGHTBLADE:
+        case BASE_ITEM_ELVEN_THINBLADE:
+        case BASE_ITEM_ELVEN_COURTBLADE:
 		case BASE_ITEM_DOUBLE_SCIMITAR:
 		case BASE_ITEM_NUNCHAKU:
 		case BASE_ITEM_SAI:
@@ -1272,8 +1272,8 @@ int GetWeaponType(int nBaseItem)
         case BASE_ITEM_RAPIER:
         case BASE_ITEM_SCIMITAR:
         case BASE_ITEM_THROWINGAXE:
-		case BASE_ITEM_PICK_HEAVY:
-		case BASE_ITEM_PICK_LIGHT:
+		case BASE_ITEM_HEAVY_PICK:
+		case BASE_ITEM_LIGHT_PICK:
 		case BASE_ITEM_FALCHION:
 		case BASE_ITEM_SAP:
 		case BASE_ITEM_MAUL:
@@ -1293,7 +1293,7 @@ int GetWeaponType(int nBaseItem)
         case BASE_ITEM_CLUB:
         case BASE_ITEM_QUARTERSTAFF:
 		case BASE_ITEM_KATAR:
-		case BASE_ITEM_MACE_HEAVY:
+		case BASE_ITEM_HEAVY_MACE:
 		case BASE_ITEM_GOAD:		
             return PRC_CRAFT_SIMPLE_WEAPON;
             break;
@@ -2357,6 +2357,8 @@ itemproperty ConstructIP(int nType, int nSubTypeValue = 0, int nCostTableValue =
         case ITEM_PROPERTY_MATERIAL: return ItemPropertyMaterial(nCostTableValue);
         case ITEM_PROPERTY_QUALITY: return ItemPropertyQuality(nCostTableValue);
         case ITEM_PROPERTY_ADDITIONAL: return ItemPropertyAdditional(nCostTableValue);
+		case ITEM_PROPERTY_ECHOBLADE: return ItemPropertyEchoblade();
+
 
         //ROOM FOR MORE - 89 so far, need increase/decrease cost
         /*
@@ -2830,3 +2832,5 @@ int ITEM_APPR_WEAPON_COLOR_BOTTOM       = 0;
 int ITEM_APPR_WEAPON_COLOR_MIDDLE       = 1;
 int ITEM_APPR_WEAPON_COLOR_TOP          = 2;
 */
+
+// void main () {}

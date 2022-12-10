@@ -72,9 +72,9 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SHORTSWORD 	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SICKLE     	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_WHIP       	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELF_COURTBLADE   ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELF_LIGHTBLADE   ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELF_THINBLADE    ? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_COURTBLADE   ? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_LIGHTBLADE   ? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_THINBLADE    ? 1 : iLight;
      if (GetLevelByClass(CLASS_TYPE_IAIJUTSU_MASTER) > 0)
      	{
      	iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATANA  ? 1 : iLight;

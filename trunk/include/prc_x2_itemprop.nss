@@ -19,7 +19,8 @@
 //:: Last Update: 2003-10-07
 //:://////////////////////////////////////////////
 
-
+//:: Test void
+//:: void main (){}
 
 //Changed by primogenitor to include CEP itemtypes
 
@@ -607,9 +608,9 @@ int IPGetIsMeleeWeapon(object oItem)
     int nItem = GetBaseItemType(oItem);
 
 if(nItem == BASE_ITEM_BASTARDSWORD
-|| nItem == BASE_ITEM_BATTLEAXE
-|| nItem == BASE_ITEM_DOUBLEAXE
-|| nItem == BASE_ITEM_GREATAXE
+	|| nItem == BASE_ITEM_BATTLEAXE
+	|| nItem == BASE_ITEM_DOUBLEAXE
+	|| nItem == BASE_ITEM_GREATAXE
     || nItem == BASE_ITEM_GREATSWORD
     || nItem == BASE_ITEM_HALBERD
     || nItem == BASE_ITEM_HANDAXE
@@ -638,9 +639,21 @@ if(nItem == BASE_ITEM_BASTARDSWORD
     || nItem == BASE_ITEM_WARHAMMER
     || nItem == BASE_ITEM_DWARVENWARAXE
     || nItem == BASE_ITEM_TRIDENT
-    || nItem == BASE_ITEM_ELF_LIGHTBLADE // PRC weapons
-    || nItem == BASE_ITEM_ELF_THINBLADE
-    || nItem == BASE_ITEM_ELF_COURTBLADE
+	|| nItem == BASE_ITEM_HEAVY_PICK
+	|| nItem == BASE_ITEM_LIGHT_PICK
+	|| nItem == BASE_ITEM_SAI
+	|| nItem == BASE_ITEM_NUNCHAKU
+	|| nItem == BASE_ITEM_FALCHION
+	|| nItem == BASE_ITEM_SAP
+	|| nItem == BASE_ITEM_KATAR
+	|| nItem == BASE_ITEM_HEAVY_MACE
+	|| nItem == BASE_ITEM_MAUL
+	|| nItem == BASE_ITEM_DOUBLE_SCIMITAR
+	|| nItem == BASE_ITEM_GOAD
+	|| nItem == BASE_ITEM_EAGLE_CLAW
+    || nItem == BASE_ITEM_ELVEN_LIGHTBLADE // PRC weapons
+    || nItem == BASE_ITEM_ELVEN_THINBLADE
+    || nItem == BASE_ITEM_ELVEN_COURTBLADE
     || nItem == BASE_ITEM_CRAFTED_STAFF
     || nItem == 300 //CEP Trident
     || nItem == 303 //CEP Sai

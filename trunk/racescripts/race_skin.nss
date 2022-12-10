@@ -548,12 +548,13 @@ void main()
     }
 
 
-    // Minotaur bonuses due to scent
-    if(GetHasFeat(FEAT_MINOT_SCENT))
+    // Minotaur and other races bonuses due to scent
+    if(GetHasFeat(FEAT_ABILITY_SCENT))
     {
         SetCompositeBonus(oSkin, "Minot_Scent_Spot", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
         SetCompositeBonus(oSkin, "Minot_Scent_Search", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
         SetCompositeBonus(oSkin, "Minot_Scent_Listen", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);
+		IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     }
 
     // Kender Bonuses

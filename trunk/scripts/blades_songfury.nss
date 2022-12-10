@@ -22,7 +22,7 @@ void main()
     int nWeapType = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget));
     if(nWeapType != BASE_ITEM_RAPIER
     && nWeapType != BASE_ITEM_LONGSWORD
-    && nWeapType != BASE_ITEM_ELF_THINBLADE)
+    && nWeapType != BASE_ITEM_ELVEN_THINBLADE)
         return;
 
     effect eLink = EffectLinkEffects(EffectAttackDecrease(2), EffectModifyAttacks(1));

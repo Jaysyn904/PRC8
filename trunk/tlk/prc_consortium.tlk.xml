@@ -2317,6 +2317,10 @@ Prerequisite: Arcane Hierophant 1
 Specifics: When casting an arcane spell, you ignore the arcane spell failure chance for any nonmetallic light or medium armor (padded, leather, or hide armor). You learn to cast arcane spells while wearing the types of armor that druids favor.
 Use: Automatic.</entry>
   <entry id="12855" lang="en" sex="m">Companion Familiar</entry>
+  <entry id="12856" lang="en" sex="m">Type of Feat: Racial and Class Ability
+Prerequisite: Elf or Scent ability.
+Specifics: Characters with Keen Senses may apply their full Search skill even when making a passive search.
+Use: Automatic.</entry>
   <entry id="12861" lang="en" sex="m">Practiced Invoker (Dragonfire Adept)</entry>
   <entry id="12862" lang="en" sex="m">Practiced Invoker (Warlock)</entry>
   <entry id="12863" lang="en" sex="m">Type of Feat: General.
@@ -2938,12 +2942,12 @@ Favored Class (Druid): A multiclass Hybsil's druid class does not count when det
 Special Abilities:
 - Small Creature
 - 50' Speed
-- Natural armor +5
+- Natural armor +2
 - +2 Jump 
 - +4  Disable Device when outside, +4 Search when outside
 - Permanent See Invisibility
 - Poison Immunity
-- Spell Like Abilities: Pass Without Tract, Mirror Image, Dancing Lights, Jump.  All 1/day
+- Spell Like Abilities: Pass Without Trace, Mirror Image, Dancing Lights, Jump.  All 1/day
 - Level Adjustment +2
 
   </entry>
@@ -7584,11 +7588,11 @@ Level
 </entry>
   <entry id="45651" lang="en" sex="m">Lolth's Meat</entry>
   <entry id="45652" lang="en" sex="m">Type of Feat: General
-Prerequisite: Drow (Elf).
+Prerequisite: Drow or Half-Drow.
 Specifics: If you kill a living creature that has an Intelligence score of 3 or higher with a melee attack, you gain a +1 morale bonus on attack rolls, damage rolls, and saving throws for 1 round per Character Level.
 Use: Automatic.
 
-Warning: If you take this class without the race of Elf it will not function, it will be a wasted feat.</entry>
+Warning: If you take this class without the race of Drow or Half-Drow it will not function, you will be forced to relevel.</entry>
   <entry id="45653" lang="en" sex="m">War Strike</entry>
   <entry id="45654" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Drow Judicator level 1
@@ -11010,7 +11014,11 @@ Duration: 1 hour/level
 Power Points: Psion/wilder 3, psychic warrior 1
 Metapsionics: Extend
 
-You gain low-light vision (as an elf) for the duration of the power, as well as a +2 bonus on Search and Spot checks.</entry>
+ You gain low-light vision (as an elf) for the duration of the power, as well as a +2 bonus on Search and Spot checks.
+
+In addition, you gain the ability to notice secret or concealed doors by merely passing within 5 feet of one, getting to make a Search check as if you were actively looking for it.
+
+If elfsight is used in conjunction with my light, the cone of light extends out to 40 feet instead of 20 feet. </entry>
   <entry id="46505" lang="en" sex="m">Energy Adaptation, Specified</entry>
   <entry id="46506" lang="en" sex="m">Psychometabolism [see text]
 Level: Psion/wilder 2, psychic warrior 2
@@ -22223,7 +22231,7 @@ Favored Class (Barbarian): A multiclass minotaur's barbarian class does not coun
 Special Abilities:
 
 - Darkvision: Minotaurs are able to see in the dark.
-- Minotaur Scent: +4 racial bonus to Search, Spot and Listen checks.
+- Scent: Keen Senses and +4 racial bonus to Search, Spot and Listen checks.
 - Track: +1 racial bonus to Search, Spot and Listen checks.
 - Natural Armor Bonus: Racial natural armor bonus of 5.
 - Weapon Proficiency (Simple): All Minotaurs are proficient with Simple Weapons.
@@ -23535,7 +23543,7 @@ Use: Selected</entry>
   <entry id="49949" lang="en" sex="m">Scent</entry>
   <entry id="49950" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisites: Bloodclaw Master 5.
-Specifics: You gain a +4 bonus to Spot, Listen, and Search.
+Specifics: You gain Keen Senses and +4 bonus to Spot, Listen, and Search.
 Use: Automatic</entry>
   <entry id="49951" lang="en" sex="m">Ruby Knight Vindicator</entry>
   <entry id="49952" lang="en" sex="m">Ruby Knight Vindicators</entry>
@@ -24112,7 +24120,7 @@ Use: Automatic.</entry>
   <entry id="50191" lang="en" sex="m">Special Abilities - Minotaur</entry>
   <entry id="50192" lang="en" sex="m">Powerful Charge: Minotaurs can make an unarmed powerful charge at -2 AC, +2 to hit, that inflicts an additional 4d6+6 damage.</entry>
   <entry id="50193" lang="en" sex="m">Illithid have a chance to extract the brain of a victim on a successful hit.</entry>
-  <entry id="50194" lang="en" sex="m">Minotaur Scent</entry>
+  <entry id="50194" lang="en" sex="m">Scent</entry>
   <entry id="50195" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
 Specifics: The creature receives +4 racial bonus to Search, Spot and Listen checks.
@@ -46080,6 +46088,30 @@ Spell Resistance: No (harmless)
 
 The goddess Shar is called the Mistress of the Night, the Lady of Loss, and the Dark Goddess. She is shadow; dark and secret. It is with little surprise that a gift from her to the caster of this spell would encompass such things. Upon completion of this spell, you receive an immensely powerful whip, created by the hands of Shar herself. It holds powerful enchantments, and also blinds its targets. In addition, shadow settles upon the battlefield wherever this whip is used. When the duration ends, the whip is left as a reminder to you, though all of its enchantments are stripped from it. </entry>
   <entry id="56314" lang="en" sex="m">##START_OF_EPIC_SPELL_AND_ISC_RESERVE</entry>
+  <entry id="56865" lang="en" sex="m">Weapon Focus (elven lightblade)</entry>
+  <entry id="56866" lang="en" sex="m">Epic Weapon Focus (elven lightblade)</entry>
+  <entry id="56867" lang="en" sex="m">Weapon Specialization (elven lightblade)</entry>
+  <entry id="56868" lang="en" sex="m">Epic Weapon Specialization (elven lightblade)</entry>
+  <entry id="56869" lang="en" sex="m">Improved Critical (elven lightblade)</entry>
+  <entry id="56870" lang="en" sex="m">Overwhelming Critical (elven lightblade)</entry>
+  <entry id="56871" lang="en" sex="m">Devastating Critical (elven lightblade)</entry>
+  <entry id="56872" lang="en" sex="m">Weapon of Choice (elven lightblade)</entry>
+  <entry id="56873" lang="en" sex="m">Weapon Focus (elven thinblade)</entry>
+  <entry id="56874" lang="en" sex="m">Epic Weapon Focus (elven thinblade)</entry>
+  <entry id="56875" lang="en" sex="m">Weapon Specialization (elven thinblade)</entry>
+  <entry id="56876" lang="en" sex="m">Epic Weapon Specialization (elven thinblade)</entry>
+  <entry id="56877" lang="en" sex="m">Improved Critical (elven thinblade)</entry>
+  <entry id="56878" lang="en" sex="m">Overwhelming Critical (elven thinblade)</entry>
+  <entry id="56879" lang="en" sex="m">Devastating Critical (elven thinblade)</entry>
+  <entry id="56880" lang="en" sex="m">Weapon of Choice (elven thinblade)</entry>
+  <entry id="56881" lang="en" sex="m">Weapon Focus (elven courtblade)</entry>
+  <entry id="56882" lang="en" sex="m">Epic Weapon Focus (elven courtblade)</entry>
+  <entry id="56883" lang="en" sex="m">Weapon Specialization (elven courtblade)</entry>
+  <entry id="56884" lang="en" sex="m">Epic Weapon Specialization (elven courtblade)</entry>
+  <entry id="56885" lang="en" sex="m">Improved Critical (elven courtblade)</entry>
+  <entry id="56886" lang="en" sex="m">Overwhelming Critical (elven courtblade)</entry>
+  <entry id="56887" lang="en" sex="m">Devastating Critical (elven courtblade)</entry>
+  <entry id="56888" lang="en" sex="m">Weapon of Choice (elven courtblade)</entry>  
   <entry id="56889" lang="en" sex="m">Light Lance</entry>
   <entry id="56890" lang="en" sex="m">A light lance is a pole weapon designed to be used by a mounted warrior or cavalry soldier</entry>
   <entry id="56891" lang="en" sex="m">Base Damage: 1d6
@@ -46441,6 +46473,8 @@ Bonus Feats: The epic eldritch theurge gains a bonus feat every four levels high
 Epic Eldritch Theurge Bonus Feats: Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Damage Reduction, Eldritch Sculptor*, Energy Resistance, Epic Eldritch Blast*, Epic Extra Invocation*, Epic Fiendish Resilience*, Epic Spell Penetration, Fast Healing, Improved Combat Casting, Lord of All Essences*, Master of the Elements*, Morpheme Savant*, Paragon Visionary*, Shadowmaster*, Superior Initiative. 
 
 *An epic eldritch theurge must meet this feat's prerequisites to select it as an epic bonus feat.</entry>
+  <entry id="57092" lang="en" sex="m">Echoblade</entry>
+  <entry id="57093" lang="en" sex="m">If you use your bardic music ability while wielding an echoblade, the blade resonates in harmony, dealing additional sonic damage on each attack equal to half your bardic level.</entry>
   <entry id="57100" lang="en" sex="m">##START OF WARLOCK INVOCATIONS##</entry>
   <entry id="57101" lang="en" sex="m">All Seeing Eyes</entry>
   <entry id="57102" lang="en" sex="m">Least Invocation

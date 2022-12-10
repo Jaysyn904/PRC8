@@ -81,6 +81,13 @@ int PreInvocationCastCode()
     // Break any spell require maintaining concentration
     //---------------------------------------------------------------------------
     X2BreakConcentrationSpells();
+    
+    //---------------------------------------------------------------------------
+    // No invoking while using expertise
+    //---------------------------------------------------------------------------    
+    if(nContinue)
+    	if (GetActionMode(oInvoker, ACTION_MODE_EXPERTISE) || GetActionMode(oInvoker, ACTION_MODE_IMPROVED_EXPERTISE))
+    		nContinue = FALSE;    
 
     //---------------------------------------------------------------------------
     // Check for PRC spell effects

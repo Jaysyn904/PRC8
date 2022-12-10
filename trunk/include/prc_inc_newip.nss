@@ -14,6 +14,8 @@ const int ITEM_PROPERTY_CAST_SPELL_DC                     = 93;
 const int ITEM_PROPERTY_PNP_HOLY_AVENGER                  = 101;
 const int ITEM_PROPERTY_WIZARDRY                          = 102;
 const int ITEM_PROPERTY_DIVINITY                          = 103;
+const int ITEM_PROPERTY_ECHOBLADE						  = 104;
+
 
 const int IP_CONST_AOE_DARKNESS             = 0;
 const int IP_CONST_AOE_DEEPER_DARKNESS      = 1;
@@ -64,6 +66,9 @@ itemproperty ItemPropertyWizardry(int nSpellLevel);
 //will putput to log file if it doesnt work
 //relys on blueprints containing these itemproperties
 itemproperty ItemPropertyDivinity(int nSpellLevel);
+
+//returns Echoblade itemproperty
+itemproperty ItemPropertyEchoblade();
 
 //not implemented
 itemproperty ItemPropertyLimitUseByAbility(int nAbility, int nMinScore);
@@ -408,6 +413,27 @@ itemproperty ItemPropertyPnPHolyAvenger()
     return ipReturn;
 }
 
+itemproperty ItemPropertyEchoblade()
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_ECHOBLADE);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyEchoblade is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
 itemproperty ItemPropertyWizardry(int nSpellLevel)
 {
     itemproperty ipReturn;
@@ -461,4 +487,4 @@ itemproperty ItemPropertyDivinity(int nSpellLevel)
 }
 
 // Test main
-//void main(){}
+// void main(){}

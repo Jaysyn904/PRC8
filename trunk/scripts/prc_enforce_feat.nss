@@ -1547,7 +1547,6 @@ int RacialFeats()
     if(GetHasFeat(FEAT_LOLTHS_MEAT)
     && !(nRace == RACIAL_TYPE_DROW_FEMALE
       || nRace == RACIAL_TYPE_DROW_MALE
-      || nRace == RACIAL_TYPE_ELF
       || nRace == RACIAL_TYPE_HALFDROW))
     {
         FloatingTextStringOnCreature("You must be a Drow or Half-Drow to take this feat. Please reselect your feats.", OBJECT_SELF, FALSE);
@@ -2304,13 +2303,13 @@ int ToB()
         return TRUE;    
     } 
     
-    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && !GetLevelByClass(CLASS_TYPE_TEMPEST))
+    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > GetLevelByClass(CLASS_TYPE_RANGER))
     {
         FloatingTextStringOnCreature("You must have ambidexterity to take Improved Two Weapon Fighting", OBJECT_SELF, FALSE);
         return TRUE;    
     } 
     
-    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST))
+    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > GetLevelByClass(CLASS_TYPE_RANGER))
     {
         FloatingTextStringOnCreature("You must have 17 Dexterity to take Improved Two Weapon Fighting under 3.5 rules", OBJECT_SELF, FALSE);
         return TRUE;    

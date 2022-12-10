@@ -7,6 +7,9 @@
  * Used by the combat system, weapon restriction/proficiency system and for deity weapons (eg. favoured soul)
  */
 
+//:: Test void
+//void main (){}
+
 //////////////////////////////////////////////////
 /* Constant definitions                         */
 //////////////////////////////////////////////////
@@ -184,6 +187,7 @@ int GetIsShield(object oItem);
 //////////////////////////////////////////////////
 
 #include "prc_misc_const"
+#include "prc_feat_const"
 #include "inc_2dacache"
 
 //////////////////////////////////////////////////
@@ -259,9 +263,9 @@ int GetFocusFeatOfWeaponType(int iWeaponType)
         case BASE_ITEM_WHIP:            return FEAT_WEAPON_FOCUS_WHIP;
 
         // new item types
-        case BASE_ITEM_ELF_LIGHTBLADE:  return FEAT_WEAPON_FOCUS_SHORT_SWORD;
-        case BASE_ITEM_ELF_THINBLADE:   return FEAT_WEAPON_FOCUS_LONG_SWORD;
-        case BASE_ITEM_ELF_COURTBLADE:  return FEAT_WEAPON_FOCUS_GREAT_SWORD;
+        case BASE_ITEM_ELVEN_LIGHTBLADE:  return FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:   return FEAT_WEAPON_FOCUS_ELVEN_THINBLADE;
+        case BASE_ITEM_ELVEN_COURTBLADE:  return FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE;
     }
     return -1;
 }
@@ -315,9 +319,9 @@ int GetSpecializationFeatOfWeaponType(int iWeaponType)
         case BASE_ITEM_WHIP:           return FEAT_WEAPON_SPECIALIZATION_WHIP;
 
         // new item types
-        case BASE_ITEM_ELF_LIGHTBLADE: return FEAT_WEAPON_SPECIALIZATION_SHORT_SWORD;
-        case BASE_ITEM_ELF_THINBLADE:  return FEAT_WEAPON_SPECIALIZATION_LONG_SWORD;
-        case BASE_ITEM_ELF_COURTBLADE: return FEAT_WEAPON_SPECIALIZATION_GREAT_SWORD;
+        case BASE_ITEM_ELVEN_LIGHTBLADE: return FEAT_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:  return FEAT_WEAPON_SPECIALIZATION_ELVEN_THINBLADE;
+        case BASE_ITEM_ELVEN_COURTBLADE: return FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE;
     }
     return -1;
 }
@@ -371,9 +375,9 @@ int GetEpicFocusFeatOfWeaponType(int iWeaponType)
         case BASE_ITEM_WHIP:           return FEAT_EPIC_WEAPON_FOCUS_WHIP;
 
         // new item types
-        case BASE_ITEM_ELF_LIGHTBLADE: return FEAT_EPIC_WEAPON_FOCUS_SHORTSWORD;
-        case BASE_ITEM_ELF_THINBLADE:  return FEAT_EPIC_WEAPON_FOCUS_LONGSWORD;
-        case BASE_ITEM_ELF_COURTBLADE: return FEAT_EPIC_WEAPON_FOCUS_GREATSWORD;
+        case BASE_ITEM_ELVEN_LIGHTBLADE: return FEAT_EPIC_WEAPON_FOCUS_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:  return FEAT_EPIC_WEAPON_FOCUS_ELVEN_THINBLADE;
+        case BASE_ITEM_ELVEN_COURTBLADE: return FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE;
     }
     return -1;
 }
@@ -427,9 +431,9 @@ int GetEpicSpecializationFeatOfWeaponType(int iWeaponType)
         case BASE_ITEM_WHIP:           return FEAT_EPIC_WEAPON_SPECIALIZATION_WHIP;
 
         // new item types
-        case BASE_ITEM_ELF_LIGHTBLADE: return FEAT_EPIC_WEAPON_SPECIALIZATION_SHORTSWORD;
-        case BASE_ITEM_ELF_THINBLADE:  return FEAT_EPIC_WEAPON_SPECIALIZATION_LONGSWORD;
-        case BASE_ITEM_ELF_COURTBLADE: return FEAT_EPIC_WEAPON_SPECIALIZATION_GREATSWORD;
+        case BASE_ITEM_ELVEN_LIGHTBLADE: return FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:  return FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_THINBLADE;
+        case BASE_ITEM_ELVEN_COURTBLADE: return FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE;
     }
     return -1;
 }
@@ -483,9 +487,9 @@ int GetImprovedCriticalFeatOfWeaponType(int iWeaponType)
         case BASE_ITEM_WHIP:           return FEAT_IMPROVED_CRITICAL_WHIP;
 
         // new item types
-        case BASE_ITEM_ELF_LIGHTBLADE: return FEAT_IMPROVED_CRITICAL_SHORT_SWORD;
-        case BASE_ITEM_ELF_THINBLADE:  return FEAT_IMPROVED_CRITICAL_LONG_SWORD;
-        case BASE_ITEM_ELF_COURTBLADE: return FEAT_IMPROVED_CRITICAL_GREAT_SWORD;
+        case BASE_ITEM_ELVEN_LIGHTBLADE: return FEAT_IMPROVED_CRITICAL_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:  return FEAT_IMPROVED_CRITICAL_ELVEN_THINBLADE;
+        case BASE_ITEM_ELVEN_COURTBLADE: return FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE;
     }
     return -1;
 }
@@ -659,7 +663,7 @@ int GetWeaponSize(object oWeapon)
         case BASE_ITEM_SCYTHE:
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_TRIDENT:
-        case BASE_ITEM_ELF_COURTBLADE:
+        case BASE_ITEM_ELVEN_COURTBLADE:
             return 4;
     }
 
@@ -694,7 +698,7 @@ int PRCLargeWeaponCheck(int iBaseType, int nSize)
         case BASE_ITEM_SCYTHE:
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_TRIDENT:
-        case BASE_ITEM_ELF_COURTBLADE:
+        case BASE_ITEM_ELVEN_COURTBLADE:
         {
             sTest = Get2DAString("baseitems", "WeaponSize", iBaseType);
             break;

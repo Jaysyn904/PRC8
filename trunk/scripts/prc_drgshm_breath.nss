@@ -114,27 +114,27 @@ void main()
         /* - Taken out until we have real breath VFX - Fox
         effect eVis;
     
-        if(GetHasFeat(FEAT_DRAGONSHAMAN_RED, OBJECT_SELF) || GetHasFeat(FEAT_DRAGONSHAMAN_GOLD, OBJECT_SELF))
+        if(GetHasFeat(FEAT_DRAGONSHAMAN_RED, oPC) || GetHasFeat(FEAT_DRAGONSHAMAN_GOLD, oPC))
         {
             eVis = EffectVisualEffect(VFX_FNF_DRAGBREATHGROUND);
         }
-        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BLUE, OBJECT_SELF) || GetHasFeat(FEAT_DRAGONSHAMAN_BRONZE, OBJECT_SELF))
+        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BLUE, oPC) || GetHasFeat(FEAT_DRAGONSHAMAN_BRONZE, oPC))
         {
             eVis = EffectVisualEffect(VFX_BEAM_LIGHTNING);
         }
-        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BLACK, OBJECT_SELF) || GetHasFeat(FEAT_DRAGONSHAMAN_COPPER, OBJECT_SELF))
+        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BLACK, oPC) || GetHasFeat(FEAT_DRAGONSHAMAN_COPPER, oPC))
         {
             eVis = EffectVisualEffect(VFX_FNF_DRAGBREATHGROUND);
         }
-        else if(GetHasFeat(FEAT_DRAGONSHAMAN_WHITE, OBJECT_SELF) || GetHasFeat(FEAT_DRAGONSHAMAN_SILVER, OBJECT_SELF))
+        else if(GetHasFeat(FEAT_DRAGONSHAMAN_WHITE, oPC) || GetHasFeat(FEAT_DRAGONSHAMAN_SILVER, oPC))
         {
             eVis = EffectVisualEffect(VFX_FNF_DRAGBREATHGROUND);
         }
-        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BRASS, OBJECT_SELF))
+        else if(GetHasFeat(FEAT_DRAGONSHAMAN_BRASS, oPC))
         {
             eVis = EffectVisualEffect(VFX_BEAM_FIRE_W);
         }
-        else if(GetHasFeat(FEAT_DRAGONSHAMAN_GREEN, OBJECT_SELF))
+        else if(GetHasFeat(FEAT_DRAGONSHAMAN_GREEN, oPC))
         {
             eVis = EffectVisualEffect(VFX_FNF_DRAGBREATHGROUND);
         }

@@ -414,9 +414,9 @@ int Vile_Feat(int iTypeWeap)
             case BASE_ITEM_TRIDENT: return GetHasFeat(FEAT_VILE_MARTIAL_TRIDENT);
 
             //new items
-            case BASE_ITEM_ELF_LIGHTBLADE: return (GetHasFeat(FEAT_VILE_MARTIAL_SHORTSWORD) || GetHasFeat(FEAT_VILE_MARTIAL_RAPIER));
-            case BASE_ITEM_ELF_THINBLADE: return (GetHasFeat(FEAT_VILE_MARTIAL_LONGSWORD) || GetHasFeat(FEAT_VILE_MARTIAL_RAPIER));
-            case BASE_ITEM_ELF_COURTBLADE: return GetHasFeat(FEAT_VILE_MARTIAL_GREATSWORD);
+            case BASE_ITEM_ELVEN_LIGHTBLADE: return (GetHasFeat(FEAT_VILE_MARTIAL_SHORTSWORD) || GetHasFeat(FEAT_VILE_MARTIAL_RAPIER));
+            case BASE_ITEM_ELVEN_THINBLADE: return (GetHasFeat(FEAT_VILE_MARTIAL_LONGSWORD) || GetHasFeat(FEAT_VILE_MARTIAL_RAPIER));
+            case BASE_ITEM_ELVEN_COURTBLADE: return GetHasFeat(FEAT_VILE_MARTIAL_GREATSWORD);
         }
 
     return FALSE;
@@ -473,9 +473,9 @@ int Sanctify_Feat(int iTypeWeap)
             case BASE_ITEM_TRIDENT: return GetHasFeat(FEAT_SANCTIFY_MARTIAL_TRIDENT);
 
             //new items
-            case BASE_ITEM_ELF_LIGHTBLADE: return (GetHasFeat(FEAT_SANCTIFY_MARTIAL_SHORTSWORD) || GetHasFeat(FEAT_SANCTIFY_MARTIAL_RAPIER));
-            case BASE_ITEM_ELF_THINBLADE: return (GetHasFeat(FEAT_SANCTIFY_MARTIAL_LONGSWORD) || GetHasFeat(FEAT_SANCTIFY_MARTIAL_RAPIER));
-            case BASE_ITEM_ELF_COURTBLADE: return GetHasFeat(FEAT_SANCTIFY_MARTIAL_GREATSWORD);
+            case BASE_ITEM_ELVEN_LIGHTBLADE: return (GetHasFeat(FEAT_SANCTIFY_MARTIAL_SHORTSWORD) || GetHasFeat(FEAT_SANCTIFY_MARTIAL_RAPIER));
+            case BASE_ITEM_ELVEN_THINBLADE: return (GetHasFeat(FEAT_SANCTIFY_MARTIAL_LONGSWORD) || GetHasFeat(FEAT_SANCTIFY_MARTIAL_RAPIER));
+            case BASE_ITEM_ELVEN_COURTBLADE: return GetHasFeat(FEAT_SANCTIFY_MARTIAL_GREATSWORD);
         }
 
         return FALSE;

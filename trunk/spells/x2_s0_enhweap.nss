@@ -395,6 +395,7 @@ void main()
 {
     object oCaster = OBJECT_SELF;
     int nCasterLevel = PRCGetCasterLevel(oCaster);
+	if (nCasterLevel > 40) nCasterLevel = 40;
     PRCSetSchool(GetSpellSchool(PRCGetSpellId(oCaster)));
     if (!X2PreSpellCastCode()) return;
     object oTarget = PRCGetSpellTargetObject(oCaster);

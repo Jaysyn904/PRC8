@@ -525,4 +525,25 @@ void main()
             }
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, GetLocation(OBJECT_SELF));
     }
+	
+//:: Crystal Echoblade
+	effect eEffect = GetFirstEffect(OBJECT_SELF);
+
+	//:: Prevent stacking	
+	while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "Echoblade")
+		RemoveEffect(OBJECT_SELF, eEffect);
+        eEffect = GetNextEffect(OBJECT_SELF);
+    }
+
+	if(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, OBJECT_SELF)) ||		//:: 104/*ITEM_PROPERTY_ECHOBLADE*/
+		(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, GetItemInSlot(INVENTORY_SLOT_LEFTHAND, OBJECT_SELF))))
+	{
+		int nSonic = IPGetDamageBonusConstantFromNumber(nLevel / 2);
+		effect eEchoblade = EffectDamageIncrease(nSonic, DAMAGE_TYPE_SONIC);
+		eEchoblade = ExtraordinaryEffect(eEchoblade);
+		eEchoblade = TagEffect(eEchoblade, "Echoblade");
+		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEchoblade, OBJECT_SELF, RoundsToSeconds(nDuration));
+	}
 }

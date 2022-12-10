@@ -266,6 +266,7 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
      || nRace == RACIAL_TYPE_IRDA
      || nRace == RACIAL_TYPE_ZAKYA_RAKSHASA
      || nRace == RACIAL_TYPE_CHANGELING
+	 || nRace == RACIAL_TYPE_DOPPELGANGER
 	 || nRace == RACIAL_TYPE_ARANEA
      || nRace == RACIAL_TYPE_SHIFTER
      // not counted since it is just "disguise self" and not alter self or shape change

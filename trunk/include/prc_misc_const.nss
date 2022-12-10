@@ -8,26 +8,27 @@
  //:: New base item types
 //:://////////////////////////////////////////////
 
-const int BASE_ITEM_GOLEM           = 23;       //not actually used for anything else
-const int BASE_ITEM_ALCHEMY         = 99;       //not actually used for anything else
-const int BASE_ITEM_POISON          = 100;      //not actually used for anything else
-const int BASE_ITEM_PICK_HEAVY      = 115;
-const int BASE_ITEM_PICK_LIGHT      = 116;
-const int BASE_ITEM_SAI             = 117;
-const int BASE_ITEM_NUNCHAKU        = 118;
-const int BASE_ITEM_FALCHION        = 119;
-const int BASE_ITEM_SAP             = 120;
-const int BASE_ITEM_KATAR           = 121;
-const int BASE_ITEM_MACE_HEAVY      = 122;
-const int BASE_ITEM_MAUL            = 123;
-const int BASE_ITEM_DOUBLE_SCIMITAR = 124;
-const int BASE_ITEM_GOAD            = 125;
-const int BASE_ITEM_EAGLE_CLAW      = 126;
-const int BASE_ITEM_CRAFTED_ROD     = 199;
-const int BASE_ITEM_CRAFTED_STAFF   = 201;
-const int BASE_ITEM_ELF_LIGHTBLADE  = 202;
-const int BASE_ITEM_ELF_THINBLADE   = 203;
-const int BASE_ITEM_ELF_COURTBLADE  = 204;
+const int BASE_ITEM_GOLEM          		= 23;	//:: not actually used for anything else 
+const int BASE_ITEM_LIGHT_LANCE     	= 92;       
+const int BASE_ITEM_ALCHEMY				= 99;	//:: not actually used for anything else
+const int BASE_ITEM_POISON          	= 100;	//:: not actually used for anything else
+const int BASE_ITEM_HEAVY_PICK      	= 115;
+const int BASE_ITEM_LIGHT_PICK      	= 116;
+const int BASE_ITEM_SAI             	= 117;
+const int BASE_ITEM_NUNCHAKU        	= 118;
+const int BASE_ITEM_FALCHION        	= 119;
+const int BASE_ITEM_SAP             	= 120;
+const int BASE_ITEM_KATAR           	= 121;
+const int BASE_ITEM_HEAVY_MACE      	= 122;
+const int BASE_ITEM_MAUL            	= 123;
+const int BASE_ITEM_DOUBLE_SCIMITAR 	= 124;
+const int BASE_ITEM_GOAD            	= 125;
+const int BASE_ITEM_EAGLE_CLAW      	= 126;
+const int BASE_ITEM_CRAFTED_ROD     	= 199;
+const int BASE_ITEM_CRAFTED_STAFF   	= 201;
+const int BASE_ITEM_ELVEN_LIGHTBLADE  = 202;
+const int BASE_ITEM_ELVEN_THINBLADE   = 203;
+const int BASE_ITEM_ELVEN_COURTBLADE  = 204;
 
 //:://////////////////////////////////////////////
 //:: Player Health Const

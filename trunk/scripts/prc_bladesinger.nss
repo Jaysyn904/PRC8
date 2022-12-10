@@ -14,8 +14,8 @@ int GetIsBladesongWeapon(object oWeapon)
 
     return nType == BASE_ITEM_RAPIER
          || nType == BASE_ITEM_LONGSWORD
-         || nType == BASE_ITEM_ELF_LIGHTBLADE
-         || nType == BASE_ITEM_ELF_THINBLADE;
+         || nType == BASE_ITEM_ELVEN_LIGHTBLADE
+         || nType == BASE_ITEM_ELVEN_THINBLADE;
 }
 
 void RemoveSpellEffectSong(object oPC)

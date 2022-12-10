@@ -19,8 +19,13 @@
     Power Points: Psion/wilder 3, psychic warrior 1
     Metapsionics: Extend
 
-    You gain low-light vision (as an elf) for the duration of the power, as
-    well as a +2 bonus on Search and Spot checks.
+	You gain low-light vision (as an elf) for the duration of the power, as well
+	as a +2 bonus on Search and Spot checks.
+
+	In addition, you gain the ability to notice secret or concealed doors by
+	merely passing within 5 feet of one, getting to make a Search check as if
+	you were actively looking for it.
+
 */
 
 #include "psi_inc_psifunc"
@@ -60,10 +65,13 @@ void main()
                eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SEARCH, 2));
                eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
         effect eVis = EffectVisualEffect(VFX_IMP_MAGICAL_VISION);
+		
+		object oSkin = GetPCSkin(oManifester);
+		
         float fDuration = HoursToSeconds(manif.nManifesterLevel);
         if(manif.bExtend) fDuration *= 2;
 
-
+		IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, -1, manif.nManifesterLevel);
         SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
     }

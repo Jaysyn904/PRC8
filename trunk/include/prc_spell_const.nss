@@ -11,6 +11,9 @@ const int SPELL_BLACKLIGHT                  = 2091;
 const int SPELL_BARD_SONG = 411;
 const int SPELL_BARD_CURSE_SONG = 644;
 
+//:: Complete Warrior
+const int SPELL_RANGED_DISARM				= 3493;
+
 //marshal
 const int SPELL_MINAUR_DEMFORT              = 3500;
 const int SPELL_MINAUR_FORCEWILL            = 3501;
@@ -104,7 +107,7 @@ const int SPELLABILITY_LYCANBANE   = 3993;
 const int SPELLABILITY_MIELIKKI    = 3992;
 
 //Drow Judicator
-const int SPELL_COMMAND_SPIDERS  = 1610;
+const int SPELL_COMMAND_SPIDERS  = 1728;
 const int SPELL_SUMMON_MYRLOCHAR = 1616;
 const int SPELL_SUMMON_MONSTROUS = 1614;
 const int SPELL_SUMMON_SWORDSPID = 1615;

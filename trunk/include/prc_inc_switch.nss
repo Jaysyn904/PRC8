@@ -1135,7 +1135,7 @@ const string PRC_SPELL_ALIGNMENT_RESTRICT            = "PRC_SPELL_ALIGNMENT_REST
   */
  const string PRC_PNP_ARMOR_SPEED                      = "PRC_PNP_ARMOR_SPEED";
  
-  /*
+ /*
    * Applies a 99% speed boost when out of combat
    * Warning that it will likely cause PCs to be overly speedy when combat starts
    * Potential problem causer

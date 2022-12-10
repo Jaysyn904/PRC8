@@ -2769,7 +2769,10 @@ int X2PreSpellCastCode2()
     //---------------------------------------------------------------------------    
     if(nContinue)
     	if (GetActionMode(oCaster, ACTION_MODE_EXPERTISE) || GetActionMode(oCaster, ACTION_MODE_IMPROVED_EXPERTISE))
+		{
+			SendMessageToPC(oCaster, "Combat Expertise only works with attack actions.");
     		nContinue = FALSE;
+		}
     
     //---------------------------------------------------------------------------
     // Run Spelldance perform check

@@ -1773,6 +1773,7 @@ void FeatSpecialUsePerDay(object oPC)
     FeatUsePerDay(oPC, FEAT_INCARNUM_BLADE_REBIND, ABILITY_CONSTITUTION, 1);
     FeatUsePerDay(oPC, FEAT_WITCHBORN_INTEGUMENT, ABILITY_CONSTITUTION, 1);
     FeatUsePerDay(oPC, FEAT_LIPS_RAPTUR);
+	FeatUsePerDay(oPC, FEAT_COMMAND_SPIDERS, ABILITY_CHARISMA, 3);
     FeatDiabolist(oPC);
     FeatAlaghar(oPC);
     ShadowShieldUses(oPC);

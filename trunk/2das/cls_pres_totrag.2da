@@ -6,4 +6,4 @@
 2 CobaltRage  FEAT    8881                 ****      
 3 Totemist    CLASS   78                   ****      
 4 ScriptVar   VAR     PRC_AllowTotemRager  0         
-5 ScriptVar   VAR     PRC_PrereqTotemRager 0     
+5 ScriptVar   VAR     PRC_PrereqTotemRager 0         

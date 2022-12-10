@@ -54,8 +54,12 @@ void RendingClaws(object oInitiator, object oTarget)
 
 void Scent(object oInitiator)
 {
-    effect eScent = EffectLinkEffects(EffectSkillIncrease(SKILL_SPOT, 4), EffectSkillIncrease(SKILL_LISTEN, 4));
+    object oSkin = GetPCSkin(oInitiator);
+	
+	effect eScent = EffectLinkEffects(EffectSkillIncrease(SKILL_SPOT, 4), EffectSkillIncrease(SKILL_LISTEN, 4));
            eScent = EffectLinkEffects(eScent, EffectSkillIncrease(SKILL_SEARCH, 4));
+	
+	IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eScent, oInitiator);
 }
