@@ -140,6 +140,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_FAVOURED_SOUL:         sScript = "prc_favouredsoul"; iData |= 0x03; break;
                 case CLASS_TYPE_FIST_OF_ZUOKEN:        sScript = "psi_zuoken";       iData |= 0x01; break;
                 case CLASS_TYPE_FOE_HUNTER:            sScript = "prc_foe_hntr";                    break;
+				case CLASS_TYPE_FORESTMASTER:		   sScript = "prc_forestmaster";				break;
                 case CLASS_TYPE_FORSAKER:              sScript = "prc_forsaker";                    break;
                 case CLASS_TYPE_FRE_BERSERKER:         sScript = "prc_frebzk";                      break;
                 case CLASS_TYPE_FROSTRAGER:            sScript = "prc_frostrager";                  break;
@@ -1774,6 +1775,7 @@ void FeatSpecialUsePerDay(object oPC)
     FeatUsePerDay(oPC, FEAT_WITCHBORN_INTEGUMENT, ABILITY_CONSTITUTION, 1);
     FeatUsePerDay(oPC, FEAT_LIPS_RAPTUR);
 	FeatUsePerDay(oPC, FEAT_COMMAND_SPIDERS, ABILITY_CHARISMA, 3);
+	FeatUsePerDay(oPC, FEAT_FM_FOREST_DOMINION, ABILITY_CHARISMA, 3);
     FeatDiabolist(oPC);
     FeatAlaghar(oPC);
     ShadowShieldUses(oPC);

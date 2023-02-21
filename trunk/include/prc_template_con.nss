@@ -27,8 +27,8 @@ const int TEMPLATE_NECROPOLITAN     	=	105;
 const int TEMPLATE_DARK             = 25;
 const int TEMPLATE_MINERAL_WARRIOR  = 27;
 const int TEMPLATE_BLOODED_ONE      = 28;
-const int TEMPLATE_HALF_TROLL		= 30;
-const int TEMPLATE_SAINT			= 31;
+const int TEMPLATE_HALF_TROLL		= 31;
+const int TEMPLATE_SAINT			= 32;
 
 //:: Half-dragon sub-templates
 const int TEMPLATE_HDRAGON_CHROMATIC_BLACK     = 1;

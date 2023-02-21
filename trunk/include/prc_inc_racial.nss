@@ -40,6 +40,8 @@ int MyPRCGetRacialType(object oCreature)
         return RACIAL_TYPE_SHAPECHANGER;
     if (GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCreature) > 9)
         return RACIAL_TYPE_FEY;
+    if (GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCreature) > 7)
+        return RACIAL_TYPE_PLANT;
 
     // PRC Shifting Polymorph -caused racial type override. Stored with offset +1 to differentiate value 0 from non-existence
     int nShiftingOverrideRace = GetLocalInt(oCreature, "PRC_ShiftingOverride_Race");

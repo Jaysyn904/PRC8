@@ -727,7 +727,7 @@ void main()
         // Weapons for Three Mountains
         if (GetHasFeat(FEAT_THREE_MOUNTAINS, oInitiator))
         {
-            if (oItem == GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator) && (GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR || GetBaseItemType(oItem) == BASE_ITEM_HEAVYFLAIL || GetBaseItemType(oItem) == BASE_ITEM_DIREMACE) || GetBaseItemType(oItem) == BASE_ITEM_MACE_HEAVY)
+            if (oItem == GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator) && (GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR || GetBaseItemType(oItem) == BASE_ITEM_HEAVYFLAIL || GetBaseItemType(oItem) == BASE_ITEM_DIREMACE) || GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE)
             {
                 // Add eventhook to the weapon
                 IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -825,7 +825,7 @@ void main()
         // Weapons for Three Mountains
         if (GetHasFeat(FEAT_THREE_MOUNTAINS, oInitiator))
         {        
-            if (GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR || GetBaseItemType(oItem) == BASE_ITEM_HEAVYFLAIL || GetBaseItemType(oItem) == BASE_ITEM_DIREMACE || GetBaseItemType(oItem) == BASE_ITEM_MACE_HEAVY)
+            if (GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR || GetBaseItemType(oItem) == BASE_ITEM_HEAVYFLAIL || GetBaseItemType(oItem) == BASE_ITEM_DIREMACE || GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE)
             {
                 // Remove eventhook to the item
                 RemoveEventScript(oItem, EVENT_ITEM_ONHIT, "tob_feats", TRUE, FALSE);

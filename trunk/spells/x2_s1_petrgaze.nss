@@ -50,7 +50,8 @@ void main()
     object oSelf = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
     int nHitDice = PRCGetCasterLevel(oSelf);
-    int nSpellID = PRCGetSpellId();   
+    int nSpellID = PRCGetSpellId(); 
+	effect eImmune = EffectVisualEffect(VFX_IMP_MAGIC_RESISTANCE_USE);	
 
     //--------------------------------------------------------------------------
     // Loop through all available targets in spellcone
@@ -77,7 +78,19 @@ void main()
 
         if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oSelf) && oTarget != oSelf)
         {
-            DelayCommand(fDelay, PRCDoPetrification(nHitDice, oSelf, oTarget, nSpellID, nDC));
+		//:: Check for Immunity to Petrification 
+			int bImmune = GetHasFeat(FEAT_IMMUNE_PETRIFICATION, oTarget);
+
+			if (bImmune)
+			{ 
+				SendMessageToPC(OBJECT_SELF, "This creatrure is immune to petrification");
+				ApplyEffectToObject(DURATION_TYPE_INSTANT, eImmune, oTarget);				
+				return;
+			}	
+			else
+			{
+				DelayCommand(fDelay, PRCDoPetrification(nHitDice, oSelf, oTarget, nSpellID, nDC));
+			}	
             //Get next target in spell area
         }
         oTarget = GetNextObjectInShape(SHAPE_SPELLCONE, 10.0, lFinalTarget, TRUE);

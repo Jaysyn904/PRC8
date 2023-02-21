@@ -142,7 +142,7 @@ void UpdateIPs(object oItem)
                 else if(nClass == CLASS_TYPE_WIZARD || nClass == CLASS_TYPE_SORCERER)
                     bAdd = RealSpellToSpellbookID(CLASS_TYPE_SORCERER, nSpellID) == -1 ? FALSE : TRUE;
                 else if(nClass == CLASS_TYPE_CLERIC)
-                    bAdd = RealSpellToSpellbookID(CLASS_TYPE_MYSTIC, nSpellID) == -1 ? FALSE : TRUE;
+                    bAdd = Get2DACache("Spells", "Cleric", nSpellID) == "" ? FALSE : TRUE;
                 else
                     bAdd = RealSpellToSpellbookID(nClass, nSpellID) == -1 ? FALSE : TRUE;
 

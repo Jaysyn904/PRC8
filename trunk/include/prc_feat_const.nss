@@ -1915,10 +1915,7 @@ const int FEAT_SOL_FAST_HEALING_3                = 3314;
 const int FEAT_MAXIMIZE_TURNING                  = 3315;
 const int FEAT_SUP_POSITIVE_ENERGY_BURST         = 3316;
 
-
-
 // Blood Archer
-
 const int FEAT_BLARCH_POISON_BLOOD      = 4200;
 
 // Henshin Mystic                                  feat.2da  spell.2da
@@ -1981,7 +1978,6 @@ const int FEAT_SF_SPEED3            = 2950;
 const int FEAT_SF_CODE              = 2951;
 
 // Shadow Adept
-
 const int FEAT_SA_SHADOWDEF1        = 2952;
 const int FEAT_SA_SHADOWDEF2        = 2953;
 const int FEAT_SA_SHADOWDEF3        = 2954;
@@ -2038,7 +2034,6 @@ const int FEAT_NS_WEB               = 2972;
 const int FEAT_NS_SHADOWWALK        = 2973;
 
 // Runescarred Berserker
-
 const int FEAT_RIT_SCAR             = 2369;
 const int FEAT_SPAWNFROST           = 2371;
 const int FEAT_RIT_DR               = 2370;
@@ -2046,7 +2041,6 @@ const int FEAT_RIT_SCAR_2           = 2375;
 const int FEAT_RIT_SCAR_3           = 2376;
 
 // Ultimate Ranger
-
 const int FEAT_UR_FE_DWARF          = 2974;
 const int FEAT_UR_FE_ELF            = 2975;
 const int FEAT_UR_FE_GNOME          = 2976;
@@ -2088,12 +2082,12 @@ const int FEAT_UNCANNYX_DODGE_1     = 3098;
 const int FEAT_LINGERING_DAMAGE     = 3099;
 const int FEAT_UR_HIPS              = 3136;
 
-// Dragonsong Lyrith
-const int FEAT_DRAGONSONG_STRENGTH      = 3441;
-const int FEAT_DRAGONSONG_COMPULSION    = 3442;
-const int FEAT_DRAGONSONG_SPEED         = 3443;
-const int FEAT_DRAGONSONG_FEAR          = 3444;
-const int FEAT_DRAGONSONG_HEALING       = 3445;
+// Dragonsong Lyrist
+const int FEAT_DRAGONSONG_STRENGTH      	= 3441;
+const int FEAT_DRAGONSONG_COMPULSION    	= 3442;
+const int FEAT_DRAGONSONG_SPEED         	= 3443;
+const int FEAT_DRAGONSONG_FEAR          	= 3444;
+const int FEAT_DRAGONSONG_HEALING       	= 3445;
 const int FEAT_EPIC_DRAGONSONG_STRENGTH      = 3496;
 const int FEAT_EPIC_DRAGONSONG_COMPULSION    = 3497;
 const int FEAT_EPIC_DRAGONSONG_SPEED         = 3498;
@@ -2268,10 +2262,25 @@ const int FEAT_GREATER_KI_DODGE     = 2497;
 const int FEAT_KI_DODGE         = 2498;
 const int FEAT_GHOST_STEP_2         = 2499;
 
+//:: Forest Master (Faiths & Pantheons, pg. 193)
+const int FEAT_FM_TREEBROTHER		= 5436;	
+const int FEAT_FM_NATURESENSE		= 5437;	
+const int FEAT_FM_FOREST_DOMINION	= 5438;	
+const int FEAT_FM_MALLET_MASTER		= 5439;	
+const int FEAT_FM_ICY_MALLET		= 5440;	
+const int FEAT_FM_SHOCK_MALLET		= 5441;	
+const int FEAT_FM_NATURAL_ARMOR		= 5442;	
+const int FEAT_FM_OAK_STRENGTH		= 5443;	
+const int FEAT_FM_SPRUCE_GROWTH		= 5444;	
+const int FEAT_FM_OAKHEART			= 5445;	
+const int FEAT_FM_DEEP_ROOTS		= 5446;	
+const int FEAT_FM_LONGEVITY			= 5447;	
+const int FEAT_FM_FOREST_MIGHT		= 5448;	
+
 // Fast Healing
-const int FAST_HEALING_1                         = 4145;
-const int FAST_HEALING_2                         = 4146;
-const int FAST_HEALING_3                         = 4147;
+const int FAST_HEALING_1			= 4145;
+const int FAST_HEALING_2			= 4146;
+const int FAST_HEALING_3			= 4147;
 
 // General Feats
 const int FEAT_STORMMAGIC                = 4182;

@@ -1111,7 +1111,7 @@ Use: Selected</entry>
   <entry id="12601" lang="en" sex="m">Rage Mage</entry>
   <entry id="12602" lang="en" sex="m">Rage Mages</entry>
   <entry id="12603" lang="en" sex="m">rage mage</entry>
-<entry id="12604" lang="en" sex="m">(PRESTIGE CLASS)
+  <entry id="12604" lang="en" sex="m">(PRESTIGE CLASS)
 At first, it seems like a contradiction -- an arcane spellcaster that "loses herself" in a blind fury. Yet, the rage mage makes for an interesting case, since her approach to magic is based on the primal passion of magic more than the studious quasi-scientific approach.
 
 A rage mage taps into the primal essence of magic, using her own natural anger and frenzy to channel the arcane power in flashy, flamboyant ways. Like the barbarian, the rage mage is often the product of a less civilized society. All rage mages must have at least some background as a barbarian (or some other class that grants a rage or frenzy ability), as well as training as a wizard, sorcerer, or -- very rarely -- a bard.
@@ -2276,41 +2276,20 @@ Benefit: Your aura of despair extends within 100 feet of you.</entry>
 Your aura of despair is wider than normal.
 Prerequisite: CHA 25, aura of despair class ability 
 Benefit: Your aura of despair causes a -4 morale penalty on all saving throws.</entry>
-  <entry id="12849" lang="en" sex="m">Arcane Hierophant</entry>
-  <entry id="12850" lang="en" sex="m">Arcane Hierophants</entry>
-  <entry id="12851" lang="en" sex="m">arcane hierophant</entry>
-  <entry id="12852" lang="en" sex="m">(PRESTIGE CLASS)
-Arcane hierophants wield a blending of arcane magic and divine magic with a heavy emphasis on nature and the elements. Though they possess the learning and discipline commonly associated with wizards, they also have practical knowledge of the natural world commonly associated with druids. Like druids, they can change shape into animal and elemental forms, but they also can wield powerful arcane spells.
+  <entry id="12849" lang="en" sex="m">Epic Frenzied Berzerker</entry>
+  <entry id="12850" lang="en" sex="m">Few mortal beings can surpass the destructive capabilities of the epic frenzied berserker.
 
-- Hit Die: d6
-- Proficiencies: An Arcane Hierophant does not gain any additional weapon or armor proficiencies.
-- Skill Points: 4 + Int Modifier
+Hit Die: d12.
 
-REQUIREMENTS:
+Skill Points at Each Additional Level: 2 + Int modifier
 
-Alignment: Any nonlawful.
-Base Attack Bonus: +4.
-Skills: Lore (8 ranks).
-Spells: Ability to cast 2nd-level arcane spells and 2nd-level divine spells.
-Special: Trackless step class feature.
+Frenzy (Ex): The epic frenzied berserker may enter a frenzy one additional time per day for every two levels gained after 9th.
 
-ABILITIES:
+Inspire Frenzy (Su): The epic frenzied berserker may use this ability one additional time per day for every two levels gained after 10th. 
 
-Level
- 1: Companion Familiar
-    Ignore Arcane Spell Failure
-    Wild Shape
- 2: -
- 3: -
- 4: ?
- 5: -
- 6: ?
- 7: -
- 8: ?
- 9: -
-10: ?
+Bonus Feats: The epic frenzied berserker gains a bonus feat (selected from the list of epic frenzied berserker feats) every three levels after 10th.
 
-Spellcasting: At each level, you gain new spells per day and an increase in caster level (and spells known, if applicable) as if you had also gained a level in an arcane spellcasting class and a level in a divine spellcasting class to which you belonged before adding the prestige class level. You do not, however, gain any other benefit a character of that class would have gained.</entry>
+Epic Frenzied Berserker Bonus Feat List: Damage Reduction, Devastating Critical, Epic Prowess, Epic Toughness, Fast Healing, Overwhelming Critical, Terrifying Rage, Thundering Rage.</entry>
   <entry id="12853" lang="en" sex="m">Ignore Arcane Spell Failure</entry>
   <entry id="12854" lang="en" sex="m">Type of Feat: Class-Specific
 Prerequisite: Arcane Hierophant 1
@@ -2954,7 +2933,7 @@ Special Abilities:
   <entry id="12982" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Hybsil
 Specifics: As the spell "Mirror Image", usable once per day.  Caster level = 1
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="12983" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Hybsil
 Specifics: As the spell "Dancing Lights", usable once per day.  Caster level = 1
@@ -2992,7 +2971,7 @@ Special Abilities:
   <entry id="12989" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Bariur
 Specifics: A charging bariaur can make a single ram attack that deals bludgeoning damage equal to 2d6 + 1-1/2 times the bariaur's Str modifier.
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="12990" lang="en" sex="m">Wildren</entry>
   <entry id="12991" lang="en" sex="m">wildren</entry>
   <entry id="12992" lang="en" sex="m">Wildrens</entry>
@@ -3357,7 +3336,7 @@ Use: Automatic</entry>
   <entry id="13056" lang="en" sex="m">Aberration Wild Shape</entry>
   <entry id="13057" lang="en" sex="m">Type of Feat: Aberrant
 Prerequisite: Aberration Blood
-Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -> Misc Options -> Aberration Wild Shape to choose.
+Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -&gt; Misc Options -&gt; Aberration Wild Shape to choose.
 Use: Automatic</entry>
   <entry id="13058" lang="en" sex="m">Epic Spellfire Wielder I</entry>
   <entry id="13059" lang="en" sex="m">Epic Spellfire Wielder II</entry>
@@ -3372,7 +3351,7 @@ Use: Automatic</entry>
   <entry id="13068" lang="en" sex="m">Type of Feat: Spellfire
 Prerequisite: Spellfire Wielder, Endurance, Concentration 20 ranks
 Specifics: For the purpose of determining your limit of stored spellfire energy levels, treat your Constitution score as if it were 4 points higher than it is. You can select Epic Spellfire Wielder multiple times. Each time you take this feat, your limit of stored spellfire energy levels increases by 4.
-Use: Automatic</entry>  
+Use: Automatic</entry>
   <entry id="13069" lang="en" sex="m">Reth Dekala</entry>
   <entry id="13070" lang="en" sex="m">reth dekala</entry>
   <entry id="13071" lang="en" sex="m">Reth Dekalas</entry>
@@ -3418,7 +3397,7 @@ Use: Selected</entry>
   <entry id="13083" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Reth Dekala
 Specifics: This feat allows you to recover maneuvers. A Reth Dekala expended maneuvers by resting and meditating for 5 minutes. It can use each maneuver once per encounter, and does not need to ready them.
-Use: Selected.</entry>  
+Use: Selected.</entry>
   <entry id="13084" lang="en" sex="m">Grip of Iron</entry>
   <entry id="13085" lang="en" sex="m">Psychometabolism
 Level: Psychic warrior 1
@@ -3454,7 +3433,7 @@ Metapsionics: None
 	
 You gain the powerful charging ability of a lion. When you charge your target, you make a full attack at the end of the charge.
 	 
-Augment: For every additional power point you spend, each of your attacks after the charge gain damage equal to the number of additional points spent.</entry>  
+Augment: For every additional power point you spend, each of your attacks after the charge gain damage equal to the number of additional points spent.</entry>
   <entry id="13094" lang="en" sex="m">Centaur Trample</entry>
   <entry id="13095" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Centaur race, Dex 15
@@ -3517,7 +3496,7 @@ Racial Hit Dice/Class: 2 of Monstrous Humanoid</entry>
   <entry id="13108" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Turlemoi race
 Specifics: You can throw rocks as a ranged attack against opponents
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="13109" lang="en" sex="m">Turlemoi</entry>
   <entry id="13110" lang="en" sex="m">turlemoi</entry>
   <entry id="13111" lang="en" sex="m">Turlemois</entry>
@@ -3593,7 +3572,7 @@ Special Abilities:
 
 (The following may or may not be in use, depending on the module switch settings)
 Level Adjustment: +4
-Racial Hit Dice/Class: 8 of Monstrous Humanoid</entry> 
+Racial Hit Dice/Class: 8 of Monstrous Humanoid</entry>
   <entry id="13122" lang="en" sex="m">Cunning Brilliance Slot 1</entry>
   <entry id="13123" lang="en" sex="m">Cunning Brilliance Slot 2</entry>
   <entry id="13124" lang="en" sex="m">Cunning Brilliance Slot 3</entry>
@@ -3631,7 +3610,7 @@ Special Abilities:
 
 (The following may or may not be in use, depending on the module switch settings)
 Level Adjustment: +2
-Racial Hit Dice/Class: 7 of Fey</entry> 
+Racial Hit Dice/Class: 7 of Fey</entry>
   <entry id="13134" lang="en" sex="m">Ultimate Magus</entry>
   <entry id="13135" lang="en" sex="m">Ultimate Magi</entry>
   <entry id="13136" lang="en" sex="m">ultimate magus</entry>
@@ -3826,7 +3805,7 @@ Spells Known:
  7: 4 4 3 2
  8: 4 4 4 3
  9: 4 4 4 3
-10: 4 4 4 4</entry>  
+10: 4 4 4 4</entry>
   <entry id="13171" lang="en" sex="m">
 (PRESTIGE CLASS)
 A Blackguard epitomizes evil. They are nothing short of a mortal fiend, a black knight with the foulest sort of reputation. Many refer to Blackguards as anti-paladins due to their completely evil nature. No one class makes the best Blackguard, all that is required is a willingness to serve the forces of darkness.
@@ -3868,7 +3847,7 @@ Spells per day:
  8: 2 1 1 1
  9: 2 2 1 1
 10: 2 2 2 1
-</entry>  
+</entry>
   <entry id="13172" lang="en" sex="m">Marrutact</entry>
   <entry id="13173" lang="en" sex="m">marrutact</entry>
   <entry id="13174" lang="en" sex="m">A people known as the marru once lived and warred in the world, but their civilization has long since passed into the waste, devastated and destroyed by internecine wars of terrible magnitude. As a result of these so-called Flesh Wars, the marru turned to a little-understood art called spawncraft, and in so doing created living weapons to wage their battles. These spawncrafted creatures have come to be known collectively as the spawn of marru, but are more commonly referred to as marruspawn. The marru were advanced in other areas as well, but all their arts couldn't save them from destroying themselves. However, marruspawn linger on in forgotten and blasted wastelands across many worlds.
@@ -3984,7 +3963,7 @@ Archliches appear as normal liches. They have all the characteristics of normal 
   <entry id="13192" lang="en" sex="m">Aligned Aura:Evil</entry>
   <entry id="13193" lang="en" sex="m">Aligned Aura:Good</entry>
   <entry id="13194" lang="en" sex="m">Aligned Aura:Law</entry>
-  <entry id="13195" lang="en" sex="m">Axiomatic Water</entry> 
+  <entry id="13195" lang="en" sex="m">Axiomatic Water</entry>
   <entry id="13196" lang="en" sex="m"> Transmutation [Lawful]
 Level: Cleric 1, Paladin 1,
 Components: V, S, M,
@@ -4002,8 +3981,8 @@ This transmutation imbues a flask (1 pint) of water with the order of law, turni
 A direct hit by a flask of axiomatic water deals 2d4 points of damage to a chaotic outsider. Each such creature within 5 feet of the point where the flask hits takes 1 point of damage from the splash.
 
 Material Component: 5 pounds of powdered iron and silver (worth 25 gp).</entry>
-<entry id="13197" lang="en" sex="m">Blaze Of Light</entry> 
-<entry id="13198" lang="en" sex="m">Evocation [Light]
+  <entry id="13197" lang="en" sex="m">Blaze Of Light</entry>
+  <entry id="13198" lang="en" sex="m">Evocation [Light]
 Level: Paladin 1, Druid 2,
 Components: V, S,
 Casting Time: 1 standard action
@@ -4017,9 +3996,9 @@ A cone of bright light shines forth from just above the caster's head.
 All creatures within the cone that fail a Fortitude saving throw are dazzled for 1 minute.
 Sightless creatures are not affected by blaze of light.
 A light spell (one with the light descriptor) counters and dispels a darkness spell
-(one with the darkness descriptor) of an equal or lower level.</entry> 
-<entry id="13199" lang="en" sex="m">Call Mount</entry>
-<entry id="13200" lang="en" sex="m">Conjuration (Calling) [Good]
+(one with the darkness descriptor) of an equal or lower level.</entry>
+  <entry id="13199" lang="en" sex="m">Call Mount</entry>
+  <entry id="13200" lang="en" sex="m">Conjuration (Calling) [Good]
 Level: Paladin 2,
 Components: V,
 Casting Time: 1 round
@@ -4191,7 +4170,6 @@ or energized shield spell at the same time.
 The descriptor of this spell is the same as the 
 energy type you choose when you cast it.</entry>
   <entry id="13217" lang="en" sex="m">Lesser Energized Shield</entry>
-  <entry id="13218" lang="en" sex="m"></entry>
   <entry id="13219" lang="en" sex="m">Estana's Stew</entry>
   <entry id="13220" lang="en" sex="m">Conjuration (Healing)
 Level: Cleric 2, Druid 2, Paladin 2,
@@ -4771,9 +4749,6 @@ effects, you gain a +10 resistance bonus on saving throws
 (or Charisma checks, in the case of effects such as charm 
 person) to resist commands that would cause you to leave
 your current position.</entry>
-
-
-  
   <entry id="16409" lang="en" sex="m">62</entry>
   <entry id="16410" lang="en" sex="m">63</entry>
   <entry id="16411" lang="en" sex="m">64</entry>
@@ -4946,7 +4921,7 @@ Special abilities:
 Base Critical Threat: 18-20/x2
 Base Damage Type: Slashing and piercing
 Weapon Size: Small
-Feats Required: Exotic</entry>  
+Feats Required: Exotic</entry>
   <entry id="16505" lang="en" sex="m">Weapon Proficiency: Eagle Claw</entry>
   <entry id="16506" lang="en" sex="m">Weapon Focus (eagle claw)</entry>
   <entry id="16507" lang="en" sex="m">Epic Weapon Focus (eagle claw)</entry>
@@ -4956,6 +4931,73 @@ Feats Required: Exotic</entry>
   <entry id="16511" lang="en" sex="m">Overwhelming Critical (eagle claw)</entry>
   <entry id="16512" lang="en" sex="m">Devastating Critical (eagle claw)</entry>
   <entry id="16513" lang="en" sex="m">Weapon of Choice (eagle claw)</entry>
+  <entry id="16520" lang="en" sex="m">Forest Master</entry>
+  <entry id="16521" lang="en" sex="m">Forest Masters</entry>
+  <entry id="16522" lang="en" sex="m">forest master</entry>
+  <entry id="16523" lang="en" sex="m">(PRESTIGE CLASS)
+Guardians of the pristine wilderness and defenders of the ancient trees, forest masters are the living embodiments of sentient nature. They walk the shadows under the woods and destroy those who would lay waste to the wild lands. Where druids hold all aspects of nature dear—wind and weather, animal and plant, meadows and mountains—the forest masters consider the forests more ancient than the coming of animals or humans the most sacred spots of the world.  Druids most often become forest masters, but it is not unheard of for rangers or clerics of nature deities to leave their kinships behind and follow this path.
+
+A few multiclassed barbarians become forest masters, although they rarely have the dedication to the plant aspect of nature to embrace this worldview. Forest masters often work alone, but are more than capable of working as part of a group. Many times adventurers have spoken with what they thought was a young, small treant, when they were actually speaking with a very powerful forest master. There are no rivalries between groups of forest masters, although individuals may disagree on methods of enacting the will of the Treefather.
+
+- Hit Die: d8.
+- Proficiencies: A forest master does not gain any additional weapon or armor proficiencies.
+- Skill Points: 2 + Int Modifier.
+- Spells per Day: At each forest master level except 4th and 8th, the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead). 
+
+REQUIREMENTS:
+
+Skills: Animal Empathy 8 ranks, Concentration 4 ranks, Lore 13 ranks.
+Feats: Alertness, Endurance, Power Attack, Skill Focus (Lore), Weapon Proficiency (martial) or Weapon Proficiency (maul).
+Spells: Ability to cast entangle, plant growth*, and command plants*.
+
+ABILITIES:
+Level
+1: 	Tree Brother (Sp): The forest master may assume tree shape once per day.
+	Nature Sense* (Ex): The forest master can identify plants and animals with perfect accuracy. He can determine whether water is safe to drink or dangerous.
+2:  Forest Dominion (Su): The forest master gains the ability to rebuke or command plants as an evil cleric can rebuke or command undead.
+    Great Mallet (Su): A forest master begins to awaken magical abilities within the wood and metal that make up his maul. 
+3:  Natural Armor (Ex): The forest master’s skin changes into a tough, barklike hide, granting him natural armor +3
+4:  Oak Strength (Ex): The forest master gains a +2 bonus to Strength and the ability to make slam attacks. 
+5:  Spruce Growth (Su): Once per day the forest master can temporarily increase his size and strength as if using a righteous might spell.
+7:  Oakheart (Ex): Type changes to plant, gain weakness to fire.
+8:  Deep Roots (Su): Once per day, sink roots to become immobile &amp; gain Fast Healing 5.
+    Forest Longevity* (Ex): At 8th level, the forest master is magically sustained by his continuing transformation and gains incredible longevity.
+10: Forest Might (Ex): The primordial forest infuses the forest master with power. He gains a +2 bonus to Strength, a +2 bonus to Constitution, and he takes only half damage from piercing weapons. He gains Fast Healing 1 in natural environments.
+
+*not implemented</entry>
+  <entry id="16524" lang="en" sex="m">Tree Brother (Sp)</entry>
+  <entry id="16525" lang="en" sex="m">The forest master may assume tree shape once per day.</entry>
+  <entry id="16526" lang="en" sex="m">Nature Sense (Ex)</entry>
+  <entry id="16527" lang="en" sex="m">The forest master can identify plants and animals with perfect accuracy. He can determine whether water is safe to drink or dangerous.
+
+(Not Implemented)</entry>
+  <entry id="16528" lang="en" sex="m">Forest Dominion (Su)</entry>
+  <entry id="16529" lang="en" sex="m"> At 2nd level, the forest master gains the ability to rebuke or command plants as an evil cleric can rebuke or command undead.  His effective level for this ability is his class level, and he may use it a number of times perday equal to 3 + his Charisma modifier. If he already has this ability because he is a cleric with the Plant domain, these levels stack with his cleric levels and vice versa.</entry>
+  <entry id="16530" lang="en" sex="m">Great Mallet (Su)</entry>
+  <entry id="16531" lang="en" sex="m">Beginning at 2nd level, a forest master begins to awaken magical abilities within the wood and metal that make up his maul. Any maul used by a forest master is treated as if it were a +2 maul with either the frost or shock property (the forest master decides each round whether the weapon’s extra damage is cold or electricity). If the weapon has additional abilities (such as defending), these abilities still apply, and if the weapon has an enhancement bonus better than +2 the higher of the two bonuses is used. The maul does not gain these abilities if it is not wielded by the forest master.  At 6th-level, the forest master’s maul acts as a +2 icy burst or +2 shocking burst weapon, with the forest master deciding each round what effect the weapon has.  At 9th level, the forest master’s maul acts as a +3 mighty cleaving weapon in addition to its other properties (including its icy burst or shocking burst ability).</entry>
+  <entry id="16532" lang="en" sex="m">Icy Mallet</entry>
+  <entry id="16533" lang="en" sex="m">Shocking Mallet</entry>
+  <entry id="16534" lang="en" sex="m">Natural Armor (Ex)</entry>
+  <entry id="16535" lang="en" sex="m">At 3rd level, the forest master’s skin changes into a tough, bark like hide, granting him natural armor +3.This bonus increases to +5 at 5th level and +7 at 7th level.</entry>
+  <entry id="16536" lang="en" sex="m">Oak Strength (Ex)</entry>
+  <entry id="16537" lang="en" sex="m">Beginning at 4th level, the forest master gains a +2 bonus to Strength and the ability to make slam attacks. A Small creature’s slam attack deals 1d4 points of damage, one from a Medium-size creature deals 1d6 points of damage, and a Large forest master’s slam attack deals 1d8 points of damage. Slam attacks are natural weapon attacks and do not provoke an attack of opportunity from the defender. A forest master can select Improved Critical (slam), Weapon Focus (slam), and (if a fighter of 4th level or higher) Weapon Specialization (slam). Upon gaining this ability, the forest master’s hair takes on a green, leafy appearance.</entry>
+  <entry id="16538" lang="en" sex="m">Spruce Growth (Su)</entry>
+  <entry id="16539" lang="en" sex="m">At 5th level, once per day the forest master can temporarily increase his size and strength as if using a righteous might spell.</entry>
+  <entry id="16540" lang="en" sex="m">Oakheart (Ex)</entry>
+  <entry id="16541" lang="en" sex="m">Upon reaching 7th level, a forest master’s bodybecomes a thing of wood and leaf rather than meat and bone. Histype changes to plant. As such, he is immune to mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. He is not subject to critical hits or sneak attacks. However, the forest master becomes vulnerable to fire, and suffers double damage from fire attacks.</entry>
+  <entry id="16542" lang="en" sex="m">Deep Roots (Su)</entry>
+  <entry id="16543" lang="en" sex="m">Beginning at 8th level, once per day the forestmaster may sink roots into the ground in any natural surface that can support at least some vegetation. While rooted, the forest master gains fast healing 5, but has an effective Dexterity score of 1 and may not move from the spot in which he stands. The forest master can withdraw his roots and end the healing as a free action.</entry>
+  <entry id="16544" lang="en" sex="m">Forest Longevity (Ex)</entry>
+  <entry id="16545" lang="en" sex="m">At 8th level, the forest master is magically sustained by his continuing transformation and gains incredible longevity.
+
+(Not Implemented)</entry>
+  <entry id="16546" lang="en" sex="m">Forest Might (Ex)</entry>
+  <entry id="16547" lang="en" sex="m">At 10th level, the primordial forest infuses the forest master with power. He gains a +2 bonus to Strength, a +2 bonus to Constitution, and he takes only half damage from piercing weapons. He gains fast healing 1 (which does not add to the fast healing 5 he gains when using his deep roots ability) whenever standing on fertile soil.</entry>
+  <entry id="16548" lang="en" sex="m">You must be wielding a maul to use this ability.</entry>
+  <entry id="16549" lang="en" sex="m">Elemental power flows through your maul.</entry>
+  <entry id="16550" lang="en" sex="m">You sink your roots into the fertile soil below.</entry>
+  <entry id="16551" lang="en" sex="m">You must be outside &amp; above ground to use this ability.</entry>
+  <entry id="16552" lang="en" sex="m">&lt;CUSTOM0&gt; commands plants.</entry>
   <entry id="20400" lang="en" sex="m">++++++++++ ACP Styles ++++++++++</entry>
   <entry id="20401" lang="en" sex="m">Kensai</entry>
   <entry id="20402" lang="en" sex="m">Assassin</entry>
@@ -7642,10 +7684,10 @@ Use: Special.</entry>
 Prerequisite: Drow Judicator level 10
 Specifics: At 10th level the drow judicator gains the ability to judge all creatures within sight. Those he finds wanting are immediately targeted by a Horrid Wilting effect.
 Use: 1/Day</entry>
-  <entry id="45667" lang="en" sex="m">&lt;CUSTOM0&gt; uses War Strike</entry>
-  <entry id="45668" lang="en" sex="m">&lt;CUSTOM0&gt; invokes Selvetarm's Wrath</entry>
-  <entry id="45669" lang="en" sex="m">&lt;CUSTOM0&gt; commands spiders</entry>
-  <entry id="45670" lang="en" sex="m">&lt;CUSTOM0&gt; summons a Spider Servant</entry>
+  <entry id="45667" lang="en" sex="m">&lt;CUSTOM0&gt; uses War Strike.</entry>
+  <entry id="45668" lang="en" sex="m">&lt;CUSTOM0&gt; invokes Selvetarm's Wrath.</entry>
+  <entry id="45669" lang="en" sex="m">&lt;CUSTOM0&gt; commands spiders.</entry>
+  <entry id="45670" lang="en" sex="m">&lt;CUSTOM0&gt; summons a Spider Servant.</entry>
   <entry id="45671" lang="en" sex="m">Fiendish Monstrous Spider</entry>
   <entry id="45672" lang="en" sex="m">Fiendish Sword Spider</entry>
   <entry id="45673" lang="en" sex="m">Myrlochar</entry>
@@ -19101,7 +19143,7 @@ You regenerate 3 HP per round.
 Use: Automatic.</entry>
   <entry id="48648" lang="en" sex="m">Fast Healing 1</entry>
   <entry id="48649" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Soldier of Light level 7
+Prerequisite: Soldier of Light 7 or Forest Master 10
 You regenerate 1 HP per round.
 Use: Automatic.</entry>
   <entry id="48650" lang="en" sex="m">Fast Healing 2</entry>
@@ -19475,9 +19517,10 @@ The totem rager embodies the wrath of nature in its most bestial form. Like the 
 REQUIREMENTS:
 
 Base Attack Bonus: +5.
-Skills: Intimidate 5 ranks, Survival 9 ranks.
+Skills: Intimidate 5 ranks.
 Feat: Cobalt Rage.
 Special: Ability to bind soulmelds to totem chakra, rage class feature.
+
 
 
 - Hit Die: d10.
@@ -44769,8 +44812,8 @@ Prerequisite: Race-Specific.
 Specifics: The plant racial type conveys several immunities:  Immunity to sleep, paralyze, mind-affecting abilities, critical hits, and poison.
 Use: Automatic.</entry>
   <entry id="55870" lang="en" sex="m">Partial Piercing Immunity</entry>
-  <entry id="55871" lang="en" sex="m">Type of Feat: Racial
-Prerequisite: Race-Specific.
+  <entry id="55871" lang="en" sex="m">Type of Feat: Class and Racial
+Prerequisite: Race-Specific or Forest Master 10
 Specifics: The creature takes 50% less damage from piercing weapons.
 Use: Automatic.</entry>
   <entry id="55872" lang="en" sex="m">Plant</entry>
@@ -46111,7 +46154,7 @@ The goddess Shar is called the Mistress of the Night, the Lady of Loss, and the 
   <entry id="56885" lang="en" sex="m">Improved Critical (elven courtblade)</entry>
   <entry id="56886" lang="en" sex="m">Overwhelming Critical (elven courtblade)</entry>
   <entry id="56887" lang="en" sex="m">Devastating Critical (elven courtblade)</entry>
-  <entry id="56888" lang="en" sex="m">Weapon of Choice (elven courtblade)</entry>  
+  <entry id="56888" lang="en" sex="m">Weapon of Choice (elven courtblade)</entry>
   <entry id="56889" lang="en" sex="m">Light Lance</entry>
   <entry id="56890" lang="en" sex="m">A light lance is a pole weapon designed to be used by a mounted warrior or cavalry soldier</entry>
   <entry id="56891" lang="en" sex="m">Base Damage: 1d6
@@ -48916,7 +48959,7 @@ To make a pact with your summoned vestige, you must make a binding check (1d20 +
 
 Whether the binding check succeeds or fails, you gain the powers granted by the vestige for 24 hours. During that time, you cannot rid yourself of the vestige unless you possess the Expel Vestige feat. Success or failure does, however, determine other aspects of the pact. If you fail the binding check, you have made a poor pact, and take a -1 penalty on attack rolls, saving throws, and checks until that vestige leaves you. If you fail multiple binding checks, the penalties stack.
 
-The Difficulty Class for a saving throw against any power granted by a vestige is 10 + 1/2 your effective binder level + your Cha modifier.</entry> 
+The Difficulty Class for a saving throw against any power granted by a vestige is 10 + 1/2 your effective binder level + your Cha modifier.</entry>
   <entry id="58009" lang="en" sex="m">Bind Vestige</entry>
   <entry id="58010" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: None
@@ -48964,12 +49007,12 @@ Use: Automatic</entry>
   <entry id="58018" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Able to bind a vestige, base Will save +4
 Benefit: You gain a +4 bonus on binding checks.
-Use: Automatic</entry>  
+Use: Automatic</entry>
   <entry id="58019" lang="en" sex="m">Improved Binding</entry>
   <entry id="58020" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Able to bind a vestige, Intimidate 4 ranks
 Benefit: Your effective binder level is 2 higher than normal for the purpose of determining the level of vestige you can bind. This benefit does not increase your binder level in any other circumstance.
-Use: Automatic</entry> 
+Use: Automatic</entry>
   <entry id="58021" lang="en" sex="m">Aym, Queen Avarice</entry>
   <entry id="58022" lang="en" sex="m">Aym, Queen Avarice
   
@@ -48998,12 +49041,12 @@ Ruinous Attack: If your effective binder level is at least 10th, your melee atta
   <entry id="58025" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Able to bind a vestige
 Benefit: Once per day, you can attempt to expel a vestige to which you are bound. To do so, you must draw its seal and go through the entire process of summoning it again. If you succeed on the new binding check, you expel the vestige before it would normally leave you, and you can summon a different one to replace it if you wish. Regardless of your success or failure in expelling the vestige, you take a -10 penalty on your next binding check with any vestige, and apply the same penalty on your binding check the next time you summon the vestige you expelled.
-Use: Selected</entry>   
+Use: Selected</entry>
   <entry id="58026" lang="en" sex="m">Rapid Pact Making</entry>
   <entry id="58027" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Able to bind a vestige, Expel Vestige, Intimidate 8 ranks
 Benefit: Once per day, you can bind a vestige as a full-round action.
-Use: Selected</entry> 
+Use: Selected</entry>
   <entry id="58028" lang="en" sex="m">Favored Vestige Amon       </entry>
   <entry id="58029" lang="en" sex="m">Favored Vestige Aym        </entry>
   <entry id="58030" lang="en" sex="m">Favored Vestige Leraje     </entry>
@@ -49048,7 +49091,7 @@ Use: Selected</entry>
 Prerequisite: Able to bind a vestige
 Benefit: Your effective binder level increases by 1 when you use the abilities granted by your chosen vestige.
 Special: You can take this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new vestige.
-Use: Automatic</entry> 
+Use: Automatic</entry>
   <entry id="58069" lang="en" sex="m">Favored Vestige Focus Amon       </entry>
   <entry id="58070" lang="en" sex="m">Favored Vestige Focus Aym        </entry>
   <entry id="58071" lang="en" sex="m">Favored Vestige Focus Leraje     </entry>
@@ -49093,7 +49136,7 @@ Use: Automatic</entry>
 Prerequisite: Favored Vestige
 Benefit: The DC of each supernatural ability granted by your favored vestige increases by 1.
 Special: You can take this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new favored vestige (for which you must have a separate Favored Vestige feat).
-Use: Automatic</entry> 
+Use: Automatic</entry>
   <entry id="58110" lang="en" sex="m">Rapid Recovery Amon       </entry>
   <entry id="58111" lang="en" sex="m">Rapid Recovery Aym        </entry>
   <entry id="58112" lang="en" sex="m">Rapid Recovery Leraje     </entry>
@@ -49138,12 +49181,12 @@ Use: Automatic</entry>
 Prerequisite: Favored Vestige
 Benefit: You can activate the abilities granted by your favored vestige once every 4 rounds rather than once every 5 rounds. You must be bound to the vestige to use its abilities with this feat.
 Special: You can take this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new favored vestige (for which you must have a separate Favored Vestige feat).
-Use: Automatic</entry> 
+Use: Automatic</entry>
   <entry id="58151" lang="en" sex="m">Ignore Special Requirements</entry>
   <entry id="58152" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Ability to bind vestiges
 Benefit: You can ignore the special requirements of vestiges with which you make pacts.
-Use: Automatic</entry> 
+Use: Automatic</entry>
   <entry id="58153" lang="en" sex="m">Leraje, the Green Herald</entry>
   <entry id="58154" lang="en" sex="m">Leraje, the Green Herald
   
@@ -49190,9 +49233,9 @@ Naberius's Skills: At the time you make your pact, you can choose a number of sk
 
 Persuasive Words: You can direct a verbal command at a single living target within 30 feet as if using the command spell. A successful Will save negates the effect. When your effective binder level reaches 14th, your words become even more persuasive and this ability functions like the greater command spell. Once you have used this ability, you cannot do so again for 5 rounds.
 
-Silver Tongue: You gain a +4 bonus on Bluff and Persuade checks.</entry>  
-<entry id="58158" lang="en" sex="m">Naberius, the Grinning Hound Disguise Self</entry>
-<entry id="58159" lang="en" sex="m">Naberius, the Grinning Hound Command</entry>
+Silver Tongue: You gain a +4 bonus on Bluff and Persuade checks.</entry>
+  <entry id="58158" lang="en" sex="m">Naberius, the Grinning Hound Disguise Self</entry>
+  <entry id="58159" lang="en" sex="m">Naberius, the Grinning Hound Command</entry>
   <entry id="58160" lang="en" sex="m">Ronove, the Iron Maiden</entry>
   <entry id="58161" lang="en" sex="m">Ronove, the Iron Maiden
   
@@ -49213,9 +49256,9 @@ Far Hand: As a swift action, you can lift and move an unattended object as per t
 
 Ronove's Fists: You gain the benefit of the Improved Unarmed Strike feat. Your unarmed strikes deal damage as those of a monk of a level equal to your effective binder level. This ability does not grant you any other abilities of a monk, such as flurry of blows.
 
-Sprint: You gain a +10-foot enhancement bonus to your base land speed.</entry>  
-<entry id="58162" lang="en" sex="m">Ronove, the Iron Maiden Far Hand</entry>
-<entry id="58163" lang="en" sex="m">Ronove, the Iron Maiden Bull Rush</entry>
+Sprint: You gain a +10-foot enhancement bonus to your base land speed.</entry>
+  <entry id="58162" lang="en" sex="m">Ronove, the Iron Maiden Far Hand</entry>
+  <entry id="58163" lang="en" sex="m">Ronove, the Iron Maiden Bull Rush</entry>
   <entry id="58164" lang="en" sex="m">Dahlver-Nar, the Tortured One</entry>
   <entry id="58165" lang="en" sex="m">Dahlver-Nar, the Tortured One
   
@@ -49236,9 +49279,9 @@ Maddening Moan: You can emit a frightful moan as a standard action. Every creatu
 
 Natural Armor: You gain an enhancement bonus to your natural armor equal to one-half your Constitution bonus (if any).
 
-Shield Self: At will as a standard action, you can designate one creature within 10 feet per effective binder level to share the damage you take. As long as the subject creature remains within range, you take only half damage from all effects that deal hit point damage, and it takes the rest. The effect ends immediately if you designate another creature or if either you or the subject dies. Any damage dealt to you after the effect ends is no longer split between you and the subject, but damage already split is not reassigned to you. You can affect one creature at a time with this ability. An unwilling target of this ability can attempt a Will save to negate the effect.</entry>  
-<entry id="58166" lang="en" sex="m">Dahlver-Nar, the Tortured One Maddening Moan</entry>
-<entry id="58167" lang="en" sex="m">Dahlver-Nar, the Tortured One Shield Self</entry>
+Shield Self: At will as a standard action, you can designate one creature within 10 feet per effective binder level to share the damage you take. As long as the subject creature remains within range, you take only half damage from all effects that deal hit point damage, and it takes the rest. The effect ends immediately if you designate another creature or if either you or the subject dies. Any damage dealt to you after the effect ends is no longer split between you and the subject, but damage already split is not reassigned to you. You can affect one creature at a time with this ability. An unwilling target of this ability can attempt a Will save to negate the effect.</entry>
+  <entry id="58166" lang="en" sex="m">Dahlver-Nar, the Tortured One Maddening Moan</entry>
+  <entry id="58167" lang="en" sex="m">Dahlver-Nar, the Tortured One Shield Self</entry>
   <entry id="58168" lang="en" sex="m">Haagenti, Mother of Minotaurs</entry>
   <entry id="58169" lang="en" sex="m">Haagenti, Mother of Minotaurs
   
@@ -49259,7 +49302,7 @@ Immunity to Transformation: No mortal magic can permanently affect your form whi
 
 Shield Proficiency: You are proficient with shields, including tower shields.
 
-Weapon Proficiency: You are proficient with the battleaxe, greataxe, handaxe, and throwing axe.</entry>  
+Weapon Proficiency: You are proficient with the battleaxe, greataxe, handaxe, and throwing axe.</entry>
   <entry id="58170" lang="en" sex="m">Haagenti, Mother of Minotaurs Confusing Touch</entry>
   <entry id="58171" lang="en" sex="m">Malphas, the Turnfeather</entry>
   <entry id="58172" lang="en" sex="m">Malphas, the Turnfeather
@@ -49281,8 +49324,8 @@ Invisibility: As a standard action, you can make yourself invisible. Making an a
 
 Poison Use: You are not at risk of poisoning yourself when handling poison or applying it to a weapon.
 
-Sneak Attack: You deal an extra 1d6 points of damage plus 1d6 points per four effective binder levels.</entry>  
-  <entry id="58173" lang="en" sex="m">Malphas, the Turnfeather Arcane Eye</entry>  
+Sneak Attack: You deal an extra 1d6 points of damage plus 1d6 points per four effective binder levels.</entry>
+  <entry id="58173" lang="en" sex="m">Malphas, the Turnfeather Arcane Eye</entry>
   <entry id="58174" lang="en" sex="m">Savnok, the Instigator</entry>
   <entry id="58175" lang="en" sex="m">Savnok, the Instigator
   
@@ -49303,7 +49346,7 @@ Heavy Armor Proficiency: You are proficient with heavy armor.
 
 Move Ally: You can instantly swap positions with any visible willing ally within 5 feet per two effective binder levels of your position. Using this ability is a standard action at first, though at 13th level you can use it as a swift action. Once you have used this ability, you cannot do so again for 5 rounds.
 
-Savnok's Armor: While wearing your called armor, you can ignore some of the damage from attacks by nonpiercing weapons. When you first gain the ability to summon Savnok, this ability gives you damage reduction 1/piercing, and the value improves by +1 for every four effective binder levels you possess.</entry>  
+Savnok's Armor: While wearing your called armor, you can ignore some of the damage from attacks by nonpiercing weapons. When you first gain the ability to summon Savnok, this ability gives you damage reduction 1/piercing, and the value improves by +1 for every four effective binder levels you possess.</entry>
   <entry id="58176" lang="en" sex="m">Savnok, the Instigator Call Armor</entry>
   <entry id="58177" lang="en" sex="m">Savnok, the Instigator Move Ally</entry>
   <entry id="58178" lang="en" sex="m">Andromalius, the Repentant Rogue</entry>
@@ -49328,7 +49371,7 @@ See the Unseen: At will, you can use see invisibility as the spell (caster level
 
 Sense Trickery: You gain a +4 bonus on Sense Motive checks, on Appraise checks, and on Spot checks.
 
-Sneak Attack: You deal an extra 2d6 points of damage when flanking an opponent or at any time when the target would be denied its Dexterity bonus. For every five effective binder levels you possess beyond 5th, your sneak attack damage increases by an additional 1d6 points.</entry>    
+Sneak Attack: You deal an extra 2d6 points of damage when flanking an opponent or at any time when the target would be denied its Dexterity bonus. For every five effective binder levels you possess beyond 5th, your sneak attack damage increases by an additional 1d6 points.</entry>
   <entry id="58180" lang="en" sex="m">Andromalius, the Repentant Rogue Jester's Mirth</entry>
   <entry id="58181" lang="en" sex="m">Andromalius, the Repentant Rogue Locate Item</entry>
   <entry id="58182" lang="en" sex="m">Andromalius, the Repentant Rogue See the Unseen</entry>
@@ -49352,10 +49395,10 @@ Focalor's Breath: As a standard action, you can exhale toward a single living ta
 
 Lightning Strike: Once per round as a standard action, you can call down a bolt of lightning that strikes any target you designate, as long as it is within 10 feet per effective binder level of your position. The lightning bolt deals 3d6 points of electricity damage, plus an additional 1d6 points of electricity damage for every three effective binder levels you possess above 5th. A successful Reflex save halves this damage. 
 
-Water Breathing: You can breathe both water and air easily</entry>   
+Water Breathing: You can breathe both water and air easily</entry>
   <entry id="58185" lang="en" sex="m">Focalor, Prince of Tears Aura of Sadness</entry>
   <entry id="58186" lang="en" sex="m">Focalor, Prince of Tears Lightning Strike</entry>
-  <entry id="58187" lang="en" sex="m">Focalor, Prince of Tears Breath</entry>  
+  <entry id="58187" lang="en" sex="m">Focalor, Prince of Tears Breath</entry>
   <entry id="58188" lang="en" sex="m">Karsus, Hubris in the Blood</entry>
   <entry id="58189" lang="en" sex="m">Karsus, Hubris in the Blood
   
@@ -49376,7 +49419,7 @@ Karsus's Senses: You can cast detect magic at will.
 
 Karsus's Touch: You can produce a dispel magic effect with a touch. To do so, you must make a successful melee touch attack that does not provoke attacks of opportunity. You can then make a dispel check (1d20 + your effective binder level, maximum +20) against each ongoing spell currently in effect on the target. You can use Karsus's touch a number of times per day equal to your effective binder level. Once you have used this ability, you cannot do so again for 5 rounds.
 
-Karsus's Will: You can use wands and staves as if you were a wizard.</entry>     
+Karsus's Will: You can use wands and staves as if you were a wizard.</entry>
   <entry id="58190" lang="en" sex="m">Karsus, Hubris in the Blood Senses</entry>
   <entry id="58191" lang="en" sex="m">Karsus, Hubris in the Blood Touch</entry>
   <entry id="58192" lang="en" sex="m">Paimon, the Dancer</entry>
@@ -49403,7 +49446,7 @@ Paimon's Skills: You gain a +4 bonus on Tumble checks and Perform checks.
 
 Uncanny Dodge: You retain your Dexterity bonus to AC (if any) even if caught flat-footed or struck by an invisible attacker.
 
-Whirlwind Attack: You gain the benefit of the Whirlwind Attack feat.</entry>   
+Whirlwind Attack: You gain the benefit of the Whirlwind Attack feat.</entry>
   <entry id="58194" lang="en" sex="m">Paimon, the Dancer Dance of Death</entry>
   <entry id="58195" lang="en" sex="m">Agares, Truth Betrayed</entry>
   <entry id="58196" lang="en" sex="m">Agares, Truth Betrayed
@@ -49425,7 +49468,7 @@ Earthshaking Step: As a standard action, you can stomp on the ground, causing ev
 
 Elemental Companion: You can summon an earth elemental to accompany you and fight for you. If you lose your elemental, you cannot summon it again for 1 hour. The size of the earth elemental you can summon depends on your effective binder level. Below 11th, small. Below 15th, medium. Below 19th, large. 19th and above, huge.
 
-Fear Immunity: You have immunity to fear.</entry>    
+Fear Immunity: You have immunity to fear.</entry>
   <entry id="58197" lang="en" sex="m">Agares, Truth Betrayed Earthshaking Step</entry>
   <entry id="58198" lang="en" sex="m">Agares, Truth Betrayed Elemental Companion</entry>
   <entry id="58199" lang="en" sex="m">Andras, the Gray Knight</entry>
@@ -49452,10 +49495,10 @@ Smite Good or Evil: You can attempt to smite an evil or good creature with a sin
 
 Sow Discord: Andras grants you the ability to sow discord among your enemies. As a standard action, you can force an enemy that fails a Will save to attack a randomly determined ally within reach on his next action. Sow discord is a mind-affecting compulsion ability. Once you have used this ability, you cannot do so again for 5 rounds.
 
-Sure Blows: You gain the benefit of the Improved Critical feat with any weapon you wield.</entry>    
+Sure Blows: You gain the benefit of the Improved Critical feat with any weapon you wield.</entry>
   <entry id="58201" lang="en" sex="m">Andras, the Gray Knight Smite</entry>
-  <entry id="58202" lang="en" sex="m">Andras, the Gray Knight Sow Discord</entry>  
-  <entry id="58203" lang="en" sex="m">Andras, the Gray Knight Mount</entry>  
+  <entry id="58202" lang="en" sex="m">Andras, the Gray Knight Sow Discord</entry>
+  <entry id="58203" lang="en" sex="m">Andras, the Gray Knight Mount</entry>
   <entry id="58204" lang="en" sex="m">Buer, Grandmother Huntress</entry>
   <entry id="58205" lang="en" sex="m">Buer, Grandmother Huntress
   
@@ -49480,7 +49523,7 @@ Fast Healing: You gain the fast healing 1, and the rate of healing increases wit
 
 Healing Gift: As a standard action, you can cure 1d8 points of damage +1 point per effective binder level (maximum 1d8+10 points). You cannot use your healing gift again for 5 rounds. Both uses of the ability channel positive energy and deal a corresponding amount of damage to undead.
 
-Track: You gain the Track feat.</entry>  
+Track: You gain the Track feat.</entry>
   <entry id="58206" lang="en" sex="m">Buer, Grandmother Huntress Healing Gift</entry>
   <entry id="58207" lang="en" sex="m">Eurynome, Mother of the Material</entry>
   <entry id="58208" lang="en" sex="m">Eurynome, Mother of the Material
@@ -49508,7 +49551,7 @@ Effective Binder Level Warhammer Summoned
 19th or higher +3 anarchic adamantine warhammer
 
 Poison Blood: While you are bound to Eurynome, your blood becomes poisonous. Any creature that makes a bite attack against you must immediately make a successful Fortitude save or take 1d6 points of damage. After 1 minute, the creature must make another Fortitude save at the same DC or take another 1d6 points of damage per three effective binder levels you possess (maximum 5d6). Each bite attack poisons the creature anew, forcing a new round of saving throws.
-</entry>   
+</entry>
   <entry id="58209" lang="en" sex="m">Anima Mage</entry>
   <entry id="58210" lang="en" sex="m">Anima Mages</entry>
   <entry id="58211" lang="en" sex="m">anima mage</entry>
@@ -49577,7 +49620,7 @@ Touch of the Void: As a swift action, you can charge a melee attack with cold en
 Turn/Rebuke Undead: You can turn or rebuke undead as a cleric of your effective binder level. As with a cleric, you turn if you are good and rebuke if you are evil. Once you have used this ability, you cannot do so again for 5 rounds.
 
 Vessel of Emptiness: You can use the flicker shadow magic mystery once per day. At 13th level, you can use this ability two times per day, and at 19th level, you can use it three times per day.
-</entry>   
+</entry>
   <entry id="58221" lang="en" sex="m">Tenebrous, the Shadow That Was Deeper Darkness</entry>
   <entry id="58222" lang="en" sex="m">Tenebrous, the Shadow That Was Touch of the Void</entry>
   <entry id="58223" lang="en" sex="m">Tenebrous, the Shadow That Was Turn Undead</entry>
@@ -49612,7 +49655,7 @@ Soul Binding/Spellcasting: At each level except 1st, you gain new soul binds and
   <entry id="58230" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Tenebrous Apostate 1
 Specifics: When you use the turn or rebuke undead ability granted by Tenebrous, your connection to your dark master allows you to channel the energy in a unique way. You can use a turn attempt to deal 1d6 points of damage per effective turning level you possess to every undead creature within 30 feet. Each affected undead can attempt a Will save (DC 10 + your effective turning level + your Cha modifier) for half damage. If you use a rebuke attempt, each undead within 30 feet is instead cured of 1d6 points of damage per effective turning level. This effect occurs instead of the normal result. Neutral characters use the turn effect, evil characters the rebuke.
-Use: Selected</entry> 
+Use: Selected</entry>
   <entry id="58231" lang="en" sex="m">Destroy/Empower Undead</entry>
   <entry id="58232" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Tenebrous Apostate 3
@@ -49716,8 +49759,8 @@ Use: Selected</entry>
 Prerequisite: Knight of the Sacred Seal 3
 Specifics: At 4th level, you can draw upon the power of your patron vestige to augment your fighting abilities as a swift action. You gain a +2 bonus to Strength, a +2 bonus to Constitution, a +10-foot bonus to your base land speed, and a +4 bonus on Will saves for 1 round. Once you have used this ability, you cannot do so again for 5 rounds.
 Use: Selected</entry>
-<entry id="58287" lang="en" sex="m">Vestige's Surge</entry>
-<entry id="58288" lang="en" sex="m">Type of Feat: Class Specific
+  <entry id="58287" lang="en" sex="m">Vestige's Surge</entry>
+  <entry id="58288" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Knight of the Sacred Seal 3
 Specifics: At 5th level, once per day, when you activate one of your patron vestige's powers, or your vestige's protection or vestige's power class feature, you can choose to activate that ability again immediately rather than waiting the usual 5 rounds.
 Use: Selected</entry>
@@ -49744,7 +49787,7 @@ Lich's Energy Immunities: You gain immunity to cold and electricity damage.
 Paralyzing Touch: As a standard action, you can make a touch attack to paralyze a living foe. The touched creature must succeed on a Fortitude save or be paralyzed for a number of rounds equal to one-half your effective binder level. Each round on its turn, the paralyzed creature can attempt a new saving throw as a full-round action, with success ending the effect immediately. Once you have used this ability, you cannot do so again for 5 rounds.
 
 Undead Healing: Negative energy (such as that of an inflict spell) heals you rather than damaging you. If you are a living creature, positive energy (such as a cure spell) still heals you as well.
-</entry> 
+</entry>
   <entry id="58291" lang="en" sex="m">Acererak, the Devourer Detect Undead</entry>
   <entry id="58292" lang="en" sex="m">Acererak, the Devourer Hide from Undead</entry>
   <entry id="58293" lang="en" sex="m">Acererak, the Devourer Paralyzing Touch</entry>
@@ -49769,7 +49812,7 @@ Icy Glare: You gain a gaze attack that deals 2d6 points of cold damage to the ta
 Prescience: You get a glimpse of the future a moment before it happens. This knowledge manifests as an insight bonus equal to +1 per four effective binder levels on initiative checks, Reflex saves, and AC.
 
 Weapon Finesse: You gain the benefit of the Weapon Finesse feat.
-</entry> 
+</entry>
   <entry id="58296" lang="en" sex="m">Balam, the Bitter Angel Balam's Cunning</entry>
   <entry id="58297" lang="en" sex="m">Balam, the Bitter Angel Icy Glare</entry>
   <entry id="58298" lang="en" sex="m">Dantalion, the Star Emperor</entry>
@@ -49793,7 +49836,7 @@ Dantalion Knows: While bound to Dantalion, you have a +8 bonus on Lore checks.
 Read Thoughts: At will as a full-round action, you can attempt to read the surface thoughts of any creature you can see. If the target makes a successful Will save, you cannot read its thoughts for 1 minute. If you attempt to read the thoughts of a creature with an Intelligence score 10 points higher than your own, you automatically fail and are stunned for 1 round.
 
 Thought Travel: As a standard action, you can instantly transport yourself to any location you can see that is within 5 feet per effective binder level you possess. Thought travel is a teleportation effect and is usable a number of times per day equal to your effective binder level. Once you have used this ability, you cannot do so again for 5 rounds.
-</entry> 
+</entry>
   <entry id="58300" lang="en" sex="m">Dantalion, the Star Emperor Awe of Dantalion</entry>
   <entry id="58301" lang="en" sex="m">Dantalion, the Star Emperor Read Thoughts</entry>
   <entry id="58302" lang="en" sex="m">Dantalion, the Star Emperor Thought Travel</entry>
@@ -49821,7 +49864,7 @@ Level
     Improved Thought Travel - Thought Travel is now a move action
 5:  Read Multiple Thoughts - Target multiple enemies at a time with Read Thoughts and Overwhelm Thoughts
 
-Soul Binding: At each level, you gain new soul binds as if you had gained a level in both your soul binding-using class.</entry>  
+Soul Binding: At each level, you gain new soul binds as if you had gained a level in both your soul binding-using class.</entry>
   <entry id="58307" lang="en" sex="m">Dantalion's Scholarship</entry>
   <entry id="58308" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Scion of Dantalion 1
@@ -49831,17 +49874,17 @@ Use: Selected</entry>
   <entry id="58310" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Scion of Dantalion 3
 Specifics: As a standard action, you send your thoughts out to a single creature whose thoughts you are reading (so it has already failed its Will save against your read thoughts ability), forcing it to succeed on a Will save (DC 10 + 1/2 your effective binder level + your Cha modifier) or be dazed for 1d4 rounds. A successful save allows the creature to break free of your thought reading.
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="58311" lang="en" sex="m">Dantalion's Glare</entry>
   <entry id="58312" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Scion of Dantalion 4
 Specifics: Every creature within this a 30 ft. cone must succeed on a Fortitude save (DC 10 + 1/2 your effective binder level + your Cha modifier) or be blinded for 1d4 rounds. Once you have used this ability, you cannot do so again for 5 rounds.
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="58313" lang="en" sex="m">Improved Thought Travel</entry>
   <entry id="58314" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Scion of Dantalion 4
 Specifics: Beginning at 4th level, you can use the thought travel ability granted by Dantalion as a move action.
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="58315" lang="en" sex="m">Geryon, the Deposed Lord</entry>
   <entry id="58316" lang="en" sex="m">Geryon, the Deposed Lord
   
@@ -49863,7 +49906,7 @@ All-Around Vision: Your extra eyes allow you to look in any direction, granting 
 See in Darkness: You can see perfectly in darkness of any kind, even that created by a deeper darkness spell.
 
 Swift Flight: You can fly for 1 round by using the Jump ability. Once you have used swift flight, you cannot do so again for 5 rounds.
-</entry> 
+</entry>
   <entry id="58317" lang="en" sex="m">Geryon, the Deposed Lord Acidic Glare</entry>
   <entry id="58318" lang="en" sex="m">Geryon, the Deposed Lord Swift Flight</entry>
   <entry id="58319" lang="en" sex="m">Otiax, the Key to the Gate</entry>
@@ -49887,7 +49930,7 @@ Concealing Mist: The mist that constantly surrounds you forms a screen that gran
 Open Portal: At will as a swift action, you can open (but not close) an unlocked door, chest, box, or other object.
 
 Unlock: As a full-round action, you can unlock a single lock that you can touch, provided that its Open Lock DC is less than or equal to twice your effective binder level. Once you have used this ability, you cannot do so again for 5 rounds.
-</entry>   
+</entry>
   <entry id="58321" lang="en" sex="m">Otiax, the Key to the Gate Air Blast</entry>
   <entry id="58322" lang="en" sex="m">Otiax, the Key to the Gate Open Portal</entry>
   <entry id="58323" lang="en" sex="m">Otiax, the Key to the Gate Unlock</entry>
@@ -49937,7 +49980,7 @@ Honeyed Tongue: You gain a +4 competence bonus on Bluff, Persuade, and Intimidat
 Master Craftsman: While bound to Astaroth, you gain a +4 competence bonus on all Craft checks. In addition, each time you bind with Astaroth, you may select one item creation feat as a temporary bonus feat. So long as you continue to bind with Astaroth, you may use that feat as though you possessed it normally; you must still spend all standard gold and XP for any item you create, and you must still provide all necessary spells for a given item. If your effective binder level is not at least as high as the necessary caster level to take a specific item creation feat, you cannot choose that feat. For instance, a 4th-level binder could not choose any item creation feat with a prerequisite of caster level 5th or higher.
 
 Word of Astaroth: You may charm a single creature with your glowing words. You must wait 5 rounds before making another attempt.
-</entry>  
+</entry>
   <entry id="58329" lang="en" sex="m">Astaroth, Unjustly Fallen Astaroth's Breath</entry>
   <entry id="58330" lang="en" sex="m">Astaroth, Unjustly Fallen Word of Astaroth</entry>
   <entry id="58331" lang="en" sex="m">Chupoclops, Harbinger of Forever</entry>
@@ -49974,7 +50017,7 @@ You add your Strength modifier to your damage roll.
 Pounce: If you charge a foe, you can make a full attack at the end of the charge.
 
 Soulsense: You notice and locate living creatures within 10 feet as if you possessed the blindsense ability.
-</entry>    
+</entry>
   <entry id="58333" lang="en" sex="m">Chupoclops, Harbinger of Forever Aura of Despair</entry>
   <entry id="58334" lang="en" sex="m">Chupoclops, Harbinger of Forever Ethereal Watcher</entry>
   <entry id="58335" lang="en" sex="m">Haures, the Dreaming Duke</entry>
@@ -49998,7 +50041,7 @@ Incorporeal Movement: When moving, you become nearly incorporeal and can ignore 
 Major Image: You can create an illusion at will, as though you had cast mislead (caster level equals your effective binder level). Once you have used this ability, you cannot do so again for 5 rounds.
 
 Phantasmal Killer: This ability functions like the phantasmal killer spell. Once you have used this ability, you cannot do so again for 5 rounds.
-</entry>      
+</entry>
   <entry id="58337" lang="en" sex="m">Haures, the Dreaming Duke Major Image</entry>
   <entry id="58338" lang="en" sex="m">Haures, the Dreaming Duke Phantasmal Killer</entry>
   <entry id="58339" lang="en" sex="m">Ipos, Prince of Fools</entry>
@@ -50032,7 +50075,7 @@ Flash of Insight: As a swift action, you gain a true seeing effect (as the spell
 Ipos's Influence: Your affiliation with Ipos allows you to draw more power from the vestiges to which you are bound. The saving throw DC (if any) of each special ability granted by your vestiges increases by 1. Treat your effective binder level as one higher than normal for the purpose of determining the effects of vestige special abilities.
 
 Rend: When you hit one foe with two or more claw attacks, you automatically deal double the damage of a normal claw attack (including your Strength modifier) in addition to your normal damage.
-</entry>    
+</entry>
   <entry id="58341" lang="en" sex="m">Ipos, Prince of Fools Flash of Insight</entry>
   <entry id="58342" lang="en" sex="m">Shax, Sea Sister</entry>
   <entry id="58343" lang="en" sex="m">Shax, Sea Sister
@@ -50053,7 +50096,7 @@ Freedom of Movement: As a swift action, you can give yourself the ability to ign
 Immunity to Electricity: You gain immunity to electricity damage.
 
 Storm Strike: As a swift action, you can charge a melee attack or melee touch attack with electricity and sonic power. Your next melee attack deals an extra 1d6 points of electricity damage and 1d6 points of sonic damage.
-</entry>   
+</entry>
   <entry id="58344" lang="en" sex="m">Shax, Sea Sister Freedom of Movement</entry>
   <entry id="58345" lang="en" sex="m">Shax, Sea Sister Storm Strike</entry>
   <entry id="58346" lang="en" sex="m">Zagan, Duke of Disappointment</entry>
@@ -50079,7 +50122,7 @@ Scent: You gain the scent special quality.
 Constrict: You gain a giant constrictor's ability to crush the life from its prey. You deal damage equal to 1d8 + 1-1/2 * your Str modifier with a successful grapple check, in addition to your normal unarmed damage.
 
 Reptile Bane: Zagan's grants you +2 melee attack and +2d6 damage on melee attacks against reptilian creatures.
-</entry>  
+</entry>
   <entry id="58348" lang="en" sex="m">Zagan, Duke of Disappointment Aversion</entry>
   <entry id="58349" lang="en" sex="m">Vanus, the Reviled One</entry>
   <entry id="58350" lang="en" sex="m">Vanus, the Reviled One
@@ -50102,7 +50145,7 @@ Free Ally: You may designate any ally to gain the benefits of the freedom of mov
 Noble Disdain: When attacking a foe of fewer Hit Dice than yourself with a ranged or melee weapon, you deal +1d6 points of damage.
 
 Vanus's Ears: Being bound to Vanus grants you a +10 bonus on Listen checks.
-</entry>   
+</entry>
   <entry id="58351" lang="en" sex="m">Vanus, the Reviled One Free Ally</entry>
   <entry id="58352" lang="en" sex="m">The Triad</entry>
   <entry id="58353" lang="en" sex="m">The Triad
@@ -50143,7 +50186,7 @@ Detect Hostile Intent: You gain access to the psionic power mental disruption fo
 Sense Motive Bonus: You gain a +5 bonus on Sense Motive checks.
 
 Weapon Proficiency: You gain proficiency in all simple, martial, and exotic weapons.
-</entry>     
+</entry>
   <entry id="58354" lang="en" sex="m">The Triad Smite Evil</entry>
   <entry id="58355" lang="en" sex="m">Desharis, the Sprawling Soul</entry>
   <entry id="58356" lang="en" sex="m">Desharis, the Sprawling Soul
@@ -50166,7 +50209,7 @@ Infinite Doors: Once per day, you may teleport, as per the spell, as a caster of
 Smite Natural Soul: You may attempt to smite an animal, elemental, fey, or plant with a single melee attack. You add your Charisma bonus (if any) to the attack roll and deal 1 extra point of damage per effective binder level. If you accidentally smite a creature that is not one of the above types, the attempt has no effect. Once you have used this ability, you cannot do so again for 5 rounds.
 
 Spirits of the City: You can animate objects, as the spell, as a caster of your binder level. Once you have used this ability, you must wait 5 rounds after the effect has expired before you can do so again.
-</entry>        
+</entry>
   <entry id="58357" lang="en" sex="m">Desharis, the Sprawling Soul Infinite Doors</entry>
   <entry id="58358" lang="en" sex="m">Desharis, the Sprawling Soul Smite Natural Soul</entry>
   <entry id="58359" lang="en" sex="m">Desharis, the Sprawling Soul Spirits of the City</entry>
@@ -50191,7 +50234,7 @@ Alien Mind: Your mind is alien and does not work like that of a normal mortal. Y
 Bolts of Madness: You can fire a ray that dazes an opponent for 1d3 rounds. You must succeed on a ranged touch attack with a range of 100 ft. + 10 ft./binder level. A successful Will save negates the effect. Once you have used this ability, you cannot do so again for 5 rounds.
 
 Summon Alien: You can summon any creature from the summon monster list that a sorcerer of your level could summon. Any creature you summon with this ability gains the pseudonatural template. Thus, at 10th level you could summon any creature from the summon monster I-V list. When you reach 14th level, you can summon any creature from the summon monster I-VII list.Once you have used this ability, you cannot do so again for 5 rounds.
-</entry>    
+</entry>
   <entry id="58362" lang="en" sex="m">Zceryll, the Star Spawn Bolts of Madness</entry>
   <entry id="58363" lang="en" sex="m">Zceryll, the Star Spawn Summon Alien</entry>
   <entry id="58364" lang="en" sex="m">Eligor, Dragon's Slayer</entry>
@@ -50240,7 +50283,7 @@ Fiery Retribution: You deal an extra 3d6 points of fire damage when you strike a
 Smoke Form: You can assume the form of a smoke cloud at will, like the gaseous form spell. You can suppress or activate this ability as a standard action. Once you have returned to your normal form from smoke form, you cannot do so again for 5 rounds.
 
 Silent and Sure: You gain a +16 competence bonus on Hide and Move Silently checks.
-</entry>  
+</entry>
   <entry id="58369" lang="en" sex="m">Gaseous Form</entry>
   <entry id="58370" lang="en" sex="m">Level: Brd 3, Sor/Wiz 3
 Components: S
@@ -50274,7 +50317,7 @@ Ashardalon's Presence: You can strike fear into the hearts of your foes. This ac
 Ashardalon's Vigor: Ashardalon grants you some of the vast resilience he enjoyed in life. When you bind this vestige, you gain temporary hit points equal to twice your binder level. These temporary hit points last for up to 24 hours.
 
 Fiend's Heart: You share some of the defensive benefits of the balor once bound to Ashardalon's body. This effect grants you damage reduction 10/+3 and resistance to fire 30.
-</entry> 
+</entry>
   <entry id="58374" lang="en" sex="m">Ashardalon, Pyre of the Unborn Fear</entry>
   <entry id="58375" lang="en" sex="m">Ashardalon, Pyre of the Unborn Locate</entry>
   <entry id="58376" lang="en" sex="m">Halphax, the Angel in the Angle</entry>
@@ -50359,7 +50402,7 @@ Spellcasting Inability: Karsites cannot cast arcane or divine spells, even if th
 Proficiencies: Karsites are proficient with light and medium armor, and with martial weapons.
 Favored Class: Binder.
 Level Adjustment: +2
-</entry>  
+</entry>
   <entry id="58390" lang="en" sex="m">Ur-Priest</entry>
   <entry id="58391" lang="en" sex="m">Ur-Priests</entry>
   <entry id="58392" lang="en" sex="m">ur-priests</entry>
@@ -50400,7 +50443,7 @@ Spellcasting: The Ur-Priest casts spells as a cleric, except he cannot spontaneo
   <entry id="58398" lang="en" sex="m">Type of Feat: Race
 Prerequisite: The named alignment
 Benefit: Add +1 to the DC for all saving throws against any of your spells that have an alignment descriptor (chaos, evil, good, or lawful) that matches the feat's alignment.
-Use: Automatic</entry>    
+Use: Automatic</entry>
   <entry id="58399" lang="en" sex="m">Siphon Spell Power Cast Spell</entry>
   <entry id="58400" lang="en" sex="m">Siphon Spell Power Select Spell</entry>
   <entry id="58401" lang="en" sex="m">Type of Feat: Class
@@ -50613,11 +50656,11 @@ Level Adjustment: +0 </entry>
   <entry id="58806" lang="en" sex="m">&lt;CUSTOM0&gt; spits mud.</entry>
   <entry id="58807" lang="en" sex="m">Squirt</entry>
   <entry id="58808" lang="en" sex="m">Squirt (Ex): A muckdweller can squirt a jet of water into the eyes of a target up to 25 feet away. Anyone hit by this attack must make a Reflex save or be blinded for 1 round. The save DC is Dexterity-based.
-</entry>  
+</entry>
   <entry id="58809" lang="en" sex="m">Type of Feat: Race
 Prerequisite: Killoren
 Benefit: A killoren gains a +2 racial bonus on Hide, Listen, Move Silently, and Spot checks, and a +2 racial bonus on initiative checks until next rest. You cannot have multiple aspects at one time.
-Use: Selected</entry>  
+Use: Selected</entry>
   <entry id="58810" lang="en" sex="m">Killoren Ancient</entry>
   <entry id="58811" lang="en" sex="m">Type of Feat: Race
 Prerequisite: Killoren
@@ -58460,60 +58503,60 @@ Level Adjustment: Same as base creature +2.</entry>
   <entry id="61009" lang="en" sex="m">COMBAT MANEUVER
 You can bash an opponent with a light shield or heavy shield, using it as an off-hand weapon. Small shields deal 1d3, heavy shields deal 1d4. Both add 1/2 Srength modifier as an off-hand weapon. Used this way, a shield is a martial bludgeoning weapon. For the purpose of penalties on attack rolls, treat a heavy shield as a one-handed weapon and a light shield as a light weapon. If you use your shield as a weapon, you lose its AC bonus for one round. An enhancement bonus on a shield does not improve the effectiveness of a shield bash made with it.
 Use: Selected</entry>
-  <entry id="61010" lang="en" sex="m">Improved Shield Bash</entry>   
+  <entry id="61010" lang="en" sex="m">Improved Shield Bash</entry>
   <entry id="61011" lang="en" sex="m">Type of Feat: General
 Prerequisites: None
 Benefit: When you perform a shield bash, you may still apply the shield's shield bonus to your AC.
-Use: Automatic</entry> 
-  <entry id="61012" lang="en" sex="m">Shield Specialization (Light)</entry>   
-  <entry id="61013" lang="en" sex="m">Shield Specialization (Heavy)</entry>   
+Use: Automatic</entry>
+  <entry id="61012" lang="en" sex="m">Shield Specialization (Light)</entry>
+  <entry id="61013" lang="en" sex="m">Shield Specialization (Heavy)</entry>
   <entry id="61014" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield proficiency
 Benefit: Choose one type of shield from the following list: heavy, or light. When using a shield of the appropriate type, you increase its shield bonus to AC by 1.
-Use: Automatic</entry> 
-  <entry id="61015" lang="en" sex="m">Shield Ward</entry>   
+Use: Automatic</entry>
+  <entry id="61015" lang="en" sex="m">Shield Ward</entry>
   <entry id="61016" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield proficiency, Shield Specialization
 Benefit: You apply your shield bonus to your touch AC, and on checks or rolls to resist bull rush, disarm, grapple, overrun, or trip attempts against you.
-Use: Automatic</entry> 
-  <entry id="61017" lang="en" sex="m">Agile Shield Fighter</entry>   
+Use: Automatic</entry>
+  <entry id="61017" lang="en" sex="m">Agile Shield Fighter</entry>
   <entry id="61018" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield proficiency, Shield Specialization, Improved Shield Bash
 Benefit: When making a shield bash, you take a -2 penalty on each attack. These penalties replace the normal ones you incur for fighting with two weapons.
-Use: Automatic</entry> 
-  <entry id="61019" lang="en" sex="m">Focused Shield</entry>   
+Use: Automatic</entry>
+  <entry id="61019" lang="en" sex="m">Focused Shield</entry>
   <entry id="61020" lang="en" sex="m">Type of Feat: Psionic
 Prerequisites: Shield proficiency, Psionic focus
 Benefit: While you are psionically focused and holding a shield with which you are proficient, the AC bonus provided by your shield increases by 1.
-Use: Automatic</entry> 
-  <entry id="61021" lang="en" sex="m">Shield Charge</entry>   
+Use: Automatic</entry>
+  <entry id="61021" lang="en" sex="m">Shield Charge</entry>
   <entry id="61022" lang="en" sex="m">Type of Feat: General
 Prerequisites: Improved Shield Bash, base attack bonus +3
 Benefit: If you hit an opponent with your shield as part of a shield charge, in addition to dealing damage normally, you make a trip attack without provoking an attack of opportunity. If you lose, the defender does not get to try to trip you in return.
-Use: Selected</entry> 
-  <entry id="61023" lang="en" sex="m">Shield Slam</entry>   
+Use: Selected</entry>
+  <entry id="61023" lang="en" sex="m">Shield Slam</entry>
   <entry id="61024" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield Charge, Improved Shield Bash, base attack bonus +6
 Benefit: As a full-round action, you may make an attack with your shield against an opponent. If you hit, you force the target damaged by this attack to make a Fortitude saving throw (DC 10 + 1/2 your character level+your Str modifier) in addition to dealing damage normally. A defender who fails this saving throw is dazed for 1 round (until just before your next action). Constructs, oozes, plants, undead, incorporeal creatures, and creatures immune to critical hits cannot be dazed. This also applies if you hit your opponent with your shield as part of a charge attack.
 
 If the opponent is in melee range, this feat will perform a shield bash. If they are further away than melee range, it will charge. A charge gains the benefit of the Shield Charge feat.
 Use: Selected</entry>
-  <entry id="61025" lang="en" sex="m">Shieldmate</entry>   
+  <entry id="61025" lang="en" sex="m">Shieldmate</entry>
   <entry id="61026" lang="en" sex="m">Type of Feat: General
 Prerequisites: Base attack bonus +1
 Benefit: When you are using a shield with which you are proficient, friendly creatures adjacent to you get a +1 shield bonus to their Armor Class. If you are using a tower shield, those creatures get a +2 shield bonus. The creatures lose the bonus if they are no longer adjacent to you, if you're grappling, or if you're stunned, paralyzed, or otherwise unable to take actions. This shield bonus doesn't stack with other shield bonuses the allied creatures may have.
 Use: Automatic</entry>
-  <entry id="61027" lang="en" sex="m">Improved Shieldmate</entry>   
+  <entry id="61027" lang="en" sex="m">Improved Shieldmate</entry>
   <entry id="61028" lang="en" sex="m">Type of Feat: General
 Prerequisites: Base attack bonus +1
 Benefit: As Shieldmate, except that the bonus is +2, or +3 if you are using a tower shield.
 Use: Automatic</entry>
-  <entry id="61029" lang="en" sex="m">Parrying Shield</entry>   
+  <entry id="61029" lang="en" sex="m">Parrying Shield</entry>
   <entry id="61030" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield proficiency
 Benefit: You gain your shield bonus (and the shield's enhancement bonus, if any) as an addition to your touch AC.
 Use: Automatic</entry>
-  <entry id="61031" lang="en" sex="m">Shielded Casting</entry>   
+  <entry id="61031" lang="en" sex="m">Shielded Casting</entry>
   <entry id="61032" lang="en" sex="m">Type of Feat: General
 Prerequisites: Concentration 5, Shield proficiency, Combat Casting or Combat Manifestation
 Benefit: As long as you have a light, heavy, or tower shield ready, you do not provoke attacks of opportunity for casting spells or manifesting psionic powers in combat. This does not reduce the arcane spell failure of wielding a shield.
@@ -58525,12 +58568,12 @@ Caster Level: 10
 Spell(s): Blast of Force
 
 Cost: +1 Enhancement</entry>
-  <entry id="61034" lang="en" sex="m">Shield Dwarf Warder</entry>   
+  <entry id="61034" lang="en" sex="m">Shield Dwarf Warder</entry>
   <entry id="61035" lang="en" sex="m">Type of Feat: General
 Prerequisites: Dwarf race (original recipe only)
 Benefit: You gain +1 caster level when casting a spell that creates or enhances a suit of armor or a shield. Additionally, any magic armor or shield you create costs 5% less gold pieces to make. The experience point cost is unaffected.
 Use: Automatic</entry>
-  <entry id="61036" lang="en" sex="m">Phantom Steed</entry>   
+  <entry id="61036" lang="en" sex="m">Phantom Steed</entry>
   <entry id="61037" lang="en" sex="m">Phantom Steed
   
 Conjuration (Creation)
@@ -58671,7 +58714,7 @@ Chakra Bind (Brow)
 Instead of spectacles perched on your nose, your psion's eyes appear as a third eye embedded in your forehead, and its iris glows a rich azure blue.
 
 You can use the call to mind power at will for the duration of this soulmeld.</entry>
-  <entry id="61051" lang="en" sex="m">Psion's Eyes Brow Bind</entry>  
+  <entry id="61051" lang="en" sex="m">Psion's Eyes Brow Bind</entry>
   <entry id="61052" lang="en" sex="m">Psion-Killer Mask</entry>
   <entry id="61053" lang="en" sex="m">Psion-Killer Mask
 
@@ -58700,7 +58743,7 @@ You can emit a crimson ray from the mouth of your psion-killer mask to make a ra
 
 If you hit with the ray, you deal no damage but temporarily suppress the opponent's primary weapon, if any, for ten rounds.</entry>
   <entry id="61054" lang="en" sex="m">Psion-Killer Mask Detect Magic</entry>
-  <entry id="61055" lang="en" sex="m">Psion-Killer Mask Totem Bind</entry>  
+  <entry id="61055" lang="en" sex="m">Psion-Killer Mask Totem Bind</entry>
   <entry id="61056" lang="en" sex="m">Psychic Focus</entry>
   <entry id="61057" lang="en" sex="m">Psychic Focus
 Descriptors: None
@@ -58722,7 +58765,7 @@ Chakra Bind (Throat)
 
 Barely visible wisps of incarnum writhe from your psychic focus, and these tendrils of soul energy twist into psionic glyphs as you manifest psionic powers. When you manifest a damaging power, the power is accompanied by a blue-green burst of raw incarnum energy.
 
-The energy behind your offensive powers can temporarily overcome your opponents. Whenever you manifest a power that deals damage to a single living creature, that creature must succeed on a Fortitude save (using the soulmeld's save DC, not the power's) or be dazed for 1 round. If the power deals damage to more than one creature, or if the target creature takes no damage from the power (whether because of a successful saving throw, power resistance, or resistance to the damage dealt by the power), this has no effect.</entry>  
+The energy behind your offensive powers can temporarily overcome your opponents. Whenever you manifest a power that deals damage to a single living creature, that creature must succeed on a Fortitude save (using the soulmeld's save DC, not the power's) or be dazed for 1 round. If the power deals damage to more than one creature, or if the target creature takes no damage from the power (whether because of a successful saving throw, power resistance, or resistance to the damage dealt by the power), this has no effect.</entry>
   <entry id="61058" lang="en" sex="m">Elder Spirit</entry>
   <entry id="61059" lang="en" sex="m">Elder Spirit
 
@@ -58747,7 +58790,7 @@ Chakra Bind (Soul)
 
 The dragon becomes a symbol on a heraldic device of blue fire that settles onto your chest.
 
-You gain blindsense. </entry>  
+You gain blindsense. </entry>
   <entry id="61060" lang="en" sex="m">Dragon Mantle</entry>
   <entry id="61061" lang="en" sex="m">Dragon Mantle
 
@@ -58778,7 +58821,7 @@ Chakra Bind (Totem)
 
 Long, draconic wings sprout from the shoulders of your blue dragonhide plate armor.
 
-You gain +4 on Jump checks for every point of essentia invested in your dragon mantle.</entry>  
+You gain +4 on Jump checks for every point of essentia invested in your dragon mantle.</entry>
   <entry id="61062" lang="en" sex="m">Claws of the Wyrm</entry>
   <entry id="61063" lang="en" sex="m">Claws of the Wyrm
 
@@ -58875,7 +58918,7 @@ The dragon head becomes a solid blue mask, forming a hollow shape that completel
 
 You can emanate an aura of frightful presence once per round as a swift action. All creatures within 10 feet with fewer Hit Dice than you become shaken for 1 round. A successful Will save negates the effect and renders the creature immune to the frightful presence of this soulmeld for 24 hours. For every point of essentia you have invested in your dragonfire mask, the radius of the frightful presence increases by 10 feet, and its duration increases by 1 round.</entry>
   <entry id="61070" lang="en" sex="m">Dragonfire Mask Throat Bind</entry>
-  <entry id="61071" lang="en" sex="m">Dragonfire Mask Totem Bind</entry>  
+  <entry id="61071" lang="en" sex="m">Dragonfire Mask Totem Bind</entry>
   <entry id="61072" lang="en" sex="m">Varag</entry>
   <entry id="61073" lang="en" sex="m">varag</entry>
   <entry id="61074" lang="en" sex="m">Varags</entry>
@@ -58963,7 +59006,7 @@ Feats: Low-light Vision, Knockdown, Scent, Track, Weapon Focus: Creature*</entry
   <entry id="61126" lang="en" sex="m">Medium Viper Venom:
 Injury DC 11
 Initial Damage: 1d6 Con
-Secondary Damage: 1d6 Con</entry>  
+Secondary Damage: 1d6 Con</entry>
   <entry id="61420" lang="en" sex="m">Half-Dragon</entry>
   <entry id="61421" lang="en" sex="m">Template: Half-Dragon</entry>
   <entry id="61422" lang="en" sex="m">A half-dragon gains a breath weapon based on the dragon variety (see table), usable once per day. A half-dragon's breath weapon deals 6d8 points of damage. A successful Reflex save (DC 10 + 1/2 half-dragon's racial HD + half-dragon's Con modifier) reduces damage by half.
@@ -70950,7 +70993,7 @@ Use: Activated</entry>
   <entry id="75050" lang="en" sex="m">Minor Shapeshift</entry>
   <entry id="75051" lang="en" sex="m">Type of Feat: Reserve
 Prerequisite: Ability to cast 4th-level spells
-Benefit: As long as you have a polymorph spell of 4th level or higher available to cast, you can spend a swift action to grant yourself one of the following BENEFITS:: Might: +2 bonus on melee damage rolls. Mobility: +2 competence bonus on Balance, Climb, Jump, and Swim checks. Savagery: Primary claw attack dealing 1d6 points of damage (assuming Medium size). Speed: +5-foot enhancement bonus to any one movement mode you already possess. Vigor: Temporary hit points equal to your HD. The chosen benefit lasts for a number of rounds equal to the level of the highest-level polymorph spell you have available to cast. If you activate this feat a second time while a previous benefit is still in effect, the first benefit ends immediately. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting polymorph spells. See page 91 for details on the new polymorph subschool of spells.
+Benefit: As long as you have a polymorph spell of 4th level or higher available to cast, you can spend a swift action to grant yourself one of the following BENEFITS:: Might: +2 bonus on melee damage rolls. Mobility: +2 competence bonus on Balance, Climb, Jump, and Swim checks. Savagery: Primary claw attack dealing 1d6 points of damage (assuming Medium size). Speed: +5-foot enhancement bonus to any one movement mode you already possess. Vigor: Temporary hit points equal to your HD. The chosen benefit lasts for a number of rounds equal to the level of the highest-level polymorph spell you have available to cast. If you activate this feat a second time while a previous benefit is still in effect, the first benefit ends immediately. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting polymorph spells.
 Use: Activated</entry>
   <entry id="75052" lang="en" sex="m">Face-Changer</entry>
   <entry id="75053" lang="en" sex="m">Type of Feat: Reserve

@@ -1027,7 +1027,7 @@ int GetIsDisciplineWeapon(object oWeapon, int nDiscipline)
         if(nType == BASE_ITEM_SCIMITAR
         || nType == BASE_ITEM_LIGHTMACE
         || nType == BASE_ITEM_SHORTSPEAR
-        || nType == BASE_ITEM_PICK_LIGHT
+        || nType == BASE_ITEM_LIGHT_PICK
         || nType == BASE_ITEM_FALCHION)
             return TRUE;
     }
@@ -1080,7 +1080,7 @@ int GetIsDisciplineWeapon(object oWeapon, int nDiscipline)
         if(nType == BASE_ITEM_GREATAXE
         || nType == BASE_ITEM_INVALID
         || nType == BASE_ITEM_GREATSWORD
-        || nType == BASE_ITEM_MACE_HEAVY)
+        || nType == BASE_ITEM_HEAVY_MACE)
             return TRUE;
     }
     else if(nDiscipline == DISCIPLINE_TIGER_CLAW)

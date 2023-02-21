@@ -13,6 +13,16 @@ void main()
 {
     object oTarget = PRCGetSpellTargetObject();
     int nHitDice = GetHitDice(oTarget);
+	effect eImmune = EffectVisualEffect(VFX_IMP_MAGIC_RESISTANCE_USE);
+//:: Check for Immunity to Petrification 
+	int bImmune = GetHasFeat(FEAT_IMMUNE_PETRIFICATION, oTarget);
+
+	if (bImmune)
+	{ 
+		SendMessageToPC(OBJECT_SELF, "This creatrure is immune to petrification");
+		ApplyEffectToObject(DURATION_TYPE_INSTANT, eImmune, oTarget);
+		return;
+	}
 
     PRCDoPetrification(nHitDice, OBJECT_SELF, oTarget, GetSpellId(), 15);
 }

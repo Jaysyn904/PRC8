@@ -121,6 +121,7 @@ const string ALLOW_CLASS_FIST_OF_DAL_QUOR       = "PRC_AllowDalQuor";
 const string ALLOW_CLASS_FIST_OF_ZUOKEN         = "PRC_AllowFoZ";
 const string ALLOW_CLASS_FMM                    = "PRC_AllowFMM";
 const string ALLOW_CLASS_FOE_HUNTER             = "PRC_AllowFH";
+const string ALLOW_CLASS_FORESTMASTER			= "PRC_AllowForMast";
 const string ALLOW_CLASS_FORSAKER               = "PRC_AllowForsaker";
 const string ALLOW_CLASS_FRE_BERSERKER          = "PRC_AllowFrebzk";
 const string ALLOW_CLASS_FROST_MAGE             = "PRC_AllowFrostMage";

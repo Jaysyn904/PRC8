@@ -1,0 +1,18 @@
+2DA V2.0
+
+           LABEL           ReqType  ReqParam1        ReqParam2 
+0          Alertness       FEAT     0                ****      
+1          Endurance       FEAT     2568             ****      
+2          PowerAttack     FEAT     28               ****      
+3          SkillFocusLore  FEAT     180              ****      
+4          WeapProfMartial FEATOR   45               ****      
+5          WeapProfMaul    FEATOR   7947             ****      
+6          Ranger          CLASSOR  7                ****      
+7          Druid           CLASSOR  3                ****      
+8          Cleric          CLASSOR  2                ****      
+9          Blighter        CLASSNOT 247              ****      
+10         Ur-Priest       CLASSNOT 42               ****      
+11         AnimalEmpathy   SKILL    0                8         
+12         Concentration   SKILL    1                4         
+13         Lore            SKILL    7                13        
+14         ScriptVar       VAR      PRC_AllowForMast 0         

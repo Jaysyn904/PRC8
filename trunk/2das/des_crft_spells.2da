@@ -1729,7 +1729,7 @@
 1725  Travel_Domain_Power                                       ****            1        1      1        4     0           
 1726  Turn_Scaleykind                                           ****            1        1      1        1     0           
 1727  Turn_Slime                                                ****            1        1      1        1     0           
-1728  Turn_Spider                                               ****            1        1      1        1     0           
+1728  DrowJudicator_Command_Spiders                             ****            1        1      1        1     0           
 1729  Turn_Plant                                                ****            1        1      1        1     0           
 1730  Turn_Air                                                  ****            1        1      1        1     0           
 1731  Turn_Earth                                                ****            1        1      1        1     0           
@@ -2200,7 +2200,7 @@
 2196  SPELL_HOLYRADIANCE                                        ****            1        1      1        1     0           
 2197  FEAT_ANIMALMASTERY                                        ****            1        1      1        1     0           
 2198  IncreaseUnarmedEpic                                       ****            1        1      1        5     0           
-2199  FEAT_RANGEDDISARM                                         ****            1        1      1        5     0           
+2199  FEAT_ARCH_RANGEDDISARM                                    ****            1        1      1        5     0           
 2200  FEAT_SONG_OF_FURY                                         ****            1        1      1        5     0           
 2201  FEAT_EXTRASHOT                                            ****            1        1      1        5     0           
 2202  FEAT_RANGEDTRIP                                           ****            1        1      1        5     0           
@@ -2473,11 +2473,11 @@
 2469  AlignedAuraDischarge                                      ****            1        1      1        ****  0           
 2470  FistOfDalQuor_StunningStrike                              ****            1        1      1        ****  0           
 2471  LesserEnergizedShieldFire                                 ****            1        1      1        ****  0           
-2472  LesserEnergizedShieldCold                                 ****            1        1      1        ****  0           
-2473  LesserEnergizedShieldElec                                 ****            1        1      1        ****  0           
-2474  LesserEnergizedShieldAcid                                 ****            1        1      1        ****  0           
-2475  LesserEnergizedShieldSonic                                ****            1        1      1        ****  0           
-2476  ResistEnergyFire                                          ****            1        1      1        ****  0           
+2472  ForestMaster_ForestDominion                               ****            1        1      1        1     0           
+2473  ForestMaster_GreatMalletRadialMaster                      ****            1        1      1        ****  0           
+2474  ForestMaster_IcyMallet                                    ****            1        1      1        2     0           
+2475  ForestMaster_ShockMallet                                  ****            1        1      1        2     0           
+2476  ForestMaster_DeepRoots                                    ****            1        1      1        4     0           
 2477  ResistEnergyCold                                          ****            1        1      1        ****  0           
 2478  ResistEnergyElec                                          ****            1        1      1        ****  0           
 2479  ResistEnergyAcid                                          ****            1        1      1        ****  0           

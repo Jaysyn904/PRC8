@@ -334,7 +334,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_craft_armour", 63);
     SetPRCSwitch("PRC_FILE_END_craft_golem", 40);
     SetPRCSwitch("PRC_FILE_END_craft_ring", 41);
-    SetPRCSwitch("PRC_FILE_END_craft_weapon", 45);
+    SetPRCSwitch("PRC_FILE_END_craft_weapon", 46);
     SetPRCSwitch("PRC_FILE_END_craft_wondrous", 115);
     SetPRCSwitch("PRC_FILE_END_creaturesize", 5);
     SetPRCSwitch("PRC_FILE_END_creaturespeed", 8);

@@ -8,7 +8,7 @@ const int SPELL_BLACKLIGHT                  = 2091;
 
 
 // bard
-const int SPELL_BARD_SONG = 411;
+const int SPELL_BARD_SONG 		= 411;
 const int SPELL_BARD_CURSE_SONG = 644;
 
 //:: Complete Warrior
@@ -223,6 +223,13 @@ const int SPELL_APAL_MOUNT                         = 2052;
 
 // Complete Adv Ninja
 const int SPELL_GHOST_STEP      = 2742;
+
+//:: Forest Master (Faiths & Pantheons, pg. 193)
+const int SPELL_FM_FORESTDOMINION			= 2472;		
+const int SPELL_FM_GREATMALLETRADIALMASTER	= 2473;		
+const int SPELL_FM_ICYMALLET				= 2474;		
+const int SPELL_FM_SHOCKMALLET				= 2475;		
+const int SPELL_FM_DEEPROOTS				= 2476;		
 
 // Spell Feat Generic
 const int SPELL_WANDER_UNSEEN               = 4071;
