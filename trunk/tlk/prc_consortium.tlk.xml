@@ -2290,6 +2290,16 @@ Inspire Frenzy (Su): The epic frenzied berserker may use this ability one additi
 Bonus Feats: The epic frenzied berserker gains a bonus feat (selected from the list of epic frenzied berserker feats) every three levels after 10th.
 
 Epic Frenzied Berserker Bonus Feat List: Damage Reduction, Devastating Critical, Epic Prowess, Epic Toughness, Fast Healing, Overwhelming Critical, Terrifying Rage, Thundering Rage.</entry>
+  <entry id="12851" lang="en" sex="m">Epic Tempest</entry>
+  <entry id="12852" lang="en" sex="m">The epic tempest is barely visible behind the incessant, whirling blur of her twin weapons.
+
+Hit Die: d10.
+
+Skill Points at Each Additional Level: 2 + Int modifier.
+
+Bonus Feats: The epic tempest gains a bonus feat (selected from the list of epic tempest feats) every two levels after 10th.
+
+Epic Tempest Bonus Feat List: Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
   <entry id="12853" lang="en" sex="m">Ignore Arcane Spell Failure</entry>
   <entry id="12854" lang="en" sex="m">Type of Feat: Class-Specific
 Prerequisite: Arcane Hierophant 1
