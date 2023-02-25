@@ -10,6 +10,10 @@ const int FEAT_OPTIONS_CONVERSATION = 2285;
 //missing bioware ones
 const int FEAT_EPIC_PLANAR_TURNING = 854;
 
+//:: New Feats for NWN .35
+const int FEAT_FAVORED_ENEMY_OOZE 	= 2354;
+const int FEAT_FAVORED_ENEMY_PLANT 	= 2355;
+
 // skill based feats
 const int FEAT_JUMP = 2884;
 
@@ -4141,8 +4145,7 @@ const int FEAT_SCION_DANTALION_SCHOLARSHIP           = 9309;
 /////////////////// End Binding ////////////////////
 //////////////////////////////////////////////////*/
 
-//Reserve Feats
-
+//:: Reserve Feats
 const int FEAT_HOLY_WARRIOR                          = 24736;
 const int FEAT_MYSTIC_BACKLASH                       = 24737;
 const int FEAT_ACIDIC_SPLATTER                       = 24738;
@@ -4168,8 +4171,8 @@ const int FEAT_DIMENSIONAL_REACH                     = 24757;
 const int FEAT_HURRICANE_BREATH                      = 24758;
 const int FEAT_MINOR_SHAPESHIFT                      = 24759;
 const int FEAT_FACECHANGER                           = 24760;
-// shadow conjuration
 
+//:: Shadow Conjuration
 const int FEAT_SHADOW_CONJURATION_CONVERSATION       = 24732;
 const int PNP_SHADOW_CONJURATION                     = 24733;
 const int PNP_GREATER_SHADOW_CONJURATION             = 24734;
