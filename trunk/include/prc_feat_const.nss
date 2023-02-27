@@ -4,15 +4,25 @@
 //:: Test void
 // void main (){}
 
-// PRC Options Conversation
+//:: PRC Options Conversation
 const int FEAT_OPTIONS_CONVERSATION = 2285;
 
-//missing bioware ones
+//:: Missing Bioware Feats
 const int FEAT_EPIC_PLANAR_TURNING = 854;
 
 //:: New Feats for NWN .35
+
+//:: New Favored Enemy Feats
 const int FEAT_FAVORED_ENEMY_OOZE 	= 2354;
 const int FEAT_FAVORED_ENEMY_PLANT 	= 2355;
+
+//:: PrC Spellcasting Marker Feats
+const int FEAT_ARCHMAGE_SPELLCASTING_BEGUILER	= 9500;
+const int FEAT_ARCHMAGE_SPELLCASTING_DNECRO		= 9501;
+const int FEAT_ARCHMAGE_SPELLCASTING_SORCERER	= 9502;
+const int FEAT_ARCHMAGE_SPELLCASTING_SUBCHORD	= 9503;
+const int FEAT_ARCHMAGE_SPELLCASTING_WARMAGE	= 9504;
+const int FEAT_ARCHMAGE_SPELLCASTING_WIZARD		= 9505;
 
 // skill based feats
 const int FEAT_JUMP = 2884;

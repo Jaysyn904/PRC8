@@ -385,7 +385,6 @@ int GenasaiFocus()
     return FALSE;
 }*/
 
-
 int VileFeats()
 {
     if(GetHasFeat(FEAT_VILE_DEFORM_OBESE) && GetHasFeat(FEAT_VILE_DEFORM_GAUNT))
@@ -509,6 +508,27 @@ int UltiRangerFeats()
                 msg+="1 Favorite Enemy ";
             if(msg != " In your next Ultimate Ranger level, you must select ")
                 FloatingTextStringOnCreature(msg, OBJECT_SELF, FALSE);
+        }
+    }
+    return FALSE;
+}
+
+int CheckArchmageClass()
+{
+    if(GetLevelByClass(CLASS_TYPE_ARCHMAGE))
+    {
+		int iArchClass = GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_BEGUILER)
+                    + GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_DNECRO)
+					+ GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SORCERER)
+					+ GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SUBCHORD)
+					+ GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WARMAGE)
+                    + GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WIZARD);
+
+        if(iArchClass < 1)
+        {
+            FloatingTextStringOnCreature("Archmage may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
         }
     }
     return FALSE;
@@ -2519,6 +2539,7 @@ void main()
 {
     if(BonusDomains()
     || CasterFeats()
+	|| CheckArchmageClass()
     || CheckClericShadowWeave()
     || CraftingFeats()
     || DraconicFeats()

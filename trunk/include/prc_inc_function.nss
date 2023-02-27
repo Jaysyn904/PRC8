@@ -72,6 +72,11 @@ void DeleteCharacterData(object oPC)
     DeletePersistantLocalString(oPC, "PRC_Class_Script1");
     DeletePersistantLocalString(oPC, "PRC_Class_Script2");
     DeletePersistantLocalString(oPC, "PRC_Class_Script3");
+	DeletePersistantLocalString(oPC, "PRC_Class_Script4");
+	DeletePersistantLocalString(oPC, "PRC_Class_Script5");
+	DeletePersistantLocalString(oPC, "PRC_Class_Script6");
+	DeletePersistantLocalString(oPC, "PRC_Class_Script7");
+	DeletePersistantLocalString(oPC, "PRC_Class_Script8");
     DeletePersistantLocalInt(oPC, "PRC_Class_Data");
 }
 
