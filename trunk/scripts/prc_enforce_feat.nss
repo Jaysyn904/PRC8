@@ -524,7 +524,7 @@ int CheckArchmageClass()
 					+ GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WARMAGE)
                     + GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WIZARD);
 
-        if(iArchClass < 1)
+        if(iArchClass > 1)
         {
             FloatingTextStringOnCreature("Archmage may only advance a single arcane class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
