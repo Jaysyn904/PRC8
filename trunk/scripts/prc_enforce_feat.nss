@@ -530,6 +530,13 @@ int CheckArchmageClass()
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
+		
+		if(iArchClass < 1)
+        {
+            FloatingTextStringOnCreature("Archmage must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
     }
     return FALSE;
 }
