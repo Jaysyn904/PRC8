@@ -43,6 +43,8 @@ void SetHatedEnemyRace(object oPC)
      else if(GetHasFeat(FEAT_HATED_ENEMY_SHAPECHANGER, oPC))   hatedEnemy = RACIAL_TYPE_SHAPECHANGER;
      else if(GetHasFeat(FEAT_HATED_ENEMY_UNDEAD, oPC))         hatedEnemy = RACIAL_TYPE_UNDEAD;
      else if(GetHasFeat(FEAT_HATED_ENEMY_VERMIN, oPC))         hatedEnemy = RACIAL_TYPE_VERMIN;
+	 else if(GetHasFeat(FEAT_HATED_ENEMY_OOZE, oPC))           hatedEnemy = RACIAL_TYPE_OOZE;
+	 else if(GetHasFeat(FEAT_HATED_ENEMY_PLANT, oPC))          hatedEnemy = RACIAL_TYPE_PLANT;
 
      SetLocalInt(oPC, "HatedFoe", hatedEnemy);
 }

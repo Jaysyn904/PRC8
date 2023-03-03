@@ -2,6 +2,21 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
+  <entry id="12250" lang="en" sex="m">## NEW NWN .35 DAMAGE TYPES ##</entry>
+  <entry id="12251" lang="en" sex="m">Force Damage</entry>
+  <entry id="12252" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
+  <entry id="12253" lang="en" sex="m">Poison Damage</entry>
+  <entry id="12254" lang="en" sex="m">&lt;CUSTOM0&gt; Poison</entry>
+  <entry id="12255" lang="en" sex="m">Psychic Damage</entry>
+  <entry id="12256" lang="en" sex="m">&lt;CUSTOM0&gt; Psychic</entry>
+  <entry id="12257" lang="en" sex="m">Radiant Damage</entry>
+  <entry id="12258" lang="en" sex="m">&lt;CUSTOM0&gt; Radiant</entry>
+  <entry id="12259" lang="en" sex="m">Subdual Damage</entry>
+  <entry id="12260" lang="en" sex="m">&lt;CUSTOM0&gt; Subdual</entry>
+  <entry id="12261" lang="en" sex="m">Untyped Damage</entry>
+  <entry id="12262" lang="en" sex="m">&lt;CUSTOM0&gt; Untyped</entry>
+  <entry id="12263" lang="en" sex="m">Vile Damage</entry>
+  <entry id="12264" lang="en" sex="m">&lt;CUSTOM0&gt; Vile</entry>
   <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
@@ -2310,6 +2325,10 @@ Use: Automatic.</entry>
 Prerequisite: Elf or Scent ability.
 Specifics: Characters with Keen Senses may apply their full Search skill even when making a passive search.
 Use: Automatic.</entry>
+  <entry id="12857" lang="en" sex="m">Hated Enemy: Oozes</entry>
+  <entry id="12858" lang="en" sex="m">Hated Enemy: Plants</entry>
+  <entry id="12859" lang="en" sex="m">Favored Enemy: Oozes</entry>
+  <entry id="12860" lang="en" sex="m">Favored Enemy: Plants</entry>
   <entry id="12861" lang="en" sex="m">Practiced Invoker (Dragonfire Adept)</entry>
   <entry id="12862" lang="en" sex="m">Practiced Invoker (Warlock)</entry>
   <entry id="12863" lang="en" sex="m">Type of Feat: General.
@@ -4796,7 +4815,7 @@ your current position.</entry>
   <entry id="16443" lang="en" sex="m">96</entry>
   <entry id="16444" lang="en" sex="m">97</entry>
   <entry id="16445" lang="en" sex="m">98</entry>
-  <entry id="16446" lang="en" sex="m">100</entry>
+  <entry id="16446" lang="en" sex="m">99</entry>
   <entry id="16447" lang="en" sex="m">Tomb-Tainted Soul</entry>
   <entry id="16448" lang="en" sex="m">Type of Feat: General
 Prerequisite: Nongood alignment.
@@ -71236,4 +71255,12 @@ Use: Activated</entry>
   <entry id="75280" lang="en" sex="m">Fra</entry>
   <entry id="75281" lang="en" sex="m">CSM</entry>
   <entry id="75282" lang="en" sex="m">Sht</entry>
+  <entry id="75290" lang="en" sex="m">##START CASTER PRC MARKER FEATS##</entry>
+  <entry id="75291" lang="en" sex="m">The Archmage sacrifices the bonus spell slots he would gain in order to take a High Arcana feat at each level. He does, however, add his level to his base caster class when determining spell power (damage, duration...). </entry>
+  <entry id="75292" lang="en" sex="m">Archmage Spellcasting (Beguiler)</entry>
+  <entry id="75293" lang="en" sex="m">Archmage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75294" lang="en" sex="m">Archmage Spellcasting (Sorcerer)</entry>
+  <entry id="75295" lang="en" sex="m">Archmage Spellcasting (Sublime Chord)</entry>
+  <entry id="75296" lang="en" sex="m">Archmage Spellcasting (Warmage)</entry>
+  <entry id="75297" lang="en" sex="m">Archmage Spellcasting (Wizard)</entry>
 </tlk>
