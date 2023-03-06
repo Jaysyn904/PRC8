@@ -1,0 +1,11 @@
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents Path of Ascension" /var/www/html/poa/ "/mnt/pve/nwn/poa/server/modules/poa.mod"
+
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents Land of Destiny" /var/www/html/destiny/ "/mnt/pve/nwn/destiny/server/modules/Land.mod"
+
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents Underworld 2" /var/www/html/under/ "/mnt/pve/nwn/under/server/modules/underworld.mod"
+
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents The Frozen North" /var/www/html/north/ "/mnt/pve/nwn/north/server/modules/tfn.mod"
+
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents Lankhmar Nights" /var/www/html/ "/mnt/pve/nwn/mouser/server/modules/mouser.mod"
+
+sudo ./nwsync_write --verbose --path "/mnt/pve/maint/server/hak" --description="PRC presents Horde of Orcs" /var/www/html/horde/ "/mnt/pve/nwn/horde/server/modules/horde.mod"
