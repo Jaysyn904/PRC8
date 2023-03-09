@@ -373,12 +373,12 @@ void SetCompositeBonus(object oItem, string sBonus, int iVal, int iType, int iSu
             iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
             iCurVal -= GetPersistantLocalInt(GetItemPossessor(oItem), "LetoAbility_"+IntToString(iSubType));
             if (DEBUG) DoDebug("Ability Decrease #1: oItem "+GetName(oItem)+" sBonus "+sBonus+" iChange "+IntToString(iChange)+" iCurVal "+IntToString(iCurVal)+" iSubType "+IntToString(iSubType));
-            /*if ((iCurVal + iChange) > 12)
+            if ((iCurVal + iChange) > 50)
             {
-                iVal -= iCurVal + iChange - 12;
-                iCurVal = 12;
+                iVal -= iCurVal + iChange - 50;
+                iCurVal = 50;
                 iChange = 0;
-            }*/
+            }
             if(iCurVal+iChange > 0)
             {
                 AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyAbilityBonus(iSubType, iCurVal + iChange), oItem);
@@ -764,10 +764,10 @@ void SetCompositeBonusT(object oItem, string sBonus, int iVal, int iType, int iS
     {
         case ITEM_PROPERTY_ABILITY_BONUS:
             iCurVal = TotalAndRemovePropertyT(oItem, iType, iSubType);
-            if ((iCurVal + iChange)  > 12)
+            if ((iCurVal + iChange)  > 50)
             {
-                iVal -= iCurVal + iChange - 12;
-                iCurVal = 12;
+                iVal -= iCurVal + iChange - 50;
+                iCurVal = 50;
                 iChange = 0;
             }
             AddItemProperty(DURATION_TYPE_TEMPORARY, ItemPropertyAbilityBonus(iSubType, iCurVal + iChange), oItem,9999.0);
