@@ -11,8 +11,6 @@
 //:://////////////////////////////////////////////
 //:: Created By:  Brent, Andrew
 //:: Created On:  November - May
-//::
-//:: Updated for .35 by Jaysyn 2023/03/10
 //:://////////////////////////////////////////////
 // :: MODS
 // April 23 2002: Removed animal parts. They were silly.
@@ -4705,59 +4703,23 @@ int nDetermineClassToUse(object oCharacter)
     int nClass1 = GetClassByPosition(1, oCharacter);
     int nClass2 = GetClassByPosition(2, oCharacter);
     int nClass3 = GetClassByPosition(3, oCharacter);
-    int nClass4 = GetClassByPosition(4, oCharacter);
-	int nClass5 = GetClassByPosition(5, oCharacter);
-    int nClass6 = GetClassByPosition(6, oCharacter);
-    int nClass7 = GetClassByPosition(7, oCharacter);	
-    int nClass8 = GetClassByPosition(8, oCharacter);	
-	
+
     int nState1 = GetLevelByClass(nClass1, oCharacter) * 100 / nTotal;
     int nState2 = GetLevelByClass(nClass2, oCharacter) * 100 / nTotal + nState1;
-	int nState3 = GetLevelByClass(nClass3, oCharacter) * 100 / nTotal + nState2;
-	int nState4 = GetLevelByClass(nClass4, oCharacter) * 100 / nTotal + nState3;
-	int nState5 = GetLevelByClass(nClass5, oCharacter) * 100 / nTotal + nState4;
-	int nState6 = GetLevelByClass(nClass6, oCharacter) * 100 / nTotal + nState5;
-	int nState7 = GetLevelByClass(nClass7, oCharacter) * 100 / nTotal + nState6;
-	
-    // nState8 will always be 100 if there is an eigth class, or 0 if there isn't
-    //int nState8 = GetLevelByClass(nClass3, oCharacter) * 100 / nTotal + nState7;
+    // nState3 will always be 100 if there is a third class, or 0 if there isn't
+    //int nState3 = GetLevelByClass(nClass3, oCharacter) * 100 / nTotal + nState2;
 
     // correct for unrecognized classes - assumes the first class will be a non-prestige player class
     if(nClass2 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass2))
     {
         nClass2 = CLASS_TYPE_INVALID;
         nState1 = nState2;
-    }	
+    }
     if(nClass3 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass3))
     {
         nClass3 = CLASS_TYPE_INVALID;
-        nState1 = nState3;
-    }
-    if(nClass4 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass4))
-    {
-        nClass4 = CLASS_TYPE_INVALID;
-        nState1 = nState4;
-    }
-    if(nClass5 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass5))
-    {
-        nClass5 = CLASS_TYPE_INVALID;
-        nState1 = nState5;
-    }	
-    if(nClass6 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass6))
-    {
-        nClass6 = CLASS_TYPE_INVALID;
-        nState1 = nState6;
-    }	
-    if(nClass7 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass7))
-    {
-        nClass7 = CLASS_TYPE_INVALID;
-        nState1 = nState7;
-    }
-    if(nClass8 != CLASS_TYPE_INVALID && !nGetIsBaseClass(nClass8))
-    {
-        nClass8 = CLASS_TYPE_INVALID;
-        if(nClass7 != CLASS_TYPE_INVALID)
-            nState7 = 100;
+        if(nClass2 != CLASS_TYPE_INVALID)
+            nState2 = 100;
         else nState1 = 100;
     }
 
@@ -4786,6 +4748,4 @@ int nDetermineClassToUse(object oCharacter)
     return nClass;
 }
 
-//:: Test Void
-//void main () {}
 

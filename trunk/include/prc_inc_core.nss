@@ -1,7 +1,6 @@
 /* 	Core functions taken from high up the branch
 	which are needed lower. */
 
-//:: Updated for .35 by Jaysyn 2023/03/10
 
 //////////////////////////////////////////////////
 /* Function Prototypes                          */
@@ -447,7 +446,7 @@ int PRCGetSpellLevel(object oCreature, int nSpell)
         return nSpellLevel;
 
     int i;
-    for (i=1;i<=8;i++)
+    for (i=1;i<=3;i++)
     {
         nClass = GetClassByPosition(i, oCreature);
         int nCharLevel = GetLevelByClass(nClass, oCreature);
@@ -515,7 +514,7 @@ int GetIsNSBClass(int nClass)
 int UseNewSpellBook(object oCreature)
 {
     int i;
-    for (i = 1; i <= 8; i++)
+    for (i = 1; i <= 3; i++)
     {
         int nClass = GetClassByPosition(i, oCreature);
         if(GetIsNSBClass(nClass))
@@ -558,7 +557,7 @@ int PRCGetHasSpell(int nRealSpellID, object oCreature = OBJECT_SELF)
     int nClass, nSpellbookID, nCount, nMeta, i, j;
     int nSpellbookType, nSpellLevel;
     string sFile, sFeat;
-    for(i = 1; i <= 8; i++)
+    for(i = 1; i <= 3; i++)
     {
         nClass = GetClassByPosition(i, oCreature);
         sFile = GetFileForClass(nClass);
@@ -610,7 +609,7 @@ int PRCGetIsRealSpellKnown(int nRealSpellID, object oPC = OBJECT_SELF)
         return TRUE;                    //  means they know the spell (close enough)
     int nClass;
     int nClassSlot = 1;
-    while(nClassSlot <= 8)
+    while(nClassSlot <= 3)
     {
         nClass = GetClassByPosition(nClassSlot, oPC);
         if(GetIsDivineClass(nClass) || GetIsArcaneClass(nClass))

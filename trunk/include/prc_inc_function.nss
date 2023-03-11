@@ -15,8 +15,6 @@
 //:: Created On: Dec 19, 2003
 //:://////////////////////////////////////////////
 
-//:: Updated for .35 by Jaysyn 2023/03/10
-
 //--------------------------------------------------------------------------
 // This is the "event" that is called to re-evalutate PRC bonuses.  Currently
 // it is fired by OnEquip, OnUnequip and OnLevel.  If you want to move any
@@ -24,10 +22,6 @@
 // is meant to keep the code looking nice and clean by routing each class's
 // feats to their own self-contained script
 //--------------------------------------------------------------------------
-
-//:: Test Void
-//void main (){}
-
 
 //////////////////////////////////////////////////
 /*                 Constants                    */
@@ -95,7 +89,7 @@ void SetupCharacterData(object oPC)
     // use bitwise to combine flags
 
     int i, iData, iShifting;
-    for(i = 1; i <= 8; i++)
+    for(i = 1; i <= 3; i++)
     {
         int nClassType = GetClassByPosition(i, oPC);
         if(nClassType != CLASS_TYPE_INVALID)
@@ -274,13 +268,8 @@ void SetupCharacterData(object oPC)
         SetPersistantLocalInt(oPC, "PRC_UNI_SHIFT_SCRIPT", 1);
 
     //Setup class info for onleveldown script
-    int nCharData = ((GetClassByPosition(8, oPC) & 0xFF) << 56) |
-					((GetClassByPosition(7, oPC) & 0xFF) << 48) |
-					((GetClassByPosition(5, oPC) & 0xFF) << 40) |
-                    ((GetClassByPosition(5, oPC) & 0xFF) << 32) |
-					((GetClassByPosition(4, oPC) & 0xFF) << 24) |
-					((GetClassByPosition(3, oPC) & 0xFF) << 16) |
-                    ((GetClassByPosition(2, oPC) & 0xFF) << 8) |					
+    int nCharData = ((GetClassByPosition(3, oPC) & 0xFF) << 16) |
+                    ((GetClassByPosition(2, oPC) & 0xFF) << 8) |
                     (GetClassByPosition(1, oPC) & 0xFF);
 
     SetPersistantLocalInt(oPC, "PRC_Character_Data", nCharData);
@@ -569,7 +558,6 @@ void EvalPRCFeats(object oPC)
     // Must be after all evaluationscripts that need said function.
     ExecuteScript("prc_bab_caller", oPC);
 
-//:: [PRC .35] Needs marker feats
     // Classes an invoker can take
     if(GetLevelByClass(CLASS_TYPE_MAESTER,              oPC) ||
        GetLevelByClass(CLASS_TYPE_ACOLYTE,              oPC) ||

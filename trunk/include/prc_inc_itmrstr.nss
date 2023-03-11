@@ -6,7 +6,7 @@
 
 
 */
-//:: Updated for .35 by Jaysyn 2023/03/10
+
 
 //////////////////////////////////////////////////
 /*                 Constants                    */
@@ -38,11 +38,7 @@ void CheckForPnPHolyAvenger(object oItem);
 
 #include "inc_utility"
 #include "prc_inc_newip"
-#include "prc_inc_castlvl"
-#include "inc_newspellbook"
 
-//:: Test Void
-//void main (){}
 
 //////////////////////////////////////////////////
 /*             Internal functions               */
@@ -138,7 +134,7 @@ void _prc_inc_itmrstr_ApplyWizardry(object oPC, object oItem, int nSpellLevel, s
 
     SetLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel), TRUE);
     int nClass, nSlots, i;
-    for(i = 1; i <= 8; i++)
+    for(i = 1; i <= 3; i++)
     {
         nClass = GetClassByPosition(i, oPC);
         if((sType == "A" && GetIsArcaneClass(nClass)) || (sType == "D" && GetIsDivineClass(nClass)))

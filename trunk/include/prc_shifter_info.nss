@@ -1,12 +1,5 @@
-
-//:: Updated for .35 by Jaysyn 2023/03/10
-
 #include "prc_inc_function"
 #include "inc_nwnx_funcs"
-
-//:: Test Void
-//void main (){}
-
 
 const int DEBUG_NATURAL_AC_CALCULATION = FALSE;
 int MAX_BONUS = GetPRCSwitch(PRC_PNP_SHIFTER_BONUS);
@@ -1119,12 +1112,6 @@ void _prc_inc_PrintDebugItem(object oPC, string oItemType, object oItem)
             _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(1, oItem));
             _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(2, oItem));
             _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(3, oItem));
-            _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(4, oItem));
-            _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(5, oItem));
-            _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(6, oItem));
-            _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(7, oItem));
-            _prc_inc_PrintClassInfo("=== ", oPC, oItem, GetClassByPosition(8, oItem));
-			
             _prc_inc_PrintShapeInfo(oPC, "------");
 
             _prc_inc_PrintShapeInfo(oPC, "======  Main hand weapon: " + (GetIsWeaponEffective(oItem, FALSE) ? "Effective" : "Ineffective"));
@@ -1272,12 +1259,7 @@ void _prc_inc_PrintShape(object oPC, object oTemplate, int bForceLogPrint)
     _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(1, oTemplate));
     _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(2, oTemplate));
     _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(3, oTemplate));
-    _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(4, oTemplate));
-    _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(5, oTemplate));
-    _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(6, oTemplate));
-    _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(7, oTemplate));
-    _prc_inc_PrintClassInfo("=== ", oPC, oTemplate, GetClassByPosition(8, oTemplate));
-	
+
     _prc_inc_PrintShapeInfo(oPC, "==========");
 
     //Harmlessly invisible?
