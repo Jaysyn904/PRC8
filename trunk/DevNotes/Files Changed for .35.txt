@@ -1,0 +1,5 @@
+Files changed for .35:
+
+inv_inc_invfunc.nss	- GetHighestInvokerLevel(), GetFirstInvocationClassPosition(), GetPrimaryInvocationClass()
+
+inc_epicspellfnc.nss	- GetCanLearnSeed()

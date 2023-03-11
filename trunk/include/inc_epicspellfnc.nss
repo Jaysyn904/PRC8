@@ -132,7 +132,7 @@ int GetCanLearnSeed(object oPC, int nSeedID)
 {
     int nRestr = GetClassForSeed(nSeedID);
     int i, nClass;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         nClass = GetClassByPosition(i, oPC);
         if(_CheckEpicSpellcastingForClass(oPC, nClass)//this class has epic spellcasting

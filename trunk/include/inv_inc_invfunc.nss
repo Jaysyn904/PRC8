@@ -230,14 +230,37 @@ int GetIsInvocationUser(object oCreature)
              );
 }
 
+
 int GetHighestInvokerLevel(object oCreature)
+{
+	int n = 0;
+	int nHighest;
+	int nTemp;
+	
+    while(n <= 8)
+	{
+		if(GetClassByPosition(n, oCreature) != CLASS_TYPE_INVALID)
+		{
+			nTemp = GetInvokerLevel(oCreature, GetClassByPosition(n, oCreature));
+			
+			if(nTemp > nHighest) 
+				nHighest = nTemp;
+		}
+	n++;
+
+	}
+	
+	return nHighest;
+}
+
+/* int GetHighestInvokerLevel(object oCreature)
 {
     return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(3, oCreature)) : 0
                );
-}
+} */
 
 int GetIsInvocationClass(int nClass)
 {
@@ -278,7 +301,7 @@ int GetPrimaryInvocationClass(object oCreature = OBJECT_SELF)
 {
     int nClass;
 
-    if(GetPRCSwitch(PRC_CASTERLEVEL_FIRST_CLASS_RULE))
+    if(GetPRCSwitch(PRC_CASTERLEVEL_FIRST_CLASS_RULE))  //: Kinda pointless for .35
     {
         int nInvocationPos = GetFirstInvocationClassPosition(oCreature);
         if (!nInvocationPos) return CLASS_TYPE_INVALID; // no invoking class
@@ -288,18 +311,30 @@ int GetPrimaryInvocationClass(object oCreature = OBJECT_SELF)
     else
     {
         int nClassLvl;
-        int nClass1, nClass2, nClass3;
-        int nClass1Lvl, nClass2Lvl, nClass3Lvl;
+        int nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8;
+        int nClass1Lvl, nClass2Lvl, nClass3Lvl, nClass4Lvl, nClass5Lvl, nClass6Lvl, nClass7Lvl, nClass8Lvl;
 
         nClass1 = GetClassByPosition(1, oCreature);
         nClass2 = GetClassByPosition(2, oCreature);
         nClass3 = GetClassByPosition(3, oCreature);
+		nClass4 = GetClassByPosition(4, oCreature);
+		nClass5 = GetClassByPosition(5, oCreature);
+		nClass6 = GetClassByPosition(6, oCreature);
+		nClass7 = GetClassByPosition(7, oCreature);
+		nClass8 = GetClassByPosition(8, oCreature);
+		
         if(GetIsInvocationClass(nClass1)) nClass1Lvl = GetLevelByClass(nClass1, oCreature);
         if(GetIsInvocationClass(nClass2)) nClass2Lvl = GetLevelByClass(nClass2, oCreature);
         if(GetIsInvocationClass(nClass3)) nClass3Lvl = GetLevelByClass(nClass3, oCreature);
+		if(GetIsInvocationClass(nClass4)) nClass4Lvl = GetLevelByClass(nClass4, oCreature);
+		if(GetIsInvocationClass(nClass5)) nClass5Lvl = GetLevelByClass(nClass5, oCreature);
+		if(GetIsInvocationClass(nClass6)) nClass6Lvl = GetLevelByClass(nClass6, oCreature);
+		if(GetIsInvocationClass(nClass7)) nClass7Lvl = GetLevelByClass(nClass7, oCreature);
+		if(GetIsInvocationClass(nClass8)) nClass8Lvl = GetLevelByClass(nClass8, oCreature);
 
         nClass = nClass1;
         nClassLvl = nClass1Lvl;
+		
         if(nClass2Lvl > nClassLvl)
         {
             nClass = nClass2;
@@ -310,6 +345,32 @@ int GetPrimaryInvocationClass(object oCreature = OBJECT_SELF)
             nClass = nClass3;
             nClassLvl = nClass3Lvl;
         }
+		if(nClass4Lvl > nClassLvl)
+        {
+            nClass = nClass4;
+            nClassLvl = nClass4Lvl;
+        }
+        if(nClass5Lvl > nClassLvl)
+        {
+            nClass = nClass5;
+            nClassLvl = nClass5Lvl;
+        }
+		if(nClass6Lvl > nClassLvl)
+        {
+            nClass = nClass6;
+            nClassLvl = nClass6Lvl;
+        }
+        if(nClass7Lvl > nClassLvl)
+        {
+            nClass = nClass7;
+            nClassLvl = nClass7Lvl;
+        }		
+        if(nClass8Lvl > nClassLvl)
+        {
+            nClass = nClass8;
+            nClassLvl = nClass8Lvl;
+        }		
+		
         if(nClassLvl == 0)
             nClass = CLASS_TYPE_INVALID;
     }
@@ -325,7 +386,17 @@ int GetFirstInvocationClassPosition(object oCreature = OBJECT_SELF)
         return 2;
     if (GetIsInvocationClass(GetClassByPosition(3, oCreature)))
         return 3;
-
+    if (GetIsInvocationClass(GetClassByPosition(4, oCreature)))
+        return 4;
+	if (GetIsInvocationClass(GetClassByPosition(5, oCreature)))
+        return 5;
+	if (GetIsInvocationClass(GetClassByPosition(6, oCreature)))
+        return 6;	
+	if (GetIsInvocationClass(GetClassByPosition(7, oCreature)))
+        return 7;	
+	if (GetIsInvocationClass(GetClassByPosition(8, oCreature)))
+        return 8;	
+	
     return 0;
 }
 
