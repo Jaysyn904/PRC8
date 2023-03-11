@@ -28,6 +28,9 @@ which fires the spellscript prc_spellbook (#1792 in spells.2da), which then call
 conversation script
 */
 //:://////////////////////////////////////////////
+
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 //:://////////////////////////////////////////////
 
 

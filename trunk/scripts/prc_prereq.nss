@@ -8,6 +8,8 @@
 //:: Created On: July 3rd, 2004
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 #include "inc_epicspells"
 #include "prc_inc_sneak"
 #include "psi_inc_psifunc"
@@ -153,7 +155,7 @@ void Dragonheart(object oPC)
     SetLocalInt(oPC, "PRC_PrereqDragonheart", 1);
     
     int nClassSlot = 1;
-    while(nClassSlot <= 3)
+    while(nClassSlot <= 8)
     {
         int nClass = GetClassByPosition(nClassSlot, oPC);
         nClassSlot += 1;
@@ -1037,7 +1039,7 @@ void KnightWeave(object oPC)
     int bSpontCaster = FALSE;
     //make sure user is a spontaneous arcane caster
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         if((GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS) && GetMaxSpellLevelForCasterLevel(nClass, GetLevelByTypeArcane(oPC)) >= 3)
@@ -1262,7 +1264,7 @@ void main()
     //for(i=1;i<3;i++)
     int nSpellLevel;
     int nClassSlot = 1;
-    while(nClassSlot <= 3)
+    while(nClassSlot <= 8)
     {
         int nClass = GetClassByPosition(nClassSlot, oPC);
         nClassSlot += 1;

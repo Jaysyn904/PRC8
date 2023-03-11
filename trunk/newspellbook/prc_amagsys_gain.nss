@@ -19,6 +19,9 @@
     @date   Created - 2006.12.14
  */
 //:://////////////////////////////////////////////
+
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 //:://////////////////////////////////////////////
 
 #include "inc_dynconv"
@@ -529,7 +532,7 @@ void AMSCompatibilityCheck(object oPC)
     object oHideToken = GetHideToken(oPC); //ebonfowl: no longer used but I'm leaving it to not have to edit other functions
 
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         string sSpellbook;

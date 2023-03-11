@@ -11,6 +11,9 @@
 */
 //////////////////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
+
 #include "moi_inc_moifunc"
 #include "prc_inc_clsfunc"
 
@@ -722,17 +725,43 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         int nClass1 = GetClassByPosition(1, oPC);
         int nClass2 = GetClassByPosition(2, oPC);
         int nClass3 = GetClassByPosition(3, oPC);
-
+        int nClass4 = GetClassByPosition(4, oPC);
+        int nClass5 = GetClassByPosition(5, oPC);
+        int nClass6 = GetClassByPosition(6, oPC);
+        int nClass7 = GetClassByPosition(7, oPC);
+        int nClass8 = GetClassByPosition(8, oPC);
+		
         int nClass1Lvl = GetLevelByClass(nClass1, oPC);
         int nClass2Lvl = GetLevelByClass(nClass2, oPC);
         int nClass3Lvl = GetLevelByClass(nClass3, oPC);
-        int nLevel = nClass1Lvl + nClass2Lvl + nClass3Lvl;
+        int nClass4Lvl = GetLevelByClass(nClass4, oPC);
+        int nClass5Lvl = GetLevelByClass(nClass5, oPC);
+        int nClass6Lvl = GetLevelByClass(nClass6, oPC);
+		int nClass7Lvl = GetLevelByClass(nClass7, oPC);
+        int nClass8Lvl = GetLevelByClass(nClass8, oPC);
+		
+        int nLevel = nClass1Lvl + nClass2Lvl + nClass3Lvl + nClass4Lvl + nClass5Lvl + nClass6Lvl + nClass7Lvl + nClass8Lvl;
 
         int nDie1 = StringToInt(Get2DAString("classes", "HitDie", nClass1));
         int nDie2 = StringToInt(Get2DAString("classes", "HitDie", nClass2));
         int nDie3 = StringToInt(Get2DAString("classes", "HitDie", nClass3));
+		int nDie4 = StringToInt(Get2DAString("classes", "HitDie", nClass4));
+        int nDie5 = StringToInt(Get2DAString("classes", "HitDie", nClass5));
+        int nDie6 = StringToInt(Get2DAString("classes", "HitDie", nClass6));
+		int nDie7 = StringToInt(Get2DAString("classes", "HitDie", nClass7));
+        int nDie8 = StringToInt(Get2DAString("classes", "HitDie", nClass8));
+		
+		int nFortPenalty = (nLevel * 12 - (nClass1Lvl * nDie1 + 
+											nClass2Lvl * nDie2 + 
+											nClass3Lvl * nDie3 +
+											nClass4Lvl * nDie4 +
+											nClass5Lvl * nDie5 +
+											nClass6Lvl * nDie6 +
+											nClass7Lvl * nDie7 +
+											nClass8Lvl * nDie8))/nLevel;				
 
-        int nFortPenalty = (nLevel * 12 - (nClass1Lvl * nDie1 + nClass2Lvl * nDie2 + nClass3Lvl * nDie3))/nLevel;
+/*         int nFortPenalty = (nLevel * 12 - (nClass1Lvl * nDie1 + nClass2Lvl * nDie2 + nClass3Lvl * nDie3))/nLevel; */
+		
         if(nFortPenalty > 6)
             nFortPenalty = 6;
         int nConBonus = nFortPenalty * 2;

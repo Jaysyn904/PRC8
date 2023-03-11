@@ -189,7 +189,7 @@ void main()
 
                     SetHeader("Select class");
                     int i, nTest, nPrev;
-                    for(i = 1; i <= 3; i++)
+                    for(i = 1; i <= 8; i++)
                     {
                         nTest = GetClassByPosition(i, oPC);
                         if(GetIsPsionicClass(nTest))

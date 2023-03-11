@@ -11,6 +11,9 @@
 //:: Created On: Nov 17, 2007
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
+
 #include "prc_inc_burn"
 #include "prc_inc_breath"
 
@@ -157,7 +160,7 @@ void main()
 
     //make sure user is a spontaneous caster
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         if((GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS)

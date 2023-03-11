@@ -1,3 +1,5 @@
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 #include "inc_leto_prc"
 #include "x2_inc_switches"
 #include "prc_inc_teleport"
@@ -111,7 +113,7 @@ void OnEnter_AMSCompatibilityCheck(object oPC)
     {
         SetLocalInt(oPC, "AMS_RESTORE", 1);
         int i;
-        for(i = 1; i <= 3; i++)
+        for(i = 1; i <= 8; i++)
         {
             int nClass = GetClassByPosition(i, oPC);
             DelayCommand(0.2, DoRestoreAMS(oPC, nClass, oHideToken, oAMSToken));

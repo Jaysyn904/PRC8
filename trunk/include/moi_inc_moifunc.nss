@@ -217,7 +217,7 @@ int GetHighestMeldshaperLevel(object oMeldshaper)
 	{
 		if(GetClassByPosition(n, oMeldshaper) != CLASS_TYPE_INVALID)
 		{
-			nTemp = GetMeldshaperLevel(oMeldshaper, GetClassByPosition(n, oMeldshaper), -1);
+			nTemp = GetMeldshaperLevel(oMeldshaper, GetClassByPosition(n, oMeldshaper),-1);
 			
 			if(nTemp > nHighest) 
 				nHighest = nTemp;

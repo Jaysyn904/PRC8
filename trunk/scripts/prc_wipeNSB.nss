@@ -28,7 +28,7 @@ void main()
     object oPC = OBJECT_SELF;
 
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         DelayCommand(0.5*i, DeleteArrays(oPC, nClass));

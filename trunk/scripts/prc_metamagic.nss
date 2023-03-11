@@ -8,12 +8,14 @@
 //:: Created On: 20/09/2009
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 #include "inc_newspellbook"
 
 int GetHasSpontaneousNSBClass(object oPC)
 {
     int i;
-    for (i = 1; i <= 3; i++)
+    for (i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         if (SPELLBOOK_TYPE_SPONTANEOUS == GetSpellbookTypeForClass(nClass))

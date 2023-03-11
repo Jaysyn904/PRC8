@@ -1,4 +1,36 @@
-Functions changed for .35:
+Scripts changed for .35:
+
+prc_wipeNSB.nss
+
+PRC_S_spellb.nss
+
+prc_amagsys_gain.nss	- AMSCompatibilityCheck()
+
+prc_prereq.nss			- Dragonheart(), KnightWeave()
+
+prc_onenter.nss			- OnEnter_AMSCompatibilityCheck()
+
+prc_metamagic.nss		- GetHasSpontaneousNSBClass()
+
+prc_feats.nss
+
+prc_dracactive.nss
+
+prc_debug_hfeatm.nss
+
+prc_cbtmed_spnhl.nss
+
+psi_powconv.nss
+
+psi_pow_bstpwr.nss
+
+x2_pc_umdcheck.nss
+
+
+
+Includes & Functions changed for .35:
+
+inc_sp_gain_mem.nss		- set MAX_CLASSES to 8
 
 inv_inc_invfunc.nss		- GetHighestInvokerLevel(), GetFirstInvocationClassPosition(), GetPrimaryInvocationClass()
 

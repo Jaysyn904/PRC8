@@ -3,6 +3,10 @@
  * Created July 17 2005
  * Author: GaiaWerewolf
  */
+ 
+ //:: Updated for .35 by Jaysyn 2023/03/11
+ 
+ 
 #include "prc_inc_spells"
 #include "prc_getbest_inc"
 
@@ -38,7 +42,7 @@ void main()
     int nBurnableSpell = -1;
     int bBioCastersLoopDone = 0;//will prevent running 'GetBestSpell' loops twice
 
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         nClass = GetClassByPosition(i, oCaster);
 

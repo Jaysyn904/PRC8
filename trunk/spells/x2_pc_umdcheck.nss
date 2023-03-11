@@ -33,6 +33,8 @@ Note: I am not using the effective level of the spell for DC calculation but
 */
 //------------------------------------------------------------------------------
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 #include "prc_inc_spells"
 
 int DoCastingClassCheck(object oCaster, int nSpellID, int nClass)
@@ -55,7 +57,7 @@ int DoCastingClassCheck(object oCaster, int nSpellID, int nClass)
 int UMD_CheckCastingClass(object oCaster, int nSpellID)
 {
     int i;
-    for(i = 1; i < 4; i++)
+    for(i = 1; i < 9; i++)
     {
         if(DoCastingClassCheck(oCaster, nSpellID, GetClassByPosition(i, oCaster)))
             return TRUE;

@@ -34,6 +34,9 @@
              2 additional power points.
 */
 
+//:: Updated for .35 by Jaysyn 2023/03/10
+
+
 #include "psi_inc_psifunc"
 #include "psi_inc_pwresist"
 #include "psi_spellhook"
@@ -70,11 +73,29 @@ void main()
     if(manif.bCanManifest)
     {
         // Determine the target's manifester level
-        int nTargetManifesterLevel = max(max(GetClassByPosition(1, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(1, oTarget)) : 0,
-                                             GetClassByPosition(2, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(2, oTarget)) : 0
-                                             ),
-                                         GetClassByPosition(3, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(3, oTarget)) : 0
-                                         );
+		int n = 0;
+		int nTargetManifesterLevel;
+		int nTemp;
+	
+		while(n <= 8)
+		{
+			if(GetClassByPosition(n, oTarget) != CLASS_TYPE_INVALID)
+			{
+				nTemp = GetManifesterLevel(oTarget, GetClassByPosition(n, oTarget), -1);
+			
+				if(nTemp > nTargetManifesterLevel) 
+					nTargetManifesterLevel = nTemp;
+			}
+		n++;
+
+		}	
+		
+/*	int nTargetManifesterLevel = max(max(GetClassByPosition(1, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(1, oTarget)) : 0,
+									GetClassByPosition(2, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(2, oTarget)) : 0
+									),
+									GetClassByPosition(3, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(3, oTarget)) : 0
+									); */
+										 
         int nPPGiven = 2 + 2 * manif.nTimesAugOptUsed_1;
         // Can't give more than the target has manifester levels
         nPPGiven = min(nPPGiven, nTargetManifesterLevel);

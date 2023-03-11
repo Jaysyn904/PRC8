@@ -12,6 +12,8 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
 #include "inc_utility"
 
 const string SET_NAME = "PRC_DEBUG_HFeatM_IPs";
@@ -67,6 +69,26 @@ void main()
                  " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(3, oPC)))) + " " + IntToString(GetLevelByPosition(3, oPC))
                  : ""
                  )
+              + (GetClassByPosition(4, oPC) != CLASS_TYPE_INVALID ?
+                 " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(4, oPC)))) + " " + IntToString(GetLevelByPosition(4, oPC))
+                 : ""
+                 )
+              + (GetClassByPosition(5, oPC) != CLASS_TYPE_INVALID ?
+                 " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(5, oPC)))) + " " + IntToString(GetLevelByPosition(5, oPC))
+                 : ""
+                 )
+              + (GetClassByPosition(6, oPC) != CLASS_TYPE_INVALID ?
+                 " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(6, oPC)))) + " " + IntToString(GetLevelByPosition(6, oPC))
+                 : ""
+                 )
+              + (GetClassByPosition(7, oPC) != CLASS_TYPE_INVALID ?
+                 " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(7, oPC)))) + " " + IntToString(GetLevelByPosition(7, oPC))
+                 : ""
+                 )
+              + (GetClassByPosition(8, oPC) != CLASS_TYPE_INVALID ?
+                 " / " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", GetClassByPosition(8, oPC)))) + " " + IntToString(GetLevelByPosition(8, oPC))
+                 : ""
+                 )				 
                 );
 
         DoDebug("A duplicate itemproperty feat has been discovered. This is a critical bug, so please report it.\n\n"

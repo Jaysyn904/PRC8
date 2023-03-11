@@ -15,12 +15,19 @@ Created:   May 1, 2008
 
 //#include "prc_inc_core"	//granted access via parent (inc_newspellbook)
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
+#include "inc_newspellbook.nss"
+
+//:: Test Void
+//void main (){}
+
 //:://////////////////////////////////////////////
 //:: Constants
 //:://////////////////////////////////////////////
 
-// max. number of classes a PC (or creature) can take (3 for NWN, 4 for NWN2)
-const int MAX_CLASSES = 3;
+// max. number of classes a PC (or creature) can take (8 for NWN, 4 for NWN2)
+const int MAX_CLASSES = 8;
 
 //////////////////////////////////////////////////
 /* Aid functions                                */
