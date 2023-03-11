@@ -349,7 +349,7 @@ int GetSpellslotLevel(int nClass, object oPC)
     int nArcSpellslotLevel;
     int nDivSpellslotLevel;
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nTempClass = GetClassByPosition(i, oPC);
         //spellcasting prc
@@ -832,7 +832,7 @@ void CheckNewSpellbooks(object oPC)
 {
     WipeSpellbookHideFeats(oPC);
     int i;
-    for(i = 1; i <= 3; i++)
+    for(i = 1; i <= 8; i++)
     {
         int nClass = GetClassByPosition(i, oPC);
         int nLevel = GetLevelByClass(nClass, oPC);

@@ -1,4 +1,6 @@
 
+//:: Updated for .35 by Jaysyn 2023/03/10
+
 int GetFeatForSeed(int nSeedID);
 int GetIPForSeed(int nSeedID);
 int GetDCForSeed(int nSeedID);
@@ -24,6 +26,8 @@ int GetSpellFromAbrev(string sAbrev);
 //////////////////////////////////////////////////
 /*                  Includes                    */
 //////////////////////////////////////////////////
+
+
 
 #include "inc_utility"
 //#include "inc_epicspelldef"

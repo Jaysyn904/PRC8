@@ -6,7 +6,7 @@
     Stratovarius
 */
 
-
+//:: Updated for .35 by Jaysyn 2023/03/10
 
 ////////////////Begin Generic////////////////
 
@@ -1606,6 +1606,8 @@ void RemoveOldSongs(object oPC)
 // since in NWN character can have max 3 classes. We also know that Eldritch Theurge
 // is at positon 3 (unless player is cheating).
 // So we just need to check the third class.
+
+//:: [PRC .35] This function will require marker feats
 int GetETArcaneClass(object oPC)
 {
     int nClass = GetClassByPosition(1, oPC);

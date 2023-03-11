@@ -12,9 +12,14 @@
 
     @author Stratovarius
     @date   Created - 2019.12.28
+	
+	Updated for .35 by Jaysyn 2023/03/10
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
+
+//:: Test Void
+//void main () {}
 
 //////////////////////////////////////////////////
 /*             Function prototypes              */
@@ -204,12 +209,34 @@ int GetIncarnumLevelForClass(int nSpecificClass, object oMeldshaper)
 
 int GetHighestMeldshaperLevel(object oMeldshaper)
 {
+	int n = 0;
+	int nHighest;
+	int nTemp;
+	
+    while(n <= 8)
+	{
+		if(GetClassByPosition(n, oMeldshaper) != CLASS_TYPE_INVALID)
+		{
+			nTemp = GetMeldshaperLevel(oMeldshaper, GetClassByPosition(n, oMeldshaper), -1);
+			
+			if(nTemp > nHighest) 
+				nHighest = nTemp;
+		}
+	n++;
+
+	}
+	
+	return nHighest;
+}
+
+/* int GetHighestMeldshaperLevel(object oMeldshaper)
+{
     return max(max(GetClassByPosition(1, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(1, oMeldshaper), -1) : 0,
                    GetClassByPosition(2, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(2, oMeldshaper), -1) : 0
                    ),
                GetClassByPosition(3, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(3, oMeldshaper), -1) : 0
                );
-}
+} */
 
 int GetIsIncarnumClass(int nClass)
 {
@@ -260,18 +287,30 @@ int GetPrimaryIncarnumClass(object oMeldshaper = OBJECT_SELF)
     else
     {
         int nClassLvl;
-        int nClass1, nClass2, nClass3;
-        int nClass1Lvl, nClass2Lvl, nClass3Lvl;
-
-        nClass1 = GetClassByPosition(1, oMeldshaper);
+        int nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8;
+        int nClass1Lvl, nClass2Lvl, nClass3Lvl, nClass4Lvl, nClass5Lvl, nClass6Lvl, nClass7Lvl, nClass8Lvl;
+		
+		nClass1 = GetClassByPosition(1, oMeldshaper);
         nClass2 = GetClassByPosition(2, oMeldshaper);
         nClass3 = GetClassByPosition(3, oMeldshaper);
+		nClass4 = GetClassByPosition(4, oMeldshaper);
+		nClass5 = GetClassByPosition(5, oMeldshaper);
+		nClass6 = GetClassByPosition(6, oMeldshaper);
+		nClass7 = GetClassByPosition(7, oMeldshaper);
+		nClass8 = GetClassByPosition(8, oMeldshaper);
+		
         if(GetIsIncarnumClass(nClass1)) nClass1Lvl = GetLevelByClass(nClass1, oMeldshaper);
         if(GetIsIncarnumClass(nClass2)) nClass2Lvl = GetLevelByClass(nClass2, oMeldshaper);
         if(GetIsIncarnumClass(nClass3)) nClass3Lvl = GetLevelByClass(nClass3, oMeldshaper);
+		if(GetIsIncarnumClass(nClass4)) nClass4Lvl = GetLevelByClass(nClass4, oMeldshaper);
+		if(GetIsIncarnumClass(nClass5)) nClass5Lvl = GetLevelByClass(nClass5, oMeldshaper);
+		if(GetIsIncarnumClass(nClass6)) nClass6Lvl = GetLevelByClass(nClass6, oMeldshaper);
+		if(GetIsIncarnumClass(nClass7)) nClass7Lvl = GetLevelByClass(nClass7, oMeldshaper);
+		if(GetIsIncarnumClass(nClass8)) nClass8Lvl = GetLevelByClass(nClass8, oMeldshaper);
 
         nClass = nClass1;
         nClassLvl = nClass1Lvl;
+		
         if(nClass2Lvl > nClassLvl)
         {
             nClass = nClass2;
@@ -282,6 +321,32 @@ int GetPrimaryIncarnumClass(object oMeldshaper = OBJECT_SELF)
             nClass = nClass3;
             nClassLvl = nClass3Lvl;
         }
+		if(nClass4Lvl > nClassLvl)
+        {
+            nClass = nClass4;
+            nClassLvl = nClass4Lvl;
+        }
+        if(nClass5Lvl > nClassLvl)
+        {
+            nClass = nClass5;
+            nClassLvl = nClass5Lvl;
+        }
+		if(nClass6Lvl > nClassLvl)
+        {
+            nClass = nClass6;
+            nClassLvl = nClass6Lvl;
+        }
+        if(nClass7Lvl > nClassLvl)
+        {
+            nClass = nClass7;
+            nClassLvl = nClass7Lvl;
+        }		
+        if(nClass8Lvl > nClassLvl)
+        {
+            nClass = nClass8;
+            nClassLvl = nClass8Lvl;
+        }		
+		
         if(nClassLvl == 0)
             nClass = CLASS_TYPE_INVALID;
     }
@@ -297,6 +362,16 @@ int GetFirstIncarnumClassPosition(object oMeldshaper = OBJECT_SELF)
         return 2;
     if (GetIsIncarnumClass(GetClassByPosition(3, oMeldshaper)))
         return 3;
+    if (GetIsIncarnumClass(GetClassByPosition(4, oMeldshaper)))
+        return 4;
+    if (GetIsIncarnumClass(GetClassByPosition(5, oMeldshaper)))
+        return 5;
+    if (GetIsIncarnumClass(GetClassByPosition(6, oMeldshaper)))
+        return 6;
+    if (GetIsIncarnumClass(GetClassByPosition(7, oMeldshaper)))
+        return 7;
+    if (GetIsIncarnumClass(GetClassByPosition(8, oMeldshaper)))
+        return 8;
 
     return 0;
 }

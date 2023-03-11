@@ -8,6 +8,8 @@
 //:: Created On: August 31st, 2005
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/10
+
 
 // Function returns the domain in the input slot.
 // A person can have a maximum of 5 bonus domains.
@@ -240,7 +242,7 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
     if(!nCount)
     {
         int n;
-        for(n = 1; n < 4; n++)
+        for(n = 1; n < 8; n++)
         {
             nClass = GetClassByPosition(n, oPC);
 

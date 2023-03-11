@@ -16,6 +16,11 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
+//:: Test Void
+//void main (){}
+
 //////////////////////////////////////////////////
 /*                 Constants                    */
 //////////////////////////////////////////////////
@@ -341,12 +346,34 @@ int GetIsTruenamingUser(object oCreature)
 
 int GetHighestTrueSpeakerLevel(object oCreature)
 {
+	int n = 0;
+	int nHighest;
+	int nTemp;
+	
+    while(n <= 8)
+	{
+		if(GetClassByPosition(n, oCreature) != CLASS_TYPE_INVALID)
+		{
+			nTemp = GetTruespeakerLevel(oCreature, GetClassByPosition(n, oCreature));
+			
+			if(nTemp > nHighest) 
+				nHighest = nTemp;
+		}
+	n++;
+
+	}
+	
+	return nHighest;
+}
+
+/* int GetHighestTrueSpeakerLevel(object oCreature)
+{
     return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(3, oCreature)) : 0
                );
-}
+} */
 
 int GetIsTruenamingClass(int nClass)
 {
@@ -391,7 +418,7 @@ int GetTrueSpeakerDC(object oTrueSpeaker = OBJECT_SELF)
     nDC += GetAbilityModifier(GetTruenameAbilityOfClass(nClass), oTrueSpeaker);
     int nFeat = -1;
 
-    // Focused Lexicon. Bonus vs chosen racial type
+    // Focused Lexicon. Bonus vs chosen racial type  //:: [PRC .35] Needs update for new racialtypes
     switch(nRace)
     {
         case RACIAL_TYPE_ABERRATION:         nFeat = FEAT_FOCUSED_LEXICON_ABERRATION;   break;

@@ -1,3 +1,5 @@
+//:: Updated for .35 by Jaysyn 2023/03/10
+
 //////////////////////////////////////////////////
 /*                 Constants                    */
 //////////////////////////////////////////////////
@@ -589,6 +591,11 @@ void StoreCohort(object oCohort)
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class1", GetClassByPosition(1, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class2", GetClassByPosition(2, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class3", GetClassByPosition(3, oCohort));
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class4", GetClassByPosition(4, oCohort));
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class5", GetClassByPosition(5, oCohort));
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class6", GetClassByPosition(6, oCohort));	
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class7", GetClassByPosition(7, oCohort));
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class8", GetClassByPosition(8, oCohort));	
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_order",  GetLawChaosValue(oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_moral",  GetGoodEvilValue(oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_ethran", GetHasFeat(FEAT_ETHRAN, oCohort));
@@ -1032,3 +1039,5 @@ void AddPremadeCohortsToDB()
     SetCampaignInt(COHORT_DATABASE, "PremadeCohorts", TRUE);
 }
 
+//:: Test Void
+//void main (){}
