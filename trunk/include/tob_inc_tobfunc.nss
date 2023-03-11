@@ -16,6 +16,11 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//:: Updated for .35 by Jaysyn 2023/03/11
+
+//:: Test Void
+//void main (){}
+
 //////////////////////////////////////////////////
 /*                 Constants                    */
 //////////////////////////////////////////////////
@@ -530,12 +535,34 @@ int GetIsBladeMagicUser(object oCreature)
 
 int GetHighestInitiatorLevel(object oCreature)
 {
+	int n = 0;
+	int nHighest;
+	int nTemp;
+	
+    while(n <= 8)
+	{
+		if(GetClassByPosition(n, oCreature) != CLASS_TYPE_INVALID)
+		{
+			nTemp = GetInitiatorLevel(oCreature, GetClassByPosition(n, oCreature));
+			
+			if(nTemp > nHighest) 
+				nHighest = nTemp;
+		}
+	n++;
+
+	}
+	
+	return nHighest;
+}
+
+/* int GetHighestInitiatorLevel(object oCreature)
+{
     return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(3, oCreature)) : 0
                );
-}
+} */
 
 int GetIsBladeMagicClass(int nClass)
 {
@@ -646,18 +673,30 @@ int GetPrimaryBladeMagicClass(object oCreature = OBJECT_SELF)
         }*/
         
         int nClassLvl;
-        int nClass1, nClass2, nClass3;
-        int nClass1Lvl, nClass2Lvl, nClass3Lvl;
+        int nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8;
+        int nClass1Lvl, nClass2Lvl, nClass3Lvl, nClass4Lvl, nClass5Lvl, nClass6Lvl, nClass7Lvl, nClass8Lvl;
 
         nClass1 = GetClassByPosition(1, oCreature);
         nClass2 = GetClassByPosition(2, oCreature);
         nClass3 = GetClassByPosition(3, oCreature);
+        nClass4 = GetClassByPosition(4, oCreature);
+        nClass5 = GetClassByPosition(5, oCreature);
+        nClass6 = GetClassByPosition(6, oCreature);
+		nClass7 = GetClassByPosition(7, oCreature);
+        nClass8 = GetClassByPosition(8, oCreature);
+		
         if(GetIsBladeMagicClass(nClass1)) nClass1Lvl = GetLevelByClass(nClass1, oCreature);
         if(GetIsBladeMagicClass(nClass2)) nClass2Lvl = GetLevelByClass(nClass2, oCreature);
         if(GetIsBladeMagicClass(nClass3)) nClass3Lvl = GetLevelByClass(nClass3, oCreature);
-
+        if(GetIsBladeMagicClass(nClass4)) nClass4Lvl = GetLevelByClass(nClass4, oCreature);
+        if(GetIsBladeMagicClass(nClass5)) nClass5Lvl = GetLevelByClass(nClass5, oCreature);
+        if(GetIsBladeMagicClass(nClass6)) nClass6Lvl = GetLevelByClass(nClass6, oCreature);
+        if(GetIsBladeMagicClass(nClass7)) nClass7Lvl = GetLevelByClass(nClass7, oCreature);
+        if(GetIsBladeMagicClass(nClass8)) nClass8Lvl = GetLevelByClass(nClass8, oCreature);
+		
         nClass = nClass1;
         nClassLvl = nClass1Lvl;
+		
         if(nClass2Lvl > nClassLvl)
         {
             nClass = nClass2;
@@ -668,6 +707,32 @@ int GetPrimaryBladeMagicClass(object oCreature = OBJECT_SELF)
             nClass = nClass3;
             nClassLvl = nClass3Lvl;
         }
+		if(nClass4Lvl > nClassLvl)
+        {
+            nClass = nClass4;
+            nClassLvl = nClass4Lvl;
+        }
+        if(nClass5Lvl > nClassLvl)
+        {
+            nClass = nClass5;
+            nClassLvl = nClass5Lvl;
+        }
+		if(nClass6Lvl > nClassLvl)
+        {
+            nClass = nClass6;
+            nClassLvl = nClass6Lvl;
+        }
+        if(nClass7Lvl > nClassLvl)
+        {
+            nClass = nClass7;
+            nClassLvl = nClass7Lvl;
+        }		
+        if(nClass8Lvl > nClassLvl)
+        {
+            nClass = nClass8;
+            nClassLvl = nClass8Lvl;
+        }		
+		
         if(nClassLvl == 0)
             nClass = CLASS_TYPE_INVALID;
     }
@@ -683,7 +748,17 @@ int GetFirstBladeMagicClassPosition(object oCreature = OBJECT_SELF)
         return 2;
     if (GetIsBladeMagicClass(GetClassByPosition(3, oCreature)))
         return 3;
-
+    if (GetIsBladeMagicClass(GetClassByPosition(4, oCreature)))
+        return 4;
+    if (GetIsBladeMagicClass(GetClassByPosition(5, oCreature)))
+        return 5;
+    if (GetIsBladeMagicClass(GetClassByPosition(6, oCreature)))
+        return 6;
+    if (GetIsBladeMagicClass(GetClassByPosition(7, oCreature)))
+        return 7;
+    if (GetIsBladeMagicClass(GetClassByPosition(8, oCreature)))
+        return 8;	
+	
     return 0;
 }
 

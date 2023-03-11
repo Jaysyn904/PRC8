@@ -8,6 +8,8 @@
  * functions. If this ends up like prc_inc_spells, you get slapped.
  */
 
+//:: Updated for .35 by Jaysyn 2023/03/10
+
 //////////////////////////////////////////////////
 /* Function prototypes                          */
 //////////////////////////////////////////////////
@@ -785,12 +787,18 @@ int GetIsDivineClass(int nClass, object oCaster = OBJECT_SELF)
 
 int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 {
-   int nArcane;
-   int nOozeMLevel  = GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);
-   int nUM          = GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);
-   int nFirstClass  = GetClassByPosition(1, oCaster);
-   int nSecondClass = GetClassByPosition(2, oCaster);
-   int nThirdClass  = GetClassByPosition(3, oCaster);
+	int nArcane;
+	int nOozeMLevel  	= GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);
+	int nUM          	= GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);
+	
+	int nFirstClass  	= GetClassByPosition(1, oCaster);
+	int nSecondClass 	= GetClassByPosition(2, oCaster);
+	int nThirdClass  	= GetClassByPosition(3, oCaster);
+	int nFourthClass  	= GetClassByPosition(4, oCaster);  
+	int nFifthClass  	= GetClassByPosition(5, oCaster);
+	int nSixthClass  	= GetClassByPosition(6, oCaster);
+	int nSeventhClass  	= GetClassByPosition(7, oCaster);
+	int nEightClass  	= GetClassByPosition(8, oCaster);
    
    if (GetFirstArcaneClassPosition(oCaster)) nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);
 
@@ -834,7 +842,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
            +  (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT,    oCaster) + 1) / 2
            +  (GetLevelByClass(CLASS_TYPE_RAGE_MAGE,          oCaster) + 1) / 2
            +  (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE,     oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+           +  (GetLevelByClass(CLASS_TYPE_JUDICATOR, 		  oCaster) + 1) / 3;
            
            int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); 
            if (nClass)
@@ -857,7 +865,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
      * first class slot is NOT divine AND second class slot is arcane OR
      * first AND second class slot is NOT divine AND 3rd class slot is arcane
      */
-   if (nOozeMLevel)
+   if (nOozeMLevel) //:: [PRC .35]  This needs marker feats.
    {
        if (GetIsArcaneClass(nFirstClass, oCaster)
            || (!GetIsDivineClass(nFirstClass, oCaster)
@@ -922,9 +930,15 @@ int GetDivinePRCLevels(object oCaster)
 {
    int nDivine;
    int nOozeMLevel = GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);
-   int nFirstClass = GetClassByPosition(1, oCaster);
-   int nSecondClass = GetClassByPosition(2, oCaster);
-   int nThirdClass = GetClassByPosition(3, oCaster);
+
+	int nFirstClass  	= GetClassByPosition(1, oCaster);
+	int nSecondClass 	= GetClassByPosition(2, oCaster);
+	int nThirdClass  	= GetClassByPosition(3, oCaster);
+	int nFourthClass  	= GetClassByPosition(4, oCaster);  
+	int nFifthClass  	= GetClassByPosition(5, oCaster);
+	int nSixthClass  	= GetClassByPosition(6, oCaster);
+	int nSeventhClass  	= GetClassByPosition(7, oCaster);
+	int nEightClass  	= GetClassByPosition(8, oCaster);
 
    // This section accounts for full progression classes
    nDivine += GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oCaster)
@@ -967,7 +981,7 @@ int GetDivinePRCLevels(object oCaster)
        nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
    }
 
-   if (nOozeMLevel)
+   if (nOozeMLevel)  //:: [PRC .35]  This needs marker feats.
    {
        if (GetIsDivineClass(nFirstClass, oCaster)
            || (!GetIsArcaneClass(nFirstClass, oCaster)
@@ -984,7 +998,7 @@ int GetDivinePRCLevels(object oCaster)
 int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF)
 {
     int i;
-    for(i = 1; i < 4; i++)
+    for(i = 1; i < 9; i++)
     {
         if(GetIsArcaneClass(GetClassByPosition(i, oCaster), oCaster))
             return i;
@@ -996,7 +1010,7 @@ int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF)
 int GetFirstDivineClassPosition(object oCaster = OBJECT_SELF)
 {
     int i;
-    for(i = 1; i < 4; i++)
+    for(i = 1; i < 9; i++)
     {
         if(GetIsDivineClass(GetClassByPosition(i, oCaster), oCaster))
             return i;
@@ -1019,7 +1033,7 @@ int GetPrimaryArcaneClass(object oCaster = OBJECT_SELF)
     else
     {
         int i, nClassTmp, nClassLvl;
-        for(i = 1; i < 4; i++)
+        for(i = 1; i < 9; i++)
         {
             nClassTmp = GetClassByPosition(i, oCaster);
             if(GetIsArcaneClass(nClassTmp, oCaster) && nClassTmp != CLASS_TYPE_SUBLIME_CHORD)
@@ -1063,7 +1077,7 @@ int GetPrimaryDivineClass(object oCaster = OBJECT_SELF)
     else
     {
         int i, nClassTmp, nClassLvl;
-        for(i = 1; i < 4; i++)
+        for(i = 1; i < 9; i++)
         {
             nClassTmp = GetClassByPosition(i, oCaster);
             if(GetIsDivineClass(nClassTmp, oCaster))
@@ -1088,7 +1102,7 @@ int GetPrimarySpellcastingClass(object oCaster = OBJECT_SELF)
     int nClass;
 
     int i, nClassTmp, nClassLvl;
-    for(i = 1; i < 4; i++)
+    for(i = 1; i < 9; i++)
     {
         nClassTmp = GetClassByPosition(i, oCaster);
         if(GetIsArcaneClass(nClassTmp, oCaster)
@@ -1121,40 +1135,40 @@ int PracticedSpellcasting(object oCaster, int iCastingClass, int iCastingLevels)
 
     switch(iCastingClass)
     {
-        case CLASS_TYPE_BARD:                nFeat = FEAT_PRACTICED_SPELLCASTER_BARD;                break;
-        case CLASS_TYPE_SORCERER:            nFeat = FEAT_PRACTICED_SPELLCASTER_SORCERER;            break;
-        case CLASS_TYPE_WIZARD:              nFeat = FEAT_PRACTICED_SPELLCASTER_WIZARD;              break;
-        case CLASS_TYPE_CLERIC:              nFeat = FEAT_PRACTICED_SPELLCASTER_CLERIC;              break;
-        case CLASS_TYPE_DRUID:               nFeat = FEAT_PRACTICED_SPELLCASTER_DRUID;               break;
-        case CLASS_TYPE_PALADIN:             nFeat = FEAT_PRACTICED_SPELLCASTER_PALADIN;             break;
-        case CLASS_TYPE_RANGER:              nFeat = FEAT_PRACTICED_SPELLCASTER_RANGER;              break;
-        case CLASS_TYPE_ASSASSIN:            nFeat = FEAT_PRACTICED_SPELLCASTER_ASSASSIN;            break;
-        case CLASS_TYPE_BLACKGUARD:          nFeat = FEAT_PRACTICED_SPELLCASTER_BLACKGUARD;          break;
-        case CLASS_TYPE_OCULAR:              nFeat = FEAT_PRACTICED_SPELLCASTER_OCULAR;              break;
-        case CLASS_TYPE_HEXBLADE:            nFeat = FEAT_PRACTICED_SPELLCASTER_HEXBLADE;            break;
-        case CLASS_TYPE_DUSKBLADE:           nFeat = FEAT_PRACTICED_SPELLCASTER_DUSKBLADE;           break;
-        case CLASS_TYPE_HEALER:              nFeat = FEAT_PRACTICED_SPELLCASTER_HEALER;              break;
-        case CLASS_TYPE_KNIGHT_CHALICE:      nFeat = FEAT_PRACTICED_SPELLCASTER_KNIGHT_CHALICE;      break;
-        case CLASS_TYPE_NENTYAR_HUNTER:      nFeat = FEAT_PRACTICED_SPELLCASTER_NENTYAR;             break;
-        case CLASS_TYPE_VASSAL:              nFeat = FEAT_PRACTICED_SPELLCASTER_VASSAL;              break;
-        case CLASS_TYPE_UR_PRIEST:           nFeat = FEAT_PRACTICED_SPELLCASTER_UR_PRIEST;           break;
-        case CLASS_TYPE_SOLDIER_OF_LIGHT:    nFeat = FEAT_PRACTICED_SPELLCASTER_SOLDIER_OF_LIGHT;    break;
-        case CLASS_TYPE_SHADOWLORD:          nFeat = FEAT_PRACTICED_SPELLCASTER_SHADOWLORD;          break;
-        case CLASS_TYPE_JUSTICEWW:           nFeat = FEAT_PRACTICED_SPELLCASTER_JUSTICEWW;           break;
-        case CLASS_TYPE_KNIGHT_MIDDLECIRCLE: nFeat = FEAT_PRACTICED_SPELLCASTER_KNIGHT_MIDDLECIRCLE; break;
-        case CLASS_TYPE_SHAMAN:              nFeat = FEAT_PRACTICED_SPELLCASTER_SHAMAN;              break;
-        case CLASS_TYPE_SLAYER_OF_DOMIEL:    nFeat = FEAT_PRACTICED_SPELLCASTER_SLAYER_OF_DOMIEL;    break;
-        case CLASS_TYPE_SUEL_ARCHANAMACH:    nFeat = FEAT_PRACTICED_SPELLCASTER_SUEL_ARCHANAMACH;    break;
-        case CLASS_TYPE_FAVOURED_SOUL:       nFeat = FEAT_PRACTICED_SPELLCASTER_FAVOURED_SOUL;       break;
-        case CLASS_TYPE_SOHEI:               nFeat = FEAT_PRACTICED_SPELLCASTER_SOHEI;               break;
-        case CLASS_TYPE_CELEBRANT_SHARESS:   nFeat = FEAT_PRACTICED_SPELLCASTER_CELEBRANT_SHARESS;   break;
-        case CLASS_TYPE_WARMAGE:             nFeat = FEAT_PRACTICED_SPELLCASTER_WARMAGE;             break;
-        case CLASS_TYPE_DREAD_NECROMANCER:   nFeat = FEAT_PRACTICED_SPELLCASTER_DREAD_NECROMANCER;   break;
-        case CLASS_TYPE_CULTIST_SHATTERED_PEAK: nFeat = FEAT_PRACTICED_SPELLCASTER_CULTIST;               break;
-        case CLASS_TYPE_ARCHIVIST:           nFeat = FEAT_PRACTICED_SPELLCASTER_ARCHIVIST;           break;
-        case CLASS_TYPE_BEGUILER:            nFeat = FEAT_PRACTICED_SPELLCASTER_BEGUILER;            break;
-        case CLASS_TYPE_BLIGHTER:            nFeat = FEAT_PRACTICED_SPELLCASTER_BLIGHTER;            break;
-        case CLASS_TYPE_HARPER:              nFeat = FEAT_PRACTICED_SPELLCASTER_HARPER;              break;
+        case CLASS_TYPE_BARD:                		nFeat = FEAT_PRACTICED_SPELLCASTER_BARD;                break;
+        case CLASS_TYPE_SORCERER:            		nFeat = FEAT_PRACTICED_SPELLCASTER_SORCERER;            break;
+        case CLASS_TYPE_WIZARD:              		nFeat = FEAT_PRACTICED_SPELLCASTER_WIZARD;              break;
+        case CLASS_TYPE_CLERIC:              		nFeat = FEAT_PRACTICED_SPELLCASTER_CLERIC;              break;
+        case CLASS_TYPE_DRUID:               		nFeat = FEAT_PRACTICED_SPELLCASTER_DRUID;               break;
+        case CLASS_TYPE_PALADIN:             		nFeat = FEAT_PRACTICED_SPELLCASTER_PALADIN;             break;
+        case CLASS_TYPE_RANGER:              		nFeat = FEAT_PRACTICED_SPELLCASTER_RANGER;              break;
+        case CLASS_TYPE_ASSASSIN:            		nFeat = FEAT_PRACTICED_SPELLCASTER_ASSASSIN;            break;
+        case CLASS_TYPE_BLACKGUARD:          		nFeat = FEAT_PRACTICED_SPELLCASTER_BLACKGUARD;          break;
+        case CLASS_TYPE_OCULAR:              		nFeat = FEAT_PRACTICED_SPELLCASTER_OCULAR;              break;
+        case CLASS_TYPE_HEXBLADE:            		nFeat = FEAT_PRACTICED_SPELLCASTER_HEXBLADE;            break;
+        case CLASS_TYPE_DUSKBLADE:           		nFeat = FEAT_PRACTICED_SPELLCASTER_DUSKBLADE;           break;
+        case CLASS_TYPE_HEALER:              		nFeat = FEAT_PRACTICED_SPELLCASTER_HEALER;              break;
+        case CLASS_TYPE_KNIGHT_CHALICE:      		nFeat = FEAT_PRACTICED_SPELLCASTER_KNIGHT_CHALICE;      break;
+        case CLASS_TYPE_NENTYAR_HUNTER:      		nFeat = FEAT_PRACTICED_SPELLCASTER_NENTYAR;             break;
+        case CLASS_TYPE_VASSAL:              		nFeat = FEAT_PRACTICED_SPELLCASTER_VASSAL;              break;
+        case CLASS_TYPE_UR_PRIEST:           		nFeat = FEAT_PRACTICED_SPELLCASTER_UR_PRIEST;           break;
+        case CLASS_TYPE_SOLDIER_OF_LIGHT:    		nFeat = FEAT_PRACTICED_SPELLCASTER_SOLDIER_OF_LIGHT;    break;
+        case CLASS_TYPE_SHADOWLORD:          		nFeat = FEAT_PRACTICED_SPELLCASTER_SHADOWLORD;          break;
+        case CLASS_TYPE_JUSTICEWW:           		nFeat = FEAT_PRACTICED_SPELLCASTER_JUSTICEWW;           break;
+        case CLASS_TYPE_KNIGHT_MIDDLECIRCLE: 		nFeat = FEAT_PRACTICED_SPELLCASTER_KNIGHT_MIDDLECIRCLE; break;
+        case CLASS_TYPE_SHAMAN:              		nFeat = FEAT_PRACTICED_SPELLCASTER_SHAMAN;              break;
+        case CLASS_TYPE_SLAYER_OF_DOMIEL:    		nFeat = FEAT_PRACTICED_SPELLCASTER_SLAYER_OF_DOMIEL;    break;
+        case CLASS_TYPE_SUEL_ARCHANAMACH:    		nFeat = FEAT_PRACTICED_SPELLCASTER_SUEL_ARCHANAMACH;    break;
+        case CLASS_TYPE_FAVOURED_SOUL:       		nFeat = FEAT_PRACTICED_SPELLCASTER_FAVOURED_SOUL;       break;
+        case CLASS_TYPE_SOHEI:               		nFeat = FEAT_PRACTICED_SPELLCASTER_SOHEI;               break;
+        case CLASS_TYPE_CELEBRANT_SHARESS:   		nFeat = FEAT_PRACTICED_SPELLCASTER_CELEBRANT_SHARESS;   break;
+        case CLASS_TYPE_WARMAGE:             		nFeat = FEAT_PRACTICED_SPELLCASTER_WARMAGE;             break;
+        case CLASS_TYPE_DREAD_NECROMANCER:   		nFeat = FEAT_PRACTICED_SPELLCASTER_DREAD_NECROMANCER;   break;
+        case CLASS_TYPE_CULTIST_SHATTERED_PEAK: 	nFeat = FEAT_PRACTICED_SPELLCASTER_CULTIST;             break;
+        case CLASS_TYPE_ARCHIVIST:           		nFeat = FEAT_PRACTICED_SPELLCASTER_ARCHIVIST;           break;
+        case CLASS_TYPE_BEGUILER:            		nFeat = FEAT_PRACTICED_SPELLCASTER_BEGUILER;            break;
+        case CLASS_TYPE_BLIGHTER:            		nFeat = FEAT_PRACTICED_SPELLCASTER_BLIGHTER;            break;
+        case CLASS_TYPE_HARPER:              		nFeat = FEAT_PRACTICED_SPELLCASTER_HARPER;              break;
         default: return 0;
     }
 
@@ -1512,10 +1526,21 @@ int UrPriestCL(object oCaster, int nCastingClass)
 	    int iClass1 = GetClassByPosition(1, oCaster);
 	    int iClass2 = GetClassByPosition(2, oCaster);
 	    int iClass3 = GetClassByPosition(3, oCaster);
+	    int iClass4 = GetClassByPosition(4, oCaster);
+	    int iClass5 = GetClassByPosition(5, oCaster);
+	    int iClass6 = GetClassByPosition(6, oCaster);		
+	    int iClass7 = GetClassByPosition(7, oCaster);	
+	    int iClass8 = GetClassByPosition(8, oCaster);		
+		
 	    int iClass1Lev = GetLevelByPosition(1, oCaster);
 	    int iClass2Lev = GetLevelByPosition(2, oCaster);
 	    int iClass3Lev = GetLevelByPosition(3, oCaster);
-	
+	    int iClass4Lev = GetLevelByPosition(4, oCaster);
+	    int iClass5Lev = GetLevelByPosition(5, oCaster);
+	    int iClass6Lev = GetLevelByPosition(6, oCaster);
+	    int iClass7Lev = GetLevelByPosition(7, oCaster);
+	    int iClass8Lev = GetLevelByPosition(8, oCaster);
+		
 	    /*if (iClass1 == CLASS_TYPE_PALADIN || iClass1 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
 	    if (iClass2 == CLASS_TYPE_PALADIN || iClass2 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
 	    if (iClass3 == CLASS_TYPE_PALADIN || iClass3 == CLASS_TYPE_RANGER) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
@@ -1536,31 +1561,72 @@ int UrPriestCL(object oCaster, int nCastingClass)
 	    if (DEBUG) DoDebug("UrPriestCL Divine - iClass1Lev "+IntToString(iClass1Lev)+" iClass2Lev "+IntToString(iClass2Lev)+" iClass3Lev "+IntToString(iClass3Lev));*/
 	    
     	int iFirstArcane = GetPrimaryArcaneClass(oCaster);
-    	iClass1 = GetClassByPosition(1, oCaster);
-    	iClass2 = GetClassByPosition(2, oCaster);
-    	iClass3 = GetClassByPosition(3, oCaster);
-    	iClass1Lev = GetLevelByPosition(1, oCaster);
-    	iClass2Lev = GetLevelByPosition(2, oCaster);
-    	iClass3Lev = GetLevelByPosition(3, oCaster);
+		iClass1 = GetClassByPosition(1, oCaster);
+		iClass2 = GetClassByPosition(2, oCaster);
+		iClass3 = GetClassByPosition(3, oCaster);
+		iClass4 = GetClassByPosition(4, oCaster);
+		iClass5 = GetClassByPosition(5, oCaster);
+		iClass6 = GetClassByPosition(6, oCaster);		
+		iClass7 = GetClassByPosition(7, oCaster);	
+		iClass8 = GetClassByPosition(8, oCaster);		
+		
+		iClass1Lev = GetLevelByPosition(1, oCaster);
+		iClass2Lev = GetLevelByPosition(2, oCaster);
+		iClass3Lev = GetLevelByPosition(3, oCaster);
+		iClass4Lev = GetLevelByPosition(4, oCaster);
+		iClass5Lev = GetLevelByPosition(5, oCaster);
+		iClass6Lev = GetLevelByPosition(6, oCaster);
+		iClass7Lev = GetLevelByPosition(7, oCaster);
+		iClass8Lev = GetLevelByPosition(8, oCaster);
 
     	if (iClass1 == CLASS_TYPE_HEXBLADE) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
     	if (iClass2 == CLASS_TYPE_HEXBLADE) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
     	if (iClass3 == CLASS_TYPE_HEXBLADE) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
-
+    	if (iClass4 == CLASS_TYPE_HEXBLADE) iClass4Lev = (iClass4Lev >= 4) ? (iClass4Lev / 2) : 0;
+    	if (iClass5 == CLASS_TYPE_HEXBLADE) iClass5Lev = (iClass5Lev >= 4) ? (iClass5Lev / 2) : 0;
+    	if (iClass6 == CLASS_TYPE_HEXBLADE) iClass6Lev = (iClass6Lev >= 4) ? (iClass6Lev / 2) : 0;
+    	if (iClass7 == CLASS_TYPE_HEXBLADE) iClass7Lev = (iClass7Lev >= 4) ? (iClass7Lev / 2) : 0;
+    	if (iClass8 == CLASS_TYPE_HEXBLADE) iClass8Lev = (iClass8Lev >= 4) ? (iClass8Lev / 2) : 0;		
+		
     	if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster);
     	if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster);
     	if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster);
-
-    	iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
-    	iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
-    	iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
+    	if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster);
+    	if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster);
+    	if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster);
+    	if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster);
+    	if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster);		
+		
+		iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
+		iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
+		iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
+		iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
+		iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
+		iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass5Lev);
+		iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass6Lev);
+		iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass7Lev);
 
     	if (!GetIsArcaneClass(iClass1, oCaster)) iClass1Lev = 0;
     	if (!GetIsArcaneClass(iClass2, oCaster)) iClass2Lev = 0;
-    	if (!GetIsArcaneClass(iClass3, oCaster)) iClass3Lev = 0;
+    	if (!GetIsArcaneClass(iClass3, oCaster)) iClass3Lev = 0;		
+    	if (!GetIsArcaneClass(iClass4, oCaster)) iClass4Lev = 0;
+    	if (!GetIsArcaneClass(iClass5, oCaster)) iClass5Lev = 0;
+    	if (!GetIsArcaneClass(iClass6, oCaster)) iClass6Lev = 0;
+    	if (!GetIsArcaneClass(iClass7, oCaster)) iClass7Lev = 0;
+    	if (!GetIsArcaneClass(iClass8, oCaster)) iClass8Lev = 0;
+
     	
-    	nTotal += iClass1Lev + iClass2Lev + iClass3Lev;
-    	if (DEBUG) DoDebug("UrPriestCL Arcane - iClass1Lev "+IntToString(iClass1Lev)+" iClass2Lev "+IntToString(iClass2Lev)+" iClass3Lev "+IntToString(iClass3Lev));
+    	nTotal += iClass1Lev + iClass2Lev + iClass3Lev + iClass4Lev + iClass5Lev + iClass6Lev + iClass7Lev + iClass8Lev;
+		
+    	if (DEBUG) DoDebug("UrPriestCL Arcane - iClass1Lev "+IntToString(iClass1Lev)+" iClass2Lev "
+															+IntToString(iClass2Lev)+" iClass3Lev "
+															+IntToString(iClass3Lev)+" iClass4Lev "
+															+IntToString(iClass4Lev)+" iClass5Lev "
+															+IntToString(iClass5Lev)+" iClass6Lev "
+															+IntToString(iClass6Lev)+" iClass7Lev "
+															+IntToString(iClass7Lev)+" iClass8Lev "
+															+IntToString(iClass8Lev));
+															
     	if (DEBUG) DoDebug("UrPriestCL Total - nTotal "+IntToString(nTotal));
     	return nTotal/2;
     }
@@ -1619,30 +1685,66 @@ int GetLevelByTypeArcane(object oCaster = OBJECT_SELF)
     int iBest = 0;
     int iClass1 = GetClassByPosition(1, oCaster);
     int iClass2 = GetClassByPosition(2, oCaster);
-    int iClass3 = GetClassByPosition(3, oCaster);
+    int iClass3 = GetClassByPosition(3, oCaster);	
+	int iClass4 = GetClassByPosition(4, oCaster);
+    int iClass5 = GetClassByPosition(5, oCaster);
+    int iClass6 = GetClassByPosition(6, oCaster);
+    int iClass7 = GetClassByPosition(8, oCaster);
+    int iClass8 = GetClassByPosition(8, oCaster);	
+	
     int iClass1Lev = GetLevelByPosition(1, oCaster);
     int iClass2Lev = GetLevelByPosition(2, oCaster);
     int iClass3Lev = GetLevelByPosition(3, oCaster);
-
+    int iClass4Lev = GetLevelByPosition(4, oCaster);
+    int iClass5Lev = GetLevelByPosition(5, oCaster);
+    int iClass6Lev = GetLevelByPosition(6, oCaster);
+    int iClass7Lev = GetLevelByPosition(7, oCaster);
+    int iClass8Lev = GetLevelByPosition(8, oCaster);
+	
     if (iClass1 == CLASS_TYPE_HEXBLADE) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
     if (iClass2 == CLASS_TYPE_HEXBLADE) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
     if (iClass3 == CLASS_TYPE_HEXBLADE) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
+    if (iClass4 == CLASS_TYPE_HEXBLADE) iClass4Lev = (iClass4Lev >= 4) ? (iClass4Lev / 2) : 0;
+    if (iClass5 == CLASS_TYPE_HEXBLADE) iClass5Lev = (iClass5Lev >= 4) ? (iClass5Lev / 2) : 0;
+    if (iClass6 == CLASS_TYPE_HEXBLADE) iClass6Lev = (iClass6Lev >= 4) ? (iClass6Lev / 2) : 0;
+    if (iClass7 == CLASS_TYPE_HEXBLADE) iClass7Lev = (iClass7Lev >= 4) ? (iClass7Lev / 2) : 0;
+    if (iClass8 == CLASS_TYPE_HEXBLADE) iClass8Lev = (iClass8Lev >= 4) ? (iClass8Lev / 2) : 0;
 
     if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster);
     if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster);
     if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster);
+    if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster);
+    if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster);
+    if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster);
+    if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster);
+    if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster);
 
     iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
     iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
     iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
+	iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
+    iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
+    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass5Lev);
+	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass6Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass7Lev);
 
     if (!GetIsArcaneClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsArcaneClass(iClass2, oCaster)) iClass2Lev = 0;
     if (!GetIsArcaneClass(iClass3, oCaster)) iClass3Lev = 0;
-
+    if (!GetIsArcaneClass(iClass4, oCaster)) iClass4Lev = 0;
+    if (!GetIsArcaneClass(iClass5, oCaster)) iClass5Lev = 0;
+    if (!GetIsArcaneClass(iClass6, oCaster)) iClass6Lev = 0;
+    if (!GetIsArcaneClass(iClass7, oCaster)) iClass7Lev = 0;
+    if (!GetIsArcaneClass(iClass8, oCaster)) iClass8Lev = 0;	
+	
     if (iClass1Lev > iBest) iBest = iClass1Lev;
     if (iClass2Lev > iBest) iBest = iClass2Lev;
     if (iClass3Lev > iBest) iBest = iClass3Lev;
+    if (iClass4Lev > iBest) iBest = iClass4Lev;
+    if (iClass5Lev > iBest) iBest = iClass5Lev;
+    if (iClass6Lev > iBest) iBest = iClass6Lev;
+    if (iClass7Lev > iBest) iBest = iClass7Lev;
+    if (iClass8Lev > iBest) iBest = iClass8Lev;
 
     return iBest;
 }
@@ -1653,30 +1755,69 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
     int iBest = 0;
     int iClass1 = GetClassByPosition(1, oCaster);
     int iClass2 = GetClassByPosition(2, oCaster);
-    int iClass3 = GetClassByPosition(3, oCaster);
+    int iClass3 = GetClassByPosition(3, oCaster);	
+	int iClass4 = GetClassByPosition(4, oCaster);
+    int iClass5 = GetClassByPosition(5, oCaster);
+    int iClass6 = GetClassByPosition(6, oCaster);
+    int iClass7 = GetClassByPosition(8, oCaster);
+    int iClass8 = GetClassByPosition(8, oCaster);	
+	
     int iClass1Lev = GetLevelByPosition(1, oCaster);
     int iClass2Lev = GetLevelByPosition(2, oCaster);
     int iClass3Lev = GetLevelByPosition(3, oCaster);
+    int iClass4Lev = GetLevelByPosition(4, oCaster);
+    int iClass5Lev = GetLevelByPosition(5, oCaster);
+    int iClass6Lev = GetLevelByPosition(6, oCaster);
+    int iClass7Lev = GetLevelByPosition(7, oCaster);
+    int iClass8Lev = GetLevelByPosition(8, oCaster);
 
     if (iClass1 == CLASS_TYPE_PALADIN || iClass1 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
     if (iClass2 == CLASS_TYPE_PALADIN || iClass2 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
     if (iClass3 == CLASS_TYPE_PALADIN || iClass3 == CLASS_TYPE_RANGER) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
+    if (iClass4 == CLASS_TYPE_PALADIN || iClass4 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
+    if (iClass5 == CLASS_TYPE_PALADIN || iClass5 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
+    if (iClass6 == CLASS_TYPE_PALADIN || iClass6 == CLASS_TYPE_RANGER) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
+	if (iClass7 == CLASS_TYPE_PALADIN || iClass7 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
+    if (iClass8 == CLASS_TYPE_PALADIN || iClass8 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
 
     if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster);
     if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster);
     if (iClass3 == iFirstDivine) iClass3Lev += GetDivinePRCLevels(oCaster);
+    if (iClass4 == iFirstDivine) iClass4Lev += GetDivinePRCLevels(oCaster);
+    if (iClass5 == iFirstDivine) iClass5Lev += GetDivinePRCLevels(oCaster);
+    if (iClass6 == iFirstDivine) iClass6Lev += GetDivinePRCLevels(oCaster);
+    if (iClass7 == iFirstDivine) iClass7Lev += GetDivinePRCLevels(oCaster);
+    if (iClass8 == iFirstDivine) iClass8Lev += GetDivinePRCLevels(oCaster);
 
     iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
     iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
     iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
+	iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
+    iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
+    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass5Lev);
+	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass6Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass7Lev);
 
     if (!GetIsDivineClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsDivineClass(iClass2, oCaster)) iClass2Lev = 0;
     if (!GetIsDivineClass(iClass3, oCaster)) iClass3Lev = 0;
-
+    if (!GetIsDivineClass(iClass4, oCaster)) iClass4Lev = 0;
+    if (!GetIsDivineClass(iClass5, oCaster)) iClass5Lev = 0;
+    if (!GetIsDivineClass(iClass6, oCaster)) iClass6Lev = 0;
+    if (!GetIsDivineClass(iClass7, oCaster)) iClass7Lev = 0;
+    if (!GetIsDivineClass(iClass8, oCaster)) iClass8Lev = 0;	
+	
     if (iClass1Lev > iBest) iBest = iClass1Lev;
     if (iClass2Lev > iBest) iBest = iClass2Lev;
     if (iClass3Lev > iBest) iBest = iClass3Lev;
+    if (iClass4Lev > iBest) iBest = iClass4Lev;
+    if (iClass5Lev > iBest) iBest = iClass5Lev;
+    if (iClass6Lev > iBest) iBest = iClass6Lev;
+    if (iClass7Lev > iBest) iBest = iClass7Lev;
+    if (iClass8Lev > iBest) iBest = iClass8Lev;
 
     return iBest;
 }
+
+//:: Test Void
+//void main (){}
