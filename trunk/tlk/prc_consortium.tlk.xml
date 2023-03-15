@@ -1408,6 +1408,12 @@ Level: 0 1 2 3 4 5 6 7 8 9
   <entry id="12643" lang="en" sex="m">Practiced Spellcaster (Harper Scout)</entry>
   <entry id="12644" lang="en" sex="m">Practiced Spellcaster (Templar)</entry>
   <entry id="12645" lang="en" sex="m">Practiced Spellcaster (Nightstalker)</entry>
+  <entry id="12646" lang="en" sex="m">Steadfast Determination</entry>
+  <entry id="12647" lang="en" sex="m">Your physical durability allows you to shrug off attacks that would cripple a lesser person. Rather than depend on willpower, you use your raw toughness to survive.
+
+Prerequisite: Endurance 
+
+Benefit: You can use your Constitution modifier in place of your Wisdom modifier on Will saves.</entry>
   <entry id="12650" lang="en" sex="m">Archivist</entry>
   <entry id="12651" lang="en" sex="m">Archivists</entry>
   <entry id="12652" lang="en" sex="m">archivist</entry>

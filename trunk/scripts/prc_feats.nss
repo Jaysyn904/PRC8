@@ -331,6 +331,17 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
         else if(nMod < 0)
             eFeat = EffectLinkEffects(eFeat, EffectSavingThrowDecrease(SAVING_THROW_REFLEX, -nMod));
     }
+    if(GetHasFeat(FEAT_STEADFAST_DETERMINATION, oPC))
+    {
+        int nWis = GetAbilityModifier(ABILITY_WISDOM, oPC);
+        int nCon = GetAbilityModifier(ABILITY_CONSTITUTION, oPC);
+        int nMod;
+
+        nMod += nCon - nWis;
+
+        if(nMod > 0)
+            eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_WILL, nMod));
+	}	
     if(GetHasFeat(FEAT_FORCE_PERSONALITY, oPC)
     || GetHasFeat(FEAT_INDOMITABLE_SOUL, oPC))
     {

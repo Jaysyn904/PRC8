@@ -3612,6 +3612,7 @@ const int FEAT_AWESOME_BLOW                   = 5370;
 const int FEAT_IMPROVED_SHIELD_BASH           = 3250;
 
 // Player's Handbook II Feats
+const int FEAT_STEADFAST_DETERMINATION		  = 3267;
 const int FEAT_CROSSBOW_SNIPER                = 5311;
 const int FEAT_SHIELD_SPECIALIZATION_LIGHT    = 3251;
 const int FEAT_SHIELD_SPECIALIZATION_HEAVY    = 3252;
