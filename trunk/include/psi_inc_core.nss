@@ -1210,6 +1210,7 @@ int GetPrimaryPsionicClass(object oCreature = OBJECT_SELF)
     return nClass;
 }
 
+//:: [PRC .35] This needs to be updated for marker feats.
 int GetPsionicPRCLevels(object oCreature)
 {
     int nLevel = 0;
