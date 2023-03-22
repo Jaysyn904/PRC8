@@ -1,4 +1,4 @@
-
+t 
 
 /**
  *  @file
@@ -57,7 +57,7 @@ int PRCGetLastSpellCastClass(object oCaster = OBJECT_SELF);
 int GetIsArcaneClass(int nClass, object oCaster = OBJECT_SELF);
 
 /**
- * Returns if the given class is an arcane class.
+ * Returns if the given class is an divine class.
  *
  * Divine base classes are *hardcoded* into here, so new divine
  * base classes need adding to this function.
