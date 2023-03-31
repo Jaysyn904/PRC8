@@ -72,7 +72,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem);
 int GrappleConc(object oCaster, int nSpellLevel);
 
 // Blighters can't cast druid spells
-int Blighter(object oCaster, int nCastingClass);
+int Blighter(object oCaster, int nCastingClass, object oSpellCastItem);
 
 // Spelldance perform check
 int Spelldance(object oCaster, int nSpellLevel, int nCastingClass);
@@ -2179,8 +2179,12 @@ int CounterspellExploitCheck(object oCaster)
     return TRUE;
 }
 
-int Blighter(object oCaster, int nCastingClass)
+int Blighter(object oCaster, int nCastingClass, object oSpellCastItem)
 {
+	// If it's an item, exit
+    if (GetIsObjectValid(oSpellCastItem))
+        return TRUE;
+	
     if (nCastingClass == CLASS_TYPE_DRUID && GetLevelByClass(CLASS_TYPE_BLIGHTER, oCaster) > 0)
     {
         SendMessageToPC(oCaster,"Blighters cannot cast druid spells.");
@@ -2796,7 +2800,7 @@ int X2PreSpellCastCode2()
     // Blighters stop Druid casting
     //---------------------------------------------------------------------------
     if(nContinue)
-        nContinue = Blighter(oCaster, nCastingClass);  
+        nContinue = Blighter(oCaster, nCastingClass, oSpellCastItem); 
         
     //---------------------------------------------------------------------------
     // Karsite stop Arcane/Divine casting
@@ -3146,4 +3150,4 @@ int X2PreSpellCastCode2()
 
 
 // Test main
-//void main(){}
+// void main(){}
