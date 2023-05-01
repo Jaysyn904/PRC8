@@ -1729,7 +1729,7 @@
 1725  Travel_Domain_Power                                       ****             ****             ****             ****             ****         ****             
 1726  Turn_Scaleykind                                           ****             ****             ****             ****             ****         ****             
 1727  Turn_Slime                                                ****             ****             ****             ****             ****         ****             
-1728  Turn_Spider                                               ****             ****             ****             ****             ****         ****             
+1728  DrowJudicator_Command_Spiders                             ****             ****             ****             ****             ****         ****             
 1729  Turn_Plant                                                ****             ****             ****             ****             ****         ****             
 1730  Turn_Air                                                  ****             ****             ****             ****             ****         ****             
 1731  Turn_Earth                                                ****             ****             ****             ****             ****         ****             
@@ -2200,7 +2200,7 @@
 2196  SPELL_HOLYRADIANCE                                        ****             ****             ****             ****             ****         ****             
 2197  FEAT_ANIMALMASTERY                                        ****             ****             ****             ****             ****         ****             
 2198  IncreaseUnarmedEpic                                       ****             ****             ****             ****             ****         ****             
-2199  FEAT_RANGEDDISARM                                         ****             ****             ****             ****             ****         ****             
+2199  FEAT_ARCH_RANGEDDISARM                                    ****             ****             ****             ****             ****         ****             
 2200  FEAT_SONG_OF_FURY                                         ****             ****             ****             ****             ****         ****             
 2201  FEAT_EXTRASHOT                                            ****             ****             ****             ****             ****         ****             
 2202  FEAT_RANGEDTRIP                                           ****             ****             ****             ****             ****         ****             
