@@ -2132,6 +2132,8 @@ void main()
                         //Set name and description
                         SetName(oPoison, GetStringByStrRef(nName));
                         SetDescription(oPoison, GetStringByStrRef(nDesc));
+						SetLocalInt(oPoison, "pois_idx", StringToInt(sPoison));
+						
                     }
                     AllowExit(DYNCONV_EXIT_FORCE_EXIT);
                 }
