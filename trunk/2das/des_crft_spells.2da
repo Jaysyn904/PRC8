@@ -4008,7 +4008,7 @@
 4004  Epic_Spell_Animus_Blast                                   ****            1        1      1        9     0           
 4005  Epic_Spell_Animus_Blizzard                                ****            1        1      1        9     0           
 4006  Epic_Spell_Army_Unfallen                                  ****            1        1      1        9     0           
-4007  Epic_Spell_Audience_of_Stone                              ****            1        1      1        9     0           
+4007  Epic_Spell_Audience_of_Stone                              1460            1        1      1        9     0           
 4008  Epic_Spell_Battle_Bounding                                ****            1        1      1        9     0           
 4009  Epic_Spell_Celestial_Council                              ****            1        1      1        9     0           
 4010  Epic_Spell_Champions_Valor                                ****            1        1      1        9     0           
@@ -14203,7 +14203,7 @@
 14199 ClairtangentHand                                          ****            1        1      1        5     0           
 14200 BreathBlackDragon                                         ****            1        1      1        6     0           
 14201 Disintegrate                                              ****            1        1      1        6     0           
-14202 Crystallize                                               ****            1        1      1        6     0           
+14202 Crystallize                                               1459            1        1      1        6     0           
 14203 FuseFlesh                                                 ****            1        1      1        6     0           
 14204 Retrieve                                                  ****            1        1      1        6     0           
 14205 TemporalAcceleration                                      ****            1        1      1        6     0           
@@ -18924,7 +18924,7 @@
 18920 FrostHelmCrownBind                                        ****            1        1      1        3     ****        
 18921 FrostHelmTotemBind                                        ****            1        1      1        8     ****        
 18922 GlovesOfThePoisonedHandAbilityDamage                      ****            1        1      1        3     ****        
-18923 GorgonMaskThroatBind                                      ****            1        1      1        6     ****        
+18923 GorgonMaskThroatBind                                      1457            1        1      1        6     ****        
 18924 GorgonMaskTotemBind                                       ****            1        1      1        6     ****        
 18925 IncarnateWeaponArmsBind                                   ****            1        1      1        6     ****        
 18926 KrensharMaskTotemBind                                     ****            1        1      1        6     ****        
