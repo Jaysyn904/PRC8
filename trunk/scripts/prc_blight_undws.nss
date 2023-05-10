@@ -61,7 +61,7 @@ void main()
     }
 
     //Determine Polymorph subradial type
-    if(nSpell == 401)
+    if(nSpell == 2284)
     {
         nPoly = POLYMORPH_TYPE_BROWN_BEAR;
         if (nDuration >= 9)
@@ -69,7 +69,7 @@ void main()
             nPoly = POLYMORPH_TYPE_DIRE_BROWN_BEAR;
         }
     }
-    else if (nSpell == 402)
+    else if (nSpell == 2285)
     {
         nPoly = POLYMORPH_TYPE_PANTHER;
         if (nDuration >= 5)
@@ -77,7 +77,7 @@ void main()
             nPoly = POLYMORPH_TYPE_DIRE_PANTHER;
         }
     }
-    else if (nSpell == 403)
+    else if (nSpell == 2286)
     {
         nPoly = POLYMORPH_TYPE_WOLF;
 
@@ -86,7 +86,7 @@ void main()
             nPoly = POLYMORPH_TYPE_DIRE_WOLF;
         }
     }
-    else if (nSpell == 404)
+    else if (nSpell == 2287)
     {
         nPoly = POLYMORPH_TYPE_BOAR;
         if (nDuration >= 5)
@@ -94,7 +94,7 @@ void main()
             nPoly = POLYMORPH_TYPE_DIRE_BOAR;
         }
     }
-    else if (nSpell == 405)
+    else if (nSpell == 2288)
     {
         nPoly = POLYMORPH_TYPE_DIRE_BADGER;
         if (nDuration >= 9)
