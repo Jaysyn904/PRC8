@@ -185,7 +185,7 @@ void main()
            SetCompositeBonus(oSkin, "Underfolk_H", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_HIDE); // Yes, they always have a +4 minimum
     }   
     
-    if (GetPRCSwitch(PRC_CHICKEN_INFESTED) && GetLevelByClass(CLASS_TYPE_COMMONER, oPC))
+    if (GetIsPC(oPC) == TRUE && GetPRCSwitch(PRC_CHICKEN_INFESTED) && GetLevelByClass(CLASS_TYPE_COMMONER, oPC))
     {
         MultisummonPreSummon();
         ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectSummonCreature("prc_chicken"), GetLocation(oPC), HoursToSeconds(GetPRCSwitch(PRC_CHICKEN_INFESTED)));
