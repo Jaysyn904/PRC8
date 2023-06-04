@@ -1,11 +1,11 @@
 2DA V2.0
 
-  LABEL           ReqType ReqParam1      ReqParam2 
-0 Base_Attack     BAB     5              ****      
-1 PBShot          FEAT    27             ***       
-2 ScriptVar       VAR     PRC_AllowOOTBI 0         
-3 RapidShot       FEAT    30             ****      
-4 CraftWeapon     SKILL   26             5         
-5 Lore            SKILL   7              2         
-6 WeapFocLongBow  FEATOR  101            ****      
-7 WeapFocShortBow FEATOR  102            ****      
+           LABEL           ReqType ReqParam1      ReqParam2 
+0          Base_Attack     BAB     5              ****      
+1          PBShot          FEAT    27             ****      
+2          ScriptVar       VAR     PRC_AllowOOTBI 0         
+3          RapidShot       FEAT    30             ****      
+4          CraftWeapon     SKILL   26             5         
+5          Lore            SKILL   7              2         
+6          WeapFocLongBow  FEATOR  101            ****      
+7          WeapFocShortBow FEATOR  102            ****      
