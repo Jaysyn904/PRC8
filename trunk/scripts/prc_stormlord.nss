@@ -16,20 +16,29 @@ void ResElec(int iLevel)
 
 void ShockWeap(int iEquip)
 {
-    object oItem;
+    object oItem, oItem1, oItem2;
 
     if(iEquip == 2)        // On Equip
     {
-        oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
+        oItem1 = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
 
-        if(GetLocalInt(oItem, "STShock")) return ;
+        if(GetLocalInt(oItem1, "STShock")) return ;
+		
+		oItem2 = GetItemInSlot(INVENTORY_SLOT_LEFTHAND);
 
+        if(GetLocalInt(oItem2, "STShock")) return ;
 
-        if(GetBaseItemType(oItem)==BASE_ITEM_SHORTSPEAR)
+        if(GetBaseItemType(oItem1)==BASE_ITEM_SHORTSPEAR)
         {
             AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6),oItem,9999.0);
-            SetLocalInt(oItem, "STShock", 1);
+            SetLocalInt(oItem1, "STShock", 1);
         }
+		
+        if(GetBaseItemType(oItem2)==BASE_ITEM_SHORTSPEAR)
+        {
+            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6),oItem,9999.0);
+            SetLocalInt(oItem2, "STShock", 1);
+        }		
     }
     else if(iEquip == 1)     // Unequip
     {
@@ -38,18 +47,26 @@ void ShockWeap(int iEquip)
         if(GetLocalInt(oItem, "STShock"))
         {
             RemoveSpecificProperty(oItem,ITEM_PROPERTY_DAMAGE_BONUS,IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6,1,"",-1,DURATION_TYPE_TEMPORARY);
-            DeleteLocalInt(oItem, "STShock");
+            DeleteLocalInt(oItem1, "STShock");
         }
     }
     else
     {
-        oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
-        if(GetLocalInt(oItem,"STShock")) return ;
+        oItem1 = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
+        if(GetLocalInt(oItem1,"STShock")) return ;
+		
+        oItem2 = GetItemInSlot(INVENTORY_SLOT_LEFTHAND);
+        if(GetLocalInt(oItem2,"STShock")) return ;		
 
-     if (GetBaseItemType(oItem)==BASE_ITEM_SHORTSPEAR)
+     if (GetBaseItemType(oItem1)==BASE_ITEM_SHORTSPEAR)
      {
-       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6),oItem,9999.0);
-       SetLocalInt(oItem,"STShock",1);
+       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6),oItem1,9999.0);
+       SetLocalInt(oItem1,"STShock",1);
+     }
+	 if (GetBaseItemType(oItem2)==BASE_ITEM_SHORTSPEAR)
+     {
+       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEBONUS_1d6),oItem2,9999.0);
+       SetLocalInt(oItem2,"STShock",1);
      }
   }
 
@@ -57,20 +74,31 @@ void ShockWeap(int iEquip)
 
 void ShockingWeap(int iEquip)
 {
-  object oItem ;
+  object oItem, oItem1, oItem2 ;
 
   if (iEquip==2)
   {
-     oItem=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
-     if ( GetLocalInt(oItem,"STThund"))
+     oItem1=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
+     if ( GetLocalInt(oItem1,"STThund"))
          return;
 
-     if (GetBaseItemType(oItem)==BASE_ITEM_SHORTSPEAR)
+     if (GetBaseItemType(oItem1)==BASE_ITEM_SHORTSPEAR)
      {
-        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem,9999.0);
+        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem1,9999.0);
 
-        SetLocalInt(oItem,"STThund",1);
+        SetLocalInt(oItem1,"STThund",1);
      }
+     
+	 oItem2=GetItemInSlot(INVENTORY_SLOT_LEFTHAND);
+     if ( GetLocalInt(oItem2,"STThund"))
+         return;
+
+     if (GetBaseItemType(oItem2)==BASE_ITEM_SHORTSPEAR)
+     {
+        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem2,9999.0);
+
+        SetLocalInt(oItem2,"STThund",1);
+     }	 
   }
   else if (iEquip==1)
   {
@@ -81,12 +109,19 @@ void ShockingWeap(int iEquip)
   }
    else
   {
-     oItem=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
-     if ( !GetLocalInt(oItem,"STThund")&& GetBaseItemType(oItem)==BASE_ITEM_SHORTSPEAR )
+     oItem1=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND);
+     if ( !GetLocalInt(oItem,"STThund")&& GetBaseItemType(oItem1)==BASE_ITEM_SHORTSPEAR )
      {
-       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem,9999.0);
-        SetLocalInt(oItem,"STThund",1);
+       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem1,9999.0);
+        SetLocalInt(oItem1,"STThund",1);
      }
+     
+	 oItem2=GetItemInSlot(INVENTORY_SLOT_LEFTHAND);
+     if ( !GetLocalInt(oItem2,"STThund")&& GetBaseItemType(oItem)==BASE_ITEM_SHORTSPEAR )
+     {
+       AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,1),oItem2,9999.0);
+        SetLocalInt(oItem2,"STThund",1);
+     }	 
   }
 
 
