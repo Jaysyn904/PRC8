@@ -1159,7 +1159,7 @@ Level
 7: Spell Fury - sudden empower spell usable once during each rage.
 8: Rage +1 use/day - additional use of rage ability.
 9: Tireless Rage - no longer fatigued at the end of the rage.
-10: Warrior Cry - the character receives benefits of Tenser's Transformation spell, but without loosing her spellcasting ability, 1/day.
+10: Warrior Cry - the character receives benefits of Tenser's Transformation spell, but without losing her spellcasting ability, 1/day.
     Spell Rage 3/day
 
 BONUS SPELLS
@@ -8011,9 +8011,9 @@ Spells per day:
 6: 2 2 1
 
 Telflammar shadowlords choose their spells from the following list.
-1st level-blindness/deafness, chill touch, darkness, darkvision, invisibility, knock, shadow spray.
-2nd level-blacklight, displacement, haste, improved invisibility, nondetection, vampiric touch.
-3rd level-confusion, darkbolt (FRCS), detect scrying, dimension door, invisibility sphere, mislead.
+1st level: Blindness/deafness, chill touch, darkness, darkvision, invisibility, knock, shadow spray.
+2nd level: Blacklight, displacement, haste, improved invisibility, nondetection, vampiric touch.
+3rd level: Confusion, darkbolt (FRCS), detect scrying, dimension door, invisibility sphere, mislead.
 </entry>
   <entry id="45780" lang="en" sex="m">Shadow Jump</entry>
   <entry id="45781" lang="en" sex="m">Type of Feat: Class Specific
@@ -14350,6 +14350,7 @@ Special: You must be able to assume an alternate form. See the following list:
     Ninja Spy: Thousand Faces (Level 7)
     Werewolf: Alternate Form, Wolf (Level 1)
   Certain races:
+	Aranea
     Changeling
     Fey'ri
     Hound Archon
@@ -50502,7 +50503,7 @@ Spiretop Dragon Ability Adjustments: -4 Str, +8 Dex, +2 Con, -4 Int, -2 Cha.  Sp
 Favored Class (Rogue): A multiclass spiretop dragon's rogue class does not count when determining whether they suffer an XP penalty for multiclassing.
 
 Racial Traits:
-- An spiretop dragon's base land speed is 10 feet and they also have a fly speed of 60
+- A spiretop dragon's base land speed is 10 feet and they also have a fly speed of 60
 - Dragon: Spiretop dragons are dragons and thus are not subject to sleep and paralysis effects.
 - Tiny: As tiny creatures, spiretop dragons have a +2 bonus to Armor Class, a +2 bonus on attack rolls, and a +8 bonus on Hide checks.
 - Breath Weapon: A spiretop dragon can exhale a Fog Cloud as if cast by a 3rd level sorcerer.  The spiretop dragon must wait 1d4 rounds between uses of this breath weapon. 
