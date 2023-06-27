@@ -68,7 +68,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ASTRAL_VAMBRACES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS) 
     {
         string sResRef = "prc_hdarc_slam_";
         int nSize = PRCGetCreatureSize(oMeldshaper);
