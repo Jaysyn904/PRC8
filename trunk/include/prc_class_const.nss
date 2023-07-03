@@ -214,6 +214,9 @@ const int CLASS_TYPE_FROSTRAGER            = 252;
 const int CLASS_TYPE_CRINTI_SHADOW_MARAUDER         = 253;
 const int CLASS_TYPE_SHADOW_THIEF_AMN      = 254;
 
+//:: Work in Progress
+const int CLASS_TYPE_FOCHULAN_LYRIST		= -1;
+
 const int CLASS_TYPE_NIGHTSTALKER          = -1; //Just here to make things compile until it gets stripped out
 const int CLASS_TYPE_MINSTREL_EDGE         = -1; 
 const int CLASS_TYPE_BRAWLER               = -1;

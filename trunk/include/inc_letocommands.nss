@@ -225,7 +225,7 @@ string SetRace(int nRace);
 string AdjustHitPoints(int nHP, int nLevel = 1);
 
 //returns a script to change gender
-string SetGender(int nGender);
+void SetGender(object oCreature, int nGender);
 
 //returns a script to change skin color
 //the values are based on the windows in the toolset
@@ -251,7 +251,7 @@ string SetMovement(int nRate);
 
 //returns a script to change soundset
 //as defined in soundset.2da
-string SetSoundset(int nSoundsetID);
+void SetSoundset(object oCreature, int nSoundset);
 
 //returns a script to change portrait
 //as defined in portrats.2da
@@ -528,13 +528,13 @@ string AdjustHitPoints(int nHP, int nLevel = 1)
     return sReturn;
 }
 
-string SetGender(int nGender)
+void SetGender(object oCreature, int nGender)
 {
 //pheonix
 //<gff:add 'Gender' {value=2 setifexists=True}>
 //unicorn
 // /Gender = 2;
-    return LetoSet("Gender", IntToString(nGender), "byte");
+    LetoSet("Gender", IntToString(nGender), "byte");
 }
 
 string SetSkinColor(int nColor)
@@ -573,13 +573,13 @@ string SetMovement(int nRate)
     return LetoSet("MovementRate", IntToString(nRate), "byte");
 }
 
-string SetSoundset(int nSoundsetID)
+void SetSoundset(object oCreature, int nSoundset)
 {
 //pheonix
 //<gff:add 'SoundSetFile' {value=2 setifexists=True}>
 //unicorn
 // /SoundSetFile = 2;
-    return LetoSet("SoundSetFile", IntToString(nSoundsetID), "word");
+    LetoSet("SoundSetFile", IntToString(nSoundset), "word");
 }
 
 string SetPCPortrait(string sPortrait)

@@ -780,8 +780,7 @@ int GetIsDivineClass(int nClass, object oCaster = OBJECT_SELF)
          || nClass == CLASS_TYPE_SOHEI
          || nClass == CLASS_TYPE_SOLDIER_OF_LIGHT
          || nClass == CLASS_TYPE_UR_PRIEST
-         || nClass == CLASS_TYPE_VASSAL
-         || nClass == CLASS_TYPE_VIGILANT;
+         || nClass == CLASS_TYPE_VASSAL;
 }
 
 int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)

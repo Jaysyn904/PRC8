@@ -62,7 +62,7 @@ void main()
     sScript += LetoAdd("SkillList", "", "list");
 
     //Sex
-    sScript += SetGender(nSex);
+    /* sScript = */ SetGender(oPC, nSex);
 
     //Race
     sScript += SetRace(nRace);

@@ -71075,24 +71075,24 @@ Use: Activated</entry>
   <entry id="75093" lang="en" sex="m">MgK</entry>
   <entry id="75094" lang="en" sex="m">HrM</entry>
   <entry id="75095" lang="en" sex="m">SpS</entry>
-  <entry id="75096" lang="en" sex="m">ScS</entry>
-  <entry id="75097" lang="en" sex="m">AcS</entry>
-  <entry id="75098" lang="en" sex="m">UnS</entry>
-  <entry id="75099" lang="en" sex="m">ElK</entry>
-  <entry id="75100" lang="en" sex="m">ElS</entry>
-  <entry id="75101" lang="en" sex="m">Fct</entry>
-  <entry id="75102" lang="en" sex="m">ClS</entry>
-  <entry id="75103" lang="en" sex="m">CSP</entry>
-  <entry id="75104" lang="en" sex="m">Fsk</entry>
-  <entry id="75105" lang="en" sex="m">Inc</entry>
-  <entry id="75106" lang="en" sex="m">Slb</entry>
-  <entry id="75107" lang="en" sex="m">Ttm</entry>
-  <entry id="75108" lang="en" sex="m">Bgl</entry>
-  <entry id="75109" lang="en" sex="m">Dul</entry>
-  <entry id="75110" lang="en" sex="m">Hip</entry>
-  <entry id="75111" lang="en" sex="m">RdA</entry>
-  <entry id="75112" lang="en" sex="m">KoC</entry>
-  <entry id="75113" lang="en" sex="m">Hth</entry>
+  <entry id="75096" lang="en" sex="m">AcS</entry>
+  <entry id="75097" lang="en" sex="m">UnS</entry>
+  <entry id="75098" lang="en" sex="m">ElK</entry>
+  <entry id="75099" lang="en" sex="m">ElS</entry>
+  <entry id="75100" lang="en" sex="m">Fct</entry>
+  <entry id="75101" lang="en" sex="m">ClS</entry>
+  <entry id="75102" lang="en" sex="m">CSP</entry>
+  <entry id="75103" lang="en" sex="m">Fsk</entry>
+  <entry id="75104" lang="en" sex="m">Inc</entry>
+  <entry id="75105" lang="en" sex="m">Slb</entry>
+  <entry id="75106" lang="en" sex="m">Ttm</entry>
+  <entry id="75107" lang="en" sex="m">Bgl</entry>
+  <entry id="75108" lang="en" sex="m">Dul</entry>
+  <entry id="75109" lang="en" sex="m">Hip</entry>
+  <entry id="75110" lang="en" sex="m">RdA</entry>
+  <entry id="75111" lang="en" sex="m">KoC</entry>
+  <entry id="75112" lang="en" sex="m">Hth</entry>
+  <entry id="75113" lang="en" sex="m">ISF</entry>
   <entry id="75114" lang="en" sex="m">Stl</entry>
   <entry id="75115" lang="en" sex="m">HtW</entry>
   <entry id="75116" lang="en" sex="m">FRz</entry>
@@ -71129,7 +71129,7 @@ Use: Activated</entry>
   <entry id="75147" lang="en" sex="m">SpH</entry>
   <entry id="75148" lang="en" sex="m">TfS</entry>
   <entry id="75149" lang="en" sex="m">BnS</entry>
-  <entry id="75150" lang="en" sex="m">InD</entry>
+  <entry id="75150" lang="en" sex="m">IDM</entry>
   <entry id="75151" lang="en" sex="m">BgT</entry>
   <entry id="75152" lang="en" sex="m">Bsi</entry>
   <entry id="75153" lang="en" sex="m">Soc</entry>
@@ -71263,11 +71263,1155 @@ Use: Activated</entry>
   <entry id="75281" lang="en" sex="m">CSM</entry>
   <entry id="75282" lang="en" sex="m">Sht</entry>
   <entry id="75290" lang="en" sex="m">##START CASTER PRC MARKER FEATS##</entry>
-  <entry id="75291" lang="en" sex="m">The Archmage sacrifices the bonus spell slots he would gain in order to take a High Arcana feat at each level. He does, however, add his level to his base caster class when determining spell power (damage, duration...). </entry>
-  <entry id="75292" lang="en" sex="m">Archmage Spellcasting (Beguiler)</entry>
-  <entry id="75293" lang="en" sex="m">Archmage Spellcasting (Dread Necromancer)</entry>
-  <entry id="75294" lang="en" sex="m">Archmage Spellcasting (Sorcerer)</entry>
-  <entry id="75295" lang="en" sex="m">Archmage Spellcasting (Sublime Chord)</entry>
-  <entry id="75296" lang="en" sex="m">Archmage Spellcasting (Warmage)</entry>
-  <entry id="75297" lang="en" sex="m">Archmage Spellcasting (Wizard)</entry>
+  <entry id="75291" lang="en" sex="m">Abjurant Champion Spellcasting (Assassin)</entry>
+  <entry id="75292" lang="en" sex="m">Acolyte of the Skin Spellcasting (Assassin) </entry>
+  <entry id="75293" lang="en" sex="m">Master Alchemist Spellcasting (Assassin) </entry>
+  <entry id="75294" lang="en" sex="m">Alienist Spellcasting (Assassin) </entry>
+  <entry id="75295" lang="en" sex="m">Anima Mage Spellcasting (Assassin) </entry>
+  <entry id="75296" lang="en" sex="m">Arcane Trickster Spellcasting (Assassin)</entry>
+  <entry id="75297" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Assassin) </entry>
+  <entry id="75298" lang="en" sex="m">Bladesinger Singer Spellcasting (Assassin)</entry>
+  <entry id="75299" lang="en" sex="m">Cerebremancer Spellcasting (Assassin) </entry>
+  <entry id="75300" lang="en" sex="m">Dragonheart Mage Spellcasting (Assassin)</entry>
+  <entry id="75301" lang="en" sex="m">Diabolist Spellcasting (Assassin) </entry>
+  <entry id="75302" lang="en" sex="m">Eldritch Knight Spellcasting (Assassin)</entry>
+  <entry id="75303" lang="en" sex="m">Enlightened Fist Spellcasting (Assassin)</entry>
+  <entry id="75304" lang="en" sex="m">Elemental Savant Spellcasting (Assassin)</entry>
+  <entry id="75305" lang="en" sex="m">Eldritch Theurge Spellcasting (Assassin)</entry>
+  <entry id="75306" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Assassin)</entry>
+  <entry id="75307" lang="en" sex="m">Frostmage Spellcasting (Assassin) </entry>
+  <entry id="75308" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Assassin) </entry>
+  <entry id="75309" lang="en" sex="m">Havoc Mage Spellcasting (Assassin)</entry>
+  <entry id="75310" lang="en" sex="m">Drow Judicator Spellcasting (Assassin) </entry>
+  <entry id="75311" lang="en" sex="m">Maester Spellcasting (Assassin) </entry>
+  <entry id="75312" lang="en" sex="m">Magekiller Spellcasting (Assassin) </entry>
+  <entry id="75313" lang="en" sex="m">Mystic Spellcasting (Assassin) </entry>
+  <entry id="75314" lang="en" sex="m">Noctumancer Spellcasting (Assassin) </entry>
+  <entry id="75315" lang="en" sex="m">Oozemaster Spellcasting (Assassin) </entry>
+  <entry id="75316" lang="en" sex="m">Pale Master Spellcasting (Assassin)</entry>
+  <entry id="75317" lang="en" sex="m">Rage Mage Spellcasting (Assassin) </entry>
+  <entry id="75318" lang="en" sex="m">Shadow Adept Spellcasting (Assassin)</entry>
+  <entry id="75319" lang="en" sex="m">Shadowlord Spellcasting (Assassin) </entry>
+  <entry id="75320" lang="en" sex="m">Soulcaster Spellcasting (Assassin) </entry>
+  <entry id="75321" lang="en" sex="m">Spelldancer Spellcasting (Assassin) </entry>
+  <entry id="75322" lang="en" sex="m">Spellsword Spellcasting (Assassin) </entry>
+  <entry id="75323" lang="en" sex="m">Talon of Tiamat Spellcasting (Assassin) </entry>
+  <entry id="75324" lang="en" sex="m">True Necromancer Spellcasting (Assassin)</entry>
+  <entry id="75325" lang="en" sex="m">Unseen Seer Spellcasting (Assassin)</entry>
+  <entry id="75326" lang="en" sex="m">Ultimate Magus Spellcasting (Assassin)</entry>
+  <entry id="75327" lang="en" sex="m">Wild Mage Spellcasting (Assassin)</entry>
+  <entry id="75328" lang="en" sex="m">Abjurant Champion Spellcasting (Bard)</entry>
+  <entry id="75329" lang="en" sex="m">Acolyte of the Skin Spellcasting (Bard)</entry>
+  <entry id="75330" lang="en" sex="m">Master Alchemist Spellcasting (Bard)</entry>
+  <entry id="75331" lang="en" sex="m">Alienist Spellcasting (Bard)</entry>
+  <entry id="75332" lang="en" sex="m">Anima Mage Spellcasting (Bard)</entry>
+  <entry id="75333" lang="en" sex="m">Arcane Trickster Spellcasting (Bard)</entry>
+  <entry id="75334" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Bard)</entry>
+  <entry id="75335" lang="en" sex="m">Bladesinger Spellcasting (Bard)</entry>
+  <entry id="75336" lang="en" sex="m">Cerebrmancer Spellcasting (Bard)</entry>
+  <entry id="75337" lang="en" sex="m">Dragonheart Mage Spellcasting (Bard)</entry>
+  <entry id="75338" lang="en" sex="m">Diabolist Spellcasting (Bard)</entry>
+  <entry id="75339" lang="en" sex="m">Eldritch Knight Spellcasting (Bard)</entry>
+  <entry id="75340" lang="en" sex="m">Enlightened Fist Spellcasting (Bard)</entry>
+  <entry id="75341" lang="en" sex="m">Elemental Savant Spellcasting (Bard)</entry>
+  <entry id="75342" lang="en" sex="m">Eldritch Theurge Spellcasting (Bard)</entry>
+  <entry id="75343" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Bard)</entry>
+  <entry id="75344" lang="en" sex="m">Frost Mage Spellcasting (Bard)</entry>
+  <entry id="75345" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Bard)</entry>
+  <entry id="75346" lang="en" sex="m">Harper Mage Spellcasting (Bard)</entry>
+  <entry id="75347" lang="en" sex="m">Hathran Spellcasting (Bard)</entry>
+  <entry id="75348" lang="en" sex="m">Havoc Mage Spellcasting (Bard)</entry>
+  <entry id="75349" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Bard)</entry>
+  <entry id="75350" lang="en" sex="m">Drow Judicator Spellcasting (Bard)</entry>
+  <entry id="75351" lang="en" sex="m">Maester Spellcasting (Bard)</entry>
+  <entry id="75352" lang="en" sex="m">Magekiller Spellcasting (Bard)</entry>
+  <entry id="75353" lang="en" sex="m">Master Harper Spellcasting (Bard)</entry>
+  <entry id="75354" lang="en" sex="m">Mystic Theurge Spellcasting (Bard)</entry>
+  <entry id="75355" lang="en" sex="m">Noctumancer Spellcasting (Bard)</entry>
+  <entry id="75356" lang="en" sex="m">Oozemaster Spellcasting (Bard)</entry>
+  <entry id="75357" lang="en" sex="m">Pale Master Spellcasting (Bard)</entry>
+  <entry id="75358" lang="en" sex="m">Rage Mage Spellcasting (Bard)</entry>
+  <entry id="75359" lang="en" sex="m">Shadow Adept Spellcasting (Bard)</entry>
+  <entry id="75360" lang="en" sex="m">Shadowlord Spellcasting (Bard)</entry>
+  <entry id="75361" lang="en" sex="m">Soulcaster Spellcasting (Bard)</entry>
+  <entry id="75362" lang="en" sex="m">Spelldancer Spellcasting (Bard)</entry>
+  <entry id="75363" lang="en" sex="m">Spellsword Spellcasting (Bard)</entry>
+  <entry id="75364" lang="en" sex="m">Tiamat Spellcasting (Bard)</entry>
+  <entry id="75365" lang="en" sex="m">True Necromancer Spellcasting (Bard)</entry>
+  <entry id="75366" lang="en" sex="m">Ultimate Magus Spellcasting (Bard)</entry>
+  <entry id="75367" lang="en" sex="m">Unseen Spellcasting (Bard)</entry>
+  <entry id="75368" lang="en" sex="m">Virtuoso Spellcasting (Bard)</entry>
+  <entry id="75369" lang="en" sex="m">Wild Mage Spellcasting (Bard)</entry>
+  <entry id="75370" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Bard)</entry>
+  <entry id="75371" lang="en" sex="m">Abjurant Champion Spellcasting (Beguiler)</entry>
+  <entry id="75372" lang="en" sex="m">Acolyte of the Skin Spellcasting (Beguiler)</entry>
+  <entry id="75373" lang="en" sex="m">Master Alchemist Spellcasting (Beguiler)</entry>
+  <entry id="75374" lang="en" sex="m">Alienist Spellcasting (Beguiler)</entry>
+  <entry id="75375" lang="en" sex="m">Anima Mage Spellcasting (Beguiler)</entry>
+  <entry id="75376" lang="en" sex="m">Archmage Spellcasting (Beguiler)</entry>
+  <entry id="75377" lang="en" sex="m">Arcane Trickster Spellcasting (Beguiler)</entry>
+  <entry id="75378" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Beguiler)</entry>
+  <entry id="75379" lang="en" sex="m">Bladesinger Spellcasting (Beguiler)</entry>
+  <entry id="75380" lang="en" sex="m">Cerebremancer Spellcasting (Beguiler)</entry>
+  <entry id="75381" lang="en" sex="m">Dragonheart Mage Spellcasting (Beguiler)</entry>
+  <entry id="75382" lang="en" sex="m">Diabolist Spellcasting (Beguiler)</entry>
+  <entry id="75383" lang="en" sex="m">Eldritch Knight Spellcasting (Beguiler)</entry>
+  <entry id="75384" lang="en" sex="m">Enlightened Fist Spellcasting (Beguiler)</entry>
+  <entry id="75385" lang="en" sex="m">Elemental Savant Spellcasting (Beguiler)</entry>
+  <entry id="75386" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Beguiler)</entry>
+  <entry id="75387" lang="en" sex="m">Fochulan Lyrist Spellcasting (Beguiler)</entry>
+  <entry id="75388" lang="en" sex="m">Frostmage Spellcasting (Beguiler)</entry>
+  <entry id="75389" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Beguiler)</entry>
+  <entry id="75390" lang="en" sex="m">Harper Mage Spellcasting (Beguiler)</entry>
+  <entry id="75391" lang="en" sex="m">Hathran Spellcasting (Beguiler)</entry>
+  <entry id="75392" lang="en" sex="m">Havoc Mage Spellcasting (Beguiler)</entry>
+  <entry id="75393" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Beguiler)</entry>
+  <entry id="75394" lang="en" sex="m">Drow Judicator Spellcasting (Beguiler)</entry>
+  <entry id="75395" lang="en" sex="m">Maester Spellcasting (Beguiler)</entry>
+  <entry id="75396" lang="en" sex="m">Magekiller Spellcasting (Beguiler)</entry>
+  <entry id="75397" lang="en" sex="m">Master Harper Spellcasting (Beguiler)</entry>
+  <entry id="75398" lang="en" sex="m">Mystic Theurge Spellcasting (Beguiler)</entry>
+  <entry id="75399" lang="en" sex="m">Noctumancer Spellcasting (Beguiler)</entry>
+  <entry id="75400" lang="en" sex="m">Oozemaster Spellcasting (Beguiler)</entry>
+  <entry id="75401" lang="en" sex="m">Pale Master Spellcasting (Beguiler)</entry>
+  <entry id="75402" lang="en" sex="m">Rage Mage Spellcasting (Beguiler)</entry>
+  <entry id="75403" lang="en" sex="m">Shadow Adept Spellcasting (Beguiler)</entry>
+  <entry id="75404" lang="en" sex="m">Shadowlord Spellcasting (Beguiler)</entry>
+  <entry id="75405" lang="en" sex="m">Soulcaster Spellcasting (Beguiler)</entry>
+  <entry id="75406" lang="en" sex="m">Spelldancer Spellcasting (Beguiler)</entry>
+  <entry id="75407" lang="en" sex="m">Spellsword Spellcasting (Beguiler)</entry>
+  <entry id="75408" lang="en" sex="m">Talon of Tiamat Spellcasting (Beguiler)</entry>
+  <entry id="75409" lang="en" sex="m">True Necromancer Spellcasting (Beguiler)</entry>
+  <entry id="75410" lang="en" sex="m">Ultimate Magus Spellcasting (Beguiler)</entry>
+  <entry id="75411" lang="en" sex="m">Unseen Seer Spellcasting (Beguiler)</entry>
+  <entry id="75412" lang="en" sex="m">Virtuoso Spellcasting (Beguiler)</entry>
+  <entry id="75413" lang="en" sex="m">Wild Mage Spellcasting (Beguiler)</entry>
+  <entry id="75414" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Beguiler)</entry>
+  <entry id="75415" lang="en" sex="m">Abjurant Champion Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75416" lang="en" sex="m">Master Alchemist Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75417" lang="en" sex="m">Alienist Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75418" lang="en" sex="m">Arcane Trickster Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75419" lang="en" sex="m">Bonded Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75420" lang="en" sex="m">Bladesinger Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75421" lang="en" sex="m">Cerebremancer Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75422" lang="en" sex="m">Dragonheart Mage Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75423" lang="en" sex="m">Eldritch Knight Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75424" lang="en" sex="m">Enlightened Fist Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75425" lang="en" sex="m">Elemental Savant Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75426" lang="en" sex="m">Frostmage Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75427" lang="en" sex="m">Harper Mage Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75428" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75429" lang="en" sex="m">Maester Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75430" lang="en" sex="m">Magekiller Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75431" lang="en" sex="m">Master Harper Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75432" lang="en" sex="m">Mystic Theurge Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75433" lang="en" sex="m">Noctumancer Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75434" lang="en" sex="m">Oozemaster Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75435" lang="en" sex="m">Shadow Adept Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75436" lang="en" sex="m">Soulcaster Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75437" lang="en" sex="m">Spelldancer Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75438" lang="en" sex="m">Ultimate Magus Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75439" lang="en" sex="m">Unseen Seer Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75440" lang="en" sex="m">Wild Mage Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75441" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Celebrant of Sharess)</entry>
+  <entry id="75442" lang="en" sex="m">Abjurant Champion Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75443" lang="en" sex="m">Alienist Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75444" lang="en" sex="m">Arcane Trickster Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75445" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75446" lang="en" sex="m">Bladesinger Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75447" lang="en" sex="m">Cerebremancer Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75448" lang="en" sex="m">Diabolist Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75449" lang="en" sex="m">Eldritch Knight Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75450" lang="en" sex="m">Enlightened Fist Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75451" lang="en" sex="m">Elemental Savant Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75452" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75453" lang="en" sex="m">Frostmage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75454" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75455" lang="en" sex="m">Harper Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75456" lang="en" sex="m">Hathran Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75457" lang="en" sex="m">Havoc Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75458" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75459" lang="en" sex="m">Master Harper Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75460" lang="en" sex="m">Mystic Theurge Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75461" lang="en" sex="m">Noctumancer Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75462" lang="en" sex="m">Oozemaster Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75463" lang="en" sex="m">Pale Master Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75464" lang="en" sex="m">Rage Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75465" lang="en" sex="m">Shadow Adept Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75466" lang="en" sex="m">Shadowlord Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75467" lang="en" sex="m">Soulcaster Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75468" lang="en" sex="m">Spelldancer Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75469" lang="en" sex="m">Spellsword Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75470" lang="en" sex="m">Talon of Tiamat Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75471" lang="en" sex="m">True Necromancer Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75472" lang="en" sex="m">Ultimate Magus Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75473" lang="en" sex="m">Unseen Seer Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75474" lang="en" sex="m">Wild Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75475" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="75476" lang="en" sex="m">Acolyte of the Skin Spellcasting (Dread Necromancer)</entry>
+  <entry id="75477" lang="en" sex="m">Master Alchemist Spellcasting (Dread Necromancer)</entry>
+  <entry id="75478" lang="en" sex="m">Alienist Spellcasting (Dread Necromancer)</entry>
+  <entry id="75479" lang="en" sex="m">Anima Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75480" lang="en" sex="m">Archmage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75481" lang="en" sex="m">Arcane Trickster Spellcasting (Dread Necromancer)</entry>
+  <entry id="75482" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Dread Necromancer)</entry>
+  <entry id="75483" lang="en" sex="m">Bladesinger Spellcasting (Dread Necromancer)</entry>
+  <entry id="75484" lang="en" sex="m">Cerebremancer Spellcasting (Dread Necromancer)</entry>
+  <entry id="75485" lang="en" sex="m">Dragonheart Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75486" lang="en" sex="m">Diabolist Spellcasting (Dread Necromancer)</entry>
+  <entry id="75487" lang="en" sex="m">Eldritch Knight Spellcasting (Dread Necromancer)</entry>
+  <entry id="75488" lang="en" sex="m">Enlightened Fist Spellcasting (Dread Necromancer)</entry>
+  <entry id="75489" lang="en" sex="m">Elemental Savant Spellcasting (Dread Necromancer)</entry>
+  <entry id="75490" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Dread Necromancer)</entry>
+  <entry id="75491" lang="en" sex="m">Fochulan Lyrist Spellcasting (Dread Necromancer)</entry>
+  <entry id="75492" lang="en" sex="m">Frostmage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75493" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Dread Necromancer)</entry>
+  <entry id="75494" lang="en" sex="m">Harper Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75495" lang="en" sex="m">Hathran Spellcasting (Dread Necromancer)</entry>
+  <entry id="75496" lang="en" sex="m">Havoc Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75497" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75498" lang="en" sex="m">Drow Judicator Spellcasting (Dread Necromancer)</entry>
+  <entry id="75499" lang="en" sex="m">Maester Spellcasting (Dread Necromancer)</entry>
+  <entry id="75500" lang="en" sex="m">Magekiller Spellcasting (Dread Necromancer)</entry>
+  <entry id="75501" lang="en" sex="m">Master Harper Spellcasting (Dread Necromancer)</entry>
+  <entry id="75502" lang="en" sex="m">Mystic Theurge Spellcasting (Dread Necromancer)</entry>
+  <entry id="75503" lang="en" sex="m">Noctumancer Spellcasting (Dread Necromancer)</entry>
+  <entry id="75504" lang="en" sex="m">Oozemaster Spellcasting (Dread Necromancer)</entry>
+  <entry id="75505" lang="en" sex="m">Pale Master Spellcasting (Dread Necromancer)</entry>
+  <entry id="75506" lang="en" sex="m">Rage Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75507" lang="en" sex="m">Shadow Adept Spellcasting (Dread Necromancer)</entry>
+  <entry id="75508" lang="en" sex="m">Soulcaster Spellcasting (Dread Necromancer)</entry>
+  <entry id="75509" lang="en" sex="m">Spelldancer Spellcasting (Dread Necromancer)</entry>
+  <entry id="75510" lang="en" sex="m">Spellsword Spellcasting (Dread Necromancer)</entry>
+  <entry id="75511" lang="en" sex="m">Talon of Tiamat Spellcasting (Dread Necromancer)</entry>
+  <entry id="75512" lang="en" sex="m">True Necromancer Spellcasting (Dread Necromancer)</entry>
+  <entry id="75513" lang="en" sex="m">Ultimate Magus Spellcasting (Dread Necromancer)</entry>
+  <entry id="75514" lang="en" sex="m">Unseen Seer Spellcasting (Dread Necromancer)</entry>
+  <entry id="75515" lang="en" sex="m">Wild Mage Spellcasting (Dread Necromancer)</entry>
+  <entry id="75516" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Dread Necromancer)</entry>
+  <entry id="75517" lang="en" sex="m">Abjurant Champion Spellcasting (Duskblade)</entry>
+  <entry id="75518" lang="en" sex="m">Acolyte of the Skin Spellcasting (Duskblade)</entry>
+  <entry id="75519" lang="en" sex="m">Master Alchemist Spellcasting (Duskblade)</entry>
+  <entry id="75520" lang="en" sex="m">Alienist Spellcasting (Duskblade)</entry>
+  <entry id="75521" lang="en" sex="m">Anima Mage Spellcasting (Duskblade)</entry>
+  <entry id="75522" lang="en" sex="m">Arcane Trickster Spellcasting (Duskblade)</entry>
+  <entry id="75523" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Duskblade)</entry>
+  <entry id="75524" lang="en" sex="m">Bladesinger Spellcasting (Duskblade)</entry>
+  <entry id="75525" lang="en" sex="m">Cerebremancer Spellcasting (Duskblade)</entry>
+  <entry id="75526" lang="en" sex="m">Dragonheart Mage Spellcasting (Duskblade)</entry>
+  <entry id="75527" lang="en" sex="m">Diabolist Spellcasting (Duskblade)</entry>
+  <entry id="75528" lang="en" sex="m">Eldritch Knight Spellcasting (Duskblade)</entry>
+  <entry id="75529" lang="en" sex="m">Enlightened Fist Spellcasting (Duskblade)</entry>
+  <entry id="75530" lang="en" sex="m">Elemental Savant Spellcasting (Duskblade)</entry>
+  <entry id="75531" lang="en" sex="m">Eldritch Theurge Spellcasting (Duskblade)</entry>
+  <entry id="75532" lang="en" sex="m">Fochulan Lyrist Spellcasting (Duskblade)</entry>
+  <entry id="75533" lang="en" sex="m">Frostmage Spellcasting (Duskblade)</entry>
+  <entry id="75534" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Duskblade)</entry>
+  <entry id="75535" lang="en" sex="m">Harper Mage Spellcasting (Duskblade)</entry>
+  <entry id="75536" lang="en" sex="m">Hathran Spellcasting (Duskblade)</entry>
+  <entry id="75537" lang="en" sex="m">Havoc Mage Spellcasting (Duskblade)</entry>
+  <entry id="75538" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Duskblade)</entry>
+  <entry id="75539" lang="en" sex="m">Drow Judicator Spellcasting (Duskblade)</entry>
+  <entry id="75540" lang="en" sex="m">Maester Spellcasting (Duskblade)</entry>
+  <entry id="75541" lang="en" sex="m">Magekiller Spellcasting (Duskblade)</entry>
+  <entry id="75542" lang="en" sex="m">Master Harper Spellcasting (Duskblade)</entry>
+  <entry id="75543" lang="en" sex="m">Mystic Theurge Spellcasting (Duskblade)</entry>
+  <entry id="75544" lang="en" sex="m">Noctumancer Spellcasting (Duskblade)</entry>
+  <entry id="75545" lang="en" sex="m">Oozemaster Spellcasting (Duskblade)</entry>
+  <entry id="75546" lang="en" sex="m">Pale Master Spellcasting (Duskblade)</entry>
+  <entry id="75547" lang="en" sex="m">Rage Mage Spellcasting (Duskblade)</entry>
+  <entry id="75548" lang="en" sex="m">Shadow Adept Spellcasting (Duskblade)</entry>
+  <entry id="75549" lang="en" sex="m">Shadowlord Spellcasting (Duskblade)</entry>
+  <entry id="75550" lang="en" sex="m">Soulcaster Spellcasting (Duskblade)</entry>
+  <entry id="75551" lang="en" sex="m">Spelldancer Spellcasting (Duskblade)</entry>
+  <entry id="75552" lang="en" sex="m">Spellsword Spellcasting (Duskblade)</entry>
+  <entry id="75553" lang="en" sex="m">Talon of Tiamat Spellcasting (Duskblade)</entry>
+  <entry id="75554" lang="en" sex="m">True Necromancer Spellcasting (Duskblade)</entry>
+  <entry id="75555" lang="en" sex="m">Ultimate Magus Spellcasting (Duskblade)</entry>
+  <entry id="75556" lang="en" sex="m">Unseen Seer Spellcasting (Duskblade)</entry>
+  <entry id="75557" lang="en" sex="m">Virtuoso Spellcasting (Duskblade)</entry>
+  <entry id="75558" lang="en" sex="m">Wild Mage Spellcasting (Duskblade)</entry>
+  <entry id="75559" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Duskblade)</entry>
+  <entry id="75560" lang="en" sex="m">Abjurant Champion Spellcasting (Harper Scout)</entry>
+  <entry id="75561" lang="en" sex="m">Alienist Spellcasting (Harper Scout)</entry>
+  <entry id="75562" lang="en" sex="m">Anima Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75563" lang="en" sex="m">Arcane Trickster Spellcasting (Harper Scout)</entry>
+  <entry id="75564" lang="en" sex="m">Bladesinger Spellcasting (Harper Scout)</entry>
+  <entry id="75565" lang="en" sex="m">Cerebremancer Spellcasting (Harper Scout)</entry>
+  <entry id="75566" lang="en" sex="m">Dragonheart Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75567" lang="en" sex="m">Eldritch Knight Spellcasting (Harper Scout)</entry>
+  <entry id="75568" lang="en" sex="m">Enlightened Fist Spellcasting (Harper Scout)</entry>
+  <entry id="75569" lang="en" sex="m">Elemental Savant Spellcasting (Harper Scout)</entry>
+  <entry id="75570" lang="en" sex="m">Eldritch Theurge Spellcasting (Harper Scout)</entry>
+  <entry id="75571" lang="en" sex="m">Fochulan Lyrist Spellcasting (Harper Scout)</entry>
+  <entry id="75572" lang="en" sex="m">Frostmage Spellcasting (Harper Scout)</entry>
+  <entry id="75573" lang="en" sex="m">Harper Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75574" lang="en" sex="m">Hathran Spellcasting (Harper Scout)</entry>
+  <entry id="75575" lang="en" sex="m">Havoc Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75576" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75577" lang="en" sex="m">Maester Spellcasting (Harper Scout)</entry>
+  <entry id="75578" lang="en" sex="m">Master Harper Spellcasting (Harper Scout)</entry>
+  <entry id="75579" lang="en" sex="m">Mystic Theurge Spellcasting (Harper Scout)</entry>
+  <entry id="75580" lang="en" sex="m">Noctumancer Spellcasting (Harper Scout)</entry>
+  <entry id="75581" lang="en" sex="m">Oozemaster Spellcasting (Harper Scout)</entry>
+  <entry id="75582" lang="en" sex="m">Pale Master Spellcasting (Harper Scout)</entry>
+  <entry id="75583" lang="en" sex="m">Rage Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75584" lang="en" sex="m">Shadow Adept Spellcasting (Harper Scout)</entry>
+  <entry id="75585" lang="en" sex="m">Soulcaster Spellcasting (Harper Scout)</entry>
+  <entry id="75586" lang="en" sex="m">Spelldancer Spellcasting (Harper Scout)</entry>
+  <entry id="75587" lang="en" sex="m">Spellsword Spellcasting (Harper Scout)</entry>
+  <entry id="75588" lang="en" sex="m">True Necromancer Spellcasting (Harper Scout)</entry>
+  <entry id="75589" lang="en" sex="m">Ultimate Magus Spellcasting (Harper Scout)</entry>
+  <entry id="75590" lang="en" sex="m">Unseen Seer Spellcasting (Harper Scout)</entry>
+  <entry id="75591" lang="en" sex="m">Wild Mage Spellcasting (Harper Scout)</entry>
+  <entry id="75592" lang="en" sex="m">Abjurant Champion Spellcasting (Hexblade)</entry>
+  <entry id="75593" lang="en" sex="m">Acolyte Spellcasting (Hexblade)</entry>
+  <entry id="75594" lang="en" sex="m">Master Alchemist Spellcasting (Hexblade)</entry>
+  <entry id="75595" lang="en" sex="m">Alienist Spellcasting (Hexblade)</entry>
+  <entry id="75596" lang="en" sex="m">Anima Spellcasting (Hexblade)</entry>
+  <entry id="75597" lang="en" sex="m">Arcane Trickster Spellcasting (Hexblade)</entry>
+  <entry id="75598" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Hexblade)</entry>
+  <entry id="75599" lang="en" sex="m">Bonded Summoner Spellcasting (Hexblade)</entry>
+  <entry id="75600" lang="en" sex="m">Bladesinger Spellcasting (Hexblade)</entry>
+  <entry id="75601" lang="en" sex="m">Cerebremancer Spellcasting (Hexblade)</entry>
+  <entry id="75602" lang="en" sex="m">Dragonheart Mage Spellcasting (Hexblade)</entry>
+  <entry id="75603" lang="en" sex="m">Diabolist Spellcasting (Hexblade)</entry>
+  <entry id="75604" lang="en" sex="m">Eldritch Knight Spellcasting (Hexblade)</entry>
+  <entry id="75605" lang="en" sex="m">Enlightened Fist Spellcasting (Hexblade)</entry>
+  <entry id="75606" lang="en" sex="m">Elemental Savant Spellcasting (Hexblade)</entry>
+  <entry id="75607" lang="en" sex="m">Eldritch Theurge Spellcasting (Hexblade)</entry>
+  <entry id="75608" lang="en" sex="m">Fochulan Lyrist Spellcasting (Hexblade)</entry>
+  <entry id="75609" lang="en" sex="m">Frostmage Spellcasting (Hexblade)</entry>
+  <entry id="75610" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Hexblade)</entry>
+  <entry id="75611" lang="en" sex="m">Harper Mage Spellcasting (Hexblade)</entry>
+  <entry id="75612" lang="en" sex="m">Hathran Spellcasting (Hexblade)</entry>
+  <entry id="75613" lang="en" sex="m">Havoc Mage Spellcasting (Hexblade)</entry>
+  <entry id="75614" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Hexblade)</entry>
+  <entry id="75615" lang="en" sex="m">Drow Judicator Spellcasting (Hexblade)</entry>
+  <entry id="75616" lang="en" sex="m">Maester Spellcasting (Hexblade)</entry>
+  <entry id="75617" lang="en" sex="m">Magekiller Spellcasting (Hexblade)</entry>
+  <entry id="75618" lang="en" sex="m">Master Harper Spellcasting (Hexblade)</entry>
+  <entry id="75619" lang="en" sex="m">Mystic Theurge Spellcasting (Hexblade)</entry>
+  <entry id="75620" lang="en" sex="m">Noctumancer Spellcasting (Hexblade)</entry>
+  <entry id="75621" lang="en" sex="m">Oozemaster Spellcasting (Hexblade)</entry>
+  <entry id="75622" lang="en" sex="m">Pale Master Spellcasting (Hexblade)</entry>
+  <entry id="75623" lang="en" sex="m">Rage Mage Spellcasting (Hexblade)</entry>
+  <entry id="75624" lang="en" sex="m">Shadow Adept Spellcasting (Hexblade)</entry>
+  <entry id="75625" lang="en" sex="m">Shadowlord Spellcasting (Hexblade)</entry>
+  <entry id="75626" lang="en" sex="m">Soulcaster Spellcasting (Hexblade)</entry>
+  <entry id="75627" lang="en" sex="m">Spelldancer Spellcasting (Hexblade)</entry>
+  <entry id="75628" lang="en" sex="m">Spellsword Spellcasting (Hexblade)</entry>
+  <entry id="75629" lang="en" sex="m">Talont of Tiamat Spellcasting (Hexblade)</entry>
+  <entry id="75630" lang="en" sex="m">True Necromancer Spellcasting (Hexblade)</entry>
+  <entry id="75631" lang="en" sex="m">Ultimate Magus Spellcasting (Hexblade)</entry>
+  <entry id="75632" lang="en" sex="m">Unseen Seer Spellcasting (Hexblade)</entry>
+  <entry id="75633" lang="en" sex="m">Wild Mage Spellcasting (Hexblade)</entry>
+  <entry id="75634" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Hexblade)</entry>
+  <entry id="75635" lang="en" sex="m">Abjurant Champion Spellcasting (Knight of the Weave)</entry>
+  <entry id="75636" lang="en" sex="m">Master Alchemist Spellcasting (Knight of the Weave)</entry>
+  <entry id="75637" lang="en" sex="m">Alienist Spellcasting (Knight of the Weave)</entry>
+  <entry id="75638" lang="en" sex="m">Anima Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75639" lang="en" sex="m">Arcane Trickster Spellcasting (Knight of the Weave)</entry>
+  <entry id="75640" lang="en" sex="m">Bladesinger Spellcasting (Knight of the Weave)</entry>
+  <entry id="75641" lang="en" sex="m">Cerebremancer Spellcasting (Knight of the Weave)</entry>
+  <entry id="75642" lang="en" sex="m">Dragonheart Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75643" lang="en" sex="m">Eldritch Knight Spellcasting (Knight of the Weave)</entry>
+  <entry id="75644" lang="en" sex="m">Enlightened Fist Spellcasting (Knight of the Weave)</entry>
+  <entry id="75645" lang="en" sex="m">Elemental Savant Spellcasting (Knight of the Weave)</entry>
+  <entry id="75646" lang="en" sex="m">Eldritch Theurge Spellcasting (Knight of the Weave)</entry>
+  <entry id="75647" lang="en" sex="m">Force Missile Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75648" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Weave)</entry>
+  <entry id="75649" lang="en" sex="m">Frostmage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75650" lang="en" sex="m">Harper Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75651" lang="en" sex="m">Hathran Spellcasting (Knight of the Weave)</entry>
+  <entry id="75652" lang="en" sex="m">Havoc Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75653" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75654" lang="en" sex="m">Maester Spellcasting (Knight of the Weave)</entry>
+  <entry id="75655" lang="en" sex="m">Magekiller Spellcasting (Knight of the Weave)</entry>
+  <entry id="75656" lang="en" sex="m">Master Harper Spellcasting (Knight of the Weave)</entry>
+  <entry id="75657" lang="en" sex="m">Mystic Theurge Spellcasting (Knight of the Weave)</entry>
+  <entry id="75658" lang="en" sex="m">Noctumancer Spellcasting (Knight of the Weave)</entry>
+  <entry id="75659" lang="en" sex="m">Oozemaster Spellcasting (Knight of the Weave)</entry>
+  <entry id="75660" lang="en" sex="m">Pale Master Spellcasting (Knight of the Weave)</entry>
+  <entry id="75661" lang="en" sex="m">Rage Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75662" lang="en" sex="m">Shadow Adept Spellcasting (Knight of the Weave)</entry>
+  <entry id="75663" lang="en" sex="m">Soulcaster Spellcasting (Knight of the Weave)</entry>
+  <entry id="75664" lang="en" sex="m">Spelldancer Spellcasting (Knight of the Weave)</entry>
+  <entry id="75665" lang="en" sex="m">Spellsword Spellcasting (Knight of the Weave)</entry>
+  <entry id="75666" lang="en" sex="m">Ultimate Magus Spellcasting (Knight of the Weave)</entry>
+  <entry id="75667" lang="en" sex="m">Unseen Seer Spellcasting (Knight of the Weave)</entry>
+  <entry id="75668" lang="en" sex="m">Wayfarer Guide Spellcasting (Knight of the Weave)</entry>
+  <entry id="75669" lang="en" sex="m">Wild Mage Spellcasting (Knight of the Weave)</entry>
+  <entry id="75670" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Knight of the Weave)</entry>
+  <entry id="75671" lang="en" sex="m">Abjurant Champion Spellcasting (Shadowlord)</entry>
+  <entry id="75672" lang="en" sex="m">Acolyte of the Skin Spellcasting (Shadowlord)</entry>
+  <entry id="75673" lang="en" sex="m">Master Alchemist Spellcasting (Shadowlord)</entry>
+  <entry id="75674" lang="en" sex="m">Alienist Spellcasting (Shadowlord)</entry>
+  <entry id="75675" lang="en" sex="m">Anima Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75676" lang="en" sex="m">Arcane Trickster Spellcasting (Shadowlord)</entry>
+  <entry id="75677" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Shadowlord)</entry>
+  <entry id="75678" lang="en" sex="m">Bladesinger Spellcasting (Shadowlord)</entry>
+  <entry id="75679" lang="en" sex="m">Cerebremancer Spellcasting (Shadowlord)</entry>
+  <entry id="75680" lang="en" sex="m">Dragonheart Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75681" lang="en" sex="m">Diabolist Spellcasting (Shadowlord)</entry>
+  <entry id="75682" lang="en" sex="m">Eldritch Knight Spellcasting (Shadowlord)</entry>
+  <entry id="75683" lang="en" sex="m">Enlightened Fist Spellcasting (Shadowlord)</entry>
+  <entry id="75684" lang="en" sex="m">Elemental Savant Spellcasting (Shadowlord)</entry>
+  <entry id="75685" lang="en" sex="m">Eldritch Theurge Spellcasting (Shadowlord)</entry>
+  <entry id="75686" lang="en" sex="m">Fochulan Lyrist Spellcasting (Shadowlord)</entry>
+  <entry id="75687" lang="en" sex="m">Frostmage Spellcasting (Shadowlord)</entry>
+  <entry id="75688" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Shadowlord)</entry>
+  <entry id="75689" lang="en" sex="m">Harper Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75690" lang="en" sex="m">Hathran Spellcasting (Shadowlord)</entry>
+  <entry id="75691" lang="en" sex="m">Havoc Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75692" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75693" lang="en" sex="m">Drow Judicator Spellcasting (Shadowlord)</entry>
+  <entry id="75694" lang="en" sex="m">Maester Spellcasting (Shadowlord)</entry>
+  <entry id="75695" lang="en" sex="m">Master Harper Spellcasting (Shadowlord)</entry>
+  <entry id="75696" lang="en" sex="m">Mystic Theurge Spellcasting (Shadowlord)</entry>
+  <entry id="75697" lang="en" sex="m">Noctumancer Spellcasting (Shadowlord)</entry>
+  <entry id="75698" lang="en" sex="m">Oozemaster Spellcasting (Shadowlord)</entry>
+  <entry id="75699" lang="en" sex="m">Pale Master Spellcasting (Shadowlord)</entry>
+  <entry id="75700" lang="en" sex="m">Rage Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75701" lang="en" sex="m">Shadow Adept Spellcasting (Shadowlord)</entry>
+  <entry id="75702" lang="en" sex="m">Soulcaster Spellcasting (Shadowlord)</entry>
+  <entry id="75703" lang="en" sex="m">Spelldancer Spellcasting (Shadowlord)</entry>
+  <entry id="75704" lang="en" sex="m">Spellsword Spellcasting (Shadowlord)</entry>
+  <entry id="75705" lang="en" sex="m">Talon of Tiamat Spellcasting (Shadowlord)</entry>
+  <entry id="75706" lang="en" sex="m">True Necromancer Spellcasting (Shadowlord)</entry>
+  <entry id="75707" lang="en" sex="m">Ultimate Magus Spellcasting (Shadowlord)</entry>
+  <entry id="75708" lang="en" sex="m">Unseen Seer Spellcasting (Shadowlord)</entry>
+  <entry id="75709" lang="en" sex="m">Wild Mage Spellcasting (Shadowlord)</entry>
+  <entry id="75710" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Shadowlord)</entry>
+  <entry id="75711" lang="en" sex="m">Abjurant Champion Spellcasting (Sorcerer)</entry>
+  <entry id="75712" lang="en" sex="m">Acolyte of the Skin Spellcasting (Sorcerer)</entry>
+  <entry id="75713" lang="en" sex="m">Master Alchemist Spellcasting (Sorcerer)</entry>
+  <entry id="75714" lang="en" sex="m">Alienist Spellcasting (Sorcerer)</entry>
+  <entry id="75715" lang="en" sex="m">Anima Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75716" lang="en" sex="m">Archmage Spellcasting (Sorcerer)</entry>
+  <entry id="75717" lang="en" sex="m">Arcane Trickster Spellcasting (Sorcerer)</entry>
+  <entry id="75718" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Sorcerer)</entry>
+  <entry id="75719" lang="en" sex="m">Bonded Summoner Spellcasting (Sorcerer)</entry>
+  <entry id="75720" lang="en" sex="m">Bladesinger Spellcasting (Sorcerer)</entry>
+  <entry id="75721" lang="en" sex="m">Cerebremancer Spellcasting (Sorcerer)</entry>
+  <entry id="75722" lang="en" sex="m">Dragonheart Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75723" lang="en" sex="m">Diabolist Spellcasting (Sorcerer)</entry>
+  <entry id="75724" lang="en" sex="m">Eldritch Knight Spellcasting (Sorcerer)</entry>
+  <entry id="75725" lang="en" sex="m">Enlightened Fist Spellcasting (Sorcerer)</entry>
+  <entry id="75726" lang="en" sex="m">Elemental Savant Spellcasting (Sorcerer)</entry>
+  <entry id="75727" lang="en" sex="m">Eldritch Theurge Spellcasting (Sorcerer)</entry>
+  <entry id="75728" lang="en" sex="m">Force Missile Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75729" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sorcerer)</entry>
+  <entry id="75730" lang="en" sex="m">Frostmage Spellcasting (Sorcerer)</entry>
+  <entry id="75731" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Sorcerer)</entry>
+  <entry id="75732" lang="en" sex="m">Harper Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75733" lang="en" sex="m">Hathran Spellcasting (Sorcerer)</entry>
+  <entry id="75734" lang="en" sex="m">Havoc Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75735" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75736" lang="en" sex="m">Drow Judicator Spellcasting (Sorcerer)</entry>
+  <entry id="75737" lang="en" sex="m">Maester Spellcasting (Sorcerer)</entry>
+  <entry id="75738" lang="en" sex="m">Magekiller Spellcasting (Sorcerer)</entry>
+  <entry id="75739" lang="en" sex="m">Master Harper Spellcasting (Sorcerer)</entry>
+  <entry id="75740" lang="en" sex="m">Mystic Theurge Spellcasting (Sorcerer)</entry>
+  <entry id="75741" lang="en" sex="m">Noctumancer Spellcasting (Sorcerer)</entry>
+  <entry id="75742" lang="en" sex="m">Oozemaster Spellcasting (Sorcerer)</entry>
+  <entry id="75743" lang="en" sex="m">Pale Master Spellcasting (Sorcerer)</entry>
+  <entry id="75744" lang="en" sex="m">Rage Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75745" lang="en" sex="m">Shadow Adept Spellcasting (Sorcerer)</entry>
+  <entry id="75746" lang="en" sex="m">Shadowlord Spellcasting (Sorcerer)</entry>
+  <entry id="75747" lang="en" sex="m">Soulcaster Spellcasting (Sorcerer)</entry>
+  <entry id="75748" lang="en" sex="m">Spelldancer Spellcasting (Sorcerer)</entry>
+  <entry id="75749" lang="en" sex="m">Spellsword Spellcasting (Sorcerer)</entry>
+  <entry id="75750" lang="en" sex="m">Talon of Tiamat Spellcasting (Sorcerer)</entry>
+  <entry id="75751" lang="en" sex="m">True Necromancer Spellcasting (Sorcerer)</entry>
+  <entry id="75752" lang="en" sex="m">Ultimate Magus Spellcasting (Sorcerer)</entry>
+  <entry id="75753" lang="en" sex="m">Unseen Seer Spellcasting (Sorcerer)</entry>
+  <entry id="75754" lang="en" sex="m">Virtuoso Spellcasting (Sorcerer)</entry>
+  <entry id="75755" lang="en" sex="m">Wayfarer Guide Spellcasting (Sorcerer)</entry>
+  <entry id="75756" lang="en" sex="m">Wild Mage Spellcasting (Sorcerer)</entry>
+  <entry id="75757" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Sorcerer)</entry>
+  <entry id="75758" lang="en" sex="m">Abjurant Champion Spellcasting (Sublime Chord)</entry>
+  <entry id="75759" lang="en" sex="m">Acolyte of the Skin Spellcasting (Sublime Chord)</entry>
+  <entry id="75760" lang="en" sex="m">Master Alchemist Spellcasting (Sublime Chord)</entry>
+  <entry id="75761" lang="en" sex="m">Alienist Spellcasting (Sublime Chord)</entry>
+  <entry id="75762" lang="en" sex="m">Anima Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75763" lang="en" sex="m">Archmage Spellcasting (Sublime Chord)</entry>
+  <entry id="75764" lang="en" sex="m">Arcane Trickster Spellcasting (Sublime Chord)</entry>
+  <entry id="75765" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Sublime Chord)</entry>
+  <entry id="75766" lang="en" sex="m">Bladesinger Spellcasting (Sublime Chord)</entry>
+  <entry id="75767" lang="en" sex="m">Cerebremancer Spellcasting (Sublime Chord)</entry>
+  <entry id="75768" lang="en" sex="m">Dragonheart Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75769" lang="en" sex="m">Diabolist Spellcasting (Sublime Chord)</entry>
+  <entry id="75770" lang="en" sex="m">Eldritch Knight Spellcasting (Sublime Chord)</entry>
+  <entry id="75771" lang="en" sex="m">Enlightened Fist Spellcasting (Sublime Chord)</entry>
+  <entry id="75772" lang="en" sex="m">Elemental Savant Spellcasting (Sublime Chord)</entry>
+  <entry id="75773" lang="en" sex="m">Eldritch Theurge Spellcasting (Sublime Chord)</entry>
+  <entry id="75774" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sublime Chord)</entry>
+  <entry id="75775" lang="en" sex="m">Frostmage Spellcasting (Sublime Chord)</entry>
+  <entry id="75776" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Sublime Chord)</entry>
+  <entry id="75777" lang="en" sex="m">Harper Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75778" lang="en" sex="m">Hathran Spellcasting (Sublime Chord)</entry>
+  <entry id="75779" lang="en" sex="m">Havoc Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75780" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75781" lang="en" sex="m">Drow Judicator Spellcasting (Sublime Chord)</entry>
+  <entry id="75782" lang="en" sex="m">Maester Spellcasting (Sublime Chord)</entry>
+  <entry id="75783" lang="en" sex="m">Magekiller Spellcasting (Sublime Chord)</entry>
+  <entry id="75784" lang="en" sex="m">Master Harper Spellcasting (Sublime Chord)</entry>
+  <entry id="75785" lang="en" sex="m">Mystic Theurge Spellcasting (Sublime Chord)</entry>
+  <entry id="75786" lang="en" sex="m">Noctumancer Spellcasting (Sublime Chord)</entry>
+  <entry id="75787" lang="en" sex="m">Oozemaster Spellcasting (Sublime Chord)</entry>
+  <entry id="75788" lang="en" sex="m">Pale Master Spellcasting (Sublime Chord)</entry>
+  <entry id="75789" lang="en" sex="m">Rage Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75790" lang="en" sex="m">Shadow Adept Spellcasting (Sublime Chord)</entry>
+  <entry id="75791" lang="en" sex="m">Shadowlord Spellcasting (Sublime Chord)</entry>
+  <entry id="75792" lang="en" sex="m">Soulcaster Spellcasting (Sublime Chord)</entry>
+  <entry id="75793" lang="en" sex="m">Spelldancer Spellcasting (Sublime Chord)</entry>
+  <entry id="75794" lang="en" sex="m">Spellsword Spellcasting (Sublime Chord)</entry>
+  <entry id="75795" lang="en" sex="m">Talon of Tiamat Spellcasting (Sublime Chord)</entry>
+  <entry id="75796" lang="en" sex="m">True Necromancer Spellcasting (Sublime Chord)</entry>
+  <entry id="75797" lang="en" sex="m">Ultimate Magus Spellcasting (Sublime Chord)</entry>
+  <entry id="75798" lang="en" sex="m">Unseen Seer Spellcasting (Sublime Chord)</entry>
+  <entry id="75799" lang="en" sex="m">Wayfarer Guide Spellcasting (Sublime Chord)</entry>
+  <entry id="75800" lang="en" sex="m">Wild Mage Spellcasting (Sublime Chord)</entry>
+  <entry id="75801" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Sublime Chord)</entry>
+  <entry id="75802" lang="en" sex="m">Abjurant Champion Spellcasting (Suel Archanamach)</entry>
+  <entry id="75803" lang="en" sex="m">Acolyte of the Skin Spellcasting (Suel Archanamach)</entry>
+  <entry id="75804" lang="en" sex="m">Master Alchemist Spellcasting (Suel Archanamach)</entry>
+  <entry id="75805" lang="en" sex="m">Alienist Spellcasting (Suel Archanamach)</entry>
+  <entry id="75806" lang="en" sex="m">Anima Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75807" lang="en" sex="m">Arcane Trickster Spellcasting (Suel Archanamach)</entry>
+  <entry id="75808" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Suel Archanamach)</entry>
+  <entry id="75809" lang="en" sex="m">Bladesinger Spellcasting (Suel Archanamach)</entry>
+  <entry id="75810" lang="en" sex="m">Cerebremancer Spellcasting (Suel Archanamach)</entry>
+  <entry id="75811" lang="en" sex="m">Dragonheart Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75812" lang="en" sex="m">Diabolist Spellcasting (Suel Archanamach)</entry>
+  <entry id="75813" lang="en" sex="m">Eldritch Knight Spellcasting (Suel Archanamach)</entry>
+  <entry id="75814" lang="en" sex="m">Enlightened Fist Spellcasting (Suel Archanamach)</entry>
+  <entry id="75815" lang="en" sex="m">Elemental Savant Spellcasting (Suel Archanamach)</entry>
+  <entry id="75816" lang="en" sex="m">Eldritch Theurge Spellcasting (Suel Archanamach)</entry>
+  <entry id="75817" lang="en" sex="m">Fochulan Lyrist Spellcasting (Suel Archanamach)</entry>
+  <entry id="75818" lang="en" sex="m">Frostmage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75819" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Suel Archanamach)</entry>
+  <entry id="75820" lang="en" sex="m">Harper Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75821" lang="en" sex="m">Hathran Spellcasting (Suel Archanamach)</entry>
+  <entry id="75822" lang="en" sex="m">Havoc Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75823" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75824" lang="en" sex="m">Drow Judicator Spellcasting (Suel Archanamach)</entry>
+  <entry id="75825" lang="en" sex="m">Maester Spellcasting (Suel Archanamach)</entry>
+  <entry id="75826" lang="en" sex="m">Magekiller Spellcasting (Suel Archanamach)</entry>
+  <entry id="75827" lang="en" sex="m">Mystic Theurge Spellcasting (Suel Archanamach)</entry>
+  <entry id="75828" lang="en" sex="m">Noctumancer Spellcasting (Suel Archanamach)</entry>
+  <entry id="75829" lang="en" sex="m">Oozemaster Spellcasting (Suel Archanamach)</entry>
+  <entry id="75830" lang="en" sex="m">Pale Master Spellcasting (Suel Archanamach)</entry>
+  <entry id="75831" lang="en" sex="m">Rage Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75832" lang="en" sex="m">Shadow Adept Spellcasting (Suel Archanamach)</entry>
+  <entry id="75833" lang="en" sex="m">Soulcaster Spellcasting (Suel Archanamach)</entry>
+  <entry id="75834" lang="en" sex="m">Spelldancer Spellcasting (Suel Archanamach)</entry>
+  <entry id="75835" lang="en" sex="m">Spellsword Spellcasting (Suel Archanamach)</entry>
+  <entry id="75836" lang="en" sex="m">Talon of Tiamat Spellcasting (Suel Archanamach)</entry>
+  <entry id="75837" lang="en" sex="m">True Necromancer Spellcasting (Suel Archanamach)</entry>
+  <entry id="75838" lang="en" sex="m">Ultimate Magus Spellcasting (Suel Archanamach)</entry>
+  <entry id="75839" lang="en" sex="m">Unseen Seer Spellcasting (Suel Archanamach)</entry>
+  <entry id="75840" lang="en" sex="m">Wild Mage Spellcasting (Suel Archanamach)</entry>
+  <entry id="75841" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Suel Archanamach)</entry>
+  <entry id="75842" lang="en" sex="m">Acolyte of the Skin Spellcasting (Warmage)</entry>
+  <entry id="75843" lang="en" sex="m">Master Alchemist Spellcasting (Warmage)</entry>
+  <entry id="75844" lang="en" sex="m">Alienist Spellcasting (Warmage)</entry>
+  <entry id="75845" lang="en" sex="m">Anima Mage Spellcasting (Warmage)</entry>
+  <entry id="75846" lang="en" sex="m">Archmage Spellcasting (Warmage)</entry>
+  <entry id="75847" lang="en" sex="m">Arcane Trickster Spellcasting (Warmage)</entry>
+  <entry id="75848" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Warmage)</entry>
+  <entry id="75849" lang="en" sex="m">Bonded Summoner Spellcasting (Warmage)</entry>
+  <entry id="75850" lang="en" sex="m">Bladesinger Spellcasting (Warmage)</entry>
+  <entry id="75851" lang="en" sex="m">Cerebremancer Spellcasting (Warmage)</entry>
+  <entry id="75852" lang="en" sex="m">Dragonheart Mage Spellcasting (Warmage)</entry>
+  <entry id="75853" lang="en" sex="m">Diabolist Spellcasting (Warmage)</entry>
+  <entry id="75854" lang="en" sex="m">Eldritch Knight Spellcasting (Warmage)</entry>
+  <entry id="75855" lang="en" sex="m">Enlightened Fist Spellcasting (Warmage)</entry>
+  <entry id="75856" lang="en" sex="m">Esoteric Savant Spellcasting (Warmage)</entry>
+  <entry id="75857" lang="en" sex="m">Ethereal Theurge Spellcasting (Warmage)</entry>
+  <entry id="75858" lang="en" sex="m">Force Missile Mage Spellcasting (Warmage)</entry>
+  <entry id="75859" lang="en" sex="m">Frost Mage Spellcasting (Warmage)</entry>
+  <entry id="75860" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Warmage)</entry>
+  <entry id="75861" lang="en" sex="m">Graz'zt Spellcasting (Warmage)</entry>
+  <entry id="75862" lang="en" sex="m">Harper Mage Spellcasting (Warmage)</entry>
+  <entry id="75863" lang="en" sex="m">Hathran Spellcasting (Warmage)</entry>
+  <entry id="75864" lang="en" sex="m">Havoc Mage Spellcasting (Warmage)</entry>
+  <entry id="75865" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Warmage)</entry>
+  <entry id="75866" lang="en" sex="m">Judicator Spellcasting (Warmage)</entry>
+  <entry id="75867" lang="en" sex="m">Maester Spellcasting (Warmage)</entry>
+  <entry id="75868" lang="en" sex="m">Magekiller Spellcasting (Warmage)</entry>
+  <entry id="75869" lang="en" sex="m">Master Harper Spellcasting (Warmage)</entry>
+  <entry id="75870" lang="en" sex="m">Mystic Theurge Spellcasting (Warmage)</entry>
+  <entry id="75871" lang="en" sex="m">Noctumancer Spellcasting (Warmage)</entry>
+  <entry id="75872" lang="en" sex="m">Oozemaster Spellcasting (Warmage)</entry>
+  <entry id="75873" lang="en" sex="m">Pale Master Spellcasting (Warmage)</entry>
+  <entry id="75874" lang="en" sex="m">Rage Mage Spellcasting (Warmage)</entry>
+  <entry id="75875" lang="en" sex="m">Shadow Adept Spellcasting (Warmage)</entry>
+  <entry id="75876" lang="en" sex="m">Shadowlord Spellcasting (Warmage)</entry>
+  <entry id="75877" lang="en" sex="m">Soulcaster Spellcasting (Warmage)</entry>
+  <entry id="75878" lang="en" sex="m">Spelldancer Spellcasting (Warmage)</entry>
+  <entry id="75879" lang="en" sex="m">Sword Sage Spellcasting (Warmage)</entry>
+  <entry id="75880" lang="en" sex="m">Talon of Tiamat Spellcasting (Warmage)</entry>
+  <entry id="75881" lang="en" sex="m">True Necromancer Spellcasting (Warmage)</entry>
+  <entry id="75882" lang="en" sex="m">Ultimate Magus Spellcasting (Warmage)</entry>
+  <entry id="75883" lang="en" sex="m">Unseen Spellcasting (Warmage)</entry>
+  <entry id="75884" lang="en" sex="m">Virtuoso Spellcasting (Warmage)</entry>
+  <entry id="75885" lang="en" sex="m">Wild Mage Spellcasting (Warmage)</entry>
+  <entry id="75886" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Warmage)</entry>
+  <entry id="75887" lang="en" sex="m">Abjurant Champion Spellcasting (Wizard)</entry>
+  <entry id="75888" lang="en" sex="m">Acolyte of the Skin Spellcasting (Wizard)</entry>
+  <entry id="75889" lang="en" sex="m">Master Alchemist Spellcasting (Wizard)</entry>
+  <entry id="75890" lang="en" sex="m">Alienist Spellcasting (Wizard)</entry>
+  <entry id="75891" lang="en" sex="m">Anima Mage Spellcasting (Wizard)</entry>
+  <entry id="75892" lang="en" sex="m">Archmage Spellcasting (Wizard)</entry>
+  <entry id="75893" lang="en" sex="m">Arcane Trickster Spellcasting (Wizard)</entry>
+  <entry id="75894" lang="en" sex="m">Disciple of Asmodeus Spellcasting (Wizard)</entry>
+  <entry id="75895" lang="en" sex="m">Bonded Summoner Spellcasting (Wizard)</entry>
+  <entry id="75896" lang="en" sex="m">Bladesinger Spellcasting (Wizard)</entry>
+  <entry id="75897" lang="en" sex="m">Cerebremancer Spellcasting (Wizard)</entry>
+  <entry id="75898" lang="en" sex="m">Diabolist Spellcasting (Wizard)</entry>
+  <entry id="75899" lang="en" sex="m">Eldritch Knight Spellcasting (Wizard)</entry>
+  <entry id="75900" lang="en" sex="m">Enlightened Fist Spellcasting (Wizard)</entry>
+  <entry id="75901" lang="en" sex="m">Elemental Savant Spellcasting (Wizard)</entry>
+  <entry id="75902" lang="en" sex="m">Eldritch Theurge Spellcasting (Wizard)</entry>
+  <entry id="75903" lang="en" sex="m">Force Missile Mage Spellcasting (Wizard)</entry>
+  <entry id="75904" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Wizard)</entry>
+  <entry id="75905" lang="en" sex="m">Frost Mage Spellcasting (Wizard)</entry>
+  <entry id="75906" lang="en" sex="m">Graz'zt Spellcasting (Wizard)</entry>
+  <entry id="75907" lang="en" sex="m">Harpermage Spellcasting (Wizard)</entry>
+  <entry id="75908" lang="en" sex="m">Hathran Spellcasting (Wizard)</entry>
+  <entry id="75909" lang="en" sex="m">Havoc Spellcasting (Wizard)</entry>
+  <entry id="75910" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Wizard)</entry>
+  <entry id="75911" lang="en" sex="m">Drow Judicator Spellcasting (Wizard)</entry>
+  <entry id="75912" lang="en" sex="m">Maester Spellcasting (Wizard)</entry>
+  <entry id="75913" lang="en" sex="m">Magekiller Spellcasting (Wizard)</entry>
+  <entry id="75914" lang="en" sex="m">Master Harper Spellcasting (Wizard)</entry>
+  <entry id="75915" lang="en" sex="m">Mystic Theurge Spellcasting (Wizard)</entry>
+  <entry id="75916" lang="en" sex="m">Noctumancer Spellcasting (Wizard)</entry>
+  <entry id="75917" lang="en" sex="m">Oozemaster Spellcasting (Wizard)</entry>
+  <entry id="75918" lang="en" sex="m">Pale Master Spellcasting (Wizard)</entry>
+  <entry id="75919" lang="en" sex="m">Rage Mage Spellcasting (Wizard)</entry>
+  <entry id="75920" lang="en" sex="m">Red Wizard Spellcasting (Wizard)</entry>
+  <entry id="75921" lang="en" sex="m">Shadow Adept Spellcasting (Wizard)</entry>
+  <entry id="75922" lang="en" sex="m">Shadowlord Spellcasting (Wizard)</entry>
+  <entry id="75923" lang="en" sex="m">Soulcaster Spellcasting (Wizard)</entry>
+  <entry id="75924" lang="en" sex="m">Spelldance Spellcasting (Wizard)</entry>
+  <entry id="75925" lang="en" sex="m">Sword Sage Spellcasting (Wizard)</entry>
+  <entry id="75926" lang="en" sex="m">Talon of Tiamat Spellcasting (Wizard)</entry>
+  <entry id="75927" lang="en" sex="m">True Necromancer Spellcasting (Wizard)</entry>
+  <entry id="75928" lang="en" sex="m">Ultimate Magus Spellcasting (Wizard)</entry>
+  <entry id="75929" lang="en" sex="m">Unseen Spellcasting (Wizard)</entry>
+  <entry id="75930" lang="en" sex="m">Virtuoso Spellcasting (Wizard)</entry>
+  <entry id="75931" lang="en" sex="m">Wayfarer Spellcasting (Wizard)</entry>
+  <entry id="75932" lang="en" sex="m">Wild Mage Spellcasting (Wizard)</entry>
+  <entry id="75933" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Wizard)</entry>
+  <entry id="75934" lang="en" sex="m">Black Flame Zealot Spellcasting (Archivist)</entry>
+  <entry id="75935" lang="en" sex="m">Blightlord Spellcasting (Archivist)</entry>
+  <entry id="75936" lang="en" sex="m">Brimstone Speaker Spellcasting (Archivist)</entry>
+  <entry id="75937" lang="en" sex="m">Combat Medic Spellcasting (Archivist)</entry>
+  <entry id="75938" lang="en" sex="m">Contemplative Spellcasting (Archivist)</entry>
+  <entry id="75939" lang="en" sex="m">Fist of Raziel Spellcasting (Archivist)</entry>
+  <entry id="75940" lang="en" sex="m">Forbidden Mystic Musician Spellcasting (Archivist)</entry>
+  <entry id="75941" lang="en" sex="m">Forest Master Spellcasting (Archivist)</entry>
+  <entry id="75942" lang="en" sex="m">Fochulan Lyrist Spellcasting (Archivist)</entry>
+  <entry id="75943" lang="en" sex="m">Hathran Spellcasting (Archivist)</entry>
+  <entry id="75944" lang="en" sex="m">Heartwarder Spellcasting (Archivist)</entry>
+  <entry id="75945" lang="en" sex="m">Hierophant Spellcasting (Archivist)</entry>
+  <entry id="75946" lang="en" sex="m">Hospitaler Spellcasting (Archivist)</entry>
+  <entry id="75947" lang="en" sex="m">Drow Judicator Spellcasting (Archivist)</entry>
+  <entry id="75948" lang="en" sex="m">Might Contender of Kord Spellcasting (Archivist)</entry>
+  <entry id="75949" lang="en" sex="m">Morninglord Spellcasting (Archivist)</entry>
+  <entry id="75950" lang="en" sex="m">Mystic Theurge Spellcasting (Archivist)</entry>
+  <entry id="75951" lang="en" sex="m">Ollam Spellcasting (Archivist)</entry>
+  <entry id="75952" lang="en" sex="m">Oozemaster Spellcasting (Archivist)</entry>
+  <entry id="75953" lang="en" sex="m">Thrall of Orcus Spellcasting (Archivist)</entry>
+  <entry id="75954" lang="en" sex="m">Psychic Theurge Spellcasting (Archivist)</entry>
+  <entry id="75955" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Archivist)</entry>
+  <entry id="75956" lang="en" sex="m">Runecaster Spellcasting (Archivist)</entry>
+  <entry id="75957" lang="en" sex="m">Sacred Purifier Spellcasting (Archivist)</entry>
+  <entry id="75958" lang="en" sex="m">Sapphire Hierarch Spellcasting (Archivist)</entry>
+  <entry id="75959" lang="en" sex="m">Shadowbane Stalker Spellcasting (Archivist)</entry>
+  <entry id="75960" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Archivist)</entry>
+  <entry id="75961" lang="en" sex="m">Stormlord Spellcasting (Archivist)</entry>
+  <entry id="75962" lang="en" sex="m">Swift Wing Spellcasting (Archivist)</entry>
+  <entry id="75963" lang="en" sex="m">Battleguard of Tempus Spellcasting (Archivist)</entry>
+  <entry id="75964" lang="en" sex="m">Tenebrous Apostate Spellcasting (Archivist)</entry>
+  <entry id="75965" lang="en" sex="m">Warpriest Spellcasting (Archivist)</entry>
+  <entry id="75966" lang="en" sex="m">Black Flame Zealot Spellcasting (Blackguard)</entry>
+  <entry id="75967" lang="en" sex="m">Blightlord Spellcasting (Blackguard)</entry>
+  <entry id="75968" lang="en" sex="m">Contemplative Spellcasting (Blackguard)</entry>
+  <entry id="75969" lang="en" sex="m">Fochulan Lyrist Spellcasting (Blackguard)</entry>
+  <entry id="75970" lang="en" sex="m">Hospitaler Spellcasting (Blackguard)</entry>
+  <entry id="75971" lang="en" sex="m">Judicator Spellcasting (Blackguard)</entry>
+  <entry id="75972" lang="en" sex="m">Master of Shrouds Spellcasting (Blackguard)</entry>
+  <entry id="75973" lang="en" sex="m">Mystic Theurge Spellcasting (Blackguard)</entry>
+  <entry id="75974" lang="en" sex="m">Oozemaster Spellcasting (Blackguard)</entry>
+  <entry id="75975" lang="en" sex="m">Thrall of Orcus Spellcasting (Blackguard)</entry>
+  <entry id="75976" lang="en" sex="m">Psychic Theurge Spellcasting (Blackguard)</entry>
+  <entry id="75977" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Blackguard)</entry>
+  <entry id="75978" lang="en" sex="m">Runecaster Spellcasting (Blackguard)</entry>
+  <entry id="75979" lang="en" sex="m">Sapphire Hierarch Spellcasting (Blackguard)</entry>
+  <entry id="75980" lang="en" sex="m">Stormlord Spellcasting (Blackguard)</entry>
+  <entry id="75981" lang="en" sex="m">Swift Wing Spellcasting (Blackguard)</entry>
+  <entry id="75982" lang="en" sex="m">Battleguard of Tempus Spellcasting (Blackguard)</entry>
+  <entry id="75983" lang="en" sex="m">Tenebrous Apostate Spellcasting (Blackguard)</entry>
+  <entry id="75984" lang="en" sex="m">Warpriest Spellcasting (Blackguard)</entry>
+  <entry id="75985" lang="en" sex="m">Black Flame Zealot Spellcasting (Blighter)</entry>
+  <entry id="75986" lang="en" sex="m">Blightlord Spellcasting (Blighter)</entry>
+  <entry id="75987" lang="en" sex="m">Contemplative Spellcasting (Blighter)</entry>
+  <entry id="75988" lang="en" sex="m">Fochulan Lyrist Spellcasting (Blighter)</entry>
+  <entry id="75989" lang="en" sex="m">Hierophant Spellcasting (Blighter)</entry>
+  <entry id="75990" lang="en" sex="m">Hospitaler Spellcasting (Blighter)</entry>
+  <entry id="75991" lang="en" sex="m">Judicator Spellcasting (Blighter)</entry>
+  <entry id="75992" lang="en" sex="m">Master of Shrouds Spellcasting (Blighter)</entry>
+  <entry id="75993" lang="en" sex="m">Mystic Theurge Spellcasting (Blighter)</entry>
+  <entry id="75994" lang="en" sex="m">Oozemaster Spellcasting (Blighter)</entry>
+  <entry id="75995" lang="en" sex="m">Thrall of Orcus Spellcasting (Blighter)</entry>
+  <entry id="75996" lang="en" sex="m">Psychic Theurge Spellcasting (Blighter)</entry>
+  <entry id="75997" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Blighter)</entry>
+  <entry id="75998" lang="en" sex="m">Runecaster Spellcasting (Blighter)</entry>
+  <entry id="75999" lang="en" sex="m">Sapphire Hierarch Spellcasting (Blighter)</entry>
+  <entry id="76000" lang="en" sex="m">Stormlord Spellcasting (Blighter)</entry>
+  <entry id="76001" lang="en" sex="m">Swift Wing Spellcasting (Blighter)</entry>
+  <entry id="76002" lang="en" sex="m">Tenebrous Apostate Spellcasting (Blighter)</entry>
+  <entry id="76003" lang="en" sex="m">Warpriest Spellcasting (Blighter)</entry>
+  <entry id="76004" lang="en" sex="m">Black Flame Zealot Spellcasting (Cleric)</entry>
+  <entry id="76005" lang="en" sex="m">Blightlord Spellcasting (Cleric)</entry>
+  <entry id="76006" lang="en" sex="m">Brimstone Speaker Spellcasting (Cleric)</entry>
+  <entry id="76007" lang="en" sex="m">Combat Medic Spellcasting (Cleric)</entry>
+  <entry id="76008" lang="en" sex="m">Contemplative Spellcasting (Cleric)</entry>
+  <entry id="76009" lang="en" sex="m">Fist of Raziel Spellcasting (Cleric)</entry>
+  <entry id="76010" lang="en" sex="m">Force Missile Mage Spellcasting (Cleric)</entry>
+  <entry id="76011" lang="en" sex="m">Fochulan Lyrist Spellcasting (Cleric)</entry>
+  <entry id="76012" lang="en" sex="m">Forest Master Spellcasting (Cleric)</entry>
+  <entry id="76013" lang="en" sex="m">Hathran Spellcasting (Cleric)</entry>
+  <entry id="76014" lang="en" sex="m">Heartwarder Spellcasting (Cleric)</entry>
+  <entry id="76015" lang="en" sex="m">Hierophant Spellcasting (Cleric)</entry>
+  <entry id="76016" lang="en" sex="m">Hospitaler Spellcasting (Cleric)</entry>
+  <entry id="76017" lang="en" sex="m">Drow Judicator Spellcasting (Cleric)</entry>
+  <entry id="76018" lang="en" sex="m">Might Contender of Kord Spellcasting (Cleric)</entry>
+  <entry id="76019" lang="en" sex="m">Master of Shrouds Spellcasting (Cleric)</entry>
+  <entry id="76020" lang="en" sex="m">Morninglord Spellcasting (Cleric)</entry>
+  <entry id="76021" lang="en" sex="m">Mystic Theurge Spellcasting (Cleric)</entry>
+  <entry id="76022" lang="en" sex="m">Ollam Spellcasting (Cleric)</entry>
+  <entry id="76023" lang="en" sex="m">Thrall of Orcus Spellcasting (Cleric)</entry>
+  <entry id="76024" lang="en" sex="m">Psychic Theurge Spellcasting (Cleric)</entry>
+  <entry id="76025" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Cleric)</entry>
+  <entry id="76026" lang="en" sex="m">Runecaster Spellcasting (Cleric)</entry>
+  <entry id="76027" lang="en" sex="m">Sacred Purifier Spellcasting (Cleric)</entry>
+  <entry id="76028" lang="en" sex="m">Sapphire Hierarch Spellcasting (Cleric)</entry>
+  <entry id="76029" lang="en" sex="m">Shadowbane Stalker Spellcasting (Cleric)</entry>
+  <entry id="76030" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Cleric)</entry>
+  <entry id="76031" lang="en" sex="m">Stormlord Spellcasting (Cleric)</entry>
+  <entry id="76032" lang="en" sex="m">Swift Wing Spellcasting (Cleric)</entry>
+  <entry id="76033" lang="en" sex="m">Battleguard of Tempus Spellcasting (Cleric)</entry>
+  <entry id="76034" lang="en" sex="m">Tenebrous Apostate Spellcasting (Cleric)</entry>
+  <entry id="76035" lang="en" sex="m">Warpriest Spellcasting (Cleric)</entry>
+  <entry id="76036" lang="en" sex="m">Brimstone Speaker Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76037" lang="en" sex="m">Contemplative Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76038" lang="en" sex="m">Fist of Raziel Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76039" lang="en" sex="m">Forest Master Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76040" lang="en" sex="m">Hathran Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76041" lang="en" sex="m">Hierophant Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76042" lang="en" sex="m">Hospitaler Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76043" lang="en" sex="m">Morninglord Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76044" lang="en" sex="m">Mystic Theurge Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76045" lang="en" sex="m">Ollam Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76046" lang="en" sex="m">Oozemaster Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76047" lang="en" sex="m">Psychic Theurge Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76048" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76049" lang="en" sex="m">Runecaster Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76050" lang="en" sex="m">Sacred Purifier Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76051" lang="en" sex="m">Sapphire Hierarch Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76052" lang="en" sex="m">Shadowbane Stalker Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76053" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76054" lang="en" sex="m">Swift Wing Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76055" lang="en" sex="m">Warpriest Spellcasting (Slayer of Domiel)</entry>
+  <entry id="76056" lang="en" sex="m">Brimstone Speaker Spellcasting (Druid)</entry>
+  <entry id="76057" lang="en" sex="m">Combat Medic Spellcasting (Druid)</entry>
+  <entry id="76058" lang="en" sex="m">Contemplative Spellcasting (Druid)</entry>
+  <entry id="76059" lang="en" sex="m">Forest Master Spellcasting (Druid)</entry>
+  <entry id="76060" lang="en" sex="m">Fochulan Lyrist Spellcasting (Druid)</entry>
+  <entry id="76061" lang="en" sex="m">Hathran Spellcasting (Druid)</entry>
+  <entry id="76062" lang="en" sex="m">Hierophant Spellcasting (Druid)</entry>
+  <entry id="76063" lang="en" sex="m">Hospitaler Spellcasting (Druid)</entry>
+  <entry id="76064" lang="en" sex="m">Judicator Spellcasting (Druid)</entry>
+  <entry id="76065" lang="en" sex="m">Master of Shrouds Spellcasting (Druid)</entry>
+  <entry id="76066" lang="en" sex="m">Mystic Theurge Spellcasting (Druid)</entry>
+  <entry id="76067" lang="en" sex="m">Oozemaster Spellcasting (Druid)</entry>
+  <entry id="76068" lang="en" sex="m">Psychic Theurge Spellcasting (Druid)</entry>
+  <entry id="76069" lang="en" sex="m">Runecaster Spellcasting (Druid)</entry>
+  <entry id="76070" lang="en" sex="m">Sacred Purifier Spellcasting (Druid)</entry>
+  <entry id="76071" lang="en" sex="m">Sapphire Hierarch Spellcasting (Druid)</entry>
+  <entry id="76072" lang="en" sex="m">Stormlord Spellcasting (Druid)</entry>
+  <entry id="76073" lang="en" sex="m">Swift Wing Spellcasting (Druid)</entry>
+  <entry id="76074" lang="en" sex="m">Warpriest Spellcasting (Druid)</entry>
+  <entry id="76075" lang="en" sex="m">Black Flame Zealot Spellcasting (Favoured Soul)</entry>
+  <entry id="76076" lang="en" sex="m">Blightlord Spellcasting (Favoured Soul)</entry>
+  <entry id="76077" lang="en" sex="m">Brimstone Speaker Spellcasting (Favoured Soul)</entry>
+  <entry id="76078" lang="en" sex="m">Combat Medic Spellcasting (Favoured Soul)</entry>
+  <entry id="76079" lang="en" sex="m">Contemplative Spellcasting (Favoured Soul)</entry>
+  <entry id="76080" lang="en" sex="m">Fist of Raziel Spellcasting (Favoured Soul)</entry>
+  <entry id="76081" lang="en" sex="m">Forest Master Spellcasting (Favoured Soul)</entry>
+  <entry id="76082" lang="en" sex="m">Fochulan Lyrist Spellcasting (Favoured Soul)</entry>
+  <entry id="76083" lang="en" sex="m">Hathran Spellcasting (Favoured Soul)</entry>
+  <entry id="76084" lang="en" sex="m">Heartwarder Spellcasting (Favoured Soul)</entry>
+  <entry id="76085" lang="en" sex="m">Hierophant Spellcasting (Favoured Soul)</entry>
+  <entry id="76086" lang="en" sex="m">Hospitaler Spellcasting (Favoured Soul)</entry>
+  <entry id="76087" lang="en" sex="m">Drow Judicator Spellcasting (Favoured Soul)</entry>
+  <entry id="76088" lang="en" sex="m">Might Contender of Kord Spellcasting (Favoured Soul)</entry>
+  <entry id="76089" lang="en" sex="m">Master of Shrouds Spellcasting (Favoured Soul)</entry>
+  <entry id="76090" lang="en" sex="m">Morninglord Spellcasting (Favoured Soul)</entry>
+  <entry id="76091" lang="en" sex="m">Mystic Theurge Spellcasting (Favoured Soul)</entry>
+  <entry id="76092" lang="en" sex="m">Ollam Spellcasting (Favoured Soul)</entry>
+  <entry id="76093" lang="en" sex="m">Oozemaster Spellcasting (Favoured Soul)</entry>
+  <entry id="76094" lang="en" sex="m">Thrall of Orcus Spellcasting (Favoured Soul)</entry>
+  <entry id="76095" lang="en" sex="m">Psychic Theurge Spellcasting (Favoured Soul)</entry>
+  <entry id="76096" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Favoured Soul)</entry>
+  <entry id="76097" lang="en" sex="m">Runecaster Spellcasting (Favoured Soul)</entry>
+  <entry id="76098" lang="en" sex="m">Sacred Purifier Spellcasting (Favoured Soul)</entry>
+  <entry id="76099" lang="en" sex="m">Sapphire Hierarch Spellcasting (Favoured Soul)</entry>
+  <entry id="76100" lang="en" sex="m">Shadowbane Stalker Spellcasting (Favoured Soul)</entry>
+  <entry id="76101" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Favoured Soul)</entry>
+  <entry id="76102" lang="en" sex="m">Stormlord Spellcasting (Favoured Soul)</entry>
+  <entry id="76103" lang="en" sex="m">Swift Wing Spellcasting (Favoured Soul)</entry>
+  <entry id="76104" lang="en" sex="m">Battleguard of Tempus Spellcasting (Favoured Soul)</entry>
+  <entry id="76105" lang="en" sex="m">Tenebrous Apostate Spellcasting (Favoured Soul)</entry>
+  <entry id="76106" lang="en" sex="m">Warpriest Spellcasting (Favoured Soul)</entry>
+  <entry id="76107" lang="en" sex="m">Brimstone Speaker Spellcasting (Healer)</entry>
+  <entry id="76108" lang="en" sex="m">Combat Medic Spellcasting (Healer)</entry>
+  <entry id="76109" lang="en" sex="m">Contemplative Spellcasting (Healer)</entry>
+  <entry id="76110" lang="en" sex="m">Fist of Raziel Spellcasting (Healer)</entry>
+  <entry id="76111" lang="en" sex="m">Fochulan Lyrist Spellcasting (Healer)</entry>
+  <entry id="76112" lang="en" sex="m">Forestmaster Spellcasting (Healer)</entry>
+  <entry id="76113" lang="en" sex="m">Hathran Spellcasting (Healer)</entry>
+  <entry id="76114" lang="en" sex="m">Heartwarder Spellcasting (Healer)</entry>
+  <entry id="76115" lang="en" sex="m">Hierophant Spellcasting (Healer)</entry>
+  <entry id="76116" lang="en" sex="m">Hospitaler Spellcasting (Healer)</entry>
+  <entry id="76117" lang="en" sex="m">Kord Spellcasting (Healer)</entry>
+  <entry id="76118" lang="en" sex="m">Morninglord Spellcasting (Healer)</entry>
+  <entry id="76119" lang="en" sex="m">Mystic Theurge Spellcasting (Healer)</entry>
+  <entry id="76120" lang="en" sex="m">Ollam Spellcasting (Healer)</entry>
+  <entry id="76121" lang="en" sex="m">Psychic Theurge Spellcasting (Healer)</entry>
+  <entry id="76122" lang="en" sex="m">Ruby Vindicator Spellcasting (Healer)</entry>
+  <entry id="76123" lang="en" sex="m">Runecaster Spellcasting (Healer)</entry>
+  <entry id="76124" lang="en" sex="m">Sacred Purifier Spellcasting (Healer)</entry>
+  <entry id="76125" lang="en" sex="m">Sapphire Hierarch Spellcasting (Healer)</entry>
+  <entry id="76126" lang="en" sex="m">Shadowbane Stalker Spellcasting (Healer)</entry>
+  <entry id="76127" lang="en" sex="m">Shining Blade Spellcasting (Healer)</entry>
+  <entry id="76128" lang="en" sex="m">Swift Wing Spellcasting (Healer)</entry>
+  <entry id="76129" lang="en" sex="m">Warpriest Spellcasting (Healer)</entry>
+  <entry id="76130" lang="en" sex="m">Black Flame Zealot Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76131" lang="en" sex="m">Blightlord Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76132" lang="en" sex="m">Brimstone Speaker Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76133" lang="en" sex="m">Combat Medic Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76134" lang="en" sex="m">Contemplative Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76135" lang="en" sex="m">Fist of Raziel Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76136" lang="en" sex="m">Forest Master Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76137" lang="en" sex="m">Fochulan Lyrist Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76138" lang="en" sex="m">Hathran Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76139" lang="en" sex="m">Heartwarder Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76140" lang="en" sex="m">Hierophant Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76141" lang="en" sex="m">Hospitaler Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76142" lang="en" sex="m">Drow Judicator Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76143" lang="en" sex="m">Might Contender of Kord Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76144" lang="en" sex="m">Master of Shrouds Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76145" lang="en" sex="m">Morninglord Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76146" lang="en" sex="m">Mystic Theurge Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76147" lang="en" sex="m">Ollam Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76148" lang="en" sex="m">Oozemaster Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76149" lang="en" sex="m">Thrall of Orcus Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76150" lang="en" sex="m">Psychic Theurge Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76151" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76152" lang="en" sex="m">Runecaster Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76153" lang="en" sex="m">Sacred Purifier Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76154" lang="en" sex="m">Sapphire Hierarch Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76155" lang="en" sex="m">Shadowbane Stalker Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76156" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76157" lang="en" sex="m">Stormlord Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76158" lang="en" sex="m">Swift Wing Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76159" lang="en" sex="m">Battleguard of Tempus Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76160" lang="en" sex="m">Tenebrous Apostate Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76161" lang="en" sex="m">Warpriest Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76162" lang="en" sex="m">Brimstone Speaker Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76163" lang="en" sex="m">Combat Medic Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76164" lang="en" sex="m">Contemplative Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76165" lang="en" sex="m">Fist of Raziel Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76166" lang="en" sex="m">Forest Master Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76167" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76168" lang="en" sex="m">Hathran Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76169" lang="en" sex="m">Hierophant Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76170" lang="en" sex="m">Hospitaler Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76171" lang="en" sex="m">Morninglord Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76172" lang="en" sex="m">Mystic Theurge Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76173" lang="en" sex="m">Ollam Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76174" lang="en" sex="m">Psychic Theurge Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76175" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76176" lang="en" sex="m">Runecaster Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76177" lang="en" sex="m">Sacred Purifier Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76178" lang="en" sex="m">Sapphire Hierarch Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76179" lang="en" sex="m">Shadowbane Stalker Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76180" lang="en" sex="m">Shining Blade Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76181" lang="en" sex="m">Swift Wing Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76182" lang="en" sex="m">Warpriest Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76183" lang="en" sex="m">Brimstone Speaker Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76184" lang="en" sex="m">Combat Medic Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76185" lang="en" sex="m">Contemplative Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76186" lang="en" sex="m">Fist of Raziel Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76187" lang="en" sex="m">Forest Master Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76188" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76189" lang="en" sex="m">Hathran Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76190" lang="en" sex="m">Heartwarder Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76191" lang="en" sex="m">Hierophant Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76192" lang="en" sex="m">Hospitaler Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76193" lang="en" sex="m">Morninglord Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76194" lang="en" sex="m">Mystic Theurge Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76195" lang="en" sex="m">Ollam Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76196" lang="en" sex="m">Oozemaster Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76197" lang="en" sex="m">Psychic Theurge Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76198" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76199" lang="en" sex="m">Runecaster Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76200" lang="en" sex="m">Sacred Purifier Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76201" lang="en" sex="m">Sapphire Hierarch Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76202" lang="en" sex="m">Shadowbane Stalker Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76203" lang="en" sex="m">Shining Blade Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76204" lang="en" sex="m">Swift Wing Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76205" lang="en" sex="m">Warpriest Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76206" lang="en" sex="m">Brimstone Speaker Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76207" lang="en" sex="m">Combat Medic Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76208" lang="en" sex="m">Contemplative Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76209" lang="en" sex="m">Fist of Raziel Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76210" lang="en" sex="m">Force Missile Mage Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76211" lang="en" sex="m">Forest Master Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76212" lang="en" sex="m">Fochulan Lyrist Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76213" lang="en" sex="m">Hathran Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76214" lang="en" sex="m">Healer Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76215" lang="en" sex="m">Hierophant Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76216" lang="en" sex="m">Hospitaler Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76217" lang="en" sex="m">Mighty Contender of Kord Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76218" lang="en" sex="m">Morninglord Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76219" lang="en" sex="m">Mystic Theurge Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76220" lang="en" sex="m">Ollam Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76221" lang="en" sex="m">Oozemaster Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76222" lang="en" sex="m">Psychic Theurge Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76223" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76224" lang="en" sex="m">Runecaster Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76225" lang="en" sex="m">Sacred Purifier Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76226" lang="en" sex="m">Sapphire Hierarch Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76227" lang="en" sex="m">Shadowbane Stalker Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76228" lang="en" sex="m">Shining Blade Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76229" lang="en" sex="m">Swift Wing Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76230" lang="en" sex="m">Warpriest Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76231" lang="en" sex="m">Black Flame Zealot Spellcasting (Ocular Adept)</entry>
+  <entry id="76232" lang="en" sex="m">Blightlord Spellcasting (Ocular Adept)</entry>
+  <entry id="76233" lang="en" sex="m">Brimstone Speaker Spellcasting (Ocular Adept)</entry>
+  <entry id="76234" lang="en" sex="m">Fochulan Lyrist Spellcasting (Ocular Adept)</entry>
+  <entry id="76235" lang="en" sex="m">Hospitaler Spellcasting (Ocular Adept)</entry>
+  <entry id="76236" lang="en" sex="m">Drow Judicator Spellcasting (Ocular Adept)</entry>
+  <entry id="76237" lang="en" sex="m">Master of Shrouds Spellcasting (Ocular Adept)</entry>
+  <entry id="76238" lang="en" sex="m">Mystic Theurge Spellcasting (Ocular Adept)</entry>
+  <entry id="76239" lang="en" sex="m">Oozemaster Spellcasting (Ocular Adept)</entry>
+  <entry id="76240" lang="en" sex="m">Psychic Theurge Spellcasting (Ocular Adept)</entry>
+  <entry id="76241" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Ocular Adept)</entry>
+  <entry id="76242" lang="en" sex="m">Runecaster Spellcasting (Ocular Adept)</entry>
+  <entry id="76243" lang="en" sex="m">Sapphire Hierarch Spellcasting (Ocular Adept)</entry>
+  <entry id="76244" lang="en" sex="m">Stormlord Spellcasting (Ocular Adept)</entry>
+  <entry id="76245" lang="en" sex="m">Swift Wing Spellcasting (Ocular Adept)</entry>
+  <entry id="76246" lang="en" sex="m">Battleguard of Tempus Spellcasting (Ocular Adept)</entry>
+  <entry id="76247" lang="en" sex="m">Tenebrous Apostate Spellcasting (Ocular Adept)</entry>
+  <entry id="76248" lang="en" sex="m">Warpriest Spellcasting (Ocular Adept)</entry>
+  <entry id="76249" lang="en" sex="m">Brimstone Speaker Spellcasting (Paladin)</entry>
+  <entry id="76250" lang="en" sex="m">Contemplative Spellcasting (Paladin)</entry>
+  <entry id="76251" lang="en" sex="m">Fist of Raziel Spellcasting (Paladin)</entry>
+  <entry id="76252" lang="en" sex="m">Hathran Spellcasting (Paladin)</entry>
+  <entry id="76253" lang="en" sex="m">Hierophant Spellcasting (Paladin)</entry>
+  <entry id="76254" lang="en" sex="m">Hospitaler Spellcasting (Paladin)</entry>
+  <entry id="76255" lang="en" sex="m">Morninglord Spellcasting (Paladin)</entry>
+  <entry id="76256" lang="en" sex="m">Mystic Theurge Spellcasting (Paladin)</entry>
+  <entry id="76257" lang="en" sex="m">Ollam Spellcasting (Paladin)</entry>
+  <entry id="76258" lang="en" sex="m">Oozemaster Spellcasting (Paladin)</entry>
+  <entry id="76259" lang="en" sex="m">Psychic Theurge Spellcasting (Paladin)</entry>
+  <entry id="76260" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Paladin)</entry>
+  <entry id="76261" lang="en" sex="m">Runecaster Spellcasting (Paladin)</entry>
+  <entry id="76262" lang="en" sex="m">Sacred Purifier Spellcasting (Paladin)</entry>
+  <entry id="76263" lang="en" sex="m">Sapphire Hierarch Spellcasting (Paladin)</entry>
+  <entry id="76264" lang="en" sex="m">Shadowbane Stalker Spellcasting (Paladin)</entry>
+  <entry id="76265" lang="en" sex="m">Shining Blade Spellcasting (Paladin)</entry>
+  <entry id="76266" lang="en" sex="m">Swift Wing Spellcasting (Paladin)</entry>
+  <entry id="76267" lang="en" sex="m">Warpriest Spellcasting (Paladin)</entry>
+  <entry id="76268" lang="en" sex="m">Black Flame Zealot Spellcasting (Ranger)</entry>
+  <entry id="76269" lang="en" sex="m">Blightlord Spellcasting (Ranger)</entry>
+  <entry id="76270" lang="en" sex="m">Brimstone Speaker Spellcasting (Ranger)</entry>
+  <entry id="76271" lang="en" sex="m">Combat Medic Spellcasting (Ranger)</entry>
+  <entry id="76272" lang="en" sex="m">Contemplative Spellcasting (Ranger)</entry>
+  <entry id="76273" lang="en" sex="m">Fist of Raziel Spellcasting (Ranger)</entry>
+  <entry id="76274" lang="en" sex="m">Forestmaster Spellcasting (Ranger)</entry>
+  <entry id="76275" lang="en" sex="m">Fochulan Lyrist Spellcasting (Ranger)</entry>
+  <entry id="76276" lang="en" sex="m">Hathran Spellcasting (Ranger)</entry>
+  <entry id="76277" lang="en" sex="m">Heartwarder Spellcasting (Ranger)</entry>
+  <entry id="76278" lang="en" sex="m">Hospitaler Spellcasting (Ranger)</entry>
+  <entry id="76279" lang="en" sex="m">Drow Judicator Spellcasting (Ranger)</entry>
+  <entry id="76280" lang="en" sex="m">Mighty Continder of Kord Spellcasting (Ranger)</entry>
+  <entry id="76281" lang="en" sex="m">Master of Shrouds Spellcasting (Ranger)</entry>
+  <entry id="76282" lang="en" sex="m">Morninglord Spellcasting (Ranger)</entry>
+  <entry id="76283" lang="en" sex="m">Mystic Theurge Spellcasting (Ranger)</entry>
+  <entry id="76284" lang="en" sex="m">Ollam Spellcasting (Ranger)</entry>
+  <entry id="76285" lang="en" sex="m">Oozemaster Spellcasting (Ranger)</entry>
+  <entry id="76286" lang="en" sex="m">Thrall of Orcus Spellcasting (Ranger)</entry>
+  <entry id="76287" lang="en" sex="m">Psychic Theurge Spellcasting (Ranger)</entry>
+  <entry id="76288" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Ranger)</entry>
+  <entry id="76289" lang="en" sex="m">Runecaster Spellcasting (Ranger)</entry>
+  <entry id="76290" lang="en" sex="m">Sacred Purifier Spellcasting (Ranger)</entry>
+  <entry id="76291" lang="en" sex="m">Sapphire Hierarch Spellcasting (Ranger)</entry>
+  <entry id="76292" lang="en" sex="m">Shadowbane Stalker Spellcasting (Ranger)</entry>
+  <entry id="76293" lang="en" sex="m">Shining Blade Spellcasting (Ranger)</entry>
+  <entry id="76294" lang="en" sex="m">Stormlord Spellcasting (Ranger)</entry>
+  <entry id="76295" lang="en" sex="m">Swift Wing Spellcasting (Ranger)</entry>
+  <entry id="76296" lang="en" sex="m">Battleguard of Tempus Spellcasting (Ranger)</entry>
+  <entry id="76297" lang="en" sex="m">Tenebrous Apostate Spellcasting (Ranger)</entry>
+  <entry id="76298" lang="en" sex="m">Warpriest Spellcasting (Ranger)</entry>
+  <entry id="76299" lang="en" sex="m">Black Flame Zealot Spellcasting (Sohei)</entry>
+  <entry id="76300" lang="en" sex="m">Blightlord Spellcasting (Sohei)</entry>
+  <entry id="76301" lang="en" sex="m">Brimstone Speaker Spellcasting (Sohei)</entry>
+  <entry id="76302" lang="en" sex="m">Combat Medic Spellcasting (Sohei)</entry>
+  <entry id="76303" lang="en" sex="m">Contemplative Spellcasting (Sohei)</entry>
+  <entry id="76304" lang="en" sex="m">Fist of Raziel Spellcasting (Sohei)</entry>
+  <entry id="76305" lang="en" sex="m">Forestmaster Spellcasting (Sohei)</entry>
+  <entry id="76306" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sohei)</entry>
+  <entry id="76307" lang="en" sex="m">Hathran Spellcasting (Sohei)</entry>
+  <entry id="76308" lang="en" sex="m">Hierophant Spellcasting (Sohei)</entry>
+  <entry id="76309" lang="en" sex="m">Hospitaler Spellcasting (Sohei)</entry>
+  <entry id="76310" lang="en" sex="m">Drow Judicator Spellcasting (Sohei)</entry>
+  <entry id="76311" lang="en" sex="m">Master of Shrouds Spellcasting (Sohei)</entry>
+  <entry id="76312" lang="en" sex="m">Morninglord Spellcasting (Sohei)</entry>
+  <entry id="76313" lang="en" sex="m">Mystic Theurge Spellcasting (Sohei)</entry>
+  <entry id="76314" lang="en" sex="m">Ollam Spellcasting (Sohei)</entry>
+  <entry id="76315" lang="en" sex="m">Oozemaster Spellcasting (Sohei)</entry>
+  <entry id="76316" lang="en" sex="m">Thrall of Orcus Spellcasting (Sohei)</entry>
+  <entry id="76317" lang="en" sex="m">Psychic Theurge Spellcasting (Sohei)</entry>
+  <entry id="76318" lang="en" sex="m">Runecaster Spellcasting (Sohei)</entry>
+  <entry id="76319" lang="en" sex="m">Sacred Purifier Spellcasting (Sohei)</entry>
+  <entry id="76320" lang="en" sex="m">Sapphire Hierarch Spellcasting (Sohei)</entry>
+  <entry id="76321" lang="en" sex="m">Shining Blade Spellcasting (Sohei)</entry>
+  <entry id="76322" lang="en" sex="m">Swift Wing Spellcasting (Sohei)</entry>
+  <entry id="76323" lang="en" sex="m">Tenebrous Apostate Spellcasting (Sohei)</entry>
+  <entry id="76324" lang="en" sex="m">Warpriest Spellcasting (Sohei)</entry>
+  <entry id="76325" lang="en" sex="m">Brimstone Speaker Spellcasting (Soldier of Light)</entry>
+  <entry id="76326" lang="en" sex="m">Combat Medic Spellcasting (Soldier of Light)</entry>
+  <entry id="76327" lang="en" sex="m">Contemplative Spellcasting (Soldier of Light)</entry>
+  <entry id="76328" lang="en" sex="m">Forest Master Spellcasting (Soldier of Light)</entry>
+  <entry id="76329" lang="en" sex="m">Fochulan Lyrist Spellcasting (Soldier of Light)</entry>
+  <entry id="76330" lang="en" sex="m">Hathran Spellcasting (Soldier of Light)</entry>
+  <entry id="76331" lang="en" sex="m">Hierophant Spellcasting (Soldier of Light)</entry>
+  <entry id="76332" lang="en" sex="m">Hospitaler Spellcasting (Soldier of Light)</entry>
+  <entry id="76333" lang="en" sex="m">Morninglord Spellcasting (Soldier of Light)</entry>
+  <entry id="76334" lang="en" sex="m">Mystic Theurge Spellcasting (Soldier of Light)</entry>
+  <entry id="76335" lang="en" sex="m">Oozemaster Spellcasting (Soldier of Light)</entry>
+  <entry id="76336" lang="en" sex="m">Psychic Theurge Spellcasting (Soldier of Light)</entry>
+  <entry id="76337" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Soldier of Light)</entry>
+  <entry id="76338" lang="en" sex="m">Runecaster Spellcasting (Soldier of Light)</entry>
+  <entry id="76339" lang="en" sex="m">Sacred Purifier Spellcasting (Soldier of Light)</entry>
+  <entry id="76340" lang="en" sex="m">Swift Wing Spellcasting (Soldier of Light)</entry>
+  <entry id="76341" lang="en" sex="m">Warpriest Spellcasting (Soldier of Light)</entry>
+  <entry id="76342" lang="en" sex="m">Black Flame Zealot Spellcasting (Spirit Shaman)</entry>
+  <entry id="76343" lang="en" sex="m">Blightlord Spellcasting (Spirit Shaman)</entry>
+  <entry id="76344" lang="en" sex="m">Brimstone Speaker Spellcasting (Spirit Shaman)</entry>
+  <entry id="76345" lang="en" sex="m">Combat Medic Spellcasting (Spirit Shaman)</entry>
+  <entry id="76346" lang="en" sex="m">Contemplative Spellcasting (Spirit Shaman)</entry>
+  <entry id="76347" lang="en" sex="m">Fist of Raziel Spellcasting (Spirit Shaman)</entry>
+  <entry id="76348" lang="en" sex="m">Forestmaster Spellcasting (Spirit Shaman)</entry>
+  <entry id="76349" lang="en" sex="m">Fochulan Lyrist Spellcasting (Spirit Shaman)</entry>
+  <entry id="76350" lang="en" sex="m">Forestmaster Spellcasting (Spirit Shaman)</entry>
+  <entry id="76351" lang="en" sex="m">Hathran Spellcasting (Spirit Shaman)</entry>
+  <entry id="76352" lang="en" sex="m">Heartwarder Spellcasting (Spirit Shaman)</entry>
+  <entry id="76353" lang="en" sex="m">Hierophant Spellcasting (Spirit Shaman)</entry>
+  <entry id="76354" lang="en" sex="m">Hospitaler Spellcasting (Spirit Shaman)</entry>
+  <entry id="76355" lang="en" sex="m">Drow Judicator Spellcasting (Spirit Shaman)</entry>
+  <entry id="76356" lang="en" sex="m">Mighty Contender of Kord Spellcasting (Spirit Shaman)</entry>
+  <entry id="76357" lang="en" sex="m">Master of Shrouds Spellcasting (Spirit Shaman)</entry>
+  <entry id="76358" lang="en" sex="m">Morninglord Spellcasting (Spirit Shaman)</entry>
+  <entry id="76359" lang="en" sex="m">Mystic Theurge Spellcasting (Spirit Shaman)</entry>
+  <entry id="76360" lang="en" sex="m">Ollam Spellcasting (Spirit Shaman)</entry>
+  <entry id="76361" lang="en" sex="m">Thrall of Orcus Spellcasting (Spirit Shaman)</entry>
+  <entry id="76362" lang="en" sex="m">Psychic Theurge Spellcasting (Spirit Shaman)</entry>
+  <entry id="76363" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Spirit Shaman)</entry>
+  <entry id="76364" lang="en" sex="m">Runecaster Spellcasting (Spirit Shaman)</entry>
+  <entry id="76365" lang="en" sex="m">Sacred Purifier Spellcasting (Spirit Shaman)</entry>
+  <entry id="76366" lang="en" sex="m">Sapphire Hierarch Spellcasting (Spirit Shaman)</entry>
+  <entry id="76367" lang="en" sex="m">Shadowbane Stalker Spellcasting (Spirit Shaman)</entry>
+  <entry id="76368" lang="en" sex="m">Shining Blade Spellcasting (Spirit Shaman)</entry>
+  <entry id="76369" lang="en" sex="m">Stormlord Spellcasting (Spirit Shaman)</entry>
+  <entry id="76370" lang="en" sex="m">Swift Wing Spellcasting (Spirit Shaman)</entry>
+  <entry id="76371" lang="en" sex="m">Battleguard Tempus Spellcasting (Spirit Shaman)</entry>
+  <entry id="76372" lang="en" sex="m">Tenebrous Apostate Spellcasting (Spirit Shaman)</entry>
+  <entry id="76373" lang="en" sex="m">Warpriest Spellcasting (Spirit Shaman)</entry>
+  <entry id="76374" lang="en" sex="m">Black Flame Zealot Spellcasting (Shaman)</entry>
+  <entry id="76375" lang="en" sex="m">Blightlord Spellcasting (Shaman)</entry>
+  <entry id="76376" lang="en" sex="m">Brimstone Speaker Spellcasting (Shaman)</entry>
+  <entry id="76377" lang="en" sex="m">Combat Medic Spellcasting (Shaman)</entry>
+  <entry id="76378" lang="en" sex="m">Contemplative Spellcasting (Shaman)</entry>
+  <entry id="76379" lang="en" sex="m">Fist of Raziel Spellcasting (Shaman)</entry>
+  <entry id="76380" lang="en" sex="m">Forest Master Spellcasting (Shaman)</entry>
+  <entry id="76381" lang="en" sex="m">Fochulan Lyrist Spellcasting (Shaman)</entry>
+  <entry id="76382" lang="en" sex="m">Forestmaster Spellcasting (Shaman)</entry>
+  <entry id="76383" lang="en" sex="m">Hathran Spellcasting (Shaman)</entry>
+  <entry id="76384" lang="en" sex="m">Healer Spellcasting (Shaman)</entry>
+  <entry id="76385" lang="en" sex="m">Heartwarder Spellcasting (Shaman)</entry>
+  <entry id="76386" lang="en" sex="m">Hierophant Spellcasting (Shaman)</entry>
+  <entry id="76387" lang="en" sex="m">Hospitaler Spellcasting (Shaman)</entry>
+  <entry id="76388" lang="en" sex="m">Drow Judicator Spellcasting (Shaman)</entry>
+  <entry id="76389" lang="en" sex="m">Mighty Contender of Kord Spellcasting (Shaman)</entry>
+  <entry id="76390" lang="en" sex="m">Master of Shrouds Spellcasting (Shaman)</entry>
+  <entry id="76391" lang="en" sex="m">Morninglord Spellcasting (Shaman)</entry>
+  <entry id="76392" lang="en" sex="m">Mystic Theurge Spellcasting (Shaman)</entry>
+  <entry id="76393" lang="en" sex="m">Ollam Spellcasting (Shaman)</entry>
+  <entry id="76394" lang="en" sex="m">Thrall of Orcus Spellcasting (Shaman)</entry>
+  <entry id="76395" lang="en" sex="m">Psychic Theurge Spellcasting (Shaman)</entry>
+  <entry id="76396" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Shaman)</entry>
+  <entry id="76397" lang="en" sex="m">Runecaster Spellcasting (Shaman)</entry>
+  <entry id="76398" lang="en" sex="m">Sacred Purifier Spellcasting (Shaman)</entry>
+  <entry id="76399" lang="en" sex="m">Sapphire Hierarch Spellcasting (Shaman)</entry>
+  <entry id="76400" lang="en" sex="m">Shadowbane Stalker Spellcasting (Shaman)</entry>
+  <entry id="76401" lang="en" sex="m">Shining Blade Spellcasting (Shaman)</entry>
+  <entry id="76402" lang="en" sex="m">Stormlord Spellcasting (Shaman)</entry>
+  <entry id="76403" lang="en" sex="m">Swift Wing Spellcasting (Shaman)</entry>
+  <entry id="76404" lang="en" sex="m">Battleguard of Tempus Spellcasting (Shaman)</entry>
+  <entry id="76405" lang="en" sex="m">Tenebrous Apostate Spellcasting (Shaman)</entry>
+  <entry id="76406" lang="en" sex="m">Warpriest Spellcasting (Shaman)</entry>
+  <entry id="76407" lang="en" sex="m">Black Flame Zealot Spellcasting (Ur-Priest)</entry>
+  <entry id="76408" lang="en" sex="m">Contemplative Spellcasting (Ur-Priest)</entry>
+  <entry id="76409" lang="en" sex="m">Hierophant Spellcasting (Ur-Priest)</entry>
+  <entry id="76410" lang="en" sex="m">Hospitaler Spellcasting (Ur-Priest)</entry>
+  <entry id="76411" lang="en" sex="m">Drow Judicator Spellcasting (Ur-Priest)</entry>
+  <entry id="76412" lang="en" sex="m">Mystic Theurge Spellcasting (Ur-Priest)</entry>
+  <entry id="76413" lang="en" sex="m">Oozemaster Spellcasting (Ur-Priest)</entry>
+  <entry id="76414" lang="en" sex="m">Psychic Theurge Spellcasting (Ur-Priest)</entry>
+  <entry id="76415" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Ur-Priest)</entry>
+  <entry id="76416" lang="en" sex="m">Runecaster Spellcasting (Ur-Priest)</entry>
+  <entry id="76417" lang="en" sex="m">Sapphire Hierarch Spellcasting (Ur-Priest)</entry>
+  <entry id="76418" lang="en" sex="m">Swift Wing Spellcasting (Ur-Priest)</entry>
+  <entry id="76419" lang="en" sex="m">Tenebrous Apostate Spellcasting (Ur-Priest)</entry>
+  <entry id="76420" lang="en" sex="m">Warpriest Spellcasting (Ur-Priest)</entry>
+  <entry id="76421" lang="en" sex="m">Brimstone Speaker Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76422" lang="en" sex="m">Contemplative Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76423" lang="en" sex="m">Hathran Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76424" lang="en" sex="m">Healer Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76425" lang="en" sex="m">Hierophant Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76426" lang="en" sex="m">Hospitaler Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76427" lang="en" sex="m">Mystic Theurge Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76428" lang="en" sex="m">Ollam Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76429" lang="en" sex="m">Oozemaster Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76430" lang="en" sex="m">Psychic Theurge Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76431" lang="en" sex="m">Ruby Knight Vindicator Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76432" lang="en" sex="m">Runecaster Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76433" lang="en" sex="m">Sacred Purifier Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76434" lang="en" sex="m">Sapphire Hierarch Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76435" lang="en" sex="m">Shadowbane Stalker Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76436" lang="en" sex="m">Shining Blade Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76437" lang="en" sex="m">Swift Wing Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76438" lang="en" sex="m">Warpriest Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="76439" lang="en" sex="m">The Archmage sacrifices the bonus spell slots he would gain in order to take a High Arcana feat at each level. He does, however, add his level to his base caster class when determining spell power (damage, duration...). </entry>
+  <entry id="76440" lang="en" sex="m">At each even-numbered level, an acolyte of the skin gains new spells per day (and spells known, if applicable) as if he had also gained a level in a spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (improved chance of turning or destroying undead, a bonus feat, and so on). If he had more than one spellcasting class before becoming an acolyte of the skin, he must decide to which class to add each level for the purpose of determining spells per day and spells known.</entry>
+  <entry id="76441" lang="en" sex="m">At each level, an alienist gains new spells per day (and spells known, if applicable) as if she had also gained a level in a spellcasting class to which she belonged before adding the prestige class level. She does not, however, gain any other benefit a character of that class would have gained (improved chance of turning or destroying undead, a bonus feat, and so on). If she had more than one spellcasting class before becoming an alienist, she must decide to which class to add each level for the purpose of determining spells per day and spells known.</entry>
 </tlk>
