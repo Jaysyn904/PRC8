@@ -1560,13 +1560,13 @@ Specifics: Normally, armor of any type interferes with an arcane spellcaster's g
 Use: Automatic.</entry>
   <entry id="12660" lang="en" sex="m">Trapfinding</entry>
   <entry id="12661" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Beguiler 1.
+Prerequisite: Beguiler 1, Factotum 1, Ninja 1, Psychic Rogue 1, Rogue 1 or Scout 1.
 
-Specifics: Beguilers can use the Search skill to locate traps when the task has a Difficulty Class higher than 20. Finding a nonmagical trap has a DC of at least 20, or higher if it is well hidden. Finding a magic trap has a DC of 25 + the level of the spell used to create it.
+Specifics: The aformentioned classes can use the Search skill to locate traps when the task has a Difficulty Class higher than 20. Finding a nonmagical trap has a DC of at least 20, or higher if it is well hidden. Finding a magic trap has a DC of 25 + the level of the spell used to create it.
 
-Beguilers can use the Disable Trap skill to disarm magic traps. A magic trap typically has a DC of 25 + the level of the spell used to create it.
+Characters with this class ability can use the Disable Trap skill to disarm magic traps. A magic trap typically has a DC of 25 + the level of the spell used to create it.
 
-A beguiler who beats a trap's DC by 10 or more with a Disable Trap check can study a trap, figure out how it works, and bypass it (with his allies) without disarming it.
+A character who beats a trap's DC by 10 or more with a Disable Trap check can study a trap, figure out how it works, and bypass it (with his allies) without disarming it.
 
 Use: Automatic.</entry>
   <entry id="12662" lang="en" sex="m">Cloaked Casting (Ex)</entry>
