@@ -9,7 +9,10 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_ARCHIVIST, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_ARCHIVIST, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_ARCHIVIST, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_ARCHIVIST, oCaster))
@@ -38,6 +41,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_ARCHIVIST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_ARCHIVIST, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
@@ -114,7 +120,10 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_BLACKGUARD, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLACKGUARD, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLACKGUARD, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 /* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BLACKGUARD, oCaster))
@@ -216,7 +225,10 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_BLIGHTER, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLIGHTER, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLIGHTER, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 /* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BLIGHTER, oCaster))
@@ -242,6 +254,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_BLIGHTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);			
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_BLIGHTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -318,7 +333,10 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_CLERIC, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_CLERIC, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+        
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_CLERIC, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_CLERIC, oCaster))
@@ -347,6 +365,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_CLERIC, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);			
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_CLERIC, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -423,7 +444,10 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_DRUID, oCaster))
     {    
-/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DRUID, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;  
+
+	/*	if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DRUID, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_DRUID, oCaster))
@@ -449,6 +473,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_DRUID, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_DRUID, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -525,7 +552,10 @@ void main ()
 	   
     if(GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;  
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_FAVOURED_SOUL, oCaster))
@@ -551,6 +581,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -626,8 +659,9 @@ void main ()
    
 
     if(GetLevelByClass(CLASS_TYPE_HEALER, oCaster))
-    {    
-/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_HEALER, oCaster))
+    {
+		
+/*		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_HEALER, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_HEALER, oCaster))
@@ -642,8 +676,8 @@ void main ()
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_HEALER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
-		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_HEALER, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
 		
 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_HEALER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
@@ -726,12 +760,13 @@ void main ()
 	}
 //:: End Healer Divine PrC casting calculations	
    
-
-
 	   
     if(GetLevelByClass(CLASS_TYPE_JUSTICEWW, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_JUSTICEWW, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;  
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_JUSTICEWW, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_JUSTICEWW, oCaster))
@@ -746,8 +781,8 @@ void main ()
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_JUSTICEWW, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
-		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_JUSTICEWW, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
 		
 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_JUSTICEWW, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
@@ -1036,8 +1071,11 @@ void main ()
 	   
 	   
     if(GetLevelByClass(CLASS_TYPE_NENTYAR_HUNTER, oCaster))
-    {    
-/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+    { 
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;  	
+		
+/*		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_NENTYAR_HUNTER, oCaster))
@@ -1055,8 +1093,8 @@ void main ()
 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_NENTYAR_HUNTER, oCaster))	//:: Not divine
 			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 		
-		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
 		
 /* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
@@ -1066,6 +1104,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
@@ -1141,7 +1182,10 @@ void main ()
 	   
 	   
     if(GetLevelByClass(CLASS_TYPE_OCULAR, oCaster))
-    {    
+    {   
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_OCULAR, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
@@ -1168,6 +1212,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_OCULAR, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OCULAR, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -1345,7 +1392,11 @@ void main ()
 	   
 	   
     if(GetLevelByClass(CLASS_TYPE_RANGER, oCaster))
-    {    
+    {
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_RANGER, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
@@ -1361,8 +1412,8 @@ void main ()
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_RANGER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
-		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_RANGER, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
 		
 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_RANGER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
@@ -1448,7 +1499,10 @@ void main ()
 	   
     if(GetLevelByClass(CLASS_TYPE_SHAMAN, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SHAMAN, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SHAMAN, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_SHAMAN, oCaster))
@@ -1463,8 +1517,8 @@ void main ()
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_SHAMAN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
-		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_SHAMAN, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_SHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
 		
 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SHAMAN, oCaster) && GetHasFeat(FEAT_BONUS_DOMAIN_FORCE, oCaster) || GetHasFeat(FEAT_FORCE_DOMAIN, oCaster))	//:: Not divine
 			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
@@ -1477,6 +1531,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SHAMAN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SHAMAN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -1552,7 +1609,8 @@ void main ()
 	   
 	   
     if(GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oCaster))
-    {    
+    {
+		
 /*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DOMIEL, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
@@ -1655,7 +1713,10 @@ void main ()
 	   
     if(GetLevelByClass(CLASS_TYPE_SOHEI, oCaster))
     {    
-        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SOHEI, oCaster))
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	;		
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SOHEI, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_SOHEI, oCaster))
@@ -1858,7 +1919,11 @@ void main ()
 	   
 	   
     if(GetLevelByClass(CLASS_TYPE_UR_PRIEST, oCaster))
-    {    
+    { 
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster + 1) / 2	; 	
+		
 /*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_UR_PRIEST, oCaster))
 			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
 		
@@ -1885,6 +1950,9 @@ void main ()
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_UR_PRIEST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);			
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_UR_PRIEST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
@@ -1974,16 +2042,16 @@ void main ()
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
 		
 /* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_VASSAL, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
 		
 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_VASSAL, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
 		
-		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_VASSAL, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
 		
 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_VASSAL, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_VASSAL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);

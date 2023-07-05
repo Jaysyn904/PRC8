@@ -34,6 +34,8 @@ int GetIsOnehandedSlashingWeapon(object oWeapon)
         GetBaseItemType(oWeapon) == BASE_ITEM_KUKRI ||
         GetBaseItemType(oWeapon) == BASE_ITEM_SCIMITAR ||
         GetBaseItemType(oWeapon) == BASE_ITEM_BASTARDSWORD ||
+        GetBaseItemType(oWeapon) == BASE_ITEM_SICKLE ||
+		GetBaseItemType(oWeapon) == BASE_ITEM_KATANA ||
         GetBaseItemType(oWeapon) == BASE_ITEM_DWARVENWARAXE)
     {
         return TRUE;

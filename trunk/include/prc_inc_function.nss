@@ -276,7 +276,7 @@ void SetupCharacterData(object oPC)
     //Setup class info for onleveldown script
     int nCharData = ((GetClassByPosition(8, oPC) & 0xFF) << 56) |
 					((GetClassByPosition(7, oPC) & 0xFF) << 48) |
-					((GetClassByPosition(5, oPC) & 0xFF) << 40) |
+					((GetClassByPosition(6, oPC) & 0xFF) << 40) |
                     ((GetClassByPosition(5, oPC) & 0xFF) << 32) |
 					((GetClassByPosition(4, oPC) & 0xFF) << 24) |
 					((GetClassByPosition(3, oPC) & 0xFF) << 16) |
@@ -382,7 +382,7 @@ void EvalPRCFeats(object oPC)
     //Route the event to the appropriate class specific scripts
     int i, iData;
     string sScript;
-    for (i = 1; i <= 3; i++)
+    for (i = 1; i <= 8; i++)
     {
         sScript = GetPersistantLocalString(oPC, "PRC_Class_Script"+IntToString(i));
         if(sScript != "")

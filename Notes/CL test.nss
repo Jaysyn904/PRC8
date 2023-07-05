@@ -8,7 +8,7 @@ void main ()
 
     if(GetLevelByClass(CLASS_TYPE_BARD, oCaster))
     {    
-        if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BARD, oCaster))
+		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
 		
 		if(GetHasFeat(FEAT_ALIEN_SPELLCASTING_BARD, oCaster))
@@ -25,6 +25,9 @@ void main ()
 
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
 		
 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
@@ -133,6 +136,9 @@ void main ()
 
 		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;			
 
 		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster + 1) / 2;	
@@ -205,8 +211,8 @@ void main ()
 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
 
-		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_ASSASSIN, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+/* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
 
 		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
@@ -260,7 +266,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster + 1) / 2;
 		
 /* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_ASSASSIN, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2; */	
+			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2; */
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;		
 
 		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster + 1) / 2;	
@@ -418,7 +427,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2;	
 
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_BEGUILER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;
 		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_BEGUILER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
@@ -497,11 +509,11 @@ void main ()
 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
 
-		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+/* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
 
 		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
@@ -637,8 +649,8 @@ void main ()
 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CULTIST_PEAK, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
 
 /* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
@@ -853,7 +865,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2;	
 
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_DNECRO, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;		
 		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_DNECRO, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
@@ -994,6 +1009,9 @@ void main ()
 		
 /* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2;	 */
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;				
 
 		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster + 1) / 2;	
@@ -1084,8 +1102,8 @@ void main ()
 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HARPER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
 
 /* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
@@ -1224,11 +1242,11 @@ void main ()
 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HEXBLADE, oCaster))
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
 
 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_HEXBLADE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
 
 		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
@@ -1293,6 +1311,9 @@ void main ()
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
 		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;			
+		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
 
@@ -1340,6 +1361,9 @@ void main ()
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
+		
 /* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
 		
@@ -1376,8 +1400,8 @@ void main ()
 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
 
-		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_KNIGHT_WEAVE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+/* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
 
 		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
@@ -1574,7 +1598,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster + 1) / 2;
 		
 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_SORCERER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;				
 
 		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SORCERER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster + 1) / 2;	
@@ -1732,7 +1759,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2;	
 
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SUBLIME_CHORD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;			
 		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SUBLIME_CHORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
@@ -1883,6 +1913,9 @@ void main ()
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
 		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;		
+		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
 
@@ -1963,8 +1996,8 @@ void main ()
 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SHADOWLORD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
 
 /* 		if(GetHasFeat(FEAT_MAGEKILL_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
@@ -2027,7 +2060,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2;	
 
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SHADOWLORD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;			
 		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
@@ -2178,6 +2214,9 @@ void main ()
 		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster + 1) / 2;	
 		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;			
+		
 		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster + 1) / 2;	
 
@@ -2316,7 +2355,10 @@ void main ()
 			nArcane += GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster + 1) / 2;
 		
 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_WIZARD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2;	
+			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster + 1) / 2;
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2;	
 
 		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_WIZARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster + 1) / 2;	
