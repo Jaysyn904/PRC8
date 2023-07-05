@@ -7101,7 +7101,7 @@ Could not implement PnP's Enhanced Mobility, +4 AC vs. Attacks of Opportunity. T
   <entry id="45504" lang="en" sex="m">Canny Defense</entry>
   <entry id="45505" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Duelist Level 1, Iaijutsu Master Level 1
-Specifics: May add their intelligence bonus to AC. This ability does not function while wearing armor.
+Specifics: The duelst may add their intelligence bonus to AC, this is capped by class level and does not function while wearing armor.  The iaijutsu master may also add their intelligence bonus to AC, but is not capped by class level.  The iaijutsu master must be wielding a katana and wearing no armor for this ability to function.
 Use: Automatic. </entry>
   <entry id="45506" lang="en" sex="m">Precise Strike</entry>
   <entry id="45508" lang="en" sex="m">Type of Feat: Class Specific
