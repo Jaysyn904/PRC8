@@ -1,8 +1,9 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 LowLightVision  354
-1 Race_Fey        4718  
-2 darkvision      228 
-3 FeyDamRed       4587
-4 UnearthlyGrace  4593
+           FeatLabel                    FeatIndex 
+0          LowLightVision               354       
+1          Race_Fey                     4718      
+2          darkvision                   228       
+3          FeyDamRed                    4587      
+4          UnearthlyGrace               4593      
+5          FEAT_FEY_SPELLCASTING_GLOURA 25000     

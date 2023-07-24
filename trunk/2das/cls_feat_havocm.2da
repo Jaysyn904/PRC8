@@ -1,4 +1,25 @@
 2DA V2.0
 
-  FeatLabel  FeatIndex List GrantedOnLevel OnMenu 
-0 BattleCast 3339      3    1              1      
+           FeatLabel                                 FeatIndex List GrantedOnLevel OnMenu 
+0          BattleCast                                3339      3    1              1      
+1          FEAT_HAVOC_SPELLCASTING_FEY               25031     2    1              0      
+2          FEAT_HAVOC_SPELLCASTING_ABERRATION        25080     2    1              0      
+3          FEAT_HAVOC_SPELLCASTING_MONSTROUS         25130     2    1              0      
+4          FEAT_HAVOC_SPELLCASTING_OUTSIDER          25180     2    1              0      
+5          FEAT_HAVOC_SPELLCASTING_SHAPECHANGER      25230     2    1              0      
+6          FEAT_HAVOC_SPELLCASTING_ASSASSIN          25271     2    1              0      
+7          FEAT_HAVOC_SPELLCASTING_BARD              25310     2    1              0      
+8          FEAT_HAVOC_SPELLCASTING_BEGUILER          25356     2    1              0      
+9          FEAT_HAVOC_SPELLCASTING_CULTIST_PEAK      25420     2    1              0      
+10         FEAT_HAVOC_SPELLCASTING_DNECRO            25461     2    1              0      
+11         FEAT_HAVOC_SPELLCASTING_DUSKBLADE         25504     2    1              0      
+12         FEAT_HAVOC_SPELLCASTING_HARPER            25543     2    1              0      
+13         FEAT_HAVOC_SPELLCASTING_HEXBLADE          25580     2    1              0      
+14         FEAT_HAVOC_SPELLCASTING_KNIGHT_WEAVE      25618     2    1              0      
+15         FEAT_HAVOC_SPELLCASTING_SHADOWLORD        25658     2    1              0      
+16         FEAT_HAVOC_SPELLCASTING_SORCERER          25702     2    1              0      
+17         FEAT_HAVOC_SPELLCASTING_SUBLIME_CHORD     25750     2    1              0      
+18         FEAT_HAVOC_SPELLCASTING_SUEL_ARCHANAMACH  25794     2    1              0      
+19         FEAT_HAVOC_SPELLCASTING_WARMAGE           25838     2    1              0      
+20         FEAT_HAVOC_SPELLCASTING_WIZARD            25885     2    1              0      
+21         FEAT_HAVOC_SPELLCASTING_CELEBRANT_SHARESS 26642     2    1              0      

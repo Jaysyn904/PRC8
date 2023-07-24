@@ -1007,7 +1007,13 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         SetCompositeBonus(oSkin, "EpicSkillFoc_CraftGeneral", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_GENERAL);
         
     if(GetHasFeat(FEAT_MASTER_OF_KNOWLEDGE, oPC))
-        SetCompositeBonus(oSkin, "MasterofKnowledge", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE);  
+        SetCompositeBonus(oSkin, "MasterofKnowledge", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE); 
+
+	if(GetHasFeat(FEAT_NEGOTIATOR, oPC))
+	{
+		SetCompositeBonus(oSkin, "NegotiatorPersuade", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERSUADE); 
+		SetCompositeBonus(oSkin, "NegotiatorSenseMotive", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+    }	
         
     // Aberrant Feats here
     if(GetHasFeat(FEAT_ABERRANT_EYES, oPC))

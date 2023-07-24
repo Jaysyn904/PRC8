@@ -8,7 +8,7 @@
 //:: Created On: July 3rd, 2004
 //:://////////////////////////////////////////////
 
-//:: Updated for .35 by Jaysyn 2023/03/11
+//:: Updated for NWN .35 by Jaysyn 2023/03/11
 
 #include "inc_epicspells"
 #include "prc_inc_sneak"
@@ -324,25 +324,67 @@ void Shadowlord(object oPC, int iArcSpell)
     }
 }
 
-//taken out of master at arms because i wanted to use the code in Eternal Blade prereq too
+//:: Taken out of master at arms because I wanted to use the code in Eternal Blade prereq too.
 int WeaponFocusCount(object oPC)
 {
     int iWF;
 
     // Calculate the total number of Weapon Focus feats the character has
-    iWF = GetHasFeat(FEAT_WEAPON_FOCUS_BASTARD_SWORD,oPC)   +GetHasFeat(FEAT_WEAPON_FOCUS_BATTLE_AXE,oPC)  +GetHasFeat(FEAT_WEAPON_FOCUS_CLUB,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_DAGGER,oPC)          +GetHasFeat(FEAT_WEAPON_FOCUS_DART,oPC)        +GetHasFeat(FEAT_WEAPON_FOCUS_DIRE_MACE,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_DOUBLE_AXE,oPC)      +GetHasFeat(FEAT_WEAPON_FOCUS_DWAXE,oPC)       +GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_AXE,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD,oPC)     +GetHasFeat(FEAT_WEAPON_FOCUS_HALBERD,oPC)     +GetHasFeat(FEAT_WEAPON_FOCUS_HAND_AXE,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_CROSSBOW,oPC)  +GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_FLAIL,oPC) +GetHasFeat(FEAT_WEAPON_FOCUS_KAMA,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_TWO_BLADED_SWORD,oPC)+GetHasFeat(FEAT_WEAPON_FOCUS_LONG_SWORD,oPC)  +GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_KATANA,oPC)          +GetHasFeat(FEAT_WEAPON_FOCUS_KUKRI,oPC)       +GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_CROSSBOW,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_FLAIL,oPC)     +GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_HAMMER,oPC)+GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_MACE,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_LONGBOW,oPC)         +GetHasFeat(FEAT_WEAPON_FOCUS_MORNING_STAR,oPC)+GetHasFeat(FEAT_WEAPON_FOCUS_SCIMITAR,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_SCYTHE,oPC)          +GetHasFeat(FEAT_WEAPON_FOCUS_SHORT_SWORD,oPC) +GetHasFeat(FEAT_WEAPON_FOCUS_SHORTBOW,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_SHURIKEN,oPC)        +GetHasFeat(FEAT_WEAPON_FOCUS_SICKLE,oPC)      +GetHasFeat(FEAT_WEAPON_FOCUS_SLING,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_SPEAR,oPC)           +GetHasFeat(FEAT_WEAPON_FOCUS_STAFF,oPC)       +GetHasFeat(FEAT_WEAPON_FOCUS_THROWING_AXE,oPC)+
-          GetHasFeat(FEAT_WEAPON_FOCUS_WAR_HAMMER,oPC)      +GetHasFeat(FEAT_WEAPON_FOCUS_MINDBLADE, oPC)  +GetHasFeat(FEAT_WEAPON_FOCUS_WHIP,oPC); //why was whip commented out?
+	iWF	= GetHasFeat(FEAT_WEAPON_FOCUS_BASTARD_SWORD, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_BATTLE_AXE, oPC)  			
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_CLUB, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_DART, oPC)        			
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_DIRE_MACE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_DOUBLE_AXE, oPC)      	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_DOUBLE_SCIMITAR, oPC)		
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_DWAXE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_EAGLE_CLAW, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_THINBLADE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_FALCHION, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_GOAD, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_AXE, oPC)			
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HALBERD, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HAND_AXE, oPC)			
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_CROSSBOW, oPC)  	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_FLAIL, oPC) 	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_MACE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_PICK, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_KATANA, oPC)          	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_KATAR, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_KUKRI, oPC)       	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_CROSSBOW, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_FLAIL, oPC)     	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_HAMMER, oPC)	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_LANCE, oPC)     	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_MACE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_PICK, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LONGBOW, oPC)		
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_LONG_SWORD, oPC)  	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_MAUL, oPC)			
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_MINDBLADE, oPC)  
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_MORNING_STAR, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_NUNCHAKU, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_RAY, oPC)					
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SAI, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SAP, oPC)		  
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SCIMITAR, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SCYTHE, oPC)          
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SHORTBOW, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SHORT_SWORD, oPC) 
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SICKLE, oPC)      
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_SLING, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_STAFF, oPC)       
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_THROWING_AXE, oPC)
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_TWO_BLADED_SWORD, oPC)	
+		+ GetHasFeat(FEAT_WEAPON_FOCUS_WHIP, oPC) 
+        + GetHasFeat(FEAT_WEAPON_FOCUS_DAGGER, oPC)          	
+        + GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD, oPC)     	
+        + GetHasFeat(FEAT_WEAPON_FOCUS_SHURIKEN, oPC)        
+        + GetHasFeat(FEAT_WEAPON_FOCUS_SPEAR, oPC)           
+        + GetHasFeat(FEAT_WEAPON_FOCUS_WAR_HAMMER, oPC);      
 
     // If they are a soulknife, their WF Mindblade might be counting twice due to how it is implemented, so account for it if necessary
     if(GetStringLeft(GetTag(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC)), 14) == "prc_sk_mblade_" ||

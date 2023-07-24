@@ -50,7 +50,10 @@ void main()
             SetLocalInt(oInitiator, "IHDancingBladeForm", 1);
         	
         	effect eLink = EffectVisualEffect(VFX_DUR_AIR2);
-        	if (GetLocalInt(oInitiator, "KamateStance"))  eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, GetLocalInt(oInitiator, "KamateStance")));       	       
+        	if (GetLocalInt(oInitiator, "KamateStance"))
+			{
+				eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, GetLocalInt(oInitiator, "KamateStance")));
+			}
             eLink = ExtraordinaryEffect(eLink);
 
         	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oInitiator);                

@@ -786,116 +786,1766 @@ int GetIsDivineClass(int nClass, object oCaster = OBJECT_SELF)
 int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 {
 	int nArcane;
-	int nOozeMLevel  	= GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);
-	int nUM          	= GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);
-	
-	int nFirstClass  	= GetClassByPosition(1, oCaster);
-	int nSecondClass 	= GetClassByPosition(2, oCaster);
-	int nThirdClass  	= GetClassByPosition(3, oCaster);
-	int nFourthClass  	= GetClassByPosition(4, oCaster);  
-	int nFifthClass  	= GetClassByPosition(5, oCaster);
-	int nSixthClass  	= GetClassByPosition(6, oCaster);
-	int nSeventhClass  	= GetClassByPosition(7, oCaster);
-	int nEightClass  	= GetClassByPosition(8, oCaster);
-   
-   if (GetFirstArcaneClassPosition(oCaster)) nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);
+   	int nClass;
+	int nRace 		= GetRacialType(oCaster);
 
-   nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ALIENIST,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ANIMA_MAGE,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ARCHMAGE,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ARCTRICK,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_CEREBREMANCER,   oCaster)
-           +  GetLevelByClass(CLASS_TYPE_DIABOLIST,       oCaster)
-           +  GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT,oCaster)
-           +  GetLevelByClass(CLASS_TYPE_FMM,             oCaster)
-           +  GetLevelByClass(CLASS_TYPE_FROST_MAGE,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_HARPERMAGE,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MAGEKILLER,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MASTER_HARPER,   oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE,  oCaster)
-           +  GetLevelByClass(CLASS_TYPE_NOCTUMANCER,     oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SPELLDANCER,     oCaster)
-           +  GetLevelByClass(CLASS_TYPE_TRUENECRO,       oCaster)
-           +  GetLevelByClass(CLASS_TYPE_RED_WIZARD,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT,    oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD,   oCaster)
-           +  GetLevelByClass(CLASS_TYPE_UNSEEN_SEER,     oCaster)
-           +  GetLevelByClass(CLASS_TYPE_VIRTUOSO,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster)
-           
-           +  (GetLevelByClass(CLASS_TYPE_BLADESINGER,        oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER,   oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_PALEMASTER,         oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_HATHRAN,            oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE,         oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_SPELLSWORD,         oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT,    oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_RAGE_MAGE,          oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE,     oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_JUDICATOR, 		  oCaster) + 1) / 3;
-           
-           int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); 
-           if (nClass)
-            nArcane += nClass - 3 + d6();
-
-    //The following changes are to prevent a mage/invoker from gaining bonus caster levels in both base classes.
-
-    if(GetLocalInt(oCaster, "INV_Caster") == 1 ||
-            (!GetLevelByClass(CLASS_TYPE_WARLOCK, oCaster) && !GetLevelByClass(CLASS_TYPE_DRAGONFIRE_ADEPT, oCaster)))
-        nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE,              oCaster) + 1) / 2
-                +  (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2
-                +  (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT,      oCaster) + 1) / 2
-                +   GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST,      oCaster)
-                +   GetLevelByClass(CLASS_TYPE_MAESTER,              oCaster);
-
-
-    /* oozemaster levels count towards arcane caster level if:
-     *
-     * first class slot is arcane OR
-     * first class slot is NOT divine AND second class slot is arcane OR
-     * first AND second class slot is NOT divine AND 3rd class slot is arcane
-     */
-   if (nOozeMLevel) //:: [PRC .35]  This needs marker feats.
-   {
-       if (GetIsArcaneClass(nFirstClass, oCaster)
-           || (!GetIsDivineClass(nFirstClass, oCaster)
-                && GetIsArcaneClass(nSecondClass, oCaster))
-           || (!GetIsDivineClass(nFirstClass, oCaster)
-                && !GetIsDivineClass(nSecondClass, oCaster)
-                && GetIsArcaneClass(nThirdClass, oCaster)))
-           nArcane += nOozeMLevel / 2;
-   }
-	
-	if (nUM)
-	{
-		int nBoost = nUM - 1; //Prep caster always loses a level on first level of the class
-		if (nUM >= 4) nBoost = nUM - 2;
-		if (nUM >= 7) nBoost = nUM - 3;
-		nArcane += nBoost;
+    if (nCastingClass == CLASS_TYPE_BARD && GetLevelByClass(CLASS_TYPE_BARD))
+    {    
+	//:: Includes RHD as bard.  If they started with bard levels, then it
+	//:: counts as a prestige class, otherwise RHD is used instead of bard levels.		
+		if(nRace == RACIAL_TYPE_GLOURA)
+			nArcane += GetLevelByClass(CLASS_TYPE_FEY, oCaster);
+			
+		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
 		
-		if (nCastingClass == CLASS_TYPE_SORCERER)
-		{
-			int nBoost = 1; //Sorcerer gets the lost levels back
-			if (nUM >= 4) nBoost = 2;
-			if (nUM >= 7) nBoost = 3;
-			nArcane += nBoost; 		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);		
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	 */
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+        
+		nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);   
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BARD, oCaster))
+		{	
+			if (nClass) 
+			{
+				nArcane += nClass - 3 + d6();
+			}
 		}
 	}
-    if(GetLevelByClass(CLASS_TYPE_SORCERER, oCaster))
-    {    
-        int nRace = GetRacialType(oCaster);
+//:: End Bard Arcane PrC casting calculations
+ 
+	if(nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD))
+	{    
+		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
 
-        //includes RHD HD as sorc
-        //if they have sorcerer levels, then it counts as a prestige class
-        //otherwise its used instead of sorc levels
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);		
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	 */
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_FEY, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;        
+		
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_FEY, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);	
+			if (nClass) { nArcane += nClass - 3 + d6(); }		
+		}
+	}
+//:: End Fey Arcane PrC casting calculations
+
+    if (nCastingClass == CLASS_TYPE_ASSASSIN)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_ASSASSIN, oCaster))  //:: Requires Assassin 4
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster); */
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster );		
+
+/*  	if(GetHasFeat(FEAT_FMM_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster); */
+
+/* 		if(GetHasFeat(FEAT_JPM_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);	
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);		
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster); */
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+/* 		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2; */	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_ASSASSIN, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_ASSASSIN, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) 
+				nArcane += nClass - 3 + d6(); 
+		}				
+	}
+//:: End Assassin Arcane PrC casting calculations
+	
+    if (nCastingClass == CLASS_TYPE_BEGUILER)
+    {    
+        if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);			
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);
+				
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */	
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);	
+
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+		
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster);	 */		
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	 */
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+		
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);		
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BEGUILER, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); 
+			if (nClass) { nArcane += nClass - 3 + d6(); }				
+		}
+	}
+//:: End Beguiler Arcane PrC casting calculations
+
+    if (nCastingClass == CLASS_TYPE_CELEBRANT_SHARESS)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+ 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster); 
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);				
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+		
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */	
+		
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster); */		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+
+/* 		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2; */	
+		
+/* 		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2; */	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+
+/* 		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2; */		
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+/* 		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2; */
+
+/* 		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2; */	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3; */
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6(); }	
+		}
+	}
+//:: End Celebrant of Sharess Arcane PrC casting calculations 
+
+    if (nCastingClass == CLASS_TYPE_CULTIST_SHATTERED_PEAK)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster); */
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster);	 */		
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);	 */	
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */			
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;				
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3; */
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_CULTIST_PEAK, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6();} 
+		}	
+	}
+//:: End Cultist of the Shattered Peaks Arcane PrC casting calculations  
+
+    if (nCastingClass == CLASS_TYPE_DREAD_NECROMANCER)
+    {    
+/*         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION); */
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);	
+
+ 		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */			
+
+		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */	
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	 */
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);	
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_DNECRO, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_DNECRO, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6(); }
+		}
+	}
+//:: End Dread Necromancer Arcane PrC casting calculations 
+
+    if (nCastingClass == CLASS_TYPE_DUSKBLADE)
+    {    
+        if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+ 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);			
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */	
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster);		 */	
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	 */
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_DUSKBLADE, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6();} 			
+		}
+	}
+//:: End Duskblade Arcane PrC casting calculations
+
+    if (nCastingClass == CLASS_TYPE_HARPER)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_HARPER, oCaster))  //:: enter after 5th Harper Scout lvl
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_HARPER, oCaster)) //:: enter after 5th Harper Scout lvl
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);				
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster); */		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+/* 		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2; */
+
+/* 		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2; */	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_HARPER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3; */
+	
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_HARPER, oCaster))
+		{	 
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6();}
+		}
+	}
+//:: End Harper Scout Arcane PrC casting calculations 
+
+    if (nCastingClass == CLASS_TYPE_HEXBLADE)
+    {    
+        if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+ 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */	
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);			
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);		
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	 */
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);		
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster); */	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);	
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;				
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+		
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_HEXBLADE, oCaster))
+		{	
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6(); }
+		}
+	}
+//:: End Hexblade Arcane PrC casting calculations
+
+    if (nCastingClass == CLASS_TYPE_KNIGHT_WEAVE)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);	
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
+		
+/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);	
+		
+ 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster); */
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);		
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster);	 */	
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster); */	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+/* 		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2; */
+
+/* 		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	 */
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3; */
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }	
+	}
+//:: End Knight of the Weave Arcane PrC casting calculations 
+
+    if (nCastingClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER))
+    {
+//:: Includes RHD as sorcerer.  If they already have sorcerer levels, then it
+//:: counts as a prestige class, otherwise RHD is used instead of sorc levels.		
 		if(nRace == RACIAL_TYPE_ARANEA)
             nArcane += GetLevelByClass(CLASS_TYPE_SHAPECHANGER);
         if(nRace == RACIAL_TYPE_RAKSHASA)
@@ -907,88 +2557,3966 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
         if(nRace == RACIAL_TYPE_REDSPAWN_ARCANISS)
             nArcane += GetLevelByClass(CLASS_TYPE_MONSTROUS)*3/4;            
         if(nRace == RACIAL_TYPE_MARRUTACT)
-            nArcane += (GetLevelByClass(CLASS_TYPE_MONSTROUS)*6/7)-1;             
-    }
-    
-    if(GetLevelByClass(CLASS_TYPE_BARD, oCaster))
-    {
-        int nRace = GetRacialType(oCaster);
+            nArcane += (GetLevelByClass(CLASS_TYPE_MONSTROUS)*6/7)-1;
+  		
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
 
-        //includes RHD HD as bard
-        //if they have bard levels, then it counts as a prestige class
-        //otherwise its used instead of bard levels
-        if(nRace == RACIAL_TYPE_GLOURA)
-            nArcane += GetLevelByClass(CLASS_TYPE_FEY);         
-    }    
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);			
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);			
+
+ 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SORCERER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SORCERER, oCaster))
+		{	int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }	
+	}
+//:: End Sorcerer Arcane PrC casting calculations 
+
+
+    if(nCastingClass == CLASS_TYPE_SORCERER && nRace == RACIAL_TYPE_DRIDER 
+											|| nRace == RACIAL_TYPE_ARKAMOI 
+											|| nRace == RACIAL_TYPE_MARRUTACT 
+											|| nRace == RACIAL_TYPE_REDSPAWN_ARCANISS 
+											|| nRace == RACIAL_TYPE_RAKSHASA 
+											|| nRace == RACIAL_TYPE_ARANEA 
+											&& !GetLevelByClass(CLASS_TYPE_SORCERER))
+    {
+//:: Adding PrC caster levels to the racial caster level.		
+		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ALIENIST_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ALIENIST_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ANIMA_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ANIMA_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ANIMA_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SHAPECHANGER, oCaster))		
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_MHARPER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_MHARPER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_MHARPER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_CMANCER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_CMANCER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_DHEART_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_DHEART_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_DHEART_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_DSONG_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_DSONG_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_DSONG_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+			
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);	
+
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_FMM_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_FMM_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_FMM_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+			
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+			
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_HARPERM_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_HARPERM_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_HARPERM_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+			
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_JPM_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_JPM_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_JPM_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+			
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_MONSTROUS, oCaster)   //:: Shouldn't be possible
+		|| GetHasFeat(FEAT_MAESTER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_MAESTER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_MAESTER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+			
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ALCHEM_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ALCHEM_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);	
+
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);	
+
+		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_TNECRO_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_TNECRO_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_TNECRO_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);	
+
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_UNSEEN_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_UNSEEN_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_WWOC_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_WWOC_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_WWOC_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+			
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_MONSTROUS, oCaster)		//:: Shouldn't be possible 
+		|| GetHasFeat(FEAT_BSINGER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_BSINGER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_BSINGER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_MONSTROUS, oCaster)		//:: Shouldn't be possible 
+		|| GetHasFeat(FEAT_BONDED_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_BONDED_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_BONDED_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_MONSTROUS, oCaster)		//:: Shouldn't be possible 
+		|| GetHasFeat(FEAT_OLLAM_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_OLLAM_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_OLLAM_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_ORCUS_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_ORCUS_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_ORCUS_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_MONSTROUS, oCaster)		//:: Shouldn't be possible 
+		|| GetHasFeat(FEAT_HATHRAN_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_HATHRAN_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_HAVOC_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_HAVOC_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_HAVOC_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_SSWORD_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_SSWORD_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_SSWORD_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+			
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_GRAZZT_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_GRAZZT_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_TIAMAT_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_TIAMAT_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_WAYFARER_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_WAYFARER_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_MONSTROUS, oCaster)	//:: Shouldn't be possible 
+		|| GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+			
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SHAPECHANGER, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }	
+	}
+//:: End Aberration / Monstrous / Outsider / Shapechanger Arcane PrC casting calculations 
+
+
+    if (nCastingClass == CLASS_TYPE_SUBLIME_CHORD)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);			
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);			
+
+/*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);		
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SUBLIME_CHORD, oCaster))  // no cantrips!
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster); */	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_SUBLIME_CHORD, oCaster))  //: No familiar!
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }	
+	}
+//:: End SUBLIME_CHORD Arcane PrC casting calculations 
+
+	if (nCastingClass == CLASS_TYPE_SUEL_ARCHANAMACH)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);	
+
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);			
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/*  	if(GetHasFeat(FEAT_FMM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster);	 */			
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	 */
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	 */
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	 */
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }
+	}
+//:: End Suel Archanamach Arcane PrC casting calculations 
+
+	if (nCastingClass == CLASS_TYPE_SHADOWLORD)
+    {    
+         if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SHADOWLORD, oCaster))  //:: Enter after 4th lvl
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster); */
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);	
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster);			
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+/*		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);	
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	 */
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);		
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster); */
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;		
+		
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2; */
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) /2;
+
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) /2; */			
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SHADOWLORD, oCaster))
+		{
+			nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) { nArcane += nClass - 3 + d6();} 
+		}		
+	}
+//:: End Telflammar Shadowlord Arcane PrC casting calculations 
+
+ 	if (nCastingClass == CLASS_TYPE_WARMAGE)
+    {    
+/*      if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+		
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);
+		
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+ 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);			
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+/* 		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster); */	
+		
+/* 		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster); */	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;		
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;		
+		
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+/* 		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2; */	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WARMAGE, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster); }
+			if (nClass) { nArcane += nClass - 3 + d6(); }
+	}
+//:: End Warmage Arcane PrC casting calculations 
+
+ 	if (nCastingClass == CLASS_TYPE_WIZARD)
+    {    
+        if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCHMAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);
+		
+		if(GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster);		
+
+		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster); */		
+
+		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
+
+		if(GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+
+		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+
+		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
+
+		if(GetHasFeat(FEAT_JPM_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE, oCaster);
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);		
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);	
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oCaster);
+
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);				
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);
+
+		if(GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SOULCASTER, oCaster);			
+
+		if(GetHasFeat(FEAT_TNECRO_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);	
+		
+		if(GetHasFeat(FEAT_REDWIZ_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster);	
+
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);
+
+/* 		if(GetHasFeat(FEAT_SHADOWLORD_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SHADOWLORD, oCaster); */		
+
+/* 		if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster); */
+
+		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			
+		
+		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) /2;
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_BSINGER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BLADESINGER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BONDED_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oCaster) + 1) /2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) /2;			
+		
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) /2; */	
+
+		if(GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_PALEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_HAVOC_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_HAVOC_MAGE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_SSWORD_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_SPELLSWORD, oCaster) + 1) /2;	
+
+		if(GetHasFeat(FEAT_GRAZZT_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) /2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_WIZARD, oCaster))
+			nArcane += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+
+		if(GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WIZARD, oCaster))
+		{	nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);}
+			if (nClass) { nArcane += nClass - 3 + d6(); }		
+	}
+//:: End Wizard Arcane PrC casting calculations   
 
     return nArcane;
 }
 
 int GetDivinePRCLevels(object oCaster)
 {
-   int nDivine;
-   int nOozeMLevel = GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster);
+   	object oCaster = GetLastSpellCaster();
+	
+	int nCastingClass = PRCGetLastSpellCastClass();
+	
+	int nDivine = 0;
 
-	int nFirstClass  	= GetClassByPosition(1, oCaster);
-	int nSecondClass 	= GetClassByPosition(2, oCaster);
-	int nThirdClass  	= GetClassByPosition(3, oCaster);
-	int nFourthClass  	= GetClassByPosition(4, oCaster);  
-	int nFifthClass  	= GetClassByPosition(5, oCaster);
-	int nSixthClass  	= GetClassByPosition(6, oCaster);
-	int nSeventhClass  	= GetClassByPosition(7, oCaster);
-	int nEightClass  	= GetClassByPosition(8, oCaster);
+	if (nCastingClass == CLASS_TYPE_ARCHIVIST)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_ARCHIVIST, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);			
 
-   // This section accounts for full progression classes
-   nDivine += GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_BLIGHTLORD,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC,      oCaster)
-           +  GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE,     oCaster)
-           +  GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster)
-		   +  GetLevelByClass(CLASS_TYPE_FORESTMASTER,    	oCaster)
-           +  GetLevelByClass(CLASS_TYPE_FISTRAZIEL,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_HEARTWARDER,       oCaster)
-           +  GetLevelByClass(CLASS_TYPE_HIEROPHANT,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_HOSPITALER,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MORNINGLORD,       oCaster)
-           +  GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE,    oCaster)
-           +  GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE,   oCaster)
-           +  GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR,   oCaster)
-           +  GetLevelByClass(CLASS_TYPE_RUNECASTER,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SACREDPURIFIER,    oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster)
-           +  GetLevelByClass(CLASS_TYPE_STORMLORD,         oCaster)
-           +  GetLevelByClass(CLASS_TYPE_SWIFT_WING,        oCaster)
-           +  GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster)
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_ARCHIVIST, oCaster))	//:: Not divine
+			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);		
 
-           +  (GetLevelByClass(CLASS_TYPE_BFZ,                   oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER,     oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_HATHRAN,               oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_OLLAM,                 oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_ORCUS,                 oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_SHINING_BLADE,         oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_TEMPUS,                oCaster) + 1) / 2
-           +  (GetLevelByClass(CLASS_TYPE_WARPRIEST,             oCaster) + 1) / 2
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_ARCHIVIST, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_ARCHIVIST, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_ARCHIVIST, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_ARCHIVIST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Archivist Divine PrC casting calculations
 
-           +  (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
 
-   if (!GetHasFeat(FEAT_SF_CODE, oCaster))
-   {
-       nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
-   }
+	if (nCastingClass == CLASS_TYPE_BLACKGUARD)
+    {    
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_BLACKGUARD, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);			
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);	
 
-   if (nOozeMLevel)  //:: [PRC .35]  This needs marker feats.
-   {
-       if (GetIsDivineClass(nFirstClass, oCaster)
-           || (!GetIsArcaneClass(nFirstClass, oCaster)
-                && GetIsDivineClass(nSecondClass, oCaster))
-           || (!GetIsArcaneClass(nFirstClass, oCaster)
-                && !GetIsArcaneClass(nSecondClass, oCaster)
-                && GetIsDivineClass(nThirdClass, oCaster)))
-           nDivine += nOozeMLevel / 2;
-   }
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster); */
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);			
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_BLACKGUARD, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+/* 		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2; */
+		
+/*		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BLACKGUARD, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;	 */	
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2; */
+			
+/* 		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_BLACKGUARD, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2; */
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2; */
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BLACKGUARD, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Blackguard Divine PrC casting calculations
+
+
+	if (nCastingClass == CLASS_TYPE_BLIGHTER)
+    {    
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_BLIGHTER, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);	
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);
+
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster); */
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_BLIGHTER, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BLIGHTER, oCaster))		
+			nDivine += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2		
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_BLIGHTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_OLLAM, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster + 1) / 2 */
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;			
+			
+/*		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BLIGHTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	
+		
+	}
+//:: End Blighter Divine PrC casting calculations
+
+
+	if (nCastingClass == CLASS_TYPE_CLERIC)
+    {   
+
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_CLERIC, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CLERIC, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+        
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_CLERIC, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_CLERIC, oCaster) && GetHasFeat(FEAT_BONUS_DOMAIN_FORCE, oCaster) || GetHasFeat(FEAT_DOMAIN_POWER_FORCE, oCaster))	//:: Not divine
+			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);		
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);			
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);		
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_CLERIC, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);			
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_CLERIC, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_CLERIC, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_CLERIC, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_CLERIC, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_CLERIC, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_CLERIC, oCaster) && GetHasFeat(FEAT_BONUS_DOMAIN_TRAVEL, oCaster) || GetHasFeat(FEAT_TRAVEL_DOMAIN_POWER, oCaster))	//:: Not divine
+			nDivine += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_CLERIC, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Cleric Divine PrC casting calculations
+
+
+	if (nCastingClass == CLASS_TYPE_DRUID)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_DRUID, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_DRUID, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+
+	/*	if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_DRUID, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);			
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster); */
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_DRUID, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);		
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_DRUID, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2	 */		
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_DRUID, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_DRUID, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_DRUID, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_DRUID, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+/* 		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_DRUID, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DRUID, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_DRUID, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2; */
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_DRUID, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;			
+			
+/*		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_DRUID, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2; */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_DRUID, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_DRUID, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Druid Divine PrC casting calculations
+
+	   
+ 	if (nCastingClass == CLASS_TYPE_FAVOURED_SOUL)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_FAVOURED_SOUL, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);			
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_FAVOURED_SOUL, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_FAVOURED_SOUL, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_FAVOURED_SOUL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_FAVOURED_SOUL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;			
+		
+	}
+//:: End Favoured Soul Divine PrC casting calculations	
+   
+
+ 	if (nCastingClass == CLASS_TYPE_HEALER)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_HEALER, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}		
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_HEALER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+/*		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_HEALER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_HEALER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_HEALER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);		
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_HEALER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_HEALER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);			
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);		 */	
+			
+/* 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_HEALER, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2; */			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_HEALER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_HEALER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;				
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_HEALER, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_HEALER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_HEALER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_HEALER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2; */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_HEALER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_HEALER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2; */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_HEALER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_HEALER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Healer Divine PrC casting calculations	
+   
+	   
+ 	if (nCastingClass == CLASS_TYPE_JUSTICEWW)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_JUSTICEWW, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);	
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);				
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);				
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_JUSTICEWW, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;				
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_JUSTICEWW, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_JUSTICEWW, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_JUSTICEWW, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;			
+		
+	}
+//:: End Justice of Weald & Woe Divine PrC casting calculations	   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_KNIGHT_CHALICE)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2; */
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_KNIGHT_CHALICE, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2	 */		
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;				
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_KNIGHT_CHALICE, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	;
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_KNIGHT_CHALICE, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Knight of the Chalice Divine PrC casting calculations
+
+
+ 	if (nCastingClass == CLASS_TYPE_KNIGHT_MIDDLECIRCLE)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);		
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2		 */	
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		 */
+		
+	}
+//:: End Knight of the Middle Circle Divine PrC casting calculations			   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_NENTYAR_HUNTER)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;	
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+/*		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_NENTYAR_HUNTER, oCaster))	//:: Not divine
+			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);		
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	 */		
+			
+/* 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_NENTYAR_HUNTER, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2	 */		
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_NENTYAR_HUNTER, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;	
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;	
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;	
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_NENTYAR_HUNTER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Nentyar Hunter Divine PrC casting calculations	   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_OCULAR)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_OCULAR, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_OCULAR, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);			
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+		
+        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster); */
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_OCULAR, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster); */
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_OCULAR, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_OCULAR, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_OCULAR, oCaster))		
+			nDivine += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2	 */	
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+/* 		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_OCULAR, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_OLLAM, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster + 1) / 2 */
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_OCULAR, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_OCULAR, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Ocular Adept Divine PrC casting calculations		   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_PALADIN)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_PALADIN, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_PALADIN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_PALADIN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_PALADIN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_PALADIN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_PALADIN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_PALADIN, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2		 */	
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_PALADIN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_PALADIN, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_PALADIN, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_PALADIN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3; */		
+		
+	}
+//:: End Paladin Divine PrC casting calculations	   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_RANGER)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_RANGER, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}		
+
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_RANGER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);			
+		
+        if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_RANGER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);		
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_RANGER, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_RANGER, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_RANGER, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_RANGER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_RANGER, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_RANGER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_RANGER, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_RANGER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_RANGER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_RANGER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_RANGER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_RANGER, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_RANGER, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Ranger Divine PrC casting calculations	   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_SHAMAN)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_OASHAMAN, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;			
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+		if(GetHasFeat(FEAT_FMM_SPELLCASTING_OASHAMAN, oCaster) && GetHasFeat(FEAT_BONUS_DOMAIN_FORCE, oCaster) || GetHasFeat(FEAT_DOMAIN_POWER_FORCE, oCaster))	//:: Not divine
+			nDivine += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);				
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);		
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);			
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_OASHAMAN, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_OASHAMAN, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_OASHAMAN, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_WAYFARER_SPELLCASTING_OASHAMAN, oCaster) && GetHasFeat(FEAT_BONUS_DOMAIN_TRAVEL, oCaster) || GetHasFeat(FEAT_TRAVEL_DOMAIN_POWER, oCaster))	//:: Not divine
+			nDivine += (GetLevelByClass(CLASS_TYPE_WAYFARER_GUIDE, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_OASHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Shaman Divine PrC casting calculations	   	   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_SLAYER_OF_DOMIEL)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_DOMIEL, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}		
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);			
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_DOMIEL, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2		 */	
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_DOMIEL, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_DOMIEL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_DOMIEL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_DOMIEL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Slayer of Domiel Divine PrC casting calculations		   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_SOHEI)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_SOHEI, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SOHEI, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+
+/* 		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster); */				
+		
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SOHEI, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster); */
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);			
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SOHEI, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_SOHEI, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SOHEI, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SOHEI, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SOHEI, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SOHEI, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SOHEI, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Sohei Divine PrC casting calculations		   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_SOLDIER_OF_LIGHT)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_SOL, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SOL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster); */
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SOL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_SOL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_SOL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);	
+		
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SOL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster); */
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);*/
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SOL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+		/*if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_SOL, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2		 */	
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_SOL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_SOL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;			
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SOL, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SOL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_OLLAM, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_SOL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SOL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Soldier of Light Divine PrC casting calculations		   
+	   
+	   
+ 	if (nCastingClass == CLASS_TYPE_UR_PRIEST)
+    { 
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_UR_PRIEST, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+		if(GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2; 
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);		
+
+		if(GetHasFeat(FEAT_ALIENIST_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ALIENIST, oCaster);		
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
+
+		if(GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oCaster);		
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
+		
+/* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MAGEKILLER, oCaster);			
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+			
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster); */
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		
+		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);			
+			
+/* 		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster); */
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/*		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_UR_PRIEST, oCaster))	
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
+			
+/* 		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_UR_PRIEST, oCaster))		
+			nDivine += GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster + 1) / 2		
+			
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_UR_PRIEST, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_OLLAM, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster + 1) / 2
+		
+		if(GetHasFeat(FEAT_TIAMAT_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+			
+/*		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_UR_PRIEST, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_UR_PRIEST, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;		
+		
+	}
+//:: End Ur-Priest Divine PrC casting calculations	   
+	   
+
+ 	if (nCastingClass == CLASS_TYPE_VASSAL)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_VASSAL, oCaster))
+		{
+			nDivine   += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		}
+		
+/*         if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_VASSAL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_VASSAL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster); */
+		
+		if(GetHasFeat(FEAT_ALCHEM_SPELLCASTING_VASSAL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_ALCHEMIST, oCaster);				
+		
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_VASSAL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
+		
+		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
+		
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+/* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+		
+		if(GetHasFeat(FEAT_MHARPER_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_HARPER, oCaster);			
+			
+/*		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		
+		if(GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+			
+		if(GetHasFeat(FEAT_RUBY_VINDICATOR_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oCaster);
+			
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+			
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+			
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+			
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER,oCaster);
+		
+		if(GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_VASSAL, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SPELLDANCER, oCaster);		
+			
+/* 		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster); */
+			
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+			
+/* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_VASSAL, oCaster))	
+			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2	 */		
+			
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_SPELLCASTING_VASSAL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oCaster) + 1) / 2;		
+			
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_VASSAL, oCaster))		
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;		
+			
+/* 		if(GetHasFeat(FEAT_KORD_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_VASSAL, oCaster))			
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_ORCUS, oCaster + 1) / 2 */
+			
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+			
+/* 		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster + 1) / 2 */
+		
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_VASSAL, oCaster))				
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		
+/* 		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_VASSAL, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;	 */	
+		
+	}
+//:: End Vassal of Bahamut Divine PrC casting calculations
 
    return nDivine;
 }

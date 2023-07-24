@@ -519,6 +519,6 @@
 515 CHARGEN_ABILITY_MODIFIER_INCREMENT            2                                                                                                                  
 516 CHARGEN_SKILL_MAX_LEVEL_1_BONUS               3                                                                                                                  
 517 CHARGEN_ALLOW_CUSTOM_PORTRAITS                1                                                                                                                  
-518 CHARGEN_ENABLE_RECOMMENDED_BUTTON             1                                                                                                                  
+518 CHARGEN_ENABLE_RECOMMENDED_BUTTON             0                                                                                                                  
 519 MULTICLASS_LIMIT                              8                                                                                                                  
 519 ALL_ASSOCIATES_CAN_INTERACT                   0                                                                                                                  

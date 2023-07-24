@@ -164,7 +164,7 @@ void main()
     }
 
     //NWNX_Funcs plugin test:
-    PRC_Funcs_Init(oModule);
+    //PRC_Funcs_Init(oModule);
 }
 
 /**
@@ -174,8 +174,8 @@ void main()
 void OnLoad_Always(object oModule)
 {
     //this triggers NWNX on Linux
-    SetLocalInt(oModule, "NWNX!INIT", 1);
-    SetLocalString(oModule, "NWNX!INIT", "1"); 
+    //SetLocalInt(oModule, "NWNX!INIT", 1);
+    //SetLocalString(oModule, "NWNX!INIT", "1"); 
 }
 
 /**
