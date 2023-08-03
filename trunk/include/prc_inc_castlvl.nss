@@ -101,7 +101,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID);
  *
  * @return          Number of divine caster levels contributed by PrCs.
  */
-int GetDivinePRCLevels(object oCaster);
+int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID);
 
 /**
  * Gets the position of the first arcane base class.
@@ -652,7 +652,7 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
     {
         iReturnLevel = GetLevelByClass(iCastingClass, oCaster) / GetCasterLevelModifier(iCastingClass);
         if(GetPrimaryDivineClass(oCaster) == iCastingClass)
-            iReturnLevel += GetDivinePRCLevels(oCaster);
+            iReturnLevel += GetDivinePRCLevels(oCaster, iCastingClass);
 
         iReturnLevel += PracticedSpellcasting(oCaster, iCastingClass, iReturnLevel);
 
@@ -789,7 +789,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
    	int nClass;
 	int nRace 		= GetRacialType(oCaster);
 
-    if (nCastingClass == CLASS_TYPE_BARD && GetLevelByClass(CLASS_TYPE_BARD))
+    if (nCastingClass == CLASS_TYPE_BARD || GetLevelByClass(CLASS_TYPE_BARD, oCaster))
     {    
 	//:: Includes RHD as bard.  If they started with bard levels, then it
 	//:: counts as a prestige class, otherwise RHD is used instead of bard levels.		
@@ -820,7 +820,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_BARD, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_BARD, oCaster))
@@ -957,7 +957,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 	}
 //:: End Bard Arcane PrC casting calculations
  
-	if(nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD))
+	if(nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
 	{    
 		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
@@ -983,7 +983,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_FEY, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_FEY, oCaster))
@@ -1117,7 +1117,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 	}
 //:: End Fey Arcane PrC casting calculations
 
-    if (nCastingClass == CLASS_TYPE_ASSASSIN)
+    if (nCastingClass == CLASS_TYPE_ASSASSIN || GetLevelByClass(CLASS_TYPE_ASSASSIN, oCaster))
     {    
          if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_ASSASSIN, oCaster))  //:: Requires Assassin 4
 			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
@@ -1140,7 +1140,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_ASSASSIN, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
@@ -1298,7 +1298,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_BEGUILER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_BEGUILER, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BEGUILER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_BEGUILER, oCaster))
@@ -1460,7 +1460,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
+/* 		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_CELEBRANT_SHARESS, oCaster))
@@ -1608,7 +1608,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_CULTIST_PEAK, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 /* 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_CULTIST_PEAK, oCaster))
@@ -1771,7 +1771,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_DNECRO, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_DNECRO, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_DNECRO, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_DNECRO, oCaster))
@@ -1930,7 +1930,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_DUSKBLADE, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
  		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_DUSKBLADE, oCaster))
@@ -2096,7 +2096,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_HARPER, oCaster))
+/* 		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_HARPER, oCaster))
@@ -2247,7 +2247,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_HEXBLADE, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
  		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_HEXBLADE, oCaster))
@@ -2413,7 +2413,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);		
 		
-/* 		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+/* 		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster); */
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_KNIGHT_WEAVE, oCaster))
@@ -2583,7 +2583,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SORCERER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SORCERER, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SORCERER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SORCERER, oCaster))
@@ -2779,10 +2779,10 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		|| GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHAPECHANGER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_MONSTROUS, oCaster) 
-		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_ABERRATION, oCaster) 
-		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_OUTSIDER, oCaster) 
-		|| GetHasFeat(FEAT_DIABO_SPELLCASTING_SHAPECHANGER, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SHAPECHANGER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_MONSTROUS, oCaster) 
@@ -3064,7 +3064,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUBLIME_CHORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SUBLIME_CHORD, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SUBLIME_CHORD, oCaster))
@@ -3228,7 +3228,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
@@ -3392,7 +3392,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_SHADOWLORD, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_SHADOWLORD, oCaster))
@@ -3555,7 +3555,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_WARMAGE, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_WARMAGE, oCaster))
@@ -3719,7 +3719,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_CMANCER_SPELLCASTING_WIZARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_CEREBREMANCER, oCaster);
 		
-		if(GetHasFeat(FEAT_DIABO_SPELLCASTING_WIZARD, oCaster))
+		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_WIZARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
 /* 		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_WIZARD, oCaster))
@@ -3860,13 +3860,9 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
     return nArcane;
 }
 
-int GetDivinePRCLevels(object oCaster)
+int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 {
-   	object oCaster = GetLastSpellCaster();
-	
-	int nCastingClass = PRCGetLastSpellCastClass();
-	
-	int nDivine = 0;
+   	int nDivine = 0;
 
 	if (nCastingClass == CLASS_TYPE_ARCHIVIST)
     {
@@ -7114,14 +7110,14 @@ int UrPriestCL(object oCaster, int nCastingClass)
     	if (iClass7 == CLASS_TYPE_HEXBLADE) iClass7Lev = (iClass7Lev >= 4) ? (iClass7Lev / 2) : 0;
     	if (iClass8 == CLASS_TYPE_HEXBLADE) iClass8Lev = (iClass8Lev >= 4) ? (iClass8Lev / 2) : 0;		
 		
-    	if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster);
-    	if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster);		
+    	if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster, iClass1);
+    	if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster, iClass2);
+    	if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster, iClass3);
+    	if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster, iClass4);
+    	if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster, iClass5);
+    	if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster, iClass6);
+    	if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster, iClass7);
+    	if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster, iClass8);		
 		
 		iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
 		iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
@@ -7236,14 +7232,14 @@ int GetLevelByTypeArcane(object oCaster = OBJECT_SELF)
     if (iClass7 == CLASS_TYPE_HEXBLADE) iClass7Lev = (iClass7Lev >= 4) ? (iClass7Lev / 2) : 0;
     if (iClass8 == CLASS_TYPE_HEXBLADE) iClass8Lev = (iClass8Lev >= 4) ? (iClass8Lev / 2) : 0;
 
-    if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster);
-    if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster);
-    if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster);
-    if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster);
-    if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster);
-    if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster);
-    if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster);
-    if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster);
+	if (iClass1 == iFirstArcane) iClass1Lev += GetArcanePRCLevels(oCaster, iClass1);
+	if (iClass2 == iFirstArcane) iClass2Lev += GetArcanePRCLevels(oCaster, iClass2);
+	if (iClass3 == iFirstArcane) iClass3Lev += GetArcanePRCLevels(oCaster, iClass3);
+	if (iClass4 == iFirstArcane) iClass4Lev += GetArcanePRCLevels(oCaster, iClass4);
+	if (iClass5 == iFirstArcane) iClass5Lev += GetArcanePRCLevels(oCaster, iClass5);
+	if (iClass6 == iFirstArcane) iClass6Lev += GetArcanePRCLevels(oCaster, iClass6);
+	if (iClass7 == iFirstArcane) iClass7Lev += GetArcanePRCLevels(oCaster, iClass7);
+	if (iClass8 == iFirstArcane) iClass8Lev += GetArcanePRCLevels(oCaster, iClass8);
 
     iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
     iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
@@ -7306,14 +7302,14 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
 	if (iClass7 == CLASS_TYPE_PALADIN || iClass7 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
     if (iClass8 == CLASS_TYPE_PALADIN || iClass8 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
 
-    if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster);
-    if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster);
-    if (iClass3 == iFirstDivine) iClass3Lev += GetDivinePRCLevels(oCaster);
-    if (iClass4 == iFirstDivine) iClass4Lev += GetDivinePRCLevels(oCaster);
-    if (iClass5 == iFirstDivine) iClass5Lev += GetDivinePRCLevels(oCaster);
-    if (iClass6 == iFirstDivine) iClass6Lev += GetDivinePRCLevels(oCaster);
-    if (iClass7 == iFirstDivine) iClass7Lev += GetDivinePRCLevels(oCaster);
-    if (iClass8 == iFirstDivine) iClass8Lev += GetDivinePRCLevels(oCaster);
+    if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster, iClass1);
+    if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster, iClass2);
+    if (iClass3 == iFirstDivine) iClass3Lev += GetDivinePRCLevels(oCaster, iClass3);
+    if (iClass4 == iFirstDivine) iClass4Lev += GetDivinePRCLevels(oCaster, iClass4);
+    if (iClass5 == iFirstDivine) iClass5Lev += GetDivinePRCLevels(oCaster, iClass5);
+    if (iClass6 == iFirstDivine) iClass6Lev += GetDivinePRCLevels(oCaster, iClass6);
+    if (iClass7 == iFirstDivine) iClass7Lev += GetDivinePRCLevels(oCaster, iClass7);
+    if (iClass8 == iFirstDivine) iClass8Lev += GetDivinePRCLevels(oCaster, iClass8);
 
     iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
     iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);

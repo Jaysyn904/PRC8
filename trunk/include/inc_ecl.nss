@@ -355,6 +355,16 @@ int GetCanBuyoffLA(object oPC)
 		if (nChar >= StringToInt(Get2DACache("la_buyoff", "4th", nLA)))
 			nReturn = TRUE;
 	}
+	if (nBuyoff == 4) // Purchased fourth already
+	{
+		if (nChar >= StringToInt(Get2DACache("la_buyoff", "5th", nLA)))
+			nReturn = TRUE;
+	}
+	if (nBuyoff == 5) // Purchased fifth already
+	{
+		if (nChar >= StringToInt(Get2DACache("la_buyoff", "6th", nLA)))
+			nReturn = TRUE;
+	}	
     if (DEBUG) DoDebug("nReturn "+IntToString(nReturn)+" nBuyoff "+IntToString(nBuyoff)+" nChar "+IntToString(nChar)+" nLA "+IntToString(nLA));	
 
 	return nReturn;

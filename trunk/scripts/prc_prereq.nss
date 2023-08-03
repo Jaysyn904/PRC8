@@ -168,10 +168,26 @@ void Cultist(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqCultist", 1);
 
+    // Can't be arcane
+    int i;
+    for (i = 1; i <= 8; i++)
+    {
+        if (GetIsArcaneClass(GetClassByPosition(i, oPC)))
+        {
+            SetLocalInt(oPC, "PRC_PrereqCultist", 0);
+            break;
+        }
+    }
+}
+
+/* void Cultist(object oPC)
+{
+    SetLocalInt(oPC, "PRC_PrereqCultist", 1);
+
 	// Can't be arcane
 	if(!GetIsArcaneClass(GetClassByPosition(1, oPC)) && (!GetIsArcaneClass(GetClassByPosition(2, oPC)) || GetClassByPosition(2, oPC) == CLASS_TYPE_CULTIST_SHATTERED_PEAK))
 		SetLocalInt(oPC, "PRC_PrereqCultist", 0);       
-}
+} */
 
 void Shifter(object oPC, int iArcSpell, int iDivSpell)
 {
@@ -1316,7 +1332,7 @@ void main()
             if (!bFirstDivClassFound &&
                 GetPrimaryDivineClass(oPC) == nClass)
             {
-                nLevel += GetDivinePRCLevels(oPC);
+                nLevel += GetDivinePRCLevels(oPC, nClass);
                 bFirstDivClassFound = TRUE;
             }
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
@@ -1357,7 +1373,7 @@ void main()
             if (!bFirstArcClassFound &&
                 (GetPrimaryArcaneClass(oPC) == nClass || nMonsterCaster))
             {
-                nLevel += GetArcanePRCLevels(oPC);
+                nLevel += GetArcanePRCLevels(oPC, nClass);
                 bFirstArcClassFound = TRUE;
             }
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
