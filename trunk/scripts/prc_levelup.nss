@@ -45,7 +45,8 @@ void main()
     //if(DEBUG) DoDebug("prc_levelup: PRCFeats");
     // Check to see which special prc requirements (i.e. those that can't be done)
     // through the .2da's, the newly leveled up player meets.
-    DelayCommand(0.5, ExecuteScript("prc_prereq", oPC)); // Delayed so that deleveling gets to happen before it.
+    ExecuteScript("prc_prereq", oPC); // update prereqs now, for prc_enforce_feat
+    DelayCommand(0.5, ExecuteScript("prc_prereq", oPC)); // Execute again after delay so that deleveling (if necessary) gets to happen before it.
 	
 	//:: Run PrC marker feat check
 	ExecuteScript("prc_enforce_mark", oPC);
