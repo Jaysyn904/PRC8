@@ -771,6 +771,11 @@ void SetupSpells(object oPC, int nClass)
     {
         int nSpellLevel, nSlot, nSlots, nSpellbookID;
         string sArrayName2, sIDX;
+
+        // clearing existing spells 
+        persistant_array_delete(oPC, sArrayName);
+        persistant_array_create(oPC, sArrayName);
+
         for(nSpellLevel = 0; nSpellLevel <= 9; nSpellLevel++)
         {
             sArrayName2 = "Spellbook" + IntToString(nSpellLevel) + "_" + sClass; // Minor optimisation: cache the array name string for multiple uses
