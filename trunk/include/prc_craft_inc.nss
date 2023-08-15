@@ -2920,5 +2920,4 @@ int ITEM_APPR_WEAPON_COLOR_MIDDLE       = 1;
 int ITEM_APPR_WEAPON_COLOR_TOP          = 2;
 */
 
-// 
-void main () {}
+// void main () {}
