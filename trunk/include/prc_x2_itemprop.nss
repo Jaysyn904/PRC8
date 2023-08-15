@@ -1,4 +1,5 @@
 //::///////////////////////////////////////////////
+//::///////////////////////////////////////////////
 //:: Item Property Functions
 //:: prc_x2_itemprop
 //:: Copyright (c) 2003 Bioware Corp.
@@ -27,14 +28,30 @@
 // *  The tag of the ip work container, a placeable which has to be set into each
 // *  module that is using any of the crafting functions.
 const string  X2_IP_WORK_CONTAINER_TAG = "x2_plc_ipbox";
+// *  2da for the AddProperty ItemProperty
+const string X2_IP_ADDRPOP_2DA = "des_crft_props" ;
+// *  2da for the Poison Weapon Itemproperty
+const string X2_IP_POISONWEAPON_2DA = "des_crft_poison" ;
 // *  2da for armor appearance
 const string X2_IP_ARMORPARTS_2DA = "des_crft_aparts" ;
+// *  2da for armor appearance
+const string X2_IP_ARMORAPPEARANCE_2DA = "des_crft_appear" ;
 
 // * Base custom token for item modification conversations (do not change unless you want to change the conversation too)
 const int    XP_IP_ITEMMODCONVERSATION_CTOKENBASE = 12220;
+const int    X2_IP_ITEMMODCONVERSATION_MODE_TAILOR = 0;
+const int    X2_IP_ITEMMODCONVERSATION_MODE_CRAFT = 1;
 
 // * Number of maximum item properties allowed on most items
 const int    X2_IP_MAX_ITEM_PROPERTIES = 8;
+
+// *  Constants used with the armor modification system
+const int    X2_IP_ARMORTYPE_NEXT = 0;
+const int    X2_IP_ARMORTYPE_PREV = 1;
+const int    X2_IP_ARMORTYPE_RANDOM = 2;
+const int    X2_IP_WEAPONTYPE_NEXT = 0;
+const int    X2_IP_WEAPONTYPE_PREV = 1;
+const int    X2_IP_WEAPONTYPE_RANDOM = 2;
 
 // *  Policy constants for IPSafeAddItemProperty()
 const int    X2_IP_ADDPROP_POLICY_REPLACE_EXISTING = 0;
@@ -51,6 +68,15 @@ void  IPRemoveAllItemProperties( object oItem, int nItemPropertyDuration = DURAT
 // *  returns TRUE if item can be equipped.
 // *  Uses Get2DAString, so do not use in a loop!
 int   IPGetIsItemEquipable( object oItem );
+
+// *  Changes the color of an item armor
+// *  oItem        - The armor
+// *  nColorType   - ITEM_APPR_ARMOR_COLOR_* constant
+// *  nColor       - color from 0 to 63
+// *  Since oItem is destroyed in the process, the function returns
+// *  the item created with the color changed
+object IPDyeArmor( object oItem, int nColorType, int nColor );
+
 
 // *  Returns the container used for item property and appearance modifications in the
 // *  module. If it does not exist, create it.
@@ -83,6 +109,39 @@ int   IPGetIPConstCastSpellFromSpellID( int nSpellID );
 // *  popular ones:
 // *  5 - Daze   19 - ItemPoison   24 - Vorpal
 int   IPGetItemHasItemOnHitPropertySubType( object oTarget, int nSubType );
+
+// *  Returns the number of possible armor part variations for the specified part
+// *  nPart - ITEM_APPR_ARMOR_MODEL_* constant
+// *  Uses Get2DAstring, so do not use in loops
+int   IPGetNumberOfAppearances( int nPart );
+
+
+// *  Returns the next valid appearance type for oArmor
+// *  nPart - ITEM_APPR_ARMOR_MODEL_* constant
+// *  Uses Get2DAstring, so do not use in loops
+int   IPGetNextArmorAppearanceType(object oArmor, int nPart);
+
+// *  Returns the previous valid appearance type for oArmor
+// *  nPart - ITEM_APPR_ARMOR_MODEL_* constant
+// *  Uses Get2DAstring, so do not use in loops
+int   IPGetPrevArmorAppearanceType(object oArmor, int nPart);
+
+// *  Returns a random valid appearance type for oArmor
+// *  nPart - ITEM_APPR_ARMOR_MODEL_* constant
+// *  Uses Get2DAstring, so do not use in loops
+int   IPGetRandomArmorAppearanceType(object oArmor, int nPart);
+
+// * Returns a new armor based of oArmor with nPartModified
+// * nPart - ITEM_APPR_ARMOR_MODEL_* constant of the part to be changed
+// * nMode -
+// *        X2_IP_ARMORTYPE_NEXT    - next valid appearance
+// *        X2_IP_ARMORTYPE_PREV    - previous valid apperance;
+// *        X2_IP_ARMORTYPE_RANDOM  - random valid appearance;
+// *
+// * bDestroyOldOnSuccess - Destroy oArmor in process?
+// * Uses Get2DAstring, so do not use in loops
+object IPGetModifiedArmor(object oArmor, int nPart, int nMode, int bDestroyOldOnSuccess);
+
 
 // *  Add an item property in a safe fashion, preventing unwanted stacking
 // *  Parameters:
@@ -222,6 +281,21 @@ int IPGetIsItemEquipable(object oItem)
 
     string sResult = Get2DACache("baseitems","EquipableSlots",nBaseType);
     return  (sResult != "0x00000");
+}
+
+// ----------------------------------------------------------------------------
+// Changes the color of an item armor
+// oItem        - The armor
+// nColorType   - ITEM_APPR_ARMOR_COLOR_* constant
+// nColor       - color from 0 to 63
+// Since oItem is destroyed in the process, the function returns
+// the item created with the color changed
+// ----------------------------------------------------------------------------
+object IPDyeArmor(object oItem, int nColorType, int nColor)
+{
+        object oRet = CopyItemAndModify(oItem,ITEM_APPR_TYPE_ARMOR_COLOR,nColorType,nColor,TRUE);
+        DestroyObject(oItem); // remove old item
+        return oRet; //return new item
 }
 
 // ----------------------------------------------------------------------------
@@ -741,6 +815,188 @@ int IPGetItemHasItemOnHitPropertySubType(object oTarget, int nSubType)
     return FALSE;
 }
 
+// ----------------------------------------------------------------------------
+// Returns the number of possible armor part variations for the specified part
+// nPart - ITEM_APPR_ARMOR_MODEL_* constant
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+int IPGetNumberOfArmorAppearances(int nPart)
+{
+    int nRet;
+    //SpeakString(Get2DAString(X2_IP_ARMORPARTS_2DA ,"NumParts",nPart));
+    nRet = StringToInt(Get2DAString(X2_IP_ARMORPARTS_2DA ,"NumParts",nPart));
+    return nRet;
+}
+
+// ----------------------------------------------------------------------------
+// (private)
+// Returns the previous or next armor appearance type, depending on the specified
+// mode (X2_IP_ARMORTYPE_NEXT || X2_IP_ARMORTYPE_PREV)
+// ----------------------------------------------------------------------------
+int IPGetArmorAppearanceType(object oArmor, int nPart, int nMode)
+{
+    string sMode;
+
+    switch (nMode)
+    {
+        case        X2_IP_ARMORTYPE_NEXT : sMode ="Next";
+                    break;
+        case        X2_IP_ARMORTYPE_PREV : sMode ="Prev";
+                    break;
+    }
+
+    int nCurrApp  = GetItemAppearance(oArmor,ITEM_APPR_TYPE_ARMOR_MODEL,nPart);
+    int nRet;
+
+    if (nPart ==ITEM_APPR_ARMOR_MODEL_TORSO)
+    {
+        nRet = StringToInt(Get2DAString(X2_IP_ARMORAPPEARANCE_2DA ,sMode,nCurrApp));
+        return nRet;
+    }
+    else
+    {
+        int nMax =  IPGetNumberOfArmorAppearances(nPart)-1; // index from 0 .. numparts -1
+        int nMin =  1; // this prevents part 0 from being chosen (naked)
+
+        // return a random valid armor tpze
+        if (nMode == X2_IP_ARMORTYPE_RANDOM)
+        {
+            return Random(nMax)+nMin;
+        }
+
+        else
+        {
+            if (nMode == X2_IP_ARMORTYPE_NEXT)
+            {
+                // current appearance is max, return min
+                if (nCurrApp == nMax)
+                {
+                    return nMin;
+                }
+                // current appearance is min, return max  -1
+                else if (nCurrApp == nMin)
+                {
+                    nRet = nMin+1;
+                    return nRet;
+                }
+
+                //SpeakString("next");
+                // next
+                nRet = nCurrApp +1;
+                return nRet;
+            }
+            else                // previous
+            {
+                // current appearance is max, return nMax-1
+                if (nCurrApp == nMax)
+                {
+                    nRet = nMax--;
+                    return nRet;
+                }
+                // current appearance is min, return max
+                else if (nCurrApp == nMin)
+                {
+                    return nMax;
+                }
+
+                //SpeakString("prev");
+
+                nRet = nCurrApp -1;
+                return nRet;
+            }
+        }
+
+     }
+
+}
+
+// ----------------------------------------------------------------------------
+// Returns the next valid appearance type for oArmor
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+int IPGetNextArmorAppearanceType(object oArmor, int nPart)
+{
+    return IPGetArmorAppearanceType(oArmor, nPart,  X2_IP_ARMORTYPE_NEXT );
+
+}
+
+// ----------------------------------------------------------------------------
+// Returns the next valid appearance type for oArmor
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+int IPGetPrevArmorAppearanceType(object oArmor, int nPart)
+{
+    return IPGetArmorAppearanceType(oArmor, nPart,  X2_IP_ARMORTYPE_PREV );
+}
+
+// ----------------------------------------------------------------------------
+// Returns the next valid appearance type for oArmor
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+int IPGetRandomArmorAppearanceType(object oArmor, int nPart)
+{
+    return  IPGetArmorAppearanceType(oArmor, nPart,  X2_IP_ARMORTYPE_RANDOM );
+}
+
+// ----------------------------------------------------------------------------
+// Returns a new armor based of oArmor with nPartModified
+// nPart - ITEM_APPR_ARMOR_MODEL_* constant of the part to be changed
+// nMode -
+//          X2_IP_ARMORTYPE_NEXT    - next valid appearance
+//          X2_IP_ARMORTYPE_PREV    - previous valid apperance;
+//          X2_IP_ARMORTYPE_RANDOM  - random valid appearance (torso is never changed);
+// bDestroyOldOnSuccess - Destroy oArmor in process?
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+object IPGetModifiedArmor(object oArmor, int nPart, int nMode, int bDestroyOldOnSuccess)
+{
+    int nNewApp = IPGetArmorAppearanceType(oArmor, nPart,  nMode );
+    //SpeakString("old: " + IntToString(GetItemAppearance(oArmor,ITEM_APPR_TYPE_ARMOR_MODEL,nPart)));
+    //SpeakString("new: " + IntToString(nNewApp));
+
+    object oNew = CopyItemAndModify(oArmor,ITEM_APPR_TYPE_ARMOR_MODEL, nPart, nNewApp,TRUE);
+
+    if (oNew != OBJECT_INVALID)
+    {
+        if( bDestroyOldOnSuccess )
+        {
+            DestroyObject(oArmor);
+        }
+        return oNew;
+    }
+    // Safety fallback, return old armor on failures
+       return oArmor;
+}
+
+// ----------------------------------------------------------------------------
+// Creates a special ring on oCreature that gives
+// all weapon and armor proficiencies to the wearer
+// Item is set non dropable
+// ----------------------------------------------------------------------------
+object IPCreateProficiencyFeatItemOnCreature(object oCreature)
+{
+    // create a simple golden ring
+    object  oRing = CreateItemOnObject("nw_it_mring023",oCreature);
+
+    // just in case
+    SetDroppableFlag(oRing, FALSE);
+
+    itemproperty ip = ItemPropertyBonusFeat(IP_CONST_FEAT_ARMOR_PROF_HEAVY);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+    ip = ItemPropertyBonusFeat(IP_CONST_FEAT_ARMOR_PROF_MEDIUM);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+    ip = ItemPropertyBonusFeat(IP_CONST_FEAT_ARMOR_PROF_LIGHT);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+    ip = ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_EXOTIC);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+    ip = ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_MARTIAL);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+    ip = ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_SIMPLE);
+    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oRing);
+
+    return oRing;
+}
+
 
 // ----------------------------------------------------------------------------
 // Add an item property in a safe fashion, preventing unwanted stacking
@@ -944,24 +1200,34 @@ object IPGetTargetedOrEquippedArmor(int bAllowShields = FALSE)
 // ----------------------------------------------------------------------------
 int IPGetItemSequencerProperty(object oItem, object oPC = OBJECT_SELF)
 {
-    int nCnt;
-    if (GetItemHasItemProperty(oItem, ITEM_PROPERTY_CAST_SPELL))
+	    if (!GetItemHasItemProperty(oItem, ITEM_PROPERTY_CAST_SPELL))
     {
+        return FALSE;
+    }
 
-        itemproperty ip = GetFirstItemProperty(oItem);
-        while (GetIsItemPropertyValid(ip) && nCnt ==0)
+    int nCnt;
+    itemproperty ip;
+
+    ip = GetFirstItemProperty(oItem);
+
+    while (GetIsItemPropertyValid(ip) && nCnt ==0)
+    {
+        if (GetItemPropertyType(ip) ==ITEM_PROPERTY_CAST_SPELL)
         {
-            if (GetItemPropertyType(ip) ==ITEM_PROPERTY_CAST_SPELL)
+            if(GetItemPropertySubType(ip) == 523) // sequencer 3
             {
-                if(GetItemPropertySubType(ip) == 523) // sequencer 3
-                    nCnt =  3;
-                else if(GetItemPropertySubType(ip) == 522) // sequencer 2
-                    nCnt =  2;
-                else if(GetItemPropertySubType(ip) == 521) // sequencer 1
-                    nCnt =  1;
+                nCnt =  3;
             }
-            ip = GetNextItemProperty(oItem);
+            else if(GetItemPropertySubType(ip) == 522) // sequencer 2
+            {
+                nCnt =  2;
+            }
+            else if(GetItemPropertySubType(ip) == 521) // sequencer 1
+            {
+                nCnt =  1;
+            }
         }
+        ip = GetNextItemProperty(oItem);
     }
     return nCnt;
 }
@@ -1064,6 +1330,120 @@ int IPGetIsIntelligentWeapon(object oItem)
         ip = GetNextItemProperty(oItem);
     }
     return bRet;
+}
+
+// ----------------------------------------------------------------------------
+// (private)
+// ----------------------------------------------------------------------------
+int IPGetWeaponAppearanceType(object oWeapon, int nPart, int nMode)
+{
+    string sMode;
+
+    switch (nMode)
+    {
+        case        X2_IP_WEAPONTYPE_NEXT : sMode ="Next";
+                    break;
+        case        X2_IP_WEAPONTYPE_PREV : sMode ="Prev";
+                    break;
+    }
+
+    int nCurrApp  = GetItemAppearance(oWeapon,ITEM_APPR_TYPE_WEAPON_MODEL,nPart);
+    int nRet;
+
+    int nMax =  9;// IPGetNumberOfArmorAppearances(nPart)-1; // index from 0 .. numparts -1
+    int nMin =  1;
+
+    // return a random valid armor tpze
+    if (nMode == X2_IP_WEAPONTYPE_RANDOM)
+    {
+        return Random(nMax)+nMin;
+    }
+
+    else
+    {
+        if (nMode == X2_IP_WEAPONTYPE_NEXT)
+        {
+            // current appearance is max, return min
+            if (nCurrApp == nMax)
+            {
+                return nMax;
+            }
+            // current appearance is min, return max  -1
+            else if (nCurrApp == nMin)
+            {
+                nRet = nMin +1;
+                return nRet;
+            }
+
+            //SpeakString("next");
+            // next
+            nRet = nCurrApp +1;
+            return nRet;
+        }
+        else                // previous
+        {
+            // current appearance is max, return nMax-1
+            if (nCurrApp == nMax)
+            {
+                nRet = nMax--;
+                return nRet;
+            }
+            // current appearance is min, return max
+            else if (nCurrApp == nMin)
+            {
+                return nMin;
+            }
+
+            //SpeakString("prev");
+
+            nRet = nCurrApp -1;
+            return nRet;
+        }
+
+
+     }
+}
+
+// ----------------------------------------------------------------------------
+// Returns a new armor based of oArmor with nPartModified
+// nPart - ITEM_APPR_WEAPON_MODEL_* constant of the part to be changed
+// nMode -
+//          X2_IP_WEAPONTYPE_NEXT    - next valid appearance
+//          X2_IP_WEAPONTYPE_PREV    - previous valid apperance;
+//          X2_IP_WEAPONTYPE_RANDOM  - random valid appearance (torso is never changed);
+// bDestroyOldOnSuccess - Destroy oArmor in process?
+// Uses Get2DAstring, so do not use in loops
+// ----------------------------------------------------------------------------
+object IPGetModifiedWeapon(object oWeapon, int nPart, int nMode, int bDestroyOldOnSuccess)
+{
+    int nNewApp = IPGetWeaponAppearanceType(oWeapon, nPart,  nMode );
+    //SpeakString("old: " + IntToString(GetItemAppearance(oWeapon,ITEM_APPR_TYPE_WEAPON_MODEL,nPart)));
+    //SpeakString("new: " + IntToString(nNewApp));
+    object oNew = CopyItemAndModify(oWeapon,ITEM_APPR_TYPE_WEAPON_MODEL, nPart, nNewApp,TRUE);
+    if (oNew != OBJECT_INVALID)
+    {
+        if( bDestroyOldOnSuccess )
+        {
+            DestroyObject(oWeapon);
+        }
+        return oNew;
+    }
+    // Safety fallback, return old weapon on failures
+       return oWeapon;
+}
+
+
+object IPCreateAndModifyArmorRobe(object oArmor, int nRobeType)
+{
+    object oRet = CopyItemAndModify(oArmor,ITEM_APPR_TYPE_ARMOR_MODEL,ITEM_APPR_ARMOR_MODEL_ROBE,nRobeType+2,TRUE);
+    if (GetIsObjectValid(oRet))
+    {
+        return oRet;
+    }
+    else // safety net
+    {
+        return oArmor;
+    }
 }
 
 

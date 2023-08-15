@@ -620,7 +620,7 @@ int CheckCraftingSpells(object oPC, string sFile, int nLine, int bDecrement = FA
     if(sTemp == "")
         return TRUE;    //no prereqs, always true
     int nSpellPattern = 0;
-    int nSpell1, nSpell2, nSpell3, nSpellOR1, nSpellOR2;
+    int nSpell1, nSpell2, nSpell3, nSpellOR1, nSpellOR2, nSpellOR3;
     int bOR = FALSE;
     string sSub;
     int nLength = GetStringLength(sTemp);
@@ -628,7 +628,7 @@ int CheckCraftingSpells(object oPC, string sFile, int nLine, int bDecrement = FA
     int nTemp;
     int i;
 
-    for(i = 0; i < 5; i++)
+    for(i = 0; i < 6; i++)
     {
         nPosition = FindSubString(sTemp, "_");
         sSub = (nPosition == -1) ? sTemp : GetStringLeft(sTemp, nPosition);
@@ -664,12 +664,99 @@ int CheckCraftingSpells(object oPC, string sFile, int nLine, int bDecrement = FA
                     nSpellOR2 = nTemp;
                     break;
                 }
+				case 6:
+                {
+                    nSpellOR3 = nTemp;
+                    break;
+                }
             }
         }
         sTemp = GetSubString(sTemp, nPosition + 1, nLength);
     }
 
-    if(nSpellPattern)
+    if (nSpellPattern)
+    {
+        // ... Existing code for nSpellPattern & 1
+        
+        if (nSpellPattern & 2)
+        {
+            if (!PRCGetHasSpell(nSpell2, oPC))
+            {
+                if (!CheckImbueItem(oPC, nSpell2))
+                    return FALSE;
+            }
+        }
+        
+        if (nSpellPattern & 4)
+        {
+            if (!PRCGetHasSpell(nSpell3, oPC))
+            {
+                if (!CheckImbueItem(oPC, nSpell3))
+                    return FALSE;
+            }
+        }
+        
+        if (nSpellPattern & 8)
+        {
+            if (!PRCGetHasSpell(nSpellOR1, oPC))
+            {
+                if (!CheckImbueItem(oPC, nSpellOR1))
+                {
+                    if (nSpellPattern & 16)
+                    {
+                        if (!PRCGetHasSpell(nSpellOR2, oPC))
+                        {
+                            // Warlocks don't get two bites at things.
+                            // if (!CheckImbueItem(oPC, nSpellOR2))
+                            return FALSE;
+                        }
+                    }
+                    else if (nSpellPattern & 32)  // Check for nSpellOR3
+                    {
+                        if (!PRCGetHasSpell(nSpellOR3, oPC))
+                        {
+                            // Handle nSpellOR3 missing
+                            return FALSE;
+                        }
+                    }
+                    else
+                        return FALSE;
+                }
+            }
+        }
+        else if (nSpellPattern & 16)
+        {
+            if (!PRCGetHasSpell(nSpellOR2, oPC))
+            {
+                if (!CheckImbueItem(oPC, nSpellOR2))
+                    return FALSE;
+            }
+            // Check for nSpellOR3
+            else if (nSpellPattern & 32)
+            {
+                if (!PRCGetHasSpell(nSpellOR3, oPC))
+                {
+                    // Handle nSpellOR3 missing
+                    return FALSE;
+                }
+            }
+        }
+        else if (nSpellPattern & 32)  // Check for nSpellOR3 alone
+        {
+            if (!PRCGetHasSpell(nSpellOR3, oPC))
+            {
+                // Handle nSpellOR3 missing
+                return FALSE;
+            }
+        }
+        
+        // ... Existing code for decrementing spells
+        
+    }
+    
+    return TRUE;
+}
+/*     if(nSpellPattern)
     {
         if(nSpellPattern & 1)
         {
@@ -774,7 +861,7 @@ int CheckCraftingSpells(object oPC, string sFile, int nLine, int bDecrement = FA
         }
     }
     return TRUE;
-}
+} */
 
 //Checks and decrements power points based on property to add
 int CheckCraftingPowerPoints(object oPC, string sFile, int nLine, int bDecrement = FALSE)
@@ -2833,4 +2920,5 @@ int ITEM_APPR_WEAPON_COLOR_MIDDLE       = 1;
 int ITEM_APPR_WEAPON_COLOR_TOP          = 2;
 */
 
-// void main () {}
+// 
+void main () {}
