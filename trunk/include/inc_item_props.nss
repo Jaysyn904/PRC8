@@ -1446,7 +1446,7 @@ int GetIsMagicItem(object oItem)
                 (nType >= 71 && nType <= 80) ||
                 (nType == 82) ||
                 (nType == 84) ||
-                (nType >= 100 && nType <= 101) ||
+                (nType >= 100 && nType <= 105) ||
                 (nType >= 133 && nType <= 134))
             {
                 return 1;   //magical property
