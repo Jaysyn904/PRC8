@@ -10,7 +10,7 @@
 6          SpellFocusNec                                  171       0    -1             0      
 7          SpellFocusTra                                  172       0    -1             0      
 8          SpellFocusAbj                                  35        0    -1             0      
-9          Battleblessing                                 5435      0    -1             1      
+9          Battleblessing                                 5435      1    -1             1      
 10         WeapProfSim                                    46        3    1              0      
 11         WeapProfSim_Dart                               7914      3    1              0      
 12         WeapProfSim_Light_Mace                         7908      3    1              0      
