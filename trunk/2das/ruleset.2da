@@ -29,7 +29,7 @@
 25  STUNNING_FIST_BASE_SAVE_DC                    10                                                                                                                 
 26  CRIPPLING_STRIKE_STRENGTH_MODIFIER            2                                                                                                                  
 27  ****                                          ****                                                                                                               
-28  PARRY_RIPOSTE_DIFFERENCE                      10                                                                                                                 
+28  PARRY_RIPOSTE_DIFFERENCE                      99                                                                                                                
 29  TAUNT_EFFECT_DURATION                         30.0f                                                                                                              
 30  TAUNT_ARCANE_SPELL_FAILURE                    30                                                                                                                 
 31  TAUNT_MAX_MODIFIER                            6                                                                                                                  
