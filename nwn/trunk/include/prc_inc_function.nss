@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: [PRC Feat Router]
-//:: [inc_prc_function.nss]
+//:: [prc_inc_function.nss]
 //:://////////////////////////////////////////////
 //:: This file serves as a hub for the various
 //:: PRC passive feat functions.  If you need to

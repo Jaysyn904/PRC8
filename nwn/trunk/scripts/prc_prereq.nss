@@ -687,6 +687,19 @@ void WildMageReq(object oPC)
         SetLocalInt(oPC, "PRC_PresWildMageReq", 0);
 }
 
+void Warmind(object oPC)
+{
+    SetLocalInt(oPC, "PRC_AllowWarmind", 1);
+	
+	int iPwrPoints	= GetMaximumPowerPoints(oPC);
+
+//:: Requires at least one Power Point
+	if (iPwrPoints > 0)
+	{
+		SetLocalInt(oPC, "PRC_AllowWarmind", 0);
+	}
+}
+
 void DalQuor(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqDalQuor", 1);
@@ -1503,6 +1516,7 @@ void main()
     RacialHD(oPC);
     Virtuoso(oPC);
     LichPrereq(oPC);
+	Warmind(oPC);
     DalQuor(oPC);
     Pyro(oPC);
     Suel();
