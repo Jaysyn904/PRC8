@@ -1,0 +1,1 @@
+java -Xmx150m -Xms150m prc/autodoc/Data_2da -c %1 %2 > compare.log

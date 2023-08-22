@@ -1,0 +1,52 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Module Building :: PRC NPCs</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Module Building :: PRC NPCs ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+This is a brief guide to getting NPCs to begin to work with the new PRC classes.
+The PRC has added some scripts you need to hook into NPC scripts in order to have the
+PRC passive abilities work. Simply add ExecuteScript("NAME_OF_SCRIPT", OBJECT_SELF);
+somewhere in the AI script for each event, just below void main() { is probably a good
+place. Most of these scripts do not do anything at the moment, but they might do more in
+future versions for example, if things need to be triggered from these events.
+<br>
+<table cellpadding="0" cellspacing="0" align="center" border="0" class="table_contenttable">
+<tr><td>OnBlocked</td> 			<td>prc_npc_blocked</td>	</tr>
+<tr><td>OnCombatRoundEnd</td> 	<td>prc_npc_combat</td>		</tr>
+<tr><td>OnConversation</td> 	<td>prc_npc_conv</td>		</tr>
+<tr><td>OnDamaged</td> 			<td>prc_npc_damaged</td>	</tr>
+<tr><td>OnDeath</td> 			<td>prc_npc_death</td>		</tr>
+<tr><td>OnDisturbed</td> 		<td>prc_npc_disturb</td>	</tr>
+<tr><td>OnHeartbeat</td> 		<td>prc_npc_hb</td>			</tr>
+<tr><td>OnPerception</td> 		<td>prc_npc_percep</td>		</tr>
+<tr><td>OnPhysicalAttacked</td> <td>prc_npc_physatt</td>	</tr>
+<tr><td>OnRested</td> 			<td>prc_npc_rested</td>		</tr>
+<tr><td>OnSpawn</td> 			<td>prc_npc_spawn</td>		</tr>
+<tr><td>OnSpellCastAt</td> 		<td>prc_npc_spellat</td>	</tr>
+<tr><td>OnUserdefined</td> 		<td>prc_npc_userdef</td>	</tr>
+</table>
+<br>This will only allow the passive abilities, such as skill bonuses, to work. The AI
+will probably not actively use any of the PRC content (such as the new Power Attack).
+<br>There is one exception, the PRC NPC scripts do contain a basic wrapper AI for using the
+new epic spells. If you want epic spellcasters to have specific epic spells, assign them
+directly. Otherwise epic spellcasters will have a random selection of epic spells. Also,
+since some epic spells use up XP when cast, you can give NPCs virtual XP by setting a local
+int called "NPC_XP" on them. This is treated the same as a PCs XP score, so it cannot go
+lower than the minimum for their level. If the local int is not set, NPCs will be randomly
+given enough XP to be between 25% and 75% of the way to the next level.
+<br>
+<br>Another thing to note when making PRC NPCs; the toolset will throw up errors whenever
+the LevelUp or Character Wizards are used with the certain classes. We are not sure why
+it does it, and it only does it with certain classes. The best way around the problem
+is to hand make all the NPCs, which is probably a good idea anyway since biowares feat
+assignments are not always that smart.
+</div>
+</body>
+</html>

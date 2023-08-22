@@ -1,0 +1,25 @@
+manual-|
+       |-language-|
+       |          |-content-|
+       |          |         |-base_classes      -autogen
+       |          |         |-class_epic_feat   -autogen
+       |          |         |-class_feat        -autogen
+       |          |         |-domains           -autogen
+       |          |         |-epic_feat         -autogen
+       |          |         |-epic_spells       -autogen
+       |          |         |-feat              -autogen
+       |          |         |-master_feat       -autogen
+       |          |         |-prestige_classes  -autogen
+       |          |         |-races             -autogen
+       |          |         |-skills            -autogen
+       |          |         |-spells            -autogen
+       |          |         |
+       |          |         |-installation
+       |          |         |-itemcrafting
+       |          |         |-modulebuilding
+       |          |         |-prcmaking
+       |          |
+       |          |-menus
+       |-images
+       |-scripts
+       |-styles

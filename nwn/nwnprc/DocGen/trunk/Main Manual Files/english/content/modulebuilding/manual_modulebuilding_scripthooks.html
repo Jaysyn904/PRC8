@@ -1,0 +1,52 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Module Building :: Script Hooks</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Module Building :: Script Hooks ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<br>To enable builders to integrate the PRC into their modules better, a series of
+common scripts that the PRC overrides have had additional scripts added via
+ExecuteScript. These are:
+<br>
+<br>nw_c2_default7 (NPC OnDeath) runs a script named "prc_pwondeath" This is designed
+for custom XP use and all the normal OnDeath functions will work as usual.
+<br>
+<br>nw_s0_raisdead (spell script for raise dead) runs a script named "prc_pw_raisedead"
+This is designed for persistent death scripts. You can get the raised creature with
+GetSpellTargetObject().
+<br>
+<br>nw_s0_ressurec (spell script for ressurection) runs a script named
+"prc_pw_ressurection" This is designed for persistent death scripts. You can get the
+resurrected creature with GetSpellTargetObject().
+<br>
+<br>ss_ep_cont_resur (spell script for contingent ressurection) runs a script named
+"prc_pw_contress" This is designed for persistent death scripts. You can get the raised
+creature with OBJECT_SELF.
+<br>
+<br>ss_ep_armyunfall (spell script for army unfallen) runs a script named
+"prc_pw_armyunfall" This is designed for persistent death scripts. You can get the
+raised creature with OBJECT_SELF.
+<br>
+<br>psi_inc_psifunc AstralSeedRespawn() (function for astral seed psionic power ondeath)
+runs a script named "prc_pw_astralseed" This is designed for persistent death scripts.
+You can get the raised creature with OBJECT_SELF.
+<br>
+<br>x0_i0_spells (spell include for many things including petrification) runs a script
+named "prc_pw_petrific" This is designed for persistent death scripts. You can get the
+petrified creature with OBJECT_SELF. Note: this will only be run if on hard core rules or very difficult, since on other settings petrification is temporary.
+<br>
+<br>x0_s0_stoflesh (spell script for stone to flesh) runs a script named
+"prc_pw_unpetrif" This is designed for persistent death scripts. You can get the
+unpetrified creature with OBJECT_SELF. Note: this will only be run if on hard core rules or very difficult, since on other settings petrification is temporary.
+<br>
+<br>Remember however that the PRC has added code switches for some of the common PW scripts
+including persistant death tracking.
+</div>
+</body>
+</html>

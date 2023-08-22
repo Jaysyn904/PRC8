@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LetoLists letoversion="4.0.12" comment="US English (EN)">
+	<sources>
+		<source id="base" name="Neverwinter Nights (only)">Use this source if you have only the original game, with no expansion packs. Note that some apparently expansion pack-only material may appear, this is because these resources are indeed part of the base NWN 2DAs. Source based on patch 1.61.</source>
+		<source id="undrentide" name="Shadows of Undrentide">Use this source if you&#39;ve purchased the first expansion pack, &#39;Shadows of Undrentide&#39;, or if you have the Gold edition; and you do not have the second expansion pack (Underdark) installed. Some material from Underdark may still appear, this is because these resources are indeed part of the SoU 2DAs. Source based on patch 1.61.</source>
+		<source id="underdark" name="Hordes of the Underdark">Use this source EITHER if you have BOTH Undrentide AND Underdark installed, OR you have ONLY Underdark installed. The 2DA files released by BioWare for Underdark include all of the information for Undrentide, as well. Source based on patch 1.61.</source>
+		<source id="prc" name="Player Resource Consortium">Use this source with material from the Player Resource Consortium</source>
+	</sources>
+	<list name="Alignments">
+		<member name="NWN Alignments" file="nwn-alignments.xml" source=""/>
+	</list>
+	<list name="Appearance">
+		<member name="NWN Appearances" file="nwn-appearance.xml" source=""/>
+	</list>
+	<list name="Classes">
+		<member name="NWN Classes" file="nwn-classes.xml" source=""/>
+	</list>
+	<list name="Domains">
+		<member name="NWN Domains" file="nwn-domains.xml" source=""/>
+	</list>
+	<list name="Exptable">
+		<member name="NWN Exp Table" file="nwn-exptable.xml" source=""/>
+	</list>
+	<list name="Feat">
+		<member name="NWN Feats" file="nwn-feat.xml" source=""/>
+	</list>
+	<list name="Gender">
+		<member name="NWN Genders" file="nwn-gender.xml" source=""/>
+	</list>
+	<list name="Portraits">
+		<member name="NWN Portraits" file="nwn-portraits.xml" source=""/>
+	</list>
+	<list name="Racialtypes">
+		<member name="NWN Races" file="nwn-racialtypes.xml" source=""/>
+	</list>
+	<list name="Skills">
+		<member name="NWN Skills" file="nwn-skills.xml" source=""/>
+	</list>
+	<list name="Soundset">
+		<member name="NWN Soundsets" file="nwn-soundset.xml" source=""/>
+	</list>
+	<list name="Spells">
+		<member name="NWN Spells" file="nwn-spells.xml" source=""/>
+	</list>
+	<list name="Tailmodel">
+		<member name="NWN Tails" file="nwn-tailmodel.xml" source=""/>
+	</list>
+	<list name="Wingmodel">
+		<member name="NWN Wings" file="nwn-wingmodel.xml" source=""/>
+	</list>
+	<list name="Abilities">
+		<member name="NWN Abilities" file="nwn-abilities.xml" source=""/>
+	</list>
+	<list name="Schools">
+		<member name="NWN Schools" file="nwn-schools.xml" source=""/>
+	</list>
+</LetoLists>

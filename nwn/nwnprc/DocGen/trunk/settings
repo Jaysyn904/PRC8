@@ -1,0 +1,39 @@
+# Lines starting with # are comments
+#
+# a group of settings looks like
+#
+# settingId:
+#   valuegroup1
+#   ...
+#   valuegroupN
+#
+# where valuegroup consists of Id & value pairs separated by whitespace
+# furthermore, value is surrounded by quotes
+
+# different laguage tlks
+language:
+	name="english" base="dialog.tlk" prc="prc_consortium.tlk" feats="Feats" allfeats="All Feats" epicfeats="Epic Feats" allepicfeats="All Epic Feats" baseclasses="Base Classes" prestigeclasses="Prestige Classes" spellbook="Spellbook" spells="Spells" epicspells="Epic Spells" psipowers="Psionic Powers" powers="Powers" modspells="Modified Spells" skills="Skills" domains="Domains" races="Races" truenameutterances="Truename Utterances" invocations="Invocations" maneuvers="Maneuvers" utterances="Utterances"
+
+
+# what string a certain type of spell.2da script name entry starts with. Delimited by | characters
+signature:
+	epicspell="ss_ep_|wander"
+
+# modified spells indices in spells.2da
+modified_spell:
+	23
+	46
+	67
+	70
+	77
+	79
+	102
+	114
+	129
+	185
+	417
+	423
+	426
+	440
+	461
+	463

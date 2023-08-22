@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Player Resource Consortium :: Manual :: Installation :: Guide</title>
+
+
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet"></head><body scroll="auto">
+<br>
+<div><h1>:: Installation :: Guide :: FAQ ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+<center>
+	<a href="jcc_pg06.htm">Previous Page</a>
+</center>
+
+<ol type="I">
+<li><a href="#Installer">PRC Installer</a> </li>
+<li><a href="#Updater">PRC Module Updater</a> </li>
+<li><a href="#Java%20CC">java Character Creator</a> </li>
+<li><a href="#Java%20CC">General Questions</a> </li>
+</ol>
+
+<br><br>
+<a name="Installer">
+<div><h2>PRC Installer</h2></div>
+</a>
+<br>
+
+<b>Q:</b> I get a message that the installer cant find NWN, HotU or
+SoU.
+
+<br><br><b>A:</b> The installer reads your registry entries, so if they are
+wrong the installer wont work. The best bet is to uninstall and re-install NWN
+and both expansions, that should restore the registry entries as well.
+
+<br><br><b>Q:</b> I get a message that I need the Microsoft .NET framework
+
+<br><br><b>A:</b> The installer uses Microsoft .NET which you can get it <a href="https://www.microsoft.com/en-us/download/details.aspx?id=21">here</a>
+
+<br><br><b>Q:</b> I use linux and/or mac and can't use the installer
+
+<br><br><b>A:</b> You can get the .rar version from the vault and extract it
+by hand
+
+<br><br>
+<br><br>
+<a name="Updater">
+<div><h2>PRC Module Updater</h2></div>
+</a>
+<br>
+
+<b>Q:</b> Why cant I update Bioware premium modules?
+
+<br><br><b>A:</b> Bioware has encrypted these, so the updater cannot read
+them. Sorry, but there is nothing the PRC can do about it.
+
+<br><br><b>Q:</b> Why does the PRC not work with module "X"?
+
+<br><br><b>A:</b> We cannot guarantee that the PRC is compatible with any
+module. In general most modules can cope with the PRC being added with little or
+no side effects, in particular we have tried to be as compatible as possible
+with the Bioware original campaigns. Some known problems include any module with
+Hardcore Rule set, arQon's EMS, Old Man Beards OHS, Spellman Project, as well as
+some specific modules, such as Demon.
+
+<br><br><b>Q:</b> I get a message that I need the Microsoft .NET framework
+
+<br><br><b>A:</b> The installer uses Microsoft .NET which you can get it <a href="https://www.microsoft.com/en-us/download/details.aspx?id=21">here</a>
+
+<br><br><b>Q:</b> I use linux and/or mac and can't use the module updater
+
+<br><br><b>A:</b> Unfortunately, you will have to install it by hand into
+modules. See the <a href="http://www.athasreborn.com/prc/">PRC Forums</a> and ask for more information
+and assistance.
+
+<br><br><b>Q:</b> I get an warning message during the merge saying "...."
+
+<br><br><b>A:</b> Most error messages warn about overridden scripts or 2da
+conflicts, but a lot of the time the module will work anyway, even if there may
+be one or two minor glitches in specific circumstances. If it is an error
+message because of CEP, see the next question.
+
+<br><br><b>Q:</b> Does the PRC update modules with CEP added?
+
+<br><br><b>A:</b> Yes, but there is an additional problem. After the module
+updater has finished, you need to use the nwhak utility in the utilis folder of
+your NWN install to extract a copy of baseitems.2da from the prc_2da.hak file,
+and extract baseitems.2da from the merge file. Using a plain text editor (such
+as notepad) you need to copy the first 112 lines (starting with "0&nbsp;&nbsp;
+106&nbsp; shortsword ....." down to "112&nbsp;&nbsp; 83664&nbsp; craftbase
+......" inclusive) from the PRC version over the same lines in the merge hak
+version. Then you need to use nwhak to reinsert it into the merge hak.
+Alternatively, you could try downloading one of the unofficial merge haks from
+the vault and using that instead.
+
+<br><br><b>Q:</b> This is an excellent utility. Can I use it for my own hak?
+
+<br><br><b>A:</b> Yes, the .hif files are use to tell it what files to put
+where and can be opened with a plain text editor (such as notepad). <br><br>
+<br><br>
+<a name="Java CC">
+<div><h2>Java Character Creator</h2></div>
+</a>
+
+<br><b>Q:</b> It says it cant find the portrait directory.
+
+<br><br><b>A:</b> You need a folder named "portraits" in your NWN directory,
+though it doesn't need any files in it. It it doesn't exist, you'll need to
+create it.
+
+<br><br><b>Q:</b> I am having problems using packages to select feats,
+skills, spells etc.
+
+<br><br><b>A:</b> There are some known bugs involving packages and the CC,
+also almost all of the PRC classes do not have any packages. It is better to
+hand-pick all your feats etc.
+
+<br><br><b>Q:</b> None of the new PRC races and/or classes are showing up.
+
+<br><br><b>A:</b> Make sure you have the .hak files associated correctly in
+the "Settings" screen.
+
+<br><br><b>Q:</b> I get weird lines of text instead of names.
+
+<br><br><b>A:</b> Make sure you have the .tlk file associates correctly in
+the "Settings" screen.
+
+<br><br><b>Q:</b> I cant see any buttons or anything.
+
+<br><br><b>A:</b> There have been reports of issues with ATI catalyst drivers
+If you them update to 5.7 or later this problem should be fixed.
+
+<br><br><b>Q:</b> I don't know what head number corresponds to which head.
+
+<br><br><b>A:</b> Use the toolset to place a creature and change its
+appearance to your desire. Then note down the head number from the properties
+and use that in the CC. This picture should help clarify it:
+
+<center> <img src="../../../images/CCParts.jpg" border="0"> </center>
+
+<br><br><b>Q:</b> I want to use CEP for my appearance.
+
+<br><br><b>A:</b> Add CEP and a CEP &amp; PRC merge to the list of haks in the
+"Settings" screen, and set the custom tlk file to a CEP &amp; PRC merged tlk file.
+
+<br><br><b>Q:</b> I get an error message XYZ
+<br><br><b>Q:</b> The java CC disapperes while loading
+
+<br><br><b>A:</b> Try uninstalling java and WinRAR and following the exact
+steps described in this document. If that still doesn't work you could try
+making a batch file. To do so open notepad and type:
+
+<br><br>java -Xmx150M -Xms150M -jar CC.jar
+
+<br><br>Then save it as "cc.bat" (including the quote marks) in the
+same directory as cc.jar and then run the batch file by double-clicking on it.
+
+<br><br>
+<br><br>
+<a name="General Questions">
+<div><h2>General Questions</h2></div>
+</a>
+
+<br><br><b>Q:</b> Why doesn't racial Spell Resistance show on the character sheet?
+
+<br><br><b>A:</b> Because the PRC has a scripted SR system, to allow for various features.
+You should see "X was affected by the spell." or similar messages.
+
+<br><br><b>Q:</b> Why doesn't X show on the character sheet?
+
+<br><br><b>A:</b> Because the character sheet is rather buggy. Additional attacks for example,
+often do not show. However, the combat logs will be correct, so you can use those numbers to
+measure your character against.
+
+</div>
+
+</body></html>

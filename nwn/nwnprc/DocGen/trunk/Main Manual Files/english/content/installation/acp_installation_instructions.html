@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head><title>Player Resource Consortium :: ACP Installation Instructions</title>
+
+
+
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet"></head><body scroll="auto">
+<br>
+<div><h1>:: ACP Installation Instructions ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<br>ACP is the Alternate Combat animations Pack by Ragnarok of DLA. It is avaliable on the NWvault <a href="https://neverwintervault.org/project/nwn1/hakpak/original-hakpak/alternate-combat-animations-pack-acp-v40">here</a>.
+<br>
+
+<ol>
+<li>Extract the ACP haks to your NWN hak dir.
+</li><li>Open the toolset.
+</li><li>Load the module you wish to add ACP to. It should already have PRC 2.3 installed via the PRC module updater. You should <b>not</b> have run the module updater to install the ACP on it.
+</li><li>You should get a dialog box that says: "Warning: This file uses one or more haks". Press Yes.
+</li><li>Edit -&gt; Module Properties -&gt; Advanced tab -&gt; Variables.
+<br>You should see a screen like this:
+<br><img src="../../../images/switches.jpg">
+</li><li>In the name box, enter "PRC_ACP_MANUAL"
+</li><li>In the type box, select int
+</li><li>In the value box, enter "1"
+</li><li>Press Add. It should be added to the list above.
+</li><li>Press OK.
+<br>If you want to save the module at this point, you can do so. If
+your having trouble canceling the build, this may be a good idea at
+this point.
+</li><li>Select the Custom Content tab in Module Properties
+</li><li>From the drop down menu, select "acp_core". Press Add.
+</li><li>From the drop down menu, select "acp_kensai". Press Add.
+</li><li>From the drop down menu, select "acp_assassin". Press Add.
+</li><li>From the drop down menu, select "acp_heavy". Press Add.
+</li><li>From the drop down menu, select "acp_fencing". Press Add.
+</li><li>From the drop down menu, select "acp_pheno5_hr". Press Add.
+</li><li>From the drop down menu, select "acp_pheno6_hr". Press Add.
+</li><li>From the drop down menu, select "acp_pheno7_hr". Press Add.
+</li><li>From the drop down menu, select "acp_pheno8_hr". Press Add.
+</li><li>Make sure you <b>do not</b> add the "acp_2da" hak as it is already integrated into the PRC.
+</li><li>You will get a warning message. Press Yes.
+</li><li>It will now start compiling. As soon as the Cancel button
+becomes clickable, click on it. This picture should help, this is the
+sort of thing you should see when you should click the cancel button:
+<br><img src="../../../images/cancelbuild.jpg">
+<br>Don't worry if you miss it a few times or it takes a while to
+appear. It does depend on the speed of your maching and the size of the
+module your adding it to.
+</li><li>File -&gt; Save As.. and enter a new name
+</li><li>Start up NWN and Start a New Game and select the module you
+just created. You will see the ACP feat on your class radials and can
+use it to change combat animations.
+</li></ol>
+<br>Note I: If you want to have PCs automatically change animation
+based on class/equipment rather than having to tell it to do so, enter
+PRC_ACP_AUTOMATIC instead of PRC_ACP_MANUAL in the module variable
+name.
+<br>
+<br>Note II: If you want NPCs using the PRC NPC script wrappers to
+change animations, set the PRC_ACP_NPC_AUTOMATIC variable either on the
+module or on specific NPCs.
+</div></body></html>

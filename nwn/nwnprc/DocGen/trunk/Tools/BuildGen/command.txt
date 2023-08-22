@@ -1,0 +1,4 @@
+modify outputhtml.ls to point to the right file on first line
+run moneo.exe
+enter the following command:
+	parse outputhtml.ls [name of output].html

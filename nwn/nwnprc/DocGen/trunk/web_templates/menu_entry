@@ -1,0 +1,1 @@
+<li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=~~~LANG_ID~~~&amp;section=~~~SECTION~~~&amp;page=~~~PAGE_ID~~~">~~~NAME~~~</a></li>

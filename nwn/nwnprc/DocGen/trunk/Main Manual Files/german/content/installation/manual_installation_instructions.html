@@ -1,0 +1,80 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Installation :: Instructions</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Installation :: Instructions ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<div><h2>Installation Notes</h2></div>
+<br>
+The PRC pack <b>requires</b> both expansions (Shadows of Undrentide and Hordes of the Underdark) be installed.  They must be installed using Bioware’s normal installation procedure, they <b>cannot</b> be installed by just copying the files to your hard drive.  If you have not installed both expansions then the setup program and the module updater will not run.  Before trying to install the PRC pack, you should install both expansions.  If the setup program complains that expansions are missing and you have actually installed both expansions using Bioware's setup programs, then most likely your registry entries have become corrupted and you will need to reinstall the expansions.
+<br><br>
+<div><h2>Automatic Installation (EXE)</h2></div>
+<br>
+To install:
+<br><br>
+<ol>
+<li>Run setup to install the PRC pack on your PC.  It will automatically be installed in the correct location. <br><br></li>
+<li>Run PRC Module Updater, selecting those modules you wish to add the pack to. The installer REQUIRES the .NET Framework 1.1 available either through Windows Update or <a href="http://www.microsoft.com/downloads/details.aspx?familyid=262d25e3-f589-4842-8157-034d1e7cf3a3&displaylang=en" target="_top">Here</a>.<br><br></li>
+<li>Enjoy </li>
+</ol>
+<br>
+<div><h2>Manual Installation (RAR)</h2></div>
+<br>
+For those that need/want to do a manual install of the prc pack into a module here are the steps:
+<br><br>
+<ol>
+<li>If downloading the rar version, place the hak and hif files in the hak folder, place prc_consortium.erf in the erf folder, prc_consortium.tlk in the tlk folder, and the module updater wherever you want (or delete it if you are not running windows).<br><br></li>
+
+<li>Import prc_consortium.erf into the module using the toolset or neveredit.<br><br></li>
+
+<li>Add the haks to the module using the toolset or neveredit.  The haks should be listed in the following order (top to bottom):
+<br>
+
+<br>prc_include.hak
+<br>prc_2das.hak
+<br>prc_scripts.hak
+<br>prc_spells.hak
+<br>prc_epicspells.hak
+<br>prc_race.hak
+<br>prc_textures.hak
+<br>prc_misc.hak
+<br>prc_craft2das.hak
+<br><br></li>
+
+<li>If the module already contains haks then you will need to check to see if the haks change any of the 2da's in prc_2da's.hak, and if so, merge the changes into a 3rd hak, placing that hak above the prc haks in the hak list.  If you skip this step then the module may not play correctly.</li>
+
+<li>Add the following scripts to the module events using the toolset or neveredit:
+<br>
+<br>OnAcquireItem : prc_onaquire
+<br>OnActivateItem : prc_onactivate
+<br>OnClientEnter : prc_onenter
+<br>OnClientLeave : prc_onleave
+<br>OnCutsceneAbort : prc_oncutabort
+<br>OnHeartbeat : prc_onheartbeat
+<br>OnModuleLoad : prc_onmodload
+<br>OnPlayerDeath : prc_ondeath
+<br>OnPlayerDying : prc_ondying
+<br>OnPlayerEquipItem : prc_equip
+<br>OnPlayerLevelUp : prc_levelup
+<br>OnPlayerRest : prc_rest
+<br>OnPlayerRespawn : prc_onrespawn
+<br>OnUnaquireItem : prc_onunaquire
+<br>OnPlayerUnequipItem : prc_unequip
+<br>OnUserDefined : prc_onuserdef
+<br><br></li>
+
+<li>If the module already has scripts attached to events (and it probably does) then you will either need to edit those scripts and add ExecuteScript("prc_xxx"); at the top of each one or make a new script that calls ExecuteScript() for both the prc script and the old event script.<br><br></li>
+
+<li>Now you need to add prc_consortium.tlk to the module, in the toolset this is easy, just set the custom tlk to it.  If the module already contains a custom tlk then you will have to merge the entries from both tlk files together using your favorite tlk editor into a new tlk and use that instead.  If you are running on the Mac or Linux this step is more difficult, neveredit currently does not have any functionality to set the custom tlk for a module.  I recommend using ewald's erf/mod/gff/tlk/2da editor, available on the vault.  It's java based and will run on the mac (not sure about Linux).  To set the custom tlk, open the module, then open the "module.ifo" file and set the "Mod_CustomTlk" property to "prc_consortium" (no .tlk at the end).
+At this point if you have done everything correctly you should be all set to play the module.</li>
+</ol>
+<br>
+</div>
+</body>
+</html>

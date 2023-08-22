@@ -1,0 +1,69 @@
+<P>
+This is build <B>4.0.18</b> of Moneo, the command-line interface for Leto and LetoScript. For a brief introduction to the various applications that make up Project Leto, please see the paragraph below, "What is Project Leto?"
+
+<P>
+This build is considered <B>semi-unstable</b>. There are random exceptions exhibited by the use of var (usually in conjunction with lists, push), and also the ++ auto-increment operator. For <i>most</i> tasks it performs adequately, and has done so for a number of builds now. This remains to be a fall-back platform in case successive builds (probably starting with 19) break the language or your scripts.
+
+<P>
+To report or track bugs, look at documentation and discussion, use this forum:
+
+<P>
+<A href="http://weathersong.infopop.cc/6/ubb.x?a=frm&s=196609968&f=9616039431">weathersong.infopop.cc/6/ubb.x?a=frm&s=196609968&f=9616039431</a>
+
+<P>
+Project Leto is entirely open source, see License.txt for details. The source code is currently being hosted on SourceForge, at:
+
+<P>
+<A href="http://sourceforge.net/projects/leto/">www.sourceforge.net/projects/leto</a>
+
+<P>
+<A name="whatis"><B>What is Project Leto?</b></a><BR>
+The term "Project Leto" referes to the <I>suite</i> of applications and source code which altogether are under the supervision of dragonsong, and use the same core engine (the Leto engine), currently in its fourth version (v4). These applications currently include:
+
+<P>
+<I>Moneo</i><BR>
+Which can be seen as the heart of it all. The SourceForge download for Moneo includes the actual Leto engine, which is necessary if you want to recompile any of of the other applications. The Moneo application itself is a command-line interface to GFF and ERF files, as well as a compiler for LetoScript, which is a scripting language for working with the same files, often as a resolution for tedious work you would otherwise only be able to accomplish in the Toolset with a lot of repetitive clicking. (Many other uses abound, though, and its limits are still being explored.) Moneo runs on Windows and Linux, and pre-compiled binaries of both versions are included in the SourceForge download.
+
+<P>
+<I>Leto</i><BR>
+Historically "Leto" was just a single application, named Leto, and it was first and foremost a BIC editor. (Then later a GFF editor, including ERF functionality, and including an Advanced Editor mode capable of low-level editing any GFF in any arbitrary fashion.) The purpose of this application is to provide a GUI (graphical user interface) that is easy to use, yet powerful, for the everyday NWN gamer (and DM), who just wants to make some simple (or maybe even not so simple) changes to a BIC, or a savegame. To take advantage of the new version 4 engine, a new GUI has been built, from the ground up, and will continue to act as a simple, yet powerful editor for BICs and related tasks; with an eye on making it more useful to module developers and DMs, specifically. At this time, Leto only runs on Windows, although the v4 Advanced Editor (which will be an entirely separate application) may be ported to Linux.
+
+<P>
+<I>NWNX-Leto</i><BR>
+NWNX is the Neverwinter Nights eXtender, and although commonly associated with its included database functionality (which was around long before BioWare introduced its FPT database support), it more generally serves as an interface between NWScript and any external application. NWNX-Leto is an interface between NWScript and LetoScript, making it possible to modify GFF and ERF files during a live game, which has tremendous potential for Persistent World modules. NWNX-Leto (like NWNX) will run on both Windows and Linux, and pre-compiled DLLs/SOs for each version are included in the SourceForge download.
+
+<P>
+<I>SpeakEasy</i><BR>
+Although on the surface unrelated to the rest of Leto; SpeakEasy, which is a conversation editor modeled after the same in the Toolset (with some additional features you would expect for a standalone editor), is based on the v4 Leto engine, which it uses to load and edit the DLG files that contain NWN conversations on disk. It is a Windows-only application, though theoretically it could be ported to Linux.
+
+<P>
+<B>Documentation</b><BR>
+There is now a full-scale documentation project underway. It is online, but is under construction. At the time of this writing, it is already out of date (by nearly 2 months), even though it's nearly half-done. This documentation should, when complete, cover almost all aspects of Leto: Moneo, LetoScript, and NWNX-Leto. It currently only covers LetoScript (and some few aspects of Moneo, as a product). The URL is:
+
+<P>
+<A href="http://www.aros.net/~sueko/leto/docs/LetoScript/index.html">www.aros.net/~sueko/leto/docs/LetoScript/index.html</a>
+
+<P>
+<B>Dependencies</b><BR>
+The Leto engine itself makes use of only a single third-party module, which is JEDI; specifically, the JCL. Version 1.90 of the JCL is recommended, although technically only a few functions in JclStrings are currently employed, and these functions haven't changed since 1.22 (and probably earlier). If you're compiling on Linux, you will most likely need 1.90, and you may still need to haggle with it a little. (At last check, 1.90 does not compile / install for Kylix, so I just used the DCUs generated by a Delphi install on Windows.)
+
+<P>
+Project Jedi's home is <A href="http://www.delphi-jedi.org">www.delphi-jedi.org</a>. They're on SourceForge under project <A href="http://sourceforge.net/projects/jvcl/">JVCL</a>.
+
+<P>
+Moneo, being effectively a face to the engine and LetoScript, has no other dependencies. (Just JCL.) It is my intent never to require any hefty external database libraries (especially the BDE), although I still have not settled on a solution for MySQL support. This may introduce another dependency, but only for Moneo.
+
+<P>
+NWNX-Leto is in the same boat as Moneo (both Windows and Linux versions). Of course you'll need MSVC to compile nwnx_leto.dll for the Windows version (no, you cannot use Borland C++ Builder), so that's a pretty stiff dependency by itself; but you can use plain old gcc to compile the Linux version (nwnx_leto.so), and you can even use OpenKylix to compile Moneo / LetoScript.so, which is a free version of Kylix.
+
+<P>
+Leto, the GUI, needs the full JVCL. It is not currently using any components specific to 1.90, but it may eventually. It also uses a small set of custom components I designed myself, and they are included in the download as LetoCtrls.dpk. Finally, the <A href="http://www.g32.org/graphics32/index.html">Graphics32</a> library is used extensively for images and graphics. Also, although not necessary, <A href="http://www.madshi.net/">madExcept</a> will probably be used once the beta is fully underway. (I'm using it now, but I've turned it off because of a certain annoyance it causes during run-time debugging.) This may seem like a lot of dependencies, but these are <I>all</i> libraries I would endorse for <I>any</i> serious Delphi developer.
+
+<P>
+SpeakEasy also makes use of the JVCL, but not Graphics32. (Again, madExcept is just optional.)
+
+<P>
+<B>Contact</b><BR>
+<A href="mailto:dragon@weathersong.net">dragon@weathersong.net</a>
+
+<P>

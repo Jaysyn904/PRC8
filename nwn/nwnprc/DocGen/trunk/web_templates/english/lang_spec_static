@@ -1,0 +1,47 @@
+        <li>
+            <a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation">Installation</a>
+            <?php if ($section == "installation") { ?>
+            <ul id="installation">
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=prc_pg01.htm">PRC Core Guide</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=manual_installation_instructions.html">PRC Core manual install (Mac & Linux)</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=jcc_pg01.htm">Java CC Guide</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=acp_installation_instructions.html">ACP Guide</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=cep_merge_instructions.html">CEP PRC Merge Guide</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=faq.htm">Install FAQ</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=installation&amp;page=prc_server_pg01.htm">PRC Server Guide (ConvoCC)</a></li>
+             </ul>
+             <?php } ?>
+        </li>
+        <li>
+            <a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=players_guide">Player's Guide</a>
+            <?php if ($section == "playerguide") { ?>
+            <ul id="playerguide">
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=playerguide&amp;page=poison_docs">Poison system</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=playerguide&amp;page=psionics_pg01">Psionics</a></li>
+            </ul>
+            <?php } ?>
+        </li>
+        <li>
+            <a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding">Module Building</a>
+            <?php if ($section == "modulebuilding") { ?>
+            <ul id="modulebuilding">
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_overridenfiles">Overriden Files</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_modifyingscripts">Modifying Scripts</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_scripthooks">Script hooks</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_prcenablers">Class Enablers</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_crafting">PRC Crafting</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_respawningdoors">Respawning Doors</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_respawningtraps">Respawning Traps</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=modulebuilding&amp;page=manual_modulebuilding_prcnpcs">PRC NPCs</a></li>
+            </ul>
+            <?php } ?>
+        </li>
+        <li>
+            <a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=prcmaking">PrC Making</a>
+            <?php if ($section == "prcmaking") { ?>
+            <ul id="prcmaking">
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=prcmaking&amp;page=manual_prcmaking_basics">Basics</a></li>
+                <li><a href="<?= DLA_WEBROOT ?>/index.php?location=manual&amp;lang=en&amp;section=prcmaking&amp;page=manual_prcmaking_guide">Guide</a></li>
+            </ul>
+            <?php } ?>
+        </li>

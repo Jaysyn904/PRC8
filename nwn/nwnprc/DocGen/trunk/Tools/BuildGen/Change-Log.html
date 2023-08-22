@@ -1,0 +1,30 @@
+<P>
+<B>Build 4.0.18</b><BR>
+
+<P>
+<B>Fixed</b>
+
+<P>
+<LI> A (bogus) "file in use" error when trying to save files. The error had nothing to do with the file actually being in use, that was just the default error for when the last stage of the save failed.
+
+<P>
+<LI> A rare exception (assertion) in for loops with certain syntax errors.
+
+<P>
+<B>Added / changed</b>
+
+<P>
+<LI> The random function has been implemented in the math unit. Unfortunately, there exists no documentation whatsoever for the math expression, and the syntax for it is bound to change (perhaps drastically, in the case of math) in the next build or two. The syntax for the time being is like so:
+
+<P>
+&lt;math:random[10]&gt;
+
+<P>
+to generate a number from 0 to 9, where the &lt;math&gt; part can be any math context (such as parantheses in an argument list in an expression).
+
+<P>
+<LI> Moneo now maintains file (handle) state, the same way that NWNX-Leto's SCRIPT function does. This applies only in shell mode, of course, but applies equally to the use of expr, parse, or any of the file commands (open, save). Note that because there is no shell command to close a file, you must use (expr) LetoScript instead. Also, the file handle used by the shell is always "~" (and using open to open a new file simply closes the existing file, re-using the "~" handle). This support is largely intended for use with expr (or Expr mode), making it more like a "playground" mode than just a script parser.
+
+
+<P><BR><BR>
+Changes for earlier builds have been archived (they are available in the downloads for the earlier builds), because of the bulk of them. They are also available upon request.

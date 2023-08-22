@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LetoList comment="Hand-built by dragonsong; allows for localization">
+	<item index="0" label="chaotic">Chaotic</item>
+	<item index="1" label="lawful">Lawful</item>
+	<item index="2" label="evil">Evil</item>
+	<item index="3" label="good">Good</item>
+	<item index="4" label="neutral">Neutral</item>
+	<item index="5" label="true">True</item>
+</LetoList>

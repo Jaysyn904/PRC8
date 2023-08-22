@@ -1,0 +1,19 @@
+<Ornedan> On the autodocumenter... Should I have class feats accessible from some other place besides a class that can take it?
+<Primo|Work> Dont think so. This is AllClassesCanUse=FALSE feats right? If you list all of those, it quickly becomes a mess so they might as well stick to the classes that can take
+ them.
+<Primo|Work> On the other hand, it could come in handy for people who know what feat they want, but dont know what classes can use it.
+<Primo|Work> You could have 2 lists of feats. One of general feats and one of class-specific bonus feats.
+<Ornedan> Also, the way it currently looks like: www.cs.helsinki.fi/u/aitakang/manual/index.html
+<Ornedan> Say, would having an entry under Feats, at the top of the right menu, that contains a list of all feats work?
+<Primo|Work> Damn that looks sweeeeet.
+<Primo|Work> Needs a space on the feat details between the description and the requiement though
+<Primo|Work> Hmm not sure if that would be better or having a Class Feats along with Epic Feats and Feats on the left.
+<Primo|Work> Oh, and a list of which levels a class gets bonus feats at would be nice. And if a class goes epic or not.
+<Primo|Work> Also, there was a request on the docs vault entry for spelllists by class. Which would be nice ;)
+<Ornedan> Hmm... Those would have to be on a separate page. The class entry is a bit cluttered as is :P
+<Primo|Work> And for feats that are given at fixed levels, hyperlinks to their specific pages would be cool as well as the class description.
+<Primo|Work> Yeah, several pages for each class might be an idea.
+<Primo|Work> A description, a given feat list, a spell list, a power list, a bonus feat levels, a bonus feat choices, class only feats.
+
+
+- Spells, sorted by level, sorted by school.

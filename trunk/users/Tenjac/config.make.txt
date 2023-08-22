@@ -1,4 +1,0 @@
-NWN_DIR = F:\Program Files (x86)\GOG Galaxy\Games\Neverwinter Nights Enhanced Edition\
-PRC_VERSION = 4.0.2
-PRC_INSTALLVERSION = 4.0.2
-NWN_DOC_DIR = C:\Users\wesle\OneDrive\Documents\Neverwinter Nights

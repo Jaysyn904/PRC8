@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Player Resource Consortium :: Manual :: Installation :: Guide</title>
+
+
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet"></head><body scroll="auto">
+<br>
+<div><h1>:: Installation :: Guide ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+You will need:
+
+<ul>
+<li>Neverwinter Nights with both expansions and the latest patch</li>
+<li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=21">Microsoft .NET Framework Redistributable Package</a> (Windows only)</li>
+<li>The PRC (<a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/setup3.5.exe&amp;nid=648" target="_blank">exe version</a> or <a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/prc35.rar&amp;nid=648">rar version</a>)</li>
+<li><a href="https://neverwintervault.org/project/nwn1/other/tool/prc-character-creator-18-linux-and-mac-compatible" target="_blank">Java Character Creator</a> (see <a href="jcc.htm">relevant section</a>)</li>
+</ul>
+
+You may want:
+
+<br>
+<ul>
+
+<li><a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/prc_manual35.7z&amp;nid=648" target="_blank">Downloadable version of this manual</a></li>
+<li><a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/prccep2_merge.rar&amp;nid=648" target="_blank">CEP merge hak</a> (if you are using CEP, see <a href="cep_merge_instructions.html">relevant section</a>)</li>
+<li><a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/serverpack1_8_3.rar&amp;nid=648" target="_blank">PRC Server Pack</a> (for those who want to run a server, see <a href="prc_server.html">relevant section</a>)</li>
+<li><a href="https://neverwintervault.org/project/nwn1/hakpak/original-hakpak/alternate-combat-animations-pack-acp-v40" target="_blank">ACP</a> (Alternate Combat Animations Pack, see <a href="acp_installation_instructions.html">relevant section</a>)</li>
+
+</ul>
+<hr>
+<p>
+<b>EXE Installation Instructions</b>
+</p><p>Run the executable. This will only work if you are using
+windows. Otherwise download the rar version and follow the instructions
+below.
+</p><p>
+</p><hr>
+<b>RAR Installation Instructions</b>
+<p>Extract the contents into the correct directories in the directory
+in which Neverwinter Nights is installed (the module updater can be put
+anywhere):
+</p><p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><b>Extension</b></td>
+<td><b>Directory</b></td>
+</tr>
+<tr>
+<td>hak</td>
+<td>hak</td>
+</tr>
+<tr>
+<td>hif</td>
+<td>hak</td>
+</tr>
+<tr>
+<td>erf</td>
+<td>erf</td>
+</tr>
+<tr>
+<td>tlk</td>
+<td>tlk</td>
+</tr>
+<tr>
+<td>cdx</td>
+<td>database</td>
+</tr>
+<tr>
+<td>dbf</td>
+<td>database</td>
+</tr>
+<tr>
+<td>fpt</td>
+<td>database</td>
+</tr>
+</tbody></table>
+</p><p>
+</p><hr>
+
+<p>
+<b>Installing PRC into modules</b>
+</p><p>Before installation, back up your modules. Something may go
+wrong or you may need the originals for patching as is the case for the
+Bioware campaigns.
+</p><p>
+Using the module updater:
+</p><p>
+<img src="../../../images/content_installer.jpg">
+</p><p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><b>Option</b></td>
+<td><b>Notes</b></td>
+</tr>
+<tr>
+<td>PRC Pack</td>
+<td>Install PRC into a module</td>
+</tr>
+<tr>
+<td>prc_ocfix</td>
+<td>Installs extra fixes for the Bioware campaigns</td>
+</tr>
+<tr>
+<td>PRC OC</td>
+<td>Installs both of the above (should only be used for Bioware campaigns)</td>
+</tr>
+<tr>
+<td>prcc2</td>
+<td>Example of a merge hak, installs PRC and CEP</td>
+</tr>
+</tbody></table>
+</p><p>These options are contained within the relevant .hif files. You
+may also create your own .hif file for installing other content (they
+are plain text, see an existing one for an example).
+</p><p>
+Manual installation:
+
+</p><ol>
+<li>Open the module using the toolset (or other software, if not using windows).</li>
+
+<li>
+Add these haks (on top of any existing haks):
+<p>
+</p><ul>
+<li>prc_2das.hak</li>
+<li>prc_scripts.hak</li>
+<li>prc_newspellbook.hak</li>
+<li>prc_spells.hak</li>
+<li>prc_epicspells.hak</li>
+<li>prc_psionics.hak</li>
+<li>prc_race.hak</li>
+<li>prc_textures.hak</li>
+<li>prc_misc.hak</li>
+<li>prc_craft2das.hak</li>
+</ul>
+<p>If the existing haks contain conflicting content, you must merge the
+contents in a new hak using the application of your choice (to be
+placed on top of the list).
+</p><p>At some point the toolset (if you are using it) will attempt to
+build the module. Click cancel as fast as you can, or the toolset may
+crash.
+</p><p>
+<img src="../../../images/cancelbuild.jpg">
+
+
+</p></li><li>Set the Custom Tlk to prc_consortium.tlk. If there already
+is a file there, you must merge the contents in a new tlk using the
+application of your choice.</li>
+<li>Import prc_consortium.erf (and prc_ocfix.erf if this is a Bioware campaign modue)</li>
+<li>Add the following module event scripts:
+<p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr><td><b>Event</b></td><td><b>Script</b></td></tr>
+<tr><td>OnAcquireItem</td><td>prc_onaquire</td></tr>
+<tr><td>OnActivateItem</td><td>prc_onactivate</td></tr>
+<tr><td>OnClientEnter</td><td>prc_onenter</td></tr>
+<tr><td>OnClientLeave</td><td>prc_onleave</td></tr>
+<tr><td>OnCutsceneAbort</td><td>prc_oncutabort</td></tr>
+<tr><td>OnHeartbeat</td><td>prc_onheartbeat</td></tr>
+<tr><td>OnModuleLoad</td><td>prc_onmodload</td></tr>
+<tr><td>OnPlayerDeath</td><td>prc_ondeath</td></tr>
+<tr><td>OnPlayerDying</td><td>prc_ondying</td></tr>
+<tr><td>OnPlayerEquipItem</td><td>prc_equip</td></tr>
+<tr><td>OnPlayerLevelUp</td><td>prc_levelup</td></tr>
+<tr><td>OnPlayerRest</td><td>prc_rest</td></tr>
+<tr><td>OnPlayerRespawn</td><td>prc_onrespawn</td></tr>
+<tr><td>OnUnaquireItem</td><td>prc_onunaquire</td></tr>
+<tr><td>OnPlayerUnequipItem</td><td>prc_unequip</td></tr>
+<tr><td>OnUserDefined</td><td>prc_onuserdef</td></tr>
+</tbody></table>
+</p><p>
+If the module already has scripts attached to events (and it probably
+does) then you will either need to edit those scripts and add
+ExecuteScript("prc_xxx"); at the top of each one or make a new script
+that calls ExecuteScript() for both the prc script and the old event
+script.
+</p></li><li>Cache these scripts:
+<p>
+</p><ul>
+<li>prc_onaquire</li>
+<li>prc_onactivate</li>
+<li>prc_onenter</li>
+<li>prc_onleave</li>
+<li>prc_oncutabort</li>
+<li>prc_onheartbeat</li>
+<li>prc_onmodload</li>
+<li>prc_ondeath</li>
+<li>prc_ondying</li>
+<li>prc_equip</li>
+<li>prc_levelup</li>
+<li>prc_rest</li>
+<li>prc_onrespawn</li>
+<li>prc_onunaquire</li>
+<li>prc_unequip</li>
+<li>prc_onuserdef</li>
+<li>prc_hitcast</li>
+<li>nw_ch_ac5</li>
+<li>nw_ch_ace</li>
+<li>nw_ch_ac3</li>
+<li>nw_ch_ac4</li>
+<li>nw_ch_ac6</li>
+<li>nw_ch_ac7</li>
+<li>nw_ch_ac8</li>
+<li>nw_ch_ac1</li>
+<li>nw_ch_ac2</li>
+<li>nw_ch_aca</li>
+<li>nw_ch_summon_9</li>
+<li>nw_ch_acb</li>
+<li>nw_ch_acd</li>
+</ul>
+
+</li>
+<li>Save the module</li>
+</ol>
+
+</div>
+</body></html>
