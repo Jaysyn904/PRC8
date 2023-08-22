@@ -577,10 +577,7 @@ void reqCombatMedic(object oPC)
 		KNIGHT_MIDDLECIRCLE
 		NENTYAR_HUNTER
 		OASHAMAN
-		SOL
-
-	 
-	 
+		SOL	 
      */
 
     SetLocalInt(oPC, "PRC_PrereqCbtMed", 1);
@@ -687,9 +684,10 @@ void WildMageReq(object oPC)
         SetLocalInt(oPC, "PRC_PresWildMageReq", 0);
 }
 
-void Warmind(object oPC)
+void SancWarmind(object oPC)
 {
     SetLocalInt(oPC, "PRC_AllowWarmind", 1);
+	SetLocalInt(oPC, "PRC_AllowSancMind", 1);
 	
 	int iPwrPoints	= GetMaximumPowerPoints(oPC);
 
@@ -697,6 +695,7 @@ void Warmind(object oPC)
 	if (iPwrPoints > 0)
 	{
 		SetLocalInt(oPC, "PRC_AllowWarmind", 0);
+		SetLocalInt(oPC, "PRC_AllowSancMind", 0);
 	}
 }
 
@@ -1516,7 +1515,7 @@ void main()
     RacialHD(oPC);
     Virtuoso(oPC);
     LichPrereq(oPC);
-	Warmind(oPC);
+	SancWarmind(oPC);
     DalQuor(oPC);
     Pyro(oPC);
     Suel();
