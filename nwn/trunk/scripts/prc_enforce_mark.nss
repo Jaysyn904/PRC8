@@ -94,8 +94,8 @@ int FistOfRazielMarkerFeats();
 //:; Enforces Force Missile Mage marker feats
 int FMMMarkerFeats();
 
-//:; Enforces Fochulan Lyrist marker feats
-int FochulanLyristMarkerFeats();
+//:; Enforces Fochlucan Lyrist marker feats
+int FochlucanLyristMarkerFeats();
 
 //:; Enforces Forest Master marker feats
 int ForestMasterMarkerFeats();
@@ -1454,75 +1454,75 @@ int FMMMarkerFeats()
     return FALSE;
 }	
 
-//:; Enforces Fochulan Lyrist marker feats
-int FochulanLyristMarkerFeats()
+//:; Enforces Fochlucan Lyrist marker feats
+int FochlucanLyristMarkerFeats()
 {
-    if(GetLevelByClass(40))	//:: Potential future class slot for Fochulan Lyrist
+    if(GetLevelByClass(40))	//:: Potential future class slot for FOCHLUCAN Lyrist
     {
-		int nFochulanArcane	= GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_FEY)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_ABERRATION)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_MONSTROUS)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_OUTSIDER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHAPECHANGER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_ASSASSIN)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BARD)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BEGUILER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DNECRO)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DUSKBLADE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HARPER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HEXBLADE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_KNIGHT_WEAVE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHADOWLORD)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SORCERER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUBLIME_CHORD)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUEL_ARCHANAMACH)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WARMAGE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WIZARD)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_CULTIST_PEAK);
+		int nFochlucanArcane	= GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_FEY)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ABERRATION)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_MONSTROUS)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OUTSIDER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SHAPECHANGER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ASSASSIN)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BARD)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BEGUILER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DNECRO)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DUSKBLADE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HARPER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HEXBLADE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_WEAVE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SHADOWLORD)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SORCERER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SUBLIME_CHORD)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SUEL_ARCHANAMACH)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_WARMAGE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_WIZARD)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_CULTIST_PEAK);
 							
-		int nFochulanDivine	= GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_ARCHIVIST)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BLACKGUARD)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BLIGHTER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_CLERIC)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DRUID)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_FAVOURED_SOUL)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HEALER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_JUSTICEWW)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_KNIGHT_CHALICE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_KNIGHT_MIDDLECIRCLE)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_NENTYAR_HUNTER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_OCULAR)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_RANGER)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_OASHAMAN)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SOHEI)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SOL)
-							+ GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SPSHAMAN);
+		int nFochlucanDivine	= GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ARCHIVIST)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BLACKGUARD)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BLIGHTER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_CLERIC)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DRUID)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_FAVOURED_SOUL)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HEALER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_JUSTICEWW)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_CHALICE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_MIDDLECIRCLE)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_NENTYAR_HUNTER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OCULAR)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_RANGER)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OASHAMAN)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOHEI)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOL)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SPSHAMAN);
 							
 
-        if(nFochulanArcane > 1)
+        if(nFochlucanArcane > 1)
         {
-            FloatingTextStringOnCreature("A Fochulan Lyrist may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Fochlucan Lyrist may only advance a single arcane class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
-		if(nFochulanArcane < 1)
+		if(nFochlucanArcane < 1)
         {
-            FloatingTextStringOnCreature("A Fochulan Lyrist must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Fochlucan Lyrist must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }							
 						
-        if(nFochulanDivine > 1)
+        if(nFochlucanDivine > 1)
         {
-            FloatingTextStringOnCreature("A Fochulan Lyrist may only advance a single divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Fochlucan Lyrist may only advance a single divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
-		if(nFochulanDivine < 1)
+		if(nFochlucanDivine < 1)
         {
-            FloatingTextStringOnCreature("A Fochulan Lyrist must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Fochlucan Lyrist must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -3831,7 +3831,7 @@ void main()
 	|| EnlightendFistMarkerFeats()
 	|| FistOfRazielMarkerFeats()
 	|| FMMMarkerFeats()
-	|| FochulanLyristMarkerFeats()
+	|| FochlucanLyristMarkerFeats()
 	|| ForestMasterMarkerFeats()
 	|| FrostMageMarkerFeats()
 	|| ToGMarkerFeats()

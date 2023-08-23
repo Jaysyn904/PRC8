@@ -841,8 +841,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BARD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -1004,8 +1004,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_FEY, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_FEY, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -1322,8 +1322,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BEGUILER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_BEGUILER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BEGUILER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
 		
 		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_BEGUILER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
@@ -1629,8 +1629,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_CULTIST_PEAK, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_CULTIST_PEAK, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_CULTIST_PEAK, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -1792,8 +1792,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_DNECRO, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DNECRO, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DNECRO, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_DNECRO, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -1954,8 +1954,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /* 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */	
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_DUSKBLADE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DUSKBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_DUSKBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -2117,8 +2117,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HARPER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HARPER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_HARPER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -2271,8 +2271,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_HEXBLADE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);			
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HEXBLADE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
 		
 		if(GetHasFeat(FEAT_HARPERM_SPELLCASTING_HEXBLADE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_HARPERMAGE, oCaster);
@@ -2434,8 +2434,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_WEAVE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_KNIGHT_WEAVE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -2607,8 +2607,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SORCERER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SORCERER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SORCERER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SORCERER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -2827,11 +2827,11 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		|| GetHasFeat(FEAT_FMM_SPELLCASTING_SHAPECHANGER, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 			
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_MONSTROUS, oCaster) 
-		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_ABERRATION, oCaster) 
-		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_OUTSIDER, oCaster) 
-		|| GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHAPECHANGER, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_MONSTROUS, oCaster) 
+		|| GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ABERRATION, oCaster) 
+		|| GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OUTSIDER, oCaster) 
+		|| GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SHAPECHANGER, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_MONSTROUS, oCaster) 
 		|| GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_ABERRATION, oCaster) 
@@ -3088,8 +3088,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /*  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SUBLIME_CHORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SUBLIME_CHORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SUBLIME_CHORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -3252,8 +3252,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /*  	if(GetHasFeat(FEAT_FMM_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SUEL_ARCHANAMACH, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -3416,8 +3416,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 /*		if(GetHasFeat(FEAT_FMM_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster); */
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_SHADOWLORD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SHADOWLORD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SHADOWLORD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -3576,8 +3576,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
  		if(GetHasFeat(FEAT_FMM_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 		
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WARMAGE, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_WARMAGE, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
 		
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_WARMAGE, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);
@@ -3740,8 +3740,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_FMM_SPELLCASTING_WIZARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FMM, oCaster);
 
-		if(GetHasFeat(FEAT_FOCHULAN_LYRIST_SPELLCASTING_WIZARD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_FOCHULAN_LYRIST, oCaster);		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_WIZARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 
 		if(GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_WIZARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster);

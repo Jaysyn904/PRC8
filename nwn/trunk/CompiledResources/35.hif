@@ -58,8 +58,8 @@
 Title : PRC
 
 # Add the PRC pack version and specify at least 1.62 to install.
-Version : 4.1.6
-MinNWNVersion: 1.67
+Version : 4.1.10
+MinNWNVersion: 1.69
 
 # ERF with the required areas.
 erf : prc_consortium.erf
@@ -67,19 +67,19 @@ erf : prc_consortium.erf
 # Haks used by the prc pack.
 #commented out since its not actually needed in a module and causing CEP conflicts.
 # module.Hak : prc_include.hak 
-module.Hak : prc_2das.hak
-module.Hak : prc_scripts.hak
-module.Hak : prc_newspellbook.hak
-module.Hak : prc_spells.hak
-module.Hak : prc_epicspells.hak
-module.Hak : prc_psionics.hak
-module.Hak : prc_race.hak
-module.Hak : prc_textures.hak
-module.Hak : prc_misc.hak
-module.Hak : prc_craft2das.hak
+module.Hak : 35_2das.hak
+module.Hak : 35_scripts.hak
+module.Hak : 35_newspellbook.hak
+module.Hak : 35_spells.hak
+module.Hak : 35_epicspells.hak
+module.Hak : 35_psionics.hak
+module.Hak : 35_race.hak
+module.Hak : 35_textures.hak
+module.Hak : 35_misc.hak
+module.Hak : 35_craft2das.hak
 
 # Custom tlk used by the prc pack.
-module.CustomTlk : prc_consortium.tlk
+module.CustomTlk : 35_consortium.tlk
 
 # Events that need to be wired up.
 module.OnAcquireItem       : prc_onaquire

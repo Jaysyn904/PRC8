@@ -16537,99 +16537,32 @@ Specifics: Gain plus 2 bonus to checks on Animal Empathy and Charisma-based skil
 Use: Automatic.
 
 (*If you take this feat as a male, you will be asked to retake your feats. If you take this feat as a first level male, you will be unable to level up.)</entry>
-  <entry id="47926" lang="en" sex="m">Shugenja</entry>
-  <entry id="47927" lang="en" sex="m">Shugenjas</entry>
-  <entry id="47928" lang="en" sex="m">shugenja</entry>
-  <entry id="47929" lang="en" sex="m">(BASE CLASS)
+  <entry id="47926" lang="en" sex="m">Fochlucan Lyrist</entry>
+  <entry id="47927" lang="en" sex="m">Fochlucan Lyrists</entry>
+  <entry id="47928" lang="en" sex="m">Fochlucan lyrist</entry>
+  <entry id="47929" lang="en" sex="m">(PRESTIGE CLASS)
+Warrior, thief, spy, poet, woodland champion -the Fochlucan lyrist is a legendary figure who serves as the herald and teacher to great kings, the champion of the common folk, and the keeper of lore long forgotten elsewhere. Only the best and brightest are invited to become Fochlucan lyrists, and those who eventually win the approval of the Fochlucan College's masters are remarkable individuals indeed, skilled in swordplay, magic, and diplomacy.
 
-The Shugenja is a divine spellcaster who casts spells by attuning himself to the primal energies around him and focusing such energy through his body to produce magical effects. Like the Samurai, Shugenjas are often members of the noble class, though they are not as bound by honor and the code of Bushido as their martial counterparts.
+REQUIREMENTS:
+Alignment: Neutral good, neutral, chaotic neutral, or neutral evil.
+Skills: Spellcraft 7 ranks , Persuasion 7 ranks , Lore 7 ranks , Perform 13 ranks , Pick Pocket 7 ranks
+Spellcasting: Ability to cast 1st-level arcane and divine spells.
+Class: Druid (for druidic language reqs).
+Special: Bardic knowledge and evasion abilities.
 
-- Alignment Restrictions: none
 - Hit Die: d6
-- Proficiencies: A Shugenja is proficient with Simple Weapons. They are not proficient with any type of armor, nor with shields.
-- Note: In their home culture, it is considered inappropriate for a Shugenja to wear armor, although Shugenjas serving with the military or traveling in foreign lands sometimes take the time to learn how to wear armor properly. Armor does not interfere with their spellcasting.
-- Skill Points: 4 + Int Modifier
+- Proficiencies: Fochlucan lyrists gain no proficiency with any weapon or armor. 
+- Skill Points: 6 + Int Modifier
 
 ABILITIES:
 
-Level
+Spells per Day/Spells Known: At each level, a Fochlucan lyrist gains new spells per day (and spells known, if applicable) as if she had also gained a level in any one arcane spellcasting class and any one divine spellcasting class to which she belonged before adding the prestige class level. She does not, however, gain any other benefit a character of that class would have gained. If she had more than one arcane spellcasting class or divine spellcasting class before becoming a Fochlucan lyrist, she must decide to which class to add each Fochlucan lyrist level for the purpose of determining spells per day, spells known, and overall caster level. 
 
-  1: Element Focus
-  2: -
-  3: -
-  4: -
-  5: -
-  6: -
-  7: -
-  8: -
-  9: -
-10: -
-11: -
-12: -
-13: -
-14: -
-15: -
-16: -
-17: -
-18: -
-19: -
-20: -
+Bardic Knowledge (Ex): A Fochlucan lyrist can attempt to recall some relevant piece of information about local notable people, legendary items, or noteworthy places. She adds her Fochlucan lyrist class level to her bardic knowledge checks, so her bardic knowledge checks have a bonus equal to her bard level + her Fochlucan lyrist level + her Int modifier.
 
-SPELLCASTING:
+Bardic Music: A Fochlucan lyrist adds her lyrist level to her bard level to determine the number of times per day she can use her bardic music, the bardic music abilities she can employ, and the power of those abilities. For example, a 2nd-level rogue/5th-level bard/4th-level druid/3rd-level Fochlucan lyrist can use her bardic music eight times per day, can use any bardic music ability an 8th-level bard could use (assuming she meets the Perform skill rank requirements), and is treated as an 8th-level bard for adjudicating the effects of those abilities (such as number of targets, save DC, and so forth).
 
-A Shugenja casts divine spells. He can cast any spell he know without preparing it ahead of time, unlike the way a Wizard or Cleric must.
-To learn or cast a spell, a Shugenja must have a Charisma score equal to at least 10 + the spell level. The DC for a saving throw against a Shugenja's spell is 10 + the spell level + the Shugenja's Charisma modifier.
-A Shugenja's selection of spells is extremely limited. A Shugenja begins play knowing four 0-level spells and two 1st-level spells of his choice, plus one 0-level spell and one 1st-level spell determined by his Shugenja order. At each new Shugenja level, he gains one or more new spells known as indicated below. One spell of every level is determined by the Shugenja's order, sometimes these spells are normal spells on the Shugenja spell list, but often they are additions to the spell list. Half of the spells a Shugenja knows must be of his chosen element.
-
-SPELLS PER DAY:
-
-Level  0  1  2  3  4  5  6  7  8  9
-
-  1:      6  3   -   -   -   -   -   -   -   -
-  2:      6  4   -   -   -   -   -   -   -   -
-  3:      6  5   -   -   -   -   -   -   -   -
-  4:      6  6  3   -   -   -   -   -   -   -
-  5:      6  6  4   -   -   -   -   -   -   -
-  6:      6  6  5  3   -   -   -   -   -   -
-  7:      6  6  6  4   -   -   -   -   -   -
-  8:      6  6  6  5  3   -   -   -   -   -
-  9:      6  6  6  6  4   -   -   -   -   -
-10:      6  6  6  6  5  3   -   -   -   -
-11:      6  6  6  6  6  4   -   -   -   -
-12:      6  6  6  6  6  5  3   -   -   -
-13:      6  6  6  6  6  6  4   -   -   -
-14:      6  6  6  6  6  6  5  3   -   -
-15:      6  6  6  6  6  6  6  4   -   -
-16:      6  6  6  6  6  6  6  5  3   -
-17:      6  6  6  6  6  6  6  6  4  -
-18:      6  6  6  6  6  6  6  6  5  3
-19:      6  6  6  6  6  6  6  6  6  4
-20:      6  6  6  6  6  6  6  6  6  5
-
-SPELLS KNOWN (Order+chosen element+free):
-
-Level     0           1            2           3           4           5            6           7           8          9
-
-  1:     o+2+2  o+1+1       -            -            -            -             -            -            -            -
-  2:     o+3+2  o+1+1       -            -            -            -             -            -            -            -
-  3:     o+3+2  o+2+1       -            -            -            -             -            -            -            -
-  4:     o+3+3  o+2+1  o+1+0       -            -            -             -            -            -            -
-  5:     o+4+3  o+2+2  o+1+1       -            -            -             -            -            -            -
-  6:     o+4+3  o+2+2  o+1+1  o+1+0       -            -             -            -            -            -
-  7:     o+4+4  o+3+2  o+2+1  o+1+1       -            -             -            -            -            -
-  8:     o+4+4  o+3+2  o+2+1  o+1+1  o+1+0       -             -            -            -            -
-  9:     o+5+4  o+3+2  o+2+2  o+2+1  o+1+1       -             -            -            -            -
-10:     o+5+4  o+3+2  o+2+2  o+2+1  o+1+1  o+1+0       -            -            -            -
-11:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+1  o+1+1       -            -            -            -
-12:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+1  o+1+1  o+1+0       -            -            -
-13:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+1  o+1+1       -            -            -
-14:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+1  o+1+1  o+1+0       -            -
-15:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+1+1       -            -
-16:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+1+1  o+1+0       -
-17:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+2+1  o+1+1       -
-18:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+2+1  o+1+1  o+1+0
-19:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+2+1  o+2+1  o+1+1
-20:     o+5+4  o+3+2  o+3+2  o+2+2  o+2+2  o+2+2  o+2+1  o+2+1  o+2+1  o+2+1
+Unbound: A Fochlucan lyrist's druid oaths are relaxed, allowing her to wear light metal armor with no loss of spellcasting, supernatural, or spell-like abilities. A lyrist also suffers no experience point penalty for multi-classing.  (not implemented)
 </entry>
   <entry id="47930" lang="en" sex="m">Endurance</entry>
   <entry id="47931" lang="en" sex="m">Type of Feat: General.
@@ -71243,7 +71176,7 @@ Use: Activated</entry>
   <entry id="75257" lang="en" sex="m">MaA</entry>
   <entry id="75258" lang="en" sex="m">Brf</entry>
   <entry id="75259" lang="en" sex="m">BsS</entry>
-  <entry id="75260" lang="en" sex="m">Shg</entry>
+  <entry id="75260" lang="en" sex="m">FcL</entry>
   <entry id="75261" lang="en" sex="m">Soh</entry>
   <entry id="75262" lang="en" sex="m">Crs</entry>
   <entry id="75263" lang="en" sex="m">Swr</entry>
@@ -71266,7 +71199,7 @@ Use: Activated</entry>
   <entry id="75280" lang="en" sex="m">Fra</entry>
   <entry id="75281" lang="en" sex="m">CSM</entry>
   <entry id="75282" lang="en" sex="m">Sht</entry>
-  <entry id="75290" lang="en" sex="m">##START CASTER PRC MARKER FEATS##</entry>
+  <entry id="75290" lang="en" sex="m">### Begin PRC Spellcasting Marker feats ###</entry>
   <entry id="75291" lang="en" sex="m">Bardic Spellcasting (Gloura)</entry>
   <entry id="75292" lang="en" sex="m">Sorcerous Spellcasting (Drider)</entry>
   <entry id="75293" lang="en" sex="m">Sorcerous Spellcasting (Arkamoi)</entry>
