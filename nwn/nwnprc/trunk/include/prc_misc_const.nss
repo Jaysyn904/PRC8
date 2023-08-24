@@ -26,9 +26,9 @@ const int BASE_ITEM_GOAD            	= 125;
 const int BASE_ITEM_EAGLE_CLAW      	= 126;
 const int BASE_ITEM_CRAFTED_ROD     	= 199;
 const int BASE_ITEM_CRAFTED_STAFF   	= 201;
-const int BASE_ITEM_ELVEN_LIGHTBLADE  = 202;
-const int BASE_ITEM_ELVEN_THINBLADE   = 203;
-const int BASE_ITEM_ELVEN_COURTBLADE  = 204;
+const int BASE_ITEM_ELVEN_LIGHTBLADE  	= 202;
+const int BASE_ITEM_ELVEN_THINBLADE   	= 203;
+const int BASE_ITEM_ELVEN_COURTBLADE  	= 204;
 
 //:://////////////////////////////////////////////
 //:: Player Health Const
