@@ -630,8 +630,8 @@ int GetLevelByTypeDivineFeats(object oCaster = OBJECT_SELF, int iSpellID = -1)
     iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
     iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
     iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass6Lev);
-	iClass7Lev += PracticedSpellcasting(oCaster, iClass1, iClass7Lev);
-    iClass8Lev += PracticedSpellcasting(oCaster, iClass2, iClass8Lev);
+	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass7Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass8Lev);
 
     if (!GetIsDivineClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsDivineClass(iClass2, oCaster)) iClass2Lev = 0;
@@ -640,7 +640,7 @@ int GetLevelByTypeDivineFeats(object oCaster = OBJECT_SELF, int iSpellID = -1)
     if (!GetIsDivineClass(iClass5, oCaster)) iClass5Lev = 0;
     if (!GetIsDivineClass(iClass6, oCaster)) iClass6Lev = 0;
     if (!GetIsDivineClass(iClass7, oCaster)) iClass7Lev = 0;
-    if (!GetIsDivineClass(iClass8, oCaster)) iClass3Lev = 0;
+    if (!GetIsDivineClass(iClass8, oCaster)) iClass8Lev = 0;
 	
     if (iClass1Lev > iBest) iBest = iClass1Lev;
     if (iClass2Lev > iBest) iBest = iClass2Lev;

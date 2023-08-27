@@ -6666,6 +6666,7 @@ int PracticedSpellcasting(object oCaster, int iCastingClass, int iCastingLevels)
         case CLASS_TYPE_RANGER:              		nFeat = FEAT_PRACTICED_SPELLCASTER_RANGER;              break;
         case CLASS_TYPE_ASSASSIN:            		nFeat = FEAT_PRACTICED_SPELLCASTER_ASSASSIN;            break;
         case CLASS_TYPE_BLACKGUARD:          		nFeat = FEAT_PRACTICED_SPELLCASTER_BLACKGUARD;          break;
+		case CLASS_TYPE_KNIGHT_WEAVE:				nFeat = FEAT_PRACTICED_SPELLCASTER_KOTW;				break;
         case CLASS_TYPE_OCULAR:              		nFeat = FEAT_PRACTICED_SPELLCASTER_OCULAR;              break;
         case CLASS_TYPE_HEXBLADE:            		nFeat = FEAT_PRACTICED_SPELLCASTER_HEXBLADE;            break;
         case CLASS_TYPE_DUSKBLADE:           		nFeat = FEAT_PRACTICED_SPELLCASTER_DUSKBLADE;           break;

@@ -1400,7 +1400,7 @@ void main()
         {
             int nLevel = GetLevelByClass(nClass, oPC);
 
-			// check for monster caster race/class comboes, all of which are arcane at the moment    
+			// check for monster caster race/class combos, all of which are arcane at the moment    
 			int nMonsterCaster = FALSE;
 			if (nClass == CLASS_TYPE_SHAPECHANGER && GetRacialType(oPC) == RACIAL_TYPE_ARANEA && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
 				nMonsterCaster = TRUE;
@@ -1424,25 +1424,43 @@ void main()
                 bFirstArcClassFound = TRUE;
             }
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
-            
-            if (nMonsterCaster) 
-            {
-            	nAbility = GetAbilityScoreForClass(CLASS_TYPE_SORCERER, oPC);
-            	nClass = CLASS_TYPE_SORCERER;
-            }	
-
-            for(nSpellLevel = 0; nSpellLevel <= 9; nSpellLevel++)
-            {
-                int nSlots = GetSlotCount(nLevel, nSpellLevel, nAbility, nClass);
-                if(nSlots > 0)
-                {
-                    SetLocalInt(oPC, "PRC_AllSpell"+IntToString(nSpellLevel), 0);
-                    SetLocalInt(oPC, "PRC_ArcSpell"+IntToString(nSpellLevel), 0);
-                    if(nSpellLevel > nArcHighest)
-                        nArcHighest = nSpellLevel;
-                }
-            }
+      
+    if (GetRacialType(oPC) == RACIAL_TYPE_GLOURA)
+    {
+        if (GetLevelByClass(CLASS_TYPE_SORCERER, oPC) > 7) // Check if they have more than 7 levels in Sorcerer
+        {
+            nClass = CLASS_TYPE_SORCERER;
         }
+        else
+        {
+            nClass = CLASS_TYPE_BARD; // Default to Bard if no more than 7 levels in Sorcerer
+        }
+    }
+    else if (nMonsterCaster) 
+    {
+        nAbility = GetAbilityScoreForClass(CLASS_TYPE_SORCERER, oPC);
+        if (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER) // Check if they have levels in Bard or Sorcerer
+        {
+            nClass = CLASS_TYPE_SORCERER;
+        }
+        else
+        {
+            nClass = CLASS_TYPE_BARD; // Default to Bard if no relevant class levels
+        }
+    }
+
+    for(nSpellLevel = 0; nSpellLevel <= 9; nSpellLevel++)
+    {
+        int nSlots = GetSlotCount(nLevel, nSpellLevel, nAbility, nClass);
+        if(nSlots > 0)
+        {
+            SetLocalInt(oPC, "PRC_AllSpell" + IntToString(nSpellLevel), 0);
+            SetLocalInt(oPC, "PRC_ArcSpell" + IntToString(nSpellLevel), 0);
+            if(nSpellLevel > nArcHighest)
+                nArcHighest = nSpellLevel;
+        }
+    }
+}
         else if(GetIsPsionicClass(nClass))
         {
             int nLevel = GetLevelByClass(nClass, oPC);
