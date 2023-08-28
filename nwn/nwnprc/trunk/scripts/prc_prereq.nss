@@ -551,15 +551,18 @@ void Maester(object oPC)
     SetLocalInt(oPC, "PRC_PrereqMaester", 1);
 
     // Base Ranks Only
-    if(GetSkillRank(SKILL_CRAFT_ARMOR,  oPC, TRUE) > 7
-    || GetSkillRank(SKILL_CRAFT_TRAP,   oPC, TRUE) > 7
+    if(GetSkillRank(SKILL_CRAFT_ARMOR, oPC, TRUE) > 7
+    || GetSkillRank(SKILL_CRAFT_TRAP, oPC, TRUE) > 7
+	|| GetSkillRank(SKILL_CRAFT_ALCHEMY, oPC, TRUE) > 7
+	|| GetSkillRank(SKILL_CRAFT_POISON, oPC, TRUE) > 7
+	|| GetSkillRank(SKILL_CRAFT_GENERAL, oPC, TRUE) > 7	
     || GetSkillRank(SKILL_CRAFT_WEAPON, oPC, TRUE) > 7)
     {
         // At least two crafting feats
         if(GetItemCreationFeatCount() > 1)
         {
             //check for arcane caster levels
-            if(!GetLocalInt(oPC, "PRC_ArcSpell3") || GetInvokerLevel(oPC) > 4)
+            if(!GetLocalInt(oPC, "PRC_ArcSpell5") || GetInvokerLevel(oPC) > 4)
                 SetLocalInt(oPC, "PRC_PrereqMaester", 0);
         }
     }
@@ -1051,7 +1054,7 @@ void AOTS(object oPC)
 void EnlF(object oPC)
 {
      SetLocalInt(oPC, "PRC_PrereqEnlF", 1);
-     int iArcane = GetLocalInt(oPC, "PRC_ArcSpell2");
+     int iArcane = GetLocalInt(oPC, "PRC_ArcSpell3");
      if(iArcane == 0 || GetInvokerLevel(oPC) >= 3)
          SetLocalInt(oPC, "PRC_PrereqEnlF", 0);
 }
@@ -1082,15 +1085,15 @@ void DragDisciple(object oPC)
     if(GetHasFeat(DRAGON_BLOODED, oPC))
         bSpells = TRUE;
     else if(GetLevelByClass(CLASS_TYPE_ASSASSIN, oPC)
-    || GetLevelByClass(CLASS_TYPE_BARD, oPC)
-    || GetLevelByClass(CLASS_TYPE_BEGUILER, oPC)
-    || GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC)
-    || GetLevelByClass(CLASS_TYPE_DUSKBLADE, oPC)
-    || GetLevelByClass(CLASS_TYPE_HEXBLADE, oPC)
-    || GetLevelByClass(CLASS_TYPE_SORCERER, oPC)
-    || GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC)
-    || GetLevelByClass(CLASS_TYPE_WARMAGE, oPC)
-    || GetLevelByClass(CLASS_TYPE_WITCH, oPC))
+		|| GetLevelByClass(CLASS_TYPE_BARD, oPC)
+		|| GetLevelByClass(CLASS_TYPE_BEGUILER, oPC)
+		|| GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC)
+		|| GetLevelByClass(CLASS_TYPE_DUSKBLADE, oPC)
+		|| GetLevelByClass(CLASS_TYPE_HEXBLADE, oPC)
+		|| GetLevelByClass(CLASS_TYPE_SORCERER, oPC)
+		|| GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC)
+		|| GetLevelByClass(CLASS_TYPE_WARMAGE, oPC)
+		|| GetLevelByClass(CLASS_TYPE_WITCH, oPC))
     {
         if(!GetLocalInt(oPC, "PRC_ArcSpell0")
         || !GetLocalInt(oPC, "PRC_ArcSpell1"))

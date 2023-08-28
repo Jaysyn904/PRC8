@@ -14704,7 +14704,7 @@ Maesters are the master crafters of the gnome world, combining technical and mag
 
 REQUIREMENTS:
 
-Arcane Spellcasting: Able to cast 3rd-level spells.
+Arcane Spellcasting: Able to cast 5th level spells.
 Feats: Any two item creation
 Skills: Use Magic Device 4 ranks, any Craft 8 ranks.
 Race: Gnome
@@ -32885,7 +32885,7 @@ Not all monks pursue metaphysical perfection to the exclusion of all other study
 
 REQUIREMENTS:
 
-Arcane Spellcasting: Able to case 2nd-level spells.
+Spells or Spell-Like Abilities: Arcane caster level 3rd.
 Feats: Combat Casting, Improved Unarmed Strike, Stunning Fist.
 Skills: Concentration 8 ranks, Lore 5 ranks, Spellcraft 5 ranks.
 
@@ -32907,7 +32907,7 @@ Level
 6:  Fist of energy (burst) - Energy imbued attacks deal 1d10 extra damage on a critical hit.
 7:  Hold ray - Use spells with a ray affect as touch spells.
 8:  -
-9:  Diamond soul - Gain spell resistance of 10+monk levels+fist levels.
+9:  Diamond soul - Gain spell resistance of 10 +monk levels +fist levels.
 10: -
 </entry>
   <entry id="52204" lang="en" sex="m">Fist of Energy</entry>
