@@ -5065,11 +5065,11 @@ Weapon Size: Large
 Feats Required: Exotic</entry>
   <entry id="30068" lang="en" sex="m">Goad</entry>
   <entry id="30069" lang="en" sex="m">Derived from a tool used to herd unruly oxen, the goad has seen use as a weapon in its own right.</entry>
-  <entry id="30070" lang="en" sex="m">Base Damage: 1d6
+  <entry id="30070" lang="en" sex="m">Base Damage: 1d4
 Base Critical Threat: x2
 Base Damage Type: Piercing
 Weapon Size: Small
-Feats Required: Martial</entry>
+Feats Required: Simple</entry>
   <entry id="44999" lang="en" sex="m">+++++++++++++ PRC Pack Feats 45,000 - 54,999 ++++++++++++++</entry>
   <entry id="45001" lang="en" sex="m">Type of Feat: General
 Prerequisite: Spell Focus (conjuration)

@@ -212,7 +212,7 @@ int IsProficient(object oPC, int nBaseItem)
 
         case BASE_ITEM_GOAD:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_GOAD, oPC)
-                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);	
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC);	
 
         case BASE_ITEM_HEAVY_MACE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_HEAVY_MACE, oPC)
