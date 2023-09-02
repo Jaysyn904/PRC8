@@ -72886,4 +72886,40 @@ Use: Activated</entry>
   <entry id="77035" lang="en" sex="m">Thrall of Orcus Spellcasting (Suel Archanamach)</entry>
   <entry id="77036" lang="en" sex="m">Thrall of Orcus Spellcasting (Warmage)</entry>
   <entry id="77037" lang="en" sex="m">Force Missile Mage Spellcasting (Shaman)</entry>
+  <entry id="77080" lang="en" sex="m">### Begin PRC Spellcasting Marker feats ###</entry>
+  <entry id="77081" lang="en" sex="m">Abjurant Champion Invoking (Warlock)</entry>
+  <entry id="77082" lang="en" sex="m">Acolye of the Skin Invoking (Warlock)</entry>
+  <entry id="77083" lang="en" sex="m">Anima Mage Invoking (Warlock)</entry>
+  <entry id="77084" lang="en" sex="m">Arcane Trickster Invoking (Warlock)</entry>
+  <entry id="77085" lang="en" sex="m">Blood Magus Invoking (Warlock)</entry>
+  <entry id="77086" lang="en" sex="m">Disciple of Asmodeus Invoking (Warlock)</entry>
+  <entry id="77087" lang="en" sex="m">Eldritch Disciple Invoking (Warlock)</entry>
+  <entry id="77088" lang="en" sex="m">Eldritch Theurge Invoking (Warlock)</entry>
+  <entry id="77089" lang="en" sex="m">Enlighted Fist Invoking (Warlock)</entry>
+  <entry id="77090" lang="en" sex="m">Hellfire Warlock Invoking (Warlock)</entry>
+  <entry id="77091" lang="en" sex="m">Maester Invoking (Warlock)</entry>
+  <entry id="77092" lang="en" sex="m">Talon of Tiamat Invoking (Warlock)</entry>
+  <entry id="77093" lang="en" sex="m">Unseen Seer Invoking (Warlock)</entry>
+  <entry id="77094" lang="en" sex="m">Virtuoso Invoking (Warlock)</entry>
+  <entry id="77095" lang="en" sex="m">Wild Mage Invoking (Warlock)</entry>
+  <entry id="77096" lang="en" sex="m">Abjurant Champion Invoking (Dragonfire Adept)</entry>
+  <entry id="77097" lang="en" sex="m">Acolye of the Skin Invoking (Dragonfire Adept)</entry>
+  <entry id="77098" lang="en" sex="m">Anima Mage Invoking (Dragonfire Adept)</entry>
+  <entry id="77099" lang="en" sex="m">Arcane Trickster Invoking (Dragonfire Adept)</entry>
+  <entry id="77100" lang="en" sex="m">Blood Magus Invoking (Dragonfire Adept)</entry>
+  <entry id="77101" lang="en" sex="m">Disciple of Asmodeus Invoking (Dragonfire Adept)</entry>
+  <entry id="77102" lang="en" sex="m">Enlighted Fist Invoking (Dragonfire Adept)</entry>
+  <entry id="77103" lang="en" sex="m">Maester Invoking (Dragonfire Adept)</entry>
+  <entry id="77104" lang="en" sex="m">Talon of Tiamat Invoking (Dragonfire Adept)</entry>
+  <entry id="77105" lang="en" sex="m">Unseen Seer Invoking (Dragonfire Adept)</entry>
+  <entry id="77106" lang="en" sex="m">Virtuoso Invoking (Dragonfire Adept)</entry>
+  <entry id="77107" lang="en" sex="m">Wild Mage Invoking (Dragonfire Adept)</entry>
+  <entry id="77108" lang="en" sex="m">Abjurant Champion Invoking (Dragon Shaman)</entry>
+  <entry id="77109" lang="en" sex="m">Disciple of Asmodeus Invoking (Dragon Shaman)</entry>
+  <entry id="77110" lang="en" sex="m">Enlighted Fist Invoking (Dragon Shaman)</entry>
+  <entry id="77111" lang="en" sex="m">Talon of Tiamat Invoking (Dragon Shaman)</entry>
+  <entry id="77112" lang="en" sex="m">Unseen Seer Invoking (Dragon Shaman)</entry>
+  <entry id="77113" lang="en" sex="m">Virtuoso Invoking (Dragon Shaman)</entry>
+  <entry id="77114" lang="en" sex="m">Wild Mage Invoking (Dragon Shaman)</entry>
+  <entry id="77115" lang="en" sex="m">Invoking: At each level, you gain new invocations known, increased damage with eldritch blast, and an increase in invoker level as if you had also gained a level in the warlock class. You do not, however, gain any other benefit a character of that class would have gained.</entry>
 </tlk>

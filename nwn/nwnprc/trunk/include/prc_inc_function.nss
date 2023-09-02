@@ -572,13 +572,79 @@ void EvalPRCFeats(object oPC)
 
 //:: [PRC .35] Needs marker feats
     // Classes an invoker can take
-    if(GetLevelByClass(CLASS_TYPE_MAESTER,              oPC) ||
-       GetLevelByClass(CLASS_TYPE_ACOLYTE,              oPC) ||
-       GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST,      oPC) ||
-       GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oPC))
-       {
-           //Set arcane or invocation bonus caster levels
+	if (GetLevelByClass(CLASS_TYPE_MAESTER, oPC) 
+		&& GetHasFeat(FEAT_MAESTER_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_MAESTER_INVOKING_DFA, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}
+	
+	else if (GetLevelByClass(CLASS_TYPE_ACOLYTE, oPC)
+		&& GetHasFeat(FEAT_AOTS_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_AOTS_INVOKING_DFA, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}
+		
+	else if (GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oPC)
+		&& GetHasFeat(FEAT_ABCHAMP_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_ABCHAMP_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_ABCHAMP_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}
 
+	else if (GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oPC) 
+		&& GetHasFeat(FEAT_ANIMA_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_ANIMA_INVOKING_DFA, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}		
+
+	else if (GetLevelByClass(CLASS_TYPE_ARCTRICK, oPC) 
+		&& GetHasFeat(FEAT_ARCTRICK_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_ARCTRICK_INVOKING_DFA, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}		
+	
+	else if (GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oPC) 
+		&& GetHasFeat(FEAT_BLDMAGUS_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_BLDMAGUS_INVOKING_DFA, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}	
+	
+	else if (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oPC)
+		&& GetHasFeat(FEAT_TIAMAT_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_TIAMAT_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}		
+	
+	else if (GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oPC)
+		&& GetHasFeat(FEAT_UNSEEN_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_UNSEEN_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_UNSEEN_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}	
+
+	else if (GetLevelByClass(CLASS_TYPE_VIRTUOSO, oPC)
+		&& GetHasFeat(FEAT_VIRTUOSO_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_VIRTUOSO_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_VIRTUOSO_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}			
+			
+	else if (GetLevelByClass(CLASS_TYPE_WILD_MAGE, oPC)
+		&& GetHasFeat(FEAT_WILDMAGE_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_WILDMAGE_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_WILDMAGE_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}	
+			
+	else if (GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oPC)
+		&& GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}			
+
+	else if (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oPC)
+		&& GetHasFeat(FEAT_ASMODEUS_INVOKING_WARLOCK, oPC) 
+		|| GetHasFeat(FEAT_ASMODEUS_INVOKING_DFA, oPC) 
+		|| GetHasFeat(FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN, oPC))
+			{SetLocalInt(oPC, "INV_Caster", 2);}	
+			
+	else
+	{
+		SetLocalInt(oPC, "INV_Caster", 1);
+	}
+		
+/*            //Set arcane or invocation bonus caster levels -- All handled via marker feats now.
            //Arcane caster first class position, take arcane
            if(GetFirstArcaneClassPosition(oPC) == 1)
                SetLocalInt(oPC, "INV_Caster", 1);
@@ -591,7 +657,7 @@ void EvalPRCFeats(object oPC)
            //last cas would be Non-invoker first class position, arcane second position. take arcane.
            else
                SetLocalInt(oPC, "INV_Caster", 1);
-       }
+       }*/
 }
 
 void DelayedAddIPFeats(int nExpectedGeneration, object oPC)

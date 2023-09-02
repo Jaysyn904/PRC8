@@ -531,7 +531,6 @@ void reqDomains()
         DeleteLocalInt(OBJECT_SELF, "PRC_PrereqSOL");
 }
 
-
 void WWolf(object oPC)
 {
     //If not a natural lycanthrope or not already leveled in werewolf, prevent the player from taking the werewolf class
@@ -672,15 +671,15 @@ void WildMageReq(object oPC)
     SetLocalInt(oPC, "PRC_PresWildMageReq", 1);
 
     int iFeat =  GetHasFeat(FEAT_EMPOWER_SPELL, oPC)
-          + GetHasFeat(FEAT_EXTEND_SPELL, oPC)
-          + GetHasFeat(FEAT_MAXIMIZE_SPELL, oPC)
-          + GetHasFeat(FEAT_QUICKEN_SPELL, oPC)
-          + GetHasFeat(FEAT_SILENCE_SPELL, oPC)
-          + GetHasFeat(FEAT_STILL_SPELL, oPC)
-          + GetHasFeat(FEAT_SUDDEN_EMPOWER, oPC)
-          + GetHasFeat(FEAT_SUDDEN_MAXIMIZE, oPC)
-          + GetHasFeat(FEAT_SUDDEN_EXTEND, oPC)
-          + GetHasFeat(FEAT_SUDDEN_WIDEN, oPC);
+			  + GetHasFeat(FEAT_EXTEND_SPELL, oPC)
+			  + GetHasFeat(FEAT_MAXIMIZE_SPELL, oPC)
+			  + GetHasFeat(FEAT_QUICKEN_SPELL, oPC)
+			  + GetHasFeat(FEAT_SILENCE_SPELL, oPC)
+			  + GetHasFeat(FEAT_STILL_SPELL, oPC)
+			  + GetHasFeat(FEAT_SUDDEN_EMPOWER, oPC)
+			  + GetHasFeat(FEAT_SUDDEN_MAXIMIZE, oPC)
+			  + GetHasFeat(FEAT_SUDDEN_EXTEND, oPC)
+			  + GetHasFeat(FEAT_SUDDEN_WIDEN, oPC);
 
     // At least one metamagic feat
     if (iFeat)
@@ -1047,7 +1046,7 @@ void AOTS(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqAOTS", 1);
     int iArcane = GetLocalInt(oPC, "PRC_ArcSpell3");
-    if(iArcane == 0 || GetInvokerLevel(oPC) >= 5)
+    if(iArcane == 0 || GetInvokerLevel(oPC) >= 3)
         SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
 }
 

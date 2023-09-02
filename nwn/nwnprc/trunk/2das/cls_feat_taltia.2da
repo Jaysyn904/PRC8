@@ -82,3 +82,6 @@
 78         FEAT_TIAMAT_SPELLCASTING_OASHAMAN         26483     2    1              0      
 79         FEAT_TIAMAT_SPELLCASTING_SOHEI            26522     2    1              0      
 80         FEAT_TIAMAT_SPELLCASTING_SPSHAMAN         26586     2    1              0      
+81         FEAT_TIAMAT_INVOKING_WARLOCK              26692     2    1              0      
+82         FEAT_TIAMAT_INVOKING_DFA                  26704     2    1              0      
+83         FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN        26711     2    1              0      

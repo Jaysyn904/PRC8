@@ -44,3 +44,6 @@
 40         FEAT_ASMODEUS_SPELLCASTING_SOHEI            26491     2    1              0      
 41         FEAT_ASMODEUS_SPELLCASTING_SPSHAMAN         26549     2    1              0      
 42         FEAT_ASMODEUS_SPELLCASTING_UR_PRIEST        26593     2    1              0      
+43         FEAT_ASMODEUS_INVOKING_WARLOCK              26686     2    1              0      
+44         FEAT_ASMODEUS_INVOKING_DFA                  26701     2    1              0      
+45         FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN        26709     2    1              0      

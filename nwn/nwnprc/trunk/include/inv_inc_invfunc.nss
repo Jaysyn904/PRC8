@@ -288,14 +288,132 @@ int GetInvocationPRCLevels(object oCaster)
                + GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster)
                + GetLevelByClass(CLASS_TYPE_ELDRITCH_THEURGE, oCaster);
 
-    //_some_ arcane spellcasting levels boost invocations
-    if(GetLocalInt(oCaster, "INV_Caster") == 2)
-        nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE,              oCaster) + 1) / 2
-               +  (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2
-               +   GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST,      oCaster)
-               +   GetLevelByClass(CLASS_TYPE_MAESTER,              oCaster)
-               +  (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT,      oCaster) + 1) / 2;
+//:: Some Arcane PrCs boost invocations
+/*     if(GetLocalInt(oCaster, "INV_Caster") == 2)
+        nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2
+				+ (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2
+				+ GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster)
+				+ GetLevelByClass(CLASS_TYPE_MAESTER, oCaster)
+				+ (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2; */
+				
+	if(GetLocalInt(oCaster, "INV_Caster") == 2)
+	{
+	//:: Abjurant Champion Invoking
+		if(GetHasFeat(FEAT_ABCHAMP_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+		if(GetHasFeat(FEAT_ABCHAMP_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);	
+		
+		if(GetHasFeat(FEAT_ABCHAMP_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
+		
+	//:: Acolyte of the Skin Invoking
+		if(GetHasFeat(FEAT_AOTS_INVOKING_WARLOCK, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_AOTS_INVOKING_DFA, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oCaster) + 1) / 2;
 
+	//:: Anima Mage Invoking		
+		if(GetHasFeat(FEAT_ANIMA_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);
+		
+		if(GetHasFeat(FEAT_ANIMA_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oCaster);	
+		
+	//:: Arcane Trickster Invoking		
+		if(GetHasFeat(FEAT_ARCTRICK_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);
+		
+		if(GetHasFeat(FEAT_ARCTRICK_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ARCTRICK, oCaster);		
+		
+	//:: Disciple of Asmodeus Invoking
+		if(GetHasFeat(FEAT_ASMODEUS_INVOKING_WARLOCK, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_ASMODEUS_INVOKING_DFA, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oCaster) + 1) / 2;
+		
+	//:: Blood Magus Invoking		
+		if(GetHasFeat(FEAT_BLDMAGUS_INVOKING_WARLOCK, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_BLDMAGUS_INVOKING_DFA, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_BLOOD_MAGUS, oCaster) + 1) / 2;
+		
+	//:: Enlightened Fist Invoking
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);	
+		
+		if(GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCaster);		
+		
+	//:: Maester Invoking		
+		if(GetHasFeat(FEAT_MAESTER_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);
+		
+		if(GetHasFeat(FEAT_MAESTER_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_MAESTER, oCaster);
+		
+	//:: Talon of Tiamat Invoking
+		if(GetHasFeat(FEAT_TIAMAT_INVOKING_WARLOCK, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_TIAMAT_INVOKING_DFA, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;	
+		
+		if(GetHasFeat(FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oCaster) + 1) / 2;		
+		
+	//:: Unseen Seer Invoking
+		if(GetHasFeat(FEAT_UNSEEN_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);
+		
+		if(GetHasFeat(FEAT_UNSEEN_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
+		
+		if(GetHasFeat(FEAT_UNSEEN_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);
+
+	//:: Virtuoso Invoking
+		if(GetHasFeat(FEAT_VIRTUOSO_INVOKING_WARLOCK, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);
+		
+		if(GetHasFeat(FEAT_VIRTUOSO_INVOKING_DFA, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		
+		if(GetHasFeat(FEAT_VIRTUOSO_INVOKING_DRAGON_SHAMAN, oCaster))
+			nLevel += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);
+		
+	//:: Wild Mage Invoking
+		if(GetHasFeat(FEAT_WILDMAGE_INVOKING_WARLOCK, oCaster))
+		{
+			int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) 
+				nLevel += nClass - 3 + d6();
+		}		
+		if(GetHasFeat(FEAT_WILDMAGE_INVOKING_DFA, oCaster))
+		{
+			int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) 
+				nLevel += nClass - 3 + d6();
+		}		
+		if(GetHasFeat(FEAT_WILDMAGE_INVOKING_DRAGON_SHAMAN, oCaster))
+		{
+			int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oCaster);
+			if (nClass) 
+				nLevel += nClass - 3 + d6();
+		}
+	}
+		
     return nLevel;
 }
 
@@ -493,4 +611,4 @@ void ClearInvocationLocalVars(object oPC)
 }
 
 // Test main
-//void main(){}
+// void main(){}

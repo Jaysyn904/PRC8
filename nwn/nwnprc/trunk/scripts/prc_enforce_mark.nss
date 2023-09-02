@@ -272,7 +272,10 @@ int AbjurantChampionMarkerFeats()
 						+ GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SORCERER)
 						+ GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SUBLIME_CHORD)
 						+ GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SUEL_ARCHANAMACH)
-						+ GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_WIZARD)
+						+ GetHasFeat(FEAT_ABCHAMP_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DFA)
+						+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DRAGON_SHAMAN);
 
         if(nAbChamp > 1)
         {
@@ -328,7 +331,9 @@ int AoTSMarkerFeats()
 						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SOHEI)
 						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_SPSHAMAN)
 						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_UR_PRIEST)
-						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CULTIST_PEAK);
+						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CULTIST_PEAK)
+						+ GetHasFeat(FEAT_AOTS_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_AOTS_INVOKING_DFA);
 
         if(nAcolyte > 1)
         {
@@ -481,7 +486,9 @@ int AnimaMageMarkerFeats()
 					+ GetHasFeat(FEAT_ANIMA_SPELLCASTING_SUEL_ARCHANAMACH)
 					+ GetHasFeat(FEAT_ANIMA_SPELLCASTING_WARMAGE)
 					+ GetHasFeat(FEAT_ANIMA_SPELLCASTING_WIZARD)
-					+ GetHasFeat(FEAT_ANIMA_SPELLCASTING_CULTIST_PEAK);
+					+ GetHasFeat(FEAT_ANIMA_SPELLCASTING_CULTIST_PEAK)
+					+ GetHasFeat(FEAT_ANIMA_INVOKING_WARLOCK)
+					+ GetHasFeat(FEAT_ANIMA_INVOKING_DFA);
 
         if(nAnima > 1)
         {
@@ -556,18 +563,20 @@ int ArcaneTricksterMarkerFeats()
 						+ GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SUBLIME_CHORD)
 						+ GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SUEL_ARCHANAMACH)
 						+ GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WARMAGE)
-						+ GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WIZARD)
+						+ GetHasFeat(FEAT_ARCTRICK_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_ARCTRICK_INVOKING_DFA);
 
         if(nTrickster > 1)
         {
-            FloatingTextStringOnCreature("An Arcane Trickster may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Arcane Trickster may only advance a single arcane or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nTrickster < 1)
         {
-            FloatingTextStringOnCreature("An Arcane Trickster must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Arcane Trickster must pick one arcane or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -611,18 +620,21 @@ int DoAMarkerFeats()
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_OASHAMAN)
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SOHEI)
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SPSHAMAN)
-						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_UR_PRIEST);
+						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_UR_PRIEST)
+						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_DFA)
+						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN);
 
         if(nDoA > 1)
         {
-            FloatingTextStringOnCreature("A Disciple of Asmodeus may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Disciple of Asmodeus may only advance a single arcane, divine or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nDoA < 1)
         {
-            FloatingTextStringOnCreature("A Disciple of Asmodeus must pick one arcane o divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Disciple of Asmodeus must pick one arcane, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -686,7 +698,9 @@ int BloodMagusMarkerFeats()
 					+ GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_SUBLIME_CHORD)
 					+ GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_ARCHANAMACH)
 					+ GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WARMAGE)
-					+ GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WIZARD);
+					+ GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WIZARD)
+					+ GetHasFeat(FEAT_BLDMAGUS_INVOKING_WARLOCK)
+					+ GetHasFeat(FEAT_BLDMAGUS_INVOKING_DFA);
 
         if(nBlood > 1)
         {
@@ -1366,7 +1380,10 @@ int EnlightendFistMarkerFeats()
 						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SUBLIME_CHORD)
 						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SUEL_ARCHANAMACH)
 						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WARMAGE)
-						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WIZARD)						
+						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DFA)
+						+ GetHasFeat(FEAT_ENLIGHTENEDFIST_INVOKING_DRAGON_SHAMAN);
 						
         if(nEnlighted > 1)
         {
@@ -1457,7 +1474,7 @@ int FMMMarkerFeats()
 //:; Enforces Fochlucan Lyrist marker feats
 int FochlucanLyristMarkerFeats()
 {
-    if(GetLevelByClass(40))	//:: Potential future class slot for FOCHLUCAN Lyrist
+    if(GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST))
     {
 		int nFochlucanArcane	= GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_FEY)
 								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ABERRATION)
@@ -1867,14 +1884,14 @@ int HeartwarderMarkerFeats()
 						
         if(nHeartwarder > 1)
         {
-            FloatingTextStringOnCreature("A Heartwarder may only advance a single arcane, divine or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Heartwarder may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nHeartwarder < 1)
         {
-            FloatingTextStringOnCreature("A Heartwarder must pick one arcane, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Heartwarder must pick one arcane or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -2102,7 +2119,9 @@ int MaesterMarkerFeats()
 						+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUBLIME_CHORD)
 						+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUEL_ARCHANAMACH)
 						+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_WARMAGE)
-						+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_WIZARD)
+						+ GetHasFeat(FEAT_MAESTER_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_MAESTER_INVOKING_DFA);
 						
         if(nMaester > 1)
         {
@@ -3445,7 +3464,10 @@ int TiamatMarkerFeats()
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_RANGER)
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_OASHAMAN)
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SOHEI)
-					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SPSHAMAN);
+					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SPSHAMAN)
+					+ GetHasFeat(FEAT_TIAMAT_INVOKING_WARLOCK)
+					+ GetHasFeat(FEAT_TIAMAT_INVOKING_DFA)
+					+ GetHasFeat(FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN);
 						
         if(nTiamat > 1)
         {
@@ -3588,7 +3610,10 @@ int UnseenMarkerFeats()
 					+ GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SUBLIME_CHORD)
 					+ GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SUEL_ARCHANAMACH)
 					+ GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WARMAGE)
-					+ GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WIZARD);
+					+ GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WIZARD)
+					+ GetHasFeat(FEAT_UNSEEN_INVOKING_WARLOCK)
+					+ GetHasFeat(FEAT_UNSEEN_INVOKING_DFA)
+					+ GetHasFeat(FEAT_UNSEEN_INVOKING_DRAGON_SHAMAN);
 						
         if(nUnseen > 1)
         {
@@ -3623,18 +3648,21 @@ int VirtuosoMarkerFeats()
 						+ GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_DUSKBLADE)
 						+ GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SORCERER)
 						+ GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WARMAGE)
-						+ GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WIZARD)
+						+ GetHasFeat(FEAT_VIRTUOSO_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_VIRTUOSO_INVOKING_DFA)
+						+ GetHasFeat(FEAT_VIRTUOSO_INVOKING_DRAGON_SHAMAN);
 						
         if(nVirtuoso > 1)
         {
-            FloatingTextStringOnCreature("A Virtuoso may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Virtuoso may only advance a single arcane or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nVirtuoso < 1)
         {
-            FloatingTextStringOnCreature("A Virtuoso must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Virtuoso must pick one arcane or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -3736,18 +3764,21 @@ int WildMageMarkerFeats()
 						+ GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SUBLIME_CHORD)
 						+ GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SUEL_ARCHANAMACH)
 						+ GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WARMAGE)
-						+ GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WIZARD);
+						+ GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WIZARD)
+						+ GetHasFeat(FEAT_WILDMAGE_INVOKING_WARLOCK)
+						+ GetHasFeat(FEAT_WILDMAGE_INVOKING_DFA)
+						+ GetHasFeat(FEAT_WILDMAGE_INVOKING_DRAGON_SHAMAN);
 						
         if(nWildMage > 1)
         {
-            FloatingTextStringOnCreature("A Wild Mage may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Wild Mage may only advance a single arcane or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nWildMage < 1)
         {
-            FloatingTextStringOnCreature("A Wild Mage must pick one arcane class at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Wild Mage must pick one arcane or invoker class at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }

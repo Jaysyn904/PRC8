@@ -1,7 +1,7 @@
-Abjurant Champion
+Abjurant Champion *
 Acolyte of the Skin
-Anima Mage
-Arcane Trickster
+Anima Mage *
+Arcane Trickster *
 Blood Magus
 Disciple of Asmodeus
 Eldritch Disciple
@@ -10,11 +10,12 @@ Enlightened Fist
 Hellfire Warlock
 Maester
 Talon of Tiamat
-Unseen Seer
-Virtuoso
-Wild Mage
+Unseen Seer *
+Virtuoso *
+Wild Mage #
 
-
+* Req non-Warlock class to enter
+# Req metamagic feat to enter
 
 
 
