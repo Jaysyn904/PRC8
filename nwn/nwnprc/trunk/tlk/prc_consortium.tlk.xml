@@ -3314,7 +3314,7 @@ Use: Automatic</entry>
   <entry id="13056" lang="en" sex="m">Aberration Wild Shape</entry>
   <entry id="13057" lang="en" sex="m">Type of Feat: Aberrant
 Prerequisite: Aberration Blood
-Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -&gt; Misc Options -&gt; Aberration Wild Shape to choose.
+Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -> Misc Options -> Aberration Wild Shape to choose.
 Use: Automatic</entry>
   <entry id="13058" lang="en" sex="m">Epic Spellfire Wielder I</entry>
   <entry id="13059" lang="en" sex="m">Epic Spellfire Wielder II</entry>
@@ -50379,7 +50379,7 @@ Spiretop Dragon Ability Adjustments: -4 Str, +8 Dex, +2 Con, -4 Int, -2 Cha.  Sp
 Favored Class (Rogue): A multiclass spiretop dragon's rogue class does not count when determining whether they suffer an XP penalty for multiclassing.
 
 Racial Traits:
-- A spiretop dragon's base land speed is 10 feet and they also have a fly speed of 60
+- A spiretop dragon's base land speed is 10 feet and they also have a fly speed of 60.
 - Dragon: Spiretop dragons are dragons and thus are not subject to sleep and paralysis effects.
 - Tiny: As tiny creatures, spiretop dragons have a +2 bonus to Armor Class, a +2 bonus on attack rolls, and a +8 bonus on Hide checks.
 - Breath Weapon: A spiretop dragon can exhale a Fog Cloud as if cast by a 3rd level sorcerer.  The spiretop dragon must wait 1d4 rounds between uses of this breath weapon. 

@@ -881,38 +881,38 @@ int CerebremancerMarkerFeats()
 {
     if(GetLevelByClass(CLASS_TYPE_CEREBREMANCER))
     {
-		int nCerebrmancer	= GetHasFeat(FEAT_CMANCER_SPELLCASTING_FEY)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_ABERRATION)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_MONSTROUS)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_OUTSIDER)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHAPECHANGER)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_ASSASSIN)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_BARD)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_BEGUILER)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_CELEBRANT_SHARESS)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_CULTIST_PEAK)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_DNECRO)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_DUSKBLADE)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_HARPER)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_HEXBLADE)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_KNIGHT_WEAVE)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHADOWLORD)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SORCERER)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUBLIME_CHORD)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUEL_ARCHANAMACH)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_WARMAGE)
-							+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_WIZARD);
+		int nCereb	= GetHasFeat(FEAT_CMANCER_SPELLCASTING_FEY)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_ABERRATION)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_MONSTROUS)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_OUTSIDER)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHAPECHANGER)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_ASSASSIN)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_BARD)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_BEGUILER)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_CELEBRANT_SHARESS)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_CULTIST_PEAK)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_DNECRO)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_DUSKBLADE)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_HARPER)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_HEXBLADE)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_KNIGHT_WEAVE)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SHADOWLORD)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SORCERER)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUBLIME_CHORD)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_SUEL_ARCHANAMACH)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_WARMAGE)
+					+ GetHasFeat(FEAT_CMANCER_SPELLCASTING_WIZARD);
 
-        if(nCerebrmancer > 1)
+        if(nCereb > 1)
         {
-            FloatingTextStringOnCreature("A Cerebrmancer may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Cerebremancer may only advance a single arcane class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
-		if(nCerebrmancer < 1)
+		if(nCereb < 1)
         {
-            FloatingTextStringOnCreature("A Cerebrmancer must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Cerebremancer must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
