@@ -2,6 +2,7 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
+  <entry id="1" lang="en" sex="m">PRC8 Version Counter: 01</entry>
   <entry id="12250" lang="en" sex="m">## NEW NWN .35 DAMAGE TYPES ##</entry>
   <entry id="12251" lang="en" sex="m">Force Damage</entry>
   <entry id="12252" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
