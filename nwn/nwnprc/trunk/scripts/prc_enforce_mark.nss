@@ -3501,13 +3501,13 @@ int TrueNecroMarkerFeats()
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_WIZARD)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_SUBLIME_CHORD);
 							
-		int nTrueNecroDiv	= GetHasFeat(FEAT_TNECRO_SPELLCASTING_ARCHIVIST)
+/* 		int nTrueNecroDiv	= GetHasFeat(FEAT_TNECRO_SPELLCASTING_ARCHIVIST)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_BLIGHTER)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_CLERIC)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_FAVOURED_SOUL)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_OCULAR)
 							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_OASHAMAN)
-							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_UR_PRIEST);							
+							+ GetHasFeat(FEAT_TNECRO_SPELLCASTING_UR_PRIEST); */							
 						
         if(nTrueNecroArc > 1)
         {
@@ -3523,7 +3523,7 @@ int TrueNecroMarkerFeats()
             return TRUE;
         }
 		
-        if(nTrueNecroDiv > 1)
+/*         if(nTrueNecroDiv > 1)
         {
             FloatingTextStringOnCreature("A True Necromancer may only advance a single divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
@@ -3535,7 +3535,7 @@ int TrueNecroMarkerFeats()
             FloatingTextStringOnCreature("A True Necromancer must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
-        }		
+        }	 */	
     }
 	
     return FALSE;
