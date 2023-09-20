@@ -1406,7 +1406,7 @@ int EnlightendFistMarkerFeats()
 //:; Enforces Fist of Raziel marker feats
 int FistOfRazielMarkerFeats()
 {
-    if(GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST))
+    if(GetLevelByClass(CLASS_TYPE_FISTRAZIEL))
     {
 		int nRaziel	= GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_ARCHIVIST)
 					+ GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_CLERIC)
