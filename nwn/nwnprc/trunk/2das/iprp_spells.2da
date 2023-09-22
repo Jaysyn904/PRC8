@@ -1462,3 +1462,4 @@
 1458       BasiliskMask_TotemBind            16836739 15        8         90000  3656       0         0       0          is_less_shivtch   
 1459       Crystallize                       16823673 12        6         10000  14202      0         0       0          fot_fleshstone    
 1460       Epic_Spell_Audience_of_Stone      16833338 20        9         114750 4007       0         0       0          ife_audience      
+1461       DetectMagic                       16836770 3         0         4500   3658       0         1       1          is_detect_law     
