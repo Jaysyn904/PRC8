@@ -2746,7 +2746,7 @@ int RageMageMarkerFeats()
     return FALSE;
 }	
 
-//:; Enforces Red Wizard marker feats
+//:; Enforces Red Wizard marker feats [not needed]
 int RedWizardMarkerFeats()
 {
     if(GetLevelByClass(CLASS_TYPE_RED_WIZARD))
@@ -3888,7 +3888,7 @@ void main()
 	|| PaleMasterMarkerFeats()
 	|| PsychicTheurgeMarkerFeats()
 	|| RageMageMarkerFeats()
-	|| RedWizardMarkerFeats()
+	// || RedWizardMarkerFeats()
 	|| RKVMarkerFeats()
 	|| RunecasterMarkerFeats()
 	|| SacredFistMarkerFeats()
