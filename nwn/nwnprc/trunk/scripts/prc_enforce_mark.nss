@@ -202,9 +202,6 @@ int HeironeousMarkerFeats();
 //:; Enforces Soulcaster marker feats
 int SoulcasterMarkerFeats();
 
-//:; Enforces Soulcaster marker feats
-int SoulcasterMarkerFeats();
-
 //:; Enforces Spelldancer marker feats
 int SpelldancerMarkerFeats();
 
@@ -2287,7 +2284,7 @@ int MasterHarperMarkerFeats()
 //:; Enforces Morninglord of Lathander marker feats
 int MorninglordMarkerFeats()
 {
-    if(GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS))
+    if(GetLevelByClass(CLASS_TYPE_MORNINGLORD))
     {
 		int nMorninglord	= GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_ARCHIVIST)
 							+ GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_CLERIC)
@@ -2746,7 +2743,7 @@ int RageMageMarkerFeats()
     return FALSE;
 }	
 
-//:; Enforces Red Wizard marker feats [not needed]
+//:; Enforces Red Wizard marker feats
 int RedWizardMarkerFeats()
 {
     if(GetLevelByClass(CLASS_TYPE_RED_WIZARD))
