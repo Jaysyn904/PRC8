@@ -1,0 +1,4 @@
+Title : NWN Original campaigns PRC compatibility fix
+
+# ERF with the overriding resources
+erf : prc_ocfix.erf
