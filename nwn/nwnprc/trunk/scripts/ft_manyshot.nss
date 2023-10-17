@@ -28,9 +28,10 @@ void main()
         case SPELL_MANYSHOT6: iAttacks = 6; break;
     }
 
-    //cap attacks
+/*    //cap attacks
     if (iAttacks>iMaxAttacks)
         iAttacks = iMaxAttacks;
+*/        
     //calculate AB penalty
     nABPenalty = (iAttacks-1)*-2;
 
