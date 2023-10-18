@@ -382,12 +382,12 @@ int GetPrCAdjustedClassLevel(int nClass, object oCaster = OBJECT_SELF)
     if(GetIsArcaneClass(nClass, oCaster) && nClass != CLASS_TYPE_SUBLIME_CHORD)
     {
         if (GetPrimaryArcaneClass(oCaster) == nClass) // adjust for any PrCs
-            iTemp = GetArcanePRCLevels(oCaster);
+            iTemp = GetArcanePRCLevels(oCaster, nClass);
     }
     else if(GetIsDivineClass(nClass, oCaster))
     {
         if (GetPrimaryDivineClass(oCaster) == nClass) // adjust for any PrCs
-            iTemp = GetDivinePRCLevels(oCaster);
+            iTemp = GetDivinePRCLevels(oCaster, nClass);
     }
     else // a non-caster class or a PrC
     {
@@ -516,11 +516,11 @@ int GetLevelByTypeArcaneFeats(object oCaster = OBJECT_SELF, int iSpellID = -1)
     iClass1Lev += PracticedSpellcasting(oCaster, iClass1, iClass1Lev);
     iClass2Lev += PracticedSpellcasting(oCaster, iClass2, iClass2Lev);
     iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
-    iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass1Lev);
-    iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass2Lev);
-    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass3Lev);
-    iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass1Lev);
-    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass2Lev);
+    iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
+    iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
+    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass6Lev);
+    iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass7Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass8Lev);
 	
     if (!GetIsArcaneClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsArcaneClass(iClass2, oCaster)) iClass2Lev = 0;

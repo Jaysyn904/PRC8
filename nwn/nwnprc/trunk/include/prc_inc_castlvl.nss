@@ -595,7 +595,7 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
         }
 
         else if(GetPrimaryArcaneClass(oCaster) == iCastingClass)
-            iReturnLevel += GetArcanePRCLevels(oCaster);
+            iReturnLevel += GetArcanePRCLevels(oCaster, iCastingClass);
         else if(GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster)) 
         	iReturnLevel += GetArcanePRCLevels(oCaster, iCastingClass);
 
