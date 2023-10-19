@@ -85,3 +85,5 @@
 81         FEAT_TIAMAT_INVOKING_WARLOCK              26692     2    1              0      
 82         FEAT_TIAMAT_INVOKING_DFA                  26704     2    1              0      
 83         FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN        26711     2    1              0      
+84         FEAT_TIAMAT_MYSTERY_SHADOWCASTER          26741     2    1              0      
+85         FEAT_TIAMAT_MYSTERY_SHADOWSMITH           26753     2    1              0      

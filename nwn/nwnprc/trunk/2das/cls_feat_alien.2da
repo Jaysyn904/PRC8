@@ -37,3 +37,5 @@
 33         FEAT_ALIENIST_SPELLCASTING_RANGER            26399     2    1              0      
 34         FEAT_ALIENIST_SPELLCASTING_OASHAMAN          26442     2    1              0      
 35         FEAT_ALIENIST_SPELLCASTING_UR_PRIEST         26592     2    1              0      
+36         FEAT_ALIEN_MYSTERY_SHADOWCASTER              26732     2    1              0      
+37         FEAT_ALIEN_MYSTERY_SHADOWSMITH               26744     2    1              0      

@@ -72923,4 +72923,41 @@ Use: Activated</entry>
   <entry id="77113" lang="en" sex="m">Virtuoso Invoking (Dragon Shaman)</entry>
   <entry id="77114" lang="en" sex="m">Wild Mage Invoking (Dragon Shaman)</entry>
   <entry id="77115" lang="en" sex="m">Invoking: At each level, you gain new invocations known, increased damage with eldritch blast, and an increase in invoker level as if you had also gained a level in the warlock class. You do not, however, gain any other benefit a character of that class would have gained.</entry>
+  <entry id="77116" lang="en" sex="m">Acolyte of the Skin Shadowcasting (Shadowcaster)</entry>
+  <entry id="77117" lang="en" sex="m">Alienist Shadowcasting (Shadowcaster)</entry>
+  <entry id="77118" lang="en" sex="m">Child of Night Shadowcasting (Shadowcaster)</entry>
+  <entry id="77119" lang="en" sex="m">Disciple of Asmodeus Shadowcasting (Shadowcaster)</entry>
+  <entry id="77120" lang="en" sex="m">Dragonsong Lyrist Shadowcasting (Shadowcaster)</entry>
+  <entry id="77121" lang="en" sex="m">Elemental Savant Shadowcasting (Shadowcaster)</entry>
+  <entry id="77122" lang="en" sex="m">Master of Shadow Shadowcasting (Shadowcaster)</entry>
+  <entry id="77123" lang="en" sex="m">Mystic Theurge Shadowcasting (Shadowcaster)</entry>
+  <entry id="77124" lang="en" sex="m">Noctumancer Shadowcasting (Shadowcaster)</entry>
+  <entry id="77125" lang="en" sex="m">Ollam Shadowcasting (Shadowcaster)</entry>
+  <entry id="77126" lang="en" sex="m">Talon of Tiamat Shadowcasting (Shadowcaster)</entry>
+  <entry id="77127" lang="en" sex="m">Thrall of Orcus Shadowcasting (Shadowcaster)</entry>
+  <entry id="77128" lang="en" sex="m">Acolyte of the Skin Shadowcasting (Shadowsmith)</entry>
+  <entry id="77129" lang="en" sex="m">Alienist Shadowcasting (Shadowsmith)</entry>
+  <entry id="77130" lang="en" sex="m">Child of Night Shadowcasting (Shadowsmith)</entry>
+  <entry id="77131" lang="en" sex="m">Disciple of Asmodeus Shadowcasting (Shadowsmith)</entry>
+  <entry id="77132" lang="en" sex="m">Dragonsong Lyrist Shadowcasting (Shadowsmith)</entry>
+  <entry id="77133" lang="en" sex="m">Elemental Savant Shadowcasting (Shadowsmith)</entry>
+  <entry id="77134" lang="en" sex="m">Master of Shadow Shadowcasting (Shadowsmith)</entry>
+  <entry id="77135" lang="en" sex="m">Mystic Theurge Shadowcasting (Shadowsmith)</entry>
+  <entry id="77136" lang="en" sex="m">Noctumancer Shadowcasting (Shadowsmith)</entry>
+  <entry id="77137" lang="en" sex="m">Ollam Shadowcasting (Shadowsmith)</entry>
+  <entry id="77138" lang="en" sex="m">Talon of Tiamat Shadowcasting (Shadowsmith)</entry>
+  <entry id="77139" lang="en" sex="m">Thrall of Orcus Shadowcasting (Shadowsmith)</entry>
+  <entry id="77140" lang="en" sex="m">Mysteries: At every other Acolyte of the Skin level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>
+  <entry id="77141" lang="en" sex="m">Mysteries: At every Alienist level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>  
+  <entry id="77142" lang="en" sex="m">Mysteries: At each Child of Night level beyond 1st, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.</entry>
+  <entry id="77143" lang="en" sex="m">Mysteries: At every other Disciple of Asmodeus level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>
+  <entry id="77144" lang="en" sex="m">Mysteries: At every odd Dragonsong Lyrist level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>  
+  <entry id="77145" lang="en" sex="m">Mysteries:  At each Elemental Savant level except 5th and 10th, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>    
+  <entry id="77146" lang="en" sex="m">Mysteries:  Mysteries: At each Master of Shadow level beyond 1st, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>    
+  <entry id="77147" lang="en" sex="m">Mysteries: At every Mystic Theurge level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>   
+  <entry id="77148" lang="en" sex="m">Mysteries: At every Noctumancer level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>    
+  <entry id="77149" lang="en" sex="m">Mysteries: At 2nd, 3rd, and 4th level, an ollam gains new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>    
+  <entry id="77150" lang="en" sex="m">Mysteries: At every other Talon of TIamat level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>
+  <entry id="77151" lang="en" sex="m">Mysteries: When a thrall of Orcus attains 1st, 4th, 7th, and 10th level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>  
+  <entry id="77152" lang="en" sex="m">Fochulan Lyrist Spellcasting (Ur-Priest)</entry>
 </tlk>

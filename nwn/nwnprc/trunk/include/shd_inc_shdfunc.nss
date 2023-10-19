@@ -376,6 +376,13 @@ int GetPathByMystery(int nMystId)
     return nReturn;
 }
 
+/*
+	The following PrCs will need to be added to Shadowcasting: 
+	Disciple of Asmodeus, Thrall of Orcus, Ollam, Acolyte of the Skin, 
+	Alienist, Elemental Savant, Dragonsong Lyrist, Talon of Tiamat & 
+	Mystic Theurge
+*/
+
 int GetShadowMagicPRCLevels(object oShadow)
 {
     int nLevel = GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oShadow);
