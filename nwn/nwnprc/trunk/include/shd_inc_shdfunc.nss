@@ -16,7 +16,7 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
-//:: Updated for .35 by Jaysyn 2023/03/10
+//:: Updated for .35 by Jaysyn 2023/10/19
 
 //:: Test Void
 // void main (){}
@@ -376,22 +376,88 @@ int GetPathByMystery(int nMystId)
     return nReturn;
 }
 
-/*
-	The following PrCs will need to be added to Shadowcasting: 
-	Disciple of Asmodeus, Thrall of Orcus, Ollam, Acolyte of the Skin, 
-	Alienist, Elemental Savant, Dragonsong Lyrist, Talon of Tiamat & 
-	Mystic Theurge
-*/
-
 int GetShadowMagicPRCLevels(object oShadow)
 {
-    int nLevel = GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oShadow);
-    
-    // These two don't add at 1st level
-    if (GetLevelByClass(CLASS_TYPE_CHILD_OF_NIGHT, oShadow))
-        nLevel += GetLevelByClass(CLASS_TYPE_CHILD_OF_NIGHT, oShadow) - 1;
-    if (GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oShadow))
-        nLevel += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oShadow) - 1;        
+	int nLevel;
+	int nShadowClass	= GetPrimaryShadowMagicClass(oShadow);
+	
+	if (nShadowClass == CLASS_TYPE_SHADOWCASTER)
+    {
+		if(GetHasFeat(FEAT_AOTS_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oShadow) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ALIENIST_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_ALIENIST, oShadow);
+		
+		if(GetHasFeat(FEAT_CHILDNIGHT_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_CHILD_OF_NIGHT, oShadow) -1;	//:: No increase @ 1st level
+		
+		if(GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oShadow) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oShadow) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oShadow);		
+
+		if(GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oShadow) -1;	//:: No increase @ 1st level
+		
+		if(GetHasFeat(FEAT_MYSTICTHEURGE_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oShadow);
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oShadow);
+
+		if(GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_OLLAM, oShadow) + 1 / 2);
+
+		if(GetHasFeat(FEAT_TIAMAT_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oShadow) + 1 / 2);
+
+		if(GetHasFeat(FEAT_ORCUS_MYSTERY_SHADOWCASTER, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ORCUS, oShadow) + 1 / 2);		
+	}
+	
+	if (nShadowClass == CLASS_TYPE_SHADOWSMITH)
+	{
+		if(GetHasFeat(FEAT_AOTS_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ACOLYTE, oShadow) + 1) / 2;
+
+		if(GetHasFeat(FEAT_ALIENIST_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_ALIENIST, oShadow);
+		
+		if(GetHasFeat(FEAT_CHILDNIGHT_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_CHILD_OF_NIGHT, oShadow) -1;	//:: No increase @ 1st level
+		
+		if(GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oShadow) + 1) / 2;
+		
+		if(GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oShadow) + 1) / 2;		
+		
+		if(GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oShadow);		
+
+		if(GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oShadow) -1;	//:: No increase @ 1st level
+		
+		if(GetHasFeat(FEAT_MYSTICTHEURGE_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oShadow);
+
+		if(GetHasFeat(FEAT_NOCTUMANCER_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oShadow);
+
+		if(GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_OLLAM, oShadow) + 1 / 2);
+
+		if(GetHasFeat(FEAT_TIAMAT_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_TALON_OF_TIAMAT, oShadow) + 1 / 2);
+
+		if(GetHasFeat(FEAT_ORCUS_MYSTERY_SHADOWSMITH, oShadow))
+			nLevel += (GetLevelByClass(CLASS_TYPE_ORCUS, oShadow) + 1 / 2);		
+	}    
 
     return nLevel;
 }

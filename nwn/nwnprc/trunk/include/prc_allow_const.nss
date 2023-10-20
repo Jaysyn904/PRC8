@@ -120,6 +120,7 @@ const string ALLOW_CLASS_FISTRAZIEL             = "PRC_AllowFistRaz";
 const string ALLOW_CLASS_FIST_OF_DAL_QUOR       = "PRC_AllowDalQuor";
 const string ALLOW_CLASS_FIST_OF_ZUOKEN         = "PRC_AllowFoZ";
 const string ALLOW_CLASS_FMM                    = "PRC_AllowFMM";
+const string ALLOW_CLASS_FOCHULAN_LYRIST		= "PRC_AllowFocLyr";
 const string ALLOW_CLASS_FOE_HUNTER             = "PRC_AllowFH";
 const string ALLOW_CLASS_FORESTMASTER			= "PRC_AllowForMast";
 const string ALLOW_CLASS_FORSAKER               = "PRC_AllowForsaker";

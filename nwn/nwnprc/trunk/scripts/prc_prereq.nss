@@ -10,6 +10,7 @@
 
 //:: Updated for NWN .35 by Jaysyn 2023/03/11
 
+
 #include "inc_epicspells"
 #include "prc_inc_sneak"
 #include "psi_inc_psifunc"
@@ -130,7 +131,7 @@ void reqGender()
         DeleteLocalInt(OBJECT_SELF, "PRC_Male");
 }
 
-void Kord(object oPC)
+void Kord(object oPC) //:: This could be in the prereq 2da
 {
     SetLocalInt(oPC, "PRC_PrereqKord", 1);
 
@@ -140,7 +141,7 @@ void Kord(object oPC)
     }
 }
 
-void Purifier(object oPC)
+void Purifier(object oPC) //:: This could be in the prereq 2da
 {
     SetLocalInt(oPC, "PRC_PrereqPurifier", 1);
 
@@ -172,7 +173,7 @@ void Cultist(object oPC)
     int i;
     for (i = 1; i <= 8; i++)
     {
-        if (GetIsArcaneClass(GetClassByPosition(i, oPC)))
+        if (!GetIsArcaneClass(GetClassByPosition(i, oPC)))
         {
             SetLocalInt(oPC, "PRC_PrereqCultist", 0);
             break;
@@ -1042,13 +1043,226 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
         SetLocalInt(oPC, "PRC_PrereqSSN", 0);
 }
 
-void AOTS(object oPC)
+
+void FMMPreReqs(object oPC)
+{
+    //:: Force Missile Mage can only be taken if the player is able to cast Magic Missile.
+
+    SetLocalInt(oPC, "PRC_PresFMM", 1);
+
+    //:: Check PRC NewSpellBook classes: Archivist, Aberration, Monstrous, Outsider, 
+	//:: Shapechanger, Knight of the Weave, Sorcerer, Warmage
+	
+    if(PRCGetIsRealSpellKnown(SPELL_MAGIC_MISSILE, oPC))
+    {
+        SetLocalInt(oPC, "PRC_PresFMM", 0);
+        return;
+    }
+
+	//:: Check Cleric & Shaman
+	int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWis");
+	if(iWis > 10 && GetHasFeat(PRC_DOMAIN_FORCE, oPC))
+	{
+		SetLocalInt(oPC, "PRC_PresFMM", 0);
+	}		
+
+	//:: Check Bioware Sorcerer
+	int iCha = GetLocalInt(GetPCSkin(oPC), "PRC_trueCHA");
+	if(iCha > 10)
+	{	
+		if(GetIsInKnownSpellList(oPC, CLASS_TYPE_SORCERER, SPELL_MAGIC_MISSILE))
+			{
+				SetLocalInt(oPC, "PRC_PresFMM", 0);
+			}	
+	}
+
+	//:: Check Wizard
+	int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
+    if(iInt > 10)
+    {
+        if(GetLevelByClass(CLASS_TYPE_WIZARD))
+            SetLocalInt(oPC, "PRC_PresFMM", 0);
+    }
+	
+	//:: Check Nentyar Hunter
+    if(iWis > 10)
+    {
+        if(GetLevelByClass(CLASS_TYPE_NENTYAR_HUNTER))
+            SetLocalInt(oPC, "PRC_PresFMM", 0);
+    }
+}
+
+void ThrallOfOrcusPreReqs(object oPC)
+{
+	int iArcane = 0;
+	int iDivine = 0;
+	int iShadow = 0;
+	
+	if(GetLocalInt(oPC, "PRC_ArcSpell1") == 0)
+	{ 
+		iArcane = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_DivSpell1") == 0)
+	{ 
+		iDivine = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_MystLevel1") == 0)
+	{ 
+		iShadow = 1;
+	}
+	
+    // Initialize the prerequisite variable to 1
+    SetLocalInt(oPC, "PRC_PrereqOrcus", 1);
+
+    // Count how many conditions are true
+    int conditionsMet = 0;
+
+    if (iArcane > 0) conditionsMet++;
+	if (iDivine > 0) conditionsMet++;
+    if (iShadow > 0) conditionsMet++;
+
+    // Check if at least one of the conditions are met and set "PRC_PrereqOrcus" to 0 if true
+    if (conditionsMet >= 1)
+    {
+        SetLocalInt(oPC, "PRC_PrereqOrcus", 0);
+    }
+}	
+      	
+void ElementalSavantPreReqs(object oPC)
+{
+	int iArcane = 0;
+	int iDivine = 0;
+	int iShadow = 0;
+	
+	if(GetLocalInt(oPC, "PRC_ArcSpell3") == 0)
+	{ 
+		iArcane = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_DivSpell3") == 0)
+	{ 
+		iDivine = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_MystLevel3") == 0)
+	{ 
+		iShadow = 1;
+	}
+	
+    // Initialize the prerequisite variable to 1
+    SetLocalInt(oPC, "PRC_PrereqElSav", 1);
+
+    // Count how many conditions are true
+    int conditionsMet = 0;
+
+    if (iArcane > 0) conditionsMet++;
+	if (iDivine > 0) conditionsMet++;
+    if (iShadow > 0) conditionsMet++;
+
+    // Check if at least one of the conditions are met and set "PRC_PrereqElSav" to 0 if true
+    if (conditionsMet >= 1)
+    {
+        SetLocalInt(oPC, "PRC_PrereqElSav", 0);
+    }
+}
+
+void MysticTheurgePreReqs(object oPC)
+{
+	int iArcane = 0;
+	int iDivine = 0;
+	int iShadow = 0;
+	
+	if(GetLocalInt(oPC, "PRC_ArcSpell2") == 0)
+	{ 
+		iArcane = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_DivSpell2") == 0)
+	{ 
+		iDivine = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_MystLevel2") == 0)
+	{ 
+		iShadow = 1;
+	}
+	
+    // Initialize the prerequisite variable to 1
+    SetLocalInt(oPC, "PRC_PrereqMysticTheurge", 1);
+
+    // Count how many conditions are true
+    int conditionsMet = iArcane + iDivine + iShadow;
+
+/*     if (iArcane > 0) conditionsMet++;
+	if (iDivine > 0) conditionsMet++;
+    if (iShadow > 0) conditionsMet++; */
+
+    // Check if at least two of the conditions are met and set "PRC_PrereqMysticTheurge" to 0 if true
+    if (conditionsMet > 1)
+    {
+        SetLocalInt(oPC, "PRC_PrereqMysticTheurge", 0);
+    }
+}
+
+void AlienistPreReqs(object oPC)
+{
+	int iArcane = 0;
+	int iShadow = 0;
+	
+	if(GetLocalInt(oPC, "PRC_ArcSpell3") == 0)
+	{ 
+		iArcane = 1;
+	}
+
+	if(GetLocalInt(oPC, "PRC_MystLevel3") == 0)
+	{ 
+		iShadow = 1;
+	}
+	
+    // Initialize the prerequisite variable to 1
+    SetLocalInt(oPC, "PRC_PrereqAlienist", 1);
+
+    // Check if any of the conditions are met and set "PRC_PrereqAlienist" to 0 if true
+    if (iArcane > 0 || iShadow > 0)
+    {
+        SetLocalInt(oPC, "PRC_PrereqAlienist", 0);
+    }
+}
+
+void AOTSPreReqs(object oPC)
+{
+	int iArcane = 0;
+	int iShadow = 0;
+	
+	if(GetLocalInt(oPC, "PRC_ArcSpell2") == 0)
+	{ 
+		iArcane = 1;
+	}
+	
+	if(GetLocalInt(oPC, "PRC_MystLevel2") == 0)
+	{ 
+		iShadow = 1;
+	}
+	
+    // Initialize the prerequisite variable to 1
+    SetLocalInt(oPC, "PRC_PrereqAOTS", 1);
+
+    // Check if any of the conditions are met and set "PRC_PrereqAOTS" to 0 if true
+    if (iArcane > 0 || GetInvokerLevel(oPC) > 2 || iShadow > 0)
+    {
+        SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
+    }
+}
+
+/* void AOTS(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqAOTS", 1);
     int iArcane = GetLocalInt(oPC, "PRC_ArcSpell3");
-    if(iArcane == 0 || GetInvokerLevel(oPC) >= 3)
+    if(iArcane == 0 || GetInvokerLevel(oPC)<= 2 || GetHighestShadowcasterLevel(oPC) <= 2)
         SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
-}
+} */
 
 void EnlF(object oPC)
 {
@@ -1074,7 +1288,7 @@ void DragDisciple(object oPC)
     //Any nondragon (cannot already be a half-dragon)
     int nRace = GetRacialType(oPC);
     if(!GetHasTemplate(TEMPLATE_HALF_DRAGON, oPC)
-    && nRace != RACIAL_TYPE_BAAZ
+    && nRace != RACIAL_TYPE_SPIRETOPDRAGON
     && nRace != RACIAL_TYPE_BOZAK
     && nRace != RACIAL_TYPE_KAPAK)
         bRace = TRUE;
@@ -1519,56 +1733,61 @@ void main()
         reqDomains();
 
     // Special requirements for several classes.
-    Tempest();
-    KOTC(oPC);
-    RedWizard(oPC);
-    Shadowlord(oPC, nArcHighest);
-    Shifter(oPC, nArcHighest, nDivHighest);
-    DemiLich(oPC);
-    WWolf(oPC);
-    Kord(oPC);
-    Maester(oPC);
-    reqCombatMedic(oPC);
-    Thrallherd(oPC);
-    Shadowmind(oPC);
-    SoulEater(oPC);
-    RacialHD(oPC);
-    Virtuoso(oPC);
-    LichPrereq(oPC);
+	AlienistPreReqs(oPC);
+	DragonDevotee(oPC);
+	ElementalSavantPreReqs(oPC);
+	MysticTheurgePreReqs(oPC);
 	SancWarmind(oPC);
-    DalQuor(oPC);
-    Pyro(oPC);
-    Suel();
-    TomeOfBattle(oPC);
-    AOTS(oPC);
-    EnlF(oPC);
-    DragDisciple(oPC);
-    WarlockPrCs(oPC);
-    Purifier(oPC);
-    Shadowbane(oPC);
-    WildMageReq(oPC);
-    KnightWeave(oPC);
-    Dragonheart(oPC);
-    Cultist(oPC);
-    Incarnate(oPC);
-    Spinemeld(oPC);
-    SapphireHierarch(oPC);
-    SoulcasterReq(oPC);
-    Ironsoul(oPC);
+	ThrallOfOrcusPreReqs(oPC);
     AbChamp(oPC);
-    Necrocarnum(oPC);
-    Witchborn(oPC);
     AnimaMageReq(oPC);
-    TenebrousReq(oPC);
-    ScionReq(oPC);
-    DragonDevotee(oPC);
-    UrPriest(oPC);
+    AOTSPreReqs(oPC);
+    Cultist(oPC);
+    DalQuor(oPC);
+    DemiLich(oPC);
+    DragDisciple(oPC);
+    Dragonheart(oPC);
+    EnlF(oPC);
+	FMMPreReqs(oPC);
+    Incarnate(oPC);
+    Ironsoul(oPC);
+    KnightWeave(oPC);
+    Kord(oPC);
+    KOTC(oPC);
+    LichPrereq(oPC);
+    Maester(oPC);
+    Necrocarnum(oPC);
     Ocular(oPC);
-    UMagus(oPC);
+    Purifier(oPC);
+    Pyro(oPC);
+    RacialHD(oPC);
+    RedWizard(oPC);
+    reqCombatMedic(oPC);
+    SapphireHierarch(oPC);
+    ScionReq(oPC);
+    Shadowbane(oPC);
+    Shadowlord(oPC, nArcHighest);
+    Shadowmind(oPC);
+    Shifter(oPC, nArcHighest, nDivHighest);
+    SoulcasterReq(oPC);
+    SoulEater(oPC);
+    Spinemeld(oPC);
+    Suel();
+    Tempest();
+    TenebrousReq(oPC);
+    Thrallherd(oPC);
+    TomeOfBattle(oPC);
     TotemRager(oPC);
+    UMagus(oPC);
+    UrPriest(oPC);
+    Virtuoso(oPC);
+    WarlockPrCs(oPC);
+    WildMageReq(oPC);
+    Witchborn(oPC);
+    WWolf(oPC);
     // Truly massive debug message flood if activated.
    
-    /*if (DEBUG)
+/*     if (DEBUG)
     {
         string sPRC_AllSpell;
         string sPRC_ArcSpell;
@@ -1594,5 +1813,5 @@ void main()
            SendMessageToPC(oPC, sVariable + " is " + IntToString(GetLocalInt(oPC, sVariable)) + ".");
         }
         
-    }*/
+    } */
 }

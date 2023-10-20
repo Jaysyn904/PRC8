@@ -72960,4 +72960,12 @@ Use: Activated</entry>
   <entry id="77150" lang="en" sex="m">Mysteries: At every other Talon of TIamat level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>
   <entry id="77151" lang="en" sex="m">Mysteries: When a thrall of Orcus attains 1st, 4th, 7th, and 10th level, you gain new mysteries and an increase in caster level (and mysteries known) as if you had also attained a level in a shadowcasting class to which you belonged before adding the prestige class level.  You do not, however, gain any other benefit a character of that class would have gained.</entry>  
   <entry id="77152" lang="en" sex="m">Fochulan Lyrist Spellcasting (Ur-Priest)</entry>
+  <entry id="77153" lang="en" sex="m">Disciple of Asmodeus Spellcasting (None)</entry>
+  <entry id="77154" lang="en" sex="m">Spellcasting: While Disciple of Asmodeus can optionally advance spellcasting, shadowcasting and invoking you do not posess any classes that use these magic systems and must pick this bonus feat to continue.</entry>
+  <entry id="77155" lang="en" sex="m">Talon of Tiamat Spellcasting (None)</entry>
+  <entry id="77156" lang="en" sex="m">Spellcasting: While Talon of Tiamat can optionally advance spellcasting, shadowcasting and invoking you do not have posess classes that use these magic systems and must pick this bonus feat to continue.</entry>
+  <entry id="77157" lang="en" sex="m">Dragonsong Lyrist Spellcasting (None)</entry>
+  <entry id="77158" lang="en" sex="m">Spellcasting: While Dragonsong Lyrist can optionally advance spellcasting and shadowcasting you do not posess any classes that use these magic systems and must pick this bonus feat to continue.</entry>  
+  <entry id="77159" lang="en" sex="m">Ollam Spellcasting (None)</entry>
+  <entry id="77160" lang="en" sex="m">Spellcasting: While an Ollam can optionally advance spellcasting and shadowcasting you do not posess any classes that use these magic systems and must pick this bonus feat to continue.</entry>   
 </tlk>

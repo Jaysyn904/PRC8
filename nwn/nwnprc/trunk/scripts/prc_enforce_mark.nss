@@ -58,6 +58,9 @@ int BladesingerMarkerFeats();
 //:; Enforces Cerebrmancer marker feats
 int CerebremancerMarkerFeats();
 
+//:: Enforce Child of Night marker feats
+int CoNMarkerFeats();
+
 //:; Enforces Combat Medic marker feats
 int CombatMedicMarkerFeats();
 
@@ -138,6 +141,9 @@ int MaesterMarkerFeats();
 
 //:; Enforces Magekiller marker feats
 int MagekillerMarkerFeats();
+
+//:: Enforces Master of Shadows marker feats
+int MasterShadowMarkerFeats();
 
 //:; Enforces Master of Shrouds marker feats
 int MoSMarkerFeats();
@@ -330,18 +336,20 @@ int AoTSMarkerFeats()
 						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_UR_PRIEST)
 						+ GetHasFeat(FEAT_ACOLYTE_SPELLCASTING_CULTIST_PEAK)
 						+ GetHasFeat(FEAT_AOTS_INVOKING_WARLOCK)
-						+ GetHasFeat(FEAT_AOTS_INVOKING_DFA);
+						+ GetHasFeat(FEAT_AOTS_INVOKING_DFA)
+						+ GetHasFeat(FEAT_AOTS_MYSTERY_SHADOWCASTER)
+						+ GetHasFeat(FEAT_AOTS_MYSTERY_SHADOWSMITH);
 
         if(nAcolyte > 1)
         {
-            FloatingTextStringOnCreature("An Acolyte of the Skin may only advance a single arcane, divine or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Acolyte of the Skin may only advance a single arcane, divine, shadowcasting or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nAcolyte < 1)
         {
-            FloatingTextStringOnCreature("An Acolyte of the Skin must pick one arcane, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Acolyte of the Skin must pick one arcane, divine, shadowcasting or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -439,18 +447,20 @@ int AlienistMarkerFeats()
 						+ GetHasFeat(FEAT_ALIENIST_SPELLCASTING_OCULAR)
 						+ GetHasFeat(FEAT_ALIENIST_SPELLCASTING_RANGER)
 						+ GetHasFeat(FEAT_ALIENIST_SPELLCASTING_OASHAMAN)
-						+ GetHasFeat(FEAT_ALIENIST_SPELLCASTING_UR_PRIEST);
+						+ GetHasFeat(FEAT_ALIENIST_SPELLCASTING_UR_PRIEST)
+						+ GetHasFeat(FEAT_ALIENIST_MYSTERY_SHADOWCASTER)
+						+ GetHasFeat(FEAT_ALIENIST_MYSTERY_SHADOWSMITH);
 
         if(nAlienist > 1)
         {
-            FloatingTextStringOnCreature("An Alienist may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Alienist may only advance a single arcane, shadowcasting or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nAlienist < 1)
         {
-            FloatingTextStringOnCreature("An Alienist must pick one arcane or divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Alienist must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -618,20 +628,23 @@ int DoAMarkerFeats()
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SOHEI)
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SPSHAMAN)
 						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_UR_PRIEST)
+						+ GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_NONE)
 						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_WARLOCK)
 						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_DFA)
-						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN);
+						+ GetHasFeat(FEAT_ASMODEUS_INVOKING_DRAGON_SHAMAN)
+						+ GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWCASTER)
+						+ GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWSMITH);
 
         if(nDoA > 1)
         {
-            FloatingTextStringOnCreature("A Disciple of Asmodeus may only advance a single arcane, divine or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Disciple of Asmodeus may only advance a single arcane, divine, shadowcasting or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nDoA < 1)
         {
-            FloatingTextStringOnCreature("A Disciple of Asmodeus must pick one arcane, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Disciple of Asmodeus must pick one arcane, divine, shadowcasting or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -918,6 +931,33 @@ int CerebremancerMarkerFeats()
     return FALSE;
 }	
 
+//:: Enforce Child of Night marker feats
+int CoNMarkerFeats()
+{
+	if(GetLevelByClass(CLASS_TYPE_CHILD_OF_NIGHT))
+	{
+		int nChild	= GetHasFeat(FEAT_CHILDNIGHT_MYSTERY_SHADOWCASTER)
+				+ GetHasFeat(FEAT_CHILDNIGHT_MYSTERY_SHADOWSMITH);
+				
+        if(nChild > 1)
+        {
+            FloatingTextStringOnCreature("A Child of Night may only advance a single shadowcasting class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+		
+		if(nChild < 1)
+        {
+            FloatingTextStringOnCreature("A Child of Night must pick one shadowcasting class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }	
+			
+	}
+	
+	return FALSE;
+}	
+
 //:; Enforces Combat Medic marker feats
 int CombatMedicMarkerFeats()
 {
@@ -1142,18 +1182,21 @@ int DragonsongLyristMarkerFeats()
 						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_SOHEI)
 						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_SOL)
 						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_SPSHAMAN)
-						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_VASSAL);
+						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_VASSAL)
+						+ GetHasFeat(FEAT_DSONG_SPELLCASTING_NONE)						
+						+ GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWCASTER)
+						+ GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWSMITH);
 						
         if(nDragonsong > 1)
         {
-            FloatingTextStringOnCreature("A Dragonsong Lyrist may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Dragonsong Lyrist may only advance a single arcane, shadowcasting or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nDragonsong < 1)
         {
-            FloatingTextStringOnCreature("A Dragonsong Lyrist must pick one arcane or divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Dragonsong Lyrist must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -1332,18 +1375,20 @@ int ElementalSavantMarkerFeats()
 						+ GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_OCULAR)
 						+ GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_OASHAMAN)
 						+ GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SPSHAMAN)
-						+ GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_UR_PRIEST);
+						+ GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_UR_PRIEST)
+						+ GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWCASTER)
+						+ GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWSMITH);
 						
         if(nElmSavant > 1)
         {
-            FloatingTextStringOnCreature("An Elemental Savant may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Elemental Savant may only advance a single arcane, shadowcasting or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nElmSavant < 1)
         {
-            FloatingTextStringOnCreature("An Elemental Savant must pick one arcane or divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Elemental Savant must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -1510,7 +1555,8 @@ int FochlucanLyristMarkerFeats()
 								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OASHAMAN)
 								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOHEI)
 								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOL)
-								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SPSHAMAN);
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SPSHAMAN)
+								+ GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_UR_PRIEST);
 							
 
         if(nFochlucanArcane > 1)
@@ -2185,6 +2231,31 @@ int MagekillerMarkerFeats()
     return FALSE;
 }	
 
+//:: Enforces Master of Shadows marker feats
+int MasterShadowMarkerFeats()
+{
+	if(GetLevelByClass(CLASS_TYPE_MAGEKILLER))
+	{
+		int nShadow	= GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWCASTER)
+					+ GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWSMITH);
+				
+        if(nShadow > 1)
+        {
+            FloatingTextStringOnCreature("A Master of Shadows may only advance a single shadowcasting class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+		
+		if(nShadow < 1)
+        {
+            FloatingTextStringOnCreature("A Master of Shadows must pick one shadowcasting class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+	}
+    return FALSE;				
+}
+
 //:; Enforces Master of Shrouds marker feats
 int MoSMarkerFeats()
 {
@@ -2323,6 +2394,81 @@ int MorninglordMarkerFeats()
 //:; Enforces Mystic Theurge marker feats
 int MysticTheurgeMarkerFeats()
 {
+    if (GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE))
+    {
+        int nMysticDivine = 0;
+        int nMysticArcane = 0;
+        int nMysticShadow = 0;
+
+        // Check for divine, arcane, and shadow marker feats
+        nMysticDivine = GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ARCHIVIST)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BLACKGUARD)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BLIGHTER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CLERIC)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DOMIEL)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DRUID)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_FAVOURED_SOUL)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HEALER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_JUSTICEWW)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_CHALICE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_MIDDLECIRCLE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_NENTYAR_HUNTER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OCULAR)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_PALADIN)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_RANGER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OASHAMAN)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SOHEI)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SOL)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SPSHAMAN)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_UR_PRIEST)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_VASSAL);
+
+        nMysticArcane = GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_FEY)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ABERRATION)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_MONSTROUS)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_OUTSIDER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SHAPECHANGER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ASSASSIN)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BARD)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BEGUILER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CELEBRANT_SHARESS)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_CULTIST_PEAK)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DNECRO)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DUSKBLADE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HARPER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_HEXBLADE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_KNIGHT_WEAVE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SHADOWLORD)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SORCERER)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SUBLIME_CHORD)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SUEL_ARCHANAMACH)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_WARMAGE)
+            + GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_WIZARD);
+
+        nMysticShadow = GetHasFeat(FEAT_MYSTICTHEURGE_MYSTERY_SHADOWCASTER)
+            + GetHasFeat(FEAT_MYSTICTHEURGE_MYSTERY_SHADOWSMITH);
+
+        int totalMarkerFeats = nMysticDivine + nMysticArcane + nMysticShadow;
+
+        // Check if the character has chosen a valid combination of marker feats
+        if (totalMarkerFeats > 2 || (nMysticDivine > 1 && nMysticArcane > 1)) {
+            FloatingTextStringOnCreature("A Mystic Theurge may only advance two different types of spellcasting.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+
+        if (nMysticDivine < 1 || nMysticArcane < 1 || nMysticShadow < 1) {
+            FloatingTextStringOnCreature("A Mystic Theurge must pick two spellcasting classes to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/* int MysticTheurgeMarkerFeats()
+{
     if(GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE))
     {
 		int nMysticDivine	= GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ARCHIVIST)
@@ -2399,42 +2545,58 @@ int MysticTheurgeMarkerFeats()
     }
 	
     return FALSE;
-}	
+}	 */
 
 //:; Enforces Noctumancer marker feats
 int NoctumancerMarkerFeats()
 {
     if(GetLevelByClass(CLASS_TYPE_NOCTUMANCER))
     {
-		int nNoctumancer	= GetHasFeat(FEAT_MAESTER_SPELLCASTING_FEY)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_ABERRATION)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_MONSTROUS)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_OUTSIDER)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SHAPECHANGER)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_BARD)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_BEGUILER)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_DNECRO)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_DUSKBLADE)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_KNIGHT_WEAVE)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SORCERER)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUBLIME_CHORD)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_SUEL_ARCHANAMACH)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_WARMAGE)
-							+ GetHasFeat(FEAT_MAESTER_SPELLCASTING_WIZARD);
+		int nNoctArcane		= GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_FEY)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_ABERRATION)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_MONSTROUS)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_OUTSIDER)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SHAPECHANGER)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BARD)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BEGUILER)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_DNECRO)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_DUSKBLADE)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_KNIGHT_WEAVE)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SORCERER)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SUBLIME_CHORD)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SUEL_ARCHANAMACH)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_WARMAGE)
+							+ GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_WIZARD);
+
+		int nNoctShadow		= GetHasFeat(FEAT_NOCTUMANCER_MYSTERY_SHADOWCASTER)
+							+ GetHasFeat(FEAT_NOCTUMANCER_MYSTERY_SHADOWSMITH);
 						
-        if(nNoctumancer > 1)
+        if(nNoctArcane > 1)
         {
-            FloatingTextStringOnCreature("A Noctumancer may only advance a single arcane or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Noctumancer may only advance a single arcane class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
-		if(nNoctumancer < 1)
+		if(nNoctArcane < 1)
         {
-            FloatingTextStringOnCreature("A Noctumancer must pick one arcane or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Noctumancer must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
+        if(nNoctShadow > 1)
+        {
+            FloatingTextStringOnCreature("A Noctumancer may only advance a single shadowcasting class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+		
+		if(nNoctShadow < 1)
+        {
+            FloatingTextStringOnCreature("A Noctumancer must pick one shadowcasting class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }		
     }
 	
     return FALSE;
@@ -2475,18 +2637,21 @@ int OllamMarkerFeats()
 					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_OASHAMAN)
 					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_SOHEI)
 					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_SPSHAMAN)
-					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_VASSAL);
+					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_VASSAL)
+					+ GetHasFeat(FEAT_OLLAM_SPELLCASTING_NONE)
+					+ GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWCASTER)
+					+ GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWSMITH);
 						
         if(nOllam > 1)
         {
-            FloatingTextStringOnCreature("A Ollam may only advance a single divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Ollam may only advance a single arcane, shadowcasting or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nOllam < 1)
         {
-            FloatingTextStringOnCreature("A Ollam must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Ollam must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -2589,18 +2754,20 @@ int OrcusMarkerFeats()
 					+ GetHasFeat(FEAT_ORCUS_SPELLCASTING_SORCERER)
 					+ GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUBLIME_CHORD)
 					+ GetHasFeat(FEAT_ORCUS_SPELLCASTING_SUEL_ARCHANAMACH)
-					+ GetHasFeat(FEAT_ORCUS_SPELLCASTING_WARMAGE);
+					+ GetHasFeat(FEAT_ORCUS_SPELLCASTING_WARMAGE)
+					+ GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWCASTER)
+					+ GetHasFeat(FEAT_OLLAM_MYSTERY_SHADOWSMITH);
 						
         if(nOrcus > 1)
         {
-            FloatingTextStringOnCreature("A Thrall of Orcus may only advance a single arcane or divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Thrall of Orcus may only advance a single arcane, shadowcasting or divine class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nOrcus < 1)
         {
-            FloatingTextStringOnCreature("A Thrall of Orcus must pick one arcane or divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Thrall of Orcus must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -3462,20 +3629,23 @@ int TiamatMarkerFeats()
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_OASHAMAN)
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SOHEI)
 					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SPSHAMAN)
+					+ GetHasFeat(FEAT_TIAMAT_SPELLCASTING_NONE)					
 					+ GetHasFeat(FEAT_TIAMAT_INVOKING_WARLOCK)
 					+ GetHasFeat(FEAT_TIAMAT_INVOKING_DFA)
-					+ GetHasFeat(FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN);
+					+ GetHasFeat(FEAT_TIAMAT_INVOKING_DRAGON_SHAMAN)
+					+ GetHasFeat(FEAT_TIAMAT_MYSTERY_SHADOWCASTER)
+					+ GetHasFeat(FEAT_TIAMAT_MYSTERY_SHADOWSMITH);					;
 						
         if(nTiamat > 1)
         {
-            FloatingTextStringOnCreature("A Talon of Tiamat may only advance a single arcane, divine or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Talon of Tiamat may only advance a single arcane, shadowcasting, divine or invoker class.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nTiamat < 1)
         {
-            FloatingTextStringOnCreature("A Talon of Tiamat must pick one arcane, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Talon of Tiamat must pick one arcane, shadowcasting, divine or invoker class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -3847,6 +4017,7 @@ void main()
 	|| BrimstoneSpeakerMarkerFeats()
 	|| BladesingerMarkerFeats()
 	|| CerebremancerMarkerFeats()
+	|| CoNMarkerFeats()
 	|| CombatMedicMarkerFeats()
 	|| ContemplativeMarkerFeats()
 	|| DragonheartMarkerFeats()
@@ -3874,6 +4045,7 @@ void main()
 	|| MCoKMarkerFeats()
 	|| MaesterMarkerFeats()
 	|| MagekillerMarkerFeats()
+	|| MasterShadowMarkerFeats()
 	|| MoSMarkerFeats()
 	|| MasterHarperMarkerFeats()
 	|| MorninglordMarkerFeats()

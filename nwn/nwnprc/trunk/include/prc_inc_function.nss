@@ -1389,10 +1389,11 @@ void BardSong(object oPC)
     // or other classes can grant it on their own
     if(!GetHasFeat(FEAT_BARD_SONGS, oPC)) return;
 
-    int nTotal = GetLevelByClass(CLASS_TYPE_BARD, oPC);
-    nTotal += GetLevelByClass(CLASS_TYPE_DIRGESINGER, oPC);
-    nTotal += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oPC);
-    nTotal += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oPC) / 2;
+    int nTotal 	= GetLevelByClass(CLASS_TYPE_BARD, oPC);
+		nTotal += GetLevelByClass(CLASS_TYPE_DIRGESINGER, oPC);
+		nTotal += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oPC);
+		nTotal += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oPC);
+		nTotal += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oPC) / 2;
 
     if(GetHasFeat(FEAT_EXTRA_MUSIC, oPC)) nTotal += 4;
 

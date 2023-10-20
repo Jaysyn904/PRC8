@@ -1,9 +1,9 @@
 2DA V2.0
 
-  LABEL                ReqType ReqParam1      ReqParam2 
-0 Base_Attack          BAB     4              ****      
-1 ScriptVar            VAR     PRC_AllowOrcus 0         
-2 Lore                 SKILL   7              4         
-3 FEAT_LICHLOVED       FEAT    3395           ****      
-4 ScriptVar            VAR     PRC_DivSpell1  0         
-5 FEAT_THRALL_TO_DEMON FEAT    2616           ****      
+  LABEL                ReqType ReqParam1       ReqParam2 
+0 Base_Attack          BAB     4               ****      
+1 ScriptVar            VAR     PRC_AllowOrcus  0         
+2 Lore                 SKILL   7               4         
+3 FEAT_LICHLOVED       FEAT    3395            ****      
+4 ScriptVar            VAR     PRC_PrereqOrcus 0         
+5 FEAT_THRALL_TO_DEMON FEAT    2616            ****      

@@ -35,5 +35,6 @@
 31         FEAT_OLLAM_SPELLCASTING_SOHEI               26510     2    1              0      
 32         FEAT_OLLAM_SPELLCASTING_SPSHAMAN            26572     2    1              0      
 33         FEAT_OLLAM_SPELLCASTING_VASSAL              26626     2    1              0      
-34         FEAT_OLLAM_MYSTERY_SHADOWCASTER             26740     2    1              0      
-35         FEAT_OLLAM_MYSTERY_SHADOWSMITH              26752     2    1              0      
+34         FEAT_OLLAM_SPELLCASTING_NONE                26664     2    1              0      
+35         FEAT_OLLAM_MYSTERY_SHADOWCASTER             26740     2    1              0      
+36         FEAT_OLLAM_MYSTERY_SHADOWSMITH              26752     2    1              0      
