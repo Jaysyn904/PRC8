@@ -42,7 +42,7 @@
 38         FEAT_CIRCLE_LEADER_THAYAN           4352      3    5              1      
 39         FEAT_GREAT_CIRCLE_LEADER_THAYAN     4353      3    10             1      
 40         FEAT_RW_EPIC                        2638      3    11             0      
-41         FEAT_REDWIZ_SPELLCASTING_WIZARD     23580     3    1              0      
+41         FEAT_REDWIZ_SPELLCASTING_WIZARD     25898     3    1              0      
 42         SpellFocusCon                       166       1    -1             0      
 43         SpellFocusDiv                       167       1    -1             0      
 44         SpellFocusEnc                       168       1    -1             0      
