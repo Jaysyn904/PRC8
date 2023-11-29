@@ -41,8 +41,6 @@ void CheckForPnPHolyAvenger(object oItem);
 #include "prc_inc_castlvl"
 #include "inc_newspellbook"
 
-//:: Test Void
-//void main (){}
 
 //////////////////////////////////////////////////
 /*             Internal functions               */
@@ -559,3 +557,6 @@ void CheckForPnPHolyAvenger(object oItem)
         ipTest = GetNextItemProperty(oItem);
     }
 }
+
+//:: Test Void
+//void main (){}
