@@ -592,6 +592,7 @@ void EquipWeapon(object oObject = OBJECT_SELF)
         return;
     }
 }
+
 object EquipWeaponProfSimple(object oObject, int nHands = 1)
 {
     int nMaxSize;
@@ -2536,6 +2537,7 @@ object EquipImprovedCritical(object oObject)
     EquipDebugString(GetName(oObject) + " has ImpCrit "+GetName(oItem));
     return oItem;
 }
+
 object EquipWeaponFocus(object oObject)
 {
     int nRandom = Random(37);
@@ -2693,7 +2695,75 @@ object EquipWeaponFocus(object oObject)
             case 36:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_WAR_HAMMER,oObject))
                     nBaseItemType = BASE_ITEM_WARHAMMER;
+				break;
+            case 37:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_WHIP,oObject))
+                    nBaseItemType = BASE_ITEM_WHIP;
+				break;
+            case 38:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_PICK,oObject))
+                    nBaseItemType = BASE_ITEM_HEAVY_PICK;
+				break;
+            case 39:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_LIGHT_PICK,oObject))
+                    nBaseItemType = BASE_ITEM_LIGHT_PICK;
+				break;
+            case 40:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_SAI,oObject))
+                    nBaseItemType = BASE_ITEM_SAI;
+				break;
+            case 41:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_NUNCHAKU,oObject))
+                    nBaseItemType = BASE_ITEM_NUNCHAKU;
+				break;
+            case 42:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_FALCHION,oObject))
+                    nBaseItemType = BASE_ITEM_FALCHION;
+				break;
+            case 43:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_SAP,oObject))
+                    nBaseItemType = BASE_ITEM_SAP;
+				break;
+            case 44:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_KATAR,oObject))
+                    nBaseItemType = BASE_ITEM_KATAR;
+				break;
+            case 45:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_MACE,oObject))
+                    nBaseItemType = BASE_ITEM_HEAVY_MACE;
+				break;
+            case 46:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_MAUL,oObject))
+                    nBaseItemType = BASE_ITEM_MAUL;				
                 break;
+            case 46:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_DOUBLE_SCIMITAR,oObject))
+                    nBaseItemType = BASE_ITEM_DOUBLE_SCIMITAR;				
+                break;
+            case 47:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_GOAD,oObject))
+                    nBaseItemType = BASE_ITEM_GOAD;				
+                break;
+            case 48:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_EAGLE_CLAW,oObject))
+                    nBaseItemType = BASE_ITEM_EAGLE_CLAW;				
+                break;
+            case 49:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE,oObject))
+                    nBaseItemType = BASE_ITEM_ELVEN_LIGHTBLADE;				
+                break;
+            case 50:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_THINBLADE,oObject))
+                    nBaseItemType = BASE_ITEM_ELVEN_THINBLADE;				
+                break;
+            case 51:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE,oObject))
+                    nBaseItemType = BASE_ITEM_ELVEN_COURTBLADE;				
+                break;
+            case 52:
+                if(GetHasFeat(FEAT_WEAPON_FOCUS_TRIDENT,oObject))
+                    nBaseItemType = BASE_ITEM_TRIDENT;				
+                break;				
         }
         if(nBaseItemType == -1)
         {
@@ -2712,6 +2782,7 @@ object EquipWeaponFocus(object oObject)
     EquipDebugString(GetName(oObject) + " has WeaponFocus "+GetName(oItem));
     return oItem;
 }
+
 int GetCanDualWeild(object oObject)
 {
     if(GetHasFeat(FEAT_AMBIDEXTERITY,oObject) == TRUE
