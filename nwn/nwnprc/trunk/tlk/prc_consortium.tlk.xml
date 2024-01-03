@@ -2,22 +2,7 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
-  <entry id="1" lang="en" sex="m">PRC8 Version Counter: 01</entry>
-  <entry id="12250" lang="en" sex="m">## NEW NWN .35 DAMAGE TYPES ##</entry>
-  <entry id="12251" lang="en" sex="m">Force Damage</entry>
-  <entry id="12252" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
-  <entry id="12253" lang="en" sex="m">Poison Damage</entry>
-  <entry id="12254" lang="en" sex="m">&lt;CUSTOM0&gt; Poison</entry>
-  <entry id="12255" lang="en" sex="m">Psychic Damage</entry>
-  <entry id="12256" lang="en" sex="m">&lt;CUSTOM0&gt; Psychic</entry>
-  <entry id="12257" lang="en" sex="m">Radiant Damage</entry>
-  <entry id="12258" lang="en" sex="m">&lt;CUSTOM0&gt; Radiant</entry>
-  <entry id="12259" lang="en" sex="m">Subdual Damage</entry>
-  <entry id="12260" lang="en" sex="m">&lt;CUSTOM0&gt; Subdual</entry>
-  <entry id="12261" lang="en" sex="m">Untyped Damage</entry>
-  <entry id="12262" lang="en" sex="m">&lt;CUSTOM0&gt; Untyped</entry>
-  <entry id="12263" lang="en" sex="m">Vile Damage</entry>
-  <entry id="12264" lang="en" sex="m">&lt;CUSTOM0&gt; Vile</entry>
+  <entry id="1" lang="en" sex="m">PRC8 Version Counter: 02</entry>
   <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
@@ -5071,6 +5056,33 @@ Base Critical Threat: x2
 Base Damage Type: Piercing
 Weapon Size: Small
 Feats Required: Simple</entry>
+  <entry id="43138" lang="en" sex="m">Untyped</entry>
+  <entry id="43139" lang="en" sex="m">Untyped Damage</entry>
+  <entry id="43140" lang="en" sex="m">&lt;CUSTOM0&gt; Untyped</entry>
+  <entry id="43141" lang="en" sex="m">Vile</entry>
+  <entry id="43142" lang="en" sex="m">Vile Damage</entry>
+  <entry id="43143" lang="en" sex="m">&lt;CUSTOM0&gt; Vile</entry>
+  <entry id="43144" lang="en" sex="m">Blood</entry>
+  <entry id="43145" lang="en" sex="m">Poison</entry>
+  <entry id="43146" lang="en" sex="m">Shadow</entry>
+  <entry id="43147" lang="en" sex="m">Psychic</entry>
+  <entry id="43148" lang="en" sex="m">Necrotic</entry>
+  <entry id="43149" lang="en" sex="m">Radiant</entry>
+  <entry id="43150" lang="en" sex="m">Force</entry>
+  <entry id="43151" lang="en" sex="m">Blood Damage</entry>
+  <entry id="43152" lang="en" sex="m">Poison Damage</entry>
+  <entry id="43153" lang="en" sex="m">Shadow Damage</entry>
+  <entry id="43154" lang="en" sex="m">Psychic Damage</entry>
+  <entry id="43155" lang="en" sex="m">Necrotic Damage</entry>
+  <entry id="43156" lang="en" sex="m">Radiant Damage</entry>
+  <entry id="43157" lang="en" sex="m">Force Damage</entry>
+  <entry id="43158" lang="en" sex="m">&lt;CUSTOM0&gt; Blood</entry>
+  <entry id="43159" lang="en" sex="m">&lt;CUSTOM0&gt; Poison</entry>
+  <entry id="43160" lang="en" sex="m">&lt;CUSTOM0&gt; Shadow</entry>
+  <entry id="43161" lang="en" sex="m">&lt;CUSTOM0&gt; Psychic</entry>
+  <entry id="43162" lang="en" sex="m">&lt;CUSTOM0&gt; Necrotic</entry>
+  <entry id="43163" lang="en" sex="m">&lt;CUSTOM0&gt; Radiant</entry>
+  <entry id="43164" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
   <entry id="44999" lang="en" sex="m">+++++++++++++ PRC Pack Feats 45,000 - 54,999 ++++++++++++++</entry>
   <entry id="45001" lang="en" sex="m">Type of Feat: General
 Prerequisite: Spell Focus (conjuration)
