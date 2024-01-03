@@ -14,6 +14,8 @@
 //:: Created On: 18/4/06
 //:://////////////////////////////////////////////
 
+//void main (){}
+
 //Checks if the target has the template or not.
 //returns 1 if it does, 0 if it doesnt or if its an invalid target
 int GetHasTemplate(int nTemplate, object oPC = OBJECT_SELF);
@@ -26,6 +28,8 @@ int GetTemplateLA(object oPC);
 //will not work on non-creatures
 //if bApply is false, this can test if the template is applicable or not
 int ApplyTemplateToObject(int nTemplate, object oPC = OBJECT_SELF, int bApply = TRUE);
+
+int RemoveTemplateFromObject(int nTemplate, object oPC = OBJECT_SELF);
 
 /**
  * Determines whether the PC is a legal target for the weapon of legacy
@@ -110,6 +114,27 @@ int GetTemplateLA(object oPC)
     }
     return nLA;*/
 }
+
+int RemoveTemplateFromObject(int nTemplate, object oPC = OBJECT_SELF)
+{
+	//:: Sanity check
+    if(!GetHasTemplate(nTemplate, oPC))
+        return FALSE;
+	
+	//:: Remove the template from the array
+    if(persistant_array_exists(oPC, "templates"))
+	{
+		persistant_array_shrink(oPC, "templates", persistant_array_get_size(oPC, "templates")-nTemplate);
+		persistant_array_delete(oPC, "templates");
+	}
+	
+    //:: Delete template's markers
+    DeletePersistantLocalInt(oPC, "template_"+IntToString(nTemplate));
+	DeletePersistantLocalInt(oPC, "template_LA");
+	
+	DelayCommand(0.01, EvalPRCFeats(oPC));
+	return TRUE;	
+}	
 
 int ApplyTemplateToObject(int nTemplate, object oPC = OBJECT_SELF, int bApply = TRUE)
 {

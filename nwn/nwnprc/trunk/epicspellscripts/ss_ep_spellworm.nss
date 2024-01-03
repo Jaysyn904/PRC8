@@ -58,8 +58,15 @@ void main()
 
 void RunWorm(object oTarget, int nRoundsRemaining)
 {
-    int nSpell = GetBestAvailableSpell(oTarget);
-    if (nSpell != 99999)
+
+	int nSpell = GetBestAvailableSpell(oTarget);
+	if(oTarget == OBJECT_INVALID)
+	{
+		SetLocalInt(oTarget, "sSpellWormActive", FALSE);
+		return;
+	}
+	
+	if (nSpell != 99999)
     {
         DecrementRemainingSpellUses(oTarget, nSpell);
         nRoundsRemaining -= 1;

@@ -4121,7 +4121,7 @@ const int FAST_HEALING_3			= 4147;
 // General Feats
 const int FEAT_STORMMAGIC               = 4182;
 const int FEAT_MAGICAL_APTITUDE         = 4416;
-const int FEAT_NEGOTIATOR				= 3312;
+const int FEAT_NEGOTIATOR				= 3485;
 
 // Warmage Feat
 const int FEAT_TYPE_EXTRA_EDGE           = 2779;

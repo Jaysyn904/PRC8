@@ -21506,7 +21506,8 @@ Favored Class (Fighter): A multiclass duergar's fighter class does not count whe
 - Light Sensitivity: Duergar suffer -2 penalty to attack rolls, saves and checks while operating in bright light.
 - Spell-Like Abilities: 1/day - Invisibility. Caster level 3rd.
 - Naturally Psionic: Duergar gain 3 bonus power points at 1st level.
-- Dwarven: Duergar count as Dwarves for the purpose of spells.</entry>
+- Dwarven: Duergar count as Dwarves for the purpose of spells.
+- Level adjustment +1</entry>
   <entry id="49519" lang="en" sex="m">Shield Dwarf</entry>
   <entry id="49520" lang="en" sex="m">Shield Dwarven</entry>
   <entry id="49521" lang="en" sex="m">shield dwarven</entry>
@@ -23676,6 +23677,13 @@ Use: Selected</entry>
   <entry id="49992" lang="en" sex="m">Rite of Waking (Other)</entry>
   <entry id="49993" lang="en" sex="m">Mystic Phoenix Stance (Augmented)</entry>
   <entry id="49994" lang="en" sex="m">Firebird Stance (Augmented)</entry>
+  <entry id="49996" lang="en" sex="m">Humanoid</entry>
+  <entry id="49997" lang="en" sex="m"> A humanoid usually has two arms, two legs, and one head, or a humanlike torso, arms, and a head. Humanoids have few or no supernatural or extraordinary abilities, but most can speak and usually have well-developed societies. They usually are Small or Medium. Every humanoid creature also has a subtype.
+
+- Proficient with all simple weapons, or by character class.
+-  Proficient with whatever type of armor (light, medium, or heavy) it is described as wearing, or by character class. If a humanoid does not have a class and wears armor, it is proficient with that type of armor and all lighter types. Humanoids not indicated as wearing armor are not proficient with armor. Humanoids are proficient with shields if they are proficient with any form of armor.
+-Humanoids breathe, eat, and sleep.
+  </entry>
   <entry id="49999" lang="en" sex="m">**** 50,000 - 50,500 reserved for Race Pack Feats ****</entry>
   <entry id="50000" lang="en" sex="m">Light Sensitivity</entry>
   <entry id="50001" lang="en" sex="m">Type of Feat: Racial
@@ -32908,7 +32916,7 @@ Level
 6:  Fist of energy (burst) - Energy imbued attacks deal 1d10 extra damage on a critical hit.
 7:  Hold ray - Use spells with a ray affect as touch spells.
 8:  -
-9:  Diamond soul - Gain spell resistance of 10 +monk levels +fist levels.
+9:  Diamond soul - Gain spell resistance of 10 +monk levels +enlightened fist levels.
 10: -
 </entry>
   <entry id="52204" lang="en" sex="m">Fist of Energy</entry>
@@ -41060,7 +41068,7 @@ For any servant of a deity, no joy is greater than at those rare moments when th
 
 REQUIREMENTS:
 
-Divine Spellcasting: Able to cast 1st-level spells.
+Spellcasting: Able to cast 1st-level divine spells.
 Skills: Lore 13 ranks.
 
 ABILITIES:
@@ -46213,7 +46221,7 @@ Feats Required: Martial Weapon Proficiency</entry>
   <entry id="57027" lang="en" sex="m">Weapon Proficiency: Rapier</entry>
   <entry id="57028" lang="en" sex="m">Weapon Proficiency: Scimitar</entry>
   <entry id="57029" lang="en" sex="m">Weapon Proficiency: Scythe</entry>
-  <entry id="57030" lang="en" sex="m">Weapon Proficiency: Shortspear</entry>
+  <entry id="57030" lang="en" sex="m">Weapon Proficiency: Spear</entry>
   <entry id="57031" lang="en" sex="m">Weapon Proficiency: Shuriken</entry>
   <entry id="57032" lang="en" sex="m">Weapon Proficiency: Sickle</entry>
   <entry id="57033" lang="en" sex="m">Weapon Proficiency: Sling</entry>

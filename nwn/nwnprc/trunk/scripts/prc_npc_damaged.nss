@@ -8,7 +8,10 @@ void main()
 {
     object oPC = GetLastDamager();
     if(GetHasFeat(FEAT_SADISTIC_REWARD, oPC) && PRCGetIsAliveCreature(OBJECT_SELF))
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, 1, SAVING_THROW_TYPE_ALL)), oPC, 6.0);
+    {
+		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, 1, SAVING_THROW_TYPE_ALL)), oPC, 6.0);
+		//SendMessageToPC(oPC, "Sadistic Reward running");
+	}
     
     object oMeldshaper = GetLocalObject(OBJECT_SELF, "NecrocarnumShroud");
     if (GetIsObjectValid(oMeldshaper) && PRCGetIsAliveCreature(OBJECT_SELF))

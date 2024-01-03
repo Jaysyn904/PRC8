@@ -12,13 +12,27 @@
 //:: Created By: Preston Watamaniuk
 //:: Created On: May 25, 2001
 //:://////////////////////////////////////////////
+//:: Modified By: Brian Greinke
+//:: Modified On: 2004/01/30
+//:: Re: Added disable/reenable support
+//:://////////////////////////////////////////////
+//:: Modified By: Jaysyn
+//:: Modified On: 2023/02/11
+//:: Re: Added PnP Aura behavior support
+//:://////////////////////////////////////////////
 
-// Modified 2004/01/30 (Brian Greinke)
-// Added disable/reenable support
 #include "prc_alterations"
+#include "utl_i_sqluuid"
 
 void main()
 {
+//:: Declare major variables
+	object oMob = GetAreaOfEffectCreator();
+	
+	int bPNPAuras = GetPRCSwitch(PRC_PNP_FEAR_AURAS);
+	
+	string sMobUUID = GetObjectUUID(oMob);
+	
     //first, look to see if effect is already activated
     if ( GetHasSpellEffect(SPELLABILITY_AURA_FEAR, OBJECT_SELF) )
     {

@@ -131,7 +131,7 @@ void reqGender()
         DeleteLocalInt(OBJECT_SELF, "PRC_Male");
 }
 
-void Kord(object oPC) //:: This could be in the prereq 2da
+void Kord(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqKord", 1);
 
@@ -141,7 +141,7 @@ void Kord(object oPC) //:: This could be in the prereq 2da
     }
 }
 
-void Purifier(object oPC) //:: This could be in the prereq 2da
+void Purifier(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqPurifier", 1);
 

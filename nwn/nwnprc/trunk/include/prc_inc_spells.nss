@@ -1324,7 +1324,7 @@ int GetCasterLvl(int iTypeSpell, object oCaster = OBJECT_SELF)
                 int iTemp;
                 int nRace = GetRacialType(oCaster);
 
-                //Aranea include outsider HD as sorc
+                //Aranea include shapechanger HD as sorc
                 if(nRace == RACIAL_TYPE_ARANEA)
                     iTemp = GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oCaster);
 					

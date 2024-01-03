@@ -261,17 +261,17 @@ int IsProficient(object oPC, int nBaseItem)
 
         case BASE_ITEM_ELVEN_LIGHTBLADE:
 			return GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC)
-                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ELF)
+                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && MyPRCGetRacialType(oPC) == RACIAL_TYPE_ELF)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_LIGHTBLADE, oPC);		
 
         case BASE_ITEM_ELVEN_THINBLADE:
 			return GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC)
-                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ELF)
+                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && MyPRCGetRacialType(oPC) == RACIAL_TYPE_ELF)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_THINBLADE, oPC);
 
         case BASE_ITEM_ELVEN_COURTBLADE:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC)
-                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ELF)
+                 || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC) && MyPRCGetRacialType(oPC) == RACIAL_TYPE_ELF)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELVEN_COURTBLADE, oPC); 
 			
         //special case: counts as martial for asherati

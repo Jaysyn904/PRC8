@@ -36,7 +36,31 @@ void main()
     }  */  
     if (GetPRCSwitch(PRC_PNP_KNOCKDOWN) && GetSkillRank(SKILL_DISCIPLINE, oPC, TRUE) == 0) 
     	SetCompositeBonus(oSkin, "DisciplineBonus", GetBaseAttackBonus(oPC) + GetCombatMoveCheckBonus(oPC, COMBAT_MOVE_TRIP, TRUE), ITEM_PROPERTY_SKILL_BONUS, SKILL_DISCIPLINE);
+	
 
+//:: Immunity to Petrification (has to be done per spell, thanks Bioware!)
+    if(GetHasFeat(FEAT_IMMUNE_PETRIFICATION))
+    {
+		ipIP = ItemPropertySpellImmunitySpecific(402);  //:: Flesh to Stone		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		ipIP = ItemPropertySpellImmunitySpecific(795);  //:: Breath, Petrify		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+		ipIP = ItemPropertySpellImmunitySpecific(797);  //:: Touch, Petrify		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		ipIP = ItemPropertySpellImmunitySpecific(796);  //:: Gaze, Petrify		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+		ipIP = ItemPropertySpellImmunitySpecific(482);  //:: Stonehold		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
+		ipIP = ItemPropertySpellImmunitySpecific(1460);  //:: Audience of Stone		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		ipIP = ItemPropertySpellImmunitySpecific(1459);  //:: Crystalize		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		ipIP = ItemPropertySpellImmunitySpecific(1458);  //:: Basilisk Mask		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		ipIP = ItemPropertySpellImmunitySpecific(1457);	//:: Gorgon Mask		
+		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+    }
+	
     //immunity to cold
     if(GetHasFeat(FEAT_IMM_COLD))
     {
