@@ -21,6 +21,9 @@
     @todo See what functions can be replaced with stuff from inc_utility (and linked files)
 */
 
+#include "prc_misc_const"
+#include "prc_feat_const"
+
 
 //Major PREF function
 //spawns a unenchanted weapon randomly picked from
@@ -2736,31 +2739,31 @@ object EquipWeaponFocus(object oObject)
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_MAUL,oObject))
                     nBaseItemType = BASE_ITEM_MAUL;				
                 break;
-            case 46:
+            case 47:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_DOUBLE_SCIMITAR,oObject))
                     nBaseItemType = BASE_ITEM_DOUBLE_SCIMITAR;				
                 break;
-            case 47:
+            case 48:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_GOAD,oObject))
                     nBaseItemType = BASE_ITEM_GOAD;				
                 break;
-            case 48:
+            case 49:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_EAGLE_CLAW,oObject))
                     nBaseItemType = BASE_ITEM_EAGLE_CLAW;				
                 break;
-            case 49:
+            case 50:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE,oObject))
                     nBaseItemType = BASE_ITEM_ELVEN_LIGHTBLADE;				
                 break;
-            case 50:
+            case 51:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_THINBLADE,oObject))
                     nBaseItemType = BASE_ITEM_ELVEN_THINBLADE;				
                 break;
-            case 51:
+            case 52:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE,oObject))
                     nBaseItemType = BASE_ITEM_ELVEN_COURTBLADE;				
                 break;
-            case 52:
+            case 53:
                 if(GetHasFeat(FEAT_WEAPON_FOCUS_TRIDENT,oObject))
                     nBaseItemType = BASE_ITEM_TRIDENT;				
                 break;				

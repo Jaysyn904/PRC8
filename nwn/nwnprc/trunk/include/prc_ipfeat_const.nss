@@ -781,7 +781,15 @@ const int IP_CONST_FEAT_EPIC_DR_6             = 274;
 const int IP_CONST_FEAT_EPIC_DR_9             = 275;
 
 //IP_CONST_DAMAGETYPE
-const int IP_CONST_DAMAGETYPE_VILE            = 14;
+//const int IP_CONST_DAMAGETYPE_BLOOD		= 15;	//:: Not a 3e PnP damage type
+const int IP_CONST_DAMAGETYPE_POISON		= 16;	
+//const int IP_CONST_DAMAGETYPE_SHADOW		= 17;	//:: Not a 3e PnP damage type
+const int IP_CONST_DAMAGETYPE_PSYCHIC		= 18;
+//const int IP_CONST_DAMAGETYPE_NECROTIC	= 19;  	//:: This is from 4e D&D
+const int IP_CONST_DAMAGETYPE_RADIANT		= 20;
+const int IP_CONST_DAMAGETYPE_FORCE			= 21;
+const int IP_CONST_DAMAGETYPE_UNTYPED		= 22;
+const int IP_CONST_DAMAGETYPE_VILE			= 23;
 
 //IP_CONST_DAMAGESOAK
 const int IP_CONST_DAMAGESOAK_1_HP = 11;
