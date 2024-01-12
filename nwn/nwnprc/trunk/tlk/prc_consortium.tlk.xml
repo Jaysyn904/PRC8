@@ -19438,14 +19438,14 @@ This spell summons a treant to defend you.</entry>
   <entry id="48762" lang="en" sex="m">Totem Ragers</entry>
   <entry id="48763" lang="en" sex="m">totem rager</entry>
   <entry id="48764" lang="en" sex="m">(PRESTIGE CLASS)
-The totem rager embodies the wrath of nature in its most bestial form. Like the barbarian, she can stir herself into a fierce rage to cleave her enemies, and like the totemist, she can shape the forces of nature into soulmelds that grant her the power of magical beasts. But only in the totem rager do these abilities feed upon each other like the beasts of the wild, growing stronger from one another's essence. She can use her rage to make her soulmelds better, and use her soulmelds to make her virtually unstoppable in combat
+The totem rager embodies the wrath of nature in its most bestial form. Like the barbarian, she can stir herself into a fierce rage to cleave her enemies, and like the totemist, she can shape the forces of nature into soulmelds that grant her the power of magical beasts. But only in the totem rager do these abilities feed upon each other like the beasts of the wild, growing stronger from one another's essence. She can use her rage to make her soulmelds better, and use her soulmelds to make her virtually unstoppable in combat.
+
 REQUIREMENTS:
 
 Base Attack Bonus: +5.
 Skills: Intimidate 5 ranks.
 Feat: Cobalt Rage.
 Special: Ability to bind soulmelds to totem chakra, rage class feature.
-
 
 
 - Hit Die: d10.
@@ -23694,8 +23694,7 @@ Use: Selected</entry>
 
 - Proficient with all simple weapons, or by character class.
 -  Proficient with whatever type of armor (light, medium, or heavy) it is described as wearing, or by character class. If a humanoid does not have a class and wears armor, it is proficient with that type of armor and all lighter types. Humanoids not indicated as wearing armor are not proficient with armor. Humanoids are proficient with shields if they are proficient with any form of armor.
--Humanoids breathe, eat, and sleep.
-  </entry>
+-Humanoids breathe, eat, and sleep.</entry>
   <entry id="49999" lang="en" sex="m">**** 50,000 - 50,500 reserved for Race Pack Feats ****</entry>
   <entry id="50000" lang="en" sex="m">Light Sensitivity</entry>
   <entry id="50001" lang="en" sex="m">Type of Feat: Racial
@@ -43353,6 +43352,7 @@ Your draconic blood lets you access ancient draconic knowledge.  You gain a bonu
   <entry id="55325" lang="en" sex="m">Dragontouched</entry>
   <entry id="55326" lang="en" sex="m">Type of Feat: General
 Prerequisite: Cha 11
+
 Benefit: You have a trace of draconic power, a result of draconic ancestors or a spiritual connection between you and the forces of dragonkind. You gain the dragonblood subtype, a +1 bonus on Listen, Search, and Spot checks, and a +1 bonus on saving throws against paralysis and sleep. In addition, you can select draconic feats as a sorcerer of your charaacter level.
 Use: Automatic</entry>
   <entry id="55327" lang="en" sex="m">Draconic Vigor</entry>
@@ -44779,7 +44779,8 @@ Racial Hit Dice/Class: NA</entry>
   <entry id="55882" lang="en" sex="m">Hagspawns</entry>
   <entry id="55883" lang="en" sex="m">Sons of malicious, predatory mothers, hagspawn are not a complete race, as there are no females of their kind. Hags continue their awful lineage by taking human males for mates, usually murdering and devouring the hapless captive later. The female children of a hag quickly grow into hags like their mothers, but the male children are hagspawn, half-human outcasts. Feared and hated by normal humans, hagspawn must make their way in the world by dint of their strength, hardiness, and sheer determination.  
 
-Hagspawn Ability Adjustments: +2 Strength, +2 Constitution, -2 Charisma: Hagspawn are strong and hardy, but are sullen and ill-tempered. 
+Hagspawn Ability Adjustments: +2 Strength, +2 Constitution, -2 Charisma: Hagspawn are strong and hardy, but are sullen and ill-tempered.
+
 Favored Class (Barbarian): A multiclass hagspawn's barbarian class does not count when determining whether he suffers an XP penalty for multiclassing.
 
 - Medium size
@@ -48933,6 +48934,7 @@ Use: Automatic</entry>
   <entry id="58014" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Bind Vestige
 Benefit: When you bind a vestige using the Bind Vestige feat, you gain a second power, as described in the Bind Vestige feat.
+
 Use: Automatic</entry>
   <entry id="58015" lang="en" sex="m">Binding Feats</entry>
   <entry id="58016" lang="en" sex="m">Feats associated with the Binding alternate magic system from Tome of Magic</entry>
@@ -49119,6 +49121,7 @@ Use: Automatic</entry>
   <entry id="58152" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Ability to bind vestiges
 Benefit: You can ignore the special requirements of vestiges with which you make pacts.
+
 Use: Automatic</entry>
   <entry id="58153" lang="en" sex="m">Leraje, the Green Herald</entry>
   <entry id="58154" lang="en" sex="m">Leraje, the Green Herald
