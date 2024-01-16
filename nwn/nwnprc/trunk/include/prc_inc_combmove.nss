@@ -1356,10 +1356,21 @@ int DoGrapple(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TR
     }
     if(GetHasSpellEffect(SPELL_FREEDOM_OF_MOVEMENT, oTarget))
     {
-        FloatingTextStringOnCreature("You cannot grapple a creature that has Freedom of Movement.", oPC, FALSE);
+        FloatingTextStringOnCreature("You cannot grapple a creature under the effect of Freedom of Movement", oPC, FALSE);
         return FALSE;    
-    }    
-    
+    }
+
+	if (IPGetHasItemPropertyOnCharacter(oTarget, ITEM_PROPERTY_FREEDOM_OF_MOVEMENT))
+	{
+        FloatingTextStringOnCreature("You cannot grapple a creature under the effect of Freedom of Movement.", oPC, FALSE);
+        return FALSE;    
+    }
+	if (GetIsImmune(oTarget, IMMUNITY_TYPE_ENTANGLE))
+	{
+        FloatingTextStringOnCreature("This creature is immune to grappling.", oPC, FALSE);
+        return FALSE;    
+    }	
+	
     object oGlaive = GetItemPossessedBy(oPC, "prc_eldrtch_glv");
     if(GetIsObjectValid(oGlaive))
     	DestroyObject(oGlaive);
