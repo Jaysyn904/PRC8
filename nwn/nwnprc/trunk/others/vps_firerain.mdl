@@ -1,0 +1,210 @@
+#Model converted by mdl2ascii
+#For updates/comments check out http://nwn-j3d.sf.net
+filedependancy Unknown
+newmodel vps_firerain
+setsupermodel vps_firerain NULL
+classification Character
+setanimationscale 1.000000
+#MAXGEOM  ASCII
+beginmodelgeom vps_firerain
+node dummy vps_firerain
+  parent NULL
+endnode
+node emitter OmenEmitter01
+  parent vps_firerain
+  position 0.000000 0.000000 9.491050
+  orientation -1.000000 0.000000 0.000000 -3.141590
+    colorStart 0.82350018 0.329412013 0.000000
+    colorEnd 0.764706016 0.305882007 0.000000
+    alphaStart 1.000000
+    alphaEnd 1.000000
+    sizeStart 0.240000
+    sizeEnd 0.200000
+    sizeStart_y 0.000000
+    sizeEnd_y 0.000000
+    frameStart 0
+    frameEnd 0
+    birthrate 10
+    spawnType 0
+    lifeExp 0.500000
+    mass 0.000000
+    spread 0.000000
+    particleRot 0.000000
+    velocity 30.000000
+    randvel 5.000000
+    fps 0
+    random 0
+    inherit 0
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 500.000000
+    ysize 500.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Fountain
+    render Aligned_to_World_Z
+    Blend Lighten
+    deadspace 0.000000
+    blurlength 10.000000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 0.000000
+    blastLength 0.000000
+    twosidedtex 0
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_rain01
+    xgrid 1
+    ygrid 1
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+node emitter splash
+  parent vps_firerain
+  position 0.000000 0.000000 0.247166
+  orientation 0.000000 0.000000 0.000000 0.000000
+    colorStart 0.92156899 0.478430986 0.000000
+    colorEnd 0.000000 0.000000 0.000000
+    alphaStart 0.800000
+    alphaEnd 1.000000
+    sizeStart 0.500000
+    sizeEnd 0.000000
+    sizeStart_y 0.600000
+    sizeEnd_y 0.600000
+    frameStart 0
+    frameEnd 0
+    birthrate 3
+    spawnType 0
+    lifeExp 0.300000
+    mass 0.000000
+    spread 0.000000
+    particleRot 0.000000
+    velocity 0.000000
+    randvel 0.000000
+    fps 0
+    random 0
+    inherit 0
+    inherit_local 0
+    inherit_part 0
+    inheritvel 0
+    xsize 400.000000
+    ysize 400.000000
+    bounce 0
+    bounce_co 0.000000
+    loop 0
+    update Fountain
+    render Aligned_to_World_Z
+    Blend Lighten
+    deadspace 0.000000
+    blurlength 10.000000
+    lightningDelay 0.0
+    lightningRadius 0.000000
+    lightningScale 0.000000
+    blastRadius 0.000000
+    blastLength 0.000000
+    twosidedtex 1
+    p2p 0
+    p2p_sel 1
+    p2p_type Bezier
+    p2p_bezier2 0.000000
+    p2p_bezier3 0.000000
+    combinetime 0.000000
+    drag 0.000000
+    grav 0.000000
+    threshold 0.000000
+    texture fxpa_rip
+    xgrid 1
+    ygrid 1
+    affectedByWind 0
+    m_isTinted 0
+    Splat 0
+endnode
+endmodelgeom vps_firerain
+
+
+newanim impact vps_firerain
+length 0.300000
+transtime 0.000000
+animroot vps_firerain
+node dummy vps_firerain
+  parent NULL
+endnode
+node emitter OmenEmitter01
+  parent vps_firerain
+  birthratekey
+    0.000000  10.000000
+    0.300000  10.000000
+  endlist
+endnode
+node emitter splash
+  parent vps_firerain
+  birthratekey
+    0.000000  3.000000
+    0.300000  3.000000
+  endlist
+endnode
+doneanim impact vps_firerain
+
+
+newanim duration vps_firerain
+length 0.333333
+transtime 0.000000
+animroot vps_firerain
+node dummy vps_firerain
+  parent NULL
+endnode
+node emitter OmenEmitter01
+  parent vps_firerain
+  birthratekey
+    0.000000  10.000000
+    0.333333  10.000000
+  endlist
+endnode
+node emitter splash
+  parent vps_firerain
+  birthratekey
+    0.000000  3.000000
+    0.333333  3.000000
+  endlist
+endnode
+doneanim duration vps_firerain
+
+
+newanim cessation vps_firerain
+length 0.166667
+transtime 0.000000
+animroot vps_firerain
+node dummy vps_firerain
+  parent NULL
+endnode
+node emitter OmenEmitter01
+  parent vps_firerain
+  birthratekey
+    0.000000  10.000000
+    0.033333  10.000000
+    0.166667  0.000000
+  endlist
+endnode
+node emitter splash
+  parent vps_firerain
+  birthratekey
+    0.000000  3.000000
+    0.033333  3.000000
+    0.133333  0.000000
+  endlist
+endnode
+doneanim cessation vps_firerain
+donemodel vps_firerain
+
+

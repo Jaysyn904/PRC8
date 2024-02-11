@@ -1,0 +1,17 @@
+2DA V2.0
+
+   LABEL         ReqType ReqParam1     ReqParam2 
+0  Base_Attack   BAB     6             ****      
+1  HalfOrc       RACE    5             ****      
+2  FrstbldOrc    RACE    108           ****      
+3  Scro          RACE    182           ****      
+4  Gray_Orc      RACE    184           ****      
+5  Orog          RACE    187           ****      
+6  Tanarukk      RACE    203           ****      
+7  Orc           RACE    214           ****      
+8  Exotic_Prof   FEATOR  44            ****      
+9  WeapProfEx    FEATOR  7916          ****      
+10 Focus_Orc_axe FEAT    126           ****      
+11 ScriptVar     VAR     PRC_AllowEoG  0         
+12 ScriptVar     VAR     PRC_PrereqEOG 0         
+13 ScriptVar     VAR     PRC_ExAlignTN 0         

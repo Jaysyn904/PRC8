@@ -1,0 +1,37 @@
+2DA V2.0
+
+   FeatLabel                FeatIndex 
+0  darkvision               228       
+1  WeapProfSim              46        
+2  WeapProfSim_Dart         7914      
+3  WeapProfSim_Light_Mace   7908      
+4  WeapProfSim_Morningstar  7923      
+5  WeapProfSim_Shortspear   7927      
+6  WeapProfSim_Sickle       7929      
+7  WeapProfSim_Sling        7930      
+8  WeapProfMar              45        
+9  WeapProfMar_Battleaxe    7903      
+10 WeapProfMar_Greataxe     7913      
+11 WeapProfMar_Greatsword   7912      
+12 WeapProfMar_Halberd      7909      
+13 WeapProfMar_Handaxe      7919      
+14 WeapProfMar_Heavy_Flail  7917      
+15 WeapProfMar_Light_Flail  7905      
+16 WeapProfMar_Light_Hammer 7918      
+17 WeapProfMar_Longbow      7907      
+18 WeapProfMar_Longsword    7902      
+19 WeapProfMar_Rapier       7924      
+20 WeapProfMar_Scimitar     7925      
+21 WeapProfMar_Shortbow     7910      
+22 WeapProfMar_Shortsword   7901      
+23 WeapProfMar_Throwing_Axe 7931      
+24 WeapProfMar_Trident      7932      
+25 WeapProfMar_Warhammer    7906      
+26 WeaponProfCreature       289       
+27 Spell_Resist_27          4709      
+28 Natural_Armor_9          4738      
+29 Damage_Reduction_15      4748      
+30 SkillAff_Bluff           4753      
+31 FEAT_RAK_DISGUISE        4656      
+32 Race_Outsider            4716      
+33 Rak_Change_Shape         4657      

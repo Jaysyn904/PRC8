@@ -1,0 +1,28 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Minor Image
+//:: Spell FileName PHS_S_MinorImage
+//:://////////////////////////////////////////////
+//:: In Game Spell desctiption
+//:://////////////////////////////////////////////
+    Illusion (Figment)
+    Level: Brd 2, Sor/Wiz 2
+    Duration: Concentration +2 rounds
+
+    This spell functions like silent image, except that minor image includes
+    some minor sounds but not understandable speech.
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+    No idea, will leave for now.
+
+    Placeholder script.
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+
+}

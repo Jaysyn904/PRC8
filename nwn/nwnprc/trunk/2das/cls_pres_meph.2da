@@ -1,0 +1,6 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1        ReqParam2 
+0 Base_Attack BAB     6                ****      
+1 DiscOfDark  FEAT    4012             ****      
+2 ScriptVar   VAR     PRC_AllowDiscmep 0         

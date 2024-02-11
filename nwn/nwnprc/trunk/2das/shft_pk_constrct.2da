@@ -1,0 +1,19 @@
+2DA V2.0
+
+   CreatureName     ResRef           Race SL SLS  HD CR    
+0  Minogon          nw_minogon       10   8  **** 8  8.00  
+1  Flesh_Golem      nw_golflesh      10   8  **** 9  8.00  
+2  Clay_Golem       nw_golclay       10   8  **** 11 10.00 
+3  Ruby_Golem       x3_rubygolem001  10   8  11   10 12.00 
+4  Emerald_Golem    x3_emgolem001    10   8  12   12 12.00 
+5  Battle_Horror    nw_bathorror     10   8  **** 13 13.00 
+6  Helmed_Horror    nw_helmhorr      10   8  **** 13 11.00 
+7  Diamond_Golem    x3_diagolem001   10   8  13   ?? 14.00 
+8  Stone_Golem      nw_golstone      10   8  11   14 12.00 
+9  Bone_Golem       nw_golbone       10   8  10   14 11.00 
+10 Shield_Guardian  nw_shguard       10   8  10   15 13.00 
+11 Iron_Golem       nw_goliron       10   8  12   18 16.00 
+12 Huge_Iron_Golem  x2_goliron_huge  10   8  13   21 21.00 
+13 Demonflesh_Golem nw_goldmflesh001 10   8  15   24 25.00 
+14 Mithral_Golem    x2_golem001      10   8  20   36 35.00 
+15 Adamantine_Golem x2_golem002      10   8  25   40 32.00 

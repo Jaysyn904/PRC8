@@ -1,0 +1,95 @@
+#MAXMODEL ASCII
+# model: vdr_bigly
+filedependancy vdr_bigly.max
+newmodel vdr_bigly
+setsupermodel vdr_bigly NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vdr_bigly
+node dummy vdr_bigly
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_bigly
+  #part-number 1
+  ambientonly 0
+  shadow 1
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 1
+  fadingLight 0
+  flareradius 2.0
+  position 0.0 0.0 5.0
+  orientation 0.0 0.0 0.0 0.0
+  radius 0.0
+  multiplier 3
+  color 0.0 0.0 0.0
+endnode
+endmodelgeom vdr_bigly
+
+#MAXANIM ASCII
+newanim impact vdr_bigly
+  length 0.3
+  transtime 0.25
+  animroot vdr_bigly
+node dummy vdr_bigly
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_bigly
+  #part-number 1
+  colorkey 2
+    0.0 0.0 0.0 0.0
+    0.3 1.0 1.0 0.0
+  radiuskey 2
+    0.0 0.0
+    0.3 30.0
+endnode
+doneanim impact vdr_bigly
+
+#MAXANIM ASCII
+newanim duration vdr_bigly
+  length 5.0
+  transtime 0.25
+  animroot vdr_bigly
+node dummy vdr_bigly
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_bigly
+  #part-number 1
+  colorkey 2
+    0.0 1.0 1.0 0.0
+    5.0 1.0 1.0 0.0
+  radiuskey 2
+    0.0 30.0
+    5.0 30.0
+endnode
+doneanim duration vdr_bigly
+
+#MAXANIM ASCII
+newanim cessation vdr_bigly
+  length 1
+  transtime 0.25
+  animroot vdr_bigly
+node dummy vdr_bigly
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vdr_bigly
+  #part-number 1
+  colorkey 2
+    0.0 1.0 1.0 0.0
+    1.0 0.0 0.0 0.0
+  radiuskey 2
+    0.0 30.0
+    1.0 0.0
+endnode
+doneanim cessation vdr_bigly
+
+donemodel vdr_bigly

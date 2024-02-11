@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL             ReqType ReqParam1           ReqParam2 
+0 TwoWeaponFighting FEAT    41                  ****      
+1 ScriptVar         VAR     PRC_AllowBloodclaw  0         
+2 ScriptVar         VAR     PRC_PrereqBloodclaw 0         
+3 Jump              SKILL   28                  9         

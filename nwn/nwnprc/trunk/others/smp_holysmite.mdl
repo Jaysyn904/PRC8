@@ -1,0 +1,754 @@
+# Exported from NWmax 0.7 at 6/13/2004 1:05:28 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_holysmite
+filedependancy smp_holy_smite.gmax
+newmodel smp_holysmite
+setsupermodel smp_holysmite NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_holysmite
+node dummy smp_holysmite
+  parent NULL
+endnode
+node light AuroraLight01
+  parent smp_holysmite
+  position 0.0 -1.3162e-007 2.95668
+  orientation -1.0 0.0 0.0 -1.5708
+  wirecolor 0.109804 0.109804 0.694118 
+  radius 5.0
+  multiplier 1.0
+  color 0.415686 0.717647 0.929412 
+  ambientonly 1
+  nDynamicType 1
+  affectDynamic 1
+  shadow 1
+  lightpriority 1
+  fadingLight 0
+endnode
+node emitter Holy_Beam
+  parent smp_holysmite
+  position 0.0 0.0 10.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.603922 0.603922 0.894118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 50.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.3
+  colorStart 0.666667 0.65098 0.184314 
+  colorEnd 0.937255 0.952941 0.364706 
+  alphaStart 0.9
+  alphaEnd 0.9
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 180
+  lifeExp 3.0
+  mass 4.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 40.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_strk_b
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 5.0
+  drag 0.0
+endnode
+node emitter AuroraEmitter01
+  parent smp_holysmite
+  position 0.0 0.0 0.0377351
+  orientation 0.0 0.0 1.0 -7.58643e-007
+  wirecolor 0.419608 0.0313726 0.529412 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 1
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 2
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 0.568627 0.556863 0.262745 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 450
+  lifeExp 2.0
+  mass -0.5
+  spread 6.28319
+  particleRot 0.0
+  velocity 10.0
+  randvel 1.0
+  bounce_co 0.8
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 3.0
+  blastLength 2.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy axis1
+  parent smp_holysmite
+  position -0.0648208 -0.366456 -3.04356
+  orientation 0.000163383 -0.999299 -0.0374443 -0.00873277
+  wirecolor 0.345098 0.560784 0.882353 
+endnode
+node emitter mini_explode1b
+  parent axis1
+  position 0.000720975 -0.00168502 0.00396923
+  orientation 0.704015 2.24181e-006 -0.710185 -3.14109
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter mini_explode1a
+  parent axis1
+  position 0.00203516 -0.00168499 0.0039807
+  orientation 0.716302 -2.20269e-006 0.69779 -3.14209
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy axis2
+  parent smp_holysmite
+  position 0.184458 1.59484 -3.17464
+  orientation 0.238943 0.824386 0.513122 -5.918
+  wirecolor 0.345098 0.560784 0.882353 
+endnode
+node emitter mini_explode2b
+  parent axis2
+  position 0.00072094 -0.00168491 0.00396931
+  orientation 0.220521 -0.974428 -0.0431286 -4.79179
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter mini_explode2a
+  parent axis2
+  position 0.00203508 -0.00168503 0.00398086
+  orientation 0.715783 0.0378278 0.697298 -3.06969
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy axis3
+  parent smp_holysmite
+  position 1.51788 1.17732 -4.56226
+  orientation -0.0804581 0.214213 0.973468 -4.78464
+  wirecolor 0.345098 0.560784 0.882353 
+endnode
+node emitter mini_explode2a01
+  parent axis3
+  position 0.00203518 -0.00168492 0.00398078
+  orientation 0.715783 0.0378279 0.697298 -3.06969
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter mini_explode2b01
+  parent axis3
+  position 0.000721031 -0.00168495 0.00396925
+  orientation 0.220521 -0.974428 -0.0431287 -4.79179
+  wirecolor 0.109804 0.34902 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 3
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.882353 0.807843 0.0 
+  colorEnd 0.862745 0.862745 0.862745 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.3
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass -0.5
+  spread 0.523599
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.5
+  bounce_co 0.8
+  blurlength 0.5
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_holysmite
+#NWmax ANIM ASCII
+newanim impact smp_holysmite
+  length 3.66667
+  transtime 0.25
+  animroot smp_holysmite
+  event 1.83333 detonate
+    node dummy smp_holysmite
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            3.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            3.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node light AuroraLight01
+        parent smp_holysmite
+        positionkey
+            0.0 0.0 -1.31621e-007 2.95668
+            3.66667 0.0 -1.31621e-007 2.95668
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -1.5708
+            3.66667 -1.0 0.0 0.0 -1.5708
+        endlist
+    endnode
+    node emitter Holy_Beam
+        parent smp_holysmite
+        positionkey
+            0.0 0.0 0.0 10.0
+            3.66667 0.0 0.0 10.0
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            3.66667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 180 
+            1.0 179 
+            1.26667 -20 
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent smp_holysmite
+        positionkey
+            0.0 0.0 0.0 0.0377351
+            3.66667 0.0 0.0 0.0377351
+        endlist
+        orientationkey
+            0.0 -1.0 3.79322e-007 0.0 -3.14159
+            3.66667 -1.0 3.79322e-007 0.0 -3.14159
+        endlist
+    endnode
+    node dummy axis1
+        parent smp_holysmite
+        positionkey
+            0.0 -0.0648208 -0.366456 -3.04356
+            1.6 -0.0648208 -0.366456 -3.04356
+            1.66667 -0.0648208 -0.366456 -0.350115
+            1.83333 -0.235546 -0.366456 0.0342198
+            2.16667 -0.235546 -0.366456 0.25654
+            2.36667 -0.424815 -0.366456 0.41305
+            2.53333 -0.804704 -0.366456 0.633098
+            2.66667 -1.28922 -0.366456 0.793303
+            2.83333 -1.83364 -0.366456 0.929138
+            3.0 -2.39771 -0.366456 0.717847
+            3.16667 -2.71851 -0.366456 0.483956
+            3.33333 -2.97325 -0.366456 0.207645
+            3.5 -3.13173 -0.366456 -0.0809584
+            3.66667 -3.13173 -0.366456 -4.87178
+        endlist
+        orientationkey
+            0.0 0.00166277 -0.924543 -0.381075 -0.00943887
+            1.66667 0.00399751 -0.400806 -0.916154 -0.021772
+            2.0 0.00436324 -0.00558469 -0.999975 -1.32647
+            2.16667 0.340404 0.23495 -0.910452 -1.99516
+            2.36667 0.44025 0.241838 -0.864693 -2.37031
+            2.53333 0.791171 0.123512 -0.598994 -2.75705
+            2.66667 0.954194 0.0050503 -0.299147 -3.09117
+            2.83333 0.988308 -0.149056 -0.0320945 -3.58503
+            3.0 0.934374 -0.279644 0.220784 -4.06341
+            3.16667 0.677546 -0.471921 0.564111 -4.31499
+            3.33333 0.187167 -0.453567 0.871347 -4.42444
+            3.5 -0.275675 -0.208134 0.938447 -3.93508
+            3.66667 -0.662137 -0.0591958 0.747041 -3.75473
+        endlist
+    endnode
+    node emitter mini_explode1b
+        parent axis1
+    endnode
+    node emitter mini_explode1a
+        parent axis1
+    endnode
+    node dummy axis2
+        parent smp_holysmite
+        positionkey
+            0.0 0.184458 1.59484 -3.17464
+            1.6 0.184458 1.59484 -3.17464
+            1.66667 0.184458 1.59484 -0.326091
+            1.83333 0.385395 0.726266 0.919085
+            2.0 0.54147 0.726266 1.59888
+            2.16667 0.881458 0.726266 2.57781
+            2.36667 1.36931 0.726266 3.54604
+            2.53333 2.41774 0.726266 4.53615
+            2.66667 2.94938 0.726266 2.7661
+            2.83333 3.69281 0.726266 1.05716
+            3.0 3.93845 0.726266 -8.31641
+            3.33333 3.93845 0.726266 -8.31641
+            3.66667 3.93845 0.726266 -8.31641
+        endlist
+        orientationkey
+            0.0 0.238943 0.824386 0.513122 -5.918
+            1.6 0.238943 0.824386 0.513122 -5.918
+            1.66667 0.238943 0.824386 0.513122 -5.918
+            2.0 -0.0892166 -0.146549 0.985172 -4.86438
+            2.16667 -0.404727 -0.322632 0.855631 -4.16908
+            2.36667 -0.506768 -0.311055 0.804009 -3.80182
+            2.66667 -0.980275 -0.0502131 0.191152 -3.20005
+            2.83333 -0.987499 0.133159 -0.0843436 -2.76604
+            3.66667 -0.987499 0.133159 -0.0843436 -2.76604
+        endlist
+    endnode
+    node emitter mini_explode2b
+        parent axis2
+    endnode
+    node emitter mini_explode2a
+        parent axis2
+    endnode
+    node dummy axis3
+        parent smp_holysmite
+        positionkey
+            0.0 1.51788 1.17732 -4.56226
+            1.6 1.51788 1.17732 -4.56226
+            1.66667 1.51788 1.17732 -1.71371
+            1.83333 0.412362 1.17732 -1.13046
+            2.0 -0.270048 1.17732 -0.328492
+            2.16667 -1.62419 1.17732 0.277884
+            2.36667 -3.7442 1.17732 0.743954
+            2.53333 -4.58507 0.134719 0.743954
+            2.66667 -5.73451 0.134719 -0.293605
+            2.83333 -6.54805 0.134719 -1.8209
+            3.0 -7.08848 0.134719 -2.97701
+            3.16667 -7.57381 0.134719 -5.33226
+            3.33333 -7.57381 0.134719 -8.8429
+            3.66667 -7.57381 0.134719 -8.8429
+        endlist
+        orientationkey
+            0.0 -0.0804581 0.214213 0.973468 -4.78464
+            1.6 -0.0804581 0.214213 0.973468 -4.78464
+            1.66667 -0.0804581 0.214213 0.973468 -4.78464
+            2.0 0.0108268 -0.114159 0.993403 -3.59341
+            2.16667 -0.114463 -0.43663 0.89233 -3.03736
+            2.36667 -0.21215 -0.532884 0.819162 -2.74835
+            2.66667 -0.758222 -0.629093 0.171291 -2.95953
+            2.83333 -0.814676 -0.444039 -0.373004 -3.05319
+            3.0 -0.916044 -0.324097 -0.236274 -3.58941
+            3.16667 -0.872787 -0.391385 0.291651 -3.38537
+            3.66667 -0.859911 -0.478036 -0.178981 -2.94127
+        endlist
+    endnode
+    node emitter mini_explode2a01
+        parent axis3
+    endnode
+    node emitter mini_explode2b01
+        parent axis3
+    endnode
+doneanim impact smp_holysmite
+donemodel smp_holysmite

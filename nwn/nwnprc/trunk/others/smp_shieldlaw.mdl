@@ -1,0 +1,318 @@
+# Exported from NWmax 0.6 at 5/9/2004 3:35:26 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_shieldlaw
+filedependancy prc_vampdrain.gmax
+newmodel smp_shieldlaw
+setsupermodel smp_shieldlaw NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_shieldlaw
+node dummy smp_shieldlaw
+  parent NULL
+endnode
+node light AuroraLight01
+  parent smp_shieldlaw
+  position 0.0 0.0 3.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.109804 0.584314 
+  radius 2.0
+  multiplier 5.0
+  color 0.0 0.0 1.0 
+  ambientonly 1
+  nDynamicType 1
+  affectDynamic 1
+  shadow 1
+  lightpriority 2
+  fadingLight 1
+endnode
+node dummy Dummy01
+  parent smp_shieldlaw
+  position 0.0 -0.000340772 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.839216 0.894118 0.6 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy01
+  position -2.0 0.0 -0.217893
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 2
+  Blend Lighten
+  spawnType 0
+  iconSize 100.0
+  xSize 50.0
+  ySize 50.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 2
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.164706 0.0 1.0 
+  colorEnd 0.203922 0.878431 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 100.0
+  lifeExp 8.0
+  mass -1.5
+  spread 0.436332
+  particleRot 0.0
+  velocity 6.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 40.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  chunky 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 2.0
+  drag 0.0
+endnode
+node reference AuroraRef01
+  parent AuroraEmitter02
+  position 2.0 -2.82888e-007 -3.23586
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.694118 0.580392 0.101961 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom smp_shieldlaw
+#NWmax ANIM ASCII
+newanim impact smp_shieldlaw
+  length 0.266667
+  transtime 0.25
+  animroot smp_shieldlaw
+    node dummy smp_shieldlaw
+        parent NULL
+        positionkey
+            0.0 0.0 0.000340772 0.0
+            0.266667 0.0 0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.266667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node light AuroraLight01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 0.0 3.0
+            0.266667 0.0 0.0 3.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.266667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 -0.000340772 0.0
+            0.266667 0.0 -0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.0666667 0.0 0.0 -1.0 -1.5708
+            0.133333 0.0 0.0 -1.0 -3.14159
+            0.2 0.0 0.0 -1.0 -4.71239
+            0.266667 0.0 0.0 1.0 -6.28318
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+        positionkey
+            0.0 -2.0 0.0 -0.217893
+            0.266667 -2.0 0.0 -0.217893
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.266667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 100.0 
+            0.166667 100.0 
+            0.266667 100.0 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent AuroraEmitter02
+        positionkey
+            0.0 2.0 -2.82888e-007 -3.23586
+            0.266667 2.0 -2.82888e-007 -3.23586
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            0.266667 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim impact smp_shieldlaw
+#NWmax ANIM ASCII
+newanim duration smp_shieldlaw
+  length 0.266667
+  transtime 0.25
+  animroot smp_shieldlaw
+    node dummy smp_shieldlaw
+        parent NULL
+        positionkey
+            0.0 0.0 0.000340772 0.0
+            0.266667 0.0 0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.266667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node light AuroraLight01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 0.0 3.0
+            0.266667 0.0 0.0 3.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.266667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 -0.000340772 0.0
+            0.266667 0.0 -0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.0666667 0.0 0.0 -1.0 -1.5708
+            0.133333 0.0 0.0 -1.0 -3.14159
+            0.2 0.0 0.0 -1.0 -4.71239
+            0.266667 0.0 0.0 1.0 -6.28318
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+        positionkey
+            0.0 -2.0 0.0 -0.217893
+            0.266667 -2.0 0.0 -0.217893
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.266667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 100.0 
+            0.166667 100.0 
+            0.266667 100.0 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent AuroraEmitter02
+        positionkey
+            0.0 2.0 -2.82888e-007 -3.23586
+            0.266667 2.0 -2.82888e-007 -3.23586
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            0.266667 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim duration smp_shieldlaw
+#NWmax ANIM ASCII
+newanim cessation smp_shieldlaw
+  length 9.0
+  transtime 0.25
+  animroot smp_shieldlaw
+    event 2.83333 detonate
+    node dummy smp_shieldlaw
+        parent NULL
+        positionkey
+            0.0 0.0 0.000340772 0.0
+            9.0 0.0 0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            9.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node light AuroraLight01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 0.0 3.0
+            9.0 0.0 0.0 3.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            9.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_shieldlaw
+        positionkey
+            0.0 0.0 -0.000340772 0.0
+            9.0 0.0 -0.000340772 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -6.28318
+            9.0 0.0 0.0 1.0 -6.28318
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+        positionkey
+            0.0 -2.0 0.0 -0.217893
+            9.0 -2.0 0.0 -0.217893
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            9.0 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 0.0 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent AuroraEmitter02
+        positionkey
+            0.0 2.0 -2.82888e-007 -3.23586
+            9.0 2.0 -2.82888e-007 -3.23586
+        endlist
+        orientationkey
+            0.0 1.0 0.0 0.0 -3.14159
+            9.0 1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim cessation smp_shieldlaw
+donemodel smp_shieldlaw

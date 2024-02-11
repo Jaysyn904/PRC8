@@ -1,0 +1,391 @@
+# Exported from NWmax 0.5-beta at 2/5/2004 9:29:39 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_insanity
+filedependancy vim_insanity.gmax
+newmodel vim_insanity
+setsupermodel vim_insanity NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_insanity
+node dummy vim_insanity
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_insanity
+  position -1.04928 1.03613 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 4.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass -0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_skulblur
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter03
+  parent vim_insanity
+  position -1.02819 -1.05 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 4.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass -0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_skulblur
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent vim_insanity
+  position 0.977983 -1.05 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 4.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass -0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_skulblur
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter05
+  parent vim_insanity
+  position 0.95689 1.03613 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 4.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass -0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_skulblur
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vim_insanity
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.345098 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.611765 0.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.1
+     sizeEnd 1.0
+     sizeStart_y 1.0
+     sizeEnd_y 0.1
+     birthrate 500.0
+     lifeExp 2.0
+     mass 0.0
+     spread 15.0
+     particleRot 0.0
+     velocity 4.0
+     randvel 0.0
+     bounce_co 0.3
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flarel
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_insanity
+#NWmaxANIM ASCII
+newanim impact vim_insanity
+    length 0.666667
+    transtime 0.25
+    animroot vim_insanity
+    event 0.0 detonate
+    node dummy vim_insanity
+        parent NULL
+    endnode
+    node emitter AuroraEmitter01
+        parent vim_insanity
+    endnode
+    node emitter AuroraEmitter03
+        parent vim_insanity
+    endnode
+    node emitter AuroraEmitter04
+        parent vim_insanity
+    endnode
+    node emitter AuroraEmitter05
+        parent vim_insanity
+    endnode
+    node emitter AuroraEmitter02
+        parent vim_insanity
+    endnode
+doneanim impact vim_insanity
+donemodel vim_insanity

@@ -1,0 +1,7 @@
+2DA V2.0
+
+           LABEL       ReqType ReqParam1         ReqParam2 
+0          AttackBonus BAB     4                 ****      
+1          Druid       CLASSOR 3                 ****      
+2          ScriptVar   VAR     PRC_AllowBlighter 0         
+3          WildShape   FEAT    305               ****      

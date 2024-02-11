@@ -1,0 +1,170 @@
+# Exported from NWmax 0.8 b60 at 4/1/2006 3:01:05 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_synesthete
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_synesthete
+setsupermodel psi_synesthete NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_synesthete
+node dummy psi_synesthete
+  parent NULL
+endnode
+node emitter eyes_music01
+  parent psi_synesthete
+  position 0.0 0.0 -0.0530662
+  orientation 1.0 0.0 0.0 -6.28319
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 50.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.705882 0.388235 1.0 
+  colorEnd 0.890196 0.65098 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.15
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 8
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.1
+  randvel 0.15
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture psi_synesthete
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 1
+  framestart 0
+  frameend 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+endmodelgeom psi_synesthete
+
+#NWmax ANIM ASCII
+newanim impact psi_synesthete
+  length 0.666667
+  transtime 0.25
+  animroot psi_synesthete
+    node dummy psi_synesthete
+        parent NULL
+    endnode
+    node emitter eyes_music01
+        parent psi_synesthete
+        positionkey
+            0.0 0.0 0.0 -0.0530662
+            0.666667 0.0 0.0 -0.0530662
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 0.0 -6.28319
+        endlist
+        birthratekey
+            0.0 0 
+            0.666667 8 
+        endlist
+    endnode
+doneanim impact psi_synesthete
+
+
+#NWmax ANIM ASCII
+newanim duration psi_synesthete
+  length 1.0
+  transtime 0.25
+  animroot psi_synesthete
+    node dummy psi_synesthete
+        parent NULL
+    endnode
+    node emitter eyes_music01
+        parent psi_synesthete
+        positionkey
+            0.0 0.0 0.0 -0.0530662
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+        endlist
+        birthratekey
+            0.0 8 
+            1.0 8 
+        endlist
+        colorStartkey
+            0.0 0.698039 0.376471 1.0 
+            0.5 0.137255 1.0 0.764706 
+            1.0 0.705882 0.388235 1.0 
+        endlist
+        colorEndkey
+            0.0 0.898039 0.682353 1.0 
+            0.5 0.662745 1.0 0.972549 
+            1.0 0.890196 0.65098 1.0 
+        endlist
+    endnode
+doneanim duration psi_synesthete
+
+
+#NWmax ANIM ASCII
+newanim cessation psi_synesthete
+  length 0.666667
+  transtime 0.25
+  animroot psi_synesthete
+    node dummy psi_synesthete
+        parent NULL
+    endnode
+    node emitter eyes_music01
+        parent psi_synesthete
+        positionkey
+            0.0 0.0 0.0 -0.0530662
+            0.666667 0.0 0.0 -0.0530662
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 0.0 -6.28319
+        endlist
+        birthratekey
+            0.0 8 
+            0.666667 0 
+        endlist
+    endnode
+doneanim cessation psi_synesthete
+
+donemodel psi_synesthete

@@ -1,0 +1,33 @@
+2DA V2.0
+
+   FeatLabel                 FeatIndex List GrantedOnLevel OnMenu 
+0  **Class_feats**           ****      **** ****           ****   
+1  FEAT_BONUS_DOMAIN_DRAGON  2122      3    1              0      
+2  FEAT_DRACONIC_SENSES      3897      3    2              0      
+3  Breath_of_life            3919      3    3              1      
+4  Wings                     3920      3    5              1      
+5  ****                      ****      **** ****           ****   
+6  **Bonus_Feats**           ****      **** ****           ****   
+7  **Dragon_Affinity_Feats** ****      **** ****           ****   
+8  Dragon_Affinity_Black     3904      2    1              0      
+9  Dragon_Affinity_Blue      3905      2    1              0      
+10 Dragon_Affinity_Green     3906      2    1              0      
+11 Dragon_Affinity_Red       3907      2    1              0      
+12 Dragon_Affinity_White     3908      2    1              0      
+13 Dragon_Affinity_Amethyst  3909      2    1              0      
+14 Dragon_Affinity_Crystal   3910      2    1              0      
+15 Dragon_Affinity_Emerald   3911      2    1              0      
+16 Dragon_Affinity_Sapphire  3912      2    1              0      
+17 Dragon_Affinity_Topaz     3913      2    1              0      
+18 Dragon_Affinity_Brass     3914      2    1              0      
+19 Dragon_Affinity_Bronze    3915      2    1              0      
+20 Dragon_Affinity_Copper    3916      2    1              0      
+21 Dragon_Affinity_Gold      3917      2    1              0      
+22 Dragon_Affinity_Silver    3918      2    1              0      
+23 **Dragon_Surge_Feats**    ****      **** ****           ****   
+24 Draconic_Surge_STR        3921      2    10             0      
+25 Draconic_Surge_DEX        3922      2    10             0      
+26 Draconic_Surge_CON        3923      2    10             0      
+27 Draconic_Surge_INT        3924      2    10             0      
+28 Draconic_Surge_WIS        3925      2    10             0      
+29 Draconic_Surge_CHA        3926      2    10             0      

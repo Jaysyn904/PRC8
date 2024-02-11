@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL        ReqType ReqParam1           ReqParam2 
+0 Spellcraft   SKILL   16                  8         
+1 CraftArmor   SKILL   25                  8         
+2 ScriptVar    VAR     PRC_AllowRunecaster 0         
+3 ScriptVar    VAR     PRC_DivSpell3       0         
+4 InscribeRune FEAT    2462                ****      

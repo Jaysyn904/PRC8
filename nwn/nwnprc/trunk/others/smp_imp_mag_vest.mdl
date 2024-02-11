@@ -1,0 +1,201 @@
+# Exported from NWmax 0.7 at 6/19/2004 5:39:53 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_imp_mag_vest
+filedependancy impact magic vestment.gmax
+newmodel smp_imp_mag_vest
+setsupermodel smp_imp_mag_vest NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_imp_mag_vest
+node dummy smp_imp_mag_vest
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent smp_imp_mag_vest
+  position -0.00149055 -0.00650919 0.162603
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.341176 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.835294 0.835294 0.835294 
+  colorEnd 1.0 0.690196 0.631373 
+  alphaStart 0.7
+  alphaEnd 0.7
+  sizeStart 0.2
+  sizeEnd 0.2
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 100
+  lifeExp 0.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 3.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 5.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 2.0
+  blastLength 1.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.2
+  drag 0.0
+endnode
+node emitter AuroraEmitter02
+  parent smp_imp_mag_vest
+  position 0.0059697 -0.00650919 0.945633
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.341176 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.843137 0.321569 0.294118 
+  colorEnd 1.0 0.870588 0.847059 
+  alphaStart 0.7
+  alphaEnd 0.7
+  sizeStart 0.2
+  sizeEnd 0.2
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 100
+  lifeExp 0.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 3.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 5.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 2.0
+  blastLength 1.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.2
+  drag 0.0
+endnode
+endmodelgeom smp_imp_mag_vest
+#NWmax ANIM ASCII
+newanim impact smp_imp_mag_vest
+  length 2.0
+  transtime 0.25
+  animroot smp_imp_mag_vest
+  event 0.666667 detonate
+  event 1.0 detonate
+  event 1.33333 detonate
+  event 1.66667 detonate
+    node dummy smp_imp_mag_vest
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            2.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            2.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent smp_imp_mag_vest
+        positionkey
+            0.0 -0.00149055 -0.00650919 0.162603
+            0.333333 -0.244216 -0.00650919 0.505248
+            0.833333 0.250383 -0.00650919 1.01921
+            1.33333 -0.00149055 -0.00650919 1.53318
+            2.0 -0.00149055 -0.00650919 0.162603
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            2.0 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent smp_imp_mag_vest
+        positionkey
+            0.0 0.0059697 -0.00650919 0.945633
+            0.666667 0.0059697 -0.00650919 0.945633
+            1.0 0.0059697 -0.00650919 0.506234
+            1.33333 -0.227778 -0.00650919 0.877052
+            1.66667 0.264166 -0.00650919 0.736875
+            2.0 0.0059697 -0.00650919 0.945633
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            0.666667 -1.0 0.0 0.0 -3.14159
+            2.0 -1.0 0.0 0.0 -3.14159
+        endlist
+    endnode
+doneanim impact smp_imp_mag_vest
+donemodel smp_imp_mag_vest

@@ -1,0 +1,67 @@
+# Exported from NWmax 0.6 at 5/2/2004 5:17:36 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_daylight
+filedependancy Unknown
+newmodel smp_daylight
+setsupermodel smp_daylight NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_daylight
+node dummy smp_daylight
+  parent NULL
+endnode
+node light AuroraLight01
+  parent smp_daylight
+  position 0.0 -1.56345e-006 5.24108
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 1.0 1.0 1.0 
+  radius 20.0
+  multiplier 5.0
+  color 1.0 1.0 1.0 
+  ambientonly 1
+  nDynamicType 1
+  affectDynamic 1
+  shadow 1
+  lightpriority 1
+  fadingLight 0
+endnode
+endmodelgeom smp_daylight
+#NWmax ANIM ASCII
+newanim impact smp_daylight
+  length 0.0666667
+  transtime 0.25
+  animroot smp_daylight
+    node dummy smp_daylight
+        parent NULL
+    endnode
+    node light AuroraLight01
+        parent smp_daylight
+    endnode
+doneanim impact smp_daylight
+#NWmax ANIM ASCII
+newanim duration smp_daylight
+  length 0.0666667
+  transtime 0.25
+  animroot smp_daylight
+    node dummy smp_daylight
+        parent NULL
+    endnode
+    node light AuroraLight01
+        parent smp_daylight
+    endnode
+doneanim duration smp_daylight
+#NWmax ANIM ASCII
+newanim cessation smp_daylight
+  length 0.0666667
+  transtime 0.25
+  animroot smp_daylight
+    node dummy smp_daylight
+        parent NULL
+    endnode
+    node light AuroraLight01
+        parent smp_daylight
+    endnode
+doneanim cessation smp_daylight
+donemodel smp_daylight

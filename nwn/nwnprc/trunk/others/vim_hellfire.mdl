@@ -1,0 +1,1644 @@
+# Exported from NWmax 0.5-beta at 1/4/2004 11:00:07 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_hellfire
+filedependancy vim_hellfire.gmax
+newmodel vim_hellfire
+setsupermodel vim_hellfire NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_hellfire
+node dummy vim_hellfire
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.580392 0.0 0.109804 
+     colorEnd 0.552941 0.0 0.0901961 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.1
+     sizeEnd 3.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 2.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter03
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.611765 0.0 0.345098 
+     colorEnd 0.631373 0.0 0.372549 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.1
+     sizeEnd 3.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 2.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire01
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 1.5
+     sizeEnd 1.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 15.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 4.0
+     velocity 6.0
+     randvel 2.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture Brimstone2
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 20
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent vim_hellfire
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.560784 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 0.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.65098 0.337255 0.0 
+     colorEnd 0.603922 0.313726 0.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 0.1
+     sizeEnd 3.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 2.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 20
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire02
+  parent vim_hellfire
+  position -1.37857 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire03
+  parent vim_hellfire
+  position -1.37857 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire04
+  parent vim_hellfire
+  position -1.37857 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire05
+  parent vim_hellfire
+  position -1.37857 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire06
+  parent vim_hellfire
+  position -0.00751999 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire07
+  parent vim_hellfire
+  position -0.00751999 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire08
+  parent vim_hellfire
+  position 1.16052 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire09
+  parent vim_hellfire
+  position 1.16052 1.1059 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire10
+  parent vim_hellfire
+  position -1.37857 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire11
+  parent vim_hellfire
+  position -0.00751999 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire12
+  parent vim_hellfire
+  position -0.00751999 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire13
+  parent vim_hellfire
+  position 1.16052 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire14
+  parent vim_hellfire
+  position 1.16052 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire15
+  parent vim_hellfire
+  position -1.37857 -1.42006 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire16
+  parent vim_hellfire
+  position 1.35886 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.447059 0.0 
+     colorEnd 1.0 0.619608 0.309804 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Fire17
+  parent vim_hellfire
+  position 1.35886 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.443137 0.52549 0.0235294 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 1
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.968628 0.0 0.545098 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 12.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 20.0
+     lifeExp 0.5
+     mass -0.4
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_fireball
+     twosidedtext 0
+     xgrid 5
+     ygrid 5
+     fps 20
+     frameStart 0
+     frameEnd 24
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 10.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_hellfire
+#NWmaxANIM ASCII
+newanim impact vim_hellfire
+    length 0.333333
+    transtime 0.25
+    animroot vim_hellfire
+    event 0.0666667 detonate
+    event 0.133333 detonate
+    event 0.266667 detonate
+    event 0.0333333 detonate
+    event 0.1 detonate
+    event 0.166667 detonate
+    event 0.2 detonate
+    event 0.233333 detonate
+    event 0.3 detonate
+    event 0.333333 detonate
+    node dummy vim_hellfire
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vim_hellfire
+    endnode
+    node emitter AuroraEmitter01
+        parent vim_hellfire
+    endnode
+    node emitter Fire
+        parent vim_hellfire
+    endnode
+    node emitter AuroraEmitter03
+        parent vim_hellfire
+    endnode
+    node emitter Fire01
+        parent vim_hellfire
+    endnode
+    node emitter AuroraEmitter02
+        parent vim_hellfire
+    endnode
+    node emitter AuroraEmitter04
+        parent vim_hellfire
+    endnode
+    node emitter Fire02
+        parent vim_hellfire
+    endnode
+    node emitter Fire03
+        parent vim_hellfire
+    endnode
+    node emitter Fire04
+        parent vim_hellfire
+    endnode
+    node emitter Fire05
+        parent vim_hellfire
+    endnode
+    node emitter Fire06
+        parent vim_hellfire
+    endnode
+    node emitter Fire07
+        parent vim_hellfire
+    endnode
+    node emitter Fire08
+        parent vim_hellfire
+    endnode
+    node emitter Fire09
+        parent vim_hellfire
+    endnode
+    node emitter Fire10
+        parent vim_hellfire
+    endnode
+    node emitter Fire11
+        parent vim_hellfire
+    endnode
+    node emitter Fire12
+        parent vim_hellfire
+    endnode
+    node emitter Fire13
+        parent vim_hellfire
+    endnode
+    node emitter Fire14
+        parent vim_hellfire
+    endnode
+    node emitter Fire15
+        parent vim_hellfire
+    endnode
+    node emitter Fire16
+        parent vim_hellfire
+    endnode
+    node emitter Fire17
+        parent vim_hellfire
+    endnode
+doneanim impact vim_hellfire
+donemodel vim_hellfire

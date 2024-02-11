@@ -1,0 +1,16 @@
+2DA V2.0
+
+   LABEL           ReqType ReqParam1         ReqParam2 
+0  Lore            SKILL   7                 15        
+1  Spellcraft      SKILL   16                15        
+2  SkillFocusSpell FEAT    189               ****      
+3  SpellFocusCon   FEATOR  166               ****      
+4  SpellFocusDiv   FEATOR  167               ****      
+5  SpellFocusEnc   FEATOR  168               ****      
+6  SpellFocusEvo   FEATOR  169               ****      
+7  SpellFocusIll   FEATOR  170               ****      
+8  SpellFocusNec   FEATOR  171               ****      
+9  SpellFocusTra   FEATOR  172               ****      
+10 SpellFocusAb    FEATOR  35                ****      
+11 ScriptVar       VAR     PRC_AllowArchmage 0         
+12 ScriptVar       VAR     PRC_ArcSpell7     0         

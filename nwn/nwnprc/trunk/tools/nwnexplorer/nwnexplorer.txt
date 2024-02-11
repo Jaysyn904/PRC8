@@ -1,0 +1,18 @@
+This is a BETA version of NWN Explorer updated for 1.69 and with other fixes.
+
+Please visit the NWN CCG Wiki at:
+  http://ccg.dladventures.com/index.php/NWN_Explorer
+
+or the thread on the Bioware fora at:
+  http://nwn.bioware.com/forums/myviewtopic.html?topic=656934&forum=48&sp=0
+
+for details. Previous versions of NWN Explorer can be downloaded from:
+  http://nwvault.ign.com/Files/other/data/1055545441750.shtml
+
+Please note that Reborn is based on Torlack's NWN Explorer 1.0 source and
+not on Roboius' NWN Explorer 1.1 source, as the source to Roboius' was lost.
+
+
+NWN Explorer Reborn is under active development and the newest version can
+usually be downloaded from the Higher Ground website at:
+  http://dl.hgweb.org/tools/nwnexplorer.exe

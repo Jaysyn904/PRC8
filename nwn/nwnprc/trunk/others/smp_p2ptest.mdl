@@ -1,0 +1,691 @@
+# Exported from NWmax 0.7 at 6/11/2004 11:50:42 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_p2ptest
+filedependancy p2ptests.gmax
+newmodel smp_p2ptest
+setsupermodel smp_p2ptest NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_p2ptest
+node dummy smp_p2ptest
+  parent NULL
+endnode
+node emitter AuroraEmitter04
+  parent smp_p2ptest
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -1.5708
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef01
+  parent AuroraEmitter04
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter03
+  parent smp_p2ptest
+  position 0.0 0.0 0.0
+  orientation 0.979306 0.168276 -0.112438 -1.98274
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef03
+  parent AuroraEmitter03
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter02
+  parent smp_p2ptest
+  position 0.0 0.0 0.0
+  orientation 0.930942 0.263784 -0.252518 -2.36404
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef05
+  parent AuroraEmitter02
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter01
+  parent smp_p2ptest
+  position 0.0 0.0 0.0
+  orientation 0.827805 0.435959 -0.353098 -2.59633
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef04
+  parent AuroraEmitter01
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter05
+  parent smp_p2ptest
+  position 0.0106092 -0.0204528 0.00541528
+  orientation -0.56737 0.251725 -0.784045 -3.19383
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 0.968628 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef08
+  parent AuroraEmitter05
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter06
+  parent smp_p2ptest
+  position 0.0106092 -0.0204528 0.00541528
+  orientation -0.368075 0.241261 -0.89795 -3.34726
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef09
+  parent AuroraEmitter06
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter07
+  parent smp_p2ptest
+  position 0.0106092 -0.0204528 0.00541528
+  orientation -0.173298 0.112901 -0.978377 -3.33593
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef07
+  parent AuroraEmitter07
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter08
+  parent smp_p2ptest
+  position 0.0106092 -0.0204528 0.00541528
+  orientation 0.0175544 -0.0573662 -0.998199 -3.42342
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 500.0
+  ySize 500.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.8
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 75
+  lifeExp 2.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.5
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 50.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+node reference AuroraRef06
+  parent AuroraEmitter08
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.776471 0.878431 0.341176 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter AuroraEmitter09
+  parent smp_p2ptest
+  position 0.0106092 -0.0204528 0.00541528
+  orientation 0.0175544 -0.0573662 -0.998199 -3.42342
+  wirecolor 0.109804 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 1
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 0.0 1.0 0.282353 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.1
+  sizeEnd 0.05
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 150
+  lifeExp 2.5
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 2.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 100.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 100.0
+  drag 0.0
+endnode
+endmodelgeom smp_p2ptest
+donemodel smp_p2ptest

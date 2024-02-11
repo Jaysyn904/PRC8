@@ -1,0 +1,13 @@
+Races - 95 left, 9 open
+do standard race subraces
+Dragonborn
+
+Alter Self
+demilich
+
+Classes
+Eldritch Disciple - eldritch essence invocations applying to divine spells with a single target 3+Cha/day, min applicable spell level equals spell level of the invoc
+Eldritch Theurge - embed AoE spells in the Eldritch Blast, EldDis ability above to arcane spells, embed touch spells like AoE spells
+Enlightened Spirit
+Hellfire Warlock - Hellfire INfusion(metamagic added to charged items when used)
+Dragon Descendent - increase monk abilities, swift action calls

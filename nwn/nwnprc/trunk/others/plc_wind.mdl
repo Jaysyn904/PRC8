@@ -1,0 +1,131 @@
+# Exported from NWmax 0.4-beta at 12/21/2003 1:01:29 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: plc_wind
+filedependancy Wind.gmax
+newmodel plc_wind
+setsupermodel plc_wind NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom plc_wind
+node dummy plc_wind
+  parent NULL
+endnode
+node emitter WIND_Dummy
+  parent plc_wind
+  position -0.00249214 0.000424452 -0.300185
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 1.0 1.0 1.0 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.0
+     alphaEnd 0.0
+     sizeStart 0.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 1.0
+     lifeExp 0.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture NULL
+     twosidedtext 0
+     xgrid 0
+     ygrid 0
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 5.0
+     blastLength 2.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom plc_wind
+
+#NWmaxANIM ASCII
+newanim default plc_wind
+    length 1.96667
+    transtime 0.25
+    animroot plc_wind
+    event 0.0 detonate
+    event 0.0666667 detonate
+    event 0.133333 detonate
+    event 0.2 detonate
+    event 0.266667 detonate
+    event 0.333333 detonate
+    event 0.4 detonate
+    event 0.466667 detonate
+    event 0.533333 detonate
+    event 0.6 detonate
+    event 0.666667 detonate
+    event 0.733333 detonate
+    event 0.8 detonate
+    event 0.866667 detonate
+    event 0.933333 detonate
+    event 1.0 detonate
+    event 1.06667 detonate
+    event 1.13333 detonate
+    event 1.2 detonate
+    event 1.26667 detonate
+    event 1.33333 detonate
+    event 1.4 detonate
+    event 1.46667 detonate
+    event 1.53333 detonate
+    event 1.6 detonate
+    event 1.66667 detonate
+    event 1.73333 detonate
+    event 1.8 detonate
+    event 1.86667 detonate
+    event 1.93333 detonate
+    event 1.96667 detonate
+    node dummy plc_wind
+        parent NULL
+    endnode
+    node emitter WIND_Dummy
+        parent plc_wind
+    endnode
+doneanim default plc_wind
+
+donemodel plc_wind

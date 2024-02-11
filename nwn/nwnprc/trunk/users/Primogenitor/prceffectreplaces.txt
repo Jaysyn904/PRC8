@@ -1,0 +1,58 @@
+MagicalEffect
+PRCMagicalEffect
+SupernaturalEffect
+PRCSupernaturalEffect
+ExtraordinaryEffect
+PRCExtraordinaryEffect
+VersusAlignmentEffect
+PRCVersusAlignmentEffect
+VersusRacialTypeEffect
+PRCVersusRacialTypeEffect
+VersusTrapEffect
+PRCVersusTrapEffect
+{}p([^a-zA-Z])effect([^a-zA-Z])
+\1struct PRCeffect\2
+{}p([^a-zA-Z])Effect([a-zA-Z])
+\1PRCEffect\2
+GetFirstEffect
+PRCGetFirstEffect
+GetNextEffect
+PRCGetNextEffect
+RemoveEffect
+PRCRemoveEffect
+GetIsEffectValid
+PRCGetIsEffectValid
+SPApplyEffectToObject
+PRCApplyEffectToObject
+{}tApplyEffectToObject
+{}tPRCApplyEffectToObject
+{}eApplyEffectToObject
+{}ePRCApplyEffectToObject
+{ApplyEffectToObject
+{PRCApplyEffectToObject
+,ApplyEffectToObject
+PRCApplyEffectToObject
+ ApplyEffectToObject
+PRCApplyEffectToObject
+[^a-zA-Z]ApplyEffectToObject
+PRCApplyEffectToObject
+ApplyEffectAtLocation
+PRCApplyEffectAtLocation
+GetEffectCreator
+PRCGetEffectCreator
+GetEffectSpellId
+PRCGetEffectSpellId
+GetEffectDurationType
+PRCGetEffectDurationType
+GetEffectSubType
+PRCGetEffectSubType
+GetEffectType
+PRCGetEffectType
+{}e     sAttackVars.eSpecialEffect = eSpecialEffect;{}e     //post prc-effectness{}e     //sAttackVars.sEffectLocalName = "CombatStructEffect_"+ObjectToString(oDefender)+"_"+ObjectToString(oAttacker);{}e     //SetLocalPRCEffect(GetModule(), sAttackVars.sEffectLocalName, eSpecialEffect);{}e     //this says e but is really a float
+{}e     //sAttackVars.eSpecialEffect = eSpecialEffect;{}e     //post prc-effectness{}e     sAttackVars.sEffectLocalName = "CombatStructEffect_"+ObjectToString(oDefender)+"_"+ObjectToString(oAttacker);{}e     SetLocalPRCEffect(GetModule(), sAttackVars.sEffectLocalName, eSpecialEffect);{}e     //this says e but is really a float
+//#include "prc_inc_struct PRCeffect"
+#include "prc_inc_effect"
+{}e     // special struct PRCeffect applied on first attack, or all attacks{}e     struct PRCeffect eSpecialEffect;{}e     //when the new PRC struct PRCeffect system is in place, this will be a reference to a local struct PRCeffect on the module{}e     //that exists temporarilly and will be destroyed at the end{}e     //string sEffectLocalName;
+{}e     // special struct PRCeffect applied on first attack, or all attacks{}e     //struct PRCeffect eSpecialEffect;{}e     //when the new PRC struct PRCeffect system is in place, this will be a reference to a local struct PRCeffect on the module{}e     //that exists temporarilly and will be destroyed at the end{}e     string sEffectLocalName;
+{}e               struct PRCeffect eSpecialEffect = sAttackVars.eSpecialEffect;{}e               //struct PRCeffect eSpecialEffect = GetLocalPRCEffect(GetModule(), sAttackVars.sEffectLocalName);{}e              PRCApplyEffectToObject(iDurationType, eSpecialEffect, oDefender, sAttackVars.eDuration);{}e               FloatingTextStringOnCreature(sAttackVars.sMessageSuccess, oAttacker, FALSE);
+{}e               //struct PRCeffect eSpecialEffect = sAttackVars.eSpecialEffect;{}e               struct PRCeffect eSpecialEffect = GetLocalPRCEffect(GetModule(), sAttackVars.sEffectLocalName);{}e               PRCApplyEffectToObject(iDurationType, eSpecialEffect, oDefender, sAttackVars.eDuration);{}e               FloatingTextStringOnCreature(sAttackVars.sMessageSuccess, oAttacker, FALSE);

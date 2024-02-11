@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1       ReqParam2 
+0 AttackBonus BAB     7               ****      
+1 CraftArmor  SKILL   25              5         
+2 Persuade    SKILL   12              5         
+3 ScriptVar   VAR     PRC_AllowVassal ****      
+4 SacredVow   FEAT    3388            ****      
+5 VowOfObed   FEAT    3389            ****      

@@ -1,0 +1,204 @@
+# Exported from NWmax 0.7 at 7/28/2004 1:34:35 AM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_deathward
+filedependancy Unknown
+newmodel smp_deathward
+setsupermodel smp_deathward NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_deathward
+node dummy smp_deathward
+  parent NULL
+endnode
+node emitter symbol
+  parent smp_deathward
+  position 0.0 0.0 0.01
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.560784 0.341176 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.992157 1.0 0.65098 
+  colorEnd 0.996079 1.0 0.65098 
+  alphaStart 0.0
+  alphaEnd 0.0
+  sizeStart 5.0
+  sizeEnd 5.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot -0.2
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture smp_holysymbol
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter shiny_stuff
+  parent smp_deathward
+  position -0.000161089 0.0 0.191453
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.52549 0.0235294 0.0235294 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 50.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 0.870588 0.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.05
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 1.5
+  mass 0.5
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.2
+  randvel 0.0
+  bounce_co 2.0
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_deathward
+#NWmax ANIM ASCII
+newanim duration smp_deathward
+  length 0.0333333
+  transtime 0.25
+  animroot smp_deathward
+    node dummy smp_deathward
+        parent NULL
+    endnode
+    node emitter symbol
+        parent smp_deathward
+        alphaStartkey
+            0.0 0.9 
+            0.0333333 0.9 
+        endlist
+        alphaEndkey
+            0.0 0.9 
+            0.0333333 0.9 
+        endlist
+    endnode
+    node emitter shiny_stuff
+        parent smp_deathward
+        birthratekey
+            0.0 50 
+            0.0333333 50 
+        endlist
+    endnode
+doneanim duration smp_deathward
+#NWmax ANIM ASCII
+newanim cessation smp_deathward
+  length 0.666667
+  transtime 0.25
+  animroot smp_deathward
+    node dummy smp_deathward
+        parent NULL
+    endnode
+    node emitter symbol
+        parent smp_deathward
+        alphaStartkey
+            0.0 0.9 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.9 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter shiny_stuff
+        parent smp_deathward
+        birthratekey
+            0.0 50 
+            0.666667 0 
+        endlist
+    endnode
+doneanim cessation smp_deathward
+donemodel smp_deathward

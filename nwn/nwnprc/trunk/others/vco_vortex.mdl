@@ -1,0 +1,87 @@
+# Exported from Gmax MDL Tool 0.3-beta at 11/14/2003 6:40:44 PM
+# mdl file
+#
+#GMAXMODEL ASCII
+# model: vco_vortex
+filedependancy Vortex.gmax
+newmodel vco_vortex
+setsupermodel vco_vortex NULL
+classification Effect
+#GMAXGEOM  ASCII
+beginmodelgeom vco_vortex
+node dummy vco_vortex
+  parent NULL
+endnode
+node emitter vco_vortex
+  parent vco_vortex
+  position 0.0425792 -0.014406 0.136728
+  orientation -0.00872644 0.0 -0.999962 -3.14159
+  scale 1.0
+  wirecolor 0.0313726 0.239216 0.537255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 1.0
+     sizeStart 2.0
+     sizeEnd 2.0
+     sizeStart_y 2.0
+     sizeEnd_y 2.0
+     birthrate 10.0
+     lifeExp 0.6
+     mass 0.0
+     spread 0.0
+     particleRot 10.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture vortex_ripple
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vco_vortex
+donemodel vco_vortex

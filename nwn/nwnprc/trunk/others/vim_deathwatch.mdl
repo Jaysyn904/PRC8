@@ -1,0 +1,112 @@
+# Exported from NWmax 0.5-beta at 3/7/2004 7:47:24 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_deathwatch
+filedependancy vim_deathwatch.gmax
+newmodel vim_deathwatch
+setsupermodel vim_deathwatch NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_deathwatch
+node dummy vim_deathwatch
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vim_deathwatch
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.776471 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 5.0
+     ySize 5.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.3
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 4.0
+     mass -1.0
+     spread 360.0
+     particleRot 0.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 1.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_eye1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 10
+     frameStart 0
+     frameEnd 3
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_deathwatch
+#NWmaxANIM ASCII
+newanim impact vim_deathwatch
+    length 3.66667
+    transtime 0.25
+    animroot vim_deathwatch
+    event 0.0333333 detonate
+    event 0.0333333 detonate
+    event 0.0333333 detonate
+    node dummy vim_deathwatch
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vim_deathwatch
+    endnode
+    node emitter AuroraEmitter01
+        parent vim_deathwatch
+        masskey
+            0.0 -1.0 
+            0.333333 -1.0 
+            0.5 -1.0 
+            0.6 -1.0 
+            0.633333 -1.0 
+            0.666667 1.0 
+        endlist
+    endnode
+doneanim impact vim_deathwatch
+donemodel vim_deathwatch

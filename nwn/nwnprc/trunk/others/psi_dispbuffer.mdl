@@ -1,0 +1,519 @@
+# Exported from NWmax 0.8 b60 at 4/28/2006 1:11:03 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_dispbuffer
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_dispbuffer
+setsupermodel psi_dispbuffer NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_dispbuffer
+node dummy psi_dispbuffer
+  parent NULL
+endnode
+node dummy rotator_joint
+  parent psi_dispbuffer
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.109804 0.34902 0.694118 
+endnode
+node emitter aura
+  parent rotator_joint
+  position 0.0 -1.25 1.0
+  orientation 1.0 0.0 0.0 -4.71239
+  wirecolor 0.423529 0.0313726 0.533333 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 200.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.564706 0.0 1.0 
+  colorEnd 0.709804 0.254902 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 2.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.5
+endnode
+node reference aura_ref
+  parent aura
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -1.5708
+  wirecolor 0.721569 0.607843 0.898039 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter aura01
+  parent rotator_joint
+  position 0.0 1.25 1.0
+  orientation 0.0 -0.707107 -0.707107 -3.14159
+  wirecolor 0.423529 0.0313726 0.533333 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 200.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.611765 
+  colorEnd 0.254902 1.0 0.937255 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 2.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.5
+endnode
+node reference aura_ref01
+  parent aura01
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -4.71239
+  wirecolor 0.721569 0.607843 0.898039 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter aura02
+  parent rotator_joint
+  position -1.25 -0.00129828 1.0
+  orientation 0.57775 -0.57715 -0.57715 -4.18939
+  wirecolor 0.423529 0.0313726 0.533333 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 200.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.329412 1.0 
+  colorEnd 0.254902 0.815686 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 2.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.5
+endnode
+node reference aura_ref02
+  parent aura02
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -1.5708
+  wirecolor 0.721569 0.607843 0.898039 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter aura03
+  parent rotator_joint
+  position 1.25 0.00129828 1.0
+  orientation 0.57695 0.57755 0.57755 -4.18819
+  wirecolor 0.423529 0.0313726 0.533333 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 200.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.25
+  sizeEnd 0.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 50
+  lifeExp 1.0
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 2.0
+  randvel 1.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.5
+endnode
+node reference aura_ref03
+  parent aura03
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -4.71239
+  wirecolor 0.721569 0.607843 0.898039 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+endmodelgeom psi_dispbuffer
+
+#NWmax ANIM ASCII
+newanim impact psi_dispbuffer
+  length 0.666667
+  transtime 0.25
+  animroot psi_dispbuffer
+    node dummy psi_dispbuffer
+        parent NULL
+    endnode
+    node dummy rotator_joint
+        parent psi_dispbuffer
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter aura
+        parent rotator_joint
+        birthratekey
+            0.0 0 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref
+        parent aura
+    endnode
+    node emitter aura01
+        parent rotator_joint
+        birthratekey
+            0.0 0 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref01
+        parent aura01
+    endnode
+    node emitter aura02
+        parent rotator_joint
+        birthratekey
+            0.0 0 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref02
+        parent aura02
+    endnode
+    node emitter aura03
+        parent rotator_joint
+        birthratekey
+            0.0 0 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref03
+        parent aura03
+    endnode
+doneanim impact psi_dispbuffer
+
+
+#NWmax ANIM ASCII
+newanim duration psi_dispbuffer
+  length 0.666667
+  transtime 0.25
+  animroot psi_dispbuffer
+    node dummy psi_dispbuffer
+        parent NULL
+    endnode
+    node dummy rotator_joint
+        parent psi_dispbuffer
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 -1.0 -1.5708
+            0.333333 0.0 0.0 -1.0 -3.14159
+            0.5 0.0 0.0 -1.0 -4.71239
+            0.666667 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter aura
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref
+        parent aura
+    endnode
+    node emitter aura01
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref01
+        parent aura01
+    endnode
+    node emitter aura02
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref02
+        parent aura02
+    endnode
+    node emitter aura03
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 50 
+        endlist
+    endnode
+    node reference aura_ref03
+        parent aura03
+    endnode
+doneanim duration psi_dispbuffer
+
+
+#NWmax ANIM ASCII
+newanim cessation psi_dispbuffer
+  length 0.666667
+  transtime 0.25
+  animroot psi_dispbuffer
+    node dummy psi_dispbuffer
+        parent NULL
+    endnode
+    node dummy rotator_joint
+        parent psi_dispbuffer
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            0.166667 0.0 0.0 1.0 -4.71239
+            0.333333 0.0 0.0 1.0 -3.14159
+            0.5 0.0 0.0 1.0 -1.5708
+            0.666667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter aura
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 0 
+        endlist
+    endnode
+    node reference aura_ref
+        parent aura
+    endnode
+    node emitter aura01
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 0 
+        endlist
+    endnode
+    node reference aura_ref01
+        parent aura01
+    endnode
+    node emitter aura02
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 0 
+        endlist
+    endnode
+    node reference aura_ref02
+        parent aura02
+    endnode
+    node emitter aura03
+        parent rotator_joint
+        birthratekey
+            0.0 50 
+            0.666667 0 
+        endlist
+    endnode
+    node reference aura_ref03
+        parent aura03
+    endnode
+doneanim cessation psi_dispbuffer
+
+donemodel psi_dispbuffer

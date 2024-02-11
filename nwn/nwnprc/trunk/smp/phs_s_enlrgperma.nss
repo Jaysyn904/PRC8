@@ -1,0 +1,29 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Enlarge Person
+//:: Spell FileName PHS_S_EnlrgPerMa
+//:://////////////////////////////////////////////
+//:: In Game Spell desctiption
+//:://////////////////////////////////////////////
+    Enlarge Person, Mass
+    Transmutation
+    Level: Sor/Wiz 4
+    Target: One allied humanoid creature/level within a 5M-radius sphere
+
+    This spell functions like enlarge person, except that it affects multiple
+    creatures.
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+    See Enlarge person.
+
+    Placeholder script.
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+
+}

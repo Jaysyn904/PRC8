@@ -1,0 +1,10 @@
+2DA V2.0
+
+  LABEL        ReqType ReqParam1     ReqParam2 
+0 Tumble       SKILL   21            4         
+1 Jump         SKILL   28            8         
+2 Dodge        FEAT    10            ****      
+3 ImpStrike    FEAT    21            ****      
+4 WeapFocUnArm FEAT    100           ****      
+5 Base_Attack  BAB     3             ****      
+6 ScriptVar    VAR     PRC_AllowShou 0         

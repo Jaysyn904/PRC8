@@ -1,0 +1,22 @@
+//::///////////////////////////////////////////////
+//:: Soulknife: Conversation - Toggle Mighty Cleaving
+//:: psi_sk_conv_mc_a
+//::///////////////////////////////////////////////
+/*
+    Adds or removes Mighty Cleaving from the mindblade
+    flags.
+*/
+//:://////////////////////////////////////////////
+//:: Created By: Ornedan
+//:: Created On: 06.04.2005
+//:://////////////////////////////////////////////
+
+#include "psi_inc_soulkn"
+
+
+void main()
+{
+    SetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T",
+                GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T") ^ MBLADE_FLAG_MIGHTYCLEAVING
+               );
+}

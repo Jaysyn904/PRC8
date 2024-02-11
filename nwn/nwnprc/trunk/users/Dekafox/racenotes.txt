@@ -1,0 +1,27 @@
+silver - DR/+2
+cold iron - DR/+3
+alignment - DR/+4
+
+Dragonborn
++2 Con, -2 Dex
+Dragonblood
++2 Dodge AC vs dragons
+Immune to Fear
+Favored: Fighter
+
+Heritages:
+HUman, Half-elf: -
+Elf: +2 Dex, -2 Con
+Dwarf: +2 Con, -2 Cha
+Halfling: Small, +2 Dex, -2 Str
+Gnome: Small, +2 Con, -2 Str
+Half-orc: +2 Str, -2 Int, -2 Cha
+
+Aspects:
+Heart: Line Breath Weapon, 5'/HD(max 100'), 1d8 + d8/3HD, choice of elements during breathing, d4 recharge, DC 10 + 1/2HD + Con
+
+Mind: Immunity to sleep, paralysis; darkvision, +2 Listen Search Spot, 15HD: blindsense
+
+Wings: +10 Jump, dive attack
+
+Small races have Kobold appearance set at end of convo.

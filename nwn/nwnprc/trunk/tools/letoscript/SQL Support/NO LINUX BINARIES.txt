@@ -1,0 +1,9 @@
+There are currently no Linux binaries of Moneo (or .SOs) with SQL support.
+
+This is due in large part to the absence of SCO/RCO hooking in the Linux port of NWNX2, making the point of SQL in LetoScript nearly moot.
+
+If you're running Linux, and you'd like to try and compile with SQL support, jump into LetoScript.inc and uncomment the {$DEFINE LETOSCRIPT_SQL} flag there. I suggest trying with the {$DEFINE LETOSCRIPT_SQL_LETO} flag for SQLite3 support, just as a test, and then (if you can get Zeos functioning in your Kylix), you could try with {$DEFINE LETOSCRIPT_SQL_ZEOS} for full MySQL support. If you get either working, I'd be interested in hearing about your experience:
+
+http://weathersong.infopop.cc
+
+dragon@weathersong.net

@@ -1,0 +1,9 @@
+Fixed:
+
+Possibly fixed:
+Essences do nothing on hit
+
+To Check:
+
+
+Eldritch Line does not get a target

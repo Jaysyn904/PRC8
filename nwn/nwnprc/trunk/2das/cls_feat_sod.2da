@@ -1,0 +1,16 @@
+2DA V2.0
+
+   FeatLabel                 FeatIndex List GrantedOnLevel OnMenu 
+0  SlayerOfDomielDeathTouch1 2282      3    1              1      
+1  SlayerOfDomielDeathTouch2 2284      3    3              1      
+2  SlayerOfDomielDeathTouch3 2286      3    8              1      
+3  SlayerOfDomielDeathTouch4 2299      3    10             1      
+4  SlayerOfDomielDivineGrace 2264      3    2              0      
+5  ImprovedEvasion           212       3    6              0      
+6  SlayerOfDomielDetectEvil  2461      3    1              1      
+7  FEAT_DRAGONFIRE_STRIKE    3949      0    -1             1      
+8  SuddenEmpower             2830      0    -1             1      
+9  SuddenExtend              2831      0    -1             1      
+10 SuddenMaximize            2832      0    -1             1      
+11 SuddenWiden               2833      0    -1             1      
+12 FEAT_ESCHEW_MATERIALS     2596      0    1              0      

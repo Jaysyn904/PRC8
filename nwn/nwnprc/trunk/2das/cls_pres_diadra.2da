@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1       ReqParam2 
+0 Lore       SKILL   7               3         
+1 BaseAttack BAB     3               ****      
+2 ScriptVar  VAR     PRC_PsiPower3   0         
+3 ScriptVar  VAR     PRC_AllowDiaDra 0         

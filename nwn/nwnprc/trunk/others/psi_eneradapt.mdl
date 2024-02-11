@@ -1,0 +1,820 @@
+# Exported from NWmax 0.8 b45 at 7/15/2005 7:34:02 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_eneradapt
+filedependancy Unknown
+newmodel psi_eneradapt
+setsupermodel psi_eneradapt NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_eneradapt
+node dummy psi_eneradapt
+  parent NULL
+endnode
+node emitter symbol
+  parent psi_eneradapt
+  position 0.0 0.0 0.03
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.423529 0.0313726 0.533333 
+  update_sel 2
+  update Single
+  render_sel 4
+  render Billboard_to_World_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.517647 0.0 1.0 
+  colorEnd 0.517647 0.0 1.0 
+  alphaStart 0.8
+  alphaEnd 0.8
+  sizeStart 2.5
+  sizeEnd 2.5
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot -0.1
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_symbl_003
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node dummy rotator
+  parent psi_eneradapt
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -6.28319
+  wirecolor 0.52549 0.231373 0.0313726 
+endnode
+node emitter shield_acid
+  parent rotator
+  position 0.588368 -0.808911 0.75
+  orientation 0.908661 0.295241 0.295241 -4.61675
+  wirecolor 0.882353 0.345098 0.780392 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.352941 1.0 
+  colorEnd 0.0 0.352941 1.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 1.0
+  sizeEnd 1.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture shield_acid
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter shield_cold
+  parent rotator
+  position -0.58767 -0.809345 0.75
+  orientation 0.908661 -0.295242 -0.295242 -4.61675
+  wirecolor 0.882353 0.345098 0.780392 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.352941 1.0 
+  colorEnd 0.0 0.352941 1.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 1.0
+  sizeEnd 1.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture shield_cold
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter shield_elect
+  parent rotator
+  position 0.0 1.0 0.75
+  orientation 2.52881e-007 0.707107 0.707107 -3.14159
+  wirecolor 0.882353 0.345098 0.780392 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.352941 1.0 
+  colorEnd 0.0 0.352941 1.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 1.0
+  sizeEnd 1.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture shield_elect
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter shield_fire
+  parent rotator
+  position 0.950313 0.309072 0.75
+  orientation 0.456967 0.62896 0.62896 -3.99886
+  wirecolor 0.882353 0.345098 0.780392 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.352941 1.0 
+  colorEnd 0.0 0.352941 1.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 1.0
+  sizeEnd 1.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture shield_fire
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter shield_sonic
+  parent rotator
+  position -0.951517 0.308726 0.75
+  orientation -0.456966 0.62896 0.62896 -2.28433
+  wirecolor 0.882353 0.345098 0.780392 
+  update_sel 2
+  update Single
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.352941 1.0 
+  colorEnd 0.0 0.352941 1.0 
+  alphaStart 0.75
+  alphaEnd 0.75
+  sizeStart 1.0
+  sizeEnd 1.0
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 1
+  lifeExp -1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture shield_sonic
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter particles
+  parent psi_eneradapt
+  position 0.0 0.0 0.03
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.690196 0.101961 0.101961 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 175.0
+  ySize 175.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 0.470588 1.0 
+  colorEnd 0.0 1.0 0.517647 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 35
+  lifeExp 3.0
+  mass -0.1
+  spread 0.0
+  particleRot 0.0
+  velocity 0.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom psi_eneradapt
+#NWmax ANIM ASCII
+newanim impact psi_eneradapt
+  length 0.666667
+  transtime 0.25
+  animroot psi_eneradapt
+    node dummy psi_eneradapt
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.666667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.666667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter symbol
+        parent psi_eneradapt
+        positionkey
+            0.0 0.0 0.0 0.03
+            0.666667 0.0 0.0 0.03
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.666667 0.0 0.0 0.0 0.0
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.8 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.8 
+        endlist
+    endnode
+    node dummy rotator
+        parent psi_eneradapt
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.666667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            0.666667 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter shield_acid
+        parent rotator
+        positionkey
+            0.0 0.588368 -0.808911 0.75
+            0.666667 0.588368 -0.808911 0.75
+        endlist
+        orientationkey
+            0.0 0.908661 0.295241 0.295241 -4.61675
+            0.666667 0.908661 0.295241 0.295241 -4.61675
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+    endnode
+    node emitter shield_cold
+        parent rotator
+        positionkey
+            0.0 -0.58767 -0.809345 0.75
+            0.666667 -0.58767 -0.809345 0.75
+        endlist
+        orientationkey
+            0.0 0.908661 -0.295242 -0.295242 -4.61675
+            0.666667 0.908661 -0.295242 -0.295242 -4.61675
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+    endnode
+    node emitter shield_elect
+        parent rotator
+        positionkey
+            0.0 0.0 1.0 0.75
+            0.666667 0.0 1.0 0.75
+        endlist
+        orientationkey
+            0.0 2.52881e-007 0.707107 0.707107 -3.14159
+            0.666667 2.52881e-007 0.707107 0.707107 -3.14159
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+    endnode
+    node emitter shield_fire
+        parent rotator
+        positionkey
+            0.0 0.950313 0.309072 0.75
+            0.666667 0.950313 0.309072 0.75
+        endlist
+        orientationkey
+            0.0 0.456967 0.62896 0.62896 -3.99886
+            0.666667 0.456967 0.62896 0.62896 -3.99886
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+    endnode
+    node emitter shield_sonic
+        parent rotator
+        positionkey
+            0.0 -0.951517 0.308726 0.75
+            0.666667 -0.951517 0.308726 0.75
+        endlist
+        orientationkey
+            0.0 -0.456966 0.62896 0.62896 -2.28433
+            0.666667 -0.456966 0.62896 0.62896 -2.28433
+        endlist
+        alphaStartkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.0 
+            0.666667 0.75 
+        endlist
+    endnode
+    node emitter particles
+        parent psi_eneradapt
+        birthratekey
+            0.0 0 
+            0.666667 35 
+        endlist
+    endnode
+doneanim impact psi_eneradapt
+#NWmax ANIM ASCII
+newanim duration psi_eneradapt
+  length 5.0
+  transtime 0.25
+  animroot psi_eneradapt
+    node dummy psi_eneradapt
+        parent NULL
+    endnode
+    node emitter symbol
+        parent psi_eneradapt
+        alphaStartkey
+            0.0 0.8 
+            5.0 0.8 
+        endlist
+        alphaEndkey
+            0.0 0.8 
+            5.0 0.8 
+        endlist
+    endnode
+    node dummy rotator
+        parent psi_eneradapt
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 -6.28319
+            1.23333 0.0 0.0 1.0 -4.71239
+            2.5 0.0 0.0 1.0 -3.14159
+            3.73333 0.0 0.0 1.0 -1.5708
+            5.0 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node emitter shield_acid
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+    endnode
+    node emitter shield_cold
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+    endnode
+    node emitter shield_elect
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+    endnode
+    node emitter shield_fire
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+    endnode
+    node emitter shield_sonic
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            5.0 0.75 
+        endlist
+    endnode
+    node emitter particles
+        parent psi_eneradapt
+        birthratekey
+            0.0 35 
+            5.0 35 
+        endlist
+    endnode
+doneanim duration psi_eneradapt
+#NWmax ANIM ASCII
+newanim cessation psi_eneradapt
+  length 0.666667
+  transtime 0.25
+  animroot psi_eneradapt
+    node dummy psi_eneradapt
+        parent NULL
+    endnode
+    node emitter symbol
+        parent psi_eneradapt
+        alphaStartkey
+            0.0 0.8 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.8 
+            0.666667 0.0 
+        endlist
+    endnode
+    node dummy rotator
+        parent psi_eneradapt
+    endnode
+    node emitter shield_acid
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter shield_cold
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter shield_elect
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter shield_fire
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter shield_sonic
+        parent rotator
+        alphaStartkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+        alphaEndkey
+            0.0 0.75 
+            0.666667 0.0 
+        endlist
+    endnode
+    node emitter particles
+        parent psi_eneradapt
+        birthratekey
+            0.0 35 
+            0.666667 0 
+        endlist
+    endnode
+doneanim cessation psi_eneradapt
+donemodel psi_eneradapt

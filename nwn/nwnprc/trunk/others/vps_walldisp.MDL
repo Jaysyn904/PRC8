@@ -1,0 +1,213 @@
+#MAXMODEL ASCII
+# model: vps_wallfire
+filedependancy vps_wallfire.max
+newmodel vps_wallfire
+setsupermodel vps_wallfire NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vps_wallfire
+node dummy vps_wallfire
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring09
+  parent vps_wallfire
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Billboard_to_World_Z
+  blend Lighten
+  texture fxpa_Smoke01
+  xgrid 4
+  ygrid 4
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.00303074997 0 0.0515032001
+  orientation 0 0 1 -1.57079995
+  colorStart 0 0 0
+  colorEnd 0.745097995 0.890196025 1
+  alphaStart 0
+  alphaEnd 1
+  sizeStart 8
+  sizeEnd 2
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 15
+  birthrate 3
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0.100000001
+  randvel 0
+  fps 12
+  xsize 100
+  ysize 100
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter Ring10
+  parent vps_wallfire
+  #part-number 2
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_Smoke01
+  xgrid 4
+  ygrid 4
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.00303074997 0 0.500760972
+  orientation 0 0 1 -1.57079995
+  colorStart 0 0 0
+  colorEnd 0.678430974 0.858824015 1
+  alphaStart 0.699999988
+  alphaEnd 0
+  sizeStart 0
+  sizeEnd 5
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 15
+  birthrate 4
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0.200000003
+  randvel 0.200000003
+  fps 12
+  xsize 100
+  ysize 100
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vps_wallfire
+
+#MAXANIM ASCII
+newanim impact vps_wallfire
+  length 0.300000012
+  transtime 0
+  animroot vps_wallfire
+node dummy vps_wallfire
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring09
+  parent vps_wallfire
+  #part-number 1
+  birthratekey 2
+    0 3
+    0.300000012 3
+endnode
+node emitter Ring10
+  parent vps_wallfire
+  #part-number 2
+  birthratekey 2
+    0 4
+    0.300000012 4
+endnode
+doneanim impact vps_wallfire
+
+#MAXANIM ASCII
+newanim duration vps_wallfire
+  length 2
+  transtime 0
+  animroot vps_wallfire
+node dummy vps_wallfire
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring09
+  parent vps_wallfire
+  #part-number 1
+  birthratekey 2
+    0 3
+    2 3
+endnode
+node emitter Ring10
+  parent vps_wallfire
+  #part-number 2
+  birthratekey 2
+    0 4
+    2 4
+endnode
+doneanim duration vps_wallfire
+
+#MAXANIM ASCII
+newanim cessation vps_wallfire
+  length 0.666666985
+  transtime 0
+  animroot vps_wallfire
+node dummy vps_wallfire
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring09
+  parent vps_wallfire
+  #part-number 1
+  birthratekey 2
+    0 3
+    0.166666999 0
+endnode
+node emitter Ring10
+  parent vps_wallfire
+  #part-number 2
+  birthratekey 2
+    0 4
+    0.166666999 0
+endnode
+doneanim cessation vps_wallfire
+
+donemodel vps_wallfire

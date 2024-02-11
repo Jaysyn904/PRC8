@@ -1,0 +1,473 @@
+# Exported from NWmax 0.8 b60 at 4/2/2006 4:38:00 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: psi_crisislife
+#local file: Unknown
+filedependancy Unknown
+newmodel psi_crisislife
+setsupermodel psi_crisislife NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom psi_crisislife
+node dummy psi_crisislife
+  parent NULL
+endnode
+node emitter vacuum01
+  parent psi_crisislife
+  position 0.0 0.0 0.0
+  orientation 0.993613 0.0564214 -0.0977248 -1.05276
+  wirecolor 0.647059 0.894118 0.894118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 400.0
+  ySize 400.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.870588 
+  colorEnd 0.0 1.0 0.329412 
+  alphaStart 0.25
+  alphaEnd 0.75
+  sizeStart 0.05
+  sizeEnd 0.15
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.25
+endnode
+node reference vacuum01_ref
+  parent vacuum01
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.1416
+  wirecolor 0.890196 0.596078 0.596078 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node dummy vacuum01_XYdimension
+  parent vacuum01
+  position 0.0 0.0 0.0
+  orientation -0.989747 0.0768657 -0.120383 -6.28318
+  wirecolor 0.894118 0.6 0.721569 
+endnode
+node emitter vacuum02
+  parent psi_crisislife
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.647059 0.894118 0.894118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 400.0
+  ySize 400.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.870588 
+  colorEnd 0.0 1.0 0.329412 
+  alphaStart 0.25
+  alphaEnd 0.75
+  sizeStart 0.05
+  sizeEnd 0.15
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.25
+endnode
+node reference vacuum01_ref01
+  parent vacuum02
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.1416
+  wirecolor 0.345098 0.560784 0.882353 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter vacuum03
+  parent psi_crisislife
+  position -0.0045675 -0.00688675 0.0454845
+  orientation 0.621472 -0.782673 -0.0345787 -1.55092
+  wirecolor 0.647059 0.894118 0.894118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 400.0
+  ySize 400.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.870588 
+  colorEnd 0.0 1.0 0.329412 
+  alphaStart 0.25
+  alphaEnd 0.75
+  sizeStart 0.05
+  sizeEnd 0.15
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.25
+endnode
+node reference vacuum01_ref02
+  parent vacuum03
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.1416
+  wirecolor 0.580392 0.694118 0.101961 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter vacuum04
+  parent psi_crisislife
+  position -0.0045675 -0.00688675 0.0454845
+  orientation 0.25353 0.669282 -0.698416 -5.07755
+  wirecolor 0.647059 0.894118 0.894118 
+  update_sel 1
+  update Fountain
+  render_sel 7
+  render Motion_Blur
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 400.0
+  ySize 400.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.870588 
+  colorEnd 0.0 1.0 0.329412 
+  alphaStart 0.25
+  alphaEnd 0.75
+  sizeStart 0.05
+  sizeEnd 0.15
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.5
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  Drag 0.25
+endnode
+node reference vacuum01_ref03
+  parent vacuum04
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.1416
+  wirecolor 0.65098 0.898039 0.898039 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node emitter explosion01
+  parent psi_crisislife
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.776471 0.87451 0.337255 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 10.0
+  ySize 10.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 0.0 1.0 0.611765 
+  colorEnd 0.635294 0.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.119941
+  sizeStart 0.526588
+  sizeEnd 0.113294
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 0
+  lifeExp 0.75
+  mass 0.0
+  spread 6.28319
+  particleRot 0.0
+  velocity 6.46825
+  randvel 5.0
+  bounce_co 2.0
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  Splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  framestart 0
+  frameend 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  Drag 0.0
+endnode
+endmodelgeom psi_crisislife
+
+#NWmax ANIM ASCII
+newanim impact psi_crisislife
+  length 8.33333
+  transtime 0.25
+  animroot psi_crisislife
+    node dummy psi_crisislife
+        parent NULL
+    endnode
+    node emitter vacuum01
+        parent psi_crisislife
+        birthratekey
+            0.3 100 
+            1.26667 100 
+            1.6 0 
+        endlist
+    endnode
+    node reference vacuum01_ref
+        parent vacuum01
+    endnode
+    node dummy vacuum01_XYdimension
+        parent vacuum01
+    endnode
+    node emitter vacuum02
+        parent psi_crisislife
+        birthratekey
+            0.3 100 
+            1.26667 100 
+            1.6 0 
+        endlist
+    endnode
+    node reference vacuum01_ref01
+        parent vacuum02
+    endnode
+    node emitter vacuum03
+        parent psi_crisislife
+        birthratekey
+            0.3 100 
+            1.26667 100 
+            1.6 0 
+        endlist
+    endnode
+    node reference vacuum01_ref02
+        parent vacuum03
+    endnode
+    node emitter vacuum04
+        parent psi_crisislife
+        birthratekey
+            0.3 100 
+            1.26667 100 
+            1.6 0 
+        endlist
+    endnode
+    node reference vacuum01_ref03
+        parent vacuum04
+    endnode
+    node emitter explosion01
+        parent psi_crisislife
+        alphaEndkey
+            1.6 0.25 
+        endlist
+        birthratekey
+            1.63333 0 
+            1.76667 800 
+            2.16667 800 
+            2.2 0 
+        endlist
+        sizeStartkey
+            1.6 0.7 
+        endlist
+        sizeEndkey
+            1.6 0.2 
+        endlist
+        velocitykey
+            1.6 3.0 
+        endlist
+    endnode
+doneanim impact psi_crisislife
+
+donemodel psi_crisislife

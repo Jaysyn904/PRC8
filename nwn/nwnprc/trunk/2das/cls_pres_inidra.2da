@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1       ReqParam2 
+0 Concentration SKILL   1               6         
+1 Lore          SKILL   7               6         
+2 Tumble        SKILL   21              4         
+3 Alertness     FEAT    0               ****      
+4 ImpUnarmed    FEAT    21              ****      
+5 PowerAtk      FEAT    28              ****      
+6 ScriptVar     VAR     PRC_AllowIniDra 0         
+7 Jump          SKILL   28              8         

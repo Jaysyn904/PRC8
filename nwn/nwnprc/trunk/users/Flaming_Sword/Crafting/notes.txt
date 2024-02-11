@@ -1,0 +1,93 @@
+Material use off by default (use switch)
+
+unique ids for storage in limbo chest
+
+XXX_PRC_UID_PREFIX + <stuff> + PRC_CRAFT_UID_SUFFIX
+
+where XXX identifies masterwork, material, bit flags
+
+base AC 0-1 requires cloth
+
+SRD magic item crafting properties and prices
+
+wearable wonderous items only?
+
+Crafting delays: 
+Here's a compromise: Make it a switch. 5 options: Off, Round/1000, Turn/1000, Hour/1000, Day/1000, and have the default be Hour
+potions excepted, always 1 day (depending on switch)
+
+
+add truespeaking bonuses to wonderous item 2da
+
+add psionics to crafting
+
+[23:46] Annihilator-X17: yerp
+[23:48] Annihilator-X17: i know leof and ca have some
+[23:48] Annihilator-X17: oh, there is attune gem in mof
+[23:49] Annihilator-X17: might be another there as well
+[23:49] Annihilator-X17: you have that book?
+[23:49] Flaming_Sword: magic of faerun?
+[23:49] Flaming_Sword: i think so, lemme check
+[23:49] Annihilator-X17: yah
+[23:50] Flaming_Sword: silly me, that's where i got spellfire from
+[23:50] Annihilator-X17: yerp
+[23:50] Annihilator-X17: also, look at the gnome class in there, its another crafter
+[23:51] Annihilator-X17: not going to say you should do that one though
+[23:51] Flaming_Sword: and to think i thought it would only take a week when i started it :P
+[23:52] Annihilator-X17: take the amount of time and x4 and its usually closer
+[23:52] Flaming_Sword: i think it's been 6x already
+[23:53] Annihilator-X17: that long? yikes ;p
+[23:53] Annihilator-X17: sounds like psionics, 19th months or so
+[23:53] Flaming_Sword: lol
+[23:54] Annihilator-X17: partly that was me being lazy
+[23:54] Flaming_Sword: happens to me all the time :P
+[23:54] Annihilator-X17: yerp
+[23:58] Stratovarius: You see Attune Gem and the Gnome Arti or whatever its called?
+[23:58] Flaming_Sword: lemme take a look
+[00:01] Stratovarius: just going to list crafting feats as I find them
+[00:01] Stratovarius: Bind Elemental, ECS p51
+[00:02] Flaming_Sword: omg gnome arti's gonna need a whole new thing for crafting devices
+[00:02] Stratovarius: Craft Aboleth Glyph LoM 22
+[00:02] Stratovarius: Thats why I said you didnt have to do it
+[00:02] Stratovarius: Craft Cognizance Crystal, XPH (I think you know of this one)
+[00:03] Stratovarius: Craft Contingent Spell, Complete Arcane (have fun here)
+[00:03] Flaming_Sword: i've got the xph :)
+[00:03] Stratovarius: thought so
+[00:03] Stratovarius: Craft Psionic Seal, Lords of Madness
+[00:03] Stratovarius: Craft Rune Circle, Races of Stone
+[00:03] Stratovarius: Craft Sceptre, LEoF
+[00:04] Flaming_Sword: please don't tell me crafting will end up on the same scale as psionics
+[00:04] Stratovarius: if you do everything, it will
+[00:04] Stratovarius: Craft Skull Talisman, Frostburn
+[00:04] Stratovarius: Craft Talisman, OA
+[00:04] Flaming_Sword: methinks i'll save this list for later
+[00:04] Stratovarius: Create Infusion, Masters of the Wild
+[00:05] Stratovarius: Create Portal, FRCS
+[00:05] Stratovarius: Dragoncrafter, Draco
+[00:05] Stratovarius: Great Crafter, OA
+[00:05] *** Tenjac|Work is now known as Tenjac.
+[00:07] Primogenitor: And the epic crafting feats ;)
+[00:07] Primogenitor: With the golems, I could make 1-level varients rather than 5-level if required
+[00:08] Stratovarius: Thats all of em that are in the consolidated list
+[00:08] Stratovarius: so its not as bad as it sounded at first
+[00:08] Stratovarius: skipping most of the XPH ones of course
+[00:08] Flaming_Sword: i think i've already taken the epic ones in the srd into account
+[00:08] Stratovarius: I think you did
+
+Changes since 3.1a3 (that i can remember, anyway)
+
+Disabled change appearance option since it doesn't do anything except screw the game
+Fixed TMI with armour with skill bonuses
+Fixed skill check reading a non-existent 2da
+Added ranged weapon support (including ammo and thrown weapons, largely untested)
+Modified 2das to allow actual enhancement and damage bonuses on ranged weapons that are conferred upon their ammo (see above)
+Filtered some properties for ranged weapons because onhit properties don't work on them :(
+Fixed display bug for bane weapons (untested)
+Fixed spell/power prerequisite checking
+Fixed some 2da errors
+Added time cost notification
+Added support for an extra time scale switch (PRC_CRAFT_TIMER_MULTIPLIER)
+Fixed application of onhit properties
+Added support for eventual inclusion of psionic properties (power checking, special materials)
+Added option to clone an item (untested)
+Cleaned up code a bit

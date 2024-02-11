@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1      ReqParam2 
+0 Lore      SKILL   7              4         
+1 Perform   SKILL   11             8         
+2 Requiem   FEAT    2455           ****      
+3 Bardsong  FEAT    257            ****      
+4 ScriptVar VAR     PRC_AllowDirge 0         

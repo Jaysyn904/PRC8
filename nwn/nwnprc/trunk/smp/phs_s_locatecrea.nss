@@ -1,0 +1,29 @@
+/*:://////////////////////////////////////////////
+//:: Spell Name Locate Creature
+//:: Spell FileName PHS_S_LocateCrea
+//:://////////////////////////////////////////////
+//:: In Game Spell desctiption
+//:://////////////////////////////////////////////
+    Divination
+    Level: Brd 4, Sor/Wiz 4
+    Components: V, S, M
+    Duration: 10 min./level
+
+    This spell functions like locate object, except this spell locates a known
+    or familiar creature.
+//:://////////////////////////////////////////////
+//:: Spell Effects Applied / Notes
+//:://////////////////////////////////////////////
+    Placeholder script.
+
+    Like Locate Object, or something.
+//:://////////////////////////////////////////////
+//:: Created By: Jasperre
+//::////////////////////////////////////////////*/
+
+#include "PHS_INC_SPELLS"
+
+void main()
+{
+
+}

@@ -1,0 +1,181 @@
+# Exported from NWmax 0.5-beta at 3/14/2004 10:58:33 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: var_detplants
+filedependancy Unknown
+newmodel var_detplants
+setsupermodel var_detplants NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom var_detplants
+node dummy var_detplants
+  parent NULL
+endnode
+node emitter OmenEmitter01
+  parent var_detplants
+  position -0.00428917 0.329716 -0.00372559
+  orientation -0.640435 -0.423895 -0.640435 -3.94346
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.0470588 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 60.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.1
+     particleRot 5.0
+     velocity 16.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter OmenEmitter02
+  parent var_detplants
+  position -0.000376668 0.329716 -0.00372559
+  orientation -0.485653 -0.726831 -0.485653 -4.39861
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.329412 1.0 0.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 0.5
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 0.5
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 60.0
+     lifeExp 1.0
+     mass 0.0
+     spread 0.1
+     particleRot -5.0
+     velocity 16.0
+     randvel 0.5
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom var_detplants
+#NWmaxANIM ASCII
+newanim cast01 var_detplants
+    length 1.96667
+    transtime 0.25
+    animroot var_detplants
+    node dummy var_detplants
+        parent NULL
+    endnode
+    node emitter OmenEmitter01
+        parent var_detplants
+        birthratekey
+            0.0 60.0 
+            1.3 60.0 
+            1.33333 0.0 
+        endlist
+    endnode
+    node emitter OmenEmitter02
+        parent var_detplants
+        birthratekey
+            0.0 60.0 
+            1.3 60.0 
+            1.33333 0.0 
+        endlist
+    endnode
+doneanim cast01 var_detplants
+donemodel var_detplants

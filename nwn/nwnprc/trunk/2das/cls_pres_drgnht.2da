@@ -1,0 +1,22 @@
+2DA V2.0
+
+   LABEL     ReqType ReqParam1             ReqParam2 
+0  Lore      SKILL   7                     8         
+1  ScriptVar VAR     PRC_ArcSpell0         0         
+2  BardOr    VAR     PRC_PrereqDragonheart 0         
+3  BkHrtage  FEATOR  3872                  ****      
+4  BlHrtage  FEATOR  3873                  ****      
+5  GrHrtage  FEATOR  3874                  ****      
+6  RdHrtage  FEATOR  3875                  ****      
+7  WhHrtage  FEATOR  3876                  ****      
+8  AmHrtage  FEATOR  3877                  ****      
+9  CrHrtage  FEATOR  3878                  ****      
+10 EmHrtage  FEATOR  3879                  ****      
+11 SaHrtage  FEATOR  3880                  ****      
+12 TpHrtage  FEATOR  3881                  ****      
+13 BsHrtage  FEATOR  3882                  ****      
+14 BzHrtage  FEATOR  3883                  ****      
+15 CpHrtage  FEATOR  3884                  ****      
+16 GdHrtage  FEATOR  3885                  ****      
+17 SrHrtage  FEATOR  3886                  ****      
+18 ScriptVar VAR     PRC_AllowDragonheart  0         

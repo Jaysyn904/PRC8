@@ -1,0 +1,292 @@
+# Exported from NWmax 0.5-beta at 3/17/2004 10:39:34 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: var_wavexhaust
+filedependancy var_wavexhaust.gmax
+newmodel var_wavexhaust
+setsupermodel var_wavexhaust NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom var_wavexhaust
+node dummy var_wavexhaust
+  parent NULL
+endnode
+node emitter OmenEmitter08
+  parent var_wavexhaust
+  position -0.00116439 0.00587958 0.0
+  orientation -0.000411261 0.707106 0.707108 -3.14077
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 7
+     render Motion_Blur
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 100.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate 0.0
+     lifeExp 1.7
+     mass 0.0
+     spread 0.409
+     particleRot 0.0
+     velocity 10.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter OmenEmitter09
+  parent var_wavexhaust
+  position -0.00116439 0.00587958 0.0
+  orientation -0.0993034 0.703611 0.703613 -2.94363
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 7
+     render Motion_Blur
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 100.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate 0.0
+     lifeExp 1.7
+     mass 0.0
+     spread 0.409
+     particleRot 0.0
+     velocity 10.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter OmenEmitter10
+  parent var_wavexhaust
+  position -0.00116439 0.00587958 0.0
+  orientation 0.0922785 0.704089 0.704091 -3.32563
+  wirecolor 1.0 1.0 1.0 
+     update_sel 1
+     update Fountain
+     render_sel 7
+     render Motion_Blur
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 100.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.20944
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 0.0
+     alphaEnd 1.0
+     sizeStart 1.0
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 2.0
+     birthrate 0.0
+     lifeExp 1.7
+     mass 0.0
+     spread 0.409
+     particleRot 0.0
+     velocity 10.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom var_wavexhaust
+#NWmaxANIM ASCII
+newanim cast01 var_wavexhaust
+    length 2.0
+    transtime 0.25
+    animroot var_wavexhaust
+    node dummy var_wavexhaust
+        parent NULL
+    endnode
+    node emitter OmenEmitter08
+        parent var_wavexhaust
+        birthratekey
+            0.0 75.0 
+            0.166667 75.0 
+            0.333333 75.0 
+            0.5 75.0 
+            0.666667 75.0 
+            0.833333 75.0 
+            1.0 75.0 
+            1.16667 75.0 
+            1.33333 75.0 
+            1.5 75.0 
+            1.66667 75.0 
+            1.83333 75.0 
+            1.96667 75.0 
+            2.0 0.0 
+        endlist
+    endnode
+    node emitter OmenEmitter09
+        parent var_wavexhaust
+        birthratekey
+            0.0 75.0 
+            0.166667 75.0 
+            0.333333 75.0 
+            0.5 75.0 
+            0.666667 75.0 
+            0.833333 75.0 
+            1.0 75.0 
+            1.16667 75.0 
+            1.33333 75.0 
+            1.5 75.0 
+            1.66667 75.0 
+            1.83333 75.0 
+            1.96667 75.0 
+            2.0 0.0 
+        endlist
+    endnode
+    node emitter OmenEmitter10
+        parent var_wavexhaust
+        birthratekey
+            0.0 75.0 
+            0.166667 75.0 
+            0.333333 75.0 
+            0.5 75.0 
+            0.666667 75.0 
+            0.833333 75.0 
+            1.0 75.0 
+            1.16667 75.0 
+            1.33333 75.0 
+            1.5 75.0 
+            1.66667 75.0 
+            1.83333 75.0 
+            1.96667 75.0 
+            2.0 0.0 
+        endlist
+    endnode
+doneanim cast01 var_wavexhaust
+donemodel var_wavexhaust

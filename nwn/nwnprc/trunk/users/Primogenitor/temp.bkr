@@ -1,0 +1,147 @@
+Version 2.0
+	 file_start 	
+effect
+C:\NeverwinterNights\prc\prc\ (*.nss)
+1
+*.nss
+
+0
+C:\NeverwinterNights\prc\prc\
+1
+0
+C:\NeverwinterNights\prc\Copy of prc\
+1
+0
+backup
+0
+1
+C:\NeverwinterNights\prc\prc\
+1
+	 file_start 	
+includes
+C:\NeverwinterNights\prc\prc\scripts (*.nss)
+1
+*.nss
+
+0
+C:\NeverwinterNights\prc\prc\scripts
+1
+0
+C:\NeverwinterNights\prc\Copy of prc\scripts
+1
+0
+backup
+0
+1
+C:\NeverwinterNights\prc\prc\scripts
+1
+
+	 begin_group_backup 	
+	 group_start 	
+A Sample Replace Group
+Right-click me and choose "Advanced Edit"
+<--- That text will be replaced with this text
+These replacements all apply to "Sample Replace Group"...
+...and all the files associated with it
+For an example of a File Set, open "Sample.bkr"
+(choose Open from the File menu)
+
+
+	 group_start 	
+effect
+MagicalEffect
+PRCMagicalEffect
+SupernaturalEffect
+PRCSupernaturalEffect
+ExtraordinaryEffect
+PRCExtraordinaryEffect
+VersusAlignmentEffect
+PRCVersusAlignmentEffect
+VersusRacialTypeEffect
+PRCVersusRacialTypeEffect
+VersusTrapEffect
+PRCVersusTrapEffect
+{}p([^a-zA-Z])effect([^a-zA-Z])
+\1struct PRCeffect\2
+{}p([^a-zA-Z])Effect([a-zA-Z])
+\1PRCEffect\2
+GetFirstEffect
+PRCGetFirstEffect
+GetNextEffect
+PRCGetNextEffect
+RemoveEffect
+PRCRemoveEffect
+GetIsEffectValid
+PRCGetIsEffectValid
+SPApplyEffectToObject
+PRCApplyEffectToObject
+ ApplyEffectToObject
+PRCApplyEffectToObject
+ApplyEffectAtLocation
+PRCApplyEffectAtLocation
+GetEffectCreator
+PRCGetEffectCreator
+GetEffectSpellId
+PRCGetEffectSpellId
+GetEffectDurationType
+PRCGetEffectDurationType
+GetEffectSubType
+PRCGetEffectSubType
+GetEffectType
+PRCGetEffectType
+
+
+	 group_start 	
+includes
+#include "prc_inc_function"
+#include "prc_alterations"
+#include "inc_item_props"
+#include "prc_alterations"
+#include "x2_inc_itemprop"
+#include "prc_alterations"
+#include "X2_I0_SPELLS"
+#include "prc_alterations"
+#include "nw_i0_spells"
+#include "prc_alterations"
+#include "x0_i0_spells"
+#include "prc_alterations"
+#include "prc_inc_combat"
+#include "prc_alterations"
+#include "x2_i0_spells"
+#include "prc_alterations"
+#include "prc_inc_spells"
+#include "prc_alterations"
+#include "NW_I0_SPELLS"
+#include "prc_alterations"
+#include "X0_I0_SPELLS"
+#include "prc_alterations"
+#include "inc_item_props"
+#include "prc_alterations"
+#include "inc_utility"
+#include "prc_alterations"
+#include "inc_dynconv"
+#include "prc_alterations"
+#include "inc_utility"
+#include "prc_alterations"
+
+
+	 group_start 	
+PRCGetMetaMagicFeat()
+ GetMetaMagicFeat();
+ PRCGetMetaMagicFeat();
+=GetMetaMagicFeat();
+=PRCGetMetaMagicFeat();
+
+
+	 group_start 	
+Programming Replace Group
+
+
+	 group_start 	
+spell overrides
+GetSpellTargetLocation
+PRCGetSpellTargetLocation
+GetSpellTargetObject
+PRCGetSpellTargetObject
+
+

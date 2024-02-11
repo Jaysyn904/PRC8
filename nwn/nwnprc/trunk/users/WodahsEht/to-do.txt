@@ -1,0 +1,6 @@
++ Druid Spells (List forthcoming)
++ Fix that damn WF/IA bug
++ Make Duelist's Precise Strike an OnHit property
++ War Weaver
++ Duskblade
++ Knight of the Weave (looks a lot like the Weaveguard but it's WotC so I can hardly resist)

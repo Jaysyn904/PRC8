@@ -1,0 +1,11 @@
+2DA V2.0
+
+           FeatLabel                   FeatIndex List GrantedOnLevel OnMenu 
+0          **Class_Feats**             ****      **** ****           ****   
+1          ExploitVestige              9259      3    2              1      
+2          Blooded                     379       3    3              ****   
+3          VestigeMetamagic            9260      3    5              1      
+4          VestigeCasting              9261      3    10             1      
+5          FEAT_ANIMA_INVOKING_WARLOCK 18002     2    1              0      
+6          FEAT_ANIMA_INVOKING_DFA     18017     2    1              0      
+7          FEAT_ANIMA_NONE             18038     2    1              0      

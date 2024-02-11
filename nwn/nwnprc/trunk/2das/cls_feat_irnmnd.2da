@@ -1,0 +1,20 @@
+2DA V2.0
+
+           FeatLabel                       FeatIndex List GrantedOnLevel OnMenu 
+0          ArmouredMind1                   3644      3    1              1      
+1          ArmouredMind2                   3645      3    4              1      
+2          ArmouredMind3                   3646      3    7              1      
+3          ArmouredMind4                   3647      3    10             1      
+4          MindOverBody1                   3648      3    3              1      
+5          MindOverBody2                   3649      3    6              1      
+6          MindOverBody3                   3659      3    9              1      
+7          LendResolve                     3660      3    8              1      
+8          DamageReduction                 3661      3    2              0      
+9          MettleOfWill                    3662      3    5              0      
+10         BarbedMind                      3663      3    10             0      
+11         FEAT_IRONMIND_MANIFEST_FOZ      18132     2    1              0      
+12         FEAT_IRONMIND_MANIFEST_PSION    18139     2    1              0      
+13         FEAT_IRONMIND_MANIFEST_PSYROUGE 18147     2    1              0      
+14         FEAT_IRONMIND_MANIFEST_PSYWAR   18154     2    1              0      
+15         FEAT_IRONMIND_MANIFEST_WARMIND  18161     2    1              0      
+16         FEAT_IRONMIND_MANIFEST_WILDER   18168     2    1              0      

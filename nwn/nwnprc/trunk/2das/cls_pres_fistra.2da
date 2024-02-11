@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1         ReqParam2 
+0 Base_Attack BAB     6                 ****      
+1 Persuade	   SKILL   12                5         
+2 Lore        SKILL   7                 5         
+3 PowerAtk    FEAT    28                ****      
+4 ScriptVar   VAR     PRC_DivSpell1     0         
+5 ScriptVar   VAR     PRC_PrereqFistRaz 0         
+6 SvntHeavans FEAT    3355              ****      
+7 ScriptVar   VAR     PRC_AllowFistRaz  0         

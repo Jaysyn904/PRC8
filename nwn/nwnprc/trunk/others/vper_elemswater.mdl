@@ -1,0 +1,946 @@
+# Exported from NWmax 0.5-beta at 3/13/2004 7:03:31 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vper_elemswater
+filedependancy vdr_pfe_acid.gmax
+newmodel vper_elemswater
+setsupermodel vper_elemswater NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vper_elemswater
+node dummy vper_elemswater
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vper_elemswater
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.580392 0.694118 0.101961 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698132
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 1.0 0.964706 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vper_elemswater
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -3.15032
+  wirecolor 0.898039 0.603922 0.843137 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy02
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 -1.0 -6.21337
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 0.964706 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy03
+  parent vper_elemswater
+  position 0.00434754 3.79671e-005 0.0
+  orientation 0.0 0.0 -1.0 -3.15032
+  wirecolor 0.580392 0.694118 0.101961 
+endnode
+node emitter AuroraEmitter03
+  parent Dummy03
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 -1.0 -6.21337
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 1.0 0.964706 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy04
+  parent vper_elemswater
+  position 0.00434754 3.79671e-005 0.0
+  orientation 0.0 0.0 1.0 -6.26573
+  wirecolor 0.898039 0.603922 0.843137 
+endnode
+node emitter AuroraEmitter04
+  parent Dummy04
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698155
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 0.964706 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy05
+  parent vper_elemswater
+  position 1.93888e-007 -1.55444e-007 0.0
+  orientation 0.0 0.0 -1.0 -1.54462
+  wirecolor 0.580392 0.694118 0.101961 
+endnode
+node emitter AuroraEmitter05
+  parent Dummy05
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698132
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 1.0 0.964706 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy06
+  parent vper_elemswater
+  position 1.93888e-007 -1.55444e-007 0.0
+  orientation 0.0 0.0 -1.0 -4.69494
+  wirecolor 0.898039 0.603922 0.843137 
+endnode
+node emitter AuroraEmitter06
+  parent Dummy06
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698155
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 0.964706 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy07
+  parent vper_elemswater
+  position 7.60445e-005 0.00434689 0.0
+  orientation 0.0 0.0 -1.0 -4.69494
+  wirecolor 0.580392 0.694118 0.101961 
+endnode
+node emitter AuroraEmitter07
+  parent Dummy07
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698132
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 1.0 0.964706 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy08
+  parent vper_elemswater
+  position 7.60445e-005 0.00434689 0.0
+  orientation 0.0 0.0 1.0 -4.72111
+  wirecolor 0.898039 0.603922 0.843137 
+endnode
+node emitter AuroraEmitter08
+  parent Dummy08
+  position 0.0 0.996348 0.0519654
+  orientation 0.0 0.0 1.0 -0.0698153
+  wirecolor 0.101961 0.694118 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 0.964706 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.14
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 3.0
+     mass -0.1
+     spread 360.0
+     particleRot 1.0
+     velocity 0.0
+     randvel 0.2
+     bounce_co 0.1
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_sphere
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vper_elemswater
+#NWmaxANIM ASCII
+newanim impact vper_elemswater
+    length 1.33333
+    transtime 0.25
+    animroot vper_elemswater
+    node dummy vper_elemswater
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vper_elemswater
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.14159
+            1.0 0.0 0.0 -1.0 -4.70366
+            1.33333 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        orientationkey
+            1.33333 0.00186995 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy02
+        parent vper_elemswater
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.15032
+            0.333333 0.0 0.0 -1.0 -1.57952
+            0.666667 0.0 0.0 1.0 -0.00788218
+            1.0 0.0 0.0 1.0 -1.56703
+            1.33333 0.0 0.0 1.0 -3.14284
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+        orientationkey
+            1.33333 -0.00186995 0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy03
+        parent vper_elemswater
+        positionkey
+            0.0 0.00434754 3.79671e-005 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.15032
+            0.333333 0.0 0.0 -1.0 -4.72112
+            0.666667 0.0 0.0 1.0 -6.27446
+            1.0 0.0 0.0 1.0 -4.71239
+            1.33333 0.0 0.0 1.0 -3.13287
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+        orientationkey
+            1.33333 -0.00186995 0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy04
+        parent vper_elemswater
+        positionkey
+            0.0 0.00434754 3.79671e-005 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -6.26573
+            0.333333 0.0 0.0 -1.0 -4.72984
+            0.666667 0.0 0.0 -1.0 -3.14244
+            1.0 0.0 0.0 -1.0 -1.58329
+            1.33333 0.0 0.0 -1.0 -0.00747919
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+        orientationkey
+            1.33333 0.00186995 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy05
+        parent vper_elemswater
+        positionkey
+            0.0 1.93888e-007 -1.55444e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.54462
+            0.333333 0.0 0.0 -1.0 -3.11542
+            0.666667 0.0 0.0 -1.0 -4.68621
+            1.0 0.0 0.0 -1.0 -6.24828
+            1.33333 0.0 0.0 1.0 -4.73857
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent Dummy05
+        orientationkey
+            1.33333 0.00186994 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy06
+        parent vper_elemswater
+        positionkey
+            0.0 1.93888e-007 -1.55444e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.69494
+            0.333333 0.0 0.0 -1.0 -3.12414
+            0.666667 0.0 0.0 -1.0 -1.53673
+            1.0 0.0 0.0 1.0 -0.0224135
+            1.33333 0.0 0.0 1.0 -1.59822
+        endlist
+    endnode
+    node emitter AuroraEmitter06
+        parent Dummy06
+        orientationkey
+            1.33333 0.00186996 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy07
+        parent vper_elemswater
+        positionkey
+            0.0 7.60445e-005 0.00434689 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.69494
+            0.333333 0.0 0.0 -1.0 -6.26574
+            0.666667 0.0 0.0 1.0 -4.72984
+            1.0 0.0 0.0 1.0 -3.16777
+            1.33333 0.0 0.0 1.0 -1.58825
+        endlist
+    endnode
+    node emitter AuroraEmitter07
+        parent Dummy07
+        orientationkey
+            1.33333 0.00186994 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy08
+        parent vper_elemswater
+        positionkey
+            0.0 7.60445e-005 0.00434689 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -4.72111
+            0.333333 0.0 0.0 -1.0 -6.27446
+            0.666667 0.0 0.0 -1.0 -4.68705
+            1.0 0.0 0.0 -1.0 -3.12791
+            1.33333 0.0 0.0 -1.0 -1.5521
+        endlist
+    endnode
+    node emitter AuroraEmitter08
+        parent Dummy08
+        orientationkey
+            1.33333 0.00186991 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+doneanim impact vper_elemswater
+#NWmaxANIM ASCII
+newanim duration vper_elemswater
+    length 1.33333
+    transtime 0.25
+    animroot vper_elemswater
+    node dummy vper_elemswater
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vper_elemswater
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.14159
+            1.0 0.0 0.0 -1.0 -4.70366
+            1.33333 0.0 0.0 0.0 -6.28319
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        orientationkey
+            1.33333 0.00186995 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy02
+        parent vper_elemswater
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.15032
+            0.333333 0.0 0.0 -1.0 -1.57952
+            0.666667 0.0 0.0 1.0 -0.00788218
+            1.0 0.0 0.0 1.0 -1.56703
+            1.33333 0.0 0.0 1.0 -3.14284
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy02
+        orientationkey
+            1.33333 -0.00186995 0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy03
+        parent vper_elemswater
+        positionkey
+            0.0 0.00434754 3.79671e-005 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.15032
+            0.333333 0.0 0.0 -1.0 -4.72112
+            0.666667 0.0 0.0 1.0 -6.27446
+            1.0 0.0 0.0 1.0 -4.71239
+            1.33333 0.0 0.0 1.0 -3.13287
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy03
+        orientationkey
+            1.33333 -0.00186995 0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy04
+        parent vper_elemswater
+        positionkey
+            0.0 0.00434754 3.79671e-005 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -6.26573
+            0.333333 0.0 0.0 -1.0 -4.72984
+            0.666667 0.0 0.0 -1.0 -3.14244
+            1.0 0.0 0.0 -1.0 -1.58329
+            1.33333 0.0 0.0 -1.0 -0.00747919
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy04
+        orientationkey
+            1.33333 0.00186995 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy05
+        parent vper_elemswater
+        positionkey
+            0.0 1.93888e-007 -1.55444e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -1.54462
+            0.333333 0.0 0.0 -1.0 -3.11542
+            0.666667 0.0 0.0 -1.0 -4.68621
+            1.0 0.0 0.0 -1.0 -6.24828
+            1.33333 0.0 0.0 1.0 -4.73857
+        endlist
+    endnode
+    node emitter AuroraEmitter05
+        parent Dummy05
+        orientationkey
+            1.33333 0.00186994 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy06
+        parent vper_elemswater
+        positionkey
+            0.0 1.93888e-007 -1.55444e-007 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.69494
+            0.333333 0.0 0.0 -1.0 -3.12414
+            0.666667 0.0 0.0 -1.0 -1.53673
+            1.0 0.0 0.0 1.0 -0.0224135
+            1.33333 0.0 0.0 1.0 -1.59822
+        endlist
+    endnode
+    node emitter AuroraEmitter06
+        parent Dummy06
+        orientationkey
+            1.33333 0.00186996 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+    node dummy Dummy07
+        parent vper_elemswater
+        positionkey
+            0.0 7.60445e-005 0.00434689 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -4.69494
+            0.333333 0.0 0.0 -1.0 -6.26574
+            0.666667 0.0 0.0 1.0 -4.72984
+            1.0 0.0 0.0 1.0 -3.16777
+            1.33333 0.0 0.0 1.0 -1.58825
+        endlist
+    endnode
+    node emitter AuroraEmitter07
+        parent Dummy07
+        orientationkey
+            1.33333 0.00186994 -0.999998 0.0 -3.14159
+        endlist
+    endnode
+    node dummy Dummy08
+        parent vper_elemswater
+        positionkey
+            0.0 7.60445e-005 0.00434689 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 1.0 -4.72111
+            0.333333 0.0 0.0 -1.0 -6.27446
+            0.666667 0.0 0.0 -1.0 -4.68705
+            1.0 0.0 0.0 -1.0 -3.12791
+            1.33333 0.0 0.0 -1.0 -1.5521
+        endlist
+    endnode
+    node emitter AuroraEmitter08
+        parent Dummy08
+        orientationkey
+            1.33333 0.00186991 -0.999998 0.0 -3.1416
+        endlist
+    endnode
+doneanim duration vper_elemswater
+donemodel vper_elemswater

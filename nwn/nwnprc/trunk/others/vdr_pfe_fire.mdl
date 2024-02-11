@@ -1,0 +1,443 @@
+# Exported from NWmax 0.5-beta at 3/5/2004 2:30:35 AM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_pfe_fire
+filedependancy vdr_pfe_fire.gmax
+newmodel vdr_pfe_fire
+setsupermodel vdr_pfe_fire NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_pfe_fire
+node dummy vdr_pfe_fire
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vdr_pfe_fire
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.882353 0.345098 0.780392 
+endnode
+node emitter Flames1
+  parent Dummy01
+  position 0.0 0.743228 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.431373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 1.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.3
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.2
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Flames02
+  parent Dummy01
+  position 0.0 0.743228 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.431373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.752941 0.0 
+     colorEnd 1.0 0.729412 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.01
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.2
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vdr_pfe_fire
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.882353 0.345098 0.780392 
+endnode
+node emitter Flames03
+  parent Dummy02
+  position 0.0 0.743228 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.431373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.752941 0.0 
+     colorEnd 1.0 0.729412 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.2
+     sizeEnd 0.01
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.2
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter Flames04
+  parent Dummy02
+  position 0.0 0.743228 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.431373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 0.0
+     ySize 0.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 1.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.3
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.0
+     mass 0.0
+     spread 0.0
+     particleRot 0.2
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_smoke01
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_pfe_fire
+#NWmaxANIM ASCII
+newanim impact vdr_pfe_fire
+    length 1.16667
+    transtime 0.25
+    animroot vdr_pfe_fire
+    node dummy vdr_pfe_fire
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vdr_pfe_fire
+    endnode
+    node emitter Flames1
+        parent Dummy01
+    endnode
+    node emitter Flames02
+        parent Dummy01
+    endnode
+    node dummy Dummy02
+        parent vdr_pfe_fire
+    endnode
+    node emitter Flames03
+        parent Dummy02
+    endnode
+    node emitter Flames04
+        parent Dummy02
+    endnode
+doneanim impact vdr_pfe_fire
+#NWmaxANIM ASCII
+newanim duration vdr_pfe_fire
+    length 1.33333
+    transtime 0.25
+    animroot vdr_pfe_fire
+    node dummy vdr_pfe_fire
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vdr_pfe_fire
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 1.0 -1.56207
+            0.333333 0.0 0.0 1.0 -3.14159
+            0.5 0.0 0.0 1.0 -4.72112
+            0.666667 0.0 0.0 0.0 -6.28319
+            0.833333 0.0 0.0 -1.0 -4.72984
+            1.0 0.0 0.0 -1.0 -3.12414
+            1.16667 0.0 0.0 -1.0 -1.56207
+            1.33333 0.0 0.0 1.0 -3.9312e-007
+        endlist
+    endnode
+    node emitter Flames1
+        parent Dummy01
+        positionkey
+            0.0 0.0 0.743228 -0.308253
+            0.166667 0.0 0.743228 0.295933
+            0.333333 0.0 0.743228 -0.299175
+            0.5 0.0 0.743228 0.308534
+            0.666667 0.0 0.743228 -0.30006
+            0.833333 0.0 0.743228 0.310464
+            1.0 0.0 0.743228 -0.304097
+            1.16667 0.0 0.743228 0.300899
+            1.33333 0.0 0.743228 -0.302973
+        endlist
+    endnode
+    node emitter Flames02
+        parent Dummy01
+        positionkey
+            0.0 0.0 0.743228 -0.308253
+            0.166667 0.0 0.743228 0.295933
+            0.333333 0.0 0.743228 -0.299175
+            0.5 0.0 0.743228 0.308534
+            0.666667 0.0 0.743228 -0.30006
+            0.833333 0.0 0.743228 0.310464
+            1.0 0.0 0.743228 -0.304097
+            1.16667 0.0 0.743228 0.300899
+            1.33333 0.0 0.743228 -0.302973
+        endlist
+        colorStartkey
+            0.0 1.0 0.752941 0.0 
+        endlist
+        colorEndkey
+            0.0 1.0 0.729412 0.0 
+        endlist
+        sizeStartkey
+            0.0 0.2 
+        endlist
+        sizeEndkey
+            0.0 0.01 
+        endlist
+    endnode
+    node dummy Dummy02
+        parent vdr_pfe_fire
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -1.57165
+            0.333333 0.0 0.0 1.0 -0.00799343
+            0.5 0.0 0.0 1.0 -1.5775
+            0.666667 0.0 0.0 1.0 -3.14164
+            0.833333 0.0 0.0 1.0 -4.70619
+            1.0 0.0 0.0 1.0 -6.27238
+            1.16667 0.0 0.0 -1.0 -4.72229
+            1.33333 0.0 0.0 1.0 -3.1381
+        endlist
+    endnode
+    node emitter Flames03
+        parent Dummy02
+        positionkey
+            0.0 0.0 0.743228 0.302294
+            0.166667 0.0 0.743228 -0.39644
+            0.333333 0.0 0.743228 0.309537
+            0.5 0.0 0.743228 -0.303944
+            0.666667 0.0 0.743228 0.293553
+            0.833333 0.0 0.743228 -0.313673
+            1.0 0.0 0.743228 0.297076
+            1.16667 0.0 0.743228 -0.329196
+            1.33333 0.0 0.743228 0.293451
+        endlist
+    endnode
+    node emitter Flames04
+        parent Dummy02
+        positionkey
+            0.0 0.0 0.743228 0.302294
+            0.166667 0.0 0.743228 -0.39644
+            0.333333 0.0 0.743228 0.309537
+            0.5 0.0 0.743228 -0.303944
+            0.666667 0.0 0.743228 0.293553
+            0.833333 0.0 0.743228 -0.313673
+            1.0 0.0 0.743228 0.297076
+            1.16667 0.0 0.743228 -0.329196
+            1.33333 0.0 0.743228 0.293451
+        endlist
+    endnode
+doneanim duration vdr_pfe_fire
+donemodel vdr_pfe_fire

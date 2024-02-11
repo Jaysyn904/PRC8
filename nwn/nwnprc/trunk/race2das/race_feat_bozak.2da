@@ -1,0 +1,23 @@
+2DA V2.0
+
+   FeatLabel                    FeatIndex 
+0  darkvision                   228       
+1  Race_Dragon                  4773      
+2  Natural_Armor_8              4765      
+3  ImmuneDisease                4785      
+4  FEAT_DRAGON_IMMUNE_PARALYSIS 963       
+5  Immunity_sleep               235       
+6  Spell_resistance_14          4705      
+7  Shield                       32        
+8  ArmProfLight                 3         
+9  WeapProfSimple               46        
+10 WeapProfSim_Dart             7914      
+11 WeapProfSim_Light_Mace       7908      
+12 WeapProfSim_Morningstar      7923      
+13 WeapProfSim_Shortspear       7927      
+14 WeapProfSim_Sickle           7929      
+15 WeapProfSim_Sling            7930      
+16 WeapProfLongsword            7902      
+17 WeapProfShortsword           7901      
+18 WeapProfLongbow              7907      
+19 WeapProfCreature             289       

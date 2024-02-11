@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL        ReqType ReqParam1        ReqParam2 
+0 ScriptVar    VAR     PRC_DivSpell3    0         
+1 GreatFort    FEAT    14               ****      
+2 WeapFocSpear FEAT    97               ****      
+3 ScriptVar    VAR     PRC_PrereqStormL 0         
+4 ScriptVar    VAR     PRC_AllowStormL  0         

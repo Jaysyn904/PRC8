@@ -1,0 +1,73 @@
+2DA V2.0
+
+   Label          Name               ResRef           BaseItem AC   
+0  shortsword     "Short Sword"      nw_wswss001      0        **** 
+1  longsword      "Long Sword"       nw_wswls001      1        **** 
+2  battleaxe      Battleaxe          nw_waxbt001      2        **** 
+3  bastardsword   "Bastard Sword"    nw_wswbs001      3        **** 
+4  lightflail     "Light Flail"      nw_wblfl001      4        **** 
+5  warhammer      Warhammer          nw_wblhw001      5        **** 
+6  heavycrossbow  "Heavy Crossbow"   nw_wbwxh001      6        **** 
+7  lightcrossbow  "Light Crossbow"   nw_wbwxl001      7        **** 
+8  longbow        Longbow            nw_wbwln001      8        **** 
+9  lightmace      "Light Mace"       nw_wblml001      9        **** 
+10 halberd        Halberd            nw_wplhb001      10       **** 
+11 shortbow       "Short Bow"        nw_wbwsh001      11       **** 
+12 twobladedsword "Two-bladed Sword" nw_wdbsw001      12       **** 
+13 greatsword     "Great Sword"      nw_wswgs001      13       **** 
+14 smallshield    "Small Shield"     nw_ashsw001      14       **** 
+15 torch          Torch              nw_it_torch001   15       **** 
+16 helmet         Helmet             nw_arhe004       17       **** 
+17 greataxe       "Great Axe"        nw_waxgr001      18       **** 
+18 amulet         Amulet             rig_amulet       19       **** 
+19 arrow          Arrow              nw_wamar001      20       **** 
+20 belt           Belt               rig_belt         21       **** 
+21 dagger         Dagger             nw_wswdg001      22       **** 
+22 bolt           Bolt               nw_wambo001      25       **** 
+23 boots          Boots              rig_boots        26       **** 
+24 bullet         Bullet             nw_wambu001      27       **** 
+25 club           Club               nw_wblcl001      28       **** 
+26 dart           Dart               nw_wthdt001      31       **** 
+27 diremace       "Dire Mace"        nw_wdbma001      32       **** 
+28 doubleaxe      "Double Axe"       nw_wdbax001      33       **** 
+29 heavyflail     "Heavy Flail"      nw_wblfh001      35       **** 
+30 gloves         Gloves             rig_gloves       36       **** 
+31 lighthammer    "Light Hammer"     nw_wblhl001      37       **** 
+32 handaxe        "Hand Axe"         nw_waxhn001      38       **** 
+33 kama           Kama               nw_wspka001      40       **** 
+34 katana         Katana             nw_wswka001      41       **** 
+35 kukri          Kukri              nw_wspku001      42       **** 
+36 magicrod       Rod                rig_rod          44       **** 
+37 magicstaff     Staff              rig_staff        45       **** 
+38 magicwand      Wand               rig_wand         46       **** 
+39 morningstar    Morningstar        nw_wblms001      47       **** 
+40 potions        Potion             rig_potion       49       **** 
+41 quarterstaff   Quaterstaff        nw_wdbqs001      50       **** 
+42 rapier         Rapier             nw_wswrp001      51       **** 
+43 ring           Ring               rig_ring         52       **** 
+44 scimitar       Scimitar           nw_wswsc001      53       **** 
+45 scythe         Scythe             nw_wplsc001      55       **** 
+46 largeshield    "Large Shield"     nw_ashlw001      56       **** 
+47 towershield    "Tower Shield"     nw_ashto001      57       **** 
+48 shortspear     "Short Spear"      nw_wplss001      58       **** 
+49 shuriken       Shuriken           nw_wthsh001      59       **** 
+50 sickle         Sickle             nw_wspsc001      60       **** 
+51 sling          Sling              nw_wbwsl001      61       **** 
+52 throwingaxe    "Throwing Axe"     nw_wthax001      63       **** 
+53 largebox       "Large Box"        nw_it_contain001 66       **** 
+54 book           Book               rig_book         74       **** 
+55 spellscroll    Scroll             rig_scroll       75       **** 
+56 gem            Gem                rig_gem          77       **** 
+57 bracer         Bracer             rig_bracer       78       **** 
+58 cloak          Cloak              rig_cloak        80       **** 
+59 dwarvenwaraxe  "Dwarven Waraxe"   x2_wdwraxe001    108      **** 
+60 Whip           Whip               x2_it_wpwhip     111      **** 
+61 Robes          Robe               rig_robe         16       0    
+62 LightArmor     "Light Armor"      nw_aarcl009      16       1    
+63 LightArmor     "Light Armor"      nw_aarcl001      16       2    
+64 LightArmor     "Light Armor"      nw_aarcl002      16       3    
+65 MediumArmor    "Medium Armor"     nw_aarcl012      16       4    
+66 MediumArmor    "Medium Armor"     nw_aarcl010      16       5    
+67 HeavyArmor     "Heavy Armor"      nw_aarcl011      16       6    
+68 HeavyArmor     "Heavy Armor"      nw_aarcl006      16       7    
+69 HeavyArmor     "Heavy Armor"      nw_aarcl007      16       8    

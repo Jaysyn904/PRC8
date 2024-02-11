@@ -1,0 +1,369 @@
+# Exported from NWmax 0.7 at 6/20/2004 11:48:17 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: vdr_trel_aura
+filedependancy Trel_Spinning_Aura2.gmax
+newmodel vdr_trel_aura
+setsupermodel vdr_trel_aura NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom vdr_trel_aura
+node dummy vdr_trel_aura
+  parent NULL
+endnode
+node dummy Dummy03
+  parent vdr_trel_aura
+  position 0.0 0.0 1.04509
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.341176 
+endnode
+node dummy Dummy02
+  parent Dummy03
+  position 0.0 0.0 -0.00524429
+  orientation 0.0 -1.0 0.0 -0.418879
+  wirecolor 0.694118 0.580392 0.101961 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy02
+  position -1.36596 -0.00170687 0.0
+  orientation 0.0 0.0 1.0 -3.62561e-007
+  wirecolor 0.329412 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 1
+  xSize 100.0
+  ySize 100.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 0.788235 0.184314 0.0 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.4
+  sizeEnd 0.1
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 80
+  lifeExp 3.5
+  mass 0.2
+  spread 360.0
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.1
+  drag 0.0
+endnode
+node emitter AuroraEmitter03
+  parent Dummy02
+  position 1.31785 -0.00170687 0.0
+  orientation -1.0 -1.9679e-007 0.0 -3.14159
+  wirecolor 0.329412 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 1
+  xSize 100.0
+  ySize 100.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 0.0 0.537255 0.0705882 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.4
+  sizeEnd 0.1
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 80
+  lifeExp 3.5
+  mass 0.2
+  spread 360.0
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.1
+  drag 0.0
+endnode
+node dummy Dummy01
+  parent Dummy03
+  position 0.0 0.0 -0.00524429
+  orientation 0.00436242 -0.999789 0.0200918 -0.427693
+  wirecolor 0.603922 0.603922 0.898039 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy01
+  position 1.31602 0.0118351 0.0
+  orientation 0.00134787 0.999602 -0.0281873 0.0
+  wirecolor 0.329412 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 1
+  xSize 100.0
+  ySize 100.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 0.478431 0.145098 0.466667 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.4
+  sizeEnd 0.1
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 80
+  lifeExp 3.5
+  mass 0.2
+  spread 360.0
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.1
+  drag 0.0
+endnode
+node emitter AuroraEmitter04
+  parent Dummy01
+  position -1.36089 -0.0115258 0.0
+  orientation -0.999962 -0.00872653 0.0 -3.13287
+  wirecolor 0.329412 0.109804 0.694118 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 1
+  xSize 100.0
+  ySize 100.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.0
+  colorStart 0.0 0.564706 1.0 
+  colorEnd 0.0 0.0 0.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.4
+  sizeEnd 0.1
+  sizeStart_y 0.2
+  sizeEnd_y 0.2
+  birthrate 80
+  lifeExp 3.5
+  mass 0.2
+  spread 360.0
+  particleRot 0.0
+  velocity 0.3
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 0.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.1
+  drag 0.0
+endnode
+endmodelgeom vdr_trel_aura
+#NWmax ANIM ASCII
+newanim duration vdr_trel_aura
+  length 1.46667
+  transtime 0.25
+  animroot vdr_trel_aura
+    node dummy vdr_trel_aura
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0
+            1.46667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.33333 0.0 0.0 0.0 0.0
+            1.46667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy03
+        parent vdr_trel_aura
+        positionkey
+            0.0 0.0 0.0 1.04509
+            1.33333 0.0 0.0 1.04509
+            1.46667 0.0 0.0 1.04509
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.666667 0.0 1.0 0.0 -0.872665
+            1.33333 0.0 1.0 0.0 -0.0436332
+            1.46667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy02
+        parent Dummy03
+        orientationkey
+            0.0 0.00194599 -0.999956 0.00915506 -0.418897
+            0.366667 0.203254 -0.210477 0.956236 -1.58063
+            0.733333 0.207911 -0.00272143 0.978144 -3.11598
+            1.1 0.203704 0.200179 0.958349 -4.65243
+            1.33333 0.0130623 0.998024 0.0614534 -5.8635
+            1.46667 0.0130623 0.998024 0.0614534 -5.8635
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy02
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy02
+    endnode
+    node dummy Dummy01
+        parent Dummy03
+        orientationkey
+            0.0 0.0 -1.0 -1.8236e-007 -0.427606
+            0.366667 -0.207234 -0.214598 -0.954464 -1.58249
+            0.733333 -0.212177 -0.00277782 -0.977227 -3.11601
+            1.1 -0.207634 0.20583 -0.956306 -4.65901
+            1.33333 -0.00436184 0.999789 -0.0200889 -5.85549
+            1.46667 -0.00436184 0.999789 -0.0200889 -5.85549
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy01
+    endnode
+doneanim duration vdr_trel_aura
+donemodel vdr_trel_aura

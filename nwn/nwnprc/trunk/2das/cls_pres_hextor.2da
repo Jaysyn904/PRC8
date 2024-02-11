@@ -1,0 +1,29 @@
+2DA V2.0
+
+   LABEL       ReqType ReqParam1       ReqParam2 
+0  Base_Attack BAB     5               ****      
+1  Cleave      FEAT    6               ****      
+2  PowerAtk    FEAT    28              ****      
+3  WeapProfMar FEATOR  45              ****      
+4  ProfSswrd   FEATOR  7901            ****      
+5  ProfLngswrd FEATOR  7902            ****      
+6  ProfBttlaxe FEATOR  7903            ****      
+7  ProfLtFlail FEATOR  7905            ****      
+8  ProfWarhmmr FEATOR  7906            ****      
+9  ProfLongbow FEATOR  7907            ****      
+10 ProfHalberd FEATOR  7909            ****      
+11 ProfShrtbow FEATOR  7910            ****      
+12 ProfGrtswrd FEATOR  7912            ****      
+13 ProfGrtaxe  FEATOR  7913            ****      
+14 ProfHvyFlal FEATOR  7917            ****      
+15 ProfLtHmmr  FEATOR  7918            ****      
+16 ProfHandaxe FEATOR  7919            ****      
+17 ProfRapier  FEATOR  7924            ****      
+18 ProfScimtar FEATOR  7925            ****      
+19 ProfThrwAxe FEATOR  7931            ****      
+20 ProfTrident FEATOR  7932            ****      
+21 Spot        SKILL   17              4         
+22 Intimidate  SKILL   24              4         
+23 ScriptVar   VAR     PRC_AllowHextor 0         
+24 Lore        SKILL   7               4         
+25 ScriptVar   VAR     PRC_ExAlignTN   0         

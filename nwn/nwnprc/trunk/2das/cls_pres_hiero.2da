@@ -1,0 +1,16 @@
+2DA V2.0
+
+   LABEL       ReqType ReqParam1      ReqParam2 
+0  MMEmpower   FEATOR  11             ****      
+1  MMExtend    FEATOR  12             ****      
+2  MMMaximize  FEATOR  25             ****      
+3  MMQuicken   FEATOR  29             ****      
+4  MMSilent    FEATOR  33             ****      
+5  MMStill     FEATOR  37             ****      
+6  SudEmpower  FEATOR  2830           ****      
+7  SudExtend   FEATOR  2831           ****      
+8  SudMaximize FEATOR  2833           ****      
+9  SudWiden    FEATOR  2833           ****      
+10 SkillLore   SKILL   7              15        
+11 ScriptVar   VAR     PRC_DivSpell7  0         
+12 ScriptVar   VAR     PRC_AllowHiero 0         

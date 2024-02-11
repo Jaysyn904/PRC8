@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1           ReqParam2 
+0 Base_Attack BAB     5                   ****      
+1 Tumble      SKILL   21                  5         
+2 ImpStrike   FEAT    21                  ****      
+3 ScriptVar   VAR     PRC_AllowReapMauler 0         

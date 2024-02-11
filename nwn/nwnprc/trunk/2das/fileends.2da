@@ -1,0 +1,24 @@
+2DA V2.0
+
+   Label         RowLimit 
+0  classes       255      
+1  racialtypes   255      
+2  gender        2        
+3  portraits     1100     
+4  skills        50       
+5  cls_feat_*    600      
+6  cls_skill_*   50       
+7  cls_psipw_*   180      
+8  feat          24800    
+9  cls_pres_*    25       
+10 hen_familiar  20       
+11 hen_companion 30       
+12 domains       70       
+13 soundset      450      
+14 spells        19400    
+15 appearance    500      
+16 wingmodel     10       
+17 tailmodel     10       
+18 race_feat_*   30       
+19 ireq_*        50       
+20 item_to_ireq  700      

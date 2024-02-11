@@ -1,0 +1,26 @@
+2DA V2.0
+
+   Label                Level SpellID 
+0  BeguilingInfluence   1     18001   
+1  BreathOfTheNight     1     18002   
+2  Darkness             1     18003   
+3  DeafeningRoar        1     18004   
+4  DraconicKnowledge    1     18005   
+5  EndureExposure       1     18006   
+6  MagicInsight         1     18007   
+7  ScaldingGust         1     18008   
+8  SeetheUnseen         1     18009   
+9  Charm                2     18010   
+10 EnergyResistance     2     18011   
+11 FrightfulPresence    2     18017   
+12 HumanoidShape        2     18018   
+13 Voidsense            2     18024   
+14 VoraciousDispelling  2     18025   
+15 WalkUnseen           2     18026   
+16 AuraOfFlame          3     18027   
+17 ChillingFog          3     18028   
+18 DevourMagic          3     18029   
+19 DraconicToughness    3     18030   
+20 TerrifyingRoar       3     18031   
+21 EnergyImmunity       4     18032   
+22 InstillVulnerability 4     18038   

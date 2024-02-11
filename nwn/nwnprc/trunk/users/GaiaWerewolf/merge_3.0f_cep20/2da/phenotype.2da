@@ -1,0 +1,44 @@
+2DA V2.0
+
+  Label    Name     
+0 Normal   2223     
+1 Skinny   ****     
+2 Large    2225     
+3 NULL     ****     
+4 NULL2    ****     
+5 Kensai   16777217 
+6 Assassin 16777218 
+7 Heavy    16777219 
+8 Fencing  16777220 
+9         BIO             ****         ****                 
+10        W_Horse         16815210     17                   
+11        Bl_Horse        16815211     17                   
+12        Nightmare       16815212     17                   
+13        Aurenthil       16815213     17                   
+14        Br_Pony         16815214     17                   
+15        Lt_Pony         16815215     17                   
+16        Flying          16815205     0                    
+17        Br_Horse        16815207     0                    
+18        S_Pony          16815208     17                   
+19        USER            ****         ****                 
+20        USER            ****         ****                 
+21        USER            ****         ****                 
+22        USER            ****         ****                 
+23        USER            ****         ****                 
+24        USER            ****         ****                 
+25        L_FLYING        16815225     2                    
+26        CEP             ****         ****                 
+27        L_BrHorse       16815227     2                    
+28        L_SPony         16815228     27                   
+29        CEP             ****         ****                 
+30        L_WHorse        16815230     27                   
+31        L_BlHorse       16815231     27                   
+32        L_Nightmare     16815232     27                   
+33        L_Aurenthil     16815233     27                   
+34        L_BrPony        16815234     27                   
+35        L_LtPony        16815235     27                   
+36        CEP             ****         ****                 
+37        CEP             ****         ****                 
+38        CEP             ****         ****                 
+39        CEP             ****         ****                 
+40        CEP             ****         ****    

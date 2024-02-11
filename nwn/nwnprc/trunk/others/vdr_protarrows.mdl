@@ -1,0 +1,1303 @@
+# Exported from NWmax 0.5-beta at 2/10/2004 8:33:16 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_protarrows
+filedependancy Unknown
+newmodel vdr_protarrows
+setsupermodel vdr_protarrows NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_protarrows
+node dummy vdr_protarrows
+  parent NULL
+endnode
+node trimesh Cylinder01
+  parent vdr_protarrows
+  position 0.00872753 -0.000762333 0.0265062
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.54902 0.341176 0.882353 
+    tilefade 0
+    scale 1.0
+    render 1
+    Shadow 0
+    beaming 0
+    inheritcolor 0
+    selfillumcolor 0.0 0.0 0.0 
+    rotatetexture 0
+      alpha 0.75
+    transparencyhint 0
+    center 0.0 0.0 167.641 
+    gizmo SubAnim:Gizmo
+  ambient 0.972549 0.0313726 0.584314 
+  diffuse 0.988235 0.564706 0.815686 
+  specular 0.0 0.0 0.0 
+  shininess 102.0
+  selfillumcolor 0.0 0.0 0.0 
+    bitmap pink_water
+    verts 26
+     0.0 0.0 0.0
+     1.19198 0.0 0.0
+     1.03228 0.595988 0.0
+     0.595988 1.03228 0.0
+     0.0 1.19198 0.0
+     -0.595988 1.03228 0.0
+     -1.03228 0.595988 0.0
+     -1.19198 0.0 0.0
+     -1.03228 -0.595988 0.0
+     -0.595988 -1.03228 0.0
+     1.56309e-007 -1.19198 0.0
+     0.595988 -1.03228 0.0
+     1.03228 -0.595988 0.0
+     1.19198 0.0 3.35282
+     1.03228 0.595988 3.35282
+     0.595988 1.03228 3.35282
+     0.0 1.19198 3.35282
+     -0.595988 1.03228 3.35282
+     -1.03228 0.595988 3.35282
+     -1.19198 0.0 3.35282
+     -1.03228 -0.595988 3.35282
+     -0.595988 -1.03228 3.35282
+     1.56309e-007 -1.19198 3.35282
+     0.595988 -1.03228 3.35282
+     1.03228 -0.595988 3.35282
+     0.0 0.0 3.35282
+    faces 48
+     0 2 1  1  26 27 28  2
+     0 3 2  1  29 30 31  2
+     0 4 3  1  32 33 34  2
+     0 5 4  1  35 36 37  2
+     0 6 5  1  38 39 40  2
+     0 7 6  1  41 42 43  2
+     0 8 7  1  44 45 46  2
+     0 9 8  1  47 48 49  2
+     0 10 9  1  50 51 52  2
+     0 11 10  1  53 54 55  2
+     0 12 11  1  56 57 58  2
+     0 1 12  1  0 59 60  2
+     1 14 13  8  61 62 63  3
+     1 2 14  8  64 65 66  3
+     2 15 14  8  67 68 69  3
+     2 3 15  8  2 70 71  3
+     3 16 15  8  72 73 74  3
+     3 4 16  8  3 75 76  3
+     4 17 16  8  77 78 79  3
+     4 5 17  8  4 80 81  3
+     5 18 17  8  82 83 84  3
+     5 6 18  8  5 85 86  3
+     6 19 18  8  87 88 89  3
+     6 7 19  8  6 90 91  3
+     7 20 19  8  92 93 94  3
+     7 8 20  8  7 95 96  3
+     8 21 20  8  97 98 99  3
+     8 9 21  8  8 100 101  3
+     9 22 21  8  102 103 104  3
+     9 10 22  8  9 105 106  3
+     10 23 22  8  107 108 109  3
+     10 11 23  8  10 110 111  3
+     11 24 23  8  112 113 114  3
+     11 12 24  8  11 115 116  3
+     12 13 24  8  117 118 119  3
+     12 1 13  8  12 1 120  3
+     25 13 14  1  121 122 123  1
+     25 14 15  1  124 14 125  1
+     25 15 16  1  126 15 127  1
+     25 16 17  1  128 16 129  1
+     25 17 18  1  130 17 131  1
+     25 18 19  1  132 18 133  1
+     25 19 20  1  134 19 135  1
+     25 20 21  1  136 20 137  1
+     25 21 22  1  138 21 139  1
+     25 22 23  1  140 22 141  1
+     25 23 24  1  142 23 143  1
+     25 24 13  1  25 24 13  1
+    tverts 144
+     0.5 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959882 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959882 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959881 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.095988 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     1.09599 1.53228 0
+     0.5 1.69198 0
+     -0.0959878 1.53228 0
+     -0.532281 1.09599 0
+     -0.691976 0.5 0
+     -0.532282 -0.0959878 0
+     -0.0959881 -0.532281 0
+     0.5 -0.691976 0
+     1.09599 -0.532282 0
+     1.53228 -0.095988 0
+     0.5 0.5 0
+     0.5 0.5 0
+     -0.532282 1.09599 0
+     -0.691976 0.5 0
+     0.5 0.5 0
+     -0.0959882 1.53228 0
+     -0.532282 1.09599 0
+     0.5 0.5 0
+     0.5 1.69198 0
+     -0.0959882 1.53228 0
+     0.5 0.5 0
+     1.09599 1.53228 0
+     0.5 1.69198 0
+     0.5 0.5 0
+     1.53228 1.09599 0
+     1.09599 1.53228 0
+     0.5 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     0.5 0.5 0
+     1.53228 -0.0959878 0
+     1.69198 0.5 0
+     0.5 0.5 0
+     1.09599 -0.532281 0
+     1.53228 -0.0959878 0
+     0.5 0.5 0
+     0.5 -0.691976 0
+     1.09599 -0.532281 0
+     0.5 0.5 0
+     -0.0959879 -0.532282 0
+     0.5 -0.691976 0
+     0.5 0.5 0
+     -0.532281 -0.095988 0
+     -0.0959879 -0.532282 0
+     -0.691976 0.5 0
+     -0.532281 -0.095988 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959882 0.5 0
+     0.5 4.30304 0
+     -0.0959882 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959882 0.5 0
+     0.5 4.30304 0
+     -0.0959882 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959881 0.5 0
+     0.5 4.30304 0
+     -0.0959881 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.095988 0.5 0
+     0.5 4.30304 0
+     -0.095988 4.30304 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     0.5 0.5 0
+     1.09599 1.53228 0
+     0.5 0.5 0
+     0.5 1.69198 0
+     0.5 0.5 0
+     -0.0959878 1.53228 0
+     0.5 0.5 0
+     -0.532281 1.09599 0
+     0.5 0.5 0
+     -0.691976 0.5 0
+     0.5 0.5 0
+     -0.532282 -0.0959878 0
+     0.5 0.5 0
+     -0.0959881 -0.532281 0
+     0.5 0.5 0
+     0.5 -0.691976 0
+     0.5 0.5 0
+     1.09599 -0.532282 0
+     0.5 0.5 0
+     1.53228 -0.095988 0
+endnode
+node light AuroraLight01
+  parent vdr_protarrows
+  position 0.0305378 0.018449 6.43942
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.341176 
+  radius 1.0
+  multiplier 1.0
+  color 1.0 0.505882 0.760784 
+  ambientonly 1
+  nDynamicType 0
+  affectDynamic 0
+  shadow 0
+  lightpriority 1
+  fadingLight 0
+endnode
+node light AuroraLight02
+  parent vdr_protarrows
+  position -4.01114 0.018449 2.91542
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.341176 
+  radius 1.0
+  multiplier 1.0
+  color 1.0 0.505882 0.760784 
+  ambientonly 1
+  nDynamicType 0
+  affectDynamic 0
+  shadow 0
+  lightpriority 1
+  fadingLight 0
+endnode
+node light AuroraLight03
+  parent vdr_protarrows
+  position -0.00772827 4.26425 2.91542
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.341176 
+  radius 1.0
+  multiplier 1.0
+  color 1.0 0.505882 0.760784 
+  ambientonly 1
+  nDynamicType 0
+  affectDynamic 0
+  shadow 0
+  lightpriority 1
+  fadingLight 0
+endnode
+node light AuroraLight04
+  parent vdr_protarrows
+  position 4.09075 0.0128284 2.91542
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.341176 
+  radius 1.0
+  multiplier 1.0
+  color 1.0 0.505882 0.760784 
+  ambientonly 1
+  nDynamicType 0
+  affectDynamic 0
+  shadow 0
+  lightpriority 1
+  fadingLight 0
+endnode
+node light AuroraLight05
+  parent vdr_protarrows
+  position 0.0150052 -4.34001 2.91542
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.101961 0.341176 
+  radius 1.0
+  multiplier 1.0
+  color 1.0 0.505882 0.760784 
+  ambientonly 1
+  nDynamicType 0
+  affectDynamic 0
+  shadow 0
+  lightpriority 1
+  fadingLight 0
+endnode
+node emitter AuroraEmitter01
+  parent vdr_protarrows
+  position 0.0 0.0 0.734959
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vdr_protarrows
+  position 0.0 0.0 1.17411
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter03
+  parent vdr_protarrows
+  position 0.0 0.0 0.040723
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent vdr_protarrows
+  position 0.0 0.0 0.479871
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter05
+  parent vdr_protarrows
+  position 0.0 0.0 2.21929
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter06
+  parent vdr_protarrows
+  position 0.0 0.0 2.65844
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter07
+  parent vdr_protarrows
+  position 0.0 0.0 1.52506
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter08
+  parent vdr_protarrows
+  position 0.0 0.0 1.96421
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.521569 0.231373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 55.0
+     ySize 55.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.454902 0.8 
+     colorEnd 1.0 0.282353 0.686275 
+     alphaStart 1.0
+     alphaEnd 0.5
+     sizeStart 0.1
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 30.0
+     lifeExp 3.0
+     mass 0.2
+     spread 360.0
+     particleRot 2.0
+     velocity 2.0
+     randvel 0.0
+     bounce_co 2.0
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_dot01
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node trimesh Cylinder02
+  parent vdr_protarrows
+  position 0.00872753 -0.000762333 0.0265062
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.54902 0.341176 0.882353 
+    tilefade 0
+    scale 1.0
+    render 1
+    Shadow 0
+    beaming 0
+    inheritcolor 0
+    selfillumcolor 0.0 0.0 0.0 
+    rotatetexture 0
+      alpha 0.75
+    transparencyhint 0
+    center 0.0 0.0 167.641 
+    gizmo SubAnim:Gizmo
+  ambient 0.972549 0.0313726 0.584314 
+  diffuse 0.988235 0.564706 0.815686 
+  specular 0.0 0.0 0.0 
+  shininess 102.0
+  selfillumcolor 0.0 0.0 0.0 
+    bitmap pink_water
+    verts 26
+     0.0 0.0 0.0328708
+     1.1686 0.0 0.0328708
+     1.01204 0.584302 0.0328708
+     0.584302 1.01204 0.0328708
+     0.0 1.1686 0.0328708
+     -0.584302 1.01204 0.0328708
+     -1.01204 0.584302 0.0328708
+     -1.1686 0.0 0.0328708
+     -1.01204 -0.584302 0.0328708
+     -0.584302 -1.01204 0.0328707
+     1.53746e-007 -1.1686 0.0328707
+     0.584302 -1.01204 0.0328707
+     1.01204 -0.584302 0.0328708
+     1.1686 0.0 3.31995
+     1.01204 0.584302 3.31995
+     0.584302 1.01204 3.31995
+     0.0 1.1686 3.31995
+     -0.584302 1.01204 3.31995
+     -1.01204 0.584302 3.31995
+     -1.1686 0.0 3.31995
+     -1.01204 -0.584302 3.31995
+     -0.584302 -1.01204 3.31995
+     1.53746e-007 -1.1686 3.31995
+     0.584302 -1.01204 3.31995
+     1.01204 -0.584302 3.31995
+     0.0 0.0 3.31995
+    faces 48
+     2 0 1  1  27 26 28  2
+     3 0 2  1  30 29 31  2
+     4 0 3  1  33 32 34  2
+     5 0 4  1  36 35 37  2
+     6 0 5  1  39 38 40  2
+     7 0 6  1  42 41 43  2
+     8 0 7  1  45 44 46  2
+     9 0 8  1  48 47 49  2
+     10 0 9  1  51 50 52  2
+     11 0 10  1  54 53 55  2
+     12 0 11  1  57 56 58  2
+     1 0 12  1  59 0 60  2
+     14 1 13  8  62 61 63  3
+     2 1 14  8  65 64 66  3
+     15 2 14  8  68 67 69  3
+     3 2 15  8  70 2 71  3
+     16 3 15  8  73 72 74  3
+     4 3 16  8  75 3 76  3
+     17 4 16  8  78 77 79  3
+     5 4 17  8  80 4 81  3
+     18 5 17  8  83 82 84  3
+     6 5 18  8  85 5 86  3
+     19 6 18  8  88 87 89  3
+     7 6 19  8  90 6 91  3
+     20 7 19  8  93 92 94  3
+     8 7 20  8  95 7 96  3
+     21 8 20  8  98 97 99  3
+     9 8 21  8  100 8 101  3
+     22 9 21  8  103 102 104  3
+     10 9 22  8  105 9 106  3
+     23 10 22  8  108 107 109  3
+     11 10 23  8  110 10 111  3
+     24 11 23  8  113 112 114  3
+     12 11 24  8  115 11 116  3
+     13 12 24  8  118 117 119  3
+     1 12 13  8  1 12 120  3
+     13 25 14  1  122 121 123  1
+     14 25 15  1  14 124 125  1
+     15 25 16  1  15 126 127  1
+     16 25 17  1  16 128 129  1
+     17 25 18  1  17 130 131  1
+     18 25 19  1  18 132 133  1
+     19 25 20  1  19 134 135  1
+     20 25 21  1  20 136 137  1
+     21 25 22  1  21 138 139  1
+     22 25 23  1  22 140 141  1
+     23 25 24  1  23 142 143  1
+     24 25 13  1  24 25 13  1
+    tverts 144
+     0.5 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959882 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959882 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.0959881 0.5 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     -0.095988 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     1.09599 1.53228 0
+     0.5 1.69198 0
+     -0.0959878 1.53228 0
+     -0.532281 1.09599 0
+     -0.691976 0.5 0
+     -0.532282 -0.0959878 0
+     -0.0959881 -0.532281 0
+     0.5 -0.691976 0
+     1.09599 -0.532282 0
+     1.53228 -0.095988 0
+     0.5 0.5 0
+     0.5 0.5 0
+     -0.532282 1.09599 0
+     -0.691976 0.5 0
+     0.5 0.5 0
+     -0.0959882 1.53228 0
+     -0.532282 1.09599 0
+     0.5 0.5 0
+     0.5 1.69198 0
+     -0.0959882 1.53228 0
+     0.5 0.5 0
+     1.09599 1.53228 0
+     0.5 1.69198 0
+     0.5 0.5 0
+     1.53228 1.09599 0
+     1.09599 1.53228 0
+     0.5 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     0.5 0.5 0
+     1.53228 -0.0959878 0
+     1.69198 0.5 0
+     0.5 0.5 0
+     1.09599 -0.532281 0
+     1.53228 -0.0959878 0
+     0.5 0.5 0
+     0.5 -0.691976 0
+     1.09599 -0.532281 0
+     0.5 0.5 0
+     -0.0959879 -0.532282 0
+     0.5 -0.691976 0
+     0.5 0.5 0
+     -0.532281 -0.095988 0
+     -0.0959879 -0.532282 0
+     -0.691976 0.5 0
+     -0.532281 -0.095988 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959882 0.5 0
+     0.5 4.30304 0
+     -0.0959882 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959882 0.5 0
+     0.5 4.30304 0
+     -0.0959882 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.0959881 0.5 0
+     0.5 4.30304 0
+     -0.0959881 4.30304 0
+     0.5 0.5 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.09599 4.30304 0
+     0.5 4.30304 0
+     1.09599 0.5 0
+     1.09599 4.30304 0
+     1.09599 0.5 0
+     1.53228 4.30304 0
+     1.09599 4.30304 0
+     1.53228 0.5 0
+     1.53228 4.30304 0
+     -0.095988 0.5 0
+     0.5 4.30304 0
+     -0.095988 4.30304 0
+     0.5 4.30304 0
+     0.5 0.5 0
+     1.69198 0.5 0
+     1.53228 1.09599 0
+     0.5 0.5 0
+     1.09599 1.53228 0
+     0.5 0.5 0
+     0.5 1.69198 0
+     0.5 0.5 0
+     -0.0959878 1.53228 0
+     0.5 0.5 0
+     -0.532281 1.09599 0
+     0.5 0.5 0
+     -0.691976 0.5 0
+     0.5 0.5 0
+     -0.532282 -0.0959878 0
+     0.5 0.5 0
+     -0.0959881 -0.532281 0
+     0.5 0.5 0
+     0.5 -0.691976 0
+     0.5 0.5 0
+     1.09599 -0.532282 0
+     0.5 0.5 0
+     1.53228 -0.095988 0
+endnode
+endmodelgeom vdr_protarrows
+#NWmaxANIM ASCII
+newanim impact vdr_protarrows
+    length 0.666667
+    transtime 0.25
+    animroot vdr_protarrows
+    node dummy vdr_protarrows
+        parent NULL
+    endnode
+    node trimesh Cylinder01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight02
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight03
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight04
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter02
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter03
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter04
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter06
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter07
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter08
+        parent vdr_protarrows
+    endnode
+    node trimesh Cylinder02
+        parent vdr_protarrows
+    endnode
+doneanim impact vdr_protarrows
+#NWmaxANIM ASCII
+newanim duration vdr_protarrows
+    length 0.0333333
+    transtime 0.25
+    animroot vdr_protarrows
+    node dummy vdr_protarrows
+        parent NULL
+    endnode
+    node trimesh Cylinder01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight02
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight03
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight04
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter02
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter03
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter04
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter06
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter07
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter08
+        parent vdr_protarrows
+    endnode
+    node trimesh Cylinder02
+        parent vdr_protarrows
+    endnode
+doneanim duration vdr_protarrows
+#NWmaxANIM ASCII
+newanim cessation vdr_protarrows
+    length 0.333333
+    transtime 0.25
+    animroot vdr_protarrows
+    node dummy vdr_protarrows
+        parent NULL
+    endnode
+    node trimesh Cylinder01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight01
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight02
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight03
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight04
+        parent vdr_protarrows
+    endnode
+    node light AuroraLight05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter01
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter02
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter03
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter04
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter05
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter06
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter07
+        parent vdr_protarrows
+    endnode
+    node emitter AuroraEmitter08
+        parent vdr_protarrows
+    endnode
+    node trimesh Cylinder02
+        parent vdr_protarrows
+    endnode
+doneanim cessation vdr_protarrows
+donemodel vdr_protarrows

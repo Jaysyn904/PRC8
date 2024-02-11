@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1         ReqParam2 
+0 ScriptVar   VAR     PRC_ArcSpell3     0         
+1 DisableTrap SKILL   2                 7         
+2 ScriptVar   VAR     PRC_AllowArcTrick 0         
+3 OpenLock    SKILL   9                 7         
+4 Lore        SKILL   7                 4         
+5 ScriptVar   VAR     PRC_SneakLevel2   0         

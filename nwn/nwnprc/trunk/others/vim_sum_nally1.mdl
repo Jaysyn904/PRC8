@@ -1,0 +1,454 @@
+# Exported from NWmax 0.5-beta at 3/8/2004 8:02:54 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_sum_nally1
+filedependancy vim_sum_nally1.gmax
+newmodel vim_sum_nally1
+setsupermodel vim_sum_nally1 NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_sum_nally1
+node dummy vim_sum_nally1
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vim_sum_nally1
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.341176 0.878431 0.341176 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.0 2.0 0.0
+  orientation 0.0 1.0 0.0 -1.58825
+  wirecolor 0.87451 0.556863 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 2.0
+     mass 0.4
+     spread 360.0
+     particleRot 2.0
+     velocity 0.1
+     randvel 0.3
+     bounce_co 0.2
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_leaf
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vim_sum_nally1
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 -1.0 -3.14159
+  wirecolor 0.552941 0.027451 0.227451 
+endnode
+node emitter AuroraEmitter03
+  parent Dummy02
+  position 0.0152882 2.05961 0.0
+  orientation 0.0 -1.0 0.0 -4.69494
+  wirecolor 0.87451 0.556863 0.337255 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 100.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.5
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 150.0
+     lifeExp 2.0
+     mass 0.4
+     spread 360.0
+     particleRot -2.0
+     velocity 0.1
+     randvel 0.3
+     bounce_co 0.2
+     blurlength 0.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_leaf
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter04
+  parent Dummy02
+  position 0.0 0.0 -1.75971
+  orientation 0.0 -1.0 0.0 -3.14159
+  wirecolor 0.521569 0.431373 0.0313726 
+     update_sel 1
+     update Fountain
+     render_sel 7
+     render Motion_Blur
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 500.0
+     ySize 500.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 1.0 0.0470588 
+     colorEnd 0.0 1.0 0.211765 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 0.01
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 50.0
+     lifeExp 5.0
+     mass -2.0
+     spread 0.0
+     particleRot 0.0
+     velocity 1.0
+     randvel 1.0
+     bounce_co 0.0
+     blurlength 30.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vim_sum_nally1
+  position 1.74846e-007 -1.35411e-007 3.09785
+  orientation 0.99999 0.0 -0.00436338 -3.14159
+  wirecolor 0.87451 0.556863 0.337255 
+     update_sel 3
+     update Explosion
+     render_sel 1
+     render Normal
+     blend_sel 1
+     Blend Normal
+     spawnType 0
+     iconSize 100.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 1.0 1.0 
+     colorEnd 1.0 1.0 1.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.4
+     sizeEnd 0.4
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 250.0
+     lifeExp 6.0
+     mass 0.4
+     spread 360.0
+     particleRot 2.0
+     velocity 3.0
+     randvel 0.3
+     bounce_co 2.0
+     blurlength 25.0
+     loop 0
+     bounce 1
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_leaf
+     twosidedtext 0
+     xgrid 4
+     ygrid 4
+     fps 10
+     frameStart 0
+     frameEnd 15
+     random 1
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_sum_nally1
+#NWmaxANIM ASCII
+newanim impact vim_sum_nally1
+    length 1.66667
+    transtime 0.25
+    animroot vim_sum_nally1
+    event 1.33333 detonate
+    event 1.33333 detonate
+    event 1.33333 detonate
+    node dummy vim_sum_nally1
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vim_sum_nally1
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 0.0
+            0.2 0.0 0.0 0.0
+            0.233333 0.0 0.0 0.0
+            1.33333 0.0 0.0 3.08697
+            1.66667 0.0 0.0 49.9489
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.0333333 0.0 0.0 -1.0 -1.53589
+            0.0666667 0.0 0.0 -1.0 -3.11541
+            0.1 0.0 0.0 -1.0 -4.69494
+            0.133333 0.0 0.0 0.0 -6.28319
+            0.166667 0.0 0.0 -1.0 -1.53589
+            0.2 0.0 0.0 -1.0 -3.11541
+            0.233333 0.0 0.0 -1.0 -4.69494
+            0.266667 0.0 0.0 0.0 -6.28319
+            0.3 0.0 0.0 1.0 -4.72984
+            0.333333 0.0 0.0 1.0 -3.13287
+            0.366667 0.0 0.0 1.0 -1.5708
+            0.4 0.0 0.0 0.0 0.0
+            0.433333 0.0 0.0 -1.0 -1.51844
+            0.466667 0.0 0.0 -1.0 -3.16777
+            0.5 0.0 0.0 -1.0 -4.70366
+            0.533333 0.0 0.0 1.0 -6.26573
+            0.566667 0.0 0.0 1.0 -4.7473
+            0.6 0.0 0.0 1.0 -3.15905
+            0.633333 0.0 0.0 1.0 -1.57952
+            0.666667 0.0 0.0 0.0 0.0
+            0.7 0.0 0.0 -1.0 -1.50971
+            0.733333 0.0 0.0 -1.0 -3.14159
+            0.766667 0.0 0.0 -1.0 -4.71239
+            0.8 0.0 0.0 1.0 -6.26573
+            0.833333 0.0 0.0 1.0 -4.72112
+            0.866667 0.0 0.0 1.0 -3.12414
+            0.9 0.0 0.0 1.0 -1.59698
+            0.933333 0.0 0.0 1.0 -0.00872636
+            0.966667 0.0 0.0 -1.0 -1.53589
+            1.0 0.0 0.0 -1.0 -3.16777
+            1.03333 0.0 0.0 -1.0 -4.67748
+            1.06667 0.0 0.0 1.0 -6.26573
+            1.1 0.0 0.0 1.0 -4.72984
+            1.13333 0.0 0.0 1.0 -3.13287
+            1.16667 0.0 0.0 1.0 -1.55334
+            1.2 0.0 0.0 1.0 -0.0174527
+            1.23333 0.0 0.0 -1.0 -1.52716
+            1.26667 0.0 0.0 -1.0 -3.15905
+            1.3 0.0 0.0 -1.0 -4.72112
+            1.33333 0.0 0.0 -1.0 -6.27446
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        positionkey
+            0.0 0.0 2.0 0.0
+            1.33333 0.0160927 0.155812 0.0
+        endlist
+        orientationkey
+            0.0 -0.700909 0.0 -0.71325 -3.14159
+        endlist
+    endnode
+    node dummy Dummy02
+        parent vim_sum_nally1
+        positionkey
+            0.0 0.0 0.0 0.0
+            0.166667 0.0 0.0 0.0
+            0.2 0.0 0.0 0.0
+            0.233333 0.0 0.0 0.0
+            1.33333 0.0 0.0 3.08697
+            1.66667 0.0 0.0 49.9489
+        endlist
+        orientationkey
+            0.0 0.0 0.0 -1.0 -3.14159
+            0.0333333 0.0 0.0 -1.0 -4.67748
+            0.0666667 0.0 0.0 -1.0 -6.25701
+            0.1 0.0 0.0 1.0 -4.72984
+            0.133333 0.0 0.0 1.0 -3.14159
+            0.166667 0.0 0.0 -1.0 -4.67748
+            0.2 0.0 0.0 -1.0 -6.25701
+            0.233333 0.0 0.0 1.0 -4.72984
+            0.266667 0.0 0.0 1.0 -3.14159
+            0.3 0.0 0.0 1.0 -1.58825
+            0.333333 0.0 0.0 -1.0 -0.00872678
+            0.366667 0.0 0.0 -1.0 -1.5708
+            0.4 0.0 0.0 -1.0 -3.14159
+            0.433333 0.0 0.0 -1.0 -4.66003
+            0.466667 0.0 0.0 1.0 -6.25701
+            0.5 0.0 0.0 1.0 -4.72112
+            0.533333 0.0 0.0 1.0 -3.12414
+            0.566667 0.0 0.0 1.0 -1.6057
+            0.6 0.0 0.0 1.0 -0.017453
+            0.633333 0.0 0.0 -1.0 -1.56207
+            0.666667 0.0 0.0 -1.0 -3.14159
+            0.7 0.0 0.0 -1.0 -4.6513
+            0.733333 0.0 0.0 0.0 -6.28319
+            0.766667 0.0 0.0 1.0 -4.71239
+            0.8 0.0 0.0 1.0 -3.12414
+            0.833333 0.0 0.0 1.0 -1.57952
+            0.866667 0.0 0.0 -1.0 -0.0174536
+            0.9 0.0 0.0 -1.0 -1.54462
+            0.933333 0.0 0.0 -1.0 -3.13287
+            0.966667 0.0 0.0 -1.0 -4.67748
+            1.0 0.0 0.0 1.0 -6.257
+            1.03333 0.0 0.0 1.0 -4.74729
+            1.06667 0.0 0.0 1.0 -3.12414
+            1.1 0.0 0.0 1.0 -1.58825
+            1.13333 0.0 0.0 -1.0 -0.00872728
+            1.16667 0.0 0.0 -1.0 -1.58825
+            1.2 0.0 0.0 -1.0 -3.12414
+            1.23333 0.0 0.0 -1.0 -4.66876
+            1.26667 0.0 0.0 1.0 -6.26573
+            1.3 0.0 0.0 1.0 -4.70366
+            1.33333 0.0 0.0 1.0 -3.15032
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent Dummy02
+        positionkey
+            0.0 0.0152882 2.05961 0.0
+            1.33333 0.0320569 0.13793 0.0
+        endlist
+        orientationkey
+            0.0 0.700909 0.0 0.71325 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent Dummy02
+    endnode
+    node emitter AuroraEmitter02
+        parent vim_sum_nally1
+    endnode
+doneanim impact vim_sum_nally1
+donemodel vim_sum_nally1

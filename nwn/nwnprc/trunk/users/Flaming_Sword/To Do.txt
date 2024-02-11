@@ -1,0 +1,28 @@
+Antimagic/Null Psionics Field
+
+Coding prestige class for lesserhellspawn
+
+Crafting tweaks for PWs - merge craft 2da entries into delimited string, use code for parsing
+
+Sohei resting TMI in PWs
+
+Epic progression for miniatures handbook classes http://www.wizards.com/default.asp?x=dnd/ei/20031206a
+
+Knight of the weave - champions of valour
+
+battlesmith - races of stone
+
+artificer
+
+shadow smith
+
+weapons of legacy
+
+tome of battle - weapons of legacy
+
+magic of incarnum
+
+http://www.wizards.com/default.asp?x=dnd/psm/20050830a
+http://www.wizards.com/default.asp?x=dnd/psm/20050930a
+http://www.wizards.com/default.asp?x=dnd/psm/20060217a
+

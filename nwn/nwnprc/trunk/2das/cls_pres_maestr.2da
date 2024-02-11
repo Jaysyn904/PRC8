@@ -1,0 +1,13 @@
+2DA V2.0
+
+   LABEL            ReqType ReqParam1         ReqParam2 
+0  ScriptVar        VAR     PRC_AllowMaester  0         
+1  ScriptVar        VAR     PRC_PrereqMaester 0         
+2  UseMagicDevice   SKILL   19                4         
+3  Gnome            RACE    2                 ****      
+4  TinkerGnome      RACE    46                ****      
+5  StonehunterGnome RACE    105               ****      
+6  Svirfneblin      RACE    174               ****      
+7  ForestGnome      RACE    175               ****      
+8  RockGnome        RACE    176               ****      
+9  WhisperGnome     RACE    179               ****      

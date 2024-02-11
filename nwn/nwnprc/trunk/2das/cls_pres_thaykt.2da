@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL           ReqType ReqParam1       ReqParam2 
+0 Intimidate      SKILL   24              2         
+1 Lore            SKILL   7               4         
+2 Base_Attack     BAB     5               ****      
+3 Human           RACE    6               ****      
+4 SilverbrowHuman RACE    110             ****      
+5 IronWill        FEAT    22              ****      
+6 WeapFocLSw      FEAT    106             ****      
+7 ScriptVar       VAR     PRC_AllowThayKt 0         

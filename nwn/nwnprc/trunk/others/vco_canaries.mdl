@@ -1,0 +1,87 @@
+# Exported from Gmax MDL Tool 0.3-beta at 11/15/2003 2:55:59 PM
+# mdl file
+#
+#GMAXMODEL ASCII
+# model: vco_canaries
+filedependancy Unknown
+newmodel vco_canaries
+setsupermodel vco_canaries NULL
+classification Effect
+#GMAXGEOM  ASCII
+beginmodelgeom vco_canaries
+node dummy vco_canaries
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vco_canaries
+  position -0.0122137 0.011715 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  scale 1.0
+  wirecolor 0.894118 0.721569 0.6 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 100.0
+     xSize 200.0
+     ySize 200.0
+     inherit 1
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.992157 0.905882 0.321569 
+     colorEnd 0.933333 0.996079 0.254902 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 1.0
+     sizeEnd 1.0
+     sizeStart_y 1.0
+     sizeEnd_y 1.0
+     birthrate 20.0
+     lifeExp 1.0
+     mass -1.0
+     spread 60.0
+     particleRot 0.0
+     velocity 0.7
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 1
+     Splat 0
+     affectedbyWind false
+     texture Birds
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 0
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vco_canaries
+donemodel vco_canaries

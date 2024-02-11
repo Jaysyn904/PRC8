@@ -1,0 +1,12 @@
+2DA V2.0
+
+  FeatLabel                FeatIndex List GrantedOnLevel OnMenu 
+0 Gather_Horde_I           4612      3    1              1      
+1 Gather_Horde_II          4613      3    3              0      
+2 Release_Horde            4611      3    1              1      
+3 Inspire_Courage          4609      3    2              1      
+4 Final_Rage               4610      3    5              1      
+5 FEAT_EPIC_BLINDING_SPEED 491       0    -1             1      
+6 DefArrow                 8         0    -1             0      
+7 TwoWeap                  41        0    -1             0      
+8 Ambidex                  1         0    -1             0      

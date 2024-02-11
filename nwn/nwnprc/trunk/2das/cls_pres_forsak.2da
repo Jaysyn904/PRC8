@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1         ReqParam2 
+0 LightngRef FEAT    24                ****      
+1 GreatFort  FEAT    14                ****      
+2 IronWill   FEAT    22                ****      
+3 ScriptVar  VAR     PRC_AllowForsaker 0         

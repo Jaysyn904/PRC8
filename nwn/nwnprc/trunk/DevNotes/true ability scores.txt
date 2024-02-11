@@ -1,0 +1,10 @@
+So you need the true, unmodified ability score of the PC?  Look no further than the PC's hide.
+
+Assuming the oHide is correctly defined:
+
+GetLocalInt(oHide, "PRC_trueSTR") -> Strength
+GetLocalInt(oHide, "PRC_trueDEX") -> Dexterity
+GetLocalInt(oHide, "PRC_trueCON") -> Constitution
+GetLocalInt(oHide, "PRC_trueINT") -> Intelligence
+GetLocalInt(oHide, "PRC_trueWIS") -> Wisdom
+GetLocalInt(oHide, "PRC_trueCHA") -> Charisma

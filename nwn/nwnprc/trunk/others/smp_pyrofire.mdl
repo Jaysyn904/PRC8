@@ -1,0 +1,452 @@
+# Exported from NWmax 0.7 at 6/10/2004 10:26:09 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smp_pyrofire
+filedependancy smp_pyrofirworks.gmax
+newmodel smp_pyrofire
+setsupermodel smp_pyrofire NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smp_pyrofire
+node dummy smp_pyrofire
+  parent NULL
+endnode
+node dummy Dummy01
+  parent smp_pyrofire
+  position 0.0 0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.223529 0.0313726 0.533333 
+endnode
+node emitter Sparks
+  parent Dummy01
+  position 0.0 -0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 25.0
+  ySize 25.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.564706 0.0 
+  colorEnd 1.0 0.917647 0.690196 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.3
+  sizeEnd 0.2
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 400
+  lifeExp 2.0
+  mass 0.6
+  spread 1.91986
+  particleRot 0.0
+  velocity 1.5
+  randvel 1.0
+  bounce_co 0.5
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter BOOM!
+  parent Dummy01
+  position 0.0 -0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.721569 0.607843 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.447059 0.0 
+  colorEnd 1.0 0.447059 0.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.25
+  sizeEnd 0.05
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 2000
+  lifeExp 2.0
+  mass 0.2
+  spread 6.28319
+  particleRot 5.0
+  velocity 10.0
+  randvel 7.0
+  bounce_co 1.0
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_dot01
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter Bomb
+  parent Dummy01
+  position 0.0 -0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.878431 0.341176 0.560784 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 50.0
+  ySize 50.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 0.721569 0.360784 
+  colorEnd 1.0 0.866667 0.513726 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.2
+  sizeEnd 0.2
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 70
+  lifeExp 1.78571
+  mass 0.514286
+  spread 2.54319
+  particleRot 0.0
+  velocity 1.28571
+  randvel 0.0
+  bounce_co 0.5
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 1
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 1
+  p2p_type Gravity
+  p2p_sel 2
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 10.0
+  drag 0.6
+endnode
+node reference AuroraRef01
+  parent Bomb
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 -3.14159
+  wirecolor 0.721569 0.894118 0.6 
+  refModel fx_ref
+  reattachable 1
+  Dummy Dummy
+endnode
+node light AuroraDLight01
+  parent Dummy01
+  position 0.0 -0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.894118 0.721569 0.6 
+  radius 36.576
+  multiplier 3.0
+  color 0.0 0.0 0.0 
+  ambientonly 1
+  nDynamicType 1
+  affectDynamic 1
+  shadow 1
+  lightpriority 1
+  fadingLight 1
+endnode
+node emitter BOOM!2
+  parent Dummy01
+  position 0.0 -0.393701 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.721569 0.607843 0.898039 
+  update_sel 3
+  update Explosion
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.20944
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 0.5
+  sizeEnd 0.1
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 200
+  lifeExp 2.0
+  mass 0.2
+  spread 6.28319
+  particleRot 5.0
+  velocity 6.0
+  randvel 6.0
+  bounce_co 1.0
+  blurlength 10.0
+  loop 0
+  bounce 1
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare1
+  twosidedtex 0
+  xgrid 2
+  ygrid 2
+  fps 10
+  frameStart 0
+  frameEnd 3
+  random 1
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smp_pyrofire
+#NWmax ANIM ASCII
+newanim impact smp_pyrofire
+  length 9.66667
+  transtime 0.25
+  animroot smp_pyrofire
+  event 1.96667 detonate
+    node dummy smp_pyrofire
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            9.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            9.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy Dummy01
+        parent smp_pyrofire
+        positionkey
+            0.0 0.0 0.393701 0.0
+            0.833333 -1.31784e-007 3.40857 9.27112
+            2.0 -3.82084e-007 9.13476 15.6458
+            9.66667 -3.82084e-007 9.13476 15.6458
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            2.0 1.0 0.0 0.0 -1.36136
+            9.66667 1.0 0.0 0.0 -1.36136
+        endlist
+    endnode
+    node emitter Sparks
+        parent Dummy01
+        positionkey
+            0.0 0.0 -0.393701 0.0
+            9.66667 0.0 -0.393701 -2.9034e-007
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            9.66667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 400 
+            1.5 200 
+            1.96667 50 
+            2.0 0 
+        endlist
+    endnode
+    node emitter BOOM!
+        parent Dummy01
+        positionkey
+            0.0 0.0 -0.393701 0.0
+            9.66667 0.0 -0.393701 -2.9034e-007
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            9.66667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 2000 
+        endlist
+        sizeStartkey
+            0.0 0.25 
+        endlist
+        sizeEndkey
+            0.0 0.05 
+        endlist
+    endnode
+    node emitter Bomb
+        parent Dummy01
+        positionkey
+            0.0 0.0 -0.393701 0.0
+            9.66667 0.0 -0.393701 -2.9034e-007
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            9.66667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 70 
+            0.966667 70 
+            1.66667 70 
+            1.93333 70 
+            1.96667 -80 
+        endlist
+        lifeExpkey
+            2.0 0.5 
+        endlist
+        masskey
+            2.0 0.0 
+        endlist
+        spreadkey
+            2.0 360.0 
+        endlist
+        velocitykey
+            2.0 0.0 
+        endlist
+    endnode
+    node reference AuroraRef01
+        parent Bomb
+    endnode
+    node light AuroraDLight01
+        parent Dummy01
+        positionkey
+            0.0 0.0 -0.393701 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+        endlist
+        colorkey
+            1.96667 0.0 0.0 0.0 
+            2.0 1.0 1.0 1.0 
+            3.33333 1.0 1.0 1.0 
+            4.0 0.0 0.0 0.0 
+            9.66667 0.0 0.0 0.0 
+        endlist
+    endnode
+    node emitter BOOM!2
+        parent Dummy01
+        positionkey
+            0.0 0.0 -0.393701 0.0
+            9.66667 0.0 -0.393701 -2.9034e-007
+        endlist
+        orientationkey
+            0.0 -1.0 0.0 0.0 -3.14159
+            9.66667 -1.0 0.0 0.0 -3.14159
+        endlist
+        birthratekey
+            0.0 200 
+        endlist
+        sizeStartkey
+            0.0 0.5 
+        endlist
+        sizeEndkey
+            0.0 0.1 
+        endlist
+    endnode
+doneanim impact smp_pyrofire
+donemodel smp_pyrofire

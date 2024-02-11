@@ -1,0 +1,66 @@
+2008-08-04
+==========
+- prc's PDK constant changed to CLASS_TYPE_PRC_PDK
+- references all changed to use it
+- skills.2da fully updated to 1.69 (ride is at 27, iaijutsu focus at 33)
+- inc_letocommands: SetDescription() changed to LetoSetDescription()
+- iaijitsu focus, ride updated in cls_skill*** (phantom's stuff)
+- balance and sense motive added to cls_skill*** from wojtekpod's list plus fox's post
+- classes corrected to use the cls_skill_sol 2da for soldier of light
+- added script diffs to user directory
+- updated scripts: nw_c2_default7, nw_s0_healcirc, nw_s0_naturebal, nw_s0_negburst, 
+  nw_s2_elemshape, nw_s2_wildshape, x0_s0_gustwind, x0_s0_udetfoe, x2_s2_cursesong, x2_s2_wildshape
+- updated includes: x0_i0_spells, x2_i0_spells, x2_inc_spellhook
+
+NOTE: X3ShapeShiftSpell() in x2_inc_spellhook needs other things adding to the 2da it references, plus 2da -> cache?
+      nw_s2_elemshape, nw_s2_wildshape, x2_s2_wildshape won't compile with the horse stuff
+
+
+2008-08-06
+==========
+
+- PRCHorseGetIsMounted() added to duplicate HorseGetIsMounted() without including x3_inc_horse 
+  because of circular includes
+- mount checks added to shifter includes and polymorph spells that use ShifterCheck() 
+
+NOTE: hostile poly spells dont seem to use ShifterCheck(), might need to do something with those
+
+2008-08-07
+==========
+
+- feat.2da done
+
+2008-08-08
+==========
+
+- iprp_feat.2da done, (des_craft_spells.2da, des_craft_scrolls done via scroll maker)
+- baseitems.2da, cls_pres_wm.2da, visualeffects.2da, vfx_persistent.2da, polymorph.2da done
+- phenotype.2da has acpv4 phenos in
+- removed acp feat descriptions from tlk, added new acp pheno descriptions
+
+2008-08-09
+==========
+
+- added player tools and horse menu feat to all base classes 2da and run update_all_base_classes_feats.bat
+- added the weapon feats for tridents to the bio classes' cls_feat*** 2das (prc classes still to do)
+- run the resaver on all cls_feat*** 2das
+
+2008-08-11
+==========
+- added weapon feats for trident to PRC classes' cls_feat*** 2das (cls_feat_samur.2da, cls_feat_aber.2da, cls_feat_antipl.2da,
+  cls_feat_brage.2da, cls_feat_brawl.2da, cls_feat_chaban.2da, cls_feat_coc.2da, cls_feat_corup.2da, cls_feat_crea.2da,
+  cls_feat_wilder.2da, cls_feat_warmnd.2da, cls_feat_warchf.2da, cls_feat_vigil.2da, cls_feat_vassal.2da, cls_feat_urang.2da,
+  cls_feat_thaykt.2da, cls_feat_tempst.2da, cls_feat_cwsm.2da, cls_feat_swash.2da, cls_feat_dradev.2da, cls_feat_drag.2da,
+  cls_feat_drgshm.2da, cls_feat_drslyr.2da, cls_feat_duskbl.2da, cls_feat_eldkni.2da, cls_feat_favsol.2da,
+  cls_feat_fistra.2da, cls_feat_gian.2da, cls_feat_hextor.2da, cls_feat_hosp.2da, cls_feat_iaij.2da, cls_feat_kotmc.2da,
+  cls_feat_lgdr.2da, cls_feat_manat.2da, cls_feat_marsh.2da, cls_feat_mharp.2da, cls_feat_outs.2da, cls_feat_psion.2da,
+  cls_feat_psywar.2da, cls_feat_pyro.2da, cls_feat_rava.2da, cls_feat_sbheir.2da, cls_feat_scout.2da, cls_feat_shaman.2da,
+  cls_feat_shou.2da, cls_feat_sohei.2da, cls_feat_sol.2da, cls_feat_soulkn.2da, cls_feat_spells.2da)
+
+NOTE: Fist of Raziel needs sanctify martial strike: trident feat
+
+2008-08-12
+==========
+
+- added trident feats to cls_pres_*** that needed them (trident is martial as of 1.69)
+- iprp_spells.2da updated

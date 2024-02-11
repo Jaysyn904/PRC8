@@ -1,0 +1,30 @@
+2DA V2.0
+
+   Label                                   Level FeatID IPFeatID SpellID RealSpellID ReqFeat 
+0  ****                                    ****  ****   ****     ****    ****        ****    
+1  JusticeOfWealdAnd_Camoflage             1     13027  8027     7746    421         ****    
+2  JusticeOfWealdAnd_Endure_Elements       1     13028  8028     7747    50          ****    
+3  JusticeOfWealdAnd_Faerie_Fire           1     13029  8029     7748    2924        ****    
+4  JusticeOfWealdAnd_HideFromAnimals       1     13030  8030     7749    3395        ****    
+5  JusticeOfWealdAnd_Spell_Jump            1     13031  8031     7750    2070        ****    
+6  JusticeOfWealdAnd_Longstrider           1     13032  8032     7751    3396        ****    
+7  JusticeOfWealdAnd_Obscuring_Mist        1     13033  8033     7752    3085        ****    
+8  JusticeOfWealdAnd_Barkskin              2     13034  8034     7753    3           ****    
+9  JusticeOfWealdAnd_BrilliantEnergyArrows 2     13035  8035     7754    3394        ****    
+10 JusticeOfWealdAnd_Cats_Grace            2     13036  8036     7755    13          ****    
+11 JusticeOfWealdAnd_FogCloud              2     13037  8037     7756    1998        ****    
+12 JusticeOfWealdAnd_Snare                 2     13038  8038     7757    3711        ****    
+13 JusticeOfWealdAnd_SpellslayerArrow      2     13039  8039     7758    3712        ****    
+14 JusticeOfWealdAnd_Treeshape             2     13040  8040     7759    3398        ****    
+15 JusticeOfWealdAnd_ArrowSplit            3     13041  8041     7760    3703        ****    
+16 JusticeOfWealdAnd_DarkflameArrow        3     13042  8042     7761    3708        ****    
+17 JusticeOfWealdAnd_Ultravision           3     13043  8043     7762    365         ****    
+18 JusticeOfWealdAnd_SerpentArrows         3     13044  8044     7763    3397        ****    
+19 JusticeOfWealdAnd_Spike_Growth          3     13045  8045     7764    454         ****    
+20 JusticeOfWealdAnd_WaterBreathing        3     13046  8046     7765    3399        ****    
+21 JusticeOfWealdAnd_BloodfreezeArrow      4     13047  8047     7766    3704        ****    
+22 JusticeOfWealdAnd_DoublestrikeArrow     4     13048  8048     7767    3706        ****    
+23 JusticeOfWealdAnd_Freedom_of_Movement   4     13049  8049     7768    62          ****    
+24 JusticeOfWealdAnd_Poison                4     13050  8050     7769    129         ****    
+25 JusticeOfWealdAnd_Scrying               4     13051  8051     7770    3219        ****    
+26 JusticeOfWealdAnd_ShadowArrow           4     13052  8052     7771    3710        ****    

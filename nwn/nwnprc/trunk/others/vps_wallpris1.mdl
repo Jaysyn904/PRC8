@@ -1,0 +1,157 @@
+#MAXMODEL ASCII
+# model: vps_wallpris1
+filedependancy vps_wallpris1.max
+newmodel vps_wallpris1
+setsupermodel vps_wallpris1 NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vps_wallpris1
+node dummy vps_wallpris1
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring10
+  parent vps_wallpris1
+  #part-number 2
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 1 0 0.5
+  colorEnd 0.5 0.2 0.2
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.5
+  sizeEnd 0.05 
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 200
+  lifeExp 5
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 20
+  randvel 0
+  fps 16
+  xsize 100
+  ysize 100
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vps_wallpris1
+
+#MAXANIM ASCII
+newanim impact vps_wallpris1
+  length 0.300000012
+  transtime 0
+  animroot vps_wallpris1
+node dummy vps_wallpris1
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring10
+  parent vps_wallpris1
+  #part-number 2
+  birthratekey 2
+    0 10
+    0.300000012 10
+endnode
+doneanim impact vps_wallpris1
+
+#MAXANIM ASCII
+newanim duration vps_wallpris1
+  length 2
+  transtime 0
+  animroot vps_wallpris1
+node dummy vps_wallpris1
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring10
+  parent vps_wallpris1
+  #part-number 2
+  birthratekey 2
+    0 10
+    2 10
+endnode
+doneanim duration vps_wallpris1
+
+#MAXANIM ASCII
+newanim cessation vps_wallpris1
+  length 2
+  transtime 0
+  animroot vps_wallpris1
+node dummy vps_wallpris1
+  parent NULL
+  #part-number 0
+endnode
+node emitter Ring10
+  parent vps_wallpris1
+  #part-number 2
+  birthratekey 2
+    0 10
+    0.166666999 0
+  colorStartkey 7
+    0.0 1 0 0
+    0.11 1 0.5 0
+    0.22 1 1 0
+    0.33 0 1 0
+    0.44 0 1 0.5
+    0.55 0 0 1
+    0.66 1 0 1
+  colorEndkey 7
+    0.0 1 0.5 0
+    0.11 1 1 0
+    0.22 0 1 0
+    0.33 0 1 0.5
+    0.44 0 0 1
+    0.55 1 0 1
+    0.66 1 0 0
+  alphaStartkey 4
+    0.0 0
+    0.05 1
+    0.55 1
+    0.66 0 
+  alphaEndkey 4
+    0.0 1
+    0.05 1
+    0.55 0
+    0.66 0 
+endnode
+doneanim cessation vps_wallpris1
+
+donemodel vps_wallpris1

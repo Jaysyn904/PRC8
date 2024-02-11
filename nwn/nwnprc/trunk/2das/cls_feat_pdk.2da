@@ -1,0 +1,14 @@
+2DA V2.0
+
+   FeatLabel                FeatIndex List GrantedOnLevel OnMenu 
+0  FEAT_PDK_RALLY           4275      3    1              1      
+1  FEAT_PDK_SHIELD          1081      3    1              1      
+2  FEAT_PDK_FEAR            4277      3    3              1      
+3  FEAT_PDK_WRATH           4278      3    4              1      
+4  FEAT_PDK_STAND           4279      3    5              1      
+5  FEAT_PDK_INSPIRE_1       4280      3    2              1      
+6  FEAT_PDK_INSPIRE_2       4281      3    4              1      
+7  FEAT_EPIC_BLINDING_SPEED 491       0    -1             1      
+8  DefArrow                 8         0    -1             0      
+9  TwoWeap                  41        0    -1             0      
+10 Ambidex                  1         0    -1             0      

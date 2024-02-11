@@ -1,0 +1,7 @@
+2DA V2.0
+
+  LABEL      ReqType ReqParam1          ReqParam2 
+0 ScriptVar  VAR     PRC_AllowSkullClan 0         
+1 TurnUndead FEAT    294                ****      
+2 Lore       SKILL   7                  8         
+3 ScriptVar  VAR     PRC_SneakLevel2    0         

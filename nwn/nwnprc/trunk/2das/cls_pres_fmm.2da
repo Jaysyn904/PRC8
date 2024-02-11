@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1     ReqParam2 
+0 ScriptVar     VAR     PRC_PrereqFMM 0         
+1 ScriptVar     VAR     PRC_AllowFMM  0         
+2 Concentration SKILL   1             9         
+3 CmbtCast      FEAT    7             ****      
+4 Spellcraft    SKILL   16            9         

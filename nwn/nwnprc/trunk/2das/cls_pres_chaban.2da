@@ -1,0 +1,6 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1        ReqParam2 
+0 Base_Attack BAB     7                ****      
+1 WeapFocMorn FEAT    95               ****      
+2 ScriptVar   VAR     PRC_AllowChaBane 0         

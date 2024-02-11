@@ -1,0 +1,11 @@
+2DA V2.0
+
+  LABEL         ReqType ReqParam1                 ReqParam2 
+0 Concentration SKILL   1                         4         
+1 Hide          SKILL   5                         6         
+2 Intimidate    SKILL   24                        8         
+3 MoveSilently  SKILL   8                         6         
+4 Base_Attack   BAB     5                         ****      
+5 ImpInit       FEAT    377                       ****      
+6 PowerAtk      FEAT    28                        ****      
+7 ScriptVar     VAR     PRC_AllowGhostFacedKiller 0         

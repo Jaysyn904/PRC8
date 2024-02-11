@@ -1,0 +1,12 @@
+2DA V2.0
+
+  LABEL        ReqType ReqParam1            ReqParam2 
+0 Lore         SKILL   7                    2         
+1 Sense_Motive SKILL   30                   8         
+2 ScriptVar    VAR     PRC_AllowShadowInq   0         
+3 Persuade     SKILL   12                   4         
+4 ScriptVar    VAR     PRC_PrereqShadowbane 0         
+5 ScriptVar    VAR     PRC_SneakLevel1      0         
+6 PowerAtk     FEAT    28                   ****      
+7 TurnUndead   FEAT    294                  ****      
+8 Base_Attack  BAB     5                    ****      

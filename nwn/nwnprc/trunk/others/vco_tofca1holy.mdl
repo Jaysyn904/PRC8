@@ -1,0 +1,541 @@
+#MAXMODEL ASCII
+# model: vco_tofca1holy
+filedependancy vco_tofca1holy.max
+newmodel vco_tofca1holy
+setsupermodel vco_tofca1holy NULL
+classification effect
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vco_tofca1holy
+node dummy vco_tofca1holy
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vco_tofca1holy
+  #part-number 7
+  ambientonly 0
+  shadow 0
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 3
+  fadingLight 1
+  flareradius 0
+  position 0 0 0
+  orientation -0.870936692 0.347468913 0.347468913 -1.70854008
+  radius 5
+  multiplier 1.5
+  color 0.9 0.8 1.0
+endnode
+node emitter dom1
+  parent vco_tofca1holy
+  #part-number 1
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Billboard_to_Local_Z
+  blend Lighten
+  texture tof_vlring
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 1
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 0.9 0.8 1
+  colorEnd 0.9 0.8 1
+  alphaStart -0.400000006
+  alphaEnd -0.400000006
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 1
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter dom2
+  parent dom1
+  #part-number 2
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Billboard_to_Local_Z
+  blend Lighten
+  texture tof_vlring
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 1
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 0.9 0.8 1
+  colorEnd 0.9 0.8 1
+  alphaStart -0.400000006
+  alphaEnd -0.400000006
+  sizeStart 0.45
+  sizeEnd 0.45
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 1
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter dom3
+  parent dom2
+  #part-number 3
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Billboard_to_Local_Z
+  blend Lighten
+  texture tof_vlring
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 1
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 0.9 0.8 1
+  colorEnd 0.9 0.8 1
+  alphaStart -0.400000006
+  alphaEnd -0.400000006
+  sizeStart 0.4
+  sizeEnd 0.4
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 1
+  lifeExp 2
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter flicker
+  parent vco_tofca1holy
+  #part-number 4
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Normal
+  blend Lighten
+  texture fxpa_flare1
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 1
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 0
+  alphaEnd 0
+  sizeStart 0.4
+  sizeEnd 0.4
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 3
+  birthrate 1
+  lifeExp 1
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 25
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter smoke
+  parent vco_tofca1holy
+  #part-number 5
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 1
+  inheritvel 0
+  inherit_local 0
+  splat 0
+  inherit_part 0
+  renderorder 0
+  spawntype 0
+  update Single
+  render Normal
+  blend Lighten
+  texture fxpa_smoke01a
+  xgrid 4
+  ygrid 4
+  loop 0
+  deadspace 0
+  twosidedtex 1
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation 0 0 0 0
+  colorStart 1 1 0.8
+  colorEnd 1 1 0.8
+  alphaStart 0
+  alphaEnd 0
+  sizeStart 0.5
+  sizeEnd 0.5
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 15
+  birthrate 1
+  lifeExp 1
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 24
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vco_tofca1holy
+
+#MAXANIM ASCII
+newanim conjure01 vco_tofca1holy
+  length 2.0
+  transtime 0.25
+  animroot vco_tofca1holy
+node dummy vco_tofca1holy
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vco_tofca1holy
+  #part-number 7
+  colorkey 5
+    0.0 1 1 0
+    0.5 0.25 0.25 0
+    1.0 1 1 0
+    1.5 0.25 0.25 0
+    2.0 1 1 0
+  radiuskey 1
+    2.0 5
+endnode
+node emitter dom1
+  parent vco_tofca1holy
+  #part-number 1
+  alphaStartkey 3
+    0.0 0.5
+    1.0 1.0
+    2.0 0.5
+  alphaEndkey 3
+    0.0 0.5
+    1.0 1.0
+    2.0 0.5
+  orientationkey 2
+    0.0 0 0 0 0
+    2.0 3.141 0 0 3.141
+  colorStartkey 3
+    0.0 1 1 0
+    1.0 1.0 1.0 1.0
+    2.0 1 1 0
+  colorEndkey 3
+    0.0 1 1 0
+    1.0 1.0 1.0 1.0
+    2.0 1 1 0
+endnode
+node emitter dom2
+  parent dom1
+  #part-number 2
+  alphaStartkey 3
+    0.0 1.0
+    1.0 0.5
+    2.0 1.0
+  alphaEndkey 3
+    0.0 1.0
+    1.0 0.5
+    2.0 1.0
+  orientationkey 2
+    0.0 0 0 0 0
+    2.0 0 3.141 0 3.141
+  colorStartkey 3
+    0.0 1.0 1.0 1.0
+    1.0 1 1 0
+    2.0 1.0 1.0 1.0
+  colorEndkey 3
+    0.0 1.0 1.0 1.0
+    1.0 1 1 0
+    2.0 1.0 1.0 1.0
+endnode
+node emitter dom3
+  parent dom2
+  #part-number 3
+  alphaStartkey 3
+    0.0 0.5
+    1.0 1.0
+    2.0 0.5
+  alphaEndkey 3
+    0.0 0.5
+    1.0 1.0
+    2.0 0.5
+  orientationkey 2
+    0.0 0 0 0 0
+    2.0 3.141 0 0 3.141
+  colorStartkey 3
+    0.0 1 1 0
+    1.0 1.0 1.0 1.0
+    2.0 1 1 0
+  colorEndkey 3
+    0.0 1 1 0
+    1.0 1.0 1.0 1.0
+    2.0 1 1 0
+endnode
+node emitter flicker
+  parent vco_tofca1holy
+  #part-number 4
+  alphaStartkey 1
+    0.0 1.0
+  alphaEndkey 1
+    0.0 1.0
+endnode
+node emitter smoke
+  parent vco_tofca1holy
+  #part-number 5
+  alphaStartkey 5
+    0.0 0.5
+    0.5 1.0
+    1.0 0.5
+    1.5 1.0
+    2.0 0.5
+  alphaEndkey 5
+    0.0 0.5
+    0.5 1.0
+    1.0 0.5
+    1.5 1.0
+    2.0 0.5
+endnode
+doneanim conjure01 vco_tofca1holy
+
+#MAXANIM ASCII
+newanim fade vco_tofca1holy
+  length 0.633333027
+  transtime 0.25
+  animroot vco_tofca1holy
+  event 0 detonate
+node dummy vco_tofca1holy
+  parent NULL
+  #part-number 0
+endnode
+node light AuroraLight01
+  parent vco_tofca1holy
+  #part-number 7
+  colorkey 2
+    0 1 1 0
+    0.533333004 0 0 0
+  radius 4.97200012
+endnode
+node emitter dom1
+  parent vco_tofca1holy
+  #part-number 1
+  alphaStartkey 2
+    0.0 1.0
+    0.5 0.0
+  alphaEndkey 2
+    0.0 1.0
+    0.5 0.0
+  colorStartkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+  colorEndkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+endnode
+node emitter dom2
+  parent dom1
+  #part-number 2
+  alphaStartkey 2
+    0.0 1.0
+    0.5 0.0
+  alphaEndkey 2
+    0.0 1.0
+    0.5 0.0
+  colorStartkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+  colorEndkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+endnode
+node emitter dom3
+  parent dom2
+  #part-number 3
+  alphaStartkey 2
+    0.0 1.0
+    0.5 0.0
+  alphaEndkey 2
+    0.0 1.0
+    0.5 0.0
+  colorStartkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+  colorEndkey 2
+    0.0 1 1 0.5
+    0.6 1.0 1.0 1.0
+endnode
+node emitter flicker
+  parent vco_tofca1holy
+  #part-number 4
+  alphaStartkey 2
+    0.0 1.0
+    0.5 0.0
+  alphaEndkey 2
+    0.0 1.0
+    0.5 0.0
+endnode
+node emitter smoke
+  parent vco_tofca1holy
+  #part-number 5
+  alphaStartkey 2
+    0.0 0.5
+    0.5 0.0
+  alphaEndkey 2
+    0.0 0.5
+    0.5 0.0
+endnode
+doneanim fade vco_tofca1holy
+
+donemodel vco_tofca1holy

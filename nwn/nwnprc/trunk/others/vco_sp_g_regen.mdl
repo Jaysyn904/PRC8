@@ -1,0 +1,385 @@
+# Exported from NWmax 0.5-beta at 1/8/2004 3:29:54 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vco_sp_g_regen
+filedependancy vco_sp_regen.gmax
+newmodel vco_sp_g_regen
+setsupermodel vco_sp_g_regen NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vco_sp_g_regen
+node dummy vco_sp_g_regen
+  parent NULL
+endnode
+node emitter AuroraEmitter01
+  parent vco_sp_g_regen
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.223529 0.0313726 0.533333 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 250.0
+     ySize 250.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.917647 1.0 0.0 
+     colorEnd 0.454902 0.0 0.968628 
+     alphaStart 1.0
+     alphaEnd 0.1
+     sizeStart 0.4
+     sizeEnd 0.4
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 100.0
+     lifeExp 1.0
+     mass -0.4
+     spread 360.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 25
+     frameStart 0
+     frameEnd 3
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node emitter AuroraEmitter02
+  parent vco_sp_g_regen
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.223529 0.0313726 0.533333 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 250.0
+     ySize 250.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.513726 0.0 0.992157 
+     colorEnd 0.917647 1.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.1
+     sizeStart 0.4
+     sizeEnd 0.4
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 100.0
+     lifeExp 1.0
+     mass -0.4
+     spread 360.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 25
+     frameStart 0
+     frameEnd 3
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy spin01
+  parent vco_sp_g_regen
+  position 0.0 0.0 0.0
+  orientation -1.0 0.0 0.0 -3.14159
+  wirecolor 0.345098 0.560784 0.882353 
+endnode
+node emitter AuroraEmitter04
+  parent spin01
+  position -1.61841 0.0 -0.329176
+  orientation 9.68813e-007 0.0 1.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 30.0
+     ySize 30.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.917647 0.0 1.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.6
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 50.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 50
+     frameStart 0
+     frameEnd 3
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy spin
+  parent vco_sp_g_regen
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 1.0 0.0
+  wirecolor 0.345098 0.560784 0.882353 
+endnode
+node emitter AuroraEmitter03
+  parent spin
+  position -1.61841 0.0 0.23784
+  orientation 0.0 1.0 0.0 0.0
+  wirecolor 0.6 0.894118 0.839216 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 30.0
+     ySize 30.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.0 0.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.6
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 50.0
+     lifeExp 2.0
+     mass 0.0
+     spread 360.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 10.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 50
+     frameStart 0
+     frameEnd 3
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vco_sp_g_regen
+#NWmaxANIM ASCII
+newanim conjure01 vco_sp_g_regen
+    length 2.0
+    transtime 0.25
+    animroot vco_sp_g_regen
+    node dummy vco_sp_g_regen
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter01
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter02
+        parent vco_sp_g_regen
+        orientationkey
+            0.5 -1.0 0.0 0.0 -3.15905
+        endlist
+    endnode
+    node dummy spin01
+        parent vco_sp_g_regen
+        orientationkey
+            0.0 -0.99999 -0.00436331 0.0 -3.14159
+            0.5 -0.71325 -0.700909 0.0 -3.14159
+            1.0 -0.00436325 -0.99999 0.0 -3.14159
+            1.5 0.704015 -0.710185 0.0 -3.14159
+            2.0 0.99999 -0.00436325 0.0 -3.14159
+        endlist
+    endnode
+    node emitter AuroraEmitter04
+        parent spin01
+    endnode
+    node dummy spin
+        parent vco_sp_g_regen
+        orientationkey
+            0.0 0.0 0.0 1.0 -0.00872665
+            0.5 0.0 0.0 1.0 -1.56207
+            1.0 0.0 0.0 1.0 -3.13287
+            1.5 0.0 0.0 1.0 -4.69494
+            2.0 0.0 0.0 1.0 -6.27446
+        endlist
+    endnode
+    node emitter AuroraEmitter03
+        parent spin
+    endnode
+doneanim conjure01 vco_sp_g_regen
+#NWmaxANIM ASCII
+newanim fade vco_sp_g_regen
+    length 2.33333
+    transtime 0.25
+    animroot vco_sp_g_regen
+    node dummy vco_sp_g_regen
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter01
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter02
+        parent vco_sp_g_regen
+    endnode
+    node dummy spin01
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter04
+        parent spin01
+    endnode
+    node dummy spin
+        parent vco_sp_g_regen
+    endnode
+    node emitter AuroraEmitter03
+        parent spin
+    endnode
+doneanim fade vco_sp_g_regen
+donemodel vco_sp_g_regen

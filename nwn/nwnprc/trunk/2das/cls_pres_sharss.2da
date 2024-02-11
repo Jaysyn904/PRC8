@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1          ReqParam2 
+0 Perform   SKILL   11                 7         
+1 Persuade  SKILL   12                 7         
+2 ScriptVar VAR     PRC_AllowCelebrant ****      
+3 SacredVow FEAT    3388               ****      
+4 VowPurity FEAT    5360               ****      

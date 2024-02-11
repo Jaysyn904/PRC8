@@ -1,0 +1,5 @@
+2DA V2.0
+
+  LABEL     ReqType ReqParam1       ReqParam2 
+0 ScriptVar VAR     PRC_AllowBeast  0         
+1 ScriptVar VAR     PRC_PrereqBeast 0         

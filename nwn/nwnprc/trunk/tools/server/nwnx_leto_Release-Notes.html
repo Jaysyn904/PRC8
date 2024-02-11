@@ -1,0 +1,107 @@
+<P>
+<B>About NWNX-Leto</b>
+
+<P>
+NWNX-Leto is a module (plugin) for NWNX2, allowing you to run LetoScript from NWScript. NWNX2 was developed by Ingmar Stieger (Papillon), papillon@blackdagger.com. You will need NWNX2 for NWNX-Leto to be of much use to you. NWNX now has its own <A href="http://www.nwnx.org">site</a>, including forums. (The majority of discussion on NWNX-Leto in particular is on the Leto <A href="http://weathersong.infopop.cc">forums</a>.)
+
+<P>
+This is <B>build 03</b> of the plugin, with LetoScript support compiled in from <B>build 4.0.24</b> of the LetoScript engine. There has been some confusion about the difference between these two numbers / versions / DLLs. The difference between them is in fact quite simple:
+
+<P>
+<B>nwnx_leto.dll/so</b> is bridge code that is written in C++ (MSVC on Windows, ANSI C on Linux) and accomodates the differences between NWNX's C++ code, and LetoScript's Delphi code. These differences are prototypical, and don't change from release to release - they may never change, for that matter. The code has nothing to do with the LetoScript engine itself, so you don't need a different version for Phoenix or Unicorn. Instead, you need a different LetoScript lib:
+
+<P>
+<B>LetoScript.dll/so</b> is the entire LetoScript engine (the equivalent of Moneo) in a library. This is what the "+24" in the name means - this version of the library is the same code as for Moneo 4.0.24. (And <I>exactly</i> the same code, with but a wrapper around it so that NWNX!LETO commands can reach it.) If your code uses Phoenix syntax, you need build 18 of this library, instead, which is no longer supported or available on SourceForge (to clear up much confusion). If you need this library, <A href="mailto:dragon@weathersong.net">e-mail</a> me and I can send it to you, along with full source code.
+
+<P>
+To summarize, each platform consists of two library files: DLLs for Windows, and SOs for Linux. If you aren't a developer, all you need to worry about is copying the files files for your platform into your NWN directory (where you have NWNX2 installed) in order to get it to "work".
+
+<P>
+For the Windows platform, the files you need are nwnx_leto.dll, and LetoScript.dll.
+
+<P>
+For the Linux platform, the files you need are nwnx_leto.so, and LetoScript.so. Note that nwnx_leto.so was compiled around the new features in beta 5 pre 2, so if you want to recompile it, you will need that source or better. <B>You will also need to initialize NWNX2 with "NWNX!INIT" "1" in your OnModuleLoad event.</b>
+
+<P>
+NWNX-Leto will create a logfile, nwnx-leto.txt, which can provide you with clues in the event that the plugin does not start.
+
+<P>
+The namespace for the plugin is LETO. The functions it currently supports are:
+
+<P>
+<LI> <B>SCRIPT</b>, taking a LetoScript script as a parameter. Example:
+
+<P>
+<PRE>
+void main()
+{
+    SendMessageToAllDMs("Firing LetoScript test...");
+
+    string LetoTest;
+    SetLocalString(GetModule(), "NWNX!LETO!SCRIPT", "&lt;file:open BOB 'g:/nwn/localvault/bob.bic'&gt;&lt;FirstName&gt; &lt;LastName&gt;");
+    LetoTest = GetLocalString(GetModule(), "NWNX!LETO!SCRIPT");
+
+    SendMessageToAllDMs("Result: #" + LetoTest + "#");
+}
+</pre>
+
+<P>
+<LI> <B>SPAWN</b>, taking a LetoScript script as a parameter. Unlike SCRIPT, this creates a new thread that runs (simultaneously) in the background while your server goes on doing its business. Running a SCRIPT that takes 10 seconds to complete means your server will hang for 10 seconds while it waits for the script to complete. Running the same script as a SPAWN means the server doesn't hang at all, but the script runs "in the background" instead (and still takes 10 seconds to complete). The result you get back from SPAWN is the ThreadId created for your script. Record it! Unless you POLL for that ThreadId, the thread will hang around indefinitely, costing system resources, until NWNX is shut down. Note that SPAWN does not share the state that SCRIPT maintains. That is, you cannot operate on a handle that you have previously opened in a SCRIPT. (In fact, allowing SPAWN and QFORGET to share state with SCRIPT could have disastrous consequences, and force scripters using NWNX-Leto to write "thread safe" LetoScript!)
+
+<P>
+<LI> <B>POLL</b>, taking a ThreadId as a parameter. The result will tell you whether this thread is still working, or has completed. You will get one of three results: "Error: ### not done." (### is your ThreadId) if the thread is still working, "Error: ..." for some other error (... is the exact error), or you will not get "Error:" at the beginning of the string, and instead you will get the result of your script. ZombieBench provides a very good example of how to use POLL correctly.
+
+<P>
+<LI> <B>QFORGET</b>, taking a LetoScript script as a parameter. This is a "Queue and Forget" version of SPAWN. Like SPAWN, the script is queued (it will not run until all previous SPAWN and QFORGET scripts have completed), but you cannot POLL for a QFORGET thread, and upon completion the thread is automatically terminated. You would use QFORGET when you want to multithread a script, but you don't care what the results are, and you don't need to wait for it to complete to do something else (such as RCO). There is no result from QFORGET (just an empty string).
+
+<P>
+<LI> <B>FFORGET</b>, taking a LetoScript script as a parameter. This is the "Fire and Forget" version of SPAWN, but unlike QFORGET, the thread is created and the script run <I>immediately</i>, rather than being put at the end of the queue. Although this sounds like a tempting alternative to QFORGET for a script you want completed quickly, <B>EXTREME CAUTION</b> must be exercised when using FFORGET. It is unstable and prone to cause exceptions in the script it runs. There should be no danger to NWNX itself - although even that isn't a guarantee.
+
+<P>
+There are a lot of additional details on these mutli-threading functions. Please refer to the documentation for a much more in-depth explanation, and some examples. (If you prefer to learn by practical application, take a look at "zb_queue" in ZombieBench.)
+
+<P>
+<LI> <B>LOG</b>, which takes a few parameters of its own, to control NWNX-Leto logging. Logging is disabled by default, because the current logging mechanism is hell on the NWN server, and can cause severe lag. Its use is suggested only for debugging. Turn it off for a live server!
+
+<P>
+There are three params you can give to LOG, which are <I>Enable</i>, <I>Dir</i>, and <I>File</i>. Setting <I>Enable</i> to "true" or 1 will turn on logging. Likewise, "false" or 0 turns it off again. <I>Dir</i> and <I>File</i> tell NWNX-Leto where you want your logfile. You should probably specify at least a directory, though the filename is optional (defaults to letoscript_log.txt).
+
+<P>
+Logging examples:
+
+<P>
+<PRE>
+// Turn logging on:
+SetLocalString(GetModule(), "NWNX!LETO!LOG", "Enable=1, Dir=g:/nwn/leto/logs");
+// You can change the dir or file while logging is on:
+SetLocalString(GetModule(), "NWNX!LETO!LOG", "File=letoscript.log2.txt");
+// And this shuts it down:
+SetLocalString(GetModule(), "NWNX!LETO!LOG", "Enable=0");
+</pre>
+
+<P>
+Remember that logging comes at a penalty. It involves some rather heavy file I/O, and should only be used for debugging cranky scripts (which is when you put those scripts in Moneo to effectively troubleshoot them). Leave it off for a production server.
+
+<P>
+<B>Known limitations</b>
+
+<P>
+<LI> The use of NWNX!LETO!SCRIPT is blocking. If your script takes 10 seconds to run, the entire server will seem "locked up" for those 10 seconds, same as with any other NWScript you run that takes 10 seconds to complete. Your players will think the server is lagging, of course. You can get around that with SPAWN / QFORGET, but...
+
+<P>
+<LI> All of the multi-threading functions (SPAWN, QFORGET, FFORGET) are still pretty beta. In early tests, they were prone to cause exceptions in the script (that is, you will get an [EXCEPTION] result), and in such a random pattern that it was difficult to isolate and fix whatever the underlying problem was. This ESPECIALLY applies to FFORGET, which runs the extra risk of thread collision. Although some time has passed since early tests, it is difficult to say how many servers actually use multi-threaded LetoScript. Use with caution - and if you have experiences good or bad, I'd be interested in hearing about them.
+
+<P>
+<B>Technical details</b>
+
+<P>
+(These notes are old, and probably need updating.)
+
+<P>
+There are two libraries (DLLs / SOs) involved because Leto and LetoScript are written in Delphi, whereas NWNX is written in C. This requires a bridge DLL be compiled in the native environment (MSVC on Windows), which is nwnx_leto.dll/so. The bridge DLL talks to the Delphi DLL, LetoScript.dll. Since I don't own a copy of MSVC, I wrote all of the source for nwnx_leto in Notepad, had a volunteer on the APS/NWNX Guild compile it for me (thanks Taryn Winterblade!) and then designed the LetoScriptDll library to talk to it. For Linux, I scoured Google for sufficient examples and then re-wrote the source to compile with gcc. There are still two libraries involved to keep it more aligned with the Windows release, and because a bridge design pattern is actually useful in terms of de-coupled development of each component.
+
+<P>
+Note how the name of the Delphi library is "LetoScriptDll". This is so there is no confusion with the language, LetoScript, by calling it just "LetoScript". This means that compiling LetoScriptDll.dpr will give you LetoScriptDll.dll / libLetoScriptDll.so, however, and you MUST rename it to LetoScript.dll / LetoScript.so. nwnx_leto.dll/so is very specific about this, it wants a library named LetoScript.dll (on Windows) or LetoScript.so (on Linux).
+
+<P>
+To recompile nwnx_leto.so and LetoScript.so, you will need the Linux NWNX source. Stick the files in your nwnx-leto-so-linux directory into a subdirectory of nwnx2 such as "letoscript", then edit configure.ac as necessary. Then run autoconf && ./configure && make && make install. If you need help or more information on this, please make a post on the weathersong forums.

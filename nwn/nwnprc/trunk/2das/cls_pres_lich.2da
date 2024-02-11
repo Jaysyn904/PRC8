@@ -1,0 +1,9 @@
+2DA V2.0
+
+  LABEL       ReqType ReqParam1      ReqParam2 
+0 ScriptVar   VAR     PRC_ArcSpell6  0         
+1 CraftWonder FEAT    2925           ****      
+2 ScriptVar   VAR     PRC_AllowLich  0         
+3 ScriptVar   VAR     PRC_DemiLich   0         
+4 ScriptVar   VAR     PRC_NoBaeln    0         
+5 ScriptVar   VAR     PRC_PrereqLich 0         

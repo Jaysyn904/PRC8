@@ -1,0 +1,13 @@
+2DA V2.0
+
+    FeatLabel                              FeatIndex List GrantedOnLevel OnMenu 
+11  Empower                                11        1    -1             0      
+12  ExtSpell                               12        1    -1             0      
+13  MaxSpell                               25        1    -1             0      
+14  Quicken                                29        1    -1             0      
+15  Silent                                 33        1    -1             0      
+17  StillSpell                             37        1    -1             0      
+95  SuddenEmpower                          2830      1    -1             1      
+96  SuddenExtend                           2831      1    -1             1      
+97  SuddenMaximize                         2832      1    -1             1      
+98  SuddenWiden                            2833      1    -1             1      

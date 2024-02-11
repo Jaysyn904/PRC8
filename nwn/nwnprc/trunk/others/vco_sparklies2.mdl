@@ -1,0 +1,139 @@
+# Exported from NWmax 0.4-beta at 12/7/2003 8:49:38 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vco_sparklies2
+filedependancy conjure3.gmax
+newmodel vco_sparklies2
+setsupermodel vco_sparklies2 NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vco_sparklies2
+node dummy vco_sparklies2
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vco_sparklies2
+  position 0.012151 -0.000516467 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.0313726 0.239216 0.541176 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 1.942 0.000516467 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.552941 0.027451 0.227451 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 25.0
+     ySize 25.0
+     inherit 0
+     inherit_local 0
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0470588 0.0 1.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 1.5
+     sizeEnd 1.5
+     sizeStart_y 1.5
+     sizeEnd_y 1.5
+     birthrate 30.0
+     lifeExp 0.5
+     mass -1.1
+     spread 45.0
+     particleRot 3.0
+     velocity 0.0
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_starbnw
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 30
+     frameStart 0
+     frameEnd 3
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vco_sparklies2
+
+#NWmaxANIM ASCII
+newanim conjure01 vco_sparklies2
+    length 1.46667
+    transtime 0.25
+    animroot vco_sparklies2
+    node dummy vco_sparklies2
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vco_sparklies2
+    endnode
+    node dummy Dummy01
+        parent vco_sparklies2
+        orientationkey
+            0.0 0.0 0.0 -1.0 -0.0174533
+            0.366667 0.0 0.0 -1.0 -1.57952
+            0.733333 0.0 0.0 -1.0 -3.13287
+            1.1 0.0 0.0 -1.0 -4.71239
+            1.46667 0.0 0.0 1.0 -6.27446
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+doneanim conjure01 vco_sparklies2
+
+
+#NWmaxANIM ASCII
+newanim fade vco_sparklies2
+    length 0.333333
+    transtime 0.25
+    animroot vco_sparklies2
+    node dummy vco_sparklies2
+        parent NULL
+    endnode
+    node dummy ignore_NGon01
+        parent vco_sparklies2
+    endnode
+    node dummy Dummy01
+        parent vco_sparklies2
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+    endnode
+doneanim fade vco_sparklies2
+
+donemodel vco_sparklies2

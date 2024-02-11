@@ -1,0 +1,252 @@
+# Exported from NWmax 0.7 at 6/7/2004 6:34:18 PM
+# mdl file
+#
+#NWmax MODEL ASCII
+# model: smpco_shout
+filedependancy Unknown
+newmodel smpco_shout
+setsupermodel smpco_shout NULL
+classification Effect
+#NWmax GEOM  ASCII
+beginmodelgeom smpco_shout
+node dummy smpco_shout
+  parent NULL
+endnode
+node emitter OmenEmitter03
+  parent smpco_shout
+  position 0.000457306 0.0902111 -0.00372559
+  orientation -0.57735 -0.57735 -0.57735 -4.18879
+  wirecolor 1.0 1.0 1.0 
+  update_sel 1
+  update Fountain
+  render_sel 3
+  render Billboard_to_Local_Z
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 1
+  inherit_local 0
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 0.0
+  sizeStart 1.0
+  sizeEnd 4.0
+  sizeStart_y 1.0
+  sizeEnd_y 10.0
+  birthrate 20
+  lifeExp 1.0
+  mass 0.0
+  spread 0.0
+  particleRot 0.0
+  velocity 10.0
+  randvel 0.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_ring02
+  twosidedtex 1
+  xgrid 1
+  ygrid 1
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter sparkles
+  parent smpco_shout
+  position -0.0221204 0.00517799 0.0
+  orientation 0.985257 0.120974 -0.120974 -1.58565
+  wirecolor 1.0 1.0 1.0 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.2
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 30
+  lifeExp 0.9
+  mass 0.0
+  spread 0.523599
+  particleRot 0.0
+  velocity 10.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+node emitter sparkles01
+  parent smpco_shout
+  position 0.0455933 0.00517799 0.0
+  orientation 0.985257 -0.120974 0.120974 -1.58565
+  wirecolor 1.0 1.0 1.0 
+  update_sel 1
+  update Fountain
+  render_sel 1
+  render Normal
+  blend_sel 3
+  Blend Lighten
+  spawnType 0
+  xSize 0.0
+  ySize 0.0
+  inherit 0
+  inherit_local 1
+  inheritvel 0
+  inherit_part 0
+  renderorder 0
+  threshold 0.0
+  combinetime 0.0
+  deadspace 0.0
+  opacity 0.5
+  colorStart 1.0 1.0 1.0 
+  colorEnd 1.0 1.0 1.0 
+  alphaStart 1.0
+  alphaEnd 1.0
+  sizeStart 0.2
+  sizeEnd 0.3
+  sizeStart_y 0.0
+  sizeEnd_y 0.0
+  birthrate 30
+  lifeExp 0.9
+  mass 0.0
+  spread 0.523599
+  particleRot 0.0
+  velocity 10.0
+  randvel 2.0
+  bounce_co 0.0
+  blurlength 10.0
+  loop 0
+  bounce 0
+  m_isTinted 0
+  splat 0
+  affectedByWind false
+  texture fxpa_flare
+  twosidedtex 0
+  xgrid 1
+  ygrid 1
+  fps 0
+  frameStart 0
+  frameEnd 0
+  random 0
+  lightningDelay 0.0
+  lightningRadius 0.0
+  lightningSubDiv 0
+  lightningScale 0.0
+  blastRadius 0.0
+  blastLength 0.0
+  p2p 0
+  p2p_type Bezier
+  p2p_sel 1
+  p2p_bezier2 0.0
+  p2p_bezier3 0.0
+  grav 0.0
+  drag 0.0
+endnode
+endmodelgeom smpco_shout
+#NWmax ANIM ASCII
+newanim cast01 smpco_shout
+  length 1.96667
+  transtime 0.25
+  animroot smpco_shout
+    node dummy smpco_shout
+        parent NULL
+    endnode
+    node emitter OmenEmitter03
+        parent smpco_shout
+        birthratekey
+            0.0 20 
+            1.3 20 
+            1.33333 -40 
+        endlist
+    endnode
+    node emitter sparkles
+        parent smpco_shout
+        birthratekey
+            0.0 30 
+            0.0333333 30 
+            1.26667 30 
+            1.3 30 
+            1.33333 0 
+        endlist
+    endnode
+    node emitter sparkles01
+        parent smpco_shout
+        birthratekey
+            1.26667 30 
+            1.3 30 
+            1.33333 0 
+        endlist
+    endnode
+doneanim cast01 smpco_shout
+donemodel smpco_shout

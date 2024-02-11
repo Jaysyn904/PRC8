@@ -1,0 +1,59 @@
+dread necro - 28 spells to do
+===========
+
+1st level
+---------
+cause fear
+detect magic
+hide from undead
+summon undead I
+
+2nd level
+---------
+death knell
+gentle repose
+spectral hand
+summon swarm
+summon undead II
+
+3rd level
+---------
+
+crushing despair
+halt undead
+summon undead III
+
+4th level
+---------
+giant vermin
+summon undead IV
+
+5th level
+---------
+
+blight
+fire in the blood
+insect plague
+oath of blood
+summon undead V
+unhallow
+
+6th level
+---------
+eyebite
+waves of exhaustion
+
+7th level
+---------
+song of discord
+vile death
+
+8th level
+---------
+symbol of death
+
+9th level
+---------
+imprison soul
+mass harm
+plague of undead

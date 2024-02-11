@@ -1,0 +1,16 @@
+2DA V2.0
+
+           FeatLabel                              FeatIndex List GrantedOnLevel OnMenu 
+0          SancMind_PartitionMind                 2231      3    1              1      
+1          SancMind_CleanStrike                   2232      3    2              1      
+2          SancMind_DisruptBlow1                  2233      3    3              1      
+3          SancMind_DisruptBlow2                  2234      3    5              1      
+4          SancMind_HardToHold                    2235      3    4              0      
+5          SancMind_PowerResist                   2236      3    6              0      
+6          FEAT_SANCTIFIED_MIND_MANIFEST_FOZ      18134     2    1              0      
+7          FEAT_SANCTIFIED_MIND_MANIFEST_PSION    18141     2    1              0      
+8          FEAT_SANCTIFIED_MIND_MANIFEST_PSYROUGE 18149     2    1              0      
+9          FEAT_SANCTIFIED_MIND_MANIFEST_PSYWAR   18156     2    1              0      
+10         FEAT_SANCTIFIED_MIND_MANIFEST_WARMIND  18163     2    1              0      
+11         FEAT_SANCTIFIED_MIND_MANIFEST_WILDER   18170     2    1              0      
+12         FEAT_SANCTIFIED_MIND_MANIFEST_NONE     18173     2    1              0      

@@ -1,0 +1,203 @@
+# Exported from NWmax 0.5-beta at 1/4/2004 6:54:53 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vdr_blueshield
+filedependancy conjure4.gmax
+newmodel vdr_blueshield
+setsupermodel vdr_blueshield NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vdr_blueshield
+node dummy vdr_blueshield
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vdr_blueshield
+  position 0.0 0.0 0.0
+  orientation 0.0 0.0 1.0 -0.00872662
+  wirecolor 0.109804 0.34902 0.694118 
+endnode
+node emitter AuroraEmitter02
+  parent Dummy01
+  position 1.63385 0.0248447 0.0
+  orientation 0.999986 -0.00529067 0.0 0.0
+  wirecolor 0.329412 0.109804 0.694118 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 1
+     iconSize 100.0
+     xSize 100.0
+     ySize 100.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.564706 1.0 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.4
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.5
+     mass 0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 0.3
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 15
+     frameStart 0
+     frameEnd 3
+     random 0
+     chunk 
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+node dummy Dummy02
+  parent vdr_blueshield
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.0313726 0.431373 0.52549 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy02
+  position -1.7106 0.0248453 0.0
+  orientation 0.0 0.0 1.0 -3.62561e-007
+  wirecolor 0.329412 0.109804 0.694118 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 1
+     iconSize 100.0
+     xSize 100.0
+     ySize 100.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 0.0 0.537255 0.0705882 
+     colorEnd 0.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.4
+     sizeEnd 0.1
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 40.0
+     lifeExp 3.5
+     mass 0.2
+     spread 360.0
+     particleRot 0.0
+     velocity 0.3
+     randvel 0.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare1
+     twosidedtext 0
+     xgrid 2
+     ygrid 2
+     fps 15
+     frameStart 0
+     frameEnd 3
+     random 0
+     chunk 
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vdr_blueshield
+#NWmaxANIM ASCII
+newanim duration vdr_blueshield
+    length 1.46667
+    transtime 0.25
+    animroot vdr_blueshield
+    node dummy vdr_blueshield
+        parent NULL
+    endnode
+    node dummy Dummy01
+        parent vdr_blueshield
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.366667 0.0 0.0 -1.0 -1.53589
+            0.733333 0.0 0.0 -1.0 -3.11541
+            1.1 0.0 0.0 -1.0 -4.70366
+            1.46667 0.0 0.0 -1.0 -6.27446
+        endlist
+    endnode
+    node emitter AuroraEmitter02
+        parent Dummy01
+    endnode
+    node dummy Dummy02
+        parent vdr_blueshield
+        orientationkey
+            0.0 0.0 0.0 1.0 -0.00389207
+            0.366667 0.0 0.0 1.0 -1.53589
+            0.733333 0.0 0.0 1.0 -3.11541
+            1.1 0.0 0.0 1.0 -4.69494
+            1.46667 0.0 0.0 1.0 -6.25701
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy02
+    endnode
+doneanim duration vdr_blueshield
+donemodel vdr_blueshield

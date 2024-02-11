@@ -1,0 +1,11 @@
+Enlightened SPirit
+Spirit Blast - Lesser 4th Essence, +1 damage per die to undead
+Holy Blast - Greater 6th essence, +1 damage per die to evil outsiders
+Transform Magic - Greater 6th, greater dispel, heal 5 points per spell elvel of each spell, doesn't work on own, targeted only
+
+Eldritch Theurge
+Greatreach Blast - Greater 5th, embed touch spell in blast
+Spellblast - Lesser 4th, embed AoE spell in blast, only hits on one target, still cast if miss (when invocation is selected, any spell cast is "trapped" by the spellhook if the right type, variable is cleared on next blast)
+
+
+EldritchSpellweave - damage-changing invocs can go in changed elemental damage.  Others go in spellhook.  Only works on spells without 0x04 and no 0x01-only spells

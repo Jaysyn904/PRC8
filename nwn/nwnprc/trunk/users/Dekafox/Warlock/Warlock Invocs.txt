@@ -1,0 +1,82 @@
+To Do:
+Least
+Cocoon of Refuse(Cityscape) - entangle while in a city, lasts 1 round/lvl
+Lesser
+Spider Shape(DrowotUnderdark) - polymorph into fiendish spider, SMall/Med Start, 8th: large, 11 tiny, 15 huge, 20 Garg - just do polymorph into "Giant Spider"
+
+Icons
+Least
+*All-Seeing Eyes - Bonus on Search and Spot
+*Baleful Utterance - Shatter objects(per "shatter" spell) - Ask Kaedrin
+*Call of the Beast - speak wiht and influence animals(CHarm ANimal)
+*Dark One's Own Luck - luck bonus to one save
+*Devil's Sight - Ultravision
+*Earthen Grasp - as the spell of the same name - ask Kaedrin - creature with null model and Bigby VFX that grapples?
+*Entropic Warding - entropic shield spell, pass wihtout trace
+*Leaps and Bounds - bonus on Balance, Jump, Tumble
+*Mask of Flesh - touch attack deals 1d6 cha damage, shift to look liek target
+*Miasmic Cloud - cloud that grants concealment but fatigues(Fort Save) all but you. Lasts 1 minute
+*Otherworldly Whispers - bonus to Lore
+*Serpent's Tongue - +5 save vs poison
+*Soulreaving Aura - as reaving aura, gain temp HP = HD of critter(max 10) if creature dies wihtin 10'
+*Summon Swarm - as the spell of the same name, duration concentration
+*Swimming the Styx - Gain waterbreathing
+Lesser
+*Cold COmfort - as Endure Elements
+*Curse of Despair - Bestow CUrse spell
+*Dread Seizure - 60' range, Fort save or 50% move penalty and -5 ranged attack for 3 rounds
+*Flee the Scene - short range DImension Door, leaves behind a mirror image that lasts 1 round
+*HUngry Darkness - Darkness spell, lasts concentration + 2 rounds, on HB attack of bat swarm(MM 237)
+*Ignore the Pyre - Resist x for any element for 24 hours, where x is Invoke level
+*relentless DIspeling - targeted Dispel Magic, repeats next round
+*Stony Grasp - as Earthen Grasp, but worked surfaces too
+*The Dead Walk - ANimate Dead spell
+*Wall of Gloom - as spell - treat as concealed when adjacent, when passing WIll Save or cancel action queue
+*WIthcwood Step - immune to entangle
+Greater
+*Caustic Mire - acidic sludge slows movement, damages 1d6 per round, 6d6 if moved, +1 fire damage/die wihtin(not doable)
+*CHilling Tentacles - Evards Black Tentacles, does cold damage
+*Dragon Ward - immune to fear, DR 5/- vs nat weaps, Resist 20 vs breaths(DR not doable, Resist should be 
+    implemented in inc_breath)
+*ENervating Shadow - Total Concealment out of daylight, -4 Str for 5 rounds on foes wihtin 10'
+*Hellspawned Grace - polymorph to hellcat for 1 round/2 levels
+*Nightmares Made Real - illusionary terrain, will save or entangled, concealment for all wihtin, 1d6 damage on hb if will failed, caster can HIPS inside
+*Painful SLumber of Ages - put target to sleep, causes damage when awakened
+*Tenacious Plague - Insect PLague spell, but does damage as a +1 weapon, Cha mod added to FOrt save
+*Wall of Perilous Flame - Wall fo Fire spell, but half damage is magical
+Dark
+*Caster's Lament - touch to Dispel Magic, cap of 15 caster level
+*Dark Discoporation - becomes a swarm of batliek shadows(AoE on you covers a 10' radius sphere), can't attack or 
+    cast, items are merged into you ala polymorph, on heartbeat nauseate and 4d6 damage to creatures in your space, 
+    immune to weapons(extremely high resist slash/blud/piercing), immune to crits,Dex +6, Str to 3, +4 size AC, 
+    +Cha Deflection AC, 50% damage from AoE and immune to targeted non-mind spells(this part not doable?)
+*Dark Foresight - as the Foresight spell
+*Path of Shadow - Shadow Walk spell, and speeds up healing - Do as Teleport with full heal
+*Retributive Invisibility - Greater Invisibility, does 4d6 sonic/1 round stun in a 20'burst(Fort save) if dispelled
+*Steal Summoning - Dominate enemy casters' summons
+*WOrd of Changing - baleful polymorph, lasts 24 hours, second save after 24 hours determines whether its permanent.
+
+Already Done
+Least
+Beguiling Influence - DFA invoc
+Breath of the Night - DFA Invoc
+Darkness - DFA Invoc
+See the Unseen - DFA invoc
+Lesser
+CHarm - DFA invoc
+Voidsense - DFA Invoc
+Voracious Dispelling - DFA Invoc
+Walk Unseen - DFA Invoc
+Greater
+Devour Magic - DFA Invoc
+
+Not doable/not worth it
+Fell Flight - Not Doable
+Weighty Utterance - not doable
+Impenetrable Barrier - as Wall fo Force, but only 1 at a time, and take 1d10 if canceled by someone else. - Not Doable?
+Crawling Eye - eye leaves head, can be used to scout(not doable, or do as Scry?)
+Disembodied hand - detach hand, send it to manipulate objects or attack - use the "hand" from HotU as a summon? - Not doable, stupid familiar hardcoding
+Spider Walk - immune to webs - spider climb is main benefit and not doable, web immunity is covered by witchwood step, makes this redundant.
+Devil's Whispers(Cityscape) - SUggestion
+SUdden swarm - no spider swarm model
+Thief's Bane(Cityscape) - Hold portal, explodes door(5d6) if knock or dispel cast or forced open - no hold portal, lock too unreliable

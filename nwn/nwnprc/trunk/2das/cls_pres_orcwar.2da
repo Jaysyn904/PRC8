@@ -1,0 +1,18 @@
+2DA V2.0
+
+   LABEL         ReqType ReqParam1       ReqParam2 
+0  Base_Attack   BAB     5               ****      
+1  HalfOrc       RACE    5               ****      
+2  Humanoid_Orc  RACE    14              ****      
+3  FrstbldOrc    RACE    108             ****      
+4  Scro          RACE    182             ****      
+5  Gray_Orc      RACE    184             ****      
+6  Orog          RACE    187             ****      
+7  Tanarukk      RACE    203             ****      
+8  Orc           RACE    214             ****      
+9  Blood_warlord FEAT    4608            ****      
+10 Intimidate    SKILL   24              8         
+11 Ride          SKILL   27              5         
+12 Rage          FEAT    293             ****      
+13 Leadership    FEAT    4365            ****      
+14 ScriptVar     VAR     PRC_AllowOrcWar 0         

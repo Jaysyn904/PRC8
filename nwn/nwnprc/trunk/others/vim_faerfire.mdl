@@ -1,0 +1,194 @@
+# Exported from NWmax 0.5-beta at 3/7/2004 7:07:10 PM
+# mdl file
+#
+#NWmaxMODEL ASCII
+# model: vim_faerfire
+filedependancy Unknown
+newmodel vim_faerfire
+setsupermodel vim_faerfire NULL
+classification Effect
+#NWmaxGEOM  ASCII
+beginmodelgeom vim_faerfire
+node dummy vim_faerfire
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vim_faerfire
+  position 0.0 0.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.345098 0.101961 
+endnode
+node emitter AuroraEmitter01
+  parent Dummy01
+  position 0.0 1.0 0.0
+  orientation 1.0 0.0 0.0 0.0
+  wirecolor 0.694118 0.109804 0.584314 
+     update_sel 1
+     update Fountain
+     render_sel 1
+     render Normal
+     blend_sel 2
+     Blend Lighten
+     spawnType 0
+     iconSize 0.0
+     xSize 10.0
+     ySize 10.0
+     inherit 0
+     inherit_local 1
+     inheritvel 0
+     inherit_part 0
+     renderorder 0
+     threshold 0.0
+     combinetime 0.0
+     deadspace 0.0
+     colorStart 1.0 0.870588 0.0 
+     colorEnd 1.0 0.0 0.0 
+     alphaStart 1.0
+     alphaEnd 0.0
+     sizeStart 0.1
+     sizeEnd 0.0
+     sizeStart_y 0.0
+     sizeEnd_y 0.0
+     birthrate 0.0
+     lifeExp 2.0
+     mass -1.0
+     spread 360.0
+     particleRot 1.0
+     velocity 0.2
+     randvel 1.0
+     bounce_co 0.0
+     blurlength 0.0
+     loop 0
+     bounce 0
+     m_isTinted 0
+     Splat 0
+     affectedbyWind false
+     texture fxpa_flare
+     twosidedtext 0
+     xgrid 1
+     ygrid 1
+     fps 1
+     frameStart 0
+     frameEnd 0
+     random 0
+     #chunk undefined
+     lightningDelay 0.0
+     lightningRadius 0.0
+     lightningSubDivkey 0
+     lightningScale 0.0
+     blastRadius 0.0
+     blastLength 0.0
+     opacity 0.0
+     p2p 0
+     p2p_type Bezier
+     p2p_sel 1
+     p2p_bezier2 0.0
+     p2p_bezier3 0.0
+     grav 0.0
+     drag 0.0
+     Cone_Angle_Manipulator SubAnim:Cone_Angle_Manipulator
+endnode
+endmodelgeom vim_faerfire
+#NWmaxANIM ASCII
+newanim impact vim_faerfire
+    length 1.66667
+    transtime 0.25
+    animroot vim_faerfire
+    node dummy vim_faerfire
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vim_faerfire
+    endnode
+    node dummy Dummy01
+        parent vim_faerfire
+        positionkey
+            0.0 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            0.333333 0.0 0.0 -1.0 -1.5708
+            0.666667 0.0 0.0 -1.0 -3.15032
+            1.0 0.0 0.0 -1.0 -4.72984
+            1.33333 0.0 0.0 1.0 -6.27446
+            1.66667 0.0 0.0 1.0 -4.72112
+        endlist
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 60.0 
+            1.63333 60.0 
+            1.66667 0.0 
+        endlist
+    endnode
+doneanim impact vim_faerfire
+#NWmaxANIM ASCII
+newanim duration vim_faerfire
+    length 1.66667
+    transtime 0.25
+    animroot vim_faerfire
+    node dummy vim_faerfire
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vim_faerfire
+    endnode
+    node dummy Dummy01
+        parent vim_faerfire
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 0.0 
+            1.66667 0.0 
+        endlist
+    endnode
+doneanim duration vim_faerfire
+#NWmaxANIM ASCII
+newanim cessation vim_faerfire
+    length 1.66667
+    transtime 0.25
+    animroot vim_faerfire
+    node dummy vim_faerfire
+        parent NULL
+        positionkey
+            0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0
+        endlist
+        orientationkey
+            0.0 0.0 0.0 0.0 0.0
+            1.66667 0.0 0.0 0.0 0.0
+        endlist
+    endnode
+    node dummy ignore_NGon01
+        parent vim_faerfire
+    endnode
+    node dummy Dummy01
+        parent vim_faerfire
+    endnode
+    node emitter AuroraEmitter01
+        parent Dummy01
+        birthratekey
+            0.0 0.0 
+            1.66667 0.0 
+        endlist
+    endnode
+doneanim cessation vim_faerfire
+donemodel vim_faerfire
