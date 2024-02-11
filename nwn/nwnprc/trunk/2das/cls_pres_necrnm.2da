@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL         ReqType ReqParam1             ReqParam2 
-0 Lore          SKILL   7                     5         
-1 Concentration SKILL   1                     5         
-2 Spellcraft    SKILL   16                    10        
-3 NecrocarnumAc FEAT    8898                  ****      
-4 ScriptVar     VAR     PRC_PrereqNecrocarnum 0         
-5 ScriptVar     VAR     PRC_AllowNecrocarnum  0         

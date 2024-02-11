@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL        ReqType ReqParam1            ReqParam2 
-0 Bluff        SKILL   23                   3         
-1 Hide         SKILL   5                    8         
-2 Intimidate   SKILL   24                   3         
-3 MoveSilently SKILL   8                    3         
-4 Persuasive   FEAT    5319                 ****      
-5 ScriptVar    VAR     PRC_AllowShadowThief 0         

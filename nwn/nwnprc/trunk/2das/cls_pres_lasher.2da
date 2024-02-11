@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL        ReqType ReqParam1     ReqParam2 
-0 Base_Attack  BAB     5             ****      
-1 WeapProfEx   FEATOR  44            ****      
-2 WeapProfWhip FEATOR  7934          ****      
-3 WeapFocWhip  FEAT    993           ****      
-4 CraftWeapon  SKILL   26            2         
-5 ScriptVar    VAR     PRC_AllowLash 0         

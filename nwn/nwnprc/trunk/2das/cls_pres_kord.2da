@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1      ReqParam2 
-0 PowerAttack FEAT    28             ****      
-1 Endurance   FEAT    2568           ****      
-2 ScriptVar   VAR     PRC_AllowKord  0         
-3 ScriptVar   VAR     PRC_DivSpell1  0         
-4 ScriptVar   VAR     PRC_PrereqKord 0         
-5 Lore        SKILL   7              9         

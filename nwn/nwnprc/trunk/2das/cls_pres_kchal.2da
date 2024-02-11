@@ -1,8 +1,0 @@
-2DA V2.0
-
-  LABEL      ReqType ReqParam1        ReqParam2 
-0 Lore       SKILL   7                10        
-1 ScriptVar  VAR     PRC_AllowKnghtCh 0         
-2 ScriptVar  VAR     PRC_DivSpell1    0         
-3 ScriptVar  VAR     PRC_PrereqKOTC   0         
-4 BaseAttack BAB     8                ****      

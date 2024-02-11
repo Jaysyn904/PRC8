@@ -1,9 +1,0 @@
-2DA V2.0
-
-           LABEL       ReqType ReqParam1            ReqParam2 
-0          Base_Attack BAB     5                    ****      
-1          Intimidate  SKILL   24                   5         
-2          CobaltRage  FEAT    8881                 ****      
-3          Totemist    CLASSOR 78                   ****      
-4          ScriptVar   VAR     PRC_AllowTotemRager  0         
-5          ScriptVar   VAR     PRC_PrereqTotemRager 0         

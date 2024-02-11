@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL        ReqType ReqParam1            ReqParam2 
-0 Search       SKILL   14                   4         
-1 Sense_Motive SKILL   30                   4         
-2 ScriptVar    VAR     PRC_AllowShadowStalk 0         
-3 Persuade     SKILL   12                   8         
-4 ScriptVar    VAR     PRC_SneakLevel1      0         
-5 ScriptVar    VAR     PRC_PrereqShadowbane 0         

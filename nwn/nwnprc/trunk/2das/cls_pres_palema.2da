@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL          ReqType ReqParam1      ReqParam2 
-0 ScriptVar      VAR     PRC_ArcSpell3  0         
-1 ScriptVar      VAR     X2_AllowPalema 0         
-2 SkillFocusLore FEAT    180            ****      
-3 Lore           SKILL   7              8         

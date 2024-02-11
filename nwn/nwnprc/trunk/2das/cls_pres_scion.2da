@@ -1,6 +1,0 @@
-2DA V2.0
-
-  LABEL     ReqType ReqParam1       ReqParam2 
-0 Lore      SKILL   7               2         
-1 ScriptVar VAR     PRC_AllowScion  0         
-2 ScriptVar VAR     PRC_PrereqScion 0         

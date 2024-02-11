@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL           ReqType ReqParam1        ReqParam2 
-0 ScriptVar       VAR     PRC_ArcSpell3    0         
-1 Spellcraft      SKILL   16               8         
-2 ScriptVar       VAR     PRC_AllowRedWiz  0         
-3 ScriptVar       VAR     PRC_PrereqRedWiz 0         
-4 Human           RACE    6                ****      
-5 SilverbrowHuman RACE    110              ****      

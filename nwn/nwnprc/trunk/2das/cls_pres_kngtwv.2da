@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL      ReqType ReqParam1             ReqParam2 
-0 Lore       SKILL   7                     1         
-1 Spellcraft SKILL   16                    1         
-2 ScriptVar  VAR     PRC_AllowKnightWeave  0         
-3 ScriptVar  VAR     PRC_PrereqKnightWeave 0         

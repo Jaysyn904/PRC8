@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL     ReqType ReqParam1        ReqParam2 
-0 ScriptVar VAR     PRC_AllowNentyar 0         
-1 Alertness FEAT    0                ****      
-2 CmbtCast  FEAT    7                ****      
-3 Track     FEAT    2569             ****      
-4 Search    SKILL   14               4         
-5 Spot      SKILL   17               8         

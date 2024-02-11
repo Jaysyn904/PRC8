@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1         ReqParam2 
-0 Lore        SKILL   7                 4         
-1 Base_Attack BAB     4                 ****      
-2 IronWill    FEAT    22                ****      
-3 WeapProfMar FEAT    45                ****      
-4 ScriptVar   VAR     PRC_AllowSancMind 0         
-5 ScriptVar   VAR     PRC_IsPsionic     0         

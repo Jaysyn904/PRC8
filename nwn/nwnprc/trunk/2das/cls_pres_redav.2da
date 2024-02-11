@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1        ReqParam2 
-0 AttackBonus BAB     5                ****      
-1 Tumble      SKILL   21               8         
-2 Listen      SKILL   6                8         
-3 IUS         FEAT    21               ****      
-4 StunFist    FEAT    39               ****      
-5 ScriptVar   VAR     PRC_AllowRedavng 0         

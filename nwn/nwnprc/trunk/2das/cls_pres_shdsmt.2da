@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1            ReqParam2 
-0 Lore        SKILL   7                    3         
-1 ScriptVar   VAR     PRC_AllowShadowsmith 0         
-2 CraftWeapon SKILL   26                   5         
-3 Bab         BAB     5                    ****      

@@ -1,5 +1,0 @@
-2DA V2.0
-
-  LABEL     ReqType ReqParam1    ReqParam2 
-0 Truespeak SKILL   29           9         
-1 ScriptVar VAR     PRC_AllowEgo 0         

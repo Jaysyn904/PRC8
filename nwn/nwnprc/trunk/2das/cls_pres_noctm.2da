@@ -1,8 +1,0 @@
-2DA V2.0
-
-  LABEL      ReqType ReqParam1            ReqParam2 
-0 Lore       SKILL   7                    6         
-1 Spellcraft SKILL   16                   6         
-2 ScriptVar  VAR     PRC_MystLevel2       0         
-3 ScriptVar  VAR     PRC_ArcSpell2        0         
-4 ScriptVar  VAR     PRC_AllowNoctumancer 0         

@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL         ReqType ReqParam1        ReqParam2 
-0 Concentration SKILL   1                4         
-1 Hide          SKILL   5                8         
-2 Lore          SKILL   7                2         
-3 Listen        SKILL   6                8         
-4 ScriptVar     VAR     PRC_PrereqUmbral 0         
-5 ScriptVar     VAR     PRC_AllowUmbral  0         

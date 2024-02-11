@@ -1,8 +1,0 @@
-2DA V2.0
-
-  LABEL      ReqType ReqParam1            ReqParam2 
-0 Lore       SKILL   7                    4         
-1 Intimidate SKILL   24                   4         
-2 ScriptVar  VAR     PRC_ArcSpell2        0         
-3 ScriptVar  VAR     PRC_AllowNoctumancer 0         
-4 ScriptVar  VAR     PRC_PrereqAnimaMage  0         

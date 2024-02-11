@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1           ReqParam2 
-0 WeapProfMar FEATOR  45                  ****      
-1 ProfHalb    FEATOR  7909                ****      
-2 GreatFort   FEAT    14                  ****      
-3 ScriptVar   VAR     PRC_AllowBlightlord 0         
-4 ScriptVar   VAR     PRC_DivSpell4       0         
-5 ScriptVar   VAR     PRC_PrereqBlightL   0         

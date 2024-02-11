@@ -1,8 +1,0 @@
-2DA V2.0
-
-  LABEL         ReqType ReqParam1     ReqParam2 
-0 AttackBonus   BAB     6             ****      
-1 IaijutsuFocus SKILL   33            9         
-2 ImpInit       FEAT    377           ****      
-3 WeapFocKatana FEAT    122           ****      
-4 ScriptVar     VAR     PRC_AllowIaij 0         

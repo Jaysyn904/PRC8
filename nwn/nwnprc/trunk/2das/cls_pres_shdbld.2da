@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1       ReqParam2 
-0 Base_Attack BAB     5               ****      
-1 BlindFight  FEAT    408             ****      
-2 Bluff       SKILL   23              5         
-3 Hide        SKILL   5               5         
-4 MoveSilent  SKILL   8               5         
-5 ScriptVar   VAR     PRC_AllowShdBld 0         

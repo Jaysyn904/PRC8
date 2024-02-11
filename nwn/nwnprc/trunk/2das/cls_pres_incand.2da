@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1              ReqParam2 
-0 Base_Attack BAB     6                      ****      
-1 Concentr    SKILL   1                      4         
-2 ScriptVar   VAR     PRC_PrereqIncandescent 0         
-3 ScriptVar   VAR     PRC_AllowIncandescent  0         

@@ -1,9 +1,0 @@
-2DA V2.0
-
-  LABEL         ReqType ReqParam1         ReqParam2 
-0 Base_Attack   BAB     4                 ****      
-1 CombatCasting FEAT    7                 ****      
-2 Rage          FEATOR  293               ****      
-3 Frenzy        FEATOR  4300              ****      
-4 ScriptVar     VAR     PRC_ArcSpell2     0         
-5 ScriptVar     VAR     PRC_AllowRageMage 0         

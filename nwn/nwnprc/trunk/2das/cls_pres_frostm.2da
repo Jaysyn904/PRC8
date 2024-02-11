@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL       ReqType ReqParam1          ReqParam2 
-0 ScriptVar   VAR     PRC_ArcSpell1      0         
-1 ScriptVar   VAR     PRC_AllowFrostMage 0         
-2 Lore        SKILL   7                  8         
-3 FrozenMagic FEAT    5238               ****      

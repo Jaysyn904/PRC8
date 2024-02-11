@@ -1,7 +1,0 @@
-2DA V2.0
-
-  LABEL     ReqType ReqParam1          ReqParam2 
-0 Perform   SKILL   11                 10        
-1 ScriptVar VAR     PRC_AllowVirtuoso  0         
-2 ScriptVar VAR     PRC_ArcSpell0      0         
-3 ScriptVar VAR     PRC_PrereqVirtuoso 0         
