@@ -2,7 +2,7 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
-  <entry id="12000" lang="en" sex="m">PRC Version Counter: 03</entry>
+  <entry id="12000" lang="en" sex="m">PRC Version Counter: 04</entry>
   <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
@@ -5083,7 +5083,7 @@ Feats Required: Simple</entry>
   <entry id="43162" lang="en" sex="m">&lt;CUSTOM0&gt; Necrotic</entry>
   <entry id="43163" lang="en" sex="m">&lt;CUSTOM0&gt; Radiant</entry>
   <entry id="43164" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
-  <entry id="44999" lang="en" sex="m">+++++++++++++ PRC Pack Feats 45,000 - 54,999 ++++++++++++++</entry>
+  <entry id="44999" lang="en" sex="m">+PRC Project Reserved tlk: 45000 (16822216) through 60000 (16837216)+</entry>
   <entry id="45001" lang="en" sex="m">Type of Feat: General
 Prerequisite: Spell Focus (conjuration)
 
