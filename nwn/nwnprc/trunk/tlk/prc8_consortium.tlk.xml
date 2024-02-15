@@ -3,7 +3,6 @@
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
   <entry id="12000" lang="en" sex="m">PRC Version Counter: 04</entry>
-  <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
   <entry id="12291" lang="en" sex="m">(PRESTIGE CLASS)
@@ -5016,18 +5015,18 @@ Weapon Size: Large
 Feats Required: Martial</entry>
   <entry id="30026" lang="en" sex="m">Sap</entry>
   <entry id="30027" lang="en" sex="m">The sap is a simple weapon, typically consisting of a small bag filled with sand or lead shot.</entry>
-  <entry id="30028" lang="en" sex="m">Base Damage: 1d6
+  <entry id="30028" lang="en" sex="m">Base Damage: 1d4
 Base Critical Threat: x2
 Base Damage Type: Bludgeoning
 Weapon Size: Small
-Feats Required: Martial</entry>
+Feats Required: Simple</entry>
   <entry id="30032" lang="en" sex="m">Katar</entry>
   <entry id="30033" lang="en" sex="m">The katar is also known as a punching dagger, discrete and efficient.</entry>
   <entry id="30034" lang="en" sex="m">Base Damage: 1d4
 Base Critical Threat: x3
 Base Damage Type: Piercing
 Weapon Size: Tiny
-Feats Required: Exotic</entry>
+Feats Required: Simple</entry>
   <entry id="30053" lang="en" sex="m">Heavy Mace</entry>
   <entry id="30054" lang="en" sex="m">A heavy mace is a simple weapon, made of metal and ideal for smashing opponents.</entry>
   <entry id="30055" lang="en" sex="m">Base Damage: 1d8
@@ -5083,7 +5082,7 @@ Feats Required: Simple</entry>
   <entry id="43162" lang="en" sex="m">&lt;CUSTOM0&gt; Necrotic</entry>
   <entry id="43163" lang="en" sex="m">&lt;CUSTOM0&gt; Radiant</entry>
   <entry id="43164" lang="en" sex="m">&lt;CUSTOM0&gt; Force</entry>
-  <entry id="44999" lang="en" sex="m">+PRC Project Reserved tlk: 45000 (16822216) through 60000 (16837216)+</entry>
+  <entry id="44999" lang="en" sex="m">+PRC8 Project Reserved tlk: 45000 (16822216) through 60000 (16837216)+</entry>
   <entry id="45001" lang="en" sex="m">Type of Feat: General
 Prerequisite: Spell Focus (conjuration)
 
