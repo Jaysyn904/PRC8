@@ -1145,7 +1145,7 @@ Level
 7: Spell Fury - sudden empower spell usable once during each rage.
 8: Rage +1 use/day - additional use of rage ability.
 9: Tireless Rage - no longer fatigued at the end of the rage.
-10: Warrior Cry - the character receives benefits of Tenser's Transformation spell, but without losing her spellcasting ability, 1/day.
+10: Warrior Cry - the character receives benefits of the Tenser's Transformation spell, but without losing her spellcasting ability, 1/day.
     Spell Rage 3/day
 
 BONUS SPELLS
@@ -3594,6 +3594,8 @@ Feat: Any metamagic feat
 BONUS SPELLS:
 
 Text</entry>
+  <entry id="13138" lang="en" sex="m">13138</entry>
+  <entry id="13139" lang="en" sex="m">13139</entry>
   <entry id="13140" lang="en" sex="m">Crypt Spawn</entry>
   <entry id="13141" lang="en" sex="m">“Crypt spawn” is a template that can be applied to any living creature (referred to hereafter as the “base creature”). The base creature's type changes to “undead.” It uses all the base creature's statistics and special abilities except as noted here.
 
@@ -3928,7 +3930,7 @@ Archliches appear as normal liches. They have all the characteristics of normal 
   <entry id="13193" lang="en" sex="m">Aligned Aura:Good</entry>
   <entry id="13194" lang="en" sex="m">Aligned Aura:Law</entry>
   <entry id="13195" lang="en" sex="m">Axiomatic Water</entry>
-  <entry id="13196" lang="en" sex="m"> Transmutation [Lawful]
+  <entry id="13196" lang="en" sex="m">Transmutation [Lawful]
 Level: Cleric 1, Paladin 1,
 Components: V, S, M,
 Casting Time: 1 minute
@@ -4134,6 +4136,7 @@ or energized shield spell at the same time.
 The descriptor of this spell is the same as the 
 energy type you choose when you cast it.</entry>
   <entry id="13217" lang="en" sex="m">Lesser Energized Shield</entry>
+  <entry id="13218" lang="en" sex="m">13218</entry>
   <entry id="13219" lang="en" sex="m">Estana's Stew</entry>
   <entry id="13220" lang="en" sex="m">Conjuration (Healing)
 Level: Cleric 2, Druid 2, Paladin 2,
@@ -20375,7 +20378,7 @@ This spell infuses the weapon touched with baleful energy. The next time this we
   <entry id="49066" lang="en" sex="m">Urthanyk</entry>
   <entry id="49067" lang="en" sex="m">Mist of Nourn</entry>
   <entry id="49068" lang="en" sex="m">Ishentav</entry>
-  <entry id="49069" lang="en" sex="m">Burning angel wing fumes</entry>
+  <entry id="49069" lang="en" sex="m">Burning Angel Wing Fumes</entry>
   <entry id="49070" lang="en" sex="m">Golden Ice</entry>
   <entry id="49071" lang="en" sex="m">This crystalline substance is cold to the touch, though it doesn't melt except at infernally high temperatures. Evil creatures subjected to it feel it's cold spreading throughout their bodies.</entry>
   <entry id="49072" lang="en" sex="m">Celestial Lightsblood</entry>
@@ -25198,7 +25201,7 @@ Base Critical Threat: 18-20/x2
 Base Damage Type: Slashing and Piercing
 Weapon Size: Large
 Feats Required: Exotic</entry>
-  <entry id="50496" lang="en" sex="m">These rapier-like exotic weapons are the size of short swords but weight as much as a dagger.  Dexterous elven rogues and fighters favor it for its ability to slip into cracks in armor.  Some elven nobles carry one as a sign of status, even if they are not proficient in its use.
+  <entry id="50496" lang="en" sex="m">These rapier-like exotic weapons are the size of short swords but weigh as much as a dagger.  Dexterous elven rogues and fighters favor it for its ability to slip into cracks in armor.  Some elven nobles carry one as a sign of status, even if they are not proficient in its use.
 
 This weapon is finessable, and counts as a rapier or a shortsword in regards to Weapon Focus, Weapon Specialization, their epic counterparts, Sanctify and Vile Martial Strikes, and Improved Critical.</entry>
   <entry id="50497" lang="en" sex="m">This exotic rapier-like weapon is the size of a longsword, but much lighter.  Like the lightblade, it is favored by dexterous elven rogues and fighters.
@@ -33403,7 +33406,7 @@ Spell Resistance: No
 
 This spell is similar to darkness, except that those within the area of darkness also take unholy damage. Creatures of good alignment take 2d6 points of
 damage per round in the darkness, and creatures neither good nor evil take 1d6 points of damage. As with the darkness spell, the area of darkness is a
-20-foot radius, and the object that serves as the spell's target can be shrouded to block the darkness (and thus the dam­aging effect).
+20-foot radius, and the object that serves as the spell's target can be shrouded to block the darkness (and thus the damaging effect).
 
 Damning darkness counters or dispels any light spell of equal or lower level.
 
@@ -39601,12 +39604,9 @@ Epic Levels:
   <entry id="53634" lang="en" sex="m">Sorcerer Obscure Object</entry>
   <entry id="53635" lang="en" sex="m">Sorcerer Owl's Wisdom</entry>
   <entry id="53636" lang="en" sex="m">Sorcerer Protection from Arrows</entry>
-  <entry id="53637" lang="en" sex="m">Sorcerer Pyrotechnics
-</entry>
-  <entry id="53638" lang="en" sex="m">Sorcerer Pyrotechnics: Fireworks
-</entry>
-  <entry id="53639" lang="en" sex="m">Sorcerer Pyrotechnics: Smoke
-</entry>
+  <entry id="53637" lang="en" sex="m">Sorcerer Pyrotechnics</entry>
+  <entry id="53638" lang="en" sex="m">Sorcerer Pyrotechnics: Fireworks</entry>
+  <entry id="53639" lang="en" sex="m">Sorcerer Pyrotechnics: Smoke</entry>
   <entry id="53640" lang="en" sex="m">Sorcerer Resist Elements</entry>
   <entry id="53641" lang="en" sex="m">Sorcerer Scare</entry>
   <entry id="53642" lang="en" sex="m">Sorcerer Scorching Ray</entry>
@@ -39809,8 +39809,7 @@ Epic Levels:
   <entry id="53838" lang="en" sex="m">Sorcerer Lesser Planar Binding</entry>
   <entry id="53839" lang="en" sex="m">Sorcerer Lesser Spell Mantle</entry>
   <entry id="53840" lang="en" sex="m">Sorcerer Snilloc's Major Missile</entry>
-  <entry id="53841" lang="en" sex="m">Sorcerer Mass Fire Shield
-</entry>
+  <entry id="53841" lang="en" sex="m">Sorcerer Mass Fire Shield</entry>
   <entry id="53842" lang="en" sex="m">Sorcerer Mass Fire Shield: Red</entry>
   <entry id="53843" lang="en" sex="m">Sorcerer Mass Fire Shield: Blue</entry>
   <entry id="53844" lang="en" sex="m">Sorcerer Mestil's Acid Sheath</entry>
