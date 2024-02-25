@@ -1,6 +1,9 @@
 //:: Class constants
 
-const int CLASS_TYPE_PLANT                 	= 39;
+const int CLASS_TYPE_PLANT                 	= 164;
+
+const int CLASS_TYPE_PRC_EYE_OF_GRUUMSH    	= 39;
+const int CLASS_TYPE_SHOU                  	= 40;
 
 const int CLASS_TYPE_UR_PRIEST             	= 42;
 const int CLASS_TYPE_BINDER                	= 43;
@@ -124,7 +127,7 @@ const int CLASS_TYPE_LASHER                	= 160;
 const int CLASS_TYPE_ORDER_BOW_INITIATE    	= 161;
 const int CLASS_TYPE_HELLFIRE_WARLOCK      	= 162;
 const int CLASS_TYPE_ORCUS                 	= 163;
-const int CLASS_TYPE_SHOU                  	= 164;
+//:: Plant = 164
 const int CLASS_TYPE_BFZ                   	= 165;
 const int CLASS_TYPE_SHINING_BLADE         	= 166;
 const int CLASS_TYPE_KNIGHT_MIDDLECIRCLE   	= 167;
@@ -140,7 +143,7 @@ const int CLASS_TYPE_MASTER_HARPER         	= 176;
 const int CLASS_TYPE_FRE_BERSERKER         	= 177;
 const int CLASS_TYPE_TEMPEST               	= 178;
 const int CLASS_TYPE_FOE_HUNTER            	= 179;
-const int CLASS_TYPE_PRC_EYE_OF_GRUUMSH    	= 180;
+//:: Free = 180
 const int CLASS_TYPE_ORC_WARLORD           	= 181;
 const int CLASS_TYPE_THRALL_OF_GRAZZT_A    	= 182;
 const int CLASS_TYPE_NECROCARNATE          	= 183;
