@@ -13,3 +13,4 @@ trunk/compilepsi.bat
 trunk/compileocfix.bat
 trunk/compilensb.bat
 trunk/compileepic.bat
+*.tmp
