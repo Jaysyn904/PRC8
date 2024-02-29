@@ -10,19 +10,38 @@ const int FEAT_OPTIONS_CONVERSATION = 2285;
 //:: Missing Bioware Feats
 const int FEAT_EPIC_PLANAR_TURNING = 854;
 
-//:: New Feats for NWN .35
-//::
 //:: New Favored Enemy Feats
 const int FEAT_FAVORED_ENEMY_OOZE 	= 2354;
 const int FEAT_FAVORED_ENEMY_PLANT 	= 2355;
 
-//:: PRC Epic Class Marker Feats
-const int FEAT_EPIC_DUSKBLADE		= 3690;
+//:: Epic Base Class Marker Feats
+const int FEAT_EPIC_DUSKBLADE			= 3690;
+const int FEAT_EPIC_DREAD_NECROMANCER	= 24152;
+const int FEAT_EPIC_ELDRITCH_KNIGHT		= 4013;
+const int FEAT_EPIC_FAVORED_SOUL	 	= 24241;
+const int FEAT_EPIC_HEALER				= 3744;
+const int FEAT_EPIC_MARSHAL				= 1918;
+const int FEAT_EPIC_SHAMAN	 			= 24240;
+const int FEAT_EPIC_SWASHBUCKLER		= 1917;
+const int FEAT_EPIC_WARLOCK				= 24239;
+const int FEAT_EPIC_WARMAGE	 			= 24242;
 
-// skill based feats
+//:: Epic Presitge Class Marker Feats
+const int FEAT_EPIC_ARCANE_TRICKSTER	= 4354;
+const int FEAT_EPIC_ELDRITCH_KNIGHT		= 4013;
+const int FEAT_EPIC_ELDRITCH_THEURGE	= 23516;
+const int FEAT_EPIC_FRENZIED_BERZERKER	= 5469;
+const int FEAT_EPIC_LASHER				= 4086;
+const int FEAT_EPIC_OCULAR				= 3425;
+const int FEAT_EPIC_RAVAGER				= 2395;
+const int FEAT_EPIC_RED_AVENGER			= 2753;
+const int FEAT_EPIC_TEMPEST	 			= 5470;
+
+
+//:: Skill Based Feats
 const int FEAT_JUMP = 2884;
 
-// Racial Feats
+//:: Racial Feats
 const int FEAT_WEMIC_JUMP_8        = 4518;
 const int FEAT_URDINNIR_STONESKIN  = 4644;
 const int FEAT_AVARIEL_DIVE        = 4645;

@@ -1322,8 +1322,13 @@ Special:
 Prerequisite: Psicraft 4.
 Specifics: Your manifester level for the chosen class increase by +4. This can't increased your manifester level beyond your HD. (Ex: a Fighter 2 / Psion 5 increase his manifester level from 5 to 7).
 Use: Automatic.</entry>
-  <entry id="12635" lang="en" sex="m">****</entry>
-  <entry id="12636" lang="en" sex="m">****</entry>
+  <entry id="12635" lang="en" sex="m">Epic Dread Necromancer</entry>
+  <entry id="12636" lang="en" sex="m">Within the shadowed realms where life and death intertwine, the Dread Necromancer emerges as a master of the macabre, wielding the powers of undeath with unparalleled mastery. This dark and enigmatic class delves deep into the forbidden arts of necromancy, harnessing the very forces that govern life and death to achieve unparalleled power.
+  
+  Hit Die: d12
+  Skill Points at Each Additional Level: 2 + Int modifier.
+  
+  Bonus Feats: The epic dread necromancer gains a bonus feat every five levels, starting at level 25 </entry>
   <entry id="12637" lang="en" sex="m">****</entry>
   <entry id="12638" lang="en" sex="m">Practiced Spellcaster (Knight of the Weave)</entry>
   <entry id="12639" lang="en" sex="m">Practiced Spellcaster (Cultist of the Shattered Peak)</entry>
