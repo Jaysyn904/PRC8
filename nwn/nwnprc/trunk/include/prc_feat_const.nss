@@ -17,7 +17,6 @@ const int FEAT_FAVORED_ENEMY_PLANT 	= 2355;
 //:: Epic Base Class Marker Feats
 const int FEAT_EPIC_DUSKBLADE			= 3690;
 const int FEAT_EPIC_DREAD_NECROMANCER	= 24152;
-const int FEAT_EPIC_ELDRITCH_KNIGHT		= 4013;
 const int FEAT_EPIC_FAVORED_SOUL	 	= 24241;
 const int FEAT_EPIC_HEALER				= 3744;
 const int FEAT_EPIC_MARSHAL				= 1918;
