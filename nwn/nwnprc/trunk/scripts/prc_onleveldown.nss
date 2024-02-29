@@ -36,12 +36,12 @@ void main()
     // extract character info stored by prc_levelup.nss
     int nClass1 = nCharData & 0xFF,
         nClass2 = (nCharData >>> 8) & 0xFF,
-        nClass3 = (nCharData >>> 16) & 0xFF;
+        nClass3 = (nCharData >>> 16) & 0xFF,
         
-        nClass4 = (nCharData >>> 24) & 0xFF;
-        nClass5 = (nCharData >>> 32) & 0xFF;
-        nClass6 = (nCharData >>> 40) & 0xFF;
-        nClass7 = (nCharData >>> 48) & 0xFF;
+        nClass4 = (nCharData >>> 24) & 0xFF,
+        nClass5 = (nCharData >>> 32) & 0xFF,
+        nClass6 = (nCharData >>> 40) & 0xFF,
+        nClass7 = (nCharData >>> 48) & 0xFF,
         nClass8 = (nCharData >>> 56) & 0xFF;
 
     object oSkin = GetPCSkin(oPC);
