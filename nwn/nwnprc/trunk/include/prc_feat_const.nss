@@ -16,6 +16,9 @@ const int FEAT_EPIC_PLANAR_TURNING = 854;
 const int FEAT_FAVORED_ENEMY_OOZE 	= 2354;
 const int FEAT_FAVORED_ENEMY_PLANT 	= 2355;
 
+//:: PRC Epic Class Marker Feats
+const int FEAT_EPIC_DUSKBLADE		= 3690;
+
 // skill based feats
 const int FEAT_JUMP = 2884;
 
