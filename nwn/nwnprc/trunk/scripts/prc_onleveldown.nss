@@ -37,6 +37,12 @@ void main()
     int nClass1 = nCharData & 0xFF,
         nClass2 = (nCharData >>> 8) & 0xFF,
         nClass3 = (nCharData >>> 16) & 0xFF;
+        
+        nClass4 = (nCharData >>> 24) & 0xFF;
+        nClass5 = (nCharData >>> 32) & 0xFF;
+        nClass6 = (nCharData >>> 40) & 0xFF;
+        nClass7 = (nCharData >>> 48) & 0xFF;
+        nClass8 = (nCharData >>> 56) & 0xFF;
 
     object oSkin = GetPCSkin(oPC);
     ScrubPCSkin(oPC, oSkin);
@@ -49,13 +55,18 @@ void main()
     EvalPRCFeats(oPC);
 
     int x, nClass;
-    for (x = 1; x <= 3; x++)
+    for (x = 1; x <= 8; x++)
     {
         switch(x)
         {
             case 1: nClass = nClass1; break;
             case 2: nClass = nClass2; break;
             case 3: nClass = nClass3; break;
+            case 4: nClass = nClass4; break;
+            case 5: nClass = nClass5; break;
+            case 6: nClass = nClass6; break;
+            case 7: nClass = nClass7; break;
+            case 8: nClass = nClass8; break;
         }
 
         // For psionics characters, remove powers known on all lost levels
