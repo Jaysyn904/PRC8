@@ -75,7 +75,7 @@ TEXTURESHAK				= $(OUTPATH)\prc8_textures.hak
 CRAFT2DASHAK			= $(OUTPATH)\prc8_craft2das.hak
 RACEHAK					= $(OUTPATH)\prc8_race.hak
 PSIONICSHAK				= $(OUTPATH)\prc8_psionics.hak
-NEWSPELLBOOKHAK				= $(OUTPATH)\prc8_newspellbook.hak
+NEWSPELLBOOKHAK				= $(OUTPATH)\prc8_nsb.hak
 
 # The NSIS script used to build setup.exe
 INSTALLSCRIPT	= Setup\install.nsi

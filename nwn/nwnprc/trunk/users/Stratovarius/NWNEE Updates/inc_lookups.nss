@@ -98,7 +98,7 @@ string GetAMSDefinitionFileName(int nClass);
 //////////////////////////////////////////////////
 
 #include "inc_2dacache"
-#include "inc_array"
+#include "prc_inc_array"
 #include "prc_class_const"
 
 //////////////////////////////////////////////////

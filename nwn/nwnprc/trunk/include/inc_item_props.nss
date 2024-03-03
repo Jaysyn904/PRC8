@@ -291,7 +291,7 @@ void AddSkinFeat(int nFeat, int IPFeat, object oSkin, object oPC = OBJECT_SELF, 
 #include "inc_prc_npc"
 //#include "inc_utility"
 #include "prc_ipfeat_const"
-#include "inc_array"
+#include "prc_inc_array"
 
 //////////////////////////////
 // Function Definitions     //

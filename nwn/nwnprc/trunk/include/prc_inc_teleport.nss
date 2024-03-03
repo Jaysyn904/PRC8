@@ -247,7 +247,7 @@ int GetCanTeleport(object oCreature, location lTarget, int bMovesCreature = FALS
  *     1 / 3 caster|manifester levels.
  *
  * The results will be stored in a local array on the caster,
- * retrievable using functions from inc_array.
+ * retrievable using functions from prc_inc_array.
  * The name of the array is contained within the constant PRC_TELEPORTING_OBJECTS_ARRAY.
  *
  * @param oCaster      The object casting the teleportation spell

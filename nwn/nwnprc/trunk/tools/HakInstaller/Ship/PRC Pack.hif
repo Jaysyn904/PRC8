@@ -69,7 +69,7 @@ erf : prc8_consortium.erf
 # module.Hak : prc8_include.hak 
 module.Hak : prc8_2das.hak
 module.Hak : prc8_scripts.hak
-module.Hak : prc8_newspellbook.hak
+module.Hak : prc8_nsb.hak
 module.Hak : prc8_spells.hak
 module.Hak : prc8_epicspells.hak
 module.Hak : prc8_psionics.hak

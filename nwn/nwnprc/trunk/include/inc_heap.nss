@@ -214,7 +214,7 @@ int heap_remove(object oStore, string sName);
 //////////////////////////////////////////////////
 
 //#include "inc_utility"
-#include "inc_array"        //The only part of inc_utility it needs
+#include "prc_inc_array"        //The only part of inc_utility it needs
 
 
 //////////////////////////////////////////////////

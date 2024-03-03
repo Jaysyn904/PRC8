@@ -167,7 +167,7 @@ int GetAberrantFeatCount(object oPC);
 #include "inv_invoc_const"
 #include "psi_power_const"
 #include "prc_inc_racial"
-#include "inc_array"
+#include "prc_inc_array"
 #include "moi_meld_const"
 #include "bnd_vestig_const"
 

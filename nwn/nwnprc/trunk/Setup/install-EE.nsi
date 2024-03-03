@@ -62,7 +62,7 @@ Section "PRC" Section1
 	File "..\CompiledResources\prc8_textures.hak"
 	File "..\CompiledResources\prc8_include.hak"
 	File "..\CompiledResources\prc8_psionics.hak"
-	File "..\CompiledResources\prc8_newspellbook.hak"
+	File "..\CompiledResources\prc8_nsb.hak"
 	File "..\CompiledResources\prc8_ocfix.hif"
 	SetOutPath "$INSTDIR\PRC\"
 	File "..\CompiledResources\PRC8ModuleUpdater.exe"

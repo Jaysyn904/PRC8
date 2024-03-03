@@ -5,7 +5,7 @@
 /** @file
     This file defines a "data type" that behaves
     like a set. It is implemented as an extension
-    of the arrays defined in inc_array.
+    of the arrays defined in prc_inc_array.
 
     Operations:
      - Get number of entities in the set. O(1)
@@ -270,8 +270,8 @@ int set_exists(object store, string name);
 /*                  Includes                    */
 //////////////////////////////////////////////////
 
-// inc_array access is via inc_heap
-//#include "inc_array"
+// prc_inc_array access is via inc_heap
+//#include "prc_inc_array"
 #include "inc_debug"
 #include "inc_heap"
 

@@ -312,7 +312,7 @@ void ClearCurrentStage(object oPC = OBJECT_INVALID);
 /* Include section                              */
 //////////////////////////////////////////////////
 
-#include "inc_array"
+#include "prc_inc_array"
 #include "inc_debug"
 
 //////////////////////////////////////////////////

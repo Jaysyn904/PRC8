@@ -176,7 +176,7 @@ int persistant_array_exists(object store, string name);
 /////////////////////////////////////
 
 #include "inc_persist_loca"
-#include "inc_array" // yes this is also got via inc_persist_loca if rather indirectly
+#include "prc_inc_array" // yes this is also got via inc_persist_loca if rather indirectly
 
 /////////////////////////////////////
 // Implementation

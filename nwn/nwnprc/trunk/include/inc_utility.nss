@@ -575,9 +575,9 @@ const int ERROR_CODE_5_ONCE_MORE5 = -1;
 #include "inc_draw_prc"
 #include "inc_eventhook"
 #include "inc_metalocation"
-#include "inc_array_sort"   // Depends on inc_array and inc_debug
-#include "inc_uniqueid"     // Depends on inc_array
-#include "inc_set"          // Depends on inc_array, inc_heap
+#include "inc_array_sort"   // Depends on prc_inc_array and inc_debug
+#include "inc_uniqueid"     // Depends on prc_inc_array
+#include "inc_set"          // Depends on prc_inc_array, inc_heap
 
 
 /**********************\

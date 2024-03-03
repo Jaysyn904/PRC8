@@ -42,7 +42,7 @@ void CreateSwitchNameArray();
 /* Include section                              */
 //////////////////////////////////////////////////
 
-#include "inc_array" // Needs direct include instead of inc_utility
+#include "prc_inc_array" // Needs direct include instead of inc_utility
 #include "prc_inc_switch"
 
 //////////////////////////////////////////////////
