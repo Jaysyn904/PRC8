@@ -75,6 +75,8 @@ const int STAGE_SPELL_SHOPS                     =  46;
 const int STAGE_SPELL_SHOPS_CLASS_FILTER        =  47;
 const int STAGE_SPELL_SHOPS_LEVEL_FILTER        =  48;
 const int STAGE_SPELL_SHOPS_ALPHABETICAL_FILTER =  49;
+const int STAGE_PLANTSHAPE_SLOTS                =  50;
+const int STAGE_PLANTSHAPE_SHAPE                =  51;
 
 const int STAGE_CDKEY_ADD                       = 509;
 const int STAGE_APPEARANCE                      = 510;
@@ -95,12 +97,13 @@ const int CHOICE_RETURN_TO_PREVIOUS             = 0xEFFFFFFF;
 const int CHOICE_SWITCHES_USE_2DA               = 0xEFFFFFFE;
 
 
-// PnP shifting constants
-const int TYPE_WILD_SHAPE              =  1;//0x01
-const int TYPE_ELEMENTAL_SHAPE         =  2;//0x02
-const int TYPE_DRAGON_SHAPE            =  4;//0x04
-const int TYPE_POLYMORPH_SELF          =  8;//0x08
-const int TYPE_ABERRANT_SHAPE          = 16;//0x16
+//:: PnP shifting constants
+const int TYPE_WILD_SHAPE		=  1;	//0x01
+const int TYPE_ELEMENTAL_SHAPE	=  2;	//0x02
+const int TYPE_DRAGON_SHAPE		=  4;	//0x04
+const int TYPE_POLYMORPH_SELF	=  8;	//0x08
+const int TYPE_ABERRANT_SHAPE	= 16;	//0x16
+const int TYPE_PLANT_SHAPE		= 32;	//0x20
 
 //////////////////////////////////////////////////
 /* Aid functions                                */
@@ -1242,7 +1245,27 @@ void main()
                 SetDefaultTokens();
 
                 MarkStageSetUp(nStage, oPC);
-            }            
+            } 
+            else if (nStage == STAGE_PLANTSHAPE_SLOTS)
+            {
+                SetHeader("You attune yourself to nature, recallling plant forms.");
+                AddChoice(GetStringByStrRef(16793773), 3642); 	//:: Treant
+                AddChoice(GetStringByStrRef(16793774), 3643);	//:: Shambling Mound
+                AddChoice(GetStringByStrRef(16793775), 3644);	//:: Twig Blight
+                AddChoice(GetStringByStrRef(16793776), 3645);	//:: Myconid
+                AddChoice(GetStringByStrRef(16793777), 3646);	//:: Algoid
+
+                MarkStageSetUp(nStage, oPC);
+            }
+            else if (nStage == STAGE_PLANTSHAPE_SHAPE)
+            {
+                SetHeader("Assign which shape to this form?");
+                SetLocalInt(oPC, "DynConv_Waiting", TRUE);
+                AddShapes(0, 500/*PRCGetFileEnd("prc_polymorph")*/, oPC, TYPE_PLANT_SHAPE);
+                SetDefaultTokens();
+
+                MarkStageSetUp(nStage, oPC);
+            }			
             else if (nStage == STAGE_PNP_FAMILIAR_COMPANION)
             {
                 string sHeader = "This will remove all information about your pnp familiars.";

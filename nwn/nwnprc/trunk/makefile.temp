@@ -2596,6 +2596,7 @@ spells\sp_phantomsteed.nss \
 spells\sp_phiern_rslv.nss \
 spells\sp_phoenix_fire.nss \
 spells\sp_plaguedead.nss \
+spells\sp_plantshape.nss \
 spells\sp_pnp_frshld.nss \
 spells\sp_polar_ray.nss \
 spells\sp_power_leech.nss \
@@ -5192,6 +5193,7 @@ spellobjs\sp_phantomsteed.ncs \
 spellobjs\sp_phiern_rslv.ncs \
 spellobjs\sp_phoenix_fire.ncs \
 spellobjs\sp_plaguedead.ncs \
+spellobjs\sp_plantshape.ncs \
 spellobjs\sp_pnp_frshld.ncs \
 spellobjs\sp_polar_ray.ncs \
 spellobjs\sp_power_leech.ncs \
@@ -5719,6 +5721,7 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_fmm.2da \
 2das\cls_bfeat_foclyr.2da \
 2das\cls_bfeat_fom.2da \
+2das\cls_bfeat_formas.2da \
 2das\cls_bfeat_forsak.2da \
 2das\cls_bfeat_foz.2da \
 2das\cls_bfeat_frebzk.2da \
@@ -13034,6 +13037,7 @@ others\prc_ac_wolf39.utc \
 others\prc_ac_wolf40.utc \
 others\prc_agares_elem.uti \
 others\prc_agony.uti \
+others\prc_algoid.utc \
 others\prc_ara_bite_c.uti \
 others\prc_ara_bite_d.uti \
 others\prc_ara_bite_f.uti \
@@ -13394,6 +13398,9 @@ others\prc_hdarc_slam_s.UTI \
 others\prc_hdarc_slam_t.UTI \
 others\prc_hench_wight3.utc \
 others\prc_hex_darkcomp.utc \
+others\prc_hide_algoid.uti \
+others\prc_hide_myconid.uti \
+others\prc_hide_shambmd.uti \
 others\prc_hound_doom.UTC \
 others\prc_ill_tent_c.UTI \
 others\prc_ill_tent_d.UTI \
@@ -17821,6 +17828,7 @@ others\prc_mos_spectre2.utc \
 others\prc_mos_wraith.utc \
 others\prc_movetoken.uti \
 others\prc_mshrm_pwdr.uti \
+others\prc_myconid.utc \
 others\prc_nightwing.uti \
 others\prc_no_teleport.utt \
 others\prc_nodmgbite.UTI \
@@ -21382,6 +21390,7 @@ others\prc_scrolls.utm \
 others\prc_serparrow.uti \
 others\prc_serpbolt.uti \
 others\prc_serpdart.uti \
+others\prc_shambmound.utc \
 others\prc_shamn_cat.utc \
 others\prc_shd_animcon.uti \
 others\prc_shd_animgarg.utc \
@@ -21402,6 +21411,7 @@ others\prc_sk_mblade_th.uti \
 others\prc_skelbear.utc \
 others\prc_skelhide.uti \
 others\prc_skulltalis.uti \
+others\prc_slam_algoid.uti \
 others\prc_str_lookup.utw \
 others\prc_sum_andro.utc \
 others\prc_sum_bonet.utc \
@@ -32545,6 +32555,8 @@ spellobjs\sp_phiern_rslv.ncs: spells\sp_phiern_rslv.nss include\prc_inc_spells.n
 spellobjs\sp_phoenix_fire.ncs: spells\sp_phoenix_fire.nss include\prc_inc_spells.nss include\prc_add_spell_dc.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\inc_item_props.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_damage.nss include\prc_inc_sb_const.nss include\inc_2dacache.nss include\inc_debug.nss include\prc_inc_switch.nss include\prc_inc_array.nss include\prc_class_const.nss include\prc_effect_inc.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\tob_move_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss
 
 spellobjs\sp_plaguedead.ncs: spells\sp_plaguedead.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\inc_item_props.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_damage.nss include\prc_inc_sb_const.nss include\inc_2dacache.nss include\inc_debug.nss include\prc_inc_switch.nss include\prc_inc_array.nss include\prc_class_const.nss include\prc_effect_inc.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\tob_move_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss
+
+spellobjs\sp_plantshape.ncs: spells\sp_plantshape.nss include\prc_alterations.nss include\pnp_shft_poly.nss include\prc_misc_const.nss include\inc_abil_damage.nss include\prc_inc_damage.nss include\prc_effect_inc.nss include\inc_item_props.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\prc_class_const.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\prc_inc_array.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\inc_2dacache.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_debug.nss include\prc_inc_switch.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\pnp_shft_main.nss include\prc_inc_shifting.nss include\prc_inc_function.nss include\prc_inc_util.nss include\prc_inc_spells.nss include\prc_inc_stunfist.nss include\inc_nwnx_funcs.nss include\prc_template_con.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_sb_const.nss include\tob_move_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss include\prc_inc_onhit.nss include\prc_shifter_info.nss include\prc_weap_apt.nss include\prc_inc_wpnrest.nss include\inc_dynconv.nss include\prc_inc_combat.nss include\prc_inc_unarmed.nss include\prc_inc_fork.nss include\prc_inc_natweap.nss
 
 spellobjs\sp_pnp_frshld.ncs: spells\sp_pnp_frshld.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\inc_item_props.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_damage.nss include\prc_inc_sb_const.nss include\inc_2dacache.nss include\inc_debug.nss include\prc_inc_switch.nss include\prc_inc_array.nss include\prc_class_const.nss include\prc_effect_inc.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\tob_move_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss
 

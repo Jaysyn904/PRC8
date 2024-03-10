@@ -261,6 +261,14 @@ const int POLYMORPH_TYPE_WEREWOLF_0l               = 148;
 const int POLYMORPH_TYPE_WEREWOLF_1l               = 149;
 const int POLYMORPH_TYPE_WEREWOLF_2l               = 150;
 
+//:: Wild Shape: Plant
+const int POLYMORPH_TYPE_TREANT				= 160;
+const int POLYMORPH_TYPE_SHAMBLING_MOUND	= 161;
+const int POLYMORPH_TYPE_TWIG_BLIGHT		= 162;
+const int POLYMORPH_TYPE_MYCONID			= 163;
+const int POLYMORPH_TYPE_ALGOID				= 164;
+
+
 //::///////////////////
 //:: DOMAIN CONSTANTS
 //:: These constants are off by 1 to allow 0 to be the FALSE return value.

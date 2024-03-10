@@ -3305,7 +3305,7 @@ Use: Automatic</entry>
   <entry id="13056" lang="en" sex="m">Aberration Wild Shape</entry>
   <entry id="13057" lang="en" sex="m">Type of Feat: Aberrant
 Prerequisite: Aberration Blood
-Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -> Misc Options -> Aberration Wild Shape to choose.
+Specifics: You can use your wild shape ability to assume the form of an aberration. This requires using PRC Options -&gt; Misc Options -&gt; Aberration Wild Shape to choose.
 Use: Automatic</entry>
   <entry id="13058" lang="en" sex="m">Epic Spellfire Wielder I</entry>
   <entry id="13059" lang="en" sex="m">Epic Spellfire Wielder II</entry>
@@ -4970,6 +4970,18 @@ Level
   <entry id="16550" lang="en" sex="m">You sink your roots into the fertile soil below.</entry>
   <entry id="16551" lang="en" sex="m">You must be outside &amp; above ground to use this ability.</entry>
   <entry id="16552" lang="en" sex="m">&lt;CUSTOM0&gt; commands plants.</entry>
+  <entry id="16555" lang="en" sex="m">Wild Shape: Plant</entry>
+  <entry id="16556" lang="en" sex="m">At 12th level, a druid becomes able to use wild shape to change into a plant creature with the same size restrictions as for animal forms. (A druid can’t use this ability to take the form of a plant that isn’t a creature.) </entry>
+  <entry id="16557" lang="en" sex="m">Wild Shape, Treant</entry>
+  <entry id="16558" lang="en" sex="m">Wild Shape, Shambling Mound</entry>
+  <entry id="16559" lang="en" sex="m">Wild Shape, Twig Blight</entry>
+  <entry id="16560" lang="en" sex="m">Wild Shape, Myconid</entry>
+  <entry id="16561" lang="en" sex="m">Wild Shape, Algoid</entry>
+  <entry id="16562" lang="en" sex="m">Treant</entry>
+  <entry id="16563" lang="en" sex="m">Shambling Mound</entry>
+  <entry id="16564" lang="en" sex="m">Twig Blight</entry>
+  <entry id="16565" lang="en" sex="m">Myconid</entry>
+  <entry id="16566" lang="en" sex="m">Algoid</entry>
   <entry id="20400" lang="en" sex="m">++++++++++ ACP Styles ++++++++++</entry>
   <entry id="20401" lang="en" sex="m">Kensai</entry>
   <entry id="20402" lang="en" sex="m">Assassin</entry>
@@ -71168,7 +71180,7 @@ Use: Activated</entry>
   <entry id="75281" lang="en" sex="m">CSM</entry>
   <entry id="75282" lang="en" sex="m">Sht</entry>
   <entry id="75283" lang="en" sex="m">Plt</entry>
-  <entry id="75299" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>  
+  <entry id="75299" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>
   <entry id="75300" lang="en" sex="m">Abjurant Champion Invoking (Warlock)</entry>
   <entry id="75301" lang="en" sex="m">Acolye of the Skin Invoking (Warlock)</entry>
   <entry id="75302" lang="en" sex="m">Anima Mage Invoking (Warlock)</entry>
@@ -71221,7 +71233,7 @@ Use: Activated</entry>
   <entry id="75401" lang="en" sex="m">Invoking: At each level, you gain new invocations known, and an increase in invoker level as if you had also gained a level in the Dragonfire Adept class. You do not, however, gain any other benefit a character of that class would have gained.</entry>
   <entry id="75402" lang="en" sex="m">Invoking: At each level, you gain an increase in invoker level as if you had also gained a level in the Dragon Shaman class. You do not, however, gain any other benefit a character of that class would have gained.</entry>
   <entry id="75403" lang="en" sex="m">Advancement: While this prestige class can advance the caster level of an alternate magic system class, it is instead advancing a standard spellcasting class, or no class at all.</entry>
-  <entry id="75419" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>    
+  <entry id="75419" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>
   <entry id="75420" lang="en" sex="m">Acolyte of the Skin Shadowcasting (Shadowcaster)</entry>
   <entry id="75421" lang="en" sex="m">Alienist Shadowcasting (Shadowcaster)</entry>
   <entry id="75422" lang="en" sex="m">Child of Night Shadowcasting (Shadowcaster)</entry>
