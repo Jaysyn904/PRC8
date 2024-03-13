@@ -784,8 +784,7 @@ void SoulEater(object oPC)
     SetLocalInt(oPC, "PRC_PrereqSoulEater", 1);
 
     int nRace = MyPRCGetRacialType(oPC);
-    if(
-	|| nRace == RACIAL_TYPE_ABERRATION
+    if(nRace == RACIAL_TYPE_ABERRATION
 	|| nRace == RACIAL_TYPE_OOZE
 	|| nRace == RACIAL_TYPE_PLANT
     || nRace == RACIAL_TYPE_ANIMAL
@@ -796,9 +795,7 @@ void SoulEater(object oPC)
     || nRace == RACIAL_TYPE_GIANT
     || nRace == RACIAL_TYPE_HUMANOID_MONSTROUS
     || nRace == RACIAL_TYPE_MAGICAL_BEAST
-    || nRace == RACIAL_TYPE_OUTSIDER
-	
-	)
+    || nRace == RACIAL_TYPE_OUTSIDER)
         SetLocalInt(oPC, "PRC_PrereqSoulEater", 0);
 }
 

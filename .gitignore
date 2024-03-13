@@ -18,3 +18,4 @@ trunk/compileepic.bat
 *.ncs
 *.erf
 *.log
+nwn/nwnprc/trunk/makefile.temp

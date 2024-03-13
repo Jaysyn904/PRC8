@@ -95,6 +95,7 @@ module.OnPlayerDying       : prc_ondying
 module.OnPlayerEquipItem   : prc_equip
 module.OnPlayerLevelUp     : prc_levelup
 module.OnPlayerRest        : prc_rest
+module.OnPlayerTarget	   : prc_onplaytarget
 module.OnPlayerRespawn     : prc_onrespawn
 module.OnUnaquireItem      : prc_onunaquire
 module.OnPlayerUnequipItem : prc_unequip
