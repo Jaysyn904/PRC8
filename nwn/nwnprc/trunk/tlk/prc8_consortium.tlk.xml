@@ -35284,7 +35284,7 @@ Use: Specified</entry>
   <entry id="52528" lang="en" sex="m">AC Bonus</entry>
   <entry id="52529" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisites: Swordsage 2.
-Specifics: You gain your Wisdom modifier as a bonus to your armour class when wearing light armour.
+Specifics: AC Bonus: Starting at 2nd level, you can add your Wisdom modifier as a bonus to Armor Class, so long as you wear light armor, are unencumbered, and do not use a shield. This bonus to AC applies even against touch attacks or when you are flat-footed. However, you lose this bonus when you are immobilized or helpless.
 Use: Automatic</entry>
   <entry id="52530" lang="en" sex="m">Sense Magic</entry>
   <entry id="52531" lang="en" sex="m">Type of Feat: Class Specific
