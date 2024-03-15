@@ -82,187 +82,186 @@ void main()
 //:: Not being called from an event but from EvalPRCFeats.  No non-good Saints.
     if(nEvent == FALSE && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
     {
-	
-//:: Add Darkvision
-		ipIP = ItemPropertyDarkvision();
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-		
-//:: Add Low-Light Vision
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION);
- 	   	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		
-		
-//:: Wisdom based AC bonus
-		SetCompositeBonus(oSkin, "Template_Saint_AC", iWISb, ITEM_PROPERTY_AC_BONUS);
-		
-
-//:: Hit Die based Damage Reduction
-		if (iHD >= 12) 
+	//:: Any living creature of good alignment that is not an outsider or an elemental
+		int nRace = MyPRCGetRacialType(oPC);
+		if(!(nRace == RACIAL_TYPE_CONSTRUCT ||
+			   nRace == RACIAL_TYPE_ELEMENTAL ||
+			   nRace == RACIAL_TYPE_OOZE ||
+			   nRace == RACIAL_TYPE_OUTSIDER ||
+			   nRace == RACIAL_TYPE_UNDEAD))
 		{
-			ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_10_HP);
-			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
-		}
-		
-		else if (iHD >= 8) 
-		{
-			ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_5_HP);
-			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
-		}
-	
-		else if (iHD >= 4) 
-		{
-			ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_1, IP_CONST_DAMAGESOAK_5_HP);
+		//:: Add Darkvision
+			ipIP = ItemPropertyDarkvision();
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		}
-	
-		else if (iHD <= 3) {/*:: you get nothing! */}	
 		
+		//:: Add Low-Light Vision
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
 		
-//:: Set HD based Fast Healing
-//ebonfowl: I think this is supposed to be HD/2 to a max of 10
-		int nFastHealing = iHD/2;
-		if (nFastHealing > 10) {nFastHealing == 10;}	
-		SetCompositeBonus(oSkin, "Template_Saint_FastHealing", nFastHealing, ITEM_PROPERTY_REGENERATION);		
-		
-		
-//:: Set racial type to Outsider (Native)
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_OUTSIDER_RACIAL_TYPE);
- 	   	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		SetSubRace(oPC, "Outsider (Native)");
+		//:: Wisdom based AC bonus
+			SetCompositeBonus(oSkin, "Template_Saint_AC", iWISb, ITEM_PROPERTY_AC_BONUS);
 
-
-//:: Set Acid Immunity	
-		ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_ACID,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-		
-//:: Set Cold Immunity	
-		ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_COLD,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-		
-//:: Set Electrical Immunity		
-		ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		
-		
-//:: +4 Save vs. Poison
-		ipIP = ItemPropertyBonusSavingThrowVsX(IP_CONST_SAVEVS_POISON, 4);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-
-//:: Resistance to Fire 10
-		ipIP = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGERESIST_10);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
-
-		
-//:: Set Petrification Immunity (has to be done per spell, thanks Bioware!)
-		ipIP = ItemPropertySpellImmunitySpecific(216);  //:: Flesh to Stone		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(218);  //:: Breath, Petrify		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
-		ipIP = ItemPropertySpellImmunitySpecific(219);  //:: Touch, Petrify		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(220);  //:: Gaze, Petrify		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
-		ipIP = ItemPropertySpellImmunitySpecific(235);  //:: Stonehold		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
-		ipIP = ItemPropertySpellImmunitySpecific(244);  //:: Audience of Stone		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(245);  //:: Crystalize		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(246);  //:: Basilisk Mask		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(247);	//:: Gorgon Mask		
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		
-	
-//:: Set Ability Score Bonuses
-		SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
-		SetCompositeBonus(oSkin, "Template_Saint_int", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
-		SetCompositeBonus(oSkin, "Template_Saint_wis", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
-		SetCompositeBonus(oSkin, "Template_Saint_cha", 4, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);
-		
-		
-//:: Setup Spell-like abilities & Holy Power marker feat
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_BLESS);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-		//ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_GUIDANCE);
-		//IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
-
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_RESISTANCE);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_VIRTUE);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
-
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_PROTECTIVE_AURA);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		
-		ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_HOLY_POWER);
-		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-
-//:: Setup Holy Touch anti-evil damage shield.		
-		itemproperty iHolyTouch = (ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1));
-		object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
-		if (GetIsObjectValid(oArmor))
-		{
-			//:: Add item prop with DURATION_TYPE_PERMANENT
-			IPSafeAddItemProperty(oArmor, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-		}
-		else
-		{
-			//ebonfowl: strange that it compiled with this object redefined here
-			//object oSkin = GetPCSkin(oPC);
-			IPSafeAddItemProperty(oSkin, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-		}
-
-//:: Keep property on armor or hide
-		ExecuteScript ("prc_keep_onhit_a", oPC);		
-
-//:: Setup Holy Touch extra damage vs evil
-		object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
-		
-        effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(7, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-        effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-               eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
-        effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-               eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
-        effect eLink = EffectLinkEffects(eEffect1, eEffect2);
-               eLink = EffectLinkEffects(eLink, eEffect3);
-               eLink = SupernaturalEffect(eLink);
-               eLink = TagEffect(eLink, "EffectHolyTouch");
-
-	//:: Clear the effect to be safe and prevent stacking
-		effect eCheckEffect = GetFirstEffect(oPC);
-            
-		while (GetIsEffectValid(eCheckEffect))
-		{
-			if (GetEffectTag(eCheckEffect) == "EffectHolyTouch")
+		//:: Hit Die based Damage Reduction
+			if (iHD >= 12) 
 			{
-				RemoveEffect(oPC, eCheckEffect);
+				ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_10_HP);
+				IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+			}
+		
+			else if (iHD >= 8) 
+			{
+				ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_5_HP);
+				IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+			}
+	
+			else if (iHD >= 4) 
+			{
+				ipIP = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_1, IP_CONST_DAMAGESOAK_5_HP);
+				IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			}
+	
+			else if (iHD <= 3) {/*:: you get nothing! */}			
+		
+		//:: Set HD based Fast Healing
+		//ebonfowl: I think this is supposed to be HD/2 to a max of 10
+			int nFastHealing = iHD/2;
+			if (nFastHealing > 10) {nFastHealing == 10;}	
+			SetCompositeBonus(oSkin, "Template_Saint_FastHealing", nFastHealing, ITEM_PROPERTY_REGENERATION);		
+		
+		
+		//:: Set racial type to Outsider (Native)
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_OUTSIDER_RACIAL_TYPE);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			SetSubRace(oPC, "Outsider (Native)");
+
+		//:: Set Acid Immunity	
+			ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_ACID,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+		
+		//:: Set Cold Immunity	
+			ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_COLD,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+		
+		//:: Set Electrical Immunity		
+			ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		
+		
+		//:: +4 Save vs. Poison
+			ipIP = ItemPropertyBonusSavingThrowVsX(IP_CONST_SAVEVS_POISON, 4);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+
+		//:: Resistance to Fire 10
+			ipIP = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGERESIST_10);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+
+		
+		//:: Set Petrification Immunity (has to be done per spell, thanks Bioware!)
+			ipIP = ItemPropertySpellImmunitySpecific(216);  //:: Flesh to Stone		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			ipIP = ItemPropertySpellImmunitySpecific(218);  //:: Breath, Petrify		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+			ipIP = ItemPropertySpellImmunitySpecific(219);  //:: Touch, Petrify		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			ipIP = ItemPropertySpellImmunitySpecific(220);  //:: Gaze, Petrify		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+			ipIP = ItemPropertySpellImmunitySpecific(235);  //:: Stonehold		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
+			ipIP = ItemPropertySpellImmunitySpecific(244);  //:: Audience of Stone		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			ipIP = ItemPropertySpellImmunitySpecific(245);  //:: Crystalize		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			ipIP = ItemPropertySpellImmunitySpecific(246);  //:: Basilisk Mask		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			ipIP = ItemPropertySpellImmunitySpecific(247);	//:: Gorgon Mask		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+	
+		//:: Set Ability Score Bonuses
+			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+			SetCompositeBonus(oSkin, "Template_Saint_int", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
+			SetCompositeBonus(oSkin, "Template_Saint_wis", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
+			SetCompositeBonus(oSkin, "Template_Saint_cha", 4, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);		
+		
+		//:: Setup Spell-like abilities & Holy Power marker feat
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_BLESS);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+			//ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_GUIDANCE);
+			//IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_RESISTANCE);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_VIRTUE);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_PROTECTIVE_AURA);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+			
+			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_HOLY_POWER);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+		//:: Setup Holy Touch anti-evil damage shield.		
+			itemproperty iHolyTouch = (ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1));
+			object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+			if (GetIsObjectValid(oArmor))
+			{
+				//:: Add item prop with DURATION_TYPE_PERMANENT
+				IPSafeAddItemProperty(oArmor, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+			}
+			else
+			{
+				IPSafeAddItemProperty(oSkin, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+			}
+
+		//:: Keep property on armor or hide
+			ExecuteScript ("prc_keep_onhit_a", oPC);		
+
+		//:: Setup Holy Touch extra damage vs evil
+			object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+			
+			effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(7, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+			effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+				   eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
+			effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+				   eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
+			effect eLink = EffectLinkEffects(eEffect1, eEffect2);
+				   eLink = EffectLinkEffects(eLink, eEffect3);
+				   eLink = SupernaturalEffect(eLink);
+				   eLink = TagEffect(eLink, "EffectHolyTouch");
+
+		//:: Clear the effect to be safe and prevent stacking
+			effect eCheckEffect = GetFirstEffect(oPC);
+				
+			while (GetIsEffectValid(eCheckEffect))
+			{
+				if (GetEffectTag(eCheckEffect) == "EffectHolyTouch")
+				{
+					RemoveEffect(oPC, eCheckEffect);
+				
+				}
+				
+			eCheckEffect = GetNextEffect(oPC);
 			
 			}
-			
-		eCheckEffect = GetNextEffect(oPC);
-		
-		}
 
-//ebonfowl: this needed to be moved outside the while loop
-//:: check if equipped with a ranged weapon and apply effect again if not
-        if (!GetWeaponRanged(oItem))
-			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
+		//ebonfowl: this needed to be moved outside the while loop
+		//:: check if equipped with a ranged weapon and apply effect again if not
+			if (!GetWeaponRanged(oItem))
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
 		
 	
-//:: Hook in the events for Holy Touch
-        if(DEBUG) DoDebug("tmp_m_saint: Adding eventhooks");
-        //AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
-        //AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
-        AddEventScript(oPC, EVENT_ONHIT,				"tmp_m_saint", TRUE, FALSE);
+		//:: Hook in the events for Holy Touch
+			if(DEBUG) DoDebug("tmp_m_saint: Adding eventhooks");
+			//AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
+			//AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
+			AddEventScript(oPC, EVENT_ONHIT,				"tmp_m_saint", TRUE, FALSE);
 		
-    }
+		}
+	}
 	
 //:: We're being called from the OnHit eventhook
     else if(nEvent == EVENT_ONHIT)
@@ -298,87 +297,5 @@ void main()
 			}
 		}
     }
-//:: END IF - Running OnHit event
-	
-//:: We are called from the OnPlayerEquipItem eventhook. Add OnHitCast: Unique Power to oPC's weapon
-/*    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
-    {
-		oPC   = GetItemLastEquippedBy();
-        oItem = GetItemLastEquipped();
-        if(DEBUG) DoDebug("tmp_m_gravetouch - OnEquip\n"
-                        + "oPC = " + DebugObject2Str(oPC) + "\n"
-                        + "oItem = " + DebugObject2Str(oItem) + "\n"
-                          );
-						  
-		object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
-    
-		effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(7, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
-		effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
-		effect eLink = EffectLinkEffects(eEffect1, eEffect2);
-		eLink = EffectLinkEffects(eLink, eEffect3);
-		eLink = SupernaturalEffect(eLink);
-		eLink = TagEffect(eLink, "EffectHolyTouch");
-
-		//:: Clear the effect to be safe and prevent stacking
-		effect eCheckEffect = GetFirstEffect(oPC);
-            
-		while (GetIsEffectValid(eCheckEffect))
-		{
-			if (GetEffectTag(eCheckEffect) == "EffectHolyTouch")
-			{
-				RemoveEffect(oPC, eCheckEffect);
-			}
-			eCheckEffect = GetNextEffect(oPC);
-		}
-
-		//:: Check if equipped with a ranged weapon and apply effect again if not
-		if (!GetWeaponRanged(oWeapon))
-			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);	
-		
-    }
-//:: END IF - Running OnPlayerEquipItem event */
-	
-//:: We are called from the OnPlayerUnEquipItem eventhook. Remove OnHitCast: Unique Power from oPC's weapon
-/*    else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
-    {
-		oPC   = GetItemLastUnequippedBy();
-        oItem = GetItemLastUnequipped();
-        if(DEBUG) DoDebug("tmp_m_gravetouch - OnUnEquip\n"
-                        + "oPC = " + DebugObject2Str(oPC) + "\n"
-                        + "oItem = " + DebugObject2Str(oItem) + "\n"
-                          );
-						  
-		object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
-    
-		effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(7, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
-		effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-		eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
-		effect eLink = EffectLinkEffects(eEffect1, eEffect2);
-		eLink = EffectLinkEffects(eLink, eEffect3);
-		eLink = SupernaturalEffect(eLink);
-		eLink = TagEffect(eLink, "EffectHolyTouch");
-
-    //:: Clear the effect to be safe and prevent stacking
-		effect eCheckEffect = GetFirstEffect(oPC);
-            
-		while (GetIsEffectValid(eCheckEffect))
-		{
-			if (GetEffectTag(eCheckEffect) == "EffectHolyTouch")
-			{
-				RemoveEffect(oPC, eCheckEffect);
-			}
-				eCheckEffect = GetNextEffect(oPC);
-		}
-
-    //:: Check if equipped with a ranged weapon and apply effect again if not
-    if (!GetWeaponRanged(oWeapon))
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
-    }
-//:: END IF - Running OnPlayerUnEquipItem event */
-	
+//:: END IF - Running OnHit event	
 }

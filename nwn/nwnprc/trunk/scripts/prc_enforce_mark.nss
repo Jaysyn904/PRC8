@@ -109,21 +109,25 @@ int AbjurantChampionMarkerFeats()
 {
     if(GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION))
     {
-		int nAbChamp 	= GetHasFeat(FEAT_ABCHAMP_INVOKING_WARLOCK)
-						+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DFA)
-						+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DRAGON_SHAMAN)
-						+ GetHasFeat(FEAT_ABCHAMP_NONE);
+		int nAbChamp;
+		
+		nAbChamp 	=+ GetHasFeat(FEAT_ABCHAMP_INVOKING_WARLOCK);
+		nAbChamp	=+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DFA);
+		nAbChamp	=+ GetHasFeat(FEAT_ABCHAMP_INVOKING_DRAGON_SHAMAN);
+		nAbChamp	=+ GetHasFeat(FEAT_ABCHAMP_NONE);
+						
+		//FloatingTextStringOnCreature("nAbChamp = " + IntToString(nAbChamp), OBJECT_SELF, FALSE);
 
         if(nAbChamp > 1)
         {
-            FloatingTextStringOnCreature("An Abjurant Champion may only advance a single arcane or invoker class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("An Abjurant Champion may only advance a single invoker class, or N/A for arcane spellcasting.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
 		
 		if(nAbChamp < 1)
         {
-            FloatingTextStringOnCreature("A Abjurant Champion must pick one arcane or invoker class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Abjurant Champion must pick an invoker class to advance at first level, or pick N/A for an arcane spellcaster.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
@@ -609,7 +613,7 @@ int MaesterMarkerFeats()
 //:: Enforces Master of Shadows marker feats
 int MasterShadowMarkerFeats()
 {
-	if(GetLevelByClass(CLASS_TYPE_MAGEKILLER))
+	if(GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW))
 	{
 		int nShadow	= GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWCASTER)
 					+ GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWSMITH);
