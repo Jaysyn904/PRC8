@@ -1,0 +1,28 @@
+-Already on Bonus Feat list:
+Blind Fight
+Iron Will
+Stunning Fist
+Deflect Arrows
+Earth's Embrace
+Combat Expertise
+Improved Trip
+Superior Expertise = Imp. Combat Expertise
+Improved Grapple
+
+-Should be possible
+Falling Star Strike
+Freezing the Lifeblood
+Ki Shout & Great Ki Shout
+Pain Touch
+Choke Hold
+
+-Maybe possible:
+Unbalancing Strike
+Defensive Throw
+Grappling Block
+Karmic Strike
+Defensive Strike
+
+- Not possible due to engine limitations
+Great Throw
+Combat Reflexes
