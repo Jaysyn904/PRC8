@@ -20,3 +20,5 @@ trunk/compileepic.bat
 *.log
 nwn/nwnprc/trunk/makefile.temp
 nwn/nwnprc/trunk/makefile.temp
+nwn/nwnprc/trunk/CompiledResources/config.xml
+nwn/nwnprc/trunk/CompiledResources/config.xml
