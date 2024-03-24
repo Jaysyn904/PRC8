@@ -869,20 +869,17 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
     
     if(GetHasFeat(FEAT_EFFICIENT_DEFENDER, oPC))
     {
-		
-		//ExecuteScript("prc_effdef", oPC);
-		
-       //:: Light or medium armor only
+    //:: Light or medium armor only
 		object oArmor 	= GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
 
 		int nEvent 		= GetRunningEvent();
 		int nBaseAC		= GetBaseAC(oArmor);
 		
-		/* if(DEBUG) */ FloatingTextStringOnCreature("prc_feats: Efficient Defender running", oPC, FALSE);
+		if(DEBUG) FloatingTextStringOnCreature("prc_feats: Efficient Defender running", oPC, FALSE);
 		
 		if(nBaseAC > 0 && nBaseAC < 6)	
 		{
-			/* if (DEBUG)  */FloatingTextStringOnCreature("prc_feats: Efficient Defender: Light or medium armor found", oPC, FALSE);
+			if (DEBUG) FloatingTextStringOnCreature("prc_feats: Efficient Defender: Light or medium armor found", oPC, FALSE);
 			SetCompositeBonus(oSkin, "EfficientDefender", 1, ITEM_PROPERTY_AC_BONUS);
             SetCompositeBonus(oSkin, "EDACPHide", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_HIDE);
             SetCompositeBonus(oSkin, "EDACPMS", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_MOVE_SILENTLY);
@@ -896,7 +893,7 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         }
 		else
 		{
-			/* if (DEBUG)  */FloatingTextStringOnCreature("prc_feats: Efficient Defender: No light or medium armor found", oPC, FALSE);
+			if (DEBUG) FloatingTextStringOnCreature("prc_feats: Efficient Defender: No light or medium armor found", oPC, FALSE);
 			SetCompositeBonus(oSkin, "EfficientDefender", 0, ITEM_PROPERTY_AC_BONUS);
             SetCompositeBonus(oSkin, "EDACPHide", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_HIDE);
             SetCompositeBonus(oSkin, "EDACPMS", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_MOVE_SILENTLY);
