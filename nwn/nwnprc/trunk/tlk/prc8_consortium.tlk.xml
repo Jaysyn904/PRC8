@@ -71321,4 +71321,6 @@ Use: Activated</entry>
   <entry id="75567" lang="en" sex="m">Manifesting: Upon reaching levels 2, 3, 4, 5, 6, 7, 8, 9, the Thrallherd gains a new manifester level, increasing his power points, total powers known, and maximum power level. </entry>
   <entry id="75568" lang="en" sex="m">Spellcasting: Upon reaching levels 2, 3, 4, 5, 6 the Sanctified Mind gains new spells as if he had also gained a level in his highest level divine spellcasting class.</entry>
   <entry id="75569" lang="en" sex="m">Spellcasting: Each level, the Soulmanifester gains new spells per day as if they had also gained a level in their highest level arcane spellcasting class.</entry>
+  <entry id="75699" lang="en" sex="m">### BEGIN SPELLCASTER MARKER FEATS#</entry>
+  
 </tlk>

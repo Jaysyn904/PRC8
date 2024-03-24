@@ -869,20 +869,45 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
     
     if(GetHasFeat(FEAT_EFFICIENT_DEFENDER, oPC))
     {
-        // Light or medium only
-        if(6 > GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)))
-        {
-            SetCompositeBonus(oSkin, "EfficientDefender", 1, AC_ARMOUR_ENCHANTMENT_BONUS, ITEM_PROPERTY_AC_BONUS);
-            SetCompositeBonus(oSkin, "EDACPHide", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_HIDE);
-            SetCompositeBonus(oSkin, "EDACPMS", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_MOVE_SILENTLY);
-            SetCompositeBonus(oSkin, "EDACPParry", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PARRY);
-            SetCompositeBonus(oSkin, "EDACPPP", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PICK_POCKET);
-            SetCompositeBonus(oSkin, "EDACPSetT", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_SET_TRAP);
-            SetCompositeBonus(oSkin, "EDACPTumble", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_TUMBLE);
-            SetCompositeBonus(oSkin, "EDACPJump", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_JUMP);
-            SetCompositeBonus(oSkin, "EDACPBalance", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_BALANCE);
-            SetCompositeBonus(oSkin, "EDACPClimb", -1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_CLIMB);
-        }    
+		
+		//ExecuteScript("prc_effdef", oPC);
+		
+       //:: Light or medium armor only
+		object oArmor 	= GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+
+		int nEvent 		= GetRunningEvent();
+		int nBaseAC		= GetBaseAC(oArmor);
+		
+		/* if(DEBUG) */ FloatingTextStringOnCreature("prc_feats: Efficient Defender running", oPC, FALSE);
+		
+		if(nBaseAC > 0 && nBaseAC < 6)	
+		{
+			/* if (DEBUG)  */FloatingTextStringOnCreature("prc_feats: Efficient Defender: Light or medium armor found", oPC, FALSE);
+			SetCompositeBonus(oSkin, "EfficientDefender", 1, ITEM_PROPERTY_AC_BONUS);
+            SetCompositeBonus(oSkin, "EDACPHide", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_HIDE);
+            SetCompositeBonus(oSkin, "EDACPMS", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_MOVE_SILENTLY);
+            SetCompositeBonus(oSkin, "EDACPParry", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PARRY);
+            SetCompositeBonus(oSkin, "EDACPPP", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PICK_POCKET);
+            SetCompositeBonus(oSkin, "EDACPSetT", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_SET_TRAP);
+            SetCompositeBonus(oSkin, "EDACPTumble", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_TUMBLE);
+            SetCompositeBonus(oSkin, "EDACPJump", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_JUMP);
+            SetCompositeBonus(oSkin, "EDACPBalance", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_BALANCE);
+            SetCompositeBonus(oSkin, "EDACPClimb", 1, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_CLIMB);
+        }
+		else
+		{
+			/* if (DEBUG)  */FloatingTextStringOnCreature("prc_feats: Efficient Defender: No light or medium armor found", oPC, FALSE);
+			SetCompositeBonus(oSkin, "EfficientDefender", 0, ITEM_PROPERTY_AC_BONUS);
+            SetCompositeBonus(oSkin, "EDACPHide", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_HIDE);
+            SetCompositeBonus(oSkin, "EDACPMS", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_MOVE_SILENTLY);
+            SetCompositeBonus(oSkin, "EDACPParry", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PARRY);
+            SetCompositeBonus(oSkin, "EDACPPP", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_PICK_POCKET);
+            SetCompositeBonus(oSkin, "EDACPSetT", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_SET_TRAP);
+            SetCompositeBonus(oSkin, "EDACPTumble", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_TUMBLE);
+            SetCompositeBonus(oSkin, "EDACPJump", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_JUMP);
+            SetCompositeBonus(oSkin, "EDACPBalance", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_BALANCE);
+            SetCompositeBonus(oSkin, "EDACPClimb", 0, ITEM_PROPERTY_DECREASED_SKILL_MODIFIER, SKILL_CLIMB);			
+		}
     }  
     if(GetHasFeat(FEAT_MOUNTAINEER, oPC))
     {
