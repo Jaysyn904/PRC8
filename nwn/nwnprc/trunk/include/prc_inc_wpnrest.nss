@@ -580,8 +580,6 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
 	  case BASE_ITEM_HEAVY_PICK:
 	  case BASE_ITEM_LIGHT_PICK:
 	  case BASE_ITEM_LIGHT_LANCE:
-	  case BASE_ITEM_GOAD:
-	  case BASE_ITEM_SAP:	  
            return TRUE;
 
       //special case: counts as martial for dwarves
@@ -623,7 +621,7 @@ void DoProficiencyCheck(object oPC, object oItem, int nHand)
     {
         if (DEBUG) DoDebug(GetName(oPC)+" is non-proficient with "+GetName(oItem));
         SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(nHand), -4, ATTACK_BONUS_ONHAND);
-        if(nBase == BASE_ITEM_DOUBLEAXE || nBase == BASE_ITEM_TWOBLADEDSWORD || nBase == BASE_ITEM_DIREMACE)
+        if(nBase == BASE_ITEM_DOUBLEAXE || nBase == BASE_ITEM_TWOBLADEDSWORD || nBase == BASE_ITEM_DIREMACE || nBase == BASE_ITEM_DOUBLE_SCIMITAR)
             SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), -4, ATTACK_BONUS_OFFHAND);
     }  
 }
