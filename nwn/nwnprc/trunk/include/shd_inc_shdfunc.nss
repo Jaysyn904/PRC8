@@ -395,10 +395,10 @@ int GetShadowMagicPRCLevels(object oShadow)
 		if(GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWCASTER, oShadow))
 			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oShadow) + 1) / 2;
 		
-		if(GetHasFeat(FEAT_DRAGONSONG_MYSTERY_SHADOWCASTER, oShadow))
+		if(GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWCASTER, oShadow))
 			nLevel += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oShadow) + 1) / 2;		
 		
-		if(GetHasFeat(FEAT_ESAVANT_MYSTERY_SHADOWCASTER, oShadow))
+		if(GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWCASTER, oShadow))
 			nLevel += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oShadow);		
 
 		if(GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWCASTER, oShadow))
@@ -434,10 +434,10 @@ int GetShadowMagicPRCLevels(object oShadow)
 		if(GetHasFeat(FEAT_ASMODEUS_MYSTERY_SHADOWSMITH, oShadow))
 			nLevel += (GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oShadow) + 1) / 2;
 		
-		if(GetHasFeat(FEAT_DRAGONSONG_MYSTERY_SHADOWSMITH, oShadow))
+		if(GetHasFeat(FEAT_DSONG_MYSTERY_SHADOWSMITH, oShadow))
 			nLevel += (GetLevelByClass(CLASS_TYPE_DRAGONSONG_LYRIST, oShadow) + 1) / 2;		
 		
-		if(GetHasFeat(FEAT_ESAVANT_MYSTERY_SHADOWSMITH, oShadow))
+		if(GetHasFeat(FEAT_ELESAVANT_MYSTERY_SHADOWSMITH, oShadow))
 			nLevel += GetLevelByClass(CLASS_TYPE_ELEMENTAL_SAVANT, oShadow);		
 
 		if(GetHasFeat(FEAT_MASTERSHADOW_MYSTERY_SHADOWSMITH, oShadow))
@@ -754,4 +754,3 @@ int GetHasNocturnal(object oShadow, int nPath)
     // If none of those trigger.
     return nReturn;
 }
-

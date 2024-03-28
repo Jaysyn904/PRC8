@@ -1353,7 +1353,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
         if(GetLocalInt(oCaster, "NSB_Class") == CLASS_TYPE_SORCERER)
             return TRUE;
         //check they have arcane PrC or Draconic Arcane Grace/Breath
-        if(!(GetArcanePRCLevels(oCaster) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
+        if(!(GetArcanePRCLevels(oCaster, nCastingClass) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
           && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCaster) || GetHasFeat(FEAT_DRACONIC_BREATH, oCaster)))
             return TRUE;
         //check they have sorc in first arcane slot
@@ -1380,7 +1380,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
         if(GetLocalInt(oCaster, "NSB_Class") == CLASS_TYPE_BARD)
             return TRUE;
         //check they have arcane PrC or Draconic Arcane Grace/Breath
-        if(!(GetArcanePRCLevels(oCaster) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
+        if(!(GetArcanePRCLevels(oCaster, nCastingClass) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
           && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCaster) || GetHasFeat(FEAT_DRACONIC_BREATH, oCaster)))
             return TRUE;
         //check they have bard in first arcane slot

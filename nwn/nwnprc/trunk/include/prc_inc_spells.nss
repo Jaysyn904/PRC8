@@ -382,12 +382,12 @@ int GetPrCAdjustedClassLevel(int nClass, object oCaster = OBJECT_SELF)
     if(GetIsArcaneClass(nClass, oCaster) && nClass != CLASS_TYPE_SUBLIME_CHORD)
     {
         if (GetPrimaryArcaneClass(oCaster) == nClass) // adjust for any PrCs
-            iTemp = GetArcanePRCLevels(oCaster);
+            iTemp = GetArcanePRCLevels(oCaster, nClass);
     }
     else if(GetIsDivineClass(nClass, oCaster))
     {
         if (GetPrimaryDivineClass(oCaster) == nClass) // adjust for any PrCs
-            iTemp = GetDivinePRCLevels(oCaster);
+            iTemp = GetDivinePRCLevels(oCaster, nClass);
     }
     else // a non-caster class or a PrC
     {
@@ -606,14 +606,14 @@ int GetLevelByTypeDivineFeats(object oCaster = OBJECT_SELF, int iSpellID = -1)
         || iClass8 == CLASS_TYPE_ANTI_PALADIN)
         iClass8Lev = iClass7Lev / 2;		
 		
-    if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster);
-    if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster);
-    if (iClass3 == iFirstDivine) iClass3Lev += GetDivinePRCLevels(oCaster);
-    if (iClass4 == iFirstDivine) iClass4Lev += GetDivinePRCLevels(oCaster);
-    if (iClass5 == iFirstDivine) iClass5Lev += GetDivinePRCLevels(oCaster);
-    if (iClass6 == iFirstDivine) iClass6Lev += GetDivinePRCLevels(oCaster);
-    if (iClass7 == iFirstDivine) iClass7Lev += GetDivinePRCLevels(oCaster);
-    if (iClass8 == iFirstDivine) iClass8Lev += GetDivinePRCLevels(oCaster);
+    if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster, iClass1);
+    if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster, iClass2);
+    if (iClass3 == iFirstDivine) iClass3Lev += GetDivinePRCLevels(oCaster, iClass3);
+    if (iClass4 == iFirstDivine) iClass4Lev += GetDivinePRCLevels(oCaster, iClass4);
+    if (iClass5 == iFirstDivine) iClass5Lev += GetDivinePRCLevels(oCaster, iClass5);
+    if (iClass6 == iFirstDivine) iClass6Lev += GetDivinePRCLevels(oCaster, iClass6);
+    if (iClass7 == iFirstDivine) iClass7Lev += GetDivinePRCLevels(oCaster, iClass7);
+    if (iClass8 == iFirstDivine) iClass8Lev += GetDivinePRCLevels(oCaster, iClass8);
 	
     iClass1Lev += iBoost;
     iClass2Lev += iBoost;

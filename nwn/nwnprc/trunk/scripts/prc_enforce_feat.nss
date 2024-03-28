@@ -385,7 +385,6 @@ int GenasaiFocus()
     return FALSE;
 }*/
 
-
 int VileFeats()
 {
     if(GetHasFeat(FEAT_VILE_DEFORM_OBESE) && GetHasFeat(FEAT_VILE_DEFORM_GAUNT))
@@ -1907,8 +1906,8 @@ int ReserveFeats()
     int nClass = GetPrimarySpellcastingClass(oPC);
     int nLevel = GetLevelByClass(nClass, oPC);
 
-    if (GetIsDivineClass(nClass, oPC)) nLevel += GetDivinePRCLevels(oPC);
-    else if (GetIsArcaneClass(nClass, oPC)) nLevel += GetArcanePRCLevels(oPC);
+    if (GetIsDivineClass(nClass, oPC)) nLevel += GetDivinePRCLevels(oPC, nClass);
+    else if (GetIsArcaneClass(nClass, oPC)) nLevel += GetArcanePRCLevels(oPC, nClass);
     
     int nSpellLevelKnown = GetMaxSpellLevelForCasterLevel(nClass, nLevel);
 

@@ -1,11 +1,18 @@
 2DA V2.0
 
-  FeatLabel                FeatIndex List GrantedOnLevel OnMenu 
-0 FEAT_EPIC_BLINDING_SPEED 491       0    -1             1      
-1 DefArrow                 8         0    -1             0      
-2 TwoWeap                  41        0    -1             0      
-3 Ambidex                  1         0    -1             0      
-4 DivineRecovery           24071     3    2              1      
-5 DivineImpteus            24072     3    7              1      
-6 DivineFury               24073     3    9              1      
-7 ArmouredStealth          24074     3    5              0      
+           FeatLabel                                       FeatIndex List GrantedOnLevel OnMenu 
+0          FEAT_EPIC_BLINDING_SPEED                        491       0    -1             1      
+1          DefArrow                                        8         0    -1             0      
+2          TwoWeap                                         41        0    -1             0      
+3          Ambidex                                         1         0    -1             0      
+4          DivineRecovery                                  24071     3    2              1      
+5          DivineImpteus                                   24072     3    7              1      
+6          DivineFury                                      24073     3    9              1      
+7          ArmouredStealth                                 24074     3    5              0      
+8          FEAT_RUBY_VINDICATOR_SPELLCASTING_ARCHIVIST     19101     2    1              0      
+9          FEAT_RUBY_VINDICATOR_SPELLCASTING_BLACKGUARD    19126     2    1              0      
+10         FEAT_RUBY_VINDICATOR_SPELLCASTING_BLIGHTER      19148     2    1              0      
+11         FEAT_RUBY_VINDICATOR_SPELLCASTING_CLERIC        19179     2    1              0      
+12         FEAT_RUBY_VINDICATOR_SPELLCASTING_FAVOURED_SOUL 19254     2    1              0      
+13         FEAT_RUBY_VINDICATOR_SPELLCASTING_PALADIN       19409     2    1              0      
+14         FEAT_RUBY_VINDICATOR_SPELLCASTING_OASHAMAN      19471     2    1              0      

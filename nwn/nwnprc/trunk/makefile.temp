@@ -1433,7 +1433,7 @@ scripts\prc_s_kiheal.nss \
 scripts\prc_s_kisave.nss \
 scripts\prc_s_kiskill.nss \
 scripts\prc_s_shoutstun.nss \
-scripts\PRC_S_spellb.nss \
+scripts\prc_s_spellb.nss \
 scripts\prc_s_spellgain.nss \
 scripts\prc_sacpur_strik.nss \
 scripts\prc_sacrdvit.nss \
@@ -4031,7 +4031,7 @@ objs\prc_s_kiheal.ncs \
 objs\prc_s_kisave.ncs \
 objs\prc_s_kiskill.ncs \
 objs\prc_s_shoutstun.ncs \
-objs\PRC_S_spellb.ncs \
+objs\prc_s_spellb.ncs \
 objs\prc_s_spellgain.ncs \
 objs\prc_sacpur_strik.ncs \
 objs\prc_sacrdvit.ncs \
@@ -5651,8 +5651,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_abcham.2da \
 2das\cls_bfeat_acego.2da \
 2das\cls_bfeat_adst.2da \
-2das\cls_bfeat_ahiero.2da \
-2das\cls_bfeat_alag.2da \
 2das\cls_bfeat_alien.2da \
 2das\cls_bfeat_amn.2da \
 2das\cls_bfeat_anima.2da \
@@ -5677,7 +5675,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_bonded.2da \
 2das\cls_bfeat_bowman.2da \
 2das\cls_bfeat_brage.2da \
-2das\cls_bfeat_brawl.2da \
 2das\cls_bfeat_brimst.2da \
 2das\cls_bfeat_bsmith.2da \
 2das\cls_bfeat_cbtmed.2da \
@@ -5720,7 +5717,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_fistra.2da \
 2das\cls_bfeat_fmm.2da \
 2das\cls_bfeat_foclyr.2da \
-2das\cls_bfeat_fom.2da \
 2das\cls_bfeat_formas.2da \
 2das\cls_bfeat_forsak.2da \
 2das\cls_bfeat_foz.2da \
@@ -5760,20 +5756,16 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_lich.2da \
 2das\cls_bfeat_maestr.2da \
 2das\cls_bfeat_magek.2da \
-2das\cls_bfeat_manat.2da \
 2das\cls_bfeat_marsh.2da \
 2das\cls_bfeat_meph.2da \
 2das\cls_bfeat_mharp.2da \
-2das\cls_bfeat_minstr.2da \
 2das\cls_bfeat_ml.2da \
 2das\cls_bfeat_monine.2da \
 2das\cls_bfeat_mos.2da \
 2das\cls_bfeat_mstalc.2da \
 2das\cls_bfeat_mstrsh.2da \
-2das\cls_bfeat_myst.2da \
 2das\cls_bfeat_mystic.2da \
 2das\cls_bfeat_ninjca.2da \
-2das\cls_bfeat_noble.2da \
 2das\cls_bfeat_noctm.2da \
 2das\cls_bfeat_ocu.2da \
 2das\cls_bfeat_ollam.2da \
@@ -5811,7 +5803,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_shdcst.2da \
 2das\cls_bfeat_shdsmt.2da \
 2das\cls_bfeat_shou.2da \
-2das\cls_bfeat_shugen.2da \
 2das\cls_bfeat_sklcln.2da \
 2das\cls_bfeat_sleat.2da \
 2das\cls_bfeat_sncmnd.2da \
@@ -5832,7 +5823,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_swdsge.2da \
 2das\cls_bfeat_swftwg.2da \
 2das\cls_bfeat_taltia.2da \
-2das\cls_bfeat_templ.2da \
 2das\cls_bfeat_tempst.2da \
 2das\cls_bfeat_tempus.2da \
 2das\cls_bfeat_tfshad.2da \
@@ -5845,9 +5835,7 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_true.2da \
 2das\cls_bfeat_um.2da \
 2das\cls_bfeat_unseer.2da \
-2das\cls_bfeat_urang.2da \
 2das\cls_bfeat_vassal.2da \
-2das\cls_bfeat_vigil.2da \
 2das\cls_bfeat_virt.2da \
 2das\cls_bfeat_warbld.2da \
 2das\cls_bfeat_warchf.2da \
@@ -5856,7 +5844,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_wayfar.2da \
 2das\cls_bfeat_wilder.2da \
 2das\cls_bfeat_wildmg.2da \
-2das\cls_bfeat_witch.2da \
 2das\cls_bfeat_wrmage.2da \
 2das\cls_bfeat_wrslng.2da \
 2das\cls_bfeat_wwoc.2da \
@@ -5866,7 +5853,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_aber.2da \
 2das\cls_feat_acego.2da \
 2das\cls_feat_adst.2da \
-2das\cls_feat_alag.2da \
 2das\cls_feat_alien.2da \
 2das\cls_feat_amn.2da \
 2das\cls_feat_anima.2da \
@@ -5897,7 +5883,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_bonded.2da \
 2das\cls_feat_bowman.2da \
 2das\cls_feat_brage.2da \
-2das\cls_feat_brawl.2da \
 2das\cls_feat_brimst.2da \
 2das\cls_feat_bsmith.2da \
 2das\cls_feat_cbtmed.2da \
@@ -5949,7 +5934,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_fistra.2da \
 2das\cls_feat_fmm.2da \
 2das\cls_feat_foclyr.2da \
-2das\cls_feat_fom.2da \
 2das\cls_feat_formas.2da \
 2das\cls_feat_forsak.2da \
 2das\cls_feat_foz.2da \
@@ -5993,11 +5977,9 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_lich.2da \
 2das\cls_feat_maestr.2da \
 2das\cls_feat_magek.2da \
-2das\cls_feat_manat.2da \
 2das\cls_feat_marsh.2da \
 2das\cls_feat_meph.2da \
 2das\cls_feat_mharp.2da \
-2das\cls_feat_minstr.2da \
 2das\cls_feat_ml.2da \
 2das\cls_feat_monhum.2da \
 2das\cls_feat_monine.2da \
@@ -6005,13 +5987,11 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_mos.2da \
 2das\cls_feat_mstalc.2da \
 2das\cls_feat_mstrsh.2da \
-2das\cls_feat_myst.2da \
 2das\cls_feat_mystic.2da \
 2das\cls_feat_necrnm.2da \
 2das\cls_feat_nights.2da \
 2das\cls_feat_ninja.2da \
 2das\cls_feat_ninjca.2da \
-2das\cls_feat_noble.2da \
 2das\cls_feat_noctm.2da \
 2das\cls_feat_ocu.2da \
 2das\cls_feat_ollam.2da \
@@ -6045,9 +6025,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_samur.2da \
 2das\cls_feat_sapphr.2da \
 2das\cls_feat_savant.2da \
-2das\cls_feat_savanta.2da \
-2das\cls_feat_savantc.2da \
-2das\cls_feat_savante.2da \
 2das\cls_feat_sbheir.2da \
 2das\cls_feat_schord.2da \
 2das\cls_feat_scion.2da \
@@ -6065,7 +6042,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_shdcst.2da \
 2das\cls_feat_shdsmt.2da \
 2das\cls_feat_shou.2da \
-2das\cls_feat_shugen.2da \
 2das\cls_feat_sklcln.2da \
 2das\cls_feat_sleat.2da \
 2das\cls_feat_sncmnd.2da \
@@ -6087,7 +6063,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_swdsge.2da \
 2das\cls_feat_swftwg.2da \
 2das\cls_feat_taltia.2da \
-2das\cls_feat_templ.2da \
 2das\cls_feat_tempst.2da \
 2das\cls_feat_tempus.2da \
 2das\cls_feat_teneb.2da \
@@ -6102,10 +6077,8 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_um.2da \
 2das\cls_feat_umbral.2da \
 2das\cls_feat_unseer.2da \
-2das\cls_feat_urang.2da \
 2das\cls_feat_urprst.2da \
 2das\cls_feat_vassal.2da \
-2das\cls_feat_vigil.2da \
 2das\cls_feat_virt.2da \
 2das\cls_feat_warbld.2da \
 2das\cls_feat_warchf.2da \
@@ -6116,7 +6089,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_feat_wchbrn.2da \
 2das\cls_feat_wilder.2da \
 2das\cls_feat_wildmg.2da \
-2das\cls_feat_witch.2da \
 2das\cls_feat_wiz.2da \
 2das\cls_feat_wm.2da \
 2das\cls_feat_wrmage.2da \
@@ -6156,8 +6128,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_aber.2da \
 2das\cls_pres_acego.2da \
 2das\cls_pres_adst.2da \
-2das\cls_pres_ahiero.2da \
-2das\cls_pres_alag.2da \
 2das\cls_pres_alien.2da \
 2das\cls_pres_amn.2da \
 2das\cls_pres_ani.2da \
@@ -6188,7 +6158,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_bonded.2da \
 2das\cls_pres_bowman.2da \
 2das\cls_pres_brage.2da \
-2das\cls_pres_brawl.2da \
 2das\cls_pres_brimst.2da \
 2das\cls_pres_bsmith.2da \
 2das\cls_pres_cbtmed.2da \
@@ -6241,7 +6210,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_fistra.2da \
 2das\cls_pres_fmm.2da \
 2das\cls_pres_foclyr.2da \
-2das\cls_pres_fom.2da \
 2das\cls_pres_formas.2da \
 2das\cls_pres_forsak.2da \
 2das\cls_pres_foz.2da \
@@ -6286,12 +6254,10 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_maestr.2da \
 2das\cls_pres_magbst.2da \
 2das\cls_pres_magek.2da \
-2das\cls_pres_manat.2da \
 2das\cls_pres_marsh.2da \
 2das\cls_pres_meph.2da \
 2das\cls_pres_mharp.2da \
 2das\cls_pres_mharpd.2da \
-2das\cls_pres_minstr.2da \
 2das\cls_pres_ml.2da \
 2das\cls_pres_mon.2da \
 2das\cls_pres_monine.2da \
@@ -6299,13 +6265,11 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_mos.2da \
 2das\cls_pres_mstalc.2da \
 2das\cls_pres_mstrsh.2da \
-2das\cls_pres_myst.2da \
 2das\cls_pres_mystic.2da \
 2das\cls_pres_necrnm.2da \
 2das\cls_pres_nights.2da \
 2das\cls_pres_ninja.2da \
 2das\cls_pres_ninjca.2da \
-2das\cls_pres_noble.2da \
 2das\cls_pres_noctm.2da \
 2das\cls_pres_ocular.2da \
 2das\cls_pres_ollam.2da \
@@ -6378,7 +6342,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_swdsge.2da \
 2das\cls_pres_swftwg.2da \
 2das\cls_pres_taltia.2da \
-2das\cls_pres_templ.2da \
 2das\cls_pres_tempst.2da \
 2das\cls_pres_tempus.2da \
 2das\cls_pres_teneb.2da \
@@ -6395,11 +6358,9 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_umbral.2da \
 2das\cls_pres_undead.2da \
 2das\cls_pres_unseer.2da \
-2das\cls_pres_urang.2da \
 2das\cls_pres_urprst.2da \
 2das\cls_pres_vassal.2da \
 2das\cls_pres_vermin.2da \
-2das\cls_pres_vigil.2da \
 2das\cls_pres_virt.2da \
 2das\cls_pres_warbld.2da \
 2das\cls_pres_warchf.2da \
@@ -6410,7 +6371,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_wchbrn.2da \
 2das\cls_pres_wilder.2da \
 2das\cls_pres_wildmg.2da \
-2das\cls_pres_witch.2da \
 2das\cls_pres_wiz.2da \
 2das\cls_pres_wm.2da \
 2das\cls_pres_wrmage.2da \
@@ -6439,8 +6399,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_abcham.2da \
 2das\cls_skill_acego.2da \
 2das\cls_skill_adst.2da \
-2das\cls_skill_ahiero.2da \
-2das\cls_skill_alag.2da \
 2das\cls_skill_alien.2da \
 2das\cls_skill_amn.2da \
 2das\cls_skill_anima.2da \
@@ -6470,7 +6428,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_bonded.2da \
 2das\cls_skill_bowman.2da \
 2das\cls_skill_brage.2da \
-2das\cls_skill_brawl.2da \
 2das\cls_skill_brimst.2da \
 2das\cls_skill_bsmith.2da \
 2das\cls_skill_cbtmed.2da \
@@ -6519,7 +6476,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_fistra.2da \
 2das\cls_skill_fmm.2da \
 2das\cls_skill_foclyr.2da \
-2das\cls_skill_fom.2da \
 2das\cls_skill_formas.2da \
 2das\cls_skill_forsak.2da \
 2das\cls_skill_foz.2da \
@@ -6560,24 +6516,20 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_lgdr.2da \
 2das\cls_skill_maestr.2da \
 2das\cls_skill_magek.2da \
-2das\cls_skill_manat.2da \
 2das\cls_skill_marsh.2da \
 2das\cls_skill_meph.2da \
 2das\cls_skill_mharp.2da \
-2das\cls_skill_minstr.2da \
 2das\cls_skill_ml.2da \
 2das\cls_skill_monine.2da \
 2das\cls_skill_monk.2da \
 2das\cls_skill_mos.2da \
 2das\cls_skill_mstalc.2da \
 2das\cls_skill_mstrsh.2da \
-2das\cls_skill_myst.2da \
 2das\cls_skill_mystic.2da \
 2das\cls_skill_necrnm.2da \
 2das\cls_skill_nights.2da \
 2das\cls_skill_ninja.2da \
 2das\cls_skill_ninjca.2da \
-2das\cls_skill_noble.2da \
 2das\cls_skill_noctm.2da \
 2das\cls_skill_ocular.2da \
 2das\cls_skill_ollam.2da \
@@ -6648,7 +6600,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_swdsge.2da \
 2das\cls_skill_swftwg.2da \
 2das\cls_skill_taltia.2da \
-2das\cls_skill_templ.2da \
 2das\cls_skill_tempst.2da \
 2das\cls_skill_tempus.2da \
 2das\cls_skill_teneb.2da \
@@ -6663,10 +6614,8 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_um.2da \
 2das\cls_skill_umbral.2da \
 2das\cls_skill_unseer.2da \
-2das\cls_skill_urang.2da \
 2das\cls_skill_urprst.2da \
 2das\cls_skill_vassal.2da \
-2das\cls_skill_vigil.2da \
 2das\cls_skill_virt.2da \
 2das\cls_skill_warbld.2da \
 2das\cls_skill_warchf.2da \
@@ -6677,7 +6626,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_wchbrn.2da \
 2das\cls_skill_wilder.2da \
 2das\cls_skill_wildmg.2da \
-2das\cls_skill_witch.2da \
 2das\cls_skill_wiz.2da \
 2das\cls_skill_wm.2da \
 2das\cls_skill_wrmage.2da \
@@ -6703,7 +6651,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spcr_kchal.2da \
 2das\cls_spcr_kngtwv.2da \
 2das\cls_spcr_kotmc.2da \
-2das\cls_spcr_myst.2da \
 2das\cls_spcr_ocu.2da \
 2das\cls_spcr_schord.2da \
 2das\cls_spcr_shaman.2da \
@@ -6713,11 +6660,8 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spcr_sol.2da \
 2das\cls_spcr_sorc.2da \
 2das\cls_spcr_suel.2da \
-2das\cls_spcr_templ.2da \
 2das\cls_spcr_tfshad.2da \
 2das\cls_spcr_vassal.2da \
-2das\cls_spcr_vigil.2da \
-2das\cls_spcr_witch.2da \
 2das\cls_spcr_wrmage.2da \
 2das\cls_spell_antipl.2da \
 2das\cls_spell_archv.2da \
@@ -6739,7 +6683,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spell_kchal.2da \
 2das\cls_spell_kngtwv.2da \
 2das\cls_spell_kotmc.2da \
-2das\cls_spell_myst.2da \
 2das\cls_spell_ocu.2da \
 2das\cls_spell_schord.2da \
 2das\cls_spell_shaman.2da \
@@ -6749,11 +6692,8 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spell_sol.2da \
 2das\cls_spell_sorc.2da \
 2das\cls_spell_suel.2da \
-2das\cls_spell_templ.2da \
 2das\cls_spell_tfshad.2da \
 2das\cls_spell_vassal.2da \
-2das\cls_spell_vigil.2da \
-2das\cls_spell_witch.2da \
 2das\cls_spell_wrmage.2da \
 2das\cls_spgn_antipl.2da \
 2das\cls_spgn_archv.2da \
@@ -6774,7 +6714,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spgn_kchal.2da \
 2das\cls_spgn_kngtwv.2da \
 2das\cls_spgn_kotmc.2da \
-2das\cls_spgn_myst.2da \
 2das\cls_spgn_ocu.2da \
 2das\cls_spgn_rang.2da \
 2das\cls_spgn_schord.2da \
@@ -6785,11 +6724,8 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spgn_sol.2da \
 2das\cls_spgn_sorc.2da \
 2das\cls_spgn_suel.2da \
-2das\cls_spgn_templ.2da \
 2das\cls_spgn_tfshad.2da \
 2das\cls_spgn_vassal.2da \
-2das\cls_spgn_vigil.2da \
-2das\cls_spgn_witch.2da \
 2das\cls_spgn_wrmage.2da \
 2das\cls_spkn_asasin.2da \
 2das\cls_spkn_bard.2da \
@@ -6801,12 +6737,9 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spkn_hexbl.2da \
 2das\cls_spkn_justww.2da \
 2das\cls_spkn_kngtwv.2da \
-2das\cls_spkn_myst.2da \
 2das\cls_spkn_schord.2da \
 2das\cls_spkn_sharss.2da \
 2das\cls_spkn_suel.2da \
-2das\cls_spkn_templ.2da \
-2das\cls_spkn_witch.2da \
 2das\cls_spkn_wrmage.2da \
 2das\cls_stat_alien.2da \
 2das\cls_stat_aots.2da \

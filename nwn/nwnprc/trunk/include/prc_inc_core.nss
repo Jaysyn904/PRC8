@@ -532,7 +532,7 @@ int UseNewSpellBook(object oCreature)
     if(nPrimaryArcane != CLASS_TYPE_BARD && nPrimaryArcane != CLASS_TYPE_SORCERER)
         return FALSE;
     //check they have arcane PrC or Draconic Breath/Arcane Grace
-    if(!GetArcanePRCLevels(oCreature)
+    if(!GetArcanePRCLevels(oCreature, nPrimaryArcane)
       && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCreature) || GetHasFeat(FEAT_DRACONIC_BREATH, oCreature)))
         return FALSE;
     //check if the newspellbooks are disabled

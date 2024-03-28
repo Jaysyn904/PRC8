@@ -117,7 +117,6 @@ int ReducedSpellFailure(object oPC, object oArmor)
         if(nAC < 4)
         {
             if(GetLevelByClass(CLASS_TYPE_BLADESINGER, oPC) > 5
-            || GetLevelByClass(CLASS_TYPE_MINSTREL_EDGE, oPC)
             || (GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetPRCSwitch(PRC_BARD_LIGHT_ARMOR_SPELLCASTING)))
             {
                 int nASFArmor = checkASF(oArmor);

@@ -1523,6 +1523,7 @@ void main()
     object oSkin = GetPCSkin(oPC);
 	
 	SetLocalInt(oPC, "PRC_PrereqFMM", 1);
+	SetLocalInt(oPC, "PRC_PrereqEKnight", 1);
 
     // Initialize all the variables.
     string sVariable, sCount;
@@ -1582,7 +1583,7 @@ void main()
             if (!bFirstDivClassFound &&
                 GetPrimaryDivineClass(oPC) == nClass)
             {
-                nLevel += GetDivinePRCLevels(oPC);
+                nLevel += GetDivinePRCLevels(oPC, nClass);
                 bFirstDivClassFound = TRUE;
             }
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
@@ -1596,6 +1597,8 @@ void main()
                     SetLocalInt(oPC, "PRC_DivSpell"+IntToString(nSpellLevel), 0);
                     if(nSpellLevel > nDivHighest)
                         nDivHighest = nSpellLevel;
+					// if(DEBUG) DoDebug("Divine Prereq Variable " + IntToString(nSpellLevel) +": " + IntToString(GetLocalInt(oPC, "PRC_DivSpell"+IntToString(nSpellLevel))), oPC);
+					// if(DEBUG) DoDebug("All Prereq Variable " + IntToString(nSpellLevel) +": " + IntToString(GetLocalInt(oPC, "PRC_AllSpell"+IntToString(nSpellLevel))), oPC);
                 }
             }
         }
@@ -1623,7 +1626,7 @@ void main()
             if (!bFirstArcClassFound &&
                 (GetPrimaryArcaneClass(oPC) == nClass || nMonsterCaster))
             {
-                nLevel += GetArcanePRCLevels(oPC);
+                nLevel += GetArcanePRCLevels(oPC, nClass);
                 bFirstArcClassFound = TRUE;
             }
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
@@ -1643,6 +1646,8 @@ void main()
                     SetLocalInt(oPC, "PRC_ArcSpell"+IntToString(nSpellLevel), 0);
                     if(nSpellLevel > nArcHighest)
                         nArcHighest = nSpellLevel;
+					// if(DEBUG) DoDebug ("Arcane Prereq Variable " + IntToString(nSpellLevel) +": " + IntToString(GetLocalInt(oPC, "PRC_ArcSpell"+IntToString(nSpellLevel))), oPC);
+					// if(DEBUG) DoDebug ("All Prereq Variable " + IntToString(nSpellLevel) +": " + IntToString(GetLocalInt(oPC, "PRC_AllSpell"+IntToString(nSpellLevel))), oPC);	
                 }
             }
         }
@@ -1688,7 +1693,7 @@ void main()
                 //if(DEBUG) DoDebug("Shadowcasting mystery level Prereq Variable " + IntToString(nSpellLevel) +": " + IntToString(GetLocalInt(oPC, "PRC_MystLevel"+IntToString(nSpellLevel))), oPC);
             }
         }        
-    }// end while - loop over all 3 class slots
+    }// end while - loop over all 8 class slots
 
     // special alignment requirements
     reqAlignment(oPC);
@@ -1750,7 +1755,7 @@ void main()
     reqCombatMedic(oPC);
     // Truly massive debug message flood if activated.
    
-    /*if (DEBUG)
+/*    if (DEBUG)
     {
         string sPRC_AllSpell;
         string sPRC_ArcSpell;
@@ -1776,5 +1781,5 @@ void main()
            SendMessageToPC(oPC, sVariable + " is " + IntToString(GetLocalInt(oPC, sVariable)) + ".");
         }
         
-    }*/
+    } */
 }
