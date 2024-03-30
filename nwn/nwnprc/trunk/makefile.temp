@@ -6320,7 +6320,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_pres_shdcst.2da \
 2das\cls_pres_shdsmt.2da \
 2das\cls_pres_shou.2da \
-2das\cls_pres_shugen.2da \
 2das\cls_pres_sklcln.2da \
 2das\cls_pres_sleat.2da \
 2das\cls_pres_sncmnd.2da \
@@ -6578,7 +6577,6 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_skill_shdsmt.2da \
 2das\cls_skill_shiftr.2da \
 2das\cls_skill_shou.2da \
-2das\cls_skill_shugen.2da \
 2das\cls_skill_sklcln.2da \
 2das\cls_skill_sleat.2da \
 2das\cls_skill_sncmnd.2da \

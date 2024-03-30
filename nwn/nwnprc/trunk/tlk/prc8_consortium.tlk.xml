@@ -4141,7 +4141,14 @@ or energized shield spell at the same time.
 The descriptor of this spell is the same as the 
 energy type you choose when you cast it.</entry>
   <entry id="13217" lang="en" sex="m">Lesser Energized Shield</entry>
-  <entry id="13218" lang="en" sex="m">13218</entry>
+  <entry id="13218" lang="en" sex="m">
+
+A silver aura surrounds the touched shield for a moment before it appears to transform into the chosen type of energy. The shield hums with power.
+
+When this spell is cast, the shield touched appears to be made entirely out of one type of energy (fire, cold, electricity, acid, or sonic). Whoever bears the shield gains resistance 5 against the chosen energy type. Additionally, if the wielder successfully hits someone with the shield with a shield bash attack, the victim takes 1d6 points of the appropriate energy damage in addition to the normal shield bash damage. The energy type must be chosen when the spell is cast and cannot be changed during the duration of the spell. The energy resistance overlaps (and does not stack) with resist elements. A given shield cannot be the subject of more than one lesser energized shield or energized shield spell at the same time.
+
+The descriptor of this spell is the same as the energy type you choose when you cast it.
+</entry>
   <entry id="13219" lang="en" sex="m">Estana's Stew</entry>
   <entry id="13220" lang="en" sex="m">Conjuration (Healing)
 Level: Cleric 2, Druid 2, Paladin 2,
