@@ -217,7 +217,7 @@ int HeironeousMarkerFeats();
 //:: Enforces Shadow Mind marker feats
 int ShadowMindMarkerFeats();
 
-//:; Enforces Soulcaster marker feats
+//:: Enforces Soulcaster marker feats
 int SoulcasterMarkerFeats();
 
 //:; Enforces Spelldancer marker feats

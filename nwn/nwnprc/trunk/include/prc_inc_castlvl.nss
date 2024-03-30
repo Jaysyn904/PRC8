@@ -84,7 +84,7 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF);
  * note: PrCs with their own spellbook eg. assassin are not PrCs for this function
  *
  * @param oCaster   The creature to check
- * @param nCastingClass   Casting class.
+ * @param nCastingClass   Casting class
  *
  * @return          Number of arcane caster levels contributed by PrCs.
  */
@@ -109,7 +109,7 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID);
  *
  * @param oCaster   The creature to check
  *
- * @return          The position (1,2 or 3) of the first arcane *base* class of oCaster
+ * @return          The position (1-8) of the first arcane *base* class of oCaster
  */
 int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF);
 
@@ -118,7 +118,7 @@ int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF);
  *
  * @param oCaster   The creature to check
  *
- * @return          The position (1,2 or 3) of the first divine *base* class of oCaster
+ * @return          The position (1-8) of the first divine *base* class of oCaster
  */
 int GetFirstDivineClassPosition(object oCaster = OBJECT_SELF);
 

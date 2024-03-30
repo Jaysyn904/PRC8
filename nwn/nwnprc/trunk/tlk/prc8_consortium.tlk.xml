@@ -4914,7 +4914,7 @@ A few multiclassed barbarians become forest masters, although they rarely have t
 - Hit Die: d8.
 - Proficiencies: A forest master does not gain any additional weapon or armor proficiencies.
 - Skill Points: 2 + Int Modifier.
-- Spells per Day: At each forest master level except 4th and 8th, the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead). 
+- Spells per Day: At each forest master level the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead). 
 
 REQUIREMENTS:
 
@@ -4946,17 +4946,17 @@ Level
   <entry id="16528" lang="en" sex="m">Forest Dominion (Su)</entry>
   <entry id="16529" lang="en" sex="m"> At 2nd level, the forest master gains the ability to rebuke or command plants as an evil cleric can rebuke or command undead.  His effective level for this ability is his class level, and he may use it a number of times perday equal to 3 + his Charisma modifier. If he already has this ability because he is a cleric with the Plant domain, these levels stack with his cleric levels and vice versa.</entry>
   <entry id="16530" lang="en" sex="m">Great Mallet (Su)</entry>
-  <entry id="16531" lang="en" sex="m">Beginning at 2nd level, a forest master begins to awaken magical abilities within the wood and metal that make up his maul. Any maul used by a forest master is treated as if it were a +2 maul with either the frost or shock property (the forest master decides each round whether the weapon’s extra damage is cold or electricity). If the weapon has additional abilities (such as defending), these abilities still apply, and if the weapon has an enhancement bonus better than +2 the higher of the two bonuses is used. The maul does not gain these abilities if it is not wielded by the forest master.  At 6th-level, the forest master’s maul acts as a +2 icy burst or +2 shocking burst weapon, with the forest master deciding each round what effect the weapon has.  At 9th level, the forest master’s maul acts as a +3 mighty cleaving weapon in addition to its other properties (including its icy burst or shocking burst ability).</entry>
+  <entry id="16531" lang="en" sex="m">Beginning at 2nd level, a forest master begins to awaken magical abilities within the wood and metal that make up his maul. Any maul used by a forest master is treated as if it were a +2 maul with either the frost or shock property (the forest master decides each round whether the weapon’s extra damage is cold or electricity). If the weapon has additional abilities (such as defending), these abilities still apply, and if the weapon has an enhancement bonus better than +2 the higher of the two bonuses is used. The maul does not gain these abilities if it is not wielded by the forest master.  At 6th-level, the forest master’s' maul acts as a +2 icy burst or +2 shocking burst weapon, with the forest master deciding each round what effect the weapon has.  At 9th level, the forest master’s maul acts as a +3 mighty cleaving weapon in addition to its other properties (including its icy burst or shocking burst ability).</entry>
   <entry id="16532" lang="en" sex="m">Icy Mallet</entry>
   <entry id="16533" lang="en" sex="m">Shocking Mallet</entry>
   <entry id="16534" lang="en" sex="m">Natural Armor (Ex)</entry>
-  <entry id="16535" lang="en" sex="m">At 3rd level, the forest master’s skin changes into a tough, bark like hide, granting him natural armor +3.This bonus increases to +5 at 5th level and +7 at 7th level.</entry>
+  <entry id="16535" lang="en" sex="m">At 3rd level, the forest master’s skin changes into a tough, bark like hide, granting him natural armor +3. This bonus increases to +5 at 5th level and +7 at 7th level.</entry>
   <entry id="16536" lang="en" sex="m">Oak Strength (Ex)</entry>
-  <entry id="16537" lang="en" sex="m">Beginning at 4th level, the forest master gains a +2 bonus to Strength and the ability to make slam attacks. A Small creature’s slam attack deals 1d4 points of damage, one from a Medium-size creature deals 1d6 points of damage, and a Large forest master’s slam attack deals 1d8 points of damage. Slam attacks are natural weapon attacks and do not provoke an attack of opportunity from the defender. A forest master can select Improved Critical (slam), Weapon Focus (slam), and (if a fighter of 4th level or higher) Weapon Specialization (slam). Upon gaining this ability, the forest master’s hair takes on a green, leafy appearance.</entry>
+  <entry id="16537" lang="en" sex="m">Beginning at 4th level, the forest master gains a +2 bonus to Strength and the ability to make slam attacks. A Small creature'’s slam attack deals 1d4 points of damage, one from a Medium-size creature deals 1d6 points of damage, and a Large forest master’s' slam attack deals 1d8 points of damage. Slam attacks are natural weapon attacks and do not provoke an attack of opportunity from the defender. A forest master can select Improved Critical (Creature), Weapon Focus (Creature), and (if a fighter of 4th level or higher) Weapon Specialization (Creature). Upon gaining this ability, the forest master’s' hair takes on a green, leafy appearance.</entry>
   <entry id="16538" lang="en" sex="m">Spruce Growth (Su)</entry>
   <entry id="16539" lang="en" sex="m">At 5th level, once per day the forest master can temporarily increase his size and strength as if using a righteous might spell.</entry>
   <entry id="16540" lang="en" sex="m">Oakheart (Ex)</entry>
-  <entry id="16541" lang="en" sex="m">Upon reaching 7th level, a forest master’s bodybecomes a thing of wood and leaf rather than meat and bone. Histype changes to plant. As such, he is immune to mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. He is not subject to critical hits or sneak attacks. However, the forest master becomes vulnerable to fire, and suffers double damage from fire attacks.</entry>
+  <entry id="16541" lang="en" sex="m">Upon reaching 7th level, a forest master’s' body becomes a thing of wood and leaf rather than meat and bone. His type changes to plant. As such, he is immune to mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. He is not subject to critical hits or sneak attacks. However, the forest master becomes vulnerable to fire, and suffers double damage from fire attacks.</entry>
   <entry id="16542" lang="en" sex="m">Deep Roots (Su)</entry>
   <entry id="16543" lang="en" sex="m">Beginning at 8th level, once per day the forestmaster may sink roots into the ground in any natural surface that can support at least some vegetation. While rooted, the forest master gains fast healing 5, but has an effective Dexterity score of 1 and may not move from the spot in which he stands. The forest master can withdraw his roots and end the healing as a free action.</entry>
   <entry id="16544" lang="en" sex="m">Forest Longevity (Ex)</entry>
@@ -33216,8 +33216,7 @@ Range: Touch
 Effect: One bone that becomes a blade
 Duration: 10 minutes/level
 
-The caster changes a bone at least 6 inches long into a longsword, short sword, or greatsword (caster's choice). This weapon has a +1 enhancement bonus on attacks and damage for every five caster levels (at least +1, maximum +4). Furthermore, this blade deals an extra +1d6 points of damage to living targets and an additional +1d6
-points of damage to good­aligned targets.
+The caster changes a bone at least 6 inches long into a longsword, short sword, or greatsword (caster's choice). This weapon has a +1 enhancement bonus on attacks and damage for every five caster levels (at least +1, maximum +4). Furthermore, this blade deals an extra +1d6 points of damage to living targets and an additional +1d6 points of damage to good­aligned targets.
 
 This spell confers no proficiency with the blade, but the caster doesn't need to be the one wielding the blade for it to be effective.
 
@@ -46255,7 +46254,7 @@ Feats Required: Martial Weapon Proficiency</entry>
   <entry id="57027" lang="en" sex="m">Weapon Proficiency: Rapier</entry>
   <entry id="57028" lang="en" sex="m">Weapon Proficiency: Scimitar</entry>
   <entry id="57029" lang="en" sex="m">Weapon Proficiency: Scythe</entry>
-  <entry id="57030" lang="en" sex="m">Weapon Proficiency: Spear</entry>
+  <entry id="57030" lang="en" sex="m">Weapon Proficiency: Shortspear</entry>
   <entry id="57031" lang="en" sex="m">Weapon Proficiency: Shuriken</entry>
   <entry id="57032" lang="en" sex="m">Weapon Proficiency: Sickle</entry>
   <entry id="57033" lang="en" sex="m">Weapon Proficiency: Sling</entry>

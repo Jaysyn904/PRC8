@@ -73,3 +73,5 @@
 72  PRC_DRAGON_DISCIPLE_SIZE_CHANGES        int        1
 73  PRC_PNP_KNOCKDOWN                       int        1
 74  PRC_CAPPED_ATTACK_BONUS                 int        1
+75  PRC_ACTIVATE_MAX_SPELL_DC_CAP           int        0
+76  PRC_SET_MAX_SPELL_DC_CAP                int       255

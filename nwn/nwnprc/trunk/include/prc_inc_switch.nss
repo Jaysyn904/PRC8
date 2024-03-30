@@ -260,6 +260,14 @@ const string PRC_SLEEP_NO_HD_CAP                     = "PRC_SLEEP_NO_HD_CAP";
 const string PRC_165_DEATH_IMMUNITY                  = "PRC_165_DEATH_IMMUNITY";
 
 /*
+ * PRC_ACTIVATE_MAX_SPELL_DC_CAP:  activate a max cap on DC casted by creature/player
+ * PRC_SET_MAX_SPELL_DC_CAP: the max value ex: 99 
+ * 
+*/
+const string PRC_ACTIVATE_MAX_SPELL_DC_CAP           = "PRC_ACTIVATE_MAX_SPELL_DC_CAP";
+const string PRC_SET_MAX_SPELL_DC_CAP                = "PRC_SET_MAX_SPELL_DC_CAP";
+
+/*
  * This is for builders. It should not be set on the module, but should be set on players/creatures.
  * When this is set, it will override spell DC for all spells cast (including SLAs and items)
  * This will overrule all feats, racial bonuses, etc that would effect DC
@@ -1305,9 +1313,9 @@ const string PRC_ACP_NPC_AUTOMATIC                   = "PRC_ACP_NPC_AUTOMATIC";
 const string PRC_ACP_DELAY                           = "PRC_ACP_DELAY";
 
 
-/******************************************************************************\
-*                               File End switches                              *
-\******************************************************************************/
+/******************************************************************************
+*                               File End switches                              
+******************************************************************************/
 
 /**
  * If this is set it will disable the defaults and the module builder must set
@@ -2956,3 +2964,6 @@ void SetPRCSwitch(string sSwitch, int nState)
 {
     SetLocalInt(GetModule(), sSwitch, nState);
 }
+
+
+// void main (){}
