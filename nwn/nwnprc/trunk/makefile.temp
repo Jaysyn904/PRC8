@@ -5797,6 +5797,7 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_scout.2da \
 2das\cls_bfeat_sdmind.2da \
 2das\cls_bfeat_sergrd.2da \
+2das\cls_bfeat_shadep.2da \
 2das\cls_bfeat_shaman.2da \
 2das\cls_bfeat_sharss.2da \
 2das\cls_bfeat_shdbld.2da \
@@ -10546,7 +10547,6 @@ others\dusklingf.ltr \
 others\dusklingl.ltr \
 others\dusklingm.ltr \
 others\dyncov_base.dlg \
-others\eagleclaw.uti \
 others\earthmephf.ltr \
 others\earthmephl.ltr \
 others\earthmephm.ltr \
@@ -10733,7 +10733,6 @@ others\hadozeel.ltr \
 others\hadozeem.ltr \
 others\hamatula.utc \
 others\hamatula001.utc \
-others\heavy_mace.uti \
 others\hellcat_bite.uti \
 others\hellcat_hide.uti \
 others\hen_air_eld.utc \
