@@ -634,13 +634,7 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
         }
     }
 
-    if (GetPRCSwitch(PRC_ACTIVATE_MAX_SPELL_DC_CAP))
-       {
-         if (nDC > GetPRCSwitch(PRC_SET_MAX_SPELL_DC_CAP))
-           {
-            nDC = GetPRCSwitch(PRC_SET_MAX_SPELL_DC_CAP);   
-           }
-       }
+
 
     return nDC;
 }
@@ -719,6 +713,15 @@ int PRCGetSaveDC(object oTarget, object oCaster, int nSpellID = -1)
     //target-based adjustments go here
     nDC += RedWizardDCPenalty(nSpellID, nSchool, oTarget);
     nDC += ShadowAdeptDCPenalty(nSpellID, nSchool, oTarget);
+
+    if (GetPRCSwitch(PRC_ACTIVATE_MAX_SPELL_DC_CAP))
+       {
+         if (nDC > GetPRCSwitch(PRC_SET_MAX_SPELL_DC_CAP))
+           {
+            nDC = GetPRCSwitch(PRC_SET_MAX_SPELL_DC_CAP);   
+           }
+       }
+    
     return nDC;
 
 }
