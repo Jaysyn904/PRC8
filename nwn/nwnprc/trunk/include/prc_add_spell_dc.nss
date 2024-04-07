@@ -322,7 +322,7 @@ int SaintHolySpellPower(object oCaster)
 		}
 //:: If it gets here, the caster does not have the feat
     return 0;
-}		
+}
 
 //Draconic Power's elemental boost to spell DCs
 int DraconicPowerDC(int spell_id, int nElement, object oCaster)
@@ -487,8 +487,8 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
 
     int nClass = PRCGetLastSpellCastClass(oCaster);
     int nDC = 10;
- 
-    if(nClass == CLASS_TYPE_BARD)
+	
+   if(nClass == CLASS_TYPE_BARD)
         nDC += StringToInt(Get2DACache("Spells", "Bard", nSpellID));
     else if(nClass == CLASS_TYPE_CLERIC || nClass == CLASS_TYPE_UR_PRIEST || nClass == CLASS_TYPE_OCULAR)
         nDC += StringToInt(Get2DACache("Spells", "Cleric", nSpellID));
@@ -759,4 +759,4 @@ int GetChangesToSaveDC(object oTarget, object oCaster, int nSpellID, int nSchool
 }
 
 // Test main
-//void main(){}
+//:: void main(){}

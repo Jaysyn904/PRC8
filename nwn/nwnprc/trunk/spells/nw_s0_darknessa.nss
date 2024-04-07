@@ -28,13 +28,19 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     effect eInvis = EffectInvisibility(INVISIBILITY_TYPE_DARKNESS);
     effect eDark = EffectDarkness();
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+	
     effect eLink = EffectLinkEffects(eDark, eDur);
-
+	eLink = TagEffect(eLink, "BIO_DARKNESS");
+	
     effect eLink2 =  EffectLinkEffects(eInvis, eDur);
+	eLink2 = TagEffect(eLink2, "PNP_DARKNESS");
 
     effect ePnP = EffectLinkEffects(eDur, EffectDarkness());
     if(GetPRCSwitch(PRC_PNP_DARKNESS_35ED))
-        ePnP = EffectLinkEffects(eDur, EffectConcealment(20));
+    {
+		ePnP = EffectLinkEffects(eDur, EffectConcealment(20));
+		ePnP = TagEffect(ePnP, "PNP35_DARKNESS");
+	}	
 
     object oTarget = GetEnteringObject();
     int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD,oTarget);

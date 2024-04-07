@@ -56,6 +56,21 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
         eAOE = GetNextEffect(oTarget);
     }
 
+    effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "PNP_DARKNESS")
+            RemoveEffect(oTarget, eEffect);
+		
+		if(GetEffectTag(eEffect) == "PNP35_DARKNESS")
+            RemoveEffect(oTarget, eEffect);
+		
+		if(GetEffectTag(eEffect) == "BIO_DARKNESS")
+            RemoveEffect(oTarget, eEffect);
+		
+        eEffect = GetNextEffect(oTarget);
+    }
+	
 DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
 // Getting rid of the local integer storing the spellschool name
 }

@@ -55,11 +55,11 @@
 # module.OnUserDefined : Assigns script(s) to handle this module event
 
 # Title for the HIF.
-Title : PRC
+Title : PRC8
 
 # Add the PRC pack version and specify at least 1.62 to install.
-Version : 4.1.6
-MinNWNVersion: 1.67
+Version : 4.1.11
+MinNWNVersion: 1.68
 
 # ERF with the required areas.
 erf : prc8_consortium.erf
