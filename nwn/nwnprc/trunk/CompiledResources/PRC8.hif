@@ -59,7 +59,7 @@ Title : PRC8
 
 # Add the PRC pack version and specify at least 1.62 to install.
 Version : 4.1.11
-MinNWNVersion: 1.68
+MinNWNVersion: 1.67
 
 # ERF with the required areas.
 erf : prc8_consortium.erf
@@ -95,7 +95,7 @@ module.OnPlayerDying       : prc_ondying
 module.OnPlayerEquipItem   : prc_equip
 module.OnPlayerLevelUp     : prc_levelup
 module.OnPlayerRest        : prc_rest
-module.OnPlayerTarget	   : prc_onplaytarget
+#module.OnPlayerTarget	   : prc_onplaytarget  <- This has to be set manually!
 module.OnPlayerRespawn     : prc_onrespawn
 module.OnUnaquireItem      : prc_onunaquire
 module.OnPlayerUnequipItem : prc_unequip
