@@ -233,3 +233,5 @@ int GetDamageFromConstant(int nIPConst)
     WriteTimestampedLogEntry("Unknown IP_CONST_MONSTERDAMAGE_* constant passed to GetDamageFromConstant()!");
     return 0;
 }
+
+//:: void main (){}
