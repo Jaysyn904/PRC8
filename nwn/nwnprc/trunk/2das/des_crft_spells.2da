@@ -2481,7 +2481,7 @@
 2477  ResistEnergyCold                                          ****            1        1      1        ****  0           
 2478  ResistEnergyElec                                          ****            1        1      1        ****  0           
 2479  ResistEnergyAcid                                          ****            1        1      1        ****  0           
-2480  ResistEnergySonic                                         ****            1        1      1        ****  0           
+2480  SPELL_FORCE_MISSILES                                      995             1        0      0        4     0           
 2481  SYMBOL_OF_DEATH                                           967             1        1      0        8     0           
 2482  SYMBOL_OF_FEAR                                            968             1        1      0        6     0           
 2483  SYMBOL_OF_STUNING                                         969             1        1      0        7     0           

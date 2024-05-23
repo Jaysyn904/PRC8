@@ -2481,7 +2481,7 @@
 2477  ResistEnergyCold                                          ****             ****             ****             ****             ****         ****             
 2478  ResistEnergyElec                                          ****             ****             ****             ****             ****         ****             
 2479  ResistEnergyAcid                                          ****             ****             ****             ****             ****         ****             
-2480  ResistEnergySonic                                         ****             ****             ****             ****             ****         ****             
+2480  SPELL_FORCE_MISSILES                                      prc_scr_995      ****             ****             ****             ****         ****             
 2481  SYMBOL_OF_DEATH                                           prc_scr_967      prc_scr_967      ****             ****             ****         ****             
 2482  SYMBOL_OF_FEAR                                            prc_scr_968      prc_scr_968      ****             ****             ****         ****             
 2483  SYMBOL_OF_STUNING                                         prc_scr_969      prc_scr_969      ****             ****             ****         ****             
