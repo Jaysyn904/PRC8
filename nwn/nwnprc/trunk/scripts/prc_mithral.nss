@@ -75,7 +75,7 @@ void main()
             nBonus = min(nDexBonus - nMaxDexBonus, nCapIncrease);
         }
     }
-    SetCompositeBonus(GetPCSkin(oPC), "PRC_CRAFT_MITHRAL", nBonus, ITEM_PROPERTY_AC_BONUS);
+    //SetCompositeBonus(GetPCSkin(oPC), "PRC_CRAFT_MITHRAL", nBonus, ITEM_PROPERTY_AC_BONUS);  //:: all of this is already in prc_coc.nss
 
     BaneCheck(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC));
     BaneCheck(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC));

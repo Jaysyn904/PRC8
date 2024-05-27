@@ -42,6 +42,51 @@ void CritSTR(object oPC, int iEquip)
 
 void SuperiorDefense(object oPC, int nLevel)
 {
+    object oSkin = GetPCSkin(oPC);
+
+	object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+    if (oArmor == OBJECT_INVALID)
+    {
+        SetLocalInt(oSkin, "SuperiorDefenseDexBonus", 0);
+        return;
+    }
+
+    // Determine the base AC value of the armor
+    int nAC = GetBaseAC(oArmor);
+
+    // Check if the armor is medium or heavy based on its AC value
+    if (nAC < 4) // Medium armor starts @ 4 AC
+    {
+        SetLocalInt(oSkin, "SuperiorDefenseDexBonus", 0);
+        return;
+    }
+	
+	else
+	{
+		// Retrieve the base item type row
+		int nRow = GetBaseItemType(oArmor);
+
+		// Get the maximum Dexterity bonus from armor.2da
+		string sBaseDexBonus = Get2DACache("armor", "DEXBONUS", nRow);
+		int nBaseDexBonus = StringToInt(sBaseDexBonus);
+
+		// Calculate the new Dexterity bonus
+		int nBonus = 1 + ((nLevel - 3) / 3);
+		
+		if(StringToInt(GetStringLeft(GetTag(oArmor), 3)) & 16)
+		{   //mithral armour :P
+			nBonus += 2;
+		}		
+		
+		int nNewDexBonus = nBaseDexBonus + nBonus;
+
+		// Store the new Dex bonus on the character's skin
+		SetLocalInt(oSkin, "SuperiorDefenseDexBonus", nNewDexBonus);
+	}
+}
+
+/* void SuperiorDefense(object oPC, int nLevel)
+{
 	object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
 	object oSkin = GetPCSkin(oPC);
 	int nPen = GetItemArmourCheckPenalty(oArmor);
@@ -52,7 +97,10 @@ void SuperiorDefense(object oPC, int nLevel)
 	else nRed = nPen;
 	
 	if (nRed > 0) SetCompositeBonus(oSkin, "SuperiorDefense", nRed, ITEM_PROPERTY_AC_BONUS);
-}
+	
+	else
+	(SetCompositeBonus(oSkin, "SuperiorDefense", 0, ITEM_PROPERTY_AC_BONUS));
+} */
 
 void main()
 {
