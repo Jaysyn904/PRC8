@@ -2,7 +2,7 @@
 
 #include "prc_craft_inc"
 
-//Assumes only one bane/dread can be applied
+//:: Assumes only one bane/dread can be applied
 void BaneCheck(object oItem)
 {
     if(!GetIsObjectValid(oItem))
@@ -37,46 +37,66 @@ void BaneCheck(object oItem)
 
 void main()
 {
-    object oPC = OBJECT_SELF;
-    object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
-    int nBonus = 0;
-    int nCapIncrease = 0;
-    int nLevel = (GetLevelByClass(CLASS_TYPE_COC, oPC));
-    if(StringToInt(GetStringLeft(GetTag(oArmour), 3)) & 16)
-    {   //mithral armour :P
-        nCapIncrease += 2;
-    }
-    if(nLevel >= 3)
-    {   //increases by 1 every 3 levels of champion of corellon
-        nCapIncrease += nLevel / 3;
-    }
-    if(nCapIncrease)
-    {
-        int nMaxDexBonus;
-        SetIdentified(oArmour, FALSE);
-        switch(GetGoldPieceValue(oArmour))
-        {
-            case    1: nMaxDexBonus = -1; break; // None - assumes you can't make robes mithral
-            case    5: nMaxDexBonus = 8; break; // Padded
-            case   10: nMaxDexBonus = 6; break; // Leather
-            case   15: nMaxDexBonus = 4; break; // Studded Leather / Hide
-            case  100: nMaxDexBonus = 4; break; // Chain Shirt / Scale Mail
-            case  150: nMaxDexBonus = 2; break; // Chainmail / Breastplate
-            case  200: nMaxDexBonus = 1; break; // Splint Mail / Banded Mail
-            case  600: nMaxDexBonus = 1; break; // Half-Plate
-            case 1500: nMaxDexBonus = 1; break; // Full Plate
-        }
-        SetIdentified(oArmour, TRUE);
-        if(nMaxDexBonus == -1)
-            nBonus = 0;     //can't increase max dex bonus on 0 base AC armour since it's unlimited
-        int nDexBonus = (GetAbilityScore(oPC, ABILITY_DEXTERITY) - 10) / 2;
-        if(nDexBonus > nMaxDexBonus)
-        {
-            nBonus = min(nDexBonus - nMaxDexBonus, nCapIncrease);
-        }
-    }
-    //SetCompositeBonus(GetPCSkin(oPC), "PRC_CRAFT_MITHRAL", nBonus, ITEM_PROPERTY_AC_BONUS);  //:: all of this is already in prc_coc.nss
+    object oPC 			= OBJECT_SELF;
+    object oArmor 		= GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+	object oSkin		= GetPCSkin(oPC);
+    int nBonus 			= 0;
+    int nCapIncrease 	= 0;
+    int nLevel 			= (GetLevelByClass(CLASS_TYPE_COC, oPC));
+    int nAC 			= GetBaseAC(oArmor);
 
     BaneCheck(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC));
     BaneCheck(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC));
+	
+    if (oArmor == OBJECT_INVALID)
+    {
+        //SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> Invalid armor found.");
+		SetCompositeBonus(oSkin, "PRC_CRAFT_MITHRAL", 0, ITEM_PROPERTY_AC_BONUS);
+        return;
+    }
+	
+    if (nAC < 1) //:: Must be wearing armor
+    {
+        //SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> No armor found.");
+		SetCompositeBonus(oSkin, "PRC_CRAFT_MITHRAL", 0, ITEM_PROPERTY_AC_BONUS);
+        return;
+    }	
+
+	if(StringToInt(GetStringLeft(GetTag(oArmor), 3)) & 16) //:: TAG ID for Mithral armor
+    {   
+        //SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> Mithral armor found.");
+		nCapIncrease += 2;
+    }
+    
+	if(nCapIncrease)
+    {
+        
+	//:: Get the maximum Dexterity bonus from armor.2da
+		string sMaxDexBonus 	= Get2DACache("armor", "DEXBONUS", nAC);
+		int nMaxDexBonus 		= StringToInt(sMaxDexBonus);
+		
+        if(nMaxDexBonus < 1)
+            nBonus = 0;     //:: can't increase max dex bonus on 0 base AC armour since it's unlimited
+		
+        int nDexBonus = GetAbilityModifier(ABILITY_DEXTERITY, oPC);
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> DEX bonus is "+ IntToString(nDexBonus)+".");
+		
+        if(nDexBonus > nMaxDexBonus)
+        {
+            nBonus = min(nDexBonus - nMaxDexBonus, nCapIncrease);			
+        }
+    
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> nBonus is "+ IntToString(nBonus)+".");
+		
+		if (nLevel < 3) //:: 3rd lvl+ Champion of Corellon handles this in their class script
+		{
+			SetCompositeBonus(oSkin, "PRC_CRAFT_MITHRAL", nBonus, ITEM_PROPERTY_AC_BONUS);
+			//SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> adding bonus.");
+		}
+		else
+		{
+			SetCompositeBonus(oSkin, "PRC_CRAFT_MITHRAL", 0, ITEM_PROPERTY_AC_BONUS);
+			//SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> skipping bonus.");
+		}
+	}
 }

@@ -42,48 +42,75 @@ void CritSTR(object oPC, int iEquip)
 
 void SuperiorDefense(object oPC, int nLevel)
 {
-    object oSkin = GetPCSkin(oPC);
-
-	object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+    object oSkin 	= GetPCSkin(oPC);
+	object oArmor 	= GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+	
+	int nDEXb		= GetAbilityModifier(ABILITY_DEXTERITY, oPC);
+	int nMithral 	= 0;
+	int nBonus		= 0;
+	
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> PC's DEX bonus is "+ IntToString(nDEXb)+".");
+	
+//:: Abort CoC & Mithral checks if not wearing armor	
     if (oArmor == OBJECT_INVALID)
     {
-        SetLocalInt(oSkin, "SuperiorDefenseDexBonus", 0);
-        return;
+        //SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> No armor found, aborting.");
+		SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", 0, ITEM_PROPERTY_AC_BONUS);
+		SetCompositeBonus(oSkin, "PRC_CRAFT_MITHRAL", 0, ITEM_PROPERTY_AC_BONUS);
+		return;		
     }
 
-    // Determine the base AC value of the armor
+//:: Determine the base AC value of the armor
     int nAC = GetBaseAC(oArmor);
-
-    // Check if the armor is medium or heavy based on its AC value
-    if (nAC < 4) // Medium armor starts @ 4 AC
-    {
-        SetLocalInt(oSkin, "SuperiorDefenseDexBonus", 0);
-        return;
-    }
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Base AC is "+ IntToString(nAC)+".");
 	
-	else
+//:: Get modifier for Mithral armor, if any.
+	if(StringToInt(GetStringLeft(GetTag(oArmor), 3)) & 16) //:: TAG ID for Mithral armor
+	{   
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Mithral armor found. +2 Max DEX Bonus");
+		nMithral = 2;
+		nBonus = nBonus + nMithral;
+	}
+	
+//:: Check if the armor is medium or heavy based on its AC value
+    if (nAC < 4) //:: Medium armor starts @ 4 AC
+    {
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Light armor found, Superior Defense aborting.");
+		SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", 0, ITEM_PROPERTY_AC_BONUS);
+	}
+
+//:: Get the maximum Dexterity bonus from armor.2da
+	string sMaxDexBonus	= Get2DACache("armor", "DEXBONUS", nAC);
+	int nMaxDexBonus 	= StringToInt(sMaxDexBonus);
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Armor's Max DEX bonus is "+ IntToString(nMaxDexBonus)+".");
+
+//:: Calculate the new  bonus from CoC levels
+	nBonus = 1 + (nLevel - 3) / 3;
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus from class levels is "+ IntToString(nBonus)+".");
+		
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus before DEX cap is "+ IntToString(nBonus)+".");
+		
+	if (nBonus > nDEXb) //:: Caps AC bonus @ PCs Dex bonus
 	{
-		// Retrieve the base item type row
-		int nRow = GetBaseItemType(oArmor);
-
-		// Get the maximum Dexterity bonus from armor.2da
-		string sBaseDexBonus = Get2DACache("armor", "DEXBONUS", nRow);
-		int nBaseDexBonus = StringToInt(sBaseDexBonus);
-
-		// Calculate the new Dexterity bonus
-		int nBonus = 1 + ((nLevel - 3) / 3);
+		nBonus == nDEXb;
+	}		
 		
-		if(StringToInt(GetStringLeft(GetTag(oArmor), 3)) & 16)
-		{   //mithral armour :P
-			nBonus += 2;
-		}		
-		
-		int nNewDexBonus = nBaseDexBonus + nBonus;
+	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus after DEX cap is "+ IntToString(nBonus)+".");
 
-		// Store the new Dex bonus on the character's skin
-		SetLocalInt(oSkin, "SuperiorDefenseDexBonus", nNewDexBonus);
+    if (nAC > 3) //:: Medium armor starts @ 4 AC
+    {
+		int nNewDexBonus = nMaxDexBonus + nBonus;
+		
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nNewDexBonus is "+ IntToString(nNewDexBonus)+".");
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nMithral Bonus is "+ IntToString(nMithral)+".");
+
+	//:: Store the new Dex bonus as deflection AC on the character's skin (should be dodge)
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Final SuperiorDefenseDexBonus is "+ IntToString(nNewDexBonus + nMithral)+".");
+		SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", nNewDexBonus + nMithral, ITEM_PROPERTY_AC_BONUS);
+		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> -------------------------------------------");
 	}
 }
+		
 
 /* void SuperiorDefense(object oPC, int nLevel)
 {
@@ -130,4 +157,3 @@ void main()
     	SuperiorDefense(oPC, nLevel);
     }
 }
-
