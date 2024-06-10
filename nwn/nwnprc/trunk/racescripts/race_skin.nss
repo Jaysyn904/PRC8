@@ -317,7 +317,11 @@ void main()
 		SetCompositeBonus(oSkin, "Aranea_Spot", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
 		SetCompositeBonus(oSkin, "Aranea_Listen", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);
     }  	
-    if(GetRacialType(oPC) == RACIAL_TYPE_KRINTH)
+	if(GetRacialType(oPC) == RACIAL_TYPE_DROW_MALE || GetRacialType(oPC) == RACIAL_TYPE_DROW_FEMALE)
+    {
+        SetCompositeBonus(oSkin, "DrowWillSave", 2, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, SAVING_THROW_WILL);
+    }
+	if(GetRacialType(oPC) == RACIAL_TYPE_KRINTH)
     {
         SetCompositeBonus(oSkin, "KrinthSave", 1, ITEM_PROPERTY_SAVING_THROW_BONUS, SAVING_THROW_ALL);
     }   
