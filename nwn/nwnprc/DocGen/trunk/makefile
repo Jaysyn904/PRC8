@@ -1,6 +1,6 @@
 COMPILER = javac
 FLAGS = -Xlint:all -g -source 11 -target 11
-RUNPARAMS = -Xmx300m -Xms300m -cp imageio_tga_1.1.0.jar\;
+RUNPARAMS = -Xmx300m -Xms300m -cp "imageio_tga_1.1.0.jar\;."
 TARGET = prc/*.java \
 		 prc/autodoc/*.java \
 		 prc/utils/*.java \

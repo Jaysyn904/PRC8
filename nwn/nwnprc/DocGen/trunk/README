@@ -16,6 +16,7 @@ From NWN base:
     racialtypes.2da
     all race_feat_*.2da
     all cls_*.2da
+    all *.tlk
 
 From the PRC:
 
@@ -73,3 +74,22 @@ See codegen_example -directory for example template and 2das. To see the
 results from it, run (replace \ with / if not running on windoze)
 
 	java CodeGen exa_ codegen_example\example.nss codegen_example\Foo.2da codegen_example\Bar.2da
+
+## Build Docs
+
+As it currently goes, this seems to run best on windows (`xcopy` is required).  There is a makefile, but xcopy + make
+are not cooperating with each other, so here are the commands to build the docs.
+
+```commandline
+xcopy "Main Manual Files" manual /iey
+java -Xmx300m -Xms300m -cp "imageio_tga_1.1.0.jar;." prc/autodoc/Main
+java -jar DocGen.jar manual
+```
+
+## Testing the Site
+
+You'll want to use a server to host the docs so you can load them correctly.  I like python for this
+
+```commandline
+python -m http.server
+```
