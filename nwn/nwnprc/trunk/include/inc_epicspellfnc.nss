@@ -124,6 +124,7 @@ int _CheckEpicSpellcastingForClass(object oPC, int nClass)
         case CLASS_TYPE_WARMAGE:           return GetIsEpicWarmage(oPC);
         case CLASS_TYPE_BLIGHTER:          return GetIsEpicBlighter(oPC);
         case CLASS_TYPE_UR_PRIEST:         return GetIsEpicUrPriest(oPC);
+		
     }
     return FALSE;
 }
@@ -269,3 +270,5 @@ string GetNameForSpell(int nSpellID)
     string sName = GetStringByStrRef(StringToInt(Get2DACache("feat", "FEAT", nFeat)));
     return sName;
 }
+
+//:: void main (){}

@@ -1,5 +1,8 @@
 // Racialtypes
 
+//Greyhawk Races
+const int RACIAL_TYPE_DERRO                = 999;
+
 //Darksun races
 const int RACIAL_TYPE_AARAKOCRA            = 999;
 const int RACIAL_TYPE_DS_DWARF             = 999;
@@ -32,9 +35,6 @@ const int RACIAL_TYPE_CHANGELING           = 147;
 const int RACIAL_TYPE_KALASHTAR            = 148;
 const int RACIAL_TYPE_WARFORGED            = 149;
 const int RACIAL_TYPE_ZAKYA_RAKSHASA       = 150; 
-
-//Greyhawk Races
-const int RACIAL_TYPE_DERRO                = 172;
 
 //Planescape Races
 const int RACIAL_TYPE_BARIAUR              = 207;
@@ -121,13 +121,13 @@ const int RACIAL_TYPE_SHADOWSWYFT          = 236;
 
 //Serpent Kingdom and Reptillian Races
 const int RACIAL_TYPE_ABOM_YUAN            = 228;
-const int RACIAL_TYPE_ASABI                = 241;
-const int RACIAL_TYPE_ASABI_STINGTAIL      = 242;
-const int RACIAL_TYPE_KUOTOA               = 67;
+const int RACIAL_TYPE_ASABI                = 999;
+const int RACIAL_TYPE_ASABI_STINGTAIL      = 999;
+const int RACIAL_TYPE_KUOTOA               = 999;
 const int RACIAL_TYPE_LIZARDFOLK           = 219;
 const int RACIAL_TYPE_LIZARDKING           = 68;
 const int RACIAL_TYPE_MEDUSA               = 69;
-const int RACIAL_TYPE_OPHIDIAN             = 70;
+const int RACIAL_TYPE_OPHIDIAN             = 999;
 const int RACIAL_TYPE_POISON_DUSK          = 248;
 const int RACIAL_TYPE_PURE_YUAN            = 220;
 const int RACIAL_TYPE_SAHUAGIN             = 71;

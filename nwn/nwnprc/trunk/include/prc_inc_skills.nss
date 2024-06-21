@@ -63,7 +63,7 @@ int PerformJump(object oPC, location lLoc, int bDoKnockDown = TRUE)
         bCanFly = FALSE;
 
     // Height restriction on jumping
-    if (GetHeight(GetLocation(oPC), lLoc) > 20.0 && !bCanFly)
+    if (GetHeight(GetLocation(oPC), lLoc) > 8.0 && !bCanFly)
     {
         SendMessageToPC(oPC, "The target location is too high to jump to. Please pick a lower target.");
         return FALSE;

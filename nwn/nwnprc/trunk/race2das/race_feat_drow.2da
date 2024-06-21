@@ -1,18 +1,17 @@
 2DA V2.0
 
-   FeatLabel             FeatIndex 
-0  immunitysleep         235       
-1  hardinessenchantment  236       
-2  IronWill              22        
-3  skillaffinitylisten   237       
-4  skillaffinitysearch   238       
-5  skillaffinityspot     239       
-6  keensense             240       
-7  darkvision            228       
-8  Spell_Resist_11       4703      
-9  Light_Blindness       4701      
-10 FEAT_DROW_DARKNESS    4682      
-11 FEAT_DROW_FAERIE_FIRE 4683      
-12 Race_Elven            4711      
-13 Rapier_Prof           7924      
-14 Shortsword_Prof       7901      
+           FeatLabel             FeatIndex 
+0          immunitysleep         235       
+1          hardinessenchantment  236       
+2          skillaffinitylisten   237       
+3          skillaffinitysearch   238       
+4          skillaffinityspot     239       
+5          keensense             240       
+6          darkvision            228       
+7          Spell_Resist_11       4703      
+8          Light_Blindness       4701      
+9          FEAT_DROW_DARKNESS    4682      
+10         FEAT_DROW_FAERIE_FIRE 4683      
+11         Race_Elven            4711      
+12         Rapier_Prof           7924      
+13         Shortsword_Prof       7901      

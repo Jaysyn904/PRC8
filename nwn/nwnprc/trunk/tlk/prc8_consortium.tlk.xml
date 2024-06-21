@@ -4728,6 +4728,31 @@ effects, you gain a +10 resistance bonus on saving throws
 (or Charisma checks, in the case of effects such as charm 
 person) to resist commands that would cause you to leave
 your current position.</entry>
+  <entry id="13272" lang="en" sex="m">Force Missiles</entry> 
+  <entry id="13273" lang="en" sex="m">Evocation [Force]
+Level: Sorcerer 4, Wizard 4,
+Components: V, S,
+Casting Time: 1 Standard Action
+Range: Medium (100 ft. + 10 ft./level)
+Target: Up to four creatures, no two of which are more than 30 ft. apart
+Duration: Instantaneous
+Saving Throw: None
+Spell Resistance: Yes
+
+Sparking bolts of blue magic, like giant magic missiles, streak from your
+outstretched hand to strike your foes and explode in sparkling bursts.
+
+You create powerful missiles of magical force, each of which darts from your
+fingertips and unerringly strikes its target, dealing 2d6 points of damage.
+The missile then explodes in a burst of force that deals half this amount of
+damage to any creatures adjacent to the primary target.
+
+The missile strikes unerringly, even if the target is in melee or has anything
+less than total cover or concealment. A caster cannot single out specific parts
+of a creature.
+
+You gain one missile for every four caster levels. Extra missiles distribute 
+themsleves amongst your enemies evenly.</entry>   
   <entry id="16409" lang="en" sex="m">62</entry>
   <entry id="16410" lang="en" sex="m">63</entry>
   <entry id="16411" lang="en" sex="m">64</entry>

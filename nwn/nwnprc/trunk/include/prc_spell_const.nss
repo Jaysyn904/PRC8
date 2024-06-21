@@ -1351,6 +1351,7 @@ const int SPELL_ETERNAL_SLEEP                       = 0;
 const int SPELL_GREATER_BESTOW_CURSE                = 0;
 const int SPELL_FAERIE_FIRE                         = 2924;
 const int SPELL_MASS_AID                            = 2853;
+const int SPELL_FORCE_MISSILES						= 2480;
 const int SPELL_SYMBOL_OF_DEATH                     = 2481;
 const int SPELL_SYMBOL_OF_FEAR                      = 2482;
 const int SPELL_SYMBOL_OF_STUNING                   = 2483;

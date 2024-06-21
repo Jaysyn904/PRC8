@@ -14,7 +14,7 @@
     "Half-fiend" is an inherited template that can be added to any living, corporeal creature with an 
     Intelligence score of 4 or more and nongood alignment (referred to hereafter as the base creature).
 
-    A half-fiend uses all the base creature�s statistics and special abilities except as noted here.
+    A half-fiend uses all the base creature's statistics and special abilities except as noted here.
 
     Size and Type
     The creature�s type changes to outsider. Do not recalculate Hit Dice, base attack bonus, or saves. 

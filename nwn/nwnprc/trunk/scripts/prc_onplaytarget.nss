@@ -17,7 +17,7 @@ void DoJump(object oPC, location lTarget, int bDoKnockdown)
 	
 	string sMessage		= "You cannot jump through a closed door.";
 	
-	oTarget = GetFirstObjectInShape(SHAPE_SPELLCYLINDER, fDistance, lTarget, TRUE, OBJECT_TYPE_DOOR,vSource);
+	oTarget = GetFirstObjectInShape(SHAPE_SPELLCYLINDER, fDistance, lTarget, TRUE, OBJECT_TYPE_DOOR, vSource);
 
 	//:: Check if the first object found is a door.
 	while (oTarget != OBJECT_INVALID) 

@@ -6,6 +6,11 @@
 #include "inv_inc_invfunc"
 #include "inv_invokehook"
 
+
+// int SPELL_VINE_MINE_ENTANGLE            = 530;
+// int SPELL_VINE_MINE_HAMPER_MOVEMENT     = 531;
+
+
 void main()
 {
     
@@ -18,18 +23,24 @@ void main()
     object oCaster = OBJECT_SELF;
     int CasterLvl = GetInvokerLevel(OBJECT_SELF, GetInvokingClass());
     object oTarget = PRCGetSpellTargetObject();
-    
-    effect eWeb = EffectImmunity(IMMUNITY_TYPE_ENTANGLE);
-    effect eVis = EffectVisualEffect(VFX_IMP_MAGIC_PROTECTION);
-    effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
-    effect eLink = EffectLinkEffects(eWeb, eDur);
-
-    int nDuration = CasterLvl;
-
+	    
+    effect eWeb 		= EffectImmunity(IMMUNITY_TYPE_ENTANGLE);
+	effect eVMEntagle 	= EffectSpellImmunity(SPELL_VINE_MINE_ENTANGLE);
+	effect eVMHamper 	= EffectSpellImmunity(SPELL_VINE_MINE_HAMPER_MOVEMENT);
+	effect eSpikeGrowth	= EffectSpellImmunity(SPELL_SPIKE_GROWTH);	
+    effect eVis 		= EffectVisualEffect(VFX_IMP_MAGIC_PROTECTION);
+    effect eDur 		= EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
+    effect eLink 		= EffectLinkEffects(eWeb, eDur);
+	eLink 				= EffectLinkEffects(eLink, eVMHamper);
+	eLink 				= EffectLinkEffects(eLink, eVMEntagle);
+	eLink 				= EffectLinkEffects(eLink, eSpikeGrowth);
+		
+	int nDuration = CasterLvl;
+	
     //Fire cast spell at event for the specified target
     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, INVOKE_WITCHWOOD_STEP, FALSE));
     
     //Apply VFX impact and immunity effect
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, HoursToSeconds(24),TRUE,-1,CasterLvl);
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, HoursToSeconds(24), TRUE, -1, CasterLvl);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
 }

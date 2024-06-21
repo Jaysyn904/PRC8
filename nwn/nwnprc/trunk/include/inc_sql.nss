@@ -6,6 +6,8 @@
  * @date created on 2009-01-25
  */
  
+ #include "prc_inc_switch"
+ 
 const int PRC_SQL_ERROR = 0;
 const int PRC_SQL_SUCCESS = 1;
 const string XCHST_DB = "xchst_db";
@@ -109,8 +111,14 @@ int PRC_SQLFetch()
 /** @todo check mySQL manual, not sure if this is needed - fluffyamoeba */
 string PRC_SQLGetTick()
 {
-    if(GetPRCSwitch(PRC_DB_SQLITE))    return "";
-    else                                return "`";
+    if(GetPRCSwitch(PRC_DB_SQLITE))
+	{
+		return "";
+	}
+    else
+	{
+		return "`";
+	}
 }
 
 string PRC_SQLGetData(int iCol)
@@ -304,3 +312,5 @@ void CreateXChestDB_MySQL()
         "PRIMARY KEY  (player,tag,name)" +
         ") ENGINE=MyISAM DEFAULT CHARSET=latin1;");
 }
+
+//:: void main (){}
