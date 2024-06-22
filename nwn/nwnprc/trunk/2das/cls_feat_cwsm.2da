@@ -119,7 +119,7 @@
 115  ImpCritDAxe                                    88        1    -1             0      
 116  ImpCrit2Sw                                     89        1    -1             0      
 117  IMP_CRIT_LIGHT_LANCE                           24649     1    -1             0      
-118  IMP_CRIT_HEAVY_PICK                            16834122  1    -1             0      
+118  IMP_CRIT_HEAVY_PICK                            24650     1    -1             0      
 119  IMP_CRIT_LIGHT_PICK                            24651     1    -1             0      
 120  IMP_CRIT_SAI                                   24652     1    -1             0      
 121  IMP_CRIT_NUNCHAKU                              24653     1    -1             0      
@@ -423,9 +423,9 @@
 419  OVERWHELMING_CRITICAL_ELVEN_THINBLADE          24710     1    -1             0      
 420  OVERWHELMING_CRITICAL_ELVEN_COURTBLADE         24718     1    -1             0      
 421  DEVASTATING_CRITICAL_LIGHT_LANCE               24673     1    -1             0      
-422  DEVASTATING_CRITICAL_HEAVY_PICK                16834124  1    -1             0      
+422  DEVASTATING_CRITICAL_HEAVY_PICK                24674     1    -1             0      
 423  DEVASTATING_CRITICAL_LIGHT_PICK                24675     1    -1             0      
-424  DEVASTATING_CRITICAL_SAI                       16834142  1    -1             0      
+424  DEVASTATING_CRITICAL_SAI                       24676     1    -1             0      
 425  DEVASTATING_CRITICAL_NUNCHAKU                  24677     1    -1             0      
 426  DEVASTATING_CRITICAL_FALCHION                  24678     1    -1             0      
 427  DEVASTATING_CRITICAL_SAP                       24679     1    -1             0      

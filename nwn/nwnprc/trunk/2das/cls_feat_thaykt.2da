@@ -45,7 +45,7 @@
 41  ImpCritDAxe                    88        1    -1             0      
 42  ImpCrit2Sw                     89        1    -1             0      
 43  IMP_CRIT_LIGHT_LANCE           24649     1    -1             0      
-44  IMP_CRIT_HEAVY_PICK            16834122  1    -1             0      
+44  IMP_CRIT_HEAVY_PICK            24650     1    -1             0      
 45  IMP_CRIT_LIGHT_PICK            24651     1    -1             0      
 46  IMP_CRIT_SAI                   24652     1    -1             0      
 47  IMP_CRIT_NUNCHAKU              24653     1    -1             0      
@@ -115,7 +115,7 @@
 111 WF_LIGHT_PICK                  24615     1    -1             0      
 112 WF_SAI                         24616     1    -1             0      
 113 WF_NUNCHUKU                    24617     1    -1             0      
-114 WF_FALCHION                    16834154  1    -1             0      
+114 WF_FALCHION                    24618     1    -1             0      
 115 WF_SAP                         24619     1    -1             0      
 116 WF_KATAR                       24620     1    -1             0      
 117 WF_HEAVY_MACE                  24621     1    -1             0      

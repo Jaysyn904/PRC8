@@ -101,7 +101,7 @@
 97  WF_LIGHT_PICK                                  24615     1    -1             0      
 98  WF_SAI                                         24616     1    -1             0      
 99  WF_NUNCHUKU                                    24617     1    -1             0      
-100 WF_FALCHION                                    16834154  1    -1             0      
+100 WF_FALCHION                                    24618     1    -1             0      
 101 WF_SAP                                         24619     1    -1             0      
 102 WF_KATAR                                       24620     1    -1             0      
 103 WF_HEAVY_MACE                                  24621     1    -1             0      
@@ -153,9 +153,9 @@
 149 FEAT_EPIC_DEVASTATING_CRITICAL_DOUBLEAXE       530       1    -1             0      
 150 FEAT_EPIC_DEVASTATING_CRITICAL_TWOBLADEDSWORD  531       1    -1             0      
 151 DEVASTATING_CRITICAL_LIGHT_LANCE               24673     1    -1             0      
-152 DEVASTATING_CRITICAL_HEAVY_PICK                16834124  1    -1             0      
+152 DEVASTATING_CRITICAL_HEAVY_PICK                24674     1    -1             0      
 153 DEVASTATING_CRITICAL_LIGHT_PICK                24675     1    -1             0      
-154 DEVASTATING_CRITICAL_SAI                       16834142  1    -1             0      
+154 DEVASTATING_CRITICAL_SAI                       24676     1    -1             0      
 155 DEVASTATING_CRITICAL_NUNCHAKU                  24677     1    -1             0      
 156 DEVASTATING_CRITICAL_FALCHION                  24678     1    -1             0      
 157 DEVASTATING_CRITICAL_SAP                       24679     1    -1             0      

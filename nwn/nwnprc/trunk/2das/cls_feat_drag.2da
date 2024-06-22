@@ -64,7 +64,7 @@
 60  WF_LIGHT_PICK                          24615     1    -1             0      
 61  WF_SAI                                 24616     1    -1             0      
 62  WF_NUNCHUKU                            24617     1    -1             0      
-63  WF_FALCHION                            16834154  1    -1             0      
+63  WF_FALCHION                            24618     1    -1             0      
 64  WF_SAP                                 24619     1    -1             0      
 65  WF_KATAR                               24620     1    -1             0      
 66  WF_HEAVY_MACE                          24621     1    -1             0      
@@ -75,7 +75,7 @@
 71  WF_ELVEN_THINBLADE                     24705     1    -1             0      
 72  WF_ELVEN_COURTBLADE                    24713     1    -1             0      
 73  IMP_CRIT_LIGHT_LANCE                   24649     1    -1             0      
-74  IMP_CRIT_HEAVY_PICK                    16834122  1    -1             0      
+74  IMP_CRIT_HEAVY_PICK                    24650     1    -1             0      
 75  IMP_CRIT_LIGHT_PICK                    24651     1    -1             0      
 76  IMP_CRIT_SAI                           24652     1    -1             0      
 77  IMP_CRIT_NUNCHAKU                      24653     1    -1             0      

@@ -47,9 +47,9 @@
 43  FEAT_EPIC_DEVASTATING_CRITICAL_DOUBLEAXE       530       1    -1             0      
 44  FEAT_EPIC_DEVASTATING_CRITICAL_TWOBLADEDSWORD  531       1    -1             0      
 45  DEVASTATING_CRITICAL_LIGHT_LANCE               24673     1    -1             0      
-46  DEVASTATING_CRITICAL_HEAVY_PICK                16834124  1    -1             0      
+46  DEVASTATING_CRITICAL_HEAVY_PICK                24674     1    -1             0      
 47  DEVASTATING_CRITICAL_LIGHT_PICK                24675     1    -1             0      
-48  DEVASTATING_CRITICAL_SAI                       16834142  1    -1             0      
+48  DEVASTATING_CRITICAL_SAI                       24676     1    -1             0      
 49  DEVASTATING_CRITICAL_NUNCHAKU                  24677     1    -1             0      
 50  DEVASTATING_CRITICAL_FALCHION                  24678     1    -1             0      
 51  DEVASTATING_CRITICAL_SAP                       24679     1    -1             0      
