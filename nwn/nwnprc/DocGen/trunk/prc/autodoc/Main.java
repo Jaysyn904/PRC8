@@ -3,6 +3,7 @@ package prc.autodoc;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +21,33 @@ import static prc.autodoc.PageGeneration.*;
  * many errors present in the 2das.
  */
 public class Main {
+    public static ArrayList<String> getFoldersInFolder(String path) {
+        var result = new ArrayList<String>();
+
+        var folder = new File(path);
+        for (var fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                result.add(fileEntry.getAbsolutePath().toString());
+            }
+        }
+
+        return result;
+    }
+
+    public static ArrayList<String> getFilesInFolder(String path) {
+        var result = new ArrayList<String>();
+
+        var folder = new File(path);
+        for (var fileEntry : folder.listFiles()) {
+            if (!fileEntry.isDirectory()) {
+                result.add(fileEntry.getAbsolutePath().toString());
+            }
+        }
+
+        return result;
+    }
+
+
     /**
      * A small data structure class that gives access to both normal and custom
      * TLK with the same method
@@ -33,25 +61,27 @@ public class Main {
          * TLKStore(normalName, customName, "tlk").
          *
          * @param normalName dialog.tlk or equivalent for the given language
-         * @param customName prc_consortium.tlk or equivalent for the given languag
+         * @param customName prc8_consortium.tlk or equivalent for the given languag
          * @throws TLKReadException if there are any problems reading either TLK
          */
         public TLKStore(String normalName, String customName) {
-            this.normal = new Data_TLK("tlk" + fileSeparator + normalName);
-            this.custom = new Data_TLK("tlk" + fileSeparator + customName);
+            var baseDirectory = "../../trunk"; // @TODO: Move to a Configuration File
+            this.normal = new Data_TLK(Paths.get(baseDirectory, "tlk", normalName).toAbsolutePath().toString());
+            this.custom = new Data_TLK(Paths.get(baseDirectory, "tlk", customName).toAbsolutePath().toString());
         }
 
         /**
          * Creates a new TLKStore around the given two filenames.
          *
          * @param normalName dialog.tlk or equivalent for the given language
-         * @param customName prc_consortium.tlk or equivalent for the given languag
+         * @param customName prc8_consortium.tlk or equivalent for the given languag
          * @param tlkDir     Directory containing the two .tlk files
          * @throws TLKReadException if there are any problems reading either TLK
          */
         public TLKStore(String normalName, String customName, String tlkDir) {
-            this.normal = new Data_TLK(tlkDir + fileSeparator + normalName);
-            this.custom = new Data_TLK(tlkDir + fileSeparator + customName);
+            var baseDirectory = "../../trunk"; // @TODO: Move to a Configuration File
+            this.normal = new Data_TLK(Paths.get(baseDirectory, tlkDir, normalName).toAbsolutePath().toString());
+            this.custom = new Data_TLK(Paths.get(baseDirectory, tlkDir, customName).toAbsolutePath().toString());
         }
 
         /**
@@ -138,25 +168,43 @@ public class Main {
          * that could be done anyway.
          */
         public TwoDAStore() {
-            this("2da");
+            this("../../trunk/2das");
             //long start = System.currentTimeMillis();
             if (verbose) System.out.print("Loading main 2da files ");
+            CountDownLatch latch = new CountDownLatch(7);
+            List<Data_2da> list = Collections.synchronizedList(new ArrayList<Data_2da>());
+            ArrayList<Thread> threads = new ArrayList<>();
+
+            var baseDirectory = "../../trunk"; // @TODO: Move to a Configuration File
+            var folders = getFoldersInFolder(baseDirectory);
+            for (var folder : folders) {
+                if (folder.endsWith("2das")) {
+                    var files = getFilesInFolder(folder);
+                    for (var file : files) {
+                        var thread = new Thread(new Loader(file, list, latch));
+                        threads.add(thread);
+                        thread.start();
+                    }
+                }
+            }
+
             boolean oldVerbose = verbose;
             verbose = false;
 
-            CountDownLatch latch = new CountDownLatch(7);
-            List<Data_2da> list = Collections.synchronizedList(new ArrayList<Data_2da>());
-            // Read the main 2das
-            new Thread(new Loader("2da" + fileSeparator + "classes.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "domains.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "feat.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "masterfeats.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "racialtypes.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "skills.2da", list, latch)).start();
-            new Thread(new Loader("2da" + fileSeparator + "spells.2da", list, latch)).start();
+
+//            // Read the main 2das
+//            new Thread(new Loader("2da" + fileSeparator + "classes.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "domains.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "feat.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "masterfeats.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "racialtypes.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "skills.2da", list, latch)).start();
+//            new Thread(new Loader("2da" + fileSeparator + "spells.2da", list, latch)).start();
 
             try {
-                latch.await();
+                for (Thread thread : threads) {
+                    thread.join();
+                }
             } catch (InterruptedException e) {
                 err_pr.println("Error: Interrupted while reading main 2das. Exception data:\n");
                 err_pr.printException(e);
@@ -199,7 +247,19 @@ public class Main {
             else {
                 Data_2da temp = null;
                 try {
-                    temp = Data_2da.load2da(twoDAPath + fileSeparator + name + ".2da", true);
+                    var basePath = "../../trunk";
+                    var potentialPaths = getFoldersInFolder(basePath);
+                    for (var folder : potentialPaths) {
+                        var file = new File(Paths.get(folder, name + ".2da").toAbsolutePath().toString());
+                        if (file.exists()) {
+                            temp = Data_2da.load2da(file.getAbsolutePath().toString(), true);
+                            break;
+                        }
+                    }
+                    if (temp == null) {
+                        throw new TwoDAReadException("File not found\n" + name);
+                    }
+
                 } catch (IllegalArgumentException e) {
                     throw new TwoDAReadException("Problem with filename when trying to read from 2da:\n" + e);
                 }
@@ -485,7 +545,7 @@ public class Main {
      */
     public static final int LANGDATA_BASETLK = 1;
     /**
-     * curLanguageData index of the name of the prc_consortium.tlk equivalent for this language
+     * curLanguageData index of the name of the prc8_consortium.tlk equivalent for this language
      */
     public static final int LANGDATA_PRCTLK = 2;
     /**
@@ -763,38 +823,38 @@ public class Main {
      * @return <code>true</code> if all the reads succeeded, <code>false</code> otherwise
      */
     private static boolean readTemplates() {
-        String templatePath = "templates" + fileSeparator + curLanguage + fileSeparator;
+        String templatePath = Paths.get("templates", curLanguage).toAbsolutePath().toString();
 
         try {
-            babAndSavthrTableHeaderTemplate = readTemplate(templatePath + "babNsavthrtableheader.html");
-            classTablesEntryTemplate = readTemplate(templatePath + "classtablesentry.html");
-            classTemplate = readTemplate(templatePath + "class.html");
-            domainTemplate = readTemplate(templatePath + "domain.html");
-            featTemplate = readTemplate(templatePath + "feat.html");
-            mFeatTemplate = readTemplate(templatePath + "masterfeat.html");
-            menuTemplate = readTemplate(templatePath + "menu.html");
-            menuItemTemplate = readTemplate(templatePath + "menuitem.html");
-            prereqANDFeatHeaderTemplate = readTemplate(templatePath + "prerequisiteandfeatheader.html");
-            prereqORFeatHeaderTemplate = readTemplate(templatePath + "prerequisiteorfeatheader.html");
-            raceTemplate = readTemplate(templatePath + "race.html");
-            spellTemplate = readTemplate(templatePath + "spell.html");
-            skillTableHeaderTemplate = readTemplate(templatePath + "skilltableheader.html");
-            skillTemplate = readTemplate(templatePath + "skill.html");
-            successorFeatHeaderTemplate = readTemplate(templatePath + "successorfeatheader.html");
-            iconTemplate = readTemplate(templatePath + "icon.html");
-            listEntrySetTemplate = readTemplate(templatePath + "listpageentryset.html");
-            listEntryTemplate = readTemplate(templatePath + "listpageentry.html");
-            alphaSortedListTemplate = readTemplate(templatePath + "alphasorted_listpage.html");
-            requiredForFeatHeaderTemplate = readTemplate(templatePath + "reqforfeatheader.html");
-            pageLinkTemplate = readTemplate(templatePath + "pagelink.html");
-            featMenuTemplate = readTemplate(templatePath + "featmenu.html");
-            spellSubradialListTemplate = readTemplate(templatePath + "spellsubradials.html");
-            spellSubradialListEntryTemplate = readTemplate(templatePath + "spellsubradialsentry.html");
-            classFeatTableTemplate = readTemplate(templatePath + "classfeattable.html");
-            classFeatTableEntryTemplate = readTemplate(templatePath + "classfeattableentry.html");
-            classMagicTableTemplate = readTemplate(templatePath + "classmagictable.html");
-            classMagicTableEntryTemplate = readTemplate(templatePath + "classmagictableentry.html");
-            craftTemplate = readTemplate(templatePath + "craftprop.html");
+            babAndSavthrTableHeaderTemplate = readTemplate(Paths.get(templatePath, "babNsavthrtableheader.html").toAbsolutePath().toString());
+            classTablesEntryTemplate = readTemplate(Paths.get(templatePath, "classtablesentry.html").toAbsolutePath().toString());
+            classTemplate = readTemplate(Paths.get(templatePath, "class.html").toAbsolutePath().toString());
+            domainTemplate = readTemplate(Paths.get(templatePath, "domain.html").toAbsolutePath().toString());
+            featTemplate = readTemplate(Paths.get(templatePath, "feat.html").toAbsolutePath().toString());
+            mFeatTemplate = readTemplate(Paths.get(templatePath, "masterfeat.html").toAbsolutePath().toString());
+            menuTemplate = readTemplate(Paths.get(templatePath, "menu.html").toAbsolutePath().toString());
+            menuItemTemplate = readTemplate(Paths.get(templatePath, "menuitem.html").toAbsolutePath().toString());
+            prereqANDFeatHeaderTemplate = readTemplate(Paths.get(templatePath, "prerequisiteandfeatheader.html").toAbsolutePath().toString());
+            prereqORFeatHeaderTemplate = readTemplate(Paths.get(templatePath, "prerequisiteorfeatheader.html").toAbsolutePath().toString());
+            raceTemplate = readTemplate(Paths.get(templatePath, "race.html").toAbsolutePath().toString());
+            spellTemplate = readTemplate(Paths.get(templatePath, "spell.html").toAbsolutePath().toString());
+            skillTableHeaderTemplate = readTemplate(Paths.get(templatePath, "skilltableheader.html").toAbsolutePath().toString());
+            skillTemplate = readTemplate(Paths.get(templatePath, "skill.html").toAbsolutePath().toString());
+            successorFeatHeaderTemplate = readTemplate(Paths.get(templatePath, "successorfeatheader.html").toAbsolutePath().toString());
+            iconTemplate = readTemplate(Paths.get(templatePath, "icon.html").toAbsolutePath().toString());
+            listEntrySetTemplate = readTemplate(Paths.get(templatePath, "listpageentryset.html").toAbsolutePath().toString());
+            listEntryTemplate = readTemplate(Paths.get(templatePath, "listpageentry.html").toAbsolutePath().toString());
+            alphaSortedListTemplate = readTemplate(Paths.get(templatePath, "alphasorted_listpage.html").toAbsolutePath().toString());
+            requiredForFeatHeaderTemplate = readTemplate(Paths.get(templatePath, "reqforfeatheader.html").toAbsolutePath().toString());
+            pageLinkTemplate = readTemplate(Paths.get(templatePath, "pagelink.html").toAbsolutePath().toString());
+            featMenuTemplate = readTemplate(Paths.get(templatePath, "featmenu.html").toAbsolutePath().toString());
+            spellSubradialListTemplate = readTemplate(Paths.get(templatePath, "spellsubradials.html").toAbsolutePath().toString());
+            spellSubradialListEntryTemplate = readTemplate(Paths.get(templatePath, "spellsubradialsentry.html").toAbsolutePath().toString());
+            classFeatTableTemplate = readTemplate(Paths.get(templatePath, "classfeattable.html").toAbsolutePath().toString());
+            classFeatTableEntryTemplate = readTemplate(Paths.get(templatePath, "classfeattableentry.html").toAbsolutePath().toString());
+            classMagicTableTemplate = readTemplate(Paths.get(templatePath, "classmagictable.html").toAbsolutePath().toString());
+            classMagicTableEntryTemplate = readTemplate(Paths.get(templatePath, "classmagictableentry.html").toAbsolutePath().toString());
+            craftTemplate = readTemplate(Paths.get(templatePath, "craftprop.html").toAbsolutePath().toString());
         } catch (IOException e) {
             return false;
         }

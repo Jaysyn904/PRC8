@@ -81,10 +81,12 @@ As it currently goes, this seems to run best on windows (`xcopy` is required).  
 are not cooperating with each other, so here are the commands to build the docs.
 
 ```commandline
+make
 xcopy "Main Manual Files" manual /iey
-java -Xmx300m -Xms300m -cp "imageio_tga_1.1.0.jar;." prc/autodoc/Main
-java -jar DocGen.jar manual
+java -Xmx1024m -Xms300m -cp "imageio_tga_1.1.0.jar;." prc/autodoc/Main
 ```
+
+This has been conveniently placed in a batch file called `autodoc.bat` for Windows users.
 
 ## Testing the Site
 

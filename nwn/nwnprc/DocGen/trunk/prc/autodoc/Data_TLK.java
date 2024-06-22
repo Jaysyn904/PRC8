@@ -1,9 +1,6 @@
 package prc.autodoc;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.stream.IntStream;
@@ -32,7 +29,6 @@ public class Data_TLK {
         // Some paranoia checking for bad parameters
         if (!filePath.toLowerCase().endsWith("tlk"))
             throw new IllegalArgumentException("Non-tlk filename passed to Data_TLK: " + filePath);
-
         File baseFile = new File(filePath);
         if (!baseFile.exists())
             throw new IllegalArgumentException("Nonexistent file passed to Data_TLK: " + filePath);

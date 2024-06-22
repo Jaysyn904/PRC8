@@ -176,7 +176,7 @@ public class UpdateDes {
                         "  java -jar prc.jar updatedescrft 2dadir | [--help]\n" +
                         "\n" +
                         "2dadir   Path to a directory containing 2da files\n" +
-//		                   "tlkdir   Path to a directory containing dialog.tlk and prc_consortium.tlk\n" +
+//		                   "tlkdir   Path to a directory containing dialog.tlk and prc8_consortium.tlk\n" +
                         "\n" +
                         "--help      prints this info you are reading\n" +
                         "\n" +
