@@ -56,7 +56,7 @@ public class BuildScrollHack {
 
         // Load data
         TwoDAStore twoDA = new TwoDAStore(twoDAPath);
-        TLKStore tlks = new TLKStore("dialog.tlk", "prc_consortium.tlk", tlkPath);
+        TLKStore tlks = new TLKStore("dialog.tlk", "prc8_consortium.tlk", tlkPath);
 
         ScrollGen.doScrollGen(twoDA, twoDAPath, outPath);
         UpdateDes.doUpdateDes(twoDA, twoDAPath);
@@ -73,7 +73,7 @@ public class BuildScrollHack {
                 "  java -jar prc.jar buildscrhack 2dadir tlkdir outpath| [--help]\n" +
                 "\n" +
                 "2dadir   Path to a directory containing 2da files\n" +
-                "tlkdir   Path to a directory containing dialog.tlk and prc_consortium.tlk\n" +
+                "tlkdir   Path to a directory containing dialog.tlk and prc8_consortium.tlk\n" +
                 "outdir   Path to the directory to save the new scroll xml files in\n" +
                 "\n" +
                 "--help      prints this info you are reading\n" +

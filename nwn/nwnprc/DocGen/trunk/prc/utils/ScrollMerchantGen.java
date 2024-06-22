@@ -69,7 +69,7 @@ public class ScrollMerchantGen {
 
         // Load data
         TwoDAStore twoDA = new TwoDAStore(twoDAPath);
-        TLKStore tlks = new TLKStore("dialog.tlk", "prc_consortium.tlk", tlkPath);
+        TLKStore tlks = new TLKStore("dialog.tlk", "prc8_consortium.tlk", tlkPath);
 
         doScrollMerchantGen(twoDA, tlks, "scrolltemp");
     }
@@ -371,7 +371,7 @@ public class ScrollMerchantGen {
                 "  java -jar prc.jar scrmrchgen 2dadir tlkdir | [--help]\n" +
                 "\n" +
                 "2dadir   Path to a directory containing des_crft_scroll.2da and spells.2da.\n" +
-                "tlkdir   Path to a directory containing dialog.tlk and prc_consortium.tlk\n" +
+                "tlkdir   Path to a directory containing dialog.tlk and prc8_consortium.tlk\n" +
                 "\n" +
                 "--help      prints this info you are reading\n" +
                 "\n" +

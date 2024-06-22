@@ -366,7 +366,7 @@ public class EntryGeneration {
         psiPowMap = new HashMap<String, Integer>();
 
         // Load cls_psipw_*.2da
-        String[] fileNames = new File("2da").list(new FilenameFilter() {
+        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.toLowerCase().startsWith("cls_psipw_") &&
                         name.toLowerCase().endsWith(".2da");
@@ -384,7 +384,7 @@ public class EntryGeneration {
         utterMap = new HashMap<String, Integer>();
 
         // Load cls_*_utter.2da
-        String[] fileNames = new File("2da").list(new FilenameFilter() {
+        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.toLowerCase().startsWith("cls_") &&
                         name.toLowerCase().endsWith("_utter.2da");
@@ -402,7 +402,7 @@ public class EntryGeneration {
         invMap = new HashMap<String, Integer>();
 
         // Load cls_*_utter.2da
-        String[] fileNames = new File("2da").list(new FilenameFilter() {
+        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.toLowerCase().startsWith("cls_inv_") &&
                         name.toLowerCase().endsWith(".2da");
@@ -420,7 +420,7 @@ public class EntryGeneration {
         maneuverMap = new HashMap<String, Integer>();
 
         // Load cls_*_utter.2da
-        String[] fileNames = new File("2da").list(new FilenameFilter() {
+        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.toLowerCase().startsWith("cls_move_") &&
                         name.toLowerCase().endsWith(".2da");

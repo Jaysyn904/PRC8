@@ -300,7 +300,7 @@ public class Validator {
                 "  java -jar prc.jar validate 2dadir tlkdir | [--help]\n" +
                 "\n" +
                 "2dadir   Path to a directory containing 2da files\n" +
-                "tlkdir   Path to a directory containing dialog.tlk and prc_consortium.tlk\n" +
+                "tlkdir   Path to a directory containing dialog.tlk and prc8_consortium.tlk\n" +
                 "\n" +
                 "-p       pedantic mode. Makes extra checks\n" +
                 "\n" +

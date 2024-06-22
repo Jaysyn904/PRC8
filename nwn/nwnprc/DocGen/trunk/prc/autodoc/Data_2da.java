@@ -381,7 +381,8 @@ public class Data_2da implements Cloneable {
                 } else
                     line = Integer.parseInt(matcher.group());
             } catch (NumberFormatException e) {
-                throw new TwoDAReadException("Numberless 2da line: " + (line + 1));
+                return;
+                // throw new TwoDAReadException("Numberless 2da line: " + (line + 1));
             }
 
             // Start parsing the row
@@ -399,7 +400,8 @@ public class Data_2da implements Cloneable {
 
             // Check for too long rows
             if (matcher.find())
-                throw new TwoDAReadException("Too long 2da line: " + line);
+                return;
+                // throw new TwoDAReadException("Too long 2da line: " + line);
 
             // Increment the entry counter
             //entries++;

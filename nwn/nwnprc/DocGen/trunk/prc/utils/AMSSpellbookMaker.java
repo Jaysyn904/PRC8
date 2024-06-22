@@ -94,7 +94,7 @@ public final class AMSSpellbookMaker {
         spells2da = Data_2da.load2da("2das" + File.separator + "spells.2da", true);
         feat2da = Data_2da.load2da("2das" + File.separator + "feat.2da", true);
         iprp_feats2da = Data_2da.load2da("2das" + File.separator + "iprp_feats.2da", true);
-        customtlk = new Data_TLK("tlk" + File.separator + "prc_consortium.tlk");
+        customtlk = new Data_TLK("tlk" + File.separator + "prc8_consortium.tlk");
         dialogtlk = new Data_TLK("tlk" + File.separator + "dialog.tlk");
         spellLabels = spells2da.getLabels();
 
@@ -319,7 +319,7 @@ public final class AMSSpellbookMaker {
         spells2da.save2da("2das", true, true);
         feat2da.save2da("2das", true, true);
         iprp_feats2da.save2da("2das", true, true);
-        customtlk.saveAsXML("prc_consortium", "tlk", true);
+        customtlk.saveAsXML("prc8_consortium", "tlk", true);
     }
 
     private static void addNewSpellbookData(int spellID,
@@ -647,7 +647,7 @@ public final class AMSSpellbookMaker {
     }
 
     private static void getFirstTlkRow() {
-        System.out.print("Finding start of prc_consortium.tlk ");
+        System.out.print("Finding start of prc8_consortium.tlk ");
         while (!customtlk.getEntry(tlkRow).equals(start_label)) {
             tlkRow++;
             spinner.spin();
