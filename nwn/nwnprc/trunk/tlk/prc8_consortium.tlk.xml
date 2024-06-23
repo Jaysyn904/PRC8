@@ -23727,9 +23727,8 @@ Use: Selected</entry>
 Prerequisites: Jade Phoenix level 6.
 Specifics: You gain fire resistance 10 and your caster level when you cast any fire spell increases by 3.  If you expend an arcane spell, you gain an aura that deals 1d6 points of damage to any creature within 10 feet (Reflex half, DC 14 + key spellcasting ability modifier).  Half of the damage is fire and the other half is magical.  The aura lasts for one turn.
 Use: Selected</entry>
-  <entry id="49979" lang="en" sex="m">Jade Phoenix Master</entry>
-  When you attain 6th level, you earn the right to call yourself a Jade Phoenix master. You can now perform the Rite of Waking for someone else, provided he or she is a suitable candidate and embodies the reincarnated spirit of one of the ancient masters. (The DM decides if this is true for any given NPC.) You gain the ability to sense the direction and distance to the nearest Jade Phoenix mage, master, or candidate simply by meditating for 1 minute without interruption.
-  <entry id="49980" lang="en" sex="m">
+  <entry id="49979" lang="en" sex="m">Jade Phoenix Master</entry>  
+  <entry id="49980" lang="en" sex="m">When you attain 6th level, you earn the right to call yourself a Jade Phoenix master. You can now perform the Rite of Waking for someone else, provided he or she is a suitable candidate and embodies the reincarnated spirit of one of the ancient masters. (The DM decides if this is true for any given NPC.) You gain the ability to sense the direction and distance to the nearest Jade Phoenix mage, master, or candidate simply by meditating for 1 minute without interruption.</entry>
   <entry id="49981" lang="en" sex="m">Quickening Strike</entry>
   <entry id="49982" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisites: Jade Phoenix level 8.

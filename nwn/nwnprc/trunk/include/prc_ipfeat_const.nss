@@ -2,29 +2,30 @@
 //const int FEAT_WEAPON_FOCUS_WHIP      = 993;
 //const int FEAT_IMPROVED_CRITICAL_WHIP = 995;
 
-//iprp_feats
+//::: iprp_feats
 
-const int IP_CONST_FEAT_IMPROVED_CRITICAL_UNARMED  = 20;
-const int IP_CONST_FEAT_WEAPON_FINESSE             = 95;
-const int IP_CONST_FEAT_TRACK                      = 94;
-const int IP_CONST_FEAT_IMPROVED_UNARMED_STRIKE    = 93;
-const int IP_CONST_FEAT_TRAPFINDING                = 392;
-const int IP_CONST_FEAT_DEFLECT_ARROWS             = 92;
-const int IP_CONST_FEAT_AWESOME_BLOW               = 571;
-const int IP_CONST_FEAT_PRC_ATTACK                 = 572;
-const int IP_CONST_FEAT_BANE_MAGIC_DRAGON          = 91;
-const int IP_CONST_FEAT_BONES_EARTH                = 90;
-const int IP_CONST_FEAT_BREATHLESS                 = 574;
-const int IP_CONST_FEAT_IMPROVED_BULL_RUSH         = 89;
-const int IP_CONST_FEAT_WATER_BREATHING            = 575;
-const int IP_CONST_FEAT_TURN_UNDEAD                = 88;
-const int IP_CONST_FEAT_THUG                       = 576;
-const int IP_CONST_FEAT_MOUNTED_COMBAT             = 577;
-const int IP_CONST_FEAT_MOUNTED_ARCHERY            = 578;
-const int IP_CONST_FEAT_PRC_DEATH_ATTACK           = 579;
-const int IP_CONST_FEAT_RAGE                       = 87;
+const int IP_CONST_FEAT_IMPROVED_CRITICAL_UNARMED  	= 20;
+const int IP_CONST_FEAT_WEAPON_FINESSE             	= 95;
+const int IP_CONST_FEAT_TRACK                      	= 94;
+const int IP_CONST_FEAT_IMPROVED_UNARMED_STRIKE    	= 93;
+const int IP_CONST_FEAT_TRAPFINDING                	= 392;
+const int IP_CONST_FEAT_DEFLECT_ARROWS             	= 92;
+const int IP_CONST_FEAT_AWESOME_BLOW               	= 571;
+const int IP_CONST_FEAT_PRC_ATTACK                 	= 572;
+const int IP_CONST_FEAT_BANE_MAGIC_DRAGON          	= 91;
+const int IP_CONST_FEAT_BONES_EARTH                	= 90;
+const int IP_CONST_FEAT_BREATHLESS                 	= 574;
+const int IP_CONST_FEAT_IMPROVED_BULL_RUSH         	= 89;
+const int IP_CONST_FEAT_WATER_BREATHING            	= 575;
+const int IP_CONST_FEAT_TURN_UNDEAD                	= 88;
+const int IP_CONST_FEAT_THUG                       	= 576;
+const int IP_CONST_FEAT_MOUNTED_COMBAT             	= 577;
+const int IP_CONST_FEAT_MOUNTED_ARCHERY            	= 578;
+const int IP_CONST_FEAT_PRC_DEATH_ATTACK           	= 579;
+const int IP_CONST_FEAT_DAYLIGHTADAPT				= 581;
+const int IP_CONST_FEAT_RAGE                       	= 87;
 
-// Crafting feats
+//:: Crafting feats
 const int IP_FEAT_FEAT_SCRIBE_SCROLL      = 4340;
 const int IP_FEAT_FEAT_BREW_POTION        = 4339;
 const int IP_FEAT_FEAT_CRAFT_WONDROUS     = 4342;
@@ -34,7 +35,7 @@ const int IP_FEAT_FEAT_CRAFT_ROD          = 4344;
 const int IP_FEAT_FEAT_CRAFT_STAFF        = 4345;
 const int IP_FEAT_FEAT_FORGE_RING         = 4346;
 
-//Sneak Attacks
+//:: Sneak Attacks
 const int IP_CONST_FEAT_ROGUE_SA_1D6    = 32;
 const int IP_CONST_FEAT_ROGUE_SA_2D6    = 33;
 const int IP_CONST_FEAT_ROGUE_SA_3D6    = 34;

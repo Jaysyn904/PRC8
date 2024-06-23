@@ -1,9 +1,10 @@
 prc.autodoc.TwoDAReadException: Exception occurred when reading 2da file: cls_feat_totrag
 No data in 2da file!
 	at prc.autodoc.Data_2da.load2da(Data_2da.java:273)
-	at prc.autodoc.Data_2da.main(Data_2da.java:892)
-	at prc.Main.main(Main.java:44)
+	at prc.autodoc.Data_2da.load2da(Data_2da.java:203)
+	at prc.utils.AllClassFeatUpdater.main(AllClassFeatUpdater.java:119)
+	at prc.Main.main(Main.java:62)
 Caused by: prc.autodoc.TwoDAReadException: No data in 2da file!
 	at prc.autodoc.Data_2da.createData(Data_2da.java:355)
 	at prc.autodoc.Data_2da.load2da(Data_2da.java:271)
-	... 2 more
+	... 3 more
