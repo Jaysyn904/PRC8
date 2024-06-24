@@ -177,6 +177,7 @@ public class Main {
 
             var baseDirectory = "../../trunk"; // @TODO: Move to a Configuration File
             var folders = getFoldersInFolder(baseDirectory);
+            folders.add("base_nwn_files"); // this is where we store the base nwn 2da files
             for (var folder : folders) {
                 if (folder.endsWith("2das")) {
                     var files = getFilesInFolder(folder);
@@ -249,6 +250,7 @@ public class Main {
                 try {
                     var basePath = "../../trunk";
                     var potentialPaths = getFoldersInFolder(basePath);
+                    potentialPaths.add("base_nwn_files"); // this is where we store the base nwn 2da files
                     for (var folder : potentialPaths) {
                         var file = new File(Paths.get(folder, name + ".2da").toAbsolutePath().toString());
                         if (file.exists()) {
@@ -266,6 +268,12 @@ public class Main {
                 data.put(name, temp);
                 return temp;
             }
+        }
+
+        public HashMap<String, Data_2da> findAll(String name) {
+            HashMap<String, Data_2da> copy = new HashMap<String, Data_2da>(data);
+            copy.keySet().removeIf(key -> !key.contains(name));
+            return copy;
         }
     }
 
@@ -782,7 +790,7 @@ public class Main {
             if (!(readTemplates() && buildDirectories())) continue;
 
             // Do the actual work
-            createPages();
+            createPages(twoDA);
             createMenus();
         }
 
@@ -990,14 +998,14 @@ public class Main {
     /**
      * Page creation. Calls all the specific functions for different page types
      */
-    private static void createPages() {
+    private static void createPages(TwoDAStore twoDA) {
         /* First, do the pages that do not require linking to other pages */
         doSkills();
         doCrafting();
-        listPsionicPowers();
-        listTruenameUtterances();
-        listInvocations();
-        listManeuvers();
+        listPsionicPowers(twoDA);
+        listTruenameUtterances(twoDA);
+        listInvocations(twoDA);
+        listManeuvers(twoDA);
         doSpells();
 
         /* Then, build the feats */

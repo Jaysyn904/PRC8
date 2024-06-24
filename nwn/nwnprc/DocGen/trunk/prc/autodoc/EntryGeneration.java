@@ -361,73 +361,50 @@ public class EntryGeneration {
      * Creates a list of spells.2da rows that should contain a psionic power's class-specific
      * entry.
      */
-    public static void listPsionicPowers() {
+    public static void listPsionicPowers(TwoDAStore twoDA) {
         // A map of power name to class-specific spells.2da entry
         psiPowMap = new HashMap<String, Integer>();
 
-        // Load cls_psipw_*.2da
-        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().startsWith("cls_psipw_") &&
-                        name.toLowerCase().endsWith(".2da");
-            }
-        });
+        HashMap<String, Data_2da> potentials = twoDA.findAll("cls_psipw_");
 
-        listAMSEntries(fileNames, psiPowMap);
+        listAMSEntries(potentials, psiPowMap);
     }
 
     /**
      * Creates a list of spells.2da rows that should contain a truenaming utterance's
      */
-    public static void listTruenameUtterances() {
+    public static void listTruenameUtterances(TwoDAStore twoDA) {
         // A map of power name to class-specific spells.2da entry
         utterMap = new HashMap<String, Integer>();
 
         // Load cls_*_utter.2da
-        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().startsWith("cls_") &&
-                        name.toLowerCase().endsWith("_utter.2da");
-            }
-        });
+        HashMap<String, Data_2da> potentials = twoDA.findAll("_utter");
 
-        listAMSEntries(fileNames, utterMap);
+        listAMSEntries(potentials, utterMap);
     }
 
     /**
      * Creates a list of spells.2da rows that should contain invocations
      */
-    public static void listInvocations() {
+    public static void listInvocations(TwoDAStore twoDA) {
         // A map of power name to class-specific spells.2da entry
         invMap = new HashMap<String, Integer>();
 
-        // Load cls_*_utter.2da
-        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().startsWith("cls_inv_") &&
-                        name.toLowerCase().endsWith(".2da");
-            }
-        });
+        var potentials = twoDA.findAll("cls_inv_");
 
-        listAMSEntries(fileNames, invMap);
+        listAMSEntries(potentials, invMap);
     }
 
     /**
      * Creates a list of spells.2da rows that should contain maneuvers
      */
-    public static void listManeuvers() {
+    public static void listManeuvers(TwoDAStore twoDA) {
         // A map of power name to class-specific spells.2da entry
         maneuverMap = new HashMap<String, Integer>();
 
-        // Load cls_*_utter.2da
-        String[] fileNames = new File("../../trunk/2das").list(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().startsWith("cls_move_") &&
-                        name.toLowerCase().endsWith(".2da");
-            }
-        });
+        var potentials = twoDA.findAll("cls_move_");
 
-        listAMSEntries(fileNames, maneuverMap);
+        listAMSEntries(potentials, maneuverMap);
     }
 
     /**
@@ -437,31 +414,28 @@ public class EntryGeneration {
      * @param fileNames List of 2da files that contain the entries to be listed
      * @param storeMap  Map to store the entries in
      */
-    private static void listAMSEntries(String[] fileNames, Map<String, Integer> storeMap) {
-        Data_2da spells2da = twoDA.get("spells");
-        Data_2da[] list2das = new Data_2da[fileNames.length];
-        for (int i = 0; i < fileNames.length; i++)
-            //Strip out the ".2da" from the filenames before loading, since the loader function assumes it's missing
-            list2das[i] = twoDA.get(fileNames[i].replace(".2da", ""));
-
+    private static void listAMSEntries(HashMap<String, Data_2da> list2das, Map<String, Integer> storeMap) {
+        Data_2da spells2da   = twoDA.get("spells");
         // Parse the 2das
-        for (Data_2da list2da : list2das) {
-            for (int i = 0; i < list2da.getEntryCount(); i++) {
+        list2das.entrySet().stream().forEach(
+                list2da -> {
+            var value2da = list2da.getValue();
+            for (int i = 0; i < value2da.getEntryCount(); i++) {
                 // Column FeatID is used to determine if the row specifies the main entry of a power
-                if (!list2da.getEntry("FeatID", i).equals("****")) {
+                if (!value2da.getEntry("FeatID", i).equals("****")) {
                     try {
                         //look up spells.2da name of the realspellid if we don't have a name column
-                        if (list2da.getEntry("Name", i) == null) {
-                            storeMap.put(tlk.get(spells2da.getEntry("Name", list2da.getEntry("RealSpellID", i))), Integer.parseInt(list2da.getEntry("RealSpellID", i)));
+                        if (value2da.getEntry("Name", i) == null) {
+                            storeMap.put(tlk.get(spells2da.getEntry("Name", value2da.getEntry("RealSpellID", i))), Integer.parseInt(value2da.getEntry("RealSpellID", i)));
                         } else {
-                            storeMap.put(tlk.get(list2da.getEntry("Name", i)), Integer.parseInt(list2da.getEntry("SpellID", i)));
+                            storeMap.put(tlk.get(value2da.getEntry("Name", i)), Integer.parseInt(value2da.getEntry("SpellID", i)));
                         }
                     } catch (NumberFormatException e) {
-                        err_pr.println("Error: Invalid SpellID entry in " + list2da.getName() + ", line " + i);
+                        err_pr.println("Error: Invalid SpellID entry in " + value2da.getName() + ", line " + i);
                     }
                 }
             }
-        }
+        });
     }
 
     /**
