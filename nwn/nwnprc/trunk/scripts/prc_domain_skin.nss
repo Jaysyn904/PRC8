@@ -146,6 +146,7 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         SetCompositeBonus(oSkin, "SpellDomainPowerConc", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
         SetCompositeBonus(oSkin, "SpellDomainPowerSpell", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPELLCRAFT);
     }
+
     // Electrical resist 5
     if (GetHasFeat(FEAT_DOMAIN_POWER_STORM, oPC))
     {

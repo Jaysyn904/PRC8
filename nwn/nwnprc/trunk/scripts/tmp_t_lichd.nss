@@ -222,8 +222,8 @@ void main()
         SetExecutedScriptReturnValue(X2_EXECUTE_SCRIPT_END);
     }
 
-    int nArcCasterLevel = GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oPC, FALSE);
-    int nDivCasterLevel = GetPrCAdjustedCasterLevelByType(TYPE_DIVINE, oPC, FALSE);
+    int nArcCasterLevel = GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oPC, TRUE);
+    int nDivCasterLevel = GetPrCAdjustedCasterLevelByType(TYPE_DIVINE, oPC, TRUE);
     if(nArcCasterLevel < 21 && nDivCasterLevel < 21)
     {
         SendMessageToPC(oPC, PRC_TEXT_RED+sString+"Arcane Caster Level = "+IntToString(nArcCasterLevel));

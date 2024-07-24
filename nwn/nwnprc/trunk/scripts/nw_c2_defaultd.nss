@@ -16,4 +16,5 @@ void main()
     // enter desired behaviour here
 
     ExecuteScript("prc_onuserdef", OBJECT_SELF);
+	ExecuteScript("prc_pwonuserdef", OBJECT_SELF);
 }

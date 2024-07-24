@@ -27433,7 +27433,7 @@ Use: Selected.</entry>
 Requires Training: Yes.
 Classes: Truenamer, Truenaming prestige classes.
 
-A successful check allows a character to properly truespeak an utterance, changing the universe in some way. This skill is only used by those versed in truename magic. This skill is cross-class for all classes except Truenamer and Truenaming prestige classes unless the character has the Truename Training feat.
+A successful check allows a character to properly truespeak an utterance, changing the universe in some way. This skill is only used by those versed in truename magic. This skill is cross-class for all classes except Truenamer and Truenaming prestige classes unless the character has the Truename Training feat.  If you select more ranks in Truespeak than you are allowed to take you will be forced to relevel.
 Use: Automatic.</entry>
   <entry id="51256" lang="en" sex="m">Return to lexicon selection.</entry>
   <entry id="51257" lang="en" sex="m">Select level of utterance to gain.
@@ -58502,7 +58502,7 @@ Use: Automatic</entry>
   <entry id="61013" lang="en" sex="m">Shield Specialization (Heavy)</entry>
   <entry id="61014" lang="en" sex="m">Type of Feat: General
 Prerequisites: Shield proficiency
-Benefit: Choose one type of shield from the following list: heavy, or light. When using a shield of the appropriate type, you increase its shield bonus to AC by 1.
+Benefit: When using a shield of the appropriate type, you increase its shield bonus to AC by 1.  The heavy sheild version of this feat does not work with tower shields.
 Use: Automatic</entry>
   <entry id="61015" lang="en" sex="m">Shield Ward</entry>
   <entry id="61016" lang="en" sex="m">Type of Feat: General

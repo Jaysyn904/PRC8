@@ -3685,6 +3685,9 @@ string GetBaseResRef(int nBaseItemType)
     case BASE_ITEM_LONGSWORD:
         sResRef = "nw_wswls001";
         break;
+    case BASE_ITEM_MORNINGSTAR:
+        sResRef = "nw_wblms001";
+        break;        
     case BASE_ITEM_MAUL:
         sResRef = "prc_wxblma001";
         break;

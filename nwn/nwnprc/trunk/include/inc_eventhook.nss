@@ -396,7 +396,7 @@ int GetRunningEvent();
 
 //#include "inc_utility"
 //#include "prc_inc_array"
-#include "inc_pers_array"  // link higher than inc_array
+#include "inc_pers_array"  // link higher than prc_inc_array
 
 
 

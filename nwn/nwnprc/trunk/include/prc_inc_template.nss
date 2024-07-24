@@ -145,7 +145,7 @@ int ApplyTemplateToObject(int nTemplate, object oPC = OBJECT_SELF, int bApply = 
     //sanity checks
     if(GetObjectType(oPC) != OBJECT_TYPE_CREATURE)
         return FALSE;
-    if(nTemplate < 0 || nTemplate > 200)
+    if(nTemplate < 0 || nTemplate > 250)
         return FALSE;
     
     //test if it can be applied

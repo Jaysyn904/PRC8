@@ -1727,7 +1727,6 @@ int CheckCraftingMaterial(int nBaseItem, int nMaterial, int nBaseAC = -1)
         (nBaseItem == BASE_ITEM_QUARTERSTAFF) ||
         (nBaseItem == BASE_ITEM_CLUB) ||
         (nBaseItem == BASE_ITEM_NUNCHAKU) ||   //nunchaku
-        (nBaseItem == BASE_ITEM_SCYTHE) ||		
         (nBaseItem == BASE_ITEM_SCYTHE) ||
         (nBaseItem == BASE_ITEM_SHORTSPEAR) ||
         (nBaseItem == BASE_ITEM_TRIDENT) ||

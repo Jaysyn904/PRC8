@@ -783,7 +783,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_tdr01_edge", 18);
     SetPRCSwitch("PRC_FILE_END_tds01_edge", 12);
     SetPRCSwitch("PRC_FILE_END_tdt01_edge", 11);
-    SetPRCSwitch("PRC_FILE_END_templates", 105);
+    SetPRCSwitch("PRC_FILE_END_templates", 250);
     SetPRCSwitch("PRC_FILE_END_tib01_edge", 3);
     SetPRCSwitch("PRC_FILE_END_tic01_edge", 18);
     SetPRCSwitch("PRC_FILE_END_tid01_edge", 10);

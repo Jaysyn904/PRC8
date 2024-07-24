@@ -3905,6 +3905,8 @@ int GetFavoredEnemyFeat(int iRacialType)
         case RACIAL_TYPE_SHAPECHANGER:          return FEAT_FAVORED_ENEMY_SHAPECHANGER;
         case RACIAL_TYPE_UNDEAD:                return FEAT_FAVORED_ENEMY_UNDEAD;
         case RACIAL_TYPE_VERMIN:                return FEAT_FAVORED_ENEMY_VERMIN;
+		case RACIAL_TYPE_PLANT:					return FEAT_FAVORED_ENEMY_PLANT;
+		case RACIAL_TYPE_OOZE:					return FEAT_FAVORED_ENEMY_OOZE;
     }
     return -1;
 }

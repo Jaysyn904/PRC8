@@ -15,13 +15,13 @@
 //:: Modified by Jeremiah Teague for
 //:: Drunken Master Prestige Class
 //:://////////////////////////////////////////////
-
 #include "prc_inc_clsfunc"
 
 void main()
 {
-    int nSpellID = GetSpellId();
-    int nDrunkenMaster = GetLevelByClass(CLASS_TYPE_DRUNKEN_MASTER);
+	int nSpellID 		= PRCGetSpellId();
+    int nDrunkenMaster 	= GetLevelByClass(CLASS_TYPE_DRUNKEN_MASTER);
+		
     if(nDrunkenMaster)
     {
         if(nDrunkenMaster > 4)
@@ -35,6 +35,14 @@ void main()
         DrunkenMasterSpeakString();
         DrunkenMasterCreateEmptyBottle(nSpellID);
     }
-    else
-        MakeDrunk(nSpellID);
+
+//:: Only overrides alcohol payload if PW hook script exists.    
+	if(ResManGetAliasFor("prc_pwalcohol", RESTYPE_NSS) != "")
+	{
+		ExecuteScript("prc_pwalcohol");
+	}
+	
+	else
+		MakeDrunk(nSpellID);
+	
 }

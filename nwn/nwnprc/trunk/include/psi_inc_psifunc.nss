@@ -17,6 +17,7 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//void main (){}
 
 //////////////////////////////////////////////////
 /*                 Constants                    */
@@ -714,7 +715,11 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
     manif.nSpellID          = PRCGetSpellId();
 
     // Run an ability score check to see if the manifester can manifest the power at all
-    if(GetAbilityScoreOfClass(oManifester, nClass) - 10 < nPowerLevel && !bIgnoreConstraints && !bIsPsiLike && !GetHasSpellEffect(VESTIGE_ARETE, oManifester) && !GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) && !GetHasSpellEffect(VESTIGE_ABYSM, oManifester) && manif.nSpellID != POWER_ELAN_RESILIANCE)
+	if (bIsPsiLike)
+    {
+        manif.bCanManifest = TRUE;
+    }	
+	else if(GetAbilityScoreOfClass(oManifester, nClass) - 10 < nPowerLevel && !bIgnoreConstraints && !bIsPsiLike && !GetHasSpellEffect(VESTIGE_ARETE, oManifester) && !GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) && !GetHasSpellEffect(VESTIGE_ABYSM, oManifester) && manif.nSpellID != POWER_ELAN_RESILIANCE)
     {
         FloatingTextStrRefOnCreature(16826411, oManifester, FALSE); // "You do not have a high enough ability score to manifest this power"
         manif.bCanManifest = FALSE;
