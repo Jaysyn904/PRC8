@@ -9,6 +9,7 @@ Make blank cls_spell_*.2da
 Add cls_spgn_*.2da to classes.2da
 Add class entry in prc_classes.2da
 Add the spellbook feat (#1999) to cls_feat_*.2da at the appropriate level
+Add class to PRCGetSpellSaveDC() in prc_add_spell_dc
 Add class to GetSpellbookTypeForClass() below
 Add class to GetAbilityScoreForClass() below
 Add class to bKnowsAllClassSpells() below if necessary
@@ -27,6 +28,7 @@ Make cls_spcr_*.2da
 Make blank cls_spell_*.2da
 Add cls_spkn_*.2da and cls_spgn_*.2da to classes.2da
 Add class entry in prc_classes.2da
+Add class to PRCGetSpellSaveDC() in prc_add_spell_dc
 Add class to GetSpellbookTypeForClass() below
 Add class to GetAbilityScoreForClass() below
 Add class to bKnowsAllClassSpells() below if necessary

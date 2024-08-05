@@ -1969,10 +1969,11 @@ int GetCanFormCast(object oCreature)
     case RACIAL_TYPE_BEAST:
     case RACIAL_TYPE_ANIMAL:
     case RACIAL_TYPE_OOZE:
-//    case RACIAL_TYPE_PLANT:
-        // These forms can't cast spells
+	//case RACIAL_TYPE_PLANT:  
+  // These forms can't cast spells
         return FALSE;
         break;
+		
     case RACIAL_TYPE_SHAPECHANGER:
     case RACIAL_TYPE_ELEMENTAL:
     case RACIAL_TYPE_DRAGON:

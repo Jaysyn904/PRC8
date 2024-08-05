@@ -6680,4 +6680,4 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
 }
 
 //:: Test Void
-//void main (){}
+//:: void main (){}
