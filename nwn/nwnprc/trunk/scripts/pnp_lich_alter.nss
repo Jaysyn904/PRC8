@@ -16,6 +16,8 @@
 
 void main()
 {
+	int iRace = GetRacialType(OBJECT_SELF);
+	
     if(GetPRCSwitch(PRC_LICH_ALTER_SELF_DISABLE))
     {
         FloatingTextStringOnCreature("Lich Alter Self has been disabled in this module.", OBJECT_SELF);
@@ -25,12 +27,22 @@ void main()
     int nCurForm = GetAppearanceType(OBJECT_SELF);
     int nPCForm = GetTrueForm(OBJECT_SELF);
 
-    // Switch to lich
+   
+// Switch to lich
     if (nPCForm == nCurForm)
     {
         int nLichLevel = GetLevelByClass(CLASS_TYPE_LICH,OBJECT_SELF);
         int nIsDemi = GetHasTemplate(TEMPLATE_DEMILICH,OBJECT_SELF);
-        if (nLichLevel < 10 && !nIsDemi)
+        if (iRace == RACIAL_TYPE_ILLITHID)
+        {
+            effect eFx = EffectVisualEffect(VFX_COM_CHUNK_RED_SMALL);
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY,eFx,OBJECT_SELF);
+            SetCreatureAppearanceType(OBJECT_SELF, APPEARANCE_TYPE_MINDFLAYER_ALHOON);
+            SetPortraitResRef(OBJECT_SELF, "mindalhoon");
+            SetPortraitId(OBJECT_SELF, 771);
+        }
+        
+        else if (nLichLevel < 10 && !nIsDemi)
         {
             effect eFx = EffectVisualEffect(VFX_COM_CHUNK_RED_SMALL);
             ApplyEffectToObject(DURATION_TYPE_TEMPORARY,eFx,OBJECT_SELF);

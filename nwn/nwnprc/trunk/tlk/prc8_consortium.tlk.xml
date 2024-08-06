@@ -4728,7 +4728,7 @@ effects, you gain a +10 resistance bonus on saving throws
 (or Charisma checks, in the case of effects such as charm 
 person) to resist commands that would cause you to leave
 your current position.</entry>
-  <entry id="13272" lang="en" sex="m">Force Missiles</entry> 
+  <entry id="13272" lang="en" sex="m">Force Missiles</entry>
   <entry id="13273" lang="en" sex="m">Evocation [Force]
 Level: Sorcerer 4, Wizard 4,
 Components: V, S,
@@ -4752,7 +4752,7 @@ less than total cover or concealment. A caster cannot single out specific parts
 of a creature.
 
 You gain one missile for every four caster levels. Extra missiles distribute 
-themsleves amongst your enemies evenly.</entry>   
+themsleves amongst your enemies evenly.</entry>
   <entry id="16409" lang="en" sex="m">62</entry>
   <entry id="16410" lang="en" sex="m">63</entry>
   <entry id="16411" lang="en" sex="m">64</entry>
@@ -5692,6 +5692,114 @@ All living creatures in the area of effect immediately take 1d6 points of damage
   <entry id="45143" lang="en" sex="m">You cannot cast spells of your prohibited schools. Spell terminated.</entry>
   <entry id="45144" lang="en" sex="m">Font of Inspiration IX</entry>
   <entry id="45145" lang="en" sex="m">Font of Inspiration X</entry>
+  <entry id="45146" lang="en" sex="m">Alhoon</entry>
+  <entry id="45147" lang="en" sex="m">"Alhoon" is an acquired template that can be added to any illithid creature (referred to hereafter as the base creature), provided it can create the required phylactery.
+
+A alhoon has all the base creature's statistics and special abilities except as noted here.
+
+Size and Type
+
+The creature's type changes to undead. Do not recalculate base attack bonus, saves, or skill points. Size is unchanged.
+
+Hit Dice
+
+Increase all current and future Hit Dice to d12s.
+
+Armor Class
+
+A alhoon has a +5 natural armor bonus or the base creature's natural armor bonus, whichever is better.
+
+Attack
+
+A alhoon has a touch attack that it can use once per round. If the base creature can use weapons, the alhoon retains this ability. A creature with natural weapons retains those natural weapons. A alhoon fighting without weapons uses either its touch attack or its primary natural weapon (if it has any). A alhoon armed with a weapon uses its touch or a weapon, as it desires.
+
+Full Attack
+
+A alhoon fighting without weapons uses either its touch attack (see above) or its natural weapons (if it has any). If armed with a weapon, it usually uses the weapon as its primary attack along with a touch as a natural secondary attack, provided it has a way to make that attack (either a free hand or a natural weapon that it can use as a secondary attack).
+
+Damage
+
+A alhoon without natural weapons has a touch attack that uses negative energy to deal 1d8+5 points of damage to living creatures; a Will save (DC 10 + 1/2  alhoon's HD + alhoon's Cha modifier) halves the damage. A alhoon with natural weapons can use its touch attack or its natural weaponry, as it prefers. If it chooses the latter, it deals 1d8+5 points of extra damage on one natural weapon attack.
+
+Special Attacks
+
+A alhoon retains all the base creature's special attacks and gains those described below. Save DCs are equal to 10 + 1/2  alhoon's HD + alhoon's Cha modifier unless otherwise noted.
+
+Fear Aura (Su)
+
+Alhoon are shrouded in a dreadful aura of death and evil. Creatures of less than 5 HD in a 60-foot radius that look at the alhoon must succeed on a Will save or be affected as though by a fear spell from a sorcerer of the alhoon's level. A creature that successfully saves cannot be affected again by the same alhoon's aura for 24 hours.
+
+Paralyzing Touch (Su)
+
+Any living creature a alhoon hits with its touch attack must succeed on a Fortitude save or be permanently paralyzed. Remove paralysis or any spell that can remove a curse can free the victim (see the bestow curse spell description).
+
+The effect cannot be dispelled. Anyone paralyzed by a alhoon seems dead, though a DC 20 Spot check or a DC 15 Heal check reveals that the victim is still alive..
+
+Spells
+
+A alhoon can cast any spells it could cast while alive.
+
+Special Qualities
+
+A alhoon retains all the base creature's special qualities and gains those described below.
+
+Turn Resistance (Ex)
+
+A alhoon has +4 turn resistance.
+
+Damage Reduction (Su)
+
+A alhoon's undead body is tough, giving the creature damage reduction 15/bludgeoning and magic. Its natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+
+Immunities (Ex)
+
+Alhoon's have immunity to cold, electricity, polymorph (though they can use polymorph effects on themselves), and mind-affecting attacks.
+
+Abilities
+
+Increase from the base creature as follows: Int +2, Wis +2, Cha +2. Being undead, a alhoon has no Constitution score.
+
+Skills
+
+Alhoon's have a +8 racial bonus on Hide, Listen, Move Silently, Search, Sense Motive, and Spot checks. Otherwise same as the base creature.
+
+Organization
+
+Solitary or troupe (1 alhoon, plus 2-4 vampires and 5-8 vampire spawn).
+
+Challenge Rating
+
+Same as the base creature + 2.
+
+Treasure
+
+Standard coins; double goods; double items.
+
+Alignment
+
+Any evil.
+
+Advancement
+
+By character class.
+
+Level Adjustment
+
+Same as the base creature +4.
+
+Alhoon Characters
+
+The process of becoming a alhoon is unspeakably evil and can be undertaken only by a willing character. A alhoon retains all class abilities it had in life.
+
+The Alhoon's Phylactery
+
+An integral part of becoming a alhoon is creating a magic phylactery in which the character stores its life force. As a rule, the only way to get rid of a alhoon for sure is to destroy its phylactery. Unless its phylactery is located and destroyed, a alhoon reappears 1d10 days after its apparent death.
+
+Each alhoon must make its own phylactery, which requires the Craft Wondrous Item feat. The character must be able to cast spells and have a caster level of 11th or higher. The phylactery costs 120,000 gp and 4,800 XP to create and has a caster level equal to that of its creator at the time of creation.
+
+The most common form of phylactery is a sealed metal box containing strips of parchment on which magicalphrases have been transcribed. The box is Tiny and has 40 hit points, hardness 20, and a break DC of 40.
+
+Other forms of phylacteries can exist, such as rings, amulets, or similar items.</entry>
   <entry id="45148" lang="en" sex="m">Epic Mage Killer</entry>
   <entry id="45149" lang="en" sex="m">The epic mage-killer is a terrifying opponent and is legendary in her ability to bring enemy spellcasters to their knees. Though any given order might count only a tiny number of these characters among them, even the rumor of a single hunter of this power is enough to guard against the abuse of magic.
 
@@ -23727,7 +23835,7 @@ Use: Selected</entry>
 Prerequisites: Jade Phoenix level 6.
 Specifics: You gain fire resistance 10 and your caster level when you cast any fire spell increases by 3.  If you expend an arcane spell, you gain an aura that deals 1d6 points of damage to any creature within 10 feet (Reflex half, DC 14 + key spellcasting ability modifier).  Half of the damage is fire and the other half is magical.  The aura lasts for one turn.
 Use: Selected</entry>
-  <entry id="49979" lang="en" sex="m">Jade Phoenix Master</entry>  
+  <entry id="49979" lang="en" sex="m">Jade Phoenix Master</entry>
   <entry id="49980" lang="en" sex="m">When you attain 6th level, you earn the right to call yourself a Jade Phoenix master. You can now perform the Rite of Waking for someone else, provided he or she is a suitable candidate and embodies the reincarnated spirit of one of the ancient masters. (The DM decides if this is true for any given NPC.) You gain the ability to sense the direction and distance to the nearest Jade Phoenix mage, master, or candidate simply by meditating for 1 minute without interruption.</entry>
   <entry id="49981" lang="en" sex="m">Quickening Strike</entry>
   <entry id="49982" lang="en" sex="m">Type of Feat: Class Specific

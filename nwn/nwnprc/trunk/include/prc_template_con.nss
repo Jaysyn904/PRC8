@@ -21,6 +21,7 @@ const int TEMPLATE_ARCHLICH         	=	99;
 const int TEMPLATE_LICH             	=	101;
 const int TEMPLATE_DEMILICH         	=	102;
 const int TEMPLATE_NECROPOLITAN     	=	105;
+const int TEMPLATE_ALHOON				=	106;
 
 
 //:: General
