@@ -6549,7 +6549,7 @@ int GetLevelByTypeArcane(object oCaster = OBJECT_SELF)
 	int iClass4 = GetClassByPosition(4, oCaster);
     int iClass5 = GetClassByPosition(5, oCaster);
     int iClass6 = GetClassByPosition(6, oCaster);
-    int iClass7 = GetClassByPosition(8, oCaster);
+    int iClass7 = GetClassByPosition(7, oCaster);
     int iClass8 = GetClassByPosition(8, oCaster);	
 	
     int iClass1Lev = GetLevelByPosition(1, oCaster);
@@ -6584,9 +6584,9 @@ int GetLevelByTypeArcane(object oCaster = OBJECT_SELF)
     iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
 	iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
     iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
-    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass5Lev);
-	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass6Lev);
-    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass7Lev);
+    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass6Lev);
+	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass7Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass8Lev);
 
     if (!GetIsArcaneClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsArcaneClass(iClass2, oCaster)) iClass2Lev = 0;
@@ -6619,7 +6619,7 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
 	int iClass4 = GetClassByPosition(4, oCaster);
     int iClass5 = GetClassByPosition(5, oCaster);
     int iClass6 = GetClassByPosition(6, oCaster);
-    int iClass7 = GetClassByPosition(8, oCaster);
+    int iClass7 = GetClassByPosition(7, oCaster);
     int iClass8 = GetClassByPosition(8, oCaster);	
 	
     int iClass1Lev = GetLevelByPosition(1, oCaster);
@@ -6634,11 +6634,11 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
     if (iClass1 == CLASS_TYPE_PALADIN || iClass1 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
     if (iClass2 == CLASS_TYPE_PALADIN || iClass2 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
     if (iClass3 == CLASS_TYPE_PALADIN || iClass3 == CLASS_TYPE_RANGER) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
-    if (iClass4 == CLASS_TYPE_PALADIN || iClass4 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
-    if (iClass5 == CLASS_TYPE_PALADIN || iClass5 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
-    if (iClass6 == CLASS_TYPE_PALADIN || iClass6 == CLASS_TYPE_RANGER) iClass3Lev = (iClass3Lev >= 4) ? (iClass3Lev / 2) : 0;
-	if (iClass7 == CLASS_TYPE_PALADIN || iClass7 == CLASS_TYPE_RANGER) iClass1Lev = (iClass1Lev >= 4) ? (iClass1Lev / 2) : 0;
-    if (iClass8 == CLASS_TYPE_PALADIN || iClass8 == CLASS_TYPE_RANGER) iClass2Lev = (iClass2Lev >= 4) ? (iClass2Lev / 2) : 0;
+    if (iClass4 == CLASS_TYPE_PALADIN || iClass4 == CLASS_TYPE_RANGER) iClass4Lev = (iClass4Lev >= 4) ? (iClass4Lev / 2) : 0;
+    if (iClass5 == CLASS_TYPE_PALADIN || iClass5 == CLASS_TYPE_RANGER) iClass5Lev = (iClass5Lev >= 4) ? (iClass5Lev / 2) : 0;
+    if (iClass6 == CLASS_TYPE_PALADIN || iClass6 == CLASS_TYPE_RANGER) iClass6Lev = (iClass6Lev >= 4) ? (iClass6Lev / 2) : 0;
+	if (iClass7 == CLASS_TYPE_PALADIN || iClass7 == CLASS_TYPE_RANGER) iClass7Lev = (iClass7Lev >= 4) ? (iClass7Lev / 2) : 0;
+    if (iClass8 == CLASS_TYPE_PALADIN || iClass8 == CLASS_TYPE_RANGER) iClass8Lev = (iClass8Lev >= 4) ? (iClass8Lev / 2) : 0;
 
     if (iClass1 == iFirstDivine) iClass1Lev += GetDivinePRCLevels(oCaster, iClass1);
     if (iClass2 == iFirstDivine) iClass2Lev += GetDivinePRCLevels(oCaster, iClass2);
@@ -6654,9 +6654,9 @@ int GetLevelByTypeDivine(object oCaster = OBJECT_SELF)
     iClass3Lev += PracticedSpellcasting(oCaster, iClass3, iClass3Lev);
 	iClass4Lev += PracticedSpellcasting(oCaster, iClass4, iClass4Lev);
     iClass5Lev += PracticedSpellcasting(oCaster, iClass5, iClass5Lev);
-    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass5Lev);
-	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass6Lev);
-    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass7Lev);
+    iClass6Lev += PracticedSpellcasting(oCaster, iClass6, iClass6Lev);
+	iClass7Lev += PracticedSpellcasting(oCaster, iClass7, iClass7Lev);
+    iClass8Lev += PracticedSpellcasting(oCaster, iClass8, iClass8Lev);
 
     if (!GetIsDivineClass(iClass1, oCaster)) iClass1Lev = 0;
     if (!GetIsDivineClass(iClass2, oCaster)) iClass2Lev = 0;
