@@ -1365,7 +1365,6 @@ int GetWeaponType(int nBaseItem)
         case BASE_ITEM_SCIMITAR:
         case BASE_ITEM_THROWINGAXE:
 		case BASE_ITEM_TRIDENT:
-		case BASE_ITEM_KATAR:		
 		case BASE_ITEM_HEAVY_PICK:
 		case BASE_ITEM_LIGHT_PICK:
 		case BASE_ITEM_FALCHION:
@@ -1385,6 +1384,7 @@ int GetWeaponType(int nBaseItem)
         case BASE_ITEM_HEAVYCROSSBOW:
         case BASE_ITEM_CLUB:
         case BASE_ITEM_QUARTERSTAFF:
+		case BASE_ITEM_KATAR:
 		case BASE_ITEM_HEAVY_MACE:
 		case BASE_ITEM_GOAD:		
             return PRC_CRAFT_SIMPLE_WEAPON;

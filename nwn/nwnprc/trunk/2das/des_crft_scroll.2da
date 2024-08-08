@@ -2480,7 +2480,7 @@
 2476  ForestMaster_DeepRoots                                    ****             ****             ****             ****             ****         ****             
 2477  ResistEnergyCold                                          ****             ****             ****             ****             ****         ****             
 2478  ResistEnergyElec                                          ****             ****             ****             ****             ****         ****             
-2479  ResistEnergyAcid                                          ****             ****             ****             ****             ****         ****             
+2479  SPELL_CHASING_PERFECTION                                  prc_scr_997      prc_scr_997      ****             prc_scr_997      ****         ****             
 2480  SPELL_FORCE_MISSILES                                      prc_scr_995      ****             ****             ****             ****         ****             
 2481  SYMBOL_OF_DEATH                                           prc_scr_967      prc_scr_967      ****             ****             ****         ****             
 2482  SYMBOL_OF_FEAR                                            prc_scr_968      prc_scr_968      ****             ****             ****         ****             

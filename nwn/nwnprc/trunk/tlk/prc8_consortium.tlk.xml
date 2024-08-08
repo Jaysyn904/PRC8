@@ -4753,6 +4753,27 @@ of a creature.
 
 You gain one missile for every four caster levels. Extra missiles distribute 
 themsleves amongst your enemies evenly.</entry>
+  <entry id="13275" lang="en" sex="m">Force Missiles (8)</entry>
+  <entry id="13276" lang="en" sex="m">Force Missiles (12)</entry>
+  <entry id="13277" lang="en" sex="m">Chasing Perfection</entry>
+  <entry id="13278" lang="en" sex="m">Transmutation
+Level: Cleric 6, Druid 6, Sorcerer 6, Wizard 6,
+Components: V, S, M,
+Casting Time: 1 standard action
+Range: Touch
+Target: Creature touched
+Duration: 1 minute/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+Energy courses through the creature touched.
+Its muscles grow and become more defined, it starts to move with greater alacrity and grace, and its bearing increases.
+The subject improves in all ways.
+It gains a +4 enhancement bonus to each of its ability scores.
+
+Material Component: A statuette of a celestial or fiend worth 50 gp.</entry>   
+  <entry id="13279" lang="en" sex="m">Chasing Perfection (12)</entry>
+  <entry id="13280" lang="en" sex="m">Chasing Perfection (16)</entry>
   <entry id="16409" lang="en" sex="m">62</entry>
   <entry id="16410" lang="en" sex="m">63</entry>
   <entry id="16411" lang="en" sex="m">64</entry>

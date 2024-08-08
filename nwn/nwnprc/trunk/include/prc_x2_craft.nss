@@ -395,7 +395,7 @@ object CICraftCraftWand(object oCreator, int nSpellID )
             AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel,oTarget);
             itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpellID, PRCGetMetaMagicFeat());
             AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta,oTarget);
-        itemproperty ipDC = ItemPropertyCastSpellDC(nSpellID, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF));
+			itemproperty ipDC = ItemPropertyCastSpellDC(nSpellID, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF));
             AddItemProperty(DURATION_TYPE_PERMANENT,ipDC,oTarget);
         }
 
@@ -993,7 +993,7 @@ int CICraftCheckCraftStaff(object oSpellTarget, object oCaster, int nSpellID = 0
     int nMetaMagic = PRCGetMetaMagicFeat();
     if(nMetaMagic && !GetHasFeat(X2_CI_CRAFTSTAFF_EPIC_FEAT_ID, oCaster))
     {
-        FloatingTextStringOnCreature("* Failure  - You must be able to craft epic staffs to apply metamagic *", oCaster);
+        FloatingTextStringOnCreature("* Failure  - You must be able to craft epic staves to apply metamagic *", oCaster);
         return TRUE; // tried item creation but do not know how to do it
     }
     if(CIGetIsSpellRestrictedFromCraftFeat(nSpellID, X2_CI_CRAFTSTAFF_FEAT_ID))
