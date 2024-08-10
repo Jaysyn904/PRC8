@@ -249,4 +249,9 @@
 245        Crystallize                    16823673 14202      6    
 246        BasiliskMask                   16836737 18708      8    
 247        GorgonMask                     16836803 18729      8    
-248        SPELL_FORCE_MISSILES           16790488 2480       4    
+248        Bigbys_Interposing_Hand        2683     459        5    
+249        Illithid_Mindblast             83865    789        3    
+250        Psionic_Mass_Concussion        84464    763        5    
+251        MONSTER_MindBlast              3891     551        3    
+252        MONSTER_CharmMonster           3893     552        3    
+253        SPELL_FORCE_MISSILES           16790488 2480       4    

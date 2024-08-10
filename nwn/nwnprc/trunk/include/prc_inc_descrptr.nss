@@ -148,7 +148,7 @@ int GetIsElementalSpell(int nSpellID, int nDescriptor = -1);
 int GetIsOfSubschool(int nSpellID, int nSubschoolFlag);
 
 /**
- * Returns an integer value containing the bitflags of descriptors set in prc_splls.2da
+ * Returns an integer value containing the bitflags of descriptors set in prc_spells.2da
  * for a given SpellID
  *
  * @param nSpellID  row number of tested spell in spells.2da
@@ -157,7 +157,7 @@ int GetIsOfSubschool(int nSpellID, int nSubschoolFlag);
 int GetDescriptorFlags(int nSpellID);
 
 /**
- * Returns an integer value containing the bitflags of subschools set in prc_splls.2da
+ * Returns an integer value containing the bitflags of subschools set in prc_spells.2da
  * for a given SpellID
  *
  * @param nSpellID  row number of tested spell in spells.2da
