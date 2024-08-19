@@ -82,12 +82,11 @@ void main()
 //:: Not being called from an event but from EvalPRCFeats.  No non-good Saints.
     if(nEvent == FALSE && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
     {
-	//:: Any living creature of good alignment that is not an outsider or an elemental
+	//:: Any living creature of good alignment that is not an or an elemental (removed outsider check as Saints are outsiders)
 		int nRace = MyPRCGetRacialType(oPC);
 		if(!(nRace == RACIAL_TYPE_CONSTRUCT ||
 			   nRace == RACIAL_TYPE_ELEMENTAL ||
 			   nRace == RACIAL_TYPE_OOZE ||
-			   nRace == RACIAL_TYPE_OUTSIDER ||
 			   nRace == RACIAL_TYPE_UNDEAD))
 		{
 		//:: Add Darkvision
@@ -217,7 +216,7 @@ void main()
 				IPSafeAddItemProperty(oSkin, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 			}
 
-		//:: Keep property on armor or hide
+		//:: Keep property on current armor or hide
 			ExecuteScript ("prc_keep_onhit_a", oPC);		
 
 		//:: Setup Holy Touch extra damage vs evil

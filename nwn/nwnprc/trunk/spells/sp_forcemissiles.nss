@@ -157,6 +157,12 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 
 void main()
 {
+//:: Check the Spellhook
+    if (!X2PreSpellCastCode()) return;
+
+//:: Set the Spell School
+    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
+
     object oCaster = OBJECT_SELF;
 	object oTarget = PRCGetSpellTargetObject();
 	
@@ -165,11 +171,7 @@ void main()
     int nTargets;
     int nCnt = 1;
 	float fDist, fDelay, fDelay2, fTime;
-	
-    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
-	
-    if (!X2PreSpellCastCode()) return;
-	
+
     int nEvent = GetLocalInt(oCaster, PRC_SPELL_EVENT); //use bitwise & to extract flags
     if(!nEvent) //normal cast
     {
@@ -188,6 +190,7 @@ void main()
                 DecrementSpellCharges(oCaster);
         }
     }
+//:: Unset the Spell school
     PRCSetSchool();
 }
 

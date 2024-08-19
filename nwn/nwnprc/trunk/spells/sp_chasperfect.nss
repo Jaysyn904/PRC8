@@ -128,8 +128,11 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 
 void main()
 {
+//:: Check the Spellhook
     if (!X2PreSpellCastCode()) return;
-    PRCSetSchool(SPELL_SCHOOL_TRANSMUTATION);
+
+//:: Set the Spell School
+    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
 	
     object oCaster 		= OBJECT_SELF;
     object oTarget 		= PRCGetSpellTargetObject();
@@ -154,5 +157,6 @@ void main()
                 DecrementSpellCharges(oCaster);
         }
     }
+//:: Unset the Spell school
     PRCSetSchool();
 }
