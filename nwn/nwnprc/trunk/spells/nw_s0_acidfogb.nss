@@ -5,8 +5,8 @@
 //:://////////////////////////////////////////////
 /*
     All creatures within the AoE take 2d6 acid damage
-    per round and upon entering if they fail a Fort Save
-    their movement is halved.
+    per round and their movement is halved.
+	
 */
 //:://////////////////////////////////////////////
 //:: Created By: Preston Watamaniuk
@@ -18,7 +18,8 @@
 //:: modified by mr_bumpkin Dec 4, 2003
 #include "prc_inc_spells"
 
-
+//:: This spell isn't supposed to have a saving throw.
+//:: modified by Jaysyn: 2024-08-25 14:41:58
 
 void main()
 {

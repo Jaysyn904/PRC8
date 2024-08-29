@@ -1,10 +1,12 @@
 //::///////////////////////////////////////////////
-//:: Force Missiles
-//:: sp_forcemissiles
-//:: Copyright (c) 2022 PRC
+//:: [Force Missiles]
+//:: [sp_forcemissiles.nss]
+//:: Created By: Jaysyn / Tsurani Nevericy
+//:: Created On: 20220726
+//:: Last Updated By: Jaysyn
+//:: Last Updated On: 2024-08-16 10:01:17
 //:://////////////////////////////////////////////
-/*/
-Force Missiles
+/**@file Force Missiles
 (Spell Compendium, p. 98)
 
 Evocation [Force]
@@ -33,109 +35,106 @@ You gain one missile for every four caster levels. You can make more than one
 missile strike a single target, if desired. However,you must designate targets
 before rolling for spell resistance or damage.
 
-/*/
-//:://////////////////////////////////////////////
-//:: Created By: Tsurani Nevericy
-//:: Created On: 05/15/2024
-//:://////////////////////////////////////////////
-//:: Last Updated By: Tsurani Nevericy
-//:: Last Updated On: 05/15/2024
-//:://////////////////////////////////////////////
-
-#include "prc_sp_func"
-#include "prc_inc_spells"
+*///////////////////////////////////////////////////////////
 #include "x2_inc_spellhook"
+#include "prc_inc_spells"
 
 void SendMissileBomb(object oCaster, object oTarget, float fDelay=0.0, float fTime=0.0)
 {
-    int nMetaMagic = PRCGetMetaMagicFeat();
+    int nCasterLevel 	= PRCGetCasterLevel(oCaster);
+    int nPenetr 		= nCasterLevel + SPGetPenetr();
+	
+	int nMetaMagic = PRCGetMetaMagicFeat();
     ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_MIRV), oTarget);
     location lLoc = GetLocation(oTarget);
-    object oLoop = GetFirstObjectInShape(SHAPE_SPHERE, 5.0, lLoc, TRUE);
+    object oLoop = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(5.0), lLoc, TRUE);
+
     while (GetIsObjectValid(oLoop))
     {
         SignalEvent(oLoop, EventSpellCastAt(oCaster, PRCGetSpellId()));
+        int nDam;
+
         if (oLoop == oTarget)
         {
-            int nDam = d6(2);
+            nDam = d6(2);
             if (nMetaMagic == METAMAGIC_MAXIMIZE)
-                  nDam = 12;
+                nDam = 12;
             if (nMetaMagic == METAMAGIC_EMPOWER)
-                  nDam += nDam/2;
+                nDam += nDam/2;
+
             DelayCommand(fTime, ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_MAGICAL), oLoop));
             DelayCommand(fTime, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IMP_MAGBLUE, FALSE, 4.0f), oLoop));
         }
-        else if (!PRCDoResistSpell(oCaster, oLoop, FloatToInt(fDelay)))
+        else if (!PRCDoResistSpell(oCaster, oLoop, nPenetr, fDelay))
         {
-            int nDam = d6(1);
+            nDam = d6(1);
             if (nMetaMagic == METAMAGIC_MAXIMIZE)
-                  nDam = 6;
+                nDam = 6;
             if (nMetaMagic == METAMAGIC_EMPOWER)
-                  nDam += nDam/2;
+                nDam += nDam/2;
+
             DelayCommand(fTime, ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_MAGICAL), oLoop));
             DelayCommand(fTime, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IMP_MAGBLUE), oLoop));
         }
-        oLoop = GetNextObjectInShape(SHAPE_SPHERE, 5.0, lLoc, TRUE);
+
+        oLoop = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(5.0), lLoc, TRUE);
     }
 }
 
-//Implements the spell impact, put code here
-//  if called in many places, return TRUE if
-//  stored charges should be decreased
-//  eg. touch attack hits
-//
-//  Variables passed may be changed if necessary
-int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
+void main()
 {
-    int nMetaMagic = PRCGetMetaMagicFeat();
-    int nSaveDC = PRCGetSaveDC(oTarget, oCaster);
-    int nPenetr = nCasterLevel + SPGetPenetr();
-	int i;
-    int nTargets;
-    int nCnt = 1;
-	float fDist, fDelay, fDelay2, fTime;
+//:: Check the Spellhook
+    if (!X2PreSpellCastCode()) return;
 
-	if (nCasterLevel > 40) nCasterLevel = 40;
-    int nMissiles = nCasterLevel/4;
-    if (nMissiles < 1) nMissiles = 1;	
+//:: Set the Spell School
+    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
 	
-	location lTarget = PRCGetSpellTargetLocation();
+//:: Declare major variables
+	int i;
+    object oCaster = OBJECT_SELF;
+    object oTarget;
+    float fDist, fDelay, fDelay2 = 0.0, fTime;
+    int nTargets = 0;
+    int nCnt = 1;
+    int nCasterLevel = PRCGetCasterLevel(oCaster);
+	int nPenetr 		= nCasterLevel + SPGetPenetr();
+    if (nCasterLevel > 40) nCasterLevel = 40;
+    int nMissiles = nCasterLevel / 4;
+    if (nMissiles < 1) nMissiles = 1;
 
-    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, 9.144, lTarget, TRUE, OBJECT_TYPE_CREATURE);
+    location lTarget = GetSpellTargetLocation();
+    oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
+
     while (GetIsObjectValid(oTarget))
     {
         if (spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, oCaster) && oTarget != oCaster)
         {
             nTargets++;
         }
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, 9.144, lTarget, TRUE, OBJECT_TYPE_CREATURE);
+        oTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
     }
-	if (!nTargets)
-		return FALSE;
+
+    if (nTargets == 0)
+        return;
 
     int nExtraMissiles = nMissiles / nTargets;
-
-    if (nExtraMissiles <= 0)
+    if (nExtraMissiles < 1)
         nExtraMissiles = 1;
 
-    int nRemainder = 0;
+    int nRemainder = nMissiles % nTargets;
 
-    if (nTargets > nMissiles) nTargets = nMissiles;
+    oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
 
-    nRemainder = nMissiles % nTargets;
-
-    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, 9.144, lTarget, TRUE, OBJECT_TYPE_CREATURE);
     while (GetIsObjectValid(oTarget) && nCnt <= nTargets)
     {
         if (spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, oCaster) && oTarget != oCaster)
         {
-            if (!PRCDoResistSpell(oCaster, oTarget, FloatToInt(fDelay)))
+            if (!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
             {
-                int i;
-                for (i=1; i <= nExtraMissiles + nRemainder; i++)
+                for (i = 0; i < nExtraMissiles + nRemainder; i++)
                 {
                     fDist = GetDistanceBetween(oCaster, oTarget);
-                    fDelay = fDist/(3.0 * log(fDist) + 2.0);
+                    fDelay = fDist / (3.0 * log(fDist) + 2.0);
                     fTime = fDelay;
                     fDelay2 += 0.1;
                     fTime += fDelay2;
@@ -149,49 +148,8 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
             nCnt++;
             nRemainder = 0;
         }
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, 9.144, lTarget, TRUE, OBJECT_TYPE_CREATURE);
-    }
-	
-	return TRUE;
-}
-
-void main()
-{
-//:: Check the Spellhook
-    if (!X2PreSpellCastCode()) return;
-
-//:: Set the Spell School
-    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
-
-    object oCaster = OBJECT_SELF;
-	object oTarget = PRCGetSpellTargetObject();
-	
-    int nCasterLevel = PRCGetCasterLevel(oCaster);
-	int i;
-    int nTargets;
-    int nCnt = 1;
-	float fDist, fDelay, fDelay2, fTime;
-
-    int nEvent = GetLocalInt(oCaster, PRC_SPELL_EVENT); //use bitwise & to extract flags
-    if(!nEvent) //normal cast
-    {
-        if(GetLocalInt(oCaster, PRC_SPELL_HOLD) && oCaster == oTarget)
-        {   //holding the charge, casting spell on self
-            SetLocalSpellVariables(oCaster, 1);   //change 1 to number of charges
-            return;
-        }
-        DoSpell(oCaster, oTarget, nCasterLevel, nEvent);
-    }
-    else
-    {
-        if(nEvent & PRC_SPELL_EVENT_ATTACK)
-        {
-            if(DoSpell(oCaster, oTarget, nCasterLevel, nEvent))
-                DecrementSpellCharges(oCaster);
-        }
+        oTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
     }
 //:: Unset the Spell school
-    PRCSetSchool();
+    PRCSetSchool();	
 }
-
-//::///////////////////////////////////////////////////////////////////

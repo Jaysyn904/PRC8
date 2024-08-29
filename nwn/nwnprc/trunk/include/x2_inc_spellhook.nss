@@ -249,6 +249,27 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
             default: break;
         }
     }
+    // Bards can cast in light armour and while using small shield.
+    else if(nCastingClass == CLASS_TYPE_BARD)
+    {
+        int nLvl = GetLevelByClass(CLASS_TYPE_BARD, oCaster);
+        int nShield = GetBaseItemType(oShield);
+        //armors
+        switch(nAC)
+        {
+            case 1: nASF -=  5; break;//light
+            case 2: nASF -= 10; break;//light
+            case 3: nASF -= 20; break;//light
+            case 4: nASF -= bBattleCaster ? 20 : 0; break;//medium;
+            case 5: nASF -= bBattleCaster ? 30 : 0; break;//medium
+            default: break;
+        }
+        //shields
+        switch(nShield)
+        {
+            case BASE_ITEM_SMALLSHIELD: nASF -=  5; break;
+        }
+    }		
     // Duskblade can cast in light/medium armour and while using small/large shield.
     else if(nCastingClass == CLASS_TYPE_DUSKBLADE)
     {

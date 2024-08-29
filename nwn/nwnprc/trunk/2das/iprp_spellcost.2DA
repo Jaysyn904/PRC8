@@ -255,3 +255,13 @@
 251        MONSTER_MindBlast              3891     551        3    
 252        MONSTER_CharmMonster           3893     552        3    
 253        SPELL_FORCE_MISSILES           16790488 2480       4    
+254        Obscuring_Mist                 16832075 3085       1    
+255        SEPLL_REGEN_LIGHT_WOUNDS       16790497 17243      1    
+256        SPELL_REGEN_MODERATE_WOUNDS    16790502 17244      2    
+257        SPELL_REGEN_SERIOUS_WOUNDS     16790507 17245      3    
+258        SPELL_REGEN_CRITICAL_WOUNDS    16709512 17246      4    
+259        SPELL_SPEED_WIND               16709517 17247      2    
+260        SPELL_SPIRIT_WORM              16790522 17248      1    
+261        SPELL_SPIRITUAL_WEAPON         16790525 17249      2    
+262        SPELL_TORTISE_SHELL            16790530 17250      6    
+263        ****                           ****     ****       **** 

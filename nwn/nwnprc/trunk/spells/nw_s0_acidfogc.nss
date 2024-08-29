@@ -5,8 +5,8 @@
 //:://////////////////////////////////////////////
 /*
     All creatures within the AoE take 2d6 acid damage
-    per round and upon entering if they fail a Fort Save
-    their movement is halved.
+    per round and their movement is halved.
+	
 */
 //:://////////////////////////////////////////////
 //:: Created By: Preston Watamaniuk
@@ -15,6 +15,10 @@
 
 
 //:: modified by mr_bumpkin Dec 4, 2003
+
+//:: This spell isn't supposed to have a saving throw.
+//:: modified by Jaysyn: 2024-08-25 14:41:58
+
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
 
@@ -58,11 +62,6 @@ void main()
             int nSaveType = ChangedSaveType(nDamageType);
             float fDelay = PRCGetRandomDelay(0.4, 1.2);
 
-            if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, nSaveType, oCaster, fDelay))
-            {
-                 // This script does nothing if it has Mettle else deal only 1/2 damage
-                 nDamage = GetHasMettle(oTarget, SAVING_THROW_FORT) ? 0 : nDamage / 2;
-            }
             //Fire cast spell at event for the affected target
             SignalEvent(oTarget, EventSpellCastAt(oCaster, SPELL_ACID_FOG));
             //Spell resistance check

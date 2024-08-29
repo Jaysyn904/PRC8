@@ -1,5 +1,10 @@
-    /**@file Chasing Perfection
-[sp_chasperfect.nss]
+//::///////////////////////////////////////////////
+//:: [Chasing Perfection]
+//:: [sp_chasperfect.nss]
+//:: [Tenjac & Jaysyn 20240807]
+//::
+//::///////////////////////////////////////////////
+/**@file Chasing Perfection
 (Player's Handbook II, p. 106)
 
 Transmutation
@@ -23,13 +28,7 @@ enhancement bonus to each of its ability scores.
 Material Component: A statuette of a celestial or 
 fiend worth 50 gp.
 
-**/
-
-////////////////////////////////////////////////////
-// Author:  Tenjac & Jaysyn
-// Date:    2024/08/07
-////////////////////////////////////////////////////
-
+**/////////////////////////////////////////////////
 #include "prc_inc_sp_tch"
 #include "prc_sp_func"
 #include "prc_add_spell_dc"
@@ -42,9 +41,10 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     if(nMetaMagic & METAMAGIC_EXTEND)
         fDur += fDur;
 
-    PRCSignalSpellEvent(oTarget, FALSE, SPELL_CHASING_PERFECTION, oCaster);
+    //:: Fire spell cast at event for target
+    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId(), FALSE));
 	
-	// Check for existing ability enhancing spells
+	//:: Check for existing ability enhancing spells
     effect eExistingSpellEffect = GetFirstEffect(oTarget);
 	
     int nBoostSTR 	= 4;
@@ -128,17 +128,22 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 
 void main()
 {
-//:: Check the Spellhook
+//:: Run the Spellhook
     if (!X2PreSpellCastCode()) return;
 
 //:: Set the Spell School
-    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));
-	
+    PRCSetSchool(GetSpellSchool(PRCGetSpellId()));	
+
+//:: Declare major variables	
     object oCaster 		= OBJECT_SELF;
     object oTarget 		= PRCGetSpellTargetObject();
     int nCasterLevel 	= PRCGetCasterLevel(oCaster);
 	
+//:: Prevent spell stacking
+     PRCRemoveEffectsFromSpell(oTarget, PRCGetSpellId());		
+	
     int nEvent = GetLocalInt(oCaster, PRC_SPELL_EVENT); //use bitwise & to extract flags
+
     if(!nEvent) //normal cast
     {
         if(GetLocalInt(oCaster, PRC_SPELL_HOLD) && oCaster == oTarget)

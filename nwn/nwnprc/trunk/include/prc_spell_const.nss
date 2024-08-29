@@ -427,7 +427,6 @@ const int SPELL_SUDDEN_STALAGMITE                   = 3827;
 const int SPELL_BONES_OF_THE_EARTH                  = 3828;
 const int SPELL_PHANTOM_STEED                       = 2347;
 const int SPELL_GASEOUS_FORM                        = 2348;
-const int SPELL_CHASING_PERFECTION                  = 2479;
 
 //:: Racial spell additions
 const int SPIRETOP_FOG_CLOUD_BREATH					= 1487; //:: Spiretop Dragon
@@ -1278,6 +1277,24 @@ const int SPELL_SUMMON_CREATURE_IX_EARTH            = 3198;
 const int SPELL_SUMMON_CREATURE_IX_FIRE             = 3199;
 const int SPELL_SUMMON_CREATURE_IX_WATER            = 3200;
 
+//:: Player's Handbook Spells
+const int	SPELL_SPIRITUAL_WEAPON					= 17249;
+
+//:: Player's Handbook II Spells
+const int	SPELL_CHASING_PERFECTION				= 2479;
+
+//:: Spell Compendium Spells
+const int	SPELL_SPIRIT_WORM						= 17248;
+const int	SPELL_FORCE_MISSILES					= 2480;
+
+//:: Masters of the Wild Spells
+const int	SPELL_REGEN_LIGHT_WOUNDS 				= 17243;
+const int	SPELL_REGEN_MODERATE_WOUNDS 			= 17244;
+const int	SPELL_REGEN_SERIOUS_WOUNDS 				= 17245;
+const int	SPELL_REGEN_CRITICAL_WOUNDS 			= 17246;
+const int	SPELL_SPEED_WIND 						= 17247;
+const int	SPELL_TORTISE_SHELL 					= 17250;                                                                                                                                           
+
 //x
 const int SPELL_TENSERS_FLOATING_DISK               = 3849;
 const int SPELL_WOLFSKIN                            = 3850;
@@ -1352,7 +1369,6 @@ const int SPELL_ETERNAL_SLEEP                       = 0;
 const int SPELL_GREATER_BESTOW_CURSE                = 0;
 const int SPELL_FAERIE_FIRE                         = 2924;
 const int SPELL_MASS_AID                            = 2853;
-const int SPELL_FORCE_MISSILES						= 2480;
 const int SPELL_SYMBOL_OF_DEATH                     = 2481;
 const int SPELL_SYMBOL_OF_FEAR                      = 2482;
 const int SPELL_SYMBOL_OF_STUNING                   = 2483;

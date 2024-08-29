@@ -32,3 +32,7 @@
 28         Lesser_Vigor                          16790124 C      1      3460    
 29         Mass_Lesser_Vigor                     16790136 C      3      3461    
 30         Vigorous_Circle                       16790140 C      6      3462    
+31         SPELL_REGEN_LIGHT_WOUNDS              16790497 C      1      17243   
+32         SPELL_REGEN_MODERATE_WOUNDS           16790502 C      2      17244   
+33         SPELL_REGEN_SERIOUS_WOUNDS            16790507 C      3      17245   
+34         SPELL_REGEN_CRITICAL_WOUNDS           16709512 C      4      17246   
