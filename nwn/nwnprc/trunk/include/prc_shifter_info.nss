@@ -1431,6 +1431,6 @@ void _prc_inc_PrintShape(object oPC, object oTemplate, int bForceLogPrint)
     if (bForceLogPrint)
         DelayCommand(0.1, SetLocalInt(oPC, "PRC_EnableLogPrint", nSaveValue));
 
-    if (GetLocalInt(oPC, "prc_shifter_debug"))
+    if (GetLocalInt(oPC, "prc_shift_debug"))
         DelayCommand(0.2f, _prc_inc_ShapePrintDebug(oPC, oTemplate, bForceLogPrint));
 }

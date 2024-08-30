@@ -38,7 +38,7 @@ void main()
             FloatingTextStringOnCreature(sMessage, oPC, FALSE);
         }
 
-        //int bDebug = GetLocalInt(oPC, "prc_shifter_debug");
+        //int bDebug = GetLocalInt(oPC, "prc_shift_debug");
         DelayCommand(1.0f, _prc_inc_PrintShape(oPC, oTemplate, DEBUG));
     }
     else if(GetCanShiftIntoCreature(oPC, SHIFTER_TYPE_SHIFTER, oTemplate))
@@ -46,14 +46,14 @@ void main()
         StoreShiftingTemplate(oPC, SHIFTER_TYPE_SHIFTER, oTemplate);
         string sMessage = ReplaceString(GetStringByStrRef(57478+0x01000000), "%(SHAPENAME)", GetName(oTemplate)); //"Learned <shape>"
         FloatingTextStringOnCreature(sMessage, oPC, FALSE);
-        //int bDebug = GetLocalInt(oPC, "prc_shifter_debug");
+        //int bDebug = GetLocalInt(oPC, "prc_shift_debug");
         DelayCommand(1.0f, _prc_inc_PrintShape(oPC, oTemplate, DEBUG));
     }
     else
     {
         string sMessage = ReplaceString(GetStringByStrRef(57479+0x01000000), "%(SHAPENAME)", GetName(oTemplate)); //"Cannot learn <shape>"
         FloatingTextStringOnCreature(sMessage, oPC, FALSE);
-        //int bDebug = GetLocalInt(oPC, "prc_shifter_debug");
+        //int bDebug = GetLocalInt(oPC, "prc_shift_debug");
         if (DEBUG || GetLocalInt(oPC, "prc_shifter_print"))
             DelayCommand(1.0f, _prc_inc_PrintShape(oPC, oTemplate, DEBUG));
     }

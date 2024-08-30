@@ -26,10 +26,10 @@ void main()
 {    
     object oPC = OBJECT_SELF;
     
-    int nShifterLevel = GetLocalInt(oPC, "prc_shifter_relevel");
+    int nShifterLevel = GetLocalInt(oPC, "prc_shift_relvl");
     if (nShifterLevel < 1)
         nShifterLevel = 1;
-    DeleteLocalInt(oPC, "prc_shifter_relevel");
+    DeleteLocalInt(oPC, "prc_shift_relvl");
     SendMessageToPC(oPC, "Relevelling Shifter shapes starting with Shifter level " + IntToString(nShifterLevel));
 
     //Set auto-granted shape level to current level (so we can learn a new shape on next level up)

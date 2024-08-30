@@ -19,7 +19,7 @@
 15  Feeblemind                        55      ****  mc_minerals       Minerals                             ****              ****                            ****             ****           ****       ****      
 16  Fireball                          58      ****  mc_batguano       Bat_Guano                            mc_sulfur         Sulfur                          ****             ****           ****       ****      
 17  Flame_Arrow                       59      ****  mc_oil            Oil                                  mc_flint          Flint                           ****             ****           ****       ****      
-18  Freedom_of_Movement               62      ****  mc_pieceofleather Leather_Thong                        ****              ****                            ****             ****           ****       ****      
+18  Freedom_of_Movement               62      ****  mc_pieceofleathr Leather_Thong                        ****              ****                            ****             ****           ****       ****      
 19  Ghoul_Touch                       64      ****  mc_ghoulclothing  Ghoul_Clothing                       ****              ****                            ****             ****           ****       ****      
 20  Globe_of_Invulnerability          65      ****  mc_crystalbead    Crystal_Bead                         ****              ****                            ****             ****           ****       ****      
 21  Grease                            66      ****  mc_porkrind       Pork_Rind                            ****              ****                            ****             ****           ****       ****      
@@ -119,7 +119,7 @@
 115 Repulsion                         1853    50    mc_ironbarsarray  Iron_Bars_And_Two_Canine_Statuettes  ****              ****                            ****             ****           ****       ****      
 116 True_Resurrection                 1855    25000 X1_WMGRENADE005   Holy_Water                           mc_diamond        Diamonds                        ****             ****           ****       ****      
 117 Foresight                         1856    ****  mc_hummingbirdf   Hummingbirds_Feather                 ****              ****                            ****             ****           ****       ****      
-118 JUMP                              2070    ****  mc_grasshopperhlg Grasshoppers_Hind_Leg                ****              ****                            ****             ****           ****       ****      
+118 JUMP                              2070    ****  mc_grasshopprhlg Grasshoppers_Hind_Leg                ****              ****                            ****             ****           ****       ****      
 119 IRON_BODY                         2071    ****  mc_irongolempart  Piece_of_An_Iron_Golem               ****              ****                            ****             ****           ****       ****      
 120 ENLARGE_PERSON                    2072    ****  mc_powderediron   Powdered_Iron                        ****              ****                            ****             ****           ****       ****      
 121 MASS_ENLARGE_PERSON               2073    ****  mc_powderediron   Powdered_Iron                        ****              ****                            ****             ****           ****       ****      
@@ -148,7 +148,7 @@
 144 THOUSAND_NEEDLES                  2587    ****  mc_needles        Needles                              ****              ****                            ****             ****           ****       ****      
 145 TONGUE_OF_BAALZEBUL               2588    ****  mc_tongue         Tongue                               ****              ****                            ****             ****           ****       ****      
 146 UNLIVING_WEAPON                   2591    ****  mc_greenliquid    Bile                                 mc_sulfur         Sulfur                          ****             ****           ****       ****      
-147 UTTERDARK                         2592    ****  mc_blckstickblood A_Black_Stick_Smeared_With_Blood     ****              ****                            ****             ****           ****       ****      
+147 UTTERDARK                         2592    ****  mc_blckstickbld A_Black_Stick_Smeared_With_Blood     ****              ****                            ****             ****           ****       ****      
 148 WAVE_OF_GRIEF                     2593    ****  mc_vialofjelly    Ochre_Jelly                          ****              ****                            ****             ****           ****       ****      
 149 WAVE_OF_PAIN                      2594    ****  mc_needles        Needle                               ****              ****                            ****             ****           ****       ****      
 150 DIAMOND_SPRAY                     2610    100   mc_diamonddust    Diamond_Dust                         ****              ****                            ****             ****           ****       ****      
@@ -175,8 +175,8 @@
 171 Mass_Foxs_Cunning                 3123    ****  mc_foxhair        Fox_Hair                             ****              ****                            ****             ****           ****       ****      
 172 Mass_Owls_Wisdom                  3124    ****  mc_owlfeather     Owl_Feather                          ****              ****                            ****             ****           ****       ****      
 173 Glitterdust                       3142    ****  mc_groundmica     Ground_Mica                          ****              ****                            ****             ****           ****       ****      
-174 Curse_of_Impending_Blades         3153    ****  mc_nail           Nail                                 mc_pieceofleather Piece_of_Leather                ****             ****           ****       ****      
-175 Legions_Curse_of_Impending_Blades 3154    ****  mc_nail           Nail                                 mc_pieceofleather Piece_of_Leather                ****             ****           ****       ****      
+174 Curse_of_Impending_Blades         3153    ****  mc_nail           Nail                                 mc_pieceofleathr Piece_of_Leather                ****             ****           ****       ****      
+175 Legions_Curse_of_Impending_Blades 3154    ****  mc_nail           Nail                                 mc_pieceofleathr Piece_of_Leather                ****             ****           ****       ****      
 176 Fireburst                         3158    ****  mc_sulfur         Sulfur                               ****              ****                            ****             ****           ****       ****      
 177 Greater_Fireburst                 3159    ****  mc_sulfur         Sulfur                               ****              ****                            ****             ****           ****       ****      
 178 Legions_Shield_of_Faith           3163    ****  mc_holyparchment  Holy_Parchment                       ****              ****                            ****             ****           ****       ****      

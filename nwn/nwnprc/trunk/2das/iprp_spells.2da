@@ -957,11 +957,11 @@
 953        Mass_Spell_Resistance             16789760 20        7         120000 3852       0         0       1          iss_msplresis     
 954        Magic_Stone                       16789763 1         1         500    3853       0         1       1          iss_MagStone      
 955        Hide_from_Undead                  16847570 1         1         750    3432       0         0       1          iss_hideundead    
-956        Dancing_Lights                    16789582 1         0.5       375    1499       0         1       1          iss_DancingLights 
+956        Dancing_Lights                    16789582 1         0.5       375    1499       0         1       1          iss_dancinglight 
 957        Read_Magic                        16823166 1         0.5       375    1500       0         1       1          iss_ReadMagic     
 958        Sobriety                          16789600 1         0.5       375    1501       1         1       1          iss_Sobriety      
-959        Crafters_Blessing                 16789902 1         1         1000   1502       1         1       1          iss_CraftersBless 
-960        Crafters_Curse                    16789904 1         1         1000   1503       0         1       1          iss_CraftersCurse 
+959        Crafters_Blessing                 16789902 1         1         1000   1502       1         1       1          iss_crafterbless 
+960        Crafters_Curse                    16789904 1         1         1000   1503       0         1       1          iss_craftercurse 
 961        Lesser_Planar_Ally                16789906 7         4         21000  1504       0         1       1          iss_LsPlaAll      
 962        Greater_Planar_Ally               16789908 15        8         90000  1505       0         0       1          iss_GrPlaAll      
 963        Eternal_Charm_Monster             ****     13        7         68250  1506       0         0       1          ****              
@@ -1207,7 +1207,7 @@
 1203       EVIL_WEATHER                      16829534 15        8         90000  2549       0         0       1          iss_evil_wthr     
 1204       EXTRACT_DRUG                      16829540 1         1         750    2554       1         1       1          iss_extract_drug  
 1205       FANGS_OF_THE_VAMPIRE_KING         16829542 ****      ****      ****   ****       ****      ****    ****       ****              
-1206       FIENDISH_CLARITY                  16829544 13        7         68250  2560       0         0       1          iss_fiend_clarity 
+1206       FIENDISH_CLARITY                  16829544 13        7         68250  2560       0         0       1          iss_fiend_clrty 
 1207       FLESH_ARMOR                       16829546 7         4         21000  2561       1         1       1          iss_flesh_armor   
 1208       FLESH_RIPPER                      16829548 5         3         11250  2562       0         1       1          iss_flesh_ripper  
 1209       GRIM_REVENGE                      16829550 7         4         21000  2563       0         1       1          iss_grim_revng    

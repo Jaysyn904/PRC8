@@ -1543,7 +1543,7 @@ void _prc_inc_shifting_ShiftIntoTemplateAux(object oShifter, int nShifterType, o
     }
 
     // Print shift information--this is slow, so wait until shifting is done
-    int bDebug = GetLocalInt(oShifter, "prc_shifter_debug");
+    int bDebug = GetLocalInt(oShifter, "prc_shift_debug");
     DelayCommand(SHIFTER_SHAPE_PRINT_DELAY, _prc_inc_PrintShape(oShifter, oTemplate, bDebug));
 
     // Destroy the template creature--we need the template to print, so wait until that's done
