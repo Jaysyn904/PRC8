@@ -5,12 +5,24 @@
 void main()
 {
     object oPC = OBJECT_SELF;
-    if(!GetHasFeat(FEAT_ACP_FEAT)
+    if(!GetHasFeat(FEAT_ACP_QUICK_FEAT)
     && GetPRCSwitch(PRC_ACP_MANUAL))
     {
-        IPSafeAddItemProperty(GetPCSkin(OBJECT_SELF), PRCItemPropertyBonusFeat(IP_CONST_ACP_FEAT), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        IPSafeAddItemProperty(GetPCSkin(OBJECT_SELF), PRCItemPropertyBonusFeat(IP_CONST_ACP_QUICK_FEAT), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         return;
     }
+    if(!GetHasFeat(FEAT_ACP_HEAVY_FEAT)
+    && GetPRCSwitch(PRC_ACP_MANUAL))
+    {
+        IPSafeAddItemProperty(GetPCSkin(OBJECT_SELF), PRCItemPropertyBonusFeat(IP_CONST_ACP_HEAVY_FEAT), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        return;
+    }
+    if(!GetHasFeat(FEAT_ACP_UNARMED_FEAT)
+    && GetPRCSwitch(PRC_ACP_MANUAL))
+    {
+        IPSafeAddItemProperty(GetPCSkin(OBJECT_SELF), PRCItemPropertyBonusFeat(IP_CONST_ACP_UNARMED_FEAT), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        return;
+    }	
     else if(((GetPRCSwitch(PRC_ACP_AUTOMATIC) && GetIsPC(OBJECT_SELF))
             ||(GetPRCSwitch(PRC_ACP_NPC_AUTOMATIC) && !GetIsPC(OBJECT_SELF))
             ||(GetLocalInt(OBJECT_SELF, PRC_ACP_NPC_AUTOMATIC) && !GetIsPC(OBJECT_SELF)))
@@ -42,6 +54,7 @@ void main()
 
             nFencingScore += GetLevelByClass(CLASS_TYPE_BARD);
             nFencingScore += GetLevelByClass(CLASS_TYPE_ARCANE_DUELIST);
+			nFencingScore += GetLevelByClass(CLASS_TYPE_SWASHBUCKLER);
             nFencingScore += GetLevelByClass(CLASS_TYPE_BLADESINGER);
             nFencingScore += GetLevelByClass(CLASS_TYPE_TEMPEST);
             if(GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY)>20)

@@ -1,9 +1,16 @@
 #include "prc_inc_switch"
 
-const int PHENOTYPE_KENSAI      = 5;
-const int PHENOTYPE_ASSASSIN    = 6;
-const int PHENOTYPE_BARBARIAN   = 7;
-const int PHENOTYPE_FENCING     = 8;
+const int PHENOTYPE_KENSAI      = 49;
+const int PHENOTYPE_ASSASSIN    = 50;
+const int PHENOTYPE_BARBARIAN   = 51;
+const int PHENOTYPE_FENCING     = 52;
+const int PHENOTYPE_ARCANE		= 53;
+const int PHENOTYPE_DEMONBLADE	= 54;
+const int PHENOTYPE_WARRIOR		= 55;
+const int PHENOTYPE_TIGERFANG	= 56;
+const int PHENOTYPE_SUNFIST		= 57;
+const int PHENOTYPE_DRAGONPALM	= 58;
+const int PHENOTYPE_BEARSCLAW	= 59;
 
 string sLock = "acp_fightingstyle_lock";
 
@@ -27,13 +34,20 @@ void ResetFightingStyle() //Resets the character phenotype to 0
     //If we are at phenotype 0 or 2, we do nothing. Tell the player that.
     if(nCurrentPheno == PHENOTYPE_NORMAL
     || nCurrentPheno == PHENOTYPE_BIG)
-        SendMessageToPC(OBJECT_SELF, "Your fighting style is already neutral.");
+        SendMessageToPC(OBJECT_SELF, "You are already using the default combat style.");
 
-    //else if we are at phenotype 5,6,7 or 8 we want to reset it to neutral.
+    //else if we are at an ACP phenotype we want to reset it to neutral.
     else if(nCurrentPheno == PHENOTYPE_KENSAI
-    || nCurrentPheno == PHENOTYPE_ASSASSIN
-    || nCurrentPheno == PHENOTYPE_BARBARIAN
-    || nCurrentPheno == PHENOTYPE_FENCING)
+		|| nCurrentPheno == PHENOTYPE_ASSASSIN
+		|| nCurrentPheno == PHENOTYPE_BARBARIAN
+		|| nCurrentPheno == PHENOTYPE_FENCING
+		|| nCurrentPheno == PHENOTYPE_ARCANE
+		|| nCurrentPheno == PHENOTYPE_DEMONBLADE
+		|| nCurrentPheno == PHENOTYPE_WARRIOR
+		|| nCurrentPheno == PHENOTYPE_TIGERFANG
+		|| nCurrentPheno == PHENOTYPE_SUNFIST
+		|| nCurrentPheno == PHENOTYPE_DRAGONPALM
+		|| nCurrentPheno == PHENOTYPE_BEARSCLAW)
     {
         SetPhenoType(PHENOTYPE_NORMAL);
         LockThisFeat(); // Lock use!
@@ -55,10 +69,17 @@ void SetCustomFightingStyle(int iStyle) //Sets character phenotype to 5,6,7 or 8
     //If we are at phenotype 0 or one of the styles themselves, we go ahead
     //and set the creature's phenotype accordingly! (safe thanks to previous 'if')
     else if(nCurrentPheno == PHENOTYPE_NORMAL
-    || nCurrentPheno == PHENOTYPE_KENSAI
-    || nCurrentPheno == PHENOTYPE_ASSASSIN
-    || nCurrentPheno == PHENOTYPE_BARBARIAN
-    || nCurrentPheno == PHENOTYPE_FENCING)
+		|| nCurrentPheno == PHENOTYPE_KENSAI
+		|| nCurrentPheno == PHENOTYPE_ASSASSIN
+		|| nCurrentPheno == PHENOTYPE_FENCING
+		|| nCurrentPheno == PHENOTYPE_ARCANE
+		|| nCurrentPheno == PHENOTYPE_BARBARIAN
+		|| nCurrentPheno == PHENOTYPE_DEMONBLADE
+		|| nCurrentPheno == PHENOTYPE_WARRIOR
+		|| nCurrentPheno == PHENOTYPE_TIGERFANG
+		|| nCurrentPheno == PHENOTYPE_SUNFIST
+		|| nCurrentPheno == PHENOTYPE_DRAGONPALM
+		|| nCurrentPheno == PHENOTYPE_BEARSCLAW)
     {
         SetPhenoType(iStyle);
         LockThisFeat(); // Lock use!

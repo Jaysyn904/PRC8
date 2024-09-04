@@ -5180,9 +5180,9 @@ Level
   <entry id="20400" lang="en" sex="m">++++++++++ ACP Styles ++++++++++</entry>
   <entry id="20401" lang="en" sex="m">Kensai</entry>
   <entry id="20402" lang="en" sex="m">Assassin</entry>
-  <entry id="20403" lang="en" sex="m">Heavy</entry>
+  <entry id="20403" lang="en" sex="m">Barbarian</entry>
   <entry id="20404" lang="en" sex="m">Fencing</entry>
-  <entry id="20405" lang="en" sex="m">Katar/Claws</entry>
+  <entry id="20405" lang="en" sex="m">*INVALID*</entry>
   <entry id="20406" lang="en" sex="m">Arcane</entry>
   <entry id="20407" lang="en" sex="m">Demon Blade</entry>
   <entry id="20408" lang="en" sex="m">Warrior</entry>
@@ -15015,26 +15015,23 @@ The HD of the demon summoned increases to 10 HD at level 9, 15 HD at level 15, 2
 Prerequisite: Healer level 4
 A Healer deals with certain kinds of maladies so often, that eventually she can cure them without resorting to a spell. At 4th level, a healer gains the ability to cleanse disease once per day, as if casting a Remove Disease spell.
 At epic levels a Healer gains +1 use per day every 4 levels, starting at  21st level.</entry>
-  <entry id="47323" lang="en" sex="m">Kensai</entry>
-  <entry id="47324" lang="en" sex="m">Assassin</entry>
-  <entry id="47325" lang="en" sex="m">Heavy</entry>
-  <entry id="47326" lang="en" sex="m">Fencing</entry>
-  <entry id="47327" lang="en" sex="m">Varied Fighting Styles</entry>
-  <entry id="47328" lang="en" sex="m">Type of Feat: Special
-Prerequisite: Level 1.
-Specifics: You have learned to fight with your weapons in different ways. A character with this feat can, assuming he does not have an unusual phenotype, change his fighting style every so often (90 seconds).
-Use: Selected.</entry>
-  <entry id="47329" lang="en" sex="m">Fighting Style: Kensai</entry>
-  <entry id="47330" lang="en" sex="m">You know how to wield your weapons like a Kensai.</entry>
-  <entry id="47331" lang="en" sex="m">Fighting Style: Assassin</entry>
-  <entry id="47332" lang="en" sex="m">You know how to stab your opponents carefully, like an assassin.</entry>
-  <entry id="47333" lang="en" sex="m">Fighting Style: Heavy</entry>
-  <entry id="47334" lang="en" sex="m">You know how to hit hard with big weaponry.</entry>
-  <entry id="47335" lang="en" sex="m">Fighting Style: Fencing</entry>
-  <entry id="47336" lang="en" sex="m">You know how to goad your opponents on with your fencing style.</entry>
-  <entry id="47337" lang="en" sex="m">Fighting Style: Normal (Reset)</entry>
-  <entry id="47338" lang="en" sex="m">This is the general way most people learn to fight.</entry>
-  <entry id="47339" lang="en" sex="m">&lt;CUSTOM0&gt; changes his stance.</entry>
+  <entry id="47323" lang="en" sex="m">****</entry>
+  <entry id="47324" lang="en" sex="m">****</entry>
+  <entry id="47325" lang="en" sex="m">****</entry>
+  <entry id="47326" lang="en" sex="m">****</entry>
+  <entry id="47327" lang="en" sex="m">****</entry>
+  <entry id="47328" lang="en" sex="m">****</entry>
+  <entry id="47329" lang="en" sex="m">****</entry>
+  <entry id="47330" lang="en" sex="m">****</entry>
+  <entry id="47331" lang="en" sex="m">****</entry>
+  <entry id="47332" lang="en" sex="m">****</entry>
+  <entry id="47333" lang="en" sex="m">****</entry>
+  <entry id="47334" lang="en" sex="m">****</entry>
+  <entry id="47335" lang="en" sex="m">****</entry>
+  <entry id="47336" lang="en" sex="m">****</entry>
+  <entry id="47337" lang="en" sex="m">****</entry>
+  <entry id="47338" lang="en" sex="m">****</entry>
+  <entry id="47339" lang="en" sex="m">****</entry>
   <entry id="47340" lang="en" sex="m">Maester</entry>
   <entry id="47341" lang="en" sex="m">Maesters</entry>
   <entry id="47342" lang="en" sex="m">maester</entry>
@@ -50717,6 +50714,55 @@ Prerequisite: Shifter
 You can "shift" and assume aspects of your ancestral heritage.
 While shifting, a winterhide shifter gains a +2 bonus to Constitution, a +1 natural armor bonus to AC, and resistance to cold 5. In addition, a winterhide shifter has a +2 racial bonus on Fortitude saving throws to resist the environmental effects of extreme cold.
 Use: Automatic.</entry>
+  <entry id="58700" lang="en" sex="m">##ACP Styles 4.0 Reserve##
+
+</entry>
+  <entry id="58701" lang="en" sex="m">Kensai</entry>
+  <entry id="58702" lang="en" sex="m">Assassin</entry>
+  <entry id="58703" lang="en" sex="m">Barbarian</entry>
+  <entry id="58704" lang="en" sex="m">Fencing</entry>
+  <entry id="58705" lang="en" sex="m">INVALID</entry>
+  <entry id="58706" lang="en" sex="m">Arcane</entry>
+  <entry id="58707" lang="en" sex="m">Demon Blade</entry>
+  <entry id="58708" lang="en" sex="m">Warrior</entry>
+  <entry id="58709" lang="en" sex="m">Tiger Fang</entry>
+  <entry id="58710" lang="en" sex="m">Sun Fist</entry>
+  <entry id="58711" lang="en" sex="m">Dragon Palm</entry>
+  <entry id="58712" lang="en" sex="m">Bear's Claw
+</entry>
+  <entry id="58713" lang="en" sex="m">Quick Combat Styles</entry>
+  <entry id="58714" lang="en" sex="m">Heavy Combat Styles</entry>
+  <entry id="58715" lang="en" sex="m">Unarmed Combat Styles
+</entry>
+  <entry id="58716" lang="en" sex="m">Type of Feat: Special
+Prerequisite: Level 1.
+Specifics: You have learned to fight with your weapons in different ways. A character with this feat can, assuming he does not have an unusual phenotype, change his fighting style every so often (90 seconds).</entry>
+  <entry id="58717" lang="en" sex="m">Combat Style: Kensai</entry>
+  <entry id="58718" lang="en" sex="m">You move &amp; flow like water, your weapons an extension of your form.</entry>
+  <entry id="58719" lang="en" sex="m">Combat Style: Assassin</entry>
+  <entry id="58720" lang="en" sex="m">This combat style lends itself to ambushes &amp; rapid attacks.</entry>
+  <entry id="58721" lang="en" sex="m">Combat Style: Barbarian</entry>
+  <entry id="58722" lang="en" sex="m">You excel at heavy, brutal attacks with the largest weapons.</entry>
+  <entry id="58723" lang="en" sex="m">Combat Style: Fencing</entry>
+  <entry id="58724" lang="en" sex="m">This combat style lends itself to fients &amp; graceful ripostes.</entry>
+  <entry id="58725" lang="en" sex="m">Combat Style: Arcane</entry>
+  <entry id="58726" lang="en" sex="m">Let your mind do the fighting with this telekinesis based combat style.</entry>
+  <entry id="58727" lang="en" sex="m">Combat Style: Demon Blade</entry>
+  <entry id="58728" lang="en" sex="m">You fight like a man possessed.
+</entry>
+  <entry id="58729" lang="en" sex="m">Combat Style: Warrior</entry>
+  <entry id="58730" lang="en" sex="m">This sword &amp; shield combat style is heavy on blocking &amp; counters.</entry>
+  <entry id="58731" lang="en" sex="m">Combat Style: Tiger Fang</entry>
+  <entry id="58732" lang="en" sex="m">Adopt the Tiger Fang martial arts combat style.</entry>
+  <entry id="58733" lang="en" sex="m">Combat Style: Sun Fist</entry>
+  <entry id="58734" lang="en" sex="m">Adopt the Sun Fist martial arts combat style.</entry>
+  <entry id="58735" lang="en" sex="m">Combat Style: Dragon Palm</entry>
+  <entry id="58736" lang="en" sex="m">Adopt the Dragon Palm martial arts combat style.</entry>
+  <entry id="58737" lang="en" sex="m">Combat Style: Bear's Claw</entry>
+  <entry id="58738" lang="en" sex="m">Adopt the Bear's Claw martial arts combat style.</entry>
+  <entry id="58739" lang="en" sex="m">Combat Style: Default</entry>
+  <entry id="58740" lang="en" sex="m">Revert to the default combat style.</entry>
+  <entry id="58741" lang="en" sex="m">&lt;CUSTOM0&gt; changes his stance.</entry>
   <entry id="58749" lang="en" sex="m">Spiretop Dragon</entry>
   <entry id="58750" lang="en" sex="m">Spiretop Dragon</entry>
   <entry id="58751" lang="en" sex="m">spiretop dragon</entry>
@@ -71129,7 +71175,23 @@ When within your own black labyrinth, you are immune to the last two effects (mo
   <entry id="71820" lang="en" sex="m">War mind Teleport - Party within 10ft</entry>
   <entry id="71821" lang="en" sex="m">War mind Tower of Iron Will</entry>
   <entry id="71822" lang="en" sex="m">War mind True Seeing, Psionic</entry>
-  <entry id="75000" lang="en" sex="m">####END_OF_PSI_SPELLBOOK_RESERVE</entry>
+  <entry id="74500" lang="en" sex="m">####END_OF_PSI_SPELLBOOK_RESERVE</entry>
+  <entry id="74800" lang="en" sex="m">###PRC8 Loadscreen Hint Reserve 74800-75000-###
+</entry>
+  <entry id="74801" lang="en" sex="m">LETO does not support the PRC8</entry>
+  <entry id="74802" lang="en" sex="m">Due to Bioware limitations, non-Bioware spontaneous casters do not use the normal spellbook.  Those spells can be found in your class radial.</entry>
+  <entry id="74803" lang="en" sex="m">Due to Bioware limitations, only your highest level Arcane or Divine class can receive new Arcane or Divine spells at level up.</entry>
+  <entry id="74804" lang="en" sex="m">Two handed weapons are shown being wielded one handed to allow feats such as Monkey Grip &amp; Oversized Two-Weapon fighting to work properly.  Combat isn't affected.</entry>
+  <entry id="74805" lang="en" sex="m">De-leveling isn't supported by the PRC8 &amp; can in fact break your character.
+</entry>
+  <entry id="74806" lang="en" sex="m">Casting an Exalted or Vile spell causes ability damage.</entry>
+  <entry id="74807" lang="en" sex="m">Enable &amp; disable optional game features with the PRC Options radial.</entry>
+  <entry id="74808" lang="en" sex="m">Knockdown, Called Shot, Taunt &amp; Parry are not valid 3e D&amp;D feats or skills &amp; have been disabled in the PRC8. 
+</entry>
+  <entry id="74809" lang="en" sex="m">As in Neverwinter Nights 2, Arcane &amp; Divine prestige classes must pick a marker feat at 1st class level to choose which spellcasting class will be boosted by the new prestige class.</entry>
+  <entry id="74810" lang="en" sex="m">Some prestige classes can advance invoking or shadowcasting instead of spellcasting.</entry>
+  <entry id="74811" lang="en" sex="m">Spellcraft doesn't provide a bonus to your save vs. spells in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
+  <entry id="74812" lang="en" sex="m">Tumble doesn't provide a bonus to your Armor Class in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="75001" lang="en" sex="m">Favored Mystery - Black Labyrinth</entry>
   <entry id="75002" lang="en" sex="m">Holy Warrior</entry>
   <entry id="75003" lang="en" sex="m">Type of Feat: Reserve

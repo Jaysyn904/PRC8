@@ -99,7 +99,7 @@
 95         42       WeapFinesse                                               0.01 42        
 96         16822975 Diehard                                                   0.01 3297      
 97         8497     FEAT_EPIC_IMPROVED_COMBAT_CASTING                         10   696       
-98         16824543 ACP_FEAT                                                  0    2892      
+98         16835929 ACP_QUICK_FEAT                                            0    3479      
 99         1905     SpellFocusTrans                                           0.75 172       
 100        435      WeapFocClub                                               1    43        
 101        1823     WeapFocDagger                                             1    90        
@@ -583,8 +583,8 @@
 579        16823144 FEAT_PRESTIGE_ASSN_DEATH_ATTACK                           0.01 2930      
 580        16829740 CrusaderSmite                                             0.01 2863      
 581        16828014 DaylightAdaptation                                        0.01 4592      
-582        ****     ReservedForISCAndESS                                      **** ****      
-583        ****     ReservedForISCAndESS                                      **** ****      
+582        16835930 ACP_HEAVY_FEAT                                            0    3480      
+583        16835931 ACP_UNARMED_FEAT                                          0    3481      
 584        ****     ReservedForISCAndESS                                      **** ****      
 585        ****     ReservedForISCAndESS                                      **** ****      
 586        ****     ReservedForISCAndESS                                      **** ****      

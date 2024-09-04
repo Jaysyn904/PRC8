@@ -853,8 +853,11 @@ const int IP_CONST_REDUCEDWEIGHT_50_PERCENT = 6;
 // IP_CONST_MONSTERDAMAGE
 const int IP_CONST_MONSTERDAMAGE_7d4 = 58;
 
-//ACP feat
-const int IP_CONST_ACP_FEAT = 98;
+//ACP feats
+const int IP_CONST_ACP_QUICK_FEAT 		= 98;
+const int IP_CONST_ACP_HEAVY_FEAT 		= 582;
+const int IP_CONST_ACP_UNARMED_FEAT 	= 583;
+//const int IP_CONST_ACP_FEAT = 98;
 
 // Improved Combat Casting
 const int IP_CONST_IMP_CC = 97;

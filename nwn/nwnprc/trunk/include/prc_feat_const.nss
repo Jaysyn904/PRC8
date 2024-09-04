@@ -2728,7 +2728,9 @@ const int MAJOR_AURA                           = 1939;
 
 
 //ACP feat
-const int FEAT_ACP_FEAT                       = 2892;
+const int FEAT_ACP_QUICK_FEAT				= 3479;
+const int FEAT_ACP_HEAVY_FEAT				= 3480;
+const int FEAT_ACP_UNARMED_FEAT				= 3481;
 
 //Baelnorn
 const int FEAT_END_PROJECTION                 = 3575;
