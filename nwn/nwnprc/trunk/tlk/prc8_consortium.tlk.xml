@@ -2,7 +2,7 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
-  <entry id="12000" lang="en" sex="m">PRC Version Counter: 06</entry>
+  <entry id="12000" lang="en" sex="m">PRC8 Version Counter: 07</entry>
   <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
@@ -67115,7 +67115,7 @@ Temples to evil deities sell cursed water at cost (making no profit).
   <entry id="69279" lang="en" sex="m">Warmage Flame Weapon</entry>
   <entry id="69280" lang="en" sex="m">Warmage Gedlee's Electric Loop</entry>
   <entry id="69281" lang="en" sex="m">Warmage Ice Knife</entry>
-  <entry id="69282" lang="en" sex="m">Warmage Acid Arrow</entry>
+  <entry id="69282" lang="en" sex="m">Warmage Melf's Acid Arrow</entry>
   <entry id="69283" lang="en" sex="m">Warmage Pyrotechnics</entry>
   <entry id="69284" lang="en" sex="m">Warmage Pyrotechnics: Fireworks</entry>
   <entry id="69285" lang="en" sex="m">Warmage Pyrotechnics: Smoke</entry>
