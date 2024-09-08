@@ -131,6 +131,7 @@ void main()
 			
 				nDragonPalmScore += GetLevelByClass(CLASS_TYPE_MONK);
 				nDragonPalmScore += (4 * GetLevelByClass(CLASS_TYPE_INITIATE_DRACONIC));
+				nDragonPalmScore += (3 * GetLevelByClass(CLASS_TYPE_DRAGONDISCIPLE));
 			
 				nBearsClawScore += GetLevelByClass(CLASS_TYPE_MONK);
 				nBearsClawScore += (3 * GetLevelByClass(CLASS_TYPE_TOTEMIST));
