@@ -8,6 +8,7 @@
 #include "inv_inc_invfunc"
 #include "inv_invokehook"
 #include "inv_inc_blast"
+#include "psi_inc_core"
 
 //internal function for delayed damage
 void DoDelayedBlast(object oTarget, int nDamageType = DAMAGE_TYPE_FIRE, int nVFX = VFX_IMP_FLAME_M)
@@ -92,6 +93,33 @@ void main()
     if(GetHasSpellEffect(INVOKE_WILD_FRENZY, oPC))
         nDam += 2;
 
+//:: RAW, Eldritch Blast is considered a ranged attack & should work with the Psionic Shot chain  -Jaysyn.
+	
+	if(GetIsPsionicallyFocused())
+	{
+		if (GetHasFeat(FEAT_PSIONIC_SHOT))
+		{
+			nDam += d6(2);
+		}
+		if (GetHasFeat(FEAT_GREATER_PSIONIC_SHOT))
+		{		
+			nDam += d6(2);
+		}
+		
+		LosePsionicFocus();
+	}
+
+/* 	if(GetIsPsionicallyFocused() && GetHasFeat(FEAT_GREATER_PSIONIC_SHOT))
+	{	
+		nDam += d6(4);
+		LosePsionicFocus();
+	}
+	if(GetIsPsionicallyFocused() && GetHasFeat(FEAT_PSIONIC_SHOT))
+	{	
+		nDam += d6(2);
+		LosePsionicFocus();
+	} */	
+	
     int nAtkBns = GetAttackBonus(oTarget, oPC, OBJECT_INVALID, FALSE, TOUCH_ATTACK_RANGED_SPELL);
     if(GetHasFeat(FEAT_ELDRITCH_SCULPTOR))
         nAtkBns += 2;

@@ -15,8 +15,6 @@
 #include "inc_item_props"
 #include "prc_x2_itemprop"
 
-//:: void main (){}
-
 /**
  * All of the following functions use the following parameters:
  *
@@ -673,16 +671,38 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
         ForceUnequip(oPC, oItem, nHand);
     }
     
-    //OTWF
-    if(GetHasFeat(FEAT_OTWF, oPC))
-    { 
-        // When wielding a one-handed weapon in your off hand, you take penalties for fighting with two weapons as if you were wielding a light weapon in your off hand
-        if (nWeaponSize == nRealSize && nHand == ATTACK_BONUS_OFFHAND)
-        {
-            SetCompositeAttackBonus(oPC, "OTWFL", 2, ATTACK_BONUS_OFFHAND);
-            SetCompositeAttackBonus(oPC, "OTWFR", 2, ATTACK_BONUS_ONHAND);
-        }    
-    }     
+//:: Oversized TWF
+//:: Check if the player is a Ranger, wearing medium/heavy armor, and does not have Two-Weapon Fighting feat
+	int bIsRestricted = FALSE;
+
+	// Check if the player has levels in the Ranger class
+	if (GetLevelByClass(CLASS_TYPE_RANGER, oPC) > 0)
+	{
+		// Check if the player is wearing medium or heavy armor
+		int nArmorType = GetArmorType(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC));
+		if (nArmorType == ARMOR_TYPE_MEDIUM || nArmorType == ARMOR_TYPE_HEAVY)
+		{
+			// Check if the player does not have the Two-Weapon Fighting feat
+			if (!GetHasFeat(FEAT_TWO_WEAPON_FIGHTING, oPC))
+			{
+				// Set the restricted flag to TRUE if all conditions are met
+				bIsRestricted = TRUE;
+			}
+		}
+	}
+	//:: Proceed with OSTWF bonuses if the restrictions are not met
+	if (!bIsRestricted)
+	{
+		if (GetHasFeat(FEAT_OTWF, oPC))
+		{ 
+			// When wielding a one-handed weapon in your off hand, you take penalties for fighting with two weapons as if you were wielding a light weapon in your off hand
+			if (nWeaponSize == nRealSize && nHand == ATTACK_BONUS_OFFHAND)
+			{
+				SetCompositeAttackBonus(oPC, "OTWFL", 2, ATTACK_BONUS_OFFHAND);
+				SetCompositeAttackBonus(oPC, "OTWFR", 2, ATTACK_BONUS_ONHAND);
+			}    
+		}
+	}
 
     //check for proficiency
     DoProficiencyCheck(oPC, oItem, nHand);
@@ -758,3 +778,5 @@ void DoRacialEquip(object oPC, int nBaseType)
     		SetCompositeAttackBonus(oPC, "PrimitiveWeapon", 0);
     }  
 }
+
+//:: void main (){}

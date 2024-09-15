@@ -5236,11 +5236,11 @@ Weapon Size: Large
 Feats Required: Martial</entry>
   <entry id="30026" lang="en" sex="m">Sap</entry>
   <entry id="30027" lang="en" sex="m">The sap is a simple weapon, typically consisting of a small bag filled with sand or lead shot.</entry>
-  <entry id="30028" lang="en" sex="m">Base Damage: 1d4
+  <entry id="30028" lang="en" sex="m">Base Damage: 1d6
 Base Critical Threat: x2
 Base Damage Type: Bludgeoning
 Weapon Size: Small
-Feats Required: Simple</entry>
+Feats Required: Martial</entry>
   <entry id="30032" lang="en" sex="m">Katar</entry>
   <entry id="30033" lang="en" sex="m">The katar is also known as a punching dagger, discrete and efficient.</entry>
   <entry id="30034" lang="en" sex="m">Base Damage: 1d4

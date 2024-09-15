@@ -1065,12 +1065,36 @@ void PRCFeat_AddEventHooks(object oPC, object oSkin)
         AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, sScript, TRUE, FALSE);
     }
 
-    if(GetHasFeat(FEAT_TWO_WEAPON_REND, oPC))
-    {
-        sScript = "prc_tw_rend";
-        AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   sScript, TRUE, FALSE);
-        AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, sScript, TRUE, FALSE);
-    }
+	// Check if the player is a Ranger, wearing medium/heavy armor, and does not have Two-Weapon Fighting feat
+	int bIsRestricted = FALSE;
+
+	// Check if the player has levels in the Ranger class
+	if (GetLevelByClass(CLASS_TYPE_RANGER, oPC) > 0)
+	{
+		// Check if the player is wearing medium or heavy armor
+		int nArmorType = GetArmorType(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC));
+		if (nArmorType == ARMOR_TYPE_MEDIUM || nArmorType == ARMOR_TYPE_HEAVY)
+		{
+			// Check if the player does not have the Two-Weapon Fighting feat
+			if (!GetHasFeat(FEAT_TWO_WEAPON_FIGHTING, oPC))
+			{
+				// Set the restricted flag to TRUE if all conditions are met
+				bIsRestricted = TRUE;
+			}
+		}
+	}
+
+	// Proceed with the original logic only if the restrictions are not met
+	if (!bIsRestricted)
+	{
+		if (GetHasFeat(FEAT_TWO_WEAPON_REND, oPC))
+		{
+			string sScript = "prc_tw_rend";
+			AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   sScript, TRUE, FALSE);
+			AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, sScript, TRUE, FALSE);
+		}
+	}
+
     if(GetHasFeat(FEAT_LINGERING_DAMAGE, oPC))
     {
         sScript = "ft_lingdmg";
