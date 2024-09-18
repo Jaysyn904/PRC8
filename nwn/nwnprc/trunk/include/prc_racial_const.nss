@@ -250,6 +250,7 @@ const int RACIAL_TYPE_STAR_ELF             = 160;
 const int RACIAL_TYPE_SUN_ELF              = 166;
 const int RACIAL_TYPE_WILD_ELF             = 167;
 const int RACIAL_TYPE_WOOD_ELF             = 168;
+const int RACIAL_TYPE_GREY_ELF			   = 169;
 
 //Dwarf
 const int RACIAL_TYPE_ARC_DWARF            = 151;

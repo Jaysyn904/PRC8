@@ -4948,12 +4948,33 @@ Tortoise shell slows a creature's movement as if it were wearing heavy armor. An
   <entry id="16438" lang="en" sex="m">91</entry>
   <entry id="16439" lang="en" sex="m">92</entry>
   <entry id="16440" lang="en" sex="m">93</entry>
-  <entry id="16441" lang="en" sex="m">94</entry>
-  <entry id="16442" lang="en" sex="m">95</entry>
-  <entry id="16443" lang="en" sex="m">96</entry>
-  <entry id="16444" lang="en" sex="m">97</entry>
-  <entry id="16445" lang="en" sex="m">98</entry>
-  <entry id="16446" lang="en" sex="m">99</entry>
+  <entry id="16441" lang="en" sex="m">Grey Elf
+</entry>
+  <entry id="16442" lang="en" sex="m">Grey Elf</entry>
+  <entry id="16443" lang="en" sex="m">grey elf</entry>
+  <entry id="16444" lang="en" sex="m">grey elves</entry>
+  <entry id="16445" lang="en" sex="m">Gray elves are the most noble and regal of all elves. Taller and grander in physical appearance than others of their race, gray elves have a reputation for being aloof and arrogant (even by elven standards). They certainly are more reclusive than high elves, living in isolated mountain citadels and allowing entry only to a select few outsiders. They have either silver hair and amber eyes or pale golden hair and violet eyes. They prefer clothing of white, silver, yellow, or gold, with cloaks of deep blue or purple.
+
+    +2 Dexterity, +2 Intelligence, –2 Strength, –2 Constitution.
+
+     Medium: As Medium creatures, gray elves have no special bonuses or penalties due to their size.
+
+    Gray elf base land speed is 30 feet.
+
+    Immunity to magic sleep effects, and a +2 racial saving throw bonus against enchantment spells or effects.
+
+    Low-Light Vision: A gray elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. She retains the ability to distinguish color and detail under these conditions.
+
+    Weapon Proficiency: Gray elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite longbow), and shortbow (including composite shortbow) as bonus feats.
+
+    +2 racial bonus on Listen, Search, and Spot checks. A gray elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for it.
+
+    Automatic Languages: Common and Elven. Bonus Languages: Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan.
+
+    Favored Class: Wizard. A multiclass gray elf’s wizard class does not count when determining whether she takes an experience point penalty for multiclassing.
+
+    Level Adjustment: +0</entry>
+  <entry id="16446" lang="en" sex="m">Grey Elf Biography.</entry>
   <entry id="16447" lang="en" sex="m">Tomb-Tainted Soul</entry>
   <entry id="16448" lang="en" sex="m">Type of Feat: General
 Prerequisite: Nongood alignment.

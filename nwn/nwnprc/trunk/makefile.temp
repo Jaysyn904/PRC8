@@ -367,7 +367,6 @@ include\prc_inc_template.nss \
 include\prc_inc_turning.nss \
 include\prc_inc_unarmed.nss \
 include\prc_inc_util.nss \
-include\prc_inc_wpnrest.ncs \
 include\prc_inc_wpnrest.nss \
 include\prc_ip_srcost.nss \
 include\prc_ipfeat_const.nss \
