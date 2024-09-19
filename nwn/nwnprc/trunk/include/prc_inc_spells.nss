@@ -2458,13 +2458,27 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
     	        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_LOS_EVIL_10), oTarget);
     	    }
     	}    
+
+		//:: Get the current spell being cast
+		int nCurrentSpell = PRCGetSpellId();
+
+		//:: Skip Reserve Feat spellIDs
+		if (nCurrentSpell < 19359 || nCurrentSpell > 19396)
+		{
+			//:: Piercing Cold for the Frost Mage
+			if (GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster) >= 4 && nDamageType == DAMAGE_TYPE_COLD)
+			{
+				int nCurrentHP = GetCurrentHitPoints(oTarget);
+				DelayCommand(0.1, DoPiercingCold(oCaster, oTarget, nDamageAmount, nCurrentHP));
+			}
+		}
     	
-    	// Piercing Cold for the Frost Mage
+/*     	// Piercing Cold for the Frost Mage
     	if (GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster) >= 4 && nDamageType == DAMAGE_TYPE_COLD)
     	{
     	    int nCurrentHP = GetCurrentHitPoints(oTarget);
     	    DelayCommand(0.1, DoPiercingCold(oCaster, oTarget, nDamageAmount, nCurrentHP));
-    	}
+    	} */
     	
     	// Die DR die
     	if (GetLocalInt(oCaster, "MoveIgnoreDR"))

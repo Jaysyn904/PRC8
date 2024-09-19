@@ -707,7 +707,8 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
     //check for proficiency
     DoProficiencyCheck(oPC, oItem, nHand);
 
-    //simulate Weapon Finesse for Elven *blades
+//:: This is no longer needed with NWN:EE - Jaysyn
+/*     //simulate Weapon Finesse for Elven *blades
     if((nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE || nBaseType == BASE_ITEM_ELVEN_THINBLADE 
        || nBaseType == BASE_ITEM_ELVEN_COURTBLADE) && GetHasFeat(FEAT_WEAPON_FINESSE, oPC) && nElfFinesse > 0)
     {
@@ -715,7 +716,7 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
             SetCompositeAttackBonus(oPC, "ElfFinesseRH", nElfFinesse, nHand);
       else if(nHand == ATTACK_BONUS_OFFHAND)
             SetCompositeAttackBonus(oPC, "ElfFinesseLH", nElfFinesse, nHand);
-    }
+    } */
     //Two-hand damage bonus
     if(!GetWeaponRanged(oItem) && PRCLargeWeaponCheck(nBaseType, nWeaponSize)
     && (nWeaponSize == nSize + 1 || (nWeaponSize == nRealSize + 1 && GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC) == OBJECT_INVALID) && nRealSize > CREATURE_SIZE_SMALL))
