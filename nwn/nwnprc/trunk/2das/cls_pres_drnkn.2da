@@ -1,9 +1,12 @@
 2DA V2.0
 
-  Label       ReqType ReqParam1      ReqParam2 
-0 Tumble      SKILL   21             6         
-1 Base_Attack BAB     4              ****      
-2 ScriptVar   VAR     PRC_AllowDrnkn 0         
-3 GreatFort   FEAT    14             ****      
-4 Dodge       FEAT    10             ****      
-5 Evasion     FEAT    206            ****      
+           Label             ReqType ReqParam1      ReqParam2 
+0          Tumble            SKILL   21             6         
+1          Base_Attack       BAB     4              ****      
+3          GreatFort         FEAT    14             ****      
+4          Dodge             FEATOR  10             ****      
+5          Evasion           FEAT    206            ****      
+6          MidnightDodge     FEATOR  8885           ****      
+7          ExpeditiousDodge  FEATOR  5202           ****      
+8          Desert_Wind_Dodge FEATOR  4179           ****      
+9          ScriptVar         VAR     PRC_AllowDrnkn 0         

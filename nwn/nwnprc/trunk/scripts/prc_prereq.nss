@@ -247,6 +247,12 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
          //Wild Shape qualifies
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
+     //These classes have appropriate alternate forms
+     if (GetLevelByClass(CLASS_TYPE_SHAMAN) >= 7)
+     {
+         //Wild Shape qualifies
+         SetLocalInt(oPC, "PRC_PrereqShift", 0);
+     }	 
      if (GetLevelByClass(CLASS_TYPE_INITIATE_DRACONIC) >= 10)
      {
          //Dragon Shape qualifies

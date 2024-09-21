@@ -1,10 +1,13 @@
 2DA V2.0
 
-  LABEL       ReqType ReqParam1     ReqParam2 
-0 AttackBonus BAB     6             ****      
-1 Tumble      SKILL   21            5         
-2 Perform     SKILL   11            3         
-3 Dodge       FEAT    10            ****      
-4 WeapFinesse FEAT    42            ****      
-5 Mobility    FEAT    26            ****      
-6 ScriptVar   VAR     PRC_AllowDuel 0         
+           LABEL             ReqType ReqParam1     ReqParam2 
+0          AttackBonus       BAB     6             ****      
+1          Tumble            SKILL   21            5         
+2          Perform           SKILL   11            3         
+3          Dodge             FEATOR  10            ****      
+4          WeapFinesse       FEAT    42            ****      
+5          Mobility          FEAT    26            ****      
+6          MidnightDodge     FEATOR  8885          ****      
+7          ExpeditiousDodge  FEATOR  5202          ****      
+8          Desert_Wind_Dodge FEATOR  4179          ****      
+9          ScriptVar         VAR     PRC_AllowDuel 0         

@@ -1,9 +1,12 @@
 2DA V2.0
 
-  LABEL         ReqType ReqParam1        ReqParam2 
-0 Concentration SKILL   1                4         
-1 Heal          SKILL   4                8         
-2 CombatCasting FEAT    7                ****      
-3 Dodge         FEAT    10               ****      
-4 ScriptVar     VAR     PRC_AllowCbtMed  0         
-5 ScriptVar     VAR     PRC_PrereqCbtMed 0         
+           LABEL             ReqType ReqParam1        ReqParam2 
+0          Concentration     SKILL   1                4         
+1          Heal              SKILL   4                8         
+2          CombatCasting     FEAT    7                ****      
+3          Dodge             FEATOR  10               ****      
+4          MidnightDodge     FEATOR  8885             ****      
+5          ExpeditiousDodge  FEATOR  5202             ****      
+6          Desert_Wind_Dodge FEATOR  4179             ****      
+7          ScriptVar         VAR     PRC_AllowCbtMed  0         
+8          ScriptVar         VAR     PRC_PrereqCbtMed 0         

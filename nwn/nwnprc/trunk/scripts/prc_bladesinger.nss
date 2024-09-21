@@ -93,10 +93,14 @@ void  OnUnEquip(object oPC,object oSkin)
      }
 
 
-  if (  !(GetBaseItemType(oWeapL)==BASE_ITEM_RAPIER    ||
-          GetBaseItemType(oWeapR)==BASE_ITEM_RAPIER    ||
-          GetBaseItemType(oWeapL)==BASE_ITEM_LONGSWORD ||
-          GetBaseItemType(oWeapR)==BASE_ITEM_LONGSWORD) )
+  if (!(GetBaseItemType(oWeapL)==BASE_ITEM_RAPIER			||
+		GetBaseItemType(oWeapR)==BASE_ITEM_RAPIER			||
+		GetBaseItemType(oWeapL)==BASE_ITEM_ELVEN_THINBLADE	||
+		GetBaseItemType(oWeapR)==BASE_ITEM_ELVEN_THINBLADE	||	
+		GetBaseItemType(oWeapL)==BASE_ITEM_ELVEN_LIGHTBLADE	||
+		GetBaseItemType(oWeapR)==BASE_ITEM_ELVEN_LIGHTBLADE	||			  
+		GetBaseItemType(oWeapL)==BASE_ITEM_LONGSWORD		||
+		GetBaseItemType(oWeapR)==BASE_ITEM_LONGSWORD) )
      {
        if (GetHasFeatEffect(FEAT_SONG_OF_FURY,oPC))
        {

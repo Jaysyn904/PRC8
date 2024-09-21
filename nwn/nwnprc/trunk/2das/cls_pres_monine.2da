@@ -1,10 +1,13 @@
 2DA V2.0
 
-  LABEL         ReqType ReqParam1        ReqParam2 
-0 ScriptVar     VAR     PRC_AllowMoNine  0         
-1 ScriptVar     VAR     PRC_PrereqMoNine 0         
-2 AdaptiveStyle FEAT    24075            ****      
-3 Dodge         FEAT    10               ****      
-4 Blindfight    FEAT    408              ****      
-5 ImpInitiative FEAT    377              ****      
-6 ImpUnarmedStr FEAT    21               ****      
+           LABEL             ReqType ReqParam1        ReqParam2 
+0          ScriptVar         VAR     PRC_AllowMoNine  0         
+1          ScriptVar         VAR     PRC_PrereqMoNine 0         
+2          AdaptiveStyle     FEAT    24075            ****      
+3          Dodge             FEATOR  10               ****      
+4          Blindfight        FEAT    408              ****      
+5          ImpInitiative     FEAT    377              ****      
+6          ImpUnarmedStr     FEAT    21               ****      
+7          MidnightDodge     FEATOR  8885             ****      
+8          ExpeditiousDodge  FEATOR  5202             ****      
+9          Desert_Wind_Dodge FEATOR  4179             ****      

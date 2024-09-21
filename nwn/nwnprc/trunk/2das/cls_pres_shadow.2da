@@ -1,0 +1,12 @@
+2DA V2.0
+
+           LABEL             ReqType ReqParam1      ReqParam2 
+0          HideSkill         SKILL   5              10        
+1          MoveSilentSkill   SKILL   8              8         
+2          Tumble            SKILL   21             5         
+3          dodge             FEATOR  10             ****      
+4          mobility          FEAT    26             ****      
+5          MidnightDodge     FEATOR  8885           ****      
+6          ExpeditiousDodge  FEATOR  5202           ****      
+7          Desert_Wind_Dodge FEATOR  4179           ****      
+8          ScriptVar         VAR     X1_AllowShadow 0         

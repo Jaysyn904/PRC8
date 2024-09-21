@@ -1,9 +1,12 @@
 2DA V2.0
 
-  LABEL     ReqType ReqParam1      ReqParam2 
-0 Bluff     SKILL   23             10        
-1 Hide      SKILL   5              10        
-2 Tumble    SKILL   21             10        
-3 Dodge     FEAT    10             ****      
-4 Evasion   FEAT    206            ****      
-5 ScriptVar VAR     PRC_AllowNinja 0         
+           LABEL             ReqType ReqParam1      ReqParam2 
+0          Bluff             SKILL   23             10        
+1          Hide              SKILL   5              10        
+2          Tumble            SKILL   21             10        
+3          Dodge             FEATOR  10             ****      
+4          Evasion           FEAT    206            ****      
+5          ScriptVar         VAR     PRC_AllowNinja 0         
+6          MidnightDodge     FEATOR  8885           ****      
+7          ExpeditiousDodge  FEATOR  5202           ****      
+8          Desert_Wind_Dodge FEATOR  4179           ****      

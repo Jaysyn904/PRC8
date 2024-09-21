@@ -36,7 +36,7 @@
 32         FEAT_BSINGER_SPELLCASTING_WIZARD            19041     2    1              0      
 33         BLADESONG_STYLE                             3190      3    1              0      
 34         LESSER_SPELLSONG                            3191      3    3              0      
-35         BLADESONG_STYLE                             3192      3    6              0      
+35         GREATER_SPELLSONG                           3192      3    6              0      
 36         SONG_OF_FURY                                3193      3    10             1      
 37         ArmProfLgt                                  3         3    1              0      
 38         SpellFocusCon                               166       1    -1             0      
