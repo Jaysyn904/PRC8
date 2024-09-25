@@ -371,7 +371,7 @@ void EvalPRCFeats(object oPC)
 
     // If there is a bonus domain, it will always be in the first slot, so just check that.
     // It also runs things that clerics with those domains need
-    if (GetPersistantLocalInt(oPC, "PRCBonusDomain1") > 0 || GetLevelByClass(CLASS_TYPE_CLERIC, oPC))
+    if (GetPersistantLocalInt(oPC, "PRCBonusDomain1") > 0 || GetLevelByClass(CLASS_TYPE_CLERIC, oPC) || GetLevelByClass(CLASS_TYPE_SHAMAN, oPC))
         DelayCommand(0.1f, ExecuteScript("prc_domain_skin", oPC));
 
     // special add atk bonus equal to Enhancement

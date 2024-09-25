@@ -156,10 +156,11 @@ int TestSpellTarget(object oPC, object oTarget, int nSpell)
 int GetIsBioDivineClass(int nClass)
 {
     return nClass == CLASS_TYPE_CLERIC
-         || nClass == CLASS_TYPE_DRUID
-         || nClass == CLASS_TYPE_PALADIN
-         || nClass == CLASS_TYPE_UR_PRIEST
-         || nClass == CLASS_TYPE_RANGER;
+		|| nClass == CLASS_TYPE_DRUID
+		|| nClass == CLASS_TYPE_PALADIN
+		|| nClass == CLASS_TYPE_SHAMAN
+		|| nClass == CLASS_TYPE_UR_PRIEST
+		|| nClass == CLASS_TYPE_RANGER;
 }
 
 void CastDomainSpell(object oPC, int nSlot, int nLevel)

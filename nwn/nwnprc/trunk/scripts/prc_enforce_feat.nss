@@ -1864,7 +1864,7 @@ int AcolyteEgo()
 
 int EpicCasting()
 {
-    if(GetLocalInt(OBJECT_SELF, "PRC_ArcSpell9") && GetLocalInt(OBJECT_SELF, "PRC_DivSpell9"))
+    if(GetLocalInt(OBJECT_SELF, "PRC_ArcSpell9") || GetLocalInt(OBJECT_SELF, "PRC_DivSpell9"))
     {
         if(GetHasFeat(FEAT_EPIC_SPELLCASTING))
         {

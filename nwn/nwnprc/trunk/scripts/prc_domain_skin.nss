@@ -130,7 +130,52 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         if (GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC) && !PRC_Funcs_GetFeatKnown(oPC, FEAT_SPELL_FOCUS_ENCHANTMENT)) PRC_Funcs_AddFeat(oPC, FEAT_SPELL_FOCUS_ENCHANTMENT);
     }
     else
-    {
+	{
+		effect eBonusFeat;
+		if (GetHasFeat(FEAT_DOMAIN_POWER_DARKNESS, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_BLIND_FIGHT); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}
+		if (GetHasFeat(FEAT_DOMAIN_POWER_DWARF, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_GREAT_FORTITUDE); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}		
+		if (GetHasFeat(FEAT_DOMAIN_POWER_ELF, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_POINT_BLANK_SHOT); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}		
+		if (GetHasFeat(FEAT_DOMAIN_POWER_FATE, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_UNCANNY_DODGE_1); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}	
+		if (GetHasFeat(FEAT_DOMAIN_POWER_TIME, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_IMPROVED_INITIATIVE); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}	
+		if (GetHasFeat(FEAT_DOMAIN_POWER_UNDEATH, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_EXTRA_TURNING); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}	
+		if (GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_SPELL_FOCUS_ENCHANTMENT); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}		
+	}
+/*     {
         if (GetHasFeat(FEAT_DOMAIN_POWER_DARKNESS, oPC))      AddSkinFeat(FEAT_BLIND_FIGHT, IP_CONST_FEAT_BLINDFIGHT, oSkin, oPC);
         if (GetHasFeat(FEAT_DOMAIN_POWER_DWARF, oPC))         AddSkinFeat(FEAT_GREAT_FORTITUDE, IP_CONST_FEAT_GREAT_FORTITUDE, oSkin, oPC);
         if (GetHasFeat(FEAT_DOMAIN_POWER_ELF, oPC))           AddSkinFeat(FEAT_POINT_BLANK_SHOT, IP_CONST_FEAT_POINTBLANK, oSkin, oPC);
@@ -139,7 +184,7 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         if (GetHasFeat(FEAT_DOMAIN_POWER_TIME, oPC))          AddSkinFeat(FEAT_IMPROVED_INITIATIVE, IP_CONST_FEAT_IMPROVED_INIT, oSkin, oPC);
         if (GetHasFeat(FEAT_DOMAIN_POWER_UNDEATH, oPC))       AddSkinFeat(FEAT_EXTRA_TURNING, IP_CONST_FEAT_EXTRA_TURNING, oSkin, oPC);
         if (GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC))    AddSkinFeat(FEAT_SPELL_FOCUS_ENCHANTMENT, IP_CONST_FEAT_SPELLFOCUSENC, oSkin, oPC);
-    }
+    } */
     // +2 Conc and Spellcraft
     if (GetHasFeat(FEAT_DOMAIN_POWER_SPELLS, oPC))
     {
