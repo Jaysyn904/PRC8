@@ -80,11 +80,22 @@ void RestFinished(object oPC)
             AssignCommand(oSlave, ActionRest());
             //ForceRest(oSlave);
 
-    if (GetIsEpicSpellcaster(oPC)) {
+	if (GetHasFeat(FEAT_EPIC_SPELLCASTING, oPC))
+	{
+        FloatingTextStringOnCreature("*You feel refreshed*", oPC, FALSE);
+        ReplenishSlots(oPC);
+    }	
+	
+/*     if (GetIsEpicSpellcaster(oPC) == TRUE) 
+	{
         FloatingTextStringOnCreature("*You feel refreshed*", oPC, FALSE);
         ReplenishSlots(oPC);
     }
-
+	else
+	{
+		if (DEBUG) DoDebug("prc_rest: Not an Epic Spellcaster");
+	}
+ */
     if (GetHasFeat(FEAT_SF_CODE,oPC))
         DelayCommand(0.1, RemoveSpecificProperty(GetPCSkin(oPC),ITEM_PROPERTY_BONUS_FEAT,IP_CONST_FEAT_SF_CODE));
 

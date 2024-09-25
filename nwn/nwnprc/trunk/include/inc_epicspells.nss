@@ -335,7 +335,7 @@ int GetIsEpicWitch(object oPC)
 
 int GetIsEpicWizard(object oPC)
 {
-    return GetPrCAdjustedCasterLevel(CLASS_TYPE_WIZARD, oPC, FALSE) > 16
+    return GetPrCAdjustedCasterLevel(CLASS_TYPE_WIZARD, oPC, FALSE) >= 17
          && GetAbilityScore(oPC, ABILITY_INTELLIGENCE) > 18;
 }
 
@@ -360,6 +360,7 @@ int GetIsEpicSpellcaster(object oPC)
     || GetIsEpicWitch(oPC)
     || GetIsEpicWizard(oPC))
         return TRUE;
+		
     return FALSE;
 }
 

@@ -338,7 +338,6 @@ include\prc_inc_drugfunc.nss \
 include\prc_inc_effect.nss \
 include\prc_inc_factotum.nss \
 include\prc_inc_fork.nss \
-include\prc_inc_function.ncs \
 include\prc_inc_function.nss \
 include\prc_inc_hextor.nss \
 include\prc_inc_itmrstr.nss \
