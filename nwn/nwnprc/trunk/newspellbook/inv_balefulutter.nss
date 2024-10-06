@@ -33,14 +33,23 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_DESTRUCTION);
 
     if(GetIsObjectValid(oTarget))
-    {
-        int nType = GetObjectType(oTarget);
-        if((nType == OBJECT_TYPE_DOOR || nType == OBJECT_TYPE_PLACEABLE) && !GetPlotFlag(oTarget))
+    {		
+/*		if((nType == OBJECT_TYPE_DOOR || nType == OBJECT_TYPE_PLACEABLE ) && !GetPlotFlag(oTarget))
         {
             effect eDamage = EffectDamage(9999, DAMAGE_TYPE_MAGICAL);
             effect eLink = EffectLinkEffects(eDamage, eVis);
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
-        }
+        } */
+		int nType = GetObjectType(oTarget);
+		
+		if ((nType == OBJECT_TYPE_DOOR || nType == OBJECT_TYPE_PLACEABLE || nType == OBJECT_TYPE_TRIGGER) && 
+			!GetPlotFlag(oTarget) && 
+			GetIsTrapped(oTarget))
+		{
+			effect eDamage = EffectDamage(9999, DAMAGE_TYPE_MAGICAL);
+			effect eLink = EffectLinkEffects(eDamage, eVis);
+			ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
+		}		
         else if(nType == OBJECT_TYPE_CREATURE)
         {
             PRCSignalSpellEvent(oTarget, TRUE, INVOKE_BALEFUL_UTTERANCE, OBJECT_SELF);

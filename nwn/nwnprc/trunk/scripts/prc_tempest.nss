@@ -29,6 +29,29 @@ void ApplyTwoWeaponDefense(object oPC, object oSkin)
      int ACBonus = 0;
      int tempestLevel = GetLevelByClass(CLASS_TYPE_TEMPEST, oPC);
 
+     if(tempestLevel >= 7)
+     {
+          ACBonus = 3;
+     }	 
+     else if(tempestLevel >= 4)
+     {
+          ACBonus = 2;
+     }
+     else
+     {
+          ACBonus = 1;
+     }
+
+     itemproperty ipACBonus = ItemPropertyACBonus(ACBonus);
+
+     SetCompositeBonus(oSkin, "TwoWeaponDefenseBonus", ACBonus, ITEM_PROPERTY_AC_BONUS);
+}
+
+/* void ApplyTwoWeaponDefense(object oPC, object oSkin)
+{
+     int ACBonus = 0;
+     int tempestLevel = GetLevelByClass(CLASS_TYPE_TEMPEST, oPC);
+
      if(tempestLevel < 4)
      {
           ACBonus = 1;
@@ -45,7 +68,7 @@ void ApplyTwoWeaponDefense(object oPC, object oSkin)
      itemproperty ipACBonus = ItemPropertyACBonus(ACBonus);
 
      SetCompositeBonus(oSkin, "TwoWeaponDefenseBonus", ACBonus, ITEM_PROPERTY_AC_BONUS);
-}
+} */
 
 void RemoveTwoWeaponDefense(object oPC, object oSkin)
 {
@@ -70,8 +93,8 @@ void ApplyExtraAttacks(object oPC)
 {
 	RemoveExtraAttacks(oPC);
 	int nIncrease = 0;
-	if(GetHasFeat(FEAT_SUPREME_TWO_WEAPON_FIGHTING, oPC))        nIncrease = 2;
-	else if(GetHasFeat(FEAT_GREATER_TWO_WEAPON_FIGHTING, oPC))   nIncrease = 1;
+	if(GetHasFeat(FEAT_SUPREME_TWO_WEAPON_FIGHTING, oPC))        nIncrease = 4;
+	else if(GetHasFeat(FEAT_GREATER_TWO_WEAPON_FIGHTING, oPC))   nIncrease = 3;
 	
 	ApplyEffectToObject(DURATION_TYPE_PERMANENT, TagEffect(ExtraordinaryEffect(EffectModifyAttacks(nIncrease)), "TempestTWF"), oPC);
 }
@@ -87,7 +110,7 @@ void main()
     object oWeapL = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC);
 
     int armorType = GetArmorType(oArmor);
-    if (oArmor == OBJECT_INVALID) armorType = ARMOR_TYPE_LIGHT;
+    if (oArmor == OBJECT_INVALID) armorType = ARMOR_TYPE_CLOTH;
 
     string nMes = "";
 
