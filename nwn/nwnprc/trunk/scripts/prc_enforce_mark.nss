@@ -2216,7 +2216,15 @@ int MoSMarkerFeats()
 		int nMoS	= GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_BLIGHTER)
 					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_CLERIC)
 					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OCULAR)
-					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OASHAMAN);
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OASHAMAN)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_ARCHIVIST)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_BLACKGUARD)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_DRUID)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_FAVOURED_SOUL)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_JUSTICEWW)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_RANGER)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SOHEI)
+					+ GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_UR_PRIEST);
 						
         if(nMoS > 1)
         {
@@ -2231,6 +2239,17 @@ int MoSMarkerFeats()
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
+		
+		int iCleDom = GetHasFeat(FEAT_EVIL_DOMAIN_POWER)
+                    + GetHasFeat(FEAT_DEATH_DOMAIN_POWER)
+                    + GetHasFeat(FEAT_PROTECTION_DOMAIN_POWER);
+
+        if(iCleDom < 1)
+        {
+            FloatingTextStringOnCreature("To become a Master of Shrouds you must possess one of the following divine domains: Evil, Death, or Protection.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }	
     }
 	
     return FALSE;

@@ -66,16 +66,20 @@ void main()
         SetExecutedScriptReturnValue(X2_EXECUTE_SCRIPT_END);
     } 
 
-//:: Any living creature of good alignment that is not an outsider or an elemental
-    int nRace = MyPRCGetRacialType(oPC);
-    if(nRace == RACIAL_TYPE_CONSTRUCT ||
-       nRace == RACIAL_TYPE_ELEMENTAL ||
-       nRace == RACIAL_TYPE_OOZE ||
-       nRace == RACIAL_TYPE_OUTSIDER ||
-       nRace == RACIAL_TYPE_UNDEAD)
-    {
-        SetExecutedScriptReturnValue(X2_EXECUTE_SCRIPT_END);
-    }    
+//:: Any living creature of good alignment that is not an outsider or an elemental,
+//:: allowing Warforged and Warforged Juggernaut races to continue.
+	int nRace = MyPRCGetRacialType(oPC);
+	int nExactRace = GetRacialType(oPC);
+
+	if((nRace == RACIAL_TYPE_CONSTRUCT &&
+	   nExactRace != RACIAL_TYPE_WARFORGED && 
+	   nExactRace != RACIAL_TYPE_WARFORGED_CHARGER) ||
+	   nRace == RACIAL_TYPE_ELEMENTAL ||
+	   nRace == RACIAL_TYPE_OUTSIDER ||
+	   nRace == RACIAL_TYPE_UNDEAD)
+	{
+		SetExecutedScriptReturnValue(X2_EXECUTE_SCRIPT_END);
+	}
 
 //:: No Undead templates or classes.  No saint stacking.
 	if(GetHasTemplate(TEMPLATE_SAINT, oPC) 
