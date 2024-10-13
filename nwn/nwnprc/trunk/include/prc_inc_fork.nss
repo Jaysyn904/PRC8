@@ -664,6 +664,8 @@ int GetWeaponSize(object oWeapon)
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_TRIDENT:
         case BASE_ITEM_ELVEN_COURTBLADE:
+		case BASE_ITEM_MAUL:        
+        case BASE_ITEM_FALCHION:
             return 4;
     }
 
@@ -699,6 +701,8 @@ int PRCLargeWeaponCheck(int iBaseType, int nSize)
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_TRIDENT:
         case BASE_ITEM_ELVEN_COURTBLADE:
+		case BASE_ITEM_MAUL:        
+        case BASE_ITEM_FALCHION:
         {
             sTest = Get2DAString("baseitems", "WeaponSize", iBaseType);
             break;

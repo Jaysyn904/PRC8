@@ -1326,8 +1326,8 @@ int BonusDomains()
             nMin += 1;//1 domain at 1st level
     }
 
-    if(!nMin)
-        return FALSE;
+/*     if(!nMin)
+        return FALSE; */  //: This check made it so you couldn't catch PCs having bonus domains before they should. -Jaysyn
 
     int dPC;
     // Blightbringer Prestige domain can only be taken by Blightlord class so it's not added here
@@ -1400,6 +1400,132 @@ int BonusDomains()
 int Shaman()
 {
     int nClass = GetLevelByClass(CLASS_TYPE_SHAMAN);
+	
+    if(nClass) 
+	{
+        int nIS = GetHasFeat(FEAT_DODGE)
+            + GetHasFeat(FEAT_STUNNING_FIST)
+            + GetHasFeat(FEAT_EXPERTISE)
+            + GetHasFeat(FEAT_IMPROVED_EXPERTISE)
+            + GetHasFeat(FEAT_IMPROVED_TRIP)
+            + GetHasFeat(FEAT_IMPROVED_GRAPPLE)
+            + GetHasFeat(FEAT_EARTHS_EMBRACE)
+            + GetHasFeat(FEAT_PRC_IMP_DISARM)
+            + GetHasFeat(FEAT_MOBILITY)
+            + GetHasFeat(FEAT_SPRING_ATTACK)
+            + GetHasFeat(FEAT_BLIND_FIGHT)
+            + GetHasFeat(FEAT_DEFLECT_ARROWS);
+        
+        int requiredFeats = nClass / 4;  // Shaman gets a bonus feat every 4 levels
+        
+        if(DEBUG) DoDebug("Shaman Level: " + IntToString(nClass));
+        if(DEBUG) DoDebug("Current Bonus Feats: " + IntToString(nIS));
+        if(DEBUG) DoDebug("Required Bonus Feats: " + IntToString(requiredFeats));
+        
+        if(nIS < requiredFeats) {
+            FloatingTextStringOnCreature("You do not have the correct amount of bonus feats. Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/* int BonusDomains()
+{
+    //Determine minimum number of bonus domains (selected by player)
+    int nMin;
+    if(GetLevelByClass(CLASS_TYPE_MYSTIC))
+        nMin += 1;//1 domain at 1st level
+    if(GetLevelByClass(CLASS_TYPE_TEMPLAR))
+        nMin += 2;//2 domains at 1st level
+    if(GetLevelByClass(CLASS_TYPE_SHAMAN))
+    {
+        if(GetLevelByClass(CLASS_TYPE_SHAMAN) > 10)
+            nMin += 1;//1 PRC domain at 11th level
+    }
+    if(GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE))
+    {
+        if(GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE) > 5)
+            nMin += 2;//2 domains at 6th level
+        else
+            nMin += 1;//1 domain at 1st level
+    }
+
+    if(!nMin)
+        return FALSE;
+
+    int dPC;
+    // Blightbringer Prestige domain can only be taken by Blightlord class so it's not added here
+    dPC = GetHasFeat(FEAT_BONUS_DOMAIN_AIR)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_ANIMAL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DEATH)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DESTRUCTION)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_EARTH)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_EVIL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_FIRE)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_GOOD)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_HEALING)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_KNOWLEDGE)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_MAGIC)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_PLANT)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_PROTECTION)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_STRENGTH)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_SUN)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_TRAVEL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_TRICKERY)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_WAR)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_WATER)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DARKNESS)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_STORM)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_METAL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_PORTAL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_FORCE)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_SLIME)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_TYRANNY)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DOMINATION)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_SPIDER)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_UNDEATH)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_TIME)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DWARF)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_CHARM)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_ELF)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_FAMILY)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_FATE)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_GNOME)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_ILLUSION)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_HATRED)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_HALFLING)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_NOBILITY)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_OCEAN)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_ORC)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_RENEWAL)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_RETRIBUTION)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_RUNE)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_SPELLS)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_SCALEYKIND)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_COLD)
+        + GetHasFeat(FEAT_BONUS_DOMAIN_WINTER);
+
+    int nMax = nMin;
+    //Determine maximum number of bonus domains (domains added automatically)
+    if(GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS))
+        nMax += 3;//3 domains at 1st level
+    if(GetLevelByClass(CLASS_TYPE_SWIFT_WING))
+        nMax += 1;//1 domain at 1st level
+
+    if(nMin > dPC || dPC > nMax)
+    {
+        FloatingTextStringOnCreature("You have wrong amount of bonus domains. Please reselect your feats.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+    return FALSE;
+}
+ */
+
+/* int Shaman()
+{
+    int nClass = GetLevelByClass(CLASS_TYPE_SHAMAN);
     if(nClass)
     {
         int nIS = GetHasFeat(FEAT_DODGE)
@@ -1423,7 +1549,7 @@ int Shaman()
      }
      return FALSE;
 }
-
+ */
 int RacialFeats()
 {
     int nRace = GetRacialType(OBJECT_SELF);

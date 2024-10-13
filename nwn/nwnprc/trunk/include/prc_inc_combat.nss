@@ -1080,6 +1080,8 @@ int GetIsTwoHandedMeleeWeaponType(int iWeaponType)
         case BASE_ITEM_HALBERD:     return TRUE;
         case BASE_ITEM_SHORTSPEAR:  return TRUE;
         case BASE_ITEM_HEAVYFLAIL:  return TRUE;
+        case BASE_ITEM_MAUL:        return TRUE;
+        case BASE_ITEM_FALCHION:    return TRUE;	
     }
     return FALSE;
 }
