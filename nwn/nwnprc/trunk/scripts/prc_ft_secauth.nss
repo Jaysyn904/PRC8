@@ -16,7 +16,7 @@ persuade and intimidate skills for 1 turn.
 void main()
 {
     object oPC = OBJECT_SELF;
-    int nBonus = 5 + GetLevelByClass(CLASS_TYPE_TEMPLAR, oPC) / 2;
+    int nBonus = (1 + GetLevelByClass(CLASS_TYPE_TEMPLAR, oPC)) / 2;
     float fDuration = TurnsToSeconds(1);
 
     effect eBonus = EffectSkillIncrease(SKILL_PERSUADE, nBonus);

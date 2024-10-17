@@ -1293,7 +1293,7 @@ const int	SPELL_REGEN_MODERATE_WOUNDS 			= 17244;
 const int	SPELL_REGEN_SERIOUS_WOUNDS 				= 17245;
 const int	SPELL_REGEN_CRITICAL_WOUNDS 			= 17246;
 const int	SPELL_SPEED_WIND 						= 17247;
-const int	SPELL_TORTISE_SHELL 					= 17250;                                                                                                                                           
+const int	SPELL_TORTISE_SHELL 					= 17250;   
 
 //x
 const int SPELL_TENSERS_FLOATING_DISK               = 3849;

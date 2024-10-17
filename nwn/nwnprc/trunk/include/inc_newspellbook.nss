@@ -313,7 +313,7 @@ int GetDCAbilityModForClass(int nClass, object oPC)
 			return GetAbilityScore(oPC, ABILITY_CHARISMA);		
         //outsider HD count as sorc for raks
         case CLASS_TYPE_OUTSIDER: {
-            /// @todo Will eventually need to add a check here to differentiate between races. Not all are sorcerers, just most
+            // @todo Will eventually need to add a check here to differentiate between races. Not all are sorcerers, just most
             return GetAbilityModifier(ABILITY_CHARISMA, oPC);
         }
     }
@@ -485,7 +485,7 @@ int bKnowsAllClassSpells(int nClass)
 int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC)
 {
     // If the character doesn't have any spell slots available on for this level, it can't know any spells of that level either
-    /// @todo Check rules. There might be cases where this doesn't hold
+    // @todo Check rules. There might be cases where this doesn't hold
     if(!GetSlotCount(nLevel, nSpellLevel, GetAbilityScoreForClass(nClass, oPC), nClass))
         return 0;
     int nKnown;

@@ -1848,7 +1848,7 @@ int DoDisarm(object oPC, object oTarget, int nExtraBonus = 0, int nGenerateAoO =
 {
     object oTargetWep = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);
     
-    if (!GetIsObjectValid(oTargetWep) || (!GetIsCreatureDisarmable(oTarget) && !GetPRCSwitch(PRC_PNP_DISARM)) || GetLocalInt(oTarget, "TigerFangDisarm")) 
+    if (!GetIsObjectValid(oTargetWep) || GetPlotFlag(oTargetWep) || (!GetIsCreatureDisarmable(oTarget) && !GetPRCSwitch(PRC_PNP_DISARM)) || GetLocalInt(oTarget, "TigerFangDisarm")) 
     {    
         FloatingTextStringOnCreature("Target is not a legal target", oPC, FALSE);
         AssignCommand(oPC, ActionAttack(oTarget));
@@ -2233,4 +2233,5 @@ void DoShieldCharge(object oPC, object oTarget, int nSlam = FALSE)
     }
 }
 
-//void main (){}
+//:: Test void
+//:: void main (){}

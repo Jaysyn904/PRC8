@@ -1,5 +1,5 @@
 //::///////////////////////////////////////////////
-//:: Name      Boneblade event script
+//:: Name      Claws of the Bebilith event script
 //:: FileName  prc_evnt_clbebil.nss
 //:://////////////////////////////////////////////
 #include "prc_inc_combmove"

@@ -22,7 +22,7 @@ Skills: Concentration 8 ranks
 Feats: Endurance
 Base Save Bonus: Fort +4
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Charm Person Ray - 2/day (spell-like ability).
@@ -176,7 +176,7 @@ Feats: Cleave, Toughness, Power Attack
 Base Attack Bonus: +5
 Skills: Intimidate (8 ranks), Lore (2 ranks)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Battle Rage - 1/day (as per Barbarian Rage).
@@ -207,7 +207,7 @@ A disgraced or masterless Samurai cut loose from this all-pervading value system
 - Proficiencies: All simple and martial weapons, plus katana.  Medium and light armor.
 - Skill Points: 4 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Ancestral Daisho
 All Samurai carry two masterwork weapons - a katana and a wakizashi.  These weapons have been handed down over generations from the Samurai's ancestors, and protecting them is an important point of honor for the Samurai. Starting at level 4, he can awaken the supernatural abilities latent in the weapons by sacrificing items to enhance them.
@@ -233,7 +233,7 @@ Feats: Combat Casting.
 Class: Cleric.
 Domains: At least one of the following: Destruction, Protection, Strength, War.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Rally - Allies within 60 feet who are suffering from any fear effect are allowed an immediate Will saving throw at the DC of the fear effect, with a +1 morale bonus per Warpriest level.
@@ -354,7 +354,7 @@ Alignment Restrictions: Any non-chaotic, non-good.
 Skills: Bluff (10 ranks), Hide (10 ranks), Tumble (10 ranks).
 Feats: Dodge, Evasion.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Use Poison - The Ninja Spy can apply poison to weapons.
@@ -591,7 +591,7 @@ Feats: Extra Turning.
 Spellcasting: Able to cast 3rd level divine spells.
 Special:  Must worship Lathander. (Clerics must have two of Good, Nobility, Protection, Renewal, Sun or Strength domains)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bane of the Restless - the character's Morninglord of Lathander levels stack with her cleric and paladin levels for the purposes of turning undead.
@@ -701,7 +701,7 @@ Race: Human
 Special: Sneak attack +1d6
 Special: You may not have any levels in an arcane spellcasting class
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Spellcasting - Cast a small number of spells from the abjuration and enchantment schools
@@ -838,7 +838,7 @@ Feats: Alertness.
 Spellcasting: Able to cast 3rd level arcane spells.
 Special: Prior contact with an alienist or a pseudonatural creature.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Summon Alien - when casting any summon monster spell, Alienist summons "pseudonatural" version of a creature.
@@ -1132,7 +1132,7 @@ Feat: Combat Casting.
 Spells: Able to cast 2nd-level arcane spells.
 Special: Rage or frenzy ability.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Spell Rage 1/day - When casting a spell from abjuration, conjuration, evocation, necromancy or transmutation school while in a rage, the rage mage uses her character level as her caster level. Temporarily takes -2 penalty to Armor Class. At the end of the rage, the character is fatigued.
@@ -1360,7 +1360,7 @@ The archivist is a more academic profession than the cleric or paladin but hardi
 - Proficiencies: Archivists are proficient with all simple weapons and with light and medium armor, but not with shields.
 - Skill Points: 4 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
   1: Dark knowledge (tactics) 3/day, Scribe Scroll
@@ -1428,7 +1428,7 @@ If you delight in manipulating others, either to their disadvantage or for their
 - Proficiencies: Beguilers are proficient with all simple weapons plus the rapier, shortbow, and short sword. Beguilers are proficient with light armor, but not with shields.
 - Skill Points: 6 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
   1: Armored mage, trapfinding
@@ -1993,7 +1993,7 @@ An unwilling creature can't be teleported by word of recall. Likewise, a creatur
   <entry id="12765" lang="en" sex="m">Knowledge is power and the quest for knowledge never ends. There is an ever lasting supply of divine lore for you, the epic archivist, to discover.
 
 Hit Die: d6
-Skill Points at Each Level: 4 + Int modifier.
+Skill Points: 4 + Int modifier.
 Dark Knowledge (Ex): At 21st level and every 3 levels thereafter, the epic archivist gains an additional use of Dark Knowledge.
 Lore Mastery (Ex): The archivist adds an additional +1 bonus on all Lore skill checks at level 23 and every 5 levels thereafter.
 Bonus Feats: The epic archivist gains a bonus feat (selected from the list of epic class bonus feats) every three levels higher than 20th.
@@ -2028,7 +2028,7 @@ Entry Requirements
 Skills: Intimidate 6 ranks, Lore 12 ranks, Spellcraft 6 ranks.
 Warlock Invocation: Must know brimstone blast or hellrime blast.
 
-Class Features:
+CLASS FEATURES:
 Class Skills (2 + Int modifier per level):  Bluff, Concentration, Craft, Intimidate, Lore, Spellcraft, Use Magic Device.
 
 The hellfire warlock class offers great power at the expense of versatility. This prestige class presents a focused approach to tap the power of the Nine Hells, though often at a grave price. As they advance, these warlocks can access greater uses of hellfire, including the ability to infuse magic items with the power of hellfire and lash out with the fires of Hell against any foe that strikes them.
@@ -2090,7 +2090,7 @@ Spells: Ability to cast 2nd-level divine spells.
 Invocations: Ability to use least invocations.
 Special: Ability to turn or rebuke undead, must worship a chaotic or evil deity.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Gift of the Divine Patron (Su)
@@ -2127,7 +2127,7 @@ Spells: Ability to cast 2nd-level arcane spells.
 Invocations: Ability to use least invocations.
 Special: Eldritch blast +2d6.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Damage Reduction (Su) (1/cold iron)
@@ -2587,7 +2587,7 @@ The Age of Mortals brought with it a new kind of magic, the ambient magic thread
 - Proficiencies: A Nightstalker gains proficiencies with Simple Weapons, rapier, shortbow and short sword. He is also proficient with light armor and shields.
 - Skill Points: 4 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Death Sight, Trapfinding, Spiritual Resilience +1
@@ -3727,7 +3727,7 @@ REQUIREMENTS:
 Alignment: Any evil.
 Skills: Hide 8 ranks, Move Silently 8 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Death Attack +1d6 - Special sneak attack that has a chance of paralyzing opponent.
@@ -3788,7 +3788,7 @@ Base Attack Bonus: +6
 Skills: Hide 5 ranks.
 Feats: Cleave.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Use Poison - Automatic success when coating a weapon with poison.
@@ -5138,7 +5138,7 @@ Skills: Animal Empathy 8 ranks, Concentration 4 ranks, Lore 13 ranks.
 Feats: Alertness, Endurance, Power Attack, Skill Focus (Lore), Weapon Proficiency (martial) or Weapon Proficiency (maul).
 Spells: Ability to cast entangle, plant growth*, and command plants*.
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1: 	Tree Brother (Sp): The forest master may assume tree shape once per day.
 	Nature Sense* (Ex): The forest master can identify plants and animals with perfect accuracy. He can determine whether water is safe to drink or dangerous.
@@ -5345,7 +5345,7 @@ Spells: Able to cast 4th-level arcane spells.
 Feats: Great Fortitude, Lightning Reflexes, Combat Casting, Any Martial Weapon Proficiency.
 Skills: Spellcraft (10 ranks).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Improved Saves - The Mage Killer can choose to gain a +1 bonus to either Reflex or Fortitude saves.
@@ -5383,7 +5383,7 @@ Alignment: Any non-evil.
 Skills: Concentration (4 ranks), Spellcraft (8 ranks), Lore (8 ranks), Persuade (2 ranks).
 Spells: Able to cast 3rd level arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Feat - Skill Focus: Lore - Provides a +3 bonus to all Lore skill checks.
@@ -5416,7 +5416,7 @@ Feats: Weapon Proficiency: All Simple and Martial Weapon Proficiencies, Armor Pr
 Skills: Lore (6 ranks).
 Base attack bonus: +4.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ignore Arcane Spell Failure (10%).
@@ -5479,7 +5479,7 @@ Arcane Spellcasting: Able to cast 3rd-level arcane spells.
 Skills: Lore (8 ranks).
 Alignment: Any non-good.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Wear Fiend - Grants +1 Natural Armor, +2 Dexterity and Dark Vision.
@@ -5660,7 +5660,7 @@ REQUIREMENTS:
 Skills: Hide 8 ranks, Search 8 ranks, Sense Motive 4 ranks, Spellcraft 4 ranks, Spot 8 ranks
 Spellcasting: Ability to cast 1st-level arcane spells
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1: Sneak Attack +1d6
 2: Silent Spell as a bonus feat
@@ -5699,7 +5699,7 @@ REQUIREMENTS:
 Feats: All Martial Weapon Proficiencies
 Arcane Spellcasting: Able to cast 3rd-level spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Eldritch Knights receive a bonus feat at first level. The feats to pick from are all fighter bonus feats (except Weapon Specialization).
 
@@ -5721,7 +5721,7 @@ REQUIREMENTS:
 Spellcasting: Able to cast 3rd-level arcane spells
 Skills: Lore 8 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Elemental Transition 1 - Grants Immunity to Sleep.
@@ -5804,7 +5804,7 @@ Alignment: Evil
 Skills: Concentration 10 ranks, Spellcraft 10 ranks.
 Spells: Ability to cast divine spells, and access to at least one of these domains: Death, Evil, Protection
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Turn Undead - As a cleric of the same class level as the Master of Shrouds. This stacks with any levels of Cleric and/or Paladin.
@@ -6026,7 +6026,7 @@ Skills: Spellcraft 8 ranks
 Feats: Tattoo Focus and a total of 3 metamagic or item creation feats.
 Spells: Must be able to cast at least 3rd level Arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Enhanced Specialization - Taking this feat determines which spell school has the Spell Power and Specialists defense bonus applied to it.
@@ -6063,7 +6063,7 @@ Skills: Lore 8 ranks
 Feats: Death Domain
 Spells: Must be able to cast at least 3rd level Arcane spells, and 3rd level Divine spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Rebuke - True Necromancer levels stack with cleric levels for turning and rebuking undead.
@@ -6094,7 +6094,7 @@ Skills: Lore 4 ranks, Disable Trap 7, Pick Lock 7.
 Sneak Attack: 2d6
 Spells: Must be able to cast at least 3rd level Arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ranged Legerdemain - Trap &amp; Pick Lock at 30' range, once per day.
@@ -6128,7 +6128,7 @@ Skills: Concentration 4 Ranks.
 Feats: Toughness, Great Fortitude.
 Spells: Must be able to cast at least 3rd level Arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Blood Component - The Blood Magus can take 1 point of damage to give a 1 DC boost to a spell.
@@ -6162,7 +6162,7 @@ Skills: Bluff 3 ranks, Intimidate 3 ranks, Lore 8 ranks
 Feats: Evil Brand
 Spells: Must be able to cast at least 3rd level Arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Diabolism 1d6 - Adds 1d6 Corrupt (Divine) damage to a spell
@@ -6191,7 +6191,7 @@ Skills: Spot 4 ranks, Intimidate 4 ranks, Lore 4 ranks
 Feats: Power Attack, Cleave, Any Martial Weapon Proficiency
 Base Attack Bonus: +5
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Brutal Strike +1 - +1 to either attack or damage rolls. Permanent bonus.
@@ -6373,7 +6373,7 @@ Alignment: Any Good.
 Base Attack Bonus: +6.
 Skills: Persuade 4 ranks, Bluff 4 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Blindfight
@@ -6475,7 +6475,7 @@ Base Attack Bonus: +4
 Skills: Spot 2 ranks, Intimidate 1 rank, Listen 2 ranks, Persuade 1 rank, Ride 2.
 Feat: Mounted Combat, Leadership (6th level minimum).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Rallying Cry - +1 Attack Bonus to all allies within 60 feet, can be used three times a day.
@@ -6524,7 +6524,7 @@ Any force on the move, whether it's an army or an adventuring group, needs infor
 - Proficiencies: A Scout is proficient with simple and rogue weapons, as well as light armor, but no shields.
 - Skill Points: 8 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
   1: Skirmish (+1d6)
@@ -6592,7 +6592,7 @@ Base Attack Bonus: +7
 Feats: Weapon Focus: Longbow or Weapon Focus: Shortbow, Point Blank Shot, Rapid Shot.
 Skills: Craft Weapon 10 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Expert Bowyer - +3 to Craft Weapon checks.
@@ -6696,7 +6696,7 @@ Skills: Concentration 8 ranks.
 Manifesting: Must be able to manifest 1st level powers.
 Base Attack Bonus: +3.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Armoured Mind 1/day - Expend Psionic focus to add a bonus to a single saving throw.
@@ -6762,7 +6762,7 @@ Skills: Lore 4 ranks.
 Base Attack Bonus: +4.
 Special: Must possess a power point reserve of at least 1 power point.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Partition Mind - You gain immunity to mind spells for a short time per day.
@@ -6823,7 +6823,7 @@ Feats: Requiem (Perform 8, Bardic Music class feature)
 Skills: Lore 4 ranks, Perform 8.
 Special: Must possess the Bardic Music class feature.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Song of Sorrow - All creatures take a -2 penalty to Will saves, attack and damage.
@@ -6877,7 +6877,7 @@ Base Attack Bonus: +6.
 Feats: Any 4 Martial or Exotic Weapon Proficiencies, Combat Casting, Iron Will
 Skills: Concentration 4 ranks, Jump 4 ranks, Spellcraft 5 ranks, Tumble 4 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ignore Spell Failure 5%, Tenacious Spells - Add 6 to the DC to dispel a Suel Archanamach spell.
@@ -6948,7 +6948,7 @@ The Favoured Soul follows the path of the cleric but is able to channel divine p
 - Proficiencies: A Favoured Soul gains proficiencies with Simple Weapons, Light and Medium Armour, and Shields.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:
@@ -7064,7 +7064,7 @@ Alignment: Lawful Evil or Neutral Evil.
 Feats: Evil Brand, Disciple of Darkness, Leadership
 Skills: Bluff 4 ranks, Persuade 5 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Charm - As the spell
@@ -7139,7 +7139,7 @@ Feats: Any Martial Weapon Proficiency, Empower Spell, Maximize Spell.
 Skills: Spellcraft 10 ranks.
 Arcane Spellcasting: Able to cast 4th-level spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Weapon Focus - Choose a bonus Martial Weapon Focus
@@ -7181,7 +7181,7 @@ A Healer who grossly violates her ethos (such as by refusing to heal an ally or 
 - Proficiencies: A Healer gains proficiency with Simple Weapons and Light Armor. Wearing heavier armor and shields violates her oaths and suppresses her healer powers.
 - Skill Points: 4 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
   1: Healing Hands
@@ -7376,7 +7376,7 @@ Base Attack Bonus: +6
 Feats: Dodge, Weapon Finesse, Mobility.
 Skills: Tumble 5 ranks. Perform 3 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Canny Defense - Dodge bonus to AC based on intelligence bonus, limited by class level.
@@ -7475,7 +7475,7 @@ Divine Spellcasting: Able to cast 7th-level spells.
 Feats: Any Metamagic feat
 Skills: Lore 15 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 May select one of the following abilities every level.
 *Blast Infidel - Negative is maximized against opposed alignments
@@ -7548,7 +7548,7 @@ Base Attack Bonus: +5
 Feats: Improved Unarmed Strike, Stunning Fist.
 Skills: Listen 8 or more ranks, Tumble: 8 or more ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Stunning Shout - Stun enemies by releasing ki in a shout once a day. All enemies within the cone of effect are stunned for two full rounds unless they make a successful Fortitude save (DC 15 + Wisdom Modifier).
@@ -7631,7 +7631,7 @@ Skills: Lore 10 or more ranks
 Divine Spellcasting: Level 1 or higher.
 Spells: Ability to cast Protection from Evil
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Demonslaying +1/1d6 (Physical) - Gain combat bonuses against demons.
@@ -7693,7 +7693,7 @@ Base Attack Bonus: +5
 Skills: Lore 5 ranks
 Special: Turn Undead Ability
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Detect Undead - May sense undead at will
@@ -7781,7 +7781,7 @@ Skills: Persuade 5 or more ranks
 Feats: Iron Will
 Class: Paladin (Must be in first class slot)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Detect Evil - May sense evil at will.
@@ -7949,7 +7949,7 @@ Feats: Mobility, Lolth's Meat
 Skills: Intimidate 4, Lore 4
 Spellcasting: Able to cast 1st-level arcane or divine spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: War Strike 1/day - 2d6 Constitution damage to victim.
@@ -8081,7 +8081,7 @@ Skills: Bluff 3, Persuade 6.
 Divine Spellcasting: Ability to cast spells of Level 3.
 Special: Must worship Sune Firehair. (Clerics must have two of Charm, Good and Protection domains.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Charisma Increase - Bonus +1 to Charisma.
@@ -8167,7 +8167,7 @@ Base Attack Bonus: 4
 Divine Spellcasting: Level 2
 Special: Must worship Tempus. (Clerics must have the War domain, as well as one of Strength or Protection)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Army Power - Able to inspire allies within 30 feet, giving them +2 on saving throws, attacks rolls, ability checks (turning), skill checks and damages rolls. Allies must be able to hear you.
@@ -8290,7 +8290,7 @@ Special: Must have at least ONE of the following:
   2) The ability to cast Level 4 Arcane Spells
   3) Shadowdancer Level 1
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Shadow Sight - Gains Darkvision and Ultravision in darkness.
@@ -8443,7 +8443,7 @@ Earth----Acid
 Fire------Fire
 Water--Cold
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Elemental Companion (Medium) - Replaces your familiar with a Medium Elemental.
@@ -8500,7 +8500,7 @@ Alignment: Any evil.
 Base Attack Bonus: +6
 Feats: Disciple of Darkness
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Hellfire Grasp - Can make a touch attack at will, dealing 1d6 fire damage, also character gains a +1d6 damage bonus to all unarmed strikes (while wearing gloves).
@@ -8605,7 +8605,7 @@ CLASS SKILLS
 
 Craft, Discipline, Heal, Intimidate, Jump, Lore, Perform, Spot, Tumble
 
-CLASS FEATURES
+CLASS FEATURES:
 
 Base Attack: +1 per level
 Saving Throws: Fortitude - strong, Will - weak, Reflex - weak
@@ -8704,7 +8704,7 @@ REQUIREMENTS
 - Ability to Rage
 - Chaotic Evil, Chaotic Neutral, or Neutral Evil
 
-CLASS FEATURES
+CLASS FEATURES:
 Feral Rage (Ex): Black Blood cultist class levels stack with barbarian levels for purposes of determining your rage ability. Thus, an 8th-level barbarian/4th-level Black Blood cultist can use greater rage four times per day, just as a 12th-level barbarian could.
 
 Black Blood cultists strengthen their fingers and toughen their nails with special training. As a result, when raging, you gain two claw attacks dealing 1d6 points of damage plus your Strength modifier. 
@@ -8742,7 +8742,7 @@ CLASS SKILLS
 
 Balance, Hide, Intimidate, Lore, Listen, Move Silently, Ride, Search, Spot
 
-CLASS FEATURES
+CLASS FEATURES:
 1st - Shadow Ride (Su) - Dimension Door once per day per class level
 2nd - Sneak Attack 1d6
 3rd - Shadow Walk (Su) - Teleport once per day, Martial Bonus Feat
@@ -8776,7 +8776,7 @@ Feats: Persuasive
 CLASS SKILLS
 Appraise, Bluff, Climb, Craft, Persuade, Disable Device, Intimidate, Jump, Lore, Listen, Move Silently, Open Lock, Pick Pocket, Search, Sense Motive, Spot
 
-CLASS FEATURES
+CLASS FEATURES:
 1st - Sneak Attack 1d6, Doublespeak - +2 to Bluff and Persuade
 2nd - Bonus Feat, Uncanny Dodge
 3rd - Sneak Attack 2d6, Leadership Score +1
@@ -8793,7 +8793,7 @@ CLASS FEATURES
 - Proficiencies: A Factotum gains proficiencies with Martial and Simple Weapons, Light Armour, and Shields.
 - Skill Points: 6 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Inspiration - At the beginning of each fight, gain a pool of inspiration
@@ -8875,7 +8875,7 @@ Special: You must be able to assume an alternate form. See the following list:
   Invocations: Mask of Flesh, Humanoid Shape, Spider Shape, Hellspawned Grace.
   Races: Pixie, Rakshasa, Fey'ri, Hound Archon, Yuan-ti Pureblood, Irda, Zakya Rakshasa, Changeling, Shifter, Naztharune Rakshasa
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Greater Wildshape - Can change into almost any small or medium humanoid once per day.
@@ -9001,7 +9001,7 @@ Must be humanoid
 To gain lich powers:
 Creation of first stage of phylactery. (First level up in the Lich class, then create your phylactery using the Craft Lich Items feat to gain your Lich powers. Each level, this phylactery must be upgraded. Costs 40,000 gold and 1,600 XP.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Lich Properties +2 - Gain bonuses to Hide, Listen, Move Silently, Search, Persuade, and Spot.
@@ -9098,7 +9098,7 @@ Base Attack Bonus: +5.
 Skills: Lore 3, Spellcraft 1.
 Feats: Iron Will.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Black Magic Oil -
@@ -9236,7 +9236,7 @@ Base Attack Bonus: +7
 Feats: Sacred Vow, Vow of Obedience
 Skills: Craft armor 5 ranks, Persuade 5 ranks
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Imperious Aura - Gains a bonus equal to his class level on all Appraise, Persuade, Intimidate, Taunt and Perform checks vs. a creature of any dragon type.
@@ -9440,7 +9440,7 @@ Feats: Great Fortitude, Weapon Focus (Spear)
 Divine Spellcasting: Can cast 3rd level spells.
 Special: Must worship Talos. (Clerics taking this class must have two of the following domains: Destruction, Fire, Evil, Storm.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Electrical Resistance 10 - Stormlord gains 10 points of Electrical resistance.
@@ -9474,7 +9474,7 @@ Divine Spellcasting: Can cast 1st level spells.
 Base Attack Bonus: 6
 Spell: Able to cast Divine Favor
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Magic Circle Against Evil - Constant magic circle, as the spell.
@@ -9543,7 +9543,7 @@ Divine Spellcasting: Able to cast 1st-level spells.
 Feats: Lich Loved, Thrall to Demon
 Skills: Lore 4 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Carrion Stench - Fort Save or suffer -2 penalty to all scores.
@@ -9636,7 +9636,7 @@ Skills: Tumble 4 ranks, Jump 8 ranks.
 
 Note: None of the Shou Disciple's abilities work if you are wearing medium or heavy armor or have a shield equipped.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Unarmed Strike (Table Below), Dodge Bonus (Table Below)
@@ -9706,7 +9706,7 @@ Sneak Attack: 1d6.
 Divine Spellcasting: Must be able to cast level 2 spells.
 Special: Must worship Kossuth. (Clerics taking this class must two of Fire, Destruction and Renewal domains.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Death Attack - After studying your target for 3 rounds, you have 3 rounds to slay them vs. DC 10 + Black Flame level + Assassin level + Int Mod.
@@ -9779,7 +9779,7 @@ It is the duty of knights Hospitaler to protect people traveling on religious pi
 
 - Hit Die: d8
 - Proficiencies: Hospitalers are proficient in all simple and martial weapons, all armor and shields.
-- Skill Points at Each Level: 2+ Int modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS
 
@@ -9788,7 +9788,7 @@ Base Attack Bonus: +4
 Skills: Ride 5 ranks, Heal 5 ranks.
 Feats: Mounted Combat, Mounted Archery
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Lay on Hands - If Hospitaler has positive Charisma modifier, then she can cure a number of hit points equal to her Charisma modifier x Hospitaler level.
@@ -9870,7 +9870,7 @@ Heironeous's teachings focus on promoting good through the use of armed force. T
 
 - Hit Die: d10
 - Proficiencies: Shining Blades are proficient in all simple and martial weapons, all armor and shields.
-- Skill Points at Each Level: 2+ Int modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS
 Alignment: Lawful Good.
@@ -9879,7 +9879,7 @@ Skills: Lore 7 ranks.
 Spells: Able to cast 1st level divine spells.
 Special: Clerics must have Good and War domains.
 
-ABILITIES:
+CLASS FEATURES:
 
 All abilities only work with a Longsword (Deity Weapon).
 
@@ -9942,7 +9942,7 @@ Combining the dynamic powers of martial prowess and arcane might, the Hexblade p
 - Proficiencies: A Hexblade gains proficiency with Simple and Martial Weapons, Light and Medium Armour and with Shields.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Hexblade's Curse 1/day
@@ -10114,7 +10114,7 @@ While the Red Wizards of Thay are not opposed to blasting their opponents with d
 
 - Hit Die: d10
 - Proficiencies: Thayan Knights gain no proficiencies.
-- Skill Points at Each Level: 2+ Int modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS
 Race: Human.
@@ -10123,7 +10123,7 @@ Base Attack Bonus: +5
 Skills: Lore 4 ranks, Intimidate 2 ranks.
 Feats: Iron Will, Weapon Focus: Longsword
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Horror of Thay - +2 saves against Fear, +1 against Mind Affecting.
@@ -10167,7 +10167,7 @@ The arcane duelist is a tricky, evasive opponent who relies on her foe's percept
 
 - Hit Die: d8
 - Proficiencies: Arcane Duelists gain no proficiencies.
-- Skill Points at Each Level: 4+ Int modifier.
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS
 Base Attack Bonus: +6
@@ -10175,7 +10175,7 @@ Skills: Perform 5 ranks, Tumble 5 ranks.
 Feats: Martial Weapon Proficiency(Rapier or Shortsword), Dodge, Mobility
 Spellcasting: Level 1 Arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Chosen Weapon: Since much of the arcane duelist's apparent ability is tied to magic, the arcane duelist can imbue a specific melee weapon with powers to make herself appear more skilled. The arcane duelist must choose a specific melee weapon to be her chosen weapon.
@@ -10287,9 +10287,9 @@ The striking fist or flashing sword pales beside a psion's focused stare. Psioni
 
 - Hit Die: d4
 - Proficiencies: Psions gain wizard weapon proficiency.
-- Skill Points at Each Level: 2+ Int modifier.
+- Skill Points: 2+ Int modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Base Attack Bonus: +1/2
 Strong Saves: Will
@@ -10326,9 +10326,9 @@ One who turns the mind's potential to the warrior's art is known as a psychic wa
 
 - Hit Die: d8
 - Proficiencies: Psychic Warriors gain Martial and Simple Weapon Proficiency, and all Armour and Shield proficiencies.
-- Skill Points at Each Level: 2+ Int modifier.
+- Skill Points: 2+ Int modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Base Attack Bonus: +3/4
 Strong Saves: Fortitude
@@ -10365,7 +10365,7 @@ A soulknife recognizes his own mind as the most beautiful - and the most deadly 
 
 - Hit Die: d10
 - Proficiencies: Soulknives gain Proficiency with Simple weapons and their mindblades, and Light Armour and Shield proficiencies
-- Skill points at Each Level: 4 + Int modifier
+- Skill Points: 4+ Int modifier.
 
 
 CLASS SKILLS
@@ -10373,32 +10373,32 @@ CLASS SKILLS
 Concentration, Craft Armor, Craft Trap, Craft Weapon, Discipline, Hide, Jump, Lore, Move Silently, Parry, Spot, Tumble
 
 
-CLASS FEATURES
+CLASS FEATURES:
 
 Base Attack Bonus: +3/4
 Strong Saves: Reflex and Will
 
-
-Level 1: Mind blade, Weapon Focus(mind blade), Wild Talent
-Level 2: Throw mind blade
-Level 3: Psychic strike +1d8
-Level 4: +1 mind blade
-Level 5: Free draw, shape mind blade
-Level 6: Mind blade enhancement +1, Speed of Thought
-Level 7: Psychic strike +2d8
-Level 8: +2 mind blade
-Level 9: Bladewind, Greater Weapon Focus(mind blade)
-Level 10: Mind blade enhancement +2
-Level 11: Psychic strike +3d8
-Level 12: +3 mind blade
-Level 13: Knife to the soul
-Level 14: Mind blade enhancement +3
-Level 15: Psychic strike +4d8
-Level 16: +4 mind blade
-Level 17: Multiple throw
-Level 18: Mind blade enhancement +4
-Level 19: Psychic strike +5d8
-Level 20: +5 mind blade
+Level:
+ 1: Mind blade, Weapon Focus(mind blade), Wild Talent
+ 2: Throw mind blade
+ 3: Psychic strike +1d8
+ 4: +1 mind blade
+ 5: Free draw, shape mind blade
+ 6: Mind blade enhancement +1, Speed of Thought
+ 7: Psychic strike +2d8
+ 8: +2 mind blade
+ 9: Bladewind, Greater Weapon Focus(mind blade)
+10: Mind blade enhancement +2
+11: Psychic strike +3d8
+12: +3 mind blade
+13: Knife to the soul
+14: Mind blade enhancement +3
+15: Psychic strike +4d8
+16: +4 mind blade
+17: Multiple throw
+18: Mind blade enhancement +4
+19: Psychic strike +5d8
+20: +5 mind blade
 
 
 Mind blade (Su): A soulknife can create a semisolid blade composed of psychic energy distilled from his own mind. The blade is identical in all ways to a short sword. A mind blade is considered a magic weapon (+1) for the purpose of overcoming damage reduction.
@@ -10461,7 +10461,7 @@ Proficiencies: Wilders are proficient with all simple weapons, with light armor,
 CLASS SKILLS
 Bluff, Concentration, Craft Armor, Craft Trap, Craft Weapon, Intimidate, Jump, Listen, Lore, Spellcraft, Spot, Tumble
 
-CLASS FEATURES
+CLASS FEATURES:
 
 Level:
 1: Wild Surge +1, Psychic Enervation
@@ -12841,7 +12841,7 @@ Skills: Persuade 4 ranks, Lore 8 ranks.
 Manifesting: Must be able to manifest 3rd level powers.
 Special: Must be a Telepath Discipline Psion and able to manifest a Telepath Discipline Power.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Thrallherd - Gain a thrall whose level is based upon Thrallherd's leadership score.
@@ -12940,7 +12940,7 @@ Skills: Concentration 9 ranks.
 Base Attack Bonus: +4.
 Special: Must have the Still Mind class ability (Monk level 3).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Monk Abilities - A Fist of Zuoken stacks his Fist levels with those of monk for the purposes of unarmed damage.
@@ -14018,7 +14018,7 @@ A student of arcane spellcasting techniques, the Duskblade combines arcane spell
 - Proficiencies: A Duskblade is proficient with Simple and Martial Weapons, all Armor and Shields.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Armored Mage (light)
@@ -14100,7 +14100,7 @@ Level:  0   1   2   3   4   5
 Prerequisite: Duskblade level 21
 The Epic Duskblade is a Juggernaut on the battlefield, wasting his foes with steel and spell.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 21: Spell Power +6
@@ -14190,7 +14190,7 @@ Alignment: Non-lawful
 Base Attack Bonus: +6.
 Feats: Cleave, Intimidating Rage, Power Attack.
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels
 1: Frenzy - Increases strength +6 (+10 at 8), reduces AC -4, takes 2 damage per round and attacks nearest target (friends included), useable once per day.
@@ -14282,7 +14282,7 @@ REQUIREMENTS:
 Base Attack Bonus: +9.
 Feats: Ambidexterity, Dodge, Mobility, Spring Attack, Two-Weapon Fighting, and Weapon Finesse (any) or Weapon Focus (any). Rangers are considered to have Ambidexterity and Two-Weapon-Fighting at Level 1.
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels
 1: Improved Two-Weapon Fighting - Character is able to get a second off hand attack at a -5 penalty to attack roll.
@@ -14341,7 +14341,7 @@ REQUIREMENTS:
 Base Attack Bonus: +7.
 Feats: Favored Enemy, Trackless Step, Weapon Focus (any).
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels
 1: Hated Enemy - The Foe Hunter gains all bonuses against their hated enemy.
@@ -14433,7 +14433,7 @@ Base Attack Bonus: +6.
 Feats: Weapon Proficiency (Double-Axe), Weapon Focus (Orc Double-Axe).
 Special: Follower of Gruumsh that has put his own right eye out during a ritual. (Clerics taking this class must have two of the following domains: War, Strength, Evil.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels:
  1: Blind-Fight, Command the Horde, Rage
@@ -14499,7 +14499,7 @@ Feats: Blood of the Warlord, Leadership
 Skills: 8 Intimidate, 5 Ride
 Special: Ability to Rage
 
-ABILITIES:
+CLASS FEATURES:
 Levels:
 1: Gather Horde I, Release Horde
 2: Inspire Courage
@@ -14668,7 +14668,7 @@ Special: You must be able to assume an alternate form. See the following list:
     Yuan-ti Pureblood
     Zakya Rakshasa
 
-ABILITIES:
+CLASS FEATURES:
 
 Level:
 1: Greater Wild Shape - Can change into small, medium and humanoid once per day. Creature Weapon Proficiency - Can use creature weapons.
@@ -14940,7 +14940,7 @@ Skills: Lore 5, Bluff 2, Persuade 2.
 Feats: Thrall to Demon.
 Spellcasting: Must be able to cast 3rd level arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels:
  1: Charm
@@ -15070,7 +15070,7 @@ Feats: Any two item creation
 Skills: Use Magic Device 4 ranks, any Craft 8 ranks.
 Race: Gnome
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bonus Feat - The Maester receives a bonus item creation feat.
@@ -15232,7 +15232,7 @@ Base Attack Bonus: +5
 Feats: Weapon Proficiency (Exotic), Weapon Focus (Whip).
 Skills: Craft Weapon 2 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Whip Sneak Attack +1d6
@@ -15361,7 +15361,7 @@ Armor Skin, Damage Reduction, Devastating Critical (whip), Epic Toughness, Epic 
 
   Use: Selected.
 
-  ABILITIES:
+  CLASS FEATURES:
 
   Level
   1: Drain charged item, increased storage 2
@@ -15568,7 +15568,7 @@ Feats: True Lycanthrope or Iron Will
 Alignment: Any non-lawful and non-good
 Other: If not a true lycanthrope, you must be infected by someone who is.
 
-WEREWOLF CLASS
+CLASS FEATURES:
 
 Level
 1: Lycanthropy, Alternate Form (Wolf), Low-light Vision, Shapechanger subtype, Werewolf Feat(Spot)
@@ -15927,7 +15927,7 @@ Alignment: Any Good.
 Skills: Lore 8 ranks.
 Special: Able to turn undead, Sneak attack +2d6.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:
@@ -16097,7 +16097,7 @@ Divine Spellcasting: Able to cast 4th-level spells.
 Feats: Great Fortitude,  Martial Weapon Proficiency(Halberd).
 Special: Must worship Talona. A cleric who takes this class must have the Destruction and Evil domains.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Blightbringer Prestige Domain, Blightblood - Immune to Disease
@@ -16180,7 +16180,7 @@ Skills: Lore 9 ranks.
 Alignment: Chaotic Good
 Special: Must Worship Kord (Clerics need Strength and Good domains)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Feat of Strength: Add your cleric and Mighty Contender levels to determine the boost from the Strength Domain power.
@@ -16267,7 +16267,7 @@ Alignment: Lawful Good
 Skills: Perform 5 ranks, Lore 10 ranks
 Race: Dwarf
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Lore - The Ollam adds his class bonus to Lore checks.
@@ -16325,7 +16325,7 @@ Arcane Spellcasting: Able to cast 7th-level spells
 Feats: Skill Focus (Spellcraft), Spell Focus (Any School)
 Skills: Spellcraft 15 ranks, Lore 15 ranks
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: High Arcana*, Mastery of Elements (Normal)
@@ -16459,7 +16459,7 @@ Spellcasting: Able to cast 3rd-level arcane or divine spells.
 Skills: Lore 7 ranks.
 Feats: Great Fortitude.
 
-ABILITIES:
+CLASS FEATURES:
 
 Levels
 1: Minor Oozy Touch - Can secrete a specific minor ooze for a touch attack often as desired.
@@ -16609,7 +16609,7 @@ Base Attack Bonus: +7
 Skills: Lore 13 Ranks
 Feats: Purity of Body
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Riddle of Awareness - The Henshin Mystic can use scrying as a spell-like ability once per day. This grants the Henshin Mystic a +4 insight bonus on all Listen, Search and Spot checks for 1 minute per level. Scrying isn't in Neverwinter Nights but the bonuses are translated.
@@ -16623,7 +16623,7 @@ Level
 9: Walk Through the Mountains - The character can assume an ethereal state for 2 rounds per level per day, as per the spell etherealness.
 10: Riddle of Invulnerability - Mystic gains damage reduction 20/+1.
 
-MONK ABILITIES:
+CLASS FEATURES:
 
 The Henshin mystic continues to gain levels as a monk with regard to unarmed damage.R</entry>
   <entry id="47865" lang="en" sex="m">Riddle of Awareness</entry>
@@ -16671,7 +16671,7 @@ Martial arts students face a bewildering array of martial arts schools, each wit
 
 - Hit Die: d8
 - Proficiencies: The Drunken Master gains no proficiencies in weapons or armor.
-- Skill Points at Each Level: 4 + Int modifier.
+- Skill Points: 4 + Int modifier.
 
 REQUIREMENTS:
 
@@ -16679,6 +16679,8 @@ Base Attack Bonus: +4.
 Class: Evasion class ability
 Feats: Great Fortitude, Dodge.
 Tumble: 6 ranks.
+
+CLASS FEATURES:
 
 1: Drink Like a Demon - Your body handles alcohol differently from other people. Every bottle or tankard of alcohol you consume reduces your Dexterity, Wisdom, and Intelligence by 1 point each, but increases your Strength and Constitution by 1 point. However, your Reflex save bonus, Dexterity bonus to Tumble, and AC bonus remain at their original levels regardless of your new Dexterity modifier.
   Bottle Proficiency - You can use bottles as weapons using your unarmed base attack bonus.
@@ -16790,7 +16792,7 @@ Spellcasting: Able to cast 2nd-level arcane spells and 2nd-level divine spells.
 Feats: Ethran.
 
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Cohort - Once per day the Hathran can call for a Rashemen Barbarian to serve as her cohort.
@@ -16819,7 +16821,7 @@ Base Attack Bonus: +5
 Feats: Endurance, Track
 Skills: Lore 4 ranks, Listen 5 ranks, Persuade 5 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Sprint - Can move for a brief period of time as Hasted, three times per day.
@@ -16854,7 +16856,7 @@ Special: Bardic knowledge and evasion abilities.
 - Proficiencies: Fochlucan lyrists gain no proficiency with any weapon or armor. 
 - Skill Points: 6 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Spells per Day/Spells Known: At each level, a Fochlucan lyrist gains new spells per day (and spells known, if applicable) as if she had also gained a level in any one arcane spellcasting class and any one divine spellcasting class to which she belonged before adding the prestige class level. She does not, however, gain any other benefit a character of that class would have gained. If she had more than one arcane spellcasting class or divine spellcasting class before becoming a Fochlucan lyrist, she must decide to which class to add each Fochlucan lyrist level for the purpose of determining spells per day, spells known, and overall caster level. 
 
@@ -16894,7 +16896,7 @@ Use: Selected.</entry>
 Prerequisite: Shugenja level 21
 The Epic Shugenja has mastered the focus of his chosen element and uses it however he pleases. He will often be found in a leading position of his order.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 
@@ -17039,7 +17041,7 @@ Spells: Able to cast 2nd-level spells of the appropriate type.
 Skills: Bluff 8 ranks, Persuade 8 ranks, Lore 12 ranks, Perform 12 ranks, Spellcraft 8 ranks.
 Feats: Alertness, Iron Will.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Harper Knowledge- Bonus for item identification
@@ -17798,7 +17800,7 @@ Note: Sacred AC and Sacred Speed don't work if you wearing a medium or heavy arm
 
 Code of Conduct: Wearing any weapon the Sacred Fist lost all his class benefits until full rest.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Unarmed Damage - Sacred Fist's levels stack with his monk level
@@ -17912,7 +17914,7 @@ Skills: Lore 8, Spellcraft 8.
 Feats: Shadow Weave Magic, any one metamagic feat.
 Spellcasting : Able to cast level 3 Arcane Spells
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Shadow Feat
@@ -17959,7 +17961,7 @@ Skills: Move Silently 7.
 Feat: Point Blank Shot.
 Arcane Spellcasting : Able to cast spell level 1.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Light Adjusted - don't suffer from light blindness as other drow.
@@ -18035,7 +18037,7 @@ Rangers are skilled stalkers and hunters who make their home in the woods. Their
 - Proficiencies: Simple, Martial, Shield and Light Armor.
 - Skill Points: 4 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bonus Feat
@@ -18139,7 +18141,7 @@ Alignment: Non-Evil.
 Skills: Concentration 5, Lore 5, Persuade 5, Perform 10.
 Feats: Dragonsong.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Greater Dragonsong: (song of strength) +4 Str
@@ -18339,7 +18341,7 @@ Fear him.  Loathe him.  Beware him.  This is a true champion of evil!
 - Proficiencies: Simple, Martial, Shield and Light, Medium and Heavy Armor.
 - Skill Points: 2 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Smite Good 1/day
@@ -18377,7 +18379,7 @@ The Corrupter's primary focus is to corrupt the faith of others, his favored tar
 - Proficiencies: Simple, Martial, Shield and Light, Medium and Heavy Armor.
 - Skill Points: 2 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Smite Heathen 1/day - smite divine caster (including paladin or ranger who have yet to progress to cast a divine spell).
@@ -18455,7 +18457,7 @@ Skills: Concentration 5, Lore 5.
 Feats: Great Fortitude, Magical Aptitude.
 Divine Spellcasting : Able to cast spell level 4
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Shard of Entropomancy - Twice a day, Entropomancer create a shard, that deals 3d6 pts of damage (Fort 1/2 DC: 12+Wis mod)
@@ -18557,7 +18559,7 @@ Skills: Disable Trap 5, Lore 1, Open Lock 4, Search 8.
 Base Attack Bonus: +5
 Special: must worship Olidammara
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Trap Finding - allow to disable traps with DC 20+.
@@ -18594,7 +18596,7 @@ Feats: Expertise, Improved Initiative.
 Base Attack Bonus: +4
 Special: A legal authority must pronounce a writ of outlawry upon the character
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ambush +1d6 - as Sneak Attack.
@@ -18675,7 +18677,7 @@ Skills: Concentration 4 (ranks), Heal 8 (ranks).
 Feats: Combat Casting, Dodge.
 Spells: Ability to cast Cure Light Wounds.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Healing Kicker (Sanctuary)
@@ -18727,7 +18729,7 @@ Base Attack Bonus: +5
 Race: Halfling
 Special: Must be able to wield a sling
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: 1d6 Sling Sneak Attack - Only works when wielding a sling
@@ -18918,7 +18920,7 @@ A Warchief leads a primitive, aggressive tribe of humanoids, especially when the
 REQUIREMENTS:
 Base Attack Bonus: +3.
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1: Tribal Frenzy +2 - The Warchief inspires a frenzy in his followers, granting them a bonus to Strength.
 2: Ability Boost +2 - The Warchief gains +2 to his Charisma score.
@@ -18962,7 +18964,7 @@ Skills: Lore 8 ranks.
 Base Attack Bonus: +3.
 Alignment: Non-Chaotic.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Chain of Personal Superiority - +2 Str and Con for 1 minute. 3 times per day.
@@ -19091,7 +19093,7 @@ At 2nd level a Hexblade gains a bonus equal to his Charisma bonus (minimum +1) o
 Prerequisite: Hexblade level 21
 The Epic Hexblade is a true bane for his enemies. The daily uses of his abilities continue to increase, while his curse and Dark Companion become even more potent as he progresses.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 21: Epic Dark Companion, Hexblade's Curse 6/day
@@ -19317,7 +19319,7 @@ REQUIREMENTS:
 Base Attack Bonus: 8
 Feats: Power Attack, Weapon Focus (any four weapons).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: General Specialization: Gains a +1 to attack and damage with any weapon.
@@ -19456,7 +19458,7 @@ Alignment: Neutral Good
 Skills: Lore 4 ranks.
 Special: Must worship Elishar. (Clerics taking this class must have two of the following domains: Good, Healing, Knowledge, Luck, Protection, Sun.)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Turn Undead - As a cleric of the same class level as the Soldier of Light. This stacks with any levels of Cleric and/or Paladin.
@@ -19646,7 +19648,7 @@ Class: Druid or Ranger.
 Skills: Animal Empathy 10.
 Feats: Skill Focus(Animal Empathy), Animal Companion.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Animal Empathy - Tamer may have up to 5 animals.
@@ -19800,7 +19802,7 @@ Special: Ability to bind soulmelds to totem chakra, rage class feature.
 - Proficiencies: You gain no new  proficiencies with weapons, armor, or shields.
 - Skill Points: 4 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Totem rage, wild empathy
@@ -19845,7 +19847,7 @@ Skills: Concentration 4, Tumble 2, Perform 3.
 Feats: Combat Casting, Dodge, Weapon Focus (Longsword or Rapier), Still Spell.
 Arcane Spellcasting : Able to cast spell level 1
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bladesong Style - gains a AC bonus equal to his class level (max bonus Int)
@@ -20045,7 +20047,7 @@ REQUIREMENTS:
 Skills: Concentration 6, Lore 6, Tumble 4, Jump 8.
 Feats: Alertness, Improved Unarmed Strike, Power Attack.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Evasion - Upon successful Reflex saving throws, the character takes no damage.
@@ -20135,7 +20137,7 @@ The Legendary Dreadnought is the ultimate foot soldier, an absolute force of des
 
 - Hit Die: d12.
 - Proficiencies: All simple and martial weapons, all armor and shields.
-- Skill Points at Each Level: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS
 
@@ -20143,7 +20145,7 @@ Base Attack Bonus: +23
 Skills: Intimidate 15 ranks.
 Feats: Lightning Reflexes, Great Cleave, Improved Bullrush, Improved Critical.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Unstoppable - Once per day, gains a 20+ bonus to attack rolls for 1 round.
@@ -20181,7 +20183,7 @@ The Disciple of Baalzebul, is a liar, a cheat, and a thief. She is more likely t
 
 - Hit Die: d6.
 - Proficiencies: All simple and martial weapons, and light armor.
-- Skill Points at Each Level: 6+ Int Modifier.
+- Skill Points: 6+ Int Modifier.
 
 REQUIREMENTS
 
@@ -20189,7 +20191,7 @@ Alignment: Any evil.
 Skills: Bluff 10 ranks, Diplomacy, Persuade 8 ranks.
 Feats: Disciple of Darkness.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Tongue of the Devil - Add Intelligence modifier as well as Charisma to Bluff checks.
@@ -20252,7 +20254,7 @@ Iaijutsu is the martial art of drawing a weapon, almost always a katana and atta
 
 - Hit Die: d10
 - Proficiencies: Iaijutsu Masters are proficient in all simple and martial weapons, gain no proficiencies in armor or shields.
-- Skill Points at Each Level: 4+ Int Modifier.
+- Skill Points: 4+ Int Modifier.
 
 REQUIREMENTS:
 
@@ -20261,7 +20263,7 @@ Base Attack Bonus: +6
 Skills: Iaijutsu Focus 9 Ranks
 Feats: Improved Initiative, Weapon Focus: Katana
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Katana Finesse - Character can use their Dexterity modifier instead of Strength for attack bonuses while using a katana.
@@ -20327,7 +20329,7 @@ The Disciple of Dispater is a war-like general of evil. He is defensively minded
 
 - Hit Die: d10
 - Proficiencies: Disciple of Dispater is proficient in all simple and martial weapons, all armor and shields.
-- Skill Points at Each Level: 4 + Int Mod.
+- Skill Points: 4 + Int Mod.
 
 REQUIREMENTS:
 
@@ -20335,7 +20337,7 @@ Alignment: Any Evil
 Base Attack Bonus: +6
 Feats: Disciple of Darkness, Expertise, Power Attack.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Device Lore - A +2 Bonus to Disable Device checks.
@@ -20394,7 +20396,7 @@ Feared by many, understood by few, the infamous Ravager is an individual who has
 
 - Hit Die: d10
 - Proficiencies: The ravager is proficient in all simple and martial weapons, all armor and shields.
-- Skill Points at Each Level: 2 + Int Mod.
+- Skill Points: 2 + Int Mod.
 
 REQUIREMENTS
 
@@ -20447,32 +20449,33 @@ Known for their matchless bravery and strict code of honor, the samurai were the
 - Alignment: Any Lawful.
 - Hit Die: d10
 - Proficiencies: All simple and martial weapons, with medium and light armor.
-- Skill Points at Each Level: 2 + Int Mod.
+- Skill Points: 2 + Int Mod.
 
 CLASS SKILLS: Concentration, Craft, Persuade, Intimidate, Lore
 
 CLASS FEATURES:
 
-Level 1: Daisho Proficiency
-Level 2: Two-Weapon Fighting
-Level 3: Kiai Smite 1/Day
-Level 4: --
-Level 5: --
-Level 6: Staredown
-Level 7: Kiai Smite 2/Day
-Level 8: Improved Initiative
-Level 9: --
-Level 10: Mass Staredown
-Level 11: Improved Two-Weapon Fighting
-Level 12: Kiai Smite 3/Day
-Level 13: --
-Level 14: Improved Staredown
-Level 15: --
-Level 16: Greater Two-Weapon Fighting
-Level 17: Kiai Smite 4/Day
-Level 18: --
-Level 19: --
-Level 20: Frightful Presence
+Level:
+ 1: Daisho Proficiency
+ 2: Two-Weapon Fighting
+ 3: Kiai Smite 1/Day
+ 4: --
+ 5: --
+ 6: Staredown
+ 7: Kiai Smite 2/Day
+ 8: Improved Initiative
+ 9: --
+10: Mass Staredown
+11: Improved Two-Weapon Fighting
+12: Kiai Smite 3/Day
+13: --
+14: Improved Staredown
+15: --
+16: Greater Two-Weapon Fighting
+17: Kiai Smite 4/Day
+18: --
+19: --
+20: Frightful Presence
 
 Daisho Proficiency (Ex): In melee combat, a samurai favors the katana and the wakizashi (a short sword). Many samurai receive an heirloom set of these two blades, known as the daisho. Because a samurai is trained in their use, he gains Katana Weapon Proficiency as a bonus feat.
 
@@ -20524,7 +20527,7 @@ Deadly barbarians who bear magical runes carved into their flesh, Runescarred Be
 
 - Hit Die: d10
 - Proficiencies: No weapon or armor proficiencies gained.
-- Skill Points at Each Level: 4 + Int Modifier
+- Skill Points: 4 + Int Modifier
 
 REQUIREMENTS:
 Base Attack Bonus: +7
@@ -20871,7 +20874,7 @@ Alignment: Chaotic good
 Skills: Diplomacy 7 ranks , Perform 7 ranks 
 Feats: Sacred Vow, Vow of Purity
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Cat Familiar - Gain a cat as a familiar
@@ -21018,7 +21021,7 @@ Base Attack Bonus: +5
 Feats: Weapon Focus: Longbow or Weapon Focus: Shortbow, Point Blank Shot, Rapid Shot.
 Skills: Craft Weapon 5 ranks, Lore 2 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ranged Precision 1d8 - An Order of the Bow Initiate can make a single attack a round with a damage bonus
@@ -21745,7 +21748,7 @@ Arcane Spellcasting: Able to cast 2nd-level spells.
 Base Attack Bonus: +4
 Skills: Lore 5 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Battlecast 2nd level - A havoc mage gains the ability to cast 2nd level or lower spells while making a single weapon attack. Casting a spell in this manner does not provoke an attack of opportunity.
@@ -23426,7 +23429,7 @@ Base Attack Bonus: +4.
 Feats: Any Exotic or Martial Weapon Proficiency, any one psionic feat.
 Skills: Lore 4 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Stunning Strike - A stunning blow with a weapon. One use per level.
@@ -23467,7 +23470,7 @@ Alignment: Any Chaotic
 Skills: Concentration 8 ranks, Lore 2 ranks.
 Psionics: Must have a power point reserve of at least 1 power point.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Chosen Element - Element to be used with class abilities
@@ -23605,7 +23608,7 @@ Usage: Automatic.</entry>
 - Proficiencies: All simple Weapons, Light and Medium Armour, Shield Proficiency.
 - Skill Points: 4 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Artisan Bonus - +2 to Use Magic Device checks when using items
@@ -23802,7 +23805,7 @@ Skills: Jump 9 ranks.
 Feats: Two-Weapon Fighting.
 Maneuvers: Must know at least three Tiger Claw maneuvers.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Shifting 1/day - Gains some aspects of the tiger.
@@ -23878,7 +23881,7 @@ Skills: Hide 4 ranks, Intimidate 4 ranks, Lore 8 ranks.
 Maneuvers: Must know at least one Devoted Spirit maneuver, and one Devoted Spirit stance.
 Special: Must be able to turn undead, and must worship Wee Jas. Clerics must have the Death and Magic domains.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:
@@ -23960,7 +23963,7 @@ Skills: Concentration 9 ranks, Lore 2 ranks.
 Maneuvers: Must know at least two martial maneuvers, including one strike.
 Spells: Ability to cast 2nd-level arcane spells.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Arcane Wrath - Expend spell use to get damage boost and +4 attack bonus to next attack.
@@ -23976,7 +23979,7 @@ Level
 9:
 10:  Emerald Immolation - You explode dealing 20d6 damage.
 
-         Maneuvers	Stances
+    Maneuvers      Stances
 Level  Known   Readied   Known
 1      1       0         0
 2      0       0         0
@@ -24501,7 +24504,7 @@ Sohei are warrior monks, religious soldiers who protect large monasteries. Unlik
 - Proficiencies: A Sohei gains proficiencies with Simple and Martial Weapons, and Light. Medium  and Heavy Armour.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Ki Frenzy 1/Day - +2 Str, Dex, Extra Attack
@@ -24577,7 +24580,7 @@ Use: Automatic.</entry>
   <entry id="50225" lang="en" sex="m">Epic Sohei</entry>
   <entry id="50226" lang="en" sex="m">The Epic Sohei is a warrior without equal, able to enter into a frenzy at will and to withstand even the harshest of blows.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 21: -
@@ -24812,7 +24815,7 @@ REQUIREMENTS:
 Alignment: Any neutral
 Skills: Truespeak 13 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Syllable of Detachment - -2 Penalty on checks
@@ -24868,7 +24871,7 @@ Skills: Truespeak 10 ranks.
 Spellcasting: Must be able to cast 4th level divine spells.
 Special: Clerics must have Fire or Good domains.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Tongue of Fire 3d6 - A line of fire dealing damage
@@ -24916,7 +24919,7 @@ Skills: Hide 8 ranks, Move Silently 8 ranks.
 Feats: Sanctify Martial Strike, Servant of the Heavens
 Special: Sneak attack +3d6, Evasion
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Death Touch 1/day - Roll 1d6 per Slayer level. Slay target if the number is greater than current hitpoints.
@@ -25077,7 +25080,7 @@ Some spellcasters care for only one thing: war. They dream of steel and mighty b
 - Proficiencies: A Warmage gains proficiencies with Simple Weapons, Light Armour, and Shields.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Armoured Mage - No Arcane Spell Failure in light armour
@@ -25206,7 +25209,7 @@ A knight is a proud, skilled melee combatant who fights in the name of honour an
 - Proficiencies: A Knight gains proficiencies with Martial and Simple Weapons, Light, Medium and Heavy Armour, and Shields.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Fighting Challenge - Challenge a foe to gain a bonus to attack and damage.
@@ -25315,7 +25318,7 @@ If a cleric's basic creed is that the handiwork of the deities is everywhere, a 
 - Proficiencies: A Shaman gains proficiencies with simple weapons and light armour.
 - Skill Points: 4 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Unarmed Strike
@@ -26049,9 +26052,10 @@ Warlocks are born, not made.  Their ancestors traded portions of their soul for 
 
 - Hit Die: d6
 - Proficiencies: Warlocks are proficient with simple weapons and light armor.
-- Skill Points: 2 + Int Modifier(x4 at 1st level)
+- Skill Points: 2 + Int Modifier
 
-Abilities:
+CLASS FEATURES:
+
 Alignment: Chaotic or Evil only.
 Base Attack Bonus: +3/4
 Strong Saves: Will
@@ -26995,7 +26999,7 @@ The Swashbuckler embodies the concepts of daring and panache.  Favoring agility 
 - Proficiencies: Swashbucklers are proficient with simple and martial weapons, and light armor.
 - Skill Points: 4 + Int Modifier (x 4 at 1st level).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Weapon Finesse
@@ -27110,7 +27114,7 @@ Marshals inspire trust in those they lead. They earn that trust by slogging thro
 - Proficiencies: Marshals are proficient with simple and martial weapons, all types of armor, and shields.
 - Skill Points: 4 + Int Modifier (x 4 at 1st level).
 
-ABILITIES:
+CLASS FEATURES:
 
 A marshal gains Auras they may activate to boost themselves and all allies in a wide radius.  You can activate your auras as many times per day as you wish, and they will last until you choose to deactivate them (there is no time limit or limit on uses per day).  You may have 1 minor and 1 major aura active at any given time, but you must deactivate an aura before activating another of the same type (you may have to deactivate it twice).  Auras apply much further than the visual effect appears.
 
@@ -27484,7 +27488,7 @@ Skills: Lore 2, Persuade 4.
 Base Attack Bonus: +7.
 Special: Must worship Corellon Larethian. (Clerics taking this class must have two of the following domains: Chaos, Good, Magic, Protection, War)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
   1: Corellon's blessing, Bonus Feat
@@ -27526,7 +27530,7 @@ At 8th level, you gain the ability to briefly channel the divine power of Corell
 Requirements: Champion of Corellon level 11
 Masters of the blade and fearing no enemy, Epic Champions of Corellon Larethian are the absolute elite. They lead the elven warbands, maybe even command entire armies. Still they also fight in the front ranks, taking on the toughest foes.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 11:  -
@@ -27622,7 +27626,7 @@ REQUIREMENTS:
 Skills: Perform 10 ranks, Intimidate or Persuade 6 ranks.
 Spells: Able to cast 0-level arcane spells (cantrips).
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bardic Music (see below), Virtuoso performance (sustaining song)
@@ -27745,11 +27749,11 @@ You can select</entry>
 
   - Hit Die: d6
   - Proficiencies: Truenamers gain Weapon Proficiency: Simple and Light Armour Proficiency.
-  - Skill Points at Each Level: 4 + Int modifier.
+  - Skill Points: 4 + Int modifier.
   - Base Attack Bonus: +3/4.
   - Strong Saves: Will
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:
@@ -32665,7 +32669,7 @@ Class : 11 levels in Sorcerer, Wizard, or Cleric
 Alignment: Any Good
 Must not have any levels in Lich.
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Baelnorn Properties I: +2 bonus to Hide, Listen, Move Silently, Search, Persuade, and Spot.
          Baelnorn Touch: Touch attack causes 1d6 + 5 damage and paralyzation for 1d4 rounds.
@@ -33156,7 +33160,7 @@ Manifesting: Must be able to manifest 2nd level powers.
 Base Attack Bonus: +3.
 Special: Must be able to manifest Concealing Amorpha
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Distract - Gain knowledge of the power, manifest at a reduced cost
@@ -33262,7 +33266,7 @@ BONUS SPELLS
 
 Every level in Enlightened Fist, the character gains new spells per day as if he had also gained a level in his highest arcane caster class.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Unarmed Damage - Enlightened Fist's levels stack with his monk level.
@@ -33359,7 +33363,7 @@ Spellcasting: Able to cast 3rd level Arcane spells
 Feats: Bardic Music
 Skills: Lore 13, Listen 13, Perform 10, Concentration 6, Spellcraft 6
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:   Bardic Lore, Bardic Music
@@ -33591,7 +33595,7 @@ Duration: One year
 Saving Throw: None
 Spell Resistance: No
 
-The caster calls 3d4 lemures from the Nine Hells to where he is, offering them the soul that he has prepared. In exchange, they will serve the caster for one year as guards, slaves, or whatever else he needs them for. They are non­-intelligent,
+The caster calls 3d4 lemures from the Nine Hells to where he is, offering them the soul that he has prepared. In exchange, they will serve the caster for one year as guards, slaves, or whatever else he needs them for. They are non-intelligent,
 so the caster cannot give them more complicated tasks than can be described in about five words.
 
 No matter how many times the caster casts this spell, he can control no more than 2 HD worth of fiends per caster level. If he exceeds this number, all the newly called creatures fall under the caster's control, and any excess from previous
@@ -35386,7 +35390,7 @@ Devoted knight, divine agent, instrument of vengeance, peerless fighting machine
 - Skill Points: 4 + Int Modifier
 - Alignment: A Crusader cannot be neutral.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Furious Counterstrike - Bonus to attack when wounded.
@@ -35442,7 +35446,7 @@ Level  Maneuvers Known   Maneuvers Readied   Stances Known
   - Proficiencies: A Swordsage gains proficiencies with Martial and Simple Weapons, and Light armour.
   - Skill Points: 6 + Int Modifier
 
-  ABILITIES:
+  CLASS FEATURES:
 
   Level
   1: Discipline Focus (Weapon Focus) - You gain weapon focus for weapons in the chosen discipline
@@ -35497,7 +35501,7 @@ Level  Maneuvers Known   Maneuvers Readied   Stances Known
   - Proficiencies: A Warblade gains proficiencies with Martial and Simple Weapons, Shields, Medium and Light armour.
   - Skill Points: 4 + INT Modifier
 
-  ABILITIES:
+  CLASS FEATURES:
 
   Level
   1: Battle Clarity - INT to Reflex saves
@@ -35677,7 +35681,7 @@ Skills: Balance 13 ranks.
 Feats: Power Attack or Stone Power.
 Maneuvers: Must know at least two Stone Dragon maneuvers and one Stone Dragon stance.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Mountain Fortress Stance - Create a small fortress of stone
@@ -41086,7 +41090,7 @@ Divine Spellcasting: Able to cast 3rd-level spells.
 Skills: Spellcraft 8 ranks, Craft Armour 8 ranks.
 Feats: Inscribe Rune (This requires 13 Int and 2nd-level divine spells)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Rune Craft +1 - The Runecaster gets a +1 bonus on checks to craft runes.
@@ -41424,7 +41428,7 @@ REQUIREMENTS:
 Spellcasting: Able to cast 1st-level divine spells.
 Skills: Lore 13 ranks.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Bonus Domain - The contemplative gains access to an additional domain.
@@ -41812,7 +41816,7 @@ Base Attack Bonus: +5.
 Skills: Lore 2 ranks.
 Feats: Alertness, Weapon Focus(creature or unarmed strike)
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Energy Drain 1
@@ -41878,7 +41882,7 @@ Spellcasting: Ability to cast arcane spells without preparation
 Skills: 8 Ranks in Lore
 Special: The player chooses a dragon variety when taking the first level in this prestige class
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Draconic Armor - The character's skin develops nearly invisible scales that increase his/her natural armor class by +1.
@@ -42854,25 +42858,26 @@ CLASS SKILLS: Bluff, Concentration, Craft Weapon, Craft Armor, Craft Trap, Disab
 
 CLASS FEATURES:
 
-Level 1: Ki Power, Sneak Attack +1d6
-Level 2: Ghost Step
-Level 3: Sneak Attack +2d6, Use Poison
-Level 4: Great Leap
-Level 5: Sneak Attack +3d6
-Level 6: Acrobatics +2, ki Dodge
-Level 7: Sneak Attack +4d6
-Level 8: Ghost Strike
-Level 9: Sneak Attack +5d6
-Level 10: Ghost Step (ethereal)
-Level 11: Sneak Attack +6d6
-Level 12: Acrobatics +4, Evasion
-Level 13: Sneak Attack +7d6
-Level 15: Sneak Attack +8d6
-Level 16: Ghost Sight
-Level 17: Sneak Attack +9d6
-Level 18: Acrobatics +6, Greater Ki Dodge
-Level 19: Sneak Attack +10d6
-Level 20: Ghost Walk
+Level: 
+1: Ki Power, Sneak Attack +1d6
+2: Ghost Step
+3: Sneak Attack +2d6, Use Poison
+4: Great Leap
+5: Sneak Attack +3d6
+6: Acrobatics +2, ki Dodge
+7: Sneak Attack +4d6
+8: Ghost Strike
+9: Sneak Attack +5d6
+10: Ghost Step (ethereal)
+11: Sneak Attack +6d6
+12: Acrobatics +4, Evasion
+13: Sneak Attack +7d6
+15: Sneak Attack +8d6
+16: Ghost Sight
+17: Sneak Attack +9d6
+18: Acrobatics +6, Greater Ki Dodge
+19: Sneak Attack +10d6
+20: Ghost Walk
 </entry>
   <entry id="55104" lang="en" sex="m">Ki Power</entry>
   <entry id="55105" lang="en" sex="m">Type of Feat: Class Specific
@@ -42979,7 +42984,7 @@ Hide: 6 ranks
 Move Silently: 6 ranks
 Feats: Power Attack, Improved Initiative
 
-Abilities:
+CLASS FEATURES:
 
 1: Ghost step 1/day
 2: Sudden Strike (Sneak Attack) +1d6
@@ -43345,7 +43350,7 @@ Manifesting: Must be able to manifest 3rd level powers.
 Base Attack Bonus: +3.
 Alignment: Any Neutral.
 
-Abilities:
+CLASS FEATURES:
 
 Level
 1: Dragon Augmentation - The Diamond Dragon can choose to gain a +1 in either Strength, Dexterity, or Constitution as they work to become more dragonlike.
@@ -43522,7 +43527,7 @@ Spellcasting: Must be able to cast 3rd level divine spells.
 Base Attack Bonus: +3.
 Special: Ability to turn undead.
 
-Abilities:
+CLASS FEATURES:
 
 Level
 1: Dragon Affinity - Your concept of yourself as part of a holy dragon that serves your church draws upon a mystic link to a particular kind of dragon you consider affiliated with your deity.  At first level you must select a dragon type within 1 step of your alignment.
@@ -43553,7 +43558,7 @@ Spellcasting: Must be able to spontaneously cast arcane spells.
 Skills: Lore 8.
 Feats: Draconic Heritage.
 
-Abilities:
+CLASS FEATURES:
 
 Draconic Breath - You receive a variant of the Draconic Breath feat.  When you reach 6th level, the damage goes to 2d8 per spell level, and at level 10 it goes to 3d6 per spell level.
 
@@ -43694,7 +43699,6 @@ Your draconic blood lets you access ancient draconic knowledge.  You gain a bonu
   <entry id="55325" lang="en" sex="m">Dragontouched</entry>
   <entry id="55326" lang="en" sex="m">Type of Feat: General
 Prerequisite: Cha 11
-
 Benefit: You have a trace of draconic power, a result of draconic ancestors or a spiritual connection between you and the forces of dragonkind. You gain the dragonblood subtype, a +1 bonus on Listen, Search, and Spot checks, and a +1 bonus on saving throws against paralysis and sleep. In addition, you can select draconic feats as a sorcerer of your charaacter level.
 Use: Automatic</entry>
   <entry id="55327" lang="en" sex="m">Draconic Vigor</entry>
@@ -43899,7 +43903,7 @@ Base Attack Bonus: +4.
 Skills: Bluff 4 ranks, Intimidate 4 ranks, Lore 4 ranks.
 Feats: Dragonthrall
 
-Abilities:
+CLASS FEATURES:
 1: Breath Weapon - You can breathe a cone of cold that does 3d6 cold damage, with a Reflex save of DC 10 + class level + Con modifier for half damage.  You can only use this breath weapon once every 1d4 rounds.
 2: Voice of the Dragon +2 - You gain a +2 bonus on Intimidate and Bluff checks.
 3: Breath Weapon - 8d4 line of acid
@@ -43927,7 +43931,7 @@ Base Attack Bonus: +5.
 Skills: Lore 1 rank.
 Race: Nondragon
 
-Abilities:
+CLASS FEATURES:
 1: Ability Increase - +2 to Charisma.
 Natural Armor - You gain a +1 natural armor bonus.
 2: Combat Technique - You can choose a bonus feat from the fighter bonus feat list, or add 1d6 of Sneak Attack.
@@ -44101,7 +44105,7 @@ Skills: Bluff 4 ranks, Hide 4 ranks, Move Silently 4 ranks, Lore 4 ranks, Sense 
 Feats: Dragontouched.
 Special: Sneak Attack or Skirmish +2d6
 
-Abilities:
+CLASS FEATURES:
 1: Draconic Senses - You gain Draconic Senses as a bonus feat.
 2: Special Attack +1d6 - You can gain +1d6 to your Sneak Attack damage or to your Skirmish damage, chosen at every increase.
 3: Dragonfire Strike - You gain Dragonfire Strike as a bonus feat.
@@ -44142,7 +44146,7 @@ Dragon shamans respect true dragons as power incarnate.  Some worship dragons, b
 
 CLASS SKILLS: Appraise, Bluff, Craft, Heal, Hide, Intimidate, Jump, Lore, Move Silently, Persuade, Search, Sense Motive, Spellcraft
 
-Abilities:
+CLASS FEATURES:
 Base Attack Bonus: +3/4
 Strong Saves: Fortitude, Will
 
@@ -44608,9 +44612,10 @@ Able to call upon a dragon's fiery breath and augment themselves with spell-like
 - Proficiencies: Dragonfire adepts are proficient with simple weapons only.
 - Skill Points: 4 + Int Modifier(x4 at 1st level)
 
-CLASS SKILLS:
+CLASS SKILLS: Appraise, Bluff, Climb, Concentration, Craft(General), Craft(Poisonmaking), Craft Armor, Craft Trap, Craft Weapon, Intimidate, Jump, Listen, Lore, Persuade, Search, Sense Motive, Spellcraft, Spot, Truespeak, Use Magic Device
 
-Abilities:
+
+CLASS FEATURES:
 Base Attack Bonus: +1/2
 Strong Saves: Fortitude, Will
 
@@ -45121,8 +45126,7 @@ Racial Hit Dice/Class: NA</entry>
   <entry id="55882" lang="en" sex="m">Hagspawns</entry>
   <entry id="55883" lang="en" sex="m">Sons of malicious, predatory mothers, hagspawn are not a complete race, as there are no females of their kind. Hags continue their awful lineage by taking human males for mates, usually murdering and devouring the hapless captive later. The female children of a hag quickly grow into hags like their mothers, but the male children are hagspawn, half-human outcasts. Feared and hated by normal humans, hagspawn must make their way in the world by dint of their strength, hardiness, and sheer determination.  
 
-Hagspawn Ability Adjustments: +2 Strength, +2 Constitution, -2 Charisma: Hagspawn are strong and hardy, but are sullen and ill-tempered.
-
+Hagspawn Ability Adjustments: +2 Strength, +2 Constitution, -2 Charisma: Hagspawn are strong and hardy, but are sullen and ill-tempered. 
 Favored Class (Barbarian): A multiclass hagspawn's barbarian class does not count when determining whether he suffers an XP penalty for multiclassing.
 
 - Medium size
@@ -46631,7 +46635,7 @@ In most city-states, templars are the ultimate authority judge, jury, and execut
 - Proficiencies: Templars are proficient in all simple weapons. Since templar training involves some education in warfare, templars receive two martial weapons proficiencies. Templars are proficient in light and medium armor and shields (except tower shields).
 - Skill Points: 4 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Secular Aptitude, Assume Domain
@@ -47191,7 +47195,7 @@ REQUIREMENTS:
 
 Skill: Truespeak 9
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: 
@@ -47278,7 +47282,7 @@ Alignment: Any non good
 Skill: Lore 8
 Feat: Skill Focus (Lore)
 
-ABILITIES: 
+CLASS FEATURES: 
 
 Level 
 1: Bone Skin I - Add +2 to AC. This increases by another +2 for every four levels of Pale Master. 
@@ -47315,7 +47319,7 @@ Skills: Intimidate 4 ranks, Lore 4 ranks
 Feats: Frozen Berserker, Improved Unarmed Strike, Power Attack
 Special: Rage as a class ability
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Frostrage - Add +4 to AC, 1d4 cold damage on unarmed attacks
@@ -47375,7 +47379,7 @@ Base Will Save Bonus: +5.
 Spells: Able to cast 2nd-level divine spells.
 Special: Able to turn undead.
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Greater Turning, Turn Undead
@@ -47417,7 +47421,7 @@ REQUIREMENTS:
 Alignment: Any lawful
 Base Attack Bonus: +6
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Resonance - Build up resonance in targets you hit
@@ -47855,7 +47859,7 @@ Base Attack Bonus: +10
 Feats: Weapon Focus (any)
 Martial Maneuvers: Any two Devoted Spirit or Diamond Mind maneuvers.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Blade Guide -
@@ -47871,7 +47875,7 @@ Level
 9: Eternal Training 5/Day
 10:  Island in Time -
 
-         Maneuvers	Stances
+    Maneuvers      Stances
 Level  Known   Readied   Known
 1      1       0         0
 2      0       0         0
@@ -47958,7 +47962,7 @@ Skills: Hide 8 ranks
 Feats: Improved Unarmed Strike
 Martial Maneuvers: Must know one 2nd-level Setting Sun or Shadow Hand maneuver, one Setting Sun maneuver of any level, and one Shadow Hand maneuver of any level.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Monk abilities - You add your class levels to determine your unarmed damage and number of Stunning Fist attempts.  You gain the AC bonus of a monk.
@@ -48213,7 +48217,7 @@ Base Attack Bonus: +5
 Skills: Tumble 5 ranks 
 Feats: Improved Unarmed Strike 
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Improved Grapple (Ex): When wearing light armor or no armor, a reaping mauler gains the benefit of the Improved Grapple feat, even if he does not meet the prerequisites.
@@ -48470,7 +48474,7 @@ Alignment: Nongood
 Special: Wild Shape as a class ability
 Special: Must have been a druid
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: 
@@ -48568,7 +48572,7 @@ Alignment: Nonevil
 Feats: Alertness, Combat Casting, Track
 Skills: Spot 8, Search 4
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Woodland Stride
@@ -48617,7 +48621,7 @@ Feats: Armor Proficiency (Heavy), Endurance, Weapon Focus (Warhammer)
 Skills: Craft (Weapons) 10
 Base Attack Bonus: +5
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: One With the Hammer - Wisdom to damage for Warhammers
@@ -48667,7 +48671,7 @@ Race: Warforged
 Feats: Adamantine Body, Improved Bull Rush, Power Attack
 Base Attack Bonus: +5
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Armor Spikes 1d6, Expert Bull Rush, Powerful Charge, Reserved
@@ -48733,7 +48737,7 @@ Spells: 1st level arcane spells
 Feats: Frozen Magic
 Skills: Lore 8
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Natural Armor +1
@@ -48780,7 +48784,7 @@ REQUIREMENTS:
 Spells: Must be able to cast teleport
 Skills: Lore 10
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Enhanced Capacity - Take one more character per class level when group teleporting
@@ -48817,7 +48821,7 @@ REQUIREMENTS:
  Special: Turn undead class feature. 
  Special: Sneak attack class feature. 
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Pierce Shadows - Create an area of light
@@ -48850,7 +48854,7 @@ REQUIREMENTS:
  Special: Detect evil class feature or ability to cast detect evil as a divine spell. 
  Special: Sneak attack class feature. 
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Detect Evil at will
@@ -48936,7 +48940,7 @@ Base Attack Bonus: +5 or ability to spontaneously cast 3rd-level arcane spells.
 Skills: Lore 1 rank, Spellcraft 1 rank. 
 Special: Cannot be a Shadow Weave user.
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Read Magic at will, Spellcasting
@@ -48975,7 +48979,7 @@ Skills: Concentration 4 ranks, Perform 6 ranks, Tumble 4 ranks.
 Feats: Combat Casting, Dodge, Endurance, Mobility. 
 Spellcasting: Able to cast 3rd level arcane spells.
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Spelldance - Apply metamagic feats for free
@@ -49033,26 +49037,41 @@ While skilled in stealthy movement and other arts requiring subtlety, the psychi
 
 - Hit Die: d6
 - Proficiencies: Psychic rogues are proficient with all simple weapons, plus the rapier, shortbow, and short sword. Psychic rogues are proficient with light armor, but not with shields.
-- Skill Points at Each Level: 6 + Int modifier.
+- Skill Points: 6 + Int modifier.
 
-ABILITIES:
+Psionics: Intelligence is the key stat of a Psychic Rogue.
+
+Special Abilities (gained at 11th, 14th, 17th, 20th):
+
+     Blind Spot (Ps): Cloud Mind, once per day
+     Enhanced Sneak Attack (Su): When the psychic rogue has psionic focus, he increases his sneak attack damage by +1d6. This ability may be selected up to three times.
+     Improved Evasion (Ex): As rogue
+     Mind Cripple (Su): An opponent struck by one of his sneak attacks takes 2 points of Intelligence damage. 
+     Shadow Jump (Ps): Dimension Door, Self, once per day. The psychic rogue can select this ability up to three times.
+     Skill Mastery: As rogue
+     Slippery Mind (Ex): As rogue
+     Feat: A psychic rogue can gain a bonus feat in place of a special ability.
+
+CLASS FEATURES:
 
 Base Attack Bonus: +3/4
 Strong Saves: Reflex
-Psionics: Intelligence is the key stat of a Psychic Rogue.
-Sneak Attack: +1d6 at first level and every three levels thereafter
-Evasion at second level
-Danger Sense: Gain the benefits of the danger sense power when psionic focused at 5th level. Gain uncanny dodge at 7th level, and improved uncanny dodge at 9th.
-Special Abilities (gained at 11th, 14th, 17th, 20th):
 
-Blind Spot (Ps): Cloud Mind, once per day
-Enhanced Sneak Attack (Su): When the psychic rogue has psionic focus, he increases his sneak attack damage by +1d6. This ability may be selected up to three times.
-Improved Evasion (Ex): As rogue
-Mind Cripple (Su): An opponent struck by one of his sneak attacks takes 2 points of Intelligence damage. 
-Shadow Jump (Ps): Dimension Door, Self, once per day. The psychic rogue can select this ability up to three times.
-Skill Mastery: As rogue
-Slippery Mind (Ex): As rogue
-Feat: A psychic rogue can gain a bonus feat in place of a special ability.
+Level:
+ 1: +1d6 Sneak Attack 
+ 2: Evasion
+ 4: +2d6 Sneak Attack 
+ 5: Danger Sense
+ 7: +3d6 Sneak attack , Danger Sense (Uncanny Dodge)
+ 9: Danger Sense (Improved Uncanny Dodge)
+10: +4d6 Sneak Attack 
+11: Special Ability
+13: +5d6 Sneak Attack 
+14: Special Ability
+16: +6d6 Sneak Attack 
+17: Special Ability
+19: +7d6 Sneak Attack 
+20: Special Ability
 
 Level          Power Points       Powers Known          Power Level Known
 1              0                  1                     1
@@ -49176,12 +49195,12 @@ Use: Selected</entry>
     
     - Hit Die: d8
     - Proficiencies: You are proficient with all simple weapons and light armor
-    - Skill Points at Each Level: 2+ Int Modifier.
+    - Skill Points: 2+ Int Modifier.
     - Alignment: Any
     
-    ABILITIES:
+    CLASS FEATURES:
     
-    Level
+    Level:
     1:  Soul Binding - 1 Vestige
     2:  Pact Augmentation - Gain minor benefit, reselect every time a vestige is bound
     3:  
@@ -49276,7 +49295,6 @@ Use: Automatic</entry>
   <entry id="58014" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Bind Vestige
 Benefit: When you bind a vestige using the Bind Vestige feat, you gain a second power, as described in the Bind Vestige feat.
-
 Use: Automatic</entry>
   <entry id="58015" lang="en" sex="m">Binding Feats</entry>
   <entry id="58016" lang="en" sex="m">Feats associated with the Binding alternate magic system from Tome of Magic</entry>
@@ -49323,7 +49341,6 @@ Use: Selected</entry>
   <entry id="58027" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Able to bind a vestige, Expel Vestige, Intimidate 8 ranks
 Benefit: Once per day, you can bind a vestige as a full-round action.
-
 Use: Selected</entry>
   <entry id="58028" lang="en" sex="m">Favored Vestige Amon       </entry>
   <entry id="58029" lang="en" sex="m">Favored Vestige Aym        </entry>
@@ -49464,7 +49481,6 @@ Use: Automatic</entry>
   <entry id="58152" lang="en" sex="m">Type of Feat: Binding
 Prerequisite: Ability to bind vestiges
 Benefit: You can ignore the special requirements of vestiges with which you make pacts.
-
 Use: Automatic</entry>
   <entry id="58153" lang="en" sex="m">Leraje, the Green Herald</entry>
   <entry id="58154" lang="en" sex="m">Leraje, the Green Herald
@@ -49838,7 +49854,7 @@ Poison Blood: While you are bound to Eurynome, your blood becomes poisonous. Any
 Anima mages give binders a bad name. Greedy and ambitious, they exploit the powers of the vestiges to which they bind to advance their own abilities. Anima mages see such displaced entities as mere tools, no different from spell component pouches or a wand of fireball. With the power of a vestige, an anima mage can tap a resource all but unknown to his rivals to gain an edge against other spellcasters. The anima mage is a loner, an outsider, and a potential enemy to both binders and witch slayers. But the way others classify him matters little to him, for power is at hand.
 
 - Hit Die: d4
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Alignment: Any nongood
@@ -49847,7 +49863,7 @@ Feat: Any metamagic feat
 Spellcasting: Ability to cast 2nd-level arcane spells
 Special: Ability to bind a 2nd-level vestige, soul binding class feature
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  
 2:  Exploit Vestige - Forgo a vestige ability to cast one spell of your highest level
@@ -49911,7 +49927,7 @@ Vessel of Emptiness: You can use the flicker shadow magic mystery once per day. 
 No other vestige is quite like Tenebrous. The remnant of the divinity once possessed by Orcus, Tenebrous is perhaps the only vestige still worshiped in some places as a god, and so tightly bound to a living-if not mortal-being. This unique status grants Tenebrous the ability to manipulate the world in ways that other vestiges cannot. Some Tenebrous apostates revere Orcus, seeing Tenebrous as part of their sundered god and the seed from which he will one day sprout anew. Others see the corpulent fiend as the embodiment of Tenebrous's downfall. These followers believe that Tenebrous is a separate deity who attempted to manifest through Orcus, only to be laid low when the demon proved unworthy.
 
 - Hit Die: d8
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Alignment: Any nongood
@@ -49920,7 +49936,7 @@ Special: Ability to bind Tenebrous
 Special: Able to turn or rebuke undead
 Special: Must worship Tenebrous as a god (clerics can only have Chaos, Death, Evil, and Trickery domains)
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Eternal Bondage - You are always bound to Tenebrous
     Tenebrous's Rebuke - Damage or heal undead by spending a turn undead use
@@ -49968,7 +49984,7 @@ Special: Soul binding class feature
 - Proficiencies: You gain proficiency with all simple and martial weapons, and with all armor and shields.
 - Skill Points: 2 + Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
  1: Aligned Strike, patron vestige, soul binding +1
@@ -50126,14 +50142,14 @@ Thought Travel: As a standard action, you can instantly transport yourself to an
 Scions of Dantalion trace their lineage to an ancient, long-forgotten human empire-a civilization in which justice, love, and art reigned supreme. They maintain that the rulers of this realm led their people to such a height of beauty and righteousness that they rivaled the stars of the heavens in the awe they could inspire. The gods saw their accomplishments and grew envious. In their jealous rage, they destroyed the empire and cursed its nobility, decreeing that no one from that line could ever join them in the afterlife. Scions of Dantalion believe themselves to be part of this line, cursed by the gods but blessed by association with Dantalion, the vestige that is the conglomeration of all their ancestors' souls. The scions believe that their destiny is to one day take up the crown, bear the scepter of rulership, and rebuild the empire that could rival the stars.
 
 - Hit Die: d8
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Race: Human, Half-elf, or Half-orc
 Skills: Lore 2 ranks
 Special: Ability to bind Dantalion
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Favored of Dantalion - Always make a good pact with Dantalion
     Scholarship of Dantalion - Once per day, double the Lore bonus Dantalion grants for one round
@@ -50700,7 +50716,7 @@ Skills: Bluff 6 ranks, Intimidate 5 ranks, Concentration 5 ranks, Lore 8 ranks, 
 Feats: Iron Will, Spell Focus (evil).
 Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. 
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: 
@@ -52160,7 +52176,7 @@ Alignment: any chaotic
 Skills: Lore 4 ranks, Spellcraft 8 ranks, Use Magic Device 4 ranks 
 Feats: Magical Aptitude, Any metamagic feat 
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Wild Magic - Reduce caster level by 3, add 1d6 to caster level
@@ -52205,7 +52221,7 @@ REQUIREMENTS:
 Skills: Concentration 9 ranks, Spellcraft 9 ranks
 Feats: Combat Casting
 
-ABILITIES: 
+CLASS FEATURES:
 
 Level 
 1: Bonus Missile - Magic Missile has an extra missile
@@ -53605,10 +53621,10 @@ Incarnum is a tool you can use to manipulate the physical manifestations of mora
 
 - Hit Die: d6
 - Proficiencies: You are proficient with all simple weapons, light armor, medium armor, and shields 
-- Skill Points at Each Level: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier.
 - Alignment: Alignment must be Lawful Neutral, Chaotic Neutral, Neutral Evil, or Neutral Good. Incarnates who have a different alignment will lose all class features.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Detect Opposition - Detect X at will
@@ -53728,10 +53744,10 @@ As a soulborn, you use incarnum to enhance your natural combat ability. You can 
 
 - Hit Die: d10
 - Proficiencies: Soulborns are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields.
-- Skill Points at Each Level: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier.
 - Alignment: Soulborns are polarized in their alignments, hewing to strong convictions of morality and ethics. As such, they can only be lawful good, chaotic good, lawful evil, or chaotic evil. 
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Smite Opposition 1/day - Smite target of opposed alignment
@@ -53790,9 +53806,9 @@ A mask representing a basilisk, a mantle of the displacer beast, boots of the la
 
 - Hit Die: d8
 - Proficiencies: You are proficient with all simple weapons, light armor, and shields 
-- Skill Points at Each Level: 4+ Int Modifier.
+- Skill Points: 4+ Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  
@@ -55817,7 +55833,7 @@ Even without proper training, a skarn can strike wicked blows with the pointed s
 
 - Hit Die: d10
 - Proficiencies: Spinemeld Warriors gain no new proficiencies
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Race: Skarn
@@ -55825,7 +55841,7 @@ Alignment: Any lawful
 Base Attack Bonus: +5
 Essentia Pool: 1
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Twin Spine Fighting - Your racial ability now produces two spines instead of one
@@ -55880,7 +55896,7 @@ Spellcasting: Ability to cast 2nd-level divine spells
 Skills: Lore 4 ranks, Spellcraft 4 ranks 
 Essentia Pool: 3 
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Smite Chaos - As per Paladin, except Chaos instead of Evil
@@ -55935,7 +55951,7 @@ Meldshaping: Ability to shape three soulmelds; ability to bind a soulmeld to a c
 Soulcaster: Incarnum Spellshaping and 2nd level arcane spells
 Soulmanifester: Azure Talent and 2nd level powers
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Arcane or Psionic Investment 1
@@ -56688,7 +56704,7 @@ Special:
 
 
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Favored Enemy (Ex): Upon entering the Slayer class, a slayer selects one favored enemy. She gains a +2 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy. Likewise, she gets a +2 bonus on weapon damage rolls against creatures of this kind. At 4th level the bonuses increase to +4, at 7th level to +6, and at 10th level to +8.
@@ -56802,7 +56818,7 @@ Alignment: Any nonevil.
 Skills: Craft (armorsmithing) 8 ranks, Lore 2 ranks.
 Meldshaping: Ability to shape soulmelds
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Shield Bond - Invest essentia into shield for elemental resistance
@@ -56856,7 +56872,7 @@ REQUIREMENTS:
 Skills: Concentration 4 ranks, Hide 8 ranks, Lore 2 ranks, Listen 8 ranks.
 Essentia Pool: 1.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Step of the Bodiless - Bonus to Balance, Climb, Jump, Tumble
@@ -57362,7 +57378,7 @@ Though incarnum is a potent tool, it is still a physical medium-an abstraction t
 
 - Hit Die: d10
 - Proficiencies: Incandescent Champions gain no new proficiencies
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Alignment: Any good
@@ -57370,7 +57386,7 @@ Base Attack Bonus: +6
 Essentia Pool: 1
 Skills: Concentration 4 ranks
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Incandescent Strike - Invest essentia to increase damage
@@ -58440,7 +58456,7 @@ Skills: Lore 5 ranks, Concentration 5 ranks, Spellcraft 10 ranks.
 Feat: Necrocarnum Acolyte.
 Meldshaping: Ability to shape soulmelds, ability to bind soulmelds to the crown, feet, and hands chakras.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Harvest Soul (1 minute) - Harvest essentia from recently dead corpses
@@ -58594,14 +58610,14 @@ this blademeld grants him amazing combat prowess. When bound to his chakras, it 
 
 - Hit Die: d10
 - Proficiencies: Incarnum Blades gain no new proficiencies
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Alignment: Any except neutral
 Base Attack Bonus: +5
 Skills: Concentration 2 ranks
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Blademeld (crown, feet, hands) - Attach meld to special chakras for benefit
@@ -58633,7 +58649,7 @@ them helpless.
 
 - Hit Die: d6
 - Proficiencies: Witchborn Binders gain no new proficiencies
-- Skill Points at Each Level: 4 + Int Modifier.
+- Skill Points: 4 + Int Modifier.
 
 REQUIREMENTS:
 Meldshaping: Meldshaper level 6th.
@@ -58641,7 +58657,7 @@ Feats: Alertness, Track.
 Skills: Lore 4 ranks, Search 4 ranks, Sense Motive 2 ranks, Spot 2 ranks.
 Special: May not possess any arcane spellcasting class levels.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Detect Magic at will
@@ -67717,7 +67733,7 @@ Class : 11 levels in Sorcerer, Wizard, or Cleric
 Alignment: Any Good
 Must not have any levels in Lich.
 
-ABILITIES:
+CLASS FEATURES:
 Baelnorn Properties: +8 bonus to Hide, Listen, Move Silently, Search, Persuade, and Spot.
          Baelnorn Touch: Touch attack causes 1d8 + 5 damage and permanent paralyzation.
          Baelnorn Defense:  Damage Reduction 15/+2, Natural Armor + 5, immunity to cold and electricity, Turning Resistance +4.
@@ -67787,7 +67803,7 @@ Spellcasting: Ability to cast 4th level arcane spells.
 Hit die: d4
 Skill points at each level: 2 + Int modifier.
 
-Class Features
+CLASS FEATURES:
 Spells per Day: A master alchemist's training focuses on magic. Thus, when a character gains a new level of master alchemist, she gains new spells per day as if she had also gained a level in whatever arcane spellcasting class she belonged to before she added the prestige class.
 
 1st: Brew 2/day: The master alchemist has perfected the art of brewing potions. As such, she can brew two potions in one day(an 8-hour period) instead of one.
@@ -67876,7 +67892,7 @@ Base Attack Bonus: +6
 Skills: Craft Weapon 8, Hide 8, Lore 4, Move Silently 8
 Feats: Point Blank Shot, Weapon Focus (Longbow)
 
-Class Features:
+CLASS FEATURES:
 Hit die: d8
 
 Spellcasting: You gain spells per day as per the following tables.  You do not gain spells per day in any existing spellcasting class.  You can only choose spells from the justice spell list.
@@ -68232,7 +68248,7 @@ The shadowcaster understands the true, primal power of darkness, attunes herself
 - Proficiencies: You are proficient with all simple weapons. You are not proficient with any type of armor or shield. Armor of any type interferes with your gestures, which can cause your mysteries to fail when they function as spells.
 - Skill Points at Each Level: 2+ Int Modifier.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Fundamentals of Shadow - You start with access to 3 fundamentals, which function as supernatural abilities and can be used 3 times/day.
@@ -68266,13 +68282,13 @@ Bonus Feats - You gain a bonus feat equal to the total number of Paths you compl
 They prefer to call themselves "black transmogrifists", but most know them as children of night. They are more than spellcasters, more than scholars, and - they claim - more than mortal. For those who have the will and the depth of knowledge to join their ranks, ascension beyond the earthly form awaits, for the children of night become the stuff of shadow itself.
 
 - Hit Die: d6
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Skills: Lore 8 ranks
 Shadowcasting/Spellcasting: Ability to cast mysteries
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:  Cloak of Shadows (Su) - Your flesh takes on a hazy, almost translucent hue, granting a bonus equal to your child of night level on Hide checks.
@@ -68296,13 +68312,13 @@ Mysteries: At each level beyond 1st, you gain new mysteries and an increase in c
 Some driven or domineering souls seek nothing less than mastery of darkness itself - the ability to turn the very shadows into their agents and allies. These are the masters of shadow, commanders of soldiers as dark and insubstantial as night itself. For those with the force of will to enter their ranks, the very shadows serve at their beck and call.
 
 - Hit Die: d8
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Skills: Lore 8 ranks
 Feat: Shadow Familiar
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Shadow Servant - You replace your familiar with a Shadow Elemental, which grows in power with you.
     Master's Bidding (standard action) - You can focus your affinity with shadow to enhance your shadow servant with one special ability for 1 round.
@@ -68321,14 +68337,14 @@ Mysteries: At each level beyond 1st, you gain new mysteries and an increase in c
 Noctumancers bridge the gap between shadow and arcane magic. Those who succeed in becoming one of these elite not only gain a boost to their mystery user and arcane caster abilities, but are able to manipulate the mysteries and spells of others as no others can.
 
 - Hit Die: d4
-- Skill Points at Each Level: 2 + Int Modifier.
+- Skill Points: 2 + Int Modifier.
 
 REQUIREMENTS:
 Skills: Lore rank 6, Spellcraft rank 6
 Shadowcasting: Able to cast level 2 mysteries
 Spellcasting: Able to cast level 2 arcane spells
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Capture Magic's Shadow (Su) - At 1st level, when you successfully dispel a mystery or spell you can absorb its energy. You add one-half
     the level of the mystery or spell you dispelled to the caster level of any mystery or spell you cast in the next round.
@@ -68348,14 +68364,14 @@ Mysteries/Spellcasting: At each level, you gain new mysteries and spells per day
 few equals. Their ability to manipulate darkness and shadow enhances their martial skills, allowing them to target weak points, land blows that should not strike true, and even attack foes who are paces away.
 
 - Hit Die: d8
-- Skill Points at Each Level: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +5
 Skills: Bluff 5 ranks, Hide 5 ranks, Move Silently 5 ranks
 Feats: Blind-Fight
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Unseen Weapon (Unerring Strike) - Once per day per shadowblade level, you can activate one of the powers of your unseen weapon. Your next melee attack ignores any miss chance because of concealment.
 2:  Shadow and Stealth - You gain a bonus equal to half your class level (round down) on Hide and Move Silently checks.
@@ -68378,13 +68394,13 @@ Level
 Shadowcasters draw power from darkness, and masters of shadow command it, but no one truly manipulates the darkness as does the shadowsmith. Combining martial and mystical skills, and possessed of a driving will, the shadowsmith forms his tools and weapons from shadowstuff itself, drawing forth matter from empty night.
 
 - Hit Die: d8
-- Skill Points at Each Level: 6 + Int Modifier.
+- Skill Points: 6 + Int Modifier.
 
 PREREQUISITES:
 Base Attack Bonus: +5
 Skills: Craft (armor) 5 ranks,  Craft (weapon) 5 ranks, Lore 3 ranks
 
-ABILITIES:
+CLASS FEATURES:
 Level
 1:  Touch of Shadow - For 1 minute per level you gain a bonus on Climb checks equal to your class level. 
 2:  Shroud of Shadow - You gain a bonus on Hide checks and Move Silently checks equal to your class level. Shroud of shadow lasts for 1 minute per class.
@@ -68842,7 +68858,7 @@ Skills: 10 ranks in 4 skills from Tumble, Intimidate, Concentration, Balance, Se
 Feats: Adaptive Style, Dodge, Blind-Fight, Improved Initiative, Improved Unarmed Strike.
 Maneuvers: Must know at least one maneuver from six disciplines.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1:
@@ -69002,7 +69018,7 @@ A specialist wizard who calls himself a necromancer or a cleric with the Death d
 - Proficiencies: A Dread Necromancer gains proficiencies with Simple Weapons, and Light Armour.
 - Skill Points: 2 + Int Modifier
 
-ABILITIES:
+CLASS FEATURES:
 
 Level
 1: Charnel Touch - Negative energy touch
@@ -69124,7 +69140,7 @@ REQUIREMENTS:
 
 Feats: Great Fortitude, Iron Will, Lightning Reflexes
 
-ABILITIES: 
+CLASS FEATURES: 
 
 Level 
 1: Ability Bonus - +1 to any ability at each class level
@@ -69160,7 +69176,7 @@ Use: Selected</entry>
   - Proficiencies: A Noble gains proficiencies with Simple Weapons, Martial Weapons, Shields, and Light Armour.
   - Skill Points: 4 + Int Modifier
   
-  ABILITIES:
+  CLASS FEATURES:
   
   Level
   1: Favor +1
@@ -69666,7 +69682,7 @@ Feats: Combat Casting.
 Spellcasting: Must be able to cast 1st-level arcane spells.
 Special: Must be proficient with at least one martial weapon.
 
-ABILITIES:
+CLASS FEATURES:
 
 Spellcasting: At each level, you gain new spells per day and an increase in caster level (and spells known, if applicable) as if you had also gained a level in an arcane spellcasting class to which you belonged before adding the prestige class level. You do not, however, gain any other benefit a character of that class would have gained. If you had more than one arcane spellcasting class before becoming an abjurant champion, you must decide to which class to add each level for the purpose of determining spells per day, caster level, and spells known.
 

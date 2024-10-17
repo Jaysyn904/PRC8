@@ -268,7 +268,6 @@ const int POLYMORPH_TYPE_TWIG_BLIGHT		= 162;
 const int POLYMORPH_TYPE_MYCONID			= 163;
 const int POLYMORPH_TYPE_ALGOID				= 164;
 
-
 //::///////////////////
 //:: DOMAIN CONSTANTS
 //:: These constants are off by 1 to allow 0 to be the FALSE return value.

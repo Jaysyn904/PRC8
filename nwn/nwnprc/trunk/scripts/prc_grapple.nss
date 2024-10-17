@@ -77,8 +77,15 @@ int CanGrapple(object oPlayer)
          {
            bRet = FALSE;
          }
+		
+		if(GetIsDead(oPlayer))
+		{
+			bRet = FALSE;
+		}
+		
          e1 = GetNextEffect(oPlayer);
      }
+	 
     return bRet;
 }
 
