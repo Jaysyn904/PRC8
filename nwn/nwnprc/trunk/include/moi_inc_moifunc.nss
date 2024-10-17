@@ -1485,6 +1485,7 @@ int GetTotalEssentia(object oMeldshaper)
 	if (GetLevelByClass(CLASS_TYPE_NECROCARNATE, oMeldshaper)) nEssentia += GetLocalInt(oMeldshaper, "NecrocarnumEssentia");
 	if (GetLevelByClass(CLASS_TYPE_WITCHBORN_BINDER, oMeldshaper) >= 2) nEssentia += 1;
 	if (GetLevelByClass(CLASS_TYPE_WITCHBORN_BINDER, oMeldshaper) >= 6) nEssentia += 1;
+	if (GetLevelByClass(CLASS_TYPE_INCANDESCENT_CHAMPION, oMeldshaper))  nEssentia += GetMaxEssentiaCount(oMeldshaper, CLASS_TYPE_INCANDESCENT_CHAMPION);
 	
 	nEssentia += IncarnumFeats(oMeldshaper);
 	if (DEBUG) DoDebug("GetTotalEssentia return value "+IntToString(nEssentia));
