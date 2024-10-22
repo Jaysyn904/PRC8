@@ -378,6 +378,13 @@ void main()
             		nStage = STAGE_SELECT_MELD; // We've got another class to go
             	else // We've finished everything
             	{           	
+	           	 	// And we're all done
+           	 		if (GetLevelByClass(CLASS_TYPE_INCARNUM_BLADE, oMeldshaper))
+           	 		{
+            			DelayCommand(0.5, AssignCommand(oMeldshaper, ClearAllActions(TRUE)));
+        				StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+        			}	            	
+            	
         			DeleteLocalInt(oMeldshaper, "FirstMeldDone");
         			DeleteLocalInt(oMeldshaper, "SecondMeldDone");
         			DeleteLocalInt(oMeldshaper, "ThirdMeldDone");

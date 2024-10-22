@@ -51021,7 +51021,7 @@ Prerequisite: Killoren
 Benefit: When you are manifesting the aspect of the hunter, you can take a free action to detect all living creatures within 30 feet, even if you cannot see the creature in question. Any opponent that you cannot see still has total concealment.
 Use: Selected</entry>
   <entry id="58816" lang="en" sex="m">Type of Feat: Racial
-Prerequisite: Kalashtar
+Prerequisite: Kalashtar or Empty Vessel
 Specifics: You gain one extra power point per character level.
 Use: Automatic.</entry>
   <entry id="58817" lang="en" sex="m">Tome of Battle Feats</entry>
@@ -71371,7 +71371,23 @@ Use: Activated</entry>
   <entry id="75063" lang="en" sex="m">Face-Changer Quickselect 1</entry>
   <entry id="75064" lang="en" sex="m">Face-Changer Quickselect 2</entry>
   <entry id="75065" lang="en" sex="m">Face-Changer Quickselect 3</entry>
-  <entry id="75069" lang="en" sex="m">##START NWN .35 CLASS ABBREVIATIONS ##</entry>
+  <entry id="75066" lang="en" sex="m">Empty Vessel</entry>
+  <entry id="75067" lang="en" sex="m">empty vessel</entry>
+  <entry id="75068" lang="en" sex="m">Empty Vessels</entry>
+  <entry id="75069" lang="en" sex="m">Unpossessed quori hosts, known as empty vessels, train hard for the day they receive their quori spirits. An empty vessel is taller than the average human, but lightly built, with large, almond-shaped eyes that vary in color. Common colors are black, viridian, or violet, although the eyes change color with the mood of the individual. All empty vessels have pale skin and straight hair that ranges in color from jet black to deep blue or green. By human standards, most empty vessels are strikingly handsome or beautiful, and they possess an unnatural charm and a commanding aura that helps them influence others. Most wear their hair long, and they favor ornate clothing and decorations. Humans born and raised on Sarlona to become vessels receive special training and education, and they are remarkable individuals in their own right.
+
+Empty Vessel Ability Adjustments: None.
+Favored Class (Psion): A multiclass empty vessel's psion class does not count when determining whether he suffers an XP penalty for multiclassing.
+
+Special Abilities:
+
+- Base movement of 30.
+- Naturally Psionic (Ex): Empty vessels gain 1 extra power point per character level, regardless of whether they choose a psionic class.
+- Skills: An empty vessel receives 4 extra skill points at 1st level and 1 extra skill point at each additional level.
+- +2 racial bonus on Bluff, Diplomacy, and Intimidate checks. Empty vessels are masters of social interaction, influencing others through their commanding presence and subtle psychic powers.
+- Bonus Feat: Empty vessels gain 1 extra feat at 1st level.
+- Human: Kalashtar are considered Human for the purpose of spells.
+- Level Adjustment: +1</entry>
   <entry id="75070" lang="en" sex="m">UrP</entry>
   <entry id="75071" lang="en" sex="m">Bnd</entry>
   <entry id="75072" lang="en" sex="m">AnM</entry>
@@ -72579,8 +72595,8 @@ Use: Activated</entry>
   <entry id="76546" lang="en" sex="m">Dragonsong Lyrist Spellcasting (Wizard)</entry>
   <entry id="76547" lang="en" sex="m">Eldritch Knight Spellcasting (Wizard)</entry>
   <entry id="76548" lang="en" sex="m">Enlightened Fist Spellcasting (Wizard)</entry>
-  <entry id="76549" lang="en" sex="m">Eldritch Theurge Spellcasting (Wizard)</entry>
-  <entry id="76550" lang="en" sex="m">Elemental Savant Spellcasting (Wizard)</entry>
+  <entry id="76549" lang="en" sex="m">Elemental Savant Spellcasting (Wizard)</entry>
+  <entry id="76550" lang="en" sex="m">Eldritch Theurge Spellcasting (Wizard)</entry>
   <entry id="76551" lang="en" sex="m">Force Missile Mage Spellcasting (Wizard)</entry>
   <entry id="76552" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Wizard)</entry>
   <entry id="76553" lang="en" sex="m">Frost Mage Spellcasting (Wizard)</entry>

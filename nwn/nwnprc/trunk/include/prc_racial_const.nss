@@ -35,6 +35,7 @@ const int RACIAL_TYPE_CHANGELING           = 147;
 const int RACIAL_TYPE_KALASHTAR            = 148;
 const int RACIAL_TYPE_WARFORGED            = 149;
 const int RACIAL_TYPE_ZAKYA_RAKSHASA       = 150; 
+const int RACIAL_TYPE_EMPTY_VESSEL         = 154;
 
 //Planescape Races
 const int RACIAL_TYPE_BARIAUR              = 207;

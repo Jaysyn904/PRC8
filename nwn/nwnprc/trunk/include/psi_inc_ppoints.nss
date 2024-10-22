@@ -165,6 +165,9 @@ int _GetFeatBonusPP(object oChar){
     if(GetRacialType(oChar) == RACIAL_TYPE_KALASHTAR)
         nBonusPP += GetHitDice(oChar);
         
+    if(GetRacialType(oChar) == RACIAL_TYPE_EMPTY_VESSEL)
+        nBonusPP += GetHitDice(oChar);        
+        
     if(GetHasFeat(FEAT_ABERRANT_WARPED_MIND, oChar))
         nBonusPP += GetAberrantFeatCount(oChar);        
 

@@ -69,7 +69,10 @@ void main()
     }
     else if(nEvent == EVENT_ONPLAYERREST_FINISHED)    
     {
-        AssignCommand(oMeldshaper, ClearAllActions(TRUE));
-        StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+    	if(GetHighestMeldshaperLevel(oMeldshaper) == 0)
+    	{
+        	AssignCommand(oMeldshaper, ClearAllActions(TRUE));
+        	StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+        }	
     }    
 }

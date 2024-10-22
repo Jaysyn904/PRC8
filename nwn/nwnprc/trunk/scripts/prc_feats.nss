@@ -33,8 +33,92 @@ void DisablePowerAttack(object oPC)
 	
 	DelayCommand(0.25, DisablePowerAttack(oPC));
 }
-    
+ 
 void PRCFeat_Equip(object oPC, object oSkin, int iEquip)
+{
+    object oItem;
+    int nType;
+
+    // Unequip event (iEquip == 1)
+    if(iEquip == 1)
+    {
+        oItem = GetItemLastUnequipped();
+        nType = GetBaseItemType(oItem);
+
+        // Bow Mastery - Reset bonus on unequip
+        if(GetHasFeat(FEAT_BOWMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_LONGBOW || nType == BASE_ITEM_SHORTBOW)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryBow", 0);
+        }
+
+        // Crossbow Mastery - Reset bonus on unequip
+        if(GetHasFeat(FEAT_XBOWMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_HEAVYCROSSBOW)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryXBow", 0);
+        }
+
+        // Shuriken Mastery - Reset bonus on unequip
+        if(GetHasFeat(FEAT_SHURIKENMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_SHURIKEN)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryShur", 0);
+        }
+
+        // Brutal Throw - Reset bonus on unequip for throwing weapons
+        if(GetHasFeat(FEAT_BRUTAL_THROW, oPC))
+        {
+            if(nType == BASE_ITEM_THROWINGAXE || nType == BASE_ITEM_SHURIKEN || nType == BASE_ITEM_DART)
+                SetCompositeAttackBonus(oPC, "BrutalThrow", 0);
+        }
+    }
+    // Equip event (iEquip == 2)
+    else if(iEquip == 2)
+    {
+        oItem = GetItemLastEquipped();
+        nType = GetBaseItemType(oItem);
+
+        // Bow Mastery - Apply bonus on equip
+        if(GetHasFeat(FEAT_BOWMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_LONGBOW || nType == BASE_ITEM_SHORTBOW)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryBow", 1);
+        }
+
+        // Crossbow Mastery - Apply bonus on equip
+        if(GetHasFeat(FEAT_XBOWMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_HEAVYCROSSBOW)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryXBow", 1);
+        }
+
+        // Shuriken Mastery - Apply bonus on equip
+        if(GetHasFeat(FEAT_SHURIKENMASTERY, oPC))
+        {
+            if(nType == BASE_ITEM_SHURIKEN)
+                SetCompositeAttackBonus(oPC, "WeaponMasteryShur", 1);
+        }
+
+        // Brutal Throw - Apply bonus if Strength > Dexterity for throwing weapons
+        if(GetHasFeat(FEAT_BRUTAL_THROW, oPC))
+        {
+            if(nType == BASE_ITEM_THROWINGAXE || nType == BASE_ITEM_SHURIKEN || nType == BASE_ITEM_DART)
+            {
+                int nStrMod = GetAbilityModifier(ABILITY_STRENGTH, oPC);
+                int nDexMod = GetAbilityModifier(ABILITY_DEXTERITY, oPC);
+            
+                if (nStrMod > nDexMod)
+                    SetCompositeAttackBonus(oPC, "BrutalThrow", (nStrMod - nDexMod));
+				else
+					SetCompositeAttackBonus(oPC, "BrutalThrow", 0);
+            }
+        }
+    }
+}
+
+ 
+/* void PRCFeat_Equip(object oPC, object oSkin, int iEquip)
 {
     //on unequip
     if(iEquip == 1)
@@ -104,7 +188,8 @@ void PRCFeat_Equip(object oPC, object oSkin, int iEquip)
             }    
         }        
     }
-}
+} */
+
 /*
 /// +2 on Intimidate and Persuade /////////
 void BrandApply(object oPC ,object oSkin ,int iLevel)
@@ -127,13 +212,6 @@ void EvilBrand(object oPC, object oSkin, int iEquip)
         || (GetHasFeat(FEAT_EB_CHEST, oPC) && GetItemInSlot(INVENTORY_SLOT_CHEST, oPC) == OBJECT_INVALID)
         || (GetHasFeat(FEAT_EB_NECK, oPC) && GetItemInSlot(INVENTORY_SLOT_CLOAK, oPC) == OBJECT_INVALID)
         || (GetHasFeat(FEAT_EB_ARM, oPC)
-
-
-
-
-
-
-
 
     else
         BrandApply(oPC, oSkin, 0);
