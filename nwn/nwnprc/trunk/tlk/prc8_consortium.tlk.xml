@@ -13,7 +13,7 @@ These so-called Ocular Adepts, outcasts to their own societies, have pledged the
 
 - Hit Die: d6.
 - Proficiencies: An Ocular Adept does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -165,7 +165,7 @@ Most Battleragers live short, glorious lives.
 
 - Hit Die: d12.
 - Proficiencies: A Battlerager does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -223,7 +223,7 @@ Clerics make natural warpriests.  Other classes must have at least one Cleric le
 
 - Hit Die: d8.
 - Proficiencies: All simple and martial weapons.  All types of armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -423,7 +423,7 @@ Mystic theurges are often obsessed with magical lore, and will travel to the end
 
 - Hit Die: d4.
 - Proficiencies: A Mystic Theurge does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -581,7 +581,7 @@ Morninglords are, in many ways, the epitome of the class cleric archetype--they 
 
 - Hit Die: d8.
 - Proficiencies: A Morninglord of Lathander does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -829,7 +829,7 @@ Alienists deal with powers and entities from terrifyingly remote reaches of spac
 
 - Hit Die: d4.
 - Proficiencies: An Alienist does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -1121,7 +1121,7 @@ Rage mages are usually found working with barbarians. They tend to shy away from
 
 - Hit Die: d8.
 - Proficiencies: Rage mages gain no proficiency with any weapon or armor.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 To qualify to become a rage mage, a character must fulfill all the following criteria.
@@ -3584,7 +3584,7 @@ Text
 
 - Hit Die: d4.
 - Proficiencies: An Ultimate Magus does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -3779,7 +3779,7 @@ A Blackguard epitomizes evil. They are nothing short of a mortal fiend, a black 
 
 - Hit Die: d10.
 - Proficiencies: All simple and martial weapons, all types of armor, and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -3887,7 +3887,7 @@ Holy Power (Su): The save DCs of any and all of the saint's special attacks, inc
 
 Holy Touch (Su): A saint's entire being is suffused with holy power, which likewise flows into any weapon the saint wields. A saint's melee attacks with any weapon (or unarmed) deal an additional 1d6 points of holy damage against evil creatures, and 1d8 points against evil undead and evil outsiders. Any evil creature that strikes a saint with a natural weapon takes holy damage as if hit by the saint's attack.
 
-Spell-Like Abilities: At will - guidance, resistance, virtue, and bless. A saint's caster level is equal to its Hit Die total. The save DCs are Charisma-based.
+Spell-like Abilities: At will - guidance, resistance, virtue, and bless. A saint's caster level is equal to its Hit Die total. The save DCs are Charisma-based.
 
 Special Qualities: A saint retains all the character's special qualities and gains those listed below, as well as the outsider type.
 
@@ -5090,7 +5090,7 @@ Special Abilities:
 Azurin Ability Adjustments: None
 Favored Class: Soulborn. A multiclass Azurin's Soulborn class does not count when determining whether he suffers an XP penalty for multiclassing.
 
-Special abilities:
+Special Abilities:
 
 - Base movement of 30'
 - Essentia Pool: An azurin's essentia pool is permanently increased by 1. If he doesn't have an essentia pool, this trait grants him one with a single point of essentia.
@@ -5129,7 +5129,7 @@ A few multiclassed barbarians become forest masters, although they rarely have t
 
 - Hit Die: d8.
 - Proficiencies: A forest master does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 - Spells per Day: At each forest master level the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead). 
 
 REQUIREMENTS:
@@ -5337,7 +5337,7 @@ A Mage Killer will fraternize with all sorts of people to help them locate and g
 
 - Hit Die: d4.
 - Proficiencies: A Mage Killer does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5407,7 +5407,7 @@ Feared by other mages for their ability to cast spells while in armor and treate
 
 - Hit Die: d8.
 - Proficiencies: A Spellsword does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5471,7 +5471,7 @@ Through this diabolic act of symbiosis, the Acolyte hopes to gain infernal power
 
 - Hit Die: d4.
 - Proficiencies: An Acolyte of the Skin does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5692,7 +5692,7 @@ Studying the martial and arcane arts to equal degree, the Eldritch Knight is a v
 
 - Hit Die: d6
 - Proficiencies: None
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5714,7 +5714,7 @@ Elemental Savants study the basic building blocks of existence - air, earth, fir
 
 - Hit Die: d4.
 - Proficiencies: An Elemental Savant does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5795,7 +5795,7 @@ The Master of Shrouds is an evil spellcaster who magically seizes incorporeal un
 
 - Hit Dice: d8.
 - Proficiencies: Masters of Shrouds are proficient with all simple weapons, with all types of armor, and with shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 
 REQUIREMENTS:
@@ -6016,7 +6016,7 @@ The Red Wizards are the masters of Thay, the conquerors of that land's native Ra
 
 - Hit Dice: d4.
 - Proficiencies: Red Wizards gain no weapon, armor or shield proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6054,7 +6054,7 @@ Power corrupts. Power over life and death corrupts absolutely. The power to rais
 
 - Hit Dice: d4.
 - Proficiencies: True Necromancers gain no weapon, armor or shield proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6119,7 +6119,7 @@ Fade to red, then nothing. What happened? Where are you? No sound, no light, no 
 
 - Hit Dice: d6.
 - Proficiencies: A Blood Magus gain no weapon, armor or shield proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6153,7 +6153,7 @@ The Diabolist is one who has thrown his lot in with the forces of Hell. Unlike t
 
 - Hit Dice: d4.
 - Proficiencies: Diabolists gain no weapon, armor or shield proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6182,7 +6182,7 @@ While many view the Fists of Hextor simply as effective if brutal mercenaries, t
 
 - Hit Dice: d10.
 - Proficiencies: Fists of Hextor are proficient with simple and martial weapons, all types of armor, and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6466,7 +6466,7 @@ The famous Purple Dragons of Cormyr are regarded across Faerun as exemplars of d
 
 - Hit Die: d10.
 - Proficiencies: A purple dragon knight gains no additional proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -6584,7 +6584,7 @@ Many armies boast units of soldiers who use a bow as their primary weapon, but m
 
 - Hit Die: d10.
 - Proficiencies: A Peerless Archer does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -7467,7 +7467,7 @@ A divine spellcaster who rises high in the service of his deity gains access to 
 
 - Hit Die: d8
 - Proficiencies: A Hierophant does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -7508,7 +7508,7 @@ Use: Automatic.</entry>
 Prerequisite: Hierophant Level 1
 Specifics: This ability increases saving throw DC's and checks to beat spell resistance for the Hierophant's spells. May be taken multiple times.
 Use: Automatic.</entry>
-  <entry id="45544" lang="en" sex="m">Spell-Like Ability</entry>
+  <entry id="45544" lang="en" sex="m">Spell-like Ability</entry>
   <entry id="45545" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Hierophant 1 or Archmage 1
 Specifics: You may select a divine or arcane spell to become a spell-like ability.
@@ -7621,7 +7621,7 @@ A Knight of the Chalice is a member of an elite knightly organization devoted to
 
 - Hit Die: d10
 - Proficiencies: The Knight of the Chalice is proficient will all simple and martial weapons, armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -7684,7 +7684,7 @@ The Hunter of the Dead is the hated enemy of all undead. She spends each restles
 
 - Hit Die: d10
 - Proficiencies: The Hunter of the Dead is proficient will all simple and martial weapons, armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -7771,7 +7771,7 @@ The Holy Liberator is a holy warrior, a distant cousin of the paladin, who is de
 
 - Hit Die: d10
 - Proficiencies: The Holy Liberator is proficient will all simple and martial weapons, all armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -8071,7 +8071,7 @@ Sune Firehair encourages beauty, passion, and love wherever they may be found. H
 
 - Hit Die: d4.
 - Proficiencies: The Heartwarder gains no weapon or armor proficiency.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -8156,7 +8156,7 @@ Battleguards of Tempus are the soldier-priests of Tempus who specialize in milit
 
 - Hit Die: d10.
 - Proficiencies: The Battleguard of Tempus gains proficiency in simple and martial weapons, all armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -8427,7 +8427,7 @@ The Bonded Summoner knows elementals. He instinctively knows elementals' strengt
 
 - Hit Die: d4.
 - Proficiencies: None.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -9227,7 +9227,7 @@ Most of Bahamut's emissaries and champions are dutiful and mighty metallic drago
 
 - Hit Die: d10.
 - Proficiencies: A Vassal of Bahamut is proficient in all simple and martial weapons, all types of armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -9431,7 +9431,7 @@ Stormlords are the agents of Talos, inflicting destructive rampages wherever the
 
 - Hit Die: d8.
 - Proficiencies: A Stormlord does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -9463,7 +9463,7 @@ The Fist of Raziel represents a knightly order dedicated to the celestial patron
 
 - Hit Die: d10.
 - Proficiencies: The Fist of Raziel gains proficiency in simple and martial weapons, all armor and shields(except tower shield).
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -9506,7 +9506,7 @@ Use: Automatic.
 Prerequisite: Healer level 21
 An epic healer seems to exude an aura of serenity and peace, since she has finally reached a level of power where suffering and death no longer seem like insurmountable foes.
 
-Abilities:
+CLASS FEATURES:
 21: Epic cleansing +1
 22:  -
 23: Bonus feat
@@ -9535,7 +9535,7 @@ The Thrall of Orcus has devoted himself to the demon prince of undeath. In his s
 
 - Hit Die: d8.
 - Proficiencies: A Thrall of Orcus gains proficiencies in simple and martial weapons, all types of armor, and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +4.
@@ -9627,7 +9627,7 @@ Shou Disciples are martial artists who have studied or observed the monks of Kar
 
 - Hit Die: d10.
 - Proficiencies: A Shou Disciple gains martial weapons and light armor.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +3.
@@ -9900,7 +9900,7 @@ Epic Shining Blade
 Epic Shining Blades are the leaders of Heironeous's armies when they march against evil. They have attained the long sought after goal of becoming but a blade in Heironeous's hand, and are able to slay any evil that dares to stand against the righteous wrath they inflict. Having long since given up earthly pleasures, an Epic Shining Blade is pure martial might and religious fury.
 
 - Hit Die: d10.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 Level 11: Brilliant Blade 7/day - Adds 1d6 Electrical damage, 2d6 divine damage against evil, and +20 to attack to your weapon. Duration is a number of rounds equal to your class level + charisma modifier. For each two levels above 11th, gain an extra use a day.
 
@@ -14182,7 +14182,7 @@ The random madness of the thunderstorm and the unpredictability of the slaadi co
 
 - Hit Die: d12.
 - Proficiencies: Frenzied Berserkers gain no weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -14275,7 +14275,7 @@ The Tempest is the point of calm within a whirling barrier of deadly blades. Poe
 
 - Hit Die: d10.
 - Proficiencies: Tempests gain no weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -14334,7 +14334,7 @@ The Foe Hunter has but one purpose in life: to kill creatures of the type she ha
 
 - Hit Die: d10.
 - Proficiencies: Foe Hunters gain no weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -14423,7 +14423,7 @@ In an epic battle at the dawn of time, the elven deity Corellon Larethian stabbe
 
 - Hit Die: d12.
 - Proficiencies: Eye of Gruumsh's gain no weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -14489,7 +14489,7 @@ The Orcish Warlord is a savage general of an unruly army, the leader of one of t
 
 - Hit Die: d12.
 - Proficiencies: Orc Warlords gain no weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Race: any Orcish race
@@ -15224,7 +15224,7 @@ The lasher prestige class uses the whip as an extension of herself. A whip in th
 
 - Hit Die: d10.
 - Proficiencies: A lasher does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -15352,7 +15352,7 @@ Armor Skin, Damage Reduction, Devastating Critical (whip), Epic Toughness, Epic 
 
   - Hit Die: d4.
   - Proficiencies: Spellfire channelers are proficient with all simple weapons.
-  - Skill Points: 2 + Int Modifier.
+  - Skill Points: 2+ Int modifier.
 
   REQUIREMENTS:
 
@@ -15560,7 +15560,7 @@ In general leveling in the wolf class will improve your stats in your wolf and w
 
 - Hit Die: d8.
 - Proficiencies: A Werewolf does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -16088,7 +16088,7 @@ Corrupt priests who revel in decay, the blightlords of Talona are feared and rev
 
 - Hit Die: d8.
 - Proficiencies: A talontar blight does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -16170,7 +16170,7 @@ The church of Kord insists that the liberation of the spirit comes through the p
 
 - Hit Die: d10.
 - Proficiencies: A Mighty Contender of Kord does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -16317,7 +16317,7 @@ The highest art is magic, often referred to as *the* Art. Its most advanced prac
 
 - Hit Die: d4.
 - Proficiencies: An Archmage does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -16344,7 +16344,7 @@ Each level the Archmage must choose one of the following High Arcana feats:
 * Arcane Fire: This feat allows the Archmage to convert any spells he knows into a powerful bolt of raw magical energy.
 * Mastery of Elements: This feat allows the Archmage to change on the fly the damage type of any elemental spells. The feat to set them back to normal is free at level 1, the fire, cold, acid, electrical and sonic damages are separated in their own feats and must be selected.
 * Mastery of Shapes: This feat allows the Archmage to create "holes" in her area of effect spells to protect his companions from the effects.
-* Spell-Like ability: This feat allows the Archmage to permanently prepare a spell as a spell-like ability which she may then use 2 times per day.
+* Spell-like ability: This feat allows the Archmage to permanently prepare a spell as a spell-like ability which she may then use 2 times per day.
 * Spell Power: This feat allows the Archmage to increase his effective caster level by 1 (commutative with the normal level bonus they get).</entry>
   <entry id="47788" lang="en" sex="m">Mastery of Elements(Normal)</entry>
   <entry id="47789" lang="en" sex="m">Type of Feat: Class Specific
@@ -16401,7 +16401,7 @@ Use: Selected.</entry>
 Prerequisite: Archmage Level 1
 Specifics: The Archmage gains the ability to change arcane spell energy into arcane fire, manifesting it as a bolt of raw magical energy. The bolt is a ranged touch attack with long range that deals 1d6 points of damage per class level of the archmage plus 1d6 points of damage per level of the spell used to create the effect.
 Use: Selected. </entry>
-  <entry id="47812" lang="en" sex="m">Spell-Like Ability</entry>
+  <entry id="47812" lang="en" sex="m">Spell-like Ability</entry>
   <entry id="47813" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Archmage Level 1
 Specifics: An Archmage who selects this type of high arcana can permanently prepare one of her arcane spells as a spell-like ability that can be used twice per day.
@@ -16781,7 +16781,7 @@ Hathran, also known as the Witches of Rashemen, comprise an elite sisterhood of 
 
 - Hit Die: d4.
 - Proficiencies: Exotic weapons.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -17905,7 +17905,7 @@ Some spellcasters who discover the existence of the Shadow Weave are cautious, a
 
 - Hit Die: d4.
 - Proficiencies: None.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -18339,7 +18339,7 @@ Fear him.  Loathe him.  Beware him.  This is a true champion of evil!
 - Alignment Restrictions: Chaotic Evil only.
 - Hit Die: d10.
 - Proficiencies: Simple, Martial, Shield and Light, Medium and Heavy Armor.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 CLASS FEATURES:
 
@@ -18377,7 +18377,7 @@ The Corrupter's primary focus is to corrupt the faith of others, his favored tar
 - Alignment Restrictions: Neutral Evil only.
 - Hit Die: d10.
 - Proficiencies: Simple, Martial, Shield and Light, Medium and Heavy Armor.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 CLASS FEATURES:
 
@@ -18448,7 +18448,7 @@ Obsessed with destroying wizards, they harness the power of a sphere of annihila
 
 - Hit Die: d8.
 - Proficiencies: None.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -18668,7 +18668,7 @@ On the front lines of battle, injury is inevitable. Where the carnage is at its 
 
 - Hit Die: d6.
 - Proficiencies: None.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -18719,7 +18719,7 @@ The warsling sniper is an expert in the use of the weapon commonly associated wi
 
 - Hit Die: d6.
 - Proficiencies: None.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -18915,7 +18915,7 @@ A Warchief leads a primitive, aggressive tribe of humanoids, especially when the
 
 - Hit Die: d10.
 - Proficiencies: A Warchief gains no additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +3.
@@ -19312,7 +19312,7 @@ While a fighter concentrates on mastering one or two weapons, a Man at Arms pref
 
 - Hit Die: d10.
 - Proficiencies: Proficient with all types of weapon, armor and all shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -19449,7 +19449,7 @@ Like the paladin, the Soldier of Light is devoted to the destruction of all evil
 
 - Hit Die: d10.
 - Proficiencies: All simple and martial weapons, all armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -19837,7 +19837,7 @@ Bladesingers are elves who have blended art, swordplay, and arcane magic into a 
 
 - Hit Die: d8.
 - Proficiencies: Gains Light Armor Proficiency.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -20137,7 +20137,7 @@ The Legendary Dreadnought is the ultimate foot soldier, an absolute force of des
 
 - Hit Die: d12.
 - Proficiencies: All simple and martial weapons, all armor and shields.
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS
 
@@ -21013,7 +21013,7 @@ When asked, "What is Truth?", an initiate of the Order of the Bow picks up his b
 
 - Hit Die: d8.
 - Proficiencies: An Order of the Bow Initiate does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -21740,7 +21740,7 @@ Combat magic is usually reserved for spellcasters in the second rank who are con
 
 - Hit Die: d8.
 - Proficiencies: A havoc mage does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -21789,7 +21789,7 @@ Special Abilities:
 - Darkvision: Drow can see in the dark.
 - Spell Resistance: Innate spell resistance of 11 plus 1 per level.
 - Light Blindness: Abrupt exposure to light blinds a drow for 1 round. In addition drow suffer -1 circumstance penalty to attack rolls, saves and checks while operating in bright light.
-- Spell-Like Abilities: 1/day - Darkness, Faerie Fire. Caster level 3rd.
+- Spell-like Abilities: 1/day - Darkness, Faerie Fire. Caster level 3rd.
 - Elven: Drow are considered Elven for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -21867,7 +21867,7 @@ Favored Class (Fighter): A multiclass duergar's fighter class does not count whe
 - Partial Skill Affinity (Spot): +1 racial bonus to Spot checks.
 - Immunity to Phantasms: Duergar are immune to phantasms such as Weird and Phantasmal Killer
 - Light Sensitivity: Duergar suffer -2 penalty to attack rolls, saves and checks while operating in bright light.
-- Spell-Like Abilities: 1/day - Invisibility. Caster level 3rd.
+- Spell-like Abilities: 1/day - Invisibility. Caster level 3rd.
 - Naturally Psionic: Duergar gain 3 bonus power points at 1st level.
 - Dwarven: Duergar count as Dwarves for the purpose of spells.
 - Level adjustment +1</entry>
@@ -22058,7 +22058,7 @@ Special Abilities:
 - Spell Focus (Illusion): Svirfneblin add +2 DC to any Illusion spells they cast. This is identical to the feat.
 - Very Heroic: +2 racial bonus to all saving throws.
 - Spell Resistance: Spell Resistance of 11, plus 1 per level.
-- Spell-Like Abilities: 1/day - Blindness and Deafness (DC 16), Blur, Disguise Self. Caster level is equal to the svirfneblin's character level, DC is Charisma-based with +4 racial bonus.
+- Spell-like Abilities: 1/day - Blindness and Deafness (DC 16), Blur, Disguise Self. Caster level is equal to the svirfneblin's character level, DC is Charisma-based with +4 racial bonus.
 - Gnomish: Svirfneblin count as Gnomes for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -22283,7 +22283,7 @@ Favored Class (Paladin): A multiclass aasimars paladin class does not count when
 - Resist Cold: Innate cold resistance of 5.
 - Resist Acid: Innate acid resistance of 5.
 - Resist Electrical: Innate electrical resistance of 5.
-- Spell-Like Abilities: 1/day - Light. Caster level 3rd.
+- Spell-like Abilities: 1/day - Light. Caster level 3rd.
 - Outsider: Aasimar are considered Outsiders for the purpose of spells.
 - Human: Aasimar are considered Human for the purpose of spells.
 
@@ -22350,7 +22350,7 @@ Special Abilities:
 - Damage Reduction: Innate damage reduction of 10/+1.
 - Epic Fire Resistance: Innate fire resistance of 10.
 - Low-Light Vision: Allows them to see better than normal in the dark.
-- Spell-Like Abilities: 1/day - Alter Self, Charm Person, Clairaudience, Darkness, Enervation.
+- Spell-like Abilities: 1/day - Alter Self, Charm Person, Clairaudience, Darkness, Enervation.
   Fey'ri spell-like abilities have caster level equal to the fey'ri's character level. The DC is Charisma-based.
 - Outsider: Fey'ri are considered Outsiders for the purpose of spells.
 - Elven: Fey'ri are considered Elven for the purpose of spells.
@@ -22411,7 +22411,7 @@ Favored Class (Rogue): A multiclass tieflings rogue class does not count when de
 - Resist Cold: Innate cold resistance of 5.
 - Resist Fire: Innate fire resistance of 5.
 - Resist Electrical: Innate electrical resistance of 5.
-- Spell-Like Abilities: 1/day - Darkness. Caster level 3rd.
+- Spell-like Abilities: 1/day - Darkness. Caster level 3rd.
 - Outsider: Tieflings are considered Outsiders for the purpose of spells.
 - Human: Tieflings are considered Human for the purpose of spells.
 
@@ -22600,7 +22600,7 @@ Special Abilities:
 - Shield: All yuan-ti are proficient with shields.
 - Spell Resistance: Innate spell resistance of 14, plus 1 per character level.
 - Natural Armor Bonus: Racial natural armor bonus of 1.
-- Spell-Like Abilities: 1/day - Charm Person, Darkness, Entangle, Fear. Caster level 3rd. The DC is Charisma-based.
+- Spell-like Abilities: 1/day - Charm Person, Darkness, Entangle, Fear. Caster level 3rd. The DC is Charisma-based.
 - Monstrous: Yuan-ti Purebloods count as Monstrous Humanoids for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -22633,7 +22633,7 @@ Special Abilities:
 
 - Darkvision: Githyanki are able to see in the dark.
 - Spell Resistance: Innate spell resistance of 5, plus 1 per character level.
-- Spell-Like Abilities: 3/day - Blur, Daze. Caster level 3rd. The DC is Charisma-based.
+- Spell-like Abilities: 3/day - Blur, Daze. Caster level 3rd. The DC is Charisma-based.
 - Outsider: Githyanki are considered Outsiders for the purpose of spells.
 - Human: Githyanki are considered Human for the purpose of spells.
 
@@ -22651,7 +22651,7 @@ Special Abilities:
 
 - Darkvision: Githzerai are able to see in the dark.
 - Spell Resistance: Innate spell resistance of 5, plus 1 per character level.
-- Spell-Like Abilities: 3/day - Daze. Caster level 3rd. The DC is Charisma-based.
+- Spell-like Abilities: 3/day - Daze. Caster level 3rd. The DC is Charisma-based.
 - Outsider: Githzerai are considered Outsiders for the purpose of spells.
 - Human: Githzerai are considered Human for the purpose of spells.
 
@@ -22675,7 +22675,7 @@ Special Abilities:
 - Spell Resistance: Innate spell resistance of 27, plus 1 per character level.
 - Natural Armor Bonus: Racial natural armor bonus of 9.
 - Damage Reduction: Innate damage reduction of 15/+1
-- Spell-Like Abilities: At will - Disguise.
+- Spell-like Abilities: At will - Disguise.
 - Outsider: Rakshasa are considered Outsiders for the purpose of spells.
 - Sorcerer Casting: Rakshasa cast spells as a Sorcerer of their hit dice (7th level)
 
@@ -22695,7 +22695,7 @@ Special Abilities:
 - Spell Resistance: Innate spell resistance of 25, plus 1 per character level.
 - Natural Armor Bonus: Racial natural armor bonus of 3.
 - Weapon Proficiency (Creature): Illithid can make an unarmed attack with their tentacles.
-- Spell-Like Abilities: At will - Mind blast, Caster level 4th; 5/day - Charm Monster, Caster level 8th. The DC is Charisma-based.
+- Spell-like Abilities: At will - Mind blast, Caster level 4th; 5/day - Charm Monster, Caster level 8th. The DC is Charisma-based.
 - Extract: Illithid have a chance to extract the brain of a victim on a successful hit.
 - Aberration: Illithid are considered Aberrations for the purpose of spells.
 
@@ -22723,7 +22723,7 @@ Special Abilities:
 - Skill Affinity (Search): +2 racial bonus to Search checks.
 - Skill Affinity (Listen): +2 racial bonus to Listen checks.
 - Damage Reduction: Innate damage reduction of 10/+1.
-- Spell-Like Abilities: At Will - Invisibility; 1/day - Confusion, Entangle, Lesser Dispel, Polymorph Self. Caster level 8th, except Confusion, which is caster level 4th. The DC is Charisma-based.
+- Spell-like Abilities: At Will - Invisibility; 1/day - Confusion, Entangle, Lesser Dispel, Polymorph Self. Caster level 8th, except Confusion, which is caster level 4th. The DC is Charisma-based.
 - Fey: Pixies count as Fey for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -23071,7 +23071,7 @@ Special Abilities:
 - Uncanny Dodge: Brownies retains his Dex bonus to AC, even if caught flat-footed or attacked by a hidden or invisible creature.
 - Evasion: Whenever a Reflex save is allowed for half damage, Brownies instead takes no damage if they succeed at the save.
 - Hide in Plain Sight: Brownies are able to use the Hide skill even while being observed.
-- Spell-Like Abilities: 1/day - Confusion. Caster level 7th plus character level. The DC is Charisma-based.
+- Spell-like Abilities: 1/day - Confusion. Caster level 7th plus character level. The DC is Charisma-based.
 - Fey: Brownies are considered Fey for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -23422,7 +23422,7 @@ The Inspired are the lords of Riedra and the physical presence of the Dreaming D
 
 - Hit Die: d10.
 - Proficiencies: A Fist of Dal Quor gains no additional proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +4.
@@ -23463,7 +23463,7 @@ Pyrokineticists like fire. A lot. Any character with some psionic ability is a p
 
 - Hit Die: d8.
 - Proficiencies: A Pyrokineticist gains no additional proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Alignment: Any Chaotic
@@ -24358,7 +24358,7 @@ Prerequisite: Race-Specific.
 Specifics: The creature receives +4 racial bonus to Spot checks.
 Use: Automatic.</entry>
   <entry id="50147" lang="en" sex="m">Special Abilities - Aasimar</entry>
-  <entry id="50148" lang="en" sex="m">Spell-Like Abilities: 1/day - Light. Caster level 3rd.</entry>
+  <entry id="50148" lang="en" sex="m">Spell-like Abilities: 1/day - Light. Caster level 3rd.</entry>
   <entry id="50149" lang="en" sex="m">Cold Resistance 10</entry>
   <entry id="50150" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
@@ -24380,7 +24380,7 @@ Prerequisite: Race-Specific.
 Specifics: Kenders are experts at taunting, and gain a +4 to bluff and taunt checks.
 Use: Automatic.</entry>
   <entry id="50157" lang="en" sex="m">Special Abilities - Fey'ri</entry>
-  <entry id="50158" lang="en" sex="m">Spell-Like Abilities: 1/day - Alter Self, Charm Person, Clairaudience, Darkness, Enervation.
+  <entry id="50158" lang="en" sex="m">Spell-like Abilities: 1/day - Alter Self, Charm Person, Clairaudience, Darkness, Enervation.
 Fey'ri spell-like abilities have caster level equal to the fey'ri's character level. The DC is Charisma-based.</entry>
   <entry id="50159" lang="en" sex="m">Adamantine Body</entry>
   <entry id="50160" lang="en" sex="m">Type of Feat: Warforged
@@ -24390,12 +24390,12 @@ This Warforged was built using Adamantium for their armor plating.  This grants 
 Note: This uses the "armor" slot, and so you cannot wear other armor.
 Use: Automatic.</entry>
   <entry id="50161" lang="en" sex="m">Special Abilities - Githzerai</entry>
-  <entry id="50162" lang="en" sex="m">Spell-Like Abilities: 3/day - Daze. Caster level 3rd.</entry>
+  <entry id="50162" lang="en" sex="m">Spell-like Abilities: 3/day - Daze. Caster level 3rd.</entry>
   <entry id="50163" lang="en" sex="m">Special Abilities - Illithid</entry>
-  <entry id="50164" lang="en" sex="m">Spell-Like Abilities: At will - Mind blast, Caster level 4th; 5/day - Charm Monster, Caster level 8th. The DC is Charisma-based.
+  <entry id="50164" lang="en" sex="m">Spell-like Abilities: At will - Mind blast, Caster level 4th; 5/day - Charm Monster, Caster level 8th. The DC is Charisma-based.
 Extract/Suck Brain: Illithid have a chance to extract the brain of a victim on a successful hit.</entry>
   <entry id="50165" lang="en" sex="m">Special Abilities - Pixie</entry>
-  <entry id="50166" lang="en" sex="m">Spell-Like Abilities: At Will - Invisibility; 1/day - Confusion, Entangle, Lesser Dispel, Polymorph Self. Caster level 8th, except Confusion, which is caster level 4th. The DC is Charisma-based.</entry>
+  <entry id="50166" lang="en" sex="m">Spell-like Abilities: At Will - Invisibility; 1/day - Confusion, Entangle, Lesser Dispel, Polymorph Self. Caster level 8th, except Confusion, which is caster level 4th. The DC is Charisma-based.</entry>
   <entry id="50167" lang="en" sex="m">Immunity to Disease</entry>
   <entry id="50168" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
@@ -25267,7 +25267,7 @@ Special Abilities:
 - Damage Reduction: Innate damage reduction of 10/+1
 - Immunities: Immune to Electricity and Petrification
 - Hardiness vs Poison: +4 racial bonus to save vs poison
-- Spell-Like Abilities: At will - Aid, Detect Evil, Teleport.
+- Spell-like Abilities: At will - Aid, Detect Evil, Teleport.
 - Change Shape: Hound Archons can assume other mundane canine shapes at will.
 - Auras: Hound Archons can activate a constant Magic Circle vs Evil, as the spell, and a aura to frighten(Will, DC:16+Cha) their enemies.
 - Outsider: Hound Archons are considered Outsiders for the purpose of spells.
@@ -26421,7 +26421,7 @@ Special Abilities:
 - Natural Armor Bonus: Racial natural armor bonus of 5.
 - Damage Reduction: Innate damage reduction of 15/+1
 - Improved Skill Affinity (Bluff): +4 racial bonus to bluff checks.
-- Spell-Like Abilities: At will - Disguise.
+- Spell-like Abilities: At will - Disguise.
 - Rogue-like Abilities: Evasion, Improved Evasion, Uncanny Dodge, +6d6 Sneak Attack
 - Shadow Manipulation: Hide in Plain Sight, Shadow Jump(acts like Dimension Door, 20' range)
 - Outsider: Naztharune Rakshasa are considered Outsiders for the purpose of spells.
@@ -26927,7 +26927,7 @@ Special Abilities:
 - Spell Resistance: Innate spell resistance of 22, plus 1 per character level.
 - Natural Armor Bonus: Racial natural armor bonus of 9.
 - Damage Reduction: Innate damage reduction of 15/+1
-- Spell-Like Abilities: At will - Disguise. 3/day - Chill Touch, True Strike, Vampiric Touch.
+- Spell-like Abilities: At will - Disguise. 3/day - Chill Touch, True Strike, Vampiric Touch.
 - Bonus Feat: 1 bonus feat of your choice.
 - Outsider: Zakya Rakshasa are considered Outsiders for the purpose of spells.
 
@@ -27477,7 +27477,7 @@ Few Champions of Corellon Larethian ever turn to evil, but it occasionally happe
 
 - Hit Die: d10.
 - Proficiencies: The Champion of Corellon gains no weapon or armor proficiency.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -32659,7 +32659,7 @@ Baelnorns are elves who have sought undeath to serve their families, communities
 
 - Hit Die: d4.
 - Proficiencies: The Baelnorn gains no additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -33258,7 +33258,7 @@ Not all monks pursue metaphysical perfection to the exclusion of all other study
 
 REQUIREMENTS:
 
-Spells or Spell-Like Abilities: Arcane caster level 3rd.
+Spells or Spell-like Abilities: Arcane caster level 3rd.
 Feats: Combat Casting, Improved Unarmed Strike, Stunning Fist.
 Skills: Concentration 8 ranks, Lore 5 ranks, Spellcraft 5 ranks.
 
@@ -41082,7 +41082,7 @@ A skill originally developed by the Dwarves and the giants, the ability to creat
 
 - Hit Die: d8.
 - Proficiencies: A Runecaster does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -41421,7 +41421,7 @@ For any servant of a deity, no joy is greater than at those rare moments when th
 
 - Hit Die: d6.
 - Proficiencies: A Contemplative does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -41873,7 +41873,7 @@ It is rumored that the magical powers of sorcerers and bards is somehow connecte
 
 - Hit Die: Special (see below)
 - Proficiencies: A dragon disciple does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -42822,7 +42822,7 @@ Special Abilities:
 - Skill Affinity (Move Silently): +4 racial bonus to Move Silently checks.
 - Skill Affinity (Listen): +2 racial bonus to Listen checks.
 - Skill Affinity (Spot): +2 racial bonus to Spot checks.
-- Spell-Like Abilities: 1/day - Silence, Mage Hand.
+- Spell-like Abilities: 1/day - Silence, Mage Hand.
 - Gnomish: Whisper Gnomes count as Gnomes for the purpose of spells.</entry>
   <entry id="55095" lang="en" sex="m">You grew up in a hidden community with others of your kind.  However, no one knows what threats may lay over the horizon, and so you left home, determined to make sure that you would be strong enough to protect it if that threat ever materialized.</entry>
   <entry id="55096" lang="en" sex="m">Catfolk</entry>
@@ -44927,7 +44927,7 @@ Special Abilities:
 - Resist Fire: Innate fire resistance of 5.
 - Resist Sonic: Innate sonic resistance of 5.
 - Resist Electrical: Innate electrical resistance of 5.
-- Spell-Like Abilities: 1/day - True Strike.
+- Spell-like Abilities: 1/day - True Strike.
 - Outsider: Zenythri count as Outsiders for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -44956,7 +44956,7 @@ Special Abilities:
 - Resist Acid: Innate acid resistance of 5.
 - Resist Sonic: Innate sonic resistance of 5.
 - Resist Electrical: Innate electrical resistance of 5.
-- Spell-Like Abilities: 1/day - Magic Circle vs Alignment.
+- Spell-like Abilities: 1/day - Magic Circle vs Alignment.
 - Outsider: Tuladhara count as Outsiders for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -44979,7 +44979,7 @@ Special Abilities:
 - 20' base speed
 - Darkvision: Nathri are able to see in the dark.
 - Spell Resistance: Innate spell resistance of 5 + 1 per character level.
-- Spell-Like Abilities: 3/day - Expeditious Retreat.
+- Spell-like Abilities: 3/day - Expeditious Retreat.
 - Outsider: Nathri count as Outsiders for the purpose of spells.
 
 (The following may or may not be in use, depending on the module switch settings)
@@ -45079,7 +45079,7 @@ Special Abilities:
 - Skill Affinity (Hide): +4 Racial bonus to Hide checks
 - Skill Affinity (Move Silently): +4 Racial bonus to Move Silently checks
 - Poison bite: Fortitude save (DC 18), initial and secondary damage 1d6 temporary strength
-- Spell-like abilities: darkness, detect good, detect law, faerie fire - 1/day, Caster level 6th
+- Spell-like Abilities: darkness, detect good, detect law, faerie fire - 1/day, Caster level 6th
 - Aberration: Driders count as Aberrations for the purposes of spells and effects.
 - Sorcerer Casting: Driders cast spells as a Sorcerer of their hit dice (6th level)
 
@@ -47273,7 +47273,7 @@ Necromancy is usually a poor choice for arcane spellcasters. Those who really wa
 
 - Hit Die: d6. 
 - Proficiencies: A pale master does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -47310,7 +47310,7 @@ All frostragers are barbarians to some degree, although many are multiclass barb
 
 - Hit Die: d12 
 - Proficiencies: A frostrager does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -47368,7 +47368,7 @@ Most sacred purifiers are clerics (often of Pelor), but paladins have also been 
 
 - Hit Die: d8 
 - Proficiencies: A sacred purifier does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -47414,7 +47414,7 @@ If you have a disciplined worldview and a certain level of combat prowess, and y
 
 - Hit Die: d8 
 - Proficiencies: A serene guardian does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -47635,7 +47635,7 @@ Use: Automatic</entry>
   <entry id="57434" lang="en" sex="m">Special attack creature weapon: </entry>
   <entry id="57435" lang="en" sex="m">Natural AC bonus: </entry>
   <entry id="57436" lang="en" sex="m">Challenge Rating: </entry>
-  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-Like Abilities:</entry>
+  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-like Abilities:</entry>
   <entry id="57438" lang="en" sex="m">%(NAME) (SL %(SL) / CL %(CL) / CR %(CR))</entry>
   <entry id="57439" lang="en" sex="m">Learn new shape</entry>
   <entry id="57440" lang="en" sex="m">Select a 'Quick Shift Slot' to change the shape stored in it</entry>
@@ -48612,7 +48612,7 @@ Fighters and paladins are well served by becoming battlesmiths. Spellcasters are
 
 - Hit Die: d10
 - Proficiencies: A battlesmith gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -48663,7 +48663,7 @@ Some believe that the ultimate expression of the warforged experiment is the jug
 
 - Hit Die: d12
 - Proficiencies: A Warforged Juggernaut gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -48729,7 +48729,7 @@ As members of this prestige class must have the ability to cast arcane spells, f
 
 - Hit Die: d4
 - Proficiencies: A Frost Mage gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -48777,7 +48777,7 @@ Most wayfarer guides are wizards or sorcerers, though a few clerics with access 
 
 - Hit Die: d6
 - Proficiencies: A Wayfarer Guide gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -48931,7 +48931,7 @@ Over a dozen deities have worshipers who are paladins, promoting law and good ac
 
 - Hit Die: d8
 - Proficiencies: Knights of the Weave gain no proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -48971,7 +48971,7 @@ Spelldancers are an energetic sort of spellcaster who draw on the quasi-primal e
 
 - Hit Die: d6
 - Proficiencies: Spelldancers gain no proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -49195,7 +49195,7 @@ Use: Selected</entry>
     
     - Hit Die: d8
     - Proficiencies: You are proficient with all simple weapons and light armor
-    - Skill Points: 2+ Int Modifier.
+    - Skill Points: 2+ Int modifier.
     - Alignment: Any
     
     CLASS FEATURES:
@@ -49854,7 +49854,7 @@ Poison Blood: While you are bound to Eurynome, your blood becomes poisonous. Any
 Anima mages give binders a bad name. Greedy and ambitious, they exploit the powers of the vestiges to which they bind to advance their own abilities. Anima mages see such displaced entities as mere tools, no different from spell component pouches or a wand of fireball. With the power of a vestige, an anima mage can tap a resource all but unknown to his rivals to gain an edge against other spellcasters. The anima mage is a loner, an outsider, and a potential enemy to both binders and witch slayers. But the way others classify him matters little to him, for power is at hand.
 
 - Hit Die: d4
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Alignment: Any nongood
@@ -49927,7 +49927,7 @@ Vessel of Emptiness: You can use the flicker shadow magic mystery once per day. 
 No other vestige is quite like Tenebrous. The remnant of the divinity once possessed by Orcus, Tenebrous is perhaps the only vestige still worshiped in some places as a god, and so tightly bound to a living-if not mortal-being. This unique status grants Tenebrous the ability to manipulate the world in ways that other vestiges cannot. Some Tenebrous apostates revere Orcus, seeing Tenebrous as part of their sundered god and the seed from which he will one day sprout anew. Others see the corpulent fiend as the embodiment of Tenebrous's downfall. These followers believe that Tenebrous is a separate deity who attempted to manifest through Orcus, only to be laid low when the demon proved unworthy.
 
 - Hit Die: d8
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Alignment: Any nongood
@@ -49982,7 +49982,7 @@ Special: Soul binding class feature
 
 - Hit Die: d10.
 - Proficiencies: You gain proficiency with all simple and martial weapons, and with all armor and shields.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 CLASS FEATURES:
 
@@ -50142,7 +50142,7 @@ Thought Travel: As a standard action, you can instantly transport yourself to an
 Scions of Dantalion trace their lineage to an ancient, long-forgotten human empire-a civilization in which justice, love, and art reigned supreme. They maintain that the rulers of this realm led their people to such a height of beauty and righteousness that they rivaled the stars of the heavens in the awe they could inspire. The gods saw their accomplishments and grew envious. In their jealous rage, they destroyed the empire and cursed its nobility, decreeing that no one from that line could ever join them in the afterlife. Scions of Dantalion believe themselves to be part of this line, cursed by the gods but blessed by association with Dantalion, the vestige that is the conglomeration of all their ancestors' souls. The scions believe that their destiny is to one day take up the crown, bear the scepter of rulership, and rebuild the empire that could rival the stars.
 
 - Hit Die: d8
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Race: Human, Half-elf, or Half-orc
@@ -50706,7 +50706,7 @@ Ur-priests despise gods. However, a small number of them have learned to tap int
 
 - Hit Die: d8 
 - Proficiencies: An ur-priest does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -52168,7 +52168,7 @@ and her companions. The wild mage accepts this as the price of her convictions.
 
 - Hit Die: d4
 - Proficiencies: A Wild Mage gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -52214,7 +52214,7 @@ Other spellcasters don't understand the force missile mages' dedication to only 
 
 - Hit Die: d4
 - Proficiencies: A Force Missile gains no additional proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -53621,7 +53621,7 @@ Incarnum is a tool you can use to manipulate the physical manifestations of mora
 
 - Hit Die: d6
 - Proficiencies: You are proficient with all simple weapons, light armor, medium armor, and shields 
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int modifier.
 - Alignment: Alignment must be Lawful Neutral, Chaotic Neutral, Neutral Evil, or Neutral Good. Incarnates who have a different alignment will lose all class features.
 
 CLASS FEATURES:
@@ -53744,7 +53744,7 @@ As a soulborn, you use incarnum to enhance your natural combat ability. You can 
 
 - Hit Die: d10
 - Proficiencies: Soulborns are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields.
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int modifier.
 - Alignment: Soulborns are polarized in their alignments, hewing to strong convictions of morality and ethics. As such, they can only be lawful good, chaotic good, lawful evil, or chaotic evil. 
 
 CLASS FEATURES:
@@ -55833,7 +55833,7 @@ Even without proper training, a skarn can strike wicked blows with the pointed s
 
 - Hit Die: d10
 - Proficiencies: Spinemeld Warriors gain no new proficiencies
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Race: Skarn
@@ -55886,7 +55886,7 @@ The ancient temple that houses the Sapphire Eidolon is also home to an order of 
 
 - Hit Die: d6
 - Proficiencies: A Sapphire Hierarch does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -55942,7 +55942,7 @@ This class combines the Soulcaster and Soulmanifester prestige classes into a si
 
 - Hit Die: d4
 - Proficiencies: A Soulcaster does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -56809,7 +56809,7 @@ All ironsoul forgemasters are dwarven mastersmiths who possess skill at crafting
 
 - Hit Die: d8
 - Proficiencies: An Ironsoul Forgemaster does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -57313,7 +57313,7 @@ Low-Light Vision: Extaminaar can see in the dark out to 60 feet.
 +2 racial bonus on Fortitude saves versus poison: Extaminaars do not easily succumb to venom of any kind.
 +4 racial bonus on Climb checks: Extaminaar's light frames make it easier for them to ascend obstacles.
 +2 racial bonus on Tumble checks: Extaminaars can wriggle their way out of sticky situations.
-Spell-Like Abilities: 3/day-charm animal. Extaminaar often fill their lairs with poisonous snakes to dissuade interlopers.
+Spell-like Abilities: 3/day-charm animal. Extaminaar often fill their lairs with poisonous snakes to dissuade interlopers.
 Favored Class: Rogue. A multiclass extaminaar's rogue class does not count when determining whether he takes an experience point penalty.
 Level Adjustment +0.</entry>
   <entry id="60689" lang="en" sex="m">Skulk</entry>
@@ -57378,7 +57378,7 @@ Though incarnum is a potent tool, it is still a physical medium-an abstraction t
 
 - Hit Die: d10
 - Proficiencies: Incandescent Champions gain no new proficiencies
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Alignment: Any good
@@ -58447,7 +58447,7 @@ Necrocarnum is a dark reflection of incarnum, whose use gives even the most evil
 
 - Hit Die: d6
 - Proficiencies: A Necrocarnate does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
@@ -58610,7 +58610,7 @@ this blademeld grants him amazing combat prowess. When bound to his chakras, it 
 
 - Hit Die: d10
 - Proficiencies: Incarnum Blades gain no new proficiencies
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Alignment: Any except neutral
@@ -58649,7 +58649,7 @@ them helpless.
 
 - Hit Die: d6
 - Proficiencies: Witchborn Binders gain no new proficiencies
-- Skill Points: 4 + Int Modifier.
+- Skill Points: 4 + Int modifier.
 
 REQUIREMENTS:
 Meldshaping: Meldshaper level 6th.
@@ -67694,7 +67694,7 @@ Half-celestials can use a daylight effect (as the spell) at will.
 Smite Evil (Su)
 Once per day a half-celestial can make a normal melee attack to deal extra damage equal to its HD (maximum of +20) against an evil foe.
 
-Spell-Like Abilities
+Spell-like Abilities
 A half-celestial with an Intelligence or Wisdom score of 8 or higher has two or more spell-like abilities, depending on its Hit Dice, as indicated on the table below. The abilities are cumulative. Unless otherwise noted, an ability is usable once per day. Caster level equals the creature's HD, and the save DC is Charisma-based.
 
 1+ HD, Protection from evil 3/day, bless
@@ -68246,7 +68246,7 @@ The shadowcaster understands the true, primal power of darkness, attunes herself
 
 - Hit Die: d6
 - Proficiencies: You are proficient with all simple weapons. You are not proficient with any type of armor or shield. Armor of any type interferes with your gestures, which can cause your mysteries to fail when they function as spells.
-- Skill Points at Each Level: 2+ Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 CLASS FEATURES:
 
@@ -68282,7 +68282,7 @@ Bonus Feats - You gain a bonus feat equal to the total number of Paths you compl
 They prefer to call themselves "black transmogrifists", but most know them as children of night. They are more than spellcasters, more than scholars, and - they claim - more than mortal. For those who have the will and the depth of knowledge to join their ranks, ascension beyond the earthly form awaits, for the children of night become the stuff of shadow itself.
 
 - Hit Die: d6
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Skills: Lore 8 ranks
@@ -68312,7 +68312,7 @@ Mysteries: At each level beyond 1st, you gain new mysteries and an increase in c
 Some driven or domineering souls seek nothing less than mastery of darkness itself - the ability to turn the very shadows into their agents and allies. These are the masters of shadow, commanders of soldiers as dark and insubstantial as night itself. For those with the force of will to enter their ranks, the very shadows serve at their beck and call.
 
 - Hit Die: d8
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Skills: Lore 8 ranks
@@ -68337,7 +68337,7 @@ Mysteries: At each level beyond 1st, you gain new mysteries and an increase in c
 Noctumancers bridge the gap between shadow and arcane magic. Those who succeed in becoming one of these elite not only gain a boost to their mystery user and arcane caster abilities, but are able to manipulate the mysteries and spells of others as no others can.
 
 - Hit Die: d4
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Skills: Lore rank 6, Spellcraft rank 6
@@ -68364,7 +68364,7 @@ Mysteries/Spellcasting: At each level, you gain new mysteries and spells per day
 few equals. Their ability to manipulate darkness and shadow enhances their martial skills, allowing them to target weak points, land blows that should not strike true, and even attack foes who are paces away.
 
 - Hit Die: d8
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +5
@@ -69134,7 +69134,7 @@ Magic is evil. Magic tempts. Magic perverts. Magic corrupts. Anyone who cannot e
 
 - Hit Die: d12
 - Proficiencies: Forsakers gain no proficiencies
-- Skill Points: 2 + Int Modifier. 
+- Skill Points: 2+ Int modifier. 
 
 REQUIREMENTS: 
 
@@ -69378,7 +69378,7 @@ A half-fiend retains all the special attacks of the base creature and gains the 
 Smite Good (Su)
 Once per day the creature can make a normal melee attack to deal extra damage equal to its HD (maximum of +20) against a good foe.
 
-Spell-Like Abilities
+Spell-like Abilities
 A half-fiend with an Intelligence or Wisdom score of 8 or higher has spell-like abilities depending on its Hit Dice, as indicated on the table. The abilities are cumulative. Unless otherwise noted, an ability is usable once per day. Caster level equals the creature's HD, and the save DC is Charisma-based.
 
 HD      Abilities
@@ -69577,7 +69577,7 @@ Perfect Automatic Still Spell
 
 The demilich can cast all the spells it knows without gestures.
 
-Spell-Like Abilities
+Spell-like Abilities
 
 At will:alter self, astral projection, create greater undead, create undead, death knell, enervation, greater dispel magic, harm (usually used to heal itself), summon monster I-IX, telekinesis, and weird; 2/day: greater planar ally. Demiliches use these abilities as casters of a level equal to their spellcaster level, but the save DCs are equal to 10 + the demilich's HD + the demilich's Charisma modifier.
 
@@ -69673,7 +69673,7 @@ The abjurant champion focuses his arcane abilities both to augment his personal 
 
 - Hit Die: d10.
 - Proficiencies: An Abjurant Champion gains no armor or weapon proficiency.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS:
 
