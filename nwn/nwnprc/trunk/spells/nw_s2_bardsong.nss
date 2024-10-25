@@ -122,6 +122,7 @@ void main()
 				 GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST) +
 				 GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD) +
                  GetLevelByClass(CLASS_TYPE_VIRTUOSO);
+				 
     if (GetHasFeat(FEAT_SONG_WHITE_RAVEN, OBJECT_SELF))
         nLevel += GetLevelByClass(CLASS_TYPE_CRUSADER) + GetLevelByClass(CLASS_TYPE_WARBLADE);
 
