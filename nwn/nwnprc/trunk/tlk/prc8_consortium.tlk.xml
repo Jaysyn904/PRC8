@@ -7508,7 +7508,7 @@ Use: Automatic.</entry>
 Prerequisite: Hierophant Level 1
 Specifics: This ability increases saving throw DC's and checks to beat spell resistance for the Hierophant's spells. May be taken multiple times.
 Use: Automatic.</entry>
-  <entry id="45544" lang="en" sex="m">Spell-like Ability</entry>
+  <entry id="45544" lang="en" sex="m">Spell-Like Ability</entry>
   <entry id="45545" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Hierophant 1 or Archmage 1
 Specifics: You may select a divine or arcane spell to become a spell-like ability.
@@ -16344,7 +16344,7 @@ Each level the Archmage must choose one of the following High Arcana feats:
 * Arcane Fire: This feat allows the Archmage to convert any spells he knows into a powerful bolt of raw magical energy.
 * Mastery of Elements: This feat allows the Archmage to change on the fly the damage type of any elemental spells. The feat to set them back to normal is free at level 1, the fire, cold, acid, electrical and sonic damages are separated in their own feats and must be selected.
 * Mastery of Shapes: This feat allows the Archmage to create "holes" in her area of effect spells to protect his companions from the effects.
-* Spell-like ability: This feat allows the Archmage to permanently prepare a spell as a spell-like ability which she may then use 2 times per day.
+* Spell-Like ability: This feat allows the Archmage to permanently prepare a spell as a spell-like ability which she may then use 2 times per day.
 * Spell Power: This feat allows the Archmage to increase his effective caster level by 1 (commutative with the normal level bonus they get).</entry>
   <entry id="47788" lang="en" sex="m">Mastery of Elements(Normal)</entry>
   <entry id="47789" lang="en" sex="m">Type of Feat: Class Specific
@@ -16401,7 +16401,7 @@ Use: Selected.</entry>
 Prerequisite: Archmage Level 1
 Specifics: The Archmage gains the ability to change arcane spell energy into arcane fire, manifesting it as a bolt of raw magical energy. The bolt is a ranged touch attack with long range that deals 1d6 points of damage per class level of the archmage plus 1d6 points of damage per level of the spell used to create the effect.
 Use: Selected. </entry>
-  <entry id="47812" lang="en" sex="m">Spell-like Ability</entry>
+  <entry id="47812" lang="en" sex="m">Spell-Like Ability</entry>
   <entry id="47813" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Archmage Level 1
 Specifics: An Archmage who selects this type of high arcana can permanently prepare one of her arcane spells as a spell-like ability that can be used twice per day.
@@ -16625,7 +16625,7 @@ Level
 
 CLASS FEATURES:
 
-The Henshin mystic continues to gain levels as a monk with regard to unarmed damage.R</entry>
+The Henshin mystic continues to gain levels as a monk with regard to unarmed damage.</entry>
   <entry id="47865" lang="en" sex="m">Riddle of Awareness</entry>
   <entry id="47866" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Henshin Mystic Level 1
@@ -20183,7 +20183,7 @@ The Disciple of Baalzebul, is a liar, a cheat, and a thief. She is more likely t
 
 - Hit Die: d6.
 - Proficiencies: All simple and martial weapons, and light armor.
-- Skill Points: 6+ Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS
 
@@ -20254,7 +20254,7 @@ Iaijutsu is the martial art of drawing a weapon, almost always a katana and atta
 
 - Hit Die: d10
 - Proficiencies: Iaijutsu Masters are proficient in all simple and martial weapons, gain no proficiencies in armor or shields.
-- Skill Points: 4+ Int Modifier.
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS:
 
@@ -20329,7 +20329,7 @@ The Disciple of Dispater is a war-like general of evil. He is defensively minded
 
 - Hit Die: d10
 - Proficiencies: Disciple of Dispater is proficient in all simple and martial weapons, all armor and shields.
-- Skill Points: 4 + Int Mod.
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS:
 
@@ -20396,7 +20396,7 @@ Feared by many, understood by few, the infamous Ravager is an individual who has
 
 - Hit Die: d10
 - Proficiencies: The ravager is proficient in all simple and martial weapons, all armor and shields.
-- Skill Points: 2 + Int Mod.
+- Skill Points: 2+ Int modifier.
 
 REQUIREMENTS
 
@@ -20449,33 +20449,32 @@ Known for their matchless bravery and strict code of honor, the samurai were the
 - Alignment: Any Lawful.
 - Hit Die: d10
 - Proficiencies: All simple and martial weapons, with medium and light armor.
-- Skill Points: 2 + Int Mod.
+- Skill Points: 2+ Int modifier.
 
 CLASS SKILLS: Concentration, Craft, Persuade, Intimidate, Lore
 
 CLASS FEATURES:
 
-Level:
- 1: Daisho Proficiency
- 2: Two-Weapon Fighting
- 3: Kiai Smite 1/Day
- 4: --
- 5: --
- 6: Staredown
- 7: Kiai Smite 2/Day
- 8: Improved Initiative
- 9: --
-10: Mass Staredown
-11: Improved Two-Weapon Fighting
-12: Kiai Smite 3/Day
-13: --
-14: Improved Staredown
-15: --
-16: Greater Two-Weapon Fighting
-17: Kiai Smite 4/Day
-18: --
-19: --
-20: Frightful Presence
+Level 1: Daisho Proficiency
+Level 2: Two-Weapon Fighting
+Level 3: Kiai Smite 1/Day
+Level 4: --
+Level 5: --
+Level 6: Staredown
+Level 7: Kiai Smite 2/Day
+Level 8: Improved Initiative
+Level 9: --
+Level 10: Mass Staredown
+Level 11: Improved Two-Weapon Fighting
+Level 12: Kiai Smite 3/Day
+Level 13: --
+Level 14: Improved Staredown
+Level 15: --
+Level 16: Greater Two-Weapon Fighting
+Level 17: Kiai Smite 4/Day
+Level 18: --
+Level 19: --
+Level 20: Frightful Presence
 
 Daisho Proficiency (Ex): In melee combat, a samurai favors the katana and the wakizashi (a short sword). Many samurai receive an heirloom set of these two blades, known as the daisho. Because a samurai is trained in their use, he gains Katana Weapon Proficiency as a bonus feat.
 
@@ -20527,7 +20526,7 @@ Deadly barbarians who bear magical runes carved into their flesh, Runescarred Be
 
 - Hit Die: d10
 - Proficiencies: No weapon or armor proficiencies gained.
-- Skill Points: 4 + Int Modifier
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS:
 Base Attack Bonus: +7
@@ -47635,7 +47634,7 @@ Use: Automatic</entry>
   <entry id="57434" lang="en" sex="m">Special attack creature weapon: </entry>
   <entry id="57435" lang="en" sex="m">Natural AC bonus: </entry>
   <entry id="57436" lang="en" sex="m">Challenge Rating: </entry>
-  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-like Abilities:</entry>
+  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-Like Abilities:</entry>
   <entry id="57438" lang="en" sex="m">%(NAME) (SL %(SL) / CL %(CL) / CR %(CR))</entry>
   <entry id="57439" lang="en" sex="m">Learn new shape</entry>
   <entry id="57440" lang="en" sex="m">Select a 'Quick Shift Slot' to change the shape stored in it</entry>
@@ -50942,7 +50941,7 @@ Level Adjustment: +1</entry>
   <entry id="58792" lang="en" sex="m">Araneas</entry>
   <entry id="58793" lang="en" sex="m">Often confused for werespiders, araneas are intelligent, shapechanging spiders with sorcerous powers. In its natural form, an aranea resembles a big spider, with a humpbacked body a little bigger than a human torso. It has fanged mandibles like a normal spider. Two small arms, each about 2 feet long, lie below the mandibles. Each arm has a hand with four many-jointed fingers and a double-jointed thumb.
 
-Despite their terrifying appearance, the aranea are a peaceful race of beings. They feed on animals and do not prey upon sapient creatures to live. They tend to live beings lived far from civilized society, as they are often hunted by those who do not understand them.
+Despite their terrifying appearance, the aranea are a peaceful race of beings. They feed on animals and do not prey upon sapient creatures to live. They tend to live far from civilized society, as they are often hunted by those who do not understand them.
 
 
 Aranea Ability Adjustments: +4 Dex, +4 Con, +4 Int, +2 Wis, +4 Cha
@@ -50961,6 +50960,7 @@ Racial Traits:
 - Web: Aranea can spin &amp; throw a sticky net-like webbing.
 - Bonus Feats: Aranea gain Alertness, Improved Initiative &amp; Weapon Finesse as bonus feats.
 - Skills: Araneas have a +2 racial bonus on Jump, Listen, and Spot checks. They have a +8 racial bonus on Climb checks.
+- Shapechanger: Aranea are shapechangers.
 
 Level Adjustment: +4</entry>
   <entry id="58794" lang="en" sex="m">Alternate Form</entry>
@@ -53806,7 +53806,7 @@ A mask representing a basilisk, a mantle of the displacer beast, boots of the la
 
 - Hit Die: d8
 - Proficiencies: You are proficient with all simple weapons, light armor, and shields 
-- Skill Points: 4+ Int Modifier.
+- Skill Points: 4+ Int modifier.
 
 CLASS FEATURES:
 
@@ -58649,7 +58649,7 @@ them helpless.
 
 - Hit Die: d6
 - Proficiencies: Witchborn Binders gain no new proficiencies
-- Skill Points: 4 + Int modifier.
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS:
 Meldshaping: Meldshaper level 6th.
@@ -68394,7 +68394,7 @@ Level
 Shadowcasters draw power from darkness, and masters of shadow command it, but no one truly manipulates the darkness as does the shadowsmith. Combining martial and mystical skills, and possessed of a driving will, the shadowsmith forms his tools and weapons from shadowstuff itself, drawing forth matter from empty night.
 
 - Hit Die: d8
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 PREREQUISITES:
 Base Attack Bonus: +5

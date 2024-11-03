@@ -5866,6 +5866,7 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_bfeat_warchf.2da \
 2das\cls_bfeat_warlok.2da \
 2das\cls_bfeat_warmnd.2da \
+2das\cls_bfeat_warpr.2da \
 2das\cls_bfeat_wayfar.2da \
 2das\cls_bfeat_wilder.2da \
 2das\cls_bfeat_wildmg.2da \
@@ -6709,6 +6710,7 @@ epicspellobjs\wander_unseen.ncs
 2das\cls_spell_kchal.2da \
 2das\cls_spell_kngtwv.2da \
 2das\cls_spell_kotmc.2da \
+2das\cls_spell_monhum.2da \
 2das\cls_spell_ocu.2da \
 2das\cls_spell_schord.2da \
 2das\cls_spell_shaman.2da \
