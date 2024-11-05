@@ -130,22 +130,25 @@ const int FEAT_BRALANI_CHARM_PERSON    = 4998;
 const int FEAT_BRALANI_MIRROR_IMAGE    = 4999;
 const int FEAT_BRALANI_GUST_OF_WIND    = 4978;
 
-const int FEAT_MUCK_SQUIRT		   	   = 5425;  //:: Muckdweller
+const int FEAT_ASHERATI_BODY_DAZZLE		= 5213; //:: Asherati
+const int FEAT_ASHERATI_BODY_LAMP		= 5214;
 
-const int FEAT_ARANEA_ALTFORM		   = 5426;	//:: Aranea
-const int FEAT_ARANEA_WEB			   = 5427;
+const int FEAT_MUCK_SQUIRT		   	   	= 5425;	//:: Muckdweller
 
-const int FEAT_SECONDARY_ATTACKER	= 	5428;	//:: Animal Companions
+const int FEAT_ARANEA_ALTFORM		   	= 5426;	//:: Aranea
+const int FEAT_ARANEA_WEB			   	= 5427;
 
-const int FEAT_MEPHLING_BREATH		=	5429;	//:: Mephlings						
-const int FEAT_AIR_MEPHLING			=	5430;
-const int FEAT_EARTH_MEPHLING		=	5431;
-const int FEAT_FIRE_MEPHLING		=	5432;
-const int FEAT_WATER_MEPHLING		=	5433;
+const int FEAT_SECONDARY_ATTACKER		= 5428;	//:: Animal Companions
 
-const int FEAT_FOG_CLOUD_BREATH		=	5434;	//:: Spiretop Dragon
-const int FEAT_LTSENSE = 4700;
-const int FEAT_LTBLIND = 4701;
+const int FEAT_MEPHLING_BREATH			= 5429;	//:: Mephlings						
+const int FEAT_AIR_MEPHLING				= 5430;
+const int FEAT_EARTH_MEPHLING			= 5431;
+const int FEAT_FIRE_MEPHLING			= 5432;
+const int FEAT_WATER_MEPHLING			= 5433;
+
+const int FEAT_FOG_CLOUD_BREATH			= 5434;	//:: Spiretop Dragon
+const int FEAT_LTSENSE 					= 4700;
+const int FEAT_LTBLIND 					= 4701;
 
 const int FEAT_SPELL5  = 4702;
 const int FEAT_SPELL10 = 4420;

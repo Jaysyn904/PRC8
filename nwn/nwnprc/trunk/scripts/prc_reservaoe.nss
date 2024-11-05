@@ -81,7 +81,7 @@ void main()
             nDamageType = DAMAGE_TYPE_FIRE;
             nBonus = GetLocalInt(oPC, "FieryBurstBonus");
 
-            fSize = 5.0;
+            fSize = FeetToMeters(5.0);
             
             eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
             eExplode = EffectVisualEffect(VFX_FNF_FIREBALL);
@@ -104,7 +104,7 @@ void main()
             nDamageType = DAMAGE_TYPE_ELECTRICAL;
             nBonus = GetLocalInt(oPC, "StormBoltBonus");
 
-            fSize = 20.0;
+            fSize = FeetToMeters(20.0);
             
             eVis = EffectVisualEffect(VFX_IMP_LIGHTNING_S);
             eExplode = EffectBeam(VFX_BEAM_LIGHTNING, oPC, BODY_NODE_HAND);
@@ -127,7 +127,7 @@ void main()
             nDamageType = DAMAGE_TYPE_COLD;
             nBonus = GetLocalInt(oPC, "WintersBlastBonus");
 
-            fSize = 15.0;
+            fSize = FeetToMeters(15.0);
             
             eVis = EffectVisualEffect(VFX_IMP_FROST_S);
             eExplode = EffectBeam(VFX_BEAM_LIGHTNING, oPC, BODY_NODE_HAND); //Not used for this one, vfx set in 2da

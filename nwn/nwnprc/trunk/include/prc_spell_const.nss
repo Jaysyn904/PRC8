@@ -523,6 +523,7 @@ const int SPELL_RAKSHASA_CHANGE_SHAPE_QS2           = 2966;
 const int SPELL_FORESTLORD_TREEWALK_SELECTED        = 2967;
 const int SPELL_FORESTLORD_TREEWALK_DIRDIST         = 2968;
 const int SPELL_ASHRATI_BODYLAMP                    = 2289;
+const int SPELL_ASHRATI_DAZZLE		                = 2332;
 const int SPELL_HYBSIL_MIRROR_IMAGE                 = 1578;
 const int SPELL_HYBSIL_DANCLIGHTS                   = 1579;
 const int SPELL_HYBSIL_JUMP                         = 1580;
