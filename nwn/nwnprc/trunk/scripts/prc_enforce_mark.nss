@@ -1162,7 +1162,7 @@ int DragonsongLyristMarkerFeats()
 		
 		if(nDragonsong < 1)
         {
-            FloatingTextStringOnCreature("A Dragonsong Lyrist must pick one arcane, shadowcasting or divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("A Dragonsong Lyrist must pick one arcane or shadowcasting class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
