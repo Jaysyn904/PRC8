@@ -97,7 +97,7 @@ int GetHighestSpellAvailableBySchool(object oPC, string sSchool)
     return nSpellLevel;
 }
 
-int GetHighestDomainSpellAvailable(object oPC, string sDomain)  //This will loop all domain spells for a given doamain and return the highest level available to cast
+int GetHighestDomainSpellAvailable(object oPC, string sDomain)  //This will loop all domain spells for a given domain and return the highest level available to cast
 {
     string sFile = "prc_desc_" + sDomain;
 
@@ -207,6 +207,12 @@ void UpdateReserveFeats(object oPC)  //This will check for each reserve feat, ca
     if(GetHasFeat(FEAT_ACIDIC_SPLATTER, oPC))
     {
         nBonus = GetHighestSpellAvailableByDescriptor(oPC, RESERVESPELL_DESCRIPTOR_ACID);
+		
+		if((GetHasSpell(SPELL_ACID_FOG, oPC)) || (PRCGetIsRealSpellKnown(SPELL_ACID_FOG, oPC)))
+        {
+			nBonus = 6;
+		}
+			
         DeleteLocalInt(oPC, "AcidicSplatterBonus");
 
         if (nBonus > 1) SetLocalInt(oPC, "AcidicSplatterBonus", nBonus);
