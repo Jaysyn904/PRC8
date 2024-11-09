@@ -1,4 +1,5 @@
 #include "x2_inc_spellhook"
+#include "prc_inc_sp_tch"
 
 // Function to calculate the ranged attack bonus manually
 int CalculateRangedAB(object oCaster)
@@ -8,7 +9,6 @@ int CalculateRangedAB(object oCaster)
 
     int nRangedAttackBonus = nBAB + nDexMod; // Ranged attack bonus is BAB + Dexterity modifier
 
-    // Check if the caster has Point Blank Shot feat and is within 30 feet of the target
     return nRangedAttackBonus;
 }
 
@@ -32,7 +32,7 @@ void ForceNeedleAttack(object oCaster, object oTarget, int nBonus)
     // Calculate ranged attack bonus
     int nRangedAttackBonus = CalculateRangedAB(oCaster);
 
-    // Check for Point Blank Shot (feat)
+    // Check if the caster has Point Blank Shot feat and is within 30 feet of the target
     if (GetHasFeat(FEAT_POINT_BLANK_SHOT, oCaster) && fDistance <= FeetToMeters(30.0)) // Within 30 feet for PBS bonus
     {
         nRangedAttackBonus += 1;
@@ -52,6 +52,7 @@ void ForceNeedleAttack(object oCaster, object oTarget, int nBonus)
     {
         // If the attack hits, deal damage based on the highest force spell level
         int nDamage = d4(nBonus); // Deal 1d4 damage per force spell level
+		nDamage += SpellSneakAttackDamage(oCaster, oTarget);
 
         // Handle critical hit on a natural 20
         if (nDieRoll == 20)
