@@ -12,31 +12,37 @@
 //:: Created By: Georg Zoeller
 //:: Created On: 2003-09-16
 //:://////////////////////////////////////////////
+#include "prc_inc_spells"
+#include "x0_i0_henchman"
+//#include "x0_i0_spells"
 
 
-#include "x0_i0_spells"
-
-
-void DoBeholderPetrify(int nDuration,object oSource, object oTarget, int nSpellID);
+void DoBeholderPetrify(int nDuration, object oSource, object oTarget, int nSpellID);
 
 void main()
 {
 
-    int     nSpell = GetSpellId();
-    object  oTarget = GetSpellTargetObject();
+    int     nSpell 	= PRCGetSpellId();
+    object  oTarget	= PRCGetSpellTargetObject();
+	
     int     nSave, bSave;
-    int     nSaveDC = 15;
+	
+	int 	iHD 	= GetHitDice(OBJECT_SELF);
+	int		iCHAb	= GetAbilityModifier(ABILITY_CHARISMA, OBJECT_SELF);
+    int     nSaveDC = 10 + (iHD / 2) + iCHAb;
+	
     float   fDelay;
+	
     effect  e1, eLink, eVis, eDur;
 
 
-    switch (nSpell)
-    {
-         case 776 :
+	switch (nSpell)
+	{
+		case 776 :
                                   nSave = SAVING_THROW_FORT;      //BEHOLDER_RAY_DEATH
                                   break;
 
-        case  777:
+		case  777:
                                   nSave = SAVING_THROW_WILL;     //BEHOLDER_RAY_TK
                                   break;
 
@@ -52,28 +58,28 @@ void main()
                                   nSave = SAVING_THROW_WILL;
                                   break;
 
-       case 783:
+		case 783:
                                   nSave = SAVING_THROW_FORT;        //BEHOLDER_RAY_WOUND
                                   break;
 
-       case 784:                                                    // BEHOLDER_RAY_FEAR
+		case 784:                                                    // BEHOLDER_RAY_FEAR
                                   nSave = SAVING_THROW_WILL;
                                   break;
 
-       case 785:
-       case 786:
-       case 787:
+		case 785:
+		case 786:
+		case 787:
     }
 
-    SignalEvent(oTarget,EventSpellCastAt(OBJECT_SELF,GetSpellId(),TRUE));
+    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId(), TRUE));
     fDelay  = 0.0f;  //old -- GetSpellEffectDelay(GetLocation(oTarget),OBJECT_SELF);
     if (nSave == SAVING_THROW_WILL)
     {
-        bSave = MySavingThrow(SAVING_THROW_WILL,oTarget, nSaveDC,SAVING_THROW_TYPE_ALL,OBJECT_SELF,fDelay) >0;
+        bSave = PRCMySavingThrow(SAVING_THROW_WILL,oTarget, nSaveDC,SAVING_THROW_TYPE_ALL,OBJECT_SELF,fDelay) > 0;
     }
     else if (nSave == SAVING_THROW_FORT)
     {
-      bSave = MySavingThrow(SAVING_THROW_FORT,oTarget, nSaveDC,SAVING_THROW_TYPE_ALL,OBJECT_SELF,fDelay) >0;
+      bSave = PRCMySavingThrow(SAVING_THROW_FORT,oTarget, nSaveDC,SAVING_THROW_TYPE_ALL,OBJECT_SELF,fDelay) > 0;
     }
 
     if (!bSave)
@@ -84,39 +90,39 @@ void main()
          case 776:                 e1 = EffectDeath(TRUE);
                                    eVis = EffectVisualEffect(VFX_IMP_DEATH);
                                    eLink = EffectLinkEffects(e1,eVis);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);
                                    break;
 
           case 777:                e1 = ExtraordinaryEffect(EffectKnockdown());
                                    eVis = EffectVisualEffect(VFX_IMP_STUN);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   ApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,6.0f);
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,6.0f);
                                    break;
 
           // Petrify for one round per SaveDC
           case 778:                eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   DoBeholderPetrify(nSaveDC,OBJECT_SELF,oTarget,GetSpellId());
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   DoBeholderPetrify(nSaveDC,OBJECT_SELF,oTarget,PRCGetSpellId());
                                    break;
 
 
           case 779:                e1 = EffectCharmed();
                                    eVis = EffectVisualEffect(VFX_IMP_CHARM);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   ApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,24.0f);
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,24.0f);
                                    break;
 
 
           case 780:                e1 = EffectSlow();
                                    eVis = EffectVisualEffect(VFX_IMP_SLOW);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   ApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,RoundsToSeconds(6));
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,RoundsToSeconds(6));
                                    break;
 
           case 783:                e1 = EffectDamage(d8(2)+10);
                                    eVis = EffectVisualEffect(VFX_COM_BLOOD_REG_RED);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,e1,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,e1,oTarget);
                                    break;
 
 
@@ -125,8 +131,8 @@ void main()
                                    eVis = EffectVisualEffect(VFX_IMP_FEAR_S);
                                    eDur = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_FEAR);
                                    e1 = EffectLinkEffects(eDur,e1);
-                                   ApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   ApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,RoundsToSeconds(1+d4()));
+                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
+                                   SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,RoundsToSeconds(1+d4()));
                                    break;
 
 
@@ -140,20 +146,20 @@ void main()
                case 776:         e1 = EffectDamage(d6(3)+13);
                                  eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
                                  eLink = EffectLinkEffects(e1,eVis);
-                                 ApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);
+                                 SPApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);
         }
     }
 }
 
 
 
-void DoBeholderPetrify(int nDuration,object oSource, object oTarget, int nSpellID)
+void DoBeholderPetrify(int nDuration, object oSource, object oTarget, int nSpellID)
 {
 
     if(!GetIsReactionTypeFriendly(oTarget) && !GetIsDead(oTarget))
     {
         // * exit if creature is immune to petrification
-        if (spellsIsImmuneToPetrification(oTarget) == TRUE || GetHasFeat(4643))  //:: PRC's Immunity to Petrification
+        if (PRCIsImmuneToPetrification(oTarget) == TRUE)
         {
             return;
         }

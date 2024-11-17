@@ -127,7 +127,6 @@ void main()
 			if (nFastHealing > 10) {nFastHealing == 10;}	
 			SetCompositeBonus(oSkin, "Template_Saint_FastHealing", nFastHealing, ITEM_PROPERTY_REGENERATION);		
 		
-		
 		//:: Set racial type to Outsider (Native)
 			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_OUTSIDER_RACIAL_TYPE);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -176,7 +175,13 @@ void main()
 			ipIP = ItemPropertySpellImmunitySpecific(246);  //:: Basilisk Mask		
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 			ipIP = ItemPropertySpellImmunitySpecific(247);	//:: Gorgon Mask		
-			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
+
+		//:: Set Immunity to Petrification (maybe this will work?)
+			effect ePetrificationImmunity = EffectBonusFeat(FEAT_IMMUNE_PETRIFICATION);
+			
+			ipIP = PRCItemPropertyBonusFeat(FEAT_IMMUNE_PETRIFICATION);
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
 	
 		//:: Set Ability Score Bonuses
 			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
@@ -229,6 +234,7 @@ void main()
 				   eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
 			effect eLink = EffectLinkEffects(eEffect1, eEffect2);
 				   eLink = EffectLinkEffects(eLink, eEffect3);
+				   eLink = EffectLinkEffects(eLink, ePetrificationImmunity);
 				   eLink = SupernaturalEffect(eLink);
 				   eLink = TagEffect(eLink, "EffectHolyTouch");
 
