@@ -1,3 +1,4 @@
+//:: New itemproperties
 const int ITEM_PROPERTY_USE_LIMITATION_ABILITY_SCORE      = 95;
 const int ITEM_PROPERTY_USE_LIMITATION_SKILL_RANKS        = 96;
 const int ITEM_PROPERTY_USE_LIMITATION_SPELL_LEVEL        = 88;
@@ -16,7 +17,7 @@ const int ITEM_PROPERTY_WIZARDRY                          = 102;
 const int ITEM_PROPERTY_DIVINITY                          = 103;
 const int ITEM_PROPERTY_ECHOBLADE						  = 104;
 
-
+//:: AoE itemproperties
 const int IP_CONST_AOE_DARKNESS             = 0;
 const int IP_CONST_AOE_DEEPER_DARKNESS      = 1;
 const int IP_CONST_AOE_CIRCLE_VS_EVIL       = 2;

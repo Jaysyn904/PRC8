@@ -305,6 +305,7 @@ include\pnp_lich_inc.nss \
 include\pnp_shft_main.nss \
 include\pnp_shft_poly.nss \
 include\prc_add_spell_dc.nss \
+include\prc_add_spl_pen.ncs \
 include\prc_add_spl_pen.nss \
 include\prc_allow_const.nss \
 include\prc_alterations.nss \
@@ -343,6 +344,7 @@ include\prc_inc_hextor.nss \
 include\prc_inc_itmrstr.nss \
 include\prc_inc_leadersh.nss \
 include\prc_inc_listener.nss \
+include\prc_inc_material.nss \
 include\prc_inc_nat_hb.nss \
 include\prc_inc_natweap.nss \
 include\prc_inc_newip.nss \
@@ -6820,6 +6822,7 @@ epicspellobjs\wander_unseen.ncs
 2das\iprp_feats.2da \
 2das\iprp_incvalue1.2da \
 2das\iprp_incvalue2.2da \
+2das\iprp_material.2da \
 2das\iprp_maxpp.2da \
 2das\iprp_metamagic.2da \
 2das\iprp_monstcost.2da \
@@ -6872,6 +6875,8 @@ epicspellobjs\wander_unseen.ncs
 2das\prc_desc_water.2da \
 2das\prc_domains.2da \
 2das\prc_familiar.2da \
+2das\prc_material.2da \
+2das\prc_materialtype.2da \
 2das\prc_polymorph.2da \
 2das\prc_rune_craft.2da \
 2das\prc_spells.2da \
@@ -26206,6 +26211,7 @@ newspellbook\tob_dvsp_imfort.nss \
 newspellbook\tob_dvsp_imfrtoh.nss \
 newspellbook\tob_dvsp_lwbrr.nss \
 newspellbook\tob_dvsp_mrtsprt.nss \
+newspellbook\tob_dvsp_ntgnle.nss \
 newspellbook\tob_dvsp_ntngle.nss \
 newspellbook\tob_dvsp_prford.nss \
 newspellbook\tob_dvsp_rdtchrg.nss \
@@ -27375,6 +27381,7 @@ newspellbookobjs\tob_dvsp_imfort.ncs \
 newspellbookobjs\tob_dvsp_imfrtoh.ncs \
 newspellbookobjs\tob_dvsp_lwbrr.ncs \
 newspellbookobjs\tob_dvsp_mrtsprt.ncs \
+newspellbookobjs\tob_dvsp_ntgnle.ncs \
 newspellbookobjs\tob_dvsp_ntngle.ncs \
 newspellbookobjs\tob_dvsp_prford.ncs \
 newspellbookobjs\tob_dvsp_rdtchrg.ncs \
@@ -36417,6 +36424,8 @@ newspellbookobjs\tob_dvsp_imfrtoh.ncs: newspellbook\tob_dvsp_imfrtoh.nss include
 newspellbookobjs\tob_dvsp_lwbrr.ncs: newspellbook\tob_dvsp_lwbrr.nss include\tob_inc_move.nss include\tob_movehook.nss include\prc_inc_combmove.nss include\tob_inc_martlore.nss include\tob_inc_recovery.nss include\tob_inc_tobfunc.nss include\tob_move_const.nss include\prc_alterations.nss include\tob_inc_moveknwn.nss include\inc_abil_damage.nss include\prc_inc_damage.nss include\prc_effect_inc.nss include\inc_item_props.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\prc_class_const.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\prc_inc_array.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\inc_2dacache.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_debug.nss include\prc_inc_switch.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_sb_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss include\x2_inc_spellhook.nss include\prc_x2_craft.nss include\prc_inc_combat.nss include\prc_inc_itmrstr.nss include\prc_inc_burn.nss include\pnp_shft_main.nss include\inc_dynconv.nss include\inc_npc.nss include\prc_add_spell_dc.nss include\prc_inc_unarmed.nss include\prc_inc_onhit.nss include\prc_inc_fork.nss include\prc_inc_natweap.nss include\prc_getbest_inc.nss include\prc_inc_function.nss include\prc_inc_util.nss include\prc_inc_stunfist.nss include\inc_nwnx_funcs.nss include\prc_template_con.nss include\prc_inc_sp_tch.nss
 
 newspellbookobjs\tob_dvsp_mrtsprt.ncs: newspellbook\tob_dvsp_mrtsprt.nss include\tob_inc_move.nss include\tob_movehook.nss include\tob_inc_martlore.nss include\tob_inc_recovery.nss include\tob_inc_tobfunc.nss include\tob_move_const.nss include\prc_alterations.nss include\tob_inc_moveknwn.nss include\inc_abil_damage.nss include\prc_inc_damage.nss include\prc_effect_inc.nss include\inc_item_props.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\prc_class_const.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\prc_inc_array.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\inc_2dacache.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_debug.nss include\prc_inc_switch.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_sb_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss include\x2_inc_spellhook.nss include\prc_x2_craft.nss include\prc_inc_combat.nss include\prc_inc_itmrstr.nss include\prc_inc_burn.nss include\pnp_shft_main.nss include\inc_dynconv.nss include\inc_npc.nss include\prc_add_spell_dc.nss include\prc_inc_unarmed.nss include\prc_inc_onhit.nss include\prc_inc_fork.nss include\prc_inc_natweap.nss include\prc_getbest_inc.nss include\prc_inc_function.nss include\prc_inc_util.nss include\prc_inc_stunfist.nss include\inc_nwnx_funcs.nss include\prc_template_con.nss
+
+newspellbookobjs\tob_dvsp_ntgnle.ncs: newspellbook\tob_dvsp_ntgnle.nss include\tob_inc_move.nss include\tob_movehook.nss include\tob_inc_martlore.nss include\tob_inc_recovery.nss include\tob_inc_tobfunc.nss include\tob_move_const.nss include\prc_alterations.nss include\tob_inc_moveknwn.nss include\inc_abil_damage.nss include\prc_inc_damage.nss include\prc_effect_inc.nss include\inc_item_props.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\prc_class_const.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\prc_inc_array.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\inc_2dacache.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_debug.nss include\prc_inc_switch.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_sb_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss include\x2_inc_spellhook.nss include\prc_x2_craft.nss include\prc_inc_combat.nss include\prc_inc_itmrstr.nss include\prc_inc_burn.nss include\pnp_shft_main.nss include\inc_dynconv.nss include\inc_npc.nss include\prc_add_spell_dc.nss include\prc_inc_unarmed.nss include\prc_inc_onhit.nss include\prc_inc_fork.nss include\prc_inc_natweap.nss include\prc_getbest_inc.nss include\prc_inc_function.nss include\prc_inc_util.nss include\prc_inc_stunfist.nss include\inc_nwnx_funcs.nss include\prc_template_con.nss
 
 newspellbookobjs\tob_dvsp_ntngle.ncs: newspellbook\tob_dvsp_ntngle.nss include\tob_inc_move.nss include\tob_movehook.nss include\tob_inc_martlore.nss include\tob_inc_recovery.nss include\tob_inc_tobfunc.nss include\tob_move_const.nss include\prc_alterations.nss include\tob_inc_moveknwn.nss include\inc_abil_damage.nss include\prc_inc_damage.nss include\prc_effect_inc.nss include\inc_item_props.nss include\prc_inc_castlvl.nss include\prc_inc_newip.nss include\prc_inc_descrptr.nss include\prc_x2_itemprop.nss include\prc_ipfeat_const.nss include\inc_utility.nss include\prc_inc_nwscript.nss include\prc_class_const.nss include\inc_target_list.nss include\inc_logmessage.nss include\inc_threads.nss include\prc_inc_actions.nss include\inc_time.nss include\inc_draw_prc.nss include\inc_eventhook.nss include\inc_metalocation.nss include\inc_array_sort.nss include\inc_uniqueid.nss include\inc_set.nss include\prc_misc_const.nss include\prc_spell_const.nss include\inv_invoc_const.nss include\psi_power_const.nss include\prc_inc_racial.nss include\prc_inc_array.nss include\moi_meld_const.nss include\bnd_vestig_const.nss include\inc_2dacache.nss include\prc_feat_const.nss include\prc_racial_const.nss include\inc_debug.nss include\prc_inc_switch.nss include\inc_persist_loca.nss include\prc_inc_skin.nss include\inc_persistsql.nss include\inc_draw.nss include\inc_draw_tools.nss include\inc_pers_array.nss include\inc_area.nss include\inc_heap.nss include\inc_prc_npc.nss include\prc_inc_spells.nss include\inc_newspellbook.nss include\inc_vfx_const.nss include\spinc_necro_cyst.nss include\true_utter_const.nss include\prc_inc_sneak.nss include\prcsp_engine.nss include\prc_inc_core.nss include\inc_sp_gain_mem.nss include\lookup_2da_spell.nss include\inc_lookups.nss include\prc_inc_sb_const.nss include\prcsp_archmaginc.nss include\prc_add_spl_pen.nss include\prcsp_reputation.nss include\x2_inc_spellhook.nss include\prc_x2_craft.nss include\prc_inc_combat.nss include\prc_inc_itmrstr.nss include\prc_inc_burn.nss include\pnp_shft_main.nss include\inc_dynconv.nss include\inc_npc.nss include\prc_add_spell_dc.nss include\prc_inc_unarmed.nss include\prc_inc_onhit.nss include\prc_inc_fork.nss include\prc_inc_natweap.nss include\prc_getbest_inc.nss include\prc_inc_function.nss include\prc_inc_util.nss include\prc_inc_stunfist.nss include\inc_nwnx_funcs.nss include\prc_template_con.nss
 

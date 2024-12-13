@@ -26,12 +26,17 @@ void main()
     int nDamage = 0;
     int iChaMod = GetAbilityModifier(ABILITY_CHARISMA,oPC);
     int iSkill = GetSkillRank(SKILL_IAIJUTSU_FOCUS,oPC)+ d20(); //Iaijutsu Focus Check
+	
+	if(DEBUG) DoDebug("prc_iaijutsu >> Initial Iaijutsu focus check is "+IntToString(iSkill)+".");
 
     if(GetHasFeat(FEAT_SKILL_FOCUS_IAI))
         if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_IAI))
             iSkill = iSkill + 13;
         else
             iSkill = iSkill + 3;
+		
+	if(DEBUG) DoDebug("prc_iaijutsu >> Finall Iaijutsu focus check is "+IntToString(iSkill)+".");
+	
     //string OneKat;
     int iDie = 0;
 
@@ -47,10 +52,20 @@ void main()
                 iDie = 9;
 
         nDamage = d6(iDie);
+		if(DEBUG) DoDebug("prc_iaijutsu >> Iaijutsu damage = "+IntToString(nDamage)+" extra damage.");
+		
 
-        if(GetHasFeat(FEAT_STRIKE_VOID)) nDamage = nDamage + iChaMod*iDie;
+        if(GetHasFeat(FEAT_STRIKE_VOID)) 
+		{
+			nDamage = nDamage + iChaMod*iDie;
+			if(DEBUG) DoDebug("prc_iaijutsu >> Strike of the Void grants +"+IntToString(iChaMod+iDie)+" extra damage.");
+		}
         // Only works on flatfooted foes or objects. Does half damage to objects
-        if (!GetIsDeniedDexBonusToAC(oTarget, oPC) && GetObjectType(oTarget) == OBJECT_TYPE_CREATURE) nDamage = 0;
+        if (!GetIsDeniedDexBonusToAC(oTarget, oPC) && GetObjectType(oTarget) == OBJECT_TYPE_CREATURE) 
+		{
+			if(DEBUG) DoDebug("prc_iaijutsu >> Target is not flat-footed");
+			nDamage = 0;
+		}
         else if (GetObjectType(oTarget) != OBJECT_TYPE_CREATURE) nDamage /= 2;
     }
 

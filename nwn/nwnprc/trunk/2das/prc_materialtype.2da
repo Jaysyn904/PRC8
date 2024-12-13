@@ -1,0 +1,14 @@
+2DA V2.0
+
+           Label   Name    Constant              
+0          Unknown Unknown MATERIAL_TYPE_UNKNOWN 
+1          Bone    Bone    MATERIAL_TYPE_BONE    
+2          Ceramic Ceramic MATERIAL_TYPE_CERAMIC 
+3          Crystal Crystal MATERIAL_TYPE_CRYSTAL 
+4          Fabric  Fabric  MATERIAL_TYPE_FABRIC  
+5          Leather Leather MATERIAL_TYPE_LEATHER 
+6          Metal   Metal   MATERIAL_TYPE_METAL   
+7          Paper   Paper   MATERIAL_TYPE_PAPER   
+8          Rope    Rope    MATERIAL_TYPE_ROPE    
+9          Stone   Stone   MATERIAL_TYPE_STONE   
+10         Wood    Wood    MATERIAL_TYPE_WOOD    

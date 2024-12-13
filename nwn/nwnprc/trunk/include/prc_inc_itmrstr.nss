@@ -3,8 +3,6 @@
     This include governs all the new itemproperties
     Both restrictions and features
 
-
-
 */
 //:: Updated for .35 by Jaysyn 2023/03/10
 

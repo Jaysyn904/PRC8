@@ -5,6 +5,47 @@
 
 #include "prc_inc_spells"
 
+void DoFortification(object oPC)
+{
+    if(DEBUG) DoDebug("race_hb >> DoFortification() is running.");
+	
+	// Get or create the player's skin object
+    object oHide = GetPCSkin(oPC);
+	
+	int nRace = GetRacialType(oPC);
+	
+	if (nRace == RACIAL_TYPE_RETH_DEKALA) 
+	{
+		// Apply immunity properties for 2 seconds	
+		if(DEBUG) DoDebug("Applying Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 2.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 2.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC));
+	}
+	else if (nRace == RACIAL_TYPE_WARFORGED && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
+	{
+		// Apply immunity properties for 1 seconds	
+		if(DEBUG) DoDebug("Applying Light Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 1.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 1.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC));
+	}
+	else if (nRace == RACIAL_TYPE_WARFORGED_CHARGER && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
+	{
+		// Apply immunity properties for 3 seconds	
+		if(DEBUG) DoDebug("Applying Moderate Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 3.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 3.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC));
+	}	
+}
+
 void main()
 {
     object oPC = OBJECT_SELF;
@@ -208,4 +249,16 @@ void main()
 		
 		}
 	}
-}
+
+	if (GetRacialType(oPC) == RACIAL_TYPE_RETH_DEKALA || GetRacialType(oPC) == RACIAL_TYPE_WARFORGED || GetRacialType(oPC) == RACIAL_TYPE_WARFORGED_CHARGER)
+	{
+ 		int bFortification = GetLocalInt(oPC, "FORTIFCATION_ACTIVE");
+		
+		if (!bFortification)
+		{
+			DoFortification(oPC);
+			SetLocalInt(oPC, "FORTIFCATION_ACTIVE", 1);
+			if(DEBUG) DoDebug("race_hb >> DoFortification() activated.");			
+		}
+	}
+}	 

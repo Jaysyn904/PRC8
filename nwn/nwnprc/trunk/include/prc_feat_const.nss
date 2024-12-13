@@ -323,7 +323,7 @@ const int FEAT_TOUCH_OF_LUCK       = 4634;
 const int FEAT_FORESTLORD_TREEWALK = 4633;
 const int FEAT_KALASHTAR_PP        = 5205;
 
-//:  PnP Weapon Proficiencies
+//::  PnP Weapon Proficiencies
 const int FEAT_WEAPON_PROFICIENCY_SHORTSWORD        = 7901;
 const int FEAT_WEAPON_PROFICIENCY_LONGSWORD         = 7902;
 const int FEAT_WEAPON_PROFICIENCY_BATTLEAXE         = 7903;
@@ -2734,7 +2734,6 @@ const int MAJ_AUR_STEAD_HAND                   = 1936;
 const int GRANT_MOVE_ACTION                    = 1937;
 const int MINOR_AURA                           = 1938;
 const int MAJOR_AURA                           = 1939;
-
 
 //ACP feat
 const int FEAT_ACP_QUICK_FEAT				= 3479;

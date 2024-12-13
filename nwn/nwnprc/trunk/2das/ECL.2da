@@ -51,7 +51,7 @@
 47  ****                   0    ****               ****      ****   
 48  ****                   0    ****               ****      ****   
 49  ****                   0    ****               ****      ****   
-50  Drider                 4    Abberation         11        6      
+50  Drider                 4    Aberration         11        6      
 51  Wemic                  3    MonsterousHumanoid 15        4      
 52  Plant                  **** ****               ****      ****   
 53  Brownie                4    ****               ****      ****   
@@ -75,7 +75,7 @@
 71  Hadrimoi               4    MonsterousHumanoid 15        9      
 72  RedspawnArcaniss       4    MonsterousHumanoid 15        8      
 73  Gloura                 2    Fey                17        7      
-74  Muckdweller            **** ****               ****      ****   
+74  Muckdweller            0    Humanoid           14        ****   
 75  Aranea                 4    Shapechanger       25        3      
 76  Chitine                2    MonsterousHumanoid 15        2      
 77  SpiretopDragon         2    Dragon             18        2      
@@ -247,7 +247,7 @@
 243 Spirit_Folk            **** ****               ****      ****   
 244 Killoren               0    ****               ****      ****   
 245 ****                   0    ****               ****      ****   
-246 ****                   0    ****               ****      ****   
+246 ****                   **** ****               ****      ****   
 247 ****                   **** ****               ****      ****   
 248 Poison_Dusk            1    ****               ****      ****   
 249 Dromite                1    ****               ****      ****   

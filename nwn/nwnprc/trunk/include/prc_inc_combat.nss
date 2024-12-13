@@ -2132,7 +2132,7 @@ int GetOffHandAttacks(object oPC, int iMainHandAttacks = 0)
 
         int bHasPTWF = GetHasFeat(FEAT_PERFECT_TWO_WEAPON_FIGHTING, oPC);
 
-        if(bHasPTWF)                                    iOffHandAttacks = iMainHandAttacks;
+        if(bHasPTWF) {iOffHandAttacks = iMainHandAttacks;}
         else if(GetHasFeat(FEAT_SUPREME_TWO_WEAPON_FIGHTING, oPC) )     iOffHandAttacks = 4;
         else if(GetHasFeat(FEAT_GREATER_TWO_WEAPON_FIGHTING, oPC) )     iOffHandAttacks = 3;
         else if(GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING, oPC) )    iOffHandAttacks = 2;

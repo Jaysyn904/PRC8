@@ -3166,8 +3166,7 @@ Duration: 1 round/level (D)
 Saving Throw: No
 Spell Resistance: None
 
-By casting aura of the sun, you fill the area around you with warm, glowing light that eliminates natural shadows and hampers magical darkness.Any creature attempting to cast a spell from the shadow subschool or a spell with the darkness descriptor within an aura of the sun must succeed on a caster level check (DC 11 + your caster level), or the spell fails. Areas of magical darkness originating from 3rd-level or lower spells and effects are temporarily suppressed when overlapping with an aura of the sun. Creatures that take penalties 
-in bright light also take them while within an aura of the sun, and an undead creature takes 1d6 points of positive energy damage at the end of its turn every round that it spends within the spell's area.Furthermore, any creature attempting to hide within the aura takes a -4 penalty on Hide checks.
+By casting aura of the sun, you fill the area around you with warm, glowing light that eliminates natural shadows and hampers magical darkness. Any creature attempting to cast a spell from the shadow subschool or a spell with the darkness descriptor within an aura of the sun must succeed on a caster level check (DC 11 + your caster level), or the spell fails. Areas of magical darkness originating from 3rd-level or lower spells and effects are temporarily suppressed when overlapping with an aura of the sun. Creatures that take penalties in bright light also take them while within an aura of the sun, and an undead creature takes 1d6 points of positive energy damage at the end of its turn every round that it spends within the spell's area.Furthermore, any creature attempting to hide within the aura takes a -4 penalty on Hide checks.
 
 This effect is centered on you and moves with you.
 
@@ -14280,7 +14279,7 @@ The Tempest is the point of calm within a whirling barrier of deadly blades. Poe
 REQUIREMENTS:
 
 Base Attack Bonus: +9.
-Feats: Ambidexterity, Dodge, Mobility, Spring Attack, Two-Weapon Fighting, and Weapon Finesse (any) or Weapon Focus (any). Rangers are considered to have Ambidexterity and Two-Weapon-Fighting at Level 1.
+Feats: Dodge, Mobility, Spring Attack, Two-Weapon Fighting, and Weapon Finesse (any) or Weapon Focus (any). Rangers are considered to have Two-Weapon-Fighting at Level 1.
 
 CLASS FEATURES:
 
@@ -15568,7 +15567,7 @@ Feats: True Lycanthrope or Iron Will
 Alignment: Any non-lawful and non-good
 Other: If not a true lycanthrope, you must be infected by someone who is.
 
-CLASS FEATURES:
+WEREWOLF CLASS FEATURES:
 
 Level
 1: Lycanthropy, Alternate Form (Wolf), Low-light Vision, Shapechanger subtype, Werewolf Feat(Spot)
@@ -15577,7 +15576,7 @@ Level
 
 Note: Only true lycanthropes can advance to level 3 in the werewolf class.
 
-WOLF CLASS
+WOLF CLASS FEATURES:
 
 Level
 1: Str + 2, Con + 2, Natural Armor + 2, Creature attacks
@@ -33594,8 +33593,7 @@ Duration: One year
 Saving Throw: None
 Spell Resistance: No
 
-The caster calls 3d4 lemures from the Nine Hells to where he is, offering them the soul that he has prepared. In exchange, they will serve the caster for one year as guards, slaves, or whatever else he needs them for. They are non-intelligent,
-so the caster cannot give them more complicated tasks than can be described in about five words.
+The caster calls 3d4 lemures from the Nine Hells to where he is, offering them the soul that he has prepared. In exchange, they will serve the caster for one year as guards, slaves, or whatever else he needs them for. They are non-intelligent, so the caster cannot give them more complicated tasks than can be described in about five words.
 
 No matter how many times the caster casts this spell, he can control no more than 2 HD worth of fiends per caster level. If he exceeds this number, all the newly called creatures fall under the caster's control, and any excess from previous
 castings become uncontrolled. The caster chooses which creatures to release.
@@ -50784,7 +50782,7 @@ Specifics: You have learned to fight with your weapons in different ways. A char
   <entry id="58725" lang="en" sex="m">Combat Style: Arcane</entry>
   <entry id="58726" lang="en" sex="m">Let your mind do the fighting with this telekinesis based combat style.</entry>
   <entry id="58727" lang="en" sex="m">Combat Style: Demon Blade</entry>
-  <entry id="58728" lang="en" sex="m">You fight like a man possessed.
+  <entry id="58728" lang="en" sex="m">You fight like you're possessed.
 </entry>
   <entry id="58729" lang="en" sex="m">Combat Style: Warrior</entry>
   <entry id="58730" lang="en" sex="m">This sword &amp; shield combat style is heavy on blocking &amp; counters.</entry>
@@ -58642,10 +58640,7 @@ Use: Selected</entry>
   <entry id="60929" lang="en" sex="m">Witchborn Binders</entry>
   <entry id="60930" lang="en" sex="m">witchborn binder</entry>
   <entry id="60931" lang="en" sex="m">(PRESTIGE CLASS)
-Few creatures pose as much threat to human society as arcane spellcasters do. A single wizard can easily destroy an entire town, subvert a kingdom, or twist the very laws of nature with a few well-placed spells. Against this
-obvious threat stands a fellowship of royal agents known as the Vigilant Servants, whose members make it their business to frustrate the plans of the witchborn-namely sorcerers, wizards, and other users of arcane magic. The
-organization's elite agents are the witchborn binders - incarnum-wielding mage-hunters who can use the power of soul energy to create shields, traps, and shackles that can smother the magical powers of the witchborn and render
-them helpless.
+Few creatures pose as much threat to human society as arcane spellcasters do. A single wizard can easily destroy an entire town, subvert a kingdom, or twist the very laws of nature with a few well-placed spells. Against this obvious threat stands a fellowship of royal agents known as the Vigilant Servants, whose members make it their business to frustrate the plans of the witchborn-namely sorcerers, wizards, and other users of arcane magic. The organization's elite agents are the witchborn binders - incarnum-wielding mage-hunters who can use the power of soul energy to create shields, traps, and shackles that can smother the magical powers of the witchborn and render them helpless.
 
 - Hit Die: d6
 - Proficiencies: Witchborn Binders gain no new proficiencies
@@ -73239,4 +73234,49 @@ Special Abilities:
   <entry id="77205" lang="en" sex="m">Ranger Spellcasting (Master of Shrouds)</entry>
   <entry id="77206" lang="en" sex="m">Sohei Spellcasting (Master of Shrouds)</entry>
   <entry id="77207" lang="en" sex="m">Ur-Priest Spellcasting (Master of Shrouds)</entry>
+  <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
+  <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL EXPANSION#</entry>
+  <entry id="200002" lang="en" sex="m">Paper</entry>
+  <entry id="200003" lang="en" sex="m">Glass</entry>
+  <entry id="200004" lang="en" sex="m">Ice</entry>
+  <entry id="200005" lang="en" sex="m">Hemp rope</entry>
+  <entry id="200006" lang="en" sex="m">Stone</entry>
+  <entry id="200007" lang="en" sex="m">Deep Coral</entry>
+  <entry id="200008" lang="en" sex="m">Living Wood</entry>
+  <entry id="200009" lang="en" sex="m">Obdurium</entry>
+  <entry id="200010" lang="en" sex="m">Bronze Wood</entry>
+  <entry id="200011" lang="en" sex="m">Byeshk</entry>
+  <entry id="200012" lang="en" sex="m">Calomel</entry>
+  <entry id="200013" lang="en" sex="m">Riedran Crysteel</entry>
+  <entry id="200014" lang="en" sex="m">Densewood</entry>
+  <entry id="200015" lang="en" sex="m">Dragonshard</entry>
+  <entry id="200016" lang="en" sex="m">Flametouched Iron</entry>
+  <entry id="200017" lang="en" sex="m">Livewood</entry>
+  <entry id="200018" lang="en" sex="m">Purple Mournlode</entry>
+  <entry id="200019" lang="en" sex="m">Soarwood</entry>
+  <entry id="200020" lang="en" sex="m">Targath</entry>
+  <entry id="200021" lang="en" sex="m">Astral Driftmetal</entry>
+  <entry id="200022" lang="en" sex="m">Atandur</entry>
+  <entry id="200023" lang="en" sex="m">Blended Quartz</entry>
+  <entry id="200024" lang="en" sex="m">Chitin</entry>
+  <entry id="200025" lang="en" sex="m">Elven Darkleaf</entry>
+  <entry id="200026" lang="en" sex="m">Dlarun</entry>
+  <entry id="200027" lang="en" sex="m">Dustwood</entry>
+  <entry id="200028" lang="en" sex="m">Elukian Clay</entry>
+  <entry id="200029" lang="en" sex="m">Entropium</entry>
+  <entry id="200030" lang="en" sex="m">Baatorian Greensteel</entry>
+  <entry id="200031" lang="en" sex="m">Hizagkuur</entry>
+  <entry id="200032" lang="en" sex="m">Fever Iron</entry>
+  <entry id="200033" lang="en" sex="m">Gehennan Morghuth Iron</entry>
+  <entry id="200034" lang="en" sex="m">Leafweave</entry>
+  <entry id="200035" lang="en" sex="m">Living Metal</entry>
+  <entry id="200036" lang="en" sex="m">Urdrukar Mindsteel</entry>
+  <entry id="200037" lang="en" sex="m">Solanian Truesteel</entry>
+  <entry id="200038" lang="en" sex="m">Agafari Wood</entry>
+  <entry id="200039" lang="en" sex="m">Dasl</entry>
+  <entry id="200040" lang="en" sex="m">Drake Ivory</entry>
+  <entry id="200041" lang="en" sex="m">Giant Hair Rope</entry>
+  <entry id="200042" lang="en" sex="m">Obsidian</entry>
+  <entry id="200043" lang="en" sex="m">Bamboo</entry>
+  <entry id="200044" lang="en" sex="m">Pottery</entry>  
 </tlk>

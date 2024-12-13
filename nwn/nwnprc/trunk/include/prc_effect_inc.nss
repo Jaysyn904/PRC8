@@ -50,7 +50,7 @@ void GZPRCRemoveSpellEffects(int nID,object oTarget, int bMagicalEffectsOnly = T
 /**
  * Tests to make sure the data in the effect arrays still refers to an actual effect.
  *
- * Called from withing ReorderEffects() and DispelMagicBestMod() (in inc_dispel).  It's purpose
+ * Called from within ReorderEffects() and DispelMagicBestMod() (in inc_dispel).  It's purpose
  * is to verify that the effect referred  to by an entry in the 3 arrays is still in effect, in 
  * case it has been dispelled or run out its duration since the data was put there.
  *

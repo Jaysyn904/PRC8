@@ -2617,7 +2617,29 @@ int HaagentiTransmutation(object oTarget, int nSpellID)
     return TRUE;
 }
 
+
 int KarsiteInability(object oCaster, int nCastingClass)
+{
+    if (GetRacialType(oCaster) == RACIAL_TYPE_KARSITE)
+    {
+	//:: Check if the spell originates from an item
+        object oSpellSource = GetSpellCastItem();
+        if (GetIsObjectValid(oSpellSource))
+        {
+            //:: Spell is cast from an item; allow it
+            return TRUE;
+		}
+        if (GetIsDivineClass(nCastingClass, oCaster) || GetIsArcaneClass(nCastingClass, oCaster))
+        {
+            return FALSE;
+        }
+    }
+    
+    // Default: allow
+    return TRUE;
+}
+
+/* int KarsiteInability(object oCaster, int nCastingClass)
 {
 	if (GetRacialType(oCaster) == RACIAL_TYPE_KARSITE)
 	{
@@ -2626,7 +2648,7 @@ int KarsiteInability(object oCaster, int nCastingClass)
     }	
     
     return TRUE;
-}
+} */
 
 int UrCleric(object oCaster, int nCastingClass)
 {

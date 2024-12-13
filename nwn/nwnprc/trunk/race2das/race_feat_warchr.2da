@@ -1,8 +1,7 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 ImmuneSneak     3591      
-1 LivingConstruct 4556      
-2 ImmuneCrits     3585      
-3 AdamantineBody  4781      
-4 PowerfulCharge  3506      
+     FeatLabel          FeatIndex 
+0    LivingConstruct    4556      
+1    AdamantineBody     4781      
+2    PowerfulCharge     3506      
+3    WeaponProfCreature 289       
