@@ -50,26 +50,30 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     {
         nDuration = nDuration *2; //Duration is +100%
     }
-    if(!GetIsReactionTypeFriendly(oTarget) && PRCAmIAHumanoid(oTarget) && PRCGetIsAliveCreature(oTarget))
-    {
-        //Fire cast spell at event for the specified target
-        SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_GHOUL_TOUCH));
-        //Make a touch attack to afflict target
 
-       // GZ: * GetSpellCastItem() == OBJECT_INVALID is used to prevent feedback from showing up when used as OnHitCastSpell property
-        iAttackRoll = PRCDoMeleeTouchAttack(oTarget);
-        if (iAttackRoll)
-        {
-            //SR and Saves
-            if(!PRCDoResistSpell(OBJECT_SELF, oTarget) && !/*Fort Save*/ PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (PRCGetSaveDC(oTarget,OBJECT_SELF)), SAVING_THROW_TYPE_NEGATIVE))
-            {
-                //Create an instance of the AOE Object using the Apply Effect function
-                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration));
-                ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, GetLocation(oTarget), RoundsToSeconds(nDuration));
-                
-                object oAoE = GetAreaOfEffectObject(GetLocation(oTarget), "VFX_PER_FOGGHOUL");
-                SetAllAoEInts(SPELL_GHOUL_TOUCH, oAoE, PRCGetSpellSaveDC(SPELL_GHOUL_TOUCH, SPELL_SCHOOL_NECROMANCY), 0, nCasterLevel);
-            }
+    if(!GetIsReactionTypeFriendly(oTarget))
+    {
+		//Fire cast spell at event for the specified target
+		SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_GHOUL_TOUCH));	
+		
+		if(PRCAmIAHumanoid(oTarget) && PRCGetIsAliveCreature(oTarget))
+		{        //Make a touch attack to afflict target
+
+		   // GZ: * GetSpellCastItem() == OBJECT_INVALID is used to prevent feedback from showing up when used as OnHitCastSpell property
+			iAttackRoll = PRCDoMeleeTouchAttack(oTarget);
+			if (iAttackRoll)
+			{
+				//SR and Saves
+				if(!PRCDoResistSpell(OBJECT_SELF, oTarget) && !/*Fort Save*/ PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (PRCGetSaveDC(oTarget,OBJECT_SELF)), SAVING_THROW_TYPE_NEGATIVE))
+				{
+					//Create an instance of the AOE Object using the Apply Effect function
+					SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration));
+					ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, GetLocation(oTarget), RoundsToSeconds(nDuration));
+					
+					object oAoE = GetAreaOfEffectObject(GetLocation(oTarget), "VFX_PER_FOGGHOUL");
+					SetAllAoEInts(SPELL_GHOUL_TOUCH, oAoE, PRCGetSpellSaveDC(SPELL_GHOUL_TOUCH, SPELL_SCHOOL_NECROMANCY), 0, nCasterLevel);
+				}
+			}
         }
     }
 

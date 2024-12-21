@@ -438,6 +438,7 @@ const int IP_CONST_FEAT_TIGER_FANG_HASTE       = 1152;
 const int IP_CONST_FEAT_BULLY_SILLY            = 1153;
 const int IP_CONST_FEAT_BULLY_STONE            = 1154;
 const int IP_CONST_FEAT_BULLY_CHAIN            = 1155;
+const int IP_CONST_FEAT_BULLY_GIANT            = 26000;
 const int IP_CONST_FEAT_LORESTEALER_READ       = 1156;
 const int IP_CONST_FEAT_LORESTEALER_DETECT     = 1157;
 const int IP_CONST_FEAT_LORESTEALER_AXE        = 1158;

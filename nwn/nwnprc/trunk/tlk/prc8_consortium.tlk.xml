@@ -73235,7 +73235,7 @@ Special Abilities:
   <entry id="77206" lang="en" sex="m">Sohei Spellcasting (Master of Shrouds)</entry>
   <entry id="77207" lang="en" sex="m">Ur-Priest Spellcasting (Master of Shrouds)</entry>
   <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
-  <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL EXPANSION#</entry>
+  <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200002" lang="en" sex="m">Paper</entry>
   <entry id="200003" lang="en" sex="m">Glass</entry>
   <entry id="200004" lang="en" sex="m">Ice</entry>
@@ -73278,5 +73278,13 @@ Special Abilities:
   <entry id="200041" lang="en" sex="m">Giant Hair Rope</entry>
   <entry id="200042" lang="en" sex="m">Obsidian</entry>
   <entry id="200043" lang="en" sex="m">Bamboo</entry>
-  <entry id="200044" lang="en" sex="m">Pottery</entry>  
+  <entry id="200044" lang="en" sex="m">Pottery</entry>
+  <entry id="200098" lang="en" sex="m">#END PRC8 MATERIAL RESERVE#</entry>
+  <entry id="200099" lang="en" sex="m">#START PRC8 WOL RESERVE#</entry>
+  <entry id="200100" lang="en" sex="m">Giant Bearing</entry>
+  <entry id="200101" lang="en" sex="m">Type of Feat: Legacy
+Prerequisite: Lesser Legacy Ritual
+Benefit: Beginning at 13th level, you can multiply your weight by 8, gaining a +2 size bonus to Strength, a —2 size penalty to Dexterity (to a minimum of 1), a —1 penalty on attack rolls, and a +4 bonus on grapple checks. You can grapple Huge creatures. You do not physically become larger and do not gain a longer reach, nor do you take size penalties on attacks, AC, and Hide checks. This ability can be used at will and lasts 10 minutes each time it is activated. 
+
+Use: Selected</entry>
 </tlk>

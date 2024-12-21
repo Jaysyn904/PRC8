@@ -37,21 +37,40 @@ void main()
         } 
         case WOL_BULLY_GIANT:
         {
-        	effect eLink = EffectLinkEffects(EffectAbilityIncrease(ABILITY_STRENGTH, 2), EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
+        	effect eLOS;
+			if(GetGender(OBJECT_SELF) == GENDER_FEMALE)
+			{
+				eLOS = EffectVisualEffect(290);
+			}
+			else
+			{
+				eLOS = EffectVisualEffect(VFX_FNF_HOWL_WAR_CRY);
+			}
+	
+			effect eLink = EffectLinkEffects(EffectAbilityIncrease(ABILITY_STRENGTH, 2), EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
+				   eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_IMP_HEAD_SONIC));
+				   eLink = EffectLinkEffects(eLink, eLOS);
         	       eLink = EffectLinkEffects(eLink, EffectAttackDecrease(1));
-			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oPC, 9999.0);
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oPC, 600.0);
 			nUses = 999;
             break;
         } 
         case WOL_BULLY_STONE:
         {
-        	object oTarget = PRCGetSpellTargetObject();
+        	if(!GetHasSpellEffect(WOL_BULLY_GIANT, oPC))
+			{
+				SendMessageToPC(oPC, "Giant Bearing must be active to use this ability");
+				return;
+			}
+			
+			object oTarget = PRCGetSpellTargetObject();
             int nAtk = GetAttackRoll(oTarget, oPC, OBJECT_INVALID);
             if (nAtk)
             {
             	ApplyEffectToObject(DURATION_TYPE_INSTANT, ExtraordinaryEffect(EffectDamage(d6(2*nAtk), DAMAGE_TYPE_BLUDGEONING)), oTarget);
             	FloatingTextStringOnCreature("Stone Throw Hit", oPC, FALSE);
             }
+			nUses = 999;
             break;
         }         
         case WOL_BULLY_CHAIN:

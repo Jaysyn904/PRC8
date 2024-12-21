@@ -305,7 +305,6 @@ include\pnp_lich_inc.nss \
 include\pnp_shft_main.nss \
 include\pnp_shft_poly.nss \
 include\prc_add_spell_dc.nss \
-include\prc_add_spl_pen.ncs \
 include\prc_add_spl_pen.nss \
 include\prc_allow_const.nss \
 include\prc_alterations.nss \
@@ -8964,6 +8963,7 @@ gfx\is_gfireburst.tga \
 gfx\is_gharm.tga \
 gfx\is_gheroism.tga \
 gfx\is_ghl_gaunt.tga \
+gfx\is_giantbearing.tga \
 gfx\is_glibness.tga \
 gfx\is_gr_resis.tga \
 gfx\is_greenfire.tga \

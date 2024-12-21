@@ -1040,6 +1040,9 @@ void ScrubPCSkin(object oPC, object oSkin)
                 // changed by fluffyamoeba so that iprp weapon specialization, dev crit, epic weapon focus, epic weapon spec
                 // overwhelming crit and weapon of choice are no longer skipped.
                 if ((st < 400 || st > 570)
+				&& st != 102 //:: ACP Feats
+				&& st != 586 //:: ACP Feats
+				&& st != 587 //:: ACP Feats
                 && st != 398
                 && (st < 1000 || st > 13520)
                 //&& (st < 1000 || st > 13999)
@@ -1049,6 +1052,7 @@ void ScrubPCSkin(object oPC, object oSkin)
                 && (st < 229 || st > 249)         // Pnp spellschool feats and PRC options feat (231-249 & 229)
                 && st != 259                      // 259 - psionic focus
                 && (st < 141 || st > 200)         // 141 - shadowmaster shades, 142-151 bonus domains casting feats, 152 - 200 bonus domain powers
+				&& st != 26000			         // Bullybasher Giant Bearing
                 && ( (st == IP_CONST_FEAT_PRC_POWER_ATTACK_QUICKS_RADIAL || 
                       st == IP_CONST_FEAT_POWER_ATTACK_SINGLE_RADIAL || 
                       st == IP_CONST_FEAT_POWER_ATTACK_FIVES_RADIAL) ? // Remove the PRC Power Attack radials if the character no longer has Power Attack
