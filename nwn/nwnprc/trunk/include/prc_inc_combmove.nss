@@ -1898,23 +1898,33 @@ int DoDisarm(object oPC, object oTarget, int nExtraBonus = 0, int nGenerateAoO =
         if (DEBUG_COMBAT_MOVE) DoDebug("Warblade Battle Skill Disarm bonus (defender)");
     }
     if (GetHasFeat(FEAT_PRC_IMP_DISARM, oPC)) 
-    {
-        nPCAttack += 4;
-        nGenerateAoO = FALSE;
-        nCounter = FALSE;
-    }    
-    // Do the AoO for a trip attempt
-    if (nGenerateAoO)
-    {
-        // Perform the Attack
-        effect eNone;
-        DelayCommand(0.0, PerformAttack(oPC, oTarget, eNone, 0.0, 0, 0, 0, "Attack of Opportunity Hit", "Attack of Opportunity Miss"));    
-        if (GetLocalInt(oPC, "PRCCombat_StruckByAttack"))
-        {
-            FloatingTextStringOnCreature("You have failed at your Disarm Attempt.", oPC, FALSE);
-            return FALSE;
-        }            
-    }
+	// Check if oPC is the same as oTarget and return immediately
+	if (oPC == oTarget)
+	{
+		FloatingTextStringOnCreature("You can't Disarm yourself.", oPC, FALSE);
+		return FALSE;
+	}
+
+	if (GetHasFeat(FEAT_PRC_IMP_DISARM, oPC)) 
+	{
+		nPCAttack += 4;
+		nGenerateAoO = FALSE;
+		nCounter = FALSE;
+	}    
+
+	// Do the AoO for a trip attempt
+	if (nGenerateAoO)
+	{
+		// Perform the Attack
+		effect eNone;
+		DelayCommand(0.0, PerformAttack(oPC, oTarget, eNone, 0.0, 0, 0, 0, "Attack of Opportunity Hit", "Attack of Opportunity Miss"));    
+		if (GetLocalInt(oPC, "PRCCombat_StruckByAttack"))
+		{
+			FloatingTextStringOnCreature("You have failed at your Disarm Attempt.", oPC, FALSE);
+			return FALSE;
+		}            
+	}
+
     
     SendMessageToPC(oPC, "Disarm Check: "+IntToString(nPCAttack)+" vs "+IntToString(nTargetAttack));
     // Now the outcome

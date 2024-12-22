@@ -68097,7 +68097,7 @@ Use: Automatic.</entry>
   <entry id="70129" lang="en" sex="m">Reckless Rage</entry>
   <entry id="70130" lang="en" sex="m">Type of Feat: General
 Prerequisite: Ability to Rage, Con 13
-Specifics: You gain an additional +2 bonus to Strength and Rage, and a further -2 penalty to AC.
+Specifics: Whenever you activate your rage ability, you take an additional -2 penalty to your Armor Class, but you gain an additional +2 bonus to Strength and Constitution. These bonuses and penalties stack with the effects of rage, greater rage, and mighty rage.
 Use: Automatic.</entry>
   <entry id="70131" lang="en" sex="m">Heavy Lithoderms</entry>
   <entry id="70132" lang="en" sex="m">Type of Feat: General

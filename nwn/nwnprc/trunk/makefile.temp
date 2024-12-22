@@ -328,6 +328,7 @@ include\prc_inc_chat_pow.nss \
 include\prc_inc_chat_shf.nss \
 include\prc_inc_clsfunc.nss \
 include\prc_inc_combat.nss \
+include\prc_inc_combmove.ncs \
 include\prc_inc_combmove.nss \
 include\prc_inc_core.nss \
 include\prc_inc_damage.nss \
