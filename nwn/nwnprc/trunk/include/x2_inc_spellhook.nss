@@ -2703,7 +2703,24 @@ void RedspawnHealing(object oCaster, int nSpellID, int nSpellLevel)
 	{
    		ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nSpellLevel*2), oCaster);
     }	
-}    
+}  
+
+void WarsoulTyrant(object oCaster, int nCastingClass)
+{
+	// This race only
+	if (GetRacialType(oCaster) != RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+		return;
+		
+	int nStrength = GetLocalInt(oCaster, "WarsoulTyrant");
+	
+	// Only applies to arcane spells
+	if (GetIsArcaneClass(nCastingClass, oCaster))
+	{
+		// First time here
+		if (nStrength)
+			DelayCommand(1.0, DeleteLocalInt(oCaster, "WarsoulTyrant"));
+	}
+}
 
 // this will execute the prespellcastcode, whose full functionality is incoded in X2PreSpellCastCode2(),
 // as a script, to save loading time for spells scripts and reduce memory usage of NWN
@@ -3145,6 +3162,7 @@ int X2PreSpellCastCode2()
         
         // Races
         ArkamoiStrength(oCaster, nCastingClass);
+        WarsoulTyrant(oCaster, nCastingClass);
         RedspawnHealing(oCaster, nSpellID, nSpellLevel);
 
         // Feats

@@ -565,6 +565,8 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
 	            iReturnLevel = GetLevelByClass(CLASS_TYPE_ABERRATION);
 	        else if(nRace == RACIAL_TYPE_ARKAMOI)
 	            iReturnLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS);
+	        else if(nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+	            iReturnLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS);	            
 	        else if(nRace == RACIAL_TYPE_REDSPAWN_ARCANISS)
 	            iReturnLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS)*3/4;	            
 	        else if(nRace == RACIAL_TYPE_MARRUTACT)
@@ -749,6 +751,9 @@ int GetIsArcaneClass(int nClass, object oCaster = OBJECT_SELF)
          || (nClass == CLASS_TYPE_MONSTROUS
                 && GetRacialType(oCaster) == RACIAL_TYPE_ARKAMOI
                 && !GetLevelByClass(CLASS_TYPE_SORCERER))
+         || (nClass == CLASS_TYPE_MONSTROUS
+                && GetRacialType(oCaster) == RACIAL_TYPE_HOBGOBLIN_WARSOUL
+                && !GetLevelByClass(CLASS_TYPE_SORCERER))                 
          || (nClass == CLASS_TYPE_MONSTROUS
                 && GetRacialType(oCaster) == RACIAL_TYPE_REDSPAWN_ARCANISS
                 && !GetLevelByClass(CLASS_TYPE_SORCERER))
@@ -2513,6 +2518,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
             nArcane += GetLevelByClass(CLASS_TYPE_ABERRATION);
         if(nRace == RACIAL_TYPE_ARKAMOI)
             nArcane += GetLevelByClass(CLASS_TYPE_MONSTROUS);
+        if(nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+            nArcane += GetLevelByClass(CLASS_TYPE_MONSTROUS);            
         if(nRace == RACIAL_TYPE_REDSPAWN_ARCANISS)
             nArcane += GetLevelByClass(CLASS_TYPE_MONSTROUS)*3/4;            
         if(nRace == RACIAL_TYPE_MARRUTACT)
@@ -2679,6 +2686,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 											|| nRace == RACIAL_TYPE_ARKAMOI 
 											|| nRace == RACIAL_TYPE_MARRUTACT 
 											|| nRace == RACIAL_TYPE_REDSPAWN_ARCANISS 
+											|| nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL
 											|| nRace == RACIAL_TYPE_RAKSHASA 
 											|| nRace == RACIAL_TYPE_ARANEA 
 											&& !GetLevelByClass(CLASS_TYPE_SORCERER))
@@ -5857,7 +5865,7 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF)
 {
     int i;
-    for(i = 1; i < 9; i++)
+    for(i = 1; i <= 8; i++)
     {
         if(GetIsArcaneClass(GetClassByPosition(i, oCaster), oCaster))
             return i;
@@ -5869,7 +5877,7 @@ int GetFirstArcaneClassPosition(object oCaster = OBJECT_SELF)
 int GetFirstDivineClassPosition(object oCaster = OBJECT_SELF)
 {
     int i;
-    for(i = 1; i < 9; i++)
+    for(i = 1; i <= 8; i++)
     {
         if(GetIsDivineClass(GetClassByPosition(i, oCaster), oCaster))
             return i;
@@ -5892,7 +5900,7 @@ int GetPrimaryArcaneClass(object oCaster = OBJECT_SELF)
     else
     {
         int i, nClassTmp, nClassLvl;
-        for(i = 1; i < 9; i++)
+        for(i = 1; i <= 8; i++)
         {
             nClassTmp = GetClassByPosition(i, oCaster);
             if(GetIsArcaneClass(nClassTmp, oCaster) && nClassTmp != CLASS_TYPE_SUBLIME_CHORD)
@@ -5936,7 +5944,7 @@ int GetPrimaryDivineClass(object oCaster = OBJECT_SELF)
     else
     {
         int i, nClassTmp, nClassLvl;
-        for(i = 1; i < 9; i++)
+        for(i = 1; i <= 8; i++)
         {
             nClassTmp = GetClassByPosition(i, oCaster);
             if(GetIsDivineClass(nClassTmp, oCaster))
@@ -5961,7 +5969,7 @@ int GetPrimarySpellcastingClass(object oCaster = OBJECT_SELF)
     int nClass;
 
     int i, nClassTmp, nClassLvl;
-    for(i = 1; i < 9; i++)
+    for(i = 1; i <= 8; i++)
     {
         nClassTmp = GetClassByPosition(i, oCaster);
         if(GetIsArcaneClass(nClassTmp, oCaster)

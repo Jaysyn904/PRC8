@@ -188,7 +188,7 @@ void main()
                     int nLevel = nStage - STAGE_LVL0;
                     SetLocalInt(oPC, "DynConv_Waiting", TRUE);
 
-                    PopulateList(oPC, nLevel, GetETArcaneClass(oPC));
+                    PopulateList(oPC, nLevel, GetPrimaryArcaneClass(oPC));
 
                     MarkStageSetUp(nStage, oPC);
                 }

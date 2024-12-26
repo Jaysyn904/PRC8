@@ -424,7 +424,7 @@ void EvalPRCFeats(object oPC)
     if (ToBFeats(oPC))
         ExecuteScript("tob_feats", oPC);
         
-    if (GetIsIncarnumUser(oPC))
+    if (GetIsIncarnumUser(oPC) || GetRacialType(oPC) == RACIAL_TYPE_JAEBRIN)
         ExecuteScript("moi_events", oPC); 
         
     if (GetIsBinder(oPC))

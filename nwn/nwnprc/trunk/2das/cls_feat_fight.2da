@@ -239,7 +239,7 @@
 235  OversizedTwo-WeaponFighting                    5371      1    -1             0      
 236  PowerThrow                                     3249      1    -1             0      
 237  PowerfulCharge                                 3506      1    -1             0      
-238  RangedDisarm                                   5192      1    -1             0      
+238  RangedDisarm                                   5192      1    -1             1      
 239  RapidReload                                    411       1    -1             0      
 240  RecklessCharge                                 3510      1    -1             0      
 241  ShieldCharge                                   3256      1    -1             0      

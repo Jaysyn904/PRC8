@@ -16,6 +16,11 @@ const string COHORT_TAG          = "prc_cohort";
     int    Cohort_X_class1  (cohort class pos1)
     int    Cohort_X_class2  (cohort class pos2)
     int    Cohort_X_class3  (cohort class pos3)
+    int    Cohort_X_class4  (cohort class pos4)
+    int    Cohort_X_class5  (cohort class pos5)
+    int    Cohort_X_class6  (cohort class pos6)
+    int    Cohort_X_class7  (cohort class pos7)
+    int    Cohort_X_class8  (cohort class pos8)
     int    Cohort_X_order   (cohort law/chaos measure)
     int    Cohort_X_moral   (cohort good/evil measure)
     int    Cohort_X_ethran  (cohort has ethran feat)
@@ -595,9 +600,9 @@ void StoreCohort(object oCohort)
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class3", GetClassByPosition(3, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class4", GetClassByPosition(4, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class5", GetClassByPosition(5, oCohort));
-    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class6", GetClassByPosition(6, oCohort));	
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class6", GetClassByPosition(6, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class7", GetClassByPosition(7, oCohort));
-    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class8", GetClassByPosition(8, oCohort));	
+    SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_class8", GetClassByPosition(8, oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_order",  GetLawChaosValue(oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_moral",  GetGoodEvilValue(oCohort));
     SetCampaignInt(     COHORT_DATABASE, "Cohort_"+IntToString(nCohortCount)+"_ethran", GetHasFeat(FEAT_ETHRAN, oCohort));
@@ -833,7 +838,7 @@ int GetMaximumCohortCount(object oPC)
     return nCount;
 }
 
-int GetIsCohortChoiceValid(string sName, int nRace, int nClass1, int nClass2, int nClass3, int nOrder, int nMoral, int nEthran, string sKey, int nDeleted, object oPC)
+int GetIsCohortChoiceValid(string sName, int nRace, int nClass1, int nClass2, int nClass3, int nClass4, int nClass5, int nClass6, int nClass7, int nClass8, int nOrder, int nMoral, int nEthran, string sKey, int nDeleted, object oPC)
 {
     //has been deleted
     if(nDeleted)
@@ -891,7 +896,12 @@ int GetIsCohortChoiceValid(string sName, int nRace, int nClass1, int nClass2, in
             && !nEthran
             && nClass1 != CLASS_TYPE_BARBARIAN
             && nClass2 != CLASS_TYPE_BARBARIAN
-            && nClass3 != CLASS_TYPE_BARBARIAN)
+            && nClass3 != CLASS_TYPE_BARBARIAN
+            && nClass4 != CLASS_TYPE_BARBARIAN
+            && nClass5 != CLASS_TYPE_BARBARIAN
+            && nClass6 != CLASS_TYPE_BARBARIAN
+            && nClass7 != CLASS_TYPE_BARBARIAN
+            && nClass8 != CLASS_TYPE_BARBARIAN)
                 bIsValid = FALSE;
     }
     //OrcWarlord
@@ -916,6 +926,7 @@ int GetIsCohortChoiceValid(string sName, int nRace, int nClass1, int nClass2, in
             && nRace != RACIAL_TYPE_GRAYORC
             && nRace != RACIAL_TYPE_OROG
             && nRace != RACIAL_TYPE_TANARUKK
+            && nRace != RACIAL_TYPE_FROSTBLOOD_ORC
             )
             bIsValid = FALSE;
     }
@@ -934,12 +945,17 @@ int GetIsCohortChoiceValidByID(int nID, object oPC)
     int    nClass1=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class1");
     int    nClass2=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class2");
     int    nClass3=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class3");
+    int    nClass4=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class4");
+    int    nClass5=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class5");
+    int    nClass6=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class6");
+    int    nClass7=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class7");
+    int    nClass8=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_class8");
     int    nOrder= GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_order");
     int    nMoral= GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_moral");
     int    nEthran=GetCampaignInt(     COHORT_DATABASE, "Cohort_"+sID+"_ethran");
     string sKey  = GetCampaignString(  COHORT_DATABASE, "Cohort_"+sID+"_cdkey");
     int    nDeleted = GetCampaignInt(COHORT_DATABASE, "Cohort_"+sID+"_deleted");
-    return GetIsCohortChoiceValid(sName, nRace, nClass1, nClass2, nClass3, nOrder, nMoral, nEthran, sKey, nDeleted, oPC);
+    return GetIsCohortChoiceValid(sName, nRace, nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8, nOrder, nMoral, nEthran, sKey, nDeleted, oPC);
 }
 
 int GetCanRegister(object oPC)

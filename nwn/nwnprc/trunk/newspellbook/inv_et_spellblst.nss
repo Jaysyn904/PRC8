@@ -134,7 +134,7 @@ void main()
                     SetHeader("Select Spell:");
                     SetLocalInt(oPC, "DynConv_Waiting", TRUE);
 
-                    PopulateList(oPC, GetETArcaneClass(oPC));
+                    PopulateList(oPC, GetPrimaryArcaneClass(oPC));
 
                     MarkStageSetUp(nStage, oPC);
                 }

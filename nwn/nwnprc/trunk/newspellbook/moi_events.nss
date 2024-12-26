@@ -339,6 +339,18 @@ void WorgPeltHB(object oMeldshaper)
     } 	
 }
 
+void JaebrinHB(object oMeldshaper)
+{
+	object oBite  = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oMeldshaper);
+	
+	if (GetIsObjectValid(oBite))
+    {       
+        // Add eventhook to the bite
+        IPSafeAddItemProperty(oBite, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+        AddEventScript(oBite, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);
+    } 	
+}
+
 void WorgPeltOnHit(object oMeldshaper, object oItem, object oTarget)
 {
 	if (GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) != CHAKRA_HANDS) return;
@@ -346,6 +358,22 @@ void WorgPeltOnHit(object oMeldshaper, object oItem, object oTarget)
     if(oItem == GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper) || oItem == GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oMeldshaper)) 
     {
 		DoTrip(oMeldshaper, oTarget, 0, FALSE, FALSE, TRUE);
+    }// end if - Item is a melee weapon 	
+}
+
+void JaebrinOnHit(object oMeldshaper, object oItem, object oTarget)
+{
+	if (GetRacialType(oMeldshaper) != RACIAL_TYPE_JAEBRIN) return;
+    
+    if(oItem == GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oMeldshaper)) 
+    {
+		int nDC = 10 + GetHitDice(oMeldshaper)/2 + GetAbilityModifier(ABILITY_CONSTITUTION);
+		if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC))
+		{
+			 effect eEssence = EffectSavingThrowDecrease(SAVING_THROW_WILL, 4);
+			 eEssence = EffectLinkEffects(eEssence, EffectVisualEffect(VFX_DUR_MIND_AFFECTING_NEGATIVE));
+			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(10));
+		}		
     }// end if - Item is a melee weapon 	
 }
 
@@ -520,7 +548,9 @@ void main()
         if(IPGetIsMeleeWeapon(oItem))
         {         
         	if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS) NecrocarnumWeaponHands(oMeldshaper, oTarget, oItem);
-		}                          
+		}   
+		WorgPeltOnHit(oMeldshaper, oItem, oTarget);
+		JaebrinOnHit(oMeldshaper, oItem, oTarget);
     }// end if - Running OnHit event
     else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
     {
@@ -677,6 +707,7 @@ void main()
         if (GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM) RidingBracers(oMeldshaper);
         if (GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_SHOULDERS || GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_TOTEM) TotemAvatar(oMeldshaper);
         if (GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) == CHAKRA_HANDS) WorgPeltHB(oMeldshaper);
+        if (GetRacialType(oMeldshaper) == RACIAL_TYPE_JAEBRIN) JaebrinHB(oMeldshaper);
         if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_COBALT_EXPERTISE)) CobaltExpertise(oMeldshaper);
         //if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_COBALT_POWER)) CobaltPower(oMeldshaper); Commented out so it doesn't work with Bioware PA any more.
         if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_MIDNIGHT_DODGE)) MidnightDodge(oMeldshaper);

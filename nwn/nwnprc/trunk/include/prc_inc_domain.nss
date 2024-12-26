@@ -243,7 +243,7 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
     if(!nCount)
     {
         int n;
-        for(n = 1; n < 8; n++)
+        for(n = 1; n < 9; n++)
         {
             nClass = GetClassByPosition(n, oPC);
 

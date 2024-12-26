@@ -113,7 +113,7 @@ void main()
         if (GetLocked(oTarget) && !GetLockKeyRequired(oTarget))
         {
             int iDC = GetLockUnlockDC(oTarget);
-            if(d20(1) + GetClassByPosition(CLASS_TYPE_OCULAR) >= iDC)
+            if(d20(1) + GetLevelByClass(CLASS_TYPE_OCULAR, oCaster) >= iDC)
             {
                 SetLocked(oTarget, FALSE);
                 AssignCommand(oTarget, SpeakString("**Click**"));
@@ -137,7 +137,7 @@ void main()
         if (GetLocked(oTarget) && GetLockKeyRequired(oTarget))
         {
             int iDC = GetLockUnlockDC(oTarget);
-            if(d20(1) + GetClassByPosition(CLASS_TYPE_OCULAR) >= iDC)
+            if(d20(1) + GetLevelByClass(CLASS_TYPE_OCULAR, oCaster) >= iDC)
             {
                 SetLocked(oTarget, FALSE);
                 AssignCommand(oTarget, SpeakString("**Click**"));

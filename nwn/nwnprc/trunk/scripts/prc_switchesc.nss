@@ -869,7 +869,7 @@ void main()
                 sHeader +="\n"+GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", nClass)));
                 SetHeader(sHeader);
                 // GetIsCohortChoiceValid(sName, nRace, nClass1, nClass2,            nClass3,            nOrder, nMoral, nEthran, sKey, nDeleted, oPC);
-                if(GetIsCohortChoiceValid("",    nRace, nClass,  CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, nOrder, nMoral, FALSE,   sKey, FALSE,    oPC))
+                if(GetIsCohortChoiceValid("",    nRace, nClass,  CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, CLASS_TYPE_INVALID, nOrder, nMoral, FALSE,   sKey, FALSE,    oPC))
                 {
                     AddChoice("Yes", 1);
                     AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);

@@ -1486,8 +1486,8 @@
 1482  ****                                                      ****            1        1      1        ****  0           
 1483  ****                                                      ****            1        1      1        ****  0           
 1484  ****                                                      ****            1        1      1        ****  0           
-1485  ****                                                      ****            1        1      1        ****  0           
-1486  ****                                                      ****            1        1      1        ****  0           
+1485  Warsoul_CultPower                                         ****            1        1      1        1     0           
+1486  Warsoul_SoulTyrant                                        ****            1        1      1        5     0           
 1487  SPIRETOP_FOG_CLOUD_BREATH                                 ****            1        1      1        9     0           
 1488  MEPHLING_BREATH_WEAPON                                    ****            1        1      1        9     0           
 1489  ARANEA_ALTFORM_RADIAL                                     ****            1        1      1        1     0           
@@ -19394,7 +19394,7 @@
 19390 SPELL_MINOR_SHAPESHIFT_VIGOR                              ****            1        1      1        4     ****        
 19391 FACECHANGER_MASTER                                        ****            1        1      1        1     ****        
 19392 Disguise_Self_Learn                                       ****            1        1      1        1     ****        
-19393 SPELL_FACECGANGER_OPTIONS                                 ****            1        1      1        1     ****        
+19393 SPELL_FACECHANGER_OPTIONS                                 ****            1        1      1        1     ****        
 19394 SPELL_FACECHANGER_QS1                                     ****            1        1      1        1     ****        
 19395 SPELL_FACECHANGER_QS2                                     ****            1        1      1        1     ****        
 19396 SPELL_FACECHANGER_QS3                                     ****            1        1      1        1     ****        

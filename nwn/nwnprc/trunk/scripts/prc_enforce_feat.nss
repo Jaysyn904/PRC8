@@ -777,6 +777,11 @@ int CraftingFeats()
         nArti          = GetLevelByClass(CLASS_TYPE_ARTIFICER),
         nBattle        = GetLevelByClass(CLASS_TYPE_BATTLESMITH),
         nIron          = GetLevelByClass(CLASS_TYPE_IRONSOUL_FORGEMASTER);
+    
+    /*FloatingTextStringOnCreature("Your caster level for crafting feats is: " + IntToString(nCasterLvl), OBJECT_SELF, FALSE); 
+    FloatingTextStringOnCreature("Your manifester level for crafting feats is: " + IntToString(nManifesterLvl), OBJECT_SELF, FALSE); 
+    FloatingTextStringOnCreature("Your invoker level for crafting feats is: " + IntToString(nInvokerLvl), OBJECT_SELF, FALSE); 
+    FloatingTextStringOnCreature("Your max level for crafting feats is: " + IntToString(nMax), OBJECT_SELF, FALSE);   */ 
 
     int bReturn, bFirst = TRUE;
     string sError = GetStringByStrRef(16823153) + "\n"; // "Your spellcaster (or manifester) level is not high enough to take the following crafting feats:"

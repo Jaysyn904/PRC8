@@ -929,6 +929,8 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
     int nLevel;
     int nAdjust = GetLocalInt(oManifester, PRC_CASTERLEVEL_ADJUSTMENT);
     nAdjust -= GetLocalInt(oManifester, "WoLManifPenalty");
+    
+    if(DEBUG) DoDebug("GetManifesterLevel Specific Class: " + IntToString(nSpecificClass), oManifester);
 
     // The function user needs to know the character's manifester level in a specific class
     // instead of whatever the character last manifested a power as
@@ -960,7 +962,7 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
             	nLevel = GetLocalInt(oManifester, "AbysmPsion");
             	nMaxPowerLevel = TRUE;
             }            
-                
+            if(DEBUG) DoDebug("GetManifesterLevel Specific Class Manif Level: " + IntToString(nLevel), oManifester);    
             // This is for learning powers, we need to ignore some adjustments    
             if (nMaxPowerLevel) return nLevel;   
 
@@ -993,7 +995,7 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
     {		
         //Gets the manifesting class
         int nManifestingClass = GetManifestingClass(oManifester);
-//        if(DEBUG) DoDebug("Manifesting class: " + IntToString(nManifestingClass), oManifester);
+        if(DEBUG) DoDebug("Manifesting Class #2: " + IntToString(nManifestingClass), oManifester);
         nLevel = GetLevelByClass(nManifestingClass, oManifester);
         // Add levels from +ML PrCs only for the first manifesting class
         nLevel += GetPsionicPRCLevels(oManifester, nManifestingClass);
@@ -1016,7 +1018,7 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
         	nLevel = GetLocalInt(oManifester, "AbysmPsion");
         	nMaxPowerLevel = TRUE;
         }         
-        
+        if(DEBUG) DoDebug("GetManifesterLevel Unspecific Class Manif Level: " + IntToString(nLevel), oManifester);  
         // This is for learning powers, we need to ignore some adjustments    
         if (nMaxPowerLevel) return nLevel;   
 
@@ -1061,7 +1063,7 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
     nLevel += nAdjust;
 
     // This spam is technically no longer necessary once the manifester level getting mechanism has been confirmed to work
-//    if(DEBUG) FloatingTextStringOnCreature("Manifester Level: " + IntToString(nLevel), oManifester, FALSE);
+    if(DEBUG) FloatingTextStringOnCreature("Manifester Level: " + IntToString(nLevel), oManifester, FALSE);
 
     return nLevel;
 }

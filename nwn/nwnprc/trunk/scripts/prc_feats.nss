@@ -698,7 +698,7 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
 {
     int nAlignmentGoodEvil = GetAlignmentGoodEvil(oPC);
     int nAlignmentLawChaos = GetAlignmentLawChaos(oPC);
-
+	
     if(GetSkillRank(SKILL_JUMP, oPC) > 4)
         SetCompositeBonus(oSkin, "SkillJTum", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_TUMBLE);
 
@@ -707,6 +707,8 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         if(GetHasFeat(FEAT_SAC_VOW, oPC))
             SetCompositeBonus(oSkin, "SacredPer", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERSUADE);
 
+		if(GetHasFeat(FEAT_VOWOFPOVERTY, oPC))                       ExecuteScript("ft_vowofpoverty", oPC);
+		
         if(nAlignmentLawChaos == ALIGNMENT_LAWFUL)
         {
             if(GetHasFeat(FEAT_VOW_OBED, oPC))

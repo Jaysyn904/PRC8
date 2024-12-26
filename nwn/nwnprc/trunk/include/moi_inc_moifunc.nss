@@ -12,14 +12,9 @@
 
     @author Stratovarius
     @date   Created - 2019.12.28
-	
-	Updated for .35 by Jaysyn 2023/03/10
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-
-//:: Test Void
-//void main () {}
 
 //////////////////////////////////////////////////
 /*             Function prototypes              */
@@ -160,7 +155,7 @@ int GetMeldshaperLevel(object oMeldshaper, int nSpecificClass, int nMeld)
 {
     int nLevel;
 
-    if (DEBUG) DoDebug("GetMeldshaperLevel: "+GetName(oMeldshaper)+" is a "+IntToString(nSpecificClass));
+    //if (DEBUG) DoDebug("GetMeldshaperLevel: "+GetName(oMeldshaper)+" is a "+IntToString(nSpecificClass));
 
     if(GetIsIncarnumClass(nSpecificClass))
     {
@@ -178,7 +173,7 @@ int GetMeldshaperLevel(object oMeldshaper, int nSpecificClass, int nMeld)
         }   
     }
     
-    if(DEBUG) DoDebug("Meldshaper Level: " + IntToString(nLevel));
+    //if(DEBUG) DoDebug("Meldshaper Level: " + IntToString(nLevel));
     // Being bound to the Totem Chakra increases the level by one.
 	if (GetIsMeldBound(oMeldshaper, nMeld) == CHAKRA_TOTEM) nLevel++;
     return nLevel;
@@ -188,7 +183,7 @@ int GetIncarnumLevelForClass(int nSpecificClass, object oMeldshaper)
 {
     int nLevel;
 
-    if (DEBUG) DoDebug("GetMeldshaperLevel: "+GetName(oMeldshaper)+" is a "+IntToString(nSpecificClass));
+    //if (DEBUG) DoDebug("GetMeldshaperLevel: "+GetName(oMeldshaper)+" is a "+IntToString(nSpecificClass));
 
     if(GetIsIncarnumClass(nSpecificClass))
     {
@@ -203,40 +198,29 @@ int GetIncarnumLevelForClass(int nSpecificClass, object oMeldshaper)
     if(nSpecificClass == CLASS_TYPE_UMBRAL_DISCIPLE || nSpecificClass == CLASS_TYPE_INCANDESCENT_CHAMPION || nSpecificClass == CLASS_TYPE_NECROCARNATE)
     	nLevel = GetLevelByClass(nSpecificClass, oMeldshaper);
     
-    if(DEBUG) DoDebug("GetIncarnumLevelForClass: " + IntToString(nLevel));
+    //if(DEBUG) DoDebug("GetIncarnumLevelForClass: " + IntToString(nLevel));
     return nLevel;
 }
 
 int GetHighestMeldshaperLevel(object oMeldshaper)
 {
-	int n = 0;
-	int nHighest;
-	int nTemp;
-	
-    while(n <= 8)
-	{
-		if(GetClassByPosition(n, oMeldshaper) != CLASS_TYPE_INVALID)
-		{
-			nTemp = GetMeldshaperLevel(oMeldshaper, GetClassByPosition(n, oMeldshaper),-1);
-			
-			if(nTemp > nHighest) 
-				nHighest = nTemp;
-		}
-	n++;
-
-	}
-	
-	return nHighest;
-}
-
-/* int GetHighestMeldshaperLevel(object oMeldshaper)
-{
-    return max(max(GetClassByPosition(1, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(1, oMeldshaper), -1) : 0,
+    /**return max(max(GetClassByPosition(1, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(1, oMeldshaper), -1) : 0,
                    GetClassByPosition(2, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(2, oMeldshaper), -1) : 0
                    ),
                GetClassByPosition(3, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(3, oMeldshaper), -1) : 0
-               );
-} */
+               );**/
+               
+	int nMax;
+	int i;
+    for(i = 1; i <= 8; i++)
+    {
+        int nClass = GetClassByPosition(i, oMeldshaper);
+        int nTest = GetMeldshaperLevel(oMeldshaper, GetClassByPosition(i, oMeldshaper), -1);
+		if (nTest > nMax)
+			nMax = nTest;
+    }	
+    return nMax;
+}
 
 int GetIsIncarnumClass(int nClass)
 {
@@ -286,68 +270,24 @@ int GetPrimaryIncarnumClass(object oMeldshaper = OBJECT_SELF)
     }
     else
     {
-        int nClassLvl;
-        int nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8;
-        int nClass1Lvl, nClass2Lvl, nClass3Lvl, nClass4Lvl, nClass5Lvl, nClass6Lvl, nClass7Lvl, nClass8Lvl;
-		
-		nClass1 = GetClassByPosition(1, oMeldshaper);
-        nClass2 = GetClassByPosition(2, oMeldshaper);
-        nClass3 = GetClassByPosition(3, oMeldshaper);
-		nClass4 = GetClassByPosition(4, oMeldshaper);
-		nClass5 = GetClassByPosition(5, oMeldshaper);
-		nClass6 = GetClassByPosition(6, oMeldshaper);
-		nClass7 = GetClassByPosition(7, oMeldshaper);
-		nClass8 = GetClassByPosition(8, oMeldshaper);
-		
-        if(GetIsIncarnumClass(nClass1)) nClass1Lvl = GetLevelByClass(nClass1, oMeldshaper);
-        if(GetIsIncarnumClass(nClass2)) nClass2Lvl = GetLevelByClass(nClass2, oMeldshaper);
-        if(GetIsIncarnumClass(nClass3)) nClass3Lvl = GetLevelByClass(nClass3, oMeldshaper);
-		if(GetIsIncarnumClass(nClass4)) nClass4Lvl = GetLevelByClass(nClass4, oMeldshaper);
-		if(GetIsIncarnumClass(nClass5)) nClass5Lvl = GetLevelByClass(nClass5, oMeldshaper);
-		if(GetIsIncarnumClass(nClass6)) nClass6Lvl = GetLevelByClass(nClass6, oMeldshaper);
-		if(GetIsIncarnumClass(nClass7)) nClass7Lvl = GetLevelByClass(nClass7, oMeldshaper);
-		if(GetIsIncarnumClass(nClass8)) nClass8Lvl = GetLevelByClass(nClass8, oMeldshaper);
+        int nClassTest, nClassLvlTest, nMax, i;        
+		for(i = 1; i <= 8; i++)
+		{
+			int nClassTest = GetClassByPosition(i, oMeldshaper);
+			
+			if(GetIsIncarnumClass(nClassTest)) 
+				nClassLvlTest = GetLevelByClass(nClassTest, oMeldshaper);
+			else 
+				nClassLvlTest = 0; // Reset to 0 each iteration that isn't incarnum
+				
+			if (nClassLvlTest > nMax)
+			{
+				nMax = nClassLvlTest;
+				nClass = nClassTest;
+			}			
+		}	        
 
-        nClass = nClass1;
-        nClassLvl = nClass1Lvl;
-		
-        if(nClass2Lvl > nClassLvl)
-        {
-            nClass = nClass2;
-            nClassLvl = nClass2Lvl;
-        }
-        if(nClass3Lvl > nClassLvl)
-        {
-            nClass = nClass3;
-            nClassLvl = nClass3Lvl;
-        }
-		if(nClass4Lvl > nClassLvl)
-        {
-            nClass = nClass4;
-            nClassLvl = nClass4Lvl;
-        }
-        if(nClass5Lvl > nClassLvl)
-        {
-            nClass = nClass5;
-            nClassLvl = nClass5Lvl;
-        }
-		if(nClass6Lvl > nClassLvl)
-        {
-            nClass = nClass6;
-            nClassLvl = nClass6Lvl;
-        }
-        if(nClass7Lvl > nClassLvl)
-        {
-            nClass = nClass7;
-            nClassLvl = nClass7Lvl;
-        }		
-        if(nClass8Lvl > nClassLvl)
-        {
-            nClass = nClass8;
-            nClassLvl = nClass8Lvl;
-        }		
-		
-        if(nClassLvl == 0)
+        if(nMax == 0) //No Incarnum classes
             nClass = CLASS_TYPE_INVALID;
     }
 
@@ -356,22 +296,12 @@ int GetPrimaryIncarnumClass(object oMeldshaper = OBJECT_SELF)
 
 int GetFirstIncarnumClassPosition(object oMeldshaper = OBJECT_SELF)
 {
-    if (GetIsIncarnumClass(GetClassByPosition(1, oMeldshaper)))
-        return 1;
-    if (GetIsIncarnumClass(GetClassByPosition(2, oMeldshaper)))
-        return 2;
-    if (GetIsIncarnumClass(GetClassByPosition(3, oMeldshaper)))
-        return 3;
-    if (GetIsIncarnumClass(GetClassByPosition(4, oMeldshaper)))
-        return 4;
-    if (GetIsIncarnumClass(GetClassByPosition(5, oMeldshaper)))
-        return 5;
-    if (GetIsIncarnumClass(GetClassByPosition(6, oMeldshaper)))
-        return 6;
-    if (GetIsIncarnumClass(GetClassByPosition(7, oMeldshaper)))
-        return 7;
-    if (GetIsIncarnumClass(GetClassByPosition(8, oMeldshaper)))
-        return 8;
+	int i;        
+	for(i = 1; i <= 8; i++)
+	{
+		if (GetIsIncarnumClass(GetClassByPosition(i, oMeldshaper)))
+			return i;			
+	}
 
     return 0;
 }
@@ -406,7 +336,7 @@ int GetMeldshapingClass(object oMeldshaper)
 	else if (GetLevelByClass(CLASS_TYPE_SOULBORN, oMeldshaper) && !GetLocalInt(oMeldshaper, "SecondMeldDone")) nClass = CLASS_TYPE_SOULBORN;
 	else if (GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) && !GetLocalInt(oMeldshaper, "ThirdMeldDone")) nClass = CLASS_TYPE_TOTEMIST;
 	else if (GetLevelByClass(CLASS_TYPE_SPINEMELD_WARRIOR, oMeldshaper) && !GetLocalInt(oMeldshaper, "FourthMeldDone")) nClass = CLASS_TYPE_SPINEMELD_WARRIOR;
-	if (DEBUG) DoDebug("GetMeldshapingClass is "+IntToString(nClass));
+	//if (DEBUG) DoDebug("GetMeldshapingClass is "+IntToString(nClass));
 	return nClass;
 }
 
@@ -426,7 +356,7 @@ int GetMaxShapeSoulmeldCount(object oMeldshaper, int nClass)
 	//Limited to Con score - 10 or class limit, whichever is less
 	nMax = min(nMax, nCon);	
 	
-    if (DEBUG) DoDebug("GetMaxShapeSoulmeldCount is "+IntToString(nMax));
+    //if (DEBUG) DoDebug("GetMaxShapeSoulmeldCount is "+IntToString(nMax));
     return nMax;
 }
 
@@ -438,7 +368,7 @@ int GetTotalSoulmeldCount(object oMeldshaper)
 		nMax += GetMaxShapeSoulmeldCount(oMeldshaper, CLASS_TYPE_SPINEMELD_WARRIOR);
 		nMax += GetMaxShapeSoulmeldCount(oMeldshaper, CLASS_TYPE_NECROCARNATE);
 	
-    if (DEBUG) DoDebug("GetTotalSoulmeldCount is "+IntToString(nMax));
+    //if (DEBUG) DoDebug("GetTotalSoulmeldCount is "+IntToString(nMax));
     return nMax;
 }
 
@@ -452,7 +382,7 @@ int GetMaxBindCount(object oMeldshaper, int nClass)
 	   	for(i = FEAT_EXTRA_CHAKRA_BIND_1; i <= FEAT_EXTRA_CHAKRA_BIND_10; i++)
    	    	if(GetHasFeat(i, oMeldshaper)) nMax += 1;
    	}    
-    if (DEBUG) DoDebug("GetMaxBindCount is "+IntToString(nMax));
+    //if (DEBUG) DoDebug("GetMaxBindCount is "+IntToString(nMax));
     return nMax;
 }
 
@@ -461,22 +391,22 @@ void ShapeSoulmeld(object oMeldshaper, int nMeld)
 	PRCRemoveSpellEffects(nMeld, oMeldshaper, oMeldshaper);
 	GZPRCRemoveSpellEffects(nMeld, oMeldshaper, FALSE);
 	ActionCastSpellOnSelf(nMeld);
-	if (DEBUG) DoDebug("Shaping Soulmeld "+IntToString(nMeld)+" on "+GetName(oMeldshaper));
+	//if (DEBUG) DoDebug("Shaping Soulmeld "+IntToString(nMeld)+" on "+GetName(oMeldshaper));
 }		
 
 void MarkMeldShaped(object oMeldshaper, int nMeld, int nClass)
 {
-	if (DEBUG) DoDebug("MarkMeldShaped nMeld is "+IntToString(nMeld));
+	//if (DEBUG) DoDebug("MarkMeldShaped nMeld is "+IntToString(nMeld));
 	int nCont = TRUE;
 	int nTest, i;
 	while (nCont)
 	{
 		nTest = GetLocalInt(oMeldshaper, "ShapedMeld"+IntToString(nClass)+IntToString(i));
-		if (DEBUG) DoDebug("MarkMeldShaped nTest is "+IntToString(nTest));
+		//if (DEBUG) DoDebug("MarkMeldShaped nTest is "+IntToString(nTest));
 		if (!nTest) // If it's blank
 		{
 			SetLocalInt(oMeldshaper, "ShapedMeld"+IntToString(nClass)+IntToString(i), nMeld);
-			if (DEBUG) DoDebug("MarkMeldShaped SetLocal");
+			//if (DEBUG) DoDebug("MarkMeldShaped SetLocal");
 			nCont = FALSE; // Break the loop
 		}
 		else
@@ -586,7 +516,7 @@ int GetShapedMeldsCount(object oMeldshaper)
 		if (nTest) // If it's not blank
 			nCount++;				
     }
-    if (DEBUG) DoDebug("GetTotalShapedMelds is "+IntToString(nCount));
+    //if (DEBUG) DoDebug("GetTotalShapedMelds is "+IntToString(nCount));
     return nCount;
 }
 
@@ -599,7 +529,7 @@ int GetTotalShapedMelds(object oMeldshaper, int nClass)
 		if (nTest) // If it's not blank
 			nCount++;	
     }
-    if (DEBUG) DoDebug("GetTotalShapedMelds is "+IntToString(nCount));
+    //if (DEBUG) DoDebug("GetTotalShapedMelds is "+IntToString(nCount));
     return nCount;
 }
 
@@ -641,7 +571,7 @@ int GetTotalBoundMelds(object oMeldshaper)
 		if (nTest) // If it's not blank
 			nCount++;	
     }
-    if (DEBUG) DoDebug("GetTotalBoundMelds is "+IntToString(nCount));
+    //if (DEBUG) DoDebug("GetTotalBoundMelds is "+IntToString(nCount));
     return nCount;
 }
 
@@ -649,7 +579,7 @@ int GetIsChakraUsed(object oMeldshaper, int nChakra, int nClass)
 {
 	int nTest = GetLocalInt(oMeldshaper, "UsedMeld"+IntToString(nClass)+IntToString(nChakra));
 	
-    if (DEBUG) DoDebug("GetIsChakraUsed is "+IntToString(nTest));
+    //if (DEBUG) DoDebug("GetIsChakraUsed is "+IntToString(nTest));
     return nTest;
 }
 
@@ -690,7 +620,7 @@ void ChakraBindUnequip(object oMeldshaper, object oItem)
     else if (GetItemInSlot(INVENTORY_SLOT_NECK, oMeldshaper) == oItem && GetIsChakraBound(oMeldshaper, CHAKRA_THROAT)) nTest = INVENTORY_SLOT_NECK + 1;
     else if (GetItemInSlot(INVENTORY_SLOT_BELT, oMeldshaper) == oItem && GetIsChakraBound(oMeldshaper, CHAKRA_WAIST)) nTest = INVENTORY_SLOT_BELT + 1;
     else if (GetItemInSlot(INVENTORY_SLOT_CHEST, oMeldshaper) == oItem && (GetIsChakraBound(oMeldshaper, CHAKRA_SOUL) || GetIsChakraBound(oMeldshaper, CHAKRA_HEART))) nTest = INVENTORY_SLOT_CHEST + 1;
-	if (DEBUG) DoDebug("ChakraBindUnequip is "+IntToString(nTest-1));
+	//if (DEBUG) DoDebug("ChakraBindUnequip is "+IntToString(nTest-1));
 	if (nTest && !CheckSplitChakra(oMeldshaper, nTest-1) && GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && oItem != GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oMeldshaper) && oItem != GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper) &&
 		   oItem != GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper) && oItem != GetItemInSlot(INVENTORY_SLOT_CARMOUR, oMeldshaper)) // If it's bound you can't equip in that slot
 	{
@@ -715,7 +645,7 @@ string ChakraToString(int nChakra)
 	if (nChakra == CHAKRA_SOUL      || nChakra == CHAKRA_DOUBLE_SOUL     ) sReturn = "Soul";
 	if (nChakra == CHAKRA_TOTEM     || nChakra == CHAKRA_DOUBLE_TOTEM    ) sReturn = "Totem";
 	
-	if (DEBUG) DoDebug("ChakraToString is "+IntToString(nChakra)+", Return is "+sReturn);
+	//if (DEBUG) DoDebug("ChakraToString is "+IntToString(nChakra)+", Return is "+sReturn);
 	return sReturn;
 }
 
@@ -862,7 +792,7 @@ int GetCanBindChakra(object oMeldshaper, int nChakra)
 int GetMaxEssentiaCount(object oMeldshaper, int nClass)
 {
 	int nMax = StringToInt(Get2DACache(GetMeldshapingClassFile(nClass), "Essentia", GetIncarnumLevelForClass(nClass, oMeldshaper)-1));
-    if (DEBUG) DoDebug("GetMaxEssentiaCount is "+IntToString(nMax));
+    //if (DEBUG) DoDebug("GetMaxEssentiaCount is "+IntToString(nMax));
     return nMax;
 }
 
@@ -880,7 +810,7 @@ void SpawnTempEssentiaChecker(object oMeldshaper)
 			nTest = GetLocalInt(oMeldshaper, "TempEssentiaAmount"+IntToString(i));
 			if (nTest) // If it's not blank
 			{
-				if (DEBUG) DoDebug("Found "+IntToString(nTest)+" Temp Essentia in Meld "+IntToString(i));
+				//if (DEBUG) DoDebug("Found "+IntToString(nTest)+" Temp Essentia in Meld "+IntToString(i));
 				// There's still some temp essentia left in the meld
 				if (nTest > nRed)
 				{
@@ -888,7 +818,7 @@ void SpawnTempEssentiaChecker(object oMeldshaper)
 					SetLocalInt(oMeldshaper, "TempEssentiaAmount"+IntToString(i), nChange);
 					SetLocalInt(oMeldshaper, "MeldEssentia"+IntToString(i), GetEssentiaInvested(oMeldshaper, i)-nChange);
 					ShapeSoulmeld(oMeldshaper, i);
-					if (DEBUG) DoDebug("Reducing Essentia in Meld "+IntToString(i)+" by "+IntToString(nChange));
+					//if (DEBUG) DoDebug("Reducing Essentia in Meld "+IntToString(i)+" by "+IntToString(nChange));
 				}
 				else // Means the reduction is higher than the temp essentia ammount
 				{
@@ -896,12 +826,12 @@ void SpawnTempEssentiaChecker(object oMeldshaper)
 					DeleteLocalInt(oMeldshaper, "TempEssentiaAmount"+IntToString(i));
 					SetLocalInt(oMeldshaper, "MeldEssentia"+IntToString(i), GetEssentiaInvested(oMeldshaper, i)-nTest);
 					ShapeSoulmeld(oMeldshaper, i);
-					if (DEBUG) DoDebug("Deleted Temp Essentia in Meld "+IntToString(i)+", total "+IntToString(nTest));
+					//if (DEBUG) DoDebug("Deleted Temp Essentia in Meld "+IntToString(i)+", total "+IntToString(nTest));
 				}
 				
 				// Reduce the remaining amount of reduction by the amount we just used up
 				nRed = nRed - nTest;
-				if (DEBUG) DoDebug("Remaining Temp Essentia to reduce "+IntToString(nRed));
+				//if (DEBUG) DoDebug("Remaining Temp Essentia to reduce "+IntToString(nRed));
 				if (0 >= nRed) break; // End the loop if we're done
 			}	
     	}	
@@ -976,7 +906,7 @@ int GetTotalEssentiaInvested(object oMeldshaper)
     nCount += GetLocalInt(oMeldshaper, "MeldEssentia"+IntToString(MELD_WITCH_ABROGATION)); // MELD_WITCH_ABROGATION
     nCount += GetLocalInt(oMeldshaper, "MeldEssentia"+IntToString(MELD_WITCH_SPIRITFLAY)); // MELD_WITCH_SPIRITFLAY
     nCount += GetLocalInt(oMeldshaper, "MeldEssentia"+IntToString(MELD_WITCH_INTEGUMENT)); // MELD_WITCH_INTEGUMENT   
-    if (DEBUG) DoDebug("GetTotalEssentiaInvested is "+IntToString(nCount));
+    //if (DEBUG) DoDebug("GetTotalEssentiaInvested is "+IntToString(nCount));
     return nCount;
 }
 
@@ -1014,7 +944,7 @@ int EssentiaIDToRealID(int nEssentiaID)
     else if (nEssentiaID == 18641) nReal = MELD_WITCH_SPIRITFLAY;
     else if (nEssentiaID == 18643) nReal = MELD_WITCH_INTEGUMENT;    
     
-    if (DEBUG) DoDebug("EssentiaToRealID: nEssentiaID "+IntToString(nEssentiaID)+" nReal "+IntToString(nReal));
+    //if (DEBUG) DoDebug("EssentiaToRealID: nEssentiaID "+IntToString(nEssentiaID)+" nReal "+IntToString(nReal));
     return nReal; // Return the real spellID
 }
 
@@ -1227,7 +1157,7 @@ int GetOpposition(object oMeldshaper, object oTarget)
 
 void SetTemporaryEssentia(object oMeldshaper, int nEssentia)
 {
-	if (DEBUG) DoDebug("Set Temporary Essentia from "+IntToString(GetLocalInt(oMeldshaper, "TemporaryEssentia"))+" to "+IntToString(GetLocalInt(oMeldshaper, "TemporaryEssentia")+nEssentia));
+	//if (DEBUG) DoDebug("Set Temporary Essentia from "+IntToString(GetLocalInt(oMeldshaper, "TemporaryEssentia"))+" to "+IntToString(GetLocalInt(oMeldshaper, "TemporaryEssentia")+nEssentia));
 	SetLocalInt(oMeldshaper, "TemporaryEssentia", GetLocalInt(oMeldshaper, "TemporaryEssentia")+nEssentia);
 }
 
@@ -1252,7 +1182,7 @@ int GetMaxEssentiaCapacityFeat(object oMeldshaper)
 	// Don't allow more than they have
 	if (nMax > GetTotalUsableEssentia(oMeldshaper)) nMax = GetTotalUsableEssentia(oMeldshaper);
 
-	if (DEBUG) DoDebug("GetMaxEssentiaCapacityFeat: nHD "+IntToString(nHD)+" nMax "+IntToString(nMax));
+	//if (DEBUG) DoDebug("GetMaxEssentiaCapacityFeat: nHD "+IntToString(nHD)+" nMax "+IntToString(nMax));
 	return nMax;
 }
 
@@ -1418,7 +1348,7 @@ int GetFeatLockedEssentia(object oMeldshaper)
 		if (nTest) // If it's not blank
 			nTotal += GetLocalInt(oMeldshaper, "SpellEssentia"+IntToString(nTest));	
     }     
-    if (DEBUG) DoDebug("GetFeatLockedEssentia return value "+IntToString(nTotal));
+    //if (DEBUG) DoDebug("GetFeatLockedEssentia return value "+IntToString(nTotal));
     return nTotal;
 }
 
@@ -1461,7 +1391,7 @@ int IncarnumFeats(object oMeldshaper)
    	for(i = FEAT_EPIC_ESSENTIA_1; i <= FEAT_EPIC_ESSENTIA_6; i++)
    	    if(GetHasFeat(i, oMeldshaper)) nEssentia += 3;
 	
-	if (DEBUG) DoDebug("IncarnumFeats return value "+IntToString(nEssentia));
+	//if (DEBUG) DoDebug("IncarnumFeats return value "+IntToString(nEssentia));
 	return nEssentia;
 }
 
@@ -1488,7 +1418,7 @@ int GetTotalEssentia(object oMeldshaper)
 	if (GetLevelByClass(CLASS_TYPE_INCANDESCENT_CHAMPION, oMeldshaper))  nEssentia += GetMaxEssentiaCount(oMeldshaper, CLASS_TYPE_INCANDESCENT_CHAMPION);
 	
 	nEssentia += IncarnumFeats(oMeldshaper);
-	if (DEBUG) DoDebug("GetTotalEssentia return value "+IntToString(nEssentia));
+	//if (DEBUG) DoDebug("GetTotalEssentia return value "+IntToString(nEssentia));
 	return nEssentia;
 }
 
@@ -1505,7 +1435,7 @@ int GetIncarnumFeats(object oMeldshaper)
 		if (GetHasFeat(i, oMeldshaper)) 
 			nTotal += 1;	
     }  
-    if (DEBUG) DoDebug("GetIncarnumFeats return value "+IntToString(nTotal));
+    //if (DEBUG) DoDebug("GetIncarnumFeats return value "+IntToString(nTotal));
     return nTotal;
 }
 
@@ -1513,7 +1443,7 @@ int GetIsBlademeldUsed(object oMeldshaper, int nChakra)
 {
 	int nTest = GetLocalInt(oMeldshaper, "UsedBladeMeld"+IntToString(nChakra));
 	
-    if (DEBUG) DoDebug("GetIsBlademeldUsed is "+IntToString(nTest));
+    //if (DEBUG) DoDebug("GetIsBlademeldUsed is "+IntToString(nTest));
     return nTest;
 }
 

@@ -308,6 +308,10 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
     else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 	
+//::Hobgoblin Warsouls cast as sorcerers	
+    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+        nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
+	
 //:: Driders cast as sorcerers	
     else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_DRIDER) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_ABERRATION, oPC);

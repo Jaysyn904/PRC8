@@ -124,7 +124,6 @@ int _CheckEpicSpellcastingForClass(object oPC, int nClass)
         case CLASS_TYPE_WARMAGE:           return GetIsEpicWarmage(oPC);
         case CLASS_TYPE_BLIGHTER:          return GetIsEpicBlighter(oPC);
         case CLASS_TYPE_UR_PRIEST:         return GetIsEpicUrPriest(oPC);
-		
     }
     return FALSE;
 }

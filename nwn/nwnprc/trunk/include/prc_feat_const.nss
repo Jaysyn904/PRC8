@@ -1233,16 +1233,17 @@ const int FEAT_RANGER_DUAL = 374;
 const int FEAT_CAMOUFLAGE  = 4486;
 
 //Exalted Feat
-const int FEAT_SAC_VOW = 3388;
-const int FEAT_VOW_OBED = 3389;
-const int FEAT_EXALTED_TURNING = 3168;
-const int FEAT_HAND_HEALER = 3167;
-const int FEAT_NIMBUSLIGHT = 3165;
-const int FEAT_HOLYRADIANCE = 3164;
-const int FEAT_STIGMATA = 3163;
-const int FEAT_SERVHEAVEN = 3355;
-const int FEAT_RANGED_SMITE = 3356;
-const int FEAT_VOW_PURITY = 5360;
+const int FEAT_SAC_VOW 								   = 3388;
+const int FEAT_VOW_OBED 							   = 3389;
+const int FEAT_EXALTED_TURNING 						   = 3168;
+const int FEAT_HAND_HEALER 							   = 3167;
+const int FEAT_NIMBUSLIGHT 							   = 3165;
+const int FEAT_HOLYRADIANCE 						   = 3164;
+const int FEAT_STIGMATA 							   = 3163;
+const int FEAT_SERVHEAVEN 							   = 3355;
+const int FEAT_RANGED_SMITE 						   = 3356;
+const int FEAT_VOW_PURITY 							   = 5360;
+const int FEAT_VOWOFPOVERTY                            = 26001;
 
 //Vile Feat
 const int FEAT_LICHLOVED                               = 3395;

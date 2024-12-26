@@ -77,6 +77,7 @@ void AddRacialRestrictions(object oItem)
         AddRaceIP(oItem, RACIAL_TYPE_SATYR);
 		AddRaceIP(oItem, RACIAL_TYPE_HYBSIL);
 		AddRaceIP(oItem, RACIAL_TYPE_GLOURA);
+		AddRaceIP(oItem, RACIAL_TYPE_JAEBRIN);
     }
     if(array_get_string(oItem, ARRAY_NAME, RACIAL_TYPE_GIANT) != "")
     {
@@ -158,6 +159,7 @@ void AddRacialRestrictions(object oItem)
         AddRaceIP(oItem, RACIAL_TYPE_MARRULURK);
         AddRaceIP(oItem, RACIAL_TYPE_MARRUSAULT);
         AddRaceIP(oItem, RACIAL_TYPE_MARRUTACT);
+        AddRaceIP(oItem, RACIAL_TYPE_HOBGOBLIN_WARSOUL);
     }
     if(array_get_string(oItem, ARRAY_NAME, RACIAL_TYPE_HALFORC) != "")
     {

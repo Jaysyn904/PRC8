@@ -351,6 +351,10 @@ int GetSpellslotLevel(int nClass, object oPC)
 //:: Marrutact cast as 6/7 sorcerers		
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
         nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC)*6/7;  
+	
+//:: Hobgoblin Warsouls cast as sorcerers		
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+        nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC); 	
 
 //:: Gloura cast as bards        
     else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
@@ -888,6 +892,12 @@ void CheckNewSpellbooks(object oPC)
                 && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC)
                 && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI)                
                 nClass = CLASS_TYPE_SORCERER;
+                
+            //Hobgoblin Warsouls cast as sorcs
+            if(nClass == CLASS_TYPE_MONSTROUS
+                && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC)
+                && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)                
+                nClass = CLASS_TYPE_SORCERER;                
                 
             //Redspawn cast as sorcs
             if(nClass == CLASS_TYPE_MONSTROUS

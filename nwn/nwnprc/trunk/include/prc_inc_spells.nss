@@ -803,6 +803,9 @@ int SpellDamagePerDice(object oCaster, int nDice)
 
     int nDam = 0;
     nDam += GetLocalInt(oCaster, "StrengthFromMagic") * nDice * 2;
+    
+    if (GetLocalInt(oCaster, "WarsoulTyrant"))
+	    nDam += nDice * GetHitDice(oCaster);
 
 	if (DEBUG) DoDebug("SpellDamagePerDice returning "+IntToString(nDam)+" for "+GetName(oCaster));
 
@@ -1217,6 +1220,15 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
             ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(), DAMAGE_TYPE_MAGICAL), oSaveVersus);
             ApplyAbilityDamage(oSaveVersus, ABILITY_WISDOM, 1, DURATION_TYPE_TEMPORARY, TRUE, -1.0);
         }
+    }
+    
+    // Hobgoblin Warsoul spell eater
+    if(nSaveRoll == 1 && GetRacialType(oTarget) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+    {
+        //Apply the Aid VFX impact and effects
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HOLY_AID), oTarget);
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAttackIncrease(2), oTarget, 6.0);
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectTemporaryHitpoints(5), oTarget, 60.0);
     }    
 
     return nSaveRoll;
@@ -1339,6 +1351,8 @@ int GetCasterLvl(int iTypeSpell, object oCaster = OBJECT_SELF)
                 //Arkamoi + Redspawn include MH HD as sorc
                 if(nRace == RACIAL_TYPE_ARKAMOI) 
                     iTemp = GetLevelByClass(CLASS_TYPE_MONSTROUS, oCaster);
+                if(nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+                    iTemp = GetLevelByClass(CLASS_TYPE_MONSTROUS, oCaster);                    
                 if(nRace == RACIAL_TYPE_REDSPAWN_ARCANISS) 
                     iTemp = GetLevelByClass(CLASS_TYPE_MONSTROUS, oCaster)*3/4;    
                 if(nRace == RACIAL_TYPE_MARRUTACT) 
@@ -1403,7 +1417,6 @@ int GetCasterLvl(int iTypeSpell, object oCaster = OBJECT_SELF)
         case CLASS_TYPE_VASSAL:
             return GetCasterLvlDivine(iTypeSpell, oCaster);
 
-        case CLASS_TYPE_ANTI_PALADIN:
         case CLASS_TYPE_PALADIN:
         case CLASS_TYPE_RANGER:
         case CLASS_TYPE_SOHEI:
@@ -3057,4 +3070,4 @@ int X2PreSpellCastCode()
 }	
 
 //:: Test Void
-//void main (){}
+// void main (){}

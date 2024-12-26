@@ -223,6 +223,17 @@ int TattooFocus(int spell_id, int nSchool, object oCaster)
     return nDC;
 }
 
+//Tattoo Focus DC boost based on spell school specialization
+int JaebrinEnchant(int nSchool, object oCaster)
+{
+    int nDC;
+
+    if(nSchool == SPELL_SCHOOL_ENCHANTMENT && GetRacialType(oCaster) == RACIAL_TYPE_JAEBRIN)
+       nDC = 1;
+
+    return nDC;
+}
+
 int ShadowWeaveDC(int spell_id, int nSchool, object oCaster)
 {
     // Account for the Shadow Weave feat
@@ -322,7 +333,7 @@ int SaintHolySpellPower(object oCaster)
 		}
 //:: If it gets here, the caster does not have the feat
     return 0;
-}
+}		
 
 //Draconic Power's elemental boost to spell DCs
 int DraconicPowerDC(int spell_id, int nElement, object oCaster)
@@ -478,6 +489,18 @@ int StrengthFromMagic(object oCaster)
 	return 0;		
 }
 
+// Hobgoblin Warsoul Soul Tyrant
+int SoulTyrant(object oCaster)
+{
+	if (GetRacialType(oCaster) != RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+		return 0;
+		
+	if (GetIsArcaneClass(PRCGetLastSpellCastClass(oCaster)))		
+		return GetLocalInt(oCaster, "WarsoulTyrant");	
+		
+	return 0;		
+}
+
 int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJECT_SELF)
 {
     if(nSpellID == -1)
@@ -487,8 +510,8 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
 
     int nClass = PRCGetLastSpellCastClass(oCaster);
     int nDC = 10;
-	
-   if(nClass == CLASS_TYPE_BARD)
+ 
+    if(nClass == CLASS_TYPE_BARD)
         nDC += StringToInt(Get2DACache("Spells", "Bard", nSpellID));
     else if(nClass == CLASS_TYPE_CLERIC || nClass == CLASS_TYPE_UR_PRIEST || nClass == CLASS_TYPE_OCULAR)
         nDC += StringToInt(Get2DACache("Spells", "Cleric", nSpellID));
@@ -634,8 +657,6 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
         }
     }
 
-
-
     return nDC;
 }
 
@@ -756,8 +777,10 @@ int GetChangesToSaveDC(object oTarget, object oCaster, int nSpellID, int nSchool
     nDC += Soulcaster(oCaster, nSpellID);
     nDC += WyrmbaneHelmDC(oTarget, oCaster);
     nDC += StrengthFromMagic(oCaster);
+    nDC += SoulTyrant(oCaster);
 	nDC += SaintHolySpellPower(oCaster);
     nDC += GetLocalInt(oCaster, PRC_DC_ADJUSTMENT);//this is for builder use
+    nDC += JaebrinEnchant(nSchool, oCaster);
     return nDC;
 }
 

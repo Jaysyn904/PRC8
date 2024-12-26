@@ -979,6 +979,8 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
         nDomain = GetHasFeat(FEAT_DEATH_DOMAIN_POWER, oPC)
                 + GetHasFeat(FEAT_MAGIC_DOMAIN_POWER, oPC)
                 //+ GetHasFeat(FEAT_LAW_DOMAIN_POWER, oPC)
+                + GetHasFeat(FEAT_DOMAIN_POWER_PORTAL, oPC)
+                + GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC)
                 > 1;
     }
     if(nMove && nStance && nDomain)
@@ -1399,7 +1401,11 @@ void SoulcasterReq(object oPC)
     if( GetMaxBindCount(oPC, GetPrimaryIncarnumClass(oPC)) >= 1 && GetTotalSoulmeldCount(oPC) >= 3 &&
     ((!GetLocalInt(oPC, "PRC_PsiPower2") && GetHasFeat(FEAT_AZURE_TALENT, oPC)) ||
     (!GetLocalInt(oPC, "PRC_ArcSpell2") && GetHasFeat(FEAT_INCARNUM_SPELLSHAPING))))
-        SetLocalInt(oPC, "PRC_PrereqSoulcaster", 0);    
+        SetLocalInt(oPC, "PRC_PrereqSoulcaster", 0);   
+        
+	// If you have both, this class fails        
+    if(!GetLocalInt(oPC, "PRC_PsiPower2") && !GetLocalInt(oPC, "PRC_ArcSpell2"))
+        SetLocalInt(oPC, "PRC_PrereqSoulcaster", 1);        
 }
 
 void Ironsoul(object oPC)
@@ -1625,7 +1631,9 @@ void main()
             if (nClass == CLASS_TYPE_MONSTROUS && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
             	nMonsterCaster = TRUE;     
             if (nClass == CLASS_TYPE_MONSTROUS && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
-            	nMonsterCaster = TRUE;                 	
+            	nMonsterCaster = TRUE; 
+            if (nClass == CLASS_TYPE_MONSTROUS && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
+            	nMonsterCaster = TRUE;               	
             if (nClass == CLASS_TYPE_FEY && GetRacialType(oPC) == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oPC))
             	nMonsterCaster = TRUE;               	
 

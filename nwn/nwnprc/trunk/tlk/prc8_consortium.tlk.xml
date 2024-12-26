@@ -4723,194 +4723,291 @@ effects, you gain a +10 resistance bonus on saving throws
 (or Charisma checks, in the case of effects such as charm 
 person) to resist commands that would cause you to leave
 your current position.</entry>
-  <entry id="13272" lang="en" sex="m">Force Missiles</entry>
-  <entry id="13273" lang="en" sex="m">Evocation [Force]
-Level: Sorcerer 4, Wizard 4,
-Components: V, S,
-Casting Time: 1 Standard Action
-Range: Medium (100 ft. + 10 ft./level)
-Target: Up to four creatures, no two of which are more than 30 ft. apart
-Duration: Instantaneous
-Saving Throw: None
-Spell Resistance: Yes
+  <entry id="13272" lang="en" sex="m">Brb</entry>
+  <entry id="13273" lang="en" sex="m">Brd</entry>
+  <entry id="13274" lang="en" sex="m">Clr</entry>
+  <entry id="13275" lang="en" sex="m">Dru</entry>
+  <entry id="13276" lang="en" sex="m">Fgt</entry>
+  <entry id="13277" lang="en" sex="m">Mnk</entry>
+  <entry id="13278" lang="en" sex="m">Pal</entry>
+  <entry id="13279" lang="en" sex="m">Rgr</entry>
+  <entry id="13280" lang="en" sex="m">Rog</entry>
+  <entry id="13281" lang="en" sex="m">Sor</entry>
+  <entry id="13282" lang="en" sex="m">Wiz</entry>
+  <entry id="13283" lang="en" sex="m">Rab</entry>
+  <entry id="13284" lang="en" sex="m">RAn</entry>
+  <entry id="13285" lang="en" sex="m">RCn</entry>
+  <entry id="13286" lang="en" sex="m">RHu</entry>
+  <entry id="13287" lang="en" sex="m">RMo</entry>
+  <entry id="13288" lang="en" sex="m">REl</entry>
+  <entry id="13289" lang="en" sex="m">RFe</entry>
+  <entry id="13290" lang="en" sex="m">RDr</entry>
+  <entry id="13291" lang="en" sex="m">RUn</entry>
+  <entry id="13292" lang="en" sex="m">Com</entry>
+  <entry id="13293" lang="en" sex="m">RBe</entry>
+  <entry id="13294" lang="en" sex="m">RGi</entry>
+  <entry id="13295" lang="en" sex="m">RMB</entry>
+  <entry id="13296" lang="en" sex="m">ROu</entry>
+  <entry id="13297" lang="en" sex="m">RSh</entry>
+  <entry id="13298" lang="en" sex="m">RVe</entry>
+  <entry id="13299" lang="en" sex="m">Shd</entry>
+  <entry id="13300" lang="en" sex="m">Har</entry>
+  <entry id="13301" lang="en" sex="m">AA</entry>
+  <entry id="13302" lang="en" sex="m">Ass</entry>
+  <entry id="13303" lang="en" sex="m">Blk</entry>
+  <entry id="13304" lang="en" sex="m">DCh</entry>
+  <entry id="13305" lang="en" sex="m">WM</entry>
+  <entry id="13306" lang="en" sex="m">PM</entry>
+  <entry id="13307" lang="en" sex="m">Sh</entry>
+  <entry id="13308" lang="en" sex="m">DwD</entry>
+  <entry id="13309" lang="en" sex="m">DD</entry>
+  <entry id="13310" lang="en" sex="m">ROo</entry>
+  <entry id="13311" lang="en" sex="m">RPl</entry>
+  <entry id="13312" lang="en" sex="m">PDK</entry>
+  <entry id="13313" lang="en" sex="m">UrP</entry>
+  <entry id="13314" lang="en" sex="m">Bnd</entry>
+  <entry id="13315" lang="en" sex="m">AnM</entry>
+  <entry id="13316" lang="en" sex="m">KSS</entry>
+  <entry id="13317" lang="en" sex="m">ScD</entry>
+  <entry id="13318" lang="en" sex="m">TnA</entry>
+  <entry id="13319" lang="en" sex="m">RM</entry>
+  <entry id="13320" lang="en" sex="m">SG</entry>
+  <entry id="13321" lang="en" sex="m">SP</entry>
+  <entry id="13322" lang="en" sex="m">OcA</entry>
+  <entry id="13323" lang="en" sex="m">Brg</entry>
+  <entry id="13324" lang="en" sex="m">MT</entry>
+  <entry id="13325" lang="en" sex="m">NjS</entry>
+  <entry id="13326" lang="en" sex="m">Sam</entry>
+  <entry id="13327" lang="en" sex="m">WaP</entry>
+  <entry id="13328" lang="en" sex="m">SpC</entry>
+  <entry id="13329" lang="en" sex="m">Vrt</entry>
+  <entry id="13330" lang="en" sex="m">Mar</entry>
+  <entry id="13331" lang="en" sex="m">Swa</entry>
+  <entry id="13332" lang="en" sex="m">Hex</entry>
+  <entry id="13333" lang="en" sex="m">Dsk</entry>
+  <entry id="13334" lang="en" sex="m">Sct</entry>
+  <entry id="13335" lang="en" sex="m">Hlr</entry>
+  <entry id="13336" lang="en" sex="m">MgK</entry>
+  <entry id="13337" lang="en" sex="m">HaM</entry>
+  <entry id="13338" lang="en" sex="m">SpS</entry>
+  <entry id="13339" lang="en" sex="m">AoS</entry>
+  <entry id="13340" lang="en" sex="m">UnS</entry>
+  <entry id="13341" lang="en" sex="m">EK</entry>
+  <entry id="13342" lang="en" sex="m">ES</entry>
+  <entry id="13343" lang="en" sex="m">Fac</entry>
+  <entry id="13344" lang="en" sex="m">Cel</entry>
+  <entry id="13345" lang="en" sex="m">Cul</entry>
+  <entry id="13346" lang="en" sex="m">Fsk</entry>
+  <entry id="13347" lang="en" sex="m">Inc</entry>
+  <entry id="13348" lang="en" sex="m">Sb</entry>
+  <entry id="13349" lang="en" sex="m">Tot</entry>
+  <entry id="13350" lang="en" sex="m">Beg</entry>
+  <entry id="13351" lang="en" sex="m">Dul</entry>
+  <entry id="13352" lang="en" sex="m">Hie</entry>
+  <entry id="13353" lang="en" sex="m">RA</entry>
+  <entry id="13354" lang="en" sex="m">KtC</entry>
+  <entry id="13355" lang="en" sex="m">Hat</entry>
+  <entry id="13356" lang="en" sex="m">IsF</entry>
+  <entry id="13357" lang="en" sex="m">Sld</entry>
+  <entry id="13358" lang="en" sex="m">HW</entry>
+  <entry id="13359" lang="en" sex="m">FoR</entry>
+  <entry id="13360" lang="en" sex="m">VoB</entry>
+  <entry id="13361" lang="en" sex="m">Lic</entry>
+  <entry id="13362" lang="en" sex="m">Psh</entry>
+  <entry id="13363" lang="en" sex="m">CoC</entry>
+  <entry id="13364" lang="en" sex="m">SC</entry>
+  <entry id="13365" lang="en" sex="m">Art</entry>
+  <entry id="13366" lang="en" sex="m">ADu</entry>
+  <entry id="13367" lang="en" sex="m">FMM</entry>
+  <entry id="13368" lang="en" sex="m">wlM</entry>
+  <entry id="13369" lang="en" sex="m">ShS</entry>
+  <entry id="13370" lang="en" sex="m">AbC</entry>
+  <entry id="13371" lang="en" sex="m">ArM</entry>
+  <entry id="13372" lang="en" sex="m">Ooz</entry>
+  <entry id="13373" lang="en" sex="m">PsR</entry>
+  <entry id="13374" lang="en" sex="m">SDn</entry>
+  <entry id="13375" lang="en" sex="m">KoW</entry>
+  <entry id="13376" lang="en" sex="m">DrJ</entry>
+  <entry id="13377" lang="en" sex="m">SbI</entry>
+  <entry id="13378" lang="en" sex="m">SbS</entry>
+  <entry id="13379" lang="en" sex="m">WyG</entry>
+  <entry id="13380" lang="en" sex="m">Umb</entry>
+  <entry id="13381" lang="en" sex="m">Ali</entry>
+  <entry id="13382" lang="en" sex="m">BBC</entry>
+  <entry id="13383" lang="en" sex="m">Wlk</entry>
+  <entry id="13384" lang="en" sex="m">DsL</entry>
+  <entry id="13385" lang="en" sex="m">Spn</entry>
+  <entry id="13386" lang="en" sex="m">NtS</entry>
+  <entry id="13387" lang="en" sex="m">ShA</entry>
+  <entry id="13388" lang="en" sex="m">SoL</entry>
+  <entry id="13389" lang="en" sex="m">Sph</entry>
+  <entry id="13390" lang="en" sex="m">TSl</entry>
+  <entry id="13391" lang="en" sex="m">BS</entry>
+  <entry id="13392" lang="en" sex="m">IoD</entry>
+  <entry id="13393" lang="en" sex="m">BgT</entry>
+  <entry id="13394" lang="en" sex="m">Bld</entry>
+  <entry id="13395" lang="en" sex="m">SuM</entry>
+  <entry id="13396" lang="en" sex="m">SF</entry>
+  <entry id="13397" lang="en" sex="m">LD</entry>
+  <entry id="13398" lang="en" sex="m">DoB</entry>
+  <entry id="13399" lang="en" sex="m">MCK</entry>
+  <entry id="13400" lang="en" sex="m">Iji</entry>
+  <entry id="13401" lang="en" sex="m">DoD</entry>
+  <entry id="13402" lang="en" sex="m">CWS</entry>
+  <entry id="13403" lang="en" sex="m">Rav</entry>
+  <entry id="13404" lang="en" sex="m">RB</entry>
+  <entry id="13405" lang="en" sex="m">Tal</entry>
+  <entry id="13406" lang="en" sex="m">Shc</entry>
+  <entry id="13407" lang="en" sex="m">CoN</entry>
+  <entry id="13408" lang="en" sex="m">Msh</entry>
+  <entry id="13409" lang="en" sex="m">Noc</entry>
+  <entry id="13410" lang="en" sex="m">TRg</entry>
+  <entry id="13411" lang="en" sex="m">Nja</entry>
+  <entry id="13412" lang="en" sex="m">Sbl</entry>
+  <entry id="13413" lang="en" sex="m">Dsh</entry>
+  <entry id="13414" lang="en" sex="m">DfA</entry>
+  <entry id="13415" lang="en" sex="m">Psi</entry>
+  <entry id="13416" lang="en" sex="m">PsW</entry>
+  <entry id="13417" lang="en" sex="m">Sk</entry>
+  <entry id="13418" lang="en" sex="m">Wld</entry>
+  <entry id="13419" lang="en" sex="m">ThK</entry>
+  <entry id="13420" lang="en" sex="m">RW</entry>
+  <entry id="13421" lang="en" sex="m">TN</entry>
+  <entry id="13422" lang="en" sex="m">AT</entry>
+  <entry id="13423" lang="en" sex="m">Dbl</entry>
+  <entry id="13424" lang="en" sex="m">FoH</entry>
+  <entry id="13425" lang="en" sex="m">Ich</entry>
+  <entry id="13426" lang="en" sex="m">JWW</entry>
+  <entry id="13427" lang="en" sex="m">Ego</entry>
+  <entry id="13428" lang="en" sex="m">PA</entry>
+  <entry id="13429" lang="en" sex="m">Las</entry>
+  <entry id="13430" lang="en" sex="m">OBI</entry>
+  <entry id="13431" lang="en" sex="m">HfW</entry>
+  <entry id="13432" lang="en" sex="m">ToO</entry>
+  <entry id="13433" lang="en" sex="m">Shu</entry>
+  <entry id="13434" lang="en" sex="m">BFZ</entry>
+  <entry id="13435" lang="en" sex="m">SBH</entry>
+  <entry id="13436" lang="en" sex="m">KMC</entry>
+  <entry id="13437" lang="en" sex="m">Mae</entry>
+  <entry id="13438" lang="en" sex="m">CMd</entry>
+  <entry id="13439" lang="en" sex="m">Oll</entry>
+  <entry id="13440" lang="en" sex="m">WsS</entry>
+  <entry id="13441" lang="en" sex="m">SS</entry>
+  <entry id="13442" lang="en" sex="m">WW</entry>
+  <entry id="13443" lang="en" sex="m">Hos</entry>
+  <entry id="13444" lang="en" sex="m">MoS</entry>
+  <entry id="13445" lang="en" sex="m">MHa</entry>
+  <entry id="13446" lang="en" sex="m">FB</entry>
+  <entry id="13447" lang="en" sex="m">Tem</entry>
+  <entry id="13448" lang="en" sex="m">Foe</entry>
+  <entry id="13449" lang="en" sex="m">EoG</entry>
+  <entry id="13450" lang="en" sex="m">Orc</entry>
+  <entry id="13451" lang="en" sex="m">ToG</entry>
+  <entry id="13452" lang="en" sex="m">Nnt</entry>
+  <entry id="13453" lang="en" sex="m">ED</entry>
+  <entry id="13454" lang="en" sex="m">ET</entry>
+  <entry id="13455" lang="en" sex="m">GFK</entry>
+  <entry id="13456" lang="en" sex="m">DN</entry>
+  <entry id="13457" lang="en" sex="m">FrM</entry>
+  <entry id="13458" lang="en" sex="m">Arc</entry>
+  <entry id="13459" lang="en" sex="m">DsS</entry>
+  <entry id="13460" lang="en" sex="m">JPM</entry>
+  <entry id="13461" lang="en" sex="m">BcM</entry>
+  <entry id="13462" lang="en" sex="m">RKV</entry>
+  <entry id="13463" lang="en" sex="m">Mo9</entry>
+  <entry id="13464" lang="en" sex="m">EB</entry>
+  <entry id="13465" lang="en" sex="m">SSN</entry>
+  <entry id="13466" lang="en" sex="m">WbB</entry>
+  <entry id="13467" lang="en" sex="m">Bae</entry>
+  <entry id="13468" lang="en" sex="m">DoM</entry>
+  <entry id="13469" lang="en" sex="m">SE</entry>
+  <entry id="13470" lang="en" sex="m">HsM</entry>
+  <entry id="13471" lang="en" sex="m">DrM</entry>
+  <entry id="13472" lang="en" sex="m">EF</entry>
+  <entry id="13473" lang="en" sex="m">MLL</entry>
+  <entry id="13474" lang="en" sex="m">InB</entry>
+  <entry id="13475" lang="en" sex="m">Shm</entry>
+  <entry id="13476" lang="en" sex="m">Pyr</entry>
+  <entry id="13477" lang="en" sex="m">Smi</entry>
+  <entry id="13478" lang="en" sex="m">PsT</entry>
+  <entry id="13479" lang="en" sex="m">Cer</entry>
+  <entry id="13480" lang="en" sex="m">Thr</entry>
+  <entry id="13481" lang="en" sex="m">FoZ</entry>
+  <entry id="13482" lang="en" sex="m">HM</entry>
+  <entry id="13483" lang="en" sex="m">Cpl</entry>
+  <entry id="13484" lang="en" sex="m">RuC</entry>
+  <entry id="13485" lang="en" sex="m">Wch</entry>
+  <entry id="13486" lang="en" sex="m">Wmi</entry>
+  <entry id="13487" lang="en" sex="m">IrM</entry>
+  <entry id="13488" lang="en" sex="m">SM</entry>
+  <entry id="13489" lang="en" sex="m">SoD</entry>
+  <entry id="13490" lang="en" sex="m">DoA</entry>
+  <entry id="13491" lang="en" sex="m">Dir</entry>
+  <entry id="13492" lang="en" sex="m">Sue</entry>
+  <entry id="13493" lang="en" sex="m">FS</entry>
+  <entry id="13494" lang="en" sex="m">WWC</entry>
+  <entry id="13495" lang="en" sex="m">ScH</entry>
+  <entry id="13496" lang="en" sex="m">Tru</entry>
+  <entry id="13497" lang="en" sex="m">MAl</entry>
+  <entry id="13498" lang="en" sex="m">Brf</entry>
+  <entry id="13499" lang="en" sex="m">BsS</entry>
+  <entry id="13500" lang="en" sex="m">Soh</entry>
+  <entry id="13501" lang="en" sex="m">Cru</entry>
+  <entry id="13502" lang="en" sex="m">Ssg</entry>
+  <entry id="13503" lang="en" sex="m">Wb</entry>
+  <entry id="13504" lang="en" sex="m">WMg</entry>
+  <entry id="13505" lang="en" sex="m">Kni</entry>
+  <entry id="13506" lang="en" sex="m">FDQ</entry>
+  <entry id="13507" lang="en" sex="m">HWM</entry>
+  <entry id="13508" lang="en" sex="m">Tia</entry>
+  <entry id="13509" lang="en" sex="m">DDv</entry>
+  <entry id="13510" lang="en" sex="m">FM</entry>
+  <entry id="13511" lang="en" sex="m">WfJ</entry>
+  <entry id="13512" lang="en" sex="m">Bsm</entry>
+  <entry id="13513" lang="en" sex="m">Nen</entry>
+  <entry id="13514" lang="en" sex="m">Bli</entry>
+  <entry id="13515" lang="en" sex="m">RgM</entry>
+  <entry id="13516" lang="en" sex="m">DhM</entry>
+  <entry id="13517" lang="en" sex="m">SW</entry>
+  <entry id="13518" lang="en" sex="m">Dia</entry>
+  <entry id="13519" lang="en" sex="m">Fro</entry>
+  <entry id="13520" lang="en" sex="m">CSM</entry>
+  <entry id="13521" lang="en" sex="m">ShT</entry>
+  <entry id="13522" lang="en" sex="m">Hobgoblin Warsoul</entry>
+  <entry id="13523" lang="en" sex="m">Hobgoblin Warsoul</entry>
+  <entry id="13524" lang="en" sex="m">Hobgoblin Warsouls</entry>
+  <entry id="13525" lang="en" sex="m">Occasionally, a warcaster displays an incredible talent for spellcasting, quickly racing ahead of her peers and mastering potent spells. As she endures more rituals and delves deeper into her studies, the warcaster grows in power until her flesh becomes little more than a withered vessel for her soul. She even learns to consume the essence of her “lessers” to augment her spells. Invariably, she comes to either lead a tribe or die at the hands of a rival.
 
-Sparking bolts of blue magic, like giant magic missiles, streak from your
-outstretched hand to strike your foes and explode in sparkling bursts.
+Hobgoblin Warsoul Ability Adjustments: -2 Str, +6 Dex, +8 Con, +4 Int, +4 Wis, +10 Cha
+Favored Class (Sorcerer): A multiclass Hobgoblin Warsoul's sorcerer class does not count when determining whether he suffers an XP penalty for multiclassing.
 
-You create powerful missiles of magical force, each of which darts from your
-fingertips and unerringly strikes its target, dealing 2d6 points of damage.
-The missile then explodes in a burst of force that deals half this amount of
-damage to any creatures adjacent to the primary target.
+Special Abilities:
 
-The missile strikes unerringly, even if the target is in melee or has anything
-less than total cover or concealment. A caster cannot single out specific parts
-of a creature.
+- Darkvision
+- Base movement of 30
+- Natural Armor Bonus: Racial natural armor bonus of 4
+- Damage Reduction 10/+1
+- Spell Resistance of 8 + hit dice
+- Iron Will as a bonus feat
+- Spell Eater (Su): If a warsoul succeeds on her save against a spell, she gains 5 temporary hit points and a +2 bonus on attack rolls. The attack bonus lasts for 1 round. The temporary hit points last for 1 minute.
+- Soul Tyrant (Su): As a swift action, a warsoul can draw arcane power from a willing hobgoblin within 30 feet who has 10 or fewer hit points. That hobgoblin is immediately slain, leaving behind a desiccated corpse. The warsoul heals 1 hit point per Hit Die she has, and she receives a +2 bonus to the save DC of the next spell she casts. She also gains a +2 bonus on any attack roll required by the next spell she casts. If that spell deals damage, the warsoul receives a bonus on the damage roll equal to her Hit Dice.
+- Cult of Power (Ex): A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master’s soul tyrant ability.
+- Monstrous Humanoid: Hobgoblin Warsoul are considered Monstrous Humanoids for the purpose of spells
+- Sorcerer Casting: Hobgoblin Warsoul cast spells as a Sorcerer of their racial hit dice
 
-You gain one missile for every four caster levels. Extra missiles distribute 
-themsleves amongst your enemies evenly.</entry>
-  <entry id="13275" lang="en" sex="m">Force Missiles (8)</entry>
-  <entry id="13276" lang="en" sex="m">Force Missiles (12)</entry>
-  <entry id="13277" lang="en" sex="m">Chasing Perfection</entry>
-  <entry id="13278" lang="en" sex="m">Transmutation
-Level: Cleric 6, Druid 6, Sorcerer 6, Wizard 6,
-Components: V, S, M,
-Casting Time: 1 standard action
-Range: Touch
-Target: Creature touched
-Duration: 1 minute/level
-Saving Throw: Will negates (harmless)
-Spell Resistance: Yes (harmless)
-
-Energy courses through the creature touched.
-Its muscles grow and become more defined, it starts to move with greater alacrity and grace, and its bearing increases.
-The subject improves in all ways.
-It gains a +4 enhancement bonus to each of its ability scores.
-
-Material Component: A statuette of a celestial or fiend worth 50 gp.</entry>
-  <entry id="13279" lang="en" sex="m">Chasing Perfection (12)</entry>
-  <entry id="13280" lang="en" sex="m">Chasing Perfection (16)</entry>
-  <entry id="13281" lang="en" sex="m">Regenerate Light Wounds</entry>
-  <entry id="13282" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 1, Druid 1,
-Components: V, S,
-Casting Time: 1 action
-Range: Touch
-Target: Living creature touched
-Duration: 10 rounds + 1 round/level
-Saving Throw: Will negates (harmless)
-Spell Resistance: Yes (harmless)
-
-With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 1 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
-
-Regenerate light wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
-first spell's duration by the full duration of the second spell.</entry>
-  <entry id="13283" lang="en" sex="m">Regenerate Light Wounds (3)</entry>
-  <entry id="13284" lang="en" sex="m">Regenerate Light Wounds (6)</entry>
-  <entry id="13285" lang="en" sex="m">Regenerate Light Wounds (9)</entry>
-  <entry id="13286" lang="en" sex="m">Regenerate Moderate Wounds</entry>
-  <entry id="13287" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 2, Druid 2,
-Components: V, S,
-Casting Time: 1 action
-Range: Touch
-Target: Living creature touched
-Duration: 10 rounds + 1 round/level
-Saving Throw: Will negates (harmless)
-Spell Resistance: Yes (harmless)
-
-With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 2 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
-
-Regenerate moderate wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
-first spell's duration by the full duration of the second spell.</entry>
-  <entry id="13288" lang="en" sex="m">Regenerate Moderate Wounds (3)</entry>
-  <entry id="13289" lang="en" sex="m">Regenerate Moderate Wounds (6)</entry>
-  <entry id="13290" lang="en" sex="m">Regenerate Moderate Wounds (9)</entry>
-  <entry id="13291" lang="en" sex="m">Regenerate Serious Wounds</entry>
-  <entry id="13292" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 3, Druid 3,
-Components: V, S,
-Casting Time: 1 action
-Range: Touch
-Target: Living creature touched
-Duration: 10 rounds + 1 round/level
-Saving Throw: Will negates (harmless)
-Spell Resistance: Yes (harmless)
-
-With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 3 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
-
-Regenerate serious wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
-first spell's duration by the full duration of the second spell.</entry>
-  <entry id="13293" lang="en" sex="m">Regenerate Serious Wounds (5)</entry>
-  <entry id="13294" lang="en" sex="m">Regenerate Serious Wounds (10)</entry>
-  <entry id="13295" lang="en" sex="m">Regenerate Serious Wounds (15)</entry>
-  <entry id="13296" lang="en" sex="m">Regenerate Critical Wounds</entry>
-  <entry id="13297" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 4, Druid 4,
-Components: V, S,
-Casting Time: 1 action
-Range: Touch
-Target: Living creature touched
-Duration: 10 rounds + 1 round/level
-Saving Throw: Will negates (harmless)
-Spell Resistance: Yes (harmless)
-
-With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 4 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
-
-Regenerate critical wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
-first spell's duration by the full duration of the second spell.</entry>
-  <entry id="13298" lang="en" sex="m">Regenerate Critical Wounds (7)</entry>
-  <entry id="13299" lang="en" sex="m">Regenerate Critical Wounds (12)</entry>
-  <entry id="13300" lang="en" sex="m">Regenerate Critical Wounds (15)</entry>
-  <entry id="13301" lang="en" sex="m">Speed of the Wind</entry>
-  <entry id="13302" lang="en" sex="m">Transmutation
-Level: Druid 2,
-Components: V, S,
-Casting Time: 1 action
-Range: Touch
-Target: Living creature touched
-Duration: 10 minutes/level
-Saving Throw: Will negates
-Spell Resistance: Yes
-
-With this spell, you can grant the ephemeral quickness of a sudden breeze.  The subject gains a +4 enhancement bonus to Dexterity and a -2 enhancement penalty to Constitution.</entry>
-  <entry id="13303" lang="en" sex="m">Speed of the Wind (7)</entry>
-  <entry id="13304" lang="en" sex="m">Speed of the Wind (12)</entry>
-  <entry id="13305" lang="en" sex="m">Speed of the Wind (15)</entry>
-  <entry id="13306" lang="en" sex="m">Spirit Worm</entry>
-  <entry id="13307" lang="en" sex="m">Necromancy
-Level: Sorcerer 1, Wizard 1,
-Components: V, S, M,
-Casting Time: 1 standard action
-Range: Touch
-Target: Living creature touched
-Duration: 1 round/level, up to 5 rounds; see text
-Saving Throw: Fortitude negates; see text
-Spell Resistance: Yes
-
-You press the bit of blackened bone against your foe and intone the spell. The bone vanishes, leaving a mottled bruise where it touched.  You create a lingering decay in the spirit and body of the target. If the target fails its saving throw, it takes 1 point of Constitution damage each round while the spell lasts (maximum 5 points). The victim can attempt a Fortitude saving throw each round, and success negates the Constitution damage for that round and ends the spell. 
-
-Material Component: A piece of fire-blackened ivory or bone carved in the shape of a segmented worm.</entry>
-  <entry id="13308" lang="en" sex="m">Spirit Worm (5)</entry>
-  <entry id="13309" lang="en" sex="m">Spiritual Weapon</entry>
-  <entry id="13310" lang="en" sex="m">Evocation [Force]
-Level: Cleric 2, Knight of the Chalice 2, War 2
-Components: V, S, DF,
-Casting Time: 1 standard action
-Range: Medium (100 ft. + 10 ft./level)
-Effect: Magic weapon of force
-Duration: 1 round/level (D)
-Saving Throw: None
-Spell Resistance: Yes
-
-A weapon made of pure force springs into existence and attacks opponents at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing each round thereafter on your turn. It uses your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) plus your Wisdom modifier as its attack bonus. It strikes as a spell, not as a weapon, so, for example, it can damage creatures that have damage reduction. As a force effect, it can strike incorporeal creatures without the normal miss chance associated with incorporeality. The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats (such as Weapon Focus) or combat actions (such as charge) do not affect the weapon. If the weapon goes beyond the spell range, if it goes out of your sight, or if you are not directing it, the weapon returns to you and hovers.
-
-Each round after the first, you can use a move action to redirect the weapon to a new target. If you do not, the weapon continues to attack the previous round's target. On any round that the weapon switches targets, it gets one attack. Subsequent rounds of attacking that target allow the weapon to make multiple attacks if your base attack bonus would allow it to. Even if the spiritual weapon is a ranged weapon, use the spell's range, not the weapon's normal range increment, and switching targets still is a move action.
-
-A spiritual weapon cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it. A spiritual weapon's AC against touch attacks is 12 (10 + size bonus for Tiny object).
-
-If an attacked creature has spell resistance, you make a caster level check (1d20 + caster level) against that spell resistance the first time the spiritual weapon strikes it. If the weapon is successfully resisted, the spell is dispelled. If not, the weapon has its normal full effect on that creature for the duration of the spell.</entry>
-  <entry id="13311" lang="en" sex="m">Spiritual Weapon (5)</entry>
-  <entry id="13312" lang="en" sex="m">Spiritual Weapon (10)</entry>
-  <entry id="13313" lang="en" sex="m">Spiritual Weapon (15)</entry>
-  <entry id="13314" lang="en" sex="m">Tortoise Shell</entry>
-  <entry id="13315" lang="en" sex="m">Transmutation
-Level: Druid 6,
-Components: V, S, DF,
-Casting Time: 1 standard action
-Range: Touch
-Target: Living creature touched
-Duration: 10 minutes/level
-Saving Throw: None
-Spell Resistance: Yes (harmless)
-
-In the blink of an eye, the creature you touched grows the armor plating of a tortoise across its torso and a tough, leathery skin elsewhere.  Tortoise shell grants a +6 enhancement bonus to the subject's existing natural armor bonus. This enhancement bonus increases by 1 for every three caster levels beyond 11th, to a maximum of +9 at 20th level.
-
-The enhancement bonus provided by tortoise shell stacks with the target's natural armor bonus, but not with other enhancement bonuses to natural armor. A creature without natural armor has an effective natural armor of +0, much as a character wearing only normal clothing has an armor bonus of +0.
-
-Tortoise shell slows a creature's movement as if it were wearing heavy armor. An elf subject to tortoise shell, for example, would have a speed of 20 feet and could run only 60 feet per round.  The spell affects only a creature's speed; tortoise shell doesn't carry an armor check penalty or an arcane spell failure chance.</entry>
-  <entry id="13316" lang="en" sex="m">Tortoise Shell (12)</entry>
-  <entry id="13317" lang="en" sex="m">Tortoise Shell (15)</entry>
-  <entry id="13318" lang="en" sex="m">Tortoise Shell (18)</entry>
+(The following may or may not be in use, depending on the module switch settings)
+Level Adjustment: +4
+Racial Hit Dice/Class: 10 of Monstrous Humanoid</entry>
+  <entry id="13526" lang="en" sex="m">Cult of Power</entry>
+  <entry id="13527" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Hobgoblin Warsoul
+Specifics: A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master’s soul tyrant ability.
+Use: Selected.</entry>
+  <entry id="13528" lang="en" sex="m">Soul Tyrant</entry>
+  <entry id="13529" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Hobgoblin Warsoul
+Specifics: As a swift action, a warsoul can draw arcane power from a willing hobgoblin within 30 feet who has 10 or fewer hit points. That hobgoblin is immediately slain, leaving behind a desiccated corpse. The warsoul heals 1 hit point per Hit Die she has, and she receives a +2 bonus to the save DC of the next spell she casts. She also gains a +2 bonus on any attack roll required by the next spell she casts. If that spell deals damage, the warsoul receives a bonus on the damage roll equal to her Hit Dice.
+Use: Selected.</entry>
   <entry id="16409" lang="en" sex="m">62</entry>
   <entry id="16410" lang="en" sex="m">63</entry>
   <entry id="16411" lang="en" sex="m">64</entry>
@@ -71383,219 +71480,27 @@ Special Abilities:
 - Bonus Feat: Empty vessels gain 1 extra feat at 1st level.
 - Human: Kalashtar are considered Human for the purpose of spells.
 - Level Adjustment: +1</entry>
-  <entry id="75070" lang="en" sex="m">UrP</entry>
-  <entry id="75071" lang="en" sex="m">Bnd</entry>
-  <entry id="75072" lang="en" sex="m">AnM</entry>
-  <entry id="75073" lang="en" sex="m">KoS</entry>
-  <entry id="75074" lang="en" sex="m">SoD</entry>
-  <entry id="75075" lang="en" sex="m">TnA</entry>
-  <entry id="75076" lang="en" sex="m">RpM</entry>
-  <entry id="75077" lang="en" sex="m">SrG</entry>
-  <entry id="75078" lang="en" sex="m">ScP</entry>
-  <entry id="75079" lang="en" sex="m">OcA</entry>
-  <entry id="75080" lang="en" sex="m">Btr</entry>
-  <entry id="75081" lang="en" sex="m">MsT</entry>
-  <entry id="75082" lang="en" sex="m">NjS</entry>
-  <entry id="75083" lang="en" sex="m">Smr</entry>
-  <entry id="75084" lang="en" sex="m">Wpr</entry>
-  <entry id="75085" lang="en" sex="m">SfC</entry>
-  <entry id="75086" lang="en" sex="m">Vts</entry>
-  <entry id="75087" lang="en" sex="m">Msh</entry>
-  <entry id="75088" lang="en" sex="m">Shb</entry>
-  <entry id="75089" lang="en" sex="m">Hxb</entry>
-  <entry id="75090" lang="en" sex="m">Dsb</entry>
-  <entry id="75091" lang="en" sex="m">Sct</entry>
-  <entry id="75092" lang="en" sex="m">Hlr</entry>
-  <entry id="75093" lang="en" sex="m">MgK</entry>
-  <entry id="75094" lang="en" sex="m">HrM</entry>
-  <entry id="75095" lang="en" sex="m">SpS</entry>
-  <entry id="75096" lang="en" sex="m">AcS</entry>
-  <entry id="75097" lang="en" sex="m">UnS</entry>
-  <entry id="75098" lang="en" sex="m">ElK</entry>
-  <entry id="75099" lang="en" sex="m">ElS</entry>
-  <entry id="75100" lang="en" sex="m">Fct</entry>
-  <entry id="75101" lang="en" sex="m">ClS</entry>
-  <entry id="75102" lang="en" sex="m">CSP</entry>
-  <entry id="75103" lang="en" sex="m">Fsk</entry>
-  <entry id="75104" lang="en" sex="m">Inc</entry>
-  <entry id="75105" lang="en" sex="m">Slb</entry>
-  <entry id="75106" lang="en" sex="m">Ttm</entry>
-  <entry id="75107" lang="en" sex="m">Bgl</entry>
-  <entry id="75108" lang="en" sex="m">Dul</entry>
-  <entry id="75109" lang="en" sex="m">Hip</entry>
-  <entry id="75110" lang="en" sex="m">RdA</entry>
-  <entry id="75111" lang="en" sex="m">KoC</entry>
-  <entry id="75112" lang="en" sex="m">Hth</entry>
-  <entry id="75113" lang="en" sex="m">ISF</entry>
-  <entry id="75114" lang="en" sex="m">Stl</entry>
-  <entry id="75115" lang="en" sex="m">HtW</entry>
-  <entry id="75116" lang="en" sex="m">FRz</entry>
-  <entry id="75117" lang="en" sex="m">VoB</entry>
-  <entry id="75118" lang="en" sex="m">Lch</entry>
-  <entry id="75119" lang="en" sex="m">Shf</entry>
-  <entry id="75120" lang="en" sex="m">CoC</entry>
-  <entry id="75121" lang="en" sex="m">SbC</entry>
-  <entry id="75122" lang="en" sex="m">Art</entry>
-  <entry id="75123" lang="en" sex="m">AcD</entry>
-  <entry id="75124" lang="en" sex="m">FMM</entry>
-  <entry id="75125" lang="en" sex="m">WdM</entry>
-  <entry id="75126" lang="en" sex="m">Sws</entry>
-  <entry id="75127" lang="en" sex="m">AbC</entry>
-  <entry id="75128" lang="en" sex="m">Acm</entry>
-  <entry id="75129" lang="en" sex="m">Ozm</entry>
-  <entry id="75130" lang="en" sex="m">PsR</entry>
-  <entry id="75131" lang="en" sex="m">Spd</entry>
-  <entry id="75132" lang="en" sex="m">KoW</entry>
-  <entry id="75133" lang="en" sex="m">DrJ</entry>
-  <entry id="75134" lang="en" sex="m">ShI</entry>
-  <entry id="75135" lang="en" sex="m">ShS</entry>
-  <entry id="75136" lang="en" sex="m">WfG</entry>
-  <entry id="75137" lang="en" sex="m">UmD</entry>
-  <entry id="75138" lang="en" sex="m">Ali</entry>
-  <entry id="75139" lang="en" sex="m">BBC</entry>
-  <entry id="75140" lang="en" sex="m">Wrl</entry>
-  <entry id="75141" lang="en" sex="m">AnP</entry>
-  <entry id="75142" lang="en" sex="m">DsL</entry>
-  <entry id="75143" lang="en" sex="m">SmW</entry>
-  <entry id="75144" lang="en" sex="m">Nsh</entry>
-  <entry id="75145" lang="en" sex="m">ShA</entry>
-  <entry id="75146" lang="en" sex="m">SoL</entry>
-  <entry id="75147" lang="en" sex="m">SpH</entry>
-  <entry id="75148" lang="en" sex="m">TfS</entry>
-  <entry id="75149" lang="en" sex="m">BnS</entry>
-  <entry id="75150" lang="en" sex="m">IDM</entry>
-  <entry id="75151" lang="en" sex="m">BgT</entry>
-  <entry id="75152" lang="en" sex="m">Bsi</entry>
-  <entry id="75153" lang="en" sex="m">Soc</entry>
-  <entry id="75154" lang="en" sex="m">SaF</entry>
-  <entry id="75155" lang="en" sex="m">LeD</entry>
-  <entry id="75156" lang="en" sex="m">DiB</entry>
-  <entry id="75157" lang="en" sex="m">MCK</entry>
-  <entry id="75158" lang="en" sex="m">Iai</entry>
-  <entry id="75159" lang="en" sex="m">DiD</entry>
-  <entry id="75160" lang="en" sex="m">CWS</entry>
-  <entry id="75161" lang="en" sex="m">Rav</entry>
-  <entry id="75162" lang="en" sex="m">RuB</entry>
-  <entry id="75163" lang="en" sex="m">TBl</entry>
-  <entry id="75164" lang="en" sex="m">Shc</entry>
-  <entry id="75165" lang="en" sex="m">CoN</entry>
-  <entry id="75166" lang="en" sex="m">MoS</entry>
-  <entry id="75167" lang="en" sex="m">Noc</entry>
-  <entry id="75168" lang="en" sex="m">TtR</entry>
-  <entry id="75169" lang="en" sex="m">NCA</entry>
-  <entry id="75170" lang="en" sex="m">SwB</entry>
-  <entry id="75171" lang="en" sex="m">DrS</entry>
-  <entry id="75172" lang="en" sex="m">DfA</entry>
-  <entry id="75173" lang="en" sex="m">Psi</entry>
-  <entry id="75174" lang="en" sex="m">PsW</entry>
-  <entry id="75175" lang="en" sex="m">Sok</entry>
-  <entry id="75176" lang="en" sex="m">Wil</entry>
-  <entry id="75177" lang="en" sex="m">Thk</entry>
-  <entry id="75178" lang="en" sex="m">RdW</entry>
-  <entry id="75179" lang="en" sex="m">TrN</entry>
-  <entry id="75180" lang="en" sex="m">Ack</entry>
-  <entry id="75181" lang="en" sex="m">BMa</entry>
-  <entry id="75182" lang="en" sex="m">Dia</entry>
-  <entry id="75183" lang="en" sex="m">FHx</entry>
-  <entry id="75184" lang="en" sex="m">IdC</entry>
-  <entry id="75185" lang="en" sex="m">JWW</entry>
-  <entry id="75186" lang="en" sex="m">AoE</entry>
-  <entry id="75187" lang="en" sex="m">PlA</entry>
-  <entry id="75188" lang="en" sex="m">Lsh</entry>
-  <entry id="75189" lang="en" sex="m">Bln</entry>
-  <entry id="75190" lang="en" sex="m">HfW</entry>
-  <entry id="75191" lang="en" sex="m">ToO</entry>
-  <entry id="75192" lang="en" sex="m">ShD</entry>
-  <entry id="75193" lang="en" sex="m">BFZ</entry>
-  <entry id="75194" lang="en" sex="m">SnB</entry>
-  <entry id="75195" lang="en" sex="m">KMC</entry>
-  <entry id="75196" lang="en" sex="m">Mae</entry>
-  <entry id="75197" lang="en" sex="m">CbM</entry>
-  <entry id="75198" lang="en" sex="m">Olm</entry>
-  <entry id="75199" lang="en" sex="m">WSn</entry>
-  <entry id="75200" lang="en" sex="m">Ssh</entry>
-  <entry id="75201" lang="en" sex="m">Wwf</entry>
-  <entry id="75202" lang="en" sex="m">HoS</entry>
-  <entry id="75203" lang="en" sex="m">MaS</entry>
-  <entry id="75204" lang="en" sex="m">MaH</entry>
-  <entry id="75205" lang="en" sex="m">FrB</entry>
-  <entry id="75206" lang="en" sex="m">Tmp</entry>
-  <entry id="75207" lang="en" sex="m">Foe</entry>
-  <entry id="75208" lang="en" sex="m">EoG</entry>
-  <entry id="75209" lang="en" sex="m">OrW</entry>
-  <entry id="75210" lang="en" sex="m">ThG</entry>
-  <entry id="75211" lang="en" sex="m">Nec</entry>
-  <entry id="75212" lang="en" sex="m">ElD</entry>
-  <entry id="75213" lang="en" sex="m">EiT</entry>
-  <entry id="75214" lang="en" sex="m">GFK</entry>
-  <entry id="75215" lang="en" sex="m">DrN</entry>
-  <entry id="75216" lang="en" sex="m">UlM</entry>
-  <entry id="75217" lang="en" sex="m">FrM</entry>
-  <entry id="75218" lang="en" sex="m">Arc</entry>
-  <entry id="75219" lang="en" sex="m">DsS</entry>
-  <entry id="75220" lang="en" sex="m">JPM</entry>
-  <entry id="75221" lang="en" sex="m">BcM</entry>
-  <entry id="75222" lang="en" sex="m">RKV</entry>
-  <entry id="75223" lang="en" sex="m">MoN</entry>
-  <entry id="75224" lang="en" sex="m">EtB</entry>
-  <entry id="75225" lang="en" sex="m">SSN</entry>
-  <entry id="75226" lang="en" sex="m">WbB</entry>
-  <entry id="75227" lang="en" sex="m">Bln</entry>
-  <entry id="75228" lang="en" sex="m">DoM</entry>
-  <entry id="75229" lang="en" sex="m">SoE</entry>
-  <entry id="75230" lang="en" sex="m">HnM</entry>
-  <entry id="75231" lang="en" sex="m">DrM</entry>
-  <entry id="75232" lang="en" sex="m">EnF</entry>
-  <entry id="75233" lang="en" sex="m">Mrl</entry>
-  <entry id="75234" lang="en" sex="m">InB</entry>
-  <entry id="75235" lang="en" sex="m">OAS</entry>
-  <entry id="75236" lang="en" sex="m">Pkt</entry>
-  <entry id="75237" lang="en" sex="m">Shm</entry>
-  <entry id="75238" lang="en" sex="m">PsT</entry>
-  <entry id="75239" lang="en" sex="m">Crm</entry>
-  <entry id="75240" lang="en" sex="m">Thr</entry>
-  <entry id="75241" lang="en" sex="m">FoZ</entry>
-  <entry id="75242" lang="en" sex="m">HvM</entry>
-  <entry id="75243" lang="en" sex="m">CmP</entry>
-  <entry id="75244" lang="en" sex="m">Ruc</entry>
-  <entry id="75245" lang="en" sex="m">Wcf</entry>
-  <entry id="75246" lang="en" sex="m">Wrm</entry>
-  <entry id="75247" lang="en" sex="m">IrM</entry>
-  <entry id="75248" lang="en" sex="m">ScM</entry>
-  <entry id="75249" lang="en" sex="m">SlD</entry>
-  <entry id="75250" lang="en" sex="m">DoA</entry>
-  <entry id="75251" lang="en" sex="m">Dsg</entry>
-  <entry id="75252" lang="en" sex="m">SuA</entry>
-  <entry id="75253" lang="en" sex="m">FaS</entry>
-  <entry id="75254" lang="en" sex="m">WWC</entry>
-  <entry id="75255" lang="en" sex="m">ScH</entry>
-  <entry id="75256" lang="en" sex="m">Tun</entry>
-  <entry id="75257" lang="en" sex="m">MaA</entry>
-  <entry id="75258" lang="en" sex="m">Brf</entry>
-  <entry id="75259" lang="en" sex="m">BsS</entry>
-  <entry id="75260" lang="en" sex="m">FcL</entry>
-  <entry id="75261" lang="en" sex="m">Soh</entry>
-  <entry id="75262" lang="en" sex="m">Crs</entry>
-  <entry id="75263" lang="en" sex="m">Swr</entry>
-  <entry id="75264" lang="en" sex="m">Wrb</entry>
-  <entry id="75265" lang="en" sex="m">Wmg</entry>
-  <entry id="75266" lang="en" sex="m">Kng</entry>
-  <entry id="75267" lang="en" sex="m">FDQ</entry>
-  <entry id="75268" lang="en" sex="m">HWM</entry>
-  <entry id="75269" lang="en" sex="m">ToT</entry>
-  <entry id="75270" lang="en" sex="m">DrD</entry>
-  <entry id="75271" lang="en" sex="m">FMa</entry>
-  <entry id="75272" lang="en" sex="m">WfJ</entry>
-  <entry id="75273" lang="en" sex="m">Bsm</entry>
-  <entry id="75274" lang="en" sex="m">NyH</entry>
-  <entry id="75275" lang="en" sex="m">Blt</entry>
-  <entry id="75276" lang="en" sex="m">RaM</entry>
-  <entry id="75277" lang="en" sex="m">DhM</entry>
-  <entry id="75278" lang="en" sex="m">SwW</entry>
-  <entry id="75279" lang="en" sex="m">DDr</entry>
-  <entry id="75280" lang="en" sex="m">Fra</entry>
-  <entry id="75281" lang="en" sex="m">CSM</entry>
-  <entry id="75282" lang="en" sex="m">Sht</entry>
+  <entry id="75070" lang="en" sex="m">Jaebrin</entry>
+  <entry id="75071" lang="en" sex="m">jaebrin</entry>
+  <entry id="75072" lang="en" sex="m">Jaebrins</entry>
+  <entry id="75073" lang="en" sex="m">Jaebrins are fey whose fearsome teeth belie an impish nature. Their powers of enchantment, and their immunity to those same effects, make them tricky opponents and untrustworthy allies. Jaebrins are outcast drifters that enjoy tricking and entertaining mortals. Jaebrins were formerly the jesters of fey courts. Fey nobles delighted in enchanting jaebrins to perform silly or weird acts. For their part, the jaebrins reveled in their role, seeing entertainment as a great service. Eventually they built up a strong tolerance to enchantment. For a number of centuries, they hid this fact from their masters and learned to fake being under the sway of enchantment. In time, fey noble after fey noble discovered the ruse and lost interest in the jaebrins. The forsaken fey were shamed into self-imposed exile. Jaebrins now make their way as merchants, charlatans, and swindlers. Others bring merriment as bards, and a few exploit their talents by becoming sorcerers. Such jaebrins might even seek the excitement of adventuring.
+
+Jaebrin Ability Adjustments: -2 Strength, +2 Charisma.
+Favored Class (Beguiler): A multiclass jaebrin's Beguiler class does not count when determining whether he suffers an XP penalty for multiclassing.
+
+Special Abilities:
+
+- Fey. Jaebrins are not subject to spells or effects that affect only humanoids.
+- Base movement of 30.
+- Low-light vision.
+- Jaebrins have a +1 bonus to AC.
+- Immunity to enchantment spells and effects.
+- Natural Attack: Bite (1d3).
+- +1 racial bonus on saving throw DCs for enchantment spells the jaebrin casts.
+- +2 racial bonus on Appraise, Bluff, Perform, and Persuade checks.
+- +4 racial bonus on Spellcraft checks.
+- Will Sapper (Ex): Any creature damaged by a jaebrin trickster's bite must succeed on a Will save or take a -4 penalty on Will saves for 1 minute. The effect of multiple bites doesn't stack. The save DC is Constitution-based.
+- Level Adjustment: +1</entry>
   <entry id="75283" lang="en" sex="m">Plt</entry>
   <entry id="75299" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>
   <entry id="75300" lang="en" sex="m">Abjurant Champion Invoking (Warlock)</entry>
@@ -73234,6 +73139,8 @@ Special Abilities:
   <entry id="77205" lang="en" sex="m">Ranger Spellcasting (Master of Shrouds)</entry>
   <entry id="77206" lang="en" sex="m">Sohei Spellcasting (Master of Shrouds)</entry>
   <entry id="77207" lang="en" sex="m">Ur-Priest Spellcasting (Master of Shrouds)</entry>
+  <entry id="77208" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>
+  <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
   <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200002" lang="en" sex="m">Paper</entry>
@@ -73287,4 +73194,241 @@ Prerequisite: Lesser Legacy Ritual
 Benefit: Beginning at 13th level, you can multiply your weight by 8, gaining a +2 size bonus to Strength, a —2 size penalty to Dexterity (to a minimum of 1), a —1 penalty on attack rolls, and a +4 bonus on grapple checks. You can grapple Huge creatures. You do not physically become larger and do not gain a longer reach, nor do you take size penalties on attacks, AC, and Hide checks. This ability can be used at will and lasts 10 minutes each time it is activated. 
 
 Use: Selected</entry>
+  <entry id="200102" lang="en" sex="m">Vow of Poverty</entry>
+  <entry id="200103" lang="en" sex="m">You have taken a sacred vow to forswear material possessions.
+  
+You gain bonuses to your Armor Class, ability scores, and saving throws, as well as bonus exalted feats, all depending on your character level.
+  
+To fulfill your vow, you must not own or use any material possessions, with the following exceptions: You may carry and use ordinary (neither magic nor masterwork) simple weapons, usually just a quarterstaff that serves as a walking stick. You may wear simple clothes (usually just a homespun robe, possibly also including a hat and sandals) with no magical properties. You may carry and use a spell component pouch. You may not use any magic item of any sort, though you can benefit from magic items used on your behalf-you can drink a potion of cure serious wounds a friend gives you, receive a spell cast from a wand, scroll, or staff, or ride on your companion's ebony fly. You may not, however, "borrow" a cloak of resistance or any other magic item from a companion for even a single round, nor may you yourself cast a spell from a scroll, wand, or staff.
+
+FEAT FEATURES:
+
+Level 
+1:  AC Armor +4
+3:  AC Armor +5
+4:  Weapon enhancement +1
+6:  AC Armor +6
+    AC Deflection +1
+7:  All saving throws +1
+    Ability score enhancement +2
+8:  AC Natural +1
+9:  AC Armor +7
+10: Weapon enhancement +2
+    DR 5/-
+11: Ability score enhancement +4/+2
+12: AC Armor +8
+    AC Deflection +2
+13: All saving throws +2
+    Energy (fire/cold/electric/sonic/acid) resistance 5
+14: Weapon enhancement +3
+    Freedom of Movement
+15: AC Armor +9
+    Ability score enhancement +6/+4/+2
+16: AC Natural +2
+17: Weapon enhancement +4
+    All saving throws +3
+    Regeneration 1
+18: AC Armor +10
+    AC Deflection +3
+    True Seeing
+19: Ability score enhancement +8/+6/+4/+2
+    DR 10/-
+20: Weapon enhancement +5
+    Energy resistance 15
+
+*This is based on Vow of Poverty 3.0, with the following variations:
+- Can only be selected at Level 1
+- No Bonus exalted feat every 2 levels (we just have other 2, wouldn't make sense)
+- No Endure elements, Sustenance, Mind shielding (would have little impact on NWN gameplay)
+- No Sacred Vow as requirement (so a Level 1 from any race can get it and to partially offset the lack of Bonus exalted feat)
+- The level progression continues the same during the Epic Levels
+</entry>
+  <entry id="213272" lang="en" sex="m">Force Missiles</entry>
+  <entry id="213273" lang="en" sex="m">Evocation [Force]
+Level: Sorcerer 4, Wizard 4,
+Components: V, S,
+Casting Time: 1 Standard Action
+Range: Medium (100 ft. + 10 ft./level)
+Target: Up to four creatures, no two of which are more than 30 ft. apart
+Duration: Instantaneous
+Saving Throw: None
+Spell Resistance: Yes
+
+Sparking bolts of blue magic, like giant magic missiles, streak from your
+outstretched hand to strike your foes and explode in sparkling bursts.
+
+You create powerful missiles of magical force, each of which darts from your
+fingertips and unerringly strikes its target, dealing 2d6 points of damage.
+The missile then explodes in a burst of force that deals half this amount of
+damage to any creatures adjacent to the primary target.
+
+The missile strikes unerringly, even if the target is in melee or has anything
+less than total cover or concealment. A caster cannot single out specific parts
+of a creature.
+
+You gain one missile for every four caster levels. Extra missiles distribute 
+themsleves amongst your enemies evenly.</entry>
+  <entry id="213275" lang="en" sex="m">Force Missiles (8)</entry>
+  <entry id="213276" lang="en" sex="m">Force Missiles (12)</entry>
+  <entry id="213277" lang="en" sex="m">Chasing Perfection</entry>
+  <entry id="213278" lang="en" sex="m">Transmutation
+Level: Cleric 6, Druid 6, Sorcerer 6, Wizard 6,
+Components: V, S, M,
+Casting Time: 1 standard action
+Range: Touch
+Target: Creature touched
+Duration: 1 minute/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+Energy courses through the creature touched.
+Its muscles grow and become more defined, it starts to move with greater alacrity and grace, and its bearing increases.
+The subject improves in all ways.
+It gains a +4 enhancement bonus to each of its ability scores.
+
+Material Component: A statuette of a celestial or fiend worth 50 gp.</entry>
+  <entry id="213279" lang="en" sex="m">Chasing Perfection (12)</entry>
+  <entry id="213280" lang="en" sex="m">Chasing Perfection (16)</entry>
+  <entry id="213281" lang="en" sex="m">Regenerate Light Wounds</entry>
+  <entry id="213282" lang="en" sex="m">Conjuration (Healing)
+Level: Cleric 1, Druid 1,
+Components: V, S,
+Casting Time: 1 action
+Range: Touch
+Target: Living creature touched
+Duration: 10 rounds + 1 round/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 1 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
+
+Regenerate light wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
+first spell's duration by the full duration of the second spell.</entry>
+  <entry id="213283" lang="en" sex="m">Regenerate Light Wounds (3)</entry>
+  <entry id="213284" lang="en" sex="m">Regenerate Light Wounds (6)</entry>
+  <entry id="213285" lang="en" sex="m">Regenerate Light Wounds (9)</entry>
+  <entry id="213286" lang="en" sex="m">Regenerate Moderate Wounds</entry>
+  <entry id="213287" lang="en" sex="m">Conjuration (Healing)
+Level: Cleric 2, Druid 2,
+Components: V, S,
+Casting Time: 1 action
+Range: Touch
+Target: Living creature touched
+Duration: 10 rounds + 1 round/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 2 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
+
+Regenerate moderate wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
+first spell's duration by the full duration of the second spell.</entry>
+  <entry id="213288" lang="en" sex="m">Regenerate Moderate Wounds (3)</entry>
+  <entry id="213289" lang="en" sex="m">Regenerate Moderate Wounds (6)</entry>
+  <entry id="213290" lang="en" sex="m">Regenerate Moderate Wounds (9)</entry>
+  <entry id="213291" lang="en" sex="m">Regenerate Serious Wounds</entry>
+  <entry id="213292" lang="en" sex="m">Conjuration (Healing)
+Level: Cleric 3, Druid 3,
+Components: V, S,
+Casting Time: 1 action
+Range: Touch
+Target: Living creature touched
+Duration: 10 rounds + 1 round/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 3 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
+
+Regenerate serious wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
+first spell's duration by the full duration of the second spell.</entry>
+  <entry id="213293" lang="en" sex="m">Regenerate Serious Wounds (5)</entry>
+  <entry id="213294" lang="en" sex="m">Regenerate Serious Wounds (10)</entry>
+  <entry id="213295" lang="en" sex="m">Regenerate Serious Wounds (15)</entry>
+  <entry id="213296" lang="en" sex="m">Regenerate Critical Wounds</entry>
+  <entry id="213297" lang="en" sex="m">Conjuration (Healing)
+Level: Cleric 4, Druid 4,
+Components: V, S,
+Casting Time: 1 action
+Range: Touch
+Target: Living creature touched
+Duration: 10 rounds + 1 round/level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+With a touch of your hand, you boost the subject's life energy, granting him or her the fast healing ability for the duration of the spell.  This healing applies only to damage sustained during the spell's duration, not to that from previous injuries.  The subject heals 4 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time.
+
+Regenerate critical wounds does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts. The effects of multiple regenerate spells do not stack, only the highest-level effect applies.  Applying a second regenerate spell of equal level extends the 
+first spell's duration by the full duration of the second spell.</entry>
+  <entry id="213298" lang="en" sex="m">Regenerate Critical Wounds (7)</entry>
+  <entry id="213299" lang="en" sex="m">Regenerate Critical Wounds (12)</entry>
+  <entry id="213300" lang="en" sex="m">Regenerate Critical Wounds (15)</entry>
+  <entry id="213301" lang="en" sex="m">Speed of the Wind</entry>
+  <entry id="213302" lang="en" sex="m">Transmutation
+Level: Druid 2,
+Components: V, S,
+Casting Time: 1 action
+Range: Touch
+Target: Living creature touched
+Duration: 10 minutes/level
+Saving Throw: Will negates
+Spell Resistance: Yes
+
+With this spell, you can grant the ephemeral quickness of a sudden breeze.  The subject gains a +4 enhancement bonus to Dexterity and a -2 enhancement penalty to Constitution.</entry>
+  <entry id="213303" lang="en" sex="m">Speed of the Wind (7)</entry>
+  <entry id="213304" lang="en" sex="m">Speed of the Wind (12)</entry>
+  <entry id="213305" lang="en" sex="m">Speed of the Wind (15)</entry>
+  <entry id="213306" lang="en" sex="m">Spirit Worm</entry>
+  <entry id="213307" lang="en" sex="m">Necromancy
+Level: Sorcerer 1, Wizard 1,
+Components: V, S, M,
+Casting Time: 1 standard action
+Range: Touch
+Target: Living creature touched
+Duration: 1 round/level, up to 5 rounds; see text
+Saving Throw: Fortitude negates; see text
+Spell Resistance: Yes
+
+You press the bit of blackened bone against your foe and intone the spell. The bone vanishes, leaving a mottled bruise where it touched.  You create a lingering decay in the spirit and body of the target. If the target fails its saving throw, it takes 1 point of Constitution damage each round while the spell lasts (maximum 5 points). The victim can attempt a Fortitude saving throw each round, and success negates the Constitution damage for that round and ends the spell. 
+
+Material Component: A piece of fire-blackened ivory or bone carved in the shape of a segmented worm.</entry>
+  <entry id="213308" lang="en" sex="m">Spirit Worm (5)</entry>
+  <entry id="213309" lang="en" sex="m">Spiritual Weapon</entry>
+  <entry id="213310" lang="en" sex="m">Evocation [Force]
+Level: Cleric 2, Knight of the Chalice 2, War 2
+Components: V, S, DF,
+Casting Time: 1 standard action
+Range: Medium (100 ft. + 10 ft./level)
+Effect: Magic weapon of force
+Duration: 1 round/level (D)
+Saving Throw: None
+Spell Resistance: Yes
+
+A weapon made of pure force springs into existence and attacks opponents at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing each round thereafter on your turn. It uses your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) plus your Wisdom modifier as its attack bonus. It strikes as a spell, not as a weapon, so, for example, it can damage creatures that have damage reduction. As a force effect, it can strike incorporeal creatures without the normal miss chance associated with incorporeality. The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats (such as Weapon Focus) or combat actions (such as charge) do not affect the weapon. If the weapon goes beyond the spell range, if it goes out of your sight, or if you are not directing it, the weapon returns to you and hovers.
+
+Each round after the first, you can use a move action to redirect the weapon to a new target. If you do not, the weapon continues to attack the previous round's target. On any round that the weapon switches targets, it gets one attack. Subsequent rounds of attacking that target allow the weapon to make multiple attacks if your base attack bonus would allow it to. Even if the spiritual weapon is a ranged weapon, use the spell's range, not the weapon's normal range increment, and switching targets still is a move action.
+
+A spiritual weapon cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it. A spiritual weapon's AC against touch attacks is 12 (10 + size bonus for Tiny object).
+
+If an attacked creature has spell resistance, you make a caster level check (1d20 + caster level) against that spell resistance the first time the spiritual weapon strikes it. If the weapon is successfully resisted, the spell is dispelled. If not, the weapon has its normal full effect on that creature for the duration of the spell.</entry>
+  <entry id="213311" lang="en" sex="m">Spiritual Weapon (5)</entry>
+  <entry id="213312" lang="en" sex="m">Spiritual Weapon (10)</entry>
+  <entry id="213313" lang="en" sex="m">Spiritual Weapon (15)</entry>
+  <entry id="213314" lang="en" sex="m">Tortoise Shell</entry>
+  <entry id="213315" lang="en" sex="m">Transmutation
+Level: Druid 6,
+Components: V, S, DF,
+Casting Time: 1 standard action
+Range: Touch
+Target: Living creature touched
+Duration: 10 minutes/level
+Saving Throw: None
+Spell Resistance: Yes (harmless)
+
+In the blink of an eye, the creature you touched grows the armor plating of a tortoise across its torso and a tough, leathery skin elsewhere.  Tortoise shell grants a +6 enhancement bonus to the subject's existing natural armor bonus. This enhancement bonus increases by 1 for every three caster levels beyond 11th, to a maximum of +9 at 20th level.
+
+The enhancement bonus provided by tortoise shell stacks with the target's natural armor bonus, but not with other enhancement bonuses to natural armor. A creature without natural armor has an effective natural armor of +0, much as a character wearing only normal clothing has an armor bonus of +0.
+
+Tortoise shell slows a creature's movement as if it were wearing heavy armor. An elf subject to tortoise shell, for example, would have a speed of 20 feet and could run only 60 feet per round.  The spell affects only a creature's speed; tortoise shell doesn't carry an armor check penalty or an arcane spell failure chance.</entry>
+  <entry id="213316" lang="en" sex="m">Tortoise Shell (12)</entry>
+  <entry id="213317" lang="en" sex="m">Tortoise Shell (15)</entry>
+  <entry id="213318" lang="en" sex="m">Tortoise Shell (18)</entry>
 </tlk>

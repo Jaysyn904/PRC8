@@ -1709,8 +1709,25 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
             }
             if (GetHasFeat(FEAT_EARTHS_EMBRACE, oPC))
             {
-                int nDam = d12();
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam), oTarget);  
+            	// Add in unarmed damage
+				int nDamageSize = FindUnarmedDamage(oPC);
+				
+				int nDie = StringToInt(Get2DACache("iprp_monstcost", "Die", nDamageSize));
+				int nNum  = StringToInt(Get2DACache("iprp_monstcost", "NumDice", nDamageSize));
+				int nRoll;
+
+				//Potential die options
+				if(nDie == 4) nRoll = d4(nNum);
+				else if(nDie == 6) nRoll = d6(nNum);
+				else if(nDie == 8) nRoll = d8(nNum);
+				else if(nDie == 10) nRoll = d10(nNum);
+				else if(nDie == 12) nRoll = d12(nNum);
+				else if(nDie == 20) nRoll = d20(nNum);	
+				
+				FloatingTextStringOnCreature("Earth's Embrace chokes the life from your foe", oPC, FALSE);
+				
+                int nDam = d12() + nRoll;
+                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_BLUDGEONING), oTarget);  
                 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectACDecrease(4)), oPC, 6.0); 
             }    
         }

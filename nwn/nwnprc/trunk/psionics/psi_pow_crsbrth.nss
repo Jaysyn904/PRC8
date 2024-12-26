@@ -118,7 +118,7 @@ void RunImpact(object oTarget, location lTarget, object oManifester, int nSpellI
             nRound = 0;
 
         // Schedule next check
-        DelayCommand(6.0f, RunImpact(oTarget, GetLocation(oTarget), oManifester, nSpellID, nDC, nRound, bGoingToDie));
+        DelayCommand(6.0f, RunImpact(oTarget, lTarget, oManifester, nSpellID, nDC, nRound, bGoingToDie));
     }
 }
 

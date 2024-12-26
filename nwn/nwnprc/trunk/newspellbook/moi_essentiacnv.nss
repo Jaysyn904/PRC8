@@ -183,7 +183,8 @@ void main()
 				// This is because feats can't have temporary essentia invested in them
 				if (!GetTemporaryEssentia(oMeldshaper)) AddChoice("Feats", 2, oMeldshaper);
 				AddChoice("Class Features", 1, oMeldshaper);
-				if (GetLevelByClass(CLASS_TYPE_SOULCASTER, oMeldshaper)) AddChoice("Spells & Powers", 4, oMeldshaper);
+				//This will fail if the PC cannot take the class
+				if (GetLevelByClass(CLASS_TYPE_SOULCASTER, oMeldshaper) && !GetLocalInt(oMeldshaper, "PRC_PrereqSoulcaster")) AddChoice("Spells & Powers", 4, oMeldshaper);
 
                 // Set the next, previous and wait tokens to default values
                 SetDefaultTokens();

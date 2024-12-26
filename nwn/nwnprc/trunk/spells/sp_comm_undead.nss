@@ -39,49 +39,49 @@ void main()
     object oCreatureSkin = GetItemInSlot(INVENTORY_SLOT_CARMOUR, oTarget);
     
     //Undead
-    if(MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
-    {
-            //Check Spell Resistance
-            if (!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
-            {
-                    //Dominate mindless
-                    if(GetAbilityScore(oTarget, ABILITY_INTELLIGENCE) < 11)
-                    {
-                        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink2, oTarget, fDuration);
-                    }
-                    else
-                    {
-//			  Doesn't seem to work anyway
-//                        RemoveSpecificProperty(oCreatureSkin, ITEM_PROPERTY_IMMUNITY_MISCELLANEOUS, IP_CONST_IMMUNITYMISC_MINDSPELLS);  
-                        
-                        if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_NONE, oPC, 1.0))
-                        {
+	if(MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
+	{
+		//Check Spell Resistance
+		if (!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
+		{
+			//Dominate mindless
+			if(GetAbilityScore(oTarget, ABILITY_INTELLIGENCE) < 11)
+			{
+				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink2, oTarget, fDuration);
+			}
+			else
+			{
+				//	Doesn't seem to work anyway
+				//	RemoveSpecificProperty(oCreatureSkin, ITEM_PROPERTY_IMMUNITY_MISCELLANEOUS, IP_CONST_IMMUNITYMISC_MINDSPELLS);  
+					
+				if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_NONE, oPC, 1.0))
+				{
 
-			    object oFaction = GetFirstFactionMember(oTarget, FALSE);
-			    if (oFaction == oTarget)				
-				oFaction = GetNextFactionMember(oTarget, FALSE);
-			    ChangeToStandardFaction(oTarget, STANDARD_FACTION_DEFENDER);
-			    AssignCommand(oTarget, ClearAllActions());
-                            SetIsTemporaryFriend(oPC, oTarget, FALSE);
+					object oFaction = GetFirstFactionMember(oTarget, FALSE);
+					if (oFaction == oTarget)				
+					oFaction = GetNextFactionMember(oTarget, FALSE);
+					ChangeToStandardFaction(oTarget, STANDARD_FACTION_DEFENDER);
+					AssignCommand(oTarget, ClearAllActions());
+					SetIsTemporaryFriend(oPC, oTarget, FALSE);
 
-			    if(oFaction == OBJECT_INVALID)
-			    {
-			     DelayCommand(6.0, ChangeToStandardFaction(oTarget, STANDARD_FACTION_HOSTILE));
-			    }
+					if(oFaction == OBJECT_INVALID)
+					{
+						DelayCommand(6.0, ChangeToStandardFaction(oTarget, STANDARD_FACTION_HOSTILE));
+					}
 
-			    else
-			    {
-			     DelayCommand(fDuration, ChangeFaction(oFaction, oTarget));
-			    }
+					else
+					{
+						DelayCommand(fDuration, ChangeFaction(oFaction, oTarget));
+					}
 
-			     DelayCommand(fDuration, SetIsTemporaryEnemy(oPC, oTarget, FALSE));
+					DelayCommand(fDuration, SetIsTemporaryEnemy(oPC, oTarget, FALSE));
 
-			     //Doesn't do anything anyway
- 			     //SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration);
-                        }
-                    }
-            }
-    }
+				//Doesn't do anything anyway
+					//SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration);
+				}
+			}
+		}
+	}
     else
         FloatingTextStringOnCreature("Target isn't Undead", oPC, FALSE);
         

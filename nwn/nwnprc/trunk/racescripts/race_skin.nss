@@ -452,7 +452,17 @@ void main()
     {
         SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oPC);
     }     
-    
+    if(GetRacialType(oPC) == RACIAL_TYPE_JAEBRIN)
+    {
+        SetCompositeBonus(oSkin, "Jaebrin_Spell", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPELLCRAFT);
+        IPSafeAddItemProperty(oSkin, ItemPropertySpellImmunitySchool(IP_CONST_SPELLSCHOOL_ENCHANTMENT), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        string sResRef = "prc_troll_bite_";
+        int nSize = PRCGetCreatureSize(oPC);
+		//:: Needs 1d3 @ Medium
+		nSize--;
+        sResRef += GetAffixForSize(nSize);
+		AddNaturalPrimaryWeapon(oPC, sResRef, 1);     
+    }      
     
     //fire resistance 5
     if(GetHasFeat(FEAT_RESIST_FIRE5))

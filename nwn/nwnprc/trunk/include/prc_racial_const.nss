@@ -72,6 +72,7 @@ const int RACIAL_TYPE_SPIRETOPDRAGON	   = 77;
 const int RACIAL_TYPE_BRALANI              = 159;
 const int RACIAL_TYPE_BROWNIE              = 53;
 const int RACIAL_TYPE_GRIG                 = 133;
+const int RACIAL_TYPE_JAEBRIN              = 78;
 const int RACIAL_TYPE_NIXIE                = 134;
 const int RACIAL_TYPE_NYMPH                = 135;
 const int RACIAL_TYPE_PIXIE                = 226;
@@ -236,10 +237,10 @@ const int RACIAL_TYPE_KARSITE              = 65;
 
 /* Standard Races */
 
-//Human
+//:: Human
 const int RACIAL_TYPE_SILVERBROW_HUMAN     = 110;
 
-//Elf
+//:: Elf
 const int RACIAL_TYPE_AQELF                = 161;
 const int RACIAL_TYPE_AVARIEL              = 162;
 const int RACIAL_TYPE_DROW_FEMALE          = 163;
@@ -253,7 +254,7 @@ const int RACIAL_TYPE_WILD_ELF             = 167;
 const int RACIAL_TYPE_WOOD_ELF             = 168;
 const int RACIAL_TYPE_GREY_ELF			   = 169;
 
-//Dwarf
+//:: Dwarf
 const int RACIAL_TYPE_ARC_DWARF            = 151;
 const int RACIAL_TYPE_DREAM_DWARF          = 157;
 const int RACIAL_TYPE_FIREBLOOD_DWARF      = 106;
@@ -264,7 +265,7 @@ const int RACIAL_TYPE_GLACIER_DWARF        = 154;
 const int RACIAL_TYPE_URDINNIR             = 155;
 const int RACIAL_TYPE_WILD_DWARF           = 156;
 
-//Gnome
+//:: Gnome
 const int RACIAL_TYPE_CHAOS_GNOME          = 177;
 const int RACIAL_TYPE_DEEP_GNOME           = 174;
 const int RACIAL_TYPE_FIRE_GNOME           = 173;
@@ -275,7 +276,7 @@ const int RACIAL_TYPE_STONEHUNTER_GNOME    = 105;
 const int RACIAL_TYPE_SVIRFNEBLIN          = 174;
 const int RACIAL_TYPE_WHISPER_GNOME        = 179;
 
-//Halfling
+//:: Halfling
 const int RACIAL_TYPE_DEEP_HALFLING        = 194;
 const int RACIAL_TYPE_GHOSTWISE_HALFLING   = 190;
 const int RACIAL_TYPE_GLIMMERSKIN_HALFING  = 109;
@@ -285,28 +286,30 @@ const int RACIAL_TYPE_STRONGHEART_HALFLING = 192;
 const int RACIAL_TYPE_TALLFELLOW_HALFLING  = 193;
 const int RACIAL_TYPE_TUNDRA_HALFLING      = 191;
 
-//Goblin
+//:: Goblinoid
 const int RACIAL_TYPE_BLUE_GOBLIN          = 143;
 const int RACIAL_TYPE_DEKANTER             = 142;
 const int RACIAL_TYPE_GOBLIN               = 213;
 const int RACIAL_TYPE_SNOW_GOBLIN          = 141;
-
-//"Greenskin" Races
 const int RACIAL_TYPE_BUGBEAR              = 217;
+const int RACIAL_TYPE_HOBGOBLIN            = 221;
+const int RACIAL_TYPE_SUNSCORCH_HOBGOBLIN  = 111;
+const int RACIAL_TYPE_VARAG                = 232;
+const int RACIAL_TYPE_HOBGOBLIN_WARSOUL    = 233;
+
+//:: "Greenskin" Races
 const int RACIAL_TYPE_FLIND                = 211;
 const int RACIAL_TYPE_FROSTBLOOD_ORC       = 108;
 const int RACIAL_TYPE_GNOLL                = 216;
 const int RACIAL_TYPE_GRAYORC              = 184;
 const int RACIAL_TYPE_HALFOGRE             = 229;
-const int RACIAL_TYPE_HOBGOBLIN            = 221;
 const int RACIAL_TYPE_KOBOLD               = 215;
 const int RACIAL_TYPE_MINOTAUR             = 218;
 const int RACIAL_TYPE_OGRE                 = 212;
 const int RACIAL_TYPE_OMAGE                = 211;
 const int RACIAL_TYPE_OROG                 = 187;
 const int RACIAL_TYPE_ORC                  = 214;
-const int RACIAL_TYPE_SUNSCORCH_HOBGOBLIN  = 111;
 const int RACIAL_TYPE_TROLL                = 231;
-const int RACIAL_TYPE_VARAG                = 232;
+
 
 

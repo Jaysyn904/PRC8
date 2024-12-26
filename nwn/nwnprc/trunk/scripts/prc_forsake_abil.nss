@@ -5,9 +5,10 @@
 /** @file
     This allows you to choose ability to boost.
 
-
-    @author Stratovarius
-    @date   Created  - 27.12.2019
+    @author    Stratovarius
+    @date      Created  - 27.12.2019
+	@edited by Stratovarius
+    @date      24.12.2024
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
@@ -30,6 +31,7 @@ void main()
     object oPC = GetPCSpeaker();
     int nValue = GetLocalInt(oPC, DYNCONV_VARIABLE);
     int nStage = GetStage(oPC);
+	int nClass = GetPersistantLocalInt(oPC, "ForsakerBoostCheck");
 
     // Check which of the conversation scripts called the scripts
     if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort
@@ -50,7 +52,7 @@ void main()
             if(nStage == STAGE_SELECT_ABIL)
             {
                 if(DEBUG) DoDebug("prc_forsake_abil: Building maneuver selection");
-                SetHeader("Choose which ability to boost for this level in Forsaker:");
+                SetHeader("Choose which ability to boost for Forsaker level " + IntToString(nClass) + ":");
                 AddChoice("Strength", ABILITY_STRENGTH, oPC);
                 AddChoice("Dexterity", ABILITY_DEXTERITY, oPC);
                 AddChoice("Constitution", ABILITY_CONSTITUTION, oPC);
@@ -80,15 +82,16 @@ void main()
     else
     {
         int nChoice = GetChoice(oPC);
-        if(DEBUG) DoDebug("prc_forsake_abil: Handling PC response, stage = " + IntToString(nStage) + "; nChoice = " + IntToString(nChoice) + "; choice text = '" + GetChoiceText(oPC) +  "'");
+        if(DEBUG) DoDebug("prc_forsake_abil: Handling PC response, stage = " + IntToString(nStage) + "; nChoice = " + 
+		  IntToString(nChoice) + "; choice text = '" + GetChoiceText(oPC) +  "'");
 	    if(nStage == STAGE_SELECT_ABIL)
         {
                 if(DEBUG) DoDebug("prc_forsake_abil: nChoice: " + IntToString(nChoice));  
                 
-                int nClass = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
-                // +1 because Str is ability 0
-                SetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nClass), nChoice+1);
-              
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(nChoice,1)),oPC); //Give the boost
+                SetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nClass), nChoice+1); //Register the boost has been given
+				DeletePersistantLocalInt(oPC,"ForsakerBoostCheck");
+				
                 // And we're all done
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT); 
         }

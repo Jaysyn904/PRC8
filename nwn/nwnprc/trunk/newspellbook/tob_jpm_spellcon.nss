@@ -136,7 +136,7 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
         }
     }
 
-    if(iClass == 3)
+    if(iClass == 8)
     {
         SetDefaultTokens();
         DeleteLocalInt(oPC, "DynConv_Waiting");

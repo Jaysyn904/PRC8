@@ -33,8 +33,6 @@ Note: I am not using the effective level of the spell for DC calculation but
 */
 //------------------------------------------------------------------------------
 
-//:: Updated for .35 by Jaysyn 2023/03/11
-
 #include "prc_inc_spells"
 
 int DoCastingClassCheck(object oCaster, int nSpellID, int nClass)

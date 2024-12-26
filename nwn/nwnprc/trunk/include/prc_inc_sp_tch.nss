@@ -19,6 +19,8 @@ int PRCDoRangedTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object o
         return GetLocalInt(oCaster, sCacheName);
     if(GetPersistantLocalInt(oCaster, "template_102")) // TEMPLATE_DEMILICH
         nAttackBonus += GetHitDice(oCaster);
+    if(GetLocalInt(oCaster, "WarsoulTyrant")) // Hobgoblin Warsoul
+        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");        
         
     if(GetHasFeat(FEAT_SHIELD_WARD, oTarget)) 
     {
@@ -63,6 +65,8 @@ int PRCDoMeleeTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object oC
         return GetLocalInt(oCaster, sCacheName);
     if(GetPersistantLocalInt(oCaster, "template_102")) // TEMPLATE_DEMILICH
         nAttackBonus += GetHitDice(oCaster);
+    if(GetLocalInt(oCaster, "WarsoulTyrant")) // Hobgoblin Warsoul
+        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");         
     if(GetHasFeat(FEAT_SHIELD_WARD, oTarget)) 
     {
     	int nBase = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oTarget));

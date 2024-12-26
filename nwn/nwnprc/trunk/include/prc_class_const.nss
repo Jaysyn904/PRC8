@@ -76,7 +76,7 @@ const int CLASS_TYPE_UMBRAL_DISCIPLE       	= 109;
 const int CLASS_TYPE_ALIENIST              	= 110;
 const int CLASS_TYPE_BLACK_BLOOD_CULTIST   	= 111;
 const int CLASS_TYPE_WARLOCK               	= 112;
-const int CLASS_TYPE_ANTI_PALADIN          	= 113;
+const int CLASS_TYPE_FOCHLUCAN_LYRIST	   	= 113;
 const int CLASS_TYPE_DRAGONSONG_LYRIST     	= 114;
 const int CLASS_TYPE_SPINEMELD_WARRIOR     	= 115;
 const int CLASS_TYPE_NIGHTSHADE            	= 116;
@@ -195,7 +195,7 @@ const int CLASS_TYPE_TRUENAMER             	= 228;
 const int CLASS_TYPE_MASTER_ALCHEMIST      	= 229;
 const int CLASS_TYPE_BEREFT                	= 230;
 const int CLASS_TYPE_BRIMSTONE_SPEAKER     	= 231;
-const int CLASS_TYPE_FOCHLUCAN_LYRIST	   	= 232;
+const int CLASS_TYPE_SHUGENJA			    = 232;
 const int CLASS_TYPE_SOHEI                 	= 233;
 const int CLASS_TYPE_CRUSADER              	= 234;
 const int CLASS_TYPE_SWORDSAGE				= 235;
@@ -219,6 +219,7 @@ const int CLASS_TYPE_FROSTRAGER            	= 252;
 const int CLASS_TYPE_CRINTI_SHADOW_MARAUDER	= 253;
 const int CLASS_TYPE_SHADOW_THIEF_AMN      	= 254;
 
+const int CLASS_TYPE_ANTI_PALADIN		   = -1;
 const int CLASS_TYPE_NIGHTSTALKER          = -1; //Just here to make things compile until it gets stripped out
 const int CLASS_TYPE_MINSTREL_EDGE         = -1; 
 const int CLASS_TYPE_BRAWLER               = -1;
@@ -235,6 +236,6 @@ const int CLASS_TYPE_WITCH                 = -1;
 const int CLASS_TYPE_TEMPLAR               = -1;
 const int CLASS_TYPE_MYSTIC                = -1;
 const int CLASS_TYPE_NOBLE                 = -1;
-const int CLASS_TYPE_SHUGENJA			   = -1;
+
 
 //void main (){}

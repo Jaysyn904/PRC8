@@ -392,6 +392,7 @@ int GetTurningClassLevel(object oCaster = OBJECT_SELF, int nTurnType = SPELL_TUR
         //full classes
         nLevel += GetLevelByClass(CLASS_TYPE_CLERIC, oCaster);
         nLevel += GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oCaster);
+		nLevel += GetLevelByClass(CLASS_TYPE_TRUENECRO);
         nLevel += GetLevelByClass(CLASS_TYPE_SOLDIER_OF_LIGHT, oCaster);
         nLevel += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
         nLevel += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);

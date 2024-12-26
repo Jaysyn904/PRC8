@@ -111,6 +111,14 @@ int PRCGetSpellResistance(object oTarget, object oCaster)
             iSpellRes = nCont;
     }    
     
+    // Hobgoblin Wsrsoul
+    if(GetRacialType(oTarget) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+    {
+        int nCont = 8 + GetHitDice(oTarget);
+        if(nCont > iSpellRes)
+            iSpellRes = nCont;
+    }      
+    
     // Exordius Weapon of Legacy
     if(GetLocalInt(oTarget, "ExordiusSR"))
     {
