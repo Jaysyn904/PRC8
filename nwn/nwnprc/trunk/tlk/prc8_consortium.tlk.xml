@@ -346,7 +346,7 @@ Shrouded in secrecy, the Ninja Spy is sworn to keep his or her profession a secr
 
 - Hit Die: d8.
 - Proficiencies: A Ninja Spy gains proficiency with shurikens
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 
@@ -691,7 +691,7 @@ Most of the tales about secret Netherese cults depict their members as power-mad
 
 - Hit Die: d6
 - Proficiencies: A Cultist of the Shattered Peaks is proficient with all simple and martial weapons, as well as with light armor.
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 
@@ -5750,7 +5750,7 @@ Mysterious and elusive, the unseen seer trades in secrets. Subterfuge is her bus
 
 - Hit Die: d4.
 - Proficiencies: Unseen Seer grants no additional weapon proficiencies.
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 Skills: Hide 8 ranks, Search 8 ranks, Sense Motive 4 ranks, Spellcraft 4 ranks, Spot 8 ranks
@@ -10484,17 +10484,17 @@ Level:
  7: Psychic strike +2d8
  8: +2 mind blade
  9: Bladewind, Greater Weapon Focus(mind blade)
-10: Mind blade enhancement +2
-11: Psychic strike +3d8
-12: +3 mind blade
-13: Knife to the soul
-14: Mind blade enhancement +3
-15: Psychic strike +4d8
-16: +4 mind blade
-17: Multiple throw
-18: Mind blade enhancement +4
-19: Psychic strike +5d8
-20: +5 mind blade
+ 10: Mind blade enhancement +2
+ 11: Psychic strike +3d8
+ 12: +3 mind blade
+ 13: Knife to the soul
+ 14: Mind blade enhancement +3
+ 15: Psychic strike +4d8
+ 16: +4 mind blade
+ 17: Multiple throw
+ 18: Mind blade enhancement +4
+ 19: Psychic strike +5d8
+ 20: +5 mind blade
 
 
 Mind blade (Su): A soulknife can create a semisolid blade composed of psychic energy distilled from his own mind. The blade is identical in all ways to a short sword. A mind blade is considered a magic weapon (+1) for the purpose of overcoming damage reduction.
@@ -16355,7 +16355,7 @@ In Dwarven, the word "ollam" means teacher. The education of the dwarf people is
 
 - Hit Die: d8.
 - Proficiencies: An Ollam does not gain any additional weapon or armor proficiencies.
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 
@@ -18047,7 +18047,7 @@ Nightshades are a group of skilled infiltrators who can operate in the bright su
 
 - Hit Die: d8.
 - Proficiencies: Simple, Elf and Light Armor.
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 
@@ -33692,8 +33692,7 @@ Spell Resistance: No
 
 The caster calls 3d4 lemures from the Nine Hells to where he is, offering them the soul that he has prepared. In exchange, they will serve the caster for one year as guards, slaves, or whatever else he needs them for. They are non-intelligent, so the caster cannot give them more complicated tasks than can be described in about five words.
 
-No matter how many times the caster casts this spell, he can control no more than 2 HD worth of fiends per caster level. If he exceeds this number, all the newly called creatures fall under the caster's control, and any excess from previous
-castings become uncontrolled. The caster chooses which creatures to release.
+No matter how many times the caster casts this spell, he can control no more than 2 HD worth of fiends per caster level. If he exceeds this number, all the newly called creatures fall under the caster's control, and any excess from previous castings become uncontrolled. The caster chooses which creatures to release.
 </entry>
   <entry id="52278" lang="en" sex="m">Claws of the Bebilith</entry>
   <entry id="52279" lang="en" sex="m">Claws of the Bebilith
@@ -42946,8 +42945,7 @@ Ninjas move through the shadows, striking down the unwary and vanishing again wi
 
 - Hit Die: d6.
 - Proficiencies: Ninjas are proficient with all simple weapons, plus the kama, kukri, shortbow, short sword, and shuriken. Ninjas are not proficient with any type of armor or shield.
-- Skill Points: 6 + Int Modifier.
-
+- Skill Points: 6+ Int modifier.
 CLASS SKILLS: Bluff, Concentration, Craft Weapon, Craft Armor, Craft Trap, Disable Trap,  Hide, Jump, Listen, Move Silently, Open Lock, Search, Spot, Tumble
 
 CLASS FEATURES:
@@ -44236,7 +44234,7 @@ Dragon shamans respect true dragons as power incarnate.  Some worship dragons, b
 
 - Hit Die: d10
 - Proficiencies: Dragon shamans are proficient with simple weapons, with light and medium armor, and with shields.
-- Skill Points: 2 + Int Modifier(x4 at 1st level)
+- Skill Points: 2 + Int Modifier
 
 CLASS SKILLS: Appraise, Bluff, Craft, Heal, Hide, Intimidate, Jump, Lore, Move Silently, Persuade, Search, Sense Motive, Spellcraft
 
@@ -49131,8 +49129,7 @@ While skilled in stealthy movement and other arts requiring subtlety, the psychi
 
 - Hit Die: d6
 - Proficiencies: Psychic rogues are proficient with all simple weapons, plus the rapier, shortbow, and short sword. Psychic rogues are proficient with light armor, but not with shields.
-- Skill Points: 6 + Int modifier.
-
+- Skill Points: 6+ Int modifier.
 Psionics: Intelligence is the key stat of a Psychic Rogue.
 
 Special Abilities (gained at 11th, 14th, 17th, 20th):
@@ -50879,8 +50876,7 @@ Specifics: You have learned to fight with your weapons in different ways. A char
   <entry id="58725" lang="en" sex="m">Combat Style: Arcane</entry>
   <entry id="58726" lang="en" sex="m">Let your mind do the fighting with this telekinesis based combat style.</entry>
   <entry id="58727" lang="en" sex="m">Combat Style: Demon Blade</entry>
-  <entry id="58728" lang="en" sex="m">You fight like you're possessed.
-</entry>
+  <entry id="58728" lang="en" sex="m">You fight like you're possessed.</entry>
   <entry id="58729" lang="en" sex="m">Combat Style: Warrior</entry>
   <entry id="58730" lang="en" sex="m">This sword &amp; shield combat style is heavy on blocking &amp; counters.</entry>
   <entry id="58731" lang="en" sex="m">Combat Style: Tiger Fang</entry>
@@ -56960,7 +56956,7 @@ Much like the monk, the umbral disciple seeks to explore his own nature and perf
 
 - Hit Die: d6
 - Proficiencies: An Umbral Disciple does not gain any additional weapon or armor proficiencies.
-- Skill Points: 6 + Int Modifier.
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS:
 
