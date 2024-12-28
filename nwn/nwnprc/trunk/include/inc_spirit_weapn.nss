@@ -73,11 +73,11 @@ full effect on that creature for the duration of the spell.
 
 void NullifyAppearance(object oSummon, int nThrowHands = FALSE)
 {
-    // Ensure the object is valid and is a creature
-    if (!GetIsObjectValid(oSummon))
-    {
-        return;
-    }
+	// Ensure the object is valid and is not a player or DM
+	if (!GetIsObjectValid(oSummon) || GetIsPC(oSummon) || GetIsDM(oSummon))
+	{
+		return;
+	}
 
     // Nullify all body parts
     SetCreatureBodyPart(CREATURE_PART_HEAD, 0, oSummon);
@@ -151,6 +151,8 @@ int GetDominantAlignment(object oCreature)
 
 void SetDeityByClass(object oCreature)
 {
+	if(GetLevelByClass(CLASS_TYPE_RAVAGER, oCreature) > 0) SetDeity(oCreature, "Erythnul");
+	
 	if(GetLevelByClass(CLASS_TYPE_TEMPUS, oCreature) > 0) SetDeity(oCreature, "Tempus");
 	
 	if(GetLevelByClass(CLASS_TYPE_BLACK_BLOOD_CULTIST, oCreature) > 0) SetDeity(oCreature, "Malar");
@@ -462,23 +464,23 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 	
     string sWeapon = GetSpiritualWeaponTypeByDeity(oCaster);
     object oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oCaster);
-	SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Hooking Event.");
+	SendMessageToPC(oCaster, "inc_spirit_weapn: Hooking Event.");
 	
 	RegisterSummonEvents(oSummon);
 	
     int i = 1;
-    while(GetIsObjectValid(oSummon))
+    while(GetIsObjectValid(oSummon) && !GetIsPC(oSummon) && ! GetIsDM(oSummon))
     {
 		NullifyAppearance(oSummon);
 		
         if(GetResRef(oSummon) == "prc_spirit_weapn")  //:: Unarmed / "Claw Bracer"
         {
             SetBaseAttackBonus(nAttNumber, oSummon);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn:" +GetName(oCaster)+"'s BAB is: "+IntToString(nBAB));
+			SendMessageToPC(oCaster, "inc_spirit_weapn:" +GetName(oCaster)+"'s BAB is: "+IntToString(nBAB));
 			//EffectModifyAttacks(nAttNumber);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Adding "+IntToString(nAttNumber)+" attacks / round.");
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Adding "+IntToString(nAttNumber)+" attacks / round.");
 			SetLocalInt(oSummon, "X2_L_NUMBER_OF_ATTACKS", nAttNumber);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Storing caster as: " + GetName(oCaster));
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Storing caster as: " + GetName(oCaster));
 			DelayCommand(0.0f, SetLocalObject(oSummon, "MY_CASTER", oCaster));
 			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_GHOST_SMOKE_2), oSummon);
 			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_GHOST_TRANSPARENT), oSummon);
@@ -491,13 +493,13 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 								
 				//Add event scripts
 				AddEventScript(oWeapon, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-				SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");
+				SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");
 				AddEventScript(oWeapon, EVENT_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-				SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");				
+				SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");				
 				AddEventScript(oWeapon, EVENT_ITEM_ONUNAQUIREITEM, "prc_evnt_spirwep", TRUE, FALSE);
-				SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onUnacquire event script on weapon");
+				SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onUnacquire event script on weapon");
 				AddEventScript(oWeapon, EVENT_ITEM_ONPLAYERUNEQUIPITEM, "prc_evnt_spirwep", TRUE, FALSE);
-				SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onUnequip event script on weapon");				
+				SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onUnequip event script on weapon");				
 	
                 // GZ: Fix for weapon being dropped when killed
                 SetDroppableFlag(oWeapon, FALSE);
@@ -531,7 +533,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oAmmo1, TRUE);
 
 					AddEventScript(oAmmo1, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on ammo");						
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on ammo");						
 					
 					oAmmo2 = CreateItemOnObject("nw_wambo001", oSummon);
 					SetItemStackSize(oAmmo2, 99);
@@ -539,7 +541,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oAmmo2, TRUE);
 
 					AddEventScript(oAmmo2, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on ammo");		
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on ammo");		
 					
 					ForceEquip(oSummon, oAmmo1, INVENTORY_SLOT_ARROWS);
 					ForceEquip(oSummon, oWeapon, INVENTORY_SLOT_RIGHTHAND);
@@ -588,7 +590,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oAmmo1, TRUE);
 
 					AddEventScript(oAmmo1, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on ammo");						
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on ammo");						
 					
 					oAmmo2 = CreateItemOnObject("nw_wambo001", oSummon);
 					SetItemStackSize(oAmmo2, 99);
@@ -596,7 +598,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oAmmo2, TRUE);
 
 					AddEventScript(oAmmo2, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on ammo");					
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on ammo");					
 					
 					ForceEquip(oSummon, oAmmo1, INVENTORY_SLOT_BOLTS);
 					ForceEquip(oSummon, oWeapon, INVENTORY_SLOT_RIGHTHAND);
@@ -644,7 +646,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon, TRUE);	
 					
 					AddEventScript(oWeapon, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");
 					
 					object oWeapon2 = CreateItemOnObject("nw_wthsh001", oSummon);
 					SetItemStackSize(oWeapon2, 50);
@@ -652,7 +654,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon2, TRUE);
 
 					AddEventScript(oWeapon2, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");					
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");					
 
 					object oWeapon3 = CreateItemOnObject("nw_wthsh001", oSummon);
 					SetItemStackSize(oWeapon3, 50);
@@ -660,7 +662,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon3, TRUE);						
 					
 					AddEventScript(oWeapon3, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");		
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");		
 					
 					ForceEquip(oSummon, oWeapon, INVENTORY_SLOT_RIGHTHAND);
 					
@@ -698,7 +700,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon, TRUE);	
 					
 					AddEventScript(oWeapon, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");
 					
 					object oWeapon2 = CreateItemOnObject("nw_wthdt001", oSummon);
 					SetItemStackSize(oWeapon2, 50);
@@ -706,7 +708,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon2, TRUE);
 
 					AddEventScript(oWeapon2, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");					
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");					
 
 					object oWeapon3 = CreateItemOnObject("nw_wthdt001", oSummon);
 					SetItemStackSize(oWeapon3, 50);
@@ -714,7 +716,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 					SetItemCursedFlag(oWeapon3, TRUE);						
 					
 					AddEventScript(oWeapon3, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-					SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");
+					SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");
 					
 					ForceEquip(oSummon, oWeapon, INVENTORY_SLOT_RIGHTHAND);
 					
@@ -799,13 +801,13 @@ void HandleSpiritualWeaponUnequipEvent()
 	float fDuration 	= IntToFloat(nDuration);
         
 	// Log the event for debugging
-	SendMessageToPC(GetFirstPC(), "prc_spirweap_tbs: Item OnUnEquip Event running.");
+	SendMessageToPC(oCaster, "prc_spirweap_tbs: Item OnUnEquip Event running.");
 
 	// Check if the item is valid
 	if (GetIsObjectValid(oWeapon))
 	{
 	// Log the item destruction for debugging
-		SendMessageToPC(GetFirstPC(), "prc_spirweap_tbs: Unequipped item detected. Destroying item.");
+		SendMessageToPC(oCaster, "prc_spirweap_tbs: Unequipped item detected. Destroying item.");
             
 	// Destroy the unequipped item
 		DestroyObject(oWeapon);
@@ -820,13 +822,13 @@ void HandleSpiritualWeaponUnequipEvent()
 			
 			//Add event scripts
 			AddEventScript(oWeapon, EVENT_ITEM_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");
 			AddEventScript(oWeapon, EVENT_ONHIT, "prc_evnt_spirwep", TRUE, FALSE);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onHit event script on weapon");				
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onHit event script on weapon");				
 			AddEventScript(oWeapon, EVENT_ITEM_ONUNAQUIREITEM, "prc_evnt_spirwep", TRUE, FALSE);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onUnacquire event script on weapon");
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onUnacquire event script on weapon");
 			AddEventScript(oWeapon, EVENT_ITEM_ONPLAYERUNEQUIPITEM, "prc_evnt_spirwep", TRUE, FALSE);
-			SendMessageToPC(GetFirstPC(), "inc_spirit_weapn: Setting onUnequip event script on weapon");			
+			SendMessageToPC(oCaster, "inc_spirit_weapn: Setting onUnequip event script on weapon");			
 				
 			// GZ: Fix for weapon being dropped when killed
 			SetDroppableFlag(oWeapon, FALSE);
@@ -1089,7 +1091,7 @@ void HandleSpiritualWeaponUnequipEvent()
 		}			
 		else
 		{
-			SendMessageToPC(GetFirstPC(), "prc_spirweap_tbs: No valid item to destroy.");
+			SendMessageToPC(oCaster, "prc_spirweap_tbs: No valid item to destroy.");
 		}
         
 	return;
