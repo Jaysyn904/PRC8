@@ -27,7 +27,6 @@ void main()
 	int nRegen = 1 + nClass/4;	
 	int nSR    = 10 + nClass;
 	int nEvent = GetCurrentlyRunningEvent();
-    //PostString(oPC, "prc_forsaker running, event: " + IntToString(nEvent), 0, 0, SCREEN_ANCHOR_TOP_LEFT, 20.0, 0xFF0000FF, 0x00000000);
 
     // We aren't being called from any event, instead from EvalPRCFeats
     if(nEvent == FALSE)
@@ -95,7 +94,9 @@ void main()
     {
 		oItem = GetPCItemLastEquipped();
 		//Check if weapons are magical
-		if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))) //Check if weapon is magical or not on allowed list	        
+		if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) &&
+		  !(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY)) 
+		  //Check if weapon is magical or not on allowed list
 		{
 			AssignCommand(oPC, ClearAllActions(TRUE));
 			AssignCommand(oPC, ActionUnequipItem(oItem));
@@ -120,4 +121,11 @@ void main()
 			}
 		}
     }
+	
+	//Add AC bonus for rage
+	//else if(nEvent == EVENT_ONHEARTBEAT)
+	//{
+	//	PostString(oPC, "Tum tum", 0, 0, SCREEN_ANCHOR_TOP_LEFT, 20.0, 0xFF0000FF, 0x00000000);
+	//	if (nClass >= 3) ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS), oPC);
+	//}
 }

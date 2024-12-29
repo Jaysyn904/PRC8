@@ -2036,8 +2036,8 @@ BAB: 3/4
 Invoking: At each level, you gain new invocations known, increased damage with eldritch blast, and an increase in invoker level as if you had also gained a level in the warlock class. You do not, however, gain any other benefit a character of that class would have gained.
 
 1. Hellfire Blast 
-2.Resistance to Fire 10, Hellfire Infusion
-3.Hellfire Shield </entry>
+2. Resistance to Fire 10, Hellfire Infusion
+3. Hellfire Shield </entry>
   <entry id="12774" lang="en" sex="m">Hellfire Blast</entry>
   <entry id="12775" lang="en" sex="m">Whenever you use your eldritch blast ability, you can change your eldritch blast into a hellfire blast. A hellfire blast deals your normal eldritch blast damage plus an extra 2d6 points of damage per class level. If your blast hits multiple targets (for example, the eldritch chain or eldritch cone blast shape invocations), each target takes the extra damage. This damage is not fire damage. Hellfire burns hotter than any normal fire.
   
@@ -20961,7 +20961,7 @@ Sharess is a paradoxical deity. Originally, she was a war goddess of the Mulhora
 
 - Hit Die: d6
 - Proficiencies: Celebrants of Sharess gain no proficiencies
-- Skill Points: 6 + Int Modifier. 
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS: 
 
@@ -48937,7 +48937,7 @@ Those they name as heretics or servants of evil call them zealots. Those they pr
 
 - Hit Die: d8
 - Proficiencies: Shadowbane Stalkers gain no proficiencies. 
-- Skill Points: 6 + Int Modifier. 
+- Skill Points: 6+ Int modifier.
 
 REQUIREMENTS: 
 

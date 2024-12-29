@@ -45,7 +45,7 @@ void main()
 	object oShield;
     object oSkin = GetPCSkin(oPC);
 	int nSlot;
-	int nEvent = GetRunningEvent();
+	int nEvent = GetCurrentlyRunningEvent();
     int nLevel = GetCharacterLevel(oPC);
 	int nLevelCheck;
 	int nACArmor = 4+nLevel/3;
@@ -160,14 +160,18 @@ void main()
 				AssignCommand(oPC, ActionUnequipItem(oItem));
 				FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
 			}
-		}		
-		if(DEBUG) DoDebug("ft_vowofpoverty: Adding eventhooks");
-        AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);
-		AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);
+		}
+		oItem = GetPCItemLastUnequipped();
+		if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)))
+		{
+			IPRemoveAllItemProperties(oItem, DURATION_TYPE_PERMANENT); //Remove bonus from unequiped weapons
+		}	
+		
+        AddEventScript(oPC, EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM, "ft_vowofpoverty", TRUE, FALSE);
     }
 	
     // We are called from the OnPlayerUnEquipItem eventhook. Remove OnHitCast: Unique Power from oPC's weapon
-    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
+    else if(nEvent == EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM)
 	{
 		oItem = GetPCItemLastEquipped();
 		int iWeaponAllowed = GetBaseItemType(oItem) == BASE_ITEM_CLUB 
@@ -186,18 +190,17 @@ void main()
 						  || GetBaseItemType(oItem) == BASE_ITEM_KATAR
 						  || GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE
 						  || GetBaseItemType(oItem) == BASE_ITEM_BULLET;
-		if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) || !iWeaponAllowed)  //Check if weapon is magical or not on allowed list	        
+						 
+		if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && 
+		  (GetIsItemPropertyValid(GetFirstItemProperty(oItem)) || !iWeaponAllowed)) //Check if weapon is magical or not on allowed list	        
 		{
-			AssignCommand(oPC, ClearAllActions(TRUE));
-			AssignCommand(oPC, ActionUnequipItem(oItem));
-			FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+			if(!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY)) //Allow Mighty Bonus on Slings
+			{
+				AssignCommand(oPC, ClearAllActions(TRUE));
+				AssignCommand(oPC, ActionUnequipItem(oItem));
+				FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+			}
 		}
 	}
-	
-	else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
-    {
-		oItem = GetItemLastUnequipped();
-        if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))) IPRemoveAllItemProperties(oItem, DURATION_TYPE_PERMANENT); //Remove bonus from unequiped weapons
-    }
 }
 

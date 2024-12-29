@@ -189,7 +189,9 @@ void SetDeityByClass(object oCreature)
 	
 	if(GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oCreature) > 0 ) SetDeity(oCreature, "Gruumsh");
 	
-	if(GetLevelByClass(CLASS_TYPE_JUDICATOR, oCreature) > 0 ) SetDeity(oCreature, "Selvetarm");	
+	//if(GetLevelByClass(CLASS_TYPE_JUDICATOR, oCreature) > 0 ) SetDeity(oCreature, "Selvetarm");	
+	
+	if(GetLevelByClass(CLASS_TYPE_JUDICATOR, oCreature) > 0 ) SetDeity(oCreature, "Lolth");
 	
 	if(GetLevelByClass(CLASS_TYPE_OCULAR, oCreature) > 0 ) SetDeity(oCreature, "Great Mother");
 	
@@ -793,6 +795,11 @@ void HandleSpiritualWeaponUnequipEvent()
         
 	// Get the item that was unequipped
 	object oWeapon = GetPCItemLastUnequipped();
+	
+	if(GetIsPC(oSummon) == TRUE)
+	{
+		return;
+	}
 		
 	int nCasterLevel	= PRCGetCasterLevel(oCaster);
 	int nDuration		= nCasterLevel;

@@ -77,7 +77,6 @@ void main()
     object oSummon 	= GetItemPossessor(oWeapon); 				// The wielder of the weapon
     object oTarget 	= PRCGetSpellTargetObject(); 				// The creature being attacked
     object oCaster 	= GetLocalObject(oSummon, "MY_CASTER"); 	// Retrieve the stored caster
-    object oPC 		= GetFirstPC();								// First player character for debug messages
 	
 	int nRunEvent	= GetRunningEvent();
 	
@@ -85,7 +84,13 @@ void main()
     {
 		oSummon = GetPCItemLastUnequippedBy();
 		oWeapon = GetPCItemLastUnequipped();
-		SendMessageToPC(GetFirstPC(), "prc_evnt_spirwep: Item OnUnEquip / OnUnAcquire Event running.");
+		
+		if(GetIsPC(oSummon) == TRUE)
+		{
+			return;
+		}
+		
+		if(DEBUG) DoDebug("prc_evnt_spirwep: Item OnUnEquip / OnUnAcquire Event running.");
 		HandleSpiritualWeaponUnequipEvent();
 		return;	  
     } 

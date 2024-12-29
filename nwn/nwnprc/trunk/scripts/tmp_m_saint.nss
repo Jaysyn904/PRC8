@@ -227,7 +227,7 @@ void main()
 		//:: Setup Holy Touch extra damage vs evil
 			object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
 			
-			effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(7, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+			effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
 			effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
 				   eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
 			effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
