@@ -1,6 +1,6 @@
 //:://////////////////////////////////////////////
 //:: Vow of Poverty Ability Boost Conversation
-//:: ft_vowofpoverty_abil
+//:: ft_vowpoverty_ab
 //:://////////////////////////////////////////////
 /** @file
     This allows you to choose ability to boost.
@@ -38,7 +38,7 @@ void main()
     // Check which of the conversation scripts called the scripts
     if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort
     {
-    	if(DEBUG) DoDebug("ft_vowofpoverty_abil: Aborting due to error.");
+    	if(DEBUG) DoDebug("ft_vowpoverty_ab: Aborting due to error.");
         return;
     }
 
@@ -82,14 +82,14 @@ void main()
     }
     else if(nValue == DYNCONV_EXITED)
     {
-        if(DEBUG) DoDebug("ft_vowofpoverty_abil: Running exit handler");        
+        if(DEBUG) DoDebug("ft_vowpoverty_ab: Running exit handler");        
     }
     else if(nValue == DYNCONV_ABORTED)
     {
         // This section should never be run, since aborting this conversation should
         // always be forbidden and as such, any attempts to abort the conversation
         // should be handled transparently by the system
-        if(DEBUG) DoDebug("ft_vowofpoverty_abil: ERROR: Conversation abort section run");
+        if(DEBUG) DoDebug("ft_vowpoverty_ab: ERROR: Conversation abort section run");
     }
     // Handle PC response
     else
@@ -118,7 +118,7 @@ void main()
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT); 
         }
 
-        if(DEBUG) DoDebug("ft_vowofpoverty_abil: New stage: " + IntToString(nStage));
+        if(DEBUG) DoDebug("ft_vowpoverty_ab: New stage: " + IntToString(nStage));
 
         // Store the stage value. If it has been changed, this clears out the choices
         SetStage(nStage, oPC);

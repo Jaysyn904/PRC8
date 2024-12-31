@@ -64,9 +64,8 @@ void main()
     object oPC;
     switch(nEvent)
     {
-		case EVENT_ONHIT:          		oPC = OBJECT_SELF;               break;
-        //case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;
-        //case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;
+		case EVENT_ONHIT:			oPC = OBJECT_SELF;	break;
+		case EVENT_ONHEARTBEAT:		oPC = OBJECT_SELF;	break;
 
         default:
             oPC = OBJECT_SELF;
@@ -74,21 +73,31 @@ void main()
 
 //:: Declare major variables
     int iHD = GetHitDice(oPC);
-	int iWISb = GetAbilityModifier(4, oPC);
+	int iWISb = GetAbilityModifier(ABILITY_WISDOM, oPC);
 	object oItem;
 	object oSkin = GetPCSkin(oPC);
 	itemproperty ipIP;
+	
+//:: Setup HD based Fast Healing
+	int nFastHealing = iHD/2;
+	if (nFastHealing > 10) {nFastHealing == 10;}		
 
 //:: Not being called from an event but from EvalPRCFeats.  No non-good Saints.
     if(nEvent == FALSE && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
     {
-	//:: Any living creature of good alignment that is not an or an elemental (removed outsider check as Saints are outsiders)
+	//:: Any living creature of good alignment (removed outsider check as Saints are outsiders)
 		int nRace = MyPRCGetRacialType(oPC);
 		if(!(nRace == RACIAL_TYPE_CONSTRUCT ||
 			   nRace == RACIAL_TYPE_ELEMENTAL ||
 			   nRace == RACIAL_TYPE_OOZE ||
 			   nRace == RACIAL_TYPE_UNDEAD))
 		{
+		//:: Set ability bonuses		
+			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+			SetCompositeBonus(oSkin, "Template_Saint_int", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
+			SetCompositeBonus(oSkin, "Template_Saint_wis", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
+			SetCompositeBonus(oSkin, "Template_Saint_cha", 4, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);
+			
 		//:: Add Darkvision
 			ipIP = ItemPropertyDarkvision();
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -97,9 +106,6 @@ void main()
 			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);		
 		
-		//:: Wisdom based AC bonus
-			SetCompositeBonus(oSkin, "Template_Saint_AC", iWISb, ITEM_PROPERTY_AC_BONUS);
-
 		//:: Hit Die based Damage Reduction
 			if (iHD >= 12) 
 			{
@@ -120,12 +126,6 @@ void main()
 			}
 	
 			else if (iHD <= 3) {/*:: you get nothing! */}			
-		
-		//:: Set HD based Fast Healing
-		//ebonfowl: I think this is supposed to be HD/2 to a max of 10
-			int nFastHealing = iHD/2;
-			if (nFastHealing > 10) {nFastHealing == 10;}	
-			SetCompositeBonus(oSkin, "Template_Saint_FastHealing", nFastHealing, ITEM_PROPERTY_REGENERATION);		
 		
 		//:: Set racial type to Outsider (Native)
 			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_OUTSIDER_RACIAL_TYPE);
@@ -183,12 +183,6 @@ void main()
 			ipIP = PRCItemPropertyBonusFeat(FEAT_IMMUNE_PETRIFICATION);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
 	
-		//:: Set Ability Score Bonuses
-			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
-			SetCompositeBonus(oSkin, "Template_Saint_int", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
-			SetCompositeBonus(oSkin, "Template_Saint_wis", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
-			SetCompositeBonus(oSkin, "Template_Saint_cha", 4, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);		
-		
 		//:: Setup Spell-like abilities & Holy Power marker feat
 			ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_SAINT_SLA_BLESS);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -263,13 +257,40 @@ void main()
 			if(DEBUG) DoDebug("tmp_m_saint: Adding eventhooks");
 			//AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
 			//AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM,	"tmp_m_saint", TRUE, FALSE);
-			AddEventScript(oPC, EVENT_ONHIT,				"tmp_m_saint", TRUE, FALSE);
+			AddEventScript(oPC, EVENT_ONHIT,		"tmp_m_saint", TRUE, FALSE);
+			AddEventScript(oPC, EVENT_ONHEARTBEAT,	"tmp_m_saint", TRUE, FALSE);
 		
 		}
 	}
+
+	//:: We're being called from the OnHeartbeat eventhook, so check or skip
+    if(nEvent == EVENT_ONHEARTBEAT)
+    {
+        //:: No non-good Saints
+		if(GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)	
+		{
+			SetCompositeBonus(oSkin, "Template_Saint_AC", iWISb, ITEM_PROPERTY_AC_BONUS);	
+			SetCompositeBonus(oSkin, "Template_Saint_FastHealing", nFastHealing, ITEM_PROPERTY_REGENERATION);	
+
+			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+			SetCompositeBonus(oSkin, "Template_Saint_int", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
+			SetCompositeBonus(oSkin, "Template_Saint_wis", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
+			SetCompositeBonus(oSkin, "Template_Saint_cha", 4, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);	
+		}
+		else
+		{
+			SetCompositeBonus(oSkin, "Template_Saint_AC", 0, ITEM_PROPERTY_AC_BONUS);	
+			SetCompositeBonus(oSkin, "Template_Saint_FastHealing", 0, ITEM_PROPERTY_REGENERATION);
+			
+			SetCompositeBonus(oSkin, "Template_Saint_con", 0, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+			SetCompositeBonus(oSkin, "Template_Saint_int", 0, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_INT);
+			SetCompositeBonus(oSkin, "Template_Saint_wis", 0, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_WIS);
+			SetCompositeBonus(oSkin, "Template_Saint_cha", 0, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CHA);				
+		}			
+	}	//:: end if - Running OnHeart event		
 	
 //:: We're being called from the OnHit eventhook
-    else if(nEvent == EVENT_ONHIT)
+    if(nEvent == EVENT_ONHIT)
     {
         oItem          = GetSpellCastItem();
         object oTarget = PRCGetSpellTargetObject();

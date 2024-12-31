@@ -75,7 +75,7 @@ void main()
 				//Call stat boost dialogue for level 7 and each 4 levels after that
 				AssignCommand(oPC, ClearAllActions(TRUE));
 				SetPersistantLocalInt(oPC,"VoPBoostCheck",nLevelCheck);
-				StartDynamicConversation("ft_vowofpoverty_abil", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);	
+				StartDynamicConversation("ft_vowpoverty_ab", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);	
 			}
 		}
 		
