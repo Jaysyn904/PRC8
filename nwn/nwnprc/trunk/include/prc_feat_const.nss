@@ -880,6 +880,7 @@ const int FEAT_UNSPEAKABLE_VOW                         = 5280;
 const int FEAT_LOLTHS_BOON                             = 5279;
 const int FEAT_PSYCHIC_REFUSAL                         = 5278;
 const int FEAT_XANIQOS_SCHOOL                          = 5277;
+const int FEAT_DESPANA_SCHOOL						   = 5324;
 
 // Races of Stone
 const int FEAT_RECKLESS_RAGE                           = 24049;

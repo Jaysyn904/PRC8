@@ -1,9 +1,10 @@
 2DA V2.0
 
-  FeatLabel         FeatIndex 
-0 darkvision        228       
-1 Light_Sensitivity 4700      
-2 Resist_Cold_10    4776      
-3 Race_Orcish       4714      
-4 Endurance         2568      
-5 Vuln_Fire         4787      
+     FeatLabel         FeatIndex 
+0    darkvision        228       
+1    Light_Sensitivity 4700      
+2    Resist_Cold_10    4776      
+3    Race_Orcish       4714      
+4    Endurance         2568      
+5    Vuln_Fire         4787      
+6    Dragontouched     3889      
