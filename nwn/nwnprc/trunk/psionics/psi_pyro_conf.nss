@@ -38,7 +38,7 @@ void main()
             if(!GetIsReactionTypeFriendly(oTarget))
             {
                 //Fire cast spell at event for the specified target
-                PRCSignalSpellEvent(oTarget, TRUE, SPELL_CONFLAGRATION);
+                PRCSignalSpellEvent(oTarget, TRUE, SPELL_PYRO_CONFLAGRATION);
 
                 fDelay = PRCGetSpellEffectDelay(lTarget, oTarget);
 

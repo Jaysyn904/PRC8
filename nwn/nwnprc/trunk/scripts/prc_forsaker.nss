@@ -61,7 +61,8 @@ void main()
 			for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots
 			{
 				oItem=GetItemInSlot(nSlot, oPC);
-				if(GetIsItemPropertyValid(GetFirstItemProperty(oItem))) //Check if it is magical (all items but on the hands))
+				//Check if it is magical
+				if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper"))
 				{
 					AssignCommand(oPC, ClearAllActions(TRUE));
 					AssignCommand(oPC, ActionUnequipItem(oItem));
@@ -85,7 +86,6 @@ void main()
 		}
 		
         // Hook in the events
-		//PostString(oPC, "prc_forsaker: Adding eventhooks", 0, 0, SCREEN_ANCHOR_TOP_LEFT, 20.0, 0xFF0000FF, 0x00000000);
         AddEventScript(oPC, EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM,   "prc_forsaker", TRUE, FALSE);
     }
 	

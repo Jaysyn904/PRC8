@@ -16,6 +16,7 @@
 #include "inc_dynconv"
 #include "prc_inc_function"
 #include "NW_I0_GENERIC"
+#include "inc_persist_loca"
 
 //////////////////////////////////////////////////
 /* Constant defintions                          */
@@ -98,7 +99,7 @@ void main()
 	    if(nStage == STAGE_SELECT_ABIL)
         {
                 ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(nChoice,2)),oPC); //Give the boost for the chosen option
-				SetPersistantLocalInt(oPC, "VoPBoost"+IntToString(GetCharacterLevel(oPC)),(nChoice+10)); //Register the boost has been given
+				SetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevel),(nChoice+10)); //Register the boost has been given
 				
 				//Give the boost for the ones chosen before
                 for(i = 0; i < nLevel; i++)

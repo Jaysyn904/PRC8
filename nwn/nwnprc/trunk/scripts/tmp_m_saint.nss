@@ -72,10 +72,14 @@ void main()
     }
 
 //:: Declare major variables
-    int iHD = GetHitDice(oPC);
-	int iWISb = GetAbilityModifier(ABILITY_WISDOM, oPC);
+	int bVowPoverty = GetHasFeat(FEAT_VOWOFPOVERTY, oPC);
+	int bForsaker	= GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
+    int iHD 		= GetHitDice(oPC);
+	int iWISb 		= GetAbilityModifier(ABILITY_WISDOM, oPC);
+	
 	object oItem;
 	object oSkin = GetPCSkin(oPC);
+	
 	itemproperty ipIP;
 	
 //:: Setup HD based Fast Healing
@@ -205,7 +209,7 @@ void main()
 		//:: Setup Holy Touch anti-evil damage shield.		
 			itemproperty iHolyTouch = (ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1));
 			object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
-			if (GetIsObjectValid(oArmor))
+			if (GetIsObjectValid(oArmor) && !bForsaker && !bVowPoverty)
 			{
 				//:: Add item prop with DURATION_TYPE_PERMANENT
 				IPSafeAddItemProperty(oArmor, iHolyTouch, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);

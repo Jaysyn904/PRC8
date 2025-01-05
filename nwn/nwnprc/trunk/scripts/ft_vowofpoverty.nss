@@ -13,6 +13,7 @@
 #include "prc_alterations"
 #include "NW_I0_GENERIC"
 #include "nw_i0_spells"
+#include "inc_persist_loca"
 
 effect VoPDamage(int nTotalEnhancement) //Just for unarmed, so just bludgeoning
 {
@@ -46,7 +47,7 @@ void main()
     object oSkin = GetPCSkin(oPC);
 	int nSlot;
 	int nEvent = GetCurrentlyRunningEvent();
-    int nLevel = GetCharacterLevel(oPC);
+    int nLevel = GetCharacterLevel(oPC)-GetPersistantLocalInt(oPC,"VoPLevel1")+1;
 	int nLevelCheck;
 	int nACArmor = 4+nLevel/3;
 	int nACDeflection = nLevel/6;
@@ -65,6 +66,7 @@ void main()
 	else 									    nTotalEnhancement = nExaltedStrike;
 	
     // We aren't being called from any event, instead from EvalPRCFeats
+	
     if(nEvent == FALSE)
 	{	
 		//Check if level up bonus has already been chosen and given for any of past Forsaker levels
@@ -120,52 +122,44 @@ void main()
 		//True Seeing at 18th
 		if (nLevel>=18) IPSafeAddItemProperty(oSkin, ItemPropertyTrueSeeing(), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, TRUE, TRUE);
 		
-		// Enhacement bonus - only applies to weapons (or unarmed)
-		if(GetIsUnarmed(oPC)) //If it is unarmed, give enhancement bonus to self
+		// Exalted Strike - only applies to weapons or unarmed
+		effect eEffect1 = EffectAttackIncrease(nTotalEnhancement);
+		effect eEffect2 = VoPDamage(nTotalEnhancement);
+		effect eLink = EffectLinkEffects(eEffect1,eEffect2);
+			   eLink = SupernaturalEffect(eLink);
+			   eLink = TagEffect(eLink, "EffectExaltedStrike");
+		
+		//Remove any prior bonus to avoid duplication
+		effect eCheckEffect = GetFirstEffect(oPC);
+		while (GetIsEffectValid(eCheckEffect))
 		{
-			RemoveSpecificEffect(EFFECT_TYPE_ATTACK_INCREASE, oPC); //Remove any prior bonus to avoid duplication
-			RemoveSpecificEffect(EFFECT_TYPE_DAMAGE_INCREASE, oPC);
-			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectAttackIncrease(nTotalEnhancement), oPC); //Then set the bonus again
-			ApplyEffectToObject(DURATION_TYPE_PERMANENT, VoPDamage(nTotalEnhancement), oPC);
+			if(GetEffectTag(eCheckEffect) == "EffectExaltedStrike") RemoveEffect(oPC, eCheckEffect);
+			eCheckEffect = GetNextEffect(oPC);
 		}
-		else
-		{			
-			object oItemR = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);
-			object oItemL = GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);
-			if(IPGetIsMeleeWeapon(oItemR) || GetWeaponRanged(oItemR))
-			{
-				RemoveSpecificEffect(EFFECT_TYPE_ATTACK_INCREASE, oPC);
-				RemoveSpecificEffect(EFFECT_TYPE_DAMAGE_INCREASE, oPC);
-				IPSafeAddItemProperty(oItemR, ItemPropertyEnhancementBonus(nTotalEnhancement));
-			}  				
-			else if(IPGetIsMeleeWeapon(oItemL) || GetWeaponRanged(oItemL))
-			{
-				RemoveSpecificEffect(EFFECT_TYPE_ATTACK_INCREASE, oPC);
-				RemoveSpecificEffect(EFFECT_TYPE_DAMAGE_INCREASE, oPC);
-				IPSafeAddItemProperty(oItemL, ItemPropertyEnhancementBonus(nTotalEnhancement));
-			}
-		}
+	    
+		//Give player the bonus, regardless of the weapon
+		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC); 	
 		
 		// For some reason, EVENT_ONPLAYEREQUIPITEM just works with weapons, so it is better to check all other items for magic elsewhere		
 		for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots
 		{
 			oItem=GetItemInSlot(nSlot, oPC);
-			if((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(nSlot == 4 || nSlot == 5)) //Check if it is magical (all items but on the hands)
-			  || (nSlot == 1 && GetBaseAC(oItem) >= 1)                                               //Check if it is an armor (AC>0)
-			  || (nSlot == 5 && GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD ||                   //Check if it is a shield 
-								GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD || 
-								GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD))
+			if((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")
+			  && !(nSlot == 4 || nSlot == 5)) 										   //Check if it is magical (all items but on the hands)
+			   || (nSlot == 1 && GetBaseAC(oItem) >= 1)                                //Check if it is an armor (AC>0)
+			   || (nSlot == 5 && GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD ||    //Check if it is a shield 
+							     GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD || 
+								 GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD))
 			{
 				AssignCommand(oPC, ClearAllActions(TRUE));
 				AssignCommand(oPC, ActionUnequipItem(oItem));
 				FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
 			}
 		}
+		
+		//Remove bonus from unequiped weapons
 		oItem = GetPCItemLastUnequipped();
-		if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)))
-		{
-			IPRemoveAllItemProperties(oItem, DURATION_TYPE_PERMANENT); //Remove bonus from unequiped weapons
-		}	
+		if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)))  	IPRemoveAllItemProperties(oItem, DURATION_TYPE_PERMANENT); 
 		
         AddEventScript(oPC, EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM, "ft_vowofpoverty", TRUE, FALSE);
     }

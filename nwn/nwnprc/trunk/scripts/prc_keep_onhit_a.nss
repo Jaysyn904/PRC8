@@ -49,8 +49,9 @@ void AddProperty(object oItem)
         }
 
         // Add the itemproperty
-        IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1),
-                              0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+		itemproperty ipNewOH = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);
+					 ipNewOH = TagItemProperty(ipNewOH, "Tag_PRC_OnHitKeeper");
+        IPSafeAddItemProperty(oItem, ipNewOH, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 
         // Add a marker to note that the item has been handled
         SetLocalInt(oItem, "PRC_OnHitKeeper_Marker", TRUE);
@@ -64,11 +65,19 @@ void main()
     // OnEquip event
     if(nEvent == EVENT_ONPLAYEREQUIPITEM)
     {
-        object oItem = GetItemLastEquipped();
-        object oEquipper = GetItemLastEquippedBy();
-        if(GetItemInSlot(INVENTORY_SLOT_CHEST, oEquipper) == oItem)
-            AddProperty(oItem);
-    }
+        object oItem 		= GetItemLastEquipped();
+        object oEquipper 	= GetItemLastEquippedBy();
+		object oSkin 		= GetPCSkin(oEquipper);
+		
+        if(GetItemInSlot(INVENTORY_SLOT_CHEST, oEquipper) == oItem) 
+		{
+			AddProperty(oItem);
+		}
+		else
+		{
+			AddProperty(oSkin);
+		}
+	}
     // OnUnEquip event
     else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
     {
@@ -119,7 +128,9 @@ void main()
         AddProperty(oSkin);
 
         object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
-        if(GetIsObjectValid(oArmor))
+        if(GetIsObjectValid(oArmor)) 
+		{
             AddProperty(oArmor);
+		}
     }
 }
