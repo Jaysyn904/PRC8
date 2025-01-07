@@ -208,7 +208,7 @@ void main()
             else if (nFrost>0)
                 FloatingTextStringOnCreature("Frostrage failed, invalid weapon", oPC, FALSE);
 
-            //Apply the VFX impact and effects
+            //Apply the VFX impact and the actual rage effects
             ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oPC, fDuration);
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
             
@@ -315,6 +315,12 @@ void main()
             // The delay is because you have to delay the command if you want the function to be able
             // to determine what the ability scores become after adding the bonuses to them.
             DelayCommand(0.1, GiveExtraRageBonuses(nCon, StrBeforeBonuses, ConBeforeBonuses, iStr, iCon, nSave, DAMAGE_TYPE_BASE_WEAPON, oPC));
+			
+			if(GetLevelByClass(CLASS_TYPE_FORSAKER, oPC) >= 3) //Run feat script if Forsaker lvl3 to increase AC based on CON, then decrease again after it ends
+			{
+				ExecuteScript("prc_forsaker", oPC);
+				DelayCommand(fDuration + 0.1, ExecuteScript("prc_forsaker", oPC));
+			}
 
         }
     }

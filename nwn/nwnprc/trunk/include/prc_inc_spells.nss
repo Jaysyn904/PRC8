@@ -374,7 +374,6 @@ const int  TYPE_DIVINE   = -2;
 /*             Function definitions             */
 //////////////////////////////////////////////////
 
-
 int GetPrCAdjustedClassLevel(int nClass, object oCaster = OBJECT_SELF)
 {
     int iTemp;

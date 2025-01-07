@@ -1223,7 +1223,7 @@ const int SPELL_NIMBUS                              = 1894;
 const int SPELL_NIMBUS_TOUCH_ATTACK                 = 1895;
 const int SPELL_FIREWALK                            = 1896;
 const int SPELL_HEAT_DEATH                          = 1897;
-const int SPELL_PYRO_CONFLAGRATION                       = 1898;
+const int SPELL_PYRO_CONFLAGRATION					= 1898;
 
 // Heroes of Horror
 const int SPELL_SUMMON_UNDEAD_1                     = 1784;
