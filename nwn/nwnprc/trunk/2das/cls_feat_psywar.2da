@@ -326,9 +326,9 @@
 322  WP_Lightblade                                  7935      1    -1             0      
 323  WP_Thinblade                                   7936      1    -1             0      
 324  WP_Courtblade                                  7937      1    -1             0      
-325  WP_Sai                                         7941      3    1              0      
-326  WP_Nunchaku                                    7942      3    1              0      
-327  WP_Double_Scimitar                             7948      3    1              0      
+325  WP_Sai                                         7941      1    -1             0      
+326  WP_Nunchaku                                    7942      1    -1             0      
+327  WP_Double_Scimitar                             7948      1    -1             0      
 328  Expertise                                      389       1    -1             0      
 329  ImpExpertise                                   390       1    -1             0      
 330  GreatCleave                                    391       1    -1             0      
