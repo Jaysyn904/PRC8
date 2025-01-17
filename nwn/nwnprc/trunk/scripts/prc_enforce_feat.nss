@@ -2433,19 +2433,26 @@ int ToB()
         return TRUE;    
     } 
     
-    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > GetLevelByClass(CLASS_TYPE_RANGER))
+    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > !GetLevelByClass(CLASS_TYPE_RANGER))
     {
         FloatingTextStringOnCreature("You must have ambidexterity to take Improved Two Weapon Fighting", OBJECT_SELF, FALSE);
         return TRUE;    
     } 
+
+	if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST) &&
+		GetLevelByClass(CLASS_TYPE_RANGER) < 9)
+	{
+		FloatingTextStringOnCreature("You must have 17 Dexterity to take Improved Two Weapon Fighting under 3.5 rules", OBJECT_SELF, FALSE);
+		return TRUE;    
+	}
     
-    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > GetLevelByClass(CLASS_TYPE_RANGER))
+/*     if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > !GetLevelByClass(CLASS_TYPE_RANGER))
     {
         FloatingTextStringOnCreature("You must have 17 Dexterity to take Improved Two Weapon Fighting under 3.5 rules", OBJECT_SELF, FALSE);
         return TRUE;    
-    }  
+    }   */
     
-    if (GetHasFeat(FEAT_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 15 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_RANGER) && 2 > GetLevelByClass(CLASS_TYPE_CW_SAMURAI))
+    if (GetHasFeat(FEAT_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 15 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_RANGER) && 2 > !GetLevelByClass(CLASS_TYPE_CW_SAMURAI))
     {
         FloatingTextStringOnCreature("You must have 15 Dexterity to take Two Weapon Fighting under 3.5 rules", OBJECT_SELF, FALSE);
         return TRUE;    

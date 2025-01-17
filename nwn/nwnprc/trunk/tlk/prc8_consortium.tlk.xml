@@ -8318,9 +8318,9 @@ Prerequisite: Access to Army.
 Specifics: Inspire Allies: Able to inspire allies within 30 feet, giving them +2 on saving throws, attacks rolls, ability checks (turning), skill checks and damages rolls. Allies must be able to hear you.
 The effect will last for charisma modifier rounds.
 Use: Automatic.</entry>
-  <entry id="45759" lang="en" sex="m">Die Hard</entry>
+  <entry id="45759" lang="en" sex="m">Diehard</entry>
   <entry id="45760" lang="en" sex="m">Type of Feat: General
-Prerequisite: Base Attack Bonus 2, Iron Will, Toughness, Crusader level 10 or Battleguard of Tempus level 7
+Prerequisite: Endurance or Crusader level 10 or Battleguard of Tempus level 7
 Specifics: When your hit points are reduced to 0 or below, you automatically become stable. You heal to 1 HP. Your bonus attack decreases and your spells fail.
 Use: Automatic.</entry>
   <entry id="45761" lang="en" sex="m">Enchant Weapon +1</entry>
