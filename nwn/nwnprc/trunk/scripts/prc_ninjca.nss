@@ -37,21 +37,43 @@ void Ninja_GhostSight (object oPC, int bOn=TRUE)
 	}	
 }
 
+// Function to calculate AC bonus based on Ninja level
+int GetNinjaACBonus(object oNinja)
+{
+    int nNinja 			= GetLevelByClass(CLASS_TYPE_NINJA, oNinja);
+	int nFighter		= GetLevelByClass(CLASS_TYPE_FIGHTER, oNinja);
+	int bMartialStalker = GetHasFeat(FEAT_MARTIAL_STALKER, oNinja);
+	
+	int nLevel = nNinja;
+	
+	if(bMartialStalker)
+	{
+		nLevel += nFighter;
+	}
+
+    // AC bonus starts at level 5 and increases by +1 every 5 levels
+    if (nLevel < 5) return 0;
+    return (nLevel - 1) / 5;
+}
+
 void main()
 {
 	object oPC = OBJECT_SELF;
 	object oSkin = GetPCSkin(oPC);
-	// all Ki powers will not function when wearing armor or encumbered
+//:: All Ki powers will not function when wearing armor or encumbered
 	int bEnabled = Ninja_AbilitiesEnabled(oPC);
 		
-	// determine which passive Ninja feats the char has
-	int bKiPower = GetHasFeat(FEAT_KI_POWER, oPC) && bEnabled;
-	int bAcro  = GetHasFeat(FEAT_ACROBATICS_2, oPC) ? 2 : 0;
+//:: determine which passive Ninja feats the char has
+	int nAC 		= GetNinjaACBonus(oPC);
+	int bKiPower	= GetHasFeat(FEAT_KI_POWER, oPC) && bEnabled;
+	int bAcro		= GetHasFeat(FEAT_ACROBATICS_2, oPC) ? 2 : 0;
+	
 	bAcro  = GetHasFeat(FEAT_ACROBATICS_4, oPC) ? 4 : bAcro;
 	bAcro  = GetHasFeat(FEAT_ACROBATICS_6, oPC) ? 6 : bAcro;
 	bAcro  = GetHasFeat(FEAT_EPIC_ACROBATICS_8, oPC) ? 8 : bAcro;
 	bAcro  = GetHasFeat(FEAT_EPIC_ACROBATICS_10, oPC) ? 10 : bAcro;
 	bAcro  = GetHasFeat(FEAT_EPIC_ACROBATICS_12, oPC) ? 12 : bAcro;
+	
 	if (!bEnabled)
 		SendMessageToPC(oPC, "Your Ninja abilities are disabled because of encumbrance or armor.");
 	
@@ -63,13 +85,13 @@ void main()
 
 	if ((GetLevelByClass(CLASS_TYPE_MONK, oPC) > 0) || !bEnabled)
 	{
-		SetCompositeBonus(oSkin, "NinjaACBonus", 0, ITEM_PROPERTY_AC_BONUS);
-	//	SendMessageToPC(oPC, "Setting to 0. Disabled.");
+		SetCompositeBonus(oSkin, "NinjaACBonus", nAC, ITEM_PROPERTY_AC_BONUS);
+	//	SendMessageToPC(oPC, "Setting to Default AC for ninja level.");
 	}
 	else
 	{
-		SetCompositeBonus(oSkin, "NinjaACBonus", GetAbilityModifier(ABILITY_WISDOM, oPC), ITEM_PROPERTY_AC_BONUS);
-	//	SendMessageToPC(oPC, "Setting to "+IntToString(GetAbilityModifier(ABILITY_WISDOM, oPC)));
+		SetCompositeBonus(oSkin, "NinjaACBonus", nAC + GetAbilityModifier(ABILITY_WISDOM, oPC), ITEM_PROPERTY_AC_BONUS);
+	//	SendMessageToPC(oPC, "Setting to "+IntToString(nAC + GetAbilityModifier(ABILITY_WISDOM, oPC)));
 	}
 	if (bAcro)
 	{

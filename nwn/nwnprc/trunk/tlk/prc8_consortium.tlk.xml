@@ -43051,7 +43051,7 @@ At level 24, the Ninja is capable of enhanced acrobatics gaining a +8 bonus to T
   <entry id="55134" lang="en" sex="m">Ninja AC Bonus</entry>
   <entry id="55135" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Ninja level 1.
-Specifics: Ninjas add their Wisdom modifier to their Armor Class.
+Specifics: When unarmored and unencumbered, a ninja adds her Wisdom bonus (if any) to her Armor Class. This ability does not stack with the monk's AC bonus ability (a ninja with levels of monk does not add the bonus twice). In addition, a ninja gains a +1 bonus to AC at 5th level. This bonus increases by 1 for every five ninja levels thereafter (+2 at 10th, +3 at 15th, and +4 at 20th level). 
 Use: Automatic.</entry>
   <entry id="55136" lang="en" sex="m">Ghost-Faced Killer</entry>
   <entry id="55137" lang="en" sex="m">Ghost-Faced Killers</entry>
@@ -73238,6 +73238,12 @@ Level
 - No Sacred Vow as requirement (so a Level 1 from any race can get it and to partially offset the lack of Bonus exalted feat)
 - The level progression continues the same during the Epic Levels
 </entry>
+  <entry id="213098" lang="en" sex="m">Martial Stalker</entry>
+  <entry id="213099" lang="en" sex="m">Type of Feat: General
+Prerequisite: Ki Power, Proficiency with all martial weapons
+Specifics: Your fighter and ninja levels stack for the purpose of determining the size of your ki pool, as well as your AC bonus. For example, a 5th-level fighter/1st-level ninja with this feat could use his ki powers a number of times equal to 3 (one-half his ninja and fighter levels) + his Wisdom bonus (if any), and would have a +1 bonus to AC (as if he were a 6th-level ninja).
+Use: Automatic
+Special: A fighter can select Martial Stalker as one of his fighter bonus feats</entry>
   <entry id="213272" lang="en" sex="m">Force Missiles</entry>
   <entry id="213273" lang="en" sex="m">Evocation [Force]
 Level: Sorcerer 4, Wizard 4,

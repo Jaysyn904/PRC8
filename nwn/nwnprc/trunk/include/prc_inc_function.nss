@@ -1411,11 +1411,15 @@ void FeatNinja (object oPC)
     int iNinjaLevel = GetLevelByClass(CLASS_TYPE_NINJA, oPC);
     // Ascetic Stalker
     if (GetHasFeat(FEAT_ASCETIC_STALKER, oPC))
-        iNinjaLevel += GetLevelByClass(CLASS_TYPE_MONK, oPC);;     
+        iNinjaLevel += GetLevelByClass(CLASS_TYPE_MONK, oPC);   
+
+    // Martial Stalker
+    if (GetHasFeat(FEAT_MARTIAL_STALKER, oPC))
+        iNinjaLevel += GetLevelByClass(CLASS_TYPE_FIGHTER, oPC);   
 
     if (!iNinjaLevel) return;
 
-    int nUsesLeft = iNinjaLevel/2;
+    int nUsesLeft = iNinjaLevel / 2;
     if (nUsesLeft < 1)
         nUsesLeft = 1;
         

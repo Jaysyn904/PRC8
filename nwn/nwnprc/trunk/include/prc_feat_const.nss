@@ -2284,6 +2284,7 @@ const int DRACONIC_WINGSLAMS                     = 4164;
 const int DRACONIC_TAILSLAP                      = 4165;
 
 // Complete Adv Ninja
+const int FEAT_NINJA_AC_BONUS		= 2483;
 const int FEAT_EPIC_ACROBATICS_8    = 2484;
 const int FEAT_EPIC_ACROBATICS_10   = 2485;
 const int FEAT_EPIC_ACROBATICS_12   = 2486;
@@ -2300,6 +2301,7 @@ const int FEAT_GREAT_LEAP       = 2496;
 const int FEAT_GREATER_KI_DODGE     = 2497;
 const int FEAT_KI_DODGE         = 2498;
 const int FEAT_GHOST_STEP_2         = 2499;
+
 
 //:: Forest Master (Faiths & Pantheons, pg. 193)
 const int FEAT_FM_TREEBROTHER		= 5436;	
@@ -3540,8 +3542,9 @@ const int FEAT_ASCETIC_STALKER                = 2598;
 const int FEAT_EXPANDED_KI_POOL               = 2687;
 const int FEAT_IMPROVED_SKIMISH               = 2688;
 
-// Complete Adventurer Feats
-const int FEAT_BRUTAL_THROW                   = 2689;
+//:: Complete Adventurer Feats
+const int FEAT_BRUTAL_THROW					= 2689;
+const int FEAT_MARTIAL_STALKER				= 25998;
 
 // Complete Warrior Feats
 const int FEAT_EXTRA_RAGE                     = 2690;

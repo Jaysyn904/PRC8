@@ -25,6 +25,6 @@ void main()
 	Ninja_DecrementKi(OBJECT_SELF, FEAT_GHOST_WALK);
 	Ninja_DecrementKi(OBJECT_SELF);
 
-	float fDuration = RoundsToSeconds(GetLevelByClass(CLASS_TYPE_NINJA,OBJECT_SELF));
+	float fDuration = RoundsToSeconds(GetLevelByClass(CLASS_TYPE_NINJA, OBJECT_SELF));
 	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectEthereal(), OBJECT_SELF, fDuration);
 }
