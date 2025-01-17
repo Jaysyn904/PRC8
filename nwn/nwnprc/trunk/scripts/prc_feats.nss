@@ -114,6 +114,26 @@ void PRCFeat_Equip(object oPC, object oSkin, int iEquip)
 					SetCompositeAttackBonus(oPC, "BrutalThrow", 0);
             }
         }
+	//:: Charming the Arrow - Apply bonus if Charisma > Dexterity for bows & crossbows
+		if (GetHasFeat(FEAT_CHARMING_THE_ARROW, oPC))
+		{
+			if (nType == BASE_ITEM_HEAVYCROSSBOW || nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_LONGBOW || nType == BASE_ITEM_SHORTBOW)
+			{
+				int nChaMod = GetAbilityModifier(ABILITY_CHARISMA, oPC);
+				int nDexMod = GetAbilityModifier(ABILITY_DEXTERITY, oPC);
+
+				// Apply Charisma modifier as composite attack bonus if greater than Dexterity modifier
+				if (nChaMod > nDexMod)
+				{
+					SetCompositeAttackBonus(oPC, "CharmingTheArrow", nChaMod - nDexMod);
+				}
+				else
+				{
+					// Remove the bonus if Charisma is not greater
+					SetCompositeAttackBonus(oPC, "CharmingTheArrow", 0);
+				}
+			}
+		}		
     }
 }
 

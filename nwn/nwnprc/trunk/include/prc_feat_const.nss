@@ -33,6 +33,8 @@ const int FEAT_EPIC_RAVAGER				= 2395;
 const int FEAT_EPIC_RED_AVENGER			= 2753;
 const int FEAT_EPIC_TEMPEST	 			= 5470;
 
+//:: Web Enhancement Feats
+const int FEAT_CHARMING_THE_ARROW		= 25997;
 
 //:: Skill Based Feats
 const int FEAT_JUMP = 2884;

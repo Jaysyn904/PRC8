@@ -73238,6 +73238,12 @@ Level
 - No Sacred Vow as requirement (so a Level 1 from any race can get it and to partially offset the lack of Bonus exalted feat)
 - The level progression continues the same during the Epic Levels
 </entry>
+  <entry id="213096" lang="en" sex="m">Charming the Arrow</entry>
+  <entry id="213097" lang="en" sex="m">Type of Feat: General
+Prerequisite: Fey
+Specifics: You may use your Charisma modifier instead of your Dexterity modifier on attack rolls when using a bow or crossbow.
+Use: Automatic
+Special: A fighter can select Charming the Arrow as one of his fighter bonus feats</entry>
   <entry id="213098" lang="en" sex="m">Martial Stalker</entry>
   <entry id="213099" lang="en" sex="m">Type of Feat: General
 Prerequisite: Ki Power, Proficiency with all martial weapons
