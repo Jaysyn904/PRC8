@@ -12,6 +12,25 @@ const string ALLOW_CLASS_ROGUE                  = "PRC_AllowRogue";
 const string ALLOW_CLASS_SORCERER               = "PRC_AllowSorcerer";
 const string ALLOW_CLASS_WIZARD                 = "PRC_AllowWizard";
 
+//: Racial Classes
+const string ALLOW_CLASS_ABERRATION				= "PRC_AllowAberration";
+const string ALLOW_CLASS_ANIMAL					= "PRC_AllowAnimal";
+const string ALLOW_CLASS_BEAST					= "PRC_AllowBeast";
+const string ALLOW_CLASS_CONSTRUCT				= "PRC_AllowConstruct";
+const string ALLOW_CLASS_DRAGON					= "PRC_AllowDragon";
+const string ALLOW_CLASS_ELEMENTAL				= "PRC_PrereqEle";
+const string ALLOW_CLASS_FEY					= "PRC_AllowFey";
+const string ALLOW_CLASS_GIANT					= "PRC_AllowGiant";
+const string ALLOW_CLASS_HUMANOID				= "PRC_AllowHumanoid";
+const string ALLOW_CLASS_MAGICAL_BEAST			= "PRC_AllowMagicalBeast";
+const string ALLOW_CLASS_MON_HUMANOID			= "PRC_AllowMonstrous";
+const string ALLOW_CLASS_OOZE					= "PRC_AllowOoze";
+const string ALLOW_CLASS_OUTSIDER				= "PRC_AllowOutsider";
+const string ALLOW_CLASS_PLANT					= "PRC_AllowPlant";
+const string ALLOW_CLASS_SHAPECHANGER			= "PRC_AllowShapechanger";
+const string ALLOW_CLASS_UNDEAD					= "PRC_AllowUndead";
+const string ALLOW_CLASS_VERMIN					= "PRC_AllowVermin";
+
 // PRC
 const string ALLOW_CLASS_ANTIPALADIN            = "PRC_AllowAntiPal";
 const string ALLOW_CLASS_ARTIFICER              = "PRC_AllowArtificer";

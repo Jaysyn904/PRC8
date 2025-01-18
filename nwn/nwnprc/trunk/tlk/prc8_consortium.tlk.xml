@@ -2,7 +2,7 @@
 <!DOCTYPE tlk SYSTEM "tlk2xml.dtd">
 <tlk>
   <entry id="0" lang="en" sex="m">Bad Strref</entry>
-  <entry id="12000" lang="en" sex="m">PRC8 Version Counter: 07</entry>
+  <entry id="12000" lang="en" sex="m">PRC8 Version Counter: 08</entry>
   <entry id="12288" lang="en" sex="m">Ocular Adept</entry>
   <entry id="12289" lang="en" sex="m">Ocular Adepts</entry>
   <entry id="12290" lang="en" sex="m">ocular adepts</entry>
@@ -10484,17 +10484,17 @@ Level:
  7: Psychic strike +2d8
  8: +2 mind blade
  9: Bladewind, Greater Weapon Focus(mind blade)
-10: Mind blade enhancement +2
-11: Psychic strike +3d8
-12: +3 mind blade
-13: Knife to the soul
-14: Mind blade enhancement +3
-15: Psychic strike +4d8
-16: +4 mind blade
-17: Multiple throw
-18: Mind blade enhancement +4
-19: Psychic strike +5d8
-20: +5 mind blade
+ 10: Mind blade enhancement +2
+ 11: Psychic strike +3d8
+ 12: +3 mind blade
+ 13: Knife to the soul
+ 14: Mind blade enhancement +3
+ 15: Psychic strike +4d8
+ 16: +4 mind blade
+ 17: Multiple throw
+ 18: Mind blade enhancement +4
+ 19: Psychic strike +5d8
+ 20: +5 mind blade
 
 
 Mind blade (Su): A soulknife can create a semisolid blade composed of psychic energy distilled from his own mind. The blade is identical in all ways to a short sword. A mind blade is considered a magic weapon (+1) for the purpose of overcoming damage reduction.
