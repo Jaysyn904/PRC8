@@ -73238,6 +73238,12 @@ Level
 - No Sacred Vow as requirement (so a Level 1 from any race can get it and to partially offset the lack of Bonus exalted feat)
 - The level progression continues the same during the Epic Levels
 </entry>
+  <entry id="213094" lang="en" sex="m">Daring Warrior</entry>
+  <entry id="213095" lang="en" sex="m">Type of Feat: General
+Prerequisite: Weapon Specialization, Grace +1
+Specifics: Your fighter and swashbuckler levels stack for the purpose of determining your competence bonus on Reflex saves from the grace class feature and the swashbuckler's dodge bonus to AC. For example, a 6th-level fighter/5th-level swashbuckler has grace +2 and gains a +2 dodge bonus to AC, as if she were an 11th-level swashbuckler.
+Use: Automatic
+Special: A fighter can select Daring Warrior as one of his fighter bonus feats</entry>
   <entry id="213096" lang="en" sex="m">Charming the Arrow</entry>
   <entry id="213097" lang="en" sex="m">Type of Feat: General
 Prerequisite: Fey

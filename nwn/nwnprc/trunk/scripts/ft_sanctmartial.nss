@@ -59,12 +59,21 @@ void Sanctify()
         }
 
         if(!Sanctify_Feat_Wrapper(iType, oPC, oItem)) return;
-
-        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1),oItem,9999.0);
-        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-        AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyVisualEffect(ITEM_VISUAL_HOLY),oItem,9999.0);
+				   
+        itemproperty ip1 = ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1);
+					 ip1 = TagItemProperty(ip1,"Sanctify1");
+		AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oItem,9999.0);
+		itemproperty ip2 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+					 ip2 = TagItemProperty(ip2,"Sanctify2");
+		AddItemProperty(DURATION_TYPE_TEMPORARY,ip2,oItem,9999.0);
+		itemproperty ip3 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+					 ip3 = TagItemProperty(ip3,"Sanctify3");
+		AddItemProperty(DURATION_TYPE_TEMPORARY,ip3,oItem,9999.0);
+		itemproperty ip4 = ItemPropertyVisualEffect(ITEM_VISUAL_HOLY);
+					 ip4 = TagItemProperty(ip4,"Sanctify4");
+		AddItemProperty(DURATION_TYPE_TEMPORARY,ip4,oItem,9999.0);
         SetLocalInt(oItem,"SanctMar",1);
+		
     }
     else if (iEquip==1)
     {
@@ -173,22 +182,38 @@ void Sanctify()
 
         if(Sanctify_Feat_Wrapper(iType, oPC, oItem) &&  (!GetLocalInt(oItem,"SanctMar")))
         {
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyVisualEffect(ITEM_VISUAL_HOLY),oItem,9999.0);
-            SetLocalInt(oItem,"SanctMar",1);
+			itemproperty ip1 = ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1);
+						 ip1 = TagItemProperty(ip1,"Sanctify1");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oItem,9999.0);
+			itemproperty ip2 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+						 ip2 = TagItemProperty(ip2,"Sanctify2");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip2,oItem,9999.0);
+			itemproperty ip3 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+						 ip3 = TagItemProperty(ip3,"Sanctify3");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip3,oItem,9999.0);
+			itemproperty ip4 = ItemPropertyVisualEffect(ITEM_VISUAL_HOLY);
+						 ip4 = TagItemProperty(ip4,"Sanctify4");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip4,oItem,9999.0);
+			SetLocalInt(oItem,"SanctMar",1);
         }
 
         oItem=GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);
         iType= GetBaseItemType(oItem);
         if(Sanctify_Feat_Wrapper(iType, oPC, oItem) &&  (!GetLocalInt(oItem,"SanctMar")))
         {
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4),oItem,9999.0);
-            AddItemProperty(DURATION_TYPE_TEMPORARY,ItemPropertyVisualEffect(ITEM_VISUAL_HOLY),oItem,9999.0);
-            SetLocalInt(oItem,"SanctMar",1);
+			itemproperty ip1 = ItemPropertyDamageBonusVsAlign(IP_CONST_ALIGNMENTGROUP_EVIL,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1);
+						 ip1 = TagItemProperty(ip1,"Sanctify1");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oItem,9999.0);
+			itemproperty ip2 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_UNDEAD,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+						 ip2 = TagItemProperty(ip2,"Sanctify2");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip2,oItem,9999.0);
+			itemproperty ip3 = ItemPropertyDamageBonusVsRace(IP_CONST_RACIALTYPE_OUTSIDER,IP_CONST_DAMAGETYPE_DIVINE,IP_CONST_DAMAGEBONUS_1d4);
+						 ip3 = TagItemProperty(ip3,"Sanctify3");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip3,oItem,9999.0);
+			itemproperty ip4 = ItemPropertyVisualEffect(ITEM_VISUAL_HOLY);
+						 ip4 = TagItemProperty(ip4,"Sanctify4");
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip4,oItem,9999.0);
+			SetLocalInt(oItem,"SanctMar",1);
         }
     }
 

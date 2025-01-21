@@ -53,7 +53,23 @@ void main()
 		if (nClass >=2) ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectDamageReduction((nClass+1),(nClass/2)),oPC);
 
 		//Natural AC increase by CON starting on level 3
-		if (nClass >= 3) ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS), oPC);
+		if (nClass >= 3) 
+		{
+			effect eEffect1 = EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS);
+				   eEffect1 = ExtraordinaryEffect(eEffect1);
+				   eEffect1 = TagEffect(eEffect1, "EffectToughDefense");
+			
+			//Remove any prior bonus to avoid duplication
+			effect eCheckEffect = GetFirstEffect(oPC);
+			while (GetIsEffectValid(eCheckEffect))
+			{
+				if(GetEffectTag(eCheckEffect) == "EffectToughDefense") RemoveEffect(oPC, eCheckEffect);
+				eCheckEffect = GetNextEffect(oPC);
+			}
+			
+			//Give player the bonus
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEffect1, oPC); 	
+		}
 
 		// For some reason, EVENT_ONPLAYEREQUIPITEM just works with weapons, so armors and shields should be checked elsewhere
 		if(!GetHasFeat(FEAT_VOWOFPOVERTY,oPC))
@@ -93,8 +109,19 @@ void main()
     else if((nEvent == EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM) && (!GetHasFeat(FEAT_VOWOFPOVERTY,oPC)))
     {
 		oItem = GetPCItemLastEquipped();
+		
+		//Check if the magic is JUST Sanctify
+		int iMagic = 0;
+		itemproperty eCheckIP = GetFirstItemProperty(oItem);
+		while (GetIsItemPropertyValid(eCheckIP))
+		{
+			if(!(GetItemPropertyTag(eCheckIP) == "Sanctify1") && !(GetItemPropertyTag(eCheckIP) == "Sanctify2") && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")
+			  && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))   iMagic = 1;
+			eCheckIP = GetNextItemProperty(oItem);
+		}
+		
 		//Check if weapons are magical
-		if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) &&
+		if(iMagic && (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) &&
 		  !(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY)) 
 		  //Check if weapon is magical or not on allowed list
 		{
@@ -121,11 +148,4 @@ void main()
 			}
 		}
     }
-	
-	//Add AC bonus for rage
-	//else if(nEvent == EVENT_ONHEARTBEAT)
-	//{
-	//	PostString(oPC, "Tum tum", 0, 0, SCREEN_ANCHOR_TOP_LEFT, 20.0, 0xFF0000FF, 0x00000000);
-	//	if (nClass >= 3) ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS), oPC);
-	//}
 }

@@ -24,7 +24,8 @@ void main()
     object oCompSkin = GetPCSkin(oComp);
 
     //Exalted Companion
-    if(GetHasFeat(FEAT_EXALTED_COMPANION, oPC) && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
+    if((GetHasFeat(FEAT_EXALTED_COMPANION, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_EXALTED_COMPANION)))
+		&& GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
         ApplyExaltedCompanion(oComp, oCompSkin);
 
     //Talontar Blightlord's Illmaster

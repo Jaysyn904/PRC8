@@ -59,7 +59,7 @@ void main()
    object oPC = OBJECT_SELF; // This should only be called via ExecuteScript on the target, so...
    object oSkin = GetPCSkin(oPC);
 
-   if (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC))
+   if (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE)))
    {
     if(DEBUG) DoDebug("prc_intuiatk: PC has Ravage: Golden Ice");
        int iEquip = GetLocalInt(oPC,"ONEQUIP") ;
@@ -92,17 +92,20 @@ void main()
 
         if (GetAlignmentGoodEvil(oPC)== ALIGNMENT_GOOD)
         {
-          AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2),oCweapB);
-          AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2),oCweapL);
-          AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2),oCweapR);
+			itemproperty ip1 = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2);
+				         ip1 = TagItemProperty(ip1,"GoldenIce");
+			AddItemProperty(DURATION_TYPE_PERMANENT,ip1,oCweapB);
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oCweapL);
+			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oCweapR);
         }
 
 
    }
 
-   if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetHasFeat(FEAT_WEAPON_FINESSE, oPC))
+   if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetHasFeat(FEAT_WEAPON_FINESSE, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))
    {
     if(DEBUG) DoDebug("prc_intuiatk: PC has Intuitive Attack or WepFinesse");
+	
       // shorthand - IA is intuitive attack and WF is weapon finesse
       object oItem ;
       int iEquip = GetLocalInt(oPC,"ONEQUIP") ;
@@ -111,7 +114,7 @@ void main()
       int iWis = GetAbilityModifier(ABILITY_WISDOM,oPC);
       int iIABonus = 0;
       int iWFBonus = 0;
-      int bHasIA = GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC);
+      int bHasIA = GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK));
       int bHasWF = GetHasFeat(FEAT_WEAPON_FINESSE, oPC);
       int bUseIA = FALSE;
       int bUseWF = FALSE;

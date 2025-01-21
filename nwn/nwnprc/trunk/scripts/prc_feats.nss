@@ -296,7 +296,10 @@ void main()
     //if(GetHasFeat(FEAT_LINGERING_DAMAGE, oPC))                ExecuteScript("ft_lingdmg", oPC);
     //if(GetHasFeat(FEAT_MAGICAL_APTITUDE, oPC))                   ExecuteScript("prc_magaptitude", oPC);
     if(GetHasFeat(FEAT_ETERNAL_FREEDOM, oPC))                    ExecuteScript("etern_free", oPC);
-    if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC))                   ExecuteScript("prc_intuiatk", oPC);
+    if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))	
+	{
+																ExecuteScript("prc_intuiatk", oPC);
+	}
     //if(GetPersistantLocalInt(oPC, "EpicSpell_TransVital"))       ExecuteScript("trans_vital", oPC);
     //if(GetHasFeat(FEAT_COMBAT_MANIFESTATION, oPC))               ExecuteScript("psi_combat_manif", oPC);
     //if(GetHasFeat(FEAT_WILD_TALENT, oPC))                        ExecuteScript("psi_wild_talent", oPC);

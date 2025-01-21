@@ -252,7 +252,7 @@ void main()
                 // Only works on undead
                 if(nAlign == ALIGNMENT_GOOD
                 && nTargetRace == RACIAL_TYPE_UNDEAD
-                && GetHasFeat(FEAT_EXALTED_TURNING))
+                && (GetHasFeat(FEAT_EXALTED_TURNING)) || GetPersistantLocalInt(OBJECT_SELF, "VoPFeat"+IntToString(FEAT_EXALTED_TURNING)))
                 {
                     ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(3), DAMAGE_TYPE_DIVINE), oTest);
                 }

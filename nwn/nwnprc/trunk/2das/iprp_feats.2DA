@@ -24723,7 +24723,7 @@
 24719      16789746 PH_Undead                                                 0    24236     
 24720      16789747 PH_Vermin                                                 0    24237     
 24721      16825920 FEAT_SANCTIFY_MARTIAL_SICKLE                              0    3169      
-24722      16825921 FEAT_SANCTIFY_MARTIAL_DWARVENAXE                          0    3170      
+24722      16825921 FEAT_SANCTIFY_MARTIAL_DWAXE                               0    3170      
 24723      16823246 FEAT_SANCTIFY_MARTIAL_CLUB                                0    3194      
 24724      16823247 FEAT_SANCTIFY_MARTIAL_DAGGER                              0    3195      
 24725      16823248 FEAT_SANCTIFY_MARTIAL_LIGHTMACE                           0    3196      
@@ -24748,7 +24748,7 @@
 24744      16823267 FEAT_SANCTIFY_MARTIAL_BASTARDSWORD                        0    3215      
 24745      16823268 FEAT_SANCTIFY_MARTIAL_DIREMACE                            0    3216      
 24746      16823269 FEAT_SANCTIFY_MARTIAL_DOUBLEAXE                           0    3217      
-24747      16823270 FEAT_SANCTIFY_MARTIAL_TWOBLADEDSWORD                      0    3218      
+24747      16823270 FEAT_SANCTIFY_MARTIAL_TBSWORD                             0    3218      
 24748      16823271 FEAT_SANCTIFY_MARTIAL_KAMA                                0    3219      
 24749      16823272 FEAT_SANCTIFY_MARTIAL_KUKRI                               0    3220      
 24750      16823273 FEAT_SANCTIFY_MARTIAL_HEAVYCROSSBOW                       0    3221      
@@ -25001,16 +25001,16 @@
 24997      ****     ****                                                      **** ****      
 24998      ****     ****                                                      **** ****      
 24999      ****     "## BEGIN PRC8 ADDITIONS ##"                              **** ****      
-25000      ****     ****                                                      **** ****      
-25001      ****     ****                                                      **** ****      
-25002      ****     ****                                                      **** ****      
-25003      ****     ****                                                      **** ****      
-25004      ****     ****                                                      **** ****      
-25005      ****     ****                                                      **** ****      
-25006      ****     ****                                                      **** ****      
-25007      ****     ****                                                      **** ****      
-25008      ****     ****                                                      **** ****      
-25009      ****     ****                                                      **** ****      
+25000      16822440 EXALTED_COMPANION                                         0    4199      
+25001      16825918 FEAT_EXALTED_TURNING                                      0    3168      
+25002      16825910 FEAT_HOLYRADIANCE                                         0    3164      
+25003      16825914 FEAT_INTUITIVE_ATTACK                                     0    3166      
+25004      16825912 FEAT_NIMBUSLIGHT                                          0    3165      
+25005      16825902 FEAT_RAVAGEGOLDENICE                                      0    3162      
+25006      16823344 FEAT_SERVHEAVEN                                           0    3355      
+25007      16825908 FEAT_STIGMATA                                             0    3163      
+25008      16822847 FEAT_VOW_OBED                                             0    3389      
+25009      16826325 FEAT_VOW_PURITY                                           0    5360      
 25010      ****     ****                                                      **** ****      
 25011      ****     ****                                                      **** ****      
 25012      ****     ****                                                      **** ****      
