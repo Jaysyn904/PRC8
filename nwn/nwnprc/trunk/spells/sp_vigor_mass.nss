@@ -82,8 +82,8 @@ void main()
 
     switch(nSpellID)
     {
-        case SPELL_MASS_LESSER_VIGOR: nRegen = 1; nDur = min(25, 10 + nCasterLevel); break;
-        case SPELL_VIGOROUS_CIRCLE:   nRegen = 3; nDur = min(40, 10 + nCasterLevel); break;
+        case SPELL_MASS_LESSER_VIGOR: nRegen = 1; nDur = PRCMin(25, 10 + nCasterLevel); break;
+        case SPELL_VIGOROUS_CIRCLE:   nRegen = 3; nDur = PRCMin(40, 10 + nCasterLevel); break;
     }
 
     if(PRCGetMetaMagicFeat() & METAMAGIC_EXTEND)

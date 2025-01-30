@@ -49,7 +49,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nSpellID, int 
     }
 
     // Extra points based on spell level, capped to caster level
-    int nExtraDamage = min(nSpellLevel * 5, nCasterLevel);
+    int nExtraDamage = PRCMin(nSpellLevel * 5, nCasterLevel);
 
     // Healing is more effective for players on low or normal difficulty
     int nDifficultyCondition = (GetIsPC(oTarget) && (GetGameDifficulty() < GAME_DIFFICULTY_CORE_RULES)) && bIsCure;

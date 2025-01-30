@@ -127,9 +127,9 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel)
     int nRegen, nDur;
     switch(nSpellID)
     {
-        case SPELL_LESSER_VIGOR:           nRegen = 1; nDur = min(15, 10 + nCasterLevel); break;
-        case SPELL_VIGOR:                  nRegen = 2; nDur = min(25, 10 + nCasterLevel); break;
-        case SPELL_MONSTROUS_REGENERATION: nRegen = 4; nDur = min(35, 10 + nCasterLevel); break;
+        case SPELL_LESSER_VIGOR:           nRegen = 1; nDur = PRCMin(15, 10 + nCasterLevel); break;
+        case SPELL_VIGOR:                  nRegen = 2; nDur = PRCMin(25, 10 + nCasterLevel); break;
+        case SPELL_MONSTROUS_REGENERATION: nRegen = 4; nDur = PRCMin(35, 10 + nCasterLevel); break;
     }
 
     if(PRCGetMetaMagicFeat() & METAMAGIC_EXTEND)

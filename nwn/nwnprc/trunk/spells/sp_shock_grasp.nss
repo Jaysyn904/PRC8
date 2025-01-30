@@ -50,7 +50,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 {
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nPenetr = nCasterLevel + SPGetPenetr();
-    int nDie = min(nCasterLevel, 5);
+    int nDie = PRCMin(nCasterLevel, 5);
     object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oTarget);
     effect eVis = EffectVisualEffect(VFX_DUR_BIGBYS_BIGBLUE_HAND2);
 

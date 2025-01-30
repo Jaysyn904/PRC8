@@ -50,8 +50,8 @@ void main()
         if (nSpell == SPELL_CURSE_BRUTE_CON) nAbilBuff = ABILITY_CONSTITUTION;
         
         //Get maximum bonus without lowering either stat below 3        
-        int nBonus = min(GetAbilityScore(oTarget, ABILITY_CHARISMA), GetAbilityScore(oTarget, ABILITY_INTELLIGENCE)) - 3;
-        nBonus = min(nCasterLvl, nBonus);
+        int nBonus = PRCMin(GetAbilityScore(oTarget, ABILITY_CHARISMA), GetAbilityScore(oTarget, ABILITY_INTELLIGENCE)) - 3;
+        nBonus = PRCMin(nCasterLvl, nBonus);
         
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityIncrease(nAbilBuff, nBonus), oTarget, fDur);
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityDecrease(ABILITY_INTELLIGENCE, nBonus), oTarget, fDur);

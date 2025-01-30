@@ -25,7 +25,7 @@ void main()
     object oCaster = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
     int CasterLvl = GetInvokerLevel(oCaster, GetInvokingClass());
-    int nSkillBonus = GetHasFeat(FEAT_MORPHEME_SAVANT) ? max(GetAbilityModifier(ABILITY_CHARISMA, oCaster) * 2, 6) : 6;
+    int nSkillBonus = GetHasFeat(FEAT_MORPHEME_SAVANT) ? PRCMax(GetAbilityModifier(ABILITY_CHARISMA, oCaster) * 2, 6) : 6;
     effect eVis = EffectVisualEffect(VFX_IMP_IMPROVE_ABILITY_SCORE);
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
     effect eSkill = EffectSkillIncrease(SKILL_BLUFF, nSkillBonus);

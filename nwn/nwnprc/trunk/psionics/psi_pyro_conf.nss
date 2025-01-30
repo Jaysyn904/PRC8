@@ -44,7 +44,7 @@ void main()
 
                 int nDam = (nDamageType == DAMAGE_TYPE_SONIC) ? d4(nDice) : d6(nDice);  //reduced damage dice
                 if((nDamageType == DAMAGE_TYPE_COLD) || (nDamageType == DAMAGE_TYPE_ELECTRICAL) || (nDamageType == DAMAGE_TYPE_ACID))
-                    nDam = max(nDice, nDam - nDice);  //minimum of 1 per die
+                    nDam = PRCMax(nDice, nDam - nDice);  //minimum of 1 per die
                 // Damage damage type is the simple case, just get the total damage
                 // of the spell's type, apply metamagic and roll the save.
 

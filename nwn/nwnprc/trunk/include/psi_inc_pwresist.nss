@@ -79,7 +79,7 @@ PRCGetPowerResistance(object oTarget, object oCaster)
        )
     {
         // Only use the PR given by the power if it's higher than the previous
-        iPowerRes = max(iPowerRes, GetLocalInt(oTarget, "PRC_Power_ThoughtShield_PR"));
+        iPowerRes = PRCMax(iPowerRes, GetLocalInt(oTarget, "PRC_Power_ThoughtShield_PR"));
     }
     // Tower of Iron Will, 19 + augment vs Mind-Affecting
     if(GetLocalInt(oTarget, "PRC_Power_TowerOfIronWill_PR") &&
@@ -87,7 +87,7 @@ PRCGetPowerResistance(object oTarget, object oCaster)
        )
     {
         // Only use the PR given by the power if it's higher than the previous
-        iPowerRes = max(iPowerRes, GetLocalInt(oTarget, "PRC_Power_TowerOfIronWill_PR"));
+        iPowerRes = PRCMax(iPowerRes, GetLocalInt(oTarget, "PRC_Power_TowerOfIronWill_PR"));
     }
 
     // Foe Hunter SR stacks with normal SR

@@ -1,0 +1,30 @@
+2DA V2.0
+
+           Label                               Name                                       FeatIndex PreReq1 PreReq2 Con  Wis  Cha  BAB  Law  
+0          FEAT_EXALTED_COMPANION              "Exalted Companion"                        4199      199     ****    **** **** **** **** **** 
+1          FEAT_EXALTED_TURNING                "Exalted Turning"                          3168      294     ****    **** **** **** **** **** 
+2          FEAT_FISTOFHEAVENS                  "Fist of Heavens"                          26004     213     26002   **** 15   **** **** **** 
+3          FEAT_GIFTOFFAITH                    "Gift of Faith"                            26007     ****    ****    **** 13   **** **** **** 
+4          FEAT_HOLYKISTRIKE                   "Holy Ki Strike"                           26003     213     26002   **** **** 15   **** **** 
+5          FEAT_HOLYRADIANCE                   "Holy Radiance"                            3164      3165    ****    **** **** 15   **** **** 
+6          FEAT_INTUITIVE_ATTACK               "Intuitive Attack"                         3166      ****    ****    **** **** **** 1    **** 
+7          FEAT_NIMBUSLIGHT                    "Nimbus of Light"                          3165      ****    ****    **** **** **** 1    **** 
+8          FEAT_SANCTIFYKISTRIKE               "Sanctify Ki Strike"                       26002     213     ****    **** **** 15   **** **** 
+9          FEAT_SANCTIFY_MARTIAL_CLUB          "Sanctify Martial Strike (Club)"           3194      43      ****    **** **** 15   **** **** 
+10         FEAT_SANCTIFY_MARTIAL_DAGGER        "Sanctify Martial Strike (Dagger)"         3195      90      ****    **** **** 15   **** **** 
+11         FEAT_SANCTIFY_MARTIAL_DART          "Sanctify Martial Strike (Dard)"           3227      91      ****    **** **** 15   **** **** 
+12         FEAT_SANCTIFY_MARTIAL_HEAVYCROSSBOW "Sanctify Martial Strike (Heavy Crossbow)" 3221      92      ****    **** **** 15   **** **** 
+13         FEAT_SANCTIFY_MARTIAL_LIGHTCROSSBOW "Sanctify Martial Strike (Light Crossbow)" 3222      93      ****    **** **** 15   **** **** 
+14         FEAT_SANCTIFY_MARTIAL_LIGHTMACE     "Sanctify Martial Strike (Light Mace)"     3196      94      ****    **** **** 15   **** **** 
+15         FEAT_SANCTIFY_MARTIAL_MORNINGSTAR   "Sanctify Martial Strike (Moningstar)"     3197      95      ****    **** **** 15   **** **** 
+16         FEAT_SANCTIFY_MARTIAL_QUARTERSTAFF  "Sanctify Martial Strike (Quarterstaff)"   3198      96      ****    **** **** 15   **** **** 
+17         FEAT_SANCTIFY_MARTIAL_SICKLE        "Sanctify Martial Strike (Sickle)"         3169      98      ****    **** **** 15   **** **** 
+18         FEAT_SANCTIFY_MARTIAL_SLING         "Sanctify Martial Strike (Sling)"          3223      99      ****    **** **** 15   **** **** 
+19         FEAT_SANCTIFY_MARTIAL_SHORTSPEAR    "Sanctify Martial Strike (Spear)"          3199      97      ****    **** **** 15   **** **** 
+20         FEAT_SERVHEAVEN                     "Servant of the Heavens"                   3355      ****    ****    **** **** **** **** **** 
+21         FEAT_STIGMATA                       Stigmata                                   3163      3165    ****    **** **** **** **** **** 
+22         FEAT_RAVAGEGOLDENICE                "Touch of Golden Ice"                      3162      ****    ****    13   **** **** **** **** 
+23         FEAT_VOWABSTINENCE                  "Vow of Abstinence"                        26005     ****    ****    **** **** **** **** **** 
+24         FEAT_VOWCHASTITY                    "Vow of Chastity"                          26006     ****    ****    **** **** **** **** **** 
+25         FEAT_VOW_OBED                       "Vow of Obedience"                         3389      ****    ****    **** **** **** **** 1    
+26         FEAT_VOW_PURITY                     "Vow of Purity"                            5360      ****    ****    **** **** **** **** **** 

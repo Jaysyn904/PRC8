@@ -40,7 +40,7 @@ void main()
             nCasterLevel = 10;
             nSpell = SPELL_LIGHTNING_BOLT;
             nUses = 3;
-            nDC = max(14, 13 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
+            nDC = PRCMax(14, 13 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
             break;
         }  
         case WOL_KAMATE_CHAIN:
@@ -48,7 +48,7 @@ void main()
             nCasterLevel = 15;
             nSpell = SPELL_CHAIN_LIGHTNING;
             nUses = 1;
-            nDC = max(16, 14 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
+            nDC = PRCMax(16, 14 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
             break;
         }  
         case WOL_KAMATE_TRUE_STRIKE:

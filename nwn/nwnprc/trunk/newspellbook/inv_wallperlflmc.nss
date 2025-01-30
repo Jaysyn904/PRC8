@@ -42,7 +42,7 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
 
     //cap the extra damage
-    nCasterLvl = min(nCasterLvl, 20);
+    nCasterLvl = PRCMin(nCasterLvl, 20);
 
     object oTarget = GetFirstInPersistentObject(OBJECT_SELF,OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
     //Declare the spell shape, size and the location.

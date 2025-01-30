@@ -84,7 +84,7 @@ int DoPower(object oManifester, object oTarget, struct manifestation manif)
 {
     int nDC          = GetManifesterDC(oManifester);
     int nPen         = GetPsiPenetration(oManifester);
-    int nMaxTran     = min(50 + (10 * manif.nTimesAugOptUsed_1),                           // Maximum transferrable is 50 + 10* augmentation
+    int nMaxTran     = PRCMin(50 + (10 * manif.nTimesAugOptUsed_1),                           // Maximum transferrable is 50 + 10* augmentation
                            GetMaxHitPoints(oManifester) - GetCurrentHitPoints(oManifester) // Limited to the amount of damage the manifester has actually suffered
                            );
     if (DEBUG) DoDebug("Transfer Cap: " + IntToString(nMaxTran));

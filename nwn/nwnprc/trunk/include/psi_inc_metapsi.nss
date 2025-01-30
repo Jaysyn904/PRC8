@@ -127,7 +127,7 @@ int _GetMetaPsiPPCost(int nCost, int nIMPsiRed, int bUseSum)
             nCost :
              bUseSum ? nCost :
              // When calculating Improved Metapsionics separately, it cannot make the cost of a single metapsionic use go below 1
-             max(nCost - nIMPsiRed, 1);
+             PRCMax(nCost - nIMPsiRed, 1);
 }
 
 /** Internal function.
@@ -477,7 +477,7 @@ void EvaluateChainPower(struct manifestation manif, object oPrimaryTarget, int b
 	if(manif.bChain)
 	{
 	    // It is, determine amount of secondary targets and range to look for the over
-	    int nMaxTargets = min(manif.nManifesterLevel, 20); // Chain Power maxes out at 20 secondary targets
+	    int nMaxTargets = PRCMin(manif.nManifesterLevel, 20); // Chain Power maxes out at 20 secondary targets
 	    float fRange = FeetToMeters(30.0f);
 	    location lTarget = GetLocation(oPrimaryTarget);
 	    object oSecondaryTarget;

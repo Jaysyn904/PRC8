@@ -66,7 +66,7 @@ void main()
     if(manif.bCanManifest)
     {
         int bIsBioDispel = GetLocalInt(GetModule(),"BIODispel");
-        int nMLCap       = min(10 + (2 * manif.nTimesAugOptUsed_1), manif.nManifesterLevel);
+        int nMLCap       = PRCMin(10 + (2 * manif.nTimesAugOptUsed_1), manif.nManifesterLevel);
         effect eVis      = EffectVisualEffect(VFX_IMP_BREACH);
         effect eImpact   = EffectVisualEffect(VFX_FNF_DISPEL);
         location lTarget = PRCGetSpellTargetLocation();

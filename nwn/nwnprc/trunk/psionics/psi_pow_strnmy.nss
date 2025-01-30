@@ -171,7 +171,7 @@ void main()
             ApplyAbilityDamage(oTarget, ABILITY_STRENGTH, 1, DURATION_TYPE_TEMPORARY, TRUE, -1.0f);
 
             // Keep track of how many times we've drained the person, which is one more than previous
-            nGainedFromCurrent = min(nGainedFromCurrent + 1, nMaxBonus); // Do not allow the value to exceed the max bonus. It probably doesn't matter, but it's ugly :P
+            nGainedFromCurrent = PRCMin(nGainedFromCurrent + 1, nMaxBonus); // Do not allow the value to exceed the max bonus. It probably doesn't matter, but it's ugly :P
             SetLocalInt(oManifester, "PRC_Power_SomE_STRGainedFrom_" + ObjectToString(oTarget), nGainedFromCurrent);
 
             // Check ff the amount gained from current target is greater than the current bonus, but not higher than the maximum

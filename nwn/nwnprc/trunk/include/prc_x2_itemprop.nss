@@ -1145,9 +1145,57 @@ object IPGetTargetedOrEquippedMeleeWeapon()
 
 }
 
-
-
 object IPGetTargetedOrEquippedArmor(int bAllowShields = FALSE)
+{
+    object oTarget = PRCGetSpellTargetObject();
+
+    // If the target is a valid item
+    if (GetIsObjectValid(oTarget) && GetObjectType(oTarget) == OBJECT_TYPE_ITEM)
+    {
+        // Check if the item is armor
+        if (GetBaseItemType(oTarget) == BASE_ITEM_ARMOR)
+        {
+            return oTarget;
+        }
+        // Check if the item is a shield and shields are allowed
+        if (bAllowShields && (GetBaseItemType(oTarget) == BASE_ITEM_LARGESHIELD ||
+                              GetBaseItemType(oTarget) == BASE_ITEM_SMALLSHIELD ||
+                              GetBaseItemType(oTarget) == BASE_ITEM_TOWERSHIELD))
+        {
+            return oTarget;
+        }
+        return OBJECT_INVALID;
+    }
+
+    // If the target is a creature
+    if (GetIsObjectValid(oTarget) && GetObjectType(oTarget) == OBJECT_TYPE_CREATURE)
+    {
+        // Check the equipped armor
+        object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oTarget);
+        if (GetIsObjectValid(oArmor) && GetBaseItemType(oArmor) == BASE_ITEM_ARMOR)
+        {
+            return oArmor;
+        }
+
+        // Check the equipped shield if shields are allowed
+        if (bAllowShields)
+        {
+            oArmor = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oTarget);
+            if (GetIsObjectValid(oArmor) && (GetBaseItemType(oArmor) == BASE_ITEM_LARGESHIELD ||
+                                             GetBaseItemType(oArmor) == BASE_ITEM_SMALLSHIELD ||
+                                             GetBaseItemType(oArmor) == BASE_ITEM_TOWERSHIELD))
+            {
+                return oArmor;
+            }
+        }
+    }
+
+    // Return invalid object if no valid armor or shield is found
+    return OBJECT_INVALID;
+}
+
+
+/* object IPGetTargetedOrEquippedArmor(int bAllowShields = FALSE)
 {
   object oTarget = PRCGetSpellTargetObject();
   if(GetIsObjectValid(oTarget) && GetObjectType(oTarget) == OBJECT_TYPE_ITEM)
@@ -1193,7 +1241,7 @@ object IPGetTargetedOrEquippedArmor(int bAllowShields = FALSE)
   return OBJECT_INVALID;
 
 }
-
+ */
 // ----------------------------------------------------------------------------
 // Returns FALSE it the item has no sequencer property
 // Returns number of spells that can be stored in any other case
@@ -1578,7 +1626,7 @@ int IPGetWeaponEnhancementBonus(object oWeapon, int nEnhancementBonusType = ITEM
             if(GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT || !bIgnoreTemporary)
             {
                 nTemp = GetItemPropertyCostTableValue(ip);
-                nFound = max(nFound, nTemp);
+                nFound = PRCMax(nFound, nTemp);
             }
         }
         ip = GetNextItemProperty(oWeapon);

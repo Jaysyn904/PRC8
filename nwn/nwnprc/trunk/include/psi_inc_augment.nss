@@ -592,7 +592,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
                 // Determine how many times it can be used and how much it costs
                 nTimesAugd = nTimesCanAug == PRC_UNLIMITED_AUGMENTATION ?
                               nToAutodistribute / pap.nAugCost_1 :
-                              min(nToAutodistribute / pap.nAugCost_1, nTimesCanAug);
+                              PRCMin(nToAutodistribute / pap.nAugCost_1, nTimesCanAug);
                 nToAutodistribute -= nTimesAugd * pap.nAugCost_1;
 
                 manif.nTimesAugOptUsed_1 += nTimesAugd;
@@ -611,7 +611,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
                 // Determine how many times it can be used and how much it costs
                 nTimesAugd = nTimesCanAug == PRC_UNLIMITED_AUGMENTATION ?
                               nToAutodistribute / pap.nAugCost_2 :
-                              min(nToAutodistribute / pap.nAugCost_2, nTimesCanAug);
+                              PRCMin(nToAutodistribute / pap.nAugCost_2, nTimesCanAug);
                 nToAutodistribute -= nTimesAugd * pap.nAugCost_2;
 
                 manif.nTimesAugOptUsed_2 += nTimesAugd;
@@ -630,7 +630,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
                 // Determine how many times it can be used and how much it costs
                 nTimesAugd = nTimesCanAug == PRC_UNLIMITED_AUGMENTATION ?
                               nToAutodistribute / pap.nAugCost_3 :
-                              min(nToAutodistribute / pap.nAugCost_3, nTimesCanAug);
+                              PRCMin(nToAutodistribute / pap.nAugCost_3, nTimesCanAug);
                 nToAutodistribute -= nTimesAugd * pap.nAugCost_3;
 
                 manif.nTimesAugOptUsed_3 += nTimesAugd;
@@ -649,7 +649,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
                 // Determine how many times it can be used and how much it costs
                 nTimesAugd = nTimesCanAug == PRC_UNLIMITED_AUGMENTATION ?
                               nToAutodistribute / pap.nAugCost_4 :
-                              min(nToAutodistribute / pap.nAugCost_4, nTimesCanAug);
+                              PRCMin(nToAutodistribute / pap.nAugCost_4, nTimesCanAug);
                 nToAutodistribute -= nTimesAugd * pap.nAugCost_4;
 
                 manif.nTimesAugOptUsed_4 += nTimesAugd;
@@ -668,7 +668,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
                 // Determine how many times it can be used and how much it costs
                 nTimesAugd = nTimesCanAug == PRC_UNLIMITED_AUGMENTATION ?
                               nToAutodistribute / pap.nAugCost_5 :
-                              min(nToAutodistribute / pap.nAugCost_5, nTimesCanAug);
+                              PRCMin(nToAutodistribute / pap.nAugCost_5, nTimesCanAug);
                 nToAutodistribute -= nTimesAugd * pap.nAugCost_5;
 
                 manif.nTimesAugOptUsed_5 += nTimesAugd;
@@ -687,7 +687,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     }
 
     // Add in cost reduction
-    nAugPPCost = max(0, nAugPPCost - nAugPPCostReductions);
+    nAugPPCost = PRCMax(0, nAugPPCost - nAugPPCostReductions);
 
     // Store the PP cost increase
     manif.nPPCost += nAugPPCost;

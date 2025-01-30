@@ -31,7 +31,7 @@ void main()
     int nDamage;
     object oAoE = GetAreaOfEffectObject(GetLocalLocation(oShadow, "BlackFire_Loc"), "VFX_PER_CURTAIN_SHADOWS");
     struct mystery myst = GetLocalMystery(oShadow, MYST_HOLD_MYST+"3");
-    int nDice = min(15, myst.nShadowcasterLevel);
+    int nDice = PRCMin(15, myst.nShadowcasterLevel);
 
     //Capture the first target object in the shape.
     object oTarget = GetFirstInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);

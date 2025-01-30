@@ -204,7 +204,7 @@ int GetInvokerLevel(object oInvoker = OBJECT_SELF, int nSpecificClass = CLASS_TY
             return 0;
 
         if(nSpecificClass == CLASS_TYPE_DRAGON_SHAMAN)
-            nLevel = max(GetLevelByClass(nSpecificClass, oInvoker) - 4, 1); // Can't go below 1
+            nLevel = PRCMax(GetLevelByClass(nSpecificClass, oInvoker) - 4, 1); // Can't go below 1
         else
             nLevel = GetLevelByClass(nSpecificClass, oInvoker);
         if(DEBUG) DoDebug("Invoker Class Level is: " + IntToString(nLevel));
@@ -256,7 +256,7 @@ int GetHighestInvokerLevel(object oCreature)
 
 /* int GetHighestInvokerLevel(object oCreature)
 {
-    return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
+    return PRCMax(PRCMax(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetInvokerLevel(oCreature, GetClassByPosition(3, oCreature)) : 0

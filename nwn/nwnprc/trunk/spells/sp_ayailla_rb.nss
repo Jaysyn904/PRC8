@@ -72,12 +72,12 @@ void main()
                                 }
 
                                 //evil take damage, separate saving throw
-                                nDam = d6(min(5, nCasterLvl/2));
+                                nDam = d6(PRCMin(5, nCasterLvl/2));
 					
                                 //maximize
                                 if(nMetaMagic & METAMAGIC_MAXIMIZE)
                                 {
-                                    nDam = 6 * (min(5, nCasterLvl/2));
+                                    nDam = 6 * (PRCMin(5, nCasterLvl/2));
                                 }
                                 
                                 //empower
@@ -85,7 +85,7 @@ void main()
                                 {
                                     nDam += (nDam/2);
                                 }
-								nDam += SpellDamagePerDice(oPC, min(5, nCasterLvl/2));
+								nDam += SpellDamagePerDice(oPC, PRCMin(5, nCasterLvl/2));
                                 if(PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC)) nDam = (nDam/2);
 
                                 //Apply damage

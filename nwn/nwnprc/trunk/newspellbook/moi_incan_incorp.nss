@@ -11,5 +11,5 @@ void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 
-	SetIncorporeal(oMeldshaper, RoundsToSeconds(max(GetAbilityModifier(ABILITY_CHARISMA, oMeldshaper),1)), 1);
+	SetIncorporeal(oMeldshaper, RoundsToSeconds(PRCMax(GetAbilityModifier(ABILITY_CHARISMA, oMeldshaper),1)), 1);
 }

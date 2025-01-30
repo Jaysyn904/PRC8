@@ -85,7 +85,7 @@ void _ForceEquipSkin(object oPC, object oSkin, int nThCall = 0)
                 }
             }
             // Use a lenghtening delay in order to attempt handling lag and possible other interference. From 0.1s to 1s
-            fDelay = (nThCall < 10 ? nThCall : 10) / 10.0f; // yes this is the same as min(nThCall, 10)
+            fDelay = (nThCall < 10 ? nThCall : 10) / 10.0f; // yes this is the same as PRCMin(nThCall, 10)
         }
 
         // Loop

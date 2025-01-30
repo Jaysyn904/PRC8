@@ -254,7 +254,7 @@ int _PsionicHole(object oTarget)
 
     if(GetHasFeat(FEAT_PSIONIC_HOLE, oTarget))
         // Psionic Hole will never decrease power cost, even if the target is lacking in wisdom bonus
-        nCost = max(GetAbilityModifier(ABILITY_WISDOM, oTarget), 0);
+        nCost = PRCMax(GetAbilityModifier(ABILITY_WISDOM, oTarget), 0);
 
     return nCost;
 }

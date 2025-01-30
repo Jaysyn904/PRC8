@@ -264,7 +264,7 @@ int SpellfireDrainItem(object oPC, object oItem, int bCharged = TRUE, int bSingl
             int nCharges = GetItemCharges(oItem);
             if(nCharges)   //charged item
             {
-                nExpend = min(min(nCharges, nCap), nExpend); //capped by charges and capacity
+                nExpend = PRCMin(PRCMin(nCharges, nCap), nExpend); //capped by charges and capacity
                 SetItemCharges(oItem, nCharges - nExpend);  //will destroy item if all charges drained
                 AddSpellfireLevels(oPC, nExpend);   //adds 1 level/charge
                 return TRUE;
@@ -307,7 +307,7 @@ int SpellfireDrainItem(object oPC, object oItem, int bCharged = TRUE, int bSingl
                                 (nBase == BASE_ITEM_ENCHANTED_SCROLL)
                                 )
                             {
-                                nExpend = min(min(nStack, nCap), nExpend); //capped by charges and capacity
+                                nExpend = PRCMin(PRCMin(nStack, nCap), nExpend); //capped by charges and capacity
                                 if(nExpend == nStack)
                                     DestroyObject(oItem);
                                 else

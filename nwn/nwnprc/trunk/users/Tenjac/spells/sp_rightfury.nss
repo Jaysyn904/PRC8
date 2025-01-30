@@ -36,7 +36,7 @@ void main()
         float fDur =  60*(nCasterLvl);
         int nMetaMagic = PRCGetMetaMagicFeat();
         if(nMetaMagic & METAMAGIC_EXTEND) fDur += fDur;
-        int nHP = min(50, nCasterLvl * 5);
+        int nHP = PRCMin(50, nCasterLvl * 5);
         
         effect eBuff = EffectAbilityIncrease(ABILITY_STRENGTH, 4);
         effect eHP = EffectTemporaryHitpoints(nHP);

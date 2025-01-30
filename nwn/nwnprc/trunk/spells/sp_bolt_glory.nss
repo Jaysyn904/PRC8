@@ -70,17 +70,17 @@ void main()
         {
             if((nRace == RACIAL_TYPE_UNDEAD) || (nRace == RACIAL_TYPE_OUTSIDER && nAlign == ALIGNMENT_EVIL))
             {
-                nDam = d6(min(nCasterLevel, 15));
+                nDam = d6(PRCMin(nCasterLevel, 15));
 
                 if(nMetaMagic & METAMAGIC_MAXIMIZE)
                 {
-                    nDam = 6 * min(nCasterLevel, 15);
+                    nDam = 6 * PRCMin(nCasterLevel, 15);
                 }
                 if(nMetaMagic & METAMAGIC_EMPOWER)
                 {
                     nDam += (nDam/2);
                 }
-                nDam += SpellDamagePerDice(oPC, min(nCasterLevel,15));
+                nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLevel,15));
             }
 
             if((nRace == RACIAL_TYPE_ELEMENTAL) ||
@@ -89,17 +89,17 @@ void main()
             //Material native and living
             (nRace != RACIAL_TYPE_OUTSIDER && nRace != RACIAL_TYPE_UNDEAD && nRace != RACIAL_TYPE_CONSTRUCT))
             {
-                nDam = d6(min(nCasterLevel/2, 7));
+                nDam = d6(PRCMin(nCasterLevel/2, 7));
 
                 if(nMetaMagic & METAMAGIC_MAXIMIZE)
                 {
-                    nDam = 6 * min(nCasterLevel/2, 7);
+                    nDam = 6 * PRCMin(nCasterLevel/2, 7);
                 }
                 if(nMetaMagic & METAMAGIC_EMPOWER)
                 {
                     nDam += (nDam/2);
                 }
-                nDam += SpellDamagePerDice(oPC, min(nCasterLevel/2, 7));
+                nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLevel/2, 7));
             }
 
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);

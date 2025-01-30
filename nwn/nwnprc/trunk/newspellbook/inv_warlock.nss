@@ -63,7 +63,7 @@ void main()
 
     if(GetHasFeat(FEAT_PARAGON_VISIONARY))
     {
-        int nSkillBonus = max(2 * GetAbilityModifier(ABILITY_WISDOM, OBJECT_SELF), 6);
+        int nSkillBonus = PRCMax(2 * GetAbilityModifier(ABILITY_WISDOM, OBJECT_SELF), 6);
         effect eLink = EffectLinkEffects(EffectUltravision(), EffectSeeInvisible());
                eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SPOT, nSkillBonus));
                eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_LISTEN, nSkillBonus));

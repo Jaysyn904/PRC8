@@ -48,7 +48,7 @@ void OnEquip(object oPC,object oSkin)
 
 
     // Bonus Lvl BladeSinger Max Bonus Int
-    int BladeLv = min(GetLevelByClass(CLASS_TYPE_BLADESINGER, oPC), GetAbilityModifier(ABILITY_INTELLIGENCE,oPC));
+    int BladeLv = PRCMin(GetLevelByClass(CLASS_TYPE_BLADESINGER, oPC), GetAbilityModifier(ABILITY_INTELLIGENCE,oPC));
 
     SetCompositeBonus(oSkin, "BladesAC", BladeLv, ITEM_PROPERTY_AC_BONUS);
 

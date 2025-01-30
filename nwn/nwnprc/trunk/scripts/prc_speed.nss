@@ -148,14 +148,14 @@ void main()
     // Speed increase
     if(fSpeedChange > 0.0)
     {
-        int nChange = min(99, max(0, FloatToInt(fSpeedChange * 100.0)));
+        int nChange = PRCMin(99, PRCMax(0, FloatToInt(fSpeedChange * 100.0)));
         if(DEBUG) DoDebug("prc_speed: Applying an increase in speed: " + IntToString(nChange));
         AssignCommand(oWP, ActionDoCommand(ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectMovementSpeedIncrease(nChange)), oPC)));
     }
     // Speed decrease
     else if(fSpeedChange < 0.0)
     {
-        int nChange = min(99, max(0, FloatToInt(-fSpeedChange * 100.0)));
+        int nChange = PRCMin(99, PRCMax(0, FloatToInt(-fSpeedChange * 100.0)));
         if(DEBUG) DoDebug("prc_speed: Applying an decrease in speed: " + IntToString(nChange));
         AssignCommand(oWP, ActionDoCommand(ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectMovementSpeedDecrease(nChange)), oPC)));
         //ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectMovementSpeedDecrease(nChange)), oPC)

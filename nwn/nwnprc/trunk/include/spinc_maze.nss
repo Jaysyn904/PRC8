@@ -140,8 +140,8 @@ void MazeEscapeHB(object oCreature, int nCountLeft)
         int bResult = (nD20 + nIntMod) >= MAZE_ESCAPE_DC;
 
         // Inform the creature of the result
-        SendMessageToPC(oCreature, GetRGB(7,7,15) + GetName(oCreature) + "</c>" + //   "Int check"                                       "success"                 "failure"
-                                   GetRGB(1,1,15) + " : "  + GetStringByStrRef(16825701) + " : *" + (bResult ? GetStringByStrRef(5352) : GetStringByStrRef(5353)) + "* : (" + IntToString(nD20) + " + " + IntToString(nIntMod) + " = " + IntToString(nD20 + nIntMod) + " vs. DC: " + IntToString(MAZE_ESCAPE_DC) + ")</c>");
+        SendMessageToPC(oCreature, PRCGetRGB(7,7,15) + GetName(oCreature) + "</c>" + //   "Int check"                                       "success"                 "failure"
+                                   PRCGetRGB(1,1,15) + " : "  + GetStringByStrRef(16825701) + " : *" + (bResult ? GetStringByStrRef(5352) : GetStringByStrRef(5353)) + "* : (" + IntToString(nD20) + " + " + IntToString(nIntMod) + " = " + IntToString(nD20 + nIntMod) + " vs. DC: " + IntToString(MAZE_ESCAPE_DC) + ")</c>");
 
         // Return from the maze if the check was successfull
         if(bResult)

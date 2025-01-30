@@ -54,7 +54,7 @@ void main()
         if(GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
         {
                 //not sure whether we can have 40+ caster levels now...
-                nCasterLvl = min(nCasterLvl + 1, 40);
+                nCasterLvl = PRCMin(nCasterLvl + 1, 40);
         }
         
         float fDur = (60.0 * nCasterLvl);

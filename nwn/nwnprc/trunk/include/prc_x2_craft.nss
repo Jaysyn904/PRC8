@@ -2898,11 +2898,11 @@ int GetAlternativeCasterLevel(object oPC, int nLevel)
     nLevel += GetLevelByClass(CLASS_TYPE_IRONSOUL_FORGEMASTER) * 3;
     if(GetLocalInt(oPC, "UsingImbueItem"))
     {
-       nLevel = max(GetLocalInt(oPC, "InvokerLevel"), nLevel);
+       nLevel = PRCMax(GetLocalInt(oPC, "InvokerLevel"), nLevel);
     }
     if(GetLocalInt(oPC, "ArtificerCrafting"))
     {
-       nLevel = max(GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC), nLevel);
+       nLevel = PRCMax(GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC), nLevel);
     }
     return nLevel;
 }

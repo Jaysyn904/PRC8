@@ -62,7 +62,7 @@ void main()
             // Determine DC for this target
             nDC = d20()                                               // Die roll
                 + GetHitDice(oTarget)                                 // Hit dice
-                + max(0, GetAbilityModifier(ABILITY_WISDOM, oTarget)) // Wisdom bonus, no wisdom penalty
+                + PRCMax(0, GetAbilityModifier(ABILITY_WISDOM, oTarget)) // Wisdom bonus, no wisdom penalty
                 + (4 * (PRCGetCreatureSize(oTarget) - nPCSize))       // Adjust by 4 in favor of the bigger creature for each size category it is bigger than the smaller one
                 ;
 

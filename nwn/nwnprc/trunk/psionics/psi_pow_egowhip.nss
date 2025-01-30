@@ -97,7 +97,7 @@ void main()
                     // Will save for half and not being dazed
                     if(PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
                     {
-                        nDamage = max(nDamage / 2, 1); // Minimum 1 damage
+                        nDamage = PRCMax(nDamage / 2, 1); // Minimum 1 damage
                     }
                     else if (GetHasMettle(oTarget, SAVING_THROW_WILL))
                 {

@@ -49,7 +49,7 @@ void main()
         int nTargetAlignGE;
         int nTargetAlignLC;
         int nDam;
-        int nLevels = min(10, nCasterLvl);
+        int nLevels = PRCMin(10, nCasterLvl);
         float fRadius = FeetToMeters(10);
         
         SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_HOWL_WAR_CRY), oPC);

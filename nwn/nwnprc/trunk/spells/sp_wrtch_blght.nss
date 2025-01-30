@@ -47,7 +47,7 @@ void main()
     location lLoc = PRCGetSpellTargetLocation();
     int nCasterLvl = PRCGetCasterLevel(oPC);
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int nDice = min(nCasterLvl, 15);
+    int nDice = PRCMin(nCasterLvl, 15);
     int nAlign;
     int nDam;
     int nDC;

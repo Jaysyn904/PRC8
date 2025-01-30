@@ -64,7 +64,7 @@ void main()
     int nCasterLvl = PRCGetCasterLevel(oCaster);
     int nPenetr = nCasterLvl + SPGetPenetr();
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int nDice = min(10, nCasterLvl);
+    int nDice = PRCMin(10, nCasterLvl);
     int EleDmg = ChangedElementalDamage(oCaster, DAMAGE_TYPE_ELECTRICAL);
     int nSaveType = ChangedSaveType(EleDmg);
 

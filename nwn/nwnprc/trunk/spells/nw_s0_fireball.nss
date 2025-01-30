@@ -43,7 +43,7 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
     effect eDam;
     //Limit Caster level for the purposes of damage
-    int nDice = min(10, nCasterLvl);
+    int nDice = PRCMin(10, nCasterLvl);
 
     nCasterLvl += SPGetPenetr();
 

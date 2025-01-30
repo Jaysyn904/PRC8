@@ -72,7 +72,7 @@ void main()
             PRCSignalSpellEvent(oTarget, TRUE, manif.nSpellID, manif.oManifester);
 
             // Roll damage
-            nDamage = MetaPsionicsDamage(manif, nDieSize, nNumberOfDice, min(manif.nManifesterLevel, 20), enAdj.nBonusPerDie, TRUE, FALSE);
+            nDamage = MetaPsionicsDamage(manif, nDieSize, nNumberOfDice, PRCMin(manif.nManifesterLevel, 20), enAdj.nBonusPerDie, TRUE, FALSE);
             // Target-specific stuff
             nDamage = GetTargetSpecificChangesToDamage(oTarget, manif.oManifester, nDamage, TRUE, TRUE);
 

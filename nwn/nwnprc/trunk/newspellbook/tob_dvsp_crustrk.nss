@@ -38,7 +38,7 @@ void TOBAttack(object oTarget, object oInitiator, struct maneuver move)
         if(GetAlignmentGoodEvil(oInitiator) != GetAlignmentGoodEvil(oTarget)
         || GetAlignmentLawChaos(oInitiator) != GetAlignmentLawChaos(oTarget))
         {
-            int nHeal = d6() + min(move.nInitiatorLevel, 5);
+            int nHeal = d6() + PRCMin(move.nInitiatorLevel, 5);
             object oHeal = GetCrusaderHealTarget(oInitiator, FeetToMeters(10.0));
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nHeal), oHeal);
             ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HEALING_L_LAW), oHeal);

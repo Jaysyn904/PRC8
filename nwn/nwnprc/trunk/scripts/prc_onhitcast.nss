@@ -299,7 +299,7 @@ void main()
                 nDice = 2;
                 nDam = (iElement == DAMAGE_TYPE_SONIC) ? d4(nDice) : d6(nDice);    //reduced damage dice
                 if((iElement == DAMAGE_TYPE_COLD) || (iElement == DAMAGE_TYPE_ELECTRICAL) || (iElement == DAMAGE_TYPE_ACID))
-                    nDam = max(nDice, nDam - nDice);   //minimum of 1 per die
+                    nDam = PRCMax(nDice, nDam - nDice);   //minimum of 1 per die
             }
         }
         else
@@ -309,13 +309,13 @@ void main()
                 nDice = (GetLevelByClass(CLASS_TYPE_PYROKINETICIST, oSpellOrigin) >= 8) ? 4 : 2;
                 nDam1 = (iElement == DAMAGE_TYPE_SONIC) ? d4(nDice) : d6(nDice);    //reduced damage dice
                 if((iElement == DAMAGE_TYPE_COLD) || (iElement == DAMAGE_TYPE_ELECTRICAL) || (iElement == DAMAGE_TYPE_ACID))
-                    nDam1 = max(nDice, nDam1 - nDice);   //minimum of 1 per die
+                    nDam1 = PRCMax(nDice, nDam1 - nDice);   //minimum of 1 per die
             }
             if(GetTag(oItem) == "PRC_PYRO_LASH_WHIP")
             {   //Extra damage from whip
                 nDam2 += (iElement == DAMAGE_TYPE_SONIC) ? d6(1) : d8(1);   //reduced damage dice
                 if((iElement == DAMAGE_TYPE_COLD) || (iElement == DAMAGE_TYPE_ELECTRICAL) || (iElement == DAMAGE_TYPE_ACID))
-                    nDam2 = max(1, nDam2 - 1);   //minimum of 1
+                    nDam2 = PRCMax(1, nDam2 - 1);   //minimum of 1
             }
             nDam = nDam1 + nDam2;
         }

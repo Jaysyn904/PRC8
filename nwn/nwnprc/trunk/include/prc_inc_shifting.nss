@@ -1980,7 +1980,7 @@ void UpdateStoredTemplateInfo(object oShifter, int nShifterType, int nStart = 0)
     int nArraySize = GetNumberOfStoredTemplates(oShifter, nShifterType);
     if(nStart < nArraySize)
     {
-        int nEnd = min(nStart + CHUNK_SIZE, nArraySize);
+        int nEnd = PRCMin(nStart + CHUNK_SIZE, nArraySize);
         _UpdateStoredTemplateInfo(oShifter, nShifterType, nStart, nEnd);
         if(nEnd < nArraySize)
             DelayCommand(0.0f, UpdateStoredTemplateInfo(oShifter, nShifterType, nEnd));

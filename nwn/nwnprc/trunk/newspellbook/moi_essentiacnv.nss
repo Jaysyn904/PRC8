@@ -392,7 +392,7 @@ void main()
                 SetHeader("How much do you want to invest into "+GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nMeld)))+"?"); 
                 int i;
                 
-                for(i = 1; i <= min(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacity(oMeldshaper, nClass, nMeld)); i++)
+                for(i = 1; i <= PRCMin(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacity(oMeldshaper, nClass, nMeld)); i++)
                 {
 					AddChoice(IntToString(i), i, oMeldshaper);  
                 }
@@ -409,7 +409,7 @@ void main()
                 int nMeld = GetLocalInt(oMeldshaper, "nMeld");
                 SetHeader("How much do you want to invest into "+GetStringByStrRef(StringToInt(Get2DACache("feat", "FEAT", nMeld)))+"?"); 
                 int i;
-                for(i = 1; i <= min(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacityFeat(oMeldshaper)); i++)
+                for(i = 1; i <= PRCMin(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacityFeat(oMeldshaper)); i++)
                 {
 					AddChoice(IntToString(i), i, oMeldshaper);  
                 }
@@ -420,7 +420,7 @@ void main()
                 // Build the confirmation query
                 int nMeld = GetLocalInt(oMeldshaper, "nMeld");
                 SetHeader("How much do you want to invest into "+GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nMeld)))+"?"); 
-                int nMax = min(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacityFeat(oMeldshaper));
+                int nMax = PRCMin(GetTotalEssentia(oMeldshaper)-GetTotalEssentiaInvested(oMeldshaper), GetMaxEssentiaCapacityFeat(oMeldshaper));
                 if (nMeld == MELD_SPINE_ENHANCEMENT) nMax = GetLevelByClass(CLASS_TYPE_SPINEMELD_WARRIOR, oMeldshaper)/2;
                 int i;
                 for(i = 1; i <= nMax; i++)

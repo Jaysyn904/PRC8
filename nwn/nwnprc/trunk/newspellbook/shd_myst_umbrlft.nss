@@ -33,7 +33,7 @@ void main()
     if (oTarget == oPC) return; // No hitting yourself
     if (GetLocalInt(oPC, "CombatLoopProtection")) return; // Stop the damn loop
     
-    int nAbi = max(GetAbilityModifier(ABILITY_INTELLIGENCE, oPC), GetAbilityModifier(ABILITY_CHARISMA, oPC));
+    int nAbi = PRCMax(GetAbilityModifier(ABILITY_INTELLIGENCE, oPC), GetAbilityModifier(ABILITY_CHARISMA, oPC));
     SetLocalInt(oPC, "BABOverride", GetShadowcasterLevel(oPC));
     DelayCommand(1.0, DeleteLocalInt(oPC, "BABOverride"));
    

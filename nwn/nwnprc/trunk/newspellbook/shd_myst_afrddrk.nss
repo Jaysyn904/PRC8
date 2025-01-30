@@ -40,7 +40,7 @@ void main()
             // Check Spell Resistance
             if(!PRCDoResistSpell(oShadow, oTarget, myst.nPen) || myst.bIgnoreSR)
             {   
-                int nDam = MetashadowsDamage(myst, 6, 1, min(5, myst.nShadowcasterLevel/4));
+                int nDam = MetashadowsDamage(myst, 6, 1, PRCMin(5, myst.nShadowcasterLevel/4));
                 if (PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetShadowcasterDC(oShadow), SAVING_THROW_TYPE_MIND_SPELLS))
                     nDam/2;
                     

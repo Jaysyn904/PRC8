@@ -62,7 +62,7 @@ void main()
         int nCasterLvl = PRCGetCasterLevel(oPC);
         int nSpell = GetSpellId();
         int nMetaMagic = PRCGetMetaMagicFeat();
-        int nDam = min(15,nCasterLvl);
+        int nDam = PRCMin(15,nCasterLvl);
         float fDur = RoundsToSeconds(nCasterLvl);
         effect eShield;
         effect eVis;

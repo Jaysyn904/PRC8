@@ -44,7 +44,7 @@ void main()
     float fDuration = TurnsToSeconds(1); // * Duration 1 turn
     if(nMetaMagic & METAMAGIC_EXTEND)
         fDuration *= 2;
-    int nScale = min(5, max(1, CasterLvl / 3));
+    int nScale = PRCMin(5, PRCMax(1, CasterLvl / 3));
 
     effect eVis = EffectVisualEffect(VFX_IMP_HEAD_HOLY);
 

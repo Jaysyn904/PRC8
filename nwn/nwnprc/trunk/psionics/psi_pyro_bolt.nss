@@ -22,7 +22,7 @@ void main()
 
     int nDam = (nDamageType == DAMAGE_TYPE_SONIC) ? d4(nLevel) : d6(nLevel);    //reduced damage dice
     if((nDamageType == DAMAGE_TYPE_COLD) || (nDamageType == DAMAGE_TYPE_ELECTRICAL) || (nDamageType == DAMAGE_TYPE_ACID))
-        nDam = max(nLevel, nDam - nLevel);   //minimum of 1 per die
+        nDam = PRCMax(nLevel, nDam - nLevel);   //minimum of 1 per die
 
     if(!GetIsReactionTypeFriendly(oTarget))
     {

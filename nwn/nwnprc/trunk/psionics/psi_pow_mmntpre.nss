@@ -59,7 +59,7 @@ void main()
 
     if(manif.bCanManifest)
     {
-        int nBonus      = max(manif.nManifesterLevel, 25);
+        int nBonus      = PRCMax(manif.nManifesterLevel, 25);
         effect eLink    = EffectVisualEffect(VFX_DUR_GLOBE_MINOR);
         float fDuration = 6.0f;
         if(manif.bExtend) fDuration *= 2;

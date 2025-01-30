@@ -48,7 +48,7 @@ void main()
             {
                 int nDam = (nDamageType == DAMAGE_TYPE_SONIC) ? d6(nDice) : d8(nDice);  //reduced damage dice
                 if((nDamageType == DAMAGE_TYPE_COLD) || (nDamageType == DAMAGE_TYPE_ELECTRICAL) || (nDamageType == DAMAGE_TYPE_ACID))
-                    nDam = max(nDice, nDam - nDice);  //minimum of 1 per die
+                    nDam = PRCMax(nDice, nDam - nDice);  //minimum of 1 per die
 
                 //Apply damage effect and VFX impact
                 SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, nDamageType), oTarget);

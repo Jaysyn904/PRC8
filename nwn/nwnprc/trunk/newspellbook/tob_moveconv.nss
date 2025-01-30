@@ -234,7 +234,7 @@ void main()
                 // Determine maximum maneuver level
                 // Initiators get new maneuvers at the same levels as wizards
                 // See ToB p39, table 3-1
-                int nMaxLevel = min(9, (GetInitiatorLevel(oInitiator, nClass) + 1)/2);
+                int nMaxLevel = PRCMin(9, (GetInitiatorLevel(oInitiator, nClass) + 1)/2);
 
                 // Set the tokens
                 int i;

@@ -29,7 +29,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nAC = min(4, 1 + myst.nShadowcasterLevel/6);
+        int nAC = PRCMin(4, 1 + myst.nShadowcasterLevel/6);
         myst.eLink = SupernaturalEffect(EffectLinkEffects(EffectACIncrease(nAC, AC_DEFLECTION_BONUS), EffectVisualEffect(VFX_DUR_ENTROPIC_SHIELD)));
                
         myst.fDur = 60.0 * myst.nShadowcasterLevel;       

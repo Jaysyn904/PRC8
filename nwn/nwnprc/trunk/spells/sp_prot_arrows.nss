@@ -53,7 +53,7 @@ void main()
     PRCSignalSpellEvent(oTarget,FALSE, SPELL_PROTECTION_FROM_ARROWS, oPC);
 
     // Damage Resistance 10 piercing, max of 100 total
-    effect eBuff = EffectLinkEffects(EffectDamageResistance(DAMAGE_TYPE_PIERCING, 10, min((10 * nCasterLvl), 100)), EffectVisualEffect(VFX_DUR_PROTECTION_ARROWS));
+    effect eBuff = EffectLinkEffects(EffectDamageResistance(DAMAGE_TYPE_PIERCING, 10, PRCMin((10 * nCasterLvl), 100)), EffectVisualEffect(VFX_DUR_PROTECTION_ARROWS));
 
     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eBuff, oTarget, fDur);
 

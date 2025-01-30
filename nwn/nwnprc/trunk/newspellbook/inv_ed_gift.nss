@@ -40,14 +40,14 @@ void main()
     }
     if(nSpell == INVOKE_DAMAGE_REDUCTION)
     {
-        int nDur = max(3 + nCha, 1);
-        int nRedAmt = ((nWarlockLvl + 1) / 4) + (max(nDiscLvl / 2, 1));
+        int nDur = PRCMax(3 + nCha, 1);
+        int nRedAmt = ((nWarlockLvl + 1) / 4) + (PRCMax(nDiscLvl / 2, 1));
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageReduction(nRedAmt, DAMAGE_POWER_PLUS_THREE), oPC, RoundsToSeconds(nDur));
         ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_SUPER_HEROISM), oPC);
     }
     if(nSpell == INVOKE_FIENDISH_RESISTANCE)
     {
-        int nDur = max(3 + nCha, 1);
+        int nDur = PRCMax(3 + nCha, 1);
         if(GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
         {
             FloatingTextStringOnCreature("Your deity must be evil!", oPC, FALSE);
@@ -63,7 +63,7 @@ void main()
     }
     if(nSpell == INVOKE_PROTECTIVE_AURA)
     {
-        int nDur = max(3 + nCha, 1);
+        int nDur = PRCMax(3 + nCha, 1);
         if(GetAlignmentGoodEvil(oPC) == ALIGNMENT_EVIL)
         {
             FloatingTextStringOnCreature("Your deity must be good!", oPC, FALSE);
@@ -79,15 +79,15 @@ void main()
     }
     if(nSpell == INVOKE_STRENGTH_OF_WILL)
     {
-        int nDur = max(3 + nCha, 1);
-        int nBonus = max(nDiscLvl / 2, 1);
+        int nDur = PRCMax(3 + nCha, 1);
+        int nBonus = PRCMax(nDiscLvl / 2, 1);
 
         eGift = EffectLinkEffects(EffectVisualEffect(VFX_DUR_MIND_AFFECTING_POSITIVE), EffectSavingThrowIncrease(SAVING_THROW_WILL, nBonus, SAVING_THROW_TYPE_MIND_SPELLS));
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eGift, oPC, RoundsToSeconds(nDur));
     }
     if(nSpell == INVOKE_WILD_FRENZY)
     {
-        int nDur = max(3 + nCha, 1);
+        int nDur = PRCMax(3 + nCha, 1);
         int nTempHP = 2 * nDiscLvl;
         if(GetAlignmentLawChaos(oPC) == ALIGNMENT_LAWFUL)
         {

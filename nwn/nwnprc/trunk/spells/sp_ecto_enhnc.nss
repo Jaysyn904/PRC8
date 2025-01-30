@@ -37,7 +37,7 @@ void main()
         object oPC = OBJECT_SELF;
         location lLoc = PRCGetSpellTargetLocation();
         int nCasterLvl = PRCGetCasterLevel(oPC);
-        int nBonus = max((nCasterLvl/3), 1);
+        int nBonus = PRCMax((nCasterLvl/3), 1);
         int nRace; 
         
         //Spellhook

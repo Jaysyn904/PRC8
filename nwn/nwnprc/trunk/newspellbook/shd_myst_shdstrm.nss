@@ -33,7 +33,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nDie = min(myst.nShadowcasterLevel, 20); 
+        int nDie = PRCMin(myst.nShadowcasterLevel, 20); 
         myst.nPen = ShadowSRPen(oShadow, myst.nShadowcasterLevel);
         myst.nSaveDC = GetShadowcasterDC(oShadow);
         effect eCold = EffectVisualEffect(VFX_IMP_DIVINE_STRIKE_COLD);

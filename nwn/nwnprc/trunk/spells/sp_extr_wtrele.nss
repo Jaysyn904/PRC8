@@ -48,7 +48,7 @@ void main()
         object oTarget = PRCGetSpellTargetObject();
         int nCasterLvl = PRCGetCasterLevel(oPC);
         int nMetaMagic = PRCGetMetaMagicFeat();
-        int nDam = d6(min(nCasterLvl, 20));
+        int nDam = d6(PRCMin(nCasterLvl, 20));
         int nSaveDC = PRCGetSaveDC(oTarget, oPC);
         int nType = MyPRCGetRacialType(oTarget);
        
@@ -62,14 +62,14 @@ void main()
        
         if(nMetaMagic & METAMAGIC_MAXIMIZE)
         {
-                nDam = 6*(min(nCasterLvl, 20));
+                nDam = 6*(PRCMin(nCasterLvl, 20));
         }
         
         if(nMetaMagic & METAMAGIC_EMPOWER)
         {
                 nDam += (nDam/2);
         }
-        nDam += SpellDamagePerDice(oPC, min(nCasterLvl, 20));
+        nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl, 20));
         //SR check
         if(!PRCDoResistSpell(oPC, oTarget, (nCasterLvl + SPGetPenetr())))
         {

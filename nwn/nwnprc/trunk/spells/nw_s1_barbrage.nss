@@ -143,7 +143,7 @@ void main()
 		if (nTotem) 
 		{
 			int nTotemRage = GetMaxEssentiaCapacityFeat(oPC) - nEssentia;
-			int nExtraEss = max(nTotem/2, 1);
+			int nExtraEss = PRCMax(nTotem/2, 1);
 			int nBoost;
 			if (nExtraEss >= nTotemRage) 
 			{

@@ -28,7 +28,7 @@ void main()
     int nDamageType = GetLocalInt(oDragon, "BarrierDamageType");
     int nDiceType = GetLocalInt(oDragon, "BarrierDiceType");
     int nDiceNumber = GetLocalInt(oDragon, "BarrierDiceNumber");
-    int nSaveDC = 10 + GetHitDice(oDragon) / 2 + max(GetAbilityModifier(ABILITY_CONSTITUTION, oDragon), 0);
+    int nSaveDC = 10 + GetHitDice(oDragon) / 2 + PRCMax(GetAbilityModifier(ABILITY_CONSTITUTION, oDragon), 0);
     //Declare and assign personal impact visual effect.
     switch(nDamageType)
     {

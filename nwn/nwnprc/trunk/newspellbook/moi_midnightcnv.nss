@@ -189,7 +189,7 @@ void main()
                 int nPower = GetLocalInt(oMeldshaper, "nPower");
                 SetHeader("How much do you want to invest into "+GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nPower)))+"?"); 
                 int i;
-                int nMin = min(GetMaxEssentiaCapacityFeat(oMeldshaper), StringToInt(Get2DACache("spells", "Innate", nPower)));
+                int nMin = PRCMin(GetMaxEssentiaCapacityFeat(oMeldshaper), StringToInt(Get2DACache("spells", "Innate", nPower)));
                 for(i = 1; i <= nMin; i++)
                 {
 					AddChoice(IntToString(i), i, oMeldshaper);  

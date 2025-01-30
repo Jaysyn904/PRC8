@@ -234,7 +234,7 @@ void main()
             if(!GetIdentified(oItem))
             {
             	// No negative numbers, please
-                int nLore = max(0, GetSkillRank(SKILL_LORE, oCreature));
+                int nLore = PRCMax(0, GetSkillRank(SKILL_LORE, oCreature));
                 int nMax = StringToInt(Get2DACache("SkillVsItemCost", "DeviceCostMax", nLore));
                 if(nMax == 0)
                     nMax = 120000000;

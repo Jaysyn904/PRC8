@@ -54,7 +54,7 @@ void main()
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nSpell = PRCGetSpellId();
     int nBonus = nSpell == SPELL_DEFLECT ? nCasterLvl/2:
-                 min(5, (nCasterLvl/3));
+                 PRCMin(5, (nCasterLvl/3));
 
     PRCSignalSpellEvent(oPC, FALSE, nSpell, oPC);
 

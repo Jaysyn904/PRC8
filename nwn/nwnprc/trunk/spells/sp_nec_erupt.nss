@@ -53,7 +53,7 @@ void main()
 
     object oPC = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
-    int nLevel = min(PRCGetCasterLevel(oPC), 15);
+    int nLevel = PRCMin(PRCGetCasterLevel(oPC), 15);
     int nMetaMagic = PRCGetMetaMagicFeat();
 
     PRCSignalSpellEvent(oTarget, TRUE, SPELL_NECROTIC_ERUPTION, oPC);

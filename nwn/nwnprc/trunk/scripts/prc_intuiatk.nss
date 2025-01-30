@@ -1,4 +1,5 @@
 #include "prc_alterations"
+#include "prc_inc_unarmed"
 
 int isSimple(object oItem)
 {
@@ -54,55 +55,39 @@ int isLight(object oItem)
 
 void main()
 {
-    if(DEBUG) DoDebug("prc_intuiatk: Running main()");
-   //object oPC = PRCGetSpellTargetObject();
-   object oPC = OBJECT_SELF; // This should only be called via ExecuteScript on the target, so...
-   object oSkin = GetPCSkin(oPC);
+	if(DEBUG) DoDebug("prc_intuiatk: Running main()");
+	//object oPC = PRCGetSpellTargetObject();
+	object oPC = OBJECT_SELF; // This should only be called via ExecuteScript on the target, so...
+	object oSkin = GetPCSkin(oPC);
+	
+	//Check VoP feats
+	effect eCheckEffect = GetFirstEffect(oPC);
+	while (GetIsEffectValid(eCheckEffect))
+	{
+		if(GetEffectTag(eCheckEffect) == "VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE))    SetLocalInt(oPC,"VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE),1);
+		if(GetEffectTag(eCheckEffect) == "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK))   SetLocalInt(oPC,"VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK),1);
+		eCheckEffect = GetNextEffect(oPC);
+	}
+	
+	// Check for Golden Ice
+	if (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE)))
+	{
+		if(DEBUG) DoDebug("prc_intuiatk: PC has Ravage: Golden Ice");
+		
+		if (GetLocalInt(oSkin,"IniGoldenIce")) 	return;
+		object oItem = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
 
-   if (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE)))
-   {
-    if(DEBUG) DoDebug("prc_intuiatk: PC has Ravage: Golden Ice");
-       int iEquip = GetLocalInt(oPC,"ONEQUIP") ;
-       object oItem;
+		// fixed to work with new unarmed inc
+		if(GetIsPRCCreatureWeapon(oItem) && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
+		{
+			RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
+			AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2),oItem);
+			SetLocalInt(oSkin,"IniGoldenIce",1);
+		}
+		else RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
+	}
 
-       if (iEquip == 1)
-            oItem = GetItemLastUnequipped();
-       else
-            oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);
-
-
-       if (iEquip == 1||GetAlignmentGoodEvil(oPC)!= ALIGNMENT_GOOD)
-       {
-          if (GetBaseItemType(oItem)==BASE_ITEM_GLOVES)
-             RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
-       }
-       else
-       {
-         oItem = GetItemInSlot(INVENTORY_SLOT_ARMS,oPC);
-         RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
-         AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2),oItem);
-       }
-
-        object oCweapB = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
-        object oCweapL = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
-        object oCweapR = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oPC);
-        RemoveSpecificProperty(oCweapB,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
-        RemoveSpecificProperty(oCweapL,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
-        RemoveSpecificProperty(oCweapR,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE);
-
-        if (GetAlignmentGoodEvil(oPC)== ALIGNMENT_GOOD)
-        {
-			itemproperty ip1 = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2);
-				         ip1 = TagItemProperty(ip1,"GoldenIce");
-			AddItemProperty(DURATION_TYPE_PERMANENT,ip1,oCweapB);
-			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oCweapL);
-			AddItemProperty(DURATION_TYPE_TEMPORARY,ip1,oCweapR);
-        }
-
-
-   }
-
-   if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetHasFeat(FEAT_WEAPON_FINESSE, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))
+   if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetHasFeat(FEAT_WEAPON_FINESSE, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))
    {
     if(DEBUG) DoDebug("prc_intuiatk: PC has Intuitive Attack or WepFinesse");
 	
@@ -114,7 +99,7 @@ void main()
       int iWis = GetAbilityModifier(ABILITY_WISDOM,oPC);
       int iIABonus = 0;
       int iWFBonus = 0;
-      int bHasIA = GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK));
+      int bHasIA = GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK));
       int bHasWF = GetHasFeat(FEAT_WEAPON_FINESSE, oPC);
       int bUseIA = FALSE;
       int bUseWF = FALSE;

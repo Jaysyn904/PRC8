@@ -52,7 +52,7 @@ void BastardSword2hHandler(object oPC)
     {
         if(LOCAL_DEBUG) DoDebug("Applying +0.5x STR for a bastard sword being wielded 2-h");
         if(LOCAL_DEBUG) DoDebug("Bonus was already applied according to local variable: " + (GetLocalInt(oRightH, "PRC_SK_BastardSword_2h_Fudge") ? "Yes":"No"));
-        int nDamBon = min((GetAbilityModifier(ABILITY_STRENGTH, oPC) / 2) // Round down
+        int nDamBon = PRCMin((GetAbilityModifier(ABILITY_STRENGTH, oPC) / 2) // Round down
                           + GetLocalInt(oRightH, "PRC_SK_BSwd_EnhBonus")  // Add in the enhancement bonus, since they don't stack
                           , 20);                                          // And limit to 20
         // No increased damage penalty for negative STR mod

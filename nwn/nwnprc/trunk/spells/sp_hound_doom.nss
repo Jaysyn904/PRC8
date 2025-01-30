@@ -56,7 +56,7 @@ void HoundBuff(object oPC)
         oHound = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oPC, i);
     }
 
-    int nHP = max(0, GetMaxHitPoints(oPC) - GetCurrentHitPoints(oHound));
+    int nHP = PRCMax(0, GetMaxHitPoints(oPC) - GetCurrentHitPoints(oHound));
     effect eHP = EffectTemporaryHitpoints(nHP);
 
     int nABBonus = GetBaseAttackBonus(oPC);

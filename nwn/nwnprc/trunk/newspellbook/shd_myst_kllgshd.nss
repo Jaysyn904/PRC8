@@ -30,7 +30,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nDie = min(myst.nShadowcasterLevel, 10); 
+        int nDie = PRCMin(myst.nShadowcasterLevel, 10); 
     
         //Declare the spell shape, size and the location.  Capture the first target object in the shape.
         object oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lTargetLocation, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);

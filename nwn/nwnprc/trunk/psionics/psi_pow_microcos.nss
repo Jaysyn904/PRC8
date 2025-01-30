@@ -139,7 +139,7 @@ void main()
                     PRCSignalSpellEvent(oTarget, TRUE, manif.nSpellID, oManifester);
 
                     // Test HP limits
-                    nTestHP = max(0, GetCurrentHitPoints(oTarget));
+                    nTestHP = PRCMax(0, GetCurrentHitPoints(oTarget));
                     if(GetCurrentHitPoints(oTarget) <= 30           &&
                        GetCurrentHitPoints(oTarget) <= nHPAffectable
                        )

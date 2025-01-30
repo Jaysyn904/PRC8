@@ -27,7 +27,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nAmount = min(75, GetHitDice(oTarget) * 5);
+        int nAmount = PRCMin(75, GetHitDice(oTarget) * 5);
         myst.eLink = EffectLinkEffects(EffectTemporaryHitpoints(nAmount), EffectVisualEffect(VFX_DUR_CHAOS_CLOAK));
                
         myst.fDur = 600.0 * myst.nShadowcasterLevel;       

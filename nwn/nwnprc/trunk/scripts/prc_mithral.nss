@@ -83,7 +83,7 @@ void main()
 		
         if(nDexBonus > nMaxDexBonus)
         {
-            nBonus = min(nDexBonus - nMaxDexBonus, nCapIncrease);			
+            nBonus = PRCMin(nDexBonus - nMaxDexBonus, nCapIncrease);			
         }
     
 		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_mithral -> nBonus is "+ IntToString(nBonus)+".");

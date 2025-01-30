@@ -46,7 +46,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
     //Declare major variables
     effect eVis = EffectVisualEffect(448);
     int nDuration = PRCGetCasterLevel(OBJECT_SELF);
-    int nDamage = min(nDuration * 2, 30);
+    int nDamage = PRCMin(nDuration * 2, 30);
     int nMetaMagic = PRCGetMetaMagicFeat();
     object oTarget = OBJECT_SELF;
     effect eShield = EffectDamageShield(nDamage, 0, ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_ACID));

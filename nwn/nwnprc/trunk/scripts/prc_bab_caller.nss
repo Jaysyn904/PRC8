@@ -41,7 +41,7 @@ void main()
 	}
 	else if(GetLocalInt(oPC, "HadrimoiPerfectSymmetry"))
 	{
-		nAttackCount = max(nBAB, 3);
+		nAttackCount = PRCMax(nBAB, 3);
 		if (DEBUG) DoDebug("prc_bab_caller: Using hadrimoi perfect symmetry, # attacks = " + IntToString(nAttackCount));	
 	}
 	else
@@ -77,7 +77,7 @@ void main()
 			if (DEBUG) DoDebug("prc_bab_caller: detected Spell Tensers Transformation, # attacks = " + IntToString(nTTAttackCount));
 		}
 
-		int nMax = max(nDPAttackCount, nTTAttackCount);
+		int nMax = PRCMax(nDPAttackCount, nTTAttackCount);
 
 		// we only consider any changes in # attacks, if Tenser's or DP *increases* our "normal" attack count!
 		// this makes sure, that we won't call SetBaseAttackBonus needlessly
@@ -142,7 +142,7 @@ void main()
 		// the aurora engine can also handle up to two offhand attacks
 
 		//calculate the number of main hand attacks the aurora engine can at most handle, including the up to 2 offhand attacks
-		int nCap = 12 - min(nOffhand,2);
+		int nCap = 12 - PRCMin(nOffhand,2);
 		// apply the cap and calculate the number of overflow (main hand) attacks, that aurora engine can't handle (usually this will never happen)
 		if(nAttackCount > nCap)
 		{

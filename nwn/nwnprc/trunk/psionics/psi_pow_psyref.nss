@@ -84,7 +84,7 @@ void main()
         int nLevels   = 1 + manif.nTimesAugOptUsed_1;
         int nOrigXP   = GetXP(oTarget);
         int nOrigHD   = GetHitDice(oTarget);
-        int nTargetHD = max(1, nOrigHD - nLevels);
+        int nTargetHD = PRCMax(1, nOrigHD - nLevels);
         int nXPCost   = nLevels *
                          (GetPRCSwitch(PRC_PSI_PSYCHIC_REFORMATION_NERF) == 2 ?
                            25 : // If nerf is set, the XP cost may also be reduced to 25 per level

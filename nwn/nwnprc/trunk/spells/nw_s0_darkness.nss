@@ -39,7 +39,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel)
     if(nMetaMagic & METAMAGIC_EXTEND)
        fDuration *= 2;
 
-	int nShadow = max(GetLocalInt(oCaster, "ShadowMantle_Shoulder"), GetLocalInt(oTarget, "ShadowMantle_Shoulder"));
+	int nShadow = PRCMax(GetLocalInt(oCaster, "ShadowMantle_Shoulder"), GetLocalInt(oTarget, "ShadowMantle_Shoulder"));
 	if (nShadow) nPnP = FALSE;
 	if (DEBUG) DoDebug("nw_s0_darkness: oCaster "+GetName(oCaster)+" oTarget "+GetName(oTarget)+" nSwitch "+IntToString(nPnP));
 

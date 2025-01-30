@@ -120,7 +120,7 @@ void main()
                 SetLocalInt(oGrenade, "PRC_EnergizedPotionSave", SAVING_THROW_TYPE_SONIC);
                 sDamageType = "Sonic";
         }
-        nLevel = min(3, nLevel);
+        nLevel = PRCMin(3, nLevel);
         SetLocalInt(oGrenade, "PRC_GrenadeLevel", nLevel);
         SetLocalInt(oGrenade, "PRC_EnPotSaveDC", nDC);
 

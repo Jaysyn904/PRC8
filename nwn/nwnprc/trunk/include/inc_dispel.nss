@@ -334,7 +334,7 @@ void DispelMagicBestMod(object oTarget, int nCasterLevel)
                       {
                           int nExist = GetLocalInt(OBJECT_SELF, "CaptureMagic");
                           int nSpellLevel = StringToInt(Get2DACache("spells", "Innate", nEffectSpellID));
-                          SetLocalInt(OBJECT_SELF, "CaptureMagic", max(nExist, nSpellLevel/2));
+                          SetLocalInt(OBJECT_SELF, "CaptureMagic", PRCMax(nExist, nSpellLevel/2));
                           if (GetLevelByClass(CLASS_TYPE_NOCTUMANCER) >= 10) 
                               ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectSpellImmunity(nEffectSpellID)), OBJECT_SELF, 60.0);                          
                       }
@@ -589,7 +589,7 @@ void DispelMagicAllMod(object oTarget, int nCasterLevel)
               {
                   int nExist = GetLocalInt(OBJECT_SELF, "CaptureMagic");
                   int nSpellLevel = StringToInt(Get2DACache("spells", "Innate", nEffectSpellID));
-                  SetLocalInt(OBJECT_SELF, "CaptureMagic", max(nExist, nSpellLevel/2));
+                  SetLocalInt(OBJECT_SELF, "CaptureMagic", PRCMax(nExist, nSpellLevel/2));
                   if (GetLevelByClass(CLASS_TYPE_NOCTUMANCER) >= 10) 
                       ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectSpellImmunity(nEffectSpellID)), OBJECT_SELF, 60.0);  
               }              

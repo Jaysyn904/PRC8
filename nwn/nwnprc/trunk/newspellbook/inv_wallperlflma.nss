@@ -30,7 +30,7 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
 
     //cap the extra damage
-    nCasterLvl = min(nCasterLvl, 20);
+    nCasterLvl = PRCMin(nCasterLvl, 20);
 
     object oTarget = GetEnteringObject();
     if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))

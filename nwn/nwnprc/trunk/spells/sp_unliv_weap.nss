@@ -82,7 +82,7 @@ void HiImABomb(object oTarget, int nCounter, int nHP, int nCasterLvl, int nMetaM
         //       eSplode = SupernaturalEffect(eSplode);
 
         location lLoc = GetLocation(oTarget);
-        int nDice = min((nCasterLvl/2), 10);
+        int nDice = PRCMin((nCasterLvl/2), 10);
 
         SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_BLINDDEAF), oTarget);
 

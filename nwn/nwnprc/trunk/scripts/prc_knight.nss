@@ -22,7 +22,7 @@ void main()
     object oAmmo;
     int nClass = GetLevelByClass(CLASS_TYPE_KNIGHT, oPC);
     int nCha = GetAbilityModifier(ABILITY_CHARISMA, oPC);
-    int nBonus = max(1, (nClass/2) + nCha);
+    int nBonus = PRCMax(1, (nClass/2) + nCha);
 
 
     // We aren't being called from any event, instead from EvalPRCFeats

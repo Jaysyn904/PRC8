@@ -368,7 +368,7 @@ int GetHighestTrueSpeakerLevel(object oCreature)
 
 /* int GetHighestTrueSpeakerLevel(object oCreature)
 {
-    return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
+    return PRCMax(PRCMax(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetTruespeakerLevel(oCreature, GetClassByPosition(3, oCreature)) : 0

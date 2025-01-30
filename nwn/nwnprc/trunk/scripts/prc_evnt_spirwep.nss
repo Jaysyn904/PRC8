@@ -223,7 +223,7 @@ void main()
         if(DEBUG) DoDebug("prc_evnt_spirwep: SR check already performed for this target. Skipping SR check.");
     }
 
-    int nDamBonus	= min(5, nCasterLevel / 3);
+    int nDamBonus	= PRCMin(5, nCasterLevel / 3);
     effect eDamage = EffectDamage(nDamBonus, DAMAGE_TYPE_DIVINE);
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget);
     if(DEBUG) DoDebug("prc_evnt_spirwep: "+IntToString(nDamBonus)+" magical damage applied to the target.");

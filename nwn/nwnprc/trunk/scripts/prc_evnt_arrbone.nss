@@ -58,7 +58,7 @@ void main()
                 //Save
                 if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_DEATH))
                 {
-                        int nDam = d6(3) + min(20, nCasterLvl);
+                        int nDam = d6(3) + PRCMin(20, nCasterLvl);
                 }
                 
                 else

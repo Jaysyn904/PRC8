@@ -15,7 +15,7 @@ void main()
 {
 	object oBinder = OBJECT_SELF;
 	int nKSSLvl = GetLevelByClass(CLASS_TYPE_KNIGHT_SACRED_SEAL, oBinder);
-	int nCHAmod = max(1, GetAbilityModifier(ABILITY_CHARISMA, oBinder));
+	int nCHAmod = PRCMax(1, GetAbilityModifier(ABILITY_CHARISMA, oBinder));
 	int nSpellID = PRCGetSpellId();
 	
 	if(GetIsPatronVestigeBound(oBinder))

@@ -52,7 +52,7 @@ void main()
     object oTarget;
     location lTarget = PRCGetSpellTargetLocation();
     int nCasterLvl = PRCGetCasterLevel(oPC);
-    int nDice = min(15, nCasterLvl);
+    int nDice = PRCMin(15, nCasterLvl);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int eDamageType = ChangedElementalDamage(oPC, DAMAGE_TYPE_COLD);
     int nDC, bIsElemental, nDam;

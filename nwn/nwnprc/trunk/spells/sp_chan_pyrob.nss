@@ -74,47 +74,47 @@ void main()
                 return;
             }
 
-            nDam = d4(min((nCasterLvl/2), 10));
+            nDam = d4(PRCMin((nCasterLvl/2), 10));
 
             if(nMetaMagic & METAMAGIC_MAXIMIZE)
             {
-                nDam = 4 * (min((nCasterLvl/2), 10));
+                nDam = 4 * (PRCMin((nCasterLvl/2), 10));
             }
         }
 
         //standard
         else if(nSpell == SPELL_CHANNELED_PYROBURST_2)
         {
-            nDam = d6(min(10, nCasterLvl));
+            nDam = d6(PRCMin(10, nCasterLvl));
             fRadius = 3.048f;
 
             if(nMetaMagic & METAMAGIC_MAXIMIZE)
             {
-                nDam = 6 * (min(10, nCasterLvl));
+                nDam = 6 * (PRCMin(10, nCasterLvl));
             }
         }
 
         //full round
         else if(nSpell == SPELL_CHANNELED_PYROBURST_3)
         {
-            nDam = d8(min(10, nCasterLvl));
+            nDam = d8(PRCMin(10, nCasterLvl));
             fRadius = 4.57f;
 
             if(nMetaMagic & METAMAGIC_MAXIMIZE)
             {
-                nDam = 8 * (min(10, nCasterLvl));
+                nDam = 8 * (PRCMin(10, nCasterLvl));
             }
         }
 
         //two rounds
         else if(nSpell == SPELL_CHANNELED_PYROBURST_4)
         {
-            nDam = d10(min(10, nCasterLvl));
+            nDam = d10(PRCMin(10, nCasterLvl));
             fRadius = 6.10f;
 
             if(nMetaMagic & METAMAGIC_MAXIMIZE)
             {
-                nDam = 10 * (min(10, nCasterLvl));
+                nDam = 10 * (PRCMin(10, nCasterLvl));
             }
         }
 
@@ -129,7 +129,7 @@ void main()
         {
             nDam += (nDam/2);
         }
-        nDam += SpellDamagePerDice(oPC, min(10, nCasterLvl));
+        nDam += SpellDamagePerDice(oPC, PRCMin(10, nCasterLvl));
 
         if(PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_FIRE))
         {

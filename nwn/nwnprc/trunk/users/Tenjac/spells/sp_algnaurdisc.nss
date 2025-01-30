@@ -67,7 +67,7 @@ void main()
 	}
         //GetEffectDurationRemaining returns seconds, need rounds
         int nDice = nEffectDurationRemaining / 6;
-        int nDam = d4(min(15, nDice));  
+        int nDam = d4(PRCMin(15, nDice));  
         
         //Do the AoE
         object oTarget = MyFirstObjectInShape(SHAPE_SPHERE,FeetToMeters(60.0), lLoc);

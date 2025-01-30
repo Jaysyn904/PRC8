@@ -23,7 +23,7 @@ void main()
     
     if (!GetLocalInt(oShadow, "FlickerMyst"))
     {
-    	int nLevel = max(GetShadowcasterLevel(oShadow), GetLocalInt(oShadow, "TenebrousFlicker"));
+    	int nLevel = PRCMax(GetShadowcasterLevel(oShadow), GetLocalInt(oShadow, "TenebrousFlicker"));
         DimensionDoor(oShadow, nLevel);
         SetLocalInt(oShadow, "FlickerMyst", TRUE);
         DelayCommand(5.5, DeleteLocalInt(oShadow, "FlickerMyst"));

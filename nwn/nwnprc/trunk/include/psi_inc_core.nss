@@ -791,6 +791,64 @@ int GetIsPsionicCharacter(object oCreature)
              );
 }
 
+int IsHiddenTalent(object oPC = OBJECT_SELF)
+{
+	if (GetHasFeat(FEAT_HIDDEN_TALENT_BIOFEEDBACK, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BITE_WOLF, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BOLT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BURST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CALLTOMIND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CALL_WEAPONRY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CHAMELEON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CLAWS_BEAST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_COMPRESSION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CONCEALTHOUGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CREATESOUND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CRYSTALSHARD, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DAZE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DECELERATION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DEFPRECOG, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DEMORALIZE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISABLE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISTRACT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC)   ||
+		//GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_FORCESCREEN, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_GREASE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_HAMMER, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_INERTIALARMOUR, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MATTERAGITATION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MINDTHRUST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MYLIGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRECOG, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRESC, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM_WEAPON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_SKATE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_STOMP, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_SYNESTHETE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_TELEMPATHICPRO, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_THICKSKIN, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_VIGOR, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_GRIP_IRON, oPC))
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+	
+
 void LocalCleanExtraFists(object oCreature)
 {
     int iIsCWeap, iIsEquip;
@@ -1092,7 +1150,7 @@ int GetHighestManifesterLevel(object oCreature)
 
 /* int GetHighestManifesterLevel(object oCreature)
 {
-    return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetManifesterLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
+    return PRCMax(PRCMax(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetManifesterLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetManifesterLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetManifesterLevel(oCreature, GetClassByPosition(3, oCreature)) : 0

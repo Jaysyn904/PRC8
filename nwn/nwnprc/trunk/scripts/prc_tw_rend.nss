@@ -103,7 +103,7 @@ void main()
                 {
                     // Get the highest enhancement bonus property on the item
                     if(GetItemPropertyType(ipTest) == ITEM_PROPERTY_ENHANCEMENT_BONUS)
-                        nBonus = max(nBonus, GetItemPropertyCostTableValue(ipTest));
+                        nBonus = PRCMax(nBonus, GetItemPropertyCostTableValue(ipTest));
 
                     ipTest = GetNextItemProperty(oSmaller);
                 }

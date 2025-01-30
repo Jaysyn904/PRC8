@@ -79,7 +79,7 @@ void main()
             {
                 int nClass             = GetLocalInt(oPC, "SpellType");
                 int nSpellbookMinLevel = 0;
-                int nSpellbookMaxLevel = min((GetInvokerLevel(oPC, CLASS_TYPE_WARLOCK) + 1) / 2, 9);
+                int nSpellbookMaxLevel = PRCMin((GetInvokerLevel(oPC, CLASS_TYPE_WARLOCK) + 1) / 2, 9);
                 if(DEBUG) DoDebug("inv_imbueitemcon: Spellbook max level: " + IntToString(nSpellbookMaxLevel));
                 string sFile           = GetFileForClass(nClass);
                 int i;

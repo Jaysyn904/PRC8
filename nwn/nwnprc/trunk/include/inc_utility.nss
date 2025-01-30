@@ -32,7 +32,7 @@ const int ACTION_USE_ITEM_TMI_LIMIT = 1500;
  * @param b Another integer
  * @return  a iff a is greater than b, otherwise b
  */
-int max(int a, int b);
+int PRCMax(int a, int b);
 
 /**
  * Returns the lesser of the two values passed to it.
@@ -41,7 +41,7 @@ int max(int a, int b);
  * @param b Another integer
  * @return  a iff a is lesser than b, otherwise b
  */
-int min(int a, int b);
+int PRCMin(int a, int b);
 
 /**
  * Returns the greater of the two values passed to it.
@@ -50,7 +50,7 @@ int min(int a, int b);
  * @param b Another float
  * @return  a iff a is greater than b, otherwise b
  */
-float fmax(float a, float b);
+float PRCFmax(float a, float b);
 
 /**
  * Returns the lesser of the two values passed to it.
@@ -59,7 +59,7 @@ float fmax(float a, float b);
  * @param b Another float
  * @return  a iff a is lesser than b, otherwise b
  */
-float fmin(float a, float b);
+float PRCFmin(float a, float b);
 
 /**
  * Takes a string in the standard hex number format (0x####) and converts it
@@ -172,29 +172,29 @@ location AddLocationToLocation(location lMaster, location lAdd);
  * simple function to use the name of a item holding escape sequences that, though they will not compile,
  * they can be interpreted at run time and produce rbg scales between 32 and 255 in increments.
  * -- allows 3375 colors to be made.
- * for example SendMessageToPC(pc,GetRGB(15,15,1)+ "Help, I'm on fire!") will produce yellow text.
+ * for example SendMessageToPC(pc,PRCGetRGB(15,15,1)+ "Help, I'm on fire!") will produce yellow text.
  * more examples:
  *
- *  GetRGB() := WHITE // no parameters, default is white
- *  GetRGB(15,15,1):= YELLOW
- *  GetRGB(15,5,1) := ORANGE
- *  GetRGB(15,1,1) := RED
- *  GetRGB(7,7,15) := BLUE
- *  GetRGB(1,15,1) := NEON GREEN
- *  GetRGB(1,11,1) := GREEN
- *  GetRGB(9,6,1)  := BROWN
- *  GetRGB(11,9,11):= LIGHT PURPLE
- *  GetRGB(12,10,7):= TAN
- *  GetRGB(8,1,8)  := PURPLE
- *  GetRGB(13,9,13):= PLUM
- *  GetRGB(1,7,7)  := TEAL
- *  GetRGB(1,15,15):= CYAN
- *  GetRGB(1,1,15) := BRIGHT BLUE
+ *  PRCGetRGB() := WHITE // no parameters, default is white
+ *  PRCGetRGB(15,15,1):= YELLOW
+ *  PRCGetRGB(15,5,1) := ORANGE
+ *  PRCGetRGB(15,1,1) := RED
+ *  PRCGetRGB(7,7,15) := BLUE
+ *  PRCGetRGB(1,15,1) := NEON GREEN
+ *  PRCGetRGB(1,11,1) := GREEN
+ *  PRCGetRGB(9,6,1)  := BROWN
+ *  PRCGetRGB(11,9,11):= LIGHT PURPLE
+ *  PRCGetRGB(12,10,7):= TAN
+ *  PRCGetRGB(8,1,8)  := PURPLE
+ *  PRCGetRGB(13,9,13):= PLUM
+ *  PRCGetRGB(1,7,7)  := TEAL
+ *  PRCGetRGB(1,15,15):= CYAN
+ *  PRCGetRGB(1,1,15) := BRIGHT BLUE
  *
  * issues? contact genji@thegenji.com
  * special thanks to ADAL-Miko and Rich Dersheimer in the bio forums.
  */
-string GetRGB(int red = 15,int green = 15,int blue = 15);
+string PRCGetRGB(int red = 15,int green = 15,int blue = 15);
 
 /**
  * Checks if any PCs (or optionally their NPC party members) are in the
@@ -362,7 +362,7 @@ string BooleanToString(int bool, int bTLK = FALSE);
  *
  * @param s The string to trim.
  */
-string TrimString(string s);
+string PRCTrimString(string s);
 
 /**
  * Compares the given two strings lexicographically.
@@ -584,13 +584,13 @@ const int ERROR_CODE_5_ONCE_MORE5 = -1;
 * Function Definitions *
 \**********************/
 
-int max(int a, int b) {return (a > b ? a : b);}
+int PRCMax(int a, int b) {return (a > b ? a : b);}
 
-int min(int a, int b) {return (a < b ? a : b);}
+int PRCMin(int a, int b) {return (a < b ? a : b);}
 
-float fmax(float a, float b) {return (a > b ? a : b);}
+float PRCFmax(float a, float b) {return (a > b ? a : b);}
 
-float fmin(float a, float b) {return (a < b ? a : b);}
+float PRCFmin(float a, float b) {return (a < b ? a : b);}
 
 int HexToInt_old(string sHex)
 {
@@ -721,7 +721,7 @@ location AddLocationToLocation(location lMaster, location lAdd)
 
 
 
-string GetRGB(int red = 15,int green = 15,int blue = 15)
+string PRCGetRGB(int red = 15,int green = 15,int blue = 15)
 {
     object coloringBook = GetObjectByTag("ColoringBook");
     if (coloringBook == OBJECT_INVALID)
@@ -953,7 +953,7 @@ void ForceEquip(object oPC, object oItem, int nSlot, int nThCall = 0)
                 AssignCommand(oPC, ActionEquipItem(oItem, nSlot));
             }
             // Use a lenghtening delay in order to attempt handling lag and possible other interference. From 0.1s to 1s
-            fDelay = min(nThCall, 10) / 10.0f;
+            fDelay = PRCMin(nThCall, 10) / 10.0f;
         }
 
         // Loop
@@ -995,7 +995,7 @@ void ForceUnequip(object oPC, object oItem, int nSlot, int nThCall = 0)
         AssignCommand(oPC, ActionUnequipItem(oItem));
 
         // Ramp up the delay if the action is not getting through. Might let whatever is intefering finish
-        fDelay = min(nThCall, 10) / 10.0f;
+        fDelay = PRCMin(nThCall, 10) / 10.0f;
     }
     // The item has already been unequipped
     else
@@ -1051,7 +1051,7 @@ string BooleanToString(int bool, int bTLK = FALSE)
             (bool ? "True" : "False");
 }
 
-string TrimString(string s)
+string PRCTrimString(string s)
 {
     int nCrop = 0;
     string temp;
@@ -1105,7 +1105,7 @@ int StringCompare(string s1, string s2)
     // Start comparing
     int nT,
         i = 0,
-        nMax = min(GetStringLength(s1), GetStringLength(s2));
+        nMax = PRCMin(GetStringLength(s1), GetStringLength(s2));
     while(i < nMax)
     {
         // Get the difference between the values of i:th characters
@@ -1726,7 +1726,7 @@ void ForcePutDown(object oPC, object oItem, int nSlot, int nThCall = 0)
         AssignCommand(oPC, ActionPutDownItem(oItem));
 
         // Ramp up the delay if the action is not getting through. Might let whatever is intefering finish
-        fDelay = min(nThCall, 10) / 10.0f;
+        fDelay = PRCMin(nThCall, 10) / 10.0f;
     }
     // The item has already been unequipped
     else

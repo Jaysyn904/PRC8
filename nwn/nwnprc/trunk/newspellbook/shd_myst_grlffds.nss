@@ -30,7 +30,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nDie = min(myst.nShadowcasterLevel, 20); 
+        int nDie = PRCMin(myst.nShadowcasterLevel, 20); 
         location lTargetLocation = PRCGetSpellTargetLocation();
         ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_VAMPIRIC_DRAIN_PRC), lTargetLocation);
     

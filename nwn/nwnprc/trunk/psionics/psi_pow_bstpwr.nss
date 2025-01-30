@@ -90,7 +90,7 @@ void main()
 
 		}	
 		
-/*	int nTargetManifesterLevel = max(max(GetClassByPosition(1, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(1, oTarget)) : 0,
+/*	int nTargetManifesterLevel = PRCMax(PRCMax(GetClassByPosition(1, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(1, oTarget)) : 0,
 									GetClassByPosition(2, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(2, oTarget)) : 0
 									),
 									GetClassByPosition(3, oTarget) != CLASS_TYPE_INVALID ? GetManifesterLevel(oTarget, GetClassByPosition(3, oTarget)) : 0
@@ -98,7 +98,7 @@ void main()
 										 
         int nPPGiven = 2 + 2 * manif.nTimesAugOptUsed_1;
         // Can't give more than the target has manifester levels
-        nPPGiven = min(nPPGiven, nTargetManifesterLevel);
+        nPPGiven = PRCMin(nPPGiven, nTargetManifesterLevel);
 
         // Let the AI know the power was used on it
         PRCSignalSpellEvent(oTarget, FALSE, manif.nSpellID, oManifester);

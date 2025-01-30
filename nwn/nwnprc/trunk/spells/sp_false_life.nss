@@ -39,9 +39,9 @@ void main()
     if(nMetaMagic & METAMAGIC_EXTEND)
         fDur *= 2;
 
-    int nBonus = d10(1) + (min(10, nCasterLvl));
+    int nBonus = d10(1) + (PRCMin(10, nCasterLvl));
     if(nMetaMagic & METAMAGIC_MAXIMIZE)
-        nBonus = 10 + (min(10, nCasterLvl));
+        nBonus = 10 + (PRCMin(10, nCasterLvl));
     if(nMetaMagic & METAMAGIC_EMPOWER)
         nBonus += (nBonus/2);
 

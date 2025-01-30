@@ -275,9 +275,9 @@ void SummonPRCFamiliar(object oPC)
         nFamiliarType--;
 
     int nFamLevel = GetLevelByClass(CLASS_TYPE_WIZARD);
-    nFamLevel = max(nFamLevel, GetLevelByClass(CLASS_TYPE_SORCERER));
-    nFamLevel = max(nFamLevel, GetLevelByClass(CLASS_TYPE_WITCH));
-    nFamLevel = max(nFamLevel, GetLevelByClass(CLASS_TYPE_HEXBLADE));
+    nFamLevel = PRCMax(nFamLevel, GetLevelByClass(CLASS_TYPE_SORCERER));
+    nFamLevel = PRCMax(nFamLevel, GetLevelByClass(CLASS_TYPE_WITCH));
+    nFamLevel = PRCMax(nFamLevel, GetLevelByClass(CLASS_TYPE_HEXBLADE));
     nFamLevel += GetLevelByClass(CLASS_TYPE_ALIENIST);
     if (GetHasFeat(FEAT_SHADOW_FAMILIAR, oPC)) nFamLevel = GetLevelByTypeArcane(oPC) + GetShadowcasterLevel(oPC); // For the purpose of determining familiar abilities that depend on your arcane caster level, your levels in all classes that allow you to cast mysteries or arcane spells stack
     

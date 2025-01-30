@@ -54,7 +54,7 @@ void ControlledRegeneration(object oTarget, int nRegenRate)
 
     if (nCurrentHP < nInitialHP)
     {
-        int nHealAmount = min(nRegenRate, nInitialHP - nCurrentHP); // Ensure not to heal beyond the initial hit points
+        int nHealAmount = PRCMin(nRegenRate, nInitialHP - nCurrentHP); // Ensure not to heal beyond the initial hit points
         if(DEBUG) DoDebug( "rs_regen_wounds > ControlledRegeneration: Healing " + IntToString(nHealAmount) + " HP.");
         effect eFakeRegen = EffectHeal(nHealAmount);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eFakeRegen, oTarget);

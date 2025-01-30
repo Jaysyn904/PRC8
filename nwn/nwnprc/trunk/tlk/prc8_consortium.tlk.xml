@@ -58696,8 +58696,7 @@ Use: Selected</entry>
   <entry id="60921" lang="en" sex="m">Incarnum Blades</entry>
   <entry id="60922" lang="en" sex="m">incarnum blade</entry>
   <entry id="60923" lang="en" sex="m">(PRESTIGE CLASS)
-Using a secret passed down through the generations, the incarnum blade shapes soul energy drawn from the greatest warriors of the past into a special soulmeld that is incorporated into his melee weapon of choice. By itself,
-this blademeld grants him amazing combat prowess. When bound to his chakras, it also enhances his personal combat abilities, infusing them with the power of incarnum. When he dies, the incarnum blade merges with the soul energy that powers his weapon, becoming part of the soul legacy upon which future heroes can draw.
+Using a secret passed down through the generations, the incarnum blade shapes soul energy drawn from the greatest warriors of the past into a special soulmeld that is incorporated into his melee weapon of choice. By itself, this blademeld grants him amazing combat prowess. When bound to his chakras, it also enhances his personal combat abilities, infusing them with the power of incarnum. When he dies, the incarnum blade merges with the soul energy that powers his weapon, becoming part of the soul legacy upon which future heroes can draw.
 
 - Hit Die: d10
 - Proficiencies: Incarnum Blades gain no new proficiencies
@@ -73200,42 +73199,49 @@ FEAT FEATURES:
 
 Level 
 1:  AC Armor +4
+2:  Exalted Feat
 3:  AC Armor +5
 4:  Weapon enhancement +1
+    Exalted Feat
 6:  AC Armor +6
     AC Deflection +1
+    Exalted Feat
 7:  All saving throws +1
     Ability score enhancement +2
 8:  AC Natural +1
+    Exalted Feat
 9:  AC Armor +7
 10: Weapon enhancement +2
     DR 5/-
+    Exalted Feat
 11: Ability score enhancement +4/+2
 12: AC Armor +8
     AC Deflection +2
+    Exalted Feat
 13: All saving throws +2
     Energy (fire/cold/electric/sonic/acid) resistance 5
 14: Weapon enhancement +3
     Freedom of Movement
+    Exalted Feat
 15: AC Armor +9
     Ability score enhancement +6/+4/+2
 16: AC Natural +2
+    Exalted Feat
 17: Weapon enhancement +4
     All saving throws +3
     Regeneration 1
 18: AC Armor +10
     AC Deflection +3
     True Seeing
+    Exalted Feat
 19: Ability score enhancement +8/+6/+4/+2
     DR 10/-
 20: Weapon enhancement +5
     Energy resistance 15
+    Exalted Feat
 
 *This is based on Vow of Poverty 3.0, with the following variations:
-- Can only be selected at Level 1
-- No Bonus exalted feat every 2 levels (we just have other 2, wouldn't make sense)
 - No Endure elements, Sustenance, Mind shielding (would have little impact on NWN gameplay)
-- No Sacred Vow as requirement (so a Level 1 from any race can get it and to partially offset the lack of Bonus exalted feat)
 - The level progression continues the same during the Epic Levels
 </entry>
   <entry id="213094" lang="en" sex="m">Daring Warrior</entry>
@@ -73256,6 +73262,63 @@ Prerequisite: Ki Power, Proficiency with all martial weapons
 Specifics: Your fighter and ninja levels stack for the purpose of determining the size of your ki pool, as well as your AC bonus. For example, a 5th-level fighter/1st-level ninja with this feat could use his ki powers a number of times equal to 3 (one-half his ninja and fighter levels) + his Wisdom bonus (if any), and would have a +1 bonus to AC (as if he were a 6th-level ninja).
 Use: Automatic
 Special: A fighter can select Martial Stalker as one of his fighter bonus feats</entry>
+  <entry id="213200" lang="en" sex="m">## Hidden Talent Reserve ##</entry>
+  <entry id="213201" lang="en" sex="m">Hidden Talent</entry>
+  <entry id="213202" lang="en" sex="m">Type of Feat: General
+
+Prerequsites:
+CHA 11+, This feat can only be taken at 1st level.
+
+Benefit:
+Your latent power of psionics flares to life, conferring upon you the designation of a psionic character. As a psionic character, you gain a reserve of 2 power points, and you can take psionic feats, metapsionic feats, and psionic item creation feats. If you have or take a class that grants power points, the power points gained from Hidden Talent are added to your total power point reserve.
+
+When you take this feat, choose one 1st-level power from any psionic class list. You know this power (it becomes one of your powers known). You can manifest this power with the power points provided by this feat if you have a Charisma score of 11 or higher. If you have no psionic class levels, you are considered a 1st-level manifester when manifesting this power. If you have psionic class levels, you can manifest the power at the highest manifester level you have attained. (This is not a manifester level, and it does not add to any manifester levels gained by taking psionic classes.) If you have no psionic class levels, use Charisma to determine how powerful a power you can manifest and how hard those powers are to resist.</entry>
+  <entry id="213203" lang="en" sex="m">Hidden Talent (Biofeedback)</entry>
+  <entry id="213204" lang="en" sex="m">Hidden Talent (Bite of the Wolf)</entry>
+  <entry id="213205" lang="en" sex="m">Hidden Talent (Bolt)</entry>
+  <entry id="213206" lang="en" sex="m">Hidden Talent (Burst)</entry>
+  <entry id="213207" lang="en" sex="m">Hidden Talent (Call To Mind)</entry>
+  <entry id="213208" lang="en" sex="m">Hidden Talent (Call Weaponry)</entry>
+  <entry id="213209" lang="en" sex="m">Hidden Talent (Chameleon)</entry>
+  <entry id="213210" lang="en" sex="m">Hidden Talent (Claws of the Beast)</entry>
+  <entry id="213211" lang="en" sex="m">Hidden Talent (Compression)</entry>
+  <entry id="213212" lang="en" sex="m">Hidden Talent (Conceal Thoughts)</entry>
+  <entry id="213213" lang="en" sex="m">Hidden Talent (Create Sound)</entry>
+  <entry id="213214" lang="en" sex="m">Hidden Talent (Crystal Shard)</entry>
+  <entry id="213215" lang="en" sex="m">Hidden Talent (Daze)</entry>
+  <entry id="213216" lang="en" sex="m">Hidden Talent (Deceleration)</entry>
+  <entry id="213217" lang="en" sex="m">Hidden Talent (Precognance, Defensive)</entry>
+  <entry id="213218" lang="en" sex="m">Hidden Talent (Demoralize)</entry>
+  <entry id="213219" lang="en" sex="m">Hidden Talent (Disable)</entry>
+  <entry id="213220" lang="en" sex="m">Hidden Talent (Dissipating Touch)</entry>
+  <entry id="213221" lang="en" sex="m">Hidden Talent (Distract)</entry>
+  <entry id="213222" lang="en" sex="m">Hidden Talent (Elf Sight)</entry>
+  <entry id="213223" lang="en" sex="m">Hidden Talent (Empathy)</entry>
+  <entry id="213224" lang="en" sex="m">Hidden Talent (Empty Mind)</entry>
+  <entry id="213225" lang="en" sex="m">Hidden Talent (Energy Ray)</entry>
+  <entry id="213226" lang="en" sex="m">Hidden Talent (Entangling Ectoplasm)</entry>
+  <entry id="213227" lang="en" sex="m">Hidden Talent (Expansion)</entry>
+  <entry id="213228" lang="en" sex="m">Hidden Talent (Far Hand)</entry>
+  <entry id="213229" lang="en" sex="m">Hidden Talent (Force Screen)</entry>
+  <entry id="213230" lang="en" sex="m">Hidden Talent (Grease)</entry>
+  <entry id="213231" lang="en" sex="m">Hidden Talent (Hammer)</entry>
+  <entry id="213232" lang="en" sex="m">Hidden Talent (Inertial Armour)</entry>
+  <entry id="213233" lang="en" sex="m">Hidden Talent (Matter Agitation)</entry>
+  <entry id="213234" lang="en" sex="m">Hidden Talent (Metaphysical Claw)</entry>
+  <entry id="213235" lang="en" sex="m">Hidden Talent (Metaphysical Weapon)</entry>
+  <entry id="213236" lang="en" sex="m">Hidden Talent (Mind Thrust)</entry>
+  <entry id="213237" lang="en" sex="m">Hidden Talent (My Light)</entry>
+  <entry id="213238" lang="en" sex="m">Hidden Talent (Precognance, Offensive)</entry>
+  <entry id="213239" lang="en" sex="m">Hidden Talent (Prescience, Offensive)</entry>
+  <entry id="213240" lang="en" sex="m">Hidden Talent (Prevenom)</entry>
+  <entry id="213241" lang="en" sex="m">Hidden Talent (Prevenom Weapon)</entry>
+  <entry id="213242" lang="en" sex="m">Hidden Talent (Skate)</entry>
+  <entry id="213243" lang="en" sex="m">Hidden Talent (Stomp)</entry>
+  <entry id="213244" lang="en" sex="m">Hidden Talent (Synesthete)</entry>
+  <entry id="213245" lang="en" sex="m">Hidden Talent (Telempathic Projection)</entry>
+  <entry id="213246" lang="en" sex="m">Hidden Talent (Thicken Skin)</entry>
+  <entry id="213247" lang="en" sex="m">Hidden Talent (Vigor)</entry>
+  <entry id="213248" lang="en" sex="m">Hidden Talent (Grip Of Iron)</entry>
   <entry id="213272" lang="en" sex="m">Force Missiles</entry>
   <entry id="213273" lang="en" sex="m">Evocation [Force]
 Level: Sorcerer 4, Wizard 4,
@@ -73444,4 +73507,29 @@ Tortoise shell slows a creature's movement as if it were wearing heavy armor. An
   <entry id="213316" lang="en" sex="m">Tortoise Shell (12)</entry>
   <entry id="213317" lang="en" sex="m">Tortoise Shell (15)</entry>
   <entry id="213318" lang="en" sex="m">Tortoise Shell (18)</entry>
+  <entry id="213319" lang="en" sex="m">Sanctify Ki Strike</entry>
+  <entry id="213320" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike
+Specifics: A Your unarmed strikes deal 1 extra point of damage to evil creatures, or 1d4 points to evil outsiders and evil undead. In addition, they are considered good-aligned for purposes of overcoming damage reduction.</entry>
+  <entry id="213321" lang="en" sex="m">Holy Ki Strike</entry>
+  <entry id="213322" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike, Sanctify Ki Strike
+Specifics: Your unarmed strike deals 2d6 points of extra holy damage to evil creatures. In addition, it is considered holy, which means that it can bypass the damage reduction of some evil outsiders. This does not stack with the extra damage from the Sanctify Ki Strike feat.</entry>
+  <entry id="213323" lang="en" sex="m">Fist of the Heavens</entry>
+  <entry id="213324" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Improved Unarmed Strike, WIS 15, Sanctify Ki Strike
+Specifics: The saving throw DC of your Stunning Fist increases by 2 when you use it against an evil creature. If the stunning attack succeeds, the creature is staggered for 1 round following the round it is stunned.</entry>
+  <entry id="213325" lang="en" sex="m">Vow of Abstinence</entry>
+  <entry id="213326" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Sacred Vow
+Specifics: You gain a +4 perfection bonus on Fortitude saving throws against poisons and drugs (as long as you are subjected to a drug unwillingly).
+Special: You cannot consume intoxicating, stimulating, depressant, or hallucinogenic substances, including alcohol, caffeine, and other drugs.</entry>
+  <entry id="213327" lang="en" sex="m">Vow of Chastity</entry>
+  <entry id="213328" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Sacred Vow
+Specifics: You gain a +4 perfection bonus on Will saving throws against charm and phantasm spells and effects.</entry>
+  <entry id="213329" lang="en" sex="m">Gift of Faith</entry>
+  <entry id="213330" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Wis 13+
+Specifics: You gain a +2 bonus on saving throws to resist any fear effect, despair effect (such as the crushing despair spell), or similar mind-affecting condition, but not charms or compulsions (such as the charm person and dominate person spells)</entry>
 </tlk>

@@ -49,7 +49,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     {
         if (!PRCDoResistSpell(oCaster, oTarget, nPenetr))
         {
-            int nDice= min(nCasterLevel/2, 5);
+            int nDice= PRCMin(nCasterLevel/2, 5);
             int nDam = d6(nDice);
             if(nMetaMagic & METAMAGIC_MAXIMIZE) nDam = 6 * nDice;
             if(nMetaMagic & METAMAGIC_EMPOWER)  nDam += (nDam/2);

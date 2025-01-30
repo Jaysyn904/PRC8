@@ -46,7 +46,7 @@ void main()
 	float fDur;
 	int nMetaMagic = PRCGetMetaMagicFeat();
 	int nCasterLvl = PRCGetCasterLevel(oPC);
-	int nMin = min(10, nCasterLvl);
+	int nMin = PRCMin(10, nCasterLvl);
 	int nDam;
 	int nDC = PRCGetSaveDC(oTarget, oPC);
 	

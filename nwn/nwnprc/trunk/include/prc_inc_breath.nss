@@ -418,7 +418,7 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
     if (BreathUsed.nDCStat >= 10)
     	nSaveDC = BreathUsed.nDCStat;
     else
-    	nSaveDC = 10 + max(GetAbilityModifier(BreathUsed.nDCStat), 0) + BreathUsed.nOtherDCMod;
+    	nSaveDC = 10 + PRCMax(GetAbilityModifier(BreathUsed.nDCStat), 0) + BreathUsed.nOtherDCMod;
     
     //Set up variables that depend on damage type
     switch (BreathUsed.nDamageType)

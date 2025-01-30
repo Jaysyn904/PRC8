@@ -60,18 +60,18 @@ void main()
 
     if (iAttackRoll > 0)
     {
-        int nDam = d6(min(5, (nCasterLevel/2)));
+        int nDam = d6(PRCMin(5, (nCasterLevel/2)));
 
         if(nMetaMagic & METAMAGIC_MAXIMIZE)
         {
-            nDam = 6 * (min(5, (nCasterLevel/2)));
+            nDam = 6 * (PRCMin(5, (nCasterLevel/2)));
         }
 
         if(nMetaMagic & METAMAGIC_EMPOWER)
         {
             nDam += (nDam/2);
         }
-		nDam += SpellDamagePerDice(oPC, min(5, nCasterLevel/2));
+		nDam += SpellDamagePerDice(oPC, PRCMin(5, nCasterLevel/2));
         //save
         if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, PRCGetSaveDC(oTarget, oPC), SAVING_THROW_TYPE_SPELL))
         {

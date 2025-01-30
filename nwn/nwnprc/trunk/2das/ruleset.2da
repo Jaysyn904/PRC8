@@ -29,7 +29,7 @@
 25  STUNNING_FIST_BASE_SAVE_DC                    10                                                                                                                 
 26  CRIPPLING_STRIKE_STRENGTH_MODIFIER            2                                                                                                                  
 27  ****                                          ****                                                                                                               
-28  PARRY_RIPOSTE_DIFFERENCE                      99                                                                                                                
+28  PARRY_RIPOSTE_DIFFERENCE                      99                                                                                                                 
 29  TAUNT_EFFECT_DURATION                         30.0f                                                                                                              
 30  TAUNT_ARCANE_SPELL_FAILURE                    30                                                                                                                 
 31  TAUNT_MAX_MODIFIER                            6                                                                                                                  
@@ -145,7 +145,7 @@
 141 STILL_MIND_COMPETANCE_BONUS                   2                                                                                                                  
 142 FEARLESS_MORALE_BONUS                         2                                                                                                                  
 143 RANGED_ATTACK_IN_MELEE_RANGE                  4                                                                                                                  
-144 POINT_BLANK_SHOT_MAX_RANGE                    5.0f                                                                                                               
+144 POINT_BLANK_SHOT_MAX_RANGE                    9.144f                                                                                                             
 145 POINT_BLANK_SHOT_ATTACK_BONUS                 1                                                                                                                  
 146 POINT_BLANK_SHOT_DAMAGE_BONUS                 1                                                                                                                  
 147 MOBILITY_DODGE_BONUS                          4                                                                                                                  
@@ -193,14 +193,14 @@
 189 RESIST_DISEASE_BONUS                          4                                                                                                                  
 190 FIRING_INTO_MELEE_MODIFIER                    -4                                                                                                                 
 191 RESISTANCE_TO_ENERGY                          5                                                                                                                  
-192 TUMBLE_NUM_RANKS_PER_AC_BONUS                 5                                                                                                                  
+192 TUMBLE_NUM_RANKS_PER_AC_BONUS                 0                                                                                                                  
 193 DIRTY_FIGHTING_NUM_ATTACKS_PER_ROUND          1                                                                                                                  
 194 DENEIRS_EYE_SAVE_BONUS                        2                                                                                                                  
 195 LLIIRAS_HEART_SAVE_BONUS                      2                                                                                                                  
 196 EXTRA_SMITING_BONUS_USES                      2                                                                                                                  
-197 SPELLCRAFT_NUM_RANKS_PER_SAVE_BONUS           5                                                                                                                  
+197 SPELLCRAFT_NUM_RANKS_PER_SAVE_BONUS           0                                                                                                                  
 198 ****                                          ****                                                                                                               
-199 MAX_AC_DODGE_MOD                              20                                                                                                                 
+199 MAX_AC_DODGE_MOD                              30                                                                                                                 
 200 ****                                          ****                                                                                                               
 201 PRESTIGE_ENCHANT_ARROW_1_BONUS                1                                                                                                                  
 202 PRESTIGE_ENCHANT_ARROW_2_BONUS                2                                                                                                                  

@@ -24,9 +24,15 @@ void main()
     SetNaturalWeaponDamage(oComp);
 
     object oCompSkin = GetPCSkin(oComp);
-
+	
+	effect eCheckEffect = GetFirstEffect(oPC);
+	while (GetIsEffectValid(eCheckEffect))
+	{
+		if(GetEffectTag(eCheckEffect) == "VoPFeat"+IntToString(FEAT_EXALTED_COMPANION))    SetLocalInt(oPC,"VoPFeat"+IntToString(FEAT_EXALTED_COMPANION),1);
+		eCheckEffect = GetNextEffect(oPC);
+	}
     //Exalted Companion
-    if((GetHasFeat(FEAT_EXALTED_COMPANION, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_EXALTED_COMPANION))) 
+    if((GetHasFeat(FEAT_EXALTED_COMPANION, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_EXALTED_COMPANION))) 
 	  && GetAlignmentGoodEvil(oPC) == ALIGNMENT_GOOD)
         ApplyExaltedCompanion(oComp, oCompSkin);
 

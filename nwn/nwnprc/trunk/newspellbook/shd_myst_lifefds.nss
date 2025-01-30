@@ -30,7 +30,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nDie = min(myst.nShadowcasterLevel, 5);
+        int nDie = PRCMin(myst.nShadowcasterLevel, 5);
         myst.fDur = RoundsToSeconds(myst.nShadowcasterLevel);
         if(myst.bExtend) myst.fDur *= 2;   
         myst.nPen = ShadowSRPen(oShadow, myst.nShadowcasterLevel);

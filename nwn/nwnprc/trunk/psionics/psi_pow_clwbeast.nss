@@ -102,7 +102,7 @@ void main()
     if(manif.bCanManifest)
     {
         // {0, 1, 2}, depending on the size of the creature
-        int nEffectiveSize        = max(min(PRCGetCreatureSize(oTarget), CREATURE_SIZE_LARGE), CREATURE_SIZE_SMALL) - CREATURE_SIZE_SMALL;
+        int nEffectiveSize        = PRCMax(PRCMin(PRCGetCreatureSize(oTarget), CREATURE_SIZE_LARGE), CREATURE_SIZE_SMALL) - CREATURE_SIZE_SMALL;
         int nClawSize             = nEffectiveSize + manif.nTimesAugOptUsed_1 + manif.nTimesAugOptUsed_2;
         int nBaseDamage;
         effect eVis               = EffectVisualEffect(VFX_IMP_PULSE_FIRE);

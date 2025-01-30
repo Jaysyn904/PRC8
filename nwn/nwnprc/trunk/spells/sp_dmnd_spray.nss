@@ -57,11 +57,11 @@ void main()
         {               
                 if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
                 {
-                        int nDam = d6(min(nCasterLvl,10));
+                        int nDam = d6(PRCMin(nCasterLvl,10));
                         
                         if(nMetaMagic & METAMAGIC_MAXIMIZE)
                         {
-                                nDam = 6 * (min(nCasterLvl, 10));
+                                nDam = 6 * (PRCMin(nCasterLvl, 10));
                         }
                         if(nMetaMagic & METAMAGIC_EMPOWER)
                         {
@@ -71,7 +71,7 @@ void main()
                         {
                                 fDur += fDur;
                         }
-                        nDam += SpellDamagePerDice(oPC, min(nCasterLvl, 10));
+                        nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl, 10));
                         if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_EVIL)
                         {
                                 nDC = PRCGetSaveDC(oTarget, oPC); 

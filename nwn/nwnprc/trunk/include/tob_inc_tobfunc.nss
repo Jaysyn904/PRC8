@@ -518,7 +518,7 @@ int GetInitiatorLevel(object oInitiator = OBJECT_SELF, int nSpecificClass = CLAS
 
     // A character with no initiator levels has an init level of 1/2 HD (min 1)
     if(!nLevel)
-        nLevel = max(1, nTotalHD/2);
+        nLevel = PRCMax(1, nTotalHD/2);
 
     // This spam is technically no longer necessary once the Initiator level getting mechanism has been confirmed to work
 //    if(DEBUG) FloatingTextStringOnCreature("Initiator Level: " + IntToString(nLevel), oInitiator, FALSE);
@@ -557,7 +557,7 @@ int GetHighestInitiatorLevel(object oCreature)
 
 /* int GetHighestInitiatorLevel(object oCreature)
 {
-    return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
+    return PRCMax(PRCMax(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetInitiatorLevel(oCreature, GetClassByPosition(3, oCreature)) : 0

@@ -48,7 +48,7 @@ void main()
         
         if (GetIsObjectValid(oWeapon))
         {
-        	int nBonus = min(nCasterLvl, 15)/3;
+        	int nBonus = PRCMin(nCasterLvl, 15)/3;
         	
         	//Simulating lawful as +3, so give +3 enhancement and penalty to damage and hit to offset
         	if(nBonus == 1)

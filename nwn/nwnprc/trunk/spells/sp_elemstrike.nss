@@ -59,7 +59,7 @@ void main()
     location lTarget = PRCGetSpellTargetLocation();
     int nSpellID = PRCGetSpellId();
     int nCasterLvl = PRCGetCasterLevel(oCaster);
-    int nDice = min(15, nCasterLvl);
+    int nDice = PRCMin(15, nCasterLvl);
     int nPenter = nCasterLvl + SPGetPenetr();
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDamageType, nImpVfx, nDamage, nDamage2;

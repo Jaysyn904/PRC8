@@ -43,7 +43,7 @@ void main()
 	int nCasterLvl = PRCGetCasterLevel(oPC);
 	float fDur= (600.0f * nCasterLvl);
 	int nMetaMagic = PRCGetMetaMagicFeat();
-	int nAmount = min(50, (5 * nCasterLvl));
+	int nAmount = PRCMin(50, (5 * nCasterLvl));
 	effect eDR = EffectDamageReduction(10, DAMAGE_POWER_PLUS_ONE, nAmount);
 	
 	//placeholder VFX

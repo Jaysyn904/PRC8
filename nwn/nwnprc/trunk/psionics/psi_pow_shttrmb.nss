@@ -64,7 +64,7 @@ void main()
     {
         int nDC          = GetManifesterDC(oManifester);
         int nPen         = GetPsiPenetration(oManifester);
-        int nDispelLevel = max(manif.nManifesterLevel, 20);
+        int nDispelLevel = PRCMax(manif.nManifesterLevel, 20);
         int nEffectSID, nRemoveDC;
         effect eVisLink  =                             EffectVisualEffect(VFX_IMP_BREACH);
                eVisLink  = EffectLinkEffects(eVisLink, EffectVisualEffect(VFX_FNF_DISPEL));

@@ -799,7 +799,7 @@ void CraftingHB(object oPC, object oItem, itemproperty ip, int nCost, int nXP, s
                 FloatingTextStringOnCreature("Crafting Failed!", oPC);
                 DeleteLocalInt(oPC, PRC_CRAFT_HB);
                 TakeGoldFromCreature(nCost, oPC, TRUE);
-                SetXP(oPC, max(GetXP(oPC) - nXP, GetHitDice(oPC) * (GetHitDice(oPC) - 1) * 500));   //can't delevel
+                SetXP(oPC, PRCMax(GetXP(oPC) - nXP, GetHitDice(oPC) * (GetHitDice(oPC) - 1) * 500));   //can't delevel
                 return;
             }
         }

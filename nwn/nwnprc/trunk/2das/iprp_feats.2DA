@@ -585,11 +585,11 @@
 581        16828014 DaylightAdaptation                                        0.01 4592      
 582        16835930 ACP_HEAVY_FEAT                                            0.01 3480      
 583        16835931 ACP_UNARMED_FEAT                                          0.01 3481      
-584        ****     ReservedForISCAndESS                                      **** ****      
-585        ****     ReservedForISCAndESS                                      **** ****      
-586        ****     ReservedForISCAndESS                                      **** ****      
-587        ****     ReservedForISCAndESS                                      **** ****      
-588        ****     ReservedForISCAndESS                                      **** ****      
+584        16823582 FEAT_AUGMENT_PSIONICS_QUICKSELECTS                        0.01 3550      
+585        16823584 FEAT_AUGMENT_PSIONICS_DIGITS_0_4                          0.01 3551      
+586        16823585 FEAT_AUGMENT_PSIONICS_DIGITS_5_9                          0.01 3552      
+587        16823586 FEAT_AUGMENT_PSIONICS_TENS                                0.01 3553      
+588        16823582 FEAT_AUGMENT_QUICKSELECTS_2                               0.01 3563      
 589        ****     ReservedForISCAndESS                                      **** ****      
 590        ****     ReservedForISCAndESS                                      **** ****      
 591        ****     ReservedForISCAndESS                                      **** ****      

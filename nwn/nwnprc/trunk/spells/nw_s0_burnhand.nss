@@ -48,7 +48,7 @@ void main()
     int nMetaMagic = PRCGetMetaMagicFeat();
     int EleDmg = ChangedElementalDamage(oCaster, DAMAGE_TYPE_FIRE);
     int nSaveType = ChangedSaveType(EleDmg);
-    int nDice = min(5, nCasterLevel);
+    int nDice = PRCMin(5, nCasterLevel);
     int nDamage;
     float fDist;
 

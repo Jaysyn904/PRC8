@@ -174,7 +174,7 @@ void ScryMain(object oPC, object oTarget)
         {
             // Caster level check or the Divination fails.
             // Max of 10
-            if(max(10, GetManifesterLevel(oTarget)) + 13 > nCasterLevel + d20())
+            if(PRCMax(10, GetManifesterLevel(oTarget)) + 13 > nCasterLevel + d20())
             {
                 FloatingTextStringOnCreature(GetName(oTarget) + " has Escape Detection active.", oPC, FALSE);
                 return;

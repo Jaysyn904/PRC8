@@ -63,21 +63,21 @@ void main()
 			
 			if((MyPRCGetRacialType(oTarget) == RACIAL_TYPE_OUTSIDER) && (nAlign == ALIGNMENT_EVIL))
 			{
-				nDam = d8(min(nCasterLvl, 20));
+				nDam = d8(PRCMin(nCasterLvl, 20));
 				
 				if(nMetaMagic & METAMAGIC_MAXIMIZE)
 				{
-					nDam = 8 * (min(nCasterLvl, 20));
+					nDam = 8 * (PRCMin(nCasterLvl, 20));
 				}
 			}
 			
 			else
 			{
-				nDam = d6(min(nCasterLvl, 20));
+				nDam = d6(PRCMin(nCasterLvl, 20));
 				
 				if(nMetaMagic & METAMAGIC_MAXIMIZE)
 				{
-					nDam = 6 * (min(nCasterLvl, 20));
+					nDam = 6 * (PRCMin(nCasterLvl, 20));
 				}
 			}		
 			
@@ -85,7 +85,7 @@ void main()
 			{
 				nDam += (nDam/2);
 			}
-			nDam += SpellDamagePerDice(oPC, min(nCasterLvl, 20));
+			nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl, 20));
 			//Save for 1/2
 			if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_EVIL))
 			{

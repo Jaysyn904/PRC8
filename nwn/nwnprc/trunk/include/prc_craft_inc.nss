@@ -188,15 +188,15 @@ int GetArmourCheckPenaltyReduction(object oItem)
         int nACPenalty = GetItemArmourCheckPenalty(oItem);
         if(nMaterial & PRC_CRAFT_FLAG_MASTERWORK)
         {
-            nBonus = min(1, nACPenalty);
+            nBonus = PRCMin(1, nACPenalty);
         }
         if(nMaterial & PRC_CRAFT_FLAG_DARKWOOD)
         {
-            nBonus = min(2, nACPenalty);
+            nBonus = PRCMin(2, nACPenalty);
         }
         if(nMaterial & PRC_CRAFT_FLAG_MITHRAL)
         {
-            nBonus = min(3, nACPenalty);
+            nBonus = PRCMin(3, nACPenalty);
         }
     }
     return nBonus;
@@ -986,7 +986,7 @@ int CheckGolemPrereq(object oPC, int nLine, int bEpic)
     int nLevel;
     int j = 0;
     //replace the arti level check later when PrCs are added
-    int nCasterLevel = max(max(max(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC)), GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC) + 2), GetLocalInt(oPC, "InvokerLevel"));
+    int nCasterLevel = PRCMax(PRCMax(PRCMax(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC)), GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC) + 2), GetLocalInt(oPC, "InvokerLevel"));
     int nManifesterLevel = GetManifesterLevel(oPC);
     int nTemp, nLength, nPosition;
     int bArtificer = (GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC) > 0);
@@ -999,7 +999,7 @@ int CheckGolemPrereq(object oPC, int nLine, int bEpic)
     else if(sPropertyType == "P")
         nLevel = nManifesterLevel;
     else
-        nLevel = max(nCasterLevel, nManifesterLevel);
+        nLevel = PRCMax(nCasterLevel, nManifesterLevel);
     if(!bEpic && Get2DACache(sFile, "Epic", nLine) == "1")
         return FALSE;
     else if(nLevel < StringToInt(Get2DACache(sFile, "Level", nLine)))
@@ -1051,7 +1051,7 @@ int CheckPrereq(object oPC, int nLine, int bEpic, string sFile, struct itemvars 
     int nLevel;
     int j = 0;
     //replace the arti level check later when PrCs are added
-    int nCasterLevel = max(max(max(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC)), GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC) + 2), GetLocalInt(oPC, "InvokerLevel"));
+    int nCasterLevel = PRCMax(PRCMax(PRCMax(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC)), GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC) + 2), GetLocalInt(oPC, "InvokerLevel"));
     nCasterLevel += GetLevelByClass(CLASS_TYPE_BATTLESMITH) * 3;
     nCasterLevel += GetLevelByClass(CLASS_TYPE_IRONSOUL_FORGEMASTER) * 3;
     int nManifesterLevel = GetManifesterLevel(oPC);
@@ -1064,7 +1064,7 @@ int CheckPrereq(object oPC, int nLine, int bEpic, string sFile, struct itemvars 
     else if(sPropertyType == "P")
         nLevel = nManifesterLevel;
     else
-        nLevel = max(nCasterLevel, nManifesterLevel);
+        nLevel = PRCMax(nCasterLevel, nManifesterLevel);
         
 	if (DEBUG) DoDebug("CheckPrereq: "+GetName(oPC)+" nLevel "+IntToString(nLevel)+" PropType "+sPropertyType+" Epic "+IntToString(bEpic)+" sFile "+sFile);
         
@@ -1187,7 +1187,7 @@ struct itemvars GetItemVars(object oPC, object oItem, string sFile, int bEpic = 
     int nEnhancement;
     int nSpellPattern;
     int nSpell1, nSpell2, nSpell3, nSpellOR1, nSpellOR2;
-    int nCasterLevel = max(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC));
+    int nCasterLevel = PRCMax(GetLevelByTypeArcane(oPC), GetLevelByTypeDivine(oPC));
     int nManifesterLevel = GetManifesterLevel(oPC);
     int nLevel;
     int nFileEnd = PRCGetFileEnd(sFile);

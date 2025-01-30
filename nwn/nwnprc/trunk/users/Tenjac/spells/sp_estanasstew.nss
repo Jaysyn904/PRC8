@@ -47,7 +47,7 @@ void main()
 	if (nSpell == SPELL_ESTANAS_STEW)
 	{
 		object oItem = CreateItemOnObject("prc_estanasstew", oPC, 1);
-		int nServings = min(5, (nCasterLvl/2));
+		int nServings = PRCMin(5, (nCasterLvl/2));
 		SetItemCharges(oItem, nServings);		
 	}
         

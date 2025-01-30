@@ -41,8 +41,8 @@ void main()
 
     //calculate DC for essence effects
     int nInvLevel = GetInvokerLevel(oPC, CLASS_TYPE_WARLOCK);
-    int nBlastLvl = min((nInvLevel + 1) / 2, 9);
-    nBlastLvl = max(max(nEssenceData & 0xF, nEssenceData2 & 0xF), nBlastLvl);
+    int nBlastLvl = PRCMin((nInvLevel + 1) / 2, 9);
+    nBlastLvl = PRCMax(PRCMax(nEssenceData & 0xF, nEssenceData2 & 0xF), nBlastLvl);
     int nDC = 10 + nBlastLvl + GetAbilityModifier(ABILITY_CHARISMA);
     if(GetHasFeat(FEAT_LORD_OF_ALL_ESSENCES)) nDC += 2;
 

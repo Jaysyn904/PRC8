@@ -13,6 +13,7 @@
 
 #include "moi_inc_moifunc"
 #include "prc_inc_clsfunc"
+#include "psi_inc_core"
 
 void DisablePowerAttack(object oPC);
 void PRCFeat_AddMagicalBonuses(object oPC, object oSkin);
@@ -253,7 +254,22 @@ void main()
     if(iEquip)
         PRCFeat_Equip(oPC, oSkin, iEquip);
 
+	//Checking VoP feats
+	int nTotalRows = Get2DARowCount("prc_vop_feats");
+	int nRow;
+	effect eCheckEffect = GetFirstEffect(oPC);
+	while (GetIsEffectValid(eCheckEffect))
+	{
+		for(nRow=0; nRow <= nTotalRows; nRow++)
+		{
+			string nFeat = Get2DAString("prc_vop_feats","FeatIndex",nRow);
+			if(GetEffectTag(eCheckEffect) == "VoPFeat"+nFeat)   SetLocalInt(oPC,"VoPFeat"+nFeat,1);
+		}
+		eCheckEffect = GetNextEffect(oPC);
+	}
+
     // Feats are checked here
+	
     //if(GetHasFeat(FEAT_SAC_VOW, oPC))                         ExecuteScript("prc_vows", oPC);
     //if(GetHasFeat(FEAT_LICHLOVED, oPC))                       ExecuteScript("prc_lichloved", oPC);
     if(GetHasFeat(FEAT_EB_HAND, oPC)  ||
@@ -296,10 +312,8 @@ void main()
     //if(GetHasFeat(FEAT_LINGERING_DAMAGE, oPC))                ExecuteScript("ft_lingdmg", oPC);
     //if(GetHasFeat(FEAT_MAGICAL_APTITUDE, oPC))                   ExecuteScript("prc_magaptitude", oPC);
     if(GetHasFeat(FEAT_ETERNAL_FREEDOM, oPC))                    ExecuteScript("etern_free", oPC);
-    if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))	
-	{
-																ExecuteScript("prc_intuiatk", oPC);
-	}
+	
+    if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))	ExecuteScript("prc_intuiatk", oPC);
     //if(GetPersistantLocalInt(oPC, "EpicSpell_TransVital"))       ExecuteScript("trans_vital", oPC);
     //if(GetHasFeat(FEAT_COMBAT_MANIFESTATION, oPC))               ExecuteScript("psi_combat_manif", oPC);
     //if(GetHasFeat(FEAT_WILD_TALENT, oPC))                        ExecuteScript("psi_wild_talent", oPC);
@@ -599,6 +613,16 @@ void PRCFeat_AddBonusFeats(object oPC, object oSkin)
 
     if(GetHasFeat(FEAT_WILD_TALENT, oPC))
         AddSkinFeat(FEAT_PSIONIC_FOCUS, IP_CONST_FEAT_PSIONIC_FOCUS, oSkin, oPC);
+	
+	if(IsHiddenTalent())
+	{
+		AddSkinFeat(FEAT_PSIONIC_FOCUS, IP_CONST_FEAT_PSIONIC_FOCUS, oSkin, oPC);
+		AddSkinFeat(FEAT_AUGMENT_PSIONICS_QUICKSELECTS, IP_CONST_FEAT_AUGMENT_PSIONICS_QUICKSELECTS, oSkin, oPC);
+		AddSkinFeat(FEAT_AUGMENT_PSIONICS_DIGITS_0_4, IP_CONST_FEAT_AUGMENT_PSIONICS_DIGITS_0_4, oSkin, oPC);
+		AddSkinFeat(FEAT_AUGMENT_PSIONICS_DIGITS_5_9, IP_CONST_FEAT_AUGMENT_PSIONICS_DIGITS_5_9, oSkin, oPC);
+		AddSkinFeat(FEAT_AUGMENT_PSIONICS_TENS, IP_CONST_FEAT_AUGMENT_PSIONICS_TENS, oSkin, oPC);		
+		AddSkinFeat(FEAT_AUGMENT_QUICKSELECTS_2, IP_CONST_FEAT_AUGMENT_QUICKSELECTS_2, oSkin, oPC);
+	}	
         
     if (GetTotalEssentia(oPC))
     	AddSkinFeat(FEAT_INVEST_ESSENTIA_CONV, IP_CONST_FEAT_INVEST_ESSENTIA_CONV, oSkin, oPC);
@@ -727,7 +751,12 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
 	
     if(GetSkillRank(SKILL_JUMP, oPC) > 4)
         SetCompositeBonus(oSkin, "SkillJTum", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_TUMBLE);
-
+	
+	if(GetHasFeat(FEAT_GIFTOFFAITH, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_GIFTOFFAITH)))
+	{
+		SetCompositeBonus(oSkin, "GiftOfFaith", 2, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_FEAR);
+	}
+	
     if(nAlignmentGoodEvil == ALIGNMENT_GOOD)
     {
         if(GetHasFeat(FEAT_SAC_VOW, oPC))
@@ -741,14 +770,22 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
 		
         if(nAlignmentLawChaos == ALIGNMENT_LAWFUL)
         {
-            if(GetHasFeat(FEAT_VOW_OBED, oPC))
+            if(GetHasFeat(FEAT_VOW_OBED, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_VOW_OBED)))
                 SetCompositeBonus(oSkin, "VowObed", 4, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEBASETYPE_WILL);
         }
-        if(GetHasFeat(FEAT_VOW_PURITY, oPC))
+        if(GetHasFeat(FEAT_VOW_PURITY, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_VOW_PURITY)))
         {
             SetCompositeBonus(oSkin, "VowPurity_De", 1, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_DEATH);
             SetCompositeBonus(oSkin, "VowPurity_Di", 1, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_DISEASE);
-        }        
+        }
+		if(GetHasFeat(FEAT_VOWABSTINENCE, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_VOWABSTINENCE)))
+        {
+            SetCompositeBonus(oSkin, "VowAbstinence", 4, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_POISON);
+        }       
+		if(GetHasFeat(FEAT_VOWCHASTITY, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_VOWCHASTITY)))
+        {
+            SetCompositeBonus(oSkin, "VowChastity", 4, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_MINDAFFECTING);
+        }  		
     }
     else if(nAlignmentGoodEvil == ALIGNMENT_EVIL)
     {

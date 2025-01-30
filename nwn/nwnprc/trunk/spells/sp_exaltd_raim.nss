@@ -44,7 +44,7 @@ Created:   6/28/06
 
 int GetERSpellResistance(int nCasterLvl)
 {
-    int nSRBonus = min(nCasterLvl, 20);
+    int nSRBonus = PRCMin(nCasterLvl, 20);
     int nIPConst;
 
     switch(nSRBonus)
@@ -81,7 +81,7 @@ void main()
     object oMyArmor = IPGetTargetedOrEquippedArmor(FALSE);
     int nCasterLvl = PRCGetCasterLevel(oPC);
     int nSR = GetERSpellResistance(nCasterLvl);
-    int nArmor = min(nCasterLvl / 5, 4);
+    int nArmor = PRCMin(nCasterLvl / 5, 4);
     float fDur = (60.0f * nCasterLvl);
     int nMetaMagic = PRCGetMetaMagicFeat();
 

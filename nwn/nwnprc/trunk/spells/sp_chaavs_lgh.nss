@@ -70,7 +70,7 @@ void main()
 	
 	effect eVilLink = EffectLinkEffects(EffectAttackDecrease(nModify, ATTACK_BONUS_MISC), EffectSavingThrowDecrease(SAVING_THROW_ALL, nModify, SAVING_THROW_TYPE_FEAR));
 	effect eGoodLink = EffectLinkEffects(EffectAttackIncrease(nModify, ATTACK_BONUS_MISC), EffectSavingThrowIncrease(SAVING_THROW_ALL, nModify, SAVING_THROW_TYPE_FEAR));
-	       eGoodLink = EffectLinkEffects(eGoodLink, EffectTemporaryHitpoints(d8(1) + min(20, nCasterLvl)));
+	       eGoodLink = EffectLinkEffects(eGoodLink, EffectTemporaryHitpoints(d8(1) + PRCMin(20, nCasterLvl)));
 	       
 	while(GetIsObjectValid(oTarget))
 	{

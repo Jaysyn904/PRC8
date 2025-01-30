@@ -323,7 +323,7 @@ int GetHighestShadowcasterLevel(object oCreature)
 
 /* int GetHighestShadowcasterLevel(object oCreature)
 {
-    return max(max(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetShadowcasterLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
+    return PRCMax(PRCMax(GetClassByPosition(1, oCreature) != CLASS_TYPE_INVALID ? GetShadowcasterLevel(oCreature, GetClassByPosition(1, oCreature)) : 0,
                    GetClassByPosition(2, oCreature) != CLASS_TYPE_INVALID ? GetShadowcasterLevel(oCreature, GetClassByPosition(2, oCreature)) : 0
                    ),
                GetClassByPosition(3, oCreature) != CLASS_TYPE_INVALID ? GetShadowcasterLevel(oCreature, GetClassByPosition(3, oCreature)) : 0

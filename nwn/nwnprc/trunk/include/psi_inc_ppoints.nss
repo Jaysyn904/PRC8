@@ -134,20 +134,23 @@ void LoseAllPowerPoints(object oChar, int bInform = TRUE);
  * @param oChar Character whose feats to evaluate
  * @return      The amount of Power Points gained from Feats
  */
-int _GetFeatBonusPP(object oChar){
+int _GetFeatBonusPP(object oChar)
+{
     int nBonusPP = 0;
 
-    // Normal feats
-    if(GetHasFeat(FEAT_WILD_TALENT, oChar))
+//:: Wild Talent & Hidden Talents
+    if(GetHasFeat(FEAT_WILD_TALENT, oChar) || IsHiddenTalent())
         nBonusPP += 2;
 
-    int i, nPsiTalents;
+//:: Psionic Feats
+	int i;
+    int nPsiTalents;
     for(i = FEAT_PSIONIC_TALENT_1; i <= FEAT_PSIONIC_TALENT_10; i++)
         if(GetHasFeat(i, oChar)) nPsiTalents++;
 
     nBonusPP += nPsiTalents * (2 + nPsiTalents + 1) / 2;
 
-    // Epic feats
+//:: Epic feats
     int nImpManifestations;
     for(i = FEAT_IMPROVED_MANIFESTATION_1; i <= FEAT_IMPROVED_MANIFESTATION_10; i++)
         if(GetHasFeat(i, oChar)) nImpManifestations++;

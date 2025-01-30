@@ -38,7 +38,7 @@ void main()
         int nCasterLvl = PRCGetCasterLevel(oCreator);
         float fDur =  HoursToSeconds(nCasterLvl)/6;        
         object oTarget = GetEnteringObject();
-        int nBonus = min(10, nCasterLvl);
+        int nBonus = PRCMin(10, nCasterLvl);
         
         if(GetFactionEqual(oCreator))
         {

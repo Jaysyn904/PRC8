@@ -2263,7 +2263,7 @@ int InnateCounterspell(object oCaster, int nSpellId, int nSpellLevel)
             // Set a marker on the Noctumancer at the right level
             if (GetLevelByClass(CLASS_TYPE_NOCTUMANCER) >= 7) 
             {
-                int nStore = min(1, nSpellLevel/2);
+                int nStore = PRCMin(1, nSpellLevel/2);
                 SetLocalInt(oShadow, "InnateCounterSuccess", nStore); 
                 FloatingTextStringOnCreature("You have one free mystery of "+IntToString(nStore)+" level", oShadow, FALSE);
             }  

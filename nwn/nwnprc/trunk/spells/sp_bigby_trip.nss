@@ -56,7 +56,7 @@ void main()
     int nAbilityScore = GetAbilityScoreForClass(nClassType, oPC);
 
     int nAttackBonus = (2 + nCasterLvl + (nAbilityScore - 10)/2 );
-    int nTripBonus = min(5,(nCasterLvl/3));
+    int nTripBonus = PRCMin(5,(nCasterLvl/3));
 
     int iAttackRoll = GetAttackRoll(oTarget, OBJECT_INVALID, OBJECT_INVALID, 0, nAttackBonus,0,nDisplayFeedback, 0.0, TOUCH_ATTACK_MELEE_SPELL);
     if (iAttackRoll > 0)
@@ -67,7 +67,7 @@ void main()
             //save
             if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, PRCGetSaveDC(oTarget, oPC), SAVING_THROW_TYPE_SPELL))
             {
-                int nOpposing = d20() + (max(GetAbilityModifier(ABILITY_STRENGTH, oTarget), GetAbilityModifier(ABILITY_DEXTERITY, oTarget))) + EvalSizeBonus(oTarget);
+                int nOpposing = d20() + (PRCMax(GetAbilityModifier(ABILITY_STRENGTH, oTarget), GetAbilityModifier(ABILITY_DEXTERITY, oTarget))) + EvalSizeBonus(oTarget);
                 int nCheck    = d20() + 2 + nTripBonus;
 
                 if(nCheck > nOpposing)

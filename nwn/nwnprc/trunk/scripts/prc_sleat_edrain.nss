@@ -229,7 +229,7 @@ void DoDeathDependent(object oEater, object oTarget, string sResRef, string sNam
                 object oSlave = CreateObject(OBJECT_TYPE_CREATURE, "soul_wight_test", lSpawn);
                 if(GetIsObjectValid(oSlave))
                 {
-                    SetMaxHenchmen(max(nMaxHenchmen, i)); // Temporarily set the number of max henchmen high enough that we can add another
+                    SetMaxHenchmen(PRCMax(nMaxHenchmen, i)); // Temporarily set the number of max henchmen high enough that we can add another
                     AddHenchman(oEater, oSlave);
                     SetMaxHenchmen(nMaxHenchmen);
 

@@ -27,7 +27,7 @@ void main()
 
     if(myst.bCanMyst)
     {
-        int nAmount = min(120, myst.nShadowcasterLevel * 10);
+        int nAmount = PRCMin(120, myst.nShadowcasterLevel * 10);
         myst.eLink = EffectLinkEffects(EffectDamageResistance(DAMAGE_TYPE_COLD, nAmount, nAmount), EffectVisualEffect(VFX_DUR_PROTECTION_ENERGY_COLD));
         myst.eLink = EffectLinkEffects(myst.eLink, EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_COLD));
                

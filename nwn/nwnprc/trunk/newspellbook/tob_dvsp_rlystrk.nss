@@ -46,7 +46,7 @@ void TOBAttack(object oTarget, object oInitiator, struct maneuver move)
                 if(GetIsFriend(oTarget, oInitiator))
                 {
                     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
-                    int nHeal = d6(3) + min(move.nInitiatorLevel, 50);
+                    int nHeal = d6(3) + PRCMin(move.nInitiatorLevel, 50);
                     SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nHeal), oTarget);
                     ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HEALING_L_LAW), oTarget);
                 }

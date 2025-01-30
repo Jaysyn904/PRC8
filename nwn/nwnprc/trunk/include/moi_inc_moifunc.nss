@@ -204,7 +204,7 @@ int GetIncarnumLevelForClass(int nSpecificClass, object oMeldshaper)
 
 int GetHighestMeldshaperLevel(object oMeldshaper)
 {
-    /**return max(max(GetClassByPosition(1, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(1, oMeldshaper), -1) : 0,
+    /**return PRCMax(PRCMax(GetClassByPosition(1, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(1, oMeldshaper), -1) : 0,
                    GetClassByPosition(2, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(2, oMeldshaper), -1) : 0
                    ),
                GetClassByPosition(3, oMeldshaper) != CLASS_TYPE_INVALID ? GetMeldshaperLevel(oMeldshaper, GetClassByPosition(3, oMeldshaper), -1) : 0
@@ -354,7 +354,7 @@ int GetMaxShapeSoulmeldCount(object oMeldshaper, int nClass)
 	int nCon = GetAbilityScore(oMeldshaper, ABILITY_CONSTITUTION, TRUE)-10;
 	if (GetHasFeat(FEAT_UNDEAD_MELDSHAPER, oMeldshaper)) nCon = GetAbilityScore(oMeldshaper, ABILITY_WISDOM, TRUE)-10;
 	//Limited to Con score - 10 or class limit, whichever is less
-	nMax = min(nMax, nCon);	
+	nMax = PRCMin(nMax, nCon);	
 	
     //if (DEBUG) DoDebug("GetMaxShapeSoulmeldCount is "+IntToString(nMax));
     return nMax;
@@ -856,7 +856,7 @@ void InvestEssentia(object oMeldshaper, int nMeld, int nEssentia)
 	}
 	int nClass = GetMeldShapedClass(oMeldshaper, nMeld);
 	// Special capacity of 1/2 class level
-	if (nMeld == MELD_SPINE_ENHANCEMENT) nEssentia = min(nEssentia, (GetLevelByClass(CLASS_TYPE_SPINEMELD_WARRIOR, oMeldshaper)/2));
+	if (nMeld == MELD_SPINE_ENHANCEMENT) nEssentia = PRCMin(nEssentia, (GetLevelByClass(CLASS_TYPE_SPINEMELD_WARRIOR, oMeldshaper)/2));
 	else if (nEssentia > GetMaxEssentiaCapacity(oMeldshaper, nClass, nMeld)) nEssentia = GetMaxEssentiaCapacity(oMeldshaper, nClass, nMeld);
 	// Can't invest more than you have
 	if (nEssentia > GetTotalUsableEssentia(oMeldshaper)) nEssentia = GetTotalUsableEssentia(oMeldshaper);
@@ -1176,7 +1176,7 @@ int GetMaxEssentiaCapacityFeat(object oMeldshaper)
 	else if (nHD >= 6) nMax = 2;
 	
 	if (GetLocalInt(oMeldshaper, "DivineSoultouch")) nMax += 1;
-	if (GetLocalInt(oMeldshaper, "IncandescentOverload")) nMax += max(GetAbilityModifier(ABILITY_CHARISMA, oMeldshaper), 1);
+	if (GetLocalInt(oMeldshaper, "IncandescentOverload")) nMax += PRCMax(GetAbilityModifier(ABILITY_CHARISMA, oMeldshaper), 1);
 	if (GetHasFeat(FEAT_IMPROVED_ESSENTIA_CAPACITY, oMeldshaper)) nMax += 1;
 	
 	// Don't allow more than they have

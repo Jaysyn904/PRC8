@@ -60,7 +60,7 @@ void main()
     {    
         if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oShadow))
         {
-            int nDamage = d6() + min(10, nCasterLvl);
+            int nDamage = d6() + PRCMin(10, nCasterLvl);
             nDamage += SpellDamagePerDice(oShadow, 1);
             ApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, DAMAGE_TYPE_SLASHING, nDamage), oTarget);
         }

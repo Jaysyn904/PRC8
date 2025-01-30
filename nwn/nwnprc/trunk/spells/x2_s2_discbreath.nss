@@ -149,7 +149,7 @@ void main()
 
     //Sets the save DC for Dragon Breath attacks.  This is a reflex save to halve the damage.
     //Save is 10+CON+1/2 DD level.  Gains +1 at level 13, and every 3 levels after.
-    int nSaveDCBonus = ((nLevel)/2) + max((nLevel - 10) / 3, 0);
+    int nSaveDCBonus = ((nLevel)/2) + PRCMax((nLevel - 10) / 3, 0);
 
     //Sets damage levels for Dragon Breath attacks.  2d10 at level 3,
     //4d10 at level 7, and then an additional 2d10 every 3 levels (10, 13, 16, ect)

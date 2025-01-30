@@ -37,9 +37,9 @@ void main()
         //--------------------------------------------------------------------------
         // Dispel Magic is capped at caster level 10
         //--------------------------------------------------------------------------
-        int nCasterLevel = min(myst.nShadowcasterLevel, 10);
+        int nCasterLevel = PRCMin(myst.nShadowcasterLevel, 10);
         if (myst.nMystId == MYST_SHADOWS_FADE_GREATER)
-            nCasterLevel = min(myst.nShadowcasterLevel, 20);
+            nCasterLevel = PRCMin(myst.nShadowcasterLevel, 20);
         
         if (GetIsObjectValid(oTarget))
         {

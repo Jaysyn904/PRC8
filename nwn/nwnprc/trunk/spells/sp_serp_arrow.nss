@@ -44,7 +44,7 @@ void main()
         object oPC = OBJECT_SELF;
         object oTarget = PRCGetSpellTargetObject();
         int nStack = GetItemStackSize(oTarget);
-        int nCreate = min(8, nStack);
+        int nCreate = PRCMin(8, nStack);
         SetItemStackSize(oTarget, (nStack - nCreate));
         string sSerp;
 

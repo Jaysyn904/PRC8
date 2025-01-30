@@ -62,11 +62,11 @@ void main()
 					SPApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectBlindness(), oTarget);
 				}
 				
-				int nDam = d6(min(nCasterLvl, 20));
+				int nDam = d6(PRCMin(nCasterLvl, 20));
 				
 				if(nMetaMagic & METAMAGIC_MAXIMIZE)
 				{
-					nDam = 6 *(min(nCasterLvl, 20));
+					nDam = 6 *(PRCMin(nCasterLvl, 20));
 				}
 				
 				if(nMetaMagic & METAMAGIC_EMPOWER)
@@ -78,7 +78,7 @@ void main()
 				{
 					nDam = nDam/2;
 				}
-				nDam += SpellDamagePerDice(oPC, min(nCasterLvl, 20));
+				nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl, 20));
 				SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);
 			}
 		}

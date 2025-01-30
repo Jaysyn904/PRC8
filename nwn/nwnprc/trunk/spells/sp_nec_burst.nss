@@ -51,7 +51,7 @@ void main()
 
 
     object oPC = OBJECT_SELF;
-    int nLevel = min(PRCGetCasterLevel(oPC), 15);
+    int nLevel = PRCMin(PRCGetCasterLevel(oPC), 15);
     int nMetaMagic = PRCGetMetaMagicFeat();
     object oTarget = PRCGetSpellTargetObject();
 

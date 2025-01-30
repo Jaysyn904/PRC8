@@ -60,7 +60,7 @@ void main()
         float fDur =  60.0f * (nCasterLvl);
         int nMetaMagic = PRCGetMetaMagicFeat();
         if(nMetaMagic & METAMAGIC_EXTEND) fDur += fDur;
-        int nTargets = min(6, nCasterLvl/2);
+        int nTargets = PRCMin(6, nCasterLvl/2);
                 
         AllyCheck(oPC, fDur);
         

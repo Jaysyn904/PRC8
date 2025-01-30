@@ -55,12 +55,12 @@ void main()
     //SR
     if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()) && PRCGetIsAliveCreature(oTarget))
     {
-            int nDam = d4(min(nCasterLvl, 10));
+            int nDam = d4(PRCMin(nCasterLvl, 10));
 
             //eval metamagic
             if(nMetaMagic & METAMAGIC_MAXIMIZE)
             {
-                    nDam = 4 * (min(nCasterLvl, 10));
+                    nDam = 4 * (PRCMin(nCasterLvl, 10));
             }
 
             if(nMetaMagic & METAMAGIC_EMPOWER)
@@ -73,7 +73,7 @@ void main()
             {
                     nDam = nDam/2;
             }
-			nDam += SpellDamagePerDice(oPC, min(nCasterLvl, 10));
+			nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl, 10));
             effect eVis = EffectVisualEffect(VFX_FNF_GAS_EXPLOSION_GREASE);
 
             //Apply damage & visual

@@ -1,0 +1,110 @@
+Here is a list of all the identified psionic functions along with a brief synopsis of their parameters and what they represent:
+From psi_inc_core.txt
+
+- GetPowerLevel(object oManifester)
+  - oManifester: The creature object manifesting power. This function retrieves the psionic power level of the creature.
+  
+  
+From psi_inc_psifunc.txt
+
+- EvaluateManifestation(object oManifester, object oTarget, struct power_augment_profile pap, int nMetaPsiFlags)
+  - oManifester: The creature that is attempting to manifest the power.
+  - oTarget: The target of the power.
+  - pap: A structure containing parameters outlining how the power may be augmented.
+  - nMetaPsiFlags: Bit flags indicating which metapsionic powers might apply during this manifestation.
+  
+- UsePower(int nPower, int nClass, int bIsPsiLike = FALSE, int nLevelOverride = 0)
+    - nPower: Identifier of the psionic power to use.
+    - nClass: Class identifier from which the power is being used.
+    - bIsPsiLike: Boolean flag specifying whether the power being used should be treated as a psi-like ability.
+	- nLevelOverride: Optional parameter to override the default power level.
+	
+- DebugManifestation2Str(struct manifestation manif)
+      - manif: Struct containing data about the current psionic manifestation—used to generate a string for debugging purposes.
+	  
+- SetLocalManifestation(object oObject, string sName, struct manifestation manif)
+        - oObject, sName: Target object and the string name under which this data is stored.		
+        - manif: Data about the current psionic manifestation to store.
+		
+- GetLocalManifestation(object oObject, string sName)
+          - oObject and sName: Retrieve stored manifestation data from the object using the given name.
+		  
+- DebugIgnoreConstraints(object oManifester)
+            - oManifester: Creature to ignore psionic constraints for debugging.
+			
+- EvaluateDiaDragChannel(object oManifester, object oTarget, struct power_augment_profile pap, int nPowerLevel)
+              - Similar to EvaluateManifestation but tailored for specific channeling functionality in psionics.
+			  
+			  
+From psi_inc_metapsi.txt
+
+- EvaluateMetapsionics(struct manifestation manif, int nMetaPsiFlags)
+  - Describes how metapsionic modifications affect the current psionic power manifestation.
+  
+- PayMetapsionicsFocuses(struct manifestation manif)
+    - Calculates costs in terms of psionic focuses for using metapsionic modifications.
+	
+- MetaPsionicsDamage(struct manifestation manif, int nDieSize, int nNumberOfDice, int nBonus = 0, int nBonusPerDie = 0, int bDoesHPDamage = FALSE, int bIsRayOrRangedTouch = FALSE)
+      - Calculates how metapsionics affect the damage output of a psionic power.
+	  
+- EvaluateWidenPower(struct manifestation manif, float fBase)
+        - Determines the effect of the "Widen Power" metapsionic on the area of effect size.
+		
+- EvaluateChainPower(struct manifestation manif, object oPrimaryTarget, int bAutoDelete = TRUE)
+          - Builds a list of secondary targets for chained psionic powers.
+		  
+- GetSplitPsionicRayTarget(struct manifestation manif, object oPrimaryTarget)
+            - Identifies an additional target for the "Split Psionic Ray" metapsionic.
+			
+			
+From psi_inc_augment.txt
+
+- PowerAugmentationProfile(...)
+  - Sets up a profile detailing how a psionic power can be augmented.
+  
+- GetUserAugmentationProfile(object oUser, int nIndex, int bQuickSelection = FALSE)
+    - Retrieves a user-defined configuration of how they want their psionic power augmented.
+	
+- GetCurrentUserAugmentationProfile(object oUser)
+      - Retrieves the current, active augmentation profile for a user.
+	  
+- StoreUserAugmentationProfile(object oUser, int nIndex, struct user_augment_profile uap, int bQuickSelection = FALSE)
+        - Stores or updates a psionic augmentation configuration.
+		
+- UserAugmentationProfileToString(struct user_augment_profile uap)
+          - Converts an augmentation profile to a human-readable string.
+		  
+- EvaluateAugmentation(struct manifestation manif, struct power_augment_profile pap)
+            - Applies user-defined augmentations to a psionic power manifestation to adjust its effects.
+			
+- SetAugmentationOverride(object oCreature, struct user_augment_profile uap)
+              - Allows overriding the current augmentation settings forcibly.
+			  
+			  
+From psi_inc_ppoints.txt
+
+- GetCurrentPowerPoints(object oChar)
+  - Retrieves the current power points of a character.
+  
+- GetMaximumPowerPoints(object oChar)
+    - Calculates the maximum power points a character can have.
+	
+- GetPowerPointsAsString(object oChar)
+      - Gets a string representation of both current and maximum power points.
+	  
+- TellCharacterPowerPointStatus(object oChar)
+        - Displays a character’s power points.
+		
+- ResetPowerPoints(object oChar)
+          - Resets a character’s power points to maximum.
+		  
+- GainPowerPoints(object oChar, int nGain, int bCanExceedMax = FALSE, int bInform = TRUE)
+            - Increases a character’s power points, possibly beyond the maximum.
+			
+- LosePowerPoints(object oChar, int nLoss, int bInform = TRUE)
+              - Deducts from a character’s power points without going below zero.
+			  
+- LoseAllPowerPoints(object oChar, int bInform = TRUE)
+                - Sets a character’s power points to zero, including notification.
+				
+These functions manage various aspects of psionic powers in the game, including their initialization, application, augmentation, power points management, and interactions with metapsionic abilities.

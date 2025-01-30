@@ -29,7 +29,7 @@ void main()
     location lTarget = PRCGetSpellTargetLocation();
     int nCasterLvl = PRCGetCasterLevel(oCaster);
     int nPenetr = nCasterLvl + SPGetPenetr();
-    int nDice = min(nCasterLvl, 5);
+    int nDice = PRCMin(nCasterLvl, 5);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int EleDmg = ChangedElementalDamage(oCaster, DAMAGE_TYPE_COLD);
     int nSaveType = ChangedSaveType(EleDmg);

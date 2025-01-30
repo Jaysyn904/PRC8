@@ -453,7 +453,7 @@ void CreateSpiritualWeapon(object oCaster, float fDuration, int nClass)
 	int iCasterLvL	= PRCGetCasterLevel(oCaster);
 	int nBAB		= GetBaseAttackBonus(oCaster);	
 	int nAttNumber	= 1+(nBAB / 4);
-	int nDamBonus	= min(5, iCasterLvL / 3);
+	int nDamBonus	= PRCMin(5, iCasterLvL / 3);
 	int nPenetr 	= iCasterLvL + SPGetPenetr();
 	int nStat		= nClass == CLASS_TYPE_INVALID ?
 						GetAbilityModifier(ABILITY_CHARISMA, oCaster) ://:: if cast from items use charisma by default
@@ -804,7 +804,7 @@ void HandleSpiritualWeaponUnequipEvent()
 	int nCasterLevel	= PRCGetCasterLevel(oCaster);
 	int nDuration		= nCasterLevel;
 	int nPenetr			= nCasterLevel + SPGetPenetr();
-	int nDamBonus		= min(5, nCasterLevel / 3);		
+	int nDamBonus		= PRCMin(5, nCasterLevel / 3);		
 	float fDuration 	= IntToFloat(nDuration);
         
 	// Log the event for debugging

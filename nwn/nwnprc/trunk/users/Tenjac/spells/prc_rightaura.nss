@@ -16,7 +16,7 @@
 void main()
 {	
 	object oPC = OBJECT_SELF;
-	int nDice = min(20, PRCGetCasterLevel(oPC) * 2);
+	int nDice = PRCMin(20, PRCGetCasterLevel(oPC) * 2);
 	location lLoc = GetLocation(oPC);
 	ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_STRIKE_HOLY), lLoc);
 	object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(20), lLoc, FALSE, OBJECT_TYPE_CREATURE);

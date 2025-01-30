@@ -73,7 +73,7 @@ void CheckForPnPHolyAvenger(object oItem);
 void _prc_inc_itmrstr_ApplySpeedIncrease(object oPC)
 {
     // Get target speed modification value. Limit to 99, since that's the effect constructor maximum value
-    int nSpeedMod = min(99, GetLocalInt(oPC, PLAYER_SPEED_INCREASE));
+    int nSpeedMod = PRCMin(99, GetLocalInt(oPC, PLAYER_SPEED_INCREASE));
     object oSkin = GetPCSkin(oPC);
 
     AssignCommand(oSkin, _prc_inc_itmrstr_ApplySpeedModification(oPC, EFFECT_TYPE_MOVEMENT_SPEED_INCREASE, nSpeedMod));

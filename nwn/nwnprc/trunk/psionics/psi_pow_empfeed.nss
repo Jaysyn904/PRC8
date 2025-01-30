@@ -101,7 +101,7 @@ void main()
             {
                 int nMaxDamage   = GetLocalInt(oManifester, EMPATHIC_FEEDBACK_VARNAME);
                 int nDamageTaken = GetTotalDamageDealt();
-                int nDamage      = min(nMaxDamage, nDamageTaken);
+                int nDamage      = PRCMin(nMaxDamage, nDamageTaken);
 
                 // Use positive damage, it's unlikelier to be resisted than magic damage
                 effect eDamage = EffectDamage(nDamage, DAMAGE_TYPE_POSITIVE);

@@ -75,21 +75,21 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_ABJURATION);
 
     switch (nSpellID)
     {
-        case SPELL_GLYPH_OF_WARDING_ACID:                nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = min((nCasterLevel /2), 5);  nVfx = VFX_FNF_EXPLOSION_ACID; break;
-        case SPELL_GLYPH_OF_WARDING_COLD:                nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = min((nCasterLevel /2), 5);  nVfx = VFX_FNF_EXPLOSION_COLD; break;
-        case SPELL_GLYPH_OF_WARDING_ELECTRICITY:         nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = min((nCasterLevel /2), 5);  nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
-        case SPELL_GLYPH_OF_WARDING_FIRE:                nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = min((nCasterLevel /2), 5);  nVfx = VFX_FNF_FIREBALL; break;
-        case SPELL_GLYPH_OF_WARDING_SONIC:               nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = min((nCasterLevel /2), 5);  nVfx = VFX_FNF_SOUND_BURST; break;
-        case SPELL_GREATER_GLYPH_OF_WARDING_ACID:        nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = min((nCasterLevel /2), 10); nVfx = VFX_FNF_EXPLOSION_ACID; break;
-        case SPELL_GREATER_GLYPH_OF_WARDING_COLD:        nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = min((nCasterLevel /2), 10); nVfx = VFX_FNF_EXPLOSION_COLD; break;
-        case SPELL_GREATER_GLYPH_OF_WARDING_ELECTRICITY: nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = min((nCasterLevel /2), 10); nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
-        case SPELL_GREATER_GLYPH_OF_WARDING_FIRE:        nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = min((nCasterLevel /2), 10); nVfx = VFX_FNF_FIREBALL; break;
-        case SPELL_GREATER_GLYPH_OF_WARDING_SONIC:       nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = min((nCasterLevel /2), 10); nVfx = VFX_FNF_SOUND_BURST; break;
-        case SPELL_ELDER_GLYPH_OF_WARDING_ACID:          nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = min(nCasterLevel, 30);      nVfx = VFX_FNF_EXPLOSION_ACID; break;
-        case SPELL_ELDER_GLYPH_OF_WARDING_COLD:          nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = min(nCasterLevel, 30);      nVfx = VFX_FNF_EXPLOSION_COLD; break;
-        case SPELL_ELDER_GLYPH_OF_WARDING_ELECTRICITY:   nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = min(nCasterLevel, 30);      nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
-        case SPELL_ELDER_GLYPH_OF_WARDING_FIRE:          nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = min(nCasterLevel, 30);      nVfx = VFX_FNF_FIREBALL; break;
-        case SPELL_ELDER_GLYPH_OF_WARDING_SONIC:         nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = min(nCasterLevel, 30);      nVfx = VFX_FNF_SOUND_BURST; break;
+        case SPELL_GLYPH_OF_WARDING_ACID:                nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = PRCMin((nCasterLevel /2), 5);  nVfx = VFX_FNF_EXPLOSION_ACID; break;
+        case SPELL_GLYPH_OF_WARDING_COLD:                nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = PRCMin((nCasterLevel /2), 5);  nVfx = VFX_FNF_EXPLOSION_COLD; break;
+        case SPELL_GLYPH_OF_WARDING_ELECTRICITY:         nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = PRCMin((nCasterLevel /2), 5);  nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
+        case SPELL_GLYPH_OF_WARDING_FIRE:                nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = PRCMin((nCasterLevel /2), 5);  nVfx = VFX_FNF_FIREBALL; break;
+        case SPELL_GLYPH_OF_WARDING_SONIC:               nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = PRCMin((nCasterLevel /2), 5);  nVfx = VFX_FNF_SOUND_BURST; break;
+        case SPELL_GREATER_GLYPH_OF_WARDING_ACID:        nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = PRCMin((nCasterLevel /2), 10); nVfx = VFX_FNF_EXPLOSION_ACID; break;
+        case SPELL_GREATER_GLYPH_OF_WARDING_COLD:        nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = PRCMin((nCasterLevel /2), 10); nVfx = VFX_FNF_EXPLOSION_COLD; break;
+        case SPELL_GREATER_GLYPH_OF_WARDING_ELECTRICITY: nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = PRCMin((nCasterLevel /2), 10); nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
+        case SPELL_GREATER_GLYPH_OF_WARDING_FIRE:        nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = PRCMin((nCasterLevel /2), 10); nVfx = VFX_FNF_FIREBALL; break;
+        case SPELL_GREATER_GLYPH_OF_WARDING_SONIC:       nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = PRCMin((nCasterLevel /2), 10); nVfx = VFX_FNF_SOUND_BURST; break;
+        case SPELL_ELDER_GLYPH_OF_WARDING_ACID:          nDamageType = DAMAGE_TYPE_ACID;       nSaveType = SAVING_THROW_TYPE_ACID;        nDice = PRCMin(nCasterLevel, 30);      nVfx = VFX_FNF_EXPLOSION_ACID; break;
+        case SPELL_ELDER_GLYPH_OF_WARDING_COLD:          nDamageType = DAMAGE_TYPE_COLD;       nSaveType = SAVING_THROW_TYPE_COLD;        nDice = PRCMin(nCasterLevel, 30);      nVfx = VFX_FNF_EXPLOSION_COLD; break;
+        case SPELL_ELDER_GLYPH_OF_WARDING_ELECTRICITY:   nDamageType = DAMAGE_TYPE_ELECTRICAL; nSaveType = SAVING_THROW_TYPE_ELECTRICITY; nDice = PRCMin(nCasterLevel, 30);      nVfx = VFX_FNF_ELECTRIC_EXPLOSION; break;
+        case SPELL_ELDER_GLYPH_OF_WARDING_FIRE:          nDamageType = DAMAGE_TYPE_FIRE;       nSaveType = SAVING_THROW_TYPE_FIRE;        nDice = PRCMin(nCasterLevel, 30);      nVfx = VFX_FNF_FIREBALL; break;
+        case SPELL_ELDER_GLYPH_OF_WARDING_SONIC:         nDamageType = DAMAGE_TYPE_SONIC;      nSaveType = SAVING_THROW_TYPE_SONIC;       nDice = PRCMin(nCasterLevel, 30);      nVfx = VFX_FNF_SOUND_BURST; break;
     }
 
     nDice = nDice < 1 ? 1 : nDice;

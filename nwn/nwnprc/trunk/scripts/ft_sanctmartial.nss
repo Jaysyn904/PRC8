@@ -1,5 +1,6 @@
 #include "prc_inc_clsfunc"
 #include "psi_inc_soulkn"
+#include "prc_inc_combat"
 
 
 // Sanctify_Feat(iType);
@@ -467,7 +468,6 @@ void main()
             //Vile();
             UnholyStrike();
         }
-
     }
     else if (GetAlignmentGoodEvil(oPC)!= ALIGNMENT_EVIL)
     {
@@ -532,7 +532,63 @@ void main()
             Sanctify();
             MartialStrike();
         }
-
+		
+		if(GetIsUnarmed(oPC))
+		{
+			effect eCheckEffect = GetFirstEffect(oPC);
+			while (GetIsEffectValid(eCheckEffect))
+			{
+				if(GetEffectTag(eCheckEffect) == "VoPFeat"+IntToString(FEAT_SANCTIFYKISTRIKE))   SetLocalInt(oPC,"VoPFeat"+IntToString(FEAT_SANCTIFYKISTRIKE),1);
+				if(GetEffectTag(eCheckEffect) == "VoPFeat"+IntToString(FEAT_HOLYKISTRIKE))       SetLocalInt(oPC,"VoPFeat"+IntToString(FEAT_HOLYKISTRIKE),1);
+				eCheckEffect = GetNextEffect(oPC);
+			}
+			// Sanctify Strike
+			if (GetHasFeat(FEAT_SANCTIFYKISTRIKE, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_SANCTIFYKISTRIKE)))
+			{	
+				effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_1,DAMAGE_TYPE_POSITIVE),ALIGNMENT_ALL,ALIGNMENT_EVIL);
+				effect eEffect2 = VersusRacialTypeEffect(EffectDamageIncrease(DAMAGE_BONUS_1d4,DAMAGE_TYPE_POSITIVE),RACIAL_TYPE_OUTSIDER);
+				effect eLink    = EffectLinkEffects(eEffect1,eEffect2);
+					   eLink    = TagEffect(eLink,"SanctifyKiStrike");
+				
+				//Remove any prior bonus to avoid duplication
+				effect eCheckEffect = GetFirstEffect(oPC);
+				while (GetIsEffectValid(eCheckEffect))
+				{
+					if(GetEffectTag(eCheckEffect) == "SanctifyKiStrike") RemoveEffect(oPC, eCheckEffect);
+					eCheckEffect = GetNextEffect(oPC);
+				}
+				
+				//Give player the bonus
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC); 	
+			}
+			
+			// Holy Ki Strike
+			if (GetHasFeat(FEAT_HOLYKISTRIKE, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_HOLYKISTRIKE)))
+			{
+				effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2d6,DAMAGE_TYPE_POSITIVE),ALIGNMENT_ALL,ALIGNMENT_EVIL);
+					   eEffect1 = TagEffect(eEffect1,"HolyKiStrike");
+				
+				//Remove any prior bonus to avoid duplication and remove Sanctify Ki Strike
+				effect eCheckEffect = GetFirstEffect(oPC);
+				while (GetIsEffectValid(eCheckEffect))
+				{
+					if(GetEffectTag(eCheckEffect) == "SanctifyKiStrike" || GetEffectTag(eCheckEffect) == "HolyKiStrike") RemoveEffect(oPC, eCheckEffect);
+					eCheckEffect = GetNextEffect(oPC);
+				}
+				
+				//Give player the bonus
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEffect1, oPC); 	
+			}
+		}
+		else
+		{
+			effect eCheckEffect = GetFirstEffect(oPC);
+			while (GetIsEffectValid(eCheckEffect))
+			{
+				if(GetEffectTag(eCheckEffect) == "SanctifyKiStrike" || GetEffectTag(eCheckEffect) == "HolyKiStrike") RemoveEffect(oPC, eCheckEffect);
+				eCheckEffect = GetNextEffect(oPC);
+			}
+		}
     }
 
     Vile();

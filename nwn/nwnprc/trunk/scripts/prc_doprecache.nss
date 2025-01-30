@@ -212,7 +212,7 @@ void handleCraftProperties2da(string s2da, int row = 0)
 void handleCraftItems2da(int row = 0)
 {
     int max;
-    for(max = min(row + 25, PRCGetFileEnd("prc_craft_gen_it")); row < max; row++)
+    for(max = PRCMin(row + 25, PRCGetFileEnd("prc_craft_gen_it")); row < max; row++)
     {
         DoDebug("Handling prc_craft_gen_it row " + IntToString(row));
 

@@ -36,7 +36,7 @@ void main()
     int nMetaMagic = PRCGetMetaMagicFeat();
     int EleDmg = ChangedElementalDamage(oCaster, DAMAGE_TYPE_FIRE);
     int nSaveType = ChangedSaveType(EleDmg);
-    int nDice = min(15, nCasterLvl);
+    int nDice = PRCMin(15, nCasterLvl);
 
     int nDamage, nDamage2;
     effect eStrike = EffectVisualEffect(VFX_IMP_DIVINE_STRIKE_FIRE);

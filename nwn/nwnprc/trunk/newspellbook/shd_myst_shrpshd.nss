@@ -62,7 +62,7 @@ void main()
         	int nDam = d6();
         	if (GetLocalInt(oShadow, "SharpShadMax")) nDam = 6;
         	if (GetLocalInt(oShadow, "SharpShadEmp")) nDam += nDam/2;
-        	nDam += min(15, GetShadowcasterLevel(oShadow, CLASS_TYPE_SHADOWCASTER));
+        	nDam += PRCMin(15, GetShadowcasterLevel(oShadow, CLASS_TYPE_SHADOWCASTER));
         	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_MAGMAG), oTarget);    
         	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_PIERCING), oTarget);    
         }	

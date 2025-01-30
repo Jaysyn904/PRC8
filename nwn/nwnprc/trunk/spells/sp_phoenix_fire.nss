@@ -95,18 +95,18 @@ void main()
                         if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_EVIL)
                         {
                                 //Damage = 2d6/level
-                                nDam = d6(min(40, (2 * nCasterLvl)));
+                                nDam = d6(PRCMin(40, (2 * nCasterLvl)));
                                 
                                 if(nMetaMagic & METAMAGIC_MAXIMIZE)
                                 {                       
-                                        nDam = 6 * (min(40, (2 * nCasterLvl)));
+                                        nDam = 6 * (PRCMin(40, (2 * nCasterLvl)));
                                 }
                                 
                                 if(nMetaMagic & METAMAGIC_EMPOWER)
                                 {
                                         nDam += (nDam/2);
                                 }
-                                nDam += SpellDamagePerDice(oPC, min(40, (2 * nCasterLvl)));
+                                nDam += SpellDamagePerDice(oPC, PRCMin(40, (2 * nCasterLvl)));
                                 //Reflex save for 1/2 damage
                                 if(PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_GOOD))
                                 {
@@ -126,18 +126,18 @@ void main()
                         else if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_NEUTRAL)
                         {
                                 //Half damage for neutrality, Damage = 1d6
-                                nDam = d6(min(20,nCasterLvl));
+                                nDam = d6(PRCMin(20,nCasterLvl));
                                 
                                 if(nMetaMagic & METAMAGIC_MAXIMIZE)
                                 {                       
-                                        nDam = 6 * (min(20,nCasterLvl));
+                                        nDam = 6 * (PRCMin(20,nCasterLvl));
                                 }
                                 
                                 if(nMetaMagic & METAMAGIC_EMPOWER)
                                 {
                                         nDam += (nDam/2);
                                 }
-                                nDam += SpellDamagePerDice(oPC, min(20, nCasterLvl));
+                                nDam += SpellDamagePerDice(oPC, PRCMin(20, nCasterLvl));
                                 //Reflex for further 1/2
                                 if(PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_GOOD))
                                 {

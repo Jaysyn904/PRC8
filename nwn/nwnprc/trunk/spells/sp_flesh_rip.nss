@@ -42,7 +42,7 @@ void main()
         int nMetaMagic = PRCGetMetaMagicFeat();
         int nType = MyPRCGetRacialType(oPC);
         int nType2 = MyPRCGetRacialType(oTarget);
-        int nDice = min(10, nCasterLvl);
+        int nDice = PRCMin(10, nCasterLvl);
 
         PRCSignalSpellEvent(oTarget,TRUE, SPELL_FLESH_RIPPER, oPC);
 

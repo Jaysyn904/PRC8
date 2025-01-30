@@ -80,7 +80,7 @@ void main()
         if(DEBUG) DoDebug("Destruction Retribution firing. Dead creature = " + DebugObject2Str(oDead));
 
         int nDamage;
-        int nDice = max(1, GetHitDice(oDead) / 2); // (hd / 2)d6, min 1d6
+        int nDice = PRCMax(1, GetHitDice(oDead) / 2); // (hd / 2)d6, min 1d6
         float fDelay;
         effect eExplode = EffectVisualEffect(VFX_FNF_LOS_EVIL_10); //Replace with Negative Pulse
         effect eVis     = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);

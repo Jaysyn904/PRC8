@@ -63,19 +63,19 @@ void main()
 	
 	while(GetIsObjectValid(oTarget))
 	{
-		nDam = d6(min(nCasterLvl/2, 10));
+		nDam = d6(PRCMin(nCasterLvl/2, 10));
 		nDC = PRCGetSaveDC(oTarget, oPC);
 			
 		if(nMetaMagic & METAMAGIC_MAXIMIZE)
 		{
-			nDam = 6 * (min(nCasterLvl/2, 10));
+			nDam = 6 * (PRCMin(nCasterLvl/2, 10));
 		}
 		
 		if(nMetaMagic & METAMAGIC_EMPOWER)
 		{
 			nDam += (nDam/2);
 		}
-		nDam += SpellDamagePerDice(oPC, min(nCasterLvl/2, 10));
+		nDam += SpellDamagePerDice(oPC, PRCMin(nCasterLvl/2, 10));
 		if(PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
 		{
 			nDam = (nDam/2);

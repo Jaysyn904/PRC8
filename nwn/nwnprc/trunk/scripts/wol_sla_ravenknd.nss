@@ -40,7 +40,7 @@ void main()
             nCasterLevel = 5;
             nSpell = SPELL_FLARE;
             nUses = 999;
-            nDC = max(10, 10 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
+            nDC = PRCMax(10, 10 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
             break;
         }         
         case WOL_RAVENKIND_DETECT_UNDEAD:
@@ -55,7 +55,7 @@ void main()
             nCasterLevel = 10;
             nSpell = SPELL_HALT_UNDEAD;
             nUses = 2;
-            nDC = max(14, 13 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
+            nDC = PRCMax(14, 13 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
             break;
         }        
         case WOL_RAVENKIND_CURE:
@@ -63,7 +63,7 @@ void main()
             nCasterLevel = 5;
             nSpell = SPELL_CURE_LIGHT_WOUNDS;
             nUses = 3;
-            nDC = max(11, 11 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
+            nDC = PRCMax(11, 11 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
             break;
         } 
         case WOL_RAVENKIND_DAYLIGHT:
@@ -92,7 +92,7 @@ void main()
             nCasterLevel = 20;
             nSpell = SPELL_MASS_HEAL;
             nUses = 3;
-            nDC = max(23, 19 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
+            nDC = PRCMax(23, 19 + GetAbilityModifier(ABILITY_CHARISMA, oPC));                          
             break;
         }        
     }    

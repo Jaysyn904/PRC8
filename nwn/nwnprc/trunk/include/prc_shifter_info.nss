@@ -183,7 +183,7 @@ int _prc_inc_GetItemACBonus(object oItem)
     while(GetIsItemPropertyValid(iProp))
     {
         if(GetItemPropertyType(iProp) == ITEM_PROPERTY_AC_BONUS && GetItemPropertyDurationType(iProp) == DURATION_TYPE_PERMANENT)
-            nArmorBonus = max(nArmorBonus, GetItemPropertyCostTableValue(iProp)); //TODO: pick the biggest? the first? stack them?
+            nArmorBonus = PRCMax(nArmorBonus, GetItemPropertyCostTableValue(iProp)); //TODO: pick the biggest? the first? stack them?
         iProp = GetNextItemProperty(oItem);
     }    
     return nArmorBonus;
@@ -238,18 +238,18 @@ struct _prc_inc_ac_info_struct _prc_inc_ACInfo(object oTemplate)
     ac_info.nNaturalBonus = GetItemACValue(GetItemInSlot(INVENTORY_SLOT_NECK, oTemplate));
 
     ac_info.nDeflectionBonus = GetItemACValue(GetItemInSlot(INVENTORY_SLOT_HEAD, oTemplate));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CLOAK, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_RIGHTRING, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_LEFTRING, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BELT, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_ARROWS, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BULLETS, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BOLTS, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oTemplate)));
-    ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CARMOUR, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CLOAK, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_RIGHTRING, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_LEFTRING, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BELT, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_ARROWS, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BULLETS, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BOLTS, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oTemplate)));
+    ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CARMOUR, oTemplate)));
 
     object oOffHandItem = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oTemplate);
     ac_info.nShieldBase = 0;
@@ -269,7 +269,7 @@ struct _prc_inc_ac_info_struct _prc_inc_ACInfo(object oTemplate)
             ac_info.nShieldBonus = GetItemACValue(oOffHandItem) - ac_info.nShieldBase;
             break;
         default: //A weapon
-            ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(oOffHandItem));
+            ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(oOffHandItem));
             break;
     }
     
@@ -277,11 +277,11 @@ struct _prc_inc_ac_info_struct _prc_inc_ACInfo(object oTemplate)
     switch (GetBaseItemType(oArmsItem))
     {
         case BASE_ITEM_BRACER:
-            ac_info.nShieldBonus = max(ac_info.nShieldBonus, GetItemACValue(oArmsItem));
+            ac_info.nShieldBonus = PRCMax(ac_info.nShieldBonus, GetItemACValue(oArmsItem));
             break;
         case BASE_ITEM_GLOVES:
         default:
-            ac_info.nDeflectionBonus = max(ac_info.nDeflectionBonus, GetItemACValue(oArmsItem));
+            ac_info.nDeflectionBonus = PRCMax(ac_info.nDeflectionBonus, GetItemACValue(oArmsItem));
             break;
     }
     
@@ -296,7 +296,7 @@ struct _prc_inc_ac_info_struct _prc_inc_ACInfo(object oTemplate)
     if (ac_info.nShieldBonus > 20)
         ac_info.nShieldBonus = 20;
         
-    ac_info.nDEXBonus = min(GetAbilityModifier(ABILITY_DEXTERITY, oTemplate), _prc_inc_GetArmorMaxDEXBonus(oArmorItem));
+    ac_info.nDEXBonus = PRCMin(GetAbilityModifier(ABILITY_DEXTERITY, oTemplate), _prc_inc_GetArmorMaxDEXBonus(oArmorItem));
     //TODO: make sure this isn't < 0?
     
     return ac_info;
@@ -416,43 +416,43 @@ int _prc_inc_shifting_ShifterLevelRequirement(object oTemplate)
 
     // Size tests
     if(nSize >= CREATURE_SIZE_HUGE)
-        nLevelRequired = max(nLevelRequired, 7);
+        nLevelRequired = PRCMax(nLevelRequired, 7);
     if(nSize == CREATURE_SIZE_LARGE)
-        nLevelRequired = max(nLevelRequired, 3);
+        nLevelRequired = PRCMax(nLevelRequired, 3);
     if(nSize == CREATURE_SIZE_MEDIUM)
-        nLevelRequired = max(nLevelRequired, 1);
+        nLevelRequired = PRCMax(nLevelRequired, 1);
     if(nSize == CREATURE_SIZE_SMALL)
-        nLevelRequired = max(nLevelRequired, 1);
+        nLevelRequired = PRCMax(nLevelRequired, 1);
     if(nSize <= CREATURE_SIZE_TINY)
-        nLevelRequired = max(nLevelRequired, 3);
+        nLevelRequired = PRCMax(nLevelRequired, 3);
 
     // Type tests
     if(nRacialType == RACIAL_TYPE_OUTSIDER)
-        nLevelRequired = max(nLevelRequired, 9);
+        nLevelRequired = PRCMax(nLevelRequired, 9);
     if(nRacialType == RACIAL_TYPE_ELEMENTAL)
-        nLevelRequired = max(nLevelRequired, 9);
+        nLevelRequired = PRCMax(nLevelRequired, 9);
     if(nRacialType == RACIAL_TYPE_CONSTRUCT)
-        nLevelRequired = max(nLevelRequired, 8);
+        nLevelRequired = PRCMax(nLevelRequired, 8);
     if(nRacialType == RACIAL_TYPE_UNDEAD)
-        nLevelRequired = max(nLevelRequired, 8);
+        nLevelRequired = PRCMax(nLevelRequired, 8);
     if(nRacialType == RACIAL_TYPE_DRAGON)
-        nLevelRequired = max(nLevelRequired, 7);
+        nLevelRequired = PRCMax(nLevelRequired, 7);
     if(nRacialType == RACIAL_TYPE_ABERRATION)
-        nLevelRequired = max(nLevelRequired, 6);
+        nLevelRequired = PRCMax(nLevelRequired, 6);
     if(nRacialType == RACIAL_TYPE_OOZE)
-        nLevelRequired = max(nLevelRequired, 6);
+        nLevelRequired = PRCMax(nLevelRequired, 6);
     if(nRacialType == RACIAL_TYPE_MAGICAL_BEAST)
-        nLevelRequired = max(nLevelRequired, 5);
+        nLevelRequired = PRCMax(nLevelRequired, 5);
     if(nRacialType == RACIAL_TYPE_GIANT)
-        nLevelRequired = max(nLevelRequired, 4);
+        nLevelRequired = PRCMax(nLevelRequired, 4);
     if(nRacialType == RACIAL_TYPE_VERMIN)
-        nLevelRequired = max(nLevelRequired, 4);
+        nLevelRequired = PRCMax(nLevelRequired, 4);
     if(nRacialType == RACIAL_TYPE_BEAST)
-        nLevelRequired = max(nLevelRequired, 3);
+        nLevelRequired = PRCMax(nLevelRequired, 3);
     if(nRacialType == RACIAL_TYPE_ANIMAL)
-        nLevelRequired = max(nLevelRequired, 2);
+        nLevelRequired = PRCMax(nLevelRequired, 2);
     if(nRacialType == RACIAL_TYPE_HUMANOID_MONSTROUS)
-        nLevelRequired = max(nLevelRequired, 2);
+        nLevelRequired = PRCMax(nLevelRequired, 2);
     if(nRacialType == RACIAL_TYPE_DWARF              ||
        nRacialType == RACIAL_TYPE_ELF                ||
        nRacialType == RACIAL_TYPE_GNOME              ||
@@ -463,7 +463,7 @@ int _prc_inc_shifting_ShifterLevelRequirement(object oTemplate)
        nRacialType == RACIAL_TYPE_HUMANOID_ORC       ||
        nRacialType == RACIAL_TYPE_HUMANOID_REPTILIAN
        )
-        nLevelRequired = max(nLevelRequired, 1);
+        nLevelRequired = PRCMax(nLevelRequired, 1);
         
     return nLevelRequired;
 }

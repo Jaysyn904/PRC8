@@ -29,7 +29,7 @@ void main()
   	if(!BindAbilCooldown(oBinder, GetSpellId(), VESTIGE_BUER)) return;
   	object oTarget = PRCGetSpellTargetObject();
   	int nBinderLevel = GetBinderLevel(oBinder, VESTIGE_BUER);
-  	int nHeal = d8() + min(nBinderLevel, 10);
+  	int nHeal = d8() + PRCMin(nBinderLevel, 10);
   	
   	if(PRCGetIsAliveCreature(oTarget))
   	{

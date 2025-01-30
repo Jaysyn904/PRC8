@@ -82,7 +82,7 @@ void main()
                         int nNormHP = GetCurrentHitPoints(oTarget);
 
                         //Apply effects
-                        effect eSarc = EffectLinkEffects(EffectTemporaryHitpoints(10 * min(20, nCasterLvl)), EffectCutsceneParalyze());
+                        effect eSarc = EffectLinkEffects(EffectTemporaryHitpoints(10 * PRCMin(20, nCasterLvl)), EffectCutsceneParalyze());
                                eSarc = EffectLinkEffects(eSarc, EffectVisualEffect(VFX_DUR_PROTECTION_GOOD_MAJOR));
 
                         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSarc, oTarget, fDur, TRUE, PRCGetSpellId(), nCasterLvl);

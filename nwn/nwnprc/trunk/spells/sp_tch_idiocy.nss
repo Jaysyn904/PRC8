@@ -80,9 +80,9 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 			    fDur += fDur;
 		    }
 		    
-		    int nDamInt = min(nDam, (GetAbilityScore(oTarget, ABILITY_INTELLIGENCE) - 1));
-		    int nDamWis = min(nDam, (GetAbilityScore(oTarget, ABILITY_WISDOM) - 1));
-		    int nDamCha = min(nDam, (GetAbilityScore(oTarget, ABILITY_CHARISMA) - 1));
+		    int nDamInt = PRCMin(nDam, (GetAbilityScore(oTarget, ABILITY_INTELLIGENCE) - 1));
+		    int nDamWis = PRCMin(nDam, (GetAbilityScore(oTarget, ABILITY_WISDOM) - 1));
+		    int nDamCha = PRCMin(nDam, (GetAbilityScore(oTarget, ABILITY_CHARISMA) - 1));
 		    
 		    ApplyAbilityDamage(oTarget, ABILITY_INTELLIGENCE, nDamInt, DURATION_TYPE_TEMPORARY, TRUE, fDur, TRUE, oCaster);
 		    ApplyAbilityDamage(oTarget, ABILITY_WISDOM, nDamWis, DURATION_TYPE_TEMPORARY, TRUE, fDur, TRUE, oCaster);

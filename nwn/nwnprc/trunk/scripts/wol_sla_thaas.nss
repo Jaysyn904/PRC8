@@ -64,7 +64,7 @@ void main()
             nCasterLevel = 15;
             nSpell = SPELL_BANISHMENT;
             nUses = 1;
-            nDC = max(20, 17 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
+            nDC = PRCMax(20, 17 + GetAbilityModifier(ABILITY_CHARISMA, oPC));            
             break;
         } 
         case WOL_THAAS_TELEPORT:

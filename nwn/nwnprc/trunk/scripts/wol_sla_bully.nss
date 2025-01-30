@@ -84,7 +84,7 @@ void main()
                 if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
                 {
                    //ActionCastSpell(SPELL_TOUCH_OF_IDIOCY, 5, 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, TRUE, oTarget);
-                   DoRacialSLA(SPELL_CHAIN_LIGHTNING, 15, max(19, 16 + GetAbilityModifier(ABILITY_CHARISMA, oPC)), TRUE);
+                   DoRacialSLA(SPELL_CHAIN_LIGHTNING, 15, PRCMax(19, 16 + GetAbilityModifier(ABILITY_CHARISMA, oPC)), TRUE);
                    SetLegacyUses(oPC, nSLA);
                 }   
             } 

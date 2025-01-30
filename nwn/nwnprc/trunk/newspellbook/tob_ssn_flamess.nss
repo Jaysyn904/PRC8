@@ -71,7 +71,7 @@ void main()
         oItem = GetSpellCastItem();
         if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
         {
-            int nCold = min(10, GetDamageDealtByType(DAMAGE_TYPE_COLD));
+            int nCold = PRCMin(10, GetDamageDealtByType(DAMAGE_TYPE_COLD));
             if(nCold > 0)
             {
             effect eHeal = EffectHeal(nCold);

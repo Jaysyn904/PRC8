@@ -1680,7 +1680,7 @@ void main()
             string sPsiFile = GetAMSKnownFileName(nClass);
             int nMaxLevel = StringToInt(Get2DACache(sPsiFile, "MaxPowerLevel", nLevel));
 
-            int nPsiHighest = min(nMaxLevel, nAbility - 10);
+            int nPsiHighest = PRCMin(nMaxLevel, nAbility - 10);
 
             for(nSpellLevel = 1; nSpellLevel <= nPsiHighest; nSpellLevel++)
             {
@@ -1700,8 +1700,8 @@ void main()
             int nAbility = GetAbilityScoreForClass(nClass, oPC);
             string sShdFile = GetAMSKnownFileName(nClass);
 
-            int nShdHighest = max(GetMaxMysteryLevelLearnable(oPC, nClass, 1), GetMaxMysteryLevelLearnable(oPC, nClass, 2));
-                nShdHighest = max(nShdHighest, GetMaxMysteryLevelLearnable(oPC, nClass, 3));
+            int nShdHighest = PRCMax(GetMaxMysteryLevelLearnable(oPC, nClass, 1), GetMaxMysteryLevelLearnable(oPC, nClass, 2));
+                nShdHighest = PRCMax(nShdHighest, GetMaxMysteryLevelLearnable(oPC, nClass, 3));
 
             for(nSpellLevel = 1; nSpellLevel <= nShdHighest; nSpellLevel++)
             {

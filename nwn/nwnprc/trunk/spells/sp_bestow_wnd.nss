@@ -45,7 +45,7 @@ void main()
     int nCasterLvl = PRCGetCasterLevel(oPC);
     int nCasterMaxHP = GetMaxHitPoints(oPC);
     int nCasterCurrentHP = GetCurrentHitPoints(oPC);
-    int nDam = min((nCasterMaxHP - nCasterCurrentHP), nCasterLvl);
+    int nDam = PRCMin((nCasterMaxHP - nCasterCurrentHP), nCasterLvl);
     int nDC = PRCGetSaveDC(oTarget, oPC);
 
     PRCSignalSpellEvent(oTarget, TRUE, SPELL_BESTOW_WOUND, oPC);

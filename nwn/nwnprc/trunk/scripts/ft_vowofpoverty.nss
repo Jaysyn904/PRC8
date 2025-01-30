@@ -145,23 +145,6 @@ void main()
 		//Give player the bonus, regardless of the weapon
 		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC); 	
 		
-		//Apply Golden Ice effect if unarmed and has feat
-		if(GetIsUnarmed(oPC) && (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC) || GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(FEAT_RAVAGEGOLDENICE))))
-		{
-			itemproperty ip1 = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2);
-				         ip1 = TagItemProperty(ip1,"GoldenIce");
-			IPSafeAddItemProperty(oPC,ip1,0.0,X2_IP_ADDPROP_POLICY_REPLACE_EXISTING,FALSE,FALSE);
-		}
-		else
-		{
-			itemproperty eCheckIPL = GetFirstItemProperty(oPC);
-			while (GetIsItemPropertyValid(eCheckIPL))
-			{
-				if(GetItemPropertyTag(eCheckIPL) == "GoldenIce")   RemoveItemProperty(oPC,ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_RAVAGEGOLDENICE,2));
-				eCheckIPL = GetNextItemProperty(oPC);
-			}
-		}
-		
 		// For some reason, EVENT_ONPLAYEREQUIPITEM just works with weapons, so it is better to check all other items for magic elsewhere		
 		for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots
 		{

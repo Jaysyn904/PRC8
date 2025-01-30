@@ -329,7 +329,7 @@ int FavouredSoul()
                     + GetHasFeat(FEAT_FAVOURED_SOUL_FIRE)
                     + GetHasFeat(FEAT_FAVOURED_SOUL_SONIC);
 
-        if(nEnergy != min(3, nFS / 5))
+        if(nEnergy != PRCMin(3, nFS / 5))
         {
             FloatingTextStringOnCreature("You must select an Energy Resistance Feat. Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
@@ -769,11 +769,11 @@ int SkillRequirements()
 
 int CraftingFeats()
 {
-    int nCasterLvl     = max(GetCasterLvl(TYPE_ARCANE), GetCasterLvl(TYPE_DIVINE)),
+    int nCasterLvl     = PRCMax(GetCasterLvl(TYPE_ARCANE), GetCasterLvl(TYPE_DIVINE)),
         nManifesterLvl = GetManifesterLevel(OBJECT_SELF, GetPrimaryPsionicClass()),
         nInvokerLvl    = GetInvokerLevel(OBJECT_SELF, GetPrimaryInvocationClass()),
-        nCasterMax     = max(nCasterLvl, nInvokerLvl),
-        nMax           = max(nCasterMax, nManifesterLvl),
+        nCasterMax     = PRCMax(nCasterLvl, nInvokerLvl),
+        nMax           = PRCMax(nCasterMax, nManifesterLvl),
         nArti          = GetLevelByClass(CLASS_TYPE_ARTIFICER),
         nBattle        = GetLevelByClass(CLASS_TYPE_BATTLESMITH),
         nIron          = GetLevelByClass(CLASS_TYPE_IRONSOUL_FORGEMASTER);
@@ -1546,7 +1546,7 @@ int Shaman()
                 + GetHasFeat(FEAT_BLIND_FIGHT)
                 + GetHasFeat(FEAT_DEFLECT_ARROWS);
 
-          if(nIS < min(5, (nClass/4)))
+          if(nIS < PRCMin(5, (nClass/4)))
           {
                FloatingTextStringOnCreature("You do not have the correct amount of bonus feats. Please reselect your feats.", OBJECT_SELF, FALSE);
                return TRUE;

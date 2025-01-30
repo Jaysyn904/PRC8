@@ -80,7 +80,7 @@ void main()
         effect eImpact = EffectVisualEffect(VFX_FNF_SCINTILLATING_PATTERN);
         ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, lTarget, 0.0f);
         
-        int nHD = min(nCasterLvl, 20);
+        int nHD = PRCMin(nCasterLvl, 20);
         float fDistance;
         int bContinueLoop, nCurrentHD, nLow;
         object oLowest;        

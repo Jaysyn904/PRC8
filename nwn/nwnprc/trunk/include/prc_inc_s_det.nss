@@ -193,7 +193,7 @@ void DetectAlignmentRound(int nRound, location lLoc, int nGoodEvil, int nLawChao
             {
                 //presence/absence
                 //ApplyEffectDetectAuraOnObject(AURA_STRENGTH_MODERATE, oCaster, nBeamVFX);
-                FloatingTextStringOnCreature(GetRGB(15,5,5) + GetStringByStrRef(16832001)// "You detect the presense of"
+                FloatingTextStringOnCreature(PRCGetRGB(15,5,5) + GetStringByStrRef(16832001)// "You detect the presense of"
                                              + " " + (nLawChaos != -1 ? // "good" and "evil" work as both substantives and adjectives, but not so for "lawful" and "chaotic"
                                                       (nLawChaos == ALIGNMENT_LAWFUL ?
                                                        GetStringByStrRef(4957)   // "law"
@@ -253,7 +253,7 @@ void DetectAlignmentRound(int nRound, location lLoc, int nGoodEvil, int nLawChao
             else if(nRound >= 3)
             {
                 if(nRound == 3)
-                    ActionDoCommand(FloatingTextStringOnCreature(GetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " " + GetStringByStrRef(16832044)/*"feels"*/ + " "+GetNounForStrength(nStrength)+" "+sAura+".", oCaster, FALSE));
+                    ActionDoCommand(FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " " + GetStringByStrRef(16832044)/*"feels"*/ + " "+GetNounForStrength(nStrength)+" "+sAura+".", oCaster, FALSE));
                 //strength & location
                 ActionDoCommand(ApplyEffectDetectAuraOnObject(nStrength, oTest, nBeamVFX));
             }
@@ -264,7 +264,7 @@ void DetectAlignmentRound(int nRound, location lLoc, int nGoodEvil, int nLawChao
     {
         //reporting
         //ApplyEffectDetectAuraOnObject(nStrongestAura, oCaster, nBeamVFX);
-        FloatingTextStringOnCreature(GetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " " + sAura + " " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
+        FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " " + sAura + " " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
     }
 
     //ActionPlayAnimation(ANIMATION_LOOPING_MEDITATE, 1.0, 6.0);
@@ -371,7 +371,7 @@ void DetectMagicAura(int nRound, location lLoc, int nBeamVFX, float fDist)
             else if(nRound >= 3)
             {
                 if(nRound == 3)
-                    ActionDoCommand(FloatingTextStringOnCreature(GetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " feels affected by "+GetNounForStrength(nStrength)+" magic.", oCaster, FALSE));
+                    ActionDoCommand(FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " feels affected by "+GetNounForStrength(nStrength)+" magic.", oCaster, FALSE));
                 //strength & location
                 ActionDoCommand(ApplyEffectDetectAuraOnObject(nStrength, oTest, nBeamVFX));
             }
@@ -382,7 +382,7 @@ void DetectMagicAura(int nRound, location lLoc, int nBeamVFX, float fDist)
     {
         //reporting
         //ApplyEffectDetectAuraOnObject(nStrongestAura, oCaster, nBeamVFX);
-        FloatingTextStringOnCreature(GetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " magical " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
+        FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " magical " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
     }
 
     //ActionPlayAnimation(ANIMATION_LOOPING_MEDITATE, 1.0, 6.0);
@@ -475,7 +475,7 @@ void DetectRaceAura(int nRound, int nRace, location lLoc, int nBeamVFX, float fD
             else if(nRound >= 3)
             {
                 if(nRound == 3)
-                    ActionDoCommand(FloatingTextStringOnCreature(GetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " finds the greatest aura is "+GetNounForStrength(nStrength)+".", oCaster, FALSE));
+                    ActionDoCommand(FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrength*3),16-(nStrength*3)) + GetName(oTest) + " finds the greatest aura is "+GetNounForStrength(nStrength)+".", oCaster, FALSE));
                 //strength & location
                 ActionDoCommand(ApplyEffectDetectAuraOnObject(nStrength, oTest, nBeamVFX));
             }
@@ -486,7 +486,7 @@ void DetectRaceAura(int nRound, int nRace, location lLoc, int nBeamVFX, float fD
     {
         //reporting
         //ApplyEffectDetectAuraOnObject(nStrongestAura, oCaster, nBeamVFX);
-        FloatingTextStringOnCreature(GetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " racial " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
+        FloatingTextStringOnCreature(PRCGetRGB(15,16-(nStrongestAura*3),16-(nStrongestAura*3)) + GetStringByStrRef(16832045)/*"You detected"*/ + " " + IntToString(nAuraCount) + " " + GetNounForStrength(nStrongestAura) + " racial " + GetStringByStrRef(16832046)/*"auras"*/ + ".", oCaster, FALSE);
     }
 
     //ActionPlayAnimation(ANIMATION_LOOPING_MEDITATE, 1.0, 6.0);

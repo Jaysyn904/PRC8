@@ -981,7 +981,7 @@ int GetAttacks(int iBAB, int iHD)
 // this is the Bioware implementation, which includes BAB from other classes and caps at 6
 int GetMonkAttacks(int iBAB, int iHD)
 {
-    return ((iHD > 20) ? min(6,((iBAB - (iHD-17)/2)/3 +1)) : min(6,((iBAB-1) / 3 +1)));
+    return ((iHD > 20) ? PRCMin(6,((iBAB - (iHD-17)/2)/3 +1)) : PRCMin(6,((iBAB-1) / 3 +1)));
 }
 
 int GetPnPMonkAttacks(int iMonkLevel)
@@ -3038,7 +3038,7 @@ int GetDefenderAC(object oDefender, object oAttacker, int bIsTouchAttack = FALSE
 
         // Wilders get to add cha bonus to touch attacks only, but cannot exceed normal AC that way
         if(GetHasFeat(FEAT_WILDER_ELUDE_TOUCH, oDefender))
-            iAC = min(iAC + GetAbilityModifier(ABILITY_CHARISMA, oDefender), nNormalAC);
+            iAC = PRCMin(iAC + GetAbilityModifier(ABILITY_CHARISMA, oDefender), nNormalAC);
     }
     //if (DEBUG) DoDebug("GetDefenderAC: End Section #5");
     return iAC;
@@ -4880,7 +4880,7 @@ DoDebug("GetWeaponBonusDamage() found onhitcastspell with Spell type: " + IntToS
         iDamage = iDamageDarkfire + iDamageFlameWeapon;
     else
         // otherwise we take the maximum
-        iDamage = max(iDamageDarkfire, iDamageFlameWeapon);
+        iDamage = PRCMax(iDamageDarkfire, iDamageFlameWeapon);
     if(iDamage)
     {
         // now either (if stacking) add the spell's fire damage to any other fire damage that is already on the weapon,
@@ -4888,7 +4888,7 @@ DoDebug("GetWeaponBonusDamage() found onhitcastspell with Spell type: " + IntToS
         if(bStack)
             iDamage += GetDamageByConstant(weapBonusDam.dam_Fire, TRUE);
         else
-            iDamage = max(GetDamageByConstant(weapBonusDam.dam_Fire, TRUE), iDamage);
+            iDamage = PRCMax(GetDamageByConstant(weapBonusDam.dam_Fire, TRUE), iDamage);
 
         if(iDamage > 20) iDamage = 20; // make sure that the damage does not exceed 20
         // convert integer damage back to DamageBonusConstant

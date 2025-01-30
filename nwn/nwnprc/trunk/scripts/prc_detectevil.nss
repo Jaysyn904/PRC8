@@ -20,6 +20,6 @@ void main()
     int nStk = GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER);
     int nPal = GetLevelByClass(CLASS_TYPE_PALADIN);
     
-    int nLevel = max(nPal, max(nStk, nSlayer));
+    int nLevel = PRCMax(nPal, PRCMax(nStk, nSlayer));
     DoRacialSLA(SPELL_DETECT_EVIL, nLevel);
 }

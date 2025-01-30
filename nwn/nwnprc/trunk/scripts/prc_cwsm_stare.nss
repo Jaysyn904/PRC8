@@ -42,7 +42,7 @@ void main()
         // Intimidate DC calculation
         int nDC         = d20()                                                         // Die roll
                         + GetHitDice(oTarget)                                           // Hit dice
-                        + max(0, GetAbilityModifier(ABILITY_WISDOM, oTarget))           // Wisdom bonus, no wisdom penalty
+                        + PRCMax(0, GetAbilityModifier(ABILITY_WISDOM, oTarget))           // Wisdom bonus, no wisdom penalty
                         + (4 * (PRCGetCreatureSize(oTarget) - PRCGetCreatureSize(oPC))) // Adjust by 4 in favor of the bigger creature for each size category it is bigger than the smaller one
                         ;
         // Construct Intimidate effect
