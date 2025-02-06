@@ -54,7 +54,7 @@ void main()
                 int nTotalRows = FEAT_HIDDEN_TALENT_BIOFEEDBACK - FEAT_HIDDEN_TALENT_GRIP_IRON;
                 int nEndFeat = nStartFeat + nTotalRows;
 				
-				string sFeat = Get2DAString("feats", "LABEL", nRow);
+				string sFeat = Get2DAString("feat", "LABEL", nRow);
 
 				effect eEffect = GetFirstEffect(oPC);
 				while (GetIsEffectValid(eEffect))

@@ -875,6 +875,11 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         SetCompositeBonus(oSkin, "VremyonniL", 2, ITEM_PROPERTY_SKILL_BONUS,SKILL_LORE);
         SetCompositeBonus(oSkin, "VremyonniS", 2, ITEM_PROPERTY_SKILL_BONUS,SKILL_SPELLCRAFT);
     }    
+    if(GetHasFeat(FEAT_INVESTIGATOR, oPC))
+    {
+        SetCompositeBonus(oSkin, "InvestigatorSenseMotive", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+        SetCompositeBonus(oSkin, "InvestogatorSearch", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
+    }  	
     if(GetHasFeat(FEAT_UNDEAD_HD, oPC))
     {
         int nClass1 = GetClassByPosition(1, oPC);

@@ -3654,6 +3654,7 @@ const int FEAT_IMPROVED_TRIP                  = 2807;
 const int FEAT_PRC_IMP_DISARM                 = 5196;
 const int FEAT_AWESOME_BLOW                   = 5370;
 const int FEAT_IMPROVED_SHIELD_BASH           = 3250;
+const int FEAT_INVESTIGATOR					  = 25997;
 
 // Player's Handbook II Feats
 const int FEAT_STEADFAST_DETERMINATION		  = 3267;

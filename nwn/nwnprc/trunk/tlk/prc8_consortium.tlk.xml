@@ -73262,6 +73262,10 @@ Prerequisite: Ki Power, Proficiency with all martial weapons
 Specifics: Your fighter and ninja levels stack for the purpose of determining the size of your ki pool, as well as your AC bonus. For example, a 5th-level fighter/1st-level ninja with this feat could use his ki powers a number of times equal to 3 (one-half his ninja and fighter levels) + his Wisdom bonus (if any), and would have a +1 bonus to AC (as if he were a 6th-level ninja).
 Use: Automatic
 Special: A fighter can select Martial Stalker as one of his fighter bonus feats</entry>
+  <entry id="213198" lang="en" sex="m">Investigator</entry>
+  <entry id="213199" lang="en" sex="m">Type of Feat: General
+Benefit: You get a +2 bonus on all Sense Motive and Search checks.
+Use: Automatic</entry>
   <entry id="213200" lang="en" sex="m">## Hidden Talent Reserve ##</entry>
   <entry id="213201" lang="en" sex="m">Hidden Talent</entry>
   <entry id="213202" lang="en" sex="m">Type of Feat: General
