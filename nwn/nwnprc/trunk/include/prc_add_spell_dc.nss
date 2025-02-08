@@ -223,7 +223,7 @@ int TattooFocus(int spell_id, int nSchool, object oCaster)
     return nDC;
 }
 
-//Tattoo Focus DC boost based on spell school specialization
+//:: Jaebrins get a +1 to Enchantment spells.
 int JaebrinEnchant(int nSchool, object oCaster)
 {
     int nDC;

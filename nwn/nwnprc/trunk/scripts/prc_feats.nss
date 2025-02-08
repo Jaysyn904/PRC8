@@ -269,7 +269,6 @@ void main()
 	}
 
     // Feats are checked here
-	
     //if(GetHasFeat(FEAT_SAC_VOW, oPC))                         ExecuteScript("prc_vows", oPC);
     //if(GetHasFeat(FEAT_LICHLOVED, oPC))                       ExecuteScript("prc_lichloved", oPC);
     if(GetHasFeat(FEAT_EB_HAND, oPC)  ||

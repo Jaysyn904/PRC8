@@ -116,8 +116,11 @@ void main()
     // See if we should alter speed based on armor. Dwarves ignore this, as does Wargird's Armor, and the Aym Vestige, and Wildren race
     int nAym = FALSE;
     if (GetLocalInt(oPC, "ExploitVestige") != VESTIGE_AYM_DWARVEN_STEP && GetHasSpellEffect(VESTIGE_AYM, oPC)) nAym = TRUE;
-    if(GetPRCSwitch(PRC_PNP_ARMOR_SPEED) && MyPRCGetRacialType(oPC) != RACIAL_TYPE_DWARF && oArmor != oWOL && !nAym && GetRacialType(oPC) != RACIAL_TYPE_WILDREN)
-    {
+    if(GetPRCSwitch(PRC_PNP_ARMOR_SPEED) 
+	&& MyPRCGetRacialType(oPC) != RACIAL_TYPE_DWARF 
+	&& oArmor != oWOL && !nAym 
+	&& GetRacialType(oPC) != RACIAL_TYPE_WILDREN)
+	{
         int nCoc = (GetLevelByClass(CLASS_TYPE_COC, oPC));
         int nKnight = (GetLevelByClass(CLASS_TYPE_KNIGHT, oPC));
         if(nArmorType == ARMOR_TYPE_MEDIUM && nCoc < 5 && nKnight < 4)

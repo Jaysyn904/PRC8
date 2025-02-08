@@ -6,10 +6,9 @@ const int SPELL_GREAT_WALL_OF_DISPEL        = 2096;
 const int SPELL_SOL_CONSECRATE              = 2108;
 const int SPELL_BLACKLIGHT                  = 2091;
 
-
 // bard
-const int SPELL_BARD_SONG 		= 411;
-const int SPELL_BARD_CURSE_SONG = 644;
+const int SPELL_BARD_SONG 					= 411;
+const int SPELL_BARD_CURSE_SONG 			= 644;
 
 //:: Complete Warrior
 const int SPELL_RANGED_DISARM				= 3493;

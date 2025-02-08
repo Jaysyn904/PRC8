@@ -562,8 +562,8 @@ void BonusDomainRest(object oPC)
 
     // This is code to stop you from using the Domain per day abilities more than you should be able to
     int i2;
-    // Highest domain constant is 59
-    for (i2 = 1; i2 < 60; i2++)
+    // Highest domain constant is 62
+    for (i2 = 1; i2 < 63; i2++)
     {
         // This is to ensure they only get the ints set for the domains they do have
         if (GetHasDomain(oPC, i2))

@@ -881,7 +881,7 @@ const int IP_CONST_FEAT_CAST_DOMAIN_LEVEL_SIX       = 147;
 const int IP_CONST_FEAT_CAST_DOMAIN_LEVEL_SEVEN     = 148;
 const int IP_CONST_FEAT_CAST_DOMAIN_LEVEL_EIGHT     = 149;
 const int IP_CONST_FEAT_CAST_DOMAIN_LEVEL_NINE      = 150;
-const int IP_CONST_FEAT_CHECK_DOMAIN_SLOTS      = 151;
+const int IP_CONST_FEAT_CHECK_DOMAIN_SLOTS      	= 151;
 
 // Bonus Domain Power Feats
 const int IP_CONST_FEAT_WAR_DOMAIN              =  152;

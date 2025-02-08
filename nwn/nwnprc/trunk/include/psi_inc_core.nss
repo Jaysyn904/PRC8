@@ -35,7 +35,7 @@ const int POWER_LIST_WARMIND        = CLASS_TYPE_WARMIND;
 #include "psi_inc_const"
 
 //:: Test Main
-//void main (){}
+//:: void main (){}
 
 //////////////////////////////////////////////////
 /*             Function prototypes              */
@@ -578,7 +578,7 @@ void LosePsionicFocus(object oLoser = OBJECT_SELF)
         {
             DeleteLocalInt(oLoser, "PsyRogueSneak");
             DelayCommand(0.1, ExecuteScript("prc_sneak_att", oLoser));
-        }        
+        }      
     }
 }
 

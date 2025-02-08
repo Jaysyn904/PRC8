@@ -39,6 +39,7 @@ const string MATERIAL_TYPE_NAME_WOOD		= "Wood";
   
 //:: Material Itemproperty Constants
 //::////////////////////////////////////////////////////////////////////////////////
+//:: Bioware Materials
 const int	IP_MATERIAL_INVALID                     = -1;
 const int	IP_MATERIAL_UNKNOWN                     = 0;
 const int	IP_MATERIAL_ADAMANTINE                  = 1;

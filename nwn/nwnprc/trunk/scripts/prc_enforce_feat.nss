@@ -1396,7 +1396,7 @@ int BonusDomains()
 
     if(nMin > dPC || dPC > nMax)
     {
-        FloatingTextStringOnCreature("You have wrong amount of bonus domains. Please reselect your feats.", OBJECT_SELF, FALSE);
+        FloatingTextStringOnCreature("You have the wrong amount of bonus domains. Please reselect your feats.", OBJECT_SELF, FALSE);
         return TRUE;
     }
     return FALSE;

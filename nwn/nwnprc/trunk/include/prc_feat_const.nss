@@ -1104,17 +1104,17 @@ const int FEAT_DOMAIN_POWER_BLIGHTBRINGER        = 2250;
 const int FEAT_DOMAIN_POWER_DRAGON               = 4064;
 
 // Cast Bonus Domain
-const int FEAT_CAST_DOMAIN_LEVEL_ONE             = 2049;
-const int FEAT_CAST_DOMAIN_LEVEL_TWO             = 2050;
-const int FEAT_CAST_DOMAIN_LEVEL_THREE               = 2051;
-const int FEAT_CAST_DOMAIN_LEVEL_FOUR            = 2052;
-const int FEAT_CAST_DOMAIN_LEVEL_FIVE                = 2053;
-const int FEAT_CAST_DOMAIN_LEVEL_SIX                 = 2054;
-const int FEAT_CAST_DOMAIN_LEVEL_SEVEN               = 2055;
-const int FEAT_CAST_DOMAIN_LEVEL_EIGHT               = 2056;
-const int FEAT_CAST_DOMAIN_LEVEL_NINE                = 2057;
+const int FEAT_CAST_DOMAIN_LEVEL_ONE	= 2049;
+const int FEAT_CAST_DOMAIN_LEVEL_TWO	= 2050;
+const int FEAT_CAST_DOMAIN_LEVEL_THREE	= 2051;
+const int FEAT_CAST_DOMAIN_LEVEL_FOUR	= 2052;
+const int FEAT_CAST_DOMAIN_LEVEL_FIVE	= 2053;
+const int FEAT_CAST_DOMAIN_LEVEL_SIX	= 2054;
+const int FEAT_CAST_DOMAIN_LEVEL_SEVEN	= 2055;
+const int FEAT_CAST_DOMAIN_LEVEL_EIGHT	= 2056;
+const int FEAT_CAST_DOMAIN_LEVEL_NINE	= 2057;
 
-const int FEAT_CHECK_DOMAIN_SLOTS            = 2000;
+const int FEAT_CHECK_DOMAIN_SLOTS		= 2000;
 
 //Vile
 const int FEAT_VILE_MARTIAL_CLUB          = 3357;

@@ -1,14 +1,7 @@
 //::///////////////////////////////////////////////
-//:: [Acrobatic Attack]
-//:: [prc_s_acroatk.nss]
+//:: [Stunning Shout]
+//:: [prc_s_shoutstun.nss]
 //:://////////////////////////////////////////////
-//:: Leaps at a target. Inflicting d6 / 2 duelist
-//:: levels + dex bonus damage and knockdown for
-//:: 1 round.  Reflex save verus 10 + duelist
-//:: level + dex bonus for half damage and no
-//:: knockdown.
-//::
-//:: Attack/Damage bonus of +2 or +4 for 1 round
 //::
 //:://////////////////////////////////////////////
 //:: Created By: Aaon Graywolf

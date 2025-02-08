@@ -1392,7 +1392,6 @@ void FeatAlaghar(object oPC)
     FeatUsePerDay(oPC, FEAT_ALAG_ROCKBURST, -1, iRockburst);
 }
 
-
 void FeatDiabolist(object oPC)
 {
    int Diabol = GetLevelByClass(CLASS_TYPE_DIABOLIST, oPC);
