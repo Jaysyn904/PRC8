@@ -138,11 +138,45 @@ void main()
             SetIdentified( oItem, TRUE);
     }
     
-    // *
-    // * Special CHAPTER 1 - XP2
-    // * Levelup code
-    // *
-    if (sModuleTag == "x0_module1" && GetLocalInt(GetModule(), "X2_L_XP2") == TRUE)
+// *
+// * Special CHAPTER 1 - XP2
+// * Levelup code
+// *
+if (sModuleTag == "x0_module1" && GetLocalInt(GetModule(), "X2_L_XP2") == TRUE)
+{
+    if (GetLocalInt(OBJECT_SELF, "X2_KilledInUndermountain") == 1)
+        return;
+    SetLocalInt(OBJECT_SELF, "X2_KilledInUndermountain", 1);
+
+    // Level up henchman to level 13 if in Starting Room
+    // Join script will level them up correctly once hired
+    if (sAreaTag == "q2a_yawningportal")
+    {
+        int nLevel = 1;
+        for (nLevel = 1; nLevel < 14; nLevel++)
+        {
+            LevelUpHenchman(OBJECT_SELF);
+        }
+    }
+
+    // 'kill the henchman'
+    // * do not kill if spawning in main room or specified area
+    string szAreaTag = GetTag(GetArea(OBJECT_SELF));
+    if (szAreaTag != "q2a_yawningportal" && szAreaTag != "q2c_um2east")
+    {
+        // Get the target creature by tag
+        object oTarget = GetObjectByTag(sMyTag);
+
+        // Check if the target creature exists and its tag matches OBJECT_SELF's tag
+        if (GetIsObjectValid(oTarget) && GetTag(oTarget) == sMyTag)
+        {
+            effect eDamage = EffectDamage(1000); // Increased damage to ensure death
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget); // Apply damage to the target
+        }
+    }
+}
+	
+/*     if (sModuleTag == "x0_module1" && GetLocalInt(GetModule(), "X2_L_XP2") == TRUE)
     {
         if (GetLocalInt(OBJECT_SELF, "X2_KilledInUndermountain") == 1)
             return;
@@ -168,7 +202,7 @@ void main()
             //effect eDamage = EffectDamage(500);
             //DelayCommand(10.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, OBJECT_SELF));
         }
-    }
+    } */
     
     // * Nathyrra in Chapter 1 is not allowed to have her inventory fiddled with
     if (sMyTag == "x2_hen_nathyrra" && sModuleTag == "x0_module1")
