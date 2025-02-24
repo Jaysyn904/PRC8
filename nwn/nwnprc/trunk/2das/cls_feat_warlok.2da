@@ -388,7 +388,7 @@
 384 FEAT_DUERGAR_INVIS                        4681      0    999            1      
 385 FEAT_DROW_DARKNESS                        4682      0    999            1      
 386 FEAT_DROW_FAERIE_FIRE                     4683      0    999            1      
-387 BROWNIE_RAKSHASA_HIPS                     433       0    999            1      
+387 BROWNIE_RAKSHASA_HIPS                     433       0    999            0      
 388 FEAT_WGNOME_SILENCE                       4555      0    999            1      
 389 FEAT_WGNOME_MAGEHAND                      4519      0    999            1      
 390 FEAT_HOUND_AID                            4574      0    999            1      

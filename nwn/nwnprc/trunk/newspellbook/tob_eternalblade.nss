@@ -183,6 +183,8 @@ void main()
     int nRdyTotal     = GetReadiedManeuversModifier(oInitiator, nClass);
 
     if(DEBUG) DoDebug("tob_eternalblade running, event: " + IntToString(nEvent));
+    if(DEBUG) DoDebug("tob_eternalblade nMoveTotal: " + IntToString(nMoveTotal));
+    if(DEBUG) DoDebug("tob_eternalblade nRdyTotal: " + IntToString(nRdyTotal));
 
     // We aren't being called from any event, instead from EvalPRCFeats
     if(nEvent == FALSE)
@@ -194,22 +196,24 @@ void main()
         // Hook in the events, needed for various abilities
         if(DEBUG) DoDebug("tob_eternalblade: Adding eventhooks");
         AddEventScript(oInitiator, EVENT_ONHEARTBEAT,         "tob_eternalblade", TRUE, FALSE);
-        AddEventScript(oInitiator, EVENT_ONPLAYEREQUIPITEM,         "tob_eternalblade", TRUE, FALSE);
-        AddEventScript(oInitiator, EVENT_ONPLAYERUNEQUIPITEM,         "tob_eternalblade", TRUE, FALSE);
+        AddEventScript(oInitiator, EVENT_ONPLAYEREQUIPITEM,   "tob_eternalblade", TRUE, FALSE);
+        AddEventScript(oInitiator, EVENT_ONPLAYERUNEQUIPITEM, "tob_eternalblade", TRUE, FALSE);
 
         // Allows gaining of maneuvers by prestige classes
         // It's not pretty, but it works
         if (nLevel >= 1 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade1"))
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 1");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 1: " + IntToString(++nMoveTotal));
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade1", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }
 
-        if (nLevel >= 3 &&!GetPersistantLocalInt(oInitiator, "ToBEternalBlade3"))
+        if (nLevel >= 3 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade3"))
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 3");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 3: " + IntToString(++nMoveTotal));
             SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade3", TRUE);
@@ -219,6 +223,7 @@ void main()
         if (nLevel >= 5 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade5"))
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 5");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 5: " + IntToString(++nMoveTotal));
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nStncTotal, MANEUVER_TYPE_STANCE);
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade5", TRUE);
@@ -235,6 +240,7 @@ void main()
         if (nLevel >= 7 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade7"))
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 7");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 7: " + IntToString(++nMoveTotal));
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade7", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
@@ -243,6 +249,7 @@ void main()
         if (nLevel >= 9 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade9"))
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 9");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 9: " + IntToString(++nMoveTotal));
             SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade9", TRUE);

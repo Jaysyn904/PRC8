@@ -532,7 +532,7 @@ void ShieldSpecialization(object oInitiator)
 
 			ip = GetNextItemProperty(oItem);
 		}	
-		//FloatingTextStringOnCreature("Adding Shield Specialization bonus of "+IntToString(iTemp+1), oInitiator, FALSE);
+		if (DEBUG) DoDebug("Adding Shield Specialization bonus of "+IntToString(iTemp+1));
 		IPSafeAddItemProperty(oItem, ItemPropertyACBonus(iTemp+1), 5.95, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
   	} 
 }  	

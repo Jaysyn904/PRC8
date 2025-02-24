@@ -6828,7 +6828,7 @@ epicspellobjs\wander_unseen.ncs
 2das\iprp_damagetype.2da \
 2das\iprp_decvalue1.2da \
 2das\iprp_decvalue2.2da \
-2das\iprp_feats.2DA \
+2das\iprp_feats.2da \
 2das\iprp_incvalue1.2da \
 2das\iprp_incvalue2.2da \
 2das\iprp_matcost.2da \
@@ -10831,6 +10831,7 @@ others\it_fam_quasit.uti \
 others\it_fam_varg.uti \
 others\it_gemcage_gem.uti \
 others\itemrecipe.uti \
+others\iw_rapier.uti \
 others\jd_wmgst001.uti \
 others\jd_wmgst002.uti \
 others\jd_wmgst003.uti \

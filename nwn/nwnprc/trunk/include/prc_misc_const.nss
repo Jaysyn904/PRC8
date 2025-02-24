@@ -240,6 +240,7 @@ const int DISCIPLINE_TELEPATHY        = 6;
 //:: Polymorph Const
 //:://////////////////////////////////////////////
 
+const int POLYMORPH_TYPE_BAT					   = 47;	
 const int POLYMORPH_TYPE_WOLF_0                    = 133;
 const int POLYMORPH_TYPE_WOLF_1                    = 134;
 const int POLYMORPH_TYPE_WOLF_2                    = 135;

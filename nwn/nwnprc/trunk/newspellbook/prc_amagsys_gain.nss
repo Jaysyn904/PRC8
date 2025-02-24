@@ -297,35 +297,35 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
     int nLevel;
 	
 //:: Rakshasa cast as sorcerers
-    if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
+    if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC);
 
 //:: Aranea cast as sorcerers	
-	else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
+	else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC);
 
 //::Arkamoi cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 	
 //::Hobgoblin Warsouls cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 	
 //:: Driders cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_DRIDER) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_DRIDER) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_ABERRATION, oPC);
 	
 //:: Marrutact cast as 6/7 sorcerers
-    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 	
 //:: Redspawn Arcaniss cast as 3/4 sorcerers
-    else if(nClass == CLASS_TYPE_SORCERER && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 		
 //:: Gloura cast as bards		
-    else if(nClass == CLASS_TYPE_BARD && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
+    else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
 		
     else    

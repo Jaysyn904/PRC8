@@ -1064,8 +1064,7 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
 void FMMPreReqs(object oPC)
 {
     //:: Force Missile Mage can only be taken by arcane classes that can cast Magic Missile.
-
-    SetLocalInt(oPC, "PRC_PrereqFMM", 1);
+	SetLocalInt(oPC, "PRC_PrereqFMM", 1);
 
     //:: Check PRC NewSpellBook classes: Archivist, Aberration, Monstrous, Outsider, 
 	//:: Shapechanger, Knight of the Weave, Sorcerer, Warmage
@@ -1088,7 +1087,7 @@ void FMMPreReqs(object oPC)
 	int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
     if(iInt > 10)
     {
-        if(GetLevelByClass(CLASS_TYPE_WIZARD))
+		if(GetHasSpell(SPELL_MAGIC_MISSILE, oPC))
             SetLocalInt(oPC, "PRC_PrereqFMM", 0);
     }
 	
@@ -1096,9 +1095,12 @@ void FMMPreReqs(object oPC)
 	int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWis");
     if(iWis > 10)
     {
-        if(GetLevelByClass(CLASS_TYPE_NENTYAR_HUNTER))
+        if(GetLevelByClass(CLASS_TYPE_NENTYAR_HUNTER, oPC))
             SetLocalInt(oPC, "PRC_PrereqFMM", 0);
     }
+	
+	if(GetHasSpell(SPELL_MAGIC_MISSILE, oPC)) 
+		SetLocalInt(oPC, "PRC_PrereqFMM", 0);
 }
 
 void ThrallOfOrcusPreReqs(object oPC)
@@ -1298,6 +1300,7 @@ void DragDisciple(object oPC)
 		|| GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC)
 		|| GetLevelByClass(CLASS_TYPE_DUSKBLADE, oPC)
 		|| GetLevelByClass(CLASS_TYPE_HEXBLADE, oPC)
+		|| GetLevelByClass(CLASS_TYPE_KNIGHT_WEAVE, oPC)		
 		|| GetLevelByClass(CLASS_TYPE_SORCERER, oPC)
 		|| GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC)
 		|| GetLevelByClass(CLASS_TYPE_WARMAGE, oPC)
@@ -1536,7 +1539,6 @@ void main()
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
 	
-	SetLocalInt(oPC, "PRC_PrereqFMM", 1);
 	SetLocalInt(oPC, "PRC_PrereqEKnight", 1);
 
     // Initialize all the variables.
@@ -1733,6 +1735,7 @@ void main()
     DragonDevotee(oPC);
     Dragonheart(oPC);
     EnlF(oPC);
+	FMMPreReqs(oPC);
     Incarnate(oPC);
     Ironsoul(oPC);
     KOTC(oPC);
