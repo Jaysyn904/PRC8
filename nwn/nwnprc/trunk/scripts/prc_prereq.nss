@@ -224,6 +224,12 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
           SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
 
+     //6th lvl Soul Eater's Soul Radiance qualifies
+     if (GetLevelByClass(CLASS_TYPE_SOUL_EATER) > 5)
+     {
+          SetLocalInt(oPC, "PRC_PrereqShift", 0);
+     }
+	 
      //Any class that has Polymorph Self spell qualifies
      if (PRCGetIsRealSpellKnown(SPELL_POLYMORPH_SELF, oPC))
      {
@@ -590,9 +596,12 @@ void reqCombatMedic(object oPC)
      */
 	
 	//:: Get casting ability scores
-	int iCha = GetLocalInt(GetPCSkin(oPC), "PRC_trueCHA");
-    int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
-    int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWIS");
+	//int iCha = GetLocalInt(GetPCSkin(oPC), "PRC_trueCHA");
+    //int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
+    //int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWIS");
+	int iCha = GetAbilityScore(oPC, ABILITY_CHARISMA, TRUE);
+    int iInt = GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE);
+    int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);
 	
     //:: Check PRC NewSpellBook divine classes (Archivist, 
 	//:: Favoured Soul, JoWaW, Spirit Shaman)
@@ -872,7 +881,8 @@ void FistRaziel(object oPC)
 
     SetLocalInt(oPC, "PRC_PrereqFistRaz", 1);
     object oSkin = GetPCSkin(oPC);
-    int iWis = GetLocalInt(oSkin, "PRC_trueWIS");
+    //int iWis = GetLocalInt(oSkin, "PRC_trueWIS");
+	int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);
     // hard code it to work for Bioware classes
     if (GetLevelByClass(CLASS_TYPE_CLERIC))
     {
@@ -1074,8 +1084,9 @@ void FMMPreReqs(object oPC)
         SetLocalInt(oPC, "PRC_PrereqFMM", 0);
     }
 	//:: Check Bioware Sorcerer
-	int iCha = GetLocalInt(GetPCSkin(oPC), "PRC_trueCHA");
-	if(iCha > 10)
+	//int iCha = GetLocalInt(GetPCSkin(oPC), "PRC_trueCHA");
+	//if(iCha > 10)
+	if (GetLevelByClass(CLASS_TYPE_SORCERER, oPC) > 0 && GetAbilityScore(oPC, ABILITY_CHARISMA, TRUE) > 10)		
 	{	
 		if(GetIsInKnownSpellList(oPC, CLASS_TYPE_SORCERER, SPELL_MAGIC_MISSILE))
 			{
@@ -1084,15 +1095,17 @@ void FMMPreReqs(object oPC)
 	}
 
 	//:: Check Wizard
-	int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
-    if(iInt > 10)
+	//int iInt = GetLocalInt(GetPCSkin(oPC), "PRC_trueINT");
+    //if(iInt > 10)
+	if (GetLevelByClass(CLASS_TYPE_WIZARD, oPC) > 0 && GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE) > 10)
     {
 		if(GetHasSpell(SPELL_MAGIC_MISSILE, oPC))
             SetLocalInt(oPC, "PRC_PrereqFMM", 0);
     }
 	
 	//:: Check Nentyar Hunter
-	int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWis");
+    int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);	
+	//int iWis = GetLocalInt(GetPCSkin(oPC), "PRC_trueWis");
     if(iWis > 10)
     {
         if(GetLevelByClass(CLASS_TYPE_NENTYAR_HUNTER, oPC))
@@ -1579,9 +1592,12 @@ void main()
     }
 
      // Find the spell levels.
-    int iCha = GetLocalInt(oSkin, "PRC_trueCHA") - 10;
-    int iWis = GetLocalInt(oSkin, "PRC_trueWIS") - 10;
-    int iInt = GetLocalInt(oSkin, "PRC_trueINT") - 10;
+	int iCha = GetAbilityScore(oPC, ABILITY_CHARISMA, TRUE) - 10;
+    int iInt = GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE) - 10;
+    int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE) - 10;	
+    //int iCha = GetLocalInt(oSkin, "PRC_trueCHA") - 10;
+    //int iWis = GetLocalInt(oSkin, "PRC_trueWIS") - 10;
+    //int iInt = GetLocalInt(oSkin, "PRC_trueINT") - 10;	
     int nArcHighest;
     int nDivHighest;
     int nPsiHighest;

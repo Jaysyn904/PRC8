@@ -15,10 +15,22 @@ void ReapplyInvis(object oTarget, effect eInvis, float fDur, int CasterLvl);
 
 void ReapplyInvis(object oTarget, effect eInvis, float fDur, int CasterLvl)
 {
+    if (fDur <= 0.0) return; // Stop when duration runs out
+
+    if (!PRCGetHasEffect(EFFECT_TYPE_INVISIBILITY, oTarget) && GetHasSpellEffect(SPELL_IMPROVED_INVISIBILITY))
+    {
+        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eInvis, oTarget, fDur, TRUE, -1, CasterLvl);
+    }
+
+    DelayCommand(6.0, ReapplyInvis(oTarget, eInvis, fDur - 6.0, CasterLvl));
+}
+
+/* void ReapplyInvis(object oTarget, effect eInvis, float fDur, int CasterLvl)
+{
     if(!PRCGetHasEffect(EFFECT_TYPE_INVISIBILITY, oTarget) && GetHasSpellEffect(SPELL_IMPROVED_INVISIBILITY))
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eInvis, oTarget, fDur,TRUE,-1,CasterLvl);
     DelayCommand(1.0, ReapplyInvis(oTarget, eInvis, fDur-1.0, CasterLvl));
-}
+} */
 
 //Implements the spell impact, put code here
 //  if called in many places, return TRUE if
@@ -42,6 +54,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_IMPROVED_INVISIBILITY, FALSE));
     int CasterLvl = nCasterLevel;
     int nDuration = CasterLvl;
+	
     if (GetHasFeat(FEAT_INSIDIOUSMAGIC,OBJECT_SELF) && GetHasFeat(FEAT_SHADOWWEAVE,oTarget))
        nDuration = nDuration*2;
     int nMetaMagic = PRCGetMetaMagicFeat();
@@ -54,8 +67,8 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     //Apply the VFX impact and effects
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oTarget);
 
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDur,TRUE,-1,CasterLvl);
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eInvis, oTarget, fDur,TRUE,-1,CasterLvl);
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDur, TRUE,-1,CasterLvl);
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eInvis, oTarget, fDur, TRUE,-1,CasterLvl);
     DelayCommand(1.0, ReapplyInvis(oTarget, eInvis, fDur, CasterLvl));
 
     return TRUE;    //return TRUE if spell charges should be decremented

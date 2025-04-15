@@ -1250,17 +1250,31 @@ void EnergyAbjuration(object oCaster, int nSchool, int nSpellLevel)
         if(nSchool == SPELL_SCHOOL_ABJURATION)
         {
             int nAmount = (1 + nSpellLevel) * 5;
+			
+			int nDamageType = DAMAGE_TYPE_ACID | DAMAGE_TYPE_COLD | DAMAGE_TYPE_ELECTRICAL | DAMAGE_TYPE_FIRE | DAMAGE_TYPE_SONIC;
 
-            effect eLink = EffectDamageResistance(DAMAGE_TYPE_COLD, nAmount, nAmount);
-                   eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nAmount, nAmount));
+			effect eResist = EffectDamageResistance(nDamageType, nAmount, nAmount);
+			
+			effect eDur = EffectVisualEffect(VFX_DUR_PROTECTION_ELEMENTS);
+            effect eVfx = EffectVisualEffect(VFX_IMP_ELEMENTAL_PROTECTION);
+            effect eEnd = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);			
+			
+			effect eLink = EffectLinkEffects(eResist, eDur);
+				   eLink = EffectLinkEffects(eLink, eEnd);
+			
+			ApplyEffectToObject(DURATION_TYPE_INSTANT, eVfx, oCaster);			
+				   
+			
+			/*     eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nAmount, nAmount));
                    eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ACID, nAmount, nAmount));
                    eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_SONIC, nAmount, nAmount));
                    eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nAmount, nAmount));
                    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_PROTECTION_ELEMENTS));
                    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_IMP_ELEMENTAL_PROTECTION));
-                   eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+                   eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE)); */
 
-            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oCaster);
+            if (DEBUG) DoDebug("Energy Abjuration triggered! DR Amount: " + IntToString(nAmount));
+			DelayCommand(0.0, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oCaster));
         }
     }
 }

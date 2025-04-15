@@ -33,10 +33,37 @@ void RemoveSpellEffectSong(object oPC)
 
 void OnEquip(object oPC,object oSkin)
 {
+    object oChest = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+    int nBaseAC = GetBaseAC(oChest);
+    int nWeight = GetWeight(oChest);
+
+	//:: 1 longsword/rapier & light armour
+    if (!GetIsBladesongWeapon(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))
+    || GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC))
+    || (nBaseAC > 3 && !(nBaseAC == 4 && nWeight < 160)))
+    {
+        if (GetHasFeatEffect(FEAT_SONG_OF_FURY, oPC))
+            RemoveSpellEffectSong(oPC);
+
+        SetCompositeBonus(oSkin, "BladesAC", 0, ITEM_PROPERTY_AC_BONUS);
+        SetCompositeBonus(oSkin, "BladesCon", 0, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
+        return;
+    }
+	//:: Bonus Lvl BladeSinger Max Bonus Int
+    int BladeLv = PRCMin(GetLevelByClass(CLASS_TYPE_BLADESINGER, oPC), GetAbilityModifier(ABILITY_INTELLIGENCE, oPC));
+    SetCompositeBonus(oSkin, "BladesAC", BladeLv, ITEM_PROPERTY_AC_BONUS);
+
+    if (GetHasFeat(FEAT_LESSER_SPELLSONG, oPC))
+        SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
+}
+
+/* void OnEquip(object oPC,object oSkin)
+{
     // 1 longsword/rapier & light armour
     if(!GetIsBladesongWeapon(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))
     || GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC))
-    || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) > 3)
+	//:: Handles Mithral Chain Shirt
+    || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) > 3 || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) == 4 && GetWeight(GetItemInSlot(INVENTORY_SLOT_CHEST)) < 160)
     {
         if(GetHasFeatEffect(FEAT_SONG_OF_FURY, oPC))
              RemoveSpellEffectSong(oPC);
@@ -54,7 +81,7 @@ void OnEquip(object oPC,object oSkin)
 
     if(GetHasFeat(FEAT_LESSER_SPELLSONG,oPC))
         SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
-}
+} */
 
 void  OnUnEquip(object oPC,object oSkin)
 {

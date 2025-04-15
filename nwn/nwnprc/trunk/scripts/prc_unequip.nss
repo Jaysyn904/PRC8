@@ -149,7 +149,7 @@ void DoWeaponUnequip(object oPC, object oItem)
         }    
     }         
 
-    if(DEBUG) DoDebug("prc_restwpnsize - OnUnEquip");
+    // if(DEBUG) DoDebug("prc_restwpnsize - OnUnEquip");  // <-script no longer exists
 
     // remove any TWF penalties
     //if weapon was a not light, and there's still something equipped in the main hand(meaning that an offhand item was de-equipped)

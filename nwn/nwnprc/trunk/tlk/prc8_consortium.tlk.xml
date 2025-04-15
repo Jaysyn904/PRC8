@@ -9348,6 +9348,8 @@ Level
 9: Bonus Feat
 10: Dragonwrack (+4d6/1d6) - Dragonwrack increases.
 
+Spells: Beginning at 2nd level, a vassal of Bahamut gains the ability to cast a small number of divine spells. To cast a spell, the vassal must have a Wisdom score of at least 10 + the spell's level, so a vassal with a Wisdom of 10 or lower cannot cast these spells. Vassal of Bahamut bonus spells are based on Wisdom, and saving throws against these spells have a DC of 10 + spell level + the vassal's Wisdom bonus. When the vassal gets 0 spells of a given level (for instance, 1st-level spells for a 2nd-level vassal of Bahamut), he gets only the bonus spells he would be entitled to based on his Wisdom score for that spell.
+
 Spell List
 Can cast spells as a cleric based on Wisdom with caster level equal to class level (plus any applicable PrCs)
 
@@ -73244,6 +73246,1440 @@ Level
 - No Endure elements, Sustenance, Mind shielding (would have little impact on NWN gameplay)
 - The level progression continues the same during the Epic Levels
 </entry>
+  <entry id="204999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
+  <entry id="205000" lang="en" sex="m">Epic Eye of Gruumsh</entry>
+  <entry id="205001" lang="en" sex="m">You are the living embodiment of Gruumsh’s savage fury—a one-eyed martyr whose terrible sacrifice has unlocked epic levels of brutal power. Your scarred visage and impaired sight serve as a constant reminder of your oath, granting you a glimpse into your deity’s blind rage. In the heat of battle, your ferocity and unholy devotion enable you to strike terror into the hearts of your foes, as you channel the very essence of an orcish legend.
+
+Hit Die: d12
+Skill Points at Each Additional Level: 2 + Intelligence modifier
+Bonus Feats: The epic Eye of Gruumsh gains a bonus feat every three levels
+Special:
+Blinding Spittle: Your venomous saliva continues to blind your enemies. Its frequency and potency increase as you grow in power, marking you as a scourge upon the battlefield.
+Ritual Scarring: The cursed marks of your sacrifice persist, evolving with each level to further empower your savage abilities.
+
+Epic Eye of Gruumsh Bonus Feat List:
+Armor Skin,  Blinding Speed, Damage Reduction, Devastating Critical, Great Constitution, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage.</entry>
+  <entry id="205002" lang="en" sex="m">Epic Ur-Priest</entry>
+  <entry id="205003" lang="en" sex="m">You are a master of divine subversion, a corrupt conduit who twists the sacred energies of the gods to fuel your dark sorcery. Every stolen spark of holiness empowers your spells, letting you upend the natural order with cunning and ruthless ambition.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2+ Int Modifier
+Bonus Feats: The epic ur-priest gains a bonus feat every three levels
+Special:
+Epic Divine Spell Resistance: Your mastery over stolen divinity grants you nearly insurmountable resistance to holy power, defying even the mightiest clerics.  Your divine spell resistance continues to increase by 5 for every 4 ur-priest levels you attain.
+
+Epic Ur-Priest Bonus Feats List:
+Armor Skin, Epic Spell Focus, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spellcasting, Improved Combat Casting, Epic Spell Penetration, Great Wisdom, Blinding Speed, Craft Epic Wonderous Item, Craft Epic Magic Arms &amp; Armor, Craft Epic Rod, Craft Epic Staff, Forge Epic Ring, Planar Turning.</entry>
+  <entry id="205004" lang="en" sex="m">Epic Binder</entry>
+  <entry id="205005" lang="en" sex="m">Epic Binder Description PLACEHOLDER</entry>
+  <entry id="205006" lang="en" sex="m">Epic Anima Mage</entry>
+  <entry id="205007" lang="en" sex="m">You are a remorseless master of forbidden vestige magic, channeling displaced powers with ruthless ambition.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic anima mage gains a bonus feat every four levels
+Special:
+Vestige Metamagic: Continues increasing at a rate of 1 use per 2 epic Anima Mage levels.
+
+Caster/ Binder Level: Increases as if gaining a level in both your arcane spellcasting class and your soul binding class at each level.
+
+Epic Anima Mage Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not l
+isted here.</entry>
+  <entry id="205008" lang="en" sex="m">Epic Serene Guardian</entry>
+  <entry id="205009" lang="en" sex="m">You are a transcendent guardian of the Luminous Order, channeling disciplined meditation into devastating resonance with every strike.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2+ Int Modifier
+Bonus Feats:  The epic serene guardian gains a bonus feat every other level
+
+Epic Serene Guardian Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Dire Charge, Distant Shot, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Combat Reflexes, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Spellcasting Harrier, Superior Initiative,  Two-Weapon Rend. In addition to the feats on this list, the epic serene guardian may treat any feat designated as a fighter bonus feat, but not listed here, as being on his or her bonus feat list.</entry>
+  <entry id="205010" lang="en" sex="m">Epic Spellfire Channeler</entry>
+  <entry id="205011" lang="en" sex="m">You have reached the pinnacle of channeling the raw energies of the Weave. Building on your foundational abilities you now ascend into epic power. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Intelligence modifier
+Bonus Feats: The epic Spellfire Channeler gains a bonus feat every four levels
+
+Special:
+Increased Storage: Your capacity for storing raw spellfire energy continues to grow with each epic level.
+Rapid Blast: Your rapid-fire channeling of spellfire intensifies as you advance, enabling even more powerful successive blasts.
+
+Epic Spellfire Channeler:
+Armor Skin, Blinding Speed, Great Constitution, Epic Prowess, Epic Toughness, Epic Skill Focus, Epic Weapon Focus (spellfire), Skill Focus, Epic Fortitude, Epic Reflexes, Epic Will, Toughness, Epic Spellfire Weider, Iron Will, Great Fortitude, Lightning Reflexes, Point Blank Shot, Ranged Recall.</entry>
+  <entry id="205012" lang="en" sex="m">Epic Virtuoso</entry>
+  <entry id="205013" lang="en" sex="m">You have transcended the common stage to become a living legend of performance. Every setting—be it a grand theater or a chance encounter on the road—transforms into your arena, where your magnetic presence and unparalleled charm captivate audiences beyond mortal expectation.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Intelligence modifier
+Bonus Feats: The epic Virtuoso gains a bonus feat every two levels
+
+Spells: The epic virtuoso increases caster level by one per level gained above 10th.
+
+Bard Song: The epic virtuoso's bard song continues into epic levels.
+
+Epic Virtuoso Bonus Feat List:
+Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic.</entry>
+  <entry id="205014" lang="en" sex="m">Epic Spellsword</entry>
+  <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells—each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Intelligence modifier
+Bonus Feats: The epic Spellsword gains a bonus feat every three levels
+
+Special:
+Ignore Arcane Spell Failure: The epic spellsword's capacity to overcome the interference of armor continues to improve, allowing them to cast with ever-greater ease.
+Channel Spell: The epic spellsword continues gaining more uese of their channel spell ability.
+Spells: The epic spellsword increases caster level by one per two levels gained above 10th.
+
+Epic Spellsword Bonus Feat List:
+Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Superior Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative,  Two-Weapon Rend.  In addition to the feats on this list, the mage killer may select any metamagic or fighter bonus feat not listed here.</entry>
+  <entry id="205016" lang="en" sex="m">Epic Acolyte of the Skin</entry>
+  <entry id="205017" lang="en" sex="m">You have embraced a perilous pact with infernal power, binding a living demon’s skin to your own. As your bond deepens, you gain supernatural defenses along with elemental resistances and a fearsome gaze.
+
+Hit Die: d4.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Acolyte of the Skin gains a bonus feat every four levels.
+
+Special:
+Spells: The epic acolyte's caster level increases by 1 every even-numbered level gained above 10th. In addition, at every even-numbered level, the epic acolyte of the skin gains new spells per day as if he had also gained a level in whatever spellcasting class he belonged to before he added the prestige class, up to the number of spells per day possessed by a 20th-level character of that class.
+Physical Power (Ex): At 11th level, and every 10 levels thereafter, the epic acolyte of the skin gains a permanent +2 bonus to Strength or Constitution (character's choice).
+Poison Immunity (Ex): The epic acolyte of the skin becomes immune to poison at 11th level.
+Fiendish Heritage (Sp): At 13th level, and every 4 levels thereafter (17th, 21st, and so on), the acolyte of the skin gains one daily use of each of the following powers: desecrate, unholy blight, and blasphemy. Use the character's acolyte of the skin level as the caster level.
+Acid Resistant (Ex): At 14th level, the fiendish skin grants acid resistance 20.
+Improved Symbiosis: At 15th level, and every 5 levels thereafter, the enhancement bonus needed to bypass the damage reduction of the epic acolyte of the skin increases by +1 (to DR 20/+2 at 15th level, DR 20/+3 at 20th level, and so forth).
+Mental Power (Ex): At 16th level, and every 10 levels thereafter, the epic acolyte of the skin gains a permanent +2 bonus to Intelligence or Charisma (character's choice).
+Electricity Resistant (Ex): At 18th level, the fiendish skin grants electricity resistance 20.
+Telepathy (Su): A 19th-level acolyte of the skin can communicate telepathically with any creature within 100 feet that has a language. 
+
+Epic Acolyte of the Skin Bonus Feat List:
+Arcane Defense, Armor Skin, Blinding Speed, Combat Casting, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Greater Spell Focus, Improved Combat Casting, Spell Focus, Spell Penetration, Toughness.</entry>
+  <entry id="205018" lang="en" sex="m">Epic Unseen Seer</entry>
+  <entry id="205019" lang="en" sex="m">At epic levels, you have become the ultimate master of secrets and shadows. Your uncanny ability to blend devastating sneak attacks with potent divinatory insight grows ever sharper.
+
+Hit Die: d4.
+Skill Points at Each Additional Level: 6 + Intelligence modifier.
+Bonus Feats: The epic Unseen Seer gains a bonus feat every three levels.
+
+Special:
+Spellcasting: The epic unseen seer continues to increase in caster level (and spells known, if applicable).
+Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Unseen Seer Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Blinding Speed, Combat Archery, Epic Dodge, Epic Skill Focus, Epic Trapfinding, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Uncanny Accuracy,</entry>
+  <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
+  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess’s dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic celebrant of Sharess gains a bonus feat every three levels
+
+Special:
+Rage:  The epic celebrant of Sharess continues to gain a useage of Rage every three levels.
+
+Epic Celebrant of Sharess Bonus Feat List:
+Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Ignore Material Components, Improved Combat Casting.</entry>
+  <entry id="205022" lang="en" sex="m">Epic Forsaker</entry>
+  <entry id="205023" lang="en" sex="m">At epic levels, you have honed your rejection of magic into a formidable source of strength. Relying solely on your own abilities, your body heals rapidly, your innate spell resistance climbs to daunting levels, and your damage reduction steadily increases, making you nearly impervious to harm. 
+
+Hit Die: d12
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Forsaker gains a bonus feat every three levels
+
+Special:
+Ability Bonus: The epic forsaker continues to increase in physcial &amp; mental power at each level.
+Fast Healing: The epic forsaker's healing ability continues to increase in power every three levels.
+Spell Resistance: The epic forsaker's spell resistance continues to increase in power every 3 levels.
+Damage Reduction: THe epic forsaker's damage resistence increases every 3 levels.
+
+Epic Forsaker Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Perfect Health, Two-Weapon Rend.</entry>
+  <entry id="205024" lang="en" sex="m">Epic Knight of the Chalice</entry>
+  <entry id="205025" lang="en" sex="m">At epic levels, your crusade against demonic forces becomes a divine juggernaut. You embody unwavering righteous zeal, channeling holy power to smite fiends and inspire your allies in the heat of battle.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Forsaker gains a bonus feat every four levels
+
+Special:
+Demonslaying:  The epic Knight of the Chalice becomes a righteous engine of destruction. The demonslaying enhancement bonus increases by one every even level &amp; the damage increases by either 1d6 physical or 1d6 divine every even level.
+
+Epic Knight of the Chalice Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Fortitude, Great Smiting, Improved Combat Casting, Improved Initiative, Superior Initiative, Epic Leadership, Improved Manyshot, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Planar Turning, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
+  <entry id="205026" lang="en" sex="m">Epic Hathran</entry>
+  <entry id="205027" lang="en" sex="m">At epic levels, your mastery of both arcane and divine magic crowns you as an exalted Hathran —a beacon of healing and leadership in Rashemen. You embody the sacred legacy of the learned sisters, extending your nurturing miracles and commanding spells that both protect your people and instill awe in your foes.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Hathran gains a bonus feat every three levels
+
+Special:
+Spells: The epic Hathran increases divine and arcane caster level by one every other level gained above 10th.
+
+Epic Hathran Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Planar Turning, Undead Mastery, Zone of Animation, Dragon Wild Shape, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health.</entry>
+  <entry id="205028" lang="en" sex="m">Epic Ironsoul Forgemaster</entry>
+  <entry id="205029" lang="en" sex="m">At epic levels, your mastery of meldshaping and dwarven craft reaches legendary heights. Your forge burns with divine purpose, shaping weapons and armor infused with the very essence of your soul. As a true master of your art, you stand as an unyielding guardian of dwarven heritage, wielding arms that embody both ancient tradition and unmatched power.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Ironsoul Forgemaster gains a bonus feat every three levels
+
+Special:
+Meldshaping: At each ironsoul forgemaster level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
+
+Epic Ironsoul Forgemaster Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Spell Focus, Epic Fortitude, Epic Reflexes, Epic, Will, Superior Initiative, Epic Leadership, Energy Resistance, Epic Toughness,  Legendary Commander, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+  <entry id="205030" lang="en" sex="m">Epic Stormlord</entry>
+  <entry id="205031" lang="en" sex="m">At epic levels, you become a living tempest, a walking manifestation of Talos’ chaotic fury. Thunder and lightning answer your call, and your mere presence heralds destruction. Wielding your spear like the storm itself, you lay waste to all who stand before you, leaving only ruin in your wake.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Stormlord gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Stormlord continues to increase in caster level (and spells known, if applicable).
+
+Epic Stormlord Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Planar Turning, Undead Mastery, Zone of Animation, Dragon Wild Shape, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health .</entry>
+  <entry id="205032" lang="en" sex="m">Epic Heartwarder</entry>
+  <entry id="205033" lang="en" sex="m">At epic levels, your beauty transcends mortal limits, becoming a divine presence that captivates all who behold you. Your voice weaves enchantments with effortless grace, and your very touch can inspire passion, devotion, or blissful surrender. As a living muse of Sune Firehair, you embody love, art, and charm in their purest forms.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Heartwarder gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Heartwarder continues to increase in caster level (and spells known, if applicable).
+
+Epic Heartwarder Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Improved Combat Casting, Planar Turning.</entry>
+  <entry id="205034" lang="en" sex="m">Epic Fist of Raziel</entry>
+  <entry id="205035" lang="en" sex="m">Epic Fists of Raziel become unstoppable champions of celestial wrath, striking down evil with overwhelming divine power. Their Smite Evil grows stronger, their holy strikes more potent, and their weapons become pure instruments of justice.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Fist of Raziel gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Fist of Raziel continues to increase in caster level (and spells known, if applicable).
+
+Epic Fist of Raziel Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Shield, Epic Prowess, Epic Reputation, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Improved Combat Casting, Invoke Divine Wrath, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+  <entry id="205036" lang="en" sex="m">Epic Vassal of Bahamut</entry>
+  <entry id="205037" lang="en" sex="m">Epic Vassals of Bahamut embody the Platinum Dragon’s will, becoming unstoppable champions against evil dragons. Their divine gifts, martial prowess, and unwavering devotion make them legendary figures in the eternal war against tyranny and corruption.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Vassal of Bahamut gains a bonus feat every three levels
+
+Special:
+Shared Trove: The epic Vassal of Bahamut gains an allowance of 30,000gp every three levels.
+Dragonwrack: The epic Vassal of Bahamut's damage bonus against dragons continues increasing.
+
+Epic Vassal of Bahamut Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Stunning Fist, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205038" lang="en" sex="m">Epic Sublime Chord</entry>
+  <entry id="205039" lang="en" sex="m">At the pinnacle of their mastery, a Sublime Chord transcends mere music and magic, unraveling the fundamental song of creation. As they progress, their understanding of the universal harmony grants them access to increasingly powerful and otherworldly effects. From harnessing arcane power through song to manipulating time itself, a Sublime Chord becomes a conduit of cosmic forces. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Sublime Chord gains a bonus feat every three levels
+
+Special:
+Bardic Abilities: The epic Sublime Chord continues to increase their Bardic Lore &amp; Bardic Song abilities.
+Spellcasting: The epic Sublime Chord continues to increase in caster level (and spells known, if applicable).
+
+Epic Sublime Chord Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Leadership, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Will, Great Charisma, Great Dexterity, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Legendary Commander.</entry>
+  <entry id="205040" lang="en" sex="m">Epic Arcane Duelist</entry>
+  <entry id="205041" lang="en" sex="m">An Epic Arcane Duelist becomes an untouchable master of deception and finesse, wielding illusion and swordplay in perfect harmony. Their chosen weapon strikes with uncanny precision, their defenses seem impenetrable, and they bewilder foes with dazzling speed and illusions, making them nearly impossible to best in combat.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Intelligence modifier
+Bonus Feats: The epic Arcane Duelist gains a bonus feat every two levels
+
+Epic Arcane Duelist Bonus Feat List:
+Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
+  <entry id="205042" lang="en" sex="m">Epic Wild Mage</entry>
+  <entry id="205043" lang="en" sex="m">An Epic Wild Mage fully embraces the chaotic essence of magic, wielding unpredictable power with unparalleled mastery. Their spells surge with raw, untamed energy, often warping reality itself. As they advance, their connection to chaos grows stronger, allowing them to twist fate, redirect magical forces, and unleash unprecedented magical anomalies.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic wild mage gains a bonus feat every three levels
+Special:
+Random Deflector: Continues increasing at a rate of 1 use per 3 epic Wild Mage levels.
+
+Caster Level: Increases as if gaining a level in your arcane spellcasting class.
+
+Epic Wild Mage Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic.  In addition to the feats on this list, the wild mage may select any item creation feat or metamagic feat not listed here.</entry>
+  <entry id="205044" lang="en" sex="m">Epic Shadowsmith
+</entry>
+  <entry id="205045" lang="en" sex="m">A master of shaping darkness, the epic shadowsmith refines their control over shadowstuff to near-divine levels. Their creations become nearly indestructible, their armor of shadow rivals the strongest magical defenses, and their presence warps the battlefield with darkness itself.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic shadowsmith gains a bonus feat every three levels
+Special:
+Shadowcraft: The shadowcraft enhancement bonus continues to advance into epic levels.
+
+Shadow Armor: Continues increasing at a rate of 1 use per 3 epic shadowsmith levels.
+
+Epic Shadowsmith Bonus Feats List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Energy Resistance, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Improved Combat Casting.</entry>
+  <entry id="205046" lang="en" sex="m">Epic Oozemaster</entry>
+  <entry id="205047" lang="en" sex="m">At epic levels, the Oozemaster transcends the boundaries between flesh and slime, becoming a true master of amorphous existence. Their body constantly secretes potent oozes, their touch melts through the strongest defenses, and they wield corrosive globs with devastating accuracy.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic oozemaster gains a bonus feat every three levels
+Special:
+Oozy Glob: Oozy glob uses per day keep advancing into epic levels.
+
+Caster Level: At each even level, the epic oozemaster's caster level increases as if gaining a level in their chosen spellcasting class.
+
+Epic Oozemaster Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Energy Resistance, Epic Endurance, Epic Fortitude, Epic Skill Focus, Epic Toughness, Fast Healing, Great Constitution.</entry>
+  <entry id="205048" lang="en" sex="m">Epic Knight of the Weave</entry>
+  <entry id="205049" lang="en" sex="m">At epic levels, a Knight of the Weave becomes a true conduit of raw magic, wielding the Weave itself as both weapon and shield. Their mastery of spellfire reaches devastating new heights, allowing them to consume and unleash magical energy with unmatched potency. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Knight of the Weave gains a bonus feat every other level
+
+Epic Knight of the Weave Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Spell Focus, Spell Penetration, Tenacious Magic, Armor Skin, Devastating Critical, Epic Leadership, Epic Prowess, Epic Reputation, Epic Toughness, Epic Weapon Focus, Great Smiting, Holy Strike, Improved Aura of Courage, Improved Combat Casting, Legendary Commander, Legendary Rider, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+  <entry id="205050" lang="en" sex="m">Epic Drow Judicator</entry>
+  <entry id="205051" lang="en" sex="m">An epic Drow Judicator is a terror of the Underdark, a living embodiment of Selvetarm’s relentless cruelty. Their war strikes sap the life from even the strongest foes, while their dominion over arachnids extends to legendary fiendish horrors.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Drow Judicator gains a bonus feat every three levels
+
+Special:
+Selvetarm's Wrath: The epic Drow Judicator continues to gain one use of Selvetarm's Wrath every three levels.
+
+Spellcasting: The epic Drow Judicator continues to increase in caster level (and spells known, if applicable) at every third class level.
+
+Epic Drow Judicator Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Daylight Adaptation, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health.</entry>
+  <entry id="205052" lang="en" sex="m">Epic Shadowbane Inquisitor</entry>
+  <entry id="205053" lang="en" sex="m">A paragon of righteous fury, the epic Shadowbane Inquisitor is a relentless force against darkness. Wielding divine might, they expose and annihilate evil with overwhelming power. 
+
+Hit Die: d10
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadowbane Inquisitor gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Shadowbane Inquisitor continues gaining sneak attack increases at the raite of 1d6 every three class levels.
+Smite: The epic Shadowbane Inquisitor continues to gain another use of Smite every four class levels.
+
+Epic Shadowbane Inquisitor Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Shield, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Toughness, Epic Weapon Focus, Great Smiting, Holy Martial Strike, Invoke Divine Wrath, Legendary Commander, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+  <entry id="205054" lang="en" sex="m">Epic Shadowbane Stalker</entry>
+  <entry id="205055" lang="en" sex="m">Masters of righteous subterfuge, the epic Shadowbane Stalkers are unseen hunters of evil, striking from the shadows with divine precision. They blend the arts of infiltration with unwavering faith, exposing deception and delivering swift justice. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Shadowbane Stalker gains a bonus feat every four levels
+
+Special:
+Sneak Attack: The epic Shadowbane Stalker's sneak attack continues to increase by 1d6 every 3 levels.
+Discover Subterfuge: The epic Shadowbane Stalker's bonus to Search &amp; Sense Motive continues to row by +2 every 3 class levels.
+Spellcasting: The epic Shadowbane Stalker continues to increase in caster level (and spells known, if applicable).
+
+Epic Shadowbane Stalker Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Planar Turning, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health, Epic Dodge, Epic Reputation, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205056" lang="en" sex="m">Epic Umbral Disciple</entry>
+  <entry id="205057" lang="en" sex="m">Mastering the darkness within and without, the Epic Umbral Disciple becomes a living shadow, slipping unseen through the world and striking with spectral precision. They transcend physical limitations, extending their reach beyond mortal constraints and channeling pure shadow essence into devastating attacks.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Umbral Disciple gains a bonus feat every three levels
+Special:
+Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
+Binder Level: Increases as if gaining a level in your soul binding class at each level.
+
+Epic Umbral Disciple Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making. </entry>
+  <entry id="205058" lang="en" sex="m">Epic Alienist</entry>
+  <entry id="205059" lang="en" sex="m">As an Epic Alienist, the boundaries of reality and sanity become mere illusions. With a mind forever altered by the truths of the Far Realm, they no longer walk among mortals but drift between dimensions, communing with incomprehensible entities.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Alienist gains a bonus feat every three levels
+Special:
+Caster Level: Increases as if gaining a level in your arcane spellcasting class.
+
+Epic Alienist Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Damage Resistance, Epic Toughness, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic.</entry>
+  <entry id="205060" lang="en" sex="m">Epic Black Blood Cultist</entry>
+  <entry id="205061" lang="en" sex="m">As an Epic Black Blood Cultist, the savage spirit of the Beastlord fully consumes you, transforming you into a walking nightmare of claws, fangs, and unrelenting fury. Your connection to the Black Blood deepens, making your body tougher, your instincts sharper, and your ferocity unmatched. 
+
+Hit Die: d12
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Black Blood Cultist gains a bonus feat every three levels
+Special:
+Feral rage: The epic Black Blood Cultist continues to gain 1 use of rage every 4 class levels.
+
+Damage Reduction: The epic Black Blood Cultist's damage reduction continues to increase by 2 every 5 levels.
+
+Epic Black Blood Cultist Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Superior Initiative, Terrifying Rage, Thundering Rage. </entry>
+  <entry id="205062" lang="en" sex="m">Epic Fochlucan Lyrist</entry>
+  <entry id="205063" lang="en" sex="m">An Epic Fochlucan Lyrist is the embodiment of harmony between sword, spell, and song. As a master of both arcane and divine magic, their knowledge of lore and music transcends mortal understanding. They weave powerful enchantments into their melodies, bolster allies with ancient wisdom, and strike down foes with finesse and supernatural prowess. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Fochlucan Lyrist gains a bonus feat every five levels
+
+Special:
+Bardic Abilities: The epic Fochlucan Lyrist continues to increase their Bardic Lore &amp; Bardic Song abilities.
+Spellcasting: The epic Fochlucan Lyrist continues to increase in arcane as well as divine caster level (and spells known, if applicable).
+
+Epic Fochlucan Lyrist Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Curse Song, Epic Energy Resistance, Epic Leadership, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Wild Shape, Epic Will, Extra Music, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Lingering Song, Legendary Commander.</entry>
+  <entry id="205064" lang="en" sex="m">Epic Spinemeld Warrior</entry>
+  <entry id="205065" lang="en" sex="m">The path of the Epic Spinemeld Warrior is one of absolute mastery over body and soulmelds. Their honed discipline transforms them into living weapons, their spines striking with supernatural precision and adamantine strength.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Spinemeld Warrior gains a bonus feat every two levels.
+
+Special:
+Meldshaping: At each Spinemeld Warrior level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
+
+Epic Spinemeld Warrior Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Spell Focus, Epic Fortitude, Epic Reflexes, Epic, Will, Superior Initiative, Epic Leadership, Energy Resistance, Epic Toughness, Legendary Commander, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld, Improved Two-Weapon Fighting, Greater Two-Weapon Fighting, Perfect Two-Weapon Fighting, Two Weapon Pounce, Two-Weapon Rend.</entry>
+  <entry id="205066" lang="en" sex="m">Epic Nightshade</entry>
+  <entry id="205067" lang="en" sex="m">Masters of deception, infiltration, and assassination, Epic Nightshades become true phantoms of the Underdark. Their affinity for magic and venomous strikes makes them deadly foes, whether in the depths of drow society or among surface dwellers.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 6 + Intelligence modifier.
+Bonus Feats: The epic Nightshade gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: The epic Nightshade's sneak attack continues to increase in power.
+
+Epic Nightshade Bonus Feat List:
+Blinding Speed, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205068" lang="en" sex="m">Epic Shadow Adept</entry>
+  <entry id="205069" lang="en" sex="m">Masters of the Shadow Weave, Epic Shadow Adepts wield darkness itself as both weapon and shield. They pierce the veil between worlds, their spells weaving illusions so potent they blur the line between reality and nightmare. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Shadow Adept gains a bonus feat every four levels
+
+Special:
+Shadow Defense: the epic Shadow Adept continues gaining a +1 Save vs. spells against the Enchantment, Illusion, Necromancy schools &amp; the spells with the Darkness descriptor for every four class levels.
+Shadow Spell Power: the epic Shadow Adept continues gaining +1 DC for casting spells of the Enchantment, Illusion, Necromancy schools &amp; the spells with the Darkness descriptor for every three class levels.
+Spellcasting: The epic Shadow Adept continues to increase in caster level (and spells known, if applicable).
+
+Epic Shadow Adept Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Combat Casting, Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Intelligence, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic.</entry>
+  <entry id="205070" lang="en" sex="m">Epic Soldier of Light</entry>
+  <entry id="205071" lang="en" sex="m">Steeled in the fires of righteousness, the Epic Soldier of Light becomes a beacon of divine power, radiating positive energy that shatters darkness and evil wherever it lurks. These champions stand unwavering against the forces of undeath and corruption, their faith and blade striking with celestial fury.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Soldier of Light gains a bonus feat every three levels after 10th.
+
+ABILITIES:
+
+Level 
+13: Healing Domain - Healing spells are empowered.
+16: Maximize Turn Undead - When you turn undead, your turn damage is multiplied by 2 (Doesn't stack with Empower Turning).
+19: Fast Healing 3 - Regenerate 3 HP/round.
+22: Supreme Positive Energy Burst: Now you only spend 1 turn attempt when you use Positive Energy Burst.
+
+Epic Soldier of Light Bonus Feats List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Prowess, Great Smiting, Great Wisdom, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+  <entry id="205072" lang="en" sex="m">Epic Sapphire Hierarch</entry>
+  <entry id="205073" lang="en" sex="m">Ascended beyond mortal constraints, the Epic Sapphire Hierarch becomes an avatar of perfect order, an unyielding force against the encroaching tide of chaos. Guided by the will of the Sapphire Eidolon, these champions refine their meldshaping, divine magic, and unwavering discipline to an absolute pinnacle. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Sapphire Hierarch gains a bonus feat every five levels
+
+Special:
+Caster Level: Increases as if gaining a level in your divine spellcasting class.
+Meldshaping: At each Sapphire Hierarch level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
+
+Epic Sapphire Hierarch Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Great Intelligence, Great Wisdom, Improved Combat Casting, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+  <entry id="205074" lang="en" sex="m">Epic Bonded Summoner</entry>
+  <entry id="205075" lang="en" sex="m">Beyond the boundaries of mortal summoning, the Epic Bonded Summoner becomes one with the elemental forces, merging soul and essence with the raw power of the planes. Their companion, now a force of nature incarnate, stands as an unshakable sentinel, while the summoner transcends flesh, embracing an existence of pure elemental might.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Bonded Summoner gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Bonded Summoner continues to increase in caster level (and spells known, if applicable).
+
+Epic Bonded Summoner Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Combat Casting, Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Intelligence, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic.</entry>
+  <entry id="205076" lang="en" sex="m">Epic Initiate of Draconic Mysteries</entry>
+  <entry id="205077" lang="en" sex="m">The Epic Initiate of Draconic Mysteries ascends beyond mortal limits, embodying the ancient power of dragons. Their unarmed strikes can rend steel, their senses pierce the darkest shadows, and their very presence instills awe and fear.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Initiate of Draconic Mysteries gains a bonus feat every three levels
+
+Special:
+Claw of the Dragon: The epic Initiate of Draconic Mysteries' unarmed strike continues to gain +1 enhancement every 3 class levels.
+
+Epic Initiate of Draconic Mysteries Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Energy Resistance, Epic Prowess, Epic Reputation, Epic Toughness, Fast Healing, Great Charisma, Great Wisdom, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205078" lang="en" sex="m">Epic Battleguard of Tempus</entry>
+  <entry id="205079" lang="en" sex="m">The Epic Battleguard of Tempus stands as a living avatar of war, embodying the unrelenting force of battle. These warriors inspire entire armies, wield weapons of divine might, and endure wounds that would fell lesser beings. 
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Battleguard of Tempus gains a bonus feat every three levels
+
+Special:
+Enchant Weapon: The bonus from the Enchant Weapon ability continues increasing by +1 for every three class levels past 10th.
+Spellcasting: The epic Battleguard of Tempus continues to increase in caster level (and spells known, if applicable).
+
+Epic Battleguard of Tempus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Weapon Focus, Legendary Commander, Improved Combat Casting, Planar Turning.</entry>
+  <entry id="205080" lang="en" sex="m">Epic Bladesinger</entry>
+  <entry id="205081" lang="en" sex="m">The Epic Bladesinger transcends the limits of mere martial prowess and arcane mastery, becoming a living embodiment of battle's deadly artistry. With unparalleled grace, they weave steel and spell into a seamless dance, striking down foes with fluid, lethal precision.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Bladesinger gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Bladesinger continues to increase in caster level (and spells known, if applicable) at every other level.
+
+Epic Bladesinger Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Spell Penetration, Epic Spell Focus, Epic Toughness, Epic Weapon Focus (Longsword, Rapier), Focused Spell Penetration, Great Intelligence, Improved Combat Casting, Superior Initiative.</entry>
+  <entry id="205082" lang="en" sex="m">Epic Soulcaster</entry>
+  <entry id="205083" lang="en" sex="m">The Epic Soulcaster is a master of both incarnum and arcane (or psionic) energy, seamlessly weaving soul energy into their spells and manifestations. As their mastery deepens, they unlock unparalleled control over chakra binds, enhance their investments to extraordinary levels, and transcend the boundaries between mortal essence and pure magic.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Soulcaster gains a bonus feat every four levels
+Special:
+Caster/Manifester/Meldshaper Level: Increases as if gaining a level in both your arcane spellcasting class (or psionic manifester class) and your meldshaper class at each level.
+
+Epic Soulcaster Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.  In addition to the feats on this list, the Soulcaster may select any item creation feat or metamagic feat not listed here.  Soulmanifesters can pick from psionic &amp; metapsionic feats instead of arcane feats.</entry>
+  <entry id="205084" lang="en" sex="m">Epic Sacred Fist</entry>
+  <entry id="205085" lang="en" sex="m">The Epic Sacred Fist is the ultimate fusion of divine power and martial discipline. Transcending the limits of mortal endurance, their bodies become living conduits of divine energy.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Sacred Fist gains a bonus feat every four levels
+
+Special:
+Sacred Armor Bonus: The epic Sacred Fist's armor class continues to improved by +1 every four levels.
+Sacred Flames: The epic Sacred Fist continues to gain a use of their Sacred Flames ability every five levels.
+
+Epic Sacred Fist Bonus Feats List:
+Armor Skin, Auto Quicken Spell, Auto Silent Spell, Auto Still Spell, Blinding Speed, Damage Reduction, Epic Spell Penetration, Epic Prowess, Epic Spell Focus, Energy Resistance, Epic Toughness, Great Wisdom, Improved Combat Casting, Improved Spell Resistance, Improved Stunning Fist, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205086" lang="en" sex="m">Epic Legendary Dreadnought</entry>
+  <entry id="205087" lang="en" sex="m">The Epic Legendary Dreadnought is an unstoppable juggernaut, a living engine of war whose mere presence on the battlefield turns the tide of conflict. With endurance beyond mortal limits and resilience that defies destruction, the Epic Legendary Dreadnought stands as an immovable force and an unstoppable weapon.
+
+Hit Die: d12
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Legendary Dreadnaught gains a bonus feat every five levels
+
+Level
+11: Unstoppable - Three times per day.
+12: Unmovable - Three times per day.
+13: Epic Toughness.* - Character gains an additional 20 HP.
+14: Epic Damage Reduction.* - Dreadnought gains 9/- damage reduction.
+15: Bonus Feat.
+
+Epic Legendary Dreadnaught Bonus Feats List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Reflexes, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Constitution, Great Strength, Overwhelming Critical.</entry>
+  <entry id="205088" lang="en" sex="m">Epic Disciple of Baalzebul</entry>
+  <entry id="205089" lang="en" sex="m">The epic Disciple of Baalzebul is a master of lies, deception, and treachery. She weaves webs of manipulation, using guile and cunning to achieve her goals. A true servant of the Lord of Lies, she excels in deception, charming others to her will, summoning infernal allies, and calling upon swarms of vile insects to torment her enemies.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Disciple of Baalzebu gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Disciple of Baalzebu's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Disciple of Baalzebu Bonus Feat List:
+Armor Skin, Blinding Speed, Energy Resistance, Fast Healing, Perfect Health, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205090" lang="en" sex="m">Epic Mighty Contender of Kord</entry>
+  <entry id="205091" lang="en" sex="m">Mighty Contenders of Kord strive for the ultimate fusion of physical and spiritual perfection. Champions of the Brawler, they push their bodies to their limits, believing that true strength leads to freedom. Through divine might and relentless training, they become living testaments to Kord’s power, breaking chains both literal and metaphorical in their quest for supremacy.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Mighty Contender of Kord gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Mighty Contender of Kord continues to increase in caster level (and spells known, if applicable).
+
+Epic Mighty Contender of Kord Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Commander, Legendary Wrestler, Improved Combat Casting, Perfect Health, Planar Turning, Overwhelming Critical.</entry>
+  <entry id="205092" lang="en" sex="m">Epic Iaijutsu Master</entry>
+  <entry id="205093" lang="en" sex="m">At epic levels, the Iaijutsu Master becomes the embodiment of deadly precision and supernatural speed. Their blade strikes before enemies can react, fueled by focus, finesse, and flawless form. With every draw, they blur the line between motion and strike, gaining enhanced Iaijutsu damage, additional attacks, and even greater power from their force of personality. 
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Iaijutsu Master gains a bonus feat every three levels.
+
+Special:
+Echoes of the Edge: The epic Iaijutsu Master gains the Echoes of the Edge ability at 11th level and an additional use of it every three levels afterwards.
+Spirit Strike: The epic Iaijutsu Master gains the Spirit Strike ability at 12th level and an additional use of it every three levels afterwards.
+
+Epic Iaijutsu Master Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Dodge, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Weapon Focus, Epic Weapon Specialization, Improved Iaijutsu Focus (Epic), Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205094" lang="en" sex="m">Epic Disciple of Dispater</entry>
+  <entry id="205095" lang="en" sex="m">Epic Disciples of Dispater become nearly indestructible warlords, commanding infernal legions and shrouding themselves in layers of iron both literal and mystical. Their mastery of defense, deception, and destructive force makes them terrifying opponents who strike with overwhelming might while remaining almost untouchable on the battlefield.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Disciple of Dispater gains a bonus feat every three levels.
+
+Epic Disciple of Dispater Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Energy Resistance, Epic Damage Resistance, Epic Skill Focus, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Constitution, Legendary Commander, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205096" lang="en" sex="m">Epic Ravager</entry>
+  <entry id="205097" lang="en" sex="m">Epic Ravagers are avatars of pure slaughter, exalting in the chaos and horror they sow. As they ascend beyond mortal limits, their every blow spreads agony, their presence breaks wills, and their cruelty transcends mere violence—becoming a divine expression of Erythnul’s madness. 
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Ravager gains a bonus feat every five levels.
+
+Epic Ravager Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205098" lang="en" sex="m">Epic Runescarred Berserker</entry>
+  <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power—each scar a rune, each scream a spell, each rage an unstoppable storm.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Runescarred Berserker gains a bonus feat every four levels.
+
+Special:
+Runescar Progression: The epic Runescarred Berzerker's runescars continue to advance in caster level.
+Damage Reduction: The epic Runescarred Berzerker continues to gain +1 DR every 3 class levels.
+Ritual Scarring : The epic Runescarred Berzerker continues to gain +1 Natural AC every 3 class levels.
+
+Epic Runescarred Berserkers Bonus Feat List:
+Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage.</entry>
+  <entry id="205100" lang="en" sex="m">Epic Talontar Blightlord</entry>
+  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona’s rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Talontar Blightlords gains a bonus feat every five levels
+
+Special:
+Blight Touch: The epic Talontar Blightlord continues to gain a use of Blight Touch every other level.
+Spellcasting: The epic Talontar Blightlord continues to increase in arcane as well as divine caster level (and spells known, if applicable).
+
+Epic Talontar Blightlords Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Legendary Commander.</entry>
+  <entry id="205102" lang="en" sex="m">Epic Child of Night</entry>
+  <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form—walking veils between this world and the shadow that lies beyond.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Child of Night gains a bonus feat every five levels
+
+Special:
+Cloak of Shadow:  The epic Child of Night continues to gain a use of Cloak of Shadows every other level.
+Cold Resistance: The epic Child of Night's cold resistance continues to increase by 5 every four levels.
+Dancing Shadow: The epic Child of Night continues to gain a use of Dancing Shadows every four levels.
+Mysteries: The epic Child of Night continues to increase in mystery caster level (and mysteries known, if applicable).
+
+Epic Child of Night Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Skill Focus, Favored Mystery, Great Charisma, Great Intellgence, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. </entry>
+  <entry id="205104" lang="en" sex="m">Epic Master of Shadow</entry>
+  <entry id="205105" lang="en" sex="m">Epic Masters of Shadow are no longer mere commanders of darkness—they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Master of Shadow gains a bonus feat every three levels
+
+Special:
+Mysteries: The epic Master of Shadow continues to increase in mystery caster level (and mysteries known, if applicable).
+
+Epic Master of Shadow Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Skill Focus, Favored Mystery, Great Charisma, Great Intellgence, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. </entry>
+  <entry id="205106" lang="en" sex="m">Epic Noctumancer</entry>
+  <entry id="205107" lang="en" sex="m">Epic Noctumancers are master weavers of arcane and shadow threads, effortlessly unraveling the magic of others while reinforcing their own with stolen power. With eyes that pierce the weave and shroud alike, they bend hostile spells into fuel for their next incantation.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Noctumancer gains a bonus feat every four levels
+
+Special:
+Mysteries: The epic Noctumancer continues to increase in mystery caster level (and mysteries known, if applicable).
+Spellcasting: The epic Noctumancer continues to increase in caster level (and spells known, if applicable).
+
+Epic Noctumancer Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Favored Mystery, Focused Spell Penetration, Great Charisma, Great Intelligence, Greater Path Focus, Ignore Material Components, Improved Combat Casting, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, Tenacious Magic, and any metashadow feat. </entry>
+  <entry id="205108" lang="en" sex="m">Epic Totem Rager</entry>
+  <entry id="205109" lang="en" sex="m">An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces—they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Totem Rager gains a bonus feat every three levels.
+
+Special:
+Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each totem rager class level.
+
+Epic Totem Rager Bonus Feat List:
+Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+  <entry id="205110" lang="en" sex="m">Epic Shadowblade</entry>
+  <entry id="205111" lang="en" sex="m">At epic levels, the shadowblade becomes a phantom of war—an untouchable presence whose strikes come from impossible angles and vanish without trace. Their unseen weapon evolves beyond mortal reach, letting them slip through defenses, extend their reach through shadow, and pierce even the strongest wards. As their bond with darkness deepens, so too does their lethality—each step silent, each blow fatal.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Shadowblade gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: The epic Shadowblade's sneak attack continues to increase in power.
+
+Epic Shadowblade Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Prowess, Epic Trapfinding, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205112" lang="en" sex="m">Epic Dragon Shaman</entry>
+  <entry id="205113" lang="en" sex="m">At epic levels, the dragon shaman becomes a living embodiment of draconic majesty. Their auras grow stronger, their breath weapon rivals that of ancient wyrms, and their resilience is all but unshakable. With wings unfurled and power drawn directly from their totem dragon’s essence, they stride through battle as a paragon of scaled might and unwavering purpose.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Dragon Shaman gains a bonus feat every three levels.
+
+Special:
+Draconic Armor: The epic Dragon Shaman's Natural Armor bonus grows to +4 at level 22 and continues to increase by +1 every 5 levels thereafter.
+Draconic Aura: The epic Dragon Shaman's draconic aura power continues to increase, becoming +6 at 25 and growing by 1 every 5 levels thereafter.
+
+Epic Dragon Shaman Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative.</entry>
+  <entry id="205114" lang="en" sex="m">Epic Dragonfire Adept</entry>
+  <entry id="205115" lang="en" sex="m">An epic Dragonfire Adept is a conduit of draconic magic made flesh, wielding their breath weapon with apocalyptic force and commanding invocations with the ease of thought. Their scales grow ever harder, their breath more versatile, and their arcane might ever deeper. 
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Dragonfire Adept gains a bonus feat every five levels.
+
+Special:
+Invocations: The Dragonfire Adept's invoker level continues to increase.
+Breath Weapon: The epic Dragonfire Adept's Breath weapon continues to gain in power.
+Draconic Armor: The epic Dragonfire Adept's Natural Armor bonus grows to +6 at level 23 and continues to increase by +1 every 5 levels thereafter.
+
+Epic Dragonfire Adept Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative.</entry>
+  <entry id="205116" lang="en" sex="m">Epic Red Wizard</entry>
+  <entry id="205117" lang="en" sex="m">At epic levels, Red Wizards deepen their mastery over a single school of magic to terrifying heights. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Red Wizard gains a bonus feat every five levels
+
+Special:
+Spell Power: At every even level the epic Red Wizard continues to gain a +1 DC and +1 Spell Penetration on all spells from his spell school of choice.
+Specialist Defense: At every even level the epic Red Wizard continues to gain a +1 on saves vs spells in his school of choice.
+Spellcasting: The epic Red Wizard continues to increase in caster level (and spells known, if applicable).
+
+Epic Red Wizard Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Forge Epic Ring, Great Intelligence Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205118" lang="en" sex="m">Epic True Necromancer</entry>
+  <entry id="205119" lang="en" sex="m">At epic levels, the True Necromancer transcends the boundaries between life and death, becoming a living conduit of necrotic power. No longer merely a manipulator of the dead, they embody death itself—an enduring presence whose will animates entire graveyards. Feared by the living and revered by the dead, their passage darkens the land, and even other necromancers whisper their name with dread. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic True Necromancer gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic True Necromancer continues to increase in arcane caster level (and spells known, if applicable).
+Rebuke: The epic True Necromancer's levels continue to stack with cleric levels for turning and rebuking undead. 
+Necromancer:  The epic True Necromancer continues to count all spellcasting levels for the purposes of necromancy spells.
+
+Epic True Necromancer Bonus Feat List:
+         
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Intelligence, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Undead Mastery, Zone of Animation.</entry>
+  <entry id="205120" lang="en" sex="m">Epic Blood Magus</entry>
+  <entry id="205121" lang="en" sex="m">At epic heights, the Blood Magus is no mere spellcaster; they are blood given will, a living paradox of life dancing on the edge of death. Their veins pulse with raw arcane potential, and their mastery over their own mortality is unmatched. To them, blood is not just life, it is power, memory, and magic itself. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Blood Magus gains a bonus feat every three levels
+
+Special:
+Durable Casting: the epic Blood Magus continues to gain +1 bouns per class level to Concentration checks.
+Homunculus: the epic Blood Magus' Homunculus continues to scale in power with the Blood Magus' class level.
+Spellcasting: At every even level, the epic Blood Magus continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Blood Magus Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205122" lang="en" sex="m">Epic Diabolist</entry>
+  <entry id="205123" lang="en" sex="m">At the epic scale, the Diabolist no longer imitates the damned, they command them. Every whispered invocation sears the Weave with the echoes of Hell's will, and each spell drips with the essence of infernal corruption. They walk among mortals cloaked in fire and dread, their ambition smoldering like embers beneath skin. Devils no longer tempt the Diabolist, they envy them. For what greater blasphemy than a mortal who dares not serve, but instead seeks to ascend?
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Diabolist gains a bonus feat every three levels
+
+Special:
+Diabolism: The epic Diabolist's Diabolism continues to increase by +1d6 every 3 class levels.
+Spellcasting: The epic Diabolist continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Diabolist Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205124" lang="en" sex="m">Epic Incandescent Champion</entry>
+  <entry id="205125" lang="en" sex="m">At the epic level, the Incandescent Champion ceases to be merely mortal, she becomes a radiant echo of the cosmic soul itself. Her presence hums with celestial harmony, her form a vessel of pure incandescent essence. No longer tethered by the limits of flesh or fear, she walks the realms as a beacon of luminous hope, a burning reminder that even the smallest spark can ignite a revolution of spirit.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Incandescent Champion gains a bonus feat every three levels.
+
+Special:
+Incarnum Overload: The epic Incandescent Champion continues to gain another use of Incarnum Overload every three levels.
+Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each Incandescent Champion class level.
+
+Epic Incandescent Champion Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Great Constitution, Overwhelming Critical, Superior Initiative, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+  <entry id="205126" lang="en" sex="m">Epic Justice of Weald and Woe</entry>
+  <entry id="205127" lang="en" sex="m">You are the forest’s final answer. Where diplomacy fails, your arrows speak. Moving unseen, striking without mercy, you end threats to elvenkind with lethal precision, and vanish like mist before dawn.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Justice of Weald and Woe gains a bonus feat every three levels.
+
+Special:
+Spellcasting: The epic Justice of Weald and Woe continues to increase in divine caster level.
+
+Epic Justice of Weald and Woe Bonus Feat List:
+Deflect Arrows, Eschew Materials, Improved Critical, Many Shot, Mounted Archery, Rapid Shot, Sudden Empower, Sudden Extend, Sudden Maximize, Sudden Widen, Weapon Specialization, Blinding Speed, Epic Endurance, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Fast Healing, Great Dexterity, Great Wisdom, Improved Combat Casting, Improved Manyshot, Perfect Health, Perfect Two-Weapon Fighting, Two-Weapon Rend, Superior Initiative. </entry>
+  <entry id="205128" lang="en" sex="m">Epic Acolyte of the Ego</entry>
+  <entry id="205129" lang="en" sex="m"> You speak power into yourself, bending reality with each syllable of your own truename. As your voice grows stronger, so does your form, shifting, resonating, evolving. You are your own source of power, and none may unmake what you have named.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Acolyte of the Ego gains a bonus feat every three levels.
+
+Special:
+Morphic Cadence: The epic Acolyte of the Ego continues to pick a new Cadence every other level.
+Truenaming: The epic Acolyte of the Ego continues to increase in Truenaming level.
+
+Epic Acolyte of the Ego Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Great Intelligence, Perfect Health, Superior Initiative.</entry>
+  <entry id="205130" lang="en" sex="m">Epic Peerless Archer</entry>
+  <entry id="205131" lang="en" sex="m">You’ve left behind distractions, there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy, just skill, steel, and silence.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Peerless Archer gains a bonus feat every three levels.
+
+Special:
+Ranged Sneak Attack: the epic Peerless Archer's ranged sneak attack continues to gain +1d6 damage every three levels.
+Fletching: The epic Peerless Archer's Fletching ability continues to increase by +1 every even level.
+
+Epic Peerless Archer Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Endurance, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization (longbow and shortbow), Great Dexterity, Improved Manyshot, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205132" lang="en" sex="m">Epic Thrall of Orcus</entry>
+  <entry id="205133" lang="en" sex="m">The epic Thrall of Orcus has turned from the warmth of life and pledged themseleves to Orcus, the demon prince of undeath. Where they walk, decay follows. The epic Thrall of Orcus communes with corpses, commands foul things, and revels in spreading dread. You are a hand of rot in a living world, and your god is watching.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Thrall of Orcus gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each even level the epic Thrall of Orcus continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Thrall of Orcus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Planar Turning, Undead Mastery, Zone of Animation.</entry>
+  <entry id="205134" lang="en" sex="m">Epic Black Flame Zealot</entry>
+  <entry id="205135" lang="en" sex="m">You are fire made flesh and vengeance given form. As a secret holy assassin of Kossuth, you walk between shadows and flame, striking down the faithless with blade and conviction. Your devotion is not for mercy, but for retribution. Kossuth burns within you, and your victims are simply fuel.
+
+Hit Die: d6.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Black Flame Zealot gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: the epic Black Flame Zealot's sneak attack continues to gain +1d6 damage every three levels.
+Spellcasting: At each even level the epic Black Flame Zealot continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Black Flame Zealot Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Sneak Attack, Lingering Damage, Planar Turning.</entry>
+  <entry id="205136" lang="en" sex="m">Epic Knight of Middle Circle</entry>
+  <entry id="205137" lang="en" sex="m">You are a sworn protector of celestial wisdom and earthly honor. As a Knight of the Middle Circle, your blade defends the Stargazers' sacred charge while your presence extends their reach. You are both herald and guardian—trusted with secrets, tasked with missions few can know, and bound by duty to serve the light of knowledge and the cause of good.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Knight of the Middle Circle gains a bonus feat every three levels.
+
+Special:
+True Strike: the epic Knight of the Middle Circle continues to gain another usage of True Strike every three levels.
+Combat Sense: the epic Knight of the Middle Circle's Combat Sense continues to improve by +2 every four class levels.
+Spellcasting: At each even level the epic Knight of the Middle Circle continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Knight of the Middle Circle Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Improved Combat Casting, Improved Stunning Fist, Improved Whirlwind Attack Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205138" lang="en" sex="m">Epic Spirit Shaman</entry>
+  <entry id="205139" lang="en" sex="m">Epic Spirit Shaman Description - PLACEHOLDER</entry>
+  <entry id="205140" lang="en" sex="m">Epic Hospitaler</entry>
+  <entry id="205141" lang="en" sex="m">At epic levels, the Hospitaler becomes a paragon of mercy and martial devotion. Their healing touch mends even the gravest wounds, their presence turns the tide of battle with divine fervor, and their unwavering dedication to protection and service inspires allies and humbles the wicked. With greater command over divine magic and an unbreakable will, the epic Hospitaler is a living beacon of hope in a world often shadowed by suffering.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Hospitaler gains a bonus feat every three levels
+
+Special:
+Spellcasting: At each even level the epic Hospitaler continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Hospitaler Bonus Feats List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Prowess, Epic Reputation, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Epic Will, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Spell Resistance, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+  <entry id="205142" lang="en" sex="m">Epic Master of Shrouds</entry>
+  <entry id="205143" lang="en" sex="m">At epic levels, the Master of Shrouds commands the dread powers of the grave with terrifying authority. Her ability to summon incorporeal undead grows to include even greater horrors, and her dominion over death magic becomes absolute.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Master of Shrouds gains a bonus feat every three levels.
+
+Special:
+Summon Undead: The epic Master of Shrouds' undead thrall continues gaining power throughout epic levels.
+Spellcasting: At each class level the epic Master of Shrouds continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Master of Shrouds Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Vigor, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning.</entry>
+  <entry id="205144" lang="en" sex="m">Epic Master Harper</entry>
+  <entry id="205145" lang="en" sex="m">Epic Master Harpers are legendary champions of freedom, lore, and harmony. Their mastery of ancient knowledge, music, and magic allows them to uplift allies, dismantle tyranny, and uncover secrets long forgotten. At epic levels, they gain deeper access to the Harper Secrets, further enhance their bardic and arcane talents, and wield their influence across the realms as inspirational figures and guardians of balance.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Master Harper gains a bonus feat every three levels
+
+Special:
+Spellcasting: At every class level, the epic Master Harper continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Master Harper Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Spellcasting, Epic Skill Focus, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Master Wand, Tenacious Magic.</entry>
+  <entry id="205146" lang="en" sex="m">Epic Foe Hunter</entry>
+  <entry id="205147" lang="en" sex="m">Epic Foe Hunters are relentless executioners of their sworn enemies. With every strike, they channel years of training, hatred, and precision into devastating blows that bypass even supernatural defenses. At epic levels, their Rancor damage intensifies, their resistances grow stronger, and their Death Attacks become nearly impossible to avoid, making them the ultimate bane of their hated foes.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Foe Hunter gains a bonus feat every three levels
+
+Special:
+Rancor: the epic Foe Hunter's Rancor ability contiues to increase its damage bonus by +1d6 every odd level.
+Hated Enemy Damage Reduction: the epic Foe Hunter's Hated Enemy Damage Reduction ability contiues to increase its resistance by 2/- every three levels.
+
+Epic Foe Hunter Bonus Feat List:
+Armor Skin, Bane of Enemies, Blinding Speed, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Strength, Great Dexterity, Improved Manyshot, Perfect Health, Perfect Two-Weapon Fighting, Two-Weapon Rend, Superior Initiative.</entry>
+  <entry id="205148" lang="en" sex="m">Epic Thrall of Grazzt</entry>
+  <entry id="205149" lang="en" sex="m">Epic Thralls of Graz’zt become living conduits of seduction and destruction. Their dark charisma becomes irresistible, allowing them to manipulate even the most stalwart minds. Their spell betrayal abilities reach deadly precision, turning every opening into an opportunity for pain. With the power to summon greater demons and twist arcane energy into lethal cunning, an Epic Thrall of Graz'zt no longer merely follows the Dark Prince, they act as his voice, his blade, and his will.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Thrall of Graz'zt gains a bonus feat every four levels
+
+Special:
+Dark Charisma: the epic Thrall of Graz'zt's Dark Charisma ability contiues to increase its bonus by +2 every odd level.
+Spell Betrayal: the epic Thrall of Graz'zt's Spell Betrayal ability continues to increase its bonus by +1d6 every even level.
+Spellstrike: the epic Thrall of Graz'zt's Spellstrike ability continues to increase its bonus by +1d6 every even level.
+Spellcasting: The epic Thrall of Graz'zt continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Thrall of Graz'zt Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205150" lang="en" sex="m">Epic Eldritch Disciple</entry>
+  <entry id="205151" lang="en" sex="m">At epic levels, the Eldritch Disciple becomes a master of both divine magic and eldritch power. Her patron’s gifts grow stronger, allowing her to blend invocations and divine spells with greater ease. As a chosen vessel of her deity’s will, she channels supernatural power with unmatched versatility and purpose.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Eldritch Disciple gains a bonus feat every four levels
+
+Special:
+Spellcasting: The epic Eldritch Disciple continues to increase in divine caster level (and spells known, if applicable).
+Invoking: The epic Eldritch Disciple continues to increase in invoker level (and spells known, if applicable).
+
+Epic Eldritch Disciple Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Eldritch Sculptor, Epic Damage Reduction, Epic Eldritch Blast, Epic Energy Resistance, Epic Extra Invocation, Epic Fiendish Resilience, Epic Spell Focus, Epic Spell Penetration, Fast Healing, Improved Combat Casting, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Superior Initiative.</entry>
+  <entry id="205152" lang="en" sex="m">Epic Ghost Faced Killer</entry>
+  <entry id="205153" lang="en" sex="m">At epic levels, the Ghost-Faced Killer becomes a nearly unstoppable specter of death, striking from the shadows with terrifying precision. Their ghostly abilities expand, allowing more frequent use of ethereal movement and fear-based tactics. Few see them coming, and even fewer survive the encounter.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Ghost-Faced Killer gains a bonus feat every three levels.
+
+Special:
+Sudden Strike: The epic Ghost-Faced Killer's Sudden Strike damage continues to increase by +1d6 every three levels.
+Ghost Step: The epic Ghost-Faced Killer continues gaining a use of their Ghost Step ability every three class levels.
+Frightful Attack: The epic Ghost-Faced Killer continues gaining a use of their Frightful Attack ability every three class levels.
+
+Epic Ghost-Faced Killer Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Prowess, Epic Toughness, Epic Trapfinding, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Overwhelming Critical, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205154" lang="en" sex="m">Epic Ultimate Magus</entry>
+  <entry id="205155" lang="en" sex="m">Epic Ultimate Magus Description - PLACEHOLDER</entry>
+  <entry id="205156" lang="en" sex="m">Epic Forest Master</entry>
+  <entry id="205157" lang="en" sex="m">At epic levels, the Forest Master becomes one with the primal wilds, embodying the ancient power of the forest. Their connection to nature grants them even greater physical resilience, enhanced plant-based abilities, and the enduring strength of the deep woods. They stand as timeless guardians of the green.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Forest Master gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Forest Master continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Forest Master Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus (Maul), Focused Spell Penetration, Epic Spellcasting, Fast Healing, Great Wisdom, Ignore Material Components, Improved Combat Casting, Overwhelmging Critical, Perfect Health, Plant Wild Shape, Tenacious Magic.</entry>
+  <entry id="205158" lang="en" sex="m">Epic Jade Phoenix Mage</entry>
+  <entry id="205159" lang="en" sex="m">At epic levels, the Jade Phoenix Mage attains unparalleled harmony between blade and spell. Arcane energy flows seamlessly through their martial forms, amplifying both precision and power. Their mastery allows them to unleash devastating elemental techniques, extend their mystic stances indefinitely, and call upon the eternal flame of the Phoenix to rise again, even in death.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Jade Phoenix Mage gains a bonus feat every four levels.
+
+Special:
+Spellcasting: At each class level the epic Jade Phoenix Mage continues to increase in arcane caster level (and spells known, if applicable).
+Maneuvers: At each class level the epic Jade Phoenix Mage continues to increase in initiator level.
+
+Epic Jade Phoenix Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Spellcasting, Epic Skill Focus, Epic Toughness, Epic Weapon Specialization, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Master Wand, Overwhelming Critical, Tenacious Magic.</entry>
+  <entry id="205160" lang="en" sex="m">Epic Ruby Knight Vindicator</entry>
+  <entry id="205161" lang="en" sex="m">At epic levels, the Ruby Knight Vindicator becomes a divine instrument of vengeance and secrecy. Steeped in martial discipline and empowered by the divine will of Wee Jas, the vindicator learns to bend time with divine fervor, recover and execute maneuvers with near-limitless efficiency, and move through shadows in full armor as easily as others in silence. His turning power fuels even more devastating strikes and supernatural precision, and no marked enemy escapes his holy judgment.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Ruby Knight Vindicator gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Ruby Knight Vindicator continues to increase in divine caster level (and spells known, if applicable).
+Maneuvers: At each class level the epic Ruby Knight Vindicator continues to increase in initiator level.
+
+Epic Ruby Knight Vindicator Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Overwhelming Critical, Tenacious Magic.</entry>
+  <entry id="205162" lang="en" sex="m">Epic Eternal Blade</entry>
+  <entry id="205163" lang="en" sex="m">Epic Eternal Blades are peerless elven warriors who have forged an unbreakable bond with their ancestral guides. Their mastery of martial maneuvers transcends time, allowing them to strike with preternatural precision and defend with foresight unmatched. As they grow in power, their eternal training deepens, granting even greater access to advanced techniques and the wisdom of ancient elven spirits, making them living legends on the battlefield.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Eternal Blade gains a bonus feat every three levels
+
+Special:
+Eternal Training:  At each odd class level the epic Eternal Blade continues to gain another use of Eternal Training.
+Maneuvers: At each class level the epic Eternal Blade continues to increase in initiator level.
+
+Epic Eternal Blade Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Fast Healing, Great Dexterity, Great Strength, Perfect Health, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205164" lang="en" sex="m">Epic Shadow Sun Ninja</entry>
+  <entry id="205165" lang="en" sex="m">Epic Shadow Sun Ninjas are masters of duality, channeling both radiant and shadow energies in perfect harmony. At the peak of their path, they transcend the traditional boundaries of martial arts and mysticism, wielding darkness to strike down foes and light to lift allies. With enhanced ki control and the wisdom born of balance, they become avatars of twilight, warriors whose mere presence can tip the scales between salvation and ruin.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadow Sun Ninja gains a bonus feat every four levels
+
+Special:
+Monk Abilities: The epic Shadow Sun Ninja continues to add their class level to determine AC Bonus, Unarmed Damage &amp; Stunning Fist uses per day.
+Maneuvers: At each class level the epic Shadow Sun Ninja continues to increase in initiator level.
+
+Epic Shadow Sun Ninja Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative. </entry>
+  <entry id="205166" lang="en" sex="m">Epic Witchborn Binder</entry>
+  <entry id="205167" lang="en" sex="m">Epic Witchborn Binders are the final bulwark against arcane tyranny. Having mastered the fusion of incarnum and anti-magic, they become living wards, nullifying spellcraft with a gesture, and shackling even the most powerful wizards in prisons of soulstuff. At this level, their presence alone can suppress magical auras, unravel arcane constructs, and seal away reality-bending threats. Vigilant and relentless, an epic Witchborn Binder is both a hunter and a sentinel, wielding pure incarnum as a weapon of justice.
+
+Hit Die: d6.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Witchborn Binder gains a bonus feat every three levels.
+
+Special:
+Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each Witchborn Binder class level.
+
+Epic Witchborn Binder Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Skill Focus, Epic Toughness, Epic Will, Great Constitution, Superior Initiative, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+  <entry id="205168" lang="en" sex="m">Epic Disciple of Mephistopheles</entry>
+  <entry id="205169" lang="en" sex="m">An Epic Disciple of Mephistopheles becomes a living conduit of hellfire, their body and soul twisted by infernal power. Their mere presence scorches the earth, their voice echoes with embers, and flames answer their every command. No longer just a servant, they are a herald of Mephistopheles himself, incinerating armies with infernal storms, summoning greater devils as lieutenants, and walking untouched through magical and mundane flame alike. Their mastery of hellfire transcends mortal understanding, making them a terror to celestials and mortals alike.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Disciple of Mephistopheles gains a bonus feat every other level.
+
+Epic Disciple of Mephistopheles Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance,  Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative.</entry>
+  <entry id="205170" lang="en" sex="m">Epic Soul Eater</entry>
+  <entry id="205171" lang="en" sex="m">An Epic Soul Eater is a walking extinction event. It no longer feeds just on life, it devours identity, power, and memory. Each victim makes it stronger, faster, and harder to stop. To face one is to risk becoming part of it forever.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Soul Eater gains a bonus feat every other level.
+
+Epic Soul Eater Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Legendary Commander, Superior Initiative.</entry>
+  <entry id="205172" lang="en" sex="m">Epic Henshin Mystic</entry>
+  <entry id="205173" lang="en" sex="m">Epic Henshin Mystics embody the ideals of discipline and transformation that define their order. As they progress beyond traditional limits, they further transcend physical boundaries and deepen their spiritual mastery. Their pursuit of perfection sharpens their awareness, focus, and presence, allowing them to act as beacons of balance and clarity. In battle and in stillness, their command of inner power continues to grow, reflecting their steady evolution toward the divine.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Henshin Mystic gains a bonus feat every three levels
+
+Special:
+Monk Abilities: The epic Henshin Mystic continues to add their class level to determine AC Bonus, Unarmed Damage &amp; Monk movement speed increase.
+
+Epic Henshin Mystic Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205174" lang="en" sex="m">Epic Drunken Master</entry>
+  <entry id="205175" lang="en" sex="m">The Drunken Master masters the art of unpredictable, staggered movements to confuse and evade enemies. At epic levels, their drunken combat style becomes even more powerful, turning alcohol into a source of strength and resilience. They become a whirlwind of chaos, using their unsteady form to surprise and overpower opponents with unexpected, powerful strikes.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Drunken Master gains a bonus feat every other level.
+
+Epic Drunken Master Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Great Constitution, Great Dexterity, Great Strength, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative. </entry>
+  <entry id="205176" lang="en" sex="m">Epic Enlightened Fist</entry>
+  <entry id="205177" lang="en" sex="m">At epic levels, the Enlightened Fist fully unites arcane power with martial mastery. Their fists strike with not only speed and precision, but with the force of magic itself. Every motion is charged with energy, allowing them to deliver devastating touch spells and elemental strikes in a blur of combat. They become spellcasters in motion, unarmed, unarmored, and unstoppable.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Enlightened Fist gains a bonus feat every five levels
+
+Special:
+Spell Resistance: The epic Enlightened Fist continues to add their class level to their spell resistance.
+Spellcasting: At each class level the epic Enlightened Fist continues to increase in arcane caster level (and spells known, if applicable).
+Monk Abilities: The epic Enlightened Fist continues to add their class level to determine Stunning Attacks, Unarmed Damage &amp; Monk movement speed increase.
+
+Epic Enlightened Fist Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205178" lang="en" sex="m">Epic Morninglord of Lathander</entry>
+  <entry id="205179" lang="en" sex="m">At epic levels, the Morninglord becomes a living vessel of Lathander's divine light. Their presence alone is a balm to the wounded and a bane to the undead. Their power to turn, heal, and sanctify grows radiant and awe-inspiring, suffused with the hope and renewal of dawn itself. Wherever they walk, darkness falters, and the sun seems to shine a little brighter.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Morninglord of Lathander gains a bonus feat every three levels
+
+Special:
+Greater Turning: The epic Morninglord of Lathander continues to gain a use of Greater Turning every four levels.
+Spellcasting: The epic Morninglord of Lathander continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Morninglord of Lathander Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.</entry>
+  <entry id="205180" lang="en" sex="m">Epic Pyrokineticist</entry>
+  <entry id="205181" lang="en" sex="m">At epic levels, the Pyrokineticist becomes the living embodiment of raw elemental force. Whether wielding searing flame, freezing cold, corrosive acid, or crackling lightning, they channel destructive energy with deadly precision and flair. Their chosen element shapes every strike, movement, and breath unleashing devastating touch attacks, elemental lashes, and overwhelming bursts of power. Masters of heat, chill, corrosion, or storm, these kineticists don't just manipulate energy, they become it.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Pyrokineticist gains a bonus feat every other level.
+
+Epic Pyrokineticist Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Psionic Feats, Superior Initiative.</entry>
+  <entry id="205182" lang="en" sex="m">Epic Shadowmind</entry>
+  <entry id="205183" lang="en" sex="m">At epic levels, the Shadowmind becomes a whisper in the mind and a ghost in the dark. Blending silent footfalls with psychic sabotage, she can unravel thoughts before they are spoken, cloud perceptions before danger is noticed, and strike where no defense can reach. With powers that distort memory and stealth refined to supernatural precision, the epic Shadowmind is the perfect infiltrator; unseen, unknown, and unforgettable only to those who survive.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadowmind gains a bonus feat every other level.
+
+Special:
+Sneak Attack: the epic Shadowmind's sneak attack continues to gain +1d6 damage every three levels.
+Manifesting: At each class level the epic Shadowmind continues to increase in manifester level (and powers known, if applicable).
+
+Epic Shadowmind Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Intelligence, Great Wisdom, Improved Sneak Attack, Lingering Damage, Psionic Feats, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205184" lang="en" sex="m">Epic Psychic Thurge</entry>
+  <entry id="205185" lang="en" sex="m">To the epic Psychic Theurge, the boundary between faith and thought is a veil easily pierced. Wielding divine miracles and mental might in seamless harmony, they are living conduits of transcendent purpose. Their prayers echo with psionic force, and their psionic power is guided by divine insight. These rare visionaries stand at the nexus of will and wonder, forging a path where no spell nor power is beyond reach.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Psychic Theurge gains a bonus feat every six levels.
+
+Special:
+Spellcasting: At each class level the epic Psychic Theurge continues to increase in divine caster level (and spells known, if applicable).
+Manifesting: At each class level the epic Psychic Theurge continues to increase in manifester level (and powers known, if applicable).
+
+Epic Psychic Theurge Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning, Psionic Feats, Tenacious Magic, Zone Of Animation.</entry>
+  <entry id="205186" lang="en" sex="m">Epic Cerebremancer</entry>
+  <entry id="205187" lang="en" sex="m">The epic Cerebremancer is a scholar of two worlds, one of incantations and sigils, the other of thoughts shaped into force. They weave arcane threads with psionic clarity, bending the very essence of reality with twin pillars of intellect and magic. To them, the mind is just another spellbook, and magic merely another expression of will. In their hands, knowledge becomes transcendence, and dual mastery becomes a singular, unstoppable force.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Cerebremancer gains a bonus feat every six levels.
+
+Special:
+Spellcasting: At each class level the epic Cerebremancer continues to increase in arcane caster level (and spells known, if applicable).
+Manifesting: At each class level the epic Cerebremancer continues to increase in manifester level (and powers known, if applicable).
+
+Epic Cerebremancer Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Wisdom, Ignore Material Components, Improved Combat Casting, Psionic Feats, Tenacious Magic.</entry>
+  <entry id="205188" lang="en" sex="m">Epic Thrallherd</entry>
+  <entry id="205189" lang="en" sex="m">The epic Thrallherd is no mere master of persuasion, they are a gravitational center of will, drawing minds like comets into their orbit. Words are unnecessary; their presence alone compels obedience. Servants do not follow out of duty, but because they believe it is destiny. Kings, monsters, even minds alien and ancient, none are beyond the Thrallherd’s reach. Their thoughts shape allegiance, and their will becomes the law of others.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Thrallherd gains a bonus feat every six levels.
+
+Special:
+Manifesting: At each class level the epic Thrallherd continues to increase in manifester level (and powers known, if applicable).
+
+Epic Thrallherd Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Leadership, Epic Skill Focus, Great Intelligence, Psionic Feats.</entry>
+  <entry id="205190" lang="en" sex="m">Epic Fist of Zouken</entry>
+  <entry id="205191" lang="en" sex="m">Epic Fists of Zuoken are masters of both body and mind, walking paths few dare to tread. Their strikes carry the weight of perfect training, and their thoughts cut as sharply as their fists. These monks have unlocked the deep synergy between psionics and martial discipline, weaving them into a single, flawless form. They are guardians of the awakened, defenders of mental freedom, and relentless opponents of oppression.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Fist of Zuoken gains a bonus feat every five levels
+
+Special:
+Monk Abilities: The epic Fist of Zuoken continues to add their class level to determine AC Bonus, Unarmed Damage &amp; Monk movement speed increase.
+Manifesting: At each class level the epic Fist of Zuoken continues to increase in manifester level (and powers known, if applicable).
+
+Epic Fist of Zuoken Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Psionic Feats, Self-Concealment, Superior Initiative. </entry>
+  <entry id="205192" lang="en" sex="m">Epic Contemplative</entry>
+  <entry id="205193" lang="en" sex="m">Epic Contemplatives have moved beyond mere devotion into living embodiments of divine connection. Their thoughts echo the will of their deity, and their actions shape the world in subtle yet profound ways. Whether isolated in serene temples or walking amid the chaos of the world, they are guided by unshakable faith. Every breath is a prayer, every step a sacred act. In their presence, others feel the stillness of eternity, as if the divine is looking through their eyes. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Contemplative gains a bonus feat every five levels
+
+Special:
+Monk Abilities: The epic Contemplative continues to add their class level to determine AC Bonus, Unarmed Damage &amp; Monk movement speed increase.
+Spellcasting: At each class level the epic Contemplative continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Contemplative Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Dodge, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Perfect Health, Planar Turning, Psionic Feats, Self-Concealment, Superior Initiative, Tenacious Magic. </entry>
+  <entry id="205194" lang="en" sex="m">Epic Runecaster</entry>
+  <entry id="205195" lang="en" sex="m">The epic runecaster no longer simply inscribes symbols of divine power ,  they weave divine essence into the world itself. Their runes thrum with ancient energy, etched into stone, metal, and air alike. Each mark is a silent hymn, a declaration of faith and force, holding power that rivals full incantations. Thieves no longer dare approach the runecaster's artifacts, and foes learn too late that every step toward a runecaster is a step deeper into a trap. Their runes do not merely cast spells ,  they shape destiny.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Runecaster gains a bonus feat every three levels
+
+Special:
+Rune Craft: The epic Runecaster continues to gain a +1 on Runecarving checks at every odd level.
+Rune Power: The epic Runecaster's Rune Power ability continues to gain +1 to DC &amp; spell penetration checks at every even level.
+Spellcasting: The epic Runecaster continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Runecaster Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.</entry>
+  <entry id="205196" lang="en" sex="m">Epic Warchief</entry>
+  <entry id="205197" lang="en" sex="m">An epic Warchief becomes the stuff of legend, feared and revered by entire nations. His warcries shake enemy lines, and his presence alone can rally tribes to conquer cities and kingdoms. As he grows in power, his influence spreads like wildfire, turning even the most fractured clans into an unstoppable force. Epic Warchiefs inspire absolute loyalty and demand unquestioning obedience, forging empires from chaos and blood.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Warchief gains a bonus feat every four levels.
+
+Special:
+Tribal Frenzy: the Strength bonus from the epic Warchief's Tribal Frenzy continues to grow by +2 every even level.
+Ability Boost: the epic Warchief's Charisma bonus continues to grow by +2 every four levels.
+
+Epic Warchief Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess,  Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Fast Healing, Great Charisma, Great Constitution, Legendary Commander, Mighty Rage, Overwhelming Critical, Superior Initiative, Thundering Rage.</entry>
+  <entry id="205198" lang="en" sex="m">Epic War Mind</entry>
+  <entry id="205199" lang="en" sex="m">An epic War Mind channels unmatched clarity and precision in battle, moving with the focus of a weapon guided by thought alone. His mastery of the Talariic Codex unlocks deeper chains of war, each one enhancing his physical form and tactical prowess. Striking with devastating force and defending with near-impenetrable resolve, the epic War Mind blends mind and might into a perfect war machine, commanding the battlefield with every breath and motion.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic War Mind gains a bonus feat every five levels
+
+Special:
+Enduring Body: The epic War Mind's Damage Reduction continues to grow by +1 every three class levels.
+Manifesting: At each class level the epic War Mind continues to increase in manifester level (and powers known, if applicable).
+
+Epic War Mind Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. </entry>
+  <entry id="205200" lang="en" sex="m">Epic Iron Mind</entry>
+  <entry id="205201" lang="en" sex="m">An epic Iron Mind stands as an unbreakable bastion against psychic assault, her will as tempered as the armor she wears. With unshakable focus and hardened discipline, she deflects enchantments and mind control with effortless resolve. Her presence radiates mental fortitude, empowering allies and punishing those who dare probe her thoughts. In the epic tiers, the Iron Mind becomes the embodiment of pure, unyielding resistance.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Iron Mind gains a bonus feat every five levels
+
+Special:
+Armoured Mind: The epic Iron Mind continues to gain a use of Armoured Mind every three class levels.
+Damage Reduction: The epic Iron Mind's Damage Reduction continues to grow by +1 every three class levels.
+Mind Over Body: The epic Iron Mind continues to gain a use of Mind Over Body every three class levels.
+Manifesting: At each class level the epic Iron Mind continues to increase in manifester level (and powers known, if applicable).
+
+Epic Iron Mind Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. </entry>
+  <entry id="205202" lang="en" sex="m">Epic Slayer of Domiel</entry>
+  <entry id="205203" lang="en" sex="m">An epic Slayer of Domiel becomes a divine instrument of retribution, delivering swift and silent justice to the forces of evil. With holy precision and supernatural grace, they strike unseen, guided by celestial purpose. Their death touch grows ever more lethal, and their sacred presence turns stealth into salvation. In the epic ranks, no corrupt soul escapes the light they bring from the shadows.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Slayer of Domiel gains a bonus feat every four levels.
+
+Special:
+Death Touch: The epic Slayer of Domiel continues to gain a use of their Death Touch ability every even class level.
+Sneak Attack: the epic Slayer of Domiel's sneak attack continues to gain +1d6 damage every odd class level.
+Spellcasting: The epic Slayer of Domiel continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Slayer of Domiel Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Wisdom, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205204" lang="en" sex="m">Epic Disciple of Asmodeus</entry>
+  <entry id="205205" lang="en" sex="m">An epic Disciple of Asmodeus becomes a true architect of tyranny, his will an unbreakable chain upon the minds of lesser beings. His commands echo with infernal authority, bending even the strongest to his purpose. Secrets fall into his hands like ripe fruit, and with each one, his dominion grows. Surrounded by devils and cloaked in dread majesty, he no longer merely serves Asmodeus, he embodies his dark doctrine.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Disciple of Asmodeus gains a bonus feat every four levels
+
+Special:
+Learn Secret: The epic Disciple of Asmodeus continues to gain a use of Learn Secret every odd class level.
+Spellcasting: Every other level the epic Disciple of Asmodeus continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Disciple of Asmodeus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205206" lang="en" sex="m">Epic Suel Archanamach</entry>
+  <entry id="205207" lang="en" sex="m">An epic Suel Archanamach is a living relic of an empire that once challenged the gods themselves. Blade and spell move as one in their hands ,  seamless, relentless, unstoppable. They slip through magical wards as if they were cobwebs, unraveling spells and spellcasters alike with practiced ease. Masters of dispelling, cloaked in illusions, and steeped in ancient arcane warfare, these elusive warriors are nightmares whispered among archmages ,  for when a Suel Archanamach comes, even the most powerful wizard may find no sanctuary.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Suel Archanamach gains a bonus feat every four levels.
+
+Special:
+Dispelling Strike: The epic Suel Archanamach continues to gain a use of their Dispelling Strike ability every four class levels.
+Ignore Spell Failure: the epic Suel Archanamach continues to increase the amount of spell failure they can overcome by 5% every three class levels.
+Spellcasting: The epic Suel Archanamach continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Suel Archanamach Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus, Great Charisma, Improved Combat Casting, Overwhelming Critical, Superior Initiative.</entry>
+  <entry id="205208" lang="en" sex="m">Epic Skullclan Hunter</entry>
+  <entry id="205209" lang="en" sex="m">An epic Skullclan Hunter is the eternal bane of the undead. With eyes that pierce through shadow and a resolve that rivals divine judgment, they tread where others dare not ,  into tombs reeking with the chill of unlife. Each strike of their blade sears with holy vengeance, bypassing foul defenses and undoing necromantic abominations with grace and fury. Immune to the withering touch of unlife, they become a living bulwark against the darkness; a radiant scourge born to end what should never have risen.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Skullclan Hunter gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Skullclan Hunter's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Skullclan Hunter Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Skill Focus, Epic Weapon Focus, Epic Reputation, Fast Healing, Great Charisma, Invoke Divine Wrath, Improved Sneak Attack, Lingering Damage, Perfect Health, Planar Turning, Superior Initiative.</entry>
+  <entry id="205210" lang="en" sex="m">Epic Master Alchemist</entry>
+  <entry id="205211" lang="en" sex="m">An epic Master Alchemist is a living crucible of arcane transmutation, distilling raw magic into liquid form with an artistry that defies mortal comprehension. With hands steady as time and minds sharp as diamond, these arcane chemists brew wonders that rival the greatest of spells ,  bottled miracles, captured storms, and essence of the gods. Able to craft potions imbued with ninth-circle sorcery, they shape the future in vials and flasks, offering power, salvation, or ruin with a single sip.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Master Alchemist gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Master Alchemist continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Master Alchemist Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.  In addition to the feats on this list, the epic Master Alchemist may select any item creation feat not listed here.</entry>
+  <entry id="205212" lang="en" sex="m">Epic Brimstone Speaker</entry>
+  <entry id="205213" lang="en" sex="m">Epic Brimstone Speakers are divine orators of sacred flame, their voices echoing with the resonance of celestial truth. Their mastery of truenames reaches apocalyptic potency, capable of invoking divine conflagrations that sear away corruption and summon angelic paragons from the farthest reaches of the Upper Planes. When an Epic Brimstone Speaker speaks, the heavens answer, fire obeys, and evil trembles before the purity of their word-forged wrath.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Brimstone Speaker gains a bonus feat every three levels.
+
+Special:
+Truenaming: The epic Brimstone Speaker continues to increase in Truenaming level.
+Spellcasting: At each odd class level the epic Brimstone Speaker continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Brimstone Speaker Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.</entry>
+  <entry id="205214" lang="en" sex="m">Epic Shugenja</entry>
+  <entry id="205215" lang="en" sex="m">Epic Shugenja Description - PLACEHOLDER</entry>
+  <entry id="205216" lang="en" sex="m">Epic Hand of the Winged Masters</entry>
+  <entry id="205217" lang="en" sex="m">Epic Hands of the Winged Masters become more than servants, they become whispers in the wind, shadows beneath wings, and the unseen daggers of draconic will. Their bond to their draconic patrons transcends mere loyalty, transforming into something sacred and absolute. As spies, saboteurs, and assassins, they move unseen through the world, wielding deadly grace and dragon-blessed cunning. Each word they speak and every blade they draw serves the ancient agendas of their winged masters with terrifying precision.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Hands of the Winged Masters gains a bonus feat every three levels.
+
+Special:
+Special Attack: the epic Hand of the Winged Masters's sneak attack or skirmish attack continues to gain +1d6 damage every three levels.
+
+Epic Hands of the Winged Masters Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Intelligence, Improved Sneak Attack, Lingering Damage, Psionic Feats, Self-Concealment, Superior Initiative.</entry>
+  <entry id="205218" lang="en" sex="m">Epic Talon of Tiamat</entry>
+  <entry id="205219" lang="en" sex="m">Epic Talons of Tiamat are the chosen claws of dragonkind’s darkest queen, spreading her wrath and dominion across the realms. Empowered by draconic fury and ancient magic, they become living engines of destruction, breathing elemental death, sowing terror with their presence, and turning even mighty dragons into pawns of their will. Whether clad in steel or shrouded in sorcery, they are avatars of chromatic vengeance, feared by all who stand with metallic dragons and loathed as heretics by the righteous. Wherever they walk, Tiamat’s shadow follows.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Talon of Tiamat gains a bonus feat every three levels.
+
+Special:
+Voice of the Dragon: the epic Talon of Tiamat continues to gain a +2 bonus to Intimidate and Bluff checks every four class levels.
+Spellcasting: At each odd class level the epic Talon of Tiamat continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Talon of Tiamat Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Constitution, Ignore Material Components, Improved Combat Casting, Improved Whirlwind Attack, Tenacious Magic, Superior Initiative.</entry>
+  <entry id="205220" lang="en" sex="m">Epic Frost Mage</entry>
+  <entry id="205221" lang="en" sex="m">Epic Frost Mages are winter incarnate, beings of arcane chill whose mere presence numbs the soul. Having transcended the mortal limits of frost magic, they wield glacial power with terrifying precision. Their spells freeze blood in veins and shatter stone with creeping ice. The frost itself answers their call, howling through the world as an extension of their will. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Frost Mage gains a bonus feat every four levels.
+
+Special:
+Natural Armor: The epic Frost Mage continues to gain +1 Natural Armor every three class levels.
+Spellcasting: At each class level the epic Frost Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Frost Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205222" lang="en" sex="m">Epic Blighter</entry>
+  <entry id="205223" lang="en" sex="m">An epic blighter is the walking death of ecosystems, a roving apocalypse wrapped in bone and flame. Where they pass, forests blacken, rivers sour, and life recoils in terror. No longer merely forsaken by nature, they have become its antithesis, an unrelenting force of defilement. Their very breath poisons the wind, and their touch spreads pestilence faster than wildfire.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Blighter gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Blighter continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Blighter Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus, Focused Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Great Wisdom, Ignore Material Components, Improved Combat Casting, Overwhelmging Critical, Perfect Health, Tenacious Magic, Superior Initiative.</entry>
+  <entry id="205224" lang="en" sex="m">Epic Rage Mage</entry>
+  <entry id="205225" lang="en" sex="m">An epic rage mage is an arcane storm in human form, where fury and magic fuse into devastating synergy. No longer shackled by the fragile composure most spellcasters cling to, she channels raw emotion into spellcraft that crackles with violent energy. Her rage no longer clouds her casting, it defines it. Each shout is a sonic blast, each heartbeat a surge of power. In battle, she becomes an avatar of destruction, tearing through enemies in a blaze of primal wrath and arcane fury.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Rage Mage gains a bonus feat every four levels.
+
+Special:
+Spell Rage: The epic Rage Mage continues to gain a use of their Spell Rage ability every five class levels.
+Spellcasting: Every other class level the epic Rage Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Rage Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Forge Epic Ring, Fast Healing, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Legendary Commander, Mighty Rage, Overwhelming Critical, Superior Initiative, Tenacious Magic, Thundering Rage.</entry>
+  <entry id="205226" lang="en" sex="m">Epic Dragonheart Mage</entry>
+  <entry id="205227" lang="en" sex="m">The epic dragonheart mage is the living embodiment of draconic majesty fused with arcane mastery. As their blood grows richer with ancient draconic power, so too does their spellcraft swell with elemental might. Their breath becomes an instrument of cataclysm, a devastating release of stored arcane potential shaped by the legacy of their draconic forebears. With every spell cast, their presence becomes more commanding, their body more resilient, their soul more like that of a true dragon. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Dragonheart Mage gains a bonus Draconic feat every level ending in 2, 4, or 8.
+
+Special:
+Draconic Breath: The epic Dragonheart Mage's Draconic Breath damage increases to 3d8 at level 16, 4d6 at 20, 4d8 at 26, and 5d6 at level 30.
+Spellcasting: At each class level the epic Dragonheart Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Dragonheart Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+  <entry id="205228" lang="en" sex="m">Epic Swift Wing</entry>
+  <entry id="205229" lang="en" sex="m">An epic Swift Wing is more than a servant of the divine, they are the very breath, muscle, and will of the sacred dragon they revere. Their connection to draconic divinity becomes seamless, a fusion of holy purpose and ancient power. Their breath heals armies and scours the undead from the battlefield in blazing waves of divine flame. With wings unfurled and energy flowing through every fiber, they strike with celestial fury and soar above mortal bounds. In body and spirit, the epic swift wing is the swift vengeance and swift salvation of their god, wreathed in light, cloaked in scales, and unstoppable in purpose.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Swift Wing gains a bonus feat every three levels.
+
+Special:
+Breath of Life: The epic Swift Wing's Breath of Life continues to gain +1d6 damage vs undead every class level.
+Spellcasting: At each class level the epic Swift Wing continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Swift Wing Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.</entry>
+  <entry id="205230" lang="en" sex="m">Epic Diamond Dragon</entry>
+  <entry id="205231" lang="en" sex="m">An epic diamond dragon is the embodiment of psionic and draconic synergy. Their mind channels the full strength of the draconic psionic collective, shaping energy into claws, wings, and breath with effortless will. Their presence unnerves even the boldest, radiating the calm, crystalline power of a mind sharpened to a perfect edge. They no longer tap into psionic dragon energy, they are its living expression.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Diamond Dragon gains a bonus feat every three levels.
+
+Special:
+Dragon Augmentation: Every five class levels the epic Diamond Dragon can choose to gain a +1 in either Strength, Dexterity, or Constitution.
+Manifesting: At each class level the epic Diamond Dragon continues to increase in manifester level (and powers known, if applicable).
+
+Epic Diamond Dragon Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.</entry>
+  <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
+  <entry id="210000" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="213094" lang="en" sex="m">Daring Warrior</entry>
   <entry id="213095" lang="en" sex="m">Type of Feat: General
 Prerequisite: Weapon Specialization, Grace +1

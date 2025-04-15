@@ -139,7 +139,23 @@ int PRCGetSpellResistance(object oTarget, object oCaster)
         }        
     } 
     
-    // Ur-Priest
+	// Ur-Priest
+	int nPriestLevel = GetLevelByClass(CLASS_TYPE_UR_PRIEST, oTarget);
+	if(nPriestLevel >= 4)
+	{
+		// SR vs divine only
+		if(GetIsDivineClass(PRCGetLastSpellCastClass(oCaster)))
+		{
+			//if(nPriestLevel > 50) nPriestLevel = 50;  //:: cap if needed
+			
+			// Calculate bonus: 15 at level 4, then +5 for every additional 4 levels
+			int nCont = 15 + (((nPriestLevel - 4) / 4) * 5);
+			
+			if(nCont > iSpellRes)
+				iSpellRes = nCont;
+		}
+	}	
+/*     // Ur-Priest
     if(GetLevelByClass(CLASS_TYPE_UR_PRIEST, oTarget) >= 4)
     {
         // SR vs divine only
@@ -150,7 +166,7 @@ int PRCGetSpellResistance(object oTarget, object oCaster)
             if(nCont > iSpellRes)
                 iSpellRes = nCont;
         }        
-    }    
+    } */    
     
     // Dread Carapace Heart Bind
     if(GetIsIncarnumUser(oTarget))

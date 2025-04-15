@@ -378,7 +378,7 @@ void EvalPRCFeats(object oPC)
     ExecuteScript("ft_sanctmartial", oPC);
 
     //hook in the weapon size restrictions script
-    //ExecuteScript("prc_restwpnsize", oPC);
+    //ExecuteScript("prc_restwpnsize", oPC);  //<- Script no longer exists
 
     //Route the event to the appropriate class specific scripts
     int i, iData;
@@ -1434,6 +1434,16 @@ void FeatNinja (object oPC)
     SetLocalInt(oPC, "prc_ninja_ki", nUsesLeft);
 }
 
+void EyeOfGruumsh(object oPC)
+{
+    if (GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oPC) < 4) return;
+
+    int iEOGLevel = GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oPC);
+    int nUses = 2 + 2 * ((iEOGLevel - 4) / 3);
+	
+	FeatUsePerDay(oPC, FEAT_BLINDING_SPITTLE, -1, nUses);    
+}
+
 void BarbarianRage(object oPC)
 {
     if(!GetHasFeat(FEAT_BARBARIAN_RAGE, oPC)) return;
@@ -1904,6 +1914,36 @@ void AnimaMage(object oPC)
     int nClass = GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oPC);
     if(nClass > 0)
     {
+        int nUses;
+        // Levels 1-6: 1 use
+        if(nClass < 7)
+        {
+            nUses = 1;
+        }
+        // Levels 7-8: 2 uses
+        else if(nClass < 9)
+        {
+            nUses = 2;
+        }
+        // Levels 9-10: 3 uses
+        else if(nClass <= 10)
+        {
+            nUses = 3;
+        }
+        // Levels above 10: 1 additional use per 3 levels
+        else
+        {
+            nUses = 3 + ((nClass - 10) / 3);
+        }
+        FeatUsePerDay(oPC, FEAT_ANIMA_VESTIGE_METAMAGIC, -1, 0, nUses);
+    }
+}
+
+/* void AnimaMage(object oPC)
+{
+    int nClass = GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oPC);
+    if(nClass > 0)
+    {
         if (nClass >= 9)
             FeatUsePerDay(oPC, FEAT_ANIMA_VESTIGE_METAMAGIC, -1, 0, 3);    
         else if (nClass >= 7)
@@ -1911,7 +1951,7 @@ void AnimaMage(object oPC)
         else
             FeatUsePerDay(oPC, FEAT_ANIMA_VESTIGE_METAMAGIC, -1, 0, 1);
     }        
-}
+} */
 
 void FeatSpecialUsePerDay(object oPC)
 {
@@ -2022,6 +2062,7 @@ void FeatSpecialUsePerDay(object oPC)
     SLAUses(oPC);
     DomainUses(oPC);
     BardSong(oPC);
+	EyeOfGruumsh(oPC);
     BarbarianRage(oPC);
     FeatVirtuoso(oPC);
     ResetExtraStunfistUses(oPC);

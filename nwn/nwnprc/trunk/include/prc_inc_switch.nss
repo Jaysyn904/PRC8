@@ -1918,7 +1918,7 @@ const string PRC_CRAFT_TIMER_MIN                     = "PRC_CRAFT_TIMER_MIN";
  */
 const string PRC_BREW_POTION_CASTER_LEVEL            = "PRC_BREW_POTION_CASTER_LEVEL";
 
-/**
+/*
  * These three switches modify Bioware crafting so that the items produced have the
  * casterlevel of the spellcaster who created them. Normally under Bioware, it is possible
  * for a level 3 caster to produce level 9 items and for a level 40 caster to only produce
@@ -1930,7 +1930,7 @@ const string PRC_BREW_POTION_CASTER_LEVEL            = "PRC_BREW_POTION_CASTER_L
  */
 const string PRC_SCRIBE_SCROLL_CASTER_LEVEL          = "PRC_SCRIBE_SCROLL_CASTER_LEVEL";
 
-/**
+/*
  * These three switches modify Bioware crafting so that the items produced have the
  * casterlevel of the spellcaster who created them. Normally under Bioware, it is possible
  * for a level 3 caster to produce level 9 items and for a level 40 caster to only produce
@@ -1942,12 +1942,12 @@ const string PRC_SCRIBE_SCROLL_CASTER_LEVEL          = "PRC_SCRIBE_SCROLL_CASTER
  */
 const string PRC_CRAFT_WAND_CASTER_LEVEL             = "PRC_CRAFT_WAND_CASTER_LEVEL";
 
-/**
+/*
  * As above, except it applies to rods
  */
 const string PRC_CRAFT_ROD_CASTER_LEVEL             = "PRC_CRAFT_ROD_CASTER_LEVEL";
 
-/**
+/*
  * As above, except it applies to staffs
  */
 const string PRC_CRAFT_STAFF_CASTER_LEVEL             = "PRC_CRAFT_STAFF_CASTER_LEVEL";

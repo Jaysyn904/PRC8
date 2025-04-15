@@ -2953,7 +2953,7 @@ void AugmentSummonedCreature(string sResRef)
             {
                 effect eLink = EffectAbilityIncrease(ABILITY_STRENGTH, 4);
                        eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_CONSTITUTION, 4));
-                       eLink = SupernaturalEffect(eLink);
+                       eLink = UnyieldingEffect(eLink);
     
                 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oSummon);
                 SetLocalInt(oSummon, "Augmented", TRUE);
@@ -2984,10 +2984,11 @@ void AugmentSummonedCreature(string sResRef)
         {
             if(GetResRef(oSummon) == sResRef && !GetLocalInt(oSummon, "BeckonTheFrozen"))
             {
-                effect eLink = EffectVisualEffect(VFX_DUR_ELEMENTAL_SHIELD);
+                effect eLink = EffectVisualEffect(VFX_DUR_CHILL_SHIELD);
                 eLink = EffectLinkEffects(eLink, EffectDamageImmunityDecrease(DAMAGE_TYPE_FIRE, 50));
                 eLink = EffectLinkEffects(eLink, EffectDamageImmunityIncrease(DAMAGE_TYPE_COLD, 100));
-                eLink = SupernaturalEffect(eLink);
+				eLink = EffectLinkEffects(eLink, EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_COLD));
+                eLink = UnyieldingEffect(eLink);
     
                 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oSummon);
                 SetLocalInt(oSummon, "BeckonTheFrozen", TRUE);

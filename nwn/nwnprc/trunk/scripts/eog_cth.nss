@@ -23,6 +23,8 @@ void main()
          {
               int iEOGLevel = GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oCaster);
               effect eWill = EffectSavingThrowIncrease(SAVING_THROW_WILL, 2, SAVING_THROW_TYPE_ALL);
+			  eWill = ExtraordinaryEffect(eWill);
+			  
               ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eWill, oTarget, HoursToSeconds(iEOGLevel) );
               
               effect eVis = EffectVisualEffect(VFX_IMP_WILL_SAVING_THROW_USE, FALSE);

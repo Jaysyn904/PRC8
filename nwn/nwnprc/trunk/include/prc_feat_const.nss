@@ -32,6 +32,7 @@ const int FEAT_EPIC_OCULAR				= 3425;
 const int FEAT_EPIC_RAVAGER				= 2395;
 const int FEAT_EPIC_RED_AVENGER			= 2753;
 const int FEAT_EPIC_TEMPEST	 			= 5470;
+const int FEAT_EPIC_UP_PRIEST			= 25996;
 
 //:: Web Enhancement Feats
 const int FEAT_CHARMING_THE_ARROW		= 25997;

@@ -1427,6 +1427,160 @@ void DeleteNamedComposites(object oItem, string sBase)
 
 int GetIsMagicItem(object oItem)
 {
+    // Exclusion for specific item resrefs: if the item is one of these, it's non-magical.
+    string sResRef = GetResRef(oItem);
+    if(sResRef == "x1_wmgrenade001" ||
+       sResRef == "prc_it_acidfire" ||
+       sResRef == "prc_agony" ||
+       sResRef == "prc_it_alcslpgas." ||
+       sResRef == "x1_wmgrenade002" ||
+       sResRef == "prc_it_alcfrost" ||
+       sResRef == "prc_it_alcspark" ||
+       sResRef == "prc_it_antitox" ||
+       sResRef == "prc_baccaran" ||
+       sResRef == "prc_it_biledrp" ||
+       sResRef == "prc_it_blendcrm" ||
+       sResRef == "prc_brittlebn" ||
+       sResRef == "prc_it_crcklpdr" ||
+       sResRef == "prc_devilweed" ||
+       sResRef == "prc_it_emblmfr" ||
+       sResRef == "prc_it_fareyeoil" ||
+       sResRef == "prc_it_festerbmb" ||
+       sResRef == "prc_it_flashplt" ||
+       sResRef == "prc_it_healblm" ||
+       sResRef == "prc_it_keenear" ||
+       sResRef == "prc_it_lockslip" ||
+       sResRef == "prc_luhix" ||
+       sResRef == "prc_mshrm_pwdr" ||
+       sResRef == "prc_it_natdrgt" ||
+       sResRef == "prc_it_nerv" ||
+       sResRef == "prc_sannish" ||
+       sResRef == "prc_it_scrmflsk" ||
+       sResRef == "prc_it_shedden" ||
+       sResRef == "prc_it_shedden2" ||
+       sResRef == "prc_it_shedden3" ||
+       sResRef == "prc_it_shedden4" ||
+       sResRef == "prc_it_shedden5" ||
+       sResRef == "prc_it_softfoot" ||
+       sResRef == "x1_wmgrenade006" ||
+       sResRef == "prc_terran_brndy" ||
+       sResRef == "x1_wmgrenade007" ||
+       sResRef == "prc_vodare" ||
+       sResRef == "prc_it_weepstn")
+    {
+        return 0;
+    }
+
+    // Exception for torches:
+    // If the only permanent property is the Light property (44), it's not magical.
+    if(GetBaseItemType(oItem) == BASE_ITEM_TORCH)
+    {
+        int nCount = 0;
+        int nOnlyType = -1;
+        itemproperty ip = GetFirstItemProperty(oItem);
+        while(GetIsItemPropertyValid(ip))
+        {
+            if(GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)
+            {
+                nCount++;
+                nOnlyType = GetItemPropertyType(ip);
+            }
+            ip = GetNextItemProperty(oItem);
+        }
+        if(nCount == 1 && nOnlyType == 44)
+        {
+            return 0;
+        }
+    }
+    
+    // Exception for healer's kits:
+    // If the only permanent property is type 80, it's not magical.
+    if(GetBaseItemType(oItem) == BASE_ITEM_HEALERSKIT)
+    {
+        int nCount = 0;
+        int nOnlyType = -1;
+        itemproperty ip = GetFirstItemProperty(oItem);
+        while(GetIsItemPropertyValid(ip))
+        {
+            if(GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)
+            {
+                nCount++;
+                nOnlyType = GetItemPropertyType(ip);
+            }
+            ip = GetNextItemProperty(oItem);
+        }
+        if(nCount == 1 && nOnlyType == 80)
+        {
+            return 0;
+        }
+    }
+    
+    // Exception for thief's tools:
+    // If the only permanent property is type 55, it's not magical.
+    if(GetBaseItemType(oItem) == BASE_ITEM_THIEVESTOOLS)
+    {
+        int nCount = 0;
+        int nOnlyType = -1;
+        itemproperty ip = GetFirstItemProperty(oItem);
+        while(GetIsItemPropertyValid(ip))
+        {
+            if(GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)
+            {
+                nCount++;
+                nOnlyType = GetItemPropertyType(ip);
+            }
+            ip = GetNextItemProperty(oItem);
+        }
+        if(nCount == 1 && nOnlyType == 55)
+        {
+            return 0;
+        }
+    }
+
+    // Normal magic property checking
+    itemproperty ip = GetFirstItemProperty(oItem);
+    int nType;
+    int nSubtype;
+    while(GetIsItemPropertyValid(ip))   // loop through item properties looking for a magical one
+    {
+        if(GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)
+        {   // ignore temporary properties
+            nType = GetItemPropertyType(ip);
+            if((nType >= 0 && nType <= 9) ||    // read from itempropdef.2da
+               (nType >= 13 && nType <= 20) ||
+               (nType == 26) ||
+               (nType >= 32 && nType <= 44) ||
+               (nType == 46) ||
+               (nType >= 51 && nType <= 59) ||
+               (nType == 61) ||
+               (nType >= 67 && nType <= 69) ||
+               (nType >= 71 && nType <= 80) ||
+               (nType == 82) ||
+               (nType == 84) ||
+               (nType >= 100 && nType <= 105) ||
+               (nType >= 133 && nType <= 134))
+            {
+                return 1;   // magical property found
+            }
+            nSubtype = GetItemPropertySubType(ip);
+            if(nType == ITEM_PROPERTY_BONUS_FEAT)
+            {
+                if(GetBaseItemType(oItem) == BASE_ITEM_WHIP)
+                {
+                    if(nSubtype != IP_CONST_FEAT_DISARM_WHIP)
+                        return 1;
+                }
+                else
+                    return 1;
+            }
+        }
+        ip = GetNextItemProperty(oItem);
+    }
+    return 0;
+}
+
+/* int GetIsMagicItem(object oItem)
+{
     itemproperty ip = GetFirstItemProperty(oItem);
     int nType;
     int nSubtype;
@@ -1467,7 +1621,7 @@ int GetIsMagicItem(object oItem)
         }
     }
     return 0;
-}
+} */
 
 int FeatToIprop(int nFeat)
 {

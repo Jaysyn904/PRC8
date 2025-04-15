@@ -4,6 +4,38 @@
 //:: Copyright (c) 2002 Bioware Corp.
 //:://////////////////////////////////////////////
 /*
+
+	Evocation [Fire]
+	Level: Sorcerer 5, Wizard 5,
+	Components: V, S, M,
+	Casting Time: 1 standard action
+	Range: Medium (100 ft. + 10 ft./level)
+	Area: One 5-ft.-radius burst/level (S)
+	Duration: Instantaneous
+	Saving Throw: Reflex half
+	Spell Resistance: Yes
+
+	The flask of alchemist's fire vanishes from you hand and the 
+	ground erupts beneath your foes, shooting multiple fountains 
+	of fiery liquid upward.
+
+	Each burst deals 1d6 points of damage per caster level 
+	(maximum 10d6) to all creatures within the area. All 
+	subjects hit by the burst in the round the spell is 
+	cast or within the area in the following round take 1d6 
+	points of fire damage per two caster levels (maximum 5d6). 
+	A character struck in the round the spell is cast can 
+	attempt to extinguish the flames on itself as a 
+	full-round action with a successful DC 15 Reflex 
+	save.
+
+	Burst effects that overlap do not deal additional 
+	damage (a creature can be affected by only one burst).
+
+	Material Component: A flask of alchemist's fire 
+	(worth 20 gp).
+
+
 // * Fires a flame arrow to every target in a
 // * colossal area
 // * Each target explodes into a small fireball for
@@ -22,8 +54,6 @@
 
 //:: altered by mr_bumpkin Dec 4, 2003 for prc stuff
 #include "prc_inc_spells"
-
-
 #include "prc_add_spell_dc"
 
 void DoFirebrand(int CasterLvl,int nD6Dice, int nCap, int nSpell, 
@@ -59,7 +89,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
 
      // Changed to local function to add reflex save.
-    DoFirebrand(CasterLvl,nDamage, 15, SPELL_FIREBRAND, VFX_IMP_MIRV_FLAME, VFX_IMP_FLAME_M, ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_FIRE), FALSE);
+    DoFirebrand(CasterLvl,nDamage, 15, SPELL_FIREBRAND, VFX_IMP_MIRV_FLAME, VFX_IMP_FLAME_M, ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_FIRE), TRUE);
 
 
 DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");

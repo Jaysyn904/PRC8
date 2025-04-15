@@ -285,7 +285,7 @@ int FindUnarmedDamage(object oCreature)
         if (GetBaseAC(oArmor) > 0 || bShieldEq)
         {
             iMonkDamage = 1;
-                   }
+		}
     }
 
 // Shou Disciples can wear light armor

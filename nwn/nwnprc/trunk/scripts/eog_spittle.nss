@@ -32,10 +32,10 @@ void main()
 
      if(GetDistanceBetween(oCaster, oTarget) < 6.2 &&  // has to be within 20 ft.
         iTargetRace != RACIAL_TYPE_OOZE &&             // has to use sight to attack
-        iTargetRace != RACIAL_TYPE_CONSTRUCT &&
-        iTargetRace != RACIAL_TYPE_UNDEAD &&
-        iTargetRace != RACIAL_TYPE_ELEMENTAL &&
-        iTargetRace != RACIAL_TYPE_VERMIN &&
+        //iTargetRace != RACIAL_TYPE_CONSTRUCT &&	
+        //iTargetRace != RACIAL_TYPE_UNDEAD &&		//:: none of these have any intrinsic immmunity to blindness
+        //iTargetRace != RACIAL_TYPE_ELEMENTAL &&  
+        //iTargetRace != RACIAL_TYPE_VERMIN &&
         !iBeholder)
      {
            int iHitEnemy = PRCDoRangedTouchAttack(oTarget);;
