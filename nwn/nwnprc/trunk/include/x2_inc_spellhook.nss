@@ -1233,7 +1233,7 @@ void DazzlingIllusion(object oCaster, int nSchool)
             {
                 if(!GetIsFriend(oTarget, oCaster) && !PRCGetHasEffect(EFFECT_TYPE_BLINDNESS, oTarget))
                 {
-                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
+                    DelayCommand(0.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0));
                 }
                 //Select the next target within the spell shape.
                 oTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
@@ -1293,13 +1293,22 @@ void InsightfulDivination(object oCaster, int nSchool, int nSpellLevel)
 
 void TougheningTransmutation(object oCaster, int nSchool)
 {
+	if (DEBUG) DoDebug("Toughening Transmutation called");
+
     if(GetHasFeat(FEAT_TOUGHENING_TRANSMUTATION, oCaster))
     {
         if(nSchool == SPELL_SCHOOL_TRANSMUTATION)
         {
-            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageReduction(5, DAMAGE_POWER_PLUS_ONE), oCaster, 6.0);
+			effect eDR = EffectDamageReduction(5, DAMAGE_POWER_PLUS_ONE);
+			
+			if (DEBUG) DoDebug("School Detected: " + IntToString(nSchool));
+            DelayCommand(0.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDR, oCaster, 7.0));
         }
     }
+	else
+	{
+		if (DEBUG) DoDebug("You do not have the Toughening Transmutation feat.");
+	}
 }
 
 void CloudyConjuration(object oCaster, int nSchool, object oSpellCastItem)
@@ -1308,7 +1317,8 @@ void CloudyConjuration(object oCaster, int nSchool, object oSpellCastItem)
     {
         if(nSchool == SPELL_SCHOOL_CONJURATION)
         {
-            ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(VFX_MOB_CLOUDY_CONJURATION), PRCGetSpellTargetLocation(), 6.0);
+			effect eAOE = EffectAreaOfEffect(VFX_MOB_CLOUDY_CONJURATION);
+            DelayCommand(0.0, ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, PRCGetSpellTargetLocation(), 6.0));
         }
     }
 }
@@ -3225,4 +3235,4 @@ int X2PreSpellCastCode2()
 
 
 // Test main
-//:: void main(){}
+//::void main(){}

@@ -148,6 +148,8 @@ void main()
 {
     object oModule = GetModule();
     PersonalSwitch(oModule);
+	
+	SetAbilityBonusLimit(50);
 
     OnLoad_Always(oModule);
 

@@ -73300,27 +73300,23 @@ Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Dire Charge,
 
 Hit Die: d4
 Skill Points at Each Additional Level: 2 + Intelligence modifier
-Bonus Feats: The epic Spellfire Channeler gains a bonus feat every four levels
-
-Special:
-Increased Storage: Your capacity for storing raw spellfire energy continues to grow with each epic level.
-Rapid Blast: Your rapid-fire channeling of spellfire intensifies as you advance, enabling even more powerful successive blasts.
+Bonus Feats: The epic Spellfire Channeler gains a bonus feat every three levels
 
 Epic Spellfire Channeler:
-Armor Skin, Blinding Speed, Great Constitution, Epic Prowess, Epic Toughness, Epic Skill Focus, Epic Weapon Focus (spellfire), Skill Focus, Epic Fortitude, Epic Reflexes, Epic Will, Toughness, Epic Spellfire Weider, Iron Will, Great Fortitude, Lightning Reflexes, Point Blank Shot, Ranged Recall.</entry>
+Armor Skin, Blinding Speed, Great Constitution, Epic Prowess, Epic Toughness, Epic Skill Focus, Epic Weapon Focus (spellfire), Skill Focus, Epic Fortitude, Epic Reflexes, Epic Will, Toughness, Epic Spellfire Weider, Iron Will, Great Fortitude, Lightning Reflexes, Point Blank Shot, Ranged Recall, Weapon Focus (spellfire).</entry>
   <entry id="205012" lang="en" sex="m">Epic Virtuoso</entry>
-  <entry id="205013" lang="en" sex="m">You have transcended the common stage to become a living legend of performance. Every setting—be it a grand theater or a chance encounter on the road—transforms into your arena, where your magnetic presence and unparalleled charm captivate audiences beyond mortal expectation.
+  <entry id="205013" lang="en" sex="m">You have transcended the common stage to become a living legend of performance. Every setting-be it a grand theater or a chance encounter on the road-transforms into your arena, where your magnetic presence and unparalleled charm captivate audiences beyond mortal expectation.
 
 Hit Die: d6
 Skill Points at Each Additional Level: 4 + Intelligence modifier
 Bonus Feats: The epic Virtuoso gains a bonus feat every two levels
 
+Special:
 Spells: The epic virtuoso increases caster level by one per level gained above 10th.
-
 Bard Song: The epic virtuoso's bard song continues into epic levels.
 
 Epic Virtuoso Bonus Feat List:
-Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic.</entry>
+Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spellcasting, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic</entry>
   <entry id="205014" lang="en" sex="m">Epic Spellsword</entry>
   <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells—each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
 
