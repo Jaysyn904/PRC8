@@ -63,11 +63,13 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
    int iMax = 3;
 
    int iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_DAGGER     	 ? 1 : 0;
+	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATAR    	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_HANDAXE    	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KAMA       	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KUKRI      	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTHAMMER	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTMACE  	 ? 1 : iLight;
+	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHT_PICK	 ? 1 : iLight;	   
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_RAPIER    	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SHORTSWORD 	 ? 1 : iLight;
        iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SICKLE     	 ? 1 : iLight;

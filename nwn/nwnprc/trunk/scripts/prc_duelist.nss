@@ -222,8 +222,12 @@ void main()
            GetBaseItemType(oLefthand) != BASE_ITEM_LARGESHIELD &&
            GetBaseItemType(oLefthand) != BASE_ITEM_TOWERSHIELD &&
           (GetBaseItemType(oWeapon) == BASE_ITEM_RAPIER ||
-           GetBaseItemType(oWeapon) == BASE_ITEM_DAGGER ||
-           GetBaseItemType(oWeapon) == BASE_ITEM_SHORTSWORD))
+			GetBaseItemType(oWeapon) == BASE_ITEM_DAGGER ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_ELVEN_THINBLADE ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_KATAR ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_LIGHT_PICK ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_ELVEN_LIGHTBLADE ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_SHORTSWORD))
         {
         
             // Add eventhook to the item
