@@ -1439,8 +1439,8 @@ itemproperty PropSpecialHandling(object oItem, string sFile, int nLine, int nInd
         {
             switch(nLine)
             {
-                case 25:
                 case 26:
+                case 27:
                 {
                     nTemp = GetLocalInt(GetItemPossessor(oItem), PRC_CRAFT_SPECIAL_BANE_RACE);
                     if(nIndex == 1)
