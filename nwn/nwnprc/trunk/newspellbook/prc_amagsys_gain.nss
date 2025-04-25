@@ -76,10 +76,14 @@ void main()
 // Handle new spellbooks
 void CheckSpellbooks(object oPC)
 {
-    if(!GetPRCSwitch(PRC_BARD_DISALLOW_NEWSPELLBOOK) && CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6))
+	if(GetIsRHDSorcerer(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 6))
+        return;
+	if(GetIsRHDBard(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6))
         return;
     if(!GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9))
         return;
+    if(!GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9))
+        return;	
     if(CheckMissingSpells(oPC, CLASS_TYPE_SUEL_ARCHANAMACH, 1, 5))
         return;
     if(CheckMissingSpells(oPC, CLASS_TYPE_FAVOURED_SOUL, 0, 9))
@@ -336,7 +340,8 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
 
     if(!nLevel)
         return FALSE;
-    if(nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+    
+	if(nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
     {
         if((GetLevelByClass(nClass, oPC) == nLevel) //no PrC
             && !(GetHasFeat(FEAT_DRACONIC_GRACE, oPC) || GetHasFeat(FEAT_DRACONIC_BREATH, oPC))) //no Draconic feats that apply

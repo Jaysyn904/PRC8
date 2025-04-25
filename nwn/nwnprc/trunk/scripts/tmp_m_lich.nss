@@ -529,6 +529,8 @@ void AddIPs(object oPC, object oSkin, int nIsDemi, int iTestLich, int iTestDemi)
     IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 
     if(DEBUG) DoDebug("You have feat Undead HD = "+IntToString(GetHasFeat(FEAT_UNDEAD_HD, oPC)));
+	
+	SetSubRace(oPC, "Undead (Augmented Humanoid)");
 
     if(nIsDemi && !iTestDemi)
     {

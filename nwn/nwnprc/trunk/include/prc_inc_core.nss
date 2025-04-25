@@ -7,6 +7,12 @@
 /* Function Prototypes                          */
 //////////////////////////////////////////////////
 
+//:: Returns true if oCaster's race can naturally cast sorcerer spells.
+int GetIsRHDSorcerer(object oCaster = OBJECT_SELF);
+
+//:: Returns true if oCaster's race can naturally cast bard spells.
+int GetIsRHDBard(object oCaster = OBJECT_SELF);
+
 // wrapper for getspelltargetlocation
 location PRCGetSpellTargetLocation(object oCaster = OBJECT_SELF);
 
@@ -138,6 +144,27 @@ const int METAMAGIC_QUICKEN_LEVEL = 4;
 /* Function Definitions                         */
 //////////////////////////////////////////////////
 
+//:: Returns true if oCaster's race can naturally cast sorcerer spells.
+int GetIsRHDSorcerer(object oCaster = OBJECT_SELF)
+{
+    int nRace = GetRacialType(oCaster);
+	
+    return (nRace == RACIAL_TYPE_ARANEA ||
+            nRace == RACIAL_TYPE_ARKAMOI ||
+            nRace == RACIAL_TYPE_DRIDER ||
+            nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL ||
+            nRace == RACIAL_TYPE_MARRUTACT ||
+            nRace == RACIAL_TYPE_RAKSHASA ||
+            nRace == RACIAL_TYPE_REDSPAWN_ARCANISS);
+}
+
+//:: Returns true if oCaster's race can naturally cast bard spells.
+int GetIsRHDBard(object oCaster = OBJECT_SELF)
+{
+    int nRace = GetRacialType(oCaster);
+	
+    return (nRace == RACIAL_TYPE_GLOURA);
+}
 
 //wrapper for GetSpellTargetLocation()
 location PRCGetSpellTargetLocation(object oCaster = OBJECT_SELF)
@@ -482,8 +509,8 @@ int GetMetaMagicSpellLevelAdjustment(int nMetaMagic)
 int GetIsBioSpellCastClass(int nClass)
 {
     return nClass == CLASS_TYPE_WIZARD
-        || nClass == CLASS_TYPE_SORCERER
-        || nClass == CLASS_TYPE_BARD
+        || nClass == CLASS_TYPE_SORCERER && !GetIsRHDSorcerer()
+        || nClass == CLASS_TYPE_BARD && !GetIsRHDBard()
         || nClass == CLASS_TYPE_CLERIC
         || nClass == CLASS_TYPE_HEALER
         || nClass == CLASS_TYPE_BLIGHTER
@@ -727,3 +754,4 @@ void DeleteLocalMystery(object oObject, string sName)
     DeleteLocalFloat(oObject, sName + "_fDur");
 }
 
+//::void main (){}

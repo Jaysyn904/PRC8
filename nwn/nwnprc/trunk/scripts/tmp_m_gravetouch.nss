@@ -134,6 +134,8 @@ void main()
  	   	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
  	   	ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_NEGATIVE, IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
  	   	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+		
+		SetSubRace(oPC, "Undead (Augmented Humanoid)");
 
         // Hook in the events, needed from level 1 for Skirmish
         if(DEBUG) DoDebug("tmp_m_gravetouch: Adding eventhooks");

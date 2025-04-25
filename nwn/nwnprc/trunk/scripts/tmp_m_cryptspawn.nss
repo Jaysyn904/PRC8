@@ -106,5 +106,7 @@ void main()
     else if (iHD >= 1) {nBonus = 1;}
 	
 	SetCompositeBonus(oSkin, "Template_Cryptspawn_ac", nBonus, ITEM_PROPERTY_AC_BONUS);
+	
+	SetSubRace(oPC, "Undead (Augmented Humanoid)");
   
 }

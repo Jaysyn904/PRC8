@@ -102,4 +102,6 @@ void main()
     }
 
     if(DEBUG) SendMessageToPC(oPC, "You have feat Undead HD = "+IntToString(GetHasFeat(FEAT_UNDEAD_HD, oPC)));
+	
+	SetSubRace(oPC, "Undead (Augmented Humanoid)");
 }

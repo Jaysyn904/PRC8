@@ -7730,22 +7730,34 @@ Spells: Ability to cast Protection from Evil
 CLASS FEATURES:
 
 Level
-1: Demonslaying +1/1d6 (Physical) - Gain combat bonuses against demons.
+1: Fiendslaying +1/1d6 (Physical) - Gain combat bonuses against demons.
   Censure Demons - Use turning attempts to stun demons.
 2: Courage of Heaven - Immune to fear. Allies within 10ft gain +4 to save vs. fear.
-3: Demonslaying +2/2d6 (Physical) - Gain combat bonuses against demons.
+3: Fiendslaying +2/2d6 (Physical) - Gain combat bonuses against demons.
 5: Heavenly Devotion - Immune to enchantment effects. Allies within 10ft gain +4 save vs. enchantment
-6: Demonslaying +3/2d6 (Physical) + 1d6 (Divine) - Gain combat bonuses against demons.
+6: Fiendslaying +3/2d6 (Physical) + 1d6 (Divine) - Gain combat bonuses against demons.
 8: Consecrated Aura - Demons and undead within 20ft receive a -1 penalty to attack and AC
-9: Demonslaying +4/2d6(Physical) + 2d6 (Divine) - Gain combat bonuses against demons.
+9: Fiendslaying +4/2d6(Physical) + 2d6 (Divine) - Gain combat bonuses against demons.
 10: Holy Aura - May use Holy Aura (versus demons only) at will.</entry>
-  <entry id="45575" lang="en" sex="m">Demonslaying (+1/1d6)</entry>
-  <entry id="45576" lang="en" sex="m">Demonslaying (+2/2d6)</entry>
-  <entry id="45577" lang="en" sex="m">Demonslaying (+3/3d6)</entry>
-  <entry id="45578" lang="en" sex="m">Demonslaying (+4/4d6)</entry>
+  <entry id="45575" lang="en" sex="m">Fiendslaying</entry>
+  <entry id="45576" lang="en" sex="m">Fiendslaying</entry>
+  <entry id="45577" lang="en" sex="m">Fiendslaying</entry>
+  <entry id="45578" lang="en" sex="m">Fiendslaying</entry>
   <entry id="45579" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Knight of the Chalice Level 1
-Specifics: The Knight of the Chalice gains attack and damage bonuses against Outsiders. These bonuses improve with experience.
+Specifics: Knights of the Chalice gain a number of special 	benefits in combat with evil outsiders. A 1st-level knight of the Chalice gets a +1 competence bonus on attack rolls against evil outsiders. On a successful attack, she deals an extra 1d6 points of damage due to her expertise in combating these creatures. 
+
+These bonuses increase as the knight advances in level, as shown below.
+	
+	Level 	Enhancement / Damage
+	1		+1/+1d6 Physical
+	3		+2/+2d6 Physical
+	6		+3/+2d6 Physical & +1d6 Divine
+	9		+4/+2d6	Physical & +2d6 Divine
+	11		+5/+3d6	Physical & +2d6 Divine
+	
+	Pattern repeats through epic levels.
+	
 Use: Automatic.</entry>
   <entry id="45580" lang="en" sex="m">Censure Demons</entry>
   <entry id="45581" lang="en" sex="m">Type of Feat: Class Specific
@@ -19969,7 +19981,7 @@ Every other level in Bladesinger, the character gains new spells per day as if h
 
 EPIC:
 
-Bonus Feats: The epic Bladesinger gains a bonus feat every three levels after 10th
+Bonus Feats: The epic Bladesinger gains a bonus feat every two levels after 10th
 
 Epic Bladesinger Bonus Feats List:
 Armor Skin, Automatic Still Spell, Blinding Speed, Epic Spell Focus, Epic Toughness, Epic Weapon Focus (Longsword, Rapier), Improved Combat Casting, Superior Initiative.</entry>
@@ -69234,22 +69246,18 @@ Level
 1: Ability Bonus - +1 to any ability at each class level
    Fast Healing - Temporary fast healing, increasing each class level
    Spell Resistance - 10 + class level
-   Magic Hatred - Friendly spells fail to work on a Forsaker, and they cannot equip magical item
+   Magic Hatred - Friendly spells fail to work on a Forsaker, and they cannot equip magical items
 2: Damage Reduction 3/+1
 3: Tough Defense - Con to AC
    Natural Weapons - Any weapon the Forsaker equips breaks DR equal to his damage reduction
 4: Damage Reduction 5/+2
 5: 
 6: Damage Reduction 7/+3
-   Slippery Mind - As per Rogue
+   Slippery Mind
 7: 
 8: Damage Reduction 9/+4
 9: 
-10: Damage Reduction 11/+5
-
-EPIC FORSAKER:
-All abilities continue to increase in the same pattern as above
-Bonus feat from 11, every 3 levels</entry>
+10: Damage Reduction 11/+5</entry>
   <entry id="70398" lang="en" sex="m">Practiced Spellcaster (Celebrant of Sharess)</entry>
   <entry id="70399" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Forsaker 1
@@ -69371,7 +69379,7 @@ These benefits carry with them some form of physical change appropriate to the f
 
 Bonus Feats: The epic favored soul gains a bonus feat (selected from the list of epic favored soul feats) at 23rd level and again every three levels after that.
 
-Epic Favored Soul Bonus Feat List: Craft Epic Magic Arms and Armor, Devastating Critical, Dire Charge, Enhance Spell, Epic Endurance, Epic Prowess, Epic Speed, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Weapon Focus, Epic Weapon Specialization, Extend Life Span, Ignore Material Components, Improved Combat Casting, Improved Heighten Spell, Improved Metamagic, Improved Spell Capacity, Intensify Spell, Overwhelming Critical, Perfect Health, Permanent Emanation, Spell Stowaway, Tenacious Magic.</entry>
+Epic Favored Soul Bonus Feat List: Craft Epic Magic Arms and Armor, Devastating Critical, Enhance Spell, Epic Endurance, Epic Prowess, Epic Speed, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Weapon Focus, Epic Weapon Specialization, Extend Life Span, Ignore Material Components, Improved Combat Casting, Improved Heighten Spell, Improved Metamagic, Improved Spell Capacity, Intensify Spell, Overwhelming Critical, Perfect Health, Permanent Emanation, Spell Stowaway, Tenacious Magic.</entry>
   <entry id="70419" lang="en" sex="m">Epic Warmage</entry>
   <entry id="70420" lang="en" sex="m">An epic warmage has perfected the art of destruction and devastation through his magic. He can lay waste to entire armies and cities with horrifying ease and shocking efficiency.
 
@@ -73294,7 +73302,7 @@ Skill Points at Each Additional Level: 2+ Int Modifier
 Bonus Feats:  The epic serene guardian gains a bonus feat every other level
 
 Epic Serene Guardian Bonus Feat List:
-Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Dire Charge, Distant Shot, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Combat Reflexes, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Spellcasting Harrier, Superior Initiative,  Two-Weapon Rend. In addition to the feats on this list, the epic serene guardian may treat any feat designated as a fighter bonus feat, but not listed here, as being on his or her bonus feat list.</entry>
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Distant Shot, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Combat Reflexes, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Spellcasting Harrier, Superior Initiative,  Two-Weapon Rend. In addition to the feats on this list, the epic serene guardian may treat any feat designated as a fighter bonus feat, but not listed here, as being on his or her bonus feat list.</entry>
   <entry id="205010" lang="en" sex="m">Epic Spellfire Channeler</entry>
   <entry id="205011" lang="en" sex="m">You have reached the pinnacle of channeling the raw energies of the Weave. Building on your foundational abilities you now ascend into epic power. 
 
@@ -73336,7 +73344,7 @@ Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Aut
 
 Hit Die: d4.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
-Bonus Feats: The epic Acolyte of the Skin gains a bonus feat every four levels.
+Bonus Feats: The epic Acolyte of the Skin gains a bonus feat every four levels after 8th.
 
 Special:
 Spells: The epic acolyte's caster level increases by 1 every even-numbered level gained above 10th. In addition, at every even-numbered level, the epic acolyte of the skin gains new spells per day as if he had also gained a level in whatever spellcasting class he belonged to before he added the prestige class, up to the number of spells per day possessed by a 20th-level character of that class.
@@ -73363,28 +73371,29 @@ Spellcasting: The epic unseen seer continues to increase in caster level (and sp
 Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
 
 Epic Unseen Seer Bonus Feat List:
-Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Blinding Speed, Combat Archery, Epic Dodge, Epic Skill Focus, Epic Trapfinding, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Uncanny Accuracy,</entry>
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative</entry>
   <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
   <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess’s dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
 
 Hit Die: d6
 Skill Points at Each Additional Level: 6 + Int Modifier
-Bonus Feats: The epic celebrant of Sharess gains a bonus feat every three levels
+Bonus Feats: The epic celebrant of Sharess gains a bonus feat every three levels.
 
 Special:
-Rage:  The epic celebrant of Sharess continues to gain a useage of Rage every three levels.
+Rage:  The epic Celebrant of Sharess continues to gain a useage of Rage every three levels.
+Spellcasting: The epic Celebrant of Sharess continues to increase in caster level (and spells known, if applicable).
 
 Epic Celebrant of Sharess Bonus Feat List:
-Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Ignore Material Components, Improved Combat Casting.</entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage, Epic Spell Focus, Epic Spell Penetration, Ignore Material Components, Improved Combat Casting.</entry>
   <entry id="205022" lang="en" sex="m">Epic Forsaker</entry>
   <entry id="205023" lang="en" sex="m">At epic levels, you have honed your rejection of magic into a formidable source of strength. Relying solely on your own abilities, your body heals rapidly, your innate spell resistance climbs to daunting levels, and your damage reduction steadily increases, making you nearly impervious to harm. 
 
 Hit Die: d12
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Forsaker gains a bonus feat every three levels
+Bonus Feats: The epic Forsaker gains a bonus feat every four levels.
 
 Special:
-Ability Bonus: The epic forsaker continues to increase in physcial &amp; mental power at each level.
+Ability Bonus: The epic forsaker continues to increase in physcial and mental power at each level.
 Fast Healing: The epic forsaker's healing ability continues to increase in power every three levels.
 Spell Resistance: The epic forsaker's spell resistance continues to increase in power every 3 levels.
 Damage Reduction: THe epic forsaker's damage resistence increases every 3 levels.
@@ -73396,10 +73405,10 @@ Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Do
 
 Hit Die: d10
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Forsaker gains a bonus feat every four levels
+Bonus Feats: The epic Forsaker gains a bonus feat every three levels.
 
 Special:
-Demonslaying:  The epic Knight of the Chalice becomes a righteous engine of destruction. The demonslaying enhancement bonus increases by one every even level &amp; the damage increases by either 1d6 physical or 1d6 divine every even level.
+Fiendslaying:  The epic Knight of the Chalice becomes a righteous engine of destruction. The Fiendslaying enhancement bonus increases by one every even level &amp; the damage increases by either 1d6 physical or 1d6 divine every even level.
 
 Epic Knight of the Chalice Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Fortitude, Great Smiting, Improved Combat Casting, Improved Initiative, Superior Initiative, Epic Leadership, Improved Manyshot, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Planar Turning, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
@@ -73497,7 +73506,7 @@ Skill Points at Each Additional Level: 4 + Intelligence modifier
 Bonus Feats: The epic Arcane Duelist gains a bonus feat every two levels
 
 Epic Arcane Duelist Bonus Feat List:
-Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
+Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
   <entry id="205042" lang="en" sex="m">Epic Wild Mage</entry>
   <entry id="205043" lang="en" sex="m">An Epic Wild Mage fully embraces the chaotic essence of magic, wielding unpredictable power with unparalleled mastery. Their spells surge with raw, untamed energy, often warping reality itself. As they advance, their connection to chaos grows stronger, allowing them to twist fate, redirect magical forces, and unleash unprecedented magical anomalies.
 
@@ -73862,7 +73871,7 @@ Damage Reduction: The epic Runescarred Berzerker continues to gain +1 DR every 3
 Ritual Scarring : The epic Runescarred Berzerker continues to gain +1 Natural AC every 3 class levels.
 
 Epic Runescarred Berserkers Bonus Feat List:
-Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage.</entry>
+Armor Skin, Damage Reduction, Devastating Critical, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage.</entry>
   <entry id="205100" lang="en" sex="m">Epic Talontar Blightlord</entry>
   <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona’s rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
 
@@ -73927,7 +73936,7 @@ Special:
 Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each totem rager class level.
 
 Epic Totem Rager Bonus Feat List:
-Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+Armor Skin, Damage Reduction, Devastating Critical, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
   <entry id="205110" lang="en" sex="m">Epic Shadowblade</entry>
   <entry id="205111" lang="en" sex="m">At epic levels, the shadowblade becomes a phantom of war—an untouchable presence whose strikes come from impossible angles and vanish without trace. Their unseen weapon evolves beyond mortal reach, letting them slip through defenses, extend their reach through shadow, and pierce even the strongest wards. As their bond with darkness deepens, so too does their lethality—each step silent, each blow fatal.
 
