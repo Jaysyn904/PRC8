@@ -524,7 +524,34 @@ void reqDomains()
      + GetHasFeat(FEAT_DOMAIN_POWER_NOBILITY)
      + GetHasFeat(FEAT_DOMAIN_POWER_RENEWAL) >= 2)
         DeleteLocalInt(OBJECT_SELF, "PRC_PrereqMornLord");
+		
+    //:: Hathran [Chauntea]
+    SetLocalInt(OBJECT_SELF, "PRC_PrereqHathran", 1);
+    if(GetHasFeat(FEAT_GOOD_DOMAIN_POWER)
+     + GetHasFeat(FEAT_ANIMAL_DOMAIN_POWER)
+     + GetHasFeat(FEAT_EARTH_DOMAIN_POWER)
+     + GetHasFeat(FEAT_PROTECTION_DOMAIN_POWER)
+     + GetHasFeat(FEAT_PLANT_DOMAIN_POWER)
+     + GetHasFeat(FEAT_DOMAIN_POWER_RENEWAL) >= 2)
+        DeleteLocalInt(OBJECT_SELF, "PRC_PrereqHathran");
 
+    //:: Hathran [Mielikki]
+    SetLocalInt(OBJECT_SELF, "PRC_PrereqHathran", 1);
+    if(GetHasFeat(FEAT_GOOD_DOMAIN_POWER)
+     + GetHasFeat(FEAT_ANIMAL_DOMAIN_POWER)
+     + GetHasFeat(FEAT_TRAVEL_DOMAIN_POWER)
+     + GetHasFeat(FEAT_PLANT_DOMAIN_POWER)>= 2)
+        DeleteLocalInt(OBJECT_SELF, "PRC_PrereqHathran");		
+
+    //:: Hathran [Mystra]
+    SetLocalInt(OBJECT_SELF, "PRC_PrereqHathran", 1);
+    if(GetHasFeat(FEAT_GOOD_DOMAIN_POWER)
+     + GetHasFeat(FEAT_KNOWLEDGE_DOMAIN_POWER)
+     + GetHasFeat(FEAT_MAGIC_DOMAIN_POWER)
+     + GetHasFeat(FEAT_DOMAIN_POWER_SPELLS)
+     + GetHasFeat(FEAT_DOMAIN_POWER_RUNE) >= 2)
+        DeleteLocalInt(OBJECT_SELF, "PRC_PrereqHathran");
+		
     //Favored of Milil
     SetLocalInt(OBJECT_SELF, "PRC_PrereqFoM", 1);
     if(GetHasFeat(FEAT_GOOD_DOMAIN_POWER)

@@ -1367,6 +1367,39 @@ void DomainUses(object oPC)
         FeatUsePerDay(oPC, FEAT_PLANT_DOMAIN_POWER, ABILITY_CHARISMA, 3);
 }
 
+void HathranFear(object oPC)
+{
+ 	if(!GetHasFeat(FEAT_HATH_FEAR1, oPC))
+		return; 
+
+	int nLevel = GetLevelByClass(CLASS_TYPE_HATHRAN, oPC);
+    int nUses = 0;
+
+    // Base uses based on progression
+    if (nLevel >= 8)
+    {
+        nUses = 3;
+    }
+    else if (nLevel >= 6)
+    {
+        nUses = 2;
+    }
+    else if (nLevel >= 3)
+    {
+        nUses = 1;
+    }
+
+    // Add +1 per 3 levels gained above 9
+    if (nLevel > 9)
+    {
+        int nBonusLevels = nLevel - 9;
+        nUses += nBonusLevels / 3;
+    }
+	
+	FeatUsePerDay(oPC, FEAT_HATH_FEAR1, -1, nUses);
+
+}
+
 void MephlingBreath(object oPC)  //:: Mephlings
 {	
 	if(!GetHasFeat(FEAT_MEPHLING_BREATH, oPC)) 
@@ -2082,5 +2115,6 @@ void FeatSpecialUsePerDay(object oPC)
     CrusaderSmite(oPC);
     AnimaMage(oPC);
 	MephlingBreath(oPC);
+	HathranFear(oPC);
 }
 

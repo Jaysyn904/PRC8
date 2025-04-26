@@ -2106,8 +2106,8 @@ const int FEAT_PRESTIGE_BREATH_OF_FLAME            = 4035;   // 2275
 const int FEAT_HATH_COHORT          = 2571; //CONSTANT
 const int FEAT_HATH_COMMAND         = 2572; //CONSTANT
 const int FEAT_HATH_FEAR1           = 2575; //CONSTANT
-const int FEAT_HATH_FEAR2           = 2576; //CONSTANT
-const int FEAT_HATH_FEAR3           = 2577; //CONSTANT
+const int FEAT_HATH_FEAR2           = 2576; //CONSTANT [DEFUNCT]
+const int FEAT_HATH_FEAR3           = 2577; //CONSTANT [DEFUNCT]
 
 //Vigilant class feats
 const int FEAT_VIGIL_ARMOR          = 2570; //CONSTANT
