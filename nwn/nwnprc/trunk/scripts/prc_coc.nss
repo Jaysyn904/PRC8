@@ -49,7 +49,7 @@ void SuperiorDefense(object oPC, int nLevel)
 	int nMithral 	= 0;
 	int nBonus		= 0;
 	
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> PC's DEX bonus is "+ IntToString(nDEXb)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> PC's DEX bonus is "+ IntToString(nDEXb)+".");
 	
 //:: Abort CoC & Mithral checks if not wearing armor	
     if (oArmor == OBJECT_INVALID)
@@ -62,12 +62,12 @@ void SuperiorDefense(object oPC, int nLevel)
 
 //:: Determine the base AC value of the armor
     int nAC = GetBaseAC(oArmor);
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Base AC is "+ IntToString(nAC)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> Base AC is "+ IntToString(nAC)+".");
 	
 //:: Get modifier for Mithral armor, if any.
 	if(StringToInt(GetStringLeft(GetTag(oArmor), 3)) & 16) //:: TAG ID for Mithral armor
 	{   
-		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Mithral armor found. +2 Max DEX Bonus");
+		if (DEBUG) DoDebug("DEBUG: prc_coc -> Mithral armor found. +2 Max DEX Bonus");
 		nMithral	= 2;
 		nBonus = nBonus + 2;
 	}
@@ -75,43 +75,43 @@ void SuperiorDefense(object oPC, int nLevel)
 //:: Get the maximum Dexterity bonus from armor.2da
 	string sMaxDexBonus	= Get2DACache("armor", "DEXBONUS", nAC);
 	int nMaxDexBonus 	= StringToInt(sMaxDexBonus);
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Armor's Max DEX bonus is "+ IntToString(nMaxDexBonus)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> Armor's Max DEX bonus is "+ IntToString(nMaxDexBonus)+".");
 
 //:: Calculate the new  bonus from CoC levels
 	nBonus = 1 + (nLevel - 3) / 3;
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus from class levels is "+ IntToString(nBonus)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> nBonus from class levels is "+ IntToString(nBonus)+".");
 		
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus before DEX cap is "+ IntToString(nBonus)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> nBonus before DEX cap is "+ IntToString(nBonus)+".");
 		
 	if (nBonus > nDEXb) //:: Caps AC bonus @ PCs Dex bonus
 	{
 		nBonus == nDEXb;
 	}		
 		
-	//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nBonus after DEX cap is "+ IntToString(nBonus)+".");
+	if (DEBUG) DoDebug("DEBUG: prc_coc -> nBonus after DEX cap is "+ IntToString(nBonus)+".");
 
     if (nAC > 3) //:: Medium armor starts @ 4 AC
     {
 		int nNewDexBonus = nMaxDexBonus + nBonus;
 		
-		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nNewDexBonus is "+ IntToString(nNewDexBonus)+".");
-		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> nMithral Bonus is "+ IntToString(nMithral)+".");
+		if (DEBUG) DoDebug("DEBUG: prc_coc -> nNewDexBonus is "+ IntToString(nNewDexBonus)+".");
+		if (DEBUG) DoDebug("DEBUG: prc_coc -> nMithral Bonus is "+ IntToString(nMithral)+".");
 
 	//:: Store the new Dex bonus as deflection AC on the character's skin (should be dodge)
-		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Final SuperiorDefenseDexBonus is "+ IntToString(nNewDexBonus + nMithral)+".");
+		if (DEBUG) DoDebug("DEBUG: prc_coc -> Final SuperiorDefenseDexBonus is "+ IntToString(nNewDexBonus + nMithral)+".");
 		SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", nNewDexBonus + nMithral, ITEM_PROPERTY_AC_BONUS);
-		//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> -------------------------------------------");
+		if (DEBUG) DoDebug("DEBUG: prc_coc -> -------------------------------------------");
 	}
 	else
 	{
 		if(nMithral)
 		{
-			//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Light Mithral Armor found");
+			if (DEBUG) DoDebug("DEBUG: prc_coc -> Light Mithral Armor found");
 			SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", nMithral, ITEM_PROPERTY_AC_BONUS);
 		}
 		else
 		{
-			//SendMessageToPC(GetFirstPC(), "DEBUG: prc_coc -> Light Armor found");
+			if (DEBUG) DoDebug("DEBUG: prc_coc -> Light Armor found");
 			SetCompositeBonus(oSkin, "SuperiorDefenseDexBonus", 0, ITEM_PROPERTY_AC_BONUS);		
 		}	
 		

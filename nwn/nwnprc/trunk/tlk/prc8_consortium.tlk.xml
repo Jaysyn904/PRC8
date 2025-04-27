@@ -27635,9 +27635,11 @@ If you know the Spring Attack feat, your unimpeded movement ability allows you t
 Requirements: Champion of Corellon level 8
 At 8th level, you gain the ability to briefly channel the divine power of Corellon Larethian, enveloping one melee weapon you wield in a veil of incandescent light as a free action. You gain a +2 sacred bonus on attack rolls and deal an extra 2d6 points of damage with each melee attack you make with the affected weapon for 1 round. While Corellon's Wrath is in effect, the weapon is considered magic and good-aligned for the purpose of overcoming damage reduction. You can use this ability a number of times a day equal to 3 + your Charisma modifier (minimum once per day)</entry>
   <entry id="51183" lang="en" sex="m">Epic Champion of Corellon</entry>
-  <entry id="51184" lang="en" sex="m">Type of Feat: Class
-Requirements: Champion of Corellon level 11
-Masters of the blade and fearing no enemy, Epic Champions of Corellon Larethian are the absolute elite. They lead the elven warbands, maybe even command entire armies. Still they also fight in the front ranks, taking on the toughest foes.
+  <entry id="51184" lang="en" sex="m">Masters of the blade and fearing no enemy, Epic Champions of Corellon Larethian are the absolute elite. They lead the elven warbands, maybe even command entire armies. Still they also fight in the front ranks, taking on the toughest foes.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Champion of Corellon gains a bonus feat every three levels
 
 CLASS FEATURES:
 
@@ -27661,7 +27663,10 @@ Level
 27: Superior Defense +9
 28: Bonus Feat
 29:  -
-30: Superior Defense +10</entry>
+30: Superior Defense +10
+
+Epic Champion of Corellon Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Leadership, Epic Prowess, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Strength, Improved Stunning Fist, Legendary Commander, Overwhelming Critical, Perfect Two-Weapon Fighting, Two-Weapon Rend.</entry>
   <entry id="51185" lang="en" sex="m">A Sublime Chord of 2nd level or higher with 12 or more ranks in the Perform skill learns how to use her Bardic Music to assist her spellcasting. As a move action, she can prepare to cast a spell by giving voice to the song of power. The next spell she casts gains a bonus to it's caster level based on the result of the Sublime Chord's Perform Check. The spell to be enhanced by the arcane song of power must be cast by the end of the Sublime Chord's next turn, or else the song fades with no effect (other than consuming a Bardic Music use).
 
 Perform Check result         Caster Level increase
