@@ -1467,6 +1467,31 @@ void FeatNinja (object oPC)
     SetLocalInt(oPC, "prc_ninja_ki", nUsesLeft);
 }
 
+void Oozemaster(object oPC)
+{
+    if (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oPC) < 10) return;
+
+    int iOozeLvl = GetLevelByClass(CLASS_TYPE_OOZEMASTER, oPC);
+    int nUses = 5; // base 5 uses at 10th level
+
+    if (iOozeLvl > 10)
+    {
+        nUses += (iOozeLvl - 10) / 2; // +1 use per 2 levels above 10
+    }
+	
+    FeatUsePerDay(oPC, FEAT_OOZY_GLOB5, -1, nUses);
+}
+
+/* void Oozemaster(object oPC)
+{
+    if (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oPC) < 4) return;
+
+    int iOozeLvl = GetLevelByClass(CLASS_TYPE_OOZEMASTER, oPC);
+    int nUses = 2 + 2 * ((iOozeLvl - 4) / 3);
+	
+	FeatUsePerDay(oPC, FEAT_OOZY_GLOB5, -1, nUses);    
+} */
+
 void EyeOfGruumsh(object oPC)
 {
     if (GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oPC) < 4) return;
@@ -1482,11 +1507,11 @@ void BarbarianRage(object oPC)
     if(!GetHasFeat(FEAT_BARBARIAN_RAGE, oPC)) return;
 
     int nUses = (GetLevelByClass(CLASS_TYPE_BARBARIAN, oPC) + GetLevelByClass(CLASS_TYPE_BLACK_BLOOD_CULTIST, oPC) + GetLevelByClass(CLASS_TYPE_PRC_EYE_OF_GRUUMSH, oPC)) / 4 + 1;
-    nUses += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC) + 2) / 5;
-    nUses += (GetLevelByClass(CLASS_TYPE_BATTLERAGER, oPC) + 1) / 2;
-    nUses += (GetLevelByClass(CLASS_TYPE_CELEBRANT_SHARESS, oPC) + 2) / 4;
-    nUses += GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPC) ? ((GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPC) / 4) + 1) : 0;
-	nUses += (GetLevelByClass(CLASS_TYPE_TOTEM_RAGER, oPC) + 4) / 6;	
+		nUses += (GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC) + 2) / 5;
+		nUses += (GetLevelByClass(CLASS_TYPE_BATTLERAGER, oPC) + 1) / 2;
+		nUses += (GetLevelByClass(CLASS_TYPE_CELEBRANT_SHARESS, oPC) + 2) / 4;
+		nUses += GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPC) ? ((GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPC) / 4) + 1) : 0;
+		nUses += (GetLevelByClass(CLASS_TYPE_TOTEM_RAGER, oPC) + 4) / 6;	
 
     if(GetHasFeat(FEAT_EXTRA_RAGE, oPC)) nUses += 2;
 
@@ -2126,5 +2151,6 @@ void FeatSpecialUsePerDay(object oPC)
     AnimaMage(oPC);
 	MephlingBreath(oPC);
 	HathranFear(oPC);
+	Oozemaster(oPC);
 }
 
