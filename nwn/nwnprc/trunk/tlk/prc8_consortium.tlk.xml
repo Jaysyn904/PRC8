@@ -9358,7 +9358,7 @@ Level
 7: Dragonwrack (+3d6/1d6) - Dragonwrack increases.
 8: Shared Trove - Gains 80,000 gold pieces.
 9: Bonus Feat
-10: Dragonwrack (+4d6/1d6) - Dragonwrack increases.
+10: Dragonwrack (+4d6/2d6) - Dragonwrack increases.
 
 Spells: Beginning at 2nd level, a vassal of Bahamut gains the ability to cast a small number of divine spells. To cast a spell, the vassal must have a Wisdom score of at least 10 + the spell's level, so a vassal with a Wisdom of 10 or lower cannot cast these spells. Vassal of Bahamut bonus spells are based on Wisdom, and saving throws against these spells have a DC of 10 + spell level + the vassal's Wisdom bonus. When the vassal gets 0 spells of a given level (for instance, 1st-level spells for a 2nd-level vassal of Bahamut), he gets only the bonus spells he would be entitled to based on his Wisdom score for that spell.
 
@@ -73482,7 +73482,7 @@ Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Vassal of Bahamut gains a bonus feat every three levels
 
 Special:
-Shared Trove: The epic Vassal of Bahamut gains an allowance of 30,000gp every three levels.
+Shared Trove: The epic Vassal of Bahamut gains an allowance of 30,000 gp every three levels.
 Dragonwrack: The epic Vassal of Bahamut's damage bonus against dragons continues increasing.
 
 Epic Vassal of Bahamut Bonus Feat List:
