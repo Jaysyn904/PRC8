@@ -1814,6 +1814,16 @@ void MysteryFeats(object oPC)
 void WildMage(object oPC)
 {
     int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oPC);
+
+    if (nClass >= 2)
+    {
+        int nUses = 1 + ((nClass - 2) / 3);
+        FeatUsePerDay(oPC, FEAT_WILD_MAGE_RANDOM_DEFLECTOR, -1, nUses);
+    }
+}
+/* void WildMage(object oPC)
+{
+    int nClass = GetLevelByClass(CLASS_TYPE_WILD_MAGE, oPC);
     if(nClass > 0)
     {
         if (nClass >= 8)
@@ -1823,7 +1833,7 @@ void WildMage(object oPC)
         else
             FeatUsePerDay(oPC, FEAT_WILD_MAGE_RANDOM_DEFLECTOR, -1, 1); 
     }        
-} 
+}  */
 
 void Factotum(object oPC)
 {
