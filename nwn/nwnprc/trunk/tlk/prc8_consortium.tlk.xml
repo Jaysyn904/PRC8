@@ -73510,10 +73510,13 @@ Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding
 
 Hit Die: d8
 Skill Points at Each Additional Level: 4 + Intelligence modifier
-Bonus Feats: The epic Arcane Duelist gains a bonus feat every two levels
+Bonus Feats: The epic Arcane Duelist gains a bonus feat every three levels
+
+Special:
+Enchant Chosen Weapon: The epic Arcane Duelist's Chosen Weapon bonus continues to increase by +1 every other level and the maximum enhancement to the Chosen Weapon is increased to +20.
 
 Epic Arcane Duelist Bonus Feat List:
-Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Toughness, Epic Weapon Focus, Epic Will, Great Charisma, Great Intelligence, Improved Combat Casting, Improved Whirlwind Attack, Legendary Commander, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
   <entry id="205042" lang="en" sex="m">Epic Wild Mage</entry>
   <entry id="205043" lang="en" sex="m">An Epic Wild Mage fully embraces the chaotic essence of magic, wielding unpredictable power with unparalleled mastery. Their spells surge with raw, untamed energy, often warping reality itself. As they advance, their connection to chaos grows stronger, allowing them to twist fate, redirect magical forces, and unleash unprecedented magical anomalies.
 
