@@ -18,13 +18,24 @@ void main()
         default:
             oPC = OBJECT_SELF;
     }
+	int nClass = GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER, oPC);
+	int nAC = 0;
 
-    int nClass = GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER, oPC);
+	// Add 2 ranks every 3 levels
+	if (nClass >= 2)
+	{
+		nAC = 2 * ((nClass - 2) / 3 + 1);
+	}
+
+	SetCompositeBonus(oSkin, "ShadowStalkS", nAC, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
+	SetCompositeBonus(oSkin, "ShadowStalkM", nAC, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+
+/*     int nClass = GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER, oPC);
     int nAC = 0;
     if (nClass >= 2) nAC += 2;
     if (nClass >= 5) nAC += 2;
     if (nClass >= 8) nAC += 2;
     
     SetCompositeBonus(oSkin, "ShadowStalkS", nAC, ITEM_PROPERTY_SKILL_BONUS,SKILL_SEARCH);
-    SetCompositeBonus(oSkin, "ShadowStalkM", nAC, ITEM_PROPERTY_SKILL_BONUS,SKILL_SENSE_MOTIVE);
+    SetCompositeBonus(oSkin, "ShadowStalkM", nAC, ITEM_PROPERTY_SKILL_BONUS,SKILL_SENSE_MOTIVE); */
 }
