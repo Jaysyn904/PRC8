@@ -73441,7 +73441,7 @@ Special:
 Meldshaping: At each ironsoul forgemaster level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
 
 Epic Ironsoul Forgemaster Bonus Feat List:
-Armor Skin, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Spell Focus, Epic Fortitude, Epic Reflexes, Epic, Will, Superior Initiative, Epic Leadership, Energy Resistance, Epic Toughness, Forge Epic Ring, Legendary Commander, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+Armor Skin, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Spell Focus, Epic Fortitude, Epic Reflexes, Superior Initiative, Epic Leadership, Energy Resistance, Epic Toughness, Forge Epic Ring, Legendary Commander, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
   <entry id="205030" lang="en" sex="m">Epic Stormlord</entry>
   <entry id="205031" lang="en" sex="m">At epic levels, you become a living tempest, a walking manifestation of Talos’ chaotic fury. Thunder and lightning answer your call, and your mere presence heralds destruction. Wielding your spear like the storm itself, you lay waste to all who stand before you, leaving only ruin in your wake.
 
@@ -73615,18 +73615,20 @@ Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spe
 Hit Die: d6
 Skill Points at Each Additional Level: 6 + Int Modifier
 Bonus Feats: The epic Umbral Disciple gains a bonus feat every three levels
+
 Special:
-Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
-Binder Level: Increases as if gaining a level in your soul binding class at each level.
+Sneak Attack: The epic Umbral Disciple's sneak attack continues to increase by 1d6 every 3 levels.
+Meldshaping: Increases as if gaining a level in your meldshaper class at each level.
 
 Epic Umbral Disciple Bonus Feat List:
-Armor Skin, Blinding Speed, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making. </entry>
+Armor Skin, Blinding Speed, Bonus Soulmeld, Epic Dodge, Epic Energy Resistance, Epic Essentia, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self-Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Weapon Focus, Extra Chakra Bind, Great Dexterity, Improved Sneak Attack, Lingering Damage, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
   <entry id="205058" lang="en" sex="m">Epic Alienist</entry>
-  <entry id="205059" lang="en" sex="m">As an Epic Alienist, the boundaries of reality and sanity become mere illusions. With a mind forever altered by the truths of the Far Realm, they no longer walk among mortals but drift between dimensions, communing with incomprehensible entities.
+  <entry id="205059" lang="en" sex="m">As an epic Alienist, the boundaries of reality and sanity become mere illusions. With a mind forever altered by the truths of the Far Realm, they no longer walk among mortals but drift between dimensions, communing with incomprehensible entities.
 
 Hit Die: d4
 Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Alienist gains a bonus feat every three levels
+
 Special:
 Caster Level: Increases as if gaining a level in your arcane spellcasting class.
 
@@ -73638,6 +73640,7 @@ Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic S
 Hit Die: d12
 Skill Points at Each Additional Level: 4 + Int Modifier
 Bonus Feats: The epic Black Blood Cultist gains a bonus feat every three levels
+
 Special:
 Feral rage: The epic Black Blood Cultist continues to gain 1 use of rage every 4 class levels.
 

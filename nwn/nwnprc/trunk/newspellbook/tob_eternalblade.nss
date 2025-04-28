@@ -225,7 +225,7 @@ void main()
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 5");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 5: " + IntToString(++nMoveTotal));
             SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nStncTotal, MANEUVER_TYPE_STANCE);
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade5", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }

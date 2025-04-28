@@ -18,7 +18,6 @@ const int FEAT_EPIC_FAVORED_SOUL	 	= 24241;
 const int FEAT_EPIC_HEALER				= 3744;
 const int FEAT_EPIC_MARSHAL				= 1918;
 const int FEAT_EPIC_SHAMAN	 			= 24240;
-const int FEAT_EPIC_SHAMAN	 			= 24240;
 const int FEAT_EPIC_SWASHBUCKLER		= 1917;
 const int FEAT_EPIC_WARLOCK				= 24239;
 const int FEAT_EPIC_WARMAGE	 			= 24242;
