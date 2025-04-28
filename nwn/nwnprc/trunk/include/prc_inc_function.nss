@@ -1467,6 +1467,22 @@ void FeatNinja (object oPC)
     SetLocalInt(oPC, "prc_ninja_ki", nUsesLeft);
 }
 
+void DrowJudicator(object oPC)
+{
+    int iJudicator = GetLevelByClass(CLASS_TYPE_JUDICATOR, oPC);
+	
+    if (iJudicator < 1) return;
+	
+    int nUses = 3; // base 3 uses at 10th level
+
+    if (iJudicator > 10)
+    {
+        nUses += (iJudicator - 10) / 3; // +1 use per 3 levels above 10
+    }
+	
+    FeatUsePerDay(oPC, FEAT_SELVETARMS_WRATH, -1, nUses);
+}
+
 void Oozemaster(object oPC)
 {
     if (GetLevelByClass(CLASS_TYPE_OOZEMASTER, oPC) < 10) return;
@@ -2152,5 +2168,6 @@ void FeatSpecialUsePerDay(object oPC)
 	MephlingBreath(oPC);
 	HathranFear(oPC);
 	Oozemaster(oPC);
+	DrowJudicator(oPC);
 }
 

@@ -18,6 +18,7 @@ const int FEAT_EPIC_FAVORED_SOUL	 	= 24241;
 const int FEAT_EPIC_HEALER				= 3744;
 const int FEAT_EPIC_MARSHAL				= 1918;
 const int FEAT_EPIC_SHAMAN	 			= 24240;
+const int FEAT_EPIC_SHAMAN	 			= 24240;
 const int FEAT_EPIC_SWASHBUCKLER		= 1917;
 const int FEAT_EPIC_WARLOCK				= 24239;
 const int FEAT_EPIC_WARMAGE	 			= 24242;
@@ -1343,10 +1344,11 @@ const int FEAT_AD_BLUR                             = 3536;
 const int FEAT_AD_MISLEAD                          = 3537;
 
 //Drow Judicator Feats
-const int FEAT_COMMAND_SPIDERS     = 2442;
-const int FEAT_WAR_STRIKE          = 2443;
-const int FEAT_SELVETARMS_BLESSING = 2447;
-const int FEAT_LOLTHS_MEAT         = 2441;
+const int FEAT_LOLTHS_MEAT			= 2441;
+const int FEAT_COMMAND_SPIDERS		= 2442;
+const int FEAT_WAR_STRIKE			= 2443;
+const int FEAT_SELVETARMS_WRATH		= 2446;
+const int FEAT_SELVETARMS_BLESSING	= 2447;
 
 //Ranger Feats
 const int FEAT_RANGER_DUAL = 374;
