@@ -71591,7 +71591,7 @@ Special Abilities:
   <entry id="75443" lang="en" sex="m">Thrall of Orcus Shadowcasting (Shadowsmith)</entry>
   <entry id="75444" lang="en" sex="m">Alienist (REMOVE)</entry>
   <entry id="75445" lang="en" sex="m">Dragonsong Lyrist (REMOVE)</entry>
-  <entry id="75446" lang="en" sex="m">Elemental Savant (REMOVE)</entry>
+  <entry id="75446" lang="en" sex="m">Elemental Savant (REMOVED)</entry>
   <entry id="75447" lang="en" sex="m">Mystic Theurge (REMOVE)</entry>
   <entry id="75448" lang="en" sex="m">Ollam (REMOVE)</entry>
   <entry id="75449" lang="en" sex="m">Thrall of Orcus (REMOVE)</entry>
@@ -73150,6 +73150,8 @@ Special Abilities:
   <entry id="77207" lang="en" sex="m">Ur-Priest Spellcasting (Master of Shrouds)</entry>
   <entry id="77208" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>
   <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
+  <entry id="77210" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick a spellcasting feat (1st lvl)&lt;/c&gt;</entry>
+  <entry id="77211" lang="en" sex="m">Choose which spellcasting class to advance with the currently selected Prestige Class.  If you try take a marker feat after 1st class level, you will be releveled.</entry>
   <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200002" lang="en" sex="m">Paper</entry>

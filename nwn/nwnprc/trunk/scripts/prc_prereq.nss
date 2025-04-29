@@ -1793,6 +1793,7 @@ void main()
     RacialHD(oPC);
     RedWizard(oPC);
     SapphireHierarch(oPC);
+	SancWarmind(oPC);
     ScionReq(oPC);
     Shadowbane(oPC);
     Shadowlord(oPC, nArcHighest);

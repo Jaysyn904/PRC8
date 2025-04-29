@@ -21,7 +21,7 @@
 17         FEAT_ES_ACID                                  2566      2    1              0      
 18         FEAT_ESAVANT_MYSTERY_SHADOWCASTER             18075     2    1              0      
 19         FEAT_ESAVANT_MYSTERY_SHADOWSMITH              18087     2    1              0      
-20         FEAT_ESAVANT_MYSTERY_NONE                     18096     2    1              0      
+20         FEAT_ESAVANT_MYSTERY_NONE                     18096     2    99             0      
 21         FEAT_ELESAVANT_SPELLCASTING_FEY               18223     2    1              0      
 22         FEAT_ELESAVANT_SPELLCASTING_ABERRATION        18268     2    1              0      
 23         FEAT_ELESAVANT_SPELLCASTING_MONSTROUS         18315     2    1              0      
