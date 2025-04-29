@@ -87,23 +87,34 @@ void main()
 
       switch (nSpell)
       {
-         case 776:                 e1 = EffectDeath(TRUE);
+		case 776:                 e1 = EffectDeath(TRUE);
                                    eVis = EffectVisualEffect(VFX_IMP_DEATH);
                                    eLink = EffectLinkEffects(e1,eVis);
                                    SPApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);
                                    break;
 
-          case 777:                e1 = ExtraordinaryEffect(EffectKnockdown());
+		case 777:                e1 = ExtraordinaryEffect(EffectKnockdown());
                                    eVis = EffectVisualEffect(VFX_IMP_STUN);
                                    SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
                                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,6.0f);
                                    break;
 
-          // Petrify for one round per SaveDC
-          case 778:                eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
-                                   SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
-                                   DoBeholderPetrify(nSaveDC,OBJECT_SELF,oTarget,PRCGetSpellId());
-                                   break;
+	// Petrify for one round per SaveDC
+		case 778:
+			eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
+			SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+
+			if (!GetHasFeat(FEAT_IMMUNE_PETRIFICATION, oTarget))
+			{
+				DoBeholderPetrify(nSaveDC, OBJECT_SELF, oTarget, PRCGetSpellId());
+			}
+			else
+			{
+			// Spell failure visual at the head
+				effect eFail = EffectVisualEffect(VFX_FNF_SPELL_FAIL_HEA);
+				SPApplyEffectToObject(DURATION_TYPE_INSTANT, eFail, oTarget);
+			}
+			break;
 
 
           case 779:                e1 = EffectCharmed();

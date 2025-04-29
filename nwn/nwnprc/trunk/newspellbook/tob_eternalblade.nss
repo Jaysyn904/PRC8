@@ -205,7 +205,7 @@ void main()
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 1");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 1: " + IntToString(++nMoveTotal));
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade1", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }
@@ -215,7 +215,7 @@ void main()
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 3");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 3: " + IntToString(++nMoveTotal));
             SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade3", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }
@@ -224,7 +224,7 @@ void main()
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 5");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 5: " + IntToString(++nMoveTotal));
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nStncTotal, MANEUVER_TYPE_STANCE);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nStncTotal, MANEUVER_TYPE_STANCE));
             DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade5", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
@@ -241,7 +241,7 @@ void main()
         {
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 7");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 7: " + IntToString(++nMoveTotal));
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade7", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }
@@ -251,7 +251,7 @@ void main()
             if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 9");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 9: " + IntToString(++nMoveTotal));
             SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
-            SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade9", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
         }
