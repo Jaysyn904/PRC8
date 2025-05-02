@@ -1,20 +1,28 @@
 #include "moi_inc_moifunc" 
 
+
 itemproperty SapphireDR(int nClass)
 {
-	itemproperty iDR;
-	if (nClass >= 30) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_10_HP);
-	else if (nClass >= 27) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_9_HP);
-	else if (nClass >= 24) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_8_HP);
-	else if (nClass >= 21) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_7_HP);
-	else if (nClass >= 18) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_6_HP);
-	else if (nClass >= 15) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_5_HP);
-	else if (nClass >= 12) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_4_HP);
-	else if (nClass >= 9) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_3_HP);
-	else if (nClass >= 6) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_2_HP);
-	else if (nClass >= 3) iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5,IP_CONST_DAMAGESOAK_1_HP);
-	
-	return iDR;
+    itemproperty iDR;
+    if (nClass >= 51) 		iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_17_HP);
+	else if (nClass >= 48) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_16_HP);
+	else if (nClass >= 45) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_15_HP);
+    else if (nClass >= 42) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_14_HP);
+    else if (nClass >= 39)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_13_HP);	
+    else if (nClass >= 36) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_12_HP);
+    else if (nClass >= 33) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_11_HP);
+    else if (nClass >= 30)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_10_HP);
+    else if (nClass >= 27)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_9_HP);
+    else if (nClass >= 24) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_8_HP);
+    else if (nClass >= 21) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_7_HP);
+    else if (nClass >= 18)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_6_HP);
+    else if (nClass >= 15)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_5_HP);
+    else if (nClass >= 12)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_4_HP);
+    else if (nClass >= 9)	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_3_HP);
+    else if (nClass >= 6) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_2_HP);
+    else if (nClass >= 3) 	iDR = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_5, IP_CONST_DAMAGESOAK_1_HP);
+
+    return iDR;
 }
 
 void main()

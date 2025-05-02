@@ -56027,11 +56027,7 @@ Each level, the Sapphire Hierarch gains new spells per day as if they had also g
 
 BONUS MELDSHAPING:
 
-At each sapphire hierarch level, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the sapphire hierarch level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
-
-EPIC SAPPHIRE HEIRARCH:
-
-An epic Sapphire Heirarch continues to gain new uses of Smite Chaos and increased damage reduction as she levels. She also gains an epic bonus feat every five levels.</entry>
+At each sapphire hierarch level, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the sapphire hierarch level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.</entry>
   <entry id="59792" lang="en" sex="m">Smite Chaos</entry>
   <entry id="59793" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Sapphire Hierarch 1
@@ -73787,11 +73783,12 @@ Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Sapphire Hierarch gains a bonus feat every five levels
 
 Special:
+Damage Reduction: Increases by 1 every three class levels.
 Caster Level: Increases as if gaining a level in your divine spellcasting class.
 Meldshaping: At each Sapphire Hierarch level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
 
 Epic Sapphire Hierarch Bonus Feat List:
-Armor Skin, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Great Intelligence, Great Wisdom, Improved Combat Casting, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Bonus Soulmeld, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Essentia, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Extra Chakra Bind, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Smiting, Great Wisdom, Ignore Material Components, Improved Combat Casting, Open Heart Chakra, Open Soul Chakra, Planar Turning, Rapid Meldshaping, Rebind Soulmeld, Tenacious Magic.</entry>
   <entry id="205074" lang="en" sex="m">Epic Bonded Summoner</entry>
   <entry id="205075" lang="en" sex="m">Beyond the boundaries of mortal summoning, the Epic Bonded Summoner becomes one with the elemental forces, merging soul and essence with the raw power of the planes. Their companion, now a force of nature incarnate, stands as an unshakable sentinel, while the summoner transcends flesh, embracing an existence of pure elemental might.
 
