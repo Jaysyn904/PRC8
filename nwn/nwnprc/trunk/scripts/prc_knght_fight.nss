@@ -14,6 +14,66 @@
 
 int GetIntToDamage(int nCheck)
 {
+	int nDam;
+	
+	if (nCheck >= 50) 	   nDam = DAMAGE_BONUS_50;
+	else if (nCheck == 49) nDam = DAMAGE_BONUS_49;
+	else if (nCheck == 48) nDam = DAMAGE_BONUS_48;
+	else if (nCheck == 47) nDam = DAMAGE_BONUS_47;
+	else if (nCheck == 46) nDam = DAMAGE_BONUS_46;
+	else if (nCheck == 45) nDam = DAMAGE_BONUS_45;
+	else if (nCheck == 44) nDam = DAMAGE_BONUS_44;
+	else if (nCheck == 43) nDam = DAMAGE_BONUS_43;
+	else if (nCheck == 42) nDam = DAMAGE_BONUS_42;
+	else if (nCheck == 41) nDam = DAMAGE_BONUS_41;
+	else if (nCheck == 40) nDam = DAMAGE_BONUS_40;
+	else if (nCheck == 39) nDam = DAMAGE_BONUS_39;
+	else if (nCheck == 38) nDam = DAMAGE_BONUS_38;
+	else if (nCheck == 37) nDam = DAMAGE_BONUS_37;
+	else if (nCheck == 36) nDam = DAMAGE_BONUS_36;
+	else if (nCheck == 35) nDam = DAMAGE_BONUS_35;
+	else if (nCheck == 34) nDam = DAMAGE_BONUS_34;
+	else if (nCheck == 33) nDam = DAMAGE_BONUS_33;
+	else if (nCheck == 32) nDam = DAMAGE_BONUS_32;
+	else if (nCheck == 31) nDam = DAMAGE_BONUS_31;
+	else if (nCheck == 30) nDam = DAMAGE_BONUS_30;
+	else if (nCheck == 29) nDam = DAMAGE_BONUS_29;
+	else if (nCheck == 28) nDam = DAMAGE_BONUS_28;
+	else if (nCheck == 27) nDam = DAMAGE_BONUS_27;
+	else if (nCheck == 26) nDam = DAMAGE_BONUS_26;
+	else if (nCheck == 25) nDam = DAMAGE_BONUS_25;
+	else if (nCheck == 24) nDam = DAMAGE_BONUS_24;
+	else if (nCheck == 23) nDam = DAMAGE_BONUS_23;
+	else if (nCheck == 22) nDam = DAMAGE_BONUS_22;
+	else if (nCheck == 21) nDam = DAMAGE_BONUS_21;
+	else if (nCheck >= 20) nDam = DAMAGE_BONUS_20;
+	else if (nCheck == 19) nDam = DAMAGE_BONUS_19;
+	else if (nCheck == 18) nDam = DAMAGE_BONUS_18;
+	else if (nCheck == 17) nDam = DAMAGE_BONUS_17;
+	else if (nCheck == 16) nDam = DAMAGE_BONUS_16;
+	else if (nCheck == 15) nDam = DAMAGE_BONUS_15;
+	else if (nCheck == 14) nDam = DAMAGE_BONUS_14;
+	else if (nCheck == 13) nDam = DAMAGE_BONUS_13;
+	else if (nCheck == 12) nDam = DAMAGE_BONUS_12;
+	else if (nCheck == 11) nDam = DAMAGE_BONUS_11;
+	else if (nCheck == 10) nDam = DAMAGE_BONUS_10;
+	else if (nCheck == 9) nDam = DAMAGE_BONUS_9;
+	else if (nCheck == 8) nDam = DAMAGE_BONUS_8;
+	else if (nCheck == 7) nDam = DAMAGE_BONUS_7;
+	else if (nCheck == 6) nDam = DAMAGE_BONUS_6;
+	else if (nCheck == 5) nDam = DAMAGE_BONUS_5;
+	else if (nCheck == 4) nDam = DAMAGE_BONUS_4;
+	else if (nCheck == 3) nDam = DAMAGE_BONUS_3;
+	else if (nCheck == 2) nDam = DAMAGE_BONUS_2;
+	else if (nCheck == 1) nDam = DAMAGE_BONUS_1;
+	// Null line in the 2da
+	else nDam = 0;
+	
+	    return nDam;
+}
+
+/* int GetIntToDamage(int nCheck)
+{
     int IntToDam = -1;
 
     if (nCheck == 1)
@@ -99,7 +159,7 @@ int GetIntToDamage(int nCheck)
 
     return IntToDam;
 }
-
+ */
 void main()
 {
 	//Declare main variables.

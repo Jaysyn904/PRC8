@@ -1564,11 +1564,42 @@ int IPGetDamageBonusConstantFromNumber(int nNumber)
         case 18: return DAMAGE_BONUS_18;
         case 19: return DAMAGE_BONUS_19;
         case 20: return DAMAGE_BONUS_20;
+		case 21: return DAMAGE_BONUS_21;
+		case 22: return DAMAGE_BONUS_22;
+		case 23: return DAMAGE_BONUS_23;
+		case 24: return DAMAGE_BONUS_24;
+		case 25: return DAMAGE_BONUS_25;
+		case 26: return DAMAGE_BONUS_26;
+		case 27: return DAMAGE_BONUS_27;
+		case 28: return DAMAGE_BONUS_28;
+		case 29: return DAMAGE_BONUS_29;
+		case 30: return DAMAGE_BONUS_30;
+		case 31: return DAMAGE_BONUS_31;
+		case 32: return DAMAGE_BONUS_32;
+		case 33: return DAMAGE_BONUS_33;
+		case 34: return DAMAGE_BONUS_34;
+		case 35: return DAMAGE_BONUS_35;
+		case 36: return DAMAGE_BONUS_36;
+		case 37: return DAMAGE_BONUS_37;
+		case 38: return DAMAGE_BONUS_38;
+		case 39: return DAMAGE_BONUS_39;
+		case 40: return DAMAGE_BONUS_40;
+		case 41: return DAMAGE_BONUS_41;
+		case 42: return DAMAGE_BONUS_42;
+		case 43: return DAMAGE_BONUS_43;
+		case 44: return DAMAGE_BONUS_44;
+		case 45: return DAMAGE_BONUS_45;
+		case 46: return DAMAGE_BONUS_46;
+		case 47: return DAMAGE_BONUS_47;
+		case 48: return DAMAGE_BONUS_48;
+		case 49: return DAMAGE_BONUS_49;
+		case 50: return DAMAGE_BONUS_50;		
+		
     }
 
-    if (nNumber>20)
+    if (nNumber>50)
     {
-        return DAMAGE_BONUS_20;
+        return DAMAGE_BONUS_50;
     }
     else
     {

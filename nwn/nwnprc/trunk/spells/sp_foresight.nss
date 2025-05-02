@@ -46,13 +46,15 @@ void main()
         fDur += fDur;
     }
         
-    itemproperty iDodge = PRCItemPropertyBonusFeat(FEAT_UNCANNY_DODGE_1);
+    //itemproperty iDodge = PRCItemPropertyBonusFeat(FEAT_UNCANNY_DODGE_1);
+	effect eDodge = EffectBonusFeat(FEAT_UNCANNY_DODGE_1);
     effect eLink = EffectLinkEffects(EffectImmunity(IMMUNITY_TYPE_SNEAK_ATTACK), EffectACIncrease(2, AC_DODGE_BONUS, AC_VS_DAMAGE_TYPE_ALL));
     eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_REFLEX, 2, SAVING_THROW_TYPE_ALL));
+	eLink = EffectLinkEffects(eLink, eDodge);
     object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
     
     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oPC, fDur);
-    IPSafeAddItemProperty(oArmor, iDodge, fDur);
+    //IPSafeAddItemProperty(oArmor, iDodge, fDur);
     
     PRCSetSchool();
 }

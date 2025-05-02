@@ -111,7 +111,37 @@ void main()
             case 17: nDamageBonusConstant = DAMAGE_BONUS_17; break;
             case 18: nDamageBonusConstant = DAMAGE_BONUS_18; break;
             case 19: nDamageBonusConstant = DAMAGE_BONUS_19; break;
-            default: nDamageBonusConstant = DAMAGE_BONUS_20; // The value is >= 20, the bonus limit is +20
+            case 20: nDamageBonusConstant = DAMAGE_BONUS_20; break;
+            case 21: nDamageBonusConstant = DAMAGE_BONUS_21; break;
+            case 22: nDamageBonusConstant = DAMAGE_BONUS_22; break;
+            case 23: nDamageBonusConstant = DAMAGE_BONUS_23; break;
+            case 24: nDamageBonusConstant = DAMAGE_BONUS_24; break;
+            case 25: nDamageBonusConstant = DAMAGE_BONUS_25; break;
+            case 26: nDamageBonusConstant = DAMAGE_BONUS_26; break;
+            case 27: nDamageBonusConstant = DAMAGE_BONUS_27; break;
+            case 28: nDamageBonusConstant = DAMAGE_BONUS_28; break;
+            case 29: nDamageBonusConstant = DAMAGE_BONUS_29; break;
+            case 30: nDamageBonusConstant = DAMAGE_BONUS_30; break;
+            case 31: nDamageBonusConstant = DAMAGE_BONUS_31; break;
+            case 32: nDamageBonusConstant = DAMAGE_BONUS_32; break;
+            case 33: nDamageBonusConstant = DAMAGE_BONUS_33; break;
+            case 34: nDamageBonusConstant = DAMAGE_BONUS_34; break;
+            case 35: nDamageBonusConstant = DAMAGE_BONUS_35; break;
+            case 36: nDamageBonusConstant = DAMAGE_BONUS_36; break;
+            case 37: nDamageBonusConstant = DAMAGE_BONUS_37; break;
+            case 38: nDamageBonusConstant = DAMAGE_BONUS_38; break;
+            case 39: nDamageBonusConstant = DAMAGE_BONUS_39; break;
+            case 40: nDamageBonusConstant = DAMAGE_BONUS_40; break;
+            case 41: nDamageBonusConstant = DAMAGE_BONUS_41; break;
+            case 42: nDamageBonusConstant = DAMAGE_BONUS_42; break;
+            case 43: nDamageBonusConstant = DAMAGE_BONUS_43; break;
+            case 44: nDamageBonusConstant = DAMAGE_BONUS_44; break;
+            case 45: nDamageBonusConstant = DAMAGE_BONUS_45; break;
+            case 46: nDamageBonusConstant = DAMAGE_BONUS_46; break;
+            case 47: nDamageBonusConstant = DAMAGE_BONUS_47; break;
+            case 48: nDamageBonusConstant = DAMAGE_BONUS_48; break;
+            case 49: nDamageBonusConstant = DAMAGE_BONUS_49; break;
+            default: nDamageBonusConstant = DAMAGE_BONUS_50; // The value is >= 50
         }
         DelayApplyEffectToObject(0.0f, PRC_Shifter_ApplyEffects_Generation, DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectDamageIncrease(nDamageBonusConstant, nSTR_DamageType)), oShifter);
     }

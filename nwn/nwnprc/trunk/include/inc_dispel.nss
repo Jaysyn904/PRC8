@@ -194,9 +194,9 @@ void spellsDispelAoEMod(object oTargetAoE, object oCaster, int nCasterLevel)
 
 void DispelMagicBestMod(object oTarget, int nCasterLevel)
 {
-  /// I *really*  want to rewrite this one so that it simply dispels the most useful effect
-  /// instead of just the one with the highest caster level.
-  /// Sure hate to dispel mage armor on somebody who's immune to necromancy.   Difficult Decision, these.
+  // I *really*  want to rewrite this one so that it simply dispels the most useful effect
+  // instead of just the one with the highest caster level.
+  // Sure hate to dispel mage armor on somebody who's immune to necromancy.   Difficult Decision, these.
 
 
   //:: calls a function to determine whether infestation of maggots is in effect
@@ -898,6 +898,47 @@ int PRCGetSpellBreachProtection(int nLastChecked)
 
 int PRCRemoveProtections(int nSpell_ID, object oTarget, int nCount)
 {
+    // Declare major variables
+    effect eProtection;
+    int nCnt = 0;
+
+    // Check if the target has any effects from the specified spell ID
+    if (GetHasSpellEffect(nSpell_ID, oTarget))
+    {
+        // Start looping through all effects on the target
+        eProtection = GetFirstEffect(oTarget);
+        while (GetIsEffectValid(eProtection))
+        {
+            // Only remove effects that:
+            // - Match the given spell ID
+            // - Are Magical (to comply with Breach spell behavior)
+            if (GetEffectSpellId(eProtection) == nSpell_ID &&
+                GetEffectSubType(eProtection) == SUBTYPE_MAGICAL)
+            {
+                RemoveEffect(oTarget, eProtection);
+                nCnt++;
+            }
+
+            // Move to the next effect
+            eProtection = GetNextEffect(oTarget);
+        }
+    }
+
+    // Return 1 if any effects were removed, otherwise 0
+    if (nCnt > 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// This was dispelling Extraordinary, Supernatural & Unyielding effects -Jaysyn
+
+/* int PRCRemoveProtections(int nSpell_ID, object oTarget, int nCount)
+{
     //Declare major variables
     effect eProtection;
     int nCnt = 0;
@@ -926,7 +967,7 @@ int PRCRemoveProtections(int nSpell_ID, object oTarget, int nCount)
     {
         return 0;
     }
-}
+} */
 
 //------------------------------------------------------------------------------
 // Attempts a dispel on one target, with all safety checks put in.

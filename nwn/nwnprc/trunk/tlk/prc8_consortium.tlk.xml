@@ -73152,6 +73152,69 @@ Special Abilities:
   <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
   <entry id="77210" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick a spellcasting feat (1st lvl)&lt;/c&gt;</entry>
   <entry id="77211" lang="en" sex="m">Choose which spellcasting class to advance with the currently selected Prestige Class.  If you try take a marker feat after 1st class level, you will be releveled.</entry>
+  <entry id="79999" lang="en" sex="m">## iprp_damagecost.2da expansion ##</entry>
+  <entry id="80000" lang="en" sex="m">21 Damage</entry>
+  <entry id="80001" lang="en" sex="m">+21</entry>
+  <entry id="80002" lang="en" sex="m">22 Damage</entry>
+  <entry id="80003" lang="en" sex="m">+22</entry>
+  <entry id="80004" lang="en" sex="m">23 Damage</entry>
+  <entry id="80005" lang="en" sex="m">+23</entry>
+  <entry id="80006" lang="en" sex="m">24 Damage</entry>
+  <entry id="80007" lang="en" sex="m">+24
+</entry>
+  <entry id="80008" lang="en" sex="m">25 Damage</entry>
+  <entry id="80009" lang="en" sex="m">+25</entry>
+  <entry id="80010" lang="en" sex="m">26 Damage</entry>
+  <entry id="80011" lang="en" sex="m">+26</entry>
+  <entry id="80012" lang="en" sex="m">27 Damage</entry>
+  <entry id="80013" lang="en" sex="m">+27</entry>
+  <entry id="80014" lang="en" sex="m">28 Damage</entry>
+  <entry id="80015" lang="en" sex="m">+28</entry>
+  <entry id="80016" lang="en" sex="m">29 Damage</entry>
+  <entry id="80017" lang="en" sex="m">+29</entry>
+  <entry id="80018" lang="en" sex="m">30 damage</entry>
+  <entry id="80019" lang="en" sex="m">+30</entry>
+  <entry id="80020" lang="en" sex="m">31 Damage</entry>
+  <entry id="80021" lang="en" sex="m">+31</entry>
+  <entry id="80022" lang="en" sex="m">32 Damage
+</entry>
+  <entry id="80023" lang="en" sex="m">+32</entry>
+  <entry id="80024" lang="en" sex="m">33 Damage</entry>
+  <entry id="80025" lang="en" sex="m">+33</entry>
+  <entry id="80026" lang="en" sex="m">34 Damage</entry>
+  <entry id="80027" lang="en" sex="m">+34</entry>
+  <entry id="80028" lang="en" sex="m">35 Damage</entry>
+  <entry id="80029" lang="en" sex="m">+35</entry>
+  <entry id="80030" lang="en" sex="m">36 Damage</entry>
+  <entry id="80031" lang="en" sex="m">+36</entry>
+  <entry id="80032" lang="en" sex="m">37 Damage</entry>
+  <entry id="80033" lang="en" sex="m">+37</entry>
+  <entry id="80034" lang="en" sex="m">38 Damage</entry>
+  <entry id="80035" lang="en" sex="m">+38</entry>
+  <entry id="80036" lang="en" sex="m">39 Damage</entry>
+  <entry id="80037" lang="en" sex="m">+39</entry>
+  <entry id="80038" lang="en" sex="m">40 Damage</entry>
+  <entry id="80039" lang="en" sex="m">+40</entry>
+  <entry id="80040" lang="en" sex="m">41 Damage</entry>
+  <entry id="80041" lang="en" sex="m">+41</entry>
+  <entry id="80042" lang="en" sex="m">42 Damage</entry>
+  <entry id="80043" lang="en" sex="m">+42</entry>
+  <entry id="80044" lang="en" sex="m">43 Damage</entry>
+  <entry id="80045" lang="en" sex="m">+43</entry>
+  <entry id="80046" lang="en" sex="m">44 Damage</entry>
+  <entry id="80047" lang="en" sex="m">+44</entry>
+  <entry id="80048" lang="en" sex="m">45 Damage</entry>
+  <entry id="80049" lang="en" sex="m">+45</entry>
+  <entry id="80050" lang="en" sex="m">46 Damage</entry>
+  <entry id="80051" lang="en" sex="m">+46</entry>
+  <entry id="80052" lang="en" sex="m">47 Damage</entry>
+  <entry id="80053" lang="en" sex="m">+47</entry>
+  <entry id="80054" lang="en" sex="m">48 Damage</entry>
+  <entry id="80055" lang="en" sex="m">+48</entry>
+  <entry id="80056" lang="en" sex="m">49 Damage</entry>
+  <entry id="80057" lang="en" sex="m">+49</entry>
+  <entry id="80058" lang="en" sex="m">50 Damage</entry>
+  <entry id="80059" lang="en" sex="m">+50</entry>
   <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200002" lang="en" sex="m">Paper</entry>

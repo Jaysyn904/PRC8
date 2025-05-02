@@ -4351,6 +4351,67 @@ int GetDamageByConstant(int iDamageConst, int iItemProp)
                 return d3(1);
             case IP_CONST_DAMAGEBONUS_4d3:
                 return d3(4);
+            case IP_CONST_DAMAGEBONUS_21:
+                return 21;
+            case IP_CONST_DAMAGEBONUS_22:
+                return 22;
+            case IP_CONST_DAMAGEBONUS_23:
+                return 23;
+            case IP_CONST_DAMAGEBONUS_24:
+                return 24;
+            case IP_CONST_DAMAGEBONUS_25:
+                return 25;
+            case IP_CONST_DAMAGEBONUS_26:
+                return 26;
+            case IP_CONST_DAMAGEBONUS_27:
+                return 27;
+            case IP_CONST_DAMAGEBONUS_28:
+                return 28;
+            case IP_CONST_DAMAGEBONUS_29:
+                return 29;
+            case IP_CONST_DAMAGEBONUS_30:
+                return 30;	
+			case IP_CONST_DAMAGEBONUS_31:
+                return 31;
+            case IP_CONST_DAMAGEBONUS_32:
+                return 32;
+            case IP_CONST_DAMAGEBONUS_33:
+                return 33;
+            case IP_CONST_DAMAGEBONUS_34:
+                return 34;
+            case IP_CONST_DAMAGEBONUS_35:
+                return 35;
+            case IP_CONST_DAMAGEBONUS_36:
+                return 36;
+            case IP_CONST_DAMAGEBONUS_37:
+                return 37;
+            case IP_CONST_DAMAGEBONUS_38:
+                return 38;
+            case IP_CONST_DAMAGEBONUS_39:
+                return 39;
+            case IP_CONST_DAMAGEBONUS_40:
+                return 40;
+            case IP_CONST_DAMAGEBONUS_41:
+                return 41;
+            case IP_CONST_DAMAGEBONUS_42:
+                return 42;
+            case IP_CONST_DAMAGEBONUS_43:
+                return 43;
+            case IP_CONST_DAMAGEBONUS_44:
+                return 44;
+            case IP_CONST_DAMAGEBONUS_45:
+                return 45;
+            case IP_CONST_DAMAGEBONUS_46:
+                return 46;
+            case IP_CONST_DAMAGEBONUS_47:
+                return 47;
+            case IP_CONST_DAMAGEBONUS_48:
+                return 48;
+            case IP_CONST_DAMAGEBONUS_49:
+                return 49;
+            case IP_CONST_DAMAGEBONUS_50:
+                return 50;				
+				
         }
     }
     else
@@ -4417,6 +4478,66 @@ int GetDamageByConstant(int iDamageConst, int iItemProp)
                 return d10(2);
             case DAMAGE_BONUS_2d12:
                 return d12(2);
+            case DAMAGE_BONUS_21:
+                return 21;
+            case DAMAGE_BONUS_22:
+                return 22;
+            case DAMAGE_BONUS_23:
+                return 23;
+            case DAMAGE_BONUS_24:
+                return 24;
+            case DAMAGE_BONUS_25:
+                return 25;
+            case DAMAGE_BONUS_26:
+                return 26;
+            case DAMAGE_BONUS_27:
+                return 27;
+            case DAMAGE_BONUS_28:
+                return 28;
+            case DAMAGE_BONUS_29:
+                return 29;
+            case DAMAGE_BONUS_30:
+                return 30;				
+            case DAMAGE_BONUS_31:
+                return 31;
+            case DAMAGE_BONUS_32:
+                return 32;
+            case DAMAGE_BONUS_33:
+                return 33;
+            case DAMAGE_BONUS_34:
+                return 34;
+            case DAMAGE_BONUS_35:
+                return 35;
+            case DAMAGE_BONUS_36:
+                return 36;
+            case DAMAGE_BONUS_37:
+                return 37;
+            case DAMAGE_BONUS_38:
+                return 38;
+            case DAMAGE_BONUS_39:
+                return 39;
+            case DAMAGE_BONUS_40:
+                return 40;		
+			case DAMAGE_BONUS_41:
+                return 41;
+            case DAMAGE_BONUS_42:
+                return 42;
+            case DAMAGE_BONUS_43:
+                return 43;
+            case DAMAGE_BONUS_44:
+                return 44;
+            case DAMAGE_BONUS_45:
+                return 45;
+            case DAMAGE_BONUS_46:
+                return 46;
+            case DAMAGE_BONUS_47:
+                return 47;
+            case DAMAGE_BONUS_48:
+                return 48;
+            case DAMAGE_BONUS_49:
+                return 49;
+            case DAMAGE_BONUS_50:
+                return 50;
         }
     }
     return 0;

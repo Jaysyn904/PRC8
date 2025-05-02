@@ -713,8 +713,39 @@ const int IP_CONST_ONHIT_CASTSPELL_NIGHTSHADEPOISON = 201;
 const int IP_CONST_ONHIT_CASTSPELL_LINGDMG = 202;
 const int IP_CONST_CASTSPELL_ELDRITCH_GLAIVE_ONHIT  = 205;
 
-//  IP_CONST_DAMAGEBONUS
+//:: DAMAGE_BONUS_
+const int DAMAGE_BONUS_21 				= 73;
+const int DAMAGE_BONUS_22 				= 74;
+const int DAMAGE_BONUS_23 				= 75;
+const int DAMAGE_BONUS_24 				= 76;
+const int DAMAGE_BONUS_25 				= 77;
+const int DAMAGE_BONUS_26 				= 78;
+const int DAMAGE_BONUS_27 				= 79;
+const int DAMAGE_BONUS_28 				= 80;
+const int DAMAGE_BONUS_29 				= 81;
+const int DAMAGE_BONUS_30 				= 82;
+const int DAMAGE_BONUS_31 				= 83;
+const int DAMAGE_BONUS_32 				= 84;
+const int DAMAGE_BONUS_33 				= 85;
+const int DAMAGE_BONUS_34 				= 86;
+const int DAMAGE_BONUS_35 				= 87;
+const int DAMAGE_BONUS_36 				= 88;
+const int DAMAGE_BONUS_37 				= 89;
+const int DAMAGE_BONUS_38 				= 90;
+const int DAMAGE_BONUS_39 				= 91;
+const int DAMAGE_BONUS_40 				= 92;
+const int DAMAGE_BONUS_41 				= 93;
+const int DAMAGE_BONUS_42 				= 94;
+const int DAMAGE_BONUS_43 				= 95;
+const int DAMAGE_BONUS_44 				= 96;
+const int DAMAGE_BONUS_45 				= 97;
+const int DAMAGE_BONUS_46 				= 98;
+const int DAMAGE_BONUS_47 				= 99;
+const int DAMAGE_BONUS_48 				= 100;
+const int DAMAGE_BONUS_49 				= 101;
+const int DAMAGE_BONUS_50 				= 102;
 
+//::  IP_CONST_DAMAGEBONUS
 const int IP_CONST_DAMAGEBONUS_11               = 21;
 const int IP_CONST_DAMAGEBONUS_12               = 22;
 const int IP_CONST_DAMAGEBONUS_13               = 23;
@@ -767,6 +798,37 @@ const int IP_CONST_DAMAGEBONUS_9d12             = 69;
 const int IP_CONST_DAMAGEBONUS_10d12            = 70;
 const int IP_CONST_DAMAGEBONUS_1d3              = 71;
 const int IP_CONST_DAMAGEBONUS_4d3              = 72;
+const int IP_CONST_DAMAGEBONUS_21 				= 73;
+const int IP_CONST_DAMAGEBONUS_22 				= 74;
+const int IP_CONST_DAMAGEBONUS_23 				= 75;
+const int IP_CONST_DAMAGEBONUS_24 				= 76;
+const int IP_CONST_DAMAGEBONUS_25 				= 77;
+const int IP_CONST_DAMAGEBONUS_26 				= 78;
+const int IP_CONST_DAMAGEBONUS_27 				= 79;
+const int IP_CONST_DAMAGEBONUS_28 				= 80;
+const int IP_CONST_DAMAGEBONUS_29 				= 81;
+const int IP_CONST_DAMAGEBONUS_30 				= 82;
+const int IP_CONST_DAMAGEBONUS_31 				= 83;
+const int IP_CONST_DAMAGEBONUS_32 				= 84;
+const int IP_CONST_DAMAGEBONUS_33 				= 85;
+const int IP_CONST_DAMAGEBONUS_34 				= 86;
+const int IP_CONST_DAMAGEBONUS_35 				= 87;
+const int IP_CONST_DAMAGEBONUS_36 				= 88;
+const int IP_CONST_DAMAGEBONUS_37 				= 89;
+const int IP_CONST_DAMAGEBONUS_38 				= 90;
+const int IP_CONST_DAMAGEBONUS_39 				= 91;
+const int IP_CONST_DAMAGEBONUS_40 				= 92;
+const int IP_CONST_DAMAGEBONUS_41 				= 93;
+const int IP_CONST_DAMAGEBONUS_42 				= 94;
+const int IP_CONST_DAMAGEBONUS_43 				= 95;
+const int IP_CONST_DAMAGEBONUS_44 				= 96;
+const int IP_CONST_DAMAGEBONUS_45 				= 97;
+const int IP_CONST_DAMAGEBONUS_46 				= 98;
+const int IP_CONST_DAMAGEBONUS_47 				= 99;
+const int IP_CONST_DAMAGEBONUS_48 				= 100;
+const int IP_CONST_DAMAGEBONUS_49 				= 101;
+const int IP_CONST_DAMAGEBONUS_50 				= 102;
+
 
 // IP_CONST_IMMUNITYSPELL
 
