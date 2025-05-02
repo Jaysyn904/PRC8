@@ -16,11 +16,20 @@ void main()
 {
     object oCaster = OBJECT_SELF;
 
-    if (PRCGetHasEffect(EFFECT_TYPE_SILENCE,OBJECT_SELF))
+    if (PRCGetHasEffect(EFFECT_TYPE_SILENCE, oCaster))
     {
-        FloatingTextStrRefOnCreature(85764,OBJECT_SELF); // not useable when silenced
+        FloatingTextStrRefOnCreature(85764, oCaster); // not useable when silenced
         return;
-    }
+    }	
+	else if (PRCGetHasEffect(EFFECT_TYPE_DEAF, oCaster))
+	{
+    // 20% chance to return if deaf
+		if (d100() <= 20)
+		{
+			FloatingTextStringOnCreature("You can't hear well enough to use this ability", oCaster);
+			return;
+		}		
+	}	
     else if(GetSkillRank(SKILL_PERFORM, oCaster) < 12)
     {
         FloatingTextStringOnCreature("You need 12 or more ranks in perform skill.", oCaster, FALSE);
@@ -51,9 +60,9 @@ void main()
         else
             nBonus = 0;
 
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oCaster, 9.0f);
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oCaster, TurnsToSeconds(1));
         SetLocalInt(oCaster, "SongOfArcanePower", nBonus);
-        DelayCommand(9.0f, DeleteLocalInt(oCaster, "SongOfArcanePower"));
+        DelayCommand(TurnsToSeconds(1), DeleteLocalInt(oCaster, "SongOfArcanePower"));
     }
 }
 
