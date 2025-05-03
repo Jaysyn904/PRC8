@@ -21,12 +21,11 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 {
     effect eVis = EffectVisualEffect(VFX_IMP_BONUS_WISDOM);
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int CasterLvl = PRCGetCasterLevel(OBJECT_SELF);
     int nDuration = nCasterLevel;
     if (CheckMetaMagic(nMetaMagic, METAMAGIC_EXTEND))
         nDuration *= 2; //Duration is +100%
-    effect eLink = EffectLinkEffects(EffectAbilityIncrease(ABILITY_WISDOM, nCasterLevel / 2), EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, 438, FALSE));
+    effect eLink = EffectLinkEffects(EffectAbilityIncrease(ABILITY_WISDOM, PRCMax(12, nCasterLevel / 2)), EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+    SignalEvent(oTarget, EventSpellCastAt(oCaster, 438, FALSE));
     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, HoursToSeconds(nDuration),TRUE,-1,nCasterLevel);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
 

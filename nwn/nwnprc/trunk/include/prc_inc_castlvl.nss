@@ -3799,6 +3799,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_ARCHIVIST, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
 		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
+		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_ARCHIVIST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
@@ -3902,6 +3905,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_BLACKGUARD, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BLACKGUARD, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_BLACKGUARD, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
@@ -4008,7 +4014,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
 		
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_BLIGHTER, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);	
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BLIGHTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_BLIGHTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster); */
@@ -4116,7 +4125,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
 		
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_CLERIC, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);		
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);	
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_CLERIC, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
@@ -4227,6 +4239,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_DRUID, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_DRUID, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
@@ -4334,6 +4349,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_FAVOURED_SOUL, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);	
 		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
+		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
@@ -4437,6 +4455,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_HEALER, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 		// if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_HEALER, oCaster))				
 			// nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
@@ -4547,6 +4568,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 /* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_JUSTICEWW, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_JUSTICEWW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
 		
 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_JUSTICEWW, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
@@ -4650,6 +4674,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_KNIGHT_CHALICE, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
@@ -4752,6 +4779,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
 		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);		
+		
 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
 		
@@ -4849,6 +4879,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_NENTYAR_HUNTER, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);		
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
 		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
@@ -4960,9 +4993,12 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_OCULAR, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster);
+			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OCULAR, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
 		
-		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_OCULAR, oCaster))				
+/* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_OCULAR, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */
 		
 		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_OCULAR, oCaster))			
@@ -5155,6 +5191,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_RANGER, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
 		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
+		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_RANGER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
@@ -5254,7 +5293,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);		
 		
 		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_OASHAMAN, oCaster))			
-			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);		
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);	
+
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
 		
 		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_OASHAMAN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
@@ -5464,6 +5506,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		// if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_SOHEI, oCaster))			
 			// nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
 		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
+		
 		// if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_SOHEI, oCaster))				
 			// nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
 		
@@ -5573,6 +5618,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 /* 		if(GetHasFeat(FEAT_FISTRAZIEL_SPELLCASTING_SOL, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_FISTRAZIEL, oCaster); */
+		
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);			
 		
 /* 		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_SOL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster); */

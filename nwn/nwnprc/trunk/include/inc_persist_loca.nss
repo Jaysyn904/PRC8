@@ -251,10 +251,9 @@ object GetHideToken(object oPC, int bAMS = FALSE)
     return oToken;
 }
 
-
 void SetPersistantLocalString(object oPC, string sName, string sValue)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_SetString(oPC, sName, sValue);
     }
@@ -264,9 +263,21 @@ void SetPersistantLocalString(object oPC, string sName, string sValue)
     }
 }
 
-void SetPersistantLocalInt(object oPC, string sName, int nValue)
+/* void SetPersistantLocalString(object oPC, string sName, string sValue)
 {
     if(GetIsPC(oPC))
+    {
+        SQLocalsPlayer_SetString(oPC, sName, sValue);
+    }
+    else
+    {
+        SetLocalString(oPC, sName, sValue);
+    }
+} */
+
+void SetPersistantLocalInt(object oPC, string sName, int nValue)
+{
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_SetInt(oPC, sName, nValue);
     }
@@ -278,7 +289,7 @@ void SetPersistantLocalInt(object oPC, string sName, int nValue)
 
 void SetPersistantLocalFloat(object oPC, string sName, float fValue)
 {
-    if(GetIsPC(oPC))
+	if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_SetFloat(oPC, sName, fValue);
     }
@@ -290,7 +301,7 @@ void SetPersistantLocalFloat(object oPC, string sName, float fValue)
 
 void SetPersistantLocalLocation(object oPC, string sName, location lValue)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_SetLocation(oPC, sName, lValue);
     }
@@ -302,7 +313,7 @@ void SetPersistantLocalLocation(object oPC, string sName, location lValue)
 
 void SetPersistantLocalObject(object oPC, string sName, object oValue)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_SetObject(oPC, sName, oValue);
     }
@@ -314,7 +325,7 @@ void SetPersistantLocalObject(object oPC, string sName, object oValue)
 
 string GetPersistantLocalString(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         return SQLocalsPlayer_GetString(oPC, sName);
     }
@@ -323,7 +334,7 @@ string GetPersistantLocalString(object oPC, string sName)
 
 int GetPersistantLocalInt(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         return SQLocalsPlayer_GetInt(oPC, sName);
     }
@@ -332,7 +343,7 @@ int GetPersistantLocalInt(object oPC, string sName)
 
 float GetPersistantLocalFloat(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         return SQLocalsPlayer_GetFloat(oPC, sName);
     }
@@ -341,7 +352,7 @@ float GetPersistantLocalFloat(object oPC, string sName)
 
 location GetPersistantLocalLocation(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         return SQLocalsPlayer_GetLocation(oPC, sName);
     }
@@ -350,7 +361,7 @@ location GetPersistantLocalLocation(object oPC, string sName)
 
 object GetPersistantLocalObject(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         // Additional check since the OID returned may be invalid, but not actually OBJECT_INVALID
         object oReturn = SQLocalsPlayer_GetObject(oPC, sName);
@@ -362,7 +373,7 @@ object GetPersistantLocalObject(object oPC, string sName)
 
 void DeletePersistantLocalString(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_DeleteString(oPC, sName);
     }
@@ -374,7 +385,7 @@ void DeletePersistantLocalString(object oPC, string sName)
 
 void DeletePersistantLocalInt(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_DeleteInt(oPC, sName);
     }
@@ -386,7 +397,7 @@ void DeletePersistantLocalInt(object oPC, string sName)
 
 void DeletePersistantLocalFloat(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_DeleteFloat(oPC, sName);
     }
@@ -398,7 +409,7 @@ void DeletePersistantLocalFloat(object oPC, string sName)
 
 void DeletePersistantLocalLocation(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_DeleteLocation(oPC, sName);
     }
@@ -410,7 +421,7 @@ void DeletePersistantLocalLocation(object oPC, string sName)
 
 void DeletePersistantLocalObject(object oPC, string sName)
 {
-    if(GetIsPC(oPC))
+    if(GetIsPC(oPC) == TRUE && GetMaster(oPC) == OBJECT_INVALID && !GetIsDMPossessed(oPC))
     {
         SQLocalsPlayer_DeleteObject(oPC, sName);
     }
