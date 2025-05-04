@@ -31,7 +31,7 @@ void RemoveSpellEffectSong(object oPC)
     }
 }
 
-void OnEquip(object oPC,object oSkin)
+/* void OnEquip(object oPC,object oSkin)
 {
     object oChest = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
     int nBaseAC = GetBaseAC(oChest);
@@ -55,9 +55,9 @@ void OnEquip(object oPC,object oSkin)
 
     if (GetHasFeat(FEAT_LESSER_SPELLSONG, oPC))
         SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
-}
+} */
 
-/* void OnEquip(object oPC,object oSkin)
+void OnEquip(object oPC,object oSkin)
 {
     // 1 longsword/rapier & light armour
     if(!GetIsBladesongWeapon(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))
@@ -81,7 +81,7 @@ void OnEquip(object oPC,object oSkin)
 
     if(GetHasFeat(FEAT_LESSER_SPELLSONG,oPC))
         SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
-} */
+}
 
 void  OnUnEquip(object oPC,object oSkin)
 {

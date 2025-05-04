@@ -87,7 +87,9 @@ void main()
 		SetCompositeBonus(oSkin, "SwordsageACBonus", 0, ITEM_PROPERTY_AC_BONUS);
 	//	SendMessageToPC(oPC, "Setting to 0. Disabled.");
 	}
-	else if ((4 > nArmour && nArmour > 0) && nClass >= 2) // Light Armour only
+	else if (((4 > nArmour && nArmour > 0) && nClass >= 2) // Light Armour only
+		//:: Handles Chain Shirt
+    || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) > 3 || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) == 4 && GetWeight(GetItemInSlot(INVENTORY_SLOT_CHEST)) <= 250)
 	{
 		SetCompositeBonus(oSkin, "SwordsageACBonus", GetAbilityModifier(ABILITY_WISDOM, oPC), ITEM_PROPERTY_AC_BONUS);
 	}
