@@ -61,9 +61,11 @@ void OnEquip(object oPC,object oSkin)
 {
     // 1 longsword/rapier & light armour
     if(!GetIsBladesongWeapon(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))
-    || GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC))
+		|| GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC))
 	//:: Handles Mithral Chain Shirt
-    || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) > 3 || GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) == 4 && GetWeight(GetItemInSlot(INVENTORY_SLOT_CHEST)) < 160)
+		|| GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) > 3 
+		|| GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC)) == 4 
+		&& GetWeight(GetItemInSlot(INVENTORY_SLOT_CHEST)) < 160)
     {
         if(GetHasFeatEffect(FEAT_SONG_OF_FURY, oPC))
              RemoveSpellEffectSong(oPC);
@@ -150,9 +152,14 @@ void  OnUnEquip(object oPC,object oSkin)
 
    SetCompositeBonus(oSkin, "BladesAC", BladeLv, ITEM_PROPERTY_AC_BONUS);
 
-   if ( GetHasFeat(FEAT_LESSER_SPELLSONG,oPC))
-     SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS,SKILL_CONCENTRATION);
-
+	if (GetHasFeat(FEAT_LESSER_SPELLSONG,oPC) && GetActionMode(oPC, ACTION_MODE_DEFENSIVE_CAST))
+	{
+		SetCompositeBonus(oSkin, "BladesCon", 5, ITEM_PROPERTY_SKILL_BONUS,SKILL_CONCENTRATION);
+	}
+	else   
+	{
+		SetCompositeBonus(oSkin, "BladesCon", 0, ITEM_PROPERTY_SKILL_BONUS,SKILL_CONCENTRATION);
+	}
 }
 
 

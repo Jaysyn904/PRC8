@@ -2035,15 +2035,13 @@ const int FEAT_EPIC_INCREASE_DAMAGE3    = 3188;
 const int FEAT_EPIC_INCREASE_DAMAGE4    = 3189;
 const int FEAT_EPIC_INCREASE_DAMAGE5    = 3177;
 
-// BladeSinger
-
+//:: Bladesinger
 const int FEAT_BLADESONG_STYLE          = 3190;
 const int FEAT_LESSER_SPELLSONG         = 3191;
 const int FEAT_GREATER_SPELLSONG        = 3192;
 const int FEAT_SONG_OF_FURY             = 3193;
 
 // Archer
-
 const int FEAT_EXTRASHOT                = 3180;
 const int FEAT_BOWSPEC2                 = 3181;
 const int FEAT_BOWSPEC3                 = 3182;

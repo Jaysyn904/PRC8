@@ -19960,16 +19960,18 @@ Arcane Spellcasting : Able to cast spell level 1
 CLASS FEATURES:
 
 Level
-1: Bladesong Style - gains a AC bonus equal to his class level (max bonus Int)
-2: Bonus Feat - (Any Meta Magic, Improved Critical (Longsword and Rapier), Improved Disarm, Mobility, Spring Attack, Whirlwind Attack).
-3: Lesser Spellsong - Concentration +5.
-4: None.
-5: Bonus Feat.
+1: Bladesong Style - gains a AC bonus equal to his class level (max bonus Int).
+2: Lesser Spellsong - Concentration +5 while casting defensively.
+3: -
+4: Bonus Feat*.
+5: -
 6: Greater Spellsong - ignores arcane spell failure when wearing a light armor.
-7: None
-8: Bonus Feat.
-9: None
+7: -
+8: Bonus Feat*.
+9: -
 10: Song of Fury - gains a extra attack but make his attacks to -2.
+
+*Bonus feats replace Song of Celerity which is not possible in the Aurora engine.
 
 NOTE:
 
@@ -19977,14 +19979,7 @@ If he doesn't wield a longsword or a rapier (and nothing in the off hand), he lo
 
 BONUS SPELLS
 
-Every other level in Bladesinger, the character gains new spells per day as if he had also gained a level in his highest caster class (bard, sorcerer, or wizard). He does not learn any new spells through his abilities.
-
-EPIC:
-
-Bonus Feats: The epic Bladesinger gains a bonus feat every two levels after 10th
-
-Epic Bladesinger Bonus Feats List:
-Armor Skin, Automatic Still Spell, Blinding Speed, Epic Spell Focus, Epic Toughness, Epic Weapon Focus (Longsword, Rapier), Improved Combat Casting, Superior Initiative.</entry>
+Every other level in Bladesinger, the character gains new spells per day as if he had also gained a level in his highest caster class (bard, sorcerer, or wizard). He does not learn any new spells through his abilities.</entry>
   <entry id="48774" lang="en" sex="m">Bladesong Style</entry>
   <entry id="48775" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Bladesinger level 1
@@ -73832,13 +73827,13 @@ Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spe
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Bladesinger gains a bonus feat every three levels
+Bonus Feats: The epic Bladesinger gains a bonus feat every two levels
 
 Special:
 Spellcasting: The epic Bladesinger continues to increase in caster level (and spells known, if applicable) at every other level.
 
 Epic Bladesinger Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Spell Penetration, Epic Spell Focus, Epic Toughness, Epic Weapon Focus (Longsword, Rapier), Focused Spell Penetration, Great Intelligence, Improved Combat Casting, Superior Initiative.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Spell Penetration, Epic Spell Focus, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Great Intelligence, Improved Combat Casting, Superior Initiative.</entry>
   <entry id="205082" lang="en" sex="m">Epic Soulcaster</entry>
   <entry id="205083" lang="en" sex="m">The Epic Soulcaster is a master of both incarnum and arcane (or psionic) energy, seamlessly weaving soul energy into their spells and manifestations. As their mastery deepens, they unlock unparalleled control over chakra binds, enhance their investments to extraordinary levels, and transcend the boundaries between mortal essence and pure magic.
 
