@@ -227,7 +227,7 @@ void ApplyIllmaster(object oCompanion, object oCompSkin)
     int iCons = GetAbilityModifier(ABILITY_CONSTITUTION, oCompanion);
     int iDC = 10 + (iHD / 2) + iCons;
     //Create the onhit item property for causing the blight touch disease
-    itemproperty ipBlightTouch = ItemPropertyOnHitProps(IP_CONST_ONHIT_DISEASE, iDC, DISEASE_TALONAS_BLIGHT);
+    itemproperty ipBlightTouch = ItemPropertyOnHitProps(IP_CONST_ONHIT_DISEASE, IPOnHitSaveDC(iDC), DISEASE_TALONAS_BLIGHT);
     //Get the companion's creature weapons
     object oBite = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oCompanion);
     object oLClaw = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oCompanion);
@@ -528,3 +528,5 @@ void UnsummonCompanions(object oPC)
             DestroyAssociate(oAsso);
     }
 }
+
+//:: void main(){}

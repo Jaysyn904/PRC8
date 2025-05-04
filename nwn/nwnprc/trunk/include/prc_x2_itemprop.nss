@@ -1852,13 +1852,148 @@ int IPDamageConstant(int nDamBon)
         case 18: nIPBonus = IP_CONST_DAMAGEBONUS_18; break;
         case 19: nIPBonus = IP_CONST_DAMAGEBONUS_19; break;
         case 20: nIPBonus = IP_CONST_DAMAGEBONUS_20; break;
+        case 21: nIPBonus = IP_CONST_DAMAGEBONUS_21; break;
+        case 22: nIPBonus = IP_CONST_DAMAGEBONUS_22; break;
+        case 23: nIPBonus = IP_CONST_DAMAGEBONUS_23; break;
+        case 24: nIPBonus = IP_CONST_DAMAGEBONUS_24; break;
+        case 25: nIPBonus = IP_CONST_DAMAGEBONUS_25; break;
+        case 26: nIPBonus = IP_CONST_DAMAGEBONUS_26; break;
+        case 27: nIPBonus = IP_CONST_DAMAGEBONUS_27; break;
+        case 28: nIPBonus = IP_CONST_DAMAGEBONUS_28; break;
+        case 29: nIPBonus = IP_CONST_DAMAGEBONUS_29; break;
+        case 30: nIPBonus = IP_CONST_DAMAGEBONUS_30; break;
+        case 31: nIPBonus = IP_CONST_DAMAGEBONUS_31; break;
+        case 32: nIPBonus = IP_CONST_DAMAGEBONUS_32; break;
+        case 33: nIPBonus = IP_CONST_DAMAGEBONUS_33; break;
+        case 34: nIPBonus = IP_CONST_DAMAGEBONUS_34; break;
+        case 35: nIPBonus = IP_CONST_DAMAGEBONUS_35; break;
+        case 36: nIPBonus = IP_CONST_DAMAGEBONUS_36; break;
+        case 37: nIPBonus = IP_CONST_DAMAGEBONUS_37; break;
+        case 38: nIPBonus = IP_CONST_DAMAGEBONUS_38; break;
+        case 39: nIPBonus = IP_CONST_DAMAGEBONUS_39; break;
+        case 40: nIPBonus = IP_CONST_DAMAGEBONUS_40; break;
+        case 41: nIPBonus = IP_CONST_DAMAGEBONUS_41; break;
+        case 42: nIPBonus = IP_CONST_DAMAGEBONUS_42; break;
+        case 43: nIPBonus = IP_CONST_DAMAGEBONUS_43; break;
+        case 44: nIPBonus = IP_CONST_DAMAGEBONUS_44; break;
+        case 45: nIPBonus = IP_CONST_DAMAGEBONUS_45; break;
+        case 46: nIPBonus = IP_CONST_DAMAGEBONUS_46; break;
+        case 47: nIPBonus = IP_CONST_DAMAGEBONUS_47; break;
+        case 48: nIPBonus = IP_CONST_DAMAGEBONUS_48; break;
+        case 49: nIPBonus = IP_CONST_DAMAGEBONUS_49; break;
+        case 50: nIPBonus = IP_CONST_DAMAGEBONUS_50; break;
     }
-        if (nDamBon > 20) nIPBonus = IP_CONST_DAMAGEBONUS_20;
+        if (nDamBon > 20) nIPBonus = IP_CONST_DAMAGEBONUS_50;
     
     return nIPBonus;
 } 
 
+
+/* int IPDamageConstant(int nDamBon)
+{
+	int nIPBonus;
+    switch(nDamBon)
+    {
+        case 1:  nIPBonus = IP_CONST_DAMAGEBONUS_1;  break;
+        case 2:  nIPBonus = IP_CONST_DAMAGEBONUS_2;  break;
+        case 3:  nIPBonus = IP_CONST_DAMAGEBONUS_3;  break;
+        case 4:  nIPBonus = IP_CONST_DAMAGEBONUS_4;  break;
+        case 5:  nIPBonus = IP_CONST_DAMAGEBONUS_5;  break;
+        case 6:  nIPBonus = IP_CONST_DAMAGEBONUS_6;  break;
+        case 7:  nIPBonus = IP_CONST_DAMAGEBONUS_7;  break;
+        case 8:  nIPBonus = IP_CONST_DAMAGEBONUS_8;  break;
+        case 9:  nIPBonus = IP_CONST_DAMAGEBONUS_9;  break;
+        case 10: nIPBonus = IP_CONST_DAMAGEBONUS_10; break;
+        case 11: nIPBonus = IP_CONST_DAMAGEBONUS_11; break;
+        case 12: nIPBonus = IP_CONST_DAMAGEBONUS_12; break;
+        case 13: nIPBonus = IP_CONST_DAMAGEBONUS_13; break;
+        case 14: nIPBonus = IP_CONST_DAMAGEBONUS_14; break;
+        case 15: nIPBonus = IP_CONST_DAMAGEBONUS_15; break;
+        case 16: nIPBonus = IP_CONST_DAMAGEBONUS_16; break;
+        case 17: nIPBonus = IP_CONST_DAMAGEBONUS_17; break;
+        case 18: nIPBonus = IP_CONST_DAMAGEBONUS_18; break;
+        case 19: nIPBonus = IP_CONST_DAMAGEBONUS_19; break;
+        case 20: nIPBonus = IP_CONST_DAMAGEBONUS_20; break;
+    }
+        if (nDamBon > 20) nIPBonus = IP_CONST_DAMAGEBONUS_20;
+    
+    return nIPBonus;
+}  */
+
 int IPOnHitSaveDC(int nSaveDC)
+{
+	int nIPBonus = IP_CONST_ONHIT_SAVEDC_10;
+    switch(nSaveDC)
+    {
+		case 10: nIPBonus = IP_CONST_ONHIT_SAVEDC_10; break;
+        case 11: nIPBonus = IP_CONST_ONHIT_SAVEDC_11; break;
+        case 12: nIPBonus = IP_CONST_ONHIT_SAVEDC_12; break;
+        case 13: nIPBonus = IP_CONST_ONHIT_SAVEDC_13; break;
+        case 14: nIPBonus = IP_CONST_ONHIT_SAVEDC_14; break;
+        case 15: nIPBonus = IP_CONST_ONHIT_SAVEDC_15; break;
+        case 16: nIPBonus = IP_CONST_ONHIT_SAVEDC_16; break;
+        case 17: nIPBonus = IP_CONST_ONHIT_SAVEDC_17; break;
+        case 18: nIPBonus = IP_CONST_ONHIT_SAVEDC_18; break;
+        case 19: nIPBonus = IP_CONST_ONHIT_SAVEDC_19; break;
+        case 20: nIPBonus = IP_CONST_ONHIT_SAVEDC_20; break;
+        case 21: nIPBonus = IP_CONST_ONHIT_SAVEDC_21; break;
+        case 22: nIPBonus = IP_CONST_ONHIT_SAVEDC_22; break;
+        case 23: nIPBonus = IP_CONST_ONHIT_SAVEDC_23; break;
+        case 24: nIPBonus = IP_CONST_ONHIT_SAVEDC_24; break;
+        case 25: nIPBonus = IP_CONST_ONHIT_SAVEDC_25; break;
+        case 26: nIPBonus = IP_CONST_ONHIT_SAVEDC_26; break;
+        case 27: nIPBonus = IP_CONST_ONHIT_SAVEDC_27; break;
+        case 28: nIPBonus = IP_CONST_ONHIT_SAVEDC_28; break;
+        case 29: nIPBonus = IP_CONST_ONHIT_SAVEDC_29; break;
+        case 30: nIPBonus = IP_CONST_ONHIT_SAVEDC_30; break;
+        case 31: nIPBonus = IP_CONST_ONHIT_SAVEDC_31; break;
+        case 32: nIPBonus = IP_CONST_ONHIT_SAVEDC_32; break;
+        case 33: nIPBonus = IP_CONST_ONHIT_SAVEDC_33; break;
+        case 34: nIPBonus = IP_CONST_ONHIT_SAVEDC_34; break;
+        case 35: nIPBonus = IP_CONST_ONHIT_SAVEDC_35; break;
+        case 36: nIPBonus = IP_CONST_ONHIT_SAVEDC_36; break;
+        case 37: nIPBonus = IP_CONST_ONHIT_SAVEDC_37; break;
+        case 38: nIPBonus = IP_CONST_ONHIT_SAVEDC_38; break;
+        case 39: nIPBonus = IP_CONST_ONHIT_SAVEDC_39; break;
+        case 40: nIPBonus = IP_CONST_ONHIT_SAVEDC_40; break;
+        case 41: nIPBonus = IP_CONST_ONHIT_SAVEDC_41; break;
+        case 42: nIPBonus = IP_CONST_ONHIT_SAVEDC_42; break;
+        case 43: nIPBonus = IP_CONST_ONHIT_SAVEDC_43; break;
+        case 44: nIPBonus = IP_CONST_ONHIT_SAVEDC_44; break;
+        case 45: nIPBonus = IP_CONST_ONHIT_SAVEDC_45; break;
+        case 46: nIPBonus = IP_CONST_ONHIT_SAVEDC_46; break;
+        case 47: nIPBonus = IP_CONST_ONHIT_SAVEDC_47; break;
+        case 48: nIPBonus = IP_CONST_ONHIT_SAVEDC_48; break;
+        case 49: nIPBonus = IP_CONST_ONHIT_SAVEDC_49; break;
+        case 50: nIPBonus = IP_CONST_ONHIT_SAVEDC_50; break;
+        case 51: nIPBonus = IP_CONST_ONHIT_SAVEDC_51; break;
+        case 52: nIPBonus = IP_CONST_ONHIT_SAVEDC_52; break;
+        case 53: nIPBonus = IP_CONST_ONHIT_SAVEDC_53; break;
+        case 54: nIPBonus = IP_CONST_ONHIT_SAVEDC_54; break;
+        case 55: nIPBonus = IP_CONST_ONHIT_SAVEDC_55; break;
+        case 56: nIPBonus = IP_CONST_ONHIT_SAVEDC_56; break;
+        case 57: nIPBonus = IP_CONST_ONHIT_SAVEDC_57; break;
+        case 58: nIPBonus = IP_CONST_ONHIT_SAVEDC_58; break;
+        case 59: nIPBonus = IP_CONST_ONHIT_SAVEDC_59; break;
+        case 60: nIPBonus = IP_CONST_ONHIT_SAVEDC_60; break;
+        case 61: nIPBonus = IP_CONST_ONHIT_SAVEDC_61; break;
+        case 62: nIPBonus = IP_CONST_ONHIT_SAVEDC_62; break;
+        case 63: nIPBonus = IP_CONST_ONHIT_SAVEDC_63; break;
+        case 64: nIPBonus = IP_CONST_ONHIT_SAVEDC_64; break;
+        case 65: nIPBonus = IP_CONST_ONHIT_SAVEDC_65; break;
+        case 66: nIPBonus = IP_CONST_ONHIT_SAVEDC_66; break;
+        case 67: nIPBonus = IP_CONST_ONHIT_SAVEDC_67; break;
+        case 68: nIPBonus = IP_CONST_ONHIT_SAVEDC_68; break;
+        case 69: nIPBonus = IP_CONST_ONHIT_SAVEDC_69; break;
+        case 70: nIPBonus = IP_CONST_ONHIT_SAVEDC_70; break;      
+    }
+	    if (nSaveDC < 10) nIPBonus = IP_CONST_ONHIT_SAVEDC_10;
+        if (nSaveDC > 70) nIPBonus = IP_CONST_ONHIT_SAVEDC_70;
+    
+    return nIPBonus;
+}
+
+/* int IPOnHitSaveDC(int nSaveDC)
 {
 	int nIPBonus;
     switch(nSaveDC)
@@ -1884,4 +2019,4 @@ int IPOnHitSaveDC(int nSaveDC)
         if (nSaveDC > 26) nIPBonus = IP_CONST_ONHIT_SAVEDC_26;
     
     return nIPBonus;
-}
+} */
