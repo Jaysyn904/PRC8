@@ -57,7 +57,7 @@
 53         FEAT_CONSECRATED_AURA                         2766      3    8              1      
 54         FEAT_HOLY_AURA_VERSUS_DEMONS                  2767      3    10             1      
 55         FEAT_EPIC_KOTC                                25012     3    11             0      
-56         FEAT_EPIC_ARMOR_SKIN                          490       1    -1                    
+56         FEAT_EPIC_ARMOR_SKIN                          490       1    -1             0      
 57         FEAT_EPIC_DEVASTATING_CRITICAL_CLUB           495       1    -1             0      
 58         FEAT_EPIC_DEVASTATING_CRITICAL_DAGGER         496       1    -1             0      
 59         FEAT_EPIC_DEVASTATING_CRITICAL_DART           497       1    -1             0      
