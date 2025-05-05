@@ -171,11 +171,18 @@ int GetRogueSneak(object oPC)
       }
    }
    
-   // Shadowbane Inquisitor
+	//:: Shadowbane Inquisitor
+	iClassLevel = GetLevelByClass(CLASS_TYPE_SHADOWBANE_INQUISITOR, oPC);
+	if (iClassLevel >= 4)
+	{
+		iRogueSneak += 1 + (iClassLevel - 4) / 3;
+	}  
+
+/*    // Shadowbane Inquisitor
    iClassLevel = GetLevelByClass(CLASS_TYPE_SHADOWBANE_INQUISITOR, oPC);
    if (iClassLevel >= 4) iRogueSneak++;
    if (iClassLevel >= 7) iRogueSneak++;
-   if (iClassLevel >= 10) iRogueSneak++;
+   if (iClassLevel >= 10) iRogueSneak++; */
    
    // Shadowbane Stalker
    iClassLevel = GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER, oPC);
@@ -213,6 +220,7 @@ int GetRogueSneak(object oPC)
    //Shadowblade
    iClassLevel = GetLevelByClass(CLASS_TYPE_SHADOWBLADE, oPC);
    if (iClassLevel) iRogueSneak += (iClassLevel + 1) / 2;
+
 
    if(GetHasSpellEffect(MOVE_SH_ASSASSINS_STANCE, oPC))
    {
@@ -283,11 +291,18 @@ int GetBlackguardSneak(object oPC)
    if ((iClassLevel >= 2) && (iClassLevel < 11)) iBlackguardSneak += iClassLevel / 2;
    if (iClassLevel >= 11) iBlackguardSneak += 5;
 
-   // Disciple of Baalzebul
+	//:: Disciple of Baalzebul
+	iClassLevel = GetLevelByClass(CLASS_TYPE_DISC_BAALZEBUL, oPC);
+	if (iClassLevel >= 2)
+	{
+		iBlackguardSneak += 1 + (iClassLevel - 2) / 3;
+	}
+
+/* // Disciple of Baalzebul
    iClassLevel = GetLevelByClass(CLASS_TYPE_DISC_BAALZEBUL, oPC);
    if ((iClassLevel >= 2) && (iClassLevel < 5)) iBlackguardSneak++;
    if ((iClassLevel >= 5) && (iClassLevel < 8)) iBlackguardSneak += 2;
-   if (iClassLevel >= 8) iBlackguardSneak += 3;
+   if (iClassLevel >= 8) iBlackguardSneak += 3; */
 
    //if (DEBUG) DoDebug("prc_inc_sneak: Blackguard Sneak Dice: " + IntToString(iBlackguardSneak));
    return iBlackguardSneak;
