@@ -73143,7 +73143,9 @@ Special Abilities:
   <entry id="77208" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>
   <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
   <entry id="77210" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick a spellcasting feat (1st lvl)&lt;/c&gt;</entry>
-  <entry id="77211" lang="en" sex="m">Choose which spellcasting class to advance with the currently selected Prestige Class.  If you try take a marker feat after 1st class level, you will be releveled.</entry>
+  <entry id="77211" lang="en" sex="m">Choose which spellcasting class to advance with the currently selected Prestige Class.  If you try take a marker feat after 1st class level, your character will be releveled.</entry>
+  <entry id="77212" lang="en" sex="m">&lt;cÿÿÿ&gt;Chose a Discipline (1st lvl)&lt;/c&gt;</entry> 
+  <entry id="77213" lang="en" sex="m">Every Psion must decide at first level which discipline he will specialize in. Choosing a discipline provides a psion with access to the powers that are restricted to that discipline. If you try take a more than one psionic disipline, your character will be releveled.  If you do this at first character level, you will need to delete the character and start over.</entry>  
   <entry id="79999" lang="en" sex="m">## iprp_damagecost.2da expansion ##</entry>
   <entry id="80000" lang="en" sex="m">21 Damage</entry>
   <entry id="80001" lang="en" sex="m">+21</entry>
