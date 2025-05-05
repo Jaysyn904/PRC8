@@ -1075,13 +1075,16 @@ int GetIsTwoHandedMeleeWeaponType(int iWeaponType)
 {
     switch(iWeaponType)
     {
-        case BASE_ITEM_GREATAXE:    return TRUE;
-        case BASE_ITEM_GREATSWORD:  return TRUE;
-        case BASE_ITEM_HALBERD:     return TRUE;
-        case BASE_ITEM_SHORTSPEAR:  return TRUE;
-        case BASE_ITEM_HEAVYFLAIL:  return TRUE;
-        case BASE_ITEM_MAUL:        return TRUE;
-        case BASE_ITEM_FALCHION:    return TRUE;	
+		case BASE_ITEM_GREATAXE:			return TRUE;
+		case BASE_ITEM_GREATSWORD:			return TRUE;
+		case BASE_ITEM_HALBERD:				return TRUE;
+		case BASE_ITEM_SHORTSPEAR:			return TRUE;
+		case BASE_ITEM_HEAVYFLAIL:			return TRUE;
+		case BASE_ITEM_SCYTHE:				return TRUE;
+		case BASE_ITEM_QUARTERSTAFF:		return TRUE;		
+		case BASE_ITEM_ELVEN_COURTBLADE:	return TRUE;
+		case BASE_ITEM_MAUL:				return TRUE;
+		case BASE_ITEM_FALCHION:			return TRUE;	
     }
     return FALSE;
 }
@@ -9076,3 +9079,5 @@ void PerformAttack(object oDefender, object oAttacker,
     else
         AttackLoopMain(oDefender, oAttacker, 0, 1, 0, iAttackBonusMod, sAttackVars, sMainWeaponDamage, sOffHandWeaponDamage, sSpellBonusDamage);
 }
+
+//:: void main (){}

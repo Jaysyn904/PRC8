@@ -34,6 +34,7 @@ int IsItemMetal(object oItem)
 		type==BASE_ITEM_SHORTSWORD ||
 		type==BASE_ITEM_SHURIKEN ||
 		type==BASE_ITEM_SICKLE ||
+		type==BASE_ITEM_TRIDENT ||		
 		type==BASE_ITEM_THROWINGAXE ||
 		type==BASE_ITEM_TWOBLADEDSWORD ||
 		type==BASE_ITEM_WARHAMMER ||

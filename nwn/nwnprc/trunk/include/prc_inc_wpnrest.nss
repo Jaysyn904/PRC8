@@ -39,7 +39,17 @@ int IsProficient(object oPC, int nBaseItem)
                  || (GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC) && GetRacialType(oPC) == RACIAL_TYPE_CHITINE)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SHORTSWORD, oPC);
 
-        case BASE_ITEM_LONGSWORD:
+        case BASE_ITEM_CLUB:
+			return GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_CLUB, oPC);			
+
+        case BASE_ITEM_DAGGER:
+			return GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DAGGER, oPC);	
+				 
+		case BASE_ITEM_LONGSWORD:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC)
                  || GetHasFeat(FEAT_MINDBLADE, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_ELF, oPC)
@@ -197,8 +207,7 @@ int IsProficient(object oPC, int nBaseItem)
 
         case BASE_ITEM_TRIDENT:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_TRIDENT, oPC)
-                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC)
-                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC);
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC);
 				 
         case BASE_ITEM_DOUBLE_SCIMITAR:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_DOUBLE_SCIMITAR, oPC)
@@ -226,7 +235,7 @@ int IsProficient(object oPC, int nBaseItem)
 				
         case BASE_ITEM_KATAR:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_KATAR, oPC)
-                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_EXOTIC, oPC);
+                || GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC);
 
         case BASE_ITEM_MAUL:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_MAUL, oPC)
@@ -571,6 +580,7 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
       case BASE_ITEM_HANDAXE:
       case BASE_ITEM_RAPIER:
       case BASE_ITEM_SCIMITAR:
+      case BASE_ITEM_TRIDENT:	  
       case BASE_ITEM_THROWINGAXE:
 	  case BASE_ITEM_SCYTHE:
 	  case BASE_ITEM_MAUL:
