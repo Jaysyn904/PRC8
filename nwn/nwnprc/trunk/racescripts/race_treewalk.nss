@@ -36,21 +36,45 @@
 
 #include "spinc_dimdoor"
 
-
 void main()
 {
-
     /* Main spellscript */
+    object oCaster   = OBJECT_SELF;
+
+    // Only proceed if the area is outdoors and natural
+    object oArea = GetArea(oCaster);
+    if (GetIsAreaInterior(oArea) || !GetIsAreaNatural(oArea))
+    {
+        // Optional: feedback to player
+        SendMessageToPC(oCaster, "This spell can only be used outdoors in natural environments.");
+        return;
+    }
+
+    int nCasterLvl   = GetHitDice(oCaster);
+    int nSpellID     = PRCGetSpellId();
+    int bUseDirDist  = nSpellID == SPELL_FORESTLORD_TREEWALK_DIRDIST;
+    SetLocalInt(oCaster, "Treewalk", TRUE);
+
+    DimensionDoor(oCaster, nCasterLvl, nSpellID, "", DIMENSIONDOOR_SELF);
+
+    DelayCommand(10.1, DeleteLocalInt(oCaster, "Treewalk"));
+}
+
+
+/* void main()
+{
+
+    //:: Main spellscript
     object oCaster   = OBJECT_SELF;
     int nCasterLvl   = GetHitDice(oCaster);
     int nSpellID     = PRCGetSpellId();
     int bUseDirDist  = nSpellID == SPELL_FORESTLORD_TREEWALK_DIRDIST;
     SetLocalInt(oCaster, "Treewalk", TRUE);
 
-    DimensionDoor(oCaster, nCasterLvl, nSpellID, "", DIMENSIONDOOR_SELF, bUseDirDist);
+    DimensionDoor(oCaster, nCasterLvl, nSpellID, "", DIMENSIONDOOR_SELF);
 
     DelayCommand(10.1, DeleteLocalInt(oCaster, "Treewalk"));
 
-}
+} */
 
 

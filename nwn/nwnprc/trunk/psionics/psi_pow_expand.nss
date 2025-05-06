@@ -92,7 +92,7 @@ void main()
         float fDuration = (manif.nTimesAugOptUsed_2 == 1 ? 600.0f : 6.0f) * manif.nManifesterLevel;
         if(manif.bExtend) fDuration *= 2;
 
-        // Fail to do anything if the target is already under the effects of Compression
+        // Fail to do anything if the target is already under the effects of Expansion
         if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
         {
             // "Target is already under effect of the Expansion power!"

@@ -306,6 +306,20 @@ int FindUnarmedDamage(object oCreature)
     // For Initiate of Draconic Mysteries
     if      (GetHasFeat(FEAT_INCREASE_DAMAGE2, oCreature)) iDieIncrease = 2;
     else if (GetHasFeat(FEAT_INCREASE_DAMAGE1, oCreature)) iDieIncrease = 1;
+	
+	//:: Expansion / Compression powers
+	int nExpansion = GetLocalInt(oCreature, "PRC_Power_Expansion_SizeIncrease");
+	int nCompression = GetLocalInt(oCreature, "PRC_Power_Compression_SizeReduction");
+	
+	if (nExpansion)
+	{
+		iSize += nExpansion;
+	}
+	
+	if (nCompression)
+	{
+		iSize -= nCompression;
+	}	
 
     iMonkDamage    += iDieIncrease;
     iShouDamage    += iDieIncrease;
@@ -572,3 +586,5 @@ float DamageAvg(int iDamage)
 
     return IntToFloat(iNum * (iDie+1)) / 2;
 }
+
+//:: void main (){}

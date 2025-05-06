@@ -93,6 +93,10 @@ void main()
 	{
 		SetCompositeBonus(oSkin, "SwordsageACBonus", GetAbilityModifier(ABILITY_WISDOM, oPC), ITEM_PROPERTY_AC_BONUS);
 	}
+	else
+	{
+		SetCompositeBonus(oSkin, "SwordsageACBonus", 0, ITEM_PROPERTY_AC_BONUS);
+	}		
 	
 	SwordSageDisciplineWeaponFocus(oPC);
 }

@@ -1163,6 +1163,8 @@ int GetIsMonkWeaponTypeOrUnarmed(int iWeaponType)
     return  (   iWeaponType == BASE_ITEM_INVALID
                 || iWeaponType == BASE_ITEM_KAMA
 				|| iWeaponType == BASE_ITEM_SAI
+				|| iWeaponType == BASE_ITEM_TORCH
+				|| iWeaponType == BASE_ITEM_SHURIKEN
 				|| iWeaponType == BASE_ITEM_NUNCHAKU
             );
 }
