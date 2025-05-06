@@ -126,7 +126,7 @@
 122        FEAT_EPIC_DIVINE_VIGOR                           3115      1    2              1      
 123        FEAT_EPIC_DIVINE_RESISTANCE                      3119      1    2              1      
 124        FEAT_EPIC_DIVINE_MIGHT                           3120      1    2              1      
-125        FEAT_EPIC_DIVINE_SHIELD                          3548      1    6              1      
+125        FEAT_EPIC_DIVINE_SHIELD                          3548      1    2              1      
 126        FEAT_EPIC_SPELL_FOCUS_ABJURATION                 610       1    2              0      
 127        FEAT_EPIC_SPELL_FOCUS_CONJURATION                611       1    2              0      
 128        FEAT_EPIC_SPELL_FOCUS_DIVINATION                 612       1    2              0      
