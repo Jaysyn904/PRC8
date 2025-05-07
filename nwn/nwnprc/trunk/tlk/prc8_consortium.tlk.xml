@@ -20511,7 +20511,7 @@ Feats: Dirty Fighting, Power Attack, Cleave.
 Intimidate: 3 Ranks.
 Lore: 7 Ranks.
 
-CLASS SKILLS: Intimidate, Lore, Move Silently
+CLASS SKILLS: Intimidate, Lore, Move Silently, Ride
 
 CLASS FEATURES:
 
@@ -20523,28 +20523,24 @@ Cruelest Cut: On a successful attack you deal 1d4 points of temporary constituti
 
 Visage of Terror: Once per day on a successful touch attack you can trigger a spell like ability similar to the spell phantasmal killer with a DC equal to 14 + Ravager levels.
 
-1: Pain Touch 1
-2: Aura of Fear 1
-3: Cruelest Cut 1
-4: Pain Touch 2
-5: Aura of Fear 2
-6: Cruelest Cut 2
-7: Pain Touch 3
-8: Aura of Fear 3
-9: Cruelest Cut 3
-10: Visage of Terror</entry>
+1: Pain Touch 1x per day
+2: Aura of Fear 1x per day
+3: Cruelest Cut 1x per day
+4: Pain Touch 2x per day
+5: Aura of Fear 2x per day
+6: Cruelest Cut 2x per day
+7: Pain Touch 3x per day
+8: Aura of Fear 3x per day
+9: Cruelest Cut 3x per day
+10: Visage of Terror 1x per day</entry>
   <entry id="48944" lang="en" sex="m">Pain Touch</entry>
-  <entry id="48945" lang="en" sex="m">A Ravager can make an unarmed touch
-attack that causes 1d8 hit points of damage, plus one point per Ravager level. Weapons can also transmit this damage at 1d4 + 1 point per class
-level.</entry>
+  <entry id="48945" lang="en" sex="m">A Ravager can make an unarmed touch attack that causes 1d8 hit points of damage, plus one point per Ravager level. Weapons can also transmit this damage at 1d4 + 1 point per class level.</entry>
   <entry id="48946" lang="en" sex="m">Aura of Fear</entry>
-  <entry id="48947" lang="en" sex="m">Enemies near the Ravager suffer a -2
-penalty to all saving throws for 3 rounds + 1 extra round for every Ravager level.</entry>
+  <entry id="48947" lang="en" sex="m">Enemies near the Ravager suffer a -2 penalty to all saving throws for 3 rounds + 1 extra round for every Ravager level.</entry>
   <entry id="48948" lang="en" sex="m">Cruelest Cut</entry>
   <entry id="48949" lang="en" sex="m">On a successful attack you deal 1d4 points of temporary constitution damage to your target in addition to the normal damage of the attack.</entry>
   <entry id="48950" lang="en" sex="m">Visage of Terror</entry>
-  <entry id="48951" lang="en" sex="m">Once per day on a successful touch attack you can trigger a spell like ability
-similar to the spell phantasmal killer with a DC equal to 14 + Ravager levels.</entry>
+  <entry id="48951" lang="en" sex="m">Once per day on a successful touch attack you can trigger a spell like ability similar to the spell phantasmal killer with a DC equal to 14 + Ravager levels.</entry>
   <entry id="48952" lang="en" sex="m">Samurai CW</entry>
   <entry id="48953" lang="en" sex="m">Samurai</entry>
   <entry id="48954" lang="en" sex="m">samurai</entry>
@@ -73925,14 +73921,20 @@ Bonus Feats: The epic Disciple of Dispater gains a bonus feat every two levels.
 Epic Disciple of Dispater Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Energy Resistance, Epic Damage Resistance, Epic Leadership, Epic Skill Focus, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Constitution, Legendary Commander, Overwhelming Critical, Superior Initiative.</entry>
   <entry id="205096" lang="en" sex="m">Epic Ravager</entry>
-  <entry id="205097" lang="en" sex="m">Epic Ravagers are avatars of pure slaughter, exalting in the chaos and horror they sow. As they ascend beyond mortal limits, their every blow spreads agony, their presence breaks wills, and their cruelty transcends mere violence—becoming a divine expression of Erythnul’s madness. 
+  <entry id="205097" lang="en" sex="m">Epic Ravagers are avatars of pure slaughter, exalting in the chaos and horror they sow. As they ascend beyond mortal limits, their every blow spreads agony, their presence breaks wills, and their cruelty transcends mere violence-becoming a divine expression of Erythnul's madness. 
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
 Bonus Feats: The epic Ravager gains a bonus feat every five levels.
 
+Special:
+Pain Touch - At 11th level you gain a 4th use of Pain Touch and that increases by 1 use per day every five Ravager levels past 11th.	
+Aura of Fear - At 12th level you gain a 4th use of Aura of Fear and that increases by 1 use per day every five Ravager levels past 12th.	
+Cruelest Cut - At 13th level you gain a 4th use of Aura of Fear and that increases by 1 use per day every five Ravager levels past 13th.
+Visage of Terror - At 10th level you gain Visage of Terror and that increases by 1 use per day every five Ravager levels past 10th.
+
 Epic Ravager Bonus Feat List:
-Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.</entry>
   <entry id="205098" lang="en" sex="m">Epic Runescarred Berserker</entry>
   <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power—each scar a rune, each scream a spell, each rage an unstoppable storm.
 

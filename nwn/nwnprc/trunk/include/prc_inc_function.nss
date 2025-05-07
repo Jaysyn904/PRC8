@@ -1710,6 +1710,69 @@ void KotMC(object oPC)
     FeatUsePerDay(oPC, FEAT_KOTMC_TRUE_STRIKE, -1, nUses);
 }
 
+void Ravager(object oPC)
+{
+    int nRavager = GetLevelByClass(CLASS_TYPE_RAVAGER, oPC);	
+    int nUses;
+
+    if (nRavager < 1) return;
+
+    if (nRavager < 4)
+        nUses = 1;
+    else if (nRavager < 7)
+        nUses = 2;
+    else if (nRavager < 11)
+        nUses = 3;
+    else
+        nUses = 4 + ((nRavager - 11) / 5); // +1 every 5 levels after 11
+
+    FeatUsePerDay(oPC, FEAT_PAIN_TOUCH, -1, nUses);
+	
+    if(!GetHasFeat(FEAT_AURA_OF_FEAR, oPC)) return;
+		
+	nUses = 0;
+	
+    if (nRavager < 5)
+        nUses = 1;
+    else if (nRavager < 8)
+        nUses = 2;
+    else if (nRavager < 12)
+        nUses = 3;
+    else if (nRavager < 17)
+        nUses = 4;
+    else
+        nUses = 5 + ((nRavager - 17) / 5); // +1 every 5 levels after 17
+
+    FeatUsePerDay(oPC, FEAT_AURA_OF_FEAR, -1, nUses);
+
+    if(!GetHasFeat(FEAT_CRUELEST_CUT, oPC)) return;	
+	
+	nUses = 0;
+	
+    if (nRavager < 6)
+        nUses = 1;
+    else if (nRavager < 9)
+        nUses = 2;
+    else if (nRavager < 13)
+        nUses = 3;
+    else if (nRavager < 18)
+        nUses = 4;
+    else
+        nUses = 5 + ((nRavager - 18) / 5); // +1 every 5 levels after 18
+
+    FeatUsePerDay(oPC, FEAT_CRUELEST_CUT, -1, nUses);
+	
+    if(!GetHasFeat(FEAT_VISAGE_OF_TERROR, oPC)) return;	
+	
+	nUses = 0;
+
+	nUses = 1 + ((nRavager - 10) / 5); // +1 every 5 levels after 10
+
+    FeatUsePerDay(oPC, FEAT_VISAGE_OF_TERROR, -1, nUses);	
+	
+}
+	
+
 void Templar(object oPC)
 {
     if(!GetHasFeat(FEAT_SECULAR_AUTHORITY, oPC)) return;
@@ -2169,5 +2232,6 @@ void FeatSpecialUsePerDay(object oPC)
 	HathranFear(oPC);
 	Oozemaster(oPC);
 	DrowJudicator(oPC);
+	Ravager(oPC);
 }
 

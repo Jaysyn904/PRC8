@@ -1342,6 +1342,12 @@ const int FEAT_AD_FALSE_KEENNESS                   = 3535;
 const int FEAT_AD_BLUR                             = 3536;
 const int FEAT_AD_MISLEAD                          = 3537;
 
+//:: Ravager feats
+const int FEAT_PAIN_TOUCH			= 2342;
+const int FEAT_AURA_OF_FEAR			= 2343;
+const int FEAT_CRUELEST_CUT			= 2344;
+const int FEAT_VISAGE_OF_TERROR		= 2345;
+
 //Drow Judicator Feats
 const int FEAT_LOLTHS_MEAT			= 2441;
 const int FEAT_COMMAND_SPIDERS		= 2442;
