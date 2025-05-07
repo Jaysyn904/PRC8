@@ -73565,10 +73565,13 @@ Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding
 
 Hit Die: d8
 Skill Points at Each Additional Level: 4 + Intelligence modifier
-Bonus Feats: The epic Arcane Duelist gains a bonus feat every three levels
+Bonus Feats: The epic Arcane Duelist gains a bonus feat every four levels.
 
 Special:
-Enchant Chosen Weapon: The epic Arcane Duelist's Chosen Weapon bonus continues to increase by +1 every other level and the maximum enhancement to the Chosen Weapon is increased to +20.
+Enchant Chosen Weapon: The epic Arcane Duelist's Chosen Weapon bonus continues to increase by +1 every other level.
+Blur - The epic Arcane Duelist receives another use of their Blur ability every level.
+False Keeness - The epic Arcane Duelist receives another use of their Blur ability every level.
+Flurry of Swords - The epic Arcane Duelist receives another use of their Flurry of Swords ability every level.
 
 Epic Arcane Duelist Bonus Feat List:
 Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Toughness, Epic Weapon Focus, Epic Will, Great Charisma, Great Intelligence, Improved Combat Casting, Improved Whirlwind Attack, Legendary Commander, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
@@ -73961,7 +73964,7 @@ Blight Touch: The epic Talontar Blightlord continues to gain a use of Blight Tou
 Spellcasting: The epic Talontar Blightlord continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Talontar Blightlords Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Planar Turning.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Planar Turning.</entry>
   <entry id="205102" lang="en" sex="m">Epic Child of Night</entry>
   <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form—walking veils between this world and the shadow that lies beyond.
 
@@ -74773,13 +74776,13 @@ Special: A fighter can select Daring Warrior as one of his fighter bonus feats</
 Prerequisite: Fey
 Specifics: You may use your Charisma modifier instead of your Dexterity modifier on attack rolls when using a bow or crossbow.
 Use: Automatic
-Special: A fighter can select Charming the Arrow as one of his fighter bonus feats</entry>
+Special: A fighter can select Charming the Arrow as one of his fighter bonus feats.</entry>
   <entry id="213098" lang="en" sex="m">Martial Stalker</entry>
   <entry id="213099" lang="en" sex="m">Type of Feat: General
 Prerequisite: Ki Power, Proficiency with all martial weapons
 Specifics: Your fighter and ninja levels stack for the purpose of determining the size of your ki pool, as well as your AC bonus. For example, a 5th-level fighter/1st-level ninja with this feat could use his ki powers a number of times equal to 3 (one-half his ninja and fighter levels) + his Wisdom bonus (if any), and would have a +1 bonus to AC (as if he were a 6th-level ninja).
 Use: Automatic
-Special: A fighter can select Martial Stalker as one of his fighter bonus feats</entry>
+Special: A fighter can select Martial Stalker as one of his fighter bonus feats.</entry>
   <entry id="213198" lang="en" sex="m">Investigator</entry>
   <entry id="213199" lang="en" sex="m">Type of Feat: General
 Benefit: You get a +2 bonus on all Sense Motive and Search checks.

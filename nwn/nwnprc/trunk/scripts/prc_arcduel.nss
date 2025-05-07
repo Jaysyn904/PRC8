@@ -92,7 +92,7 @@ void EnchantCW(object oPC, object oWeap)
     if (GetHasFeat(FEAT_EPIC_ARCANE_DUELIST, oPC))
     {
         nBonus += (nADLevel - 10) / 2;
-        nMaxBonus = 20;
+        nMaxBonus = 10;
     }
     else
     {
