@@ -1342,6 +1342,16 @@ const int FEAT_AD_FALSE_KEENNESS                   = 3535;
 const int FEAT_AD_BLUR                             = 3536;
 const int FEAT_AD_MISLEAD                          = 3537;
 
+//:: Blightlord feats
+const int FEAT_BLIGHTMIND						= 2249;
+const int FEAT_BLIGHTBRINGER					= 2250;
+const int FEAT_BLIGHTBLOOD						= 2251;
+const int FEAT_ILLMASTER						= 2252;
+const int FEAT_BLIGHTTOUCH						= 2253;
+const int FEAT_BLACKGLAIVE						= 2257;
+const int FEAT_CORRUPTING_BLOW					= 2258;
+const int FEAT_WINTERHEART						= 2259;
+
 //:: Ravager feats
 const int FEAT_PAIN_TOUCH			= 2342;
 const int FEAT_AURA_OF_FEAR			= 2343;
