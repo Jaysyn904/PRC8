@@ -44269,14 +44269,10 @@ Natural Armor: At 7th level your skin thickens, developing faint scales, improvi
 
 Energy Immunity: At 9th level you become immune to the energy type associated with your totem dragon.
 
-Draconic Wings: At 19th level you grow a pair of wings that resemble your totem dragon.  These wings grant a +10 bonus to Jump.
-
-EPIC DRAGON SHAMAN
-
-As your powers continue to grow, you can choose a bonus feat every 3 levels.  Your Natural Armor bonus grows to +4 at level 22, and by +1 every 5 levels thereafter.  Your draconic aura power also continues to increase, becoming +6 at 25 and growing by 1 every 5 levels thereafter.</entry>
-  <entry id="55491" lang="en" sex="m">Draconic Auras</entry>
+Draconic Wings: At 19th level you grow a pair of wings that resemble your totem dragon.  These wings grant a +10 bonus to Jump.</entry>
+  <entry id="55491" lang="en" sex="m">&lt;cÿÿÿ&gt;Draconic Auras&lt;/c&gt;</entry>
   <entry id="55492" lang="en" sex="m">Normally a main ability of a Dragon Shaman, these auras can be activated to grant benefits to you and your allies around you, and stay active until you change to a different one.  You can only have one draconic aura active at any given time.</entry>
-  <entry id="55493" lang="en" sex="m">Totem Dragon</entry>
+  <entry id="55493" lang="en" sex="m">&lt;cÿÿÿ&gt;Totem Dragon&lt;/c&gt;</entry>
   <entry id="55494" lang="en" sex="m">When you become a dragon shaman, you must select a metallic or chromatic dragon type that you relate to and draw your other abilities from.  This dragon should be within one step of your alignment.
 
 Note: You can only select one totem.  Selecting more than one will force you to relevel.  If you select more than one at level 1 you will be unable to level.</entry>
@@ -74041,7 +74037,7 @@ Draconic Armor: The epic Dragon Shaman's Natural Armor bonus grows to +4 at leve
 Draconic Aura: The epic Dragon Shaman's draconic aura power continues to increase, becoming +6 at 25 and growing by 1 every 5 levels thereafter.
 
 Epic Dragon Shaman Bonus Feat List:
-Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative.</entry>
   <entry id="205114" lang="en" sex="m">Epic Dragonfire Adept</entry>
   <entry id="205115" lang="en" sex="m">An epic Dragonfire Adept is a conduit of draconic magic made flesh, wielding their breath weapon with apocalyptic force and commanding invocations with the ease of thought. Their scales grow ever harder, their breath more versatile, and their arcane might ever deeper. 
 
