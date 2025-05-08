@@ -1894,16 +1894,27 @@ void MysteryFeats(object oPC)
         else
             FeatUsePerDay(oPC, FEAT_DANCING_SHADOWS, -1, 1);
     }
-    nClass = GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oPC);
-    if(nClass > 0)
-    {
+	nClass = GetLevelByClass(CLASS_TYPE_NOCTUMANCER, oPC);
+	if (nClass >= 2)
+	{
+		int nUses;
+		if (nClass < 5)
+			nUses = 1;
+		else if (nClass < 8)
+			nUses = 2;
+		else
+			nUses = 3 + (nClass - 8) / 3;
+
+		FeatUsePerDay(oPC, FEAT_INNATE_COUNTERSPELL, -1, nUses);
+	}	
+/*     {
         if (nClass >= 8)
             FeatUsePerDay(oPC, FEAT_INNATE_COUNTERSPELL, -1, 3);
         else if (nClass >= 5)
             FeatUsePerDay(oPC, FEAT_INNATE_COUNTERSPELL, -1, 2);
         else
             FeatUsePerDay(oPC, FEAT_INNATE_COUNTERSPELL, -1, 1); 
-    }   
+    }  */  
     nClass = GetLevelByClass(CLASS_TYPE_SHADOWSMITH, oPC);
     if(nClass > 0)
     {
