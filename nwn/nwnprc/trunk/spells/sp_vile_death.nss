@@ -21,6 +21,7 @@ Created:   5/17/09
 
 #include "prc_inc_spells"
 #include "prc_inc_template"
+#include "prc_inc_assoc"
 
 void main()
 {
@@ -28,13 +29,23 @@ void main()
 
     PRCSetSchool(SPELL_SCHOOL_NECROMANCY);
 
-    object oPC = OBJECT_SELF;
-    object oTarget = PRCGetSpellTargetObject();
+    object oPC 		= OBJECT_SELF;
+    object oTarget	= PRCGetSpellTargetObject();
+	object oSkin 	= GetPCSkin(oTarget);
 
     if(MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
-    {
-        SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_BLASPHEMY), oTarget);
-        ApplyTemplateToObject(TEMPLATE_FIENDISH, oTarget);
-    }
-    PRCSetSchool();
+	{
+		if(GetIsPC(oTarget))
+		{
+			SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_BLASPHEMY), oTarget);
+			ApplyTemplateToObject(TEMPLATE_FIENDISH, oTarget);
+		}
+		else
+		{
+			SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_BLASPHEMY), oTarget);
+			ApplyFiendishTemplate(oTarget, oSkin);
+		}	
+	}
+	
+	PRCSetSchool();
 }

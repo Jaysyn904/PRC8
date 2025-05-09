@@ -22,6 +22,9 @@ void AddAssociate(object oMaster, object oAssociate);
 //removes associate with unsummon vfx
 void DestroyAssociate(object oAssociate);
 
+//applies fiendiosh template
+void ApplyFiendishTemplate(object oCompanion, object oCompSkin);
+
 //applies exalted companion bonuses
 void ApplyExaltedCompanion(object oCompanion, object oCompSkin);
 
@@ -100,6 +103,54 @@ void CleanProperties(object oItem)
         ip = GetNextItemProperty(oItem);
     }
 }
+
+void ApplyFiendishTemplate(object oTarget, object oCompSkin)
+{
+    int nHD = GetHitDice(oTarget);
+    effect eDR;
+    int nResist;
+
+    if (nHD >= 12)
+    {
+        eDR = EffectDamageReduction(10, DAMAGE_POWER_PLUS_THREE);
+        nResist = 20;
+    }
+    else if (12 > nHD && nHD >= 8)
+    {
+        eDR = EffectDamageReduction(5, DAMAGE_POWER_PLUS_TWO);
+        nResist = 15;
+    }
+    else if (8 > nHD && nHD >= 4)
+    {
+        eDR = EffectDamageReduction(5, DAMAGE_POWER_PLUS_ONE);
+        nResist = 10;
+    }
+    else if (4 > nHD)
+    {
+        nResist = 5;
+    }
+
+    effect eFire = EffectDamageResistance(DAMAGE_TYPE_FIRE, nResist);
+    effect eCold = EffectDamageResistance(DAMAGE_TYPE_COLD, nResist);
+    effect eVis  = EffectUltravision();
+    effect eLink = EffectLinkEffects(eDR, eFire);
+           eLink = EffectLinkEffects(eLink, eCold);
+           eLink = EffectLinkEffects(eLink, eVis);
+           eLink = SupernaturalEffect(eLink);
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);
+
+    itemproperty ipIP = PRCItemPropertyBonusFeat(FEAT_TEMPLATE_FIENDISH_SMITE_GOOD);
+    IPSafeAddItemProperty(oCompSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+    if(GetAlignmentGoodEvil(oTarget) != ALIGNMENT_EVIL)
+        AdjustAlignment(oTarget, ALIGNMENT_EVIL, 80, FALSE);
+
+	SetSubRace(oTarget, "Undead (Extraplanar)");
+	
+    SetLocalInt(oTarget, "FiendishTemplate", 1);
+	
+}
+
 
 void ApplyExaltedCompanion(object oCompanion, object oCompSkin)
 {
