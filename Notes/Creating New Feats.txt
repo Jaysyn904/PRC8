@@ -1,0 +1,199 @@
+
+Creating Active Feats
+
+What is an active feat? An active feat is a feat that the player must willingly activate. Something like Smite, Acrobatic Attack, Mimic, Wildshape, etc. Creating these feats is a rather straight forward process. Most of the following steps can be done in any order you prefer, though it sometimes makes more sense to do them in a certain order.
+
+    Create all required entries in the .tlk file
+    Write script(s) that perform the required action(s)
+    Create icon(s)
+    Create an entry in feat.2da
+    Create an entry in spells.2da
+    Create an entry in cls_feat_****.2da
+    Create an entry in prc_feat_const.nss
+    Compile script, test script, debug script
+    Refer to step 8, until it works
+
+Aside from debugging, I generally do the 2da work last. This is because you need to put an icon entry in both feat.2da and spells.2da. In addition, you need to have all the tlk entries and your script name in the 2da. You can do it in any order you like, but you will need to make sure the entries in the 2da's match the actual files.
+
+You can also do each part in sections. Making the tlk entries, and then the 2da entries, then testing if the feat displays up in game. If it shows up properly, then you can code the script that'll make it work. There really is no set way to do it, as long as all of those steps get finished eventually.
+
+
+
+Creating Combat Feats
+
+A combat feat is a special kind of active feat. Combat feats are those that are directly linked to an attack of some sort. Some good examples are the Arcane Trickster's "Impromtu Sneak Attack", the Foe Hunter's "Death Attack", and the Ravager's "Cruelest Cut". All of those special abilities do something special when you hit the enemy. A feat with limited uses a day (usually) that deals special damage through an attack is a combat feat.
+
+If you did not already know, the actual game engine's combat system is hard coded. You cannot simply write a script that says. "Add this players cha bonus as divine damage applied to the enemy if they hit them on the first strike of this attack round."
+
+You are probably thinking right about now... Hey! The PRC has made those feats, it must be possible! ... Indeed, remember I said you could not "simply" tell the game to do that... At least not until the PRC created the "Combat Simulation System".
+
+It all started with inc_combat.nss. While that script was very helpful it was still missing several nice features. Along came inc_combat2.nss. This file added even more functionality to the previous combat system. Things like elemental weapons, spell effect calculations, etc. It made the system much calculate attack bonus and damage more acurately than it did before. While inc_combat2.nss was being written and upgraded, Oni5115 started to develope prc_inc_combat.nss. He used the majority of the code from inc_combat.nss and inc_combat2.nss, piled on a bit of new functionality, documented the code, and made a system that is far more scripter friendly.
+
+Note: You will need numerous PRC files in order to use the Combat Simulation System. The script is not standalone, though it is not tied to the older combat includes. The easiest way to find out what files you will need are to simply open "prc_inc_combat.nss" and take a quick look at the list of included files. The list is also helpful for scripters so that they do not include the same files multiple times.
+
+Now, on to the good part! Coding a combat script.
+
+A good example of what you might want to do is the Ravager's "Cruelist Cut". This ability is only usable up to three times per day. On a successful melee attack, the player deals 1d4 constitution damage to the enemy. This damage lasts 5 + Ravager level rounds.
+
+First, you'll have to include the line [#include "prc_inc_combat"] without the brackets. This tells your script to load the include file. Then the script will have its void main. Inside the main function it would calculate everything required to perform its action.
+
+Because this script does not deal any extra physical damage, there are a few less function calls required. written below is the actual script so you can take a look at how it works.
+
+#include "prc_inc_combat"
+void main()
+{
+      //Declare major variables
+      object oPC = OBJECT_SELF;
+      object oTarget = GetSpellTargetObject();
+      object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+      int iDur = 5 + GetLevelByClass(CLASS_TYPE_RAVAGER, oPC);
+      int bIsRangedAttack = GetWeaponRanged(oWeap);
+
+      effect eCon = EffectAbilityDecrease(ABILITY_CONSTITUTION, d4(1) );
+               eCon = SupernaturalEffect(eCon);
+
+      // script now uses combat system to hit and apply effect if appropriate
+      string sSuccess = "*Cruelist Cut Hit*";
+      string sMiss = "*Cruelist Cut Miss";
+
+      if (bIsRangedAttack)
+      {
+           SendMessageToPC(oPC,"You must use a melee weapon with this ability!");
+           IncrementRemainingFeatUses(oPC, 2348);
+           return;
+      }
+
+      // If they are not within 5 ft, they can't do a melee attack.
+      if(!bIsRangedAttack && GetIsInMeleeRange(oTarget, oPC))
+      {
+           SendMessageToPC(oPC,"You are not close enough to your target to attack!");
+           IncrementRemainingFeatUses(oPC, 2348);
+           return;
+      }
+
+      PerformAttackRound(oTarget, oPC, eCon, RoundsToSeconds(iDur), 0, 0, 0, FALSE, sSuccess, sMiss);
+}
+
+If you are used to script all of those functions should have been relatively familiar, except for "PerformAttackRound". That is the primary function in the include that makes your life as a scripter far, far easier. I reduced my original Impromtu Sneak Attack code from 200 lines down to about 60 lines. And it is also more accurately done, can deal elemental damage, and is generally much better all thanks to this function.
+
+I'll do a break down of the parameters of this function so that everyone can see how to use it.
+
+    oTarget - GetSpellTargetObject() - the person being smited!
+    oPC - The person attacking, typically the player.
+    eLink - A special effect or effects to apply to the player.
+    eDuration - the duration of the effects applied to the object.
+        0.0 - DURATION_TYPE_INSTANT - effect lasts 0.0 seconds
+        >0.0 - DURATION_TYPE_TEMPORARY - Effect lasts for the duration specified
+        <0.0 - DURATION_TYPE_PERMAMENT - Effect lasts until dispelled, not recommended
+    iAttackBonusMod - the attack bonus modifer for attack(s)
+    iDamageModifier - damage added to attack
+        If bonuses are only on first attack, this can be an int or a DAMAGE_BONUS_* constant.
+        Otherwise, this must be a DAMAGE_BONUS_* constant.
+    iDamageType - the DAMAGE_TYPE_* const of the iDamageModifier.
+    bEffectAllAttacks - True or False.
+        True - Effects all attacks.
+        False - Effects only the first attack that round.
+    sMessageSuccess - message to display on a successful hit. (i.e. "*Cruelist Cut Hit*")
+    sMessageFailure - message to display on a failure to hit. (i.e. "*Cruelist Cut Miss*")
+
+This function redirects itself to many of the other functions within the combat include. The nice thing is, all you need to deal with is this single function call. Once it's setup right, your script will run.
+
+Any improvements to the combat script are typically added to that attack automatically, no recoding the feat. It takes care of the entire attack round, wether it be a ranged attack or a melee attack, two-handed weapon, two-weapon fighting, unarmed... Pretty much everything, certainly much more than could be scripted that easily.
+
+If you happen to run into a feat that cannot be done with this, you can always open up the script. I'll warn you, as of the writing of this guide it is over 3,500 lines of code. However, the code is well organized and you should not have too much difficulty following it. Many of those "lines" are actually documentation.
+
+Should there be any bugs in the system, please post a report in our forums. Also feel free to post any additional things that you would find useful while scripting. Oni5115 is interested in knowing anything the script cannot handle, so he can add it.
+
+If more example scripts would be helpful feel free to check out the following scripts in the scripts directory (or hak).
+
+    prc_at_isa.nss - Impromptu Sneak Attack
+    prc_dj_selwrath.nss - Selvetarm's Wrath
+    prc_dj_warstrike.nss - War Strike
+
+
+
+Back to Top
+
+Creating Passive Feats
+
+What is a passive feat? A passive feat is any feat that automatically adjusts something on the character. Things like Absolute Ambidexterity, Sight of Gruumsh, etc. Creating these feats is not as straight forward as an active feat, but it is fairly easy once you get used to it.
+
+Below is a basic list of what must be done to create a passive feat, notice it is very similiar to an active feat.
+
+    Create all required entries in the .tlk file
+    Write script(s) that perform the required player modifications(s)
+    Create icon(s)
+    Create an entry in feat.2da
+    Create an entry in cls_feat_****.2da
+    Create an entry in spells.2da
+    Create an entry in prc_feat_const.nss
+    Create an entry in prc_inc_function.nss.
+    Compile script, test script, debug script
+    Refer to step 9, until it works
+
+The single most important file for passive feats is "prc_inc_function.nss". Hands down this is it. Without this file none of your passive feats will work. This file is called on all major events (onlevel, onequip, onunequip, etc.) your passive feat will be called when this script is.
+
+To create an "entry" in prc_inc_function, you will need to check out the "EvalPRCFeats" function. Inside the function you should see a bunch of lines like the following:
+
+     if(GetLevelByClass(CLASS_TYPE_DUELIST, oPC) > 0) ExecuteScript("prc_duelist", oPC);
+
+This function executes your passive feat script. Passive feats do not require a script entry in the 2da column as active feats do. Intead, they require a script entry here in this file. Make sure you use the approprate CLASS_TYPE_* constant as stored in "prc_class_const.nss".
+
+Another important function is the "DeletePRCLocalInts" function. This function removes any local ints stored on a character. This is quite useful and ensures that your script will reset a new value when fired. An example line from this section is
+
+     DeleteLocalInt(oSkin,"CannyDefenseBonus");
+
+Scripting the passive feat beyond that is not all that unlike scriping anything else in NwN. Here is an example function for a passive ability.
+
+// Applies the Duelist's reflex bonuses as CompositeBonuses on the object's skin.
+// iLevel = integer reflex save bonus
+void DuelistGrace(object oPC, object oSkin, int iLevel)
+{
+      if(GetLocalInt(oSkin, "GraceBonus") == iLevel) return;
+     
+      if(iLevel > 0)
+      {
+           SetCompositeBonus(oSkin, "GraceBonus", iLevel, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEBASETYPE_REFLEX);
+           if(GetLocalInt(oPC, "Grace") != TRUE)
+                FloatingTextStringOnCreature("Grace On", oPC);
+           SetLocalInt(oPC, "Grace", TRUE);
+      }
+      else
+      {
+           SetCompositeBonus(oSkin, "GraceBonus", 0, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEBASETYPE_REFLEX);
+           if(GetLocalInt(oPC, "Grace") != FALSE)
+                FloatingTextStringOnCreature("Grace Off", oPC);
+           SetLocalInt(oPC, "Grace", FALSE);
+      }
+}
+
+You might be wondering what the "SetCompositeBonus" function is. This is another very important function. This function is responsible for storing and stacking bonuses on a character. For more information you can check out "inc_item_props.nss".
+
+It should be fairly easy to make most passive feats with this system. Sometimes however you might also need to dig a little deeper. For instance, a class might need a passive feat that effects attacks or damage. While many such feats are typically active, there are some bonuses that end up being passive. A good example would be the Foe Hunter's Rancor Attack, which deals an additional Xd6 damage if the enemy is their Hated Enemy. Scripts like this need to go in "x2_s3_onhitcast.nss". This is in the spells directory (or hak). In this script you will see a lot of stuff that the PRC needs for one class or another. There are plenty of examples of what you might need to do in there.
+
+Back to Top
+
+Creating Multi-Function Feats (Sub Radials)
+
+Somtimes you want to create an ability or spell that has multiple possible uses. Good examples of such an ability is the Orc Warlords Gather Horde ability. This class can summon an orc, and uses sub-radials to allow the player to summon several different types of orcs. The following instructions will help you create feats/spells that can do this as well.
+
+    Make an entry in masterfeats.2da for you feat/spell.
+    Create an entry in feat.2da for your ability.
+    Set the MASTERFEAT entry to the entry number of your entry in masterfeats.2da.
+    Set the SPELLID to the line number you plan to use for the master spell in spells.2da
+    Create a master spell entry in spells.2da.
+    You can copy an example one. If you have the PRC, copy line 2715 or 2716.
+    Set the SubRadSpell 1-5 entries to the appropriest spell entries.
+    (Typically I used the lines directly below the master spell).
+    Set one SubRadSpell entry per function the spell has.
+    Create the sub-spell entries.
+    When making a sub-radial you will want to pick unique numbers over 5000. This are your SubRadialNumbers.
+    Set the FeatID to (65536 * SubRadialNumber) + Feat Entry Number.
+
+    For example:
+    (65536 * 5001) + 898 = 327746434
+    (65536 * 5002) + 898 = 327811970
+
+    898 would be the line for the feat in feat.2da and 5001 and 5002 would be the unique numbers chosen for these two sub-radial items.
+
+Once all the entries are done it should be ready for testing.

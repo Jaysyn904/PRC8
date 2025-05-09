@@ -44745,8 +44745,8 @@ Prerequisite: Dragonfire Adept level 6
 
 You gain DR 2/+1.  This increases to 5/+1 at level 16, 7/+5 at 26, and 10/+5 at level 36.
 Use: Automatic</entry>
-  <entry id="55706" lang="en" sex="m">Breath Effects</entry>
-  <entry id="55707" lang="en" sex="m">These effects modify your Dragonfire Adept breath weapon, by changing damage types, replacing the damage with other effects, or affecting the manner in which it is applied.</entry>
+  <entry id="55706" lang="en" sex="m">&lt;cÿÿÿ&gt;Choose a Breath Effect&lt;/c&gt;</entry>
+  <entry id="55707" lang="en" sex="m">At 2nd, 5th, 10th, 12th, 15th, and 20th levels you can choose a breath effect, which allows you to modify your breath weapon's damage type, area, or even replace the damage with another effect. Some only work with cones, while others only work with lines, and those of the same type cannot stack.</entry>
   <entry id="55708" lang="en" sex="m">Adept Fire Breath</entry>
   <entry id="55709" lang="en" sex="m">Type of Feat: Breath Effect
 Prerequisite: Dragonfire Adept level 1
