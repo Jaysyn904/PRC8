@@ -1,8 +1,9 @@
 2DA V2.0
 
-  FeatLabel     FeatIndex List GrantedOnLevel OnMenu 
-0 Dirge_Sorrow  2476      3    1              1      
-1 Dirge_Bolster 2477      3    2              1      
-2 Dirge_Grief   2478      3    3              1      
-3 Dirge_Horror  2479      3    4              1      
-4 Dirge_Awaken  2480      3    5              1      
+           FeatLabel      FeatIndex List GrantedOnLevel OnMenu 
+0          Dirge_Sorrow   2476      3    1              1      
+1          Dirge_Bolster  2477      3    2              1      
+2          Dirge_Grief    2478      3    3              1      
+3          Dirge_Horror   2479      3    4              1      
+4          Dirge_Awaken   2480      3    5              1      
+5          HauntingMelody 5269      0    -1             1      

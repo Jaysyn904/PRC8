@@ -22,8 +22,16 @@ void main()
 
     //Declare major variables
     object oPC = OBJECT_SELF;
+	
+    //Declare major variables
+    int nLevel = GetLevelByClass(CLASS_TYPE_BARD) +
+                 GetLevelByClass(CLASS_TYPE_DIRGESINGER) +
+				 GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST) +
+				 GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD) +
+                 GetLevelByClass(CLASS_TYPE_VIRTUOSO);
+				 
     int nDuration = GetSkillRank(SKILL_PERFORM, oPC);
-    int nDC = 10 + GetLevelByClass(CLASS_TYPE_BARD)/2 + GetAbilityModifier(ABILITY_CHARISMA, oPC);
+    int nDC = 10 + nLevel / 2 + GetAbilityModifier(ABILITY_CHARISMA, oPC);
 
     effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE);
     effect eFNF = EffectVisualEffect(VFX_FNF_LOS_EVIL_30);
@@ -39,7 +47,7 @@ void main()
             if (spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, OBJECT_SELF))
             {
                 //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, GetSpellId()));
+                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
 
                 if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR))
                 {

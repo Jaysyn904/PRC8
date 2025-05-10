@@ -1531,7 +1531,7 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         }
     }
 
-    // If Inscribing is turned off, the spell functions as normal
+    // If Attune Gem is turned off, the spell functions as normal
     if(!GetLocalInt(oCaster, "AttuneGem")) return TRUE;
 
     // No point being in here if you don't have Gems.
@@ -1641,19 +1641,53 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
     if (nPropID != -1)
     {
         itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, PRCGetCasterLevel());
-        AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel,oTarget);
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel, oTarget);
         itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpell, PRCGetMetaMagicFeat());
-        AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta,oTarget);
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta, oTarget);
         itemproperty ipDC = ItemPropertyCastSpellDC(nSpell, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF));
-        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC,oTarget);
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC, oTarget);
 
-        if (nCharges == 1) // This is to handle one use Gems so the spellhooking works
+/*         if (nCharges == 1) // This is to handle one use Gems so the spellhooking works
         {
             itemproperty ipProp = ItemPropertyCastSpell(nPropID,IP_CONST_CASTSPELL_NUMUSES_2_CHARGES_PER_USE);
-            AddItemProperty(DURATION_TYPE_PERMANENT,ipProp,oTarget);
+            AddItemProperty(DURATION_TYPE_PERMANENT,ipProp, oTarget);
             // This is done so the item exists when it is used for the game to read data off of
             nCharges = 3;
-        }
+        } */
+		
+		int nUseType = IP_CONST_CASTSPELL_NUMUSES_1_CHARGE_PER_USE;
+		if (nCharges == 1)
+		{
+			nUseType = IP_CONST_CASTSPELL_NUMUSES_2_CHARGES_PER_USE;
+			nCharges = 3;
+		}
+		itemproperty ipProp = ItemPropertyCastSpell(nPropID, nUseType);
+		AddItemProperty(DURATION_TYPE_PERMANENT, ipProp, oTarget);		
+		
+		if (GetIsObjectValid(oTarget))
+		{
+			itemproperty ipCurrent = GetFirstItemProperty(oTarget);
+			int bFound = FALSE;
+			while (GetIsItemPropertyValid(ipCurrent))
+			{
+				if (GetItemPropertyType(ipCurrent) == ITEM_PROPERTY_CAST_SPELL)
+				{
+					FloatingTextStringOnCreature("? CastSpell IP successfully added", oCaster, FALSE);
+					bFound = TRUE;
+					break;
+				}
+				ipCurrent = GetNextItemProperty(oTarget);
+			}
+
+			if (!bFound)
+			{
+				FloatingTextStringOnCreature("? CastSpell IP NOT FOUND on item", oCaster, FALSE);
+			}
+		}
+		else
+		{
+			FloatingTextStringOnCreature("? oTarget is invalid", oCaster, FALSE);
+		}	
 
         SetItemCharges(oTarget, nCharges);
         SetXP(oCaster, nNewXP);
@@ -1665,7 +1699,7 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         SetName(oTarget, sName);
 
         // This is done to allow the item to be set properly, and then alter the tag
-        CopyObject(oTarget, GetLocation(oCaster), oCaster, "prc_attunegem");
+        object oNewGem = CopyObject(oTarget, GetLocation(oCaster), oCaster, "prc_attunegem");
         DestroyObject(oTarget, 0.1);
     }
 
