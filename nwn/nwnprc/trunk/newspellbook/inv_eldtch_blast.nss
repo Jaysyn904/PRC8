@@ -10,6 +10,12 @@
 #include "inv_inc_blast"
 #include "psi_inc_core"
 
+
+//:: Increases Blast DC if the PC has taken Ability Focus 
+//:: for the current active essences & shapes.
+//int InvokerAbilityFocus(oPC, nEssenceData, nEssenceData2);
+
+
 //internal function for delayed damage
 void DoDelayedBlast(object oTarget, int nDamageType = DAMAGE_TYPE_FIRE, int nVFX = VFX_IMP_FLAME_M)
 {
@@ -45,6 +51,8 @@ void main()
     nBlastLvl = PRCMax(PRCMax(nEssenceData & 0xF, nEssenceData2 & 0xF), nBlastLvl);
     int nDC = 10 + nBlastLvl + GetAbilityModifier(ABILITY_CHARISMA);
     if(GetHasFeat(FEAT_LORD_OF_ALL_ESSENCES)) nDC += 2;
+	
+	// nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
     int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
     int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
