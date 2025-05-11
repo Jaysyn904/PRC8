@@ -50,10 +50,55 @@ void DNDamageResist(object oPC, int nLevel)
 void main()
 {
     //Declare main variables.
-    object oPC = OBJECT_SELF;
-    int nClass = GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC);
+    int nEvent = GetRunningEvent();
+    object oPC;
+    switch(nEvent)
+    {
+        case EVENT_ITEM_ONHIT:          oPC = OBJECT_SELF;               break;
+        case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;
+        case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;
+        case EVENT_ONHEARTBEAT:         oPC = OBJECT_SELF;               break;
 
-    //if (GetIsPC(oPC)) ReducedASF(oPC);
-    if(nClass > 1) DNDamageResist(oPC, nClass);
-    if(nClass > 19) ApplyTemplateToObject(TEMPLATE_LICH, oPC);
+        default:
+            oPC = OBJECT_SELF;
+    }
+	
+    int nClass = GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC);
+	
+	if(nEvent == EVENT_ONHEARTBEAT)
+	{		
+		if (nClass > 16)
+		{
+			int bFortification = GetLocalInt(oPC, "MEDIUM_FORTIFCATION_ACTIVE");
+		
+			if (!bFortification)
+			{
+				DoFortification(oPC, FORTIFICATION_MEDIUM);
+				SetLocalInt(oPC, "MEDIUM_FORTIFCATION_ACTIVE", 1);
+				if(DEBUG) DoDebug("prc_dreadnecro >> DoFortification() activated.");			
+			}
+			
+		}
+		else if (nClass > 9)
+		{
+			int bFortification = GetLocalInt(oPC, "LIGHT_FORTIFCATION_ACTIVE");
+			
+			if (!bFortification)
+			{
+				DoFortification(oPC, FORTIFICATION_LIGHT);
+				SetLocalInt(oPC, "LIGHT_FORTIFCATION_ACTIVE", 1);
+				if(DEBUG) DoDebug("prc_dreadnecro >> DoFortification() activated.");			
+			}
+		}
+		
+	}
+
+    else if(nEvent == FALSE)
+    {
+		//if (GetIsPC(oPC)) ReducedASF(oPC);
+		if(nClass > 1) DNDamageResist(oPC, nClass);
+		if(nClass > 19) ApplyTemplateToObject(TEMPLATE_LICH, oPC);
+		
+		AddEventScript(oPC, EVENT_ONHEARTBEAT, "prc_dreadnecro", TRUE, FALSE);
+	}
 }

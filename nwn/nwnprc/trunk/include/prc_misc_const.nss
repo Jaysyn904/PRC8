@@ -401,4 +401,14 @@ const float INTERVAL_BLESSING_OF_DAWN   = 15.0;
 //Healer
 const int ASSOCIATE_TYPE_CELESTIALCOMPANION = 9;
 
+//:://////////////////////////////////////////////
+//:: Fortification Constants
+//:://////////////////////////////////////////////
+
+const int FORTIFICATION_LIGHT			= 25;
+const int FORTIFICATION_MEDIUM			= 50;
+const int FORTIFICATION_MODERATE		= 75;
+const int FORTIFICATION_HEAVY			= 100;
+
+
 //:: void main (){}

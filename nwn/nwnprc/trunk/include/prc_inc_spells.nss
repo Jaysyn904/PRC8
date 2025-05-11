@@ -20,6 +20,9 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+//:: Handles psuedo-Foritifcation
+void DoFortification(object oPC = OBJECT_SELF, int nFortification = 25);
+
 /**
  * Adjusts the base class level (NOT caster level) of the class by any spellcasting PrCs
  * @param nClass a base casting class (divine or arcane)
@@ -2158,6 +2161,58 @@ int GetControlledCelestialTotalHD(object oPC = OBJECT_SELF)
     return nTotalHD;
 }
 
+//:: Handles psuedo-Foritifcation
+void DoFortification(object oPC = OBJECT_SELF, int nFortification = 25)
+{
+    if(DEBUG) DoDebug("prc_inc_spells >> DoFortification() is running.");
+	
+	// Get or create the player's skin object
+    object oHide = GetPCSkin(oPC);
+	
+	int nRace = GetRacialType(oPC);
+
+	//else if (nRace == RACIAL_TYPE_WARFORGED && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
+	if (nFortification == FORTIFICATION_LIGHT)
+	{
+		// Apply immunity properties for 1 seconds	
+		if(DEBUG) DoDebug("Applying Light Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 1.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 1.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC, FORTIFICATION_LIGHT));
+	}
+	
+	else if (nFortification == FORTIFICATION_MEDIUM)	//nRace == RACIAL_TYPE_RETH_DEKALA) 
+	{
+		// Apply immunity properties for 2 seconds	
+		if(DEBUG) DoDebug("Applying Medium Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 2.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 2.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC, FORTIFICATION_MEDIUM));
+	}
+
+	//else if (nRace == RACIAL_TYPE_WARFORGED_CHARGER && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
+	else if (nFortification == FORTIFICATION_MODERATE)
+	{
+		// Apply immunity properties for 3 seconds	
+		if(DEBUG) DoDebug("Applying Moderate Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS), 3.0f);
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), 3.0f);	
+
+		// Schedule the next toggle in 4 seconds
+		DelayCommand(4.0f, DoFortification(oPC, FORTIFICATION_MODERATE));
+	}
+	else if (nFortification == FORTIFICATION_HEAVY)
+	{
+		// Apply immunity properties permenently	
+		if(DEBUG) DoDebug("Applying Heavy Fortification");
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS));
+		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB));	
+	}		
+}
 
 
 // wrapper for DecrementRemainingSpellUses, works for newspellbook 'fake' spells too
