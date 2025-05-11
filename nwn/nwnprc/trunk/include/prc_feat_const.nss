@@ -3529,6 +3529,9 @@ const int FEAT_EPIC_ARTIFICER               = 4072;
 //Justice of Weald and Woe
 const int FEAT_LUCKY_SHOT                   = 24021;
 
+//:: Bloodclaw Master
+const int FEAT_BCM_RENDING_CLAWS			= 24065;
+
 // Dread Necromancer
 const int FEAT_DN_SCABROUS_TOUCH			= 24145;
 const int FEAT_DN_NEG_NRG_BURST				= 24149;

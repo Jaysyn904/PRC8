@@ -1,17 +1,17 @@
 2DA V2.0
 
-   FeatLabel                 FeatIndex List GrantedOnLevel OnMenu 
-0  FEAT_EPIC_BLINDING_SPEED  491       0    -1             1      
-1  DefArrow                  8         0    -1             0      
-2  TwoWeap                   41        0    -1             0      
-3  Ambidex                   1         0    -1             0      
-4  ClawsOfTheBeast           24062     3    1              0      
-5  SuperiorTwoWeaponFighting 24063     3    2              0      
-6  TigerClawSynergy          24064     3    2              0      
-7  RendingClaws              24065     3    5              0      
-8  PouncingStrike            24066     3    3              1      
-9  Shifting1                 24067     3    1              1      
-10 Shifting2                 24068     3    3              1      
-11 Shifting3                 24069     3    5              1      
-12 Darkvision                228       3    3              0      
-13 Scent                     24070     3    5              0      
+           FeatLabel                 FeatIndex List GrantedOnLevel OnMenu 
+0          FEAT_EPIC_BLINDING_SPEED  491       0    -1             1      
+1          DefArrow                  8         0    -1             0      
+2          TwoWeap                   41        0    -1             0      
+3          Ambidex                   1         0    -1             0      
+4          ClawsOfTheBeast           24062     3    1              0      
+5          SuperiorTwoWeaponFighting 24063     3    2              0      
+6          TigerClawSynergy          24064     3    2              0      
+7          RendingClaws              24065     3    5              1      
+8          PouncingStrike            24066     3    3              1      
+9          Shifting1                 24067     3    1              1      
+10         Shifting2                 24068     3    3              1      
+11         Shifting3                 24069     3    5              1      
+12         Darkvision                228       3    3              0      
+13         Scent                     24070     3    5              0      

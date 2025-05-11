@@ -19197,7 +19197,9 @@ Once per day, a Hexblade of 12th level or higher can create a baleful aura of mi
   <entry id="48572" lang="en" sex="m">Arcane Resistance</entry>
   <entry id="48573" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Hexblade level 2
-At 2nd level a Hexblade gains a bonus equal to his Charisma bonus (minimum +1) on saving throws against spells and spell-like effects.</entry>
+At 2nd level a Hexblade gains a bonus equal to his Charisma bonus (minimum +1) on saving throws against spells and spell-like effects.
+
+*This is implemented as a penalty on all incoming hostile spells.  </entry>
   <entry id="48574" lang="en" sex="m">Epic Hexblade</entry>
   <entry id="48575" lang="en" sex="m">Type: Class
 Prerequisite: Hexblade level 21
@@ -21078,11 +21080,23 @@ Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spe
   <entry id="49134" lang="en" sex="m">True Seeing</entry>
   <entry id="49135" lang="en" sex="m">You gain Blindsight, the ability to see without vision.</entry>
   <entry id="49136" lang="en" sex="m">Fast Healing I</entry>
-  <entry id="49137" lang="en" sex="m">You gain Regeneration +3</entry>
+  <entry id="49137" lang="en" sex="m">Prerequisite
+Con 25.
+
+Benefit
+You gain Regeneration +3</entry>
   <entry id="49138" lang="en" sex="m">Fast Healing II</entry>
-  <entry id="49139" lang="en" sex="m">You gain Regeneration +6</entry>
+  <entry id="49139" lang="en" sex="m">Prerequisite
+Con 25, Fast Healing I
+
+Benefit
+You gain Regeneration +6</entry>
   <entry id="49140" lang="en" sex="m">Fast Healing III</entry>
-  <entry id="49141" lang="en" sex="m">You gain Regeneration +9</entry>
+  <entry id="49141" lang="en" sex="m">Prerequisite
+Con 25, Fast Healing II
+
+Benefit
+You gain Regeneration +9</entry>
   <entry id="49142" lang="en" sex="m">Draconic Spell Resistance</entry>
   <entry id="49143" lang="en" sex="m">Your Draconic blood grants you spell resistance equal to 20+Dragon Disciple Level.</entry>
   <entry id="49144" lang="en" sex="m">Draconic Armor Increase</entry>
@@ -73137,7 +73151,7 @@ Special Abilities:
   <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
   <entry id="77210" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick a spellcasting feat (1st lvl)&lt;/c&gt;</entry>
   <entry id="77211" lang="en" sex="m">Choose which spellcasting class to advance with the currently selected Prestige Class.  If you try take a marker feat after 1st class level, your character will be releveled.</entry>
-  <entry id="77212" lang="en" sex="m">&lt;cÿÿÿ&gt;Chose a Discipline (1st lvl)&lt;/c&gt;</entry> 
+  <entry id="77212" lang="en" sex="m">&lt;cÿÿÿ&gt;Chose a Discipline (1st lvl)&lt;/c&gt;</entry>
   <entry id="77213" lang="en" sex="m">Every Psion must decide at first level which discipline he will specialize in. Choosing a discipline provides a psion with access to the powers that are restricted to that discipline. If you try take a more than one psionic disipline, your character will be releveled.  If you do this at first character level, you will need to delete the character and start over.</entry>
   <entry id="77214" lang="en" sex="m">Ability Focus</entry>
   <entry id="77215" lang="en" sex="m"> Choose one of the character's special attacks.
@@ -73149,7 +73163,7 @@ Benefit
 Add +2 to the DC for all saving throws against the special attack on which the character focuses.
 Special
 
-A character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat it applies to a different special attack. </entry>  
+A character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat it applies to a different special attack. </entry>
   <entry id="79999" lang="en" sex="m">## iprp_damagecost.2da expansion ##</entry>
   <entry id="80000" lang="en" sex="m">21 Damage</entry>
   <entry id="80001" lang="en" sex="m">+21</entry>

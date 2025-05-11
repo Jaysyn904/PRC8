@@ -41,8 +41,11 @@ void ClawsOfTheBeast(object oInitiator, object oTarget)
 
 void RendingClaws(object oInitiator, object oTarget)
 {
-    // Expend a maneuver to do the rend, must be shifting
-    if(ExpendRandomManeuver(oInitiator, GetPrimaryBladeMagicClass(oInitiator), DISCIPLINE_TIGER_CLAW)
+    //:: Check that Rending Claws is enabled
+	int bCanRend = GetLocalInt(oInitiator, "BCM_REND");
+	
+	// Expend a maneuver to do the rend, must be shifting
+    if(bCanRend && ExpendRandomManeuver(oInitiator, GetPrimaryBladeMagicClass(oInitiator), DISCIPLINE_TIGER_CLAW)
     && GetHasSpellEffect(MOVE_BLOODCLAW_SHIFT, oTarget))
     {
         if(IsUsingBloodClawWeapons(oInitiator))

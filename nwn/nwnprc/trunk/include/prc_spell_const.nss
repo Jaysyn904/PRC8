@@ -10,6 +10,9 @@ const int SPELL_BLACKLIGHT                  = 2091;
 const int SPELL_BARD_SONG 					= 411;
 const int SPELL_BARD_CURSE_SONG 			= 644;
 
+//:: Bloodclaw Master
+const int SPELL_BCM_RENDING_CLAWS			= 17997;
+
 //:: Complete Warrior
 const int SPELL_RANGED_DISARM				= 3493;
 

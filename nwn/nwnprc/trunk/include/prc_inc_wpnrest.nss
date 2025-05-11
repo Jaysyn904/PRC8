@@ -607,8 +607,41 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
   return FALSE;
 }
 
+
 //checks to see if the PC can wield the weapon.  If not, applies a -4 penalty.
 void DoProficiencyCheck(object oPC, object oItem, int nHand)
+{
+    int bProficient = FALSE;
+    int nBase = GetBaseItemType(oItem);
+
+    bProficient = IsProficient(oPC, nBase);
+    if (!bProficient) 
+    {
+        if (nHand == ATTACK_BONUS_ONHAND)
+        {
+            SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_ONHAND), -4, ATTACK_BONUS_ONHAND);
+        }
+        if (nHand == ATTACK_BONUS_OFFHAND)
+        {
+            SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), -4, ATTACK_BONUS_OFFHAND);
+        }
+
+        // Handle specific double-sided weapon logic
+        if (nBase == BASE_ITEM_DOUBLEAXE || nBase == BASE_ITEM_TWOBLADEDSWORD || nBase == BASE_ITEM_DIREMACE || nBase == BASE_ITEM_DOUBLE_SCIMITAR)
+        { // This should only affect offhand if the main hand is these types
+            SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), -4, ATTACK_BONUS_OFFHAND);
+        }
+    } 
+	else
+	{
+		SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_ONHAND), 0, ATTACK_BONUS_ONHAND);
+		SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), 0, ATTACK_BONUS_OFFHAND);
+	}
+	
+}
+
+//checks to see if the PC can wield the weapon.  If not, applies a -4 penalty.
+/* void DoProficiencyCheck(object oPC, object oItem, int nHand)
 {
     int bProficient = FALSE;
   
@@ -631,9 +664,15 @@ void DoProficiencyCheck(object oPC, object oItem, int nHand)
         SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(nHand), -4, ATTACK_BONUS_ONHAND);
         if(nBase == BASE_ITEM_DOUBLEAXE || nBase == BASE_ITEM_TWOBLADEDSWORD || nBase == BASE_ITEM_DIREMACE || nBase == BASE_ITEM_DOUBLE_SCIMITAR)
             SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), -4, ATTACK_BONUS_OFFHAND);
-    }  
+    }
+	else
+	{
+		SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(nHand), 0, ATTACK_BONUS_ONHAND);
+        if(nBase == BASE_ITEM_DOUBLEAXE || nBase == BASE_ITEM_TWOBLADEDSWORD || nBase == BASE_ITEM_DIREMACE || nBase == BASE_ITEM_DOUBLE_SCIMITAR)
+            SetCompositeAttackBonus(oPC, "Unproficient" + IntToString(ATTACK_BONUS_OFFHAND), 0, ATTACK_BONUS_OFFHAND);
+	}	
 }
-
+ */
 void DoWeaponEquip(object oPC, object oItem, int nHand)
 {
     if(GetIsDM(oPC) || !GetIsWeapon(oItem)) return;
@@ -662,7 +701,13 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
         {
             SetCompositeAttackBonus(oPC, "MonkeyGripL", -2, ATTACK_BONUS_OFFHAND);
             SetCompositeAttackBonus(oPC, "MonkeyGripR", -2, ATTACK_BONUS_ONHAND);
-        }    
+        }
+		else
+		{
+            SetCompositeAttackBonus(oPC, "MonkeyGripL", 0, ATTACK_BONUS_OFFHAND);
+            SetCompositeAttackBonus(oPC, "MonkeyGripR", 0, ATTACK_BONUS_ONHAND);		
+		}
+			
     }    
 
     if(DEBUG) DoDebug("prc_inc_wpnrest - Weapon size: " + IntToString(nWeaponSize));
@@ -710,7 +755,13 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
 			{
 				SetCompositeAttackBonus(oPC, "OTWFL", 2, ATTACK_BONUS_OFFHAND);
 				SetCompositeAttackBonus(oPC, "OTWFR", 2, ATTACK_BONUS_ONHAND);
-			}    
+			}
+			else
+			{				
+				SetCompositeAttackBonus(oPC, "OTWFL", 0, ATTACK_BONUS_OFFHAND);
+				SetCompositeAttackBonus(oPC, "OTWFR", 0, ATTACK_BONUS_ONHAND);				
+			}
+			
 		}
 	}
 
@@ -749,7 +800,12 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
         // Assign penalty
         if(DEBUG) DoDebug("prc_inc_wpnrest - OTWFPenalty: " + IntToString(-2));
         SetCompositeAttackBonus(oPC, "OTWFPenalty", -2);
-    }    
+    }  
+	else
+	{
+		SetCompositeAttackBonus(oPC, "OTWFPenalty", 0);
+	}
+	
 
     //Handle feat bonuses for Lightblade, thinblade, and courtblade
     //using else if so they don't overlap.

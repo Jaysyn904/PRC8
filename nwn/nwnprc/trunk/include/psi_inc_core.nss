@@ -871,6 +871,7 @@ void LocalCleanExtraFists(object oCreature)
         oClean = GetNextItemInInventory(oCreature);
     }
 }
+
 object GetPsionicCreatureWeapon(object oCreature, string sResRef, int nInventorySlot, float fDuration)
 {
     int bCreatedWeapon = FALSE;

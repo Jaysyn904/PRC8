@@ -34,7 +34,7 @@ void main()
         
         // Do VFX
         effect eStr = EffectAbilityIncrease(ABILITY_STRENGTH, 2);
-	effect eLink = EffectLinkEffects(eDur, eStr);
+		effect eLink = EffectLinkEffects(eDur, eStr);
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oInitiator, fDuration, FALSE);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oInitiator);
         
