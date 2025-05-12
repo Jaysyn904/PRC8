@@ -10,6 +10,9 @@ const int SPELL_BLACKLIGHT                  = 2091;
 const int SPELL_BARD_SONG 					= 411;
 const int SPELL_BARD_CURSE_SONG 			= 644;
 
+//:: Epic Level Handbook
+const int SPELL_EPIC_SWARM_OF_ARROWS		= 17996;
+
 //:: Bloodclaw Master
 const int SPELL_BCM_RENDING_CLAWS			= 17997;
 

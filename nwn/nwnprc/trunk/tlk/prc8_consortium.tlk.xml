@@ -662,8 +662,10 @@ Specifics: At 2nd level, a Morninglord of Lathander may use Daylight once per da
 Use: Selected.</entry>
   <entry id="12432" lang="en" sex="m">Keen Intellect</entry>
   <entry id="12433" lang="en" sex="m">Type of Feat: General
-Prerequisite: Human, 1st level only
+Prerequisite: Human*, 1st level only
 Specifics: You may use your Intelligence modifier instead of your Wisdom modifier when making Heal, Sense Motive, or Spot checks. You may also use your Intelligence modifier instead of Wisdom when making a Will saving throw.
+
+*This is a Kara-Tur Regional feat and as such is only for baseline humans.
 Use: Automatic</entry>
   <entry id="12434" lang="en" sex="m">Vremyonni Training</entry>
   <entry id="12435" lang="en" sex="m">Type of Feat: General
@@ -22241,19 +22243,26 @@ Benefit: You gain cold resistance 5.
 Use: Automatic</entry>
   <entry id="49580" lang="en" sex="m">Ettercap Berserker</entry>
   <entry id="49581" lang="en" sex="m">Type of Feat: General
-Prerequisite: Rage, Human race
+Prerequisite: Rage, Human*
 Specifics: You gain a +2 bonus on saving throws against poison. When raging, you gain a +6 bonus to Constitution. During a greater rage, you instead gain a +8 bonus to Constitution.
-Use: Automatic</entry>
+
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="49582" lang="en" sex="m">Ice Troll Berserker</entry>
   <entry id="49583" lang="en" sex="m">Type of Feat: General
-Prerequisite: Rage, Human race, Con 13
+Prerequisite: Rage, Human*, Con 13
 Specifics: When raging, you gain a +2 natural armor bonus to AC. During a greater rage this natural armor bonus increases to +4.
-Use: Automatic</entry>
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="49584" lang="en" sex="m">Wolf Berserker</entry>
   <entry id="49585" lang="en" sex="m">Type of Feat: General
-Prerequisite: Rage, Human race
+Prerequisite: Rage, Human*
 Specifics: You gain a +4 bonus on trip attacks and on checks to resist an opponent's trip attacks.
-Use: Automatic</entry>
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="49586" lang="en" sex="m">Half-Drow</entry>
   <entry id="49587" lang="en" sex="m">half-drow</entry>
   <entry id="49588" lang="en" sex="m">In most lands, half-drow are quite rare. Since many drow are irredeemably evil, they only mate with humans by way of rape or slavery. Half-drow are often as dark-hearted as their elven parents, but with a bitter resentment that comes from being treated as inferior members of drow society. Despite this, good half-drow are much less rare than good drow. Half-drow have dusky skin, silver or white hair and a broad range of eye colors.
@@ -47711,9 +47720,11 @@ Specifics: When you charge, you have an additional +2 to attack and -2 to armor 
 Use: Automatic</entry>
   <entry id="57393" lang="en" sex="m">Great Stag Berserker</entry>
   <entry id="57394" lang="en" sex="m">Type of Feat: General
-Prerequisite: Rage, Human race
+Prerequisite: Rage, Human*
 Specifics: When you charge, you have an additional +2 to attack and -2 to armor class.
-Use: Automatic</entry>
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="57395" lang="en" sex="m">Lion Tribe Warrior</entry>
   <entry id="57396" lang="en" sex="m">Type of Feat: General
 Prerequisite: Human race
@@ -47721,9 +47732,11 @@ Specifics: You may make a full attack with a single light weapon as part of a ch
 Use: Automatic</entry>
   <entry id="57397" lang="en" sex="m">Snow Tiger Berserker</entry>
   <entry id="57398" lang="en" sex="m">Type of Feat: General
-Prerequisite: Dex 13, Rage, Human race
+Prerequisite: Dex 13, Rage, Human*
 Specifics: You may make a full attack as part of a charge action, but only if you are armed with a light weapon. If you have light weapons in both hands, you may strike with both under the normal rules for fighting with two weapons.
-Use: Automatic</entry>
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="57399" lang="en" sex="m">A druid can channel stored spell energy into summoning spells that she hasn't prepared ahead of time. She can "lose" a prepared spell in order to cast any summon nature's ally spell of the same level or lower.</entry>
   <entry id="57400" lang="en" sex="m">All</entry>
   <entry id="57401" lang="en" sex="m">Animal, Beast, Magical Beast</entry>
@@ -52501,9 +52514,11 @@ Benefit: You are considered large for the purposes of grappling, bull rushes, ov
 Use: Automatic</entry>
   <entry id="59256" lang="en" sex="m">Owlbear Berserker</entry>
   <entry id="59257" lang="en" sex="m">Type of Feat: General
-Prerequisite: Str 13, Rage, Human race
+Prerequisite: Str 13, Rage, Human*
 Benefit: When grappling, you can make an unarmed attack to deal 1d6 points of normal damage with a successful grapple check. You do not suffer the usual -4 penalty for dealing normal damage.
-Use: Automatic</entry>
+Use: Automatic
+
+*This is a Rashemi regional feat and as such is only intended for baseline humans.</entry>
   <entry id="59258" lang="en" sex="m">Spiked Body</entry>
   <entry id="59259" lang="en" sex="m">Type of Feat: General
 Prerequisite: Warforged race
@@ -73336,6 +73351,77 @@ Level
 - No Endure elements, Sustenance, Mind shielding (would have little impact on NWN gameplay)
 - The level progression continues the same during the Epic Levels
 </entry>
+  <entry id="201999" lang="en" sex="m">##_START_PRC8_ABILITY_FOCUS_FEATS_##
+</entry>
+  <entry id="202000" lang="en" sex="m">Ability Focus (Deafening Roar)</entry>
+  <entry id="202001" lang="en" sex="m">Ability Focus (Scalding Gust)</entry>
+  <entry id="202002" lang="en" sex="m">Ability Focus (Charm)</entry>
+  <entry id="202003" lang="en" sex="m">Ability Focus (Frightful Presence)</entry>
+  <entry id="202004" lang="en" sex="m">Ability Focus (Terrifying Roar)</entry>
+  <entry id="202005" lang="en" sex="m">Ability Focus (Baleful Utterance)</entry>
+  <entry id="202006" lang="en" sex="m">Ability Focus (Call of the Beast)</entry>
+  <entry id="202007" lang="en" sex="m">Ability Focus (Drain Incarnum)</entry>
+  <entry id="202008" lang="en" sex="m">Ability Focus (Eldritch Glaive)</entry>
+  <entry id="202009" lang="en" sex="m">Ability Focus (Eldritch Spear)</entry>
+  <entry id="202010" lang="en" sex="m">Ability Focus (Frightful Blast)</entry>
+  <entry id="202011" lang="en" sex="m">Ability Focus (Hammer Blast)</entry>
+  <entry id="202012" lang="en" sex="m">Ability Focus (Hideous Blow)</entry>
+  <entry id="202013" lang="en" sex="m">Ability Focus (Miasmic Cloud)</entry>
+  <entry id="202014" lang="en" sex="m">Ability Focus (Sickening Blast)</entry>
+  <entry id="202015" lang="en" sex="m">Ability Focus (Soulreaving Aura)</entry>
+  <entry id="202016" lang="en" sex="m">Ability Focus (Baneful Blast: Aberration)</entry>
+  <entry id="202017" lang="en" sex="m">Ability Focus (Baneful Blast: Beast)</entry>
+  <entry id="202018" lang="en" sex="m">Ability Focus (Baneful Blast: Construct)</entry>
+  <entry id="202019" lang="en" sex="m">Ability Focus (Baneful Blast: Dragon)</entry>
+  <entry id="202020" lang="en" sex="m">Ability Focus (Baneful Blast: Dwarf)</entry>
+  <entry id="202021" lang="en" sex="m">Ability Focus (Baneful Blast: Elemental)</entry>
+  <entry id="202022" lang="en" sex="m">Ability Focus (Baneful Blast: Elf)</entry>
+  <entry id="202023" lang="en" sex="m">Ability Focus (Baneful Blast: Fey)</entry>
+  <entry id="202024" lang="en" sex="m">Ability Focus (Baneful Blast: Giant)</entry>
+  <entry id="202025" lang="en" sex="m">Ability Focus (Baneful Blast: Goblinoid)</entry>
+  <entry id="202026" lang="en" sex="m">Ability Focus (Baneful Blast: Gnome)</entry>
+  <entry id="202027" lang="en" sex="m">Ability Focus (Baneful Blast: Halfling)</entry>
+  <entry id="202028" lang="en" sex="m">Ability Focus (Baneful Blast: Human)</entry>
+  <entry id="202029" lang="en" sex="m">Ability Focus (Baneful Blast: Monstrous)</entry>
+  <entry id="202030" lang="en" sex="m">Ability Focus (Baneful Blast: Ooze)</entry>
+  <entry id="202031" lang="en" sex="m">Ability Focus (Baneful Blast: Orc)</entry>
+  <entry id="202032" lang="en" sex="m">Ability Focus (Baneful Blast: Outsider)</entry>
+  <entry id="202033" lang="en" sex="m">Ability Focus (Baneful Blast: Plant)</entry>
+  <entry id="202034" lang="en" sex="m">Ability Focus (Baneful Blast: Reptilian)</entry>
+  <entry id="202035" lang="en" sex="m">Ability Focus (Baneful Blast: Shapechanger)</entry>
+  <entry id="202036" lang="en" sex="m">Ability Focus (Baneful Blast: Undead)</entry>
+  <entry id="202037" lang="en" sex="m">Ability Focus (Baneful Blast: Vermin)</entry>
+  <entry id="202038" lang="en" sex="m">Ability Focus (Beshadowed Blast)</entry>
+  <entry id="202039" lang="en" sex="m">Ability Focus (Brimstone Blast)</entry>
+  <entry id="202040" lang="en" sex="m">Ability Focus (Curse of Despair)</entry>
+  <entry id="202041" lang="en" sex="m">Ability Focus (Dread Seizure)</entry>
+  <entry id="202042" lang="en" sex="m">Ability Focus (Eldrtich Chain)</entry>
+  <entry id="202043" lang="en" sex="m">Ability Focus (Hellrime Blast)</entry>
+  <entry id="202044" lang="en" sex="m">Ability Focus (Steal Incarnum)</entry>
+  <entry id="202045" lang="en" sex="m">Ability Focus (Wall of Gloom)</entry>
+  <entry id="202046" lang="en" sex="m">Ability Focus (Bewitching Blast)</entry>
+  <entry id="202047" lang="en" sex="m">Ability Focus (Eldritch Cone)</entry>
+  <entry id="202048" lang="en" sex="m">Ability Focus (Eldritch Line)</entry>
+  <entry id="202049" lang="en" sex="m">Ability Focus (Enervating Shadow)</entry>
+  <entry id="202050" lang="en" sex="m">Ability Focus (Hindering Blast)</entry>
+  <entry id="202051" lang="en" sex="m">Ability Focus (Incarnum Blast)</entry>
+  <entry id="202052" lang="en" sex="m">Ability Focus (Nightmares Made Real)</entry>
+  <entry id="202053" lang="en" sex="m">Ability Focus (Noxious Blast)</entry>
+  <entry id="202054" lang="en" sex="m">Ability Focus (Painful Slumber of the Ages)</entry>
+  <entry id="202055" lang="en" sex="m">Ability Focus (Penetrating Blast)</entry>
+  <entry id="202056" lang="en" sex="m">Ability Focus (Wall of Periloous Flame)</entry>
+  <entry id="202057" lang="en" sex="m">Ability Focus (Binding Blast)</entry>
+  <entry id="202058" lang="en" sex="m">Ability Focus (Eldritch Doom)</entry>
+  <entry id="202059" lang="en" sex="m">Ability Focus (Incarnum Shroud)</entry>
+  <entry id="202060" lang="en" sex="m">Ability Focus (Steal Summoning)</entry>
+  <entry id="202061" lang="en" sex="m">Prerequisite:
+Special attack.
+
+Benefit:
+Add +2 to the DC for all saving throws against the special attack on which the character focuses.
+
+Special:
+A character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat it applies to a different special attack. </entry>
   <entry id="204999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="205000" lang="en" sex="m">Epic Eye of Gruumsh</entry>
   <entry id="205001" lang="en" sex="m">You are the living embodiment of Gruumsh’s savage fury—a one-eyed martyr whose terrible sacrifice has unlocked epic levels of brutal power. Your scarred visage and impaired sight serve as a constant reminder of your oath, granting you a glimpse into your deity’s blind rage. In the heat of battle, your ferocity and unholy devotion enable you to strike terror into the hearts of your foes, as you channel the very essence of an orcish legend.
@@ -74786,6 +74872,12 @@ Epic Diamond Dragon Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
+  <entry id="213092" lang="en" sex="m">Swarm of Arrows</entry>
+  <entry id="213093" lang="en" sex="m">	Prerequisites
+	Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).
+	
+	Benefit
+	As a full-round action, you may fire an arrow at your full base attack bonus at each opponent within 30 feet.</entry>  
   <entry id="213094" lang="en" sex="m">Daring Warrior</entry>
   <entry id="213095" lang="en" sex="m">Type of Feat: General
 Prerequisite: Weapon Specialization, Grace +1

@@ -29,11 +29,14 @@ void main()
            eShaken = EffectLinkEffects(eShaken, EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE));
     effect eVis = EffectVisualEffect(VFX_IMP_FEAR_S);
 
-    int nHD = GetHitDice(oPC);
-    // DC is charisma based
-    int nDC = 10 + (nHD / 2) + GetAbilityModifier(ABILITY_CHARISMA, oPC);
+    int nRHD = GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC);
+	
+    // DC is charisma based.  +2 Racial Bonus
+    int nDC = 12 + (nRHD / 2) + GetAbilityModifier(ABILITY_CHARISMA, oPC);
     int nDuration = d6(2);
-    if(GetIsEnemy(oTarget, oPC) && GetHitDice(oTarget) <= nHD)
+	
+    //if(GetIsEnemy(oTarget, oPC) && GetHitDice(oTarget) <= nHD)
+    if(GetIsEnemy(oTarget, oPC))		
     {
         //Fire cast spell at event for the specified target
         SignalEvent(oTarget, EventSpellCastAt(oPC, SPELLABILITY_AURA_FEAR));

@@ -261,7 +261,6 @@
 257        FocusedSpellPenetrTra                           3135      1    2              1      
 258        feat_epic_spellcasting                          4073      1    2              1      
 259        Feat_Ignore_Material_Components                 2597      1    2              1      
-260        FEAT_EPIC_IMPROVED_COMBAT_CASTING               696       1    2              1      
-261        FEAT_TENACIOUSMAGIC                             2961      1    2              0      
-262        ShadowCast                                      23793     0    -1             0      
-263        ShadowFamiliar                                  23800     0    -1             0      
+260        FEAT_TENACIOUSMAGIC                             2961      1    2              0      
+261        ShadowCast                                      23793     0    -1             0      
+262        ShadowFamiliar                                  23800     0    -1             0      

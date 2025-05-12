@@ -4376,6 +4376,9 @@ const int PNP_SHADOW_CONJURATION                     = 24733;
 const int PNP_GREATER_SHADOW_CONJURATION             = 24734;
 const int PNP_SHADES                                 = 24735;
 
+//:: Epic Level Handbook
+const int FEAT_EPIC_SWARM_OF_ARROWS					= 25995;
+
 //:: Warlock invoking marker feats
 const int FEAT_ABCHAMP_INVOKING_WARLOCK  =  18000;
 const int FEAT_AOTS_INVOKING_WARLOCK  =  18001;
