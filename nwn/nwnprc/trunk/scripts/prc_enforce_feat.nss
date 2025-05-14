@@ -95,6 +95,51 @@ int _GetSizeForPrereq(object oPC)
 // BEGIN FUNCTIONS
 // ---------------
 
+int CheckInvokerAbilityFocus(object oPC)
+{
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CHAIN, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_CHAIN, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CONE, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_CONE, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_DOOM, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_DOOM, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_GLAIVE, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_GLAIVE, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_LINE, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_LINE, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_SPEAR, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_SPEAR, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BRIMSTONE_BLAST, oPC) && !GetHasInvocation(INVOKE_BRIMSTONE_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_NOXIOUS_BLAST, oPC) && !GetHasInvocation(INVOKE_NOXIOUS_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_FRIGHTFUL_BLAST, oPC) && !GetHasInvocation(INVOKE_FRIGHTFUL_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_SICKENING_BLAST, oPC) && !GetHasInvocation(INVOKE_SICKENING_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_HELLRIME_BLAST, oPC) && !GetHasInvocation(INVOKE_HELLRIME_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BEWITCHING_BLAST, oPC) && !GetHasInvocation(INVOKE_BEWITCHING_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BINDING_BLAST, oPC) && !GetHasInvocation(INVOKE_BINDING_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_HINDERING_BLAST, oPC) && !GetHasInvocation(INVOKE_HINDERING_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_PENETRATING_BLAST, oPC) && !GetHasInvocation(INVOKE_PENETRATING_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_UTTERDARK_BLAST, oPC) && !GetHasInvocation(INVOKE_UTTERDARK_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_INCARNUM_BLAST, oPC) && !GetHasInvocation(INVOKE_INCARNUM_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC) && !GetHasInvocation(INVOKE_HAMMER_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_ABERRATION, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_BEAST, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_BEAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_CONSTRUCT, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_CONSTRUCT, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DRAGON, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_DRAGON, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DWARF, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_DWARF, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELEMENTAL, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_ELEMENTAL, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELF, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_ELF, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_FEY, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_FEY, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GIANT, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_GIANT, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GOBLINOID, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_GOBLINOID, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GNOME, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_GNOME, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HALFLING, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_HALFLING, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HUMAN, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_HUMAN, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_MONSTROUS, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_MONSTROUS, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ORC, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_ORC, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_OUTSIDER, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_OUTSIDER, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_PLANT, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_PLANT, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_REPTILIAN, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_REPTILIAN, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_SHAPECHANGER, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_SHAPECHANGER, oPC)) return TRUE;
+
+    return FALSE;
+}
+
+
 int ManAtArmsFeats()
 {
     // only continue if they are a MaA taking level 3
