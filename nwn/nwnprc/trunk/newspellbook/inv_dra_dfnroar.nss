@@ -25,10 +25,7 @@ void main()
     object oCaster = OBJECT_SELF;
     location lTarget = PRCGetSpellTargetLocation();
     int CasterLvl = GetInvokerLevel(oCaster, GetInvokingClass());
-    int nPenetr = CasterLvl + SPGetPenetr();
-	int nDC = GetInvocationSaveDC(oTarget, oCaster);
-	
-	if (GetHasFeat(FEAT_ABFOC_DEAFENING_ROAR, oCaster)) nDC += 2;		
+    int nPenetr = CasterLvl + SPGetPenetr();	
 		
     float fDelay;
     effect eDeaf = EffectDeaf();
@@ -42,6 +39,10 @@ void main()
     object oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE, GetPosition(oCaster));
     while(GetIsObjectValid(oTarget))
     {
+		int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	
+		if (GetHasFeat(FEAT_ABFOC_DEAFENING_ROAR, oCaster)) nDC += 2;	
+	
         if(oTarget != oCaster && !GetIsReactionTypeFriendly(oTarget))
         {
             fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;

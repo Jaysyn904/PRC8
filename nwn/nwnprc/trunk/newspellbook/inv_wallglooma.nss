@@ -13,6 +13,8 @@ void main()
     object oCaster = GetAreaOfEffectCreator();
     int nCasterLvl = GetInvokerLevel(oCaster, CLASS_TYPE_WARLOCK);
     int nDC = GetInvocationSaveDC(oTarget, oCaster, INVOKE_WALL_OF_GLOOM);
+	if (GetHasFeat(FEAT_ABFOC_WALL_OF_GLOOM, OBJECT_SELF)) nDC += 2;
+	
     effect eConceal = EffectConcealment(50);
     effect eHalt = EffectMovementSpeedDecrease(99);
 

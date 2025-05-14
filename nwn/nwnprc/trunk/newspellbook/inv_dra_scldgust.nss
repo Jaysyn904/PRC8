@@ -36,8 +36,14 @@ void main()
     //Get first target in the spell cylinder
     object oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, fRange, lTarget,
                                    TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(OBJECT_SELF));
+								   
+
+	
     while(GetIsObjectValid(oTarget))
     {
+		int nDC = GetInvocationSaveDC(oTarget, oCaster);
+		if (GetHasFeat(FEAT_ABFOC_SCALDING_GUST, OBJECT_SELF)) nDC += 2;
+	
         if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
         {
             fDelay = GetDistanceBetween(oCaster, oTarget)/20;
@@ -47,7 +53,7 @@ void main()
             if(!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
             {
                 if(PRCGetCreatureSize(oTarget) < CREATURE_SIZE_MEDIUM)
-                if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, GetInvocationSaveDC(oTarget, oCaster), SAVING_THROW_TYPE_NONE))
+                if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
                 {
                     effect eWindblown = EffectKnockdown();
                     DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eWindblown, oTarget, 6.0));

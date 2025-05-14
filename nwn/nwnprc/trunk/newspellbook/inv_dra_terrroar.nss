@@ -50,8 +50,12 @@ void main()
 
     //Get first target in the spell cone
     object oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, fRange, lTarget, TRUE, OBJECT_TYPE_CREATURE, GetPosition(OBJECT_SELF));
+	
     while(GetIsObjectValid(oTarget))
     {
+		int nDC = GetInvocationSaveDC(oTarget, oCaster);
+		if (GetHasFeat(FEAT_ABFOC_TERRIFYING_ROAR, OBJECT_SELF)) nDC += 2;
+	
         if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster)
             && !(GetHitDice(oTarget) > CasterLvl))
         {
@@ -62,7 +66,7 @@ void main()
             if(!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
             {
                 //Make a will save - if failed, panicked
-                if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetInvocationSaveDC(oTarget, oCaster), SAVING_THROW_TYPE_FEAR, oCaster, fDelay))
+                if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR, oCaster, fDelay))
                 {
                     //Apply the linked effects and the VFX impact
                     DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0, TRUE, -1, CasterLvl));

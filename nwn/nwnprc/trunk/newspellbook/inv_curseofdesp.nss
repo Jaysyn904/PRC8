@@ -27,6 +27,10 @@ void main()
     int CasterLvl = GetInvokerLevel(oCaster, GetInvokingClass());
     int nPenetr = CasterLvl + SPGetPenetr();
     int iAttackRoll = PRCDoMeleeTouchAttack(oTarget);
+	
+	int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	if (GetHasFeat(FEAT_ABFOC_CURSE_OF_DESPAIR, OBJECT_SELF)) nDC += 2;
+			
     int dec = 2 * iAttackRoll;//4 on Critical Hit
     effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE);
     effect eCurse = EffectCurse(dec, dec, dec, dec, dec, dec);
@@ -42,8 +46,8 @@ void main()
          //Make SR Check
          if (!PRCDoResistSpell(oCaster, oTarget, nPenetr))
          {
-            //Make Will Save
-            if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetInvocationSaveDC(oTarget, oCaster)))
+			//Make Will Save
+            if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC))
             {
                 //Apply Effect and VFX
                 SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eCurse, oTarget, 0.0f, TRUE, -1, CasterLvl);

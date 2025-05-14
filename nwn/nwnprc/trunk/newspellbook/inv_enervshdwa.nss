@@ -11,6 +11,8 @@ void main()
     object oTarget = GetEnteringObject();
     int CasterLvl = GetInvokerLevel(GetAreaOfEffectCreator(), CLASS_TYPE_WARLOCK);
     int nDC = GetInvocationSaveDC(oTarget, GetAreaOfEffectCreator(),INVOKE_ENERVATING_SHADOW);
+	if (GetHasFeat(FEAT_ABFOC_ENERVATING_SHADOW, OBJECT_SELF)) nDC += 2;
+	
     effect eConceal = EffectConcealment(20);
     effect eStrength = EffectAbilityDecrease(ABILITY_STRENGTH, 4);
     effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE);

@@ -15,8 +15,11 @@ void main()
         SignalEvent(oTarget, EventSpellCastAt(GetAreaOfEffectCreator(),
             INVOKE_NIGHTMARES_MADE_REAL));
         
+		int nDC = GetInvocationSaveDC(oTarget, GetAreaOfEffectCreator(), INVOKE_NIGHTMARES_MADE_REAL);
+		if (GetHasFeat(FEAT_ABFOC_NIGHTMARES_MADE_REAL, OBJECT_SELF)) nDC += 2;
+		
         //save
-		if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetInvocationSaveDC(oTarget, GetAreaOfEffectCreator(), INVOKE_NIGHTMARES_MADE_REAL), SAVING_THROW_TYPE_SPELL))
+		if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
 		{
             effect eEntangle = EffectLinkEffects(EffectEntangle(), EffectVisualEffect(VFX_DUR_ENTANGLE));
             SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEntangle, oTarget, RoundsToSeconds(nCasterLevel));
