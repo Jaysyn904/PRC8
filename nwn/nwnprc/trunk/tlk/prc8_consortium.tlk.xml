@@ -14392,7 +14392,7 @@ The Tempest is the point of calm within a whirling barrier of deadly blades. Poe
 REQUIREMENTS:
 
 Base Attack Bonus: +9.
-Feats: Dodge, Mobility, Spring Attack, Two-Weapon Fighting, and Weapon Finesse (any) or Weapon Focus (any). Rangers are considered to have Two-Weapon-Fighting at Level 1.
+Feats: Ambidexterity*, Dodge, Mobility, Spring Attack, Two-Weapon Fighting, and Weapon Finesse (any) or Weapon Focus (any). Rangers are considered to have Two-Weapon-Fighting at Level 1.
 
 CLASS FEATURES:
 
@@ -14406,7 +14406,9 @@ Levels
 10: Supreme Two-Weapon Fighting - Tempest gains another two attacks per round in her off hand but at a -4 penalty to her attack bonus.
 
 NOTE:
-The Tempest is best in light armor. While wearing heavy or medium armor a tempest loses all bonus abilities.</entry>
+The Tempest is best in light armor. While wearing heavy or medium armor a tempest loses all bonus abilities.
+
+*Only required if module is not using the 3.5e Two-Weapon Fighting option.</entry>
   <entry id="47030" lang="en" sex="m">Greater Two-Weapon Fighting</entry>
   <entry id="47031" lang="en" sex="m">Type of Feat: General
 Prerequisite: Improved Two-Weapon Fighting, Two-Weapon Fighting, Ambidexterity, base attack bonus +15.
@@ -73355,9 +73357,8 @@ Level
 
 *This is based on Vow of Poverty 3.0, with the following variations:
 - No Endure elements, Sustenance, Mind shielding (would have little impact on NWN gameplay)
-- The level progression continues the same during the Epic Levels
-</entry>
-  <entry id="201998" lang="en" sex="m">##_START_PRC8_ABILITY_FOCUS_FEATS_##
+- The level progression continues the same during the Epic Levels</entry>
+  <entry id="201998" lang="en" sex="m">##_START_PRC8_ABILITY_FOCUS_FEATS_##</entry>
   <entry id="201999" lang="en" sex="m">Prerequisite:
 Special attack.
 
@@ -74266,18 +74267,18 @@ Truenaming: The epic Acolyte of the Ego continues to increase in Truenaming leve
 Epic Acolyte of the Ego Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Great Intelligence, Perfect Health, Superior Initiative.</entry>
   <entry id="205130" lang="en" sex="m">Epic Peerless Archer</entry>
-  <entry id="205131" lang="en" sex="m">You’ve left behind distractions, there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy, just skill, steel, and silence.
+  <entry id="205131" lang="en" sex="m">You’'ve left behind distractions, there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy, just skill, steel, and silence.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
-Bonus Feats: The epic Peerless Archer gains a bonus feat every three levels.
+Bonus Feats: The epic Peerless Archer gains a bonus feat every four levels.
 
 Special:
 Ranged Sneak Attack: the epic Peerless Archer's ranged sneak attack continues to gain +1d6 damage every three levels.
 Fletching: The epic Peerless Archer's Fletching ability continues to increase by +1 every even level.
 
 Epic Peerless Archer Bonus Feat List:
-Armor Skin, Blinding Speed, Devastating Critical, Epic Endurance, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization (longbow and shortbow), Great Dexterity, Improved Manyshot, Overwhelming Critical, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus (longbow or shortbow), Epic Weapon Specialization (longbow and shortbow), Great Dexterity, Improved Manyshot, Overwhelming Critical, Superior Initiative, Swarm of Arrows.</entry>
   <entry id="205132" lang="en" sex="m">Epic Thrall of Orcus</entry>
   <entry id="205133" lang="en" sex="m">The epic Thrall of Orcus has turned from the warmth of life and pledged themseleves to Orcus, the demon prince of undeath. Where they walk, decay follows. The epic Thrall of Orcus communes with corpses, commands foul things, and revels in spreading dread. You are a hand of rot in a living world, and your god is watching.
 

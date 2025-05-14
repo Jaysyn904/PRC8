@@ -20,6 +20,8 @@
 #include "inc_epicspells"
 #include "prc_inc_shifting"
 
+int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF);
+
 //  Prevents a Man at Arms from taking improved critical
 //  in a weapon that he does not have focus in.
 int ManAtArmsFeats();
@@ -95,7 +97,7 @@ int _GetSizeForPrereq(object oPC)
 // BEGIN FUNCTIONS
 // ---------------
 
-int CheckInvokerAbilityFocus(object oPC)
+int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF)
 {
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_BLAST, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CHAIN, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_CHAIN, oPC)) return TRUE;
@@ -2008,6 +2010,43 @@ int WarlockFeats()
 int AcolyteEgo()
 {
     int nLevel = GetLevelByClass(CLASS_TYPE_ACOLYTE_EGO);
+    if (!nLevel || nLevel > 20) return FALSE; 
+
+    int nCount = GetHasFeat(FEAT_EGO_BULL)
+               + GetHasFeat(FEAT_EGO_IRON)
+               + GetHasFeat(FEAT_EGO_HEART)
+               + GetHasFeat(FEAT_EGO_SWALLOW)
+               + GetHasFeat(FEAT_EGO_WOUND)
+               + GetHasFeat(FEAT_EGO_FOOL)
+               + GetHasFeat(FEAT_EGO_FORT)
+               + GetHasFeat(FEAT_EGO_FRIGHT)
+               + GetHasFeat(FEAT_EGO_DRAKE)
+               + GetHasFeat(FEAT_EGO_STEP);
+
+    int nReturn = FALSE;
+
+    if ((nCount > 0 && nLevel < 2) ||
+        (nCount > 1 && nLevel < 4) ||
+        (nCount > 2 && nLevel < 6) ||
+        (nCount > 3 && nLevel < 8) ||
+        (nCount > 4 && nLevel < 10) ||
+        (nCount > 5 && nLevel < 12) ||
+        (nCount > 6 && nLevel < 14) ||
+        (nCount > 7 && nLevel < 16) ||
+        (nCount > 8 && nLevel < 18) ||
+        (nCount > 9 && nLevel < 20) ||
+        (nCount != 10 && nLevel == 20))
+    {
+        FloatingTextStringOnCreature("You do not have the correct amount of Cadences. Please reselect your feats.", OBJECT_SELF, FALSE);
+        nReturn = TRUE;
+    }
+
+    return nReturn;
+}
+
+/* int AcolyteEgo()
+{
+    int nLevel = GetLevelByClass(CLASS_TYPE_ACOLYTE_EGO);
     if(!nLevel) return FALSE;
 
     int nCount = GetHasFeat(FEAT_EGO_BULL)
@@ -2036,7 +2075,7 @@ int AcolyteEgo()
 
     return FALSE;
 }
-
+ */
 
 int EpicCasting()
 {
@@ -2716,6 +2755,7 @@ int ToB()
 void main()
 {
     if(BonusDomains()
+	|| CheckInvokerAbilityFocus()
     || CasterFeats()
     || CheckClericShadowWeave()
     || CraftingFeats()

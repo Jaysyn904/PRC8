@@ -270,6 +270,65 @@ int Thrallherd(object oPC)
 int Recitations(object oPC)
 {
     int nTrue = GetLevelByClass(CLASS_TYPE_TRUENAMER, oPC);
+    int nAcolyte = GetLevelByClass(CLASS_TYPE_ACOLYTE_EGO, oPC);
+
+    int nRec =     GetHasFeat(FEAT_RECITATION_FORTIFIED,    oPC) +
+                   GetHasFeat(FEAT_RECITATION_MEDITATIVE,   oPC) +
+                   GetHasFeat(FEAT_RECITATION_MINDFUL,      oPC) +
+                   GetHasFeat(FEAT_RECITATION_SANGUINE,     oPC) +
+                   GetHasFeat(FEAT_RECITATION_VITAL,        oPC);
+
+    // Include bonus Recitation granted by Acolyte at level 7
+    if (nAcolyte >= 7)
+    {
+        nRec += 1;
+    }
+
+    // Truenamer Recitation requirements
+    if ((nTrue >= 15 && nRec < 2) || (nTrue >= 8 && nRec < 1))
+    {
+        FloatingTextStringOnCreature("You do not have the correct amount of Recitations. Please reselect your feat.", oPC, FALSE);
+        return TRUE;
+    }
+
+    // Acolyte of the Ego Recitation requirement
+    if (nAcolyte >= 7 && nRec < 1)
+    {
+        FloatingTextStringOnCreature("You do not have the correct amount of Recitations. Please reselect your feat.", oPC, FALSE);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/* int Recitations(object oPC)
+{
+    int nTrue = GetLevelByClass(CLASS_TYPE_TRUENAMER, oPC);
+    int nRec =     GetHasFeat(FEAT_RECITATION_FORTIFIED,    oPC) +
+                   GetHasFeat(FEAT_RECITATION_MEDITATIVE,   oPC) +
+                   GetHasFeat(FEAT_RECITATION_MINDFUL,      oPC) +
+                   GetHasFeat(FEAT_RECITATION_SANGUINE,     oPC) +
+                   GetHasFeat(FEAT_RECITATION_VITAL,        oPC);
+
+    // Bonus Recitation for Acolyte of the Ego at level 7
+    if (GetLevelByClass(CLASS_TYPE_ACOLYTE_EGO, oPC) >= 7)
+    {
+        nRec += 1;
+    }
+
+    // Need 2 at level 15, 1 at level 8
+    if ((nTrue >= 15 && 2 > nRec) || (nTrue >= 8 && 1 > nRec))
+    {
+        FloatingTextStringOnCreature("You must select a Recitation feat.", oPC, FALSE);
+        return TRUE;
+    }
+
+    return FALSE;
+} */
+
+/* int Recitations(object oPC)
+{
+    int nTrue = GetLevelByClass(CLASS_TYPE_TRUENAMER, oPC);
     int nRec =     GetHasFeat(FEAT_RECITATION_FORTIFIED,    oPC) +
                    GetHasFeat(FEAT_RECITATION_MEDITATIVE,    oPC) +
                    GetHasFeat(FEAT_RECITATION_MINDFUL,       oPC) +
@@ -284,7 +343,7 @@ int Recitations(object oPC)
 
     return FALSE;
 }
-
+ */
 int PyroElement(object oPC = OBJECT_SELF)
 {
      int nLevel = GetLevelByClass(CLASS_TYPE_PYROKINETICIST, oPC);
