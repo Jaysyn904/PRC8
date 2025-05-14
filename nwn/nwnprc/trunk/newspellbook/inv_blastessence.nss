@@ -77,7 +77,7 @@ void main()
              sMes = "*Sickening Blast Essence Applied*";
              break;
 
-        case INVOKE_BANEFUL_BLAST_ABBERATION:
+        case INVOKE_BANEFUL_BLAST_ABERRATION:
              nLevel = 3;
              nRace = RACIAL_TYPE_ABERRATION;
              sMes = "*Abberation Blast Essence Applied*";
@@ -155,7 +155,7 @@ void main()
              sMes = "*Human Blast Essence Applied*";
              break;
 
-        case INVOKE_BANEFUL_BLAST_MONSTEROUS:
+        case INVOKE_BANEFUL_BLAST_MONSTROUS:
              nLevel = 3;
              nRace = RACIAL_TYPE_HUMANOID_MONSTROUS;
              sMes = "*Monstrous Blast Essence Applied*";

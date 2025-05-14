@@ -34,6 +34,9 @@ const int    INVOCATION_DARK        = 8;
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+//:: Updates the Invocation DC for Ability Focus feats.
+int InvokerAbilityFocus(object oPC, int nEssence, int nEssence2 = -1);
+
 /**
  * Determines from what class's invocation list the currently casted
  * invocation is cast from.
@@ -143,6 +146,7 @@ int GetBlastDamageDices(object oInvoker, int nInvokerLevel);
 //////////////////////////////////////////////////
 
 //#include "prc_alterations"
+#include "prc_feat_const"
 #include "inv_inc_invknown"
 #include "inv_inc_invoke"
 #include "inv_inc_blast"
@@ -156,6 +160,276 @@ int GetBlastDamageDices(object oInvoker, int nInvokerLevel);
 //////////////////////////////////////////////////
 /*             Function definitions             */
 //////////////////////////////////////////////////
+
+//:: Updates the Invocation DC for Ability Focus feats.
+int InvokerAbilityFocus(object oPC, int nEssence, int nEssence2 = -1)
+{
+    int nBonus = 0;
+
+    // Check for the shape
+    switch(nEssence)
+    {
+        case INVOKE_ELDRITCH_BLAST:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_CHAIN:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CHAIN, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_CONE:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CONE, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_DOOM:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_DOOM, oPC)) nBonus += 2;
+            break;	
+		case INVOKE_ELDRITCH_GLAIVE:
+			if (GetHasFeat(FEAT_ABFOC_ELDRITCH_GLAIVE, oPC)) nBonus += 2;
+			break;				
+        case INVOKE_ELDRITCH_LINE:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_LINE, oPC)) nBonus += 2;
+            break;		
+        case INVOKE_ELDRITCH_SPEAR:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_SPEAR, oPC)) nBonus += 2;
+            break;				
+		case INVOKE_BRIMSTONE_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BRIMSTONE_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_NOXIOUS_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_NOXIOUS_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_FRIGHTFUL_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_FRIGHTFUL_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_SICKENING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_SICKENING_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_HELLRIME_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HELLRIME_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BEWITCHING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BEWITCHING_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BINDING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BINDING_BLAST, oPC)) nBonus += 2;
+			break;			
+		case INVOKE_HINDERING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HINDERING_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_PENETRATING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_PENETRATING_BLAST, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_UTTERDARK_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_UTTERDARK_BLAST, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_INCARNUM_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_INCARNUM_BLAST, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_HAMMER_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC)) nBonus += 2;
+			break;
+		// case INVOKE_VITRIOLIC_BLAST:
+			// if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
+			// break;
+		case INVOKE_BANEFUL_BLAST_ABERRATION:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_BEAST:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_BEAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_CONSTRUCT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_CONSTRUCT, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_DRAGON:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DRAGON, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_DWARF:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DWARF, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_ELEMENTAL:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELEMENTAL, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_ELF:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELF, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_FEY:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_FEY, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GIANT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GIANT, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GOBLINOID:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GOBLINOID, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GNOME:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GNOME, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_HALFLING:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HALFLING, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_BANEFUL_BLAST_HUMAN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HUMAN, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_MONSTROUS:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_MONSTROUS, oPC)) nBonus += 2;
+			break;		
+		// case INVOKE_BANEFUL_BLAST_OOZE:
+			// if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_OOZE, oPC)) nBonus += 2;
+			// break;	
+		case INVOKE_BANEFUL_BLAST_ORC:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ORC, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_OUTSIDER:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_OUTSIDER, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_PLANT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_PLANT, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_REPTILIAN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_REPTILIAN, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_SHAPECHANGER:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_SHAPECHANGER, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_UNDEAD:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_UNDEAD, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_VERMIN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_VERMIN, oPC)) nBonus += 2;
+			break;			
+    }
+
+    // Check for the secondary shape or essence component
+    switch(nEssence2)
+    {
+         case INVOKE_ELDRITCH_BLAST:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_CHAIN:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CHAIN, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_CONE:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CONE, oPC)) nBonus += 2;
+            break;
+        case INVOKE_ELDRITCH_DOOM:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_DOOM, oPC)) nBonus += 2;
+            break;	
+		case INVOKE_ELDRITCH_GLAIVE:
+			if (GetHasFeat(FEAT_ABFOC_ELDRITCH_GLAIVE, oPC)) nBonus += 2;
+			break;				
+        case INVOKE_ELDRITCH_LINE:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_LINE, oPC)) nBonus += 2;
+            break;		
+        case INVOKE_ELDRITCH_SPEAR:
+            if (GetHasFeat(FEAT_ABFOC_ELDRITCH_SPEAR, oPC)) nBonus += 2;
+            break;				
+		case INVOKE_BRIMSTONE_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BRIMSTONE_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_NOXIOUS_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_NOXIOUS_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_FRIGHTFUL_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_FRIGHTFUL_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_SICKENING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_SICKENING_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_HELLRIME_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HELLRIME_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BEWITCHING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BEWITCHING_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BINDING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_BINDING_BLAST, oPC)) nBonus += 2;
+			break;			
+		case INVOKE_HINDERING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HINDERING_BLAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_PENETRATING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_PENETRATING_BLAST, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_UTTERDARK_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_UTTERDARK_BLAST, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_INCARNUM_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_INCARNUM_BLAST, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_HAMMER_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC)) nBonus += 2;
+			break;
+		// case INVOKE_VITRIOLIC_BLAST:
+			// if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
+			// break;
+		case INVOKE_BANEFUL_BLAST_ABERRATION:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_BEAST:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_BEAST, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_CONSTRUCT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_CONSTRUCT, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_DRAGON:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DRAGON, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_DWARF:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_DWARF, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_ELEMENTAL:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELEMENTAL, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_ELF:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ELF, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_FEY:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_FEY, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GIANT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GIANT, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GOBLINOID:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GOBLINOID, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_GNOME:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_GNOME, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_HALFLING:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HALFLING, oPC)) nBonus += 2;
+			break;				
+		case INVOKE_BANEFUL_BLAST_HUMAN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_HUMAN, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_MONSTROUS:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_MONSTROUS, oPC)) nBonus += 2;
+			break;		
+		// case INVOKE_BANEFUL_BLAST_OOZE:
+			// if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_OOZE, oPC)) nBonus += 2;
+			// break;	
+		case INVOKE_BANEFUL_BLAST_ORC:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ORC, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_OUTSIDER:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_OUTSIDER, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_PLANT:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_PLANT, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_REPTILIAN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_REPTILIAN, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_SHAPECHANGER:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_SHAPECHANGER, oPC)) nBonus += 2;
+			break;		
+		case INVOKE_BANEFUL_BLAST_UNDEAD:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_UNDEAD, oPC)) nBonus += 2;
+			break;	
+		case INVOKE_BANEFUL_BLAST_VERMIN:
+			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_VERMIN, oPC)) nBonus += 2;
+			break;				
+    }
+
+    return nBonus;
+}
 
 int GetInvokingClass(object oInvoker = OBJECT_SELF)
 {

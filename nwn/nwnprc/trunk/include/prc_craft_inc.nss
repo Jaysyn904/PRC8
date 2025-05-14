@@ -628,7 +628,7 @@ int CheckCraftingSpells(object oPC, string sFile, int nLine, int bDecrement = FA
     int nTemp;
     int i;
 
-    for(i = 0; i < 6; i++)
+    for(i = 0; i < 7; i++)
     {
         nPosition = FindSubString(sTemp, "_");
         sSub = (nPosition == -1) ? sTemp : GetStringLeft(sTemp, nPosition);

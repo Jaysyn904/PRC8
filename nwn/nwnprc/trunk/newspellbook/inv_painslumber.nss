@@ -26,6 +26,8 @@ void DoSleepCheck(object oTarget, int nSleepCheck, object oCaster)
         return;
 
     int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	
+	if (GetHasFeat(FEAT_ABFOC_PAINFUL_SLUMBER_OF_THE_AGES, oCaster)) nDC += 2;
 
     if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, (nDC), SAVING_THROW_TYPE_MIND_SPELLS))
     {

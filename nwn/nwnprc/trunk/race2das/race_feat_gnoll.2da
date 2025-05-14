@@ -1,6 +1,24 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 darkvision      228       
-1 Natural_Armor_1 4733      
-2 Race_Monstrous  4720      
+           FeatLabel                 FeatIndex 
+0          darkvision                228       
+1          Natural_Armor_1           4733      
+2          Race_Monstrous            4720      
+3          WeapProfSim               46        
+4          WeapProfSim_Dart          7914      
+5          WeapProfSim_Light_Mace    7908      
+6          WeapProfSim_Morningstar   7923      
+7          WeapProfSim_Shortspear    7927      
+8          WeapProfSim_Sickle        7929      
+9          WeapProfSim_Sling         7930      
+10         WeapProfSim_Katar         7945      
+11         WeapProfSim_Heavy_Mace    7946      
+12         WeapProfSim_Goad          7949      
+13         WeapProfSim_LightCrossbow 7951      
+14         WeapProfSim_HeavyCrossbow 7952      
+15         WeapProfSim_Quarterstaff  7953      
+16         WeapProfSim_Dagger        7954      
+17         WeapProfSim_Club          7955      
+18         WeapProfMar_Battleaxe     7903      
+19         ArmProfLgt                3         
+20         Shield                    32        

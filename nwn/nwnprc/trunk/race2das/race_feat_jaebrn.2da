@@ -1,10 +1,27 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 LowLightVision  354
-1 Race_Fey        4718  
-2 SkillAff_Bluff   4753 
-5 SA_Persuade      4528
-4 SkillAff_Appraise 4792
-3 SkillAff_Perform 4756
-5 FEAT_NATARM_1          4733
+           FeatLabel                 FeatIndex 
+0          LowLightVision            354       
+1          Race_Fey                  4718      
+2          SkillAff_Bluff            4753      
+3          SA_Persuade               4528      
+4          SkillAff_Appraise         4792      
+5          SkillAff_Perform          4756      
+6          FEAT_NATARM_1             4733      
+7          WeapProfSim               46        
+8          WeapProfSim_Dart          7914      
+9          WeapProfSim_Light_Mace    7908      
+10         WeapProfSim_Morningstar   7923      
+11         WeapProfSim_Shortspear    7927      
+12         WeapProfSim_Sickle        7929      
+13         WeapProfSim_Sling         7930      
+14         WeapProfSim_Katar         7945      
+15         WeapProfSim_Heavy_Mace    7946      
+16         WeapProfSim_Goad          7949      
+17         WeapProfSim_LightCrossbow 7951      
+18         WeapProfSim_HeavyCrossbow 7952      
+19         WeapProfSim_Quarterstaff  7953      
+20         WeapProfSim_Dagger        7954      
+21         WeapProfSim_Club          7955      
+22         ArmProfLgt                3         
+23         Shield                    32        

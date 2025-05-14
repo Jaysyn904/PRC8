@@ -26,6 +26,10 @@ void main()
     location lTarget = PRCGetSpellTargetLocation();
     int CasterLvl = GetInvokerLevel(oCaster, GetInvokingClass());
     int nPenetr = CasterLvl + SPGetPenetr();
+	int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	
+	if (GetHasFeat(FEAT_ABFOC_DEAFENING_ROAR, oCaster)) nDC += 2;		
+		
     float fDelay;
     effect eDeaf = EffectDeaf();
     effect eVis = EffectVisualEffect(VFX_IMP_BLIND_DEAF_M);

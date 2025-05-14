@@ -633,13 +633,21 @@ int GetDisciplineByManeuver(int nMoveId)
 
 int GetBladeMagicPRCLevels(object oInitiator)
 {
-    int nLevel = GetLevelByClass(CLASS_TYPE_DEEPSTONE_SENTINEL, oInitiator)
+    int nRace = GetRacialType(oInitiator);
+	
+	int nLevel = GetLevelByClass(CLASS_TYPE_DEEPSTONE_SENTINEL, oInitiator)
                + GetLevelByClass(CLASS_TYPE_BLOODCLAW_MASTER,   oInitiator)
                + GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR,    oInitiator)
                + GetLevelByClass(CLASS_TYPE_JADE_PHOENIX_MAGE,  oInitiator)
                + GetLevelByClass(CLASS_TYPE_MASTER_OF_NINE,     oInitiator)
                + GetLevelByClass(CLASS_TYPE_ETERNAL_BLADE,      oInitiator)
                + GetLevelByClass(CLASS_TYPE_SHADOW_SUN_NINJA,   oInitiator);
+			   
+	if (nRace == RACIAL_TYPE_RETH_DEKALA)
+	{
+		nLevel += GetLevelByClass(CLASS_TYPE_OUTSIDER, oInitiator);		
+	}
+		
 
     return nLevel;
 }

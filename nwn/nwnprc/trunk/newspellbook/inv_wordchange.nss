@@ -54,6 +54,8 @@ void main()
     object oTarget = PRCGetSpellTargetObject();
     int nCasterLvl = GetInvokerLevel(OBJECT_SELF, GetInvokingClass());
     int nDC = GetInvocationSaveDC(oTarget, oPC);
+	
+	if (GetHasFeat(FEAT_ABFOC_WORD_OF_CHANGING, oPC)) nDC += 2;
 
     if (GetIsDM(oTarget)) return;
 

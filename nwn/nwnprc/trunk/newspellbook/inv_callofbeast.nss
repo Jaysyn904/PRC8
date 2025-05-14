@@ -29,6 +29,10 @@ void main()
     nDuration = PRCGetScaledDuration(nDuration, oTarget);
     int nRacial = MyPRCGetRacialType(oTarget);
     int nPenetr = CasterLvl + SPGetPenetr();
+	int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	
+	if (GetHasFeat(FEAT_ABFOC_CALL_OF_THE_BEAST, OBJECT_SELF)) nDC += 2;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_CHARM);
     effect eCharm = PRCGetScaledEffect(EffectCharmed(), oTarget);
     effect eMind = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_NEGATIVE);
@@ -48,7 +52,7 @@ void main()
             if(nRacial == RACIAL_TYPE_ANIMAL)
             {
                 //Make Will Save
-                if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetInvocationSaveDC(oTarget, oCaster), SAVING_THROW_TYPE_MIND_SPELLS))
+                if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
                 {
                     //Apply impact effects and linked duration and charm effect
                     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration), TRUE, -1, CasterLvl);

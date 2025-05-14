@@ -30,6 +30,9 @@ void main()
     object oTarget = PRCGetSpellTargetObject();
     int nCasterLvl = GetInvokerLevel(OBJECT_SELF, GetInvokingClass());
     int nDC = GetInvocationSaveDC(oTarget, OBJECT_SELF, INVOKE_BALEFUL_UTTERANCE);
+	
+	if (GetHasFeat(FEAT_ABFOC_BALEFUL_UTTERANCE, OBJECT_SELF)) nDC += 2;
+		
     effect eVis = EffectVisualEffect(VFX_IMP_DESTRUCTION);
 
     if(GetIsObjectValid(oTarget))

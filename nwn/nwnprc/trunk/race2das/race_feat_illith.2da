@@ -1,11 +1,26 @@
 2DA V2.0
 
-  FeatLabel               FeatIndex 
-0 darkvision              228       
-1 Natural_Armor_3         4734      
-2 Spell_Resist_25         4708      
-3 WeaponProfCreature      289       
-4 FEAT_ILLITHID_CHARM     4669      
-5 FEAT_ILLITHID_BLAST     4670      
-6 FEAT_ILLITHID_SUCKBRAIN 4671      
-7 Race_Aberration         4722      
+           FeatLabel                 FeatIndex 
+0          darkvision                228       
+1          Natural_Armor_3           4734      
+2          Spell_Resist_25           4708      
+3          WeaponProfCreature        289       
+4          FEAT_ILLITHID_CHARM       4669      
+5          FEAT_ILLITHID_BLAST       4670      
+6          FEAT_ILLITHID_SUCKBRAIN   4671      
+7          Race_Aberration           4722      
+8          WeapProfSim               46        
+9          WeapProfSim_Dart          7914      
+10         WeapProfSim_Light_Mace    7908      
+11         WeapProfSim_Morningstar   7923      
+12         WeapProfSim_Shortspear    7927      
+13         WeapProfSim_Sickle        7929      
+14         WeapProfSim_Sling         7930      
+15         WeapProfSim_Katar         7945      
+16         WeapProfSim_Heavy_Mace    7946      
+17         WeapProfSim_Goad          7949      
+18         WeapProfSim_LightCrossbow 7951      
+19         WeapProfSim_HeavyCrossbow 7952      
+20         WeapProfSim_Quarterstaff  7953      
+21         WeapProfSim_Dagger        7954      
+22         WeapProfSim_Club          7955      

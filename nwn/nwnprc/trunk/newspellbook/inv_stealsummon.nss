@@ -19,6 +19,8 @@ void main()
     int CasterLvl = GetInvokerLevel(OBJECT_SELF, GetInvokingClass());
     CasterLvl += SPGetPenetr();
     int nDuration = CasterLvl + 1;
+	
+	if (GetHasFeat(FEAT_ABFOC_STEAL_SUMMONING, OBJECT_SELF)) CasterLvl += 2;	
 
     //does the creature have a master.
     oMaster = GetMaster(oTarget);

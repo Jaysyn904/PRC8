@@ -1878,7 +1878,7 @@ int WarlockFeats()
           || GetHasInvocation(INVOKE_PENETRATING_BLAST)
           || GetHasInvocation(INVOKE_VITRIOLIC_BLAST))
         // Lesser essences
-        || !(GetHasInvocation(INVOKE_BANEFUL_BLAST_ABBERATION)
+        || !(GetHasInvocation(INVOKE_BANEFUL_BLAST_ABERRATION)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_BEAST)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_CONSTRUCT)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_DRAGON)
@@ -1891,7 +1891,7 @@ int WarlockFeats()
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_GNOME)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_HALFLING)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_HUMAN)
-          || GetHasInvocation(INVOKE_BANEFUL_BLAST_MONSTEROUS)
+          || GetHasInvocation(INVOKE_BANEFUL_BLAST_MONSTROUS)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_ORC)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_OUTSIDER)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_PLANT)
@@ -2432,15 +2432,31 @@ int ToB()
         FloatingTextStringOnCreature("You must have weapon focus in the quarterstaff to take Quick Staff", OBJECT_SELF, FALSE);
         return TRUE;    
     } 
-    
-    if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > !GetLevelByClass(CLASS_TYPE_RANGER))
+   
+	int nRangerLevel = GetLevelByClass(CLASS_TYPE_RANGER);
+	int nSamuraiLevel = GetLevelByClass(CLASS_TYPE_CW_SAMURAI);
+	int nTempestLevel = GetLevelByClass(CLASS_TYPE_TEMPEST);
+
+	if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING)
+		&& !GetHasFeat(FEAT_AMBIDEXTERITY)
+		&& !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING)
+		&& nTempestLevel == 0
+		&& nRangerLevel < 9
+		&& nSamuraiLevel < 11)
+	{
+		FloatingTextStringOnCreature("You must have ambidexterity to take Improved Two Weapon Fighting", OBJECT_SELF, FALSE);
+		return TRUE;
+	}   
+	
+/*     if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && !GetHasFeat(FEAT_AMBIDEXTERITY) && !GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) 
+														&& !GetLevelByClass(CLASS_TYPE_TEMPEST) && 9 > !GetLevelByClass(CLASS_TYPE_RANGER) && 11 > !GetLevelByClass(CLASS_TYPE_CW_SAMURAI))
     {
         FloatingTextStringOnCreature("You must have ambidexterity to take Improved Two Weapon Fighting", OBJECT_SELF, FALSE);
         return TRUE;    
-    } 
+    }  */
 
 	if (GetHasFeat(FEAT_IMPROVED_TWO_WEAPON_FIGHTING) && GetPRCSwitch(PRC_35_TWO_WEAPON_FIGHTING) && 17 > GetAbilityScore(OBJECT_SELF, ABILITY_DEXTERITY, TRUE) && !GetLevelByClass(CLASS_TYPE_TEMPEST) &&
-		GetLevelByClass(CLASS_TYPE_RANGER) < 9)
+		GetLevelByClass(CLASS_TYPE_RANGER) < 9 && GetLevelByClass(CLASS_TYPE_CW_SAMURAI) < 11)
 	{
 		FloatingTextStringOnCreature("You must have 17 Dexterity to take Improved Two Weapon Fighting under 3.5 rules", OBJECT_SELF, FALSE);
 		return TRUE;    

@@ -36,6 +36,9 @@ void main()
     object oCaster = GetAreaOfEffectCreator();
     int nCasterLvl = GetInvokerLevel(oCaster, CLASS_TYPE_WARLOCK);
     int nDC = GetInvocationSaveDC(oTarget, oCaster, INVOKE_MIASMIC_CLOUD);
+	
+	if (GetHasFeat(FEAT_ABFOC_MIASMIC_CLOUD, oCaster)) nDC += 2;
+	
     effect eConceal = EffectConcealment(20);
     effect eDex = EffectAbilityDecrease(ABILITY_DEXTERITY, 2);
     effect eStr = EffectAbilityDecrease(ABILITY_STRENGTH, 2);

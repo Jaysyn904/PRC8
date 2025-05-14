@@ -510,6 +510,50 @@ void DoEquipThinblade(object oPC, object oItem, int nHand)
 //handles the feat chain for Elven Courtblades
 void DoEquipCourtblade(object oPC, object oItem, int nHand)
 {
+    // Check if the PC qualifies with Greatsword feats
+    if (GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD, oPC))
+    {
+        // Weapon Focus: Elven Courtblade
+        effect eWF = EffectBonusFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE);
+        TagEffect(eWF, "EFF_CB_WF");
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eWF, oPC);
+
+        // Epic Weapon Focus: Elven Courtblade
+        if (GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_GREATSWORD, oPC))
+        {
+            effect eEpicWF = EffectBonusFeat(FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE);
+            TagEffect(eEpicWF, "EFF_CB_EPICWF");
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEpicWF, oPC);
+        }
+
+        // Weapon Specialization: Elven Courtblade
+        if (GetHasFeat(FEAT_WEAPON_SPECIALIZATION_GREAT_SWORD, oPC))
+        {
+            effect eWS = EffectBonusFeat(FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
+            TagEffect(eWS, "EFF_CB_WS");
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eWS, oPC);
+
+            // Epic Weapon Specialization: Elven Courtblade
+            if (GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_GREATSWORD, oPC))
+            {
+                effect eEpicWS = EffectBonusFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
+                TagEffect(eEpicWS, "EFF_CB_EPICWS");
+                ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEpicWS, oPC);
+            }
+        }
+    }
+
+    // Improved Critical: Elven Courtblade
+    if (GetHasFeat(FEAT_IMPROVED_CRITICAL_GREAT_SWORD, oPC))
+    {
+        effect eICrit = EffectBonusFeat(FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE);
+        TagEffect(eICrit, "EFF_CB_ICRIT");
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eICrit, oPC);
+    }
+}
+
+/* void DoEquipCourtblade(object oPC, object oItem, int nHand)
+{
     if(GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD, oPC))
     {
         SetCompositeAttackBonus(oPC, "CourtbladeWF" + IntToString(nHand), 1, nHand);
@@ -524,7 +568,7 @@ void DoEquipCourtblade(object oPC, object oItem, int nHand)
     }
     if(GetHasFeat(FEAT_IMPROVED_CRITICAL_GREAT_SWORD, oPC))
         IPSafeAddItemProperty(oItem, ItemPropertyKeen(), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-}
+} */
 
 //clears any bonuses used to simulate feat chains on unequip
 void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
@@ -673,6 +717,7 @@ void DoProficiencyCheck(object oPC, object oItem, int nHand)
 	}	
 }
  */
+
 void DoWeaponEquip(object oPC, object oItem, int nHand)
 {
     if(GetIsDM(oPC) || !GetIsWeapon(oItem)) return;

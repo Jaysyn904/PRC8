@@ -1,4 +1,20 @@
 2DA V2.0
 
-  FeatLabel  FeatIndex 
-0 Race_Human 4715      
+           FeatLabel                 FeatIndex 
+0          Race_Human                4715      
+1          WeapProfSim               46        
+2          WeapProfSim_Dart          7914      
+3          WeapProfSim_Light_Mace    7908      
+4          WeapProfSim_Morningstar   7923      
+5          WeapProfSim_Shortspear    7927      
+6          WeapProfSim_Sickle        7929      
+7          WeapProfSim_Sling         7930      
+8          WeapProfSim_Katar         7945      
+9          WeapProfSim_Heavy_Mace    7946      
+10         WeapProfSim_Goad          7949      
+11         WeapProfSim_LightCrossbow 7951      
+12         WeapProfSim_HeavyCrossbow 7952      
+13         WeapProfSim_Quarterstaff  7953      
+14         WeapProfSim_Dagger        7954      
+15         WeapProfSim_Club          7955      
+16         WeapProfMar_Shortsword    7901      

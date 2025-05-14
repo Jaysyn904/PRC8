@@ -60,6 +60,9 @@ void main()
 
                 //nDamage += ApplySpellBetrayalStrikeDamage(oTarget, OBJECT_SELF, FALSE);
                 int nDC = GetInvocationSaveDC(oTarget, oCaster, INVOKE_WALL_OF_PERILOUS_FLAME);
+				
+				if (GetHasFeat(FEAT_ABFOC_WALL_OF_PERILOUS_FLAME, oCaster)) nDC += 2;
+				
                 nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, SAVING_THROW_TYPE_FIRE);
 
                 if(nDamage > 0)

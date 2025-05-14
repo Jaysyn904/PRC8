@@ -27,6 +27,8 @@ void main()
     object oTarget = PRCGetSpellTargetObject();
     int nCasterLvl = GetInvokerLevel(oPC, GetInvokingClass());
     int nDC = GetInvocationSaveDC(oTarget, oPC);
+	
+	if (GetHasFeat(FEAT_ABFOC_DREAD_SEIZURE, oPC)) nDC += 2;	
 
     if(!GetIsReactionTypeFriendly(oTarget))
     {

@@ -31,6 +31,10 @@ void main()
     int nDuration = CasterLvl;
     int nPenetr = CasterLvl + SPGetPenetr();
     int nRacial = MyPRCGetRacialType(oTarget);
+	int nDC = GetInvocationSaveDC(oTarget, oCaster);
+	
+	if (GetHasFeat(FEAT_ABFOC_CHARM, oCaster)) nDC += 2;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_CHARM);
     effect eCharm = EffectDominated();  //EffectDominated is limited to 1 creature at a time
     effect eMind = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_NEGATIVE);
@@ -51,7 +55,7 @@ void main()
         if (!PRCDoResistSpell(oCaster, oTarget, nPenetr))
         {
             // Make Will save vs Mind-Affecting
-            if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, GetInvocationSaveDC(oTarget, oCaster), SAVING_THROW_TYPE_MIND_SPELLS))
+            if (!/*Will Save*/ PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
             {
                 //Apply impact and linked effect
                 SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, HoursToSeconds(nDuration * 24), TRUE, -1, CasterLvl);

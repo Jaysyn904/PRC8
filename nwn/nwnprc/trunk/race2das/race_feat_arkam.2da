@@ -1,15 +1,23 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 LowLightVision  354
-1 Natural_Armor_2 4761      
-2 Race_Monstrous  4720      
-19 WeapProfSim              46        
-20 WeapProfSim_Dart         7914      
-21 WeapProfSim_Light_Mace   7908      
-22 WeapProfSim_Morningstar  7923      
-23 WeapProfSim_Shortspear   7927      
-24 WeapProfSim_Sickle       7929      
-25 WeapProfSim_Sling        7930  
-27 SpellResist10            4420 
-4 Arcanemastermind          5424
+           FeatLabel                 FeatIndex 
+0          LowLightVision            354       
+1          Natural_Armor_2           4761      
+2          Race_Monstrous            4720      
+3          SpellResist10             4420      
+4          Arcanemastermind          5424      
+5          WeapProfSim               46        
+6          WeapProfSim_Dart          7914      
+7          WeapProfSim_Light_Mace    7908      
+8          WeapProfSim_Morningstar   7923      
+9          WeapProfSim_Shortspear    7927      
+10         WeapProfSim_Sickle        7929      
+11         WeapProfSim_Sling         7930      
+12         WeapProfSim_Katar         7945      
+13         WeapProfSim_Heavy_Mace    7946      
+14         WeapProfSim_Goad          7949      
+15         WeapProfSim_LightCrossbow 7951      
+16         WeapProfSim_HeavyCrossbow 7952      
+17         WeapProfSim_Quarterstaff  7953      
+18         WeapProfSim_Dagger        7954      
+19         WeapProfSim_Club          7955      

@@ -1,11 +1,26 @@
 2DA V2.0
 
-  FeatLabel       FeatIndex 
-0 Wild_Empathy    4778      
-1 Fey_DR          4587      
-2 Lowlight_Vision 354       
-3 Unearthly_Grace 4593      
-4 Stunning_Glance 4684      
-5 Blinding_Beauty 4685      
-6 Dimension_Door  4755      
-7 Race_Fey        4718      
+           FeatLabel                 FeatIndex 
+0          Wild_Empathy              4778      
+1          Fey_DR                    4587      
+2          Lowlight_Vision           354       
+3          Unearthly_Grace           4593      
+4          Stunning_Glance           4684      
+5          Blinding_Beauty           4685      
+6          Dimension_Door            4755      
+7          Race_Fey                  4718      
+8          WeapProfSim               46        
+9          WeapProfSim_Dart          7914      
+10         WeapProfSim_Light_Mace    7908      
+11         WeapProfSim_Morningstar   7923      
+12         WeapProfSim_Shortspear    7927      
+13         WeapProfSim_Sickle        7929      
+14         WeapProfSim_Sling         7930      
+15         WeapProfSim_Katar         7945      
+16         WeapProfSim_Heavy_Mace    7946      
+17         WeapProfSim_Goad          7949      
+18         WeapProfSim_LightCrossbow 7951      
+19         WeapProfSim_HeavyCrossbow 7952      
+20         WeapProfSim_Quarterstaff  7953      
+21         WeapProfSim_Dagger        7954      
+22         WeapProfSim_Club          7955      

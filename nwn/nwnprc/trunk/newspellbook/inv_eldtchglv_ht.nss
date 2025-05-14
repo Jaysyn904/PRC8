@@ -36,6 +36,8 @@ void main()
     nBlastLvl = PRCMax(PRCMax(nEssenceData & 0xF, nEssenceData2 & 0xF), nBlastLvl);
     int nDC = 10 + nBlastLvl + GetAbilityModifier(ABILITY_CHARISMA);
     if(GetHasFeat(FEAT_LORD_OF_ALL_ESSENCES)) nDC += 2;
+	
+	nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
     int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
     int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;

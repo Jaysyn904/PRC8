@@ -1,9 +1,28 @@
 2DA V2.0
 
-     FeatLabel         FeatIndex 
-0    darkvision        228       
-1    SnakeBlood        386       
-2    skillaffinityspot 239       
-3    Innate_Resistence 2004      
-4    Yuan_Charm        2011      
-5    FEAT_MONSTEROUS   4720      
+           FeatLabel                 FeatIndex 
+0          darkvision                228       
+1          SnakeBlood                386       
+2          skillaffinityspot         239       
+3          Innate_Resistence         2004      
+4          Yuan_Charm                2011      
+5          FEAT_MONSTEROUS           4720      
+6          WeapProfSim               46        
+7          WeapProfSim_Dart          7914      
+8          WeapProfSim_Light_Mace    7908      
+9          WeapProfSim_Morningstar   7923      
+10         WeapProfSim_Shortspear    7927      
+11         WeapProfSim_Sickle        7929      
+12         WeapProfSim_Sling         7930      
+13         WeapProfSim_Katar         7945      
+14         WeapProfSim_Heavy_Mace    7946      
+15         WeapProfSim_Goad          7949      
+16         WeapProfSim_LightCrossbow 7951      
+17         WeapProfSim_HeavyCrossbow 7952      
+18         WeapProfSim_Quarterstaff  7953      
+19         WeapProfSim_Dagger        7954      
+20         WeapProfSim_Club          7955      
+21         WeapProfMar_Longbow       7907      
+22         WeapProfMar_Scimitar      7925      
+23         ArmProfLgt                3         
+24         Shield                    32        

@@ -1,16 +1,16 @@
 2DA V2.0
 
-           LABEL             ReqType ReqParam1         ReqParam2 
-0          BlindFight        FEAT    408               ****      
-1          Dodge             FEAT    10                ****      
-2          Mobility          FEAT    26                ****      
-3          SpringAttack      FEAT    392               ****      
-4          Lore              SKILL   7                 2         
-5          Hide              SKILL   5                 10        
-6          MoveSilently      SKILL   8                 10        
-7          MidnightDodge     FEATOR  8885              ****      
-8          ExpeditiousDodge  FEATOR  5202              ****      
-9          Desert_Wind_Dodge FEATOR  4179              ****      
-10         ScriptVar         VAR     PRC_AllowShaLow   0         
-11         ScriptVar         VAR     PRC_PrereqTelflam 0         
-12         ScriptVar         VAR     PRC_SneakLevel2   0         
+   LABEL             ReqType ReqParam1         ReqParam2 
+0  BlindFight        FEAT    408               ****      
+1  Dodge             FEATOR  10                ****      
+2  Mobility          FEAT    26                ****      
+3  SpringAttack      FEAT    392               ****      
+4  Lore              SKILL   7                 2         
+5  Hide              SKILL   5                 10        
+6  MoveSilently      SKILL   8                 10        
+7  MidnightDodge     FEATOR  8885              ****      
+8  ExpeditiousDodge  FEATOR  5202              ****      
+9  Desert_Wind_Dodge FEATOR  4179              ****      
+10 ScriptVar         VAR     PRC_AllowShaLow   0         
+11 ScriptVar         VAR     PRC_PrereqTelflam 0         
+12 ScriptVar         VAR     PRC_SneakLevel2   0         
