@@ -7,6 +7,7 @@
 #include "inc_nwnx_funcs"
 #include "moi_inc_moifunc"
 #include "prc_inc_combmove"
+#include "nw_inc_gff"
 
 void main()
 {
