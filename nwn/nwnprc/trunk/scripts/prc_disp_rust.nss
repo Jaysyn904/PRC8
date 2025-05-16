@@ -28,21 +28,34 @@ int IsItemMetal(object oItem)
      ||type==BASE_ITEM_DAGGER
      ||type==BASE_ITEM_DIREMACE
      ||type==BASE_ITEM_DOUBLEAXE
+	 ||type==BASE_ITEM_DOUBLE_SCIMITAR
      ||type==BASE_ITEM_DWARVENWARAXE
+	 ||type==BASE_ITEM_EAGLE_CLAW
+	 ||type==BASE_ITEM_ELVEN_LIGHTBLADE
+	 ||type==BASE_ITEM_ELVEN_THINBLADE
+	 ||type==BASE_ITEM_ELVEN_COURTBLADE
+	 ||type==BASE_ITEM_FALCHION
+	 ||type==BASE_ITEM_GOAD	
      ||type==BASE_ITEM_GREATAXE
      ||type==BASE_ITEM_GREATSWORD
      ||type==BASE_ITEM_HALBERD
      ||type==BASE_ITEM_HANDAXE
      ||type==BASE_ITEM_HEAVYFLAIL
+	 ||type==BASE_ITEM_HEAVY_MACE
+	 ||type==BASE_ITEM_MAUL
+	 ||type==BASE_ITEM_HEAVY_PICK
+	 ||type==BASE_ITEM_KATAR
      ||type==BASE_ITEM_KAMA
      ||type==BASE_ITEM_KATANA
      ||type==BASE_ITEM_KUKRI
      ||type==BASE_ITEM_LIGHTFLAIL
      ||type==BASE_ITEM_LIGHTHAMMER
      ||type==BASE_ITEM_LIGHTMACE
+	 ||type==BASE_ITEM_LIGHT_PICK
      ||type==BASE_ITEM_LONGSWORD
      ||type==BASE_ITEM_MORNINGSTAR
      ||type==BASE_ITEM_RAPIER
+	 ||type==BASE_ITEM_SAI
      ||type==BASE_ITEM_SCIMITAR
      ||type==BASE_ITEM_SCYTHE
      ||type==BASE_ITEM_SHORTSWORD

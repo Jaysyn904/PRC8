@@ -702,6 +702,7 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
       case BASE_ITEM_TRIDENT:	  
       case BASE_ITEM_THROWINGAXE:
 	  case BASE_ITEM_SCYTHE:
+	  case BASE_ITEM_SAP:
 	  case BASE_ITEM_MAUL:
 	  case BASE_ITEM_FALCHION:
 	  case BASE_ITEM_HEAVY_PICK:

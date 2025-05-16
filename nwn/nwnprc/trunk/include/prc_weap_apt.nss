@@ -19,6 +19,9 @@ const string OPTION_CRITICAL_WEAPON_2    = "PRC_WEAPAPT_CRITICAL_2";
 
 const string WEAPON_FILE = "prc_weap_items";
 
+//:: Test void
+//:: void main (){}
+
 int GetFeatItemProperty(int nFeatNumber, int nStart, int nEnd)
 {
     if (nFeatNumber >= 0)
@@ -42,15 +45,41 @@ int GetWeaponFocusFeatItemProperty(int nFeatNumber)
     int nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_CLUB, IP_CONST_FEAT_WEAPON_FOCUS_RAY);
     if(nItemProperty != -1) return nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WeapFocCreature, IP_CONST_FEAT_WeapFocCreature);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_TRIDENT, IP_CONST_FEAT_WEAPON_FOCUS_TRIDENT);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_LIGHT_LANCE, IP_CONST_FEAT_WEAPON_FOCUS_GOAD);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_EAGLE_CLAW, IP_CONST_FEAT_WEAPON_FOCUS_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_THINBLADE, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WeapFocCreature, IP_CONST_FEAT_WeapFocCreature);
+    if(nItemProperty != -1) return nItemProperty;		
     return -1;
 }
 
 int GetEpicWeaponFocusFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_CLUB, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_RAY);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_TRIDENT, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_TRIDENT);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_EAGLE_CLAW, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_CLUB, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_RAY);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_LIGHT_LANCE, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_GOAD);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_LIGHTBLADE, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_THINBLADE, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE, IP_CONST_FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WeapEpicFocCreature, IP_CONST_FEAT_WeapEpicFocCreature);
     if(nItemProperty != -1) return nItemProperty;
     return -1;
 }
@@ -60,6 +89,18 @@ int GetWeaponSpecializationFeatItemProperty(int nFeatNumber)
     int nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_CLUB, IP_CONST_FEAT_WEAPON_SPECIALIZATION_MINDBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_TRIDENT, IP_CONST_FEAT_WEAPON_SPECIALIZATION_TRIDENT);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_EAGLE_CLAW, IP_CONST_FEAT_WEAPON_SPECIALIZATION_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_LIGHT_LANCE, IP_CONST_FEAT_WEAPON_SPECIALIZATION_GOAD);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_THINBLADE, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+	nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE, IP_CONST_FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;		
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WeapSpecCreature, IP_CONST_FEAT_WeapSpecCreature);
     if(nItemProperty != -1) return nItemProperty;
     return -1;
@@ -68,8 +109,18 @@ int GetWeaponSpecializationFeatItemProperty(int nFeatNumber)
 int GetEpicWeaponSpecializationFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_CLUB, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_MINDBLADE);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_EAGLE_CLAW, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_TRIDENT, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_TRIDENT);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_LIGHT_LANCE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_GOAD);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_THINBLADE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WeapEpicSpecCreature, IP_CONST_FEAT_WeapEpicSpecCreature);
     if(nItemProperty != -1) return nItemProperty;
     return -1;
@@ -80,6 +131,18 @@ int GetImprovedCriticalFeatItemProperty(int nFeatNumber)
     int nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_DAGGER, IP_CONST_FEAT_IMPROVED_CRITICAL_MINDBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_LIGHT_LANCE, IP_CONST_FEAT_IMPROVED_CRITICAL_GOAD);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_LIGHTBLADE, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_THINBLADE, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE, IP_CONST_FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_EAGLE_CLAW, IP_CONST_FEAT_IMPROVED_CRITICAL_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_TRIDENT, IP_CONST_FEAT_IMPROVED_CRITICAL_TRIDENT);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_ImpCritCreature, IP_CONST_FEAT_ImpCritCreature);
     if(nItemProperty != -1) return nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_IMPROVED_CRITICAL_UNARMED, IP_CONST_FEAT_IMPROVED_CRITICAL_UNARMED);
@@ -90,8 +153,20 @@ int GetImprovedCriticalFeatItemProperty(int nFeatNumber)
 int GetOverwhelmingCriticalFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_CLUB, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_MINDBLADE);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_TRIDENT, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_TRIDENT);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_EAGLE_CLAW, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_CLUB, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_MINDBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_LIGHT_LANCE, IP_CONST_FEAT_EPIC_OVERWHELMING_CRITICAL_GOAD);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_LIGHTBLADE, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_THINBLADE, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_COURTBLADE, IP_CONST_FEAT_OVERWHELMING_CRITICAL_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_OVERCRITICAL_CREATURE, IP_CONST_FEAT_OVERCRITICAL_CREATURE);
     if(nItemProperty != -1) return nItemProperty;
     return -1;
@@ -100,8 +175,20 @@ int GetOverwhelmingCriticalFeatItemProperty(int nFeatNumber)
 int GetDevastatingCriticalFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_CLUB, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_MINDBLADE);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_TRIDENT, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_TRIDENT);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_EAGLE_CLAW, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_LIGHT_LANCE, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_MINDBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_LIGHTBLADE, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_THINBLADE, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_COURTBLADE, IP_CONST_FEAT_DEVASTATING_CRITICAL_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_CLUB, IP_CONST_FEAT_EPIC_DEVASTATING_CRITICAL_MINDBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_DEVCRITICAL_CREATURE, IP_CONST_FEAT_DEVCRITICAL_CREATURE);
     if(nItemProperty != -1) return nItemProperty;
     return -1;
@@ -110,8 +197,21 @@ int GetDevastatingCriticalFeatItemProperty(int nFeatNumber)
 int GetWeaponOfChoiceFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_TRIDENT, IP_CONST_FEAT_WEAPON_OF_CHOICE_TRIDENT);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_EAGLE_CLAW, IP_CONST_FEAT_WEAPON_OF_CHOICE_EAGLE_CLAW);
+    if(nItemProperty != -1) return nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_SICKLE, IP_CONST_FEAT_WEAPON_OF_CHOICE_MINDBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_LIGHT_LANCE, IP_CONST_FEAT_WEAPON_OF_CHOICE_GOAD);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_LIGHTBLADE, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_LIGHTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_THINBLADE, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_THINBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_COURTBLADE, IP_CONST_FEAT_WEAPON_OF_CHOICE_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;
+	
     return -1;
 }
 
@@ -120,6 +220,8 @@ int GetSanctifyMartialStrikeFeatItemProperty(int nFeatNumber)
     int nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_SANCTIFY_MARTIAL_SICKLE, IP_CONST_FEAT_SANCTIFY_MARTIAL_MINDBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_SANCTIFY_MARTIAL_EAGLE_CLAW, IP_CONST_FEAT_SANCTIFY_MARTIAL_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     return -1;
 }
 
@@ -128,8 +230,11 @@ int GetVileMartialStrikeFeatItemProperty(int nFeatNumber)
     int nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_CLUB, IP_CONST_FEAT_VILE_MARTIAL_MINDBLADE);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_EAGLE_CLAW, IP_CONST_FEAT_VILE_MARTIAL_ELVEN_COURTBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     return -1;
 }
+
 struct WeaponFeat TakeWeaponFeatCensus(object oPC)
 {
     struct WeaponFeat rWeaponFeatCensus = InitWeaponFeat(0);

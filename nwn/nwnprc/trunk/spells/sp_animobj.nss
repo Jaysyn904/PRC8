@@ -27,6 +27,11 @@ int GetWeaponAnimateSize(object oTarget)
         case BASE_ITEM_GREATSWORD:
         case BASE_ITEM_HALBERD:
         case BASE_ITEM_SCYTHE:
+        case BASE_ITEM_LIGHT_LANCE:
+        case BASE_ITEM_FALCHION:	
+		case BASE_ITEM_MAUL:	
+        case BASE_ITEM_DOUBLE_SCIMITAR:	
+        case BASE_ITEM_ELVEN_COURTBLADE:			
             return SIZE_MEDIUM;
             break;
         case BASE_ITEM_DWARVENWARAXE:
@@ -49,6 +54,17 @@ int GetWeaponAnimateSize(object oTarget)
         case BASE_ITEM_SICKLE:
         case BASE_ITEM_WARHAMMER:
         case BASE_ITEM_WHIP:
+		case BASE_ITEM_HEAVY_PICK:
+		case BASE_ITEM_LIGHT_PICK:
+		case BASE_ITEM_SAI:
+		case BASE_ITEM_NUNCHAKU:
+		case BASE_ITEM_SAP:
+		case BASE_ITEM_KATAR:
+		case BASE_ITEM_HEAVY_MACE:
+		case BASE_ITEM_GOAD:
+		case BASE_ITEM_EAGLE_CLAW:		
+		case BASE_ITEM_ELVEN_LIGHTBLADE:
+		case BASE_ITEM_ELVEN_THINBLADE:		
             return SIZE_SMALL;
             break;
     }
@@ -121,6 +137,21 @@ int GetIsValidAnimate(object oTarget)
         case BASE_ITEM_TWOBLADEDSWORD:
         case BASE_ITEM_WARHAMMER:
         case BASE_ITEM_WHIP:
+		case BASE_ITEM_SAP:
+		case BASE_ITEM_MAUL:
+		case BASE_ITEM_FALCHION:
+		case BASE_ITEM_HEAVY_PICK:
+		case BASE_ITEM_LIGHT_PICK:
+		case BASE_ITEM_LIGHT_LANCE:		
+		case BASE_ITEM_NUNCHAKU:	
+		case BASE_ITEM_KATAR:	
+		case BASE_ITEM_HEAVY_MACE:	
+		case BASE_ITEM_DOUBLE_SCIMITAR:	
+		case BASE_ITEM_GOAD:	
+		case BASE_ITEM_EAGLE_CLAW:	
+		case BASE_ITEM_ELVEN_LIGHTBLADE:	
+		case BASE_ITEM_ELVEN_THINBLADE:	
+		case BASE_ITEM_ELVEN_COURTBLADE:	
             return TRUE;
             break;
         default:

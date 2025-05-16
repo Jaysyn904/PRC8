@@ -1744,7 +1744,176 @@ struct WeaponFeat GetAllFeatsOfWeaponType(int iWeaponType)
             sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_WHIP;
             break;
         }
-        // If the feat is blank when we get here, do a lookup series 
+        case BASE_ITEM_DOUBLE_SCIMITAR: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_DOUBLE_SCIMITAR;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_DBL_SCIMITAR;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_DBL_SCIMITAR;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_DBL_SCIMITAR;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_DBL_SCIMITAR;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_DBL_SCIMITAR;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_DBL_SCIMITAR;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_DBL_SCIMITAR;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_DBL_SCIMITAR;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_DBL_SCIMITAR;
+            break;
+        }
+        case BASE_ITEM_EAGLE_CLAW: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_EAGLE_CLAW;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_EAGLE_CLAW;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_EAGLE_CLAW;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_EAGLE_CLAW;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_EAGLE_CLAW;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_EAGLE_CLAW;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_EAGLE_CLAW;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_EAGLE_CLAW;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_EAGLE_CLAW;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_EAGLE_CLAW;
+            break;
+        }		
+        case BASE_ITEM_ELVEN_COURTBLADE: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_ELVEN_COURTBLADE;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_ELVEN_COURTBLADE;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_ELVEN_COURTBLADE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_ELVEN_COURTBLADE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_ELVEN_COURTBLADE;
+            break;
+        }	
+        case BASE_ITEM_ELVEN_THINBLADE: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_ELVEN_THINBLADE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_ELVEN_THINBLADE;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_ELVEN_THINBLADE;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_THINBLADE;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_ELVEN_THINBLADE;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_ELVEN_THINBLADE;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_ELVEN_THINBLADE;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_ELVEN_THINBLADE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_ELVEN_THINBLADE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_ELVEN_THINBLADE;
+            break;
+        }	
+        case BASE_ITEM_ELVEN_LIGHTBLADE: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_ELVEN_LIGHTBLADE;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_ELVEN_LIGHTBLADE;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_ELVEN_LIGHTBLADE;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_ELVEN_LIGHTBLADE;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_ELVEN_LIGHTBLADE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_ELVEN_LIGHTBLADE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_ELVEN_LIGHTBLADE;
+            break;
+        }			
+        case BASE_ITEM_FALCHION: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_FALCHION;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_FALCHION;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_FALCHION;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_FALCHION;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_FALCHION;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_FALCHION;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_FALCHION;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_FALCHION;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_FALCHION;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_FALCHION;
+            break;
+        }
+        case BASE_ITEM_GOAD: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_GOAD;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_GOAD;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_GOAD;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_GOAD;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_GOAD;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_GOAD;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_GOAD;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_GOAD;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_GOAD;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_GOAD;
+            break;
+        }
+        case BASE_ITEM_HEAVY_MACE: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_HEAVY_MACE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_HEAVY_MACE;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_HEAVY_MACE;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_HEAVY_MACE;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_HEAVY_MACE;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_HEAVY_MACE;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_HEAVY_MACE;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_HEAVY_MACE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_HEAVY_MACE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_HEAVY_MACE;
+            break;
+        }
+        case BASE_ITEM_HEAVY_PICK: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_HEAVY_PICK;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_HEAVY_PICK;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_HEAVY_PICK;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_HEAVY_PICK;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_HEAVY_PICK;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_HEAVY_PICK;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_HEAVY_PICK;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_HEAVY_PICK;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_HEAVY_PICK;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_HEAVY_PICK;
+            break;
+        }		
+        case BASE_ITEM_KATAR: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_LIGHT_LANCE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_KATAR;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_KATAR;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_KATAR;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_KATAR;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_KATAR;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_KATAR;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_KATAR;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_KATAR;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_KATAR;
+            break;
+        }
+        case BASE_ITEM_LIGHT_LANCE: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_LIGHT_LANCE;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_LIGHT_LANCE;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_LIGHT_LANCE;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_LIGHT_LANCE;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_LIGHT_LANCE;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_LIGHT_LANCE;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_LIGHT_LANCE;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_LIGHT_LANCE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_LIGHT_LANCE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_LIGHT_LANCE;
+            break;
+        }
+        case BASE_ITEM_LIGHT_PICK: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_LIGHT_PICK;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_LIGHT_PICK;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_LIGHT_PICK;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_LIGHT_PICK;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_LIGHT_PICK;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_LIGHT_PICK;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_LIGHT_PICK;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_LIGHT_PICK;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_LIGHT_PICK;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_LIGHT_PICK;
+            break;
+        }
+        case BASE_ITEM_MAUL: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_MAUL;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_MAUL;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_MAUL;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_MAUL;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_MAUL;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_MAUL;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_MAUL;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_MAUL;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_MAUL;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_MAUL;
+            break;
+        }		
+		// If the feat is blank when we get here, do a lookup series 
 		if (!sFeat.Focus)
        	{
             sFeat.Focus = StringToInt(Get2DACache("baseitems", "WeaponFocusFeat", iWeaponType));

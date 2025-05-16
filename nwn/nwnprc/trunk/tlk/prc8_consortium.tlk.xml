@@ -73429,7 +73429,7 @@ A character can gain this feat multiple times. Its effects do not stack. Each ti
   <entry id="202059" lang="en" sex="m">Ability Focus (Eldritch Doom)</entry>
   <entry id="202060" lang="en" sex="m">Ability Focus (Incarnum Shroud)</entry>
   <entry id="202061" lang="en" sex="m">Ability Focus (Steal Summoning)</entry>
-  <entry id="202062" lang="en" sex="m">Ability Focus (Eldritch Blast)</entry>  
+  <entry id="202062" lang="en" sex="m">Ability Focus (Eldritch Blast)</entry>
   <entry id="202063" lang="en" sex="m">Ability Focus (Word of Changing)</entry>
   <entry id="204999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="205000" lang="en" sex="m">Epic Eye of Gruumsh</entry>
@@ -74317,7 +74317,7 @@ Combat Sense: the epic Knight of the Middle Circle's Combat Sense continues to i
 Spellcasting: At each even level the epic Knight of the Middle Circle continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Knight of the Middle Circle Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Improved Combat Casting, Improved Stunning Fist, Improved Whirlwind Attack Overwhelming Critical, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Combat Casting, Improved Stunning Fist, Improved Whirlwind Attack, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative.</entry>
   <entry id="205138" lang="en" sex="m">Epic Spirit Shaman</entry>
   <entry id="205139" lang="en" sex="m">Epic Spirit Shaman Description - PLACEHOLDER</entry>
   <entry id="205140" lang="en" sex="m">Epic Hospitaler</entry>
@@ -74881,6 +74881,40 @@ Epic Diamond Dragon Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
+  <entry id="210999" lang="en" sex="m">## Vile Martial Strike Expansion ##</entry>
+  <entry id="211000" lang="en" sex="m">Vile Martial Strike (Eagle Claw)</entry>
+  <entry id="211001" lang="en" sex="m">Vile Martial Strike (Light Lance)</entry>
+  <entry id="211002" lang="en" sex="m">Vile Martial Strike (Heavy Pick)</entry>
+  <entry id="211003" lang="en" sex="m">Vile Martial Strike (Light Pick)</entry>
+  <entry id="211004" lang="en" sex="m">Vile Martial Strike (Sai)</entry>
+  <entry id="211005" lang="en" sex="m">Vile Martial Strike (Nunchaku)</entry>
+  <entry id="211006" lang="en" sex="m">Vile Martial Strike (Falchion)</entry>
+  <entry id="211007" lang="en" sex="m">Vile Martial Strike (Sap)</entry>
+  <entry id="211008" lang="en" sex="m">Vile Martial Strike (Katar)</entry>
+  <entry id="211009" lang="en" sex="m">Vile Martial Strike (Heavy Mace)</entry>
+  <entry id="211010" lang="en" sex="m">Vile Martial Strike (Maul)</entry>
+  <entry id="211011" lang="en" sex="m">Vile Martial Strike (Double Scimitar)</entry>
+  <entry id="211012" lang="en" sex="m">Vile Martial Strike (Goad)</entry>
+  <entry id="211013" lang="en" sex="m">Vile Martial Strike (Elven Lightblade)</entry>
+  <entry id="211014" lang="en" sex="m">Vile Martial Strike (Elven Thinblade)</entry>
+  <entry id="211015" lang="en" sex="m">Vile Martial Strike (Elven Courtblade)</entry>
+  <entry id="211050" lang="en" sex="m">## Sanctify Martial Strike Expansion ##</entry>
+  <entry id="211051" lang="en" sex="m">Sanctify Martial Strike (Eagle Claw)</entry>
+  <entry id="211052" lang="en" sex="m">Sanctify Martial Strike (Light Lance)</entry>
+  <entry id="211053" lang="en" sex="m">Sanctify Martial Strike (Heavy Pick)</entry>
+  <entry id="211054" lang="en" sex="m">Sanctify Martial Strike (Light Pick)</entry>
+  <entry id="211055" lang="en" sex="m">Sanctify Martial Strike (Sai)</entry>
+  <entry id="211056" lang="en" sex="m">Sanctify Martial Strike (Nunchaku)</entry>
+  <entry id="211057" lang="en" sex="m">Sanctify Martial Strike (Falchion)</entry>
+  <entry id="211058" lang="en" sex="m">Sanctify Martial Strike (Sap)</entry>
+  <entry id="211059" lang="en" sex="m">Sanctify Martial Strike (Katar)</entry>
+  <entry id="211060" lang="en" sex="m">Sanctify Martial Strike (Heavy Mace)</entry>
+  <entry id="211061" lang="en" sex="m">Sanctify Martial Strike (Maul)</entry>
+  <entry id="211062" lang="en" sex="m">Sanctify Martial Strike (Double Scimitar)</entry>
+  <entry id="211063" lang="en" sex="m">Sanctify Martial Strike (Goad)</entry>
+  <entry id="211064" lang="en" sex="m">Sanctify Martial Strike (Elven Lightblade)</entry>
+  <entry id="211065" lang="en" sex="m">Sanctify Martial Strike (Elven Thinblade)</entry>
+  <entry id="211066" lang="en" sex="m">Sanctify Martial Strike (Elven Courtblade)</entry>
   <entry id="213092" lang="en" sex="m">Swarm of Arrows</entry>
   <entry id="213093" lang="en" sex="m">	Prerequisites
 	Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).
@@ -75181,4 +75215,4 @@ Prerequisite: Wis 13+
 Specifics: You gain a +2 bonus on saving throws to resist any fear effect, despair effect (such as the crushing despair spell), or similar mind-affecting condition, but not charms or compulsions (such as the charm person and dominate person spells)</entry>
   <entry id="213331" lang="en" sex="m">Raziel's Martial Strike</entry>
   <entry id="213332" lang="en" sex="m">At 4th level, a fist of Raziel gains the Sanctify Martial Strike feat as a bonus feat.  This feat will allow you to still choose it if you otherwise do not meet the prerequisites.</entry>
-  </tlk>
+</tlk>

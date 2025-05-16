@@ -740,6 +740,38 @@ void PRCBonusDamage(object oTarget, object oCaster = OBJECT_SELF)
 //  Bonus damage to a spell for Spell Betrayal Ability
 int SpellBetrayalDamage(object oTarget, object oCaster)
 {
+    int iDam = 0;
+
+    // Combine caster and spell ID into a unique key
+    int nSpellId = PRCGetSpellId();
+    string sFlag = "BETRAYAL_" + ObjectToString(oCaster) + "_" + IntToString(nSpellId);
+
+    // Only apply once per spell cast from this caster
+    if (GetLocalInt(oTarget, sFlag))
+        return 0;
+
+    int ThrallLevel = GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) +
+                      GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_D, oCaster);
+
+    if (ThrallLevel >= 2)
+    {
+        if (GetIsDeniedDexBonusToAC(oTarget, oCaster, TRUE))
+        {
+            ThrallLevel /= 2;
+            iDam = d6(ThrallLevel);
+
+            // Mark target as affected for this spell instance by this caster
+            SetLocalInt(oTarget, sFlag, TRUE);
+            DelayCommand(2.5, DeleteLocalInt(oTarget, sFlag));
+        }
+    }
+
+    return iDam;
+}
+
+
+/* int SpellBetrayalDamage(object oTarget, object oCaster)
+{
      int iDam = 0;
      int ThrallLevel = GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_D, oCaster);
 
@@ -753,7 +785,7 @@ int SpellBetrayalDamage(object oTarget, object oCaster)
      }
 
      return iDam;
-}
+} */
 
 //  Bonus damage to a spell for Spellstrike Ability
 int SpellStrikeDamage(object oTarget, object oCaster)
