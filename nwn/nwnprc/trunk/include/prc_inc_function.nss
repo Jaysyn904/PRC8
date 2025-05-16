@@ -149,6 +149,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_ETERNAL_BLADE:         sScript = "tob_eternalblade";                break;
                 case CLASS_TYPE_FACTOTUM:              sScript = "prc_factotum";                    break;
                 case CLASS_TYPE_FAVOURED_SOUL:         sScript = "prc_favouredsoul"; iData |= 0x03; break;
+				case CLASS_TYPE_FISTRAZIEL:			   sScript = "prc_fistraziel";					break;
                 case CLASS_TYPE_FIST_OF_ZUOKEN:        sScript = "psi_zuoken";       iData |= 0x01; break;
 				case CLASS_TYPE_FOCHLUCAN_LYRIST:	   sScript = "prc_fochlyr";						break;
                 case CLASS_TYPE_FOE_HUNTER:            sScript = "prc_foe_hntr";                    break;

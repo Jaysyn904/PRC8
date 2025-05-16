@@ -339,4 +339,5 @@ void main()
     }
 
     DoRacialSLA(nSpell, nCasterLvl, nDC);
+	DelayCommand(0.1f, ClearLocals());
 }

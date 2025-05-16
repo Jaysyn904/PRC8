@@ -22,8 +22,7 @@
  * @param oItem     The item in question.
  * @param nHand     The hand the weapon is wielded in.  In the form of 
  *                  ATTACK_BONUS_ONHAND or ATTACK_BONUS_OFFHAND.
- */
- 
+ */ 
 void DoRacialEquip(object oPC, int nBaseType);
  
  //return if PC has proficiency in an item
@@ -605,6 +604,82 @@ void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
     }
 }
 
+int IsMeleeWeapon(int nBaseItemType)
+{
+    // Reject invalid base item values.
+    if (nBaseItemType == BASE_ITEM_INVALID)
+    {
+        return FALSE;
+    }
+
+    // Only want melee weapons, exclude all others.
+    switch (nBaseItemType)
+    {
+        case BASE_ITEM_ALCHEMY:
+        case BASE_ITEM_AMULET:
+        case BASE_ITEM_ARMOR:
+        case BASE_ITEM_ARROW:
+        case BASE_ITEM_BELT:
+        case BASE_ITEM_BLANK_POTION:
+        case BASE_ITEM_BLANK_SCROLL:
+        case BASE_ITEM_BLANK_WAND:
+        case BASE_ITEM_BOLT:
+        case BASE_ITEM_BOOK:
+        case BASE_ITEM_BOOTS:
+        case BASE_ITEM_BRACER:
+        case BASE_ITEM_BULLET:
+        case BASE_ITEM_CLOAK:
+        case BASE_ITEM_CRAFTED_ROD:
+        case BASE_ITEM_CRAFTED_STAFF:
+        case BASE_ITEM_CRAFTMATERIALMED:
+        case BASE_ITEM_CRAFTMATERIALSML:
+        case BASE_ITEM_CREATUREITEM:
+        case BASE_ITEM_ENCHANTED_POTION:
+        case BASE_ITEM_ENCHANTED_SCROLL:
+        case BASE_ITEM_ENCHANTED_WAND:
+        case BASE_ITEM_GEM:
+        case BASE_ITEM_GLOVES:
+        case BASE_ITEM_GOLD:
+        case BASE_ITEM_GOLEM:
+        case BASE_ITEM_GRENADE:
+        case BASE_ITEM_HEALERSKIT:
+        case BASE_ITEM_HEAVYCROSSBOW:
+        case BASE_ITEM_HELMET:
+        case BASE_ITEM_KEY:
+        case BASE_ITEM_LARGEBOX:
+        case BASE_ITEM_LARGESHIELD:
+        case BASE_ITEM_LIGHTCROSSBOW:
+        case BASE_ITEM_LONGBOW:
+        case BASE_ITEM_MAGICROD:
+        case BASE_ITEM_MAGICSTAFF:
+        case BASE_ITEM_MAGICWAND:
+        case BASE_ITEM_MISCLARGE:
+        case BASE_ITEM_MISCMEDIUM:
+        case BASE_ITEM_MISCSMALL:
+        case BASE_ITEM_MISCTALL:
+        case BASE_ITEM_MISCTHIN:
+        case BASE_ITEM_MISCWIDE:
+        case BASE_ITEM_POISON:
+        case BASE_ITEM_POTIONS:
+        case BASE_ITEM_RING:
+        case BASE_ITEM_SCROLL:
+        case BASE_ITEM_SHORTBOW:
+        case BASE_ITEM_SHURIKEN:             
+        case BASE_ITEM_SLING:
+        case BASE_ITEM_SMALLSHIELD:
+        case BASE_ITEM_SPELLSCROLL:
+        case BASE_ITEM_THIEVESTOOLS:
+        case BASE_ITEM_THROWINGAXE:
+        case BASE_ITEM_TORCH:
+        case BASE_ITEM_TOWERSHIELD:
+        case BASE_ITEM_TRAPKIT:
+            return FALSE;
+    }
+
+    // Everything else assumed to be melee weapon.
+    return TRUE;
+}	
+
 int IsWeaponMartial(int nBaseItemType, object oPC)
 {
   switch(nBaseItemType)
@@ -651,6 +726,32 @@ int IsWeaponMartial(int nBaseItemType, object oPC)
   return FALSE;
 }
 
+int IsWeaponExotic(int nBaseItemType)
+{
+	switch(nBaseItemType)
+	{
+		case BASE_ITEM_BASTARDSWORD:
+		case BASE_ITEM_TWOBLADEDSWORD:
+		case BASE_ITEM_DIREMACE:
+		case BASE_ITEM_DOUBLEAXE:
+		case BASE_ITEM_KAMA:
+		case BASE_ITEM_KATANA:
+		case BASE_ITEM_KUKRI:
+		case BASE_ITEM_SHURIKEN:
+		case BASE_ITEM_DWARVENWARAXE:
+		case BASE_ITEM_WHIP:
+		case BASE_ITEM_ELVEN_LIGHTBLADE:
+		case BASE_ITEM_ELVEN_COURTBLADE:
+		case BASE_ITEM_ELVEN_THINBLADE:
+		case BASE_ITEM_SAI:
+		case BASE_ITEM_NUNCHAKU:
+		case BASE_ITEM_DOUBLE_SCIMITAR:	  
+		case BASE_ITEM_EAGLE_CLAW:
+			return TRUE;			
+	}
+	
+	return FALSE;
+}
 
 //checks to see if the PC can wield the weapon.  If not, applies a -4 penalty.
 void DoProficiencyCheck(object oPC, object oItem, int nHand)

@@ -43092,7 +43092,7 @@ At level 24, the Ninja is capable of enhanced acrobatics gaining a +8 bonus to T
   <entry id="55134" lang="en" sex="m">Ninja AC Bonus</entry>
   <entry id="55135" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Ninja level 1.
-Specifics: When unarmored and unencumbered, a ninja adds her Wisdom bonus (if any) to her Armor Class. This ability does not stack with the monk's AC bonus ability (a ninja with levels of monk does not add the bonus twice). In addition, a ninja gains a +1 bonus to AC at 5th level. This bonus increases by 1 for every five ninja levels thereafter (+2 at 10th, +3 at 15th, and +4 at 20th level). 
+When unarmored and unencumbered, a ninja adds her Wisdom bonus (if any) to her Armor Class. This ability does not stack with the monk's AC bonus ability (a ninja with levels of monk does not add the bonus twice). In addition, a ninja gains a +1 bonus to AC at 5th level. This bonus increases by 1 for every five ninja levels thereafter (+2 at 10th, +3 at 15th, and +4 at 20th level).  
 Use: Automatic.</entry>
   <entry id="55136" lang="en" sex="m">Ghost-Faced Killer</entry>
   <entry id="55137" lang="en" sex="m">Ghost-Faced Killers</entry>
@@ -56777,7 +56777,7 @@ Soulmanifester: At 10th level, by paying a number of power points equal to the b
   <entry id="60525" lang="en" sex="m">Select an option</entry>
   <entry id="60526" lang="en" sex="m">Weapon Specialization Proficiency</entry>
   <entry id="60527" lang="en" sex="m">Type of Feat: Class.
-      Prerequisite: Fighter 4, Bowman 4 or Warblade 6.
+      Prerequisite: Fighter 4, Warblade 6.
       Specifics: A character with this feat is allowed to take the Weapon Specialization feat if they meet the other prerequisites.
 Use: Automatic.</entry>
   <entry id="60528" lang="en" sex="m">Skill bonus from extra Strength increase: %(SKILLS):</entry>
@@ -75179,4 +75179,6 @@ Specifics: You gain a +4 perfection bonus on Will saving throws against charm an
   <entry id="213330" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Wis 13+
 Specifics: You gain a +2 bonus on saving throws to resist any fear effect, despair effect (such as the crushing despair spell), or similar mind-affecting condition, but not charms or compulsions (such as the charm person and dominate person spells)</entry>
-</tlk>
+  <entry id="213331" lang="en" sex="m">Raziel's Martial Strike</entry>
+  <entry id="213332" lang="en" sex="m">At 4th level, a fist of Raziel gains the Sanctify Martial Strike feat as a bonus feat.  This feat will allow you to still choose it if you otherwise do not meet the prerequisites.</entry>
+  </tlk>
