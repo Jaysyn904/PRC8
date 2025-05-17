@@ -1678,6 +1678,8 @@ int GetPhobiaRace(int nPhobia)
         case 14: return RACIAL_TYPE_SHAPECHANGER;
         case 15: return RACIAL_TYPE_UNDEAD;
         case 16: return RACIAL_TYPE_VERMIN;
+        case 17: return RACIAL_TYPE_OOZE;
+        case 18: return RACIAL_TYPE_PLANT;		
     }
     return -1;//error
 }

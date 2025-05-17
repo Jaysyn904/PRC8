@@ -515,7 +515,25 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
     {
         int nPenalty = GetHasFeat(FEAT_INSANE_CERTAINTY, oPC) ? 6 : 2;
         int nRace = GetPhobiaRace(GetPhobia(oPC));
-        effect ePhob = EffectSavingThrowDecrease(SAVING_THROW_TYPE_ALL, nPenalty);
+		
+		effect ePhobia;
+		ePhobia = VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_INTIMIDATE), nRace);		
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_ANIMAL_EMPATHY), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_BLUFF), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_INTIMIDATE), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_PERFORM), nRace));		
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_PERSUADE), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_USE_MAGIC_DEVICE), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSkillDecrease(nPenalty, SKILL_IAIJUTSU_FOCUS), nRace));	
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectSavingThrowDecrease(SAVING_THROW_TYPE_ALL, nPenalty), nRace));
+		ePhobia = EffectLinkEffects(ePhobia, VersusRacialTypeEffect(EffectAttackDecrease(nPenalty), nRace));		
+		ePhobia = TagEffect(ePhobia, "ALIENIST_PHOBIA");	
+		ePhobia = UnyieldingEffect(ePhobia);
+
+		eFeat = EffectLinkEffects(eFeat, ePhobia);		
+		
+		
+/*         effect ePhob = EffectSavingThrowDecrease(SAVING_THROW_TYPE_ALL, nPenalty);
                ePhob = EffectLinkEffects(ePhob, EffectAttackDecrease(nPenalty));
                ePhob = EffectLinkEffects(ePhob, EffectSkillDecrease(SKILL_ANIMAL_EMPATHY, nPenalty));
                ePhob = EffectLinkEffects(ePhob, EffectSkillDecrease(SKILL_INTIMIDATE, nPenalty));
@@ -524,8 +542,9 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
                ePhob = EffectLinkEffects(ePhob, EffectSkillDecrease(SKILL_USE_MAGIC_DEVICE, nPenalty));
                ePhob = EffectLinkEffects(ePhob, EffectSkillDecrease(SKILL_IAIJUTSU_FOCUS, nPenalty));
                ePhob = VersusRacialTypeEffect(ePhob, nRace);
-        eFeat = EffectLinkEffects(eFeat, ePhob);
-    }
+        eFeat = EffectLinkEffects(eFeat, ePhob); */
+    }	
+	
     if(GetHasFeat(FEAT_SH_IMMUNITY_ABILITY_DECREASE, oPC) && !GetHasFeat(FEAT_SH_IMMUNITY_LEVEL_DRAIN))
         eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE));
     if(GetHasFeat(FEAT_SH_IMMUNITY_DISEASE, oPC))//skullclan hunter gets protection from evil at this level

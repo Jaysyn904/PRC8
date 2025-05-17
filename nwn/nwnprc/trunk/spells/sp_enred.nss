@@ -66,6 +66,29 @@
 #include "prc_inc_function"
 #include "prc_add_spell_dc"
 
+void ResetSize(object oTarget)
+{
+	SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.0f);
+	
+	// Remove opposing size effect
+	effect eEffect = GetFirstEffect(oTarget);
+	while (GetIsEffectValid(eEffect))
+	{
+		string sTag = GetEffectTag(eEffect);
+		if(sTag == "ARCANE_SIZE_INCREASE")
+		{
+			RemoveEffect(oTarget, eEffect);
+			DeleteLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease");
+		}
+		if (sTag == "ARCANE_SIZE_DECREASE")
+		{
+			RemoveEffect(oTarget, eEffect);
+			DeleteLocalInt(oTarget, "PRC_Power_Compression_SizeReduction");
+		}		
+		eEffect = GetNextEffect(oTarget);
+	}		
+}
+
 void DispelMonitor(object oCaster, object oTarget, int nSpellID, int nBeatsRemaining)
 {
     // Has the power ended since the last beat, or does the duration run out now
@@ -79,6 +102,19 @@ void DispelMonitor(object oCaster, object oTarget, int nSpellID, int nBeatsRemai
         DeleteLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease");
         DeleteLocalInt(oTarget, "PRC_Power_Compression_SizeReduction");
 
+		// Remove opposing size effect
+		effect eEffect = GetFirstEffect(oTarget);
+		while (GetIsEffectValid(eEffect))
+		{
+			string sTag = GetEffectTag(eEffect);
+			if ((sTag == "ARCANE_SIZE_DECREASE") ||
+				(sTag == "ARCANE_SIZE_INCREASE"))
+			{
+				RemoveEffect(oTarget, eEffect);
+			}
+			eEffect = GetNextEffect(oTarget);
+		}		
+
         // Size has changed, evaluate PrC feats again
         EvalPRCFeats(oTarget);
     }
@@ -88,80 +124,200 @@ void DispelMonitor(object oCaster, object oTarget, int nSpellID, int nBeatsRemai
 
 void main()
 {
-    object oCaster = OBJECT_SELF;
-    int nCasterLevel = PRCGetCasterLevel(oCaster);
-    int nSpellID = PRCGetSpellId();
-    PRCSetSchool(GetSpellSchool(nSpellID));
-    if (!X2PreSpellCastCode()) return;
-    object oTarget = PRCGetSpellTargetObject();
-    int nMetaMagic = PRCGetMetaMagicFeat();
-    int nSaveDC = PRCGetSaveDC(oTarget, oCaster);
-    int nPenetr = nCasterLevel + SPGetPenetr();
-    float fDuration = 60.0 * nCasterLevel; //modify if necessary
-    if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;
+        //Declare main variables.
+    int nEvent = GetRunningEvent();
+    object oCaster;
+    switch(nEvent)
+    {
+		case EVENT_ONPLAYERREST_STARTED:	oCaster = GetLastBeingRested();	break;
 
-    int bMass = ((nSpellID == SPELL_ENLARGE_PERSON_MASS) ||
-                    (nSpellID == SPELL_REDUCE_PERSON_MASS))
-                    ;
-    int bEnlarge = ((nSpellID == SPELL_ENLARGE_PERSON) ||
-                    (nSpellID == SPELL_ENLARGE_PERSON_MASS))
-                    ;
-    effect eLink;
-    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_SANCTUARY));
-    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
-    if (bEnlarge)
-    {
-		eLink = EffectLinkEffects(eLink, EffectAttackDecrease(1));
-		eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
-		eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_STRENGTH, 2));
-		eLink = EffectLinkEffects(eLink, EffectACDecrease(1));    
-    }
-    else
-    {
-		eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1));
-		eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_DEXTERITY, 2));
-		eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_STRENGTH, 2));
-		eLink = EffectLinkEffects(eLink, EffectACIncrease(1));       
+        default:
+            oCaster = OBJECT_SELF;
     }
 
-    int nRacial, bApply, bRace;
+	if(nEvent == EVENT_ONPLAYERREST_STARTED)
+	{
+		ResetSize(oCaster);
+	}
+	else if(nEvent == FALSE)
+	{		
+		int nCasterLevel = PRCGetCasterLevel(oCaster);
+		int nSpellID = PRCGetSpellId();
+		PRCSetSchool(GetSpellSchool(nSpellID));
+		if (!X2PreSpellCastCode()) return;
+		object oTarget = PRCGetSpellTargetObject();
+		int nMetaMagic = PRCGetMetaMagicFeat();
+		int nSaveDC = PRCGetSaveDC(oTarget, oCaster);
+		int nPenetr = nCasterLevel + SPGetPenetr();
+		float fDuration = 60.0 * nCasterLevel; //modify if necessary
+		if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;
 
-    if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;
-    location lTarget;
-    if(bMass)
-    {
-        lTarget = PRCGetSpellTargetLocation();
-        object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
-    }
-    while(GetIsObjectValid(oTarget))
-    {
-    	if (PRCAmIAHumanoid(oTarget))
-    	{
-        	if(spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))
-        	{
-        	    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
-        	    if(bEnlarge)
-        	        SetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease", 1);
-        	    else
-        	        SetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction", 1);
-        	    EvalPRCFeats(oTarget);
-        	    DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
-        	}
-        	else if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC))
-        	{
-        	    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
-        	    if(bEnlarge)
-        	        SetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease", 1);
-        	    else
-        	        SetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction", 1);
-        	    EvalPRCFeats(oTarget);
-        	    DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
-        	}
-        }	
-        if(!bMass) break;
-        oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
-    }
+		int bMass = ((nSpellID == SPELL_ENLARGE_PERSON_MASS) ||
+						(nSpellID == SPELL_REDUCE_PERSON_MASS));
+						
+		int bEnlarge = ((nSpellID == SPELL_ENLARGE_PERSON) ||
+						(nSpellID == SPELL_ENLARGE_PERSON_MASS));
+						
+		effect eLink;
+		eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_SANCTUARY));
+		eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+		if (bEnlarge)
+		{
+			eLink = EffectLinkEffects(eLink, EffectAttackDecrease(1));
+			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
+			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_STRENGTH, 2));
+			eLink = EffectLinkEffects(eLink, EffectACDecrease(1));  
+			eLink = TagEffect(eLink, "ARCANE_SIZE_INCREASE");
+		}
+		else
+		{
+			eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1));
+			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_DEXTERITY, 2));
+			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_STRENGTH, 2));
+			eLink = EffectLinkEffects(eLink, EffectACIncrease(1)); 
+			eLink = TagEffect(eLink, "ARCANE_SIZE_DECREASE");			
+		}
+
+		int nRacial, bApply, bRace;
+		
+		AddEventScript(oTarget, EVENT_ONPLAYERREST_STARTED, "sp_enred", TRUE, FALSE);
+
+		if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;
+		location lTarget;
+		if(bMass)
+		{
+			lTarget = PRCGetSpellTargetLocation();
+			object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
+		}
+		while(GetIsObjectValid(oTarget))
+		{
+			if (PRCAmIAHumanoid(oTarget))
+			{
+				if(spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))
+				{
+					if(bEnlarge)
+					{
+						if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
+						{
+						// Remove opposing size effect
+							effect eEffect = GetFirstEffect(oTarget);
+							while (GetIsEffectValid(eEffect))
+							{
+								string sTag = GetEffectTag(eEffect);
+								if (sTag == "ARCANE_SIZE_DECREASE")
+								{
+									RemoveEffect(oTarget, eEffect);
+									DelayCommand(0.0f, ResetSize(oTarget));
+								}
+								eEffect = GetNextEffect(oTarget);						
+							}
+						}
+						else if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
+						{
+							FloatingTextStringOnCreature("This creature's size cannot be increased further.", oTarget);
+						}					
+						else
+						{
+							SetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease", 1);
+							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
+							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
+							DelayCommand(fDuration, ResetSize(oTarget));
+						}
+					}
+					else
+					{
+						if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
+						{
+						// Remove opposing size effect
+							effect eEffect = GetFirstEffect(oTarget);
+							while (GetIsEffectValid(eEffect))
+							{
+								string sTag = GetEffectTag(eEffect);
+								if (sTag == "ARCANE_SIZE_INCREASE")
+								{
+									RemoveEffect(oTarget, eEffect);
+									DelayCommand(0.0f, ResetSize(oTarget));
+								}
+								eEffect = GetNextEffect(oTarget);						
+							}
+						}
+						else if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
+						{
+							FloatingTextStringOnCreature("This creature's size cannot be decreased further.", oTarget);
+						}					
+						else						
+						{
+							SetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction", 1);
+							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
+							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 0.5);
+							DelayCommand(fDuration, ResetSize(oTarget));
+						}					
+							
+						EvalPRCFeats(oTarget);
+						DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));				
+					}
+				}
+				else if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC))
+				{
+					if(bEnlarge)
+					{
+						if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
+						{
+						// Remove opposing size effect
+							effect eEffect = GetFirstEffect(oTarget);
+							while (GetIsEffectValid(eEffect))
+							{
+								string sTag = GetEffectTag(eEffect);
+								if (sTag == "ARCANE_SIZE_DECREASE")
+								{
+									RemoveEffect(oTarget, eEffect);
+									DelayCommand(0.0f, ResetSize(oTarget));
+								}
+								eEffect = GetNextEffect(oTarget);						
+							}
+						}
+						else	
+						{
+							SetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease", 1);
+							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
+							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
+							DelayCommand(fDuration, ResetSize(oTarget));
+						}
+					}
+					else				
+					{
+						if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
+						{
+						// Remove opposing size effect
+							effect eEffect = GetFirstEffect(oTarget);
+							while (GetIsEffectValid(eEffect))
+							{
+								string sTag = GetEffectTag(eEffect);
+								if (sTag == "ARCANE_SIZE_INCREASE")
+								{
+									RemoveEffect(oTarget, eEffect);
+									DelayCommand(0.0f, ResetSize(oTarget));
+								}
+								eEffect = GetNextEffect(oTarget);						
+							}
+						}
+						else						
+						{
+							SetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction", 1);
+							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
+							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
+							DelayCommand(fDuration, ResetSize(oTarget));
+						}		
+					}	
+					
+					EvalPRCFeats(oTarget);
+					DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+				}
+			}	
+			if(!bMass) break;
+			oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
+		}
+	}
 
     PRCSetSchool();
 }
-

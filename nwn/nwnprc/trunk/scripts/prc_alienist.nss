@@ -37,11 +37,11 @@ void main()
             AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_ELECTRICAL,IP_CONST_DAMAGERESIST_20), oSkin);
             AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_1,IP_CONST_DAMAGESOAK_20_HP), oSkin);
 
-            AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_alienist", TRUE, FALSE);
-            AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_alienist", TRUE, FALSE);
+/*             AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_alienist", TRUE, FALSE);
+            AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_alienist", TRUE, FALSE); */
         }
     }
-    else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
+/*     else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
     {
         object oItem = GetItemLastUnequipped();
         if(GetBaseItemType(oItem) != BASE_ITEM_HELMET)
@@ -70,5 +70,5 @@ void main()
         SetCompositeBonus(oSkin, "Trans_persuade", 0, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERSUADE);
         SetCompositeBonus(oSkin, "Trans_umd", 0, ITEM_PROPERTY_SKILL_BONUS, SKILL_USE_MAGIC_DEVICE);
         SetCompositeBonus(oSkin, "Trans_iaijutsu", 0, ITEM_PROPERTY_SKILL_BONUS, SKILL_IAIJUTSU_FOCUS);
-    }
+    } */
 }

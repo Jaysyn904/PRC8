@@ -5048,7 +5048,7 @@ Use: Selected.</entry>
   <entry id="16444" lang="en" sex="m">grey elves</entry>
   <entry id="16445" lang="en" sex="m">Gray elves are the most noble and regal of all elves. Taller and grander in physical appearance than others of their race, gray elves have a reputation for being aloof and arrogant (even by elven standards). They certainly are more reclusive than high elves, living in isolated mountain citadels and allowing entry only to a select few outsiders. They have either silver hair and amber eyes or pale golden hair and violet eyes. They prefer clothing of white, silver, yellow, or gold, with cloaks of deep blue or purple.
 
-    +2 Dexterity, +2 Intelligence, –2 Strength, –2 Constitution.
+    +2 Dexterity, +2 Intelligence, -–2 Strength, -–2 Constitution.
 
      Medium: As Medium creatures, gray elves have no special bonuses or penalties due to their size.
 
@@ -16785,7 +16785,7 @@ Martial arts students face a bewildering array of martial arts schools, each wit
 
 - Hit Die: d8
 - Proficiencies: The Drunken Master gains no proficiencies in weapons or armor.
-- Skill Points: 4 + Int modifier.
+- Skill Points: 4+ Int modifier.
 
 REQUIREMENTS:
 
@@ -26177,7 +26177,7 @@ Warlocks are born, not made.  Their ancestors traded portions of their soul for 
 
 - Hit Die: d6
 - Proficiencies: Warlocks are proficient with simple weapons and light armor.
-- Skill Points: 2 + Int Modifier
+- Skill Points: 2+ Int Modifier
 
 CLASS FEATURES:
 
@@ -44226,7 +44226,7 @@ Use: Automatic.</entry>
   <entry id="55479" lang="en" sex="m">Hands of the Winged Masters</entry>
   <entry id="55480" lang="en" sex="m">hand of the winged masters</entry>
   <entry id="55481" lang="en" sex="m">(PRESTIGE CLASS)
-Dragons often need expert servants to be their eyes, ears, and hands in humanoid society.  A hand of the winged masters has dedicated his life to the service of a single dragon or to a group of dragons united in a common cause.  A dragon mater becomes the political and spiritual leader for the hands, gaining their total loyalty.  This services rises above obedience to country, church, family, or friends.  Usually, the hands act as spies and informants, but when needed, they can also be saboteurs and killers.
+Dragons often need expert servants to be their eyes, ears, and hands in humanoid society.  A hand of the winged masters has dedicated his life to the service of a single dragon or to a group of dragons united in a common cause.  A dragon master becomes the political and spiritual leader for the hands, gaining their total loyalty.  This services rises above obedience to country, church, family, or friends.  Usually, the hands act as spies and informants, but when needed, they can also be saboteurs and killers.
 
 - Hit Die: d8
 - Proficiencies: A Hand of the Winged Masters gains no additional weapon or armor proficiencies.
@@ -47769,7 +47769,7 @@ Use: Automatic
   <entry id="57434" lang="en" sex="m">Special attack creature weapon: </entry>
   <entry id="57435" lang="en" sex="m">Natural AC bonus: </entry>
   <entry id="57436" lang="en" sex="m">Challenge Rating: </entry>
-  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-Like Abilities:</entry>
+  <entry id="57437" lang="en" sex="m">Epic Wildshape Spell-like Abilities:</entry>
   <entry id="57438" lang="en" sex="m">%(NAME) (SL %(SL) / CL %(CL) / CR %(CR))</entry>
   <entry id="57439" lang="en" sex="m">Learn new shape</entry>
   <entry id="57440" lang="en" sex="m">Select a 'Quick Shift Slot' to change the shape stored in it</entry>
@@ -71613,7 +71613,7 @@ Special Abilities:
   <entry id="75443" lang="en" sex="m">Thrall of Orcus Shadowcasting (Shadowsmith)</entry>
   <entry id="75444" lang="en" sex="m">Alienist (REMOVE)</entry>
   <entry id="75445" lang="en" sex="m">Dragonsong Lyrist (REMOVE)</entry>
-  <entry id="75446" lang="en" sex="m">Elemental Savant (REMOVED)</entry>
+  <entry id="75446" lang="en" sex="m">Elemental Savant (REMOVE)</entry>
   <entry id="75447" lang="en" sex="m">Mystic Theurge (REMOVE)</entry>
   <entry id="75448" lang="en" sex="m">Ollam (REMOVE)</entry>
   <entry id="75449" lang="en" sex="m">Thrall of Orcus (REMOVE)</entry>
@@ -75213,6 +75213,4 @@ Specifics: You gain a +4 perfection bonus on Will saving throws against charm an
   <entry id="213330" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Wis 13+
 Specifics: You gain a +2 bonus on saving throws to resist any fear effect, despair effect (such as the crushing despair spell), or similar mind-affecting condition, but not charms or compulsions (such as the charm person and dominate person spells)</entry>
-  <entry id="213331" lang="en" sex="m">Raziel's Martial Strike</entry>
-  <entry id="213332" lang="en" sex="m">At 4th level, a fist of Raziel gains the Sanctify Martial Strike feat as a bonus feat.  This feat will allow you to still choose it if you otherwise do not meet the prerequisites.</entry>
 </tlk>
