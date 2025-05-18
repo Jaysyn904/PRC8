@@ -74328,10 +74328,10 @@ Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Hospitaler gains a bonus feat every three levels
 
 Special:
-Spellcasting: At each even level the epic Hospitaler continues to increase in divine caster level (and spells known, if applicable).
+Spellcasting: At each level the epic Hospitaler continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Hospitaler Bonus Feats List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Prowess, Epic Reputation, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Great Wisdom, Improved Combat Casting, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Prowess, Epic Reputation, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration,Epc Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Great Wisdom, Improved Combat Casting, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
   <entry id="205142" lang="en" sex="m">Epic Master of Shrouds</entry>
   <entry id="205143" lang="en" sex="m">At epic levels, the Master of Shrouds commands the dread powers of the grave with terrifying authority. Her ability to summon incorporeal undead grows to include even greater horrors, and her dominion over death magic becomes absolute.
 
@@ -74344,7 +74344,7 @@ Summon Undead: The epic Master of Shrouds' undead thrall continues gaining power
 Spellcasting: At each class level the epic Master of Shrouds continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Master of Shrouds Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Vigor, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Charisma, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning, Zone of Animation.</entry>
   <entry id="205144" lang="en" sex="m">Epic Master Harper</entry>
   <entry id="205145" lang="en" sex="m">Epic Master Harpers are legendary champions of freedom, lore, and harmony. Their mastery of ancient knowledge, music, and magic allows them to uplift allies, dismantle tyranny, and uncover secrets long forgotten. At epic levels, they gain deeper access to the Harper Secrets, further enhance their bardic and arcane talents, and wield their influence across the realms as inspirational figures and guardians of balance.
 
