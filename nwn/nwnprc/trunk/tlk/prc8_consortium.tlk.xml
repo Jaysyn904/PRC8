@@ -2250,12 +2250,11 @@ Armor Skin, Blinding Speed, Epic Damage Reduction, Devastating Critical, Great C
   <entry id="12852" lang="en" sex="m">The epic tempest is barely visible behind the incessant, whirling blur of her twin weapons.
 
 Hit Die: d10.
+Skill Points at Each Additional Level: 2+ Intelligence modifier.
+Bonus Feats: The epic tempest gains a bonus feat every two levels.
 
-Skill Points at Each Additional Level: 2 + Int modifier.
-
-Bonus Feats: The epic tempest gains a bonus feat (selected from the list of epic tempest feats) every two levels after 10th.
-
-Epic Tempest Bonus Feat List: Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
+Epic Tempest Bonus Feat List: 
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
   <entry id="12853" lang="en" sex="m">Ignore Arcane Spell Failure</entry>
   <entry id="12854" lang="en" sex="m">Type of Feat: Class-Specific
 Prerequisite: Arcane Hierophant 1
