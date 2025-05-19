@@ -746,7 +746,15 @@ const int FEAT_ABFOC_STEAL_SUMMONING 				= 25211;
 const int FEAT_ABFOC_ELDRITCH_BLAST 				= 25212;
 const int FEAT_ABFOC_WORD_OF_CHANGING				= 25213;
 
-
+//::: Eldritch Disciple Divine Gifts
+const int FEAT_ED_CORRUPTING_BLAST					= 23521;
+const int FEAT_ED_DAMAGE_REDUCTION					= 23522;
+const int FEAT_ED_FEARFUL_GLARE						= 23523;
+const int FEAT_ED_FIENDISH_RESISTANCE				= 23524;
+const int FEAT_ED_HEALING_BLAST						= 23525;
+const int FEAT_ED_PROTECTIVE_AURA					= 23526;
+const int FEAT_ED_STRENGTH_OF_WILL					= 23527;
+const int FEAT_ED_WILD_FRENZY						= 23528;
 
 //Passive Feats
 const int FEAT_ETERNAL_FREEDOM                         = 4298;

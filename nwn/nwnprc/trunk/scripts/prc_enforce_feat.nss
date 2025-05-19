@@ -97,6 +97,46 @@ int _GetSizeForPrereq(object oPC)
 // BEGIN FUNCTIONS
 // ---------------
 
+//:: Eldritch Disciple gets one of these abilities at  1st level, 
+//:: and another ability every three levels thereafter (4th, 7th, 
+//:: and 10th level).
+int CheckDivineGifts(object oPC = OBJECT_SELF)
+{
+	int nEDLevel = GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE);
+
+    if (nEDLevel > 0)
+    {
+        int nDivineGifts = GetHasFeat(FEAT_ED_CORRUPTING_BLAST, oPC)
+                         + GetHasFeat(FEAT_ED_DAMAGE_REDUCTION, oPC)
+                         + GetHasFeat(FEAT_ED_FEARFUL_GLARE, oPC)
+                         + GetHasFeat(FEAT_ED_FIENDISH_RESISTANCE, oPC)
+                         + GetHasFeat(FEAT_ED_HEALING_BLAST, oPC)
+                         + GetHasFeat(FEAT_ED_PROTECTIVE_AURA, oPC)
+                         + GetHasFeat(FEAT_ED_STRENGTH_OF_WILL, oPC)
+                         + GetHasFeat(FEAT_ED_WILD_FRENZY, oPC);
+
+        int nExpectedGifts = 1;
+
+        if (nEDLevel >= 10)      nExpectedGifts = 4;
+        else if (nEDLevel >= 7)  nExpectedGifts = 3;
+        else if (nEDLevel >= 4)  nExpectedGifts = 2;
+
+        if (nDivineGifts > nExpectedGifts)
+        {
+            FloatingTextStringOnCreature("You have selected too many Gifts of the Divine Patron for your Eldritch Disciple level. Please re-choose your feat.", oPC, FALSE);
+            return TRUE;
+        }
+        else if (nDivineGifts < nExpectedGifts)
+        {
+            FloatingTextStringOnCreature("You have not selected enough Gifts of the Divine Patron for your Eldritch Disciple level. Please re-choose your feat.", oPC, FALSE);
+            return TRUE;
+        }
+    }
+	
+	return FALSE;
+}
+	
+	
 int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF)
 {
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_BLAST, oPC)) return TRUE;
@@ -2789,6 +2829,7 @@ void main()
     || ToB()
     || OcularAdeptDomains()
     || ReserveFeats()
+	|| CheckDivineGifts()
   //|| Blightbringer()
   //|| Shaman()
        )

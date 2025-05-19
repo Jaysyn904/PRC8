@@ -15,7 +15,35 @@ int GetBestAvailableSpell(object oTarget);
 
 #include "prc_inc_core"
 
-int GetBestL0Spell(object oTarget, int nSpell)
+int GetBestL0Spell(object oTarget, int nFallbackSpell)
+{
+    int nRow = 0;
+    string s2DA = "spells";
+    string sInnate, sStrRef;
+    int nSpellID;
+
+    while (TRUE)
+    {
+        sInnate = Get2DACache(s2DA, "Innate", nRow);
+        if (sInnate == "") break; // End of 2DA
+
+        if (StringToInt(sInnate) == 0)
+        {
+            nSpellID = nRow;
+
+            if (PRCGetHasSpell(nSpellID, oTarget))
+            {
+                return nSpellID;
+            }
+        }
+
+        nRow++;
+    }
+
+    return nFallbackSpell;
+}
+
+/* int GetBestL0Spell(object oTarget, int nSpell)
 {
     if(PRCGetHasSpell(SPELL_ACID_SPLASH, oTarget))                    return SPELL_ACID_SPLASH;
     if(PRCGetHasSpell(SPELL_RAY_OF_FROST, oTarget))                   return SPELL_RAY_OF_FROST;
@@ -28,7 +56,7 @@ int GetBestL0Spell(object oTarget, int nSpell)
     if(PRCGetHasSpell(SPELL_CURE_MINOR_WOUNDS, oTarget))              return SPELL_CURE_MINOR_WOUNDS; 
     if(PRCGetHasSpell(SPELL_INFLICT_MINOR_WOUNDS, oTarget))           return SPELL_INFLICT_MINOR_WOUNDS;
     return nSpell;
-}
+} */
 
 int GetBestL1Spell(object oTarget, int nSpell)
 {
