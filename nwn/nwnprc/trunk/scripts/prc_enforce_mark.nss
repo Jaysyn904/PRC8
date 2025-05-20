@@ -229,6 +229,9 @@ int SpellswordMarkerFeats();
 //:; Enforces Stormlord of Talos marker feats
 int StormlordMarkerFeats();
 
+//:: Enforces Sublime Chord marker feats
+int SublimeChordMarkerFeats();
+
 //:; Enforces Battleguard of Tempus marker feats
 int BGTMarkerFeats();
 
@@ -3440,6 +3443,41 @@ int StormlordMarkerFeats()
     return FALSE;
 }	
 
+//:; Enforces Sublime Chord marker feats
+int SublimeChordMarkerFeats()
+{
+    if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD))
+    {
+		int nSublimeChord	= GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_FEY)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_ABERRATION)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_MONSTROUS)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_OUTSIDER)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_SHAPECHANGER)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BARD)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BEGUILER)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_DUSKBLADE)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_SORCERER)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_WARMAGE)
+							+ GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_WIZARD);
+						
+        if(nSublimeChord > 1)
+        {
+            FloatingTextStringOnCreature("A Sublime Chord may only advance a single arcane class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+		
+		if(nSublimeChord < 1)
+        {
+            FloatingTextStringOnCreature("A Sublime Chord must pick one arcane class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+	
+    return FALSE;
+}	
+
 //:; Enforces Swift Wing marker feats
 int SwiftWingMarkerFeats()
 {
@@ -4038,6 +4076,7 @@ void main()
 	|| SpelldancerMarkerFeats()
 	|| SpellswordMarkerFeats()
 	|| StormlordMarkerFeats()
+	|| SublimeChordMarkerFeats()
 	|| SwiftWingMarkerFeats()
 	|| BGTMarkerFeats()
 	|| TenebrousMarkerFeats()

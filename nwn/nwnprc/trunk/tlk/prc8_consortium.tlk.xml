@@ -71531,7 +71531,9 @@ Special Abilities:
 - Level Adjustment: +1</entry>
   <entry id="75260" lang="en" sex="m">FcL</entry>
   <entry id="75283" lang="en" sex="m">Plt</entry>
-  <entry id="75299" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>
+  <entry id="75297" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>    
+  <entry id="75298" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>  
+  <entry id="75299" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsouls cast spells as a Sorcerer of their hit dice (9th level).</entry>
   <entry id="75300" lang="en" sex="m">Abjurant Champion Invoking (Warlock)</entry>
   <entry id="75301" lang="en" sex="m">Acolye of the Skin Invoking (Warlock)</entry>
   <entry id="75302" lang="en" sex="m">Anima Mage Invoking (Warlock)</entry>
@@ -71674,7 +71676,19 @@ Special Abilities:
   <entry id="75567" lang="en" sex="m">Manifesting: Upon reaching levels 2, 3, 4, 5, 6, 7, 8, 9, the Thrallherd gains a new manifester level, increasing his power points, total powers known, and maximum power level. </entry>
   <entry id="75568" lang="en" sex="m">Spellcasting: Upon reaching levels 2, 3, 4, 5, 6 the Sanctified Mind gains new spells as if he had also gained a level in his highest level divine spellcasting class.</entry>
   <entry id="75569" lang="en" sex="m">Spellcasting: Each level, the Soulmanifester gains new spells per day as if they had also gained a level in their highest level arcane spellcasting class.</entry>
-  <entry id="75699" lang="en" sex="m">### BEGIN SPELLCASTER MARKER FEATS#</entry>
+  <entry id="75679" lang="en" sex="m">### BEGIN SPELLCASTER MARKER FEATS#</entry>
+  <entry id="75680" lang="en" sex="m">Aberration Spellcasting (Sublime Chord)</entry>
+  <entry id="75681" lang="en" sex="m">Fey Spellcasting (Sublime Chord)</entry>
+  <entry id="75682" lang="en" sex="m">Monstrous Spellcasting (Sublime Chord)</entry>
+  <entry id="75683" lang="en" sex="m">Outsider Spellcasting (Sublime Chord)</entry>
+  <entry id="75684" lang="en" sex="m">Shapechanger Spellcasting (Sublime Chord)</entry>
+  <entry id="75685" lang="en" sex="m">Bard Spellcasting (Sublime Chord)</entry>
+  <entry id="75686" lang="en" sex="m">Beguiler Spellcasting (Sublime Chord)</entry>
+  <entry id="75687" lang="en" sex="m">Duskblade Spellcasting (Sublime Chord)</entry>
+  <entry id="75688" lang="en" sex="m">Sorcerer Spellcasting (Sublime Chord)</entry>
+  <entry id="75689" lang="en" sex="m">Warmage Spellcasting (Sublime Chord)</entry>
+  <entry id="75690" lang="en" sex="m">Wizard Spellcasting (Sublime Chord)</entry>
+  <entry id="75691" lang="en" sex="m">Spellcasting: A sublime chord's caster level for both her sublime chord spells and the spells she gains from other arcane spellcasting classes is determined by adding her sublime chord level to her level in another arcane spellcasting class. If she had more than one arcane spellcasting class before becoming a sublime chord, she must choose which class to add her sublime chord levels for the purpose of determining her sublime chord spellcaster level.</entry>
   <entry id="75700" lang="en" sex="m">Bardic Spellcasting (Gloura)</entry>
   <entry id="75701" lang="en" sex="m">Sorcerous Spellcasting (Drider)</entry>
   <entry id="75702" lang="en" sex="m">Sorcerous Spellcasting (Arkamoi)</entry>

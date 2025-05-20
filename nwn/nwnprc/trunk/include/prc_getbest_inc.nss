@@ -58,6 +58,12 @@ int GetBestL0Spell(object oTarget, int nFallbackSpell)
     return nSpell;
 } */
 
+/* 
+
+bscureObject
+
+ */
+
 int GetBestL1Spell(object oTarget, int nSpell)
 {
     if(PRCGetHasSpell(SPELL_MAGIC_MISSILE, oTarget))                  return SPELL_MAGIC_MISSILE;
@@ -88,12 +94,15 @@ int GetBestL1Spell(object oTarget, int nSpell)
     if(PRCGetHasSpell(SPELL_ENTROPIC_SHIELD, oTarget))                return SPELL_ENTROPIC_SHIELD;
     if(PRCGetHasSpell(SPELL_ENTANGLE, oTarget))                       return SPELL_ENTANGLE;
     if(PRCGetHasSpell(SPELL_DIVINE_FAVOR, oTarget))                   return SPELL_DIVINE_FAVOR;
+	if(PRCGetHasSpell(SPELL_FEAR, oTarget))                     		return SPELL_FEAR;
     if(PRCGetHasSpell(SPELL_SLEEP, oTarget))                          return SPELL_SLEEP;
+    if(PRCGetHasSpell(SPELL_SORROW, oTarget))                          return SPELL_SORROW;	
     if(PRCGetHasSpell(SPELL_MAGIC_WEAPON, oTarget))                   return SPELL_MAGIC_WEAPON;
     if(PRCGetHasSpell(SPELL_SCARE, oTarget))                          return SPELL_SCARE;
     if(PRCGetHasSpell(SPELL_GREASE, oTarget))                         return SPELL_GREASE;
     if(PRCGetHasSpell(SPELL_CAMOFLAGE, oTarget))                      return SPELL_CAMOFLAGE;
     if(PRCGetHasSpell(SPELL_COLOR_SPRAY, oTarget))                    return SPELL_COLOR_SPRAY;
+	if(PRCGetHasSpell(SPELL_RAY_OF_HOPE, oTarget))                      return SPELL_RAY_OF_HOPE;
     if(PRCGetHasSpell(SPELL_RESIST_ELEMENTS, oTarget))                return SPELL_RESIST_ELEMENTS;
     if(PRCGetHasSpell(SPELL_REMOVE_FEAR, oTarget))                    return SPELL_REMOVE_FEAR;
     if(PRCGetHasSpell(SPELL_IRONGUTS, oTarget))                       return SPELL_IRONGUTS;
@@ -103,7 +112,10 @@ int GetBestL1Spell(object oTarget, int nSpell)
     if(PRCGetHasSpell(SPELL_PROTECTION_FROM_EVIL, oTarget))           return SPELL_PROTECTION_FROM_EVIL;
     if(PRCGetHasSpell(SPELL_IDENTIFY, oTarget))                       return SPELL_IDENTIFY;
     if(PRCGetHasSpell(SPELL_CURE_LIGHT_WOUNDS, oTarget))              return SPELL_CURE_LIGHT_WOUNDS;    
-    if(PRCGetHasSpell(SPELL_INFLICT_LIGHT_WOUNDS, oTarget))           return SPELL_INFLICT_LIGHT_WOUNDS;    
+    if(PRCGetHasSpell(SPELL_INFLICT_LIGHT_WOUNDS, oTarget))           return SPELL_INFLICT_LIGHT_WOUNDS; 
+	if(PRCGetHasSpell(SPELL_EXTRACT_DRUG, oTarget))           		return SPELL_EXTRACT_DRUG;
+	if(PRCGetHasSpell(SPELL_OBSCURE_OBJECT, oTarget))           		return SPELL_OBSCURE_OBJECT;	
+	if(PRCGetHasSpell(2839, oTarget))           					return 2839; //:: Disguise Self
     return nSpell;
 }
 
@@ -389,3 +401,4 @@ int GetBestAvailableSpell(object oTarget)
     if(nBestSpell == 99999) nBestSpell = GetBestL0Spell(oTarget, nBestSpell);
     return nBestSpell;
 }
+

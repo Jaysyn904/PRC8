@@ -1380,7 +1380,10 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
 
     // Eldritch Spellblast was breaking otherwise        
     if (GetLocalInt(oCaster, "EldritchSpellBlast"))
+	{
+		if(DEBUG) DoDebug("x2_inc_spellhook >> EldritchSpellBlast Found");		
         return TRUE;    
+	}
 
     //check its a sorc spell
     if(nCastingClass == CLASS_TYPE_SORCERER)

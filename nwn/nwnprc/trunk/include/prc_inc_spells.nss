@@ -1850,7 +1850,30 @@ void DoCorruptionCost(object oPC, int nAbility, int nCost, int bDrain)
         ApplyAbilityDamage(oPC, nAbility, nCost, DURATION_TYPE_TEMPORARY, TRUE, -1.0f);
 }
 
+//:: Fix by TiredByFirelight
 void MultisummonPreSummon(object oPC = OBJECT_SELF, int bOverride = FALSE)
+{
+    if(!GetPRCSwitch(PRC_MULTISUMMON) && !bOverride)
+        return;
+    int nCount = GetPRCSwitch(PRC_MULTISUMMON);    
+    if(bOverride)
+        nCount = bOverride;
+    if(nCount < 0
+        || nCount == 1)
+        nCount = 99;
+    if(nCount > 99)
+        nCount = 99;
+    
+    object oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oPC, nCount);
+    if(!GetIsObjectValid(oSummon) && !GetLocalInt(oSummon, "RFSummonedElemental"))
+    {
+        oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oPC, 1);    
+        AssignCommand(oSummon, SetIsDestroyable(FALSE, FALSE, FALSE));
+        AssignCommand(oSummon, DelayCommand(0.3, SetIsDestroyable(TRUE, FALSE, FALSE)));    
+    }
+}
+
+/* void MultisummonPreSummon(object oPC = OBJECT_SELF, int bOverride = FALSE)
 {
     if(!GetPRCSwitch(PRC_MULTISUMMON) && !bOverride)
         return;
@@ -1871,7 +1894,7 @@ void MultisummonPreSummon(object oPC = OBJECT_SELF, int bOverride = FALSE)
         i++;
         oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oPC, i);
     }
-}
+} */
 
 
 //This function returns 1 only if the object oTarget is the object

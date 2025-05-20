@@ -83,6 +83,7 @@ void DoSpellBlast(object oPC, int bHit)
                     //override PRCDoMeleeTouchAttack() - we already know that blast hit
                     ActionDoCommand(SetLocalInt(oPC, "AttackHasHit", bHit));
                     SetLocalInt(oPC, "EldritchSpellBlast", TRUE);
+					if(DEBUG) DoDebug("inv_inc_blast >> EldritchSpellBlast Set");
                     ActionCastSpell(nSpellID, 0, nDC, 0, METAMAGIC_NONE, nCastingClass, FALSE, bTargetOverride);
                     ActionDoCommand(DeleteLocalInt(oPC, "AttackHasHit"));
                     DelayCommand(0.5, DeleteLocalInt(oPC, "EldritchSpellBlast"));

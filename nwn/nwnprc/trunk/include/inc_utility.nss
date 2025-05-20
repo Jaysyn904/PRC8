@@ -1614,6 +1614,7 @@ int GetSkill(object oObject, int nSkill, int bSynergy = FALSE, int bSize = FALSE
                 if(GetHasFeat(FEAT_BARDIC_KNOWLEDGE, oObject))
                     nSkillMod += GetLevelByClass(CLASS_TYPE_BARD, oObject)
                         +GetLevelByClass(CLASS_TYPE_HARPER, oObject)
+						+GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oObject)
                         +GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oObject);
                 break;
             case SKILL_MOVE_SILENTLY:
