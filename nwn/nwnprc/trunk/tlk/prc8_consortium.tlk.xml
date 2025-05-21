@@ -1325,12 +1325,19 @@ Prerequisite: Psicraft 4.
 Specifics: Your manifester level for the chosen class increase by +4. This can't increased your manifester level beyond your HD. (Ex: a Fighter 2 / Psion 5 increase his manifester level from 5 to 7).
 Use: Automatic.</entry>
   <entry id="12635" lang="en" sex="m">Epic Dread Necromancer</entry>
-  <entry id="12636" lang="en" sex="m">Within the shadowed realms where life and death intertwine, the Dread Necromancer emerges as a master of the macabre, wielding the powers of undeath with unparalleled mastery. This dark and enigmatic class delves deep into the forbidden arts of necromancy, harnessing the very forces that govern life and death to achieve unparalleled power.
+  <entry id="12636" lang="en" sex="m">Within the shadowed realms where life and death intertwine, the Dread Necromancer emerges as a master of the macabre, wielding the powers of undeath with unparalleled mastery. This dark and enigmatic class delves deep into the forbidden arts of necromancy, harnessing the very forces that govern life and death to achieve unparalleled power.  
   
-  Hit Die: d12
-  Skill Points at Each Additional Level: 2 + Int modifier.
-  
-  Bonus Feats: The epic dread necromancer gains a bonus feat every five levels, starting at level 25 </entry>
+Hit Die: d12.
+Skill Points at Each Additional Level: 2+ Intelligence modifier.
+Bonus Feats: The epic Dread Necromancer gains a bonus feat every four levels.
+
+Special:
+Scabrous Touch: The epic Dread Necromancer continues to gain another use of their Scaborous Touch ability every 5 levels.
+Negative Energy Burst: The epic Dread Necromancer continues to gain another use of their Negative Energy Burst ability every 5 levels.
+Spellcasting: The epic Dread Necromancer continues to increase in arcane caster level.
+
+Epic Dread Necromancer Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Charisma, Ignore Material Components, Improved Combat Casting, Zone of Animation. </entry>
   <entry id="12637" lang="en" sex="m">****</entry>
   <entry id="12638" lang="en" sex="m">Practiced Spellcaster (Knight of the Weave)</entry>
   <entry id="12639" lang="en" sex="m">Practiced Spellcaster (Cultist of the Shattered Peak)</entry>
