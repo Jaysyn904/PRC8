@@ -5936,7 +5936,7 @@ int GetFirstDivineClassPosition(object oCaster = OBJECT_SELF)
 
 int GetPrimaryArcaneClass(object oCaster = OBJECT_SELF)
 {
-    int nClass;
+    int nClass = CLASS_TYPE_INVALID;
 
     if(GetPRCSwitch(PRC_CASTERLEVEL_FIRST_CLASS_RULE))
     {
@@ -5947,7 +5947,9 @@ int GetPrimaryArcaneClass(object oCaster = OBJECT_SELF)
     }
     else
     {
-        int i, nClassTmp, nClassLvl;
+        int nClassLvl = 0;
+
+		int i, nClassTmp;
         for(i = 1; i <= 8; i++)
         {
             nClassTmp = GetClassByPosition(i, oCaster);
@@ -5972,15 +5974,17 @@ int GetPrimaryArcaneClass(object oCaster = OBJECT_SELF)
     || nClass == CLASS_TYPE_MONSTROUS)
         nClass = CLASS_TYPE_SORCERER;
         
-    if(nClass == CLASS_TYPE_FEY)
-        nClass = CLASS_TYPE_BARD;        
-
+    if(nClass == CLASS_TYPE_FEY && GetRacialType(oCaster) == RACIAL_TYPE_GLOURA)
+	{
+		nClass = CLASS_TYPE_BARD;        
+	}
+	
     return nClass;
 }
 
 int GetPrimaryDivineClass(object oCaster = OBJECT_SELF)
 {
-    int nClass;
+    int nClass = CLASS_TYPE_INVALID;
 
     if(GetPRCSwitch(PRC_CASTERLEVEL_FIRST_CLASS_RULE))
     {

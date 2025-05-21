@@ -330,39 +330,131 @@ string GetFileForClass(int nClass)
 
 int GetSpellslotLevel(int nClass, object oPC)
 {
+    int nBaseLevel = GetLevelByClass(nClass, oPC);
+
+    // Custom racial casting
+    int nRacialLevel = 0;
+    int nRace = GetRacialType(oPC);
+
+    if (nClass == CLASS_TYPE_SORCERER)
+    {
+        if(nRace == RACIAL_TYPE_RAKSHASA)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC);
+        else if(nRace == RACIAL_TYPE_ARKAMOI)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
+        else if(nRace == RACIAL_TYPE_DRIDER)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_ABERRATION, oPC); 
+        else if(nRace == RACIAL_TYPE_REDSPAWN_ARCANISS)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC) * 3 / 4;
+        else if(nRace == RACIAL_TYPE_MARRUTACT)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC) * 6 / 7;
+        else if(nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
+        else if(nRace == RACIAL_TYPE_ARANEA)
+            nRacialLevel = GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC);
+    }
+    else if (nClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA)
+    {
+        nRacialLevel = GetLevelByClass(CLASS_TYPE_FEY, oPC);
+    }
+
+    // Add base and racial class levels
+    int nLevel = nBaseLevel + nRacialLevel;
+
+    // Spellcasting PRC progression
+    int nArcSpellslotLevel = 0;
+    int nDivSpellslotLevel = 0;
+    int i;
+    for(i = 1; i <= 8; i++)
+    {
+        int nTempClass = GetClassByPosition(i, oPC);
+        int nArcSpellMod = StringToInt(Get2DACache("classes", "ArcSpellLvlMod", nTempClass));
+        int nDivSpellMod = StringToInt(Get2DACache("classes", "DivSpellLvlMod", nTempClass));
+
+        if(nArcSpellMod > 0)
+            nArcSpellslotLevel += (GetLevelByClass(nTempClass, oPC) + (nArcSpellMod - 1)) / nArcSpellMod;
+
+        if(nDivSpellMod > 0)
+            nDivSpellslotLevel += (GetLevelByClass(nTempClass, oPC) + (nDivSpellMod - 1)) / nDivSpellMod;
+    }
+
+    // Add PRC spellcasting progression
+    if(GetPrimaryArcaneClass(oPC) == nClass)
+        nLevel += nArcSpellslotLevel;
+    if(GetPrimaryDivineClass(oPC) == nClass)
+        nLevel += nDivSpellslotLevel;
+
+    // Ultimate Magus override (only include Sorcerer + UM)
+    if (nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oPC))
+    {
+        nLevel = GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
+    }
+
+    if(DEBUG) DoDebug("GetSpellslotLevel(" + IntToString(nClass) + ", " + GetName(oPC) + ") = " + IntToString(nLevel));
+    return nLevel;
+}
+
+/* int GetSpellslotLevel(int nClass, object oPC)
+{
     int nLevel = GetLevelByClass(nClass, oPC);
     
 //:: Rakshasa cast as sorcerers
     if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
         nLevel = GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC);
+	
+	if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
+        nLevel = GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
 
 //:: Arkamoi cast as sorcerers	
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI) 
         nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
+
+	if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI)
+        nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
 	
 //:: Driders cast as sorcerers	
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_DRIDER) 
         nLevel = GetLevelByClass(CLASS_TYPE_ABERRATION, oPC);   
 
+	if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_DRIDER)
+        nLevel = GetLevelByClass(CLASS_TYPE_ABERRATION, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);	
+
 //:: Redspawn Arcaniss cast as 3/4 sorcerers	
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS) 
         nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC)*3/4;  
-
+    
+	else if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS) 
+        nLevel = GetLevelByClass(CLASS_TYPE_SORCERER, oPC) + (GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC)*3/4);  
+	
 //:: Marrutact cast as 6/7 sorcerers		
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
         nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC)*6/7;  
+	
+    else if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
+        nLevel = GetLevelByClass(CLASS_TYPE_SORCERER, oPC) + (GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC)*6/7);
 	
 //:: Hobgoblin Warsouls cast as sorcerers		
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
         nLevel = GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC); 	
 
-//:: Gloura cast as bards        
-    else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
-        nLevel = GetLevelByClass(CLASS_TYPE_FEY, oPC);        
-
+    else if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+        nLevel = GetLevelByClass(CLASS_TYPE_SORCERER, oPC) + GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC); 	
+	
 //:: Aranea cast as sorcerers		
     else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
-        nLevel = GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC);         
+        nLevel = GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC);  
+	
+    else if(nClass == CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
+        nLevel = GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
+	
+//:: Gloura cast as bards        
+    else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
+        nLevel = GetLevelByClass(CLASS_TYPE_FEY, oPC);    
+
+    else if(nClass == CLASS_TYPE_BARD && GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
+	{
+		nLevel = GetLevelByClass(CLASS_TYPE_FEY, oPC) + GetLevelByClass(CLASS_TYPE_BARD, oPC); 		
+	}
     
     int nArcSpellslotLevel;
     int nDivSpellslotLevel;
@@ -373,9 +465,9 @@ int GetSpellslotLevel(int nClass, object oPC)
         //spellcasting prc
         int nArcSpellMod = StringToInt(Get2DACache("classes", "ArcSpellLvlMod", nTempClass));
         int nDivSpellMod = StringToInt(Get2DACache("classes", "DivSpellLvlMod", nTempClass));
-        /*//special case for combat medic class
-        if(nTempClass == CLASS_TYPE_COMBAT_MEDIC && (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_WITCH))
-            nArcSpellMod = 1;*/
+        //special case for combat medic class
+        //if(nTempClass == CLASS_TYPE_COMBAT_MEDIC && (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_WITCH))
+        //    nArcSpellMod = 1;
 
         if(nArcSpellMod == 1)
             nArcSpellslotLevel += GetLevelByClass(nTempClass, oPC);
@@ -399,6 +491,7 @@ int GetSpellslotLevel(int nClass, object oPC)
     if(DEBUG) DoDebug("GetSpellslotLevel(" + IntToString(nClass) + ", " + GetName(oPC) + ") = " + IntToString(nLevel));
     return nLevel;
 }
+ */
 
 int GetItemBonusSlotCount(object oPC, int nClass, int nSpellLevel)
 {

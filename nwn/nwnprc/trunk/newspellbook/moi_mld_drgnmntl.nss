@@ -31,6 +31,9 @@ Chakra Bind (Totem)
 Long, draconic wings sprout from the shoulders of your blue dragonhide plate armor.
 
 You gain +4 on Jump checks for every point of essentia invested in your dragon mantle.
+
+	Fixed by: Jaysyn
+	Fixed on: 2025-05-20 15:27:50
 */
 
 #include "moi_inc_moifunc"
@@ -39,37 +42,73 @@ void DragonMantleHeal(object oMeldshaper);
 
 void DragonMantleHeal(object oMeldshaper)
 {
-	if (GetHasSpellEffect(MELD_DRAGON_MANTLE, oMeldshaper) && GetIsMeldBound(oMeldshaper, MELD_DRAGON_MANTLE) == CHAKRA_HEART)
-	{
     	int nCurHP = GetCurrentHitPoints(oMeldshaper);
     	int nMaxHP = GetMaxHitPoints(oMeldshaper);
     	
     	// Is the HP total lower than half?
     	if ((nMaxHP/2) > nCurHP)
     	{
-    	    if (!GetIsResting(oMeldshaper)) ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(GetEssentiaInvested(oMeldshaper, MELD_DRAGON_MANTLE)), oMeldshaper);
+    	    if (!GetIsResting(oMeldshaper)) 
+			{
+				ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(GetEssentiaInvested(oMeldshaper, MELD_DRAGON_MANTLE)), oMeldshaper);
+			}
+			else
+			{
+				RemoveEventScript(oMeldshaper, EVENT_ONHEARTBEAT, "moi_mld_drgnmntl", TRUE, FALSE);
+			}
     	}
-    	DelayCommand(6.0, DragonMantleHeal(oMeldshaper));
-	}
+		//DelayCommand(6.0, DragonMantleHeal(oMeldshaper));
 }
 
 void main()
 {
-    object oMeldshaper = PRCGetSpellTargetObject(); 
-    int nEssentia = GetEssentiaInvested(oMeldshaper);
-    int nBonus    = 3 * nEssentia;
-    
-    effect eLink = EffectSavingThrowIncrease(SAVING_THROW_FORT, 2);
-    if (nEssentia)
+    //Declare main variables.
+    int nEvent = GetRunningEvent();
+    object oMeldshaper;
+    switch(nEvent)
     {
-		eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ACID, nBonus));    
-		eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, nBonus));    
- 		eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nBonus));    
- 		eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nBonus));    
-    }
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SHOULDERS && nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageReduction(nEssentia, DAMAGE_POWER_PLUS_ONE));
-	if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM && nEssentia) eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_JUMP, nEssentia * 4));
+        case EVENT_ONHEARTBEAT:		oMeldshaper = OBJECT_SELF;	break;
 
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
-    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+        default:
+            object oMeldshaper = PRCGetSpellTargetObject();
+    }
+	
+    int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_DRAGON_MANTLE);
+    int nBonus    = 3 * nEssentia;
+
+    if(nEvent == FALSE)
+    {    
+		effect eLink = EffectSavingThrowIncrease(SAVING_THROW_FORT, 2);
+		if (nEssentia)
+		{
+			eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ACID, nBonus));    
+			eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, nBonus));    
+			eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nBonus));    
+			eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nBonus));    
+		}
+		
+		if (GetIsMeldBound(oMeldshaper, MELD_DRAGON_MANTLE) == CHAKRA_SHOULDERS && nEssentia) 
+		{
+			eLink = EffectLinkEffects(eLink, EffectDamageReduction(nEssentia, DAMAGE_POWER_PLUS_ONE));
+		}
+		if (GetIsMeldBound(oMeldshaper, MELD_DRAGON_MANTLE) == CHAKRA_TOTEM && nEssentia)
+		{
+			eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_JUMP, nEssentia * 4));
+		}
+
+		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+		
+		DragonMantleHeal(oMeldshaper);
+		
+		AddEventScript(oMeldshaper, EVENT_ONHEARTBEAT, "moi_mld_drgnmntl", TRUE, FALSE);
+	}
+	
+	else if(nEvent == EVENT_ONHEARTBEAT)
+	{	
+		if (GetHasSpellEffect(MELD_DRAGON_MANTLE, oMeldshaper) && GetIsMeldBound(oMeldshaper, MELD_DRAGON_MANTLE) == CHAKRA_HEART)
+		{
+			DragonMantleHeal(oMeldshaper);
+		}
+	}
 }

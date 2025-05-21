@@ -74,7 +74,65 @@ void main()
 }
 
 // Handle new spellbooks
+
 void CheckSpellbooks(object oPC)
+{
+	
+    if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oPC) > 0)
+    {
+        CheckMissingSpells(oPC, CLASS_TYPE_SUBLIME_CHORD, 4, 9);
+
+        if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BARD, oPC))
+        {
+            CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 3);
+        }
+        if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_SORCERER))
+		{
+            CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 3);
+        }
+        if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_WARMAGE, oPC))
+        {
+            CheckMissingSpells(oPC, CLASS_TYPE_WARMAGE, 0, 3);
+        }
+        if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_DUSKBLADE, oPC))
+        {
+            CheckMissingSpells(oPC, CLASS_TYPE_DUSKBLADE, 0, 3);
+        }
+		if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BEGUILER, oPC))
+        {
+            CheckMissingSpells(oPC, CLASS_TYPE_BEGUILER, 0, 3);
+        }
+    }
+
+    // Check all classes that might need a spellbook update
+    if(GetIsRHDSorcerer(oPC)) CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9);
+    if(GetIsRHDBard(oPC))     CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6);
+
+    if(!GetPRCSwitch(PRC_BARD_DISALLOW_NEWSPELLBOOK))
+        CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6);
+    if(!GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK))
+        CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9);
+
+    CheckMissingSpells(oPC, CLASS_TYPE_SUEL_ARCHANAMACH, 1, 5);
+    CheckMissingSpells(oPC, CLASS_TYPE_FAVOURED_SOUL, 0, 9);
+    CheckMissingSpells(oPC, CLASS_TYPE_WARMAGE, 0, 9);
+    CheckMissingSpells(oPC, CLASS_TYPE_DREAD_NECROMANCER, 1, 9);
+    CheckMissingSpells(oPC, CLASS_TYPE_HEXBLADE, 1, 4);
+    CheckMissingSpells(oPC, CLASS_TYPE_DUSKBLADE, 0, 5);
+    CheckMissingSpells(oPC, CLASS_TYPE_JUSTICEWW, 1, 4);
+    CheckMissingSpells(oPC, CLASS_TYPE_KNIGHT_WEAVE, 1, 6);
+    CheckMissingSpells(oPC, CLASS_TYPE_ARCHIVIST, 0, 9);
+    CheckMissingSpells(oPC, CLASS_TYPE_BEGUILER, 0, 9);
+    CheckMissingSpells(oPC, CLASS_TYPE_HARPER, 1, 3);
+    CheckMissingSpells(oPC, CLASS_TYPE_ASSASSIN, 1, 4);
+    CheckMissingSpells(oPC, CLASS_TYPE_CELEBRANT_SHARESS, 1, 4);
+
+    // Check psionics
+    DelayCommand(0.0f, CheckPsionics(oPC));
+}
+
+
+/* void CheckSpellbooks(object oPC)
 {
 	if(GetIsRHDSorcerer(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9))
         return;
@@ -121,6 +179,7 @@ void CheckSpellbooks(object oPC)
 
     DelayCommand(0.0f, CheckPsionics(oPC));
 }
+ */
 
 // Handle psionics
 void CheckPsionics(object oPC)
