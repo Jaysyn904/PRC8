@@ -1273,14 +1273,14 @@ int DragonShamanFeats()
         return TRUE;
     }
 
-    int nNumSF = GetHasFeat(FEAT_SKILLFOCUS_APPRAISE)
-               + GetHasFeat(FEAT_SKILL_FOCUS_BLUFF)
-               + GetHasFeat(FEAT_SKILL_FOCUS_HEAL)
-               + GetHasFeat(FEAT_SKILL_FOCUS_HIDE)
-               + GetHasFeat(FEAT_SKILL_FOCUS_MOVE_SILENTLY)
-               + GetHasFeat(FEAT_SKILL_FOCUS_PERSUADE)
-               + GetHasFeat(FEAT_SKILL_FOCUS_SEARCH)
-               + GetHasFeat(FEAT_SKILL_FOCUS_SPELLCRAFT);
+    int nNumSF =  GetHasFeat(FEAT_SKILLFOCUS_APPRAISE)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_BLUFF)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_HEAL)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_HIDE)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_JUMP)				
+				+ GetHasFeat(FEAT_SKILL_FOCUS_MOVE_SILENTLY)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_SEARCH)
+				+ GetHasFeat(FEAT_SKILL_FOCUS_SPELLCRAFT);
 
     if(nLevel > 1 && nNumSF < 1)
     {

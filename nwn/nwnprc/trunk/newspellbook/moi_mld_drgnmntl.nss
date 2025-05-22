@@ -12,7 +12,7 @@ Incarnum forms heavy plates of armor that resemble blue dragonhide. The plates h
 
 You draw on the incarnum of the mightiest dragons to increase your resilience. You gain a +2 enhancement bonus on Fortitude saves.
 
-Essentia: You gain resistance to acid, electricity, fire, and cold equal to 3 × the number of points of essentia invested in this soulmeld. 
+Essentia: You gain resistance to acid, electricity, fire, and cold equal to 3 ï¿½ the number of points of essentia invested in this soulmeld. 
 
 Chakra Bind (Heart)
 
@@ -64,19 +64,21 @@ void main()
 {
     //Declare main variables.
     int nEvent = GetRunningEvent();
+	int flag = 0;
     object oMeldshaper;
     switch(nEvent)
     {
         case EVENT_ONHEARTBEAT:		oMeldshaper = OBJECT_SELF;	break;
 
         default:
-            object oMeldshaper = PRCGetSpellTargetObject();
+            oMeldshaper = PRCGetSpellTargetObject(); //flag = 1;
     }
 	
     int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_DRAGON_MANTLE);
     int nBonus    = 3 * nEssentia;
 
-    if(nEvent == FALSE)
+    //if(flag == 1)
+	if(nEvent == FALSE)
     {    
 		effect eLink = EffectSavingThrowIncrease(SAVING_THROW_FORT, 2);
 		if (nEssentia)
@@ -99,11 +101,8 @@ void main()
 		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
 		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 		
-		DragonMantleHeal(oMeldshaper);
-		
 		AddEventScript(oMeldshaper, EVENT_ONHEARTBEAT, "moi_mld_drgnmntl", TRUE, FALSE);
-	}
-	
+	}	
 	else if(nEvent == EVENT_ONHEARTBEAT)
 	{	
 		if (GetHasSpellEffect(MELD_DRAGON_MANTLE, oMeldshaper) && GetIsMeldBound(oMeldshaper, MELD_DRAGON_MANTLE) == CHAKRA_HEART)
