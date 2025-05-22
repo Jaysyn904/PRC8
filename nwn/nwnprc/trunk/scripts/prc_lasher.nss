@@ -26,13 +26,13 @@
 //#include "inc_2dacache"
 #include "prc_inc_spells"
 
-void ApplyLashing(object oPC) //ripped off the tempest
+/* void ApplyLashing(object oPC) //ripped off the tempest
 {
     if(!GetHasSpellEffect(SPELL_LASHER_LASHW, oPC))
         ActionCastSpellOnSelf(SPELL_LASHER_LASHW);
-}
+} */
 
-void ApplyBonuses(object oPC, object oWeapon)
+/* void ApplyBonuses(object oPC, object oWeapon)
 {
     object oSkin = GetPCSkin(oPC);
     int iClassLevel = GetLevelByClass(CLASS_TYPE_LASHER, oPC);
@@ -63,8 +63,9 @@ void ApplyBonuses(object oPC, object oWeapon)
         IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_FEAT_PRC_IMPROVED_DISARM));
     }
 }
+ */
 
-void RemoveBonuses(object oPC, object oWeapon)
+/* void RemoveBonuses(object oPC, object oWeapon)
 {
     object oSkin = GetPCSkin(oPC);
 
@@ -113,8 +114,142 @@ void RemoveBonuses(object oPC, object oWeapon)
             FloatingTextStringOnCreature("*Crack of Doom Deactivated*", oPC, FALSE);
         }
 }
+ */
+
+void RemoveFeatBonuses(object oPC)
+{
+    object oSkin = GetPCSkin(oPC);
+	
+	SendMessageToPC(oPC, "prc_lasher: Running RemoveFeatBonuses");
+
+	if(GetHasSpellEffect(SPELL_LASHER_CRACK_FATE, oPC))
+	{
+		PRCRemoveEffectsFromSpell(oPC, SPELL_LASHER_CRACK_FATE);
+		FloatingTextStringOnCreature("*Crack of Fate Deactivated*", oPC, FALSE);
+	}
+	if(GetHasSpellEffect(SPELL_LASHER_CRACK_DOOM, oPC))
+	{
+		PRCRemoveEffectsFromSpell(oPC, SPELL_LASHER_CRACK_DOOM);
+		FloatingTextStringOnCreature("*Crack of Doom Deactivated*", oPC, FALSE);
+	}
+}
+
+void ApplyWhipBonuses(object oPC, object oWhip, int iClassLevel)
+{
+    if (!GetIsObjectValid(oWhip)) return;
+	
+    // Only apply bonuses if the item is a whip
+    if (GetBaseItemType(oWhip) != BASE_ITEM_WHIP) return;
+
+    SendMessageToPC(oPC, "prc_lasher: Running ApplyWhipBonuses");
+
+    RemoveSpecificProperty(oWhip, ITEM_PROPERTY_DAMAGE_BONUS, IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2, 1, "SLASHING_WHIP", -1, DURATION_TYPE_TEMPORARY);		
+
+    object oSkin = GetPCSkin(oPC);
+
+    if(iClassLevel > 1 /* && !GetHasFeat(FEAT_IMPROVED_TRIP) */)
+        IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_FEAT_IMPROVED_TRIP));
+
+    if(iClassLevel > 5 /* && !GetHasFeat(FEAT_PRC_IMP_DISARM) */)
+        IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_FEAT_PRC_IMPROVED_DISARM));
+
+    itemproperty ip = ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2);
+    IPSafeAddItemProperty(oWhip, ip, 9999.0f);
+    SetLocalInt(oWhip, "SLASHING_WHIP", 1);
+}
 
 void main()
+{
+    //Declare main variables.
+    int nEvent = GetRunningEvent();
+    object oPC;
+    switch(nEvent)
+    {
+        case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;
+        case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;
+        //case EVENT_ONHEARTBEAT:         oPC = OBJECT_SELF;               break;
+
+        default:
+            oPC = OBJECT_SELF;
+    }
+	
+	object oSkin = GetPCSkin(oPC);
+	
+    int iClassLevel = GetLevelByClass(CLASS_TYPE_LASHER, oPC);
+	
+	if (nEvent == FALSE)
+	{
+		SendMessageToPC(oPC, "prc_lasher: Registering Events");
+		AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM, "prc_lasher", TRUE, FALSE);
+		AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_lasher", TRUE, FALSE);			
+	}	
+	else if (nEvent == EVENT_ONPLAYEREQUIPITEM)
+	{
+		if (!GetIsObjectValid(oPC)) return;
+		{	
+			SendMessageToPC(oPC, "prc_lasher: Running EVENT_ONPLAYEREQUIPITEM");
+				
+			object oMain = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+			object oOff  = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC);
+
+			ApplyWhipBonuses(oPC, oMain, iClassLevel);
+			ApplyWhipBonuses(oPC, oOff, iClassLevel);			
+		}
+	}
+	else if (nEvent == EVENT_ONPLAYERUNEQUIPITEM)
+	{
+		SendMessageToPC(oPC, "prc_lasher: Running EVENT_ONPLAYERUNEQUIPITEM");
+					
+		object oItem = GetItemLastUnequipped();
+		object oMain = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+		
+		if (GetIsObjectValid(oItem) && GetBaseItemType(oItem) == BASE_ITEM_WHIP)
+		{
+			if(iClassLevel > 1)    //improved knockdown (whip)
+			{
+				SendMessageToPC(oPC, "prc_lasher: Removing Improved Trip (Whip)");
+				RemoveSpecificProperty(oSkin, ITEM_PROPERTY_BONUS_FEAT,	IP_CONST_FEAT_IMPROVED_TRIP);
+			}						
+					
+			if(iClassLevel > 5)    //improved disarm (whip)
+			{
+				SendMessageToPC(oPC, "prc_lasher: Removing Improved Disarm (Whip)");
+				RemoveSpecificProperty(oSkin, ITEM_PROPERTY_BONUS_FEAT, IP_CONST_FEAT_IMPROVED_DISARM);
+			}	
+
+			RemoveSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS, IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2, 1, "SLASHING_WHIP", -1, DURATION_TYPE_TEMPORARY);
+
+			SendMessageToPC(oPC, "prc_lasher: Removing Class Ability Bonuses");
+			RemoveFeatBonuses(oPC);	
+						
+		}	
+	}
+}
+
+
+
+		// OFF HAND
+/* 		if (GetIsObjectValid(oOff) && GetBaseItemType(oOff) == BASE_ITEM_WHIP)
+		{
+			itemproperty ipCheck = GetFirstItemProperty(oOff);
+			while (GetIsItemPropertyValid(ipCheck))
+			{
+				if (GetItemPropertyType(ipCheck) == ITEM_PROPERTY_DAMAGE_BONUS &&
+					GetItemPropertySubType(ipCheck) == IP_CONST_DAMAGETYPE_SLASHING &&
+					GetItemPropertyCostTableValue(ipCheck) == IP_CONST_DAMAGEBONUS_2)
+				{
+					RemoveItemProperty(oOff, ipCheck);
+				}
+				ipCheck = GetNextItemProperty(oOff);
+			}
+
+			itemproperty ip = ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2);
+			AddItemProperty(DURATION_TYPE_PERMANENT, ip, oOff);
+		}
+	} */
+
+
+/* void main()
 {
     object oPC = OBJECT_SELF;
     object oWeapon;
@@ -136,4 +271,4 @@ void main()
         ApplyBonuses(oPC, oWeapon);
     }
 
-}
+} */

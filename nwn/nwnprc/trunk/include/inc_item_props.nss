@@ -331,6 +331,23 @@ itemproperty GetSpecificProperty(object oItem, int iType, int iSubType = -1, int
     return ip;
 }
 
+// Removes one or more item properties from an item that match the specified criteria.
+//
+// Parameters:
+// oItem     - The item object from which the property or properties will be removed.
+// iType     - The item property type (e.g., ITEM_PROPERTY_ENHANCEMENT_BONUS).
+// iSubType  - Optional. The property subtype to match. Use -1 to match any subtype.
+// iCostVal  - Optional. The cost table value to match. Use -1 to match any value.
+// iNum      - Optional. The number of matching properties to remove. Use -1 to remove all matches. Default is 1.
+// sFlag     - Optional. A local string/int flag name to clear on the item after removal. Default is "" (does nothing).
+// iParam1   - Optional. Additional property-specific parameter to match (e.g., for saving throw bonuses). Use -1 to ignore.
+// iDuration - Optional. Duration type of the property to match (e.g., DURATION_TYPE_PERMANENT). Use -1 to match any.
+//
+// Notes:
+// - This function loops through item properties and removes the first `iNum` that match the given filters.
+// - If iNum is -1, it removes all matching properties.
+// - After removal, if sFlag is not an empty string, the local int with name sFlag is cleared on the item.
+
 void RemoveSpecificProperty(object oItem, int iType, int iSubType = -1, int iCostVal = -1, int iNum = 1,
                             string sFlag = "", int iParam1 = -1, int iDuration = DURATION_TYPE_PERMANENT)
 {
