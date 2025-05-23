@@ -4,6 +4,7 @@
 //:://////////////////////////////////////////////
 #include "prc_alterations"
 #include "inc_utility"
+#include "prc_inc_function"
 
 void main()
 {
@@ -14,4 +15,6 @@ void main()
         SetPersistantLocalInt(oPC, "persist_dead", FALSE);
 
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERRESPAWN);
+	
+	DelayCommand(0.1f, EvalPRCFeats(oPC));
 }
