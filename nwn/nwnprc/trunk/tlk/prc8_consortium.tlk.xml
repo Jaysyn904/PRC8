@@ -71342,22 +71342,20 @@ When within your own black labyrinth, you are immune to the last two effects (mo
   <entry id="71821" lang="en" sex="m">War mind Tower of Iron Will</entry>
   <entry id="71822" lang="en" sex="m">War mind True Seeing, Psionic</entry>
   <entry id="74500" lang="en" sex="m">####END_OF_PSI_SPELLBOOK_RESERVE</entry>
-  <entry id="74800" lang="en" sex="m">###PRC8 Loadscreen Hint Reserve 74800-75000-###
-</entry>
+  <entry id="74800" lang="en" sex="m">###PRC8 Loadscreen Hint Reserve 74800-75000-###</entry>
   <entry id="74801" lang="en" sex="m">LETO does not support the PRC8</entry>
   <entry id="74802" lang="en" sex="m">Due to Bioware limitations, non-Bioware spontaneous casters do not use the normal spellbook.  Those spells can be found in your class radial.</entry>
-  <entry id="74803" lang="en" sex="m">Due to Bioware limitations, only your highest level Arcane or Divine class can receive new Arcane or Divine spells at level up.</entry>
+  <entry id="74803" lang="en" sex="m">Due to Bioware limitations, only your highest level Arcane or Divine class will receive new Arcane or Divine spellslots at level up.</entry>
   <entry id="74804" lang="en" sex="m">Two handed weapons are shown being wielded one handed to allow feats such as Monkey Grip &amp; Oversized Two-Weapon fighting to work properly.  Combat isn't affected.</entry>
-  <entry id="74805" lang="en" sex="m">De-leveling isn't supported by the PRC8 &amp; can in fact break your character.
-</entry>
-  <entry id="74806" lang="en" sex="m">Casting an Exalted or Vile spell causes ability damage.</entry>
+  <entry id="74805" lang="en" sex="m">De-leveling isn't supported by the PRC8 &amp; can in fact break your character.</entry>
+  <entry id="74806" lang="en" sex="m">Casting an Exalted or Vile spell causes ability damage to the caster.</entry>
   <entry id="74807" lang="en" sex="m">Enable &amp; disable optional game features with the PRC Options radial.</entry>
-  <entry id="74808" lang="en" sex="m">Knockdown, Called Shot, Taunt &amp; Parry are not valid 3e D&amp;D feats or skills &amp; have been disabled in the PRC8. 
-</entry>
+  <entry id="74808" lang="en" sex="m">Knockdown, Called Shot, Taunt &amp; Parry are not valid 3e D&amp;D feats or skills &amp; have been disabled in the PRC8.</entry>
   <entry id="74809" lang="en" sex="m">As in Neverwinter Nights 2, Arcane &amp; Divine prestige classes must pick a marker feat at 1st class level to choose which spellcasting class will be boosted by the new prestige class.</entry>
   <entry id="74810" lang="en" sex="m">Some prestige classes can advance invoking or shadowcasting instead of spellcasting.</entry>
   <entry id="74811" lang="en" sex="m">Spellcraft doesn't provide a bonus to your save vs. spells in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="74812" lang="en" sex="m">Tumble doesn't provide a bonus to your Armor Class in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
+  <entry id="74813" lang="en" sex="m">Feats for Alternate Magic Systems (Psionics, Incarnum, etc) are all organized under a Masterfeat.  Psionic Feats, ToB Feats, etc...</entry>  
   <entry id="75001" lang="en" sex="m">Favored Mystery - Black Labyrinth</entry>
   <entry id="75002" lang="en" sex="m">Holy Warrior</entry>
   <entry id="75003" lang="en" sex="m">Type of Feat: Reserve

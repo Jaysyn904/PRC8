@@ -110,10 +110,14 @@ void DispelMonitor(object oCaster, object oTarget, int nSpellID, int nBeatsRemai
 			if ((sTag == "ARCANE_SIZE_DECREASE") ||
 				(sTag == "ARCANE_SIZE_INCREASE"))
 			{
+				if(DEBUG) DoDebug("sp_enred: Removing all effects.");
 				RemoveEffect(oTarget, eEffect);
 			}
 			eEffect = GetNextEffect(oTarget);
-		}		
+		}	
+
+		DelayCommand(0.0f, ResetSize(oTarget));
+		PRCRemoveEffectsFromSpell(oTarget, GetSpellId());		
 
         // Size has changed, evaluate PrC feats again
         EvalPRCFeats(oTarget);
@@ -135,11 +139,7 @@ void main()
             oCaster = OBJECT_SELF;
     }
 
-	if(nEvent == EVENT_ONPLAYERREST_STARTED)
-	{
-		ResetSize(oCaster);
-	}
-	else if(nEvent == FALSE)
+	if(nEvent == FALSE)
 	{		
 		int nCasterLevel = PRCGetCasterLevel(oCaster);
 		int nSpellID = PRCGetSpellId();
@@ -167,6 +167,7 @@ void main()
 			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
 			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_STRENGTH, 2));
 			eLink = EffectLinkEffects(eLink, EffectACDecrease(1));  
+			eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_INCREASE_1));
 			eLink = TagEffect(eLink, "ARCANE_SIZE_INCREASE");
 		}
 		else
@@ -175,6 +176,7 @@ void main()
 			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_DEXTERITY, 2));
 			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_STRENGTH, 2));
 			eLink = EffectLinkEffects(eLink, EffectACIncrease(1)); 
+			eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_DECREASE_1));
 			eLink = TagEffect(eLink, "ARCANE_SIZE_DECREASE");			
 		}
 
@@ -187,7 +189,7 @@ void main()
 		if(bMass)
 		{
 			lTarget = PRCGetSpellTargetLocation();
-			object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
+			oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
 		}
 		while(GetIsObjectValid(oTarget))
 		{
@@ -203,11 +205,15 @@ void main()
 							effect eEffect = GetFirstEffect(oTarget);
 							while (GetIsEffectValid(eEffect))
 							{
+								DispelMonitor(oCaster, oTarget, nSpellID, 0);
+								
 								string sTag = GetEffectTag(eEffect);
 								if (sTag == "ARCANE_SIZE_DECREASE")
 								{
 									RemoveEffect(oTarget, eEffect);
 									DelayCommand(0.0f, ResetSize(oTarget));
+									PRCRemoveEffectsFromSpell(oTarget, GetSpellId());
+									DeleteLocalInt(oTarget, "PRC_Power_Compression_SizeReduction");
 								}
 								eEffect = GetNextEffect(oTarget);						
 							}
@@ -222,6 +228,8 @@ void main()
 							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
 							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
 							DelayCommand(fDuration, ResetSize(oTarget));
+							DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+							if(DEBUG) DoDebug("sp_enred: DispelMonitor started.");
 						}
 					}
 					else
@@ -232,14 +240,18 @@ void main()
 							effect eEffect = GetFirstEffect(oTarget);
 							while (GetIsEffectValid(eEffect))
 							{
+								DispelMonitor(oCaster, oTarget, nSpellID, 0);
+								
 								string sTag = GetEffectTag(eEffect);
 								if (sTag == "ARCANE_SIZE_INCREASE")
 								{
 									RemoveEffect(oTarget, eEffect);
 									DelayCommand(0.0f, ResetSize(oTarget));
+									PRCRemoveEffectsFromSpell(oTarget, GetSpellId());
+									DeleteLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease");									
 								}
 								eEffect = GetNextEffect(oTarget);						
-							}
+							}							
 						}
 						else if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
 						{
@@ -251,15 +263,14 @@ void main()
 							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
 							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 0.5);
 							DelayCommand(fDuration, ResetSize(oTarget));
-						}					
-							
-						EvalPRCFeats(oTarget);
-						DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));				
+							DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+							if(DEBUG) DoDebug("sp_enred: DispelMonitor started.");
+						}						
 					}
 				}
 				else if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC))
 				{
-					if(bEnlarge)
+					if(bEnlarge)  //:: Enlarge
 					{
 						if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
 						{
@@ -267,24 +278,35 @@ void main()
 							effect eEffect = GetFirstEffect(oTarget);
 							while (GetIsEffectValid(eEffect))
 							{
+								DispelMonitor(oCaster, oTarget, nSpellID, 0);
+								
 								string sTag = GetEffectTag(eEffect);
 								if (sTag == "ARCANE_SIZE_DECREASE")
 								{
 									RemoveEffect(oTarget, eEffect);
 									DelayCommand(0.0f, ResetSize(oTarget));
+									PRCRemoveEffectsFromSpell(oTarget, GetSpellId());
+									DeleteLocalInt(oTarget, "PRC_Power_Compression_SizeReduction");									
 								}
 								eEffect = GetNextEffect(oTarget);						
 							}
+
 						}
-						else	
+						else if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
 						{
+							FloatingTextStringOnCreature("This creature's size cannot be increased further.", oTarget);						
+						}
+						else
+						{	
 							SetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease", 1);
 							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
 							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
 							DelayCommand(fDuration, ResetSize(oTarget));
+							DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+							if(DEBUG) DoDebug("sp_enred: DispelMonitor started.");
 						}
 					}
-					else				
+					else	//:: Reduce			
 					{
 						if(GetLocalInt(oTarget, "PRC_Power_Expansion_SizeIncrease"))
 						{
@@ -292,32 +314,46 @@ void main()
 							effect eEffect = GetFirstEffect(oTarget);
 							while (GetIsEffectValid(eEffect))
 							{
+								DispelMonitor(oCaster, oTarget, nSpellID, 0);
+								
 								string sTag = GetEffectTag(eEffect);
 								if (sTag == "ARCANE_SIZE_INCREASE")
 								{
 									RemoveEffect(oTarget, eEffect);
 									DelayCommand(0.0f, ResetSize(oTarget));
+									PRCRemoveEffectsFromSpell(oTarget, GetSpellId());
+									DeleteLocalInt(oTarget, "PRC_Power_Compression_SizeIncrease");										
 								}
 								eEffect = GetNextEffect(oTarget);						
 							}
 						}
+						else if(GetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction"))
+						{
+							FloatingTextStringOnCreature("This creature's size cannot be reduced further.", oTarget);						
+						}						
 						else						
 						{
 							SetLocalInt(oTarget, "PRC_Power_Compression_SizeReduction", 1);
 							SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, nSpellID, nCasterLevel);
 							SetObjectVisualTransform(oTarget, OBJECT_VISUAL_TRANSFORM_SCALE, 1.5);
 							DelayCommand(fDuration, ResetSize(oTarget));
+							DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+							if(DEBUG) DoDebug("sp_enred: DispelMonitor started.");
 						}		
-					}	
-					
-					EvalPRCFeats(oTarget);
-					DelayCommand(6.0f, DispelMonitor(oCaster, oTarget, nSpellID, FloatToInt(fDuration) / 6));
+					}						
 				}
 			}	
 			if(!bMass) break;
 			oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
 		}
+		
+		EvalPRCFeats(oTarget);
+		
 	}
+	else if(nEvent == EVENT_ONPLAYERREST_STARTED)
+	{
+		ResetSize(oCaster);
+	}	
 
     PRCSetSchool();
 }

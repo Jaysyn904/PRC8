@@ -120,7 +120,7 @@ void RemoveFeatBonuses(object oPC)
 {
     object oSkin = GetPCSkin(oPC);
 	
-	SendMessageToPC(oPC, "prc_lasher: Running RemoveFeatBonuses");
+	if(DEBUG) DoDebug("prc_lasher: Running RemoveFeatBonuses");
 
 	if(GetHasSpellEffect(SPELL_LASHER_CRACK_FATE, oPC))
 	{
@@ -141,7 +141,7 @@ void ApplyWhipBonuses(object oPC, object oWhip, int iClassLevel)
     // Only apply bonuses if the item is a whip
     if (GetBaseItemType(oWhip) != BASE_ITEM_WHIP) return;
 
-    SendMessageToPC(oPC, "prc_lasher: Running ApplyWhipBonuses");
+    if(DEBUG) DoDebug("prc_lasher: Running ApplyWhipBonuses");
 
     RemoveSpecificProperty(oWhip, ITEM_PROPERTY_DAMAGE_BONUS, IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2, 1, "SLASHING_WHIP", -1, DURATION_TYPE_TEMPORARY);		
 
@@ -179,7 +179,7 @@ void main()
 	
 	if (nEvent == FALSE)
 	{
-		SendMessageToPC(oPC, "prc_lasher: Registering Events");
+		if(DEBUG) DoDebug("prc_lasher: Registering Events");
 		AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM, "prc_lasher", TRUE, FALSE);
 		AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_lasher", TRUE, FALSE);			
 	}	
@@ -187,7 +187,7 @@ void main()
 	{
 		if (!GetIsObjectValid(oPC)) return;
 		{	
-			SendMessageToPC(oPC, "prc_lasher: Running EVENT_ONPLAYEREQUIPITEM");
+			if(DEBUG) DoDebug("prc_lasher: Running EVENT_ONPLAYEREQUIPITEM");
 				
 			object oMain = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
 			object oOff  = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC);
@@ -198,7 +198,7 @@ void main()
 	}
 	else if (nEvent == EVENT_ONPLAYERUNEQUIPITEM)
 	{
-		SendMessageToPC(oPC, "prc_lasher: Running EVENT_ONPLAYERUNEQUIPITEM");
+		if(DEBUG) DoDebug("prc_lasher: Running EVENT_ONPLAYERUNEQUIPITEM");
 					
 		object oItem = GetItemLastUnequipped();
 		object oMain = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
@@ -207,19 +207,19 @@ void main()
 		{
 			if(iClassLevel > 1)    //improved knockdown (whip)
 			{
-				SendMessageToPC(oPC, "prc_lasher: Removing Improved Trip (Whip)");
+				if(DEBUG) DoDebug("prc_lasher: Removing Improved Trip (Whip)");
 				RemoveSpecificProperty(oSkin, ITEM_PROPERTY_BONUS_FEAT,	IP_CONST_FEAT_IMPROVED_TRIP);
 			}						
 					
 			if(iClassLevel > 5)    //improved disarm (whip)
 			{
-				SendMessageToPC(oPC, "prc_lasher: Removing Improved Disarm (Whip)");
+				if(DEBUG) DoDebug("prc_lasher: Removing Improved Disarm (Whip)");
 				RemoveSpecificProperty(oSkin, ITEM_PROPERTY_BONUS_FEAT, IP_CONST_FEAT_IMPROVED_DISARM);
 			}	
 
 			RemoveSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS, IP_CONST_DAMAGETYPE_SLASHING, IP_CONST_DAMAGEBONUS_2, 1, "SLASHING_WHIP", -1, DURATION_TYPE_TEMPORARY);
 
-			SendMessageToPC(oPC, "prc_lasher: Removing Class Ability Bonuses");
+			if(DEBUG) DoDebug("prc_lasher: Removing Class Ability Bonuses");
 			RemoveFeatBonuses(oPC);	
 						
 		}	
