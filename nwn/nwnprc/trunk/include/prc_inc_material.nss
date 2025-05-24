@@ -162,7 +162,8 @@ const int	IP_MATERIAL_ROPE_GIANT_HAIR 			= 139;
 const int	IP_MATERIAL_OBSIDIAN 					= 140;
 const int	IP_MATERIAL_BAMBOO 						= 141;
 const int	IP_MATERIAL_POTTERY						= 142;
-const int	IP_NUM_MATERIALS						= 142;
+const int	IP_MATERIAL_GLASSTEEL					= 143;
+const int	IP_NUM_MATERIALS						= 143;
   
 const string IP_MATERIAL_NAME_INVALID                	= "";
 const string IP_MATERIAL_NAME_UNKNOWN                	= "Unknown";
@@ -286,6 +287,7 @@ const string IP_MATERIAL_NAME_ROPE_GIANT_HAIR 			= "Giant Hair Rope";
 const string IP_MATERIAL_NAME_OBSIDIAN 					= "Obsidian";
 const string IP_MATERIAL_NAME_BAMBOO 					= "Bamboo";
 const string IP_MATERIAL_NAME_POTTERY 					= "Pottery";
+const string IP_MATERIAL_NAME_GLASSTEEL					= "Glassteel";
   
 //::///////////////////////////////////////////////////////////////
 //  GetMaterialName( int iMaterialType, int bLowerCase = FALSE)
@@ -425,6 +427,7 @@ string GetMaterialName( int iMaterialType, int bLowerCase = FALSE)
 	case IP_MATERIAL_OBSIDIAN: 					sName = IP_MATERIAL_NAME_OBSIDIAN; 					break; 
 	case IP_MATERIAL_BAMBOO: 					sName = IP_MATERIAL_NAME_BAMBOO; 					break; 
 	case IP_MATERIAL_POTTERY: 					sName = IP_MATERIAL_NAME_POTTERY; 					break; 	
+	case IP_MATERIAL_GLASSTEEL:					sName = IP_MATERIAL_NAME_GLASSTEEL;					break; 		
 	
     default: return "";
   }
@@ -569,6 +572,7 @@ int GetIPMaterial( string sMaterialName)
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_OBSIDIAN)) 				return IP_MATERIAL_OBSIDIAN;
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_BAMBOO)) 					return IP_MATERIAL_BAMBOO;
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_POTTERY))					return IP_MATERIAL_POTTERY;	
+	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_GLASSTEEL))				return IP_MATERIAL_GLASSTEEL;		
 	
 	return IP_MATERIAL_INVALID;
 }
@@ -842,7 +846,8 @@ int GetMaterialType(int nMaterial)
 			|| nMaterial == IP_MATERIAL_GLASS
 			|| nMaterial == IP_MATERIAL_ICE
 			|| nMaterial == IP_MATERIAL_CRYSTAL_DASL
-			|| nMaterial == IP_MATERIAL_OBSIDIAN )
+			|| nMaterial == IP_MATERIAL_OBSIDIAN 
+			|| nMaterial == IP_MATERIAL_GLASSTEEL)
 		return MATERIAL_TYPE_CRYSTAL;
 
 	else if ( nMaterial == IP_MATERIAL_HIDE
