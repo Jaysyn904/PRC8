@@ -39,8 +39,15 @@ void TOBAttack(object oTarget, object oInitiator)
         PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(8), 0, "Castigating Strike Hit", "Castigating Strike Miss");
         if(GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
         {
+			int nDC = 17 + GetAbilityModifier(ABILITY_CHARISMA, oInitiator);
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}
+
             // Saving Throw for the primary target
-            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (17 + GetAbilityModifier(ABILITY_CHARISMA, oInitiator))))
+            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
             {
                 effect eLink = ExtraordinaryEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
                 ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
@@ -64,7 +71,7 @@ void TOBAttack(object oTarget, object oInitiator)
                         ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_FLAME_M_PURPLE), oAreaTarget);
 
                         // Saving Throw for the secondary targets
-                        if(!PRCMySavingThrow(SAVING_THROW_FORT, oAreaTarget, (17 + GetAbilityModifier(ABILITY_CHARISMA, oInitiator))))
+                        if(!PRCMySavingThrow(SAVING_THROW_FORT, oAreaTarget, nDC))
                         {
                             effect eLink = ExtraordinaryEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
                             ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oAreaTarget);

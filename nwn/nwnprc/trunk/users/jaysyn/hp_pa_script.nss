@@ -27,7 +27,10 @@ void SetPowerAttack();
 //
 void main()
 {
-    int amount = GetLocalInt(OBJECT_SELF, "PRC_PowerAttack_Level");
+	
+	ExecuteScript("prc_nui_pwrattk");
+	
+/*     int amount = GetLocalInt(OBJECT_SELF, "PRC_PowerAttack_Level");
     int prevPowerAttack5 = GetLocalInt(OBJECT_SELF, "prevPowerAttack5");
     int prevPowerAttack1 = GetLocalInt(OBJECT_SELF, "prevPowerAttack1");
     int powerAttack5Amount = amount / 5;
@@ -89,4 +92,5 @@ void main()
         }
         SetLocalInt(OBJECT_SELF, "prevPowerAttack1", powerAttack1Amount);
     }
-}
+ */
+ }

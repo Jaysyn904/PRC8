@@ -58,8 +58,16 @@ void main()
     		{
         	        if(GetIsEnemy(oTarget, oInitiator))
         	        {
-        	                // Saving Throw
-    				if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, (14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+        	            // Saving Throw
+						int nDC = 14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+						
+						int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+						if (nBladeMed)
+						{
+							nDC += 1;
+						}		
+						
+    				if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC))
     				{
     					effect eLink = ExtraordinaryEffect(EffectLinkEffects(EffectShaken(), EffectVisualEffect(VFX_IMP_DOOM)));
         	            		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 60.0);

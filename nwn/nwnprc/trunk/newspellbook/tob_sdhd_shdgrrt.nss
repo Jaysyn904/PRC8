@@ -63,6 +63,13 @@ void main()
    
                     //Apply the flat-footed effect
                     int nDC = 13 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+					
+					int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+					if (nBladeMed)
+					{
+						nDC += 1;
+					}			
+					
                     if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
                     {
                         AssignCommand(oTarget, ClearAllActions(TRUE));

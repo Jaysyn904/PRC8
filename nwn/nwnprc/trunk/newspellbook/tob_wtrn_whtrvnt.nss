@@ -10,7 +10,7 @@
 
     White Raven Tactics
 
-    Iron Heart (Boost)
+    White Raven (Boost)
     Level: Crusader 3, Warblade 3
     Initiation Action: 1 Swift Action
     Range: 10 ft.

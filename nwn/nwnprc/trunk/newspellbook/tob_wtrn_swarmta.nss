@@ -10,7 +10,7 @@
 
     Swarm Tactics
 
-    Devoted Spirit (Stance)
+    White Raven (Stance)
     Level: Crusader 5, Warblade 5
     Prerequisite: One White Raven maneuver
     Initiation Action: 1 Swift Action

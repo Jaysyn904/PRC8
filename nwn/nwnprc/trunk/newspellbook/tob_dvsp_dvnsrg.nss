@@ -46,6 +46,6 @@ void main()
     {
     	effect eNone = EffectVisualEffect(PSI_IMP_CONCUSSION_BLAST);
     	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
-	DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d8(8), GetWeaponDamageType(oWeap), "Divine Surge Hit", "Divine Surge Miss"));
+		DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d8(8), GetWeaponDamageType(oWeap), "Divine Surge Hit", "Divine Surge Miss"));
     }
 }

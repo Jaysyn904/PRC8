@@ -54,6 +54,12 @@ void main()
                                                         
                 location lLoc = GetLocation(oInitiator);
                 int nDC = 18 + (GetAbilityModifier(ABILITY_STRENGTH, oInitiator));
+				
+				int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+				if (nBladeMed)
+				{
+					nDC += 1;
+				}				
                 
                 //Shaking
                 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_SCREEN_SHAKE), lLoc);

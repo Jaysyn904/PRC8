@@ -31,19 +31,26 @@ square.
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-                effect eNone;
-                object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
-                PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(6), GetWeaponDamageType(oWeap), "Colossus Strike Hit", "Colossus Strike Miss");
-                
-                if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-                {
-                        int nDC = 17 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
-                        if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE, oInitiator, 1.0))
-                        {
-                                float fFeet = IntToFloat(5 * d4(1));
-                                _DoBullRushKnockBack(oTarget, oInitiator, fFeet);
-                        }
-                }
+	effect eNone;
+	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
+	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(6), GetWeaponDamageType(oWeap), "Colossus Strike Hit", "Colossus Strike Miss");
+	
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
+	{
+		int nDC = 17 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}
+		
+		if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE, oInitiator, 1.0))
+		{
+			float fFeet = IntToFloat(5 * d4(1));
+			_DoBullRushKnockBack(oTarget, oInitiator, fFeet);
+		}
+	}
 }
 
 void main()

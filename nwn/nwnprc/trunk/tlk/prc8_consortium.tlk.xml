@@ -51087,7 +51087,8 @@ Aranea Ability Adjustments: +4 Dex, +4 Con, +4 Int, +2 Wis, +4 Cha
 Favored Class (Sorcerer): A multiclass aranea's sorcerer class does not count when determining whether they suffer an XP penalty for multiclassing.
 
 Racial Traits:
-- A aranea's base land speed is 50 feet in spider form, 30 in hybrid or humanoid forms.
+- An aranea's base land speed is 50 feet in spider form, 30 in hybrid or humanoid forms.
+- Racial Hit Dice: An aranea begins with three levels of shapechanger, which provide 3d8 Hit Dice.
 - Medium: As Medium creatures, aranea have no special bonuses or penalties due to their size.
 - Natural Weapons:  An aranea can bite 1d6 points of damage in spider &amp; hybrid form.
 - Poison: An aranea's bite is poisonous &amp; does 1d6 STR initial damage &amp; 2d6 secondary damage.
@@ -73833,7 +73834,6 @@ Bonus Feats: The epic Umbral Disciple gains a bonus feat every three levels
 
 Special:
 Sneak Attack: The epic Umbral Disciple's sneak attack continues to increase by 1d6 every 3 levels.
-Meldshaping: Increases as if gaining a level in your meldshaper class at each level.
 
 Epic Umbral Disciple Bonus Feat List:
 Armor Skin, Blinding Speed, Bonus Soulmeld, Epic Dodge, Epic Energy Resistance, Epic Essentia, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self-Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Weapon Focus, Extra Chakra Bind, Great Dexterity, Improved Sneak Attack, Lingering Damage, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>

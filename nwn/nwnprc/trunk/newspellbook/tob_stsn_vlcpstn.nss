@@ -31,14 +31,22 @@
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-    	effect eNone;
+	effect eNone;
+	
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Clever Positioning Hit", "Clever Positioning Miss");
-       
-        if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, 12 + GetAbilityModifier(ABILITY_DEXTERITY, oInitiator),SAVING_THROW_TYPE_NONE))
-    	{
-    		DoTransposition(TRUE, FALSE);
-    		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_WIND), oTarget);
-    	}
+	int nDC = 12 + GetAbilityModifier(ABILITY_DEXTERITY, oInitiator);
+	
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}
+	
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_NONE))
+	{
+		DoTransposition(TRUE, FALSE);
+		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_WIND), oTarget);
+	}
 }
 
 void main()

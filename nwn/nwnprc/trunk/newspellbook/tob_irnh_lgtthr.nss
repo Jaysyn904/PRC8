@@ -50,7 +50,14 @@ void main()
         if(move.bCanManeuver)
         {
         	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
-                int nDC = d20(1) + GetAttackBonus(oTarget, oInitiator, oWeap);
+			int nDC = d20(1) + GetAttackBonus(oTarget, oInitiator, oWeap);
+				
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}	
+		
                 SetLocalInt(oInitiator, "IHLightningThrow", TRUE);
                 float fLength = FeetToMeters(30.0);
                 location lTarget = PRCGetSpellTargetLocation();

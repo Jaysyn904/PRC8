@@ -34,8 +34,14 @@ void TOBAttack(object oTarget, object oInitiator)
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(4), GetWeaponDamageType(oWeap), "Bone Crusher Hit", "Bone Crusher Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+			int nDC = 13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}
+		// Saving Throw
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
     		{
 			effect eLink = SupernaturalEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
 			SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);

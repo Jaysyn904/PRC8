@@ -77,7 +77,13 @@ void main()
     				// Saving Throw for area target
                         	int nDamage = d6(4);
                         	// Adjust damage according to Reflex Save, Evasion or Improved Evasion
-                        	nDamage = PRCGetReflexAdjustedDamage(nDamage, oAreaTarget, (13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator)), SAVING_THROW_TYPE_NONE);
+							int nDC = 13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+							int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+							if (nBladeMed)
+							{
+								nDC += 1;
+							}							
+                        	nDamage = PRCGetReflexAdjustedDamage(nDamage, oAreaTarget, nDC, SAVING_THROW_TYPE_NONE);
 	
                         	if(nDamage > 0)
                         	{

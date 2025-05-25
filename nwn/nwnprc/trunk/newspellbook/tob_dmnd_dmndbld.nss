@@ -46,7 +46,7 @@ void main()
     if(move.bCanManeuver)
     {
         effect eNone;
-        int nDC = GetDefenderAC(oTarget, oInitiator);
+        int nDC = GetDefenderAC(oTarget, oInitiator);		
         int nAB = -2;
         if (GetIsSkillSuccessful(oInitiator, SKILL_CONCENTRATION, nDC))
         {

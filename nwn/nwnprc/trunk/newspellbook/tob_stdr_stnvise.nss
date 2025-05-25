@@ -29,15 +29,22 @@
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-    	effect eNone;
-    	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
+	effect eNone;
+	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(1), GetWeaponDamageType(oWeap), "Stone Vise Hit", "Stone Vise Miss");
-       
-        if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 12 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator),SAVING_THROW_TYPE_NONE))
-    	{
-    		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectCutsceneParalyze()), oTarget, 6.0);
-    		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DIMENSIONLOCK), oTarget);
-    	}
+	
+	int nDC = 12 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}		   
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
+	{
+		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectCutsceneParalyze()), oTarget, 6.0);
+		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DIMENSIONLOCK), oTarget);
+	}
 }
 
 void main()

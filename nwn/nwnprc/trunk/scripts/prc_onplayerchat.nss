@@ -87,7 +87,8 @@ void main()
         ExecuteScript(GetLocalString(oPC, PRC_CHAT_HOOK_SCRIPT), oPC);
         _clear_chat_vars(oPC);
     }
-
+	
+	ExecuteScript("hp_pa_chatscript", oPC);
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERCHAT);
 }

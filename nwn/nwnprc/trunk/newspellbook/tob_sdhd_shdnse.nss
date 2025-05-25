@@ -61,7 +61,14 @@ void main()
                                 ApplyTouchAttackDamage(oInitiator, oTarget, iAttackRoll, d6(8), DAMAGE_TYPE_MAGICAL);
                         
                                 //Apply the stun effect
-                                int nDC = 16 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);                        
+                                int nDC = 16 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);  
+								
+								int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+								if (nBladeMed)
+								{
+									nDC += 1;
+								}
+								
                                 if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
                                 {
                                         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectStunned(), oTarget, RoundsToSeconds(1));                                

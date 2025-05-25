@@ -41,8 +41,15 @@ void main()
 		// Enemy check
 		if (GetIsEnemy(oProneTarget, oInitiator))
 		{
+			int nDC = 10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+			
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}			
 			// Save check
-			if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, (10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+			if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, nDC))
 			{
 				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
 				ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(12)), oProneTarget);

@@ -40,14 +40,21 @@ void TOBAttack(object oTarget, object oInitiator)
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, nDamage, nDamageType, "Obscuring Shadow Veil Hit", "Obscuring Shadow Veil Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
+			int nDC = 14 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+			
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}
     		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (14 + GetAbilityModifier(ABILITY_WISDOM, oInitiator))))
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
     		{
-			effect eLink = SupernaturalEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
-			SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
-			eLink = SupernaturalEffect(EffectMissChance(50));
-			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
-		}
+				effect eLink = SupernaturalEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
+				SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
+				eLink = SupernaturalEffect(EffectMissChance(50));
+				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
+			}	
         }
 }
 

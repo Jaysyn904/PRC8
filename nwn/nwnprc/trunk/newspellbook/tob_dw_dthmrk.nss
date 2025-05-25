@@ -66,6 +66,13 @@ void Deathmark(object oInitiator, object oTarget)
         float fDist = DoDeathmarkArea(oTarget);
         //FloatingTextStringOnCreature("Deathmark Area "+FloatToString(fDist), oInitiator);
         int nDC = 13 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}	
+		
         effect eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
 
         //Get the first target in the radius around the caster

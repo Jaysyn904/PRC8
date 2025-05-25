@@ -27,25 +27,32 @@ Dexterity damage and the speed penalty.
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-        	effect eNone;
-        	int nBonus = TOBSituationalAttackBonuses(oInitiator, DISCIPLINE_TIGER_CLAW);
-                PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Hamstring Attack Hit", "Hamstring Attack Miss");
-                
-                if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-                {
-                        int nDexDam = d8(1);
-                        effect eSlow = EffectMovementSpeedDecrease(33);
-                        
-                        //Save
-                        if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (17 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator)), SAVING_THROW_TYPE_NONE))
-                        {                                
-                                nDexDam = nDexDam/2;
-                                eSlow = EffectMovementSpeedDecrease(17);
-                        }
-                        
-                        ApplyAbilityDamage(oTarget, ABILITY_DEXTERITY, nDexDam, DURATION_TYPE_PERMANENT);
-                        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSlow, oTarget, TurnsToSeconds(1));
-                }
+	effect eNone;
+	int nDC = 17 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}
+	int nBonus = TOBSituationalAttackBonuses(oInitiator, DISCIPLINE_TIGER_CLAW);
+		PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Hamstring Attack Hit", "Hamstring Attack Miss");
+		
+		if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
+		{
+				int nDexDam = d8(1);
+				effect eSlow = EffectMovementSpeedDecrease(33);
+				
+				//Save
+				if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
+				{                                
+						nDexDam = nDexDam/2;
+						eSlow = EffectMovementSpeedDecrease(17);
+				}
+				
+				ApplyAbilityDamage(oTarget, ABILITY_DEXTERITY, nDexDam, DURATION_TYPE_PERMANENT);
+				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSlow, oTarget, TurnsToSeconds(1));
+		}
 }
 
 void main()

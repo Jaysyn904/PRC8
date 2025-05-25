@@ -37,8 +37,14 @@ void TOBAttack(object oTarget, object oInitiator)
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(4), 0, "Strike of the Broken Shield Hit", "Strike of the Broken Shield Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, (14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+			int nDC = 14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}	
+		// Saving Throw
+    		if (!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC))
     		{
 			AssignCommand(oTarget, ClearAllActions(TRUE));
 		}

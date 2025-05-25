@@ -1506,8 +1506,8 @@ struct WeaponFeat GetAllFeatsOfWeaponType(int iWeaponType)
             sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_LIGHTMACE;
             sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_LIGHTMACE;
             sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_LIGHTMACE;
-            sFeat.SanctifyMartialStrike = FEAT_VILE_MARTIAL_LIGHTMACE;
-            sFeat.VileMartialStrike = FEAT_SANCTIFY_MARTIAL_LIGHTMACE;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_LIGHTMACE;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_LIGHTMACE;
             break;
         }
         case BASE_ITEM_LONGBOW: {

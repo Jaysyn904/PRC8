@@ -43,6 +43,12 @@ void TOBAttack(object oTarget, object oInitiator, int iJumpRoll)
 	effect eNone;
 	int nAB = GetAbilityModifier(ABILITY_DEXTERITY, oTarget);
 	int nBonus = TOBSituationalAttackBonuses(oInitiator, DISCIPLINE_TIGER_CLAW);
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+	if (nBladeMed)
+	{
+		iJumpRoll += 1;
+	}
+	
 	DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, nAB + nBonus, d6(10), GetWeaponDamageType(oWeap), "Swooping Dragon Strike Hit", "Swooping Dragon Strike Miss"));
 
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))

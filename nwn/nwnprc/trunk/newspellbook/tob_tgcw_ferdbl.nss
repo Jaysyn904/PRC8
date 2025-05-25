@@ -47,6 +47,13 @@ void TOBAttack(object oTarget, object oInitiator)
     {
         //Save
         int nDC = 19 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}			
+		
         if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_DEATH) && !GetIsImmune(oTarget, IMMUNITY_TYPE_CRITICAL_HIT))
         {              
             DeathlessFrenzyCheck(oTarget);

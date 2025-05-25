@@ -41,6 +41,13 @@ void main()
         effect eExplode = EffectVisualEffect(VFX_FNF_FIREBALL);
         ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eExplode, lTarget);
         int nDC = 11 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}		
+		
         //Get the first target in the radius around the caster
         object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(30.0), lTarget);
         while(GetIsObjectValid(oTarget))

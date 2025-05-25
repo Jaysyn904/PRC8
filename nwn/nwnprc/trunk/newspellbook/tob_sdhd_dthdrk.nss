@@ -31,8 +31,15 @@ void TOBAttack(object oTarget, object oInitiator)
                 if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
                 {
                         int nDam = d6(15);
-                        
-                        if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (15 + GetAbilityModifier(ABILITY_WISDOM, oInitiator)))) nDam = d6(5);
+						
+						int nDC = 15 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+						
+						int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+						if (nBladeMed)
+						{
+							nDC += 1;
+						}                       
+                        if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC)) nDam = d6(5);
                         
                         if(!GetIsImmune(oTarget, IMMUNITY_TYPE_CRITICAL_HIT))
                         {

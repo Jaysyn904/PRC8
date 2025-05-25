@@ -100,8 +100,9 @@ int X2_UMD()
     // -------------------------------------------------------------------------
     if(!GetHasSkill(SKILL_USE_MAGIC_DEVICE, oCaster)
     && !GetLevelByClass(CLASS_TYPE_ROGUE, oCaster)
-    && !GetLevelByClass(CLASS_TYPE_ASSASSIN, oCaster)
-    && !GetLevelByClass(CLASS_TYPE_SHADOWDANCER, oCaster))
+    && !GetLevelByClass(CLASS_TYPE_SHADOW_THIEF_AMN, oCaster)
+    && !GetLevelByClass(CLASS_TYPE_FACTOTUM, oCaster)	
+    && !GetLevelByClass(CLASS_TYPE_ASSASSIN, oCaster))
     {
         // ---------------------------------------------------------------------
         //SpeakString("I have no UMD, thus I can cast the spell... ");

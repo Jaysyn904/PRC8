@@ -50,11 +50,11 @@ void main()
         if (IPGetIsMeleeWeapon(oItem))
     	{
     		// Perform first bonus attack, overriding weapon just to make sure
-    		DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Raging Mongoose Hit", "Raging Mongoose Miss", FALSE, oItem));
+    		DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Dancing Mongoose Hit", "Dancing Mongoose Miss", FALSE, oItem));
             if (IPGetIsMeleeWeapon(oItem2))
             {
                 // Perform second bonus attack, overriding weapon just to make sure
-                DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Raging Mongoose Hit", "Raging Mongoose Miss", FALSE, oItem2));
+                DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Dancing Mongoose Hit", "Dancing Mongoose Miss", FALSE, oItem2));
             }            
     	}
     	else

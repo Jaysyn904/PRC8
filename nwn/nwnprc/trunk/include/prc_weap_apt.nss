@@ -228,8 +228,10 @@ int GetSanctifyMartialStrikeFeatItemProperty(int nFeatNumber)
 int GetVileMartialStrikeFeatItemProperty(int nFeatNumber)
 {
     int nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_CLUB, IP_CONST_FEAT_VILE_MARTIAL_MINDBLADE);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_CLUB, IP_CONST_FEAT_VILE_MARTIAL_TRIDENT);
     if(nItemProperty != -1) return nItemProperty;
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_MINDBLADE, IP_CONST_FEAT_VILE_MARTIAL_MINDBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_VILE_MARTIAL_EAGLE_CLAW, IP_CONST_FEAT_VILE_MARTIAL_ELVEN_COURTBLADE);
     if(nItemProperty != -1) return nItemProperty;	
     return -1;

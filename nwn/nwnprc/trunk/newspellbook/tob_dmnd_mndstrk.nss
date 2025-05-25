@@ -29,14 +29,22 @@
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-    effect eNone = EffectVisualEffect(VFX_IMP_BLINDDEAD_DN_CYAN);
+    int nDC = 14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}
+	
+	effect eNone = EffectVisualEffect(VFX_IMP_BLINDDEAD_DN_CYAN);
     int nAB = 0;
     if (GetLocalInt(oInitiator, "SupernalAttack")) nAB += 1;
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, nAB, 0, 0, "Mind Strike Hit", "Mind Strike Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     {
     	// Saving Throw
-    	if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, (14 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+    	if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC))
     	{
 			ApplyAbilityDamage(oTarget, ABILITY_WISDOM, d4(), DURATION_TYPE_PERMANENT);    
 		}

@@ -32,8 +32,16 @@ void main()
 	    object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
 	    while(GetIsObjectValid(oProneTarget))
 	    {
-            // Skill check
-	        if (!GetIsSkillSuccessful(oProneTarget, SKILL_BALANCE, 15))
+            int nDC = 15;
+			
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}	
+			
+			// Skill check
+	        if (!GetIsSkillSuccessful(oProneTarget, SKILL_BALANCE, nDC))
 	        {
 		        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
            	}

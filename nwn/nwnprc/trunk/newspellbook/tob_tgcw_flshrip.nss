@@ -31,11 +31,20 @@ void TOBAttack(object oTarget, object oInitiator)
 {
     	effect eNone = EffectVisualEffect(PSI_IMP_CONCUSSION_BLAST);
     	int nBonus = TOBSituationalAttackBonuses(oInitiator, DISCIPLINE_TIGER_CLAW);
-	PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Flesh Ripper Hit", "Flesh Ripper Miss");
-	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && !GetIsImmune(oTarget, IMMUNITY_TYPE_CRITICAL_HIT))
+		int nDC = 13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}			
+		
+		PerformAttack(oTarget, oInitiator, eNone, 0.0, nBonus, 0, 0, "Flesh Ripper Hit", "Flesh Ripper Miss");
+		
+		if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && !GetIsImmune(oTarget, IMMUNITY_TYPE_CRITICAL_HIT))
     	{
     		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
     		{
 			    effect eLink = EffectLinkEffects(EffectAttackDecrease(4), EffectACDecrease(4));
 			    eLink = ExtraordinaryEffect(eLink);

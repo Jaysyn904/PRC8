@@ -16,7 +16,7 @@
     
     You cause a 10 foot tall pillar of stone to appear, tossing enemies to the ground.
 */
-
+#include "tob_inc_move"
 #include "prc_inc_spells"
 
 void main()
@@ -26,11 +26,18 @@ void main()
 	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
 	while(GetIsObjectValid(oProneTarget))
 	{
-                // Save check
-		if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, (10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
+		int nDC = 10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}      
+	// Save check
+		if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, nDC))
 		{
 			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
-   	        }
+		}
 
     	oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
 	}  	

@@ -12,7 +12,7 @@ Range: Personal
 Target: You
 
 In the blink of an eye, you make your move. Your speed, reflexes, and boundless confidence
-combine to allow you to make a fast, bold move that catches your fores off guard.
+combine to allow you to make a fast, bold move that catches your foes off guard.
 
 Your speed doubles for one round.
 

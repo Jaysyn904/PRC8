@@ -34,25 +34,25 @@ times you move into or through its space.
 
 void main()
 {
-        if (!PreManeuverCastCode())
-        {
-                // If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell
-                return;
-        }
-        
-        // End of Spell Cast Hook
-        
-        object oInitiator    = OBJECT_SELF;
-        object oTarget       = PRCGetSpellTargetObject();
-        struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
-        
-        if(move.bCanManeuver)
-        {                              
-                //Twice the speed
-                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectMovementSpeedIncrease(99), oInitiator, RoundsToSeconds(1));
-                
-                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(AOE_MOB_MOUNTAIN_AVALANCHE), oInitiator, 6.0);
-        }
+	if (!PreManeuverCastCode())
+	{
+			// If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell
+			return;
+	}
+	
+	// End of Spell Cast Hook
+	
+	object oInitiator    = OBJECT_SELF;
+	object oTarget       = PRCGetSpellTargetObject();
+	struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
+	
+	if(move.bCanManeuver)
+	{                              
+			//Twice the speed
+			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectMovementSpeedIncrease(99), oInitiator, RoundsToSeconds(1));
+			
+			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(AOE_MOB_MOUNTAIN_AVALANCHE), oInitiator, 6.0);
+	}
 }
                 
                 

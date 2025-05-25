@@ -47,22 +47,28 @@ void main()
         int nTouchAttack = PRCDoMeleeTouchAttack(oTarget);
         if(nTouchAttack > 0)
         {
-		
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (14 + GetAbilityModifier(ABILITY_WISDOM, oInitiator))))
-    		{
-    			effect eParal = EffectParalyze();
-			effect eVis = EffectVisualEffect(82);
-			effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
-			effect eDur2 = EffectVisualEffect(VFX_DUR_PARALYZED);
-			effect eDur3 = EffectVisualEffect(VFX_DUR_PARALYZE_HOLD);
+			int nDC = 14 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}	
 			
-			effect eLink = EffectLinkEffects(eDur2, eDur);
-			eLink = EffectLinkEffects(eLink, eParal);
-			eLink = EffectLinkEffects(eLink, eVis);
-			eLink = EffectLinkEffects(eLink, eDur3);
-			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(d3()));
-		}
+    		// Saving Throw
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
+    		{
+				effect eParal = EffectParalyze();
+				effect eVis = EffectVisualEffect(82);
+				effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+				effect eDur2 = EffectVisualEffect(VFX_DUR_PARALYZED);
+				effect eDur3 = EffectVisualEffect(VFX_DUR_PARALYZE_HOLD);
+				
+				effect eLink = EffectLinkEffects(eDur2, eDur);
+				eLink = EffectLinkEffects(eLink, eParal);
+				eLink = EffectLinkEffects(eLink, eVis);
+				eLink = EffectLinkEffects(eLink, eDur3);
+				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(d3()));
+			}
         }
     }
 }

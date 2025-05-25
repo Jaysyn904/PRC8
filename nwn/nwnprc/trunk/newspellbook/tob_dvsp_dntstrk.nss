@@ -35,8 +35,14 @@ void TOBAttack(object oTarget, object oInitiator)
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Daunting Strike Hit", "Daunting Strike Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (15 + GetAbilityModifier(ABILITY_CHARISMA, oInitiator))))
+			int nDC = 15 + GetAbilityModifier(ABILITY_CHARISMA, oInitiator);
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}
+		// Saving Throw
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
     		{
 			effect eLink = ExtraordinaryEffect(EffectLinkEffects(EffectVisualEffect(VFX_DUR_MIND_AFFECTING_DISABLED), EffectShaken()));
 			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 60.0);

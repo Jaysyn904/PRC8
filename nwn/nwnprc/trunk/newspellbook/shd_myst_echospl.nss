@@ -28,6 +28,60 @@ void main()
 {
     object oShadow = OBJECT_SELF;
     int nMyst = PRCGetSpellId();
+
+    if(DEBUG) DoDebug("shd_myst_echospl: nMyst " + IntToString(nMyst));
+
+    // Disallow if this spell is from an item
+    if (PRCGetSpellCastItem(oShadow) != OBJECT_INVALID)
+    {
+        FloatingTextStringOnCreature("You cannot Echo spells cast from items.", oShadow);
+		if(DEBUG) DoDebug("shd_myst_echospl: Disallowed - item cast");
+        return;
+    }
+    // Disallow if this spell is cast by the shadowcaster itself
+    if (GetLastSpellCaster() == oShadow)
+    {
+        FloatingTextStringOnCreature("You cannot Echo your own spells.", oShadow);
+		if(DEBUG) DoDebug("shd_myst_echospl: Disallowed - item cast or cast by oShadow");
+        return;
+    }	
+
+    if (GetLocalInt(oShadow, "EchoedSpell"))
+    {
+        int nSpellId = GetLocalInt(oShadow, "EchoedSpell");
+        int nDC = 10 + StringToInt(Get2DACache("spells", "Innate", nSpellId)) + GetAbilityModifier(ABILITY_CHARISMA, oShadow);
+
+        if(DEBUG) DoDebug("shd_myst_echospl: Echo SpellId " + IntToString(nSpellId) + " at DC " + IntToString(nDC));
+
+        AssignCommand(oShadow, ActionCastSpell(nSpellId, GetShadowcasterLevel(oShadow), 0, nDC));
+    }
+    else
+    {
+        if(DEBUG) DoDebug("shd_myst_echospl: MYST_ECHO_SPELL");
+        if (!ShadPreMystCastCode()) return;
+
+        object oTarget = PRCGetSpellTargetObject();
+        struct mystery myst = EvaluateMystery(oShadow, oTarget, METASHADOW_NONE);
+
+        if (myst.bCanMyst)
+        {
+            if(DEBUG) DoDebug("shd_myst_echospl: MYST_ECHO_SPELL bCanMyst");
+            SetLocalInt(oTarget, "EchoSpell", TRUE);
+            SetLocalObject(oTarget, "EchoSpell", oShadow);
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DIMENSIONANCHOR), oTarget);
+        }
+    }
+}
+
+
+
+/* #include "shd_inc_shdfunc"
+#include "shd_mysthook"
+
+void main()
+{
+    object oShadow = OBJECT_SELF;
+    int nMyst = PRCGetSpellId();
     
     if(DEBUG) DoDebug("shd_myst_echospl: nMyst "+IntToString(nMyst));
     
@@ -56,4 +110,4 @@ void main()
             ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DIMENSIONANCHOR), oTarget);
         }
     }
-}
+} */

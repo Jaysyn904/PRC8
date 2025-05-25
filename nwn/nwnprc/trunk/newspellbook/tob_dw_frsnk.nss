@@ -51,6 +51,13 @@ void main()
     	float fLength = FeetToMeters(60.0);
     	vector vOrigin = GetPosition(oInitiator);
     	int nDC = 14 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}	
+		
     	effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
             // Loop over targets in the line shape
             oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);

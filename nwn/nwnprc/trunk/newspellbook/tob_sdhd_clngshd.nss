@@ -38,8 +38,16 @@ void TOBAttack(object oTarget, object oInitiator)
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, nDamage, nDamageType, "Clinging Shadow Strike Hit", "Clinging Shadow Strike Miss");
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (11 + GetAbilityModifier(ABILITY_WISDOM, oInitiator))))
+    		int nDC = 11 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+			
+			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+			if (nBladeMed)
+			{
+				nDC += 1;
+			}		
+			
+			// Saving Throw
+    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
     		{
 			effect eLink = SupernaturalEffect(EffectVisualEffect(VFX_IMP_HEAD_EVIL));
 			SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);

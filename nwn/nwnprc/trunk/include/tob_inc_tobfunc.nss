@@ -341,6 +341,16 @@ int BladeMeditationFeat(object oInitiator);
  */
 int BladeMeditationDamage(object oInitiator, int nMoveId);
 
+
+/**
+ * Returns 1 if Blade Meditation & Discipline match
+ * @param oInitiator    Person to check
+ * @param nDiscipline   Discipline to match
+ *
+ * @return              1 or 0
+ */
+ int HasBladeMeditationForDiscipline(object oInitiator, int nDiscipline);
+
 //////////////////////////////////////////////////
 /*                  Includes                    */
 //////////////////////////////////////////////////
@@ -1266,4 +1276,18 @@ int BladeMeditationDamage(object oInitiator, int nMoveId)
         return 1;
         
     return -1;
+}
+
+int HasBladeMeditationForDiscipline(object oInitiator, int nDiscipline)
+{
+    if (!GetIsObjectValid(oInitiator))
+        return FALSE;
+
+    int nFeatDiscipline = BladeMeditationFeat(oInitiator);
+
+    // If the discipline for Blade Meditation matches the one we're checking, return true
+    if (nFeatDiscipline == nDiscipline)
+        return TRUE;
+
+    return FALSE;
 }

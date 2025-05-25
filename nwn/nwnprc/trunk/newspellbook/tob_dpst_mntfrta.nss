@@ -28,8 +28,17 @@ void main()
 {
     //Declare major variables
     object oTarget = GetEnteringObject();
+	object oInitiator = GetAreaOfEffectCreator(OBJECT_SELF);
+
+	int nDC = 10;
+	
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, DISCIPLINE_STONE_DRAGON);
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}	
 
     // Cleaned up on exit
-    if (!GetIsSkillSuccessful(oTarget, SKILL_BALANCE, 10) && GetIsEnemy(oTarget, GetAreaOfEffectCreator()))
+    if (!GetIsSkillSuccessful(oTarget, SKILL_BALANCE, nDC) && GetIsEnemy(oTarget, GetAreaOfEffectCreator()))
     	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oTarget, 6.0);
 }

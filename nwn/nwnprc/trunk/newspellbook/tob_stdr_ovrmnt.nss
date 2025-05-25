@@ -30,18 +30,27 @@
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-    	effect eNone = EffectVisualEffect(PSI_IMP_CONCUSSION_BLAST);
-    	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
+	effect eNone = EffectVisualEffect(PSI_IMP_CONCUSSION_BLAST);
+	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
+	
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(2), GetWeaponDamageType(oWeap), "Overwhelming Mountain Strike Hit", "Overwhelming Mountain Strike Miss");
+	
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-    	{
-    		// Saving Throw
-    		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
-    		{
+	{
+		int nDC = 13 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}
+	// Saving Throw
+		if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
+		{
 			effect eLink = ExtraordinaryEffect(EffectSlow());
 			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
 		}
-        }
+	}
 }
 
 void main()

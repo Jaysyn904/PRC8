@@ -115,6 +115,7 @@ void main()
             {
                 // And now we can grab them
                 DoGrapple(oPC, oTarget, 0);
+				GZPRCRemoveSpellEffects(SPELL_INVISIBILITY, oPC);
             }
         }    
     }       

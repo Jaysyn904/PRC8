@@ -31,14 +31,22 @@
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-    	effect eNone;
+	effect eNone;
 	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Drain Vitality Hit", "Drain Vitality Miss");
-       
-        if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 12 + GetAbilityModifier(ABILITY_WISDOM, oInitiator),SAVING_THROW_TYPE_NONE))
-    	{
-    		ApplyAbilityDamage(oTarget, ABILITY_CONSTITUTION, 2, DURATION_TYPE_TEMPORARY, TRUE, -1.0f);
-    		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE_RED), oTarget);
-    	}
+	
+	int nDC = 12 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+	
+	int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+	if (nBladeMed)
+	{
+		nDC += 1;
+	}  
+	
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
+	{
+		ApplyAbilityDamage(oTarget, ABILITY_CONSTITUTION, 2, DURATION_TYPE_TEMPORARY, TRUE, -1.0f);
+		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE_RED), oTarget);
+	}
 }
 
 void main()

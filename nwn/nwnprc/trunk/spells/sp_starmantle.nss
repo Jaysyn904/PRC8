@@ -67,6 +67,13 @@ void main()
                 return;
         }
 
+		  //can't stack Starmantels
+		  if (GetHasSpellEffect(SPELL_STARMANTLE, oPC))
+		  {
+			  PRCRemoveSpellEffects(SPELL_STARMANTLE, OBJECT_SELF, OBJECT_SELF);
+			  RemoveEventScript(oTarget, EVENT_ONHIT, "prc_evnt_strmtl", TRUE, FALSE);
+		  }
+
         //VFX
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_SANCTUARY), oTarget, fDur);
 

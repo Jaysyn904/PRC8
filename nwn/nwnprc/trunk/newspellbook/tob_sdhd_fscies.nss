@@ -53,7 +53,15 @@ void TOBAttack(object oTarget, object oInitiator)
                 if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack") && PRCGetIsAliveCreature(oTarget))
                 {
                         // Saving Throw
-                        int nSave = PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (19 + GetAbilityModifier(ABILITY_WISDOM, oInitiator)));
+						int nDC = 19 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+						
+						int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+						if (nBladeMed)
+						{
+							nDC += 1;
+						}
+						
+                        int nSave = PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC);
                         int nRoll = d20(1);
                         int nDam;
                         

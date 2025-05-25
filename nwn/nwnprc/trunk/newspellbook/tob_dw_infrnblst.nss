@@ -50,6 +50,13 @@ void main()
     {
         location lTarget = GetLocation(oInitiator);
         int nDC = 19 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}	
+		
         effect eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
         //Get the first target in the radius around the caster
         oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), PRCGetSpellTargetLocation(), TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);

@@ -400,7 +400,6 @@ void main()
 
     Pwatk(oPC);
 
-
     object oSkin = GetPCSkin(oPC);
 
     if (GetAlignmentGoodEvil(oPC)!= ALIGNMENT_GOOD)

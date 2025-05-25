@@ -26,18 +26,25 @@ to 2 points, although the foe still takes full normal melee damage.
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-                effect eNone;
-                
-                PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Bloodletting Strike Hit", "Bloodletting Strike Miss");
-                
-                if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-                {
-                        int nDam = 4;
-                        
-                        if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (15 + GetAbilityModifier(ABILITY_WISDOM, oInitiator)))) nDam = 2;
-                        
-                        ApplyAbilityDamage(oTarget, ABILITY_CONSTITUTION, nDam, DURATION_TYPE_TEMPORARY, TRUE, -1.0);
-                }
+	effect eNone;
+	
+	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Bloodletting Strike Hit", "Bloodletting Strike Miss");
+	
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
+	{
+		int nDam = 4;
+		
+		int nDC = 15 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+		
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}	
+		if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC)) nDam = 2;
+		
+		ApplyAbilityDamage(oTarget, ABILITY_CONSTITUTION, nDam, DURATION_TYPE_TEMPORARY, TRUE, -1.0);
+	}
 }
 
 void main()

@@ -35,18 +35,23 @@ damage.
 
 void TOBAttack(object oTarget, object oInitiator)
 {
-                effect eNone;
-                PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(4), 0, "Iron Bones Hit", "Iron Bones Miss");
-                
-                if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-                {
-                        //Save
-                        int nDC = 16 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
-                        if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE, oInitiator, 1.0))
-                        {
-                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDazed(), oTarget, RoundsToSeconds(1));
-                        }
-                }
+	effect eNone;
+	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, d6(4), 0, "Iron Bones Hit", "Iron Bones Miss");
+
+	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
+	{
+		//Save
+		int nDC = 16 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
+		int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));;
+		if (nBladeMed)
+		{
+			nDC += 1;
+		}						
+		if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE, oInitiator, 1.0))
+		{
+			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDazed(), oTarget, RoundsToSeconds(1));
+		}
+	}
 }
 
 void main()

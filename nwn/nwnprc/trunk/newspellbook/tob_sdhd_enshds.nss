@@ -45,7 +45,15 @@ void TOBAttack(object oTarget, object oInitiator)
                 
                 if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
                 {
-                        if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (18 + GetAbilityModifier(ABILITY_WISDOM, oInitiator))))
+                        int nDC = 18 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
+						
+						int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
+						if (nBladeMed)
+						{
+							nDC += 1;
+						}				
+						
+						if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC))
                         {
                                 int nLevels = d4();
                                 

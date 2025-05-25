@@ -1,5 +1,8 @@
 //const int FOOBAR = -1; // Comment or uncomment whenever the compiler croaks on an error code 5.
 
+//:: NUI Spell constants
+const int SPELL_NUI_POWER_ATTACK			= 2691;
+
 //spell
 const int SPELL_MAJOR_MAGIC_MISSILE         = 2247;
 const int SPELL_GREAT_WALL_OF_DISPEL        = 2096;
