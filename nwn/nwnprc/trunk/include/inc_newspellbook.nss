@@ -86,6 +86,7 @@ void CheckNewSpellbooks(object oPC);
 void NewSpellbookSpell(int nClass, int nSpellbookType, int nMetamagic = METAMAGIC_NONE, int bInstantSpell = FALSE);
 void CastSpontaneousSpell(int nClass, int bInstantSpell = FALSE);
 void CastPreparedSpell(int nClass, int nMetamagic = METAMAGIC_NONE, int bInstantSpell = FALSE);
+void ProcessPreparedSpellLevel(object oPC, int nClass, int nSpellLevel, int nLevel, int nAbility, string sClass, string sFile, string sArrayName, int nSpellbookType, object oSkin);
 
 //////////////////////////////////////////////////
 /*                 Constants                    */
@@ -859,8 +860,41 @@ void SetupSpells(object oPC, int nClass)
 
     // For spontaneous spellbooks, set up an array that tells how many spells of each level they can cast
     // And add casting feats for each spell known to the caster's hide
+    if(nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)  //:: Fixed by TiredByFirelight
+    {
+        // Spell slots
+        int nSpellLevel, nSlots;
+        for(nSpellLevel = 0; nSpellLevel <= 9; nSpellLevel++)
+        {
+            nSlots = GetSlotCount(nLevel, nSpellLevel, nAbility, nClass, oPC);
+            persistant_array_set_int(oPC, sArrayName, nSpellLevel, nSlots);
+        }
 
-    if(nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)
+        int i;
+        for(i = 0; i < persistant_array_get_size(oPC, "Spellbook" + sClass); i++)
+        {   //adding feats
+            SpontaneousSpellSetupLoop(oPC, nClass, sFile, oSkin, i);
+        }
+    }// end if - Spontaneous spellbook
+
+    // For prepared spellbooks, add spell uses and use feats according to spells memorised list
+    else if(nSpellbookType == SPELLBOOK_TYPE_PREPARED && !GetIsBioSpellCastClass(nClass))
+    {
+        int nSpellLevel, nSlot, nSlots, nSpellbookID;
+        string sArrayName2, sIDX;
+
+        // clearing existing spells 
+		persistant_array_delete(oPC, sArrayName);
+
+        for(nSpellLevel = 0; nSpellLevel <= 9; nSpellLevel++)
+        {
+			//Delay of 0.01, to ensure it runs after persistant_array_delete() which is a lot of 0.0 delay commands, but before other spellbook stuff
+			DelayCommand(0.01, ProcessPreparedSpellLevel(oPC, nClass, nSpellLevel, nLevel, nAbility, sClass, sFile, sArrayName, nSpellbookType, oSkin));
+        }		
+    }
+}
+
+/*     if(nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)
     {
         // Spell slots
         int nSpellLevel, nSlots;
@@ -910,7 +944,27 @@ void SetupSpells(object oPC, int nClass)
             }
         }
     }
+} */
+
+void ProcessPreparedSpellLevel(object oPC, int nClass, int nSpellLevel, int nLevel, int nAbility, string sClass, string sFile, string sArrayName, int nSpellbookType, object oSkin)
+{
+    string sArrayName2 = "Spellbook" + IntToString(nSpellLevel) + "_" + sClass;
+    string sIDX = "SpellbookIDX" + IntToString(nSpellLevel) + "_" + sClass;
+    int nSlots = GetSlotCount(nLevel, nSpellLevel, nAbility, nClass, oPC);
+    int nSlot;
+    for(nSlot = 0; nSlot < nSlots; nSlot++)
+    {
+        int nSpellbookID = persistant_array_get_int(oPC, sArrayName2, nSlot);
+        if(nSpellbookID != 0)
+        {
+            AddSpellUse(oPC, nSpellbookID, nClass, sFile, sArrayName, nSpellbookType, oSkin,
+                        StringToInt(Get2DACache(sFile, "FeatID", nSpellbookID)),
+                        StringToInt(Get2DACache(sFile, "IPFeatID", nSpellbookID)),
+                        sIDX);
+        }
+    }
 }
+
 
 void CheckAndRemoveFeat(object oHide, itemproperty ipFeat)
 {

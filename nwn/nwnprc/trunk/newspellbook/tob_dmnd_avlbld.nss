@@ -52,11 +52,37 @@ void main()
         {
             int nHit = 1;
         	int nPenalty = 0;
-            DelayCommand(0.1, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));
+            DelayCommand(0.1, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));			
         }
 }
 
 void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
+{
+    if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty += 1;
+
+    if (nHit == 1)
+    {
+        effect eNone;
+        PerformAttack(oTarget, oInitiator, eNone, 0.0, nPenalty, 0, 0, "Avalanche of Blades Hit", "Avalanche of Blades Miss");
+
+        // Check result of attack
+        if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
+        {
+            nPenalty -= 4;
+            if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty -= 1;
+            
+            // Continue the loop only on hit
+            DelayCommand(0.1, Owieowieowowow(oInitiator, oTarget, 1, nPenalty));
+			
+			DelayCommand(3.0, DeleteLocalInt(oTarget, "PRCCombat_StruckByAttack"));
+        }
+        // No else block: if the attack missed, don't queue another call
+    }
+}
+
+
+
+/* void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
 {
 	    if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty += 1;
         if(nHit == 1)
@@ -74,4 +100,4 @@ void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
             //Again! Again!
             DelayCommand(0.1, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));
         }
-}          
+}  */         

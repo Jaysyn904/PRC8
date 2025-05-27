@@ -91,8 +91,8 @@
 87         FEAT_EPIC_SKILL_FOCUS_BLUFF         917       1    -1             0      
 88         FEAT_EPIC_SKILL_FOCUS_INTIMIDATE    918       1    -1             0      
 89         FEAT_LINGERING_DAMAGE               3099      1    -1             0      
-90         FEAT_EPIC_PROWESS                   4056      1    -1             0      
-91         FEAT_EPIC_REFLEXES                  4058      1    -1             0      
+90         FEAT_EPIC_PROWESS                   584       1    -1             0      
+91         FEAT_EPIC_REFLEXES                  585       1    -1             0      
 92         FEAT_EPIC_SKILL_FOCUS_RIDE          3038      1    -1             0      
 93         FEAT_EPIC_SKILL_FOCUS_JUMP          3040      1    -1             0      
 94         FEAT_EPIC_SKILL_FOCUS_SENSE_MOTIVE  3042      1    -1             0      

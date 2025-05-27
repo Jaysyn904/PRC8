@@ -57,6 +57,28 @@ void RendingClaws(object oInitiator, object oTarget)
 
 void Scent(object oInitiator)
 {
+	effect eTest = GetFirstEffect(oInitiator);
+	while (GetIsEffectValid(eTest))
+	{
+		if (GetEffectTag(eTest) == "BCM_SCENT_ACTIVE")
+			return;
+		eTest = GetNextEffect(oInitiator);
+	}
+
+	effect eLink;
+	effect eScent;
+	
+	eScent = EffectLinkEffects(EffectSkillIncrease(SKILL_SPOT, 4), EffectSkillIncrease(SKILL_LISTEN, 4));
+	eLink = EffectLinkEffects(eScent, EffectSkillIncrease(SKILL_SEARCH, 4));
+	eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_KEEN_SENSE));
+	eLink = TagEffect(eLink, "BCM_SCENT_ACTIVE");
+	eLink = UnyieldingEffect(eLink);
+
+	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oInitiator);	
+}
+
+/* void Scent(object oInitiator)
+{
     object oSkin = GetPCSkin(oInitiator);
 	
 	effect eScent = EffectLinkEffects(EffectSkillIncrease(SKILL_SPOT, 4), EffectSkillIncrease(SKILL_LISTEN, 4));
@@ -65,7 +87,7 @@ void Scent(object oInitiator)
 	IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_KEEN_SENSES), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eScent, oInitiator);
-}
+} */
 
 void main()
 {

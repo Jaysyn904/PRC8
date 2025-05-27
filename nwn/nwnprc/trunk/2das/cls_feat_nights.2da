@@ -74,8 +74,8 @@
 70         FEAT_MANYSHOT                        3306      1    -1             1      
 71         FEAT_IMP_MANYSHOT                    3350      1    -1             1      
 72         FEAT_LINGERING_DAMAGE                3099      1    -1             0      
-73         FEAT_EPIC_PROWESS                    4056      1    -1             0      
-74         FEAT_EPIC_REFLEXES                   4058      1    -1             0      
+73         FEAT_EPIC_PROWESS                    584       1    -1             0      
+74         FEAT_EPIC_REFLEXES                   585       1    -1             0      
 75         FEAT_EPIC_GREAT_DEXTERITY_1          784       1    -1             0      
 76         FEAT_EPIC_GREAT_DEXTERITY_2          785       1    -1             0      
 77         FEAT_EPIC_GREAT_DEXTERITY_3          786       1    -1             0      

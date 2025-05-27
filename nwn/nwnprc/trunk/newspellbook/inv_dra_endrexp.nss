@@ -32,6 +32,63 @@ void main()
     int bValid = FALSE;
     int nBPIndex = 0;
     int nBPTIndex = 0;
+	
+	int bValidTarget = FALSE;
+	int bValidCaster = FALSE;	
+
+    effect eVis = EffectVisualEffect(VFX_IMP_ELEMENTAL_PROTECTION);
+
+    //Add to array on target of breaths they're protected from
+
+    if(!array_exists(oTarget, "BreathProtected"))
+        array_create(oTarget, "BreathProtected");
+
+	while(!bValidTarget)
+	{
+		if(array_get_object(oTarget, "BreathProtected", nBPIndex) == OBJECT_INVALID)
+		{
+			array_set_object(oTarget, "BreathProtected", nBPIndex, oCaster);
+			bValidTarget = TRUE;
+		}
+		else
+			nBPIndex++;
+	}
+
+    if(!array_exists(oCaster, "BreathProtectTargets"))
+         array_create(oCaster, "BreathProtectTargets");
+	 
+	while(!bValidCaster)
+	{
+		if(array_get_object(oCaster, "BreathProtectTargets", nBPTIndex) == OBJECT_INVALID)
+		{
+			array_set_object(oCaster, "BreathProtectTargets", nBPTIndex, oTarget);
+			if(DEBUG) DoDebug("Storing target: " + GetName(oTarget));
+			bValidCaster = TRUE;
+		}
+		else
+			nBPTIndex++;
+	}
+
+    //add to array on caster of targets protected by their spell for resting cleanup
+
+    if(!array_exists(oCaster, "BreathProtectTargets"))
+         array_create(oCaster, "BreathProtectTargets");
+
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+    DispelMonitor(oCaster, oTarget, INVOKE_ENDURE_EXPOSURE);
+}
+
+
+/* void main()
+{
+    if (!PreInvocationCastCode()) return;
+
+    object oCaster = OBJECT_SELF;
+    object oTarget = PRCGetSpellTargetObject();
+    int nCasterLevel = GetInvokerLevel(oCaster, GetInvokingClass());
+    int bValid = FALSE;
+    int nBPIndex = 0;
+    int nBPTIndex = 0;
 
     effect eVis = EffectVisualEffect(VFX_IMP_ELEMENTAL_PROTECTION);
 
@@ -73,6 +130,7 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
     DispelMonitor(oCaster, oTarget, INVOKE_ENDURE_EXPOSURE);
 }
+ */
 
 void DispelMonitor(object oCaster, object oTarget, int nSpellID)
 {

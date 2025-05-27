@@ -25418,7 +25418,7 @@ Use: Automatic.</entry>
   <entry id="50432" lang="en" sex="m">Aura of Menace</entry>
   <entry id="50433" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
-Specifics: The creature has a righteous aura around it. Any creature that fails its will save(DC:16+Cha) is shaken.
+Specifics: The creature has a righteous aura around it. Any creature that fails its will save is shaken.  THe DC of the will save is calculated as follows:  10 (Base) + 2 (Racial Bonus) + 3 (1/2 Outsider HD) + Charisma bonus.
 Use: Selected.</entry>
   <entry id="50434" lang="en" sex="m">Hound Archon Aid</entry>
   <entry id="50435" lang="en" sex="m">Hound Archon Detect Evil</entry>
@@ -71356,7 +71356,7 @@ When within your own black labyrinth, you are immune to the last two effects (mo
   <entry id="74810" lang="en" sex="m">Some prestige classes can advance invoking or shadowcasting instead of spellcasting.</entry>
   <entry id="74811" lang="en" sex="m">Spellcraft doesn't provide a bonus to your save vs. spells in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="74812" lang="en" sex="m">Tumble doesn't provide a bonus to your Armor Class in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
-  <entry id="74813" lang="en" sex="m">Feats for Alternate Magic Systems (Psionics, Incarnum, etc) are all organized under a Masterfeat.  Psionic Feats, ToB Feats, etc...</entry>  
+  <entry id="74813" lang="en" sex="m">Feats for Alternate Magic Systems (Psionics, Incarnum, etc) are all organized under a Masterfeat.  Psionic Feats, ToB Feats, etc...</entry>
   <entry id="75001" lang="en" sex="m">Favored Mystery - Black Labyrinth</entry>
   <entry id="75002" lang="en" sex="m">Holy Warrior</entry>
   <entry id="75003" lang="en" sex="m">Type of Feat: Reserve
@@ -71537,8 +71537,8 @@ Special Abilities:
 - Level Adjustment: +1</entry>
   <entry id="75260" lang="en" sex="m">FcL</entry>
   <entry id="75283" lang="en" sex="m">Plt</entry>
-  <entry id="75297" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>    
-  <entry id="75298" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>  
+  <entry id="75297" lang="en" sex="m">### BEGIN INVOKER MARKER FEATS#</entry>
+  <entry id="75298" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>
   <entry id="75299" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsouls cast spells as a Sorcerer of their hit dice (9th level).</entry>
   <entry id="75300" lang="en" sex="m">Abjurant Champion Invoking (Warlock)</entry>
   <entry id="75301" lang="en" sex="m">Acolye of the Skin Invoking (Warlock)</entry>

@@ -250,8 +250,8 @@
 246        Epic_RebindSoulmeld_Heart                      9011      1    -1             1      
 247        Epic_RebindSoulmeld_Soul                       9012      1    -1             1      
 248        Epic_RebindSoulmeld_Totem                      9013      1    -1             1      
-249        FEAT_EPIC_PROWESS                              4056      1    -1             0      
-250        FEAT_EPIC_REFLEXES                             4058      1    -1             0      
+249        FEAT_EPIC_PROWESS                              584       1    -1             0      
+250        FEAT_EPIC_REFLEXES                             585       1    -1             0      
 251        FEAT_EPIC_ENERGY_RESISTANCE_COLD_1             533       1    -1             0      
 252        FEAT_EPIC_ENERGY_RESISTANCE_COLD_2             534       1    -1             0      
 253        FEAT_EPIC_ENERGY_RESISTANCE_COLD_3             535       1    -1             0      
