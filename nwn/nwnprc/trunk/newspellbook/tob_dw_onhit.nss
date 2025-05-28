@@ -17,9 +17,23 @@
 void main()
 {
 	// fill the variables
-	object oPC     = OBJECT_SELF;
-	object oTarget = PRCGetSpellTargetObject();
-	object oItem   = GetSpellCastItem();
+	object oPC = OBJECT_SELF;
+    object oItem = GetSpellCastItem();
+    object oTarget = GetSpellTargetObject(); // Might still be SELF in some cases
+
+    if (oTarget == OBJECT_INVALID || oTarget == oPC) 
+	{
+        if (GetIsObjectValid(GetAttackTarget(oPC))) 
+		{
+            oTarget = GetAttackTarget(oPC);
+        }
+    }
+	
+	if (DEBUG && oTarget == oPC)
+	{
+		DoDebug("Warning: DW OnHit is attempting to apply damage to self. Skipped.");
+	}	
+	
 	int nLevel     = GetInitiatorLevel(oPC, CLASS_TYPE_SWORDSAGE);
 	int nSpellId   = GetLocalInt(oPC, "DesertWindBoost");
 	if(DEBUG) DoDebug("tob_dw_onhit: nSpellId " + IntToString(nSpellId));

@@ -389,7 +389,7 @@ void main()
         SetLocalObject(oSpellTarget, "DefensiveRebuke", oSpellOrigin);
         DelayCommand(3.0, ExecuteScript("tob_dvsp_defrbka", oSpellTarget));
     }
-    // Defensive Rebuke
+    // Pearl of Black Doubt
     if(GetHasSpellEffect(MOVE_DM_PEARL_BLACK_DOUBT, oSpellOrigin) && GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
     {
         // Will reset to 0.

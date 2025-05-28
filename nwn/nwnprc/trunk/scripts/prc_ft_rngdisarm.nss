@@ -12,7 +12,8 @@ void main()
     // This counteracts the bonus from Improved Disarm if the PC has it
     if (GetHasFeat(FEAT_PRC_IMP_DISARM, oPC)) nBonus -= 4;
 
-    DoDisarm(oPC, oTarget, nBonus, FALSE, FALSE);        
+    DoDisarm(oPC, oTarget, nBonus, FALSE, FALSE); 
+	ClearAllActions();	
     
     SetLocalInt(oPC, "CombatLoopProtection", TRUE);
     DelayCommand(4.0, DeleteLocalInt(oPC, "CombatLoopProtection"));

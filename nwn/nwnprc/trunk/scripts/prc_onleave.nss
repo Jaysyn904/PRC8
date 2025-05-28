@@ -7,7 +7,7 @@
 
 void main()
 {
-    // Execute scripts hooked to this event for the player triggering it
+//:: Execute scripts hooked to this event for the player triggering it
     object oPC = GetExitingObject();
     AssignCommand(GetModule(), DelayCommand(0.1, RecalculateTime()));
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONCLIENTLEAVE);

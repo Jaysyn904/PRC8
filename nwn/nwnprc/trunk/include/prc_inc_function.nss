@@ -927,6 +927,8 @@ void DeletePRCLocalInts(object oSkin)
     DeleteLocalInt(oPC, "CanRicochet");
     // Blood Magus
     DeleteLocalInt(oSkin, "ThickerThanWater");
+	//:: Crusader
+	DeleteLocalInt(oPC, "DelayedDamageHB");
 
     // Feats
     DeleteLocalInt(oPC, "ForceOfPersonalityWis");
