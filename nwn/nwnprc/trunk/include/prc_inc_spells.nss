@@ -792,13 +792,20 @@ int SpellStrikeDamage(object oTarget, object oCaster)
 {
      int iDam = 0;
      int ThrallLevel = GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_A, oCaster) + GetLevelByClass(CLASS_TYPE_THRALL_OF_GRAZZT_D, oCaster);
+	 
+    // Combine caster and spell ID into a unique key
+    int nSpellId = PRCGetSpellId();
+    string sFlag = "SPELL_STRIKE_" + ObjectToString(oCaster) + "_" + IntToString(nSpellId);	 
 
      if(ThrallLevel >= 6)
      {
           if( GetIsAOEFlanked(oTarget, oCaster) )
           {
-               ThrallLevel /= 4;
-               iDam = d6(ThrallLevel);
+			ThrallLevel /= 4;
+			iDam = d6(ThrallLevel);
+			// Mark target as affected for this spell instance by this caster
+			SetLocalInt(oTarget, sFlag, TRUE);
+			DelayCommand(2.5, DeleteLocalInt(oTarget, sFlag));			   
           }
      }
 
