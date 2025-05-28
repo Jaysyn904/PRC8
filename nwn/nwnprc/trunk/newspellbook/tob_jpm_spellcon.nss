@@ -30,6 +30,8 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
     if(!GetLocalInt(oPC, "DynConv_Waiting"))
         return;
 
+	int nRace = GetRacialType(oPC);
+	
     //SendMessageToPC(oPC, "*Tick* *" + IntToString(iClass) + "*");
 
     int nClass = GetClassByPosition(iClass);
@@ -59,6 +61,35 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
                 i++;
             }
         }
+		else if(nClass == CLASS_TYPE_SORCERER && nRace == RACIAL_TYPE_DRIDER 
+											|| nRace == RACIAL_TYPE_ARKAMOI 
+											|| nRace == RACIAL_TYPE_MARRUTACT 
+											|| nRace == RACIAL_TYPE_REDSPAWN_ARCANISS 
+											|| nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL
+											|| nRace == RACIAL_TYPE_RAKSHASA 
+											|| nRace == RACIAL_TYPE_ARANEA 
+											&& !GetLevelByClass(CLASS_TYPE_SORCERER, oPC))
+        {
+            string sFile = "cls_spell_sorc";
+            object oToken = GetObjectByTag("SpellLvl_9_Level_" + IntToString(nLevel));
+            MaxValue = array_get_size(oToken, "Lkup");
+            //DoDebug("JPM PopulateList: nClass = "+IntToString(nClass));
+            //DoDebug("JPM PopulateList: nLevel = "+IntToString(nLevel));
+            //DoDebug("JPM PopulateList: MaxValue = "+IntToString(MaxValue));
+            while(i < MaxValue)
+            {
+                nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
+                if(GetHasSpell(nSpellID, oPC))
+                {
+                    string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
+                    AddChoice(sName, nChoice, oPC);
+                    SetLocalInt(oPC, "JPM_SPELL_CHOICE_" + IntToString(nChoice), nSpellID);
+                    SetLocalInt(oPC, "JPM_REAL_SPELL_CHOICE_" + IntToString(nChoice), -1);
+                    nChoice++;
+                }
+                i++;
+            }
+        }		
         else if(nClass == CLASS_TYPE_BARD && GetPRCSwitch(PRC_BARD_DISALLOW_NEWSPELLBOOK))
         {
             string sFile = "cls_spell_bard";
@@ -79,6 +110,26 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
                 i++;
             }
         }
+		else if(nClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oPC))			
+        {
+            string sFile = "cls_spell_bard";
+            object oToken = GetObjectByTag("SpellLvl_1_Level_" + IntToString(nLevel));
+            MaxValue = array_get_size(oToken, "Lkup");
+            //DoDebug("JPM PopulateList: MaxValue = "+IntToString(MaxValue));
+            while(i < MaxValue)
+            {
+                nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
+                if(GetHasSpell(nSpellID, oPC))
+                {
+                    string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
+                    AddChoice(sName, nChoice, oPC);
+                    SetLocalInt(oPC, "JPM_SPELL_CHOICE_" + IntToString(nChoice), nSpellID);
+                    SetLocalInt(oPC, "JPM_REAL_SPELL_CHOICE_" + IntToString(nChoice), -1);
+                    nChoice++;
+                }
+                i++;
+            }
+        }		
         else
         {
             string sFile = GetFileForClass(nClass);
