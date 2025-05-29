@@ -467,8 +467,52 @@ int GetWeaponProfIPFeat(int nWeaponProfFeat)
     return nWeaponProfFeat - 3300;
 }
 
-//handles the feat chain for Elven Lightblades
-void DoEquipLightblade(object oPC, object oItem, int nHand)
+//:: Handles the feat emulation chain for Elven Lightblades
+void DoEquipLightblade(object oPC, object oItem)
+{
+	effect eLightblade;
+	int bHasEffect;
+	
+	//:: Weapon Focus
+    if(GetHasFeat(FEAT_WEAPON_FOCUS_SHORT_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER, oPC))
+    {
+        eLightblade	= EffectBonusFeat(FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE);
+		bHasEffect 	= TRUE;
+		
+		//:: Epic Weapon Focus
+        if(GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_SHORTSWORD, oPC) || GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_RAPIER, oPC))
+		{
+			eLightblade = EffectLinkEffects(eLightblade, EffectBonusFeat(FEAT_EPIC_WEAPON_FOCUS_ELVEN_LIGHTBLADE));
+		}
+		//:: Weapon Specialization
+        if(GetHasFeat(FEAT_WEAPON_SPECIALIZATION_SHORT_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_SPECIALIZATION_RAPIER, oPC))
+        {
+            eLightblade = EffectLinkEffects(eLightblade, EffectBonusFeat(FEAT_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE));
+
+			//:: Epic Weapon Specialization
+            if(GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_SHORTSWORD, oPC) || GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_RAPIER, oPC))
+			{
+				eLightblade = EffectLinkEffects(eLightblade, EffectBonusFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE));
+			}
+        }
+    }
+	//:: Improved Critical
+    if(GetHasFeat(FEAT_IMPROVED_CRITICAL_SHORT_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
+	{
+		eLightblade = EffectLinkEffects(eLightblade, EffectBonusFeat(FEAT_IMPROVED_CRITICAL_ELVEN_LIGHTBLADE));
+		bHasEffect 	= TRUE;
+	} 
+	
+	if (bHasEffect)
+	{
+		eLightblade = TagEffect(eLightblade, "LIGHTBLADE_FEAT_EMULATATION");
+		eLightblade = SupernaturalEffect(eLightblade);
+		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLightblade, oPC);
+	}
+}
+
+/* //handles the feat chain for Elven Lightblades
+void DoEquipLightblade(object oPC, object oItem)
 {
     if(DEBUG) DoDebug("Checking Lightblade feats"); // optimised as some feats are prereq for others
     if(GetHasFeat(FEAT_WEAPON_FOCUS_SHORT_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER, oPC))
@@ -486,8 +530,53 @@ void DoEquipLightblade(object oPC, object oItem, int nHand)
     if(GetHasFeat(FEAT_IMPROVED_CRITICAL_SHORT_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
         IPSafeAddItemProperty(oItem, ItemPropertyKeen(), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 }
+ */
 
-//handles the feat chain for Elven Thinblades
+//:: Handles the feat emulation chain for Elven Thinblades
+void DoEquipThinblade(object oPC, object oItem)
+{
+	effect eThinblade;
+	int bHasEffect;
+	
+	//:: Weapon Focus
+    if(GetHasFeat(FEAT_WEAPON_FOCUS_LONG_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER, oPC))
+    {
+        eThinblade 	= EffectBonusFeat(FEAT_WEAPON_FOCUS_ELVEN_THINBLADE);	
+		bHasEffect 	= TRUE;
+		
+		//:: Epic Weapon Focus
+        if(GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_LONGSWORD, oPC) || GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_RAPIER, oPC))
+		{
+			eThinblade = EffectLinkEffects(eThinblade, EffectBonusFeat(FEAT_EPIC_WEAPON_FOCUS_ELVEN_THINBLADE));
+		}
+		//:: Weapon Specialization
+        if(GetHasFeat(FEAT_WEAPON_SPECIALIZATION_LONG_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_SPECIALIZATION_RAPIER, oPC))
+        {
+            eThinblade = EffectLinkEffects(eThinblade, EffectBonusFeat(FEAT_WEAPON_SPECIALIZATION_ELVEN_THINBLADE));
+
+			//:: Epic Weapon Specialization
+            if(GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_LONGSWORD, oPC) || GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_RAPIER, oPC))
+			{
+				eThinblade = EffectLinkEffects(eThinblade, EffectBonusFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_THINBLADE));
+			}
+        }
+    }
+	//:: Improved Critical
+    if(GetHasFeat(FEAT_IMPROVED_CRITICAL_LONG_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
+	{
+		eThinblade = EffectLinkEffects(eThinblade, EffectBonusFeat(FEAT_IMPROVED_CRITICAL_ELVEN_THINBLADE));
+		bHasEffect 	= TRUE;
+	} 
+	
+	if (bHasEffect)
+	{
+		eThinblade = TagEffect(eThinblade, "THINBLADE_FEAT_EMULATATION");
+		eThinblade = SupernaturalEffect(eThinblade);
+		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eThinblade, oPC);
+	}
+}
+
+/* //handles the feat chain for Elven Thinblades
 void DoEquipThinblade(object oPC, object oItem, int nHand)
 {
     if(GetHasFeat(FEAT_WEAPON_FOCUS_LONG_SWORD, oPC) || GetHasFeat(FEAT_WEAPON_FOCUS_RAPIER, oPC))
@@ -504,51 +593,50 @@ void DoEquipThinblade(object oPC, object oItem, int nHand)
     }
     if(GetHasFeat(FEAT_IMPROVED_CRITICAL_LONG_SWORD, oPC) || GetHasFeat(FEAT_IMPROVED_CRITICAL_RAPIER, oPC))
         IPSafeAddItemProperty(oItem, ItemPropertyKeen(), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-}
+} */
 
-//handles the feat chain for Elven Courtblades
-void DoEquipCourtblade(object oPC, object oItem, int nHand)
+//:: Handles the feat emulation chain for Elven Courtblades
+void DoEquipCourtblade(object oPC, object oItem)
 {
-    // Check if the PC qualifies with Greatsword feats
-    if (GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD, oPC))
+	effect eCourtblade;
+	int bHasEffect;
+	
+	//:: Weapon Focus
+    if(GetHasFeat(FEAT_WEAPON_FOCUS_GREAT_SWORD, oPC))
     {
-        // Weapon Focus: Elven Courtblade
-        effect eWF = EffectBonusFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE);
-        TagEffect(eWF, "EFF_CB_WF");
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eWF, oPC);
-
-        // Epic Weapon Focus: Elven Courtblade
-        if (GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_GREATSWORD, oPC))
+        eCourtblade 	= EffectBonusFeat(FEAT_WEAPON_FOCUS_ELVEN_COURTBLADE);	
+		bHasEffect 	= TRUE;
+		
+		//:: Epic Weapon Focus
+        if(GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_GREATSWORD, oPC))
+		{
+			eCourtblade = EffectLinkEffects(eCourtblade, EffectBonusFeat(FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE));
+		}
+		//:: Weapon Specialization
+        if(GetHasFeat(FEAT_WEAPON_SPECIALIZATION_GREAT_SWORD, oPC))
         {
-            effect eEpicWF = EffectBonusFeat(FEAT_EPIC_WEAPON_FOCUS_ELVEN_COURTBLADE);
-            TagEffect(eEpicWF, "EFF_CB_EPICWF");
-            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEpicWF, oPC);
-        }
+            eCourtblade = EffectLinkEffects(eCourtblade, EffectBonusFeat(FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE));
 
-        // Weapon Specialization: Elven Courtblade
-        if (GetHasFeat(FEAT_WEAPON_SPECIALIZATION_GREAT_SWORD, oPC))
-        {
-            effect eWS = EffectBonusFeat(FEAT_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
-            TagEffect(eWS, "EFF_CB_WS");
-            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eWS, oPC);
-
-            // Epic Weapon Specialization: Elven Courtblade
-            if (GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_GREATSWORD, oPC))
-            {
-                effect eEpicWS = EffectBonusFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE);
-                TagEffect(eEpicWS, "EFF_CB_EPICWS");
-                ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEpicWS, oPC);
-            }
+			//:: Epic Weapon Specialization
+            if(GetHasFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_GREATSWORD, oPC))
+			{
+				eCourtblade = EffectLinkEffects(eCourtblade, EffectBonusFeat(FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_COURTBLADE));
+			}
         }
     }
-
-    // Improved Critical: Elven Courtblade
-    if (GetHasFeat(FEAT_IMPROVED_CRITICAL_GREAT_SWORD, oPC))
-    {
-        effect eICrit = EffectBonusFeat(FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE);
-        TagEffect(eICrit, "EFF_CB_ICRIT");
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eICrit, oPC);
-    }
+	//:: Improved Critical
+    if(GetHasFeat(FEAT_IMPROVED_CRITICAL_GREAT_SWORD, oPC))
+	{
+		eCourtblade = EffectLinkEffects(eCourtblade, EffectBonusFeat(FEAT_IMPROVED_CRITICAL_ELVEN_COURTBLADE));
+		bHasEffect 	= TRUE;
+	} 
+	
+	if (bHasEffect)
+	{
+		eCourtblade = TagEffect(eCourtblade, "COURTBLADE_FEAT_EMULATATION");
+		eCourtblade = SupernaturalEffect(eCourtblade);
+		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eCourtblade, oPC);
+	}
 }
 
 /* void DoEquipCourtblade(object oPC, object oItem, int nHand)
@@ -570,6 +658,7 @@ void DoEquipCourtblade(object oPC, object oItem, int nHand)
 } */
 
 //clears any bonuses used to simulate feat chains on unequip
+//:: None of this should be needed now  -Jaysyn
 void DoWeaponFeatUnequip(object oPC, object oItem, int nHand)
 {
     // fluffyamoeba - going to assume redundant local var clearing isn't worth tradeoff
@@ -954,15 +1043,13 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
 	}
 	
 
-    //Handle feat bonuses for Lightblade, thinblade, and courtblade
-    //using else if so they don't overlap.
-    /*if(nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE)
-        DoEquipLightblade(oPC, oItem, nHand);
+    //:: Handle feat emulation Elven Blades
+    if(nBaseType == BASE_ITEM_ELVEN_LIGHTBLADE)
+        DoEquipLightblade(oPC, oItem);
     else if(nBaseType == BASE_ITEM_ELVEN_THINBLADE)
-        DoEquipThinblade(oPC, oItem, nHand);
+        DoEquipThinblade(oPC, oItem);
     else if(nBaseType == BASE_ITEM_ELVEN_COURTBLADE)
-        DoEquipCourtblade(oPC, oItem, nHand);*/
-        // Beamdog allowing us to do feats means we don't need this any more
+        DoEquipCourtblade(oPC, oItem);	
         
     DoRacialEquip(oPC, nBaseType);    
 }

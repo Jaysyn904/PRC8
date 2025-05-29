@@ -144,7 +144,20 @@ void DoWeaponUnequip(object oPC, object oItem)
     int nSize = nRealSize;                    //size for equipment restrictions
     int nWeaponSize = GetWeaponSize(oItem);
 
-    //Powerful Build bonus
+	//:: Handle Elven blade feat emulation.	
+    effect eEffect = GetFirstEffect(oPC);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "LIGHTBLADE_FEAT_EMULATATION")
+            RemoveEffect(oPC, eEffect);
+        if(GetEffectTag(eEffect) == "THINBLADE_FEAT_EMULATATION")
+            RemoveEffect(oPC, eEffect);		
+        if(GetEffectTag(eEffect) == "COURTBLADE_FEAT_EMULATATION")
+            RemoveEffect(oPC, eEffect);
+        eEffect = GetNextEffect(oPC);
+    }
+	
+	//Powerful Build bonus
     if(GetHasFeat(FEAT_RACE_POWERFUL_BUILD, oPC))
         nSize++;
     //Monkey Grip
