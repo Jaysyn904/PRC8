@@ -112,7 +112,9 @@ int GetEpicWeaponSpecializationFeatItemProperty(int nFeatNumber)
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_EAGLE_CLAW, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_EAGLE_CLAW);
     if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_TRIDENT, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_TRIDENT);
-    if(nItemProperty != -1) return nItemProperty;
+    if(nItemProperty != -1) return nItemProperty;	
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_CLUB, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_MINDBLADE);
+    if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_LIGHT_LANCE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_GOAD);
     if(nItemProperty != -1) return nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE, IP_CONST_FEAT_EPIC_WEAPON_SPECIALIZATION_ELVEN_LIGHTBLADE);
