@@ -28,28 +28,30 @@ bull rush attack, a telekinesis spell, and so forth.
 
 void main()
 {
-        if (!PreManeuverCastCode())
-        {
-                // If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell
-                return;
-        }
-        
-        // End of Spell Cast Hook
-        
-        object oInitiator    = OBJECT_SELF;
-        object oTarget       = PRCGetSpellTargetObject();
-        struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
-                
-        if(move.bCanManeuver)
-        {
-                effect eLink =EffectVisualEffect(VFX_DUR_ROOTED_TO_SPOT);
-                if (GetHasDefensiveStance(oInitiator, DISCIPLINE_STONE_DRAGON))                
-                        eLink = EffectLinkEffects(EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT),eLink);
-                
-                eLink = ExtraordinaryEffect(eLink);
-                                
-                InitiatorMovementCheck(oInitiator, move.nMoveId, 5.0);
-                
-                SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oInitiator);        
-        }               
+	if (!PreManeuverCastCode())
+	{
+	// If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell
+		return;
+	}
+	// End of Spell Cast Hook
+
+	object oInitiator    = OBJECT_SELF;
+	object oTarget       = PRCGetSpellTargetObject();
+	struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
+
+	if(move.bCanManeuver)
+	{
+		effect eLink =EffectVisualEffect(VFX_DUR_ROOTED_TO_SPOT);
+
+		if (GetHasDefensiveStance(oInitiator, DISCIPLINE_STONE_DRAGON))    
+		{
+			eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));
+		}
+
+		eLink = ExtraordinaryEffect(eLink);
+
+		InitiatorMovementCheck(oInitiator, move.nMoveId, 5.0);
+
+		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oInitiator);        
+	}
 }
