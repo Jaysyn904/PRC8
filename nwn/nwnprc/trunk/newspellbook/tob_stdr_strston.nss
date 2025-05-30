@@ -41,13 +41,15 @@ void main()
 
 	if(move.bCanManeuver)
 	{
-		effect eLink =EffectVisualEffect(VFX_DUR_ROOTED_TO_SPOT);
+		effect eLink = EffectVisualEffect(VFX_DUR_ROOTED_TO_SPOT);
 
 		if (GetHasDefensiveStance(oInitiator, DISCIPLINE_STONE_DRAGON))    
 		{
-			eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));
+			eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2));
 		}
 
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));
+		
 		eLink = ExtraordinaryEffect(eLink);
 
 		InitiatorMovementCheck(oInitiator, move.nMoveId, 5.0);

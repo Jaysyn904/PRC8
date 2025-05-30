@@ -1383,14 +1383,31 @@ void WarlockPrCs(object oPC)
 void Shadowbane(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqShadowbane", 1);
-    if(GetLevelByClass(CLASS_TYPE_CLERIC, oPC) || 
+	
+	int nPreStalker = GetLevelByClass(CLASS_TYPE_CLERIC, oPC) 
+					+ GetLevelByClass(CLASS_TYPE_ARCHIVIST, oPC)
+					+ GetLevelByClass(CLASS_TYPE_PALADIN, oPC) 
+					+ GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL, oPC)
+					+ GetLevelByClass(CLASS_TYPE_KNIGHT_CHALICE, oPC)
+					+ GetLevelByClass(CLASS_TYPE_SOLDIER_OF_LIGHT, oPC)
+					+ GetLevelByClass(CLASS_TYPE_SHAMAN, oPC)
+					+ GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oPC);
+					
+	if (nPreStalker)					
+	{
+		SetLocalInt(oPC, "PRC_PrereqShadowbane", 0);
+	}
+		
+    
+/* 	if(GetLevelByClass(CLASS_TYPE_CLERIC, oPC) || 
        GetLevelByClass(CLASS_TYPE_ARCHIVIST, oPC) || 
        GetLevelByClass(CLASS_TYPE_PALADIN, oPC) ||
+		GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL, oPC) ||
        GetLevelByClass(CLASS_TYPE_KNIGHT_CHALICE, oPC) ||
        GetLevelByClass(CLASS_TYPE_SOLDIER_OF_LIGHT, oPC) ||
        GetLevelByClass(CLASS_TYPE_SHAMAN, oPC) ||
        GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oPC))
-        SetLocalInt(oPC, "PRC_PrereqShadowbane", 0);
+        SetLocalInt(oPC, "PRC_PrereqShadowbane", 0); */
 }
 
 void KnightWeave(object oPC)

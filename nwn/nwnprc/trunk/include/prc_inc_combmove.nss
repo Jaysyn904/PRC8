@@ -1041,6 +1041,37 @@ int GetIsCharging(object oPC)
     return GetLocalInt(oPC, "PCIsCharging");
 }
 
+/** 
+ * @brief Initiates a charge action by the player character (PC) toward a target.
+ *
+ * This function handles movement, potential attack resolution, damage calculations,
+ * bull rush attempts, and special feat/ability conditions such as Pounce or Flying Kick.
+ *
+ * @param oPC The creature performing the charge (usually the player character).
+ 
+ * @param oTarget The target of the charge.
+ 
+ * @param nDoAttack If TRUE (default), the PC will perform an attack after charging.
+ 
+ * @param nGenerateAoO If TRUE (default), movement may provoke attacks of opportunity (AoOs).
+ *                     If FALSE, a high temporary Tumble bonus is applied to prevent AoOs.
+ 
+ * @param nDamage Initial base damage to apply on a successful hit. Modified by feats or abilities.
+ 
+ * @param nDamageType The type of damage to apply. Set to -1 (default) to use weapon damage type.
+ 
+ * @param nBullRush If TRUE, attempt to initiate a Bull Rush after the attack.
+ 
+ * @param nExtraBonus Additional bonus damage or attack modifiers. Defaults to 0.
+ 
+ * @param nBullAoO If TRUE (default), allows AoOs triggered during Bull Rush resolution.
+ 
+ * @param nMustFollow If TRUE (default), the PC will always move toward the target even if it's invalid later.
+ 
+ * @param nAttack Attack bonus override for the charge attack. 0 = use default or calculate.
+ 
+ * @param nPounce If TRUE, the PC can perform a full attack on the charge. Determined automatically if not set.
+ */
 void DoCharge(object oPC, object oTarget, int nDoAttack = TRUE, int nGenerateAoO = TRUE, int nDamage = 0, int nDamageType = -1, int nBullRush = FALSE, int nExtraBonus = 0, int nBullAoO = TRUE, int nMustFollow = TRUE, int nAttack = 0, int nPounce = FALSE)
 {
     if(!nGenerateAoO)
@@ -1377,6 +1408,19 @@ int GetIntToDamage(int nCheck)
     return -1;
 }
 
+/**
+ * @brief Attempts to initiate a grapple between the PC and the target creature.
+ *
+ * @param oPC               The player character initiating the grapple attempt.
+ * @param oTarget           The target creature to be grappled.
+ * @param nExtraBonus       Additional bonus added to the grapple check (e.g., from feats, spells, items).
+ * @param nGenerateAoO      If TRUE, the target is allowed an Attack of Opportunity unless the PC has Improved Grapple.
+ *                          Defaults to TRUE.
+ * @param nSkipTouch        If TRUE, the melee touch attack step is skipped (assumes auto-hit).
+ *                          Useful when a touch attack was already resolved elsewhere.
+ *
+ * @return                  TRUE if the grapple attempt succeeds, FALSE otherwise.
+ */
 int DoGrapple(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TRUE, int nSkipTouch = FALSE)
 {
     if (GetGrapple(oTarget))

@@ -576,6 +576,11 @@ void main()
         if(IPGetIsMeleeWeapon(oItem))
         {        
         	int nBonus = IPGetWeaponEnhancementBonus(oItem);
+			
+			if (GetHasSpellEffect(MELD_BLOODWAR_GAUNTLETS, oMeldshaper))
+			{
+				BloodwarGauntlets(oMeldshaper, oItem, nEvent);
+			}
 
             if (GetHasSpellEffect(MELD_INCARNATE_AVATAR, oMeldshaper))
         	{
@@ -646,7 +651,7 @@ void main()
                         + "oMeldshaper = " + DebugObject2Str(oMeldshaper) + "\n"
                         + "oItem = " + DebugObject2Str(oItem) + "\n"
                           );
-                          
+				
         if (GetTag(oItem) == "moi_incarnatewpn")  
         	ForceEquip(oMeldshaper, oItem, INVENTORY_SLOT_RIGHTHAND); // No unequipping this weapon
         // Only applies to armours
@@ -659,7 +664,9 @@ void main()
         // Melee weapon
         if(IPGetIsMeleeWeapon(oItem))
         {
-            // Remove the attack bonus
+            BloodwarGauntlets(oMeldshaper, oItem, nEvent);
+			
+			// Remove the attack bonus
             RemoveSpecificProperty(oItem, ITEM_PROPERTY_ATTACK_BONUS, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
             RemoveSpecificProperty(oItem, ITEM_PROPERTY_DECREASED_ATTACK_MODIFIER, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
             RemoveSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
