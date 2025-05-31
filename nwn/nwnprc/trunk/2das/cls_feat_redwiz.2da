@@ -41,7 +41,7 @@
 37         FEAT_CIRCLE_MAGIC                   4350      3    1              1      
 38         FEAT_CIRCLE_LEADER_THAYAN           4352      3    5              1      
 39         FEAT_GREAT_CIRCLE_LEADER_THAYAN     4353      3    10             1      
-40         FEAT_RW_EPIC                        2638      3    11             0      
+40         FEAT_REDWIZ_SPELLCASTING_WIZARD     19068     3    1              0      
 41         EPIC_RED_WIZARD                     25058     3    11             0      
 42         FEAT_EPIC_LEADERSHIP                4366      1    2              0      
 43         Feat_Eschew_Materials               2596      1    2              0      

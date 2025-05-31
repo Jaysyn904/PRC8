@@ -62,25 +62,30 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
    int iBase = GetBaseAC(oArmor);
    int iMax = 3;
 
-   int iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_DAGGER     	 ? 1 : 0;
-	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATAR    	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_HANDAXE    	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KAMA       	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KUKRI      	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTHAMMER	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTMACE  	 ? 1 : iLight;
-	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHT_PICK	 ? 1 : iLight;	   
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_RAPIER    	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SHORTSWORD 	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SICKLE     	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_WHIP       	 ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_COURTBLADE   ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_LIGHTBLADE   ? 1 : iLight;
-       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_THINBLADE    ? 1 : iLight;
-     if (GetLevelByClass(CLASS_TYPE_IAIJUTSU_MASTER) > 0)
-     	{
-     	iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATANA  ? 1 : iLight;
-     	}
+   int iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_DAGGER				? 1 : 0;
+	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATAR				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_HANDAXE				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KAMA				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KUKRI				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTHAMMER			? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHTMACE			? 1 : iLight;
+	   iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_LIGHT_PICK			? 1 : iLight;	   
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_RAPIER				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SHORTSWORD			? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SICKLE				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_WHIP				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SAI					? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_SAP       			? 1 : iLight;	
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_NUNCHAKU			? 1 : iLight;	   
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_GOAD				? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_LIGHTBLADE	? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_ELVEN_THINBLADE		? 1 : iLight;
+       iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_EAGLE_CLAW			? 1 : iLight;	   
+     
+	 if (GetLevelByClass(CLASS_TYPE_IAIJUTSU_MASTER) > 0)
+	{
+		iLight = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC))==BASE_ITEM_KATANA  ? 1 : iLight;
+	}
    	
 
    if  (GetBaseAC(oArmor)>iMax ) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);

@@ -25418,7 +25418,7 @@ Use: Automatic.</entry>
   <entry id="50432" lang="en" sex="m">Aura of Menace</entry>
   <entry id="50433" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
-Specifics: The creature has a righteous aura around it. Any creature that fails its will save is shaken.  THe DC of the will save is calculated as follows:  10 (Base) + 2 (Racial Bonus) + 3 (1/2 Outsider HD) + Charisma bonus.
+Specifics: The creature has a righteous aura around it. Any creature that fails its will save is shaken.  The DC of the will save is calculated as follows:  10 (Base) + 2 (Racial Bonus) + 3 (1/2 Outsider HD) + Charisma bonus.
 Use: Selected.</entry>
   <entry id="50434" lang="en" sex="m">Hound Archon Aid</entry>
   <entry id="50435" lang="en" sex="m">Hound Archon Detect Evil</entry>
