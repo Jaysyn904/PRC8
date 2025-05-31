@@ -1,27 +1,18 @@
 //::///////////////////////////////////////////////
-//:: Power Attack Events
-//:: hp_pa_events
+//:: Power Attack NUI Events
+//:: prc_nui_pa_event
 //:://////////////////////////////////////////////
 /*
-    The NUI events for the Power Attack NUI Window
+    A class that handles the event firings from 
+	the Power Attack NUI
 */
 //:://////////////////////////////////////////////
 //:: Created By: Rakiov
-//:: Created On: 22.05.2005
+//:: Created On: 24.05.2005
 //:://////////////////////////////////////////////
 
-#include "nw_inc_nui"
-#include "hp_pa_view"
+#include "prc_nui_consts"
 
-//
-// SetWindowGeometry
-// Sets the window geometry for the Power Attack NUI to the player
-// so it can be remembered when opened next time
-//
-// Arguments:
-//   oPlayer object the player that owns the window
-//   nToken int the windowId
-//
 void SetWindowGeometry(object oPlayer, int nToken);
 
 void main()
@@ -31,14 +22,7 @@ void main()
     string sEvent    = NuiGetEventType();
     string sElement  = NuiGetEventElement();
     int nIndex               = NuiGetEventArrayIndex();
-    string sWindowId = NuiGetWindowId(oPlayer, nToken);
 
-    //HandleWindowInspectorEvent(); // used to debug
-
-    if(sWindowId != NUI_PRC_POWER_ATTACK_WINDOW)
-    {
-        return;
-    }
 
     // Get the current Power Attack value for player
     int currentPAAmount = GetLocalInt(oPlayer, "PRC_PowerAttack_Level");
@@ -56,6 +40,9 @@ void main()
         return;
     }
 
+    // set the geometry to the player since we only get mouseup events on button presses :(
+    SetWindowGeometry(oPlayer, nToken);
+
     int currentBAB = GetBaseAttackBonus(oPlayer);
 
     if (sElement == NUI_PRC_PA_LEFT_BUTTON_EVENT)
@@ -64,7 +51,7 @@ void main()
         if(currentPAAmount-1 >= 0)
         {
             SetLocalInt(oPlayer, "PRC_PowerAttack_Level", currentPAAmount-1);
-            ExecuteScript("hp_pa_script", oPlayer);
+            ExecuteScript("prc_nui_pa_trggr", oPlayer);
             // if decreased pwoer attack is lower than the current BAB then allow
             // the incrase button
             if(currentPAAmount-1 <= currentBAB)
@@ -86,7 +73,7 @@ void main()
         if(currentPAAmount+1 <= currentBAB)
         {
             SetLocalInt(oPlayer, "PRC_PowerAttack_Level", currentPAAmount+1);
-            ExecuteScript("hp_pa_script", oPlayer);
+            ExecuteScript("prc_nui_pa_trggr", oPlayer);
             // if the increased power attack amount is greater than 0 then enable
             // the decrease button
             if (currentPAAmount+1 > 0)
@@ -103,9 +90,7 @@ void main()
 
     currentPAAmount = GetLocalInt(oPlayer, "PRC_PowerAttack_Level");
 
-    // set the geometry to the player since we only get mouseup events on button presses :(
     NuiSetBind(oPlayer, nToken, NUI_PRC_PA_TEXT_BIND, JsonString(IntToString(currentPAAmount)));
-    SetWindowGeometry(oPlayer, nToken);
 }
 
 void SetWindowGeometry(object oPlayer, int nToken)

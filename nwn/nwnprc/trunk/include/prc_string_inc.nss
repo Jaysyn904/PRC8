@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: String Util
-//:: hp_string_util
+//:: prc_string_inc
 //:://////////////////////////////////////////////
 /*
     A util class for providing useful string functions.
@@ -9,6 +9,8 @@
 //:: Created By: Rakiov
 //:: Created On: 22.05.2005
 //:://////////////////////////////////////////////
+
+#include "inc_utility"
 
 //
 // StringSplit
@@ -29,27 +31,13 @@
 //
 json StringSplit(string input);
 
-//
-// TrimString
-// Takes a string and trims any leading whitespace characters
-// i.e. "   this is a test" returns
-// "this is a test"
-//
-// Parameters:
-//   input string the input string to trim
-//
-// Returns:
-//   string the trimmed string
-//
-string TrimString(string input);
-
 json StringSplit(string input)
 {
     json retValue = JsonArray();
 
     string subString = "";
     //trim any whitespace characters first
-    string currString = TrimString(input);
+    string currString = PRCTrimString(input);
 
     // loop until we process the whole string
     while(currString != "")
@@ -80,19 +68,6 @@ json StringSplit(string input)
     if(subString != "")
     {
         retValue = JsonArrayInsert(retValue, JsonString(subString));
-    }
-
-    return retValue;
-}
-
-string TrimString(string input)
-{
-    string retValue = input;
-
-    // while the string is not empty and we are looking at a whitespace, pop it.
-    while(retValue != "" && GetStringLeft(retValue, 1) == " ")
-    {
-        retValue = GetStringRight(retValue, GetStringLength(retValue)-1);
     }
 
     return retValue;

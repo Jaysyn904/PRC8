@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: Power Attack Script
-//:: hp_pa_script
+//:: prc_nui_pa_trggr
 //:://////////////////////////////////////////////
 /*
     A script that sets the power attack on a player based on the amount
@@ -12,8 +12,18 @@
 //:://////////////////////////////////////////////
 
 #include "prc_spell_const"
+#include "inc_2dacache"
 
-void SetPowerAttack();
+//
+// ExecutePowerAttackChange
+// Takes a Power Attack SpellID and checks to see what it's spell2da Master is.
+// it then takes the Master's FeatID and the spell's spellId and does UseActionFeat
+// to execute the power attack change.
+//
+// Arguments:
+//   spellId:int the Power attack spell Id this is being executed for
+//
+void ExecutePowerAttackChange(int spellId);
 
 //
 // Sets the power attack for a player, if the player has power attack and the
@@ -27,43 +37,25 @@ void SetPowerAttack();
 //
 void main()
 {
-	
-	ExecuteScript("prc_nui_pwrattk");
-	
-/*     int amount = GetLocalInt(OBJECT_SELF, "PRC_PowerAttack_Level");
+    int amount = GetLocalInt(OBJECT_SELF, "PRC_PowerAttack_Level");
     int prevPowerAttack5 = GetLocalInt(OBJECT_SELF, "prevPowerAttack5");
     int prevPowerAttack1 = GetLocalInt(OBJECT_SELF, "prevPowerAttack1");
     int powerAttack5Amount = amount / 5;
     int powerAttack1Amount = amount % 5;
 
-    // Current actions can cause this to not run right away, so clear the queue
-    // and force this to happen.
-    ClearAllActions();
-
-
     //sets the 5 values for Power attack ranging from 0,5,10,15,20 respectivly
     if (prevPowerAttack5 != powerAttack5Amount)
     {
         if (powerAttack5Amount == 0) // Power Attack 0
-        {
-            ActionDoCommand(ActionCastSpellAtObject(SPELL_POWER_ATTACK6, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK6);
         if (powerAttack5Amount == 1) // Power Attack 5
-        {
-            ActionDoCommand(ActionCastSpellAtObject(SPELL_POWER_ATTACK7, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK7);
         if (powerAttack5Amount == 2) // Power Attack 10
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK8, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK8);
         if (powerAttack5Amount == 3) // Power Attack 15
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK9, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK9);
         if (powerAttack5Amount == 4) // Power Attack 20
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK10, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK10);
         SetLocalInt(OBJECT_SELF, "prevPowerAttack5", powerAttack5Amount);
     }
 
@@ -71,26 +63,32 @@ void main()
     {
         //sets the 1 values for Power attack ranging from 0,1,2,3,4 respectivly
         if (powerAttack1Amount == 0) // Power Attack 0
-        {
-            ActionDoCommand(ActionCastSpellAtObject(SPELL_POWER_ATTACK1, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK1);
         if (powerAttack1Amount == 1) // Power Attack 1
-        {
-            ActionDoCommand(ActionCastSpellAtObject(SPELL_POWER_ATTACK2, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK2);
         if (powerAttack1Amount == 2) // Power Attack 2
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK3, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK3);
         if (powerAttack1Amount == 3) // Power Attack 3
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK4, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK4);
         if (powerAttack1Amount == 4) // Power Attack 4
-        {
-            ActionCastSpellAtObject(SPELL_POWER_ATTACK5, OBJECT_SELF, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE);
-        }
+            ExecutePowerAttackChange(SPELL_POWER_ATTACK5);
         SetLocalInt(OBJECT_SELF, "prevPowerAttack1", powerAttack1Amount);
     }
- */
- }
+}
+
+void ExecutePowerAttackChange(int spellId)
+{
+    int masterSpellId = StringToInt(Get2DACache("spells", "Master", spellId));
+    int featID;
+    int subSpellId = 0;
+
+    if (masterSpellId)
+    {
+        featID = StringToInt(Get2DACache("spells", "FeatID", masterSpellId));
+        subSpellId = spellId;
+    }
+    else
+        featID = StringToInt(Get2DACache("spells", "FeatID", spellId));
+
+    ActionUseFeat(featID, OBJECT_SELF, subSpellId);
+}

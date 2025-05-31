@@ -187,7 +187,7 @@ const int FEAT_SANCTIFY_MARTIAL_ELVEN_THINBLADE 	= 24864;
 const int FEAT_SANCTIFY_MARTIAL_ELVEN_COURTBLADE 	= 24865;
 
 //:: Web Enhancement Feats
-const int FEAT_CHARMING_THE_ARROW		= 25997;
+const int FEAT_CHARMING_THE_ARROW		= 25998;
 
 //:: Skill Based Feats
 const int FEAT_JUMP = 2884;
@@ -3906,7 +3906,7 @@ const int FEAT_IMPROVED_TRIP                  = 2807;
 const int FEAT_PRC_IMP_DISARM                 = 5196;
 const int FEAT_AWESOME_BLOW                   = 5370;
 const int FEAT_IMPROVED_SHIELD_BASH           = 3250;
-const int FEAT_INVESTIGATOR					  = 25997;
+const int FEAT_INVESTIGATOR					  = 25998;
 
 // Player's Handbook II Feats
 const int FEAT_STEADFAST_DETERMINATION		  = 3267;

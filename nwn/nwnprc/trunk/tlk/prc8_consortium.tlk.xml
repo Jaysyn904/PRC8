@@ -71357,6 +71357,8 @@ When within your own black labyrinth, you are immune to the last two effects (mo
   <entry id="74811" lang="en" sex="m">Spellcraft doesn't provide a bonus to your save vs. spells in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="74812" lang="en" sex="m">Tumble doesn't provide a bonus to your Armor Class in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="74813" lang="en" sex="m">Feats for Alternate Magic Systems (Psionics, Incarnum, etc) are all organized under a Masterfeat.  Psionic Feats, ToB Feats, etc...</entry>
+  <entry id="74814" lang="en" sex="m">Typing "/sb" in chat will bring up the NUI spellcasting menu.</entry>
+  <entry id="74815" lang="en" sex="m">Typing "/pa" in chat will bring up the NUI Power Attack menu.</entry>  
   <entry id="75001" lang="en" sex="m">Favored Mystery - Black Labyrinth</entry>
   <entry id="75002" lang="en" sex="m">Holy Warrior</entry>
   <entry id="75003" lang="en" sex="m">Type of Feat: Reserve

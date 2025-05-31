@@ -12,44 +12,16 @@
 //:://////////////////////////////////////////////
 
 #include "nw_inc_nui"
+#include "prc_nui_consts"
 // #include "nw_inc_nui_insp" // used to debug
 
-//
-// NuiPRCPowerAttackView
-// The NUI window for the Power Attack interface, running this function
-// creates the window itself
-//
-// Arguments:
-//   oPlayer object the player referenced for the NUI
-//
-void NuiPRCPowerAttackView(object oPlayer);
-
-
-// The Window ID
-const string NUI_PRC_POWER_ATTACK_WINDOW = "nui_prc_power_attack_window";
-
-// LocalVar for the geometry of the window
-const string NUI_PRC_PA_GEOMETRY_VAR = "paNuiGeometry";
-
-// Event For Left Button
-const string NUI_PRC_PA_LEFT_BUTTON_EVENT = "nui_prc_pa_left_button_event";
-// Event For Right Button
-const string NUI_PRC_PA_RIGHT_BUTTON_EVENT = "nui_prc_pa_right_button_event";
-
-// Bind for Text
-const string NUI_PRC_PA_TEXT_BIND = "nui_prc_pa_text_bind";
-// Left Button Enabled Bind
-const string NUI_PRC_PA_LEFT_BUTTON_ENABLED_BIND = "leftButtonEnabled";
-// Right Button Enabled Bind
-const string NUI_PRC_PA_RIGHT_BUTTON_ENABLED_BIND = "rightButtonEnabled";
-
-void NuiPRCPowerAttackView(object oPlayer)
+void main()
 {
     // First we look for any previous windows, if found (ie, non-zero) we destory them so we can start fresh.
-    int nPreviousToken = NuiFindWindow(oPlayer, NUI_PRC_POWER_ATTACK_WINDOW);
+    int nPreviousToken = NuiFindWindow(OBJECT_SELF, NUI_PRC_POWER_ATTACK_WINDOW);
     if (nPreviousToken != 0)
     {
-        NuiDestroy(oPlayer, nPreviousToken);
+        NuiDestroy(OBJECT_SELF, nPreviousToken);
     }
 
     // base element for NUI
@@ -88,11 +60,11 @@ void NuiPRCPowerAttackView(object oPlayer)
     // Create the window and set binds for parameters in case we want to change them later
     json nui = NuiWindow(jRoot, JsonString("Power Attack"), NuiBind("geometry"), NuiBind("resizable"), NuiBind("collapsed"), NuiBind("closable"), NuiBind("transparent"), NuiBind("border"));
 
-    int nToken = NuiCreate(oPlayer, nui, NUI_PRC_POWER_ATTACK_WINDOW);
+    int nToken = NuiCreate(OBJECT_SELF, nui, NUI_PRC_POWER_ATTACK_WINDOW);
 
     // get the geometry of the window in case we opened this before and have a
     // preference for location
-    json geometry = GetLocalJson(oPlayer, NUI_PRC_PA_GEOMETRY_VAR);
+    json geometry = GetLocalJson(OBJECT_SELF, NUI_PRC_PA_GEOMETRY_VAR);
 
     // Default to put this near the middle and let the person adjust its location
     if (geometry == JsonNull())
@@ -101,15 +73,15 @@ void NuiPRCPowerAttackView(object oPlayer)
     }
 
     // Set the binds to their default values
-    NuiSetBind(oPlayer, nToken, "geometry", geometry);
-    NuiSetBind(oPlayer, nToken, "collapsed", JsonBool(FALSE));
-    NuiSetBind(oPlayer, nToken, "resizable", JsonBool(FALSE));
-    NuiSetBind(oPlayer, nToken, "closable", JsonBool(TRUE));
-    NuiSetBind(oPlayer, nToken, "transparent", JsonBool(TRUE));
-    NuiSetBind(oPlayer, nToken, "border", JsonBool(FALSE));
+    NuiSetBind(OBJECT_SELF, nToken, "geometry", geometry);
+    NuiSetBind(OBJECT_SELF, nToken, "collapsed", JsonBool(FALSE));
+    NuiSetBind(OBJECT_SELF, nToken, "resizable", JsonBool(FALSE));
+    NuiSetBind(OBJECT_SELF, nToken, "closable", JsonBool(TRUE));
+    NuiSetBind(OBJECT_SELF, nToken, "transparent", JsonBool(TRUE));
+    NuiSetBind(OBJECT_SELF, nToken, "border", JsonBool(FALSE));
 
-    int paAmount = GetLocalInt(oPlayer, "PRC_PowerAttack_Level");
-    int currentBAB = GetBaseAttackBonus(oPlayer);
+    int paAmount = GetLocalInt(OBJECT_SELF, "PRC_PowerAttack_Level");
+    int currentBAB = GetBaseAttackBonus(OBJECT_SELF);
 
     // if we reach the left or right limits of the power attack, then disable the buttons
     json leftButtonEnabled = (paAmount == 0) ? JsonBool(FALSE) : JsonBool(TRUE);
@@ -117,10 +89,10 @@ void NuiPRCPowerAttackView(object oPlayer)
 
 
     // set the current PA amount to the window
-    NuiSetBind(oPlayer, nToken, NUI_PRC_PA_TEXT_BIND, JsonString(IntToString(paAmount)));
+    NuiSetBind(OBJECT_SELF, nToken, NUI_PRC_PA_TEXT_BIND, JsonString(IntToString(paAmount)));
 
 
 
-    NuiSetBind(oPlayer, nToken, NUI_PRC_PA_LEFT_BUTTON_ENABLED_BIND, leftButtonEnabled);
-    NuiSetBind(oPlayer, nToken, NUI_PRC_PA_RIGHT_BUTTON_ENABLED_BIND, rightButtonEnabled);
+    NuiSetBind(OBJECT_SELF, nToken, NUI_PRC_PA_LEFT_BUTTON_ENABLED_BIND, leftButtonEnabled);
+    NuiSetBind(OBJECT_SELF, nToken, NUI_PRC_PA_RIGHT_BUTTON_ENABLED_BIND, rightButtonEnabled);
 }

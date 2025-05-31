@@ -2,6 +2,15 @@
 //:: OnPlayerChat eventscript
 //:: prc_onplayerchat
 //:://////////////////////////////////////////////
+/*
+    A OnChat script that parses what is said and 
+	uses any commands or NUI associated with
+	commands.
+*/
+//:://////////////////////////////////////////////
+//:: Updated By: Rakiov
+//:: Created On: 22.05.2005
+//:://////////////////////////////////////////////
 
 /*
 PRC Chat Command Format:
@@ -15,6 +24,10 @@ OR:
 #include "prc_inc_chat_dm"
 #include "prc_inc_chat_pow"
 #include "prc_inc_chat_shf"
+#include "nw_inc_nui"
+#include "prc_string_inc"
+#include "prc_nui_sb_inc"
+#include "prc_nui_consts"
 
 const string CHAT_COMMAND_INDICATOR_1 = "~~";
 const string CHAT_COMMAND_INDICATOR_2 = "..";
@@ -87,8 +100,54 @@ void main()
         ExecuteScript(GetLocalString(oPC, PRC_CHAT_HOOK_SCRIPT), oPC);
         _clear_chat_vars(oPC);
     }
-	
-	ExecuteScript("hp_pa_chatscript", oPC);
+
+    // get current player message and split it up into a list
+    string sCommand = GetPCChatMessage();
+    json sCommandSplit = StringSplit(sChat);
+
+    if(JsonGetLength(sCommandSplit) > 0)
+    {
+        string firstWord = JsonGetString(JsonArrayGet(sCommandSplit, 0));
+
+        // if first word is /pa we are using the power attack interface
+        if(firstWord == "/pa")
+        {
+            if(JsonGetLength(sCommandSplit) >= 2)
+            {
+                //if a parameter is given then run the power attack command directly.
+                string param1 = JsonGetString(JsonArrayGet(sCommandSplit, 1));
+                int paAmount = StringToInt(param1);
+                SetLocalInt(oPC, "PRC_PowerAttack_Level", paAmount);
+                ExecuteScript("prc_nui_pa_trggr", oPC);
+
+                // update the NUI so it is in sync
+                int nToken = NuiFindWindow(oPC, NUI_PRC_POWER_ATTACK_WINDOW);
+                if (nToken != 0)
+                {
+                    NuiSetBind(oPC, nToken, NUI_PRC_PA_TEXT_BIND, JsonString(IntToString(paAmount)));
+                }
+            }
+            else
+            {
+                // if no param is given then open the NUI
+                ExecuteScript("prc_nui_pa_view", oPC);
+            }
+
+            // clear message from chat
+            SetPCChatMessage();
+        }
+        // If the first word is /sb then we open the Spellbook NUI
+        if(firstWord == "/sb")
+        {
+            ExecuteScript("prc_nui_sb_view", oPC);
+
+            // clear message from chat
+            SetPCChatMessage();
+        }
+    }
+
+
+
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERCHAT);
 }
