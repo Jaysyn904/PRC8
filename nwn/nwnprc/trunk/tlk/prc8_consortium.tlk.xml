@@ -42823,12 +42823,12 @@ Special Abilities:
 
 - Low-Light Vision: Allows them to see better than normal in the dark.
 - Hardiness vs. Poisons: +2 racial bonus on saving throws against poisons.
+- Hardiness vs. Disease: +2 racial bonus on saving throws against disease.
 - 40' Movement
 - Skill Affinity (Hide): +2 racial bonus to Hide checks.
 - Skill Affinity (Move Silently): +2 racial bonus to Move Silently checks.
 - Natural Weapon: Can make a natural bite or claw attack(1d4).
-- Scent: Gains Track as a bonus feat, and can track by smell.
-- Monstrous: Nezumi count as Monstrous Humanoids for the purpose of spells.</entry>
+- Immune to the Shadowlands Taint: Nezumi can never acquire a Taint score, and suffer no ill effects from exposure to the Shadowlands. Effects such as the cloud of Taint spell or the special attacks of Shadowlands creatures can still harm them, however.</entry>
   <entry id="55069" lang="en" sex="m">Khaasta</entry>
   <entry id="55070" lang="en" sex="m">Khaastan</entry>
   <entry id="55071" lang="en" sex="m">khaasta</entry>
@@ -71358,7 +71358,7 @@ When within your own black labyrinth, you are immune to the last two effects (mo
   <entry id="74812" lang="en" sex="m">Tumble doesn't provide a bonus to your Armor Class in 3e Dungeons &amp; Dragons.  This is reflected in the PRC8.</entry>
   <entry id="74813" lang="en" sex="m">Feats for Alternate Magic Systems (Psionics, Incarnum, etc) are all organized under a Masterfeat.  Psionic Feats, ToB Feats, etc...</entry>
   <entry id="74814" lang="en" sex="m">Typing "/sb" in chat will bring up the NUI spellcasting menu.</entry>
-  <entry id="74815" lang="en" sex="m">Typing "/pa" in chat will bring up the NUI Power Attack menu.</entry>  
+  <entry id="74815" lang="en" sex="m">Typing "/pa" in chat will bring up the NUI Power Attack menu.</entry>
   <entry id="75001" lang="en" sex="m">Favored Mystery - Black Labyrinth</entry>
   <entry id="75002" lang="en" sex="m">Holy Warrior</entry>
   <entry id="75003" lang="en" sex="m">Type of Feat: Reserve
@@ -74721,7 +74721,7 @@ Enduring Body: The epic War Mind's Damage Reduction continues to grow by +1 ever
 Manifesting: At each class level the epic War Mind continues to increase in manifester level (and powers known, if applicable).
 
 Epic War Mind Bonus Feat List:
-Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. </entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Overwhelming Critical, Epic Psionic Feats, Improved Whirlwind Attack, Superior Initiative.</entry>
   <entry id="205200" lang="en" sex="m">Epic Iron Mind</entry>
   <entry id="205201" lang="en" sex="m">An epic Iron Mind stands as an unbreakable bastion against psychic assault, her will as tempered as the armor she wears. With unshakable focus and hardened discipline, she deflects enchantments and mind control with effortless resolve. Her presence radiates mental fortitude, empowering allies and punishing those who dare probe her thoughts. In the epic tiers, the Iron Mind becomes the embodiment of pure, unyielding resistance.
 
@@ -74736,7 +74736,7 @@ Mind Over Body: The epic Iron Mind continues to gain a use of Mind Over Body eve
 Manifesting: At each class level the epic Iron Mind continues to increase in manifester level (and powers known, if applicable).
 
 Epic Iron Mind Bonus Feat List:
-Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. </entry>
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Overwhelming Critical, Epic Psionic Feats, Great Wisdom, Great Constitution, Superior Initiative. </entry>
   <entry id="205202" lang="en" sex="m">Epic Slayer of Domiel</entry>
   <entry id="205203" lang="en" sex="m">An epic Slayer of Domiel becomes a divine instrument of retribution, delivering swift and silent justice to the forces of evil. With holy precision and supernatural grace, they strike unseen, guided by celestial purpose. Their death touch grows ever more lethal, and their sacred presence turns stealth into salvation. In the epic ranks, no corrupt soul escapes the light they bring from the shadows.
 
@@ -74919,6 +74919,20 @@ Manifesting: At each class level the epic Diamond Dragon continues to increase i
 
 Epic Diamond Dragon Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.</entry>
+  <entry id="205500" lang="en" sex="m">Hardiness Vs. Disease</entry>
+  <entry id="205501" lang="en" sex="m">Type of Feat: Race
+Specifics: This feat grants a +2 racial bonus on saving throws vs. disease.
+Use: Automatic.</entry>
+  <entry id="205502" lang="en" sex="m">Shadowlands Immunity</entry>
+  <entry id="205503" lang="en" sex="m">Type of Feat: Race
+Specifics: Immune to the Shadowlands Taint: Nezumi can never acquire a Taint score, and suffer no ill effects from exposure to the Shadowlands. Effects such as the cloud of Taint spell or the special attacks of Shadowlands creatures can still harm them, however.
+
+*This is up to the module builder to implement.</entry>
+  <entry id="205504" lang="en" sex="m">Keen Scent</entry>
+  <entry id="205505" lang="en" sex="m">Type of Feat: Race
+Prerequisites: Wisdom 11, Nezumi Race
+Specifics: You gain Keen Senses and +4 bonus to Spot, Listen, and Search.
+Use: Automatic</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210999" lang="en" sex="m">## Vile Martial Strike Expansion ##</entry>

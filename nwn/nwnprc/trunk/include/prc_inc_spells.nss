@@ -2343,11 +2343,58 @@ int IsSpellDamageElemental(int nDamageType)
     return nDamageType & 2480;// 2480 = (DAMAGE_TYPE_ACID | DAMAGE_TYPE_COLD | DAMAGE_TYPE_ELECTRICAL | DAMAGE_TYPE_FIRE | DAMAGE_TYPE_SONIC)
 }
 
-//
+
 //  This function converts spell damage into the correct type
 //  TODO: Change the name to consistent (large churn project).
 //
+//  Updated by: TiredByFirelight
 int ChangedElementalDamage(object oCaster, int nDamageType)
+{
+
+    // None of the stuff here works when items are involved
+    if (GetIsObjectValid(PRCGetSpellCastItem())) return nDamageType;
+    
+    int nNewType;
+
+    //eldritch spellweave
+    if(GetIsObjectValid(GetLocalObject(oCaster, "SPELLWEAVE_TARGET")))
+    {
+        int nEssence = GetLocalInt(oCaster, "BlastEssence");
+
+        if(nEssence == INVOKE_BRIMSTONE_BLAST)
+            nNewType = DAMAGE_TYPE_FIRE;
+
+        else if(nEssence == INVOKE_HELLRIME_BLAST)
+            nNewType = DAMAGE_TYPE_COLD;
+
+        else if(nEssence == INVOKE_UTTERDARK_BLAST)
+            nNewType = DAMAGE_TYPE_NEGATIVE;
+
+        else if(nEssence == INVOKE_VITRIOLIC_BLAST)
+            nNewType = DAMAGE_TYPE_ACID;
+
+        //save new type for other functions
+        if(nNewType)
+            SetLocalInt(oCaster, "archmage_mastery_elements", nNewType);
+    }
+    else
+        // Check if an override is set
+        nNewType = GetLocalInt(oCaster, "archmage_mastery_elements");
+
+    // If so, check if the spell qualifies for a change
+    if (!nNewType || !IsSpellDamageElemental(nDamageType))
+        nNewType = nDamageType;
+        
+    if (GetLevelByClass(CLASS_TYPE_FROST_MAGE, oCaster) >= 4 && ((nDamageType == DAMAGE_TYPE_COLD)||nNewType == DAMAGE_TYPE_COLD))
+    {
+        nNewType = DAMAGE_TYPE_CUSTOM8;    // Untyped
+        SendMessageToPC(oCaster, "Piercing Cold - Spell ignores resistance or immunities to cold.");
+         
+    }
+
+    return nNewType;
+}
+/* int ChangedElementalDamage(object oCaster, int nDamageType)
 {
 
 	// None of the stuff here works when items are involved
@@ -2386,7 +2433,7 @@ int ChangedElementalDamage(object oCaster, int nDamageType)
 
     return nNewType;
 }
-
+ */
 //used in scripts after ChangedElementalDamage() to determine saving throw type
 int ChangedSaveType(int nDamageType)
 {

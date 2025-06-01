@@ -240,7 +240,7 @@ json CreateSpellbookCircleButtons(int nClass)
     int i;
     // Get the current selected circle and the class caster level.
     int currentCircle = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
-    int casterLevel = GetPrCAdjustedCasterLevel(nClass, OBJECT_SELF);
+    int casterLevel = GetCasterLevelByClass(nClass, OBJECT_SELF);
 
     // Get what the lowest level of a circle is for the class (some start at 1,
     // some start higher, some start at cantrips)

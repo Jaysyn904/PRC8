@@ -249,8 +249,8 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
             default: break;
         }
     }
-    // Bards can cast in light armour and while using small shield.
-    else if(nCastingClass == CLASS_TYPE_BARD)
+    // Bards cannot cast in light armour and while using small shield in 3e
+/*     else if(nCastingClass == CLASS_TYPE_BARD)
     {
         int nLvl = GetLevelByClass(CLASS_TYPE_BARD, oCaster);
         int nShield = GetBaseItemType(oShield);
@@ -269,7 +269,7 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
         {
             case BASE_ITEM_SMALLSHIELD: nASF -=  5; break;
         }
-    }		
+    } */		
     // Duskblade can cast in light/medium armour and while using small/large shield.
     else if(nCastingClass == CLASS_TYPE_DUSKBLADE)
     {
@@ -1372,6 +1372,276 @@ void EldritchSpellweave(object oCaster, object oTarget, int nSpellLevel, int bSp
     }
 }
 
+//:: Returns True if oPC has a Secondary PrC that should prevent them from using 
+//:: the Bioware spellbook as a Sublime Chord
+int CheckSecondaryPrC(object oPC = OBJECT_SELF)
+{
+	if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Starting", oPC);
+	
+	int bBard 		= GetLevelByClass(CLASS_TYPE_BARD, oPC);
+	int bBeguiler 	= GetLevelByClass(CLASS_TYPE_BEGUILER, oPC);
+	int bDuskblade 	= GetLevelByClass(CLASS_TYPE_DUSKBLADE, oPC);
+	int bSorcerer 	= GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
+	int bWarmage 	= GetLevelByClass(CLASS_TYPE_WARMAGE, oPC);
+	
+	int nRace		= GetRacialType(oPC);
+	
+	if (bBard)
+	{
+		if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Entering Bard", oPC);
+		if (GetHasFeat(FEAT_FEY_SPELLCASTING_GLOURA)) return TRUE;
+		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ALIENIST_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_BSINGER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_CMANCER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_DHEART_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_DSONG_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_GRAZZT_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_HARPERM_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_HAVOC_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_JPM_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_MAESTER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_MHARPER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_SSWORD_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BARD)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_BARD)) return TRUE;	
+	}
+	else if (bBeguiler)
+	{
+		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ALIENIST_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_BSINGER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_CMANCER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_DHEART_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_DSONG_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_GRAZZT_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_HARPERM_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_HATHRAN_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_HAVOC_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_JPM_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_MAESTER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_MHARPER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_SSWORD_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_TIAMAT_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BEGUILER)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_BEGUILER)) return TRUE;
+
+
+
+	
+	}
+	else if (bDuskblade)
+	{
+		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_BSINGER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_CMANCER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_DHEART_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_DSONG_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_GRAZZT_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_HARPERM_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_HATHRAN_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_HAVOC_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_JPM_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_MAESTER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_MHARPER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_SSWORD_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_TIAMAT_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_TNECRO_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_DUSKBLADE)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_DUSKBLADE)) return TRUE;
+	
+		
+	}
+	else if (bSorcerer)
+	{
+		if (GetHasFeat(FEAT_ABERRATION_SPELLCASTING_DRIDER)) return TRUE;
+		if (GetHasFeat(FEAT_MONSTROUS_SPELLCASTING_ARKAMOI)) return TRUE;
+		if (GetHasFeat(FEAT_MONSTROUS_SPELLCASTING_MARRUTACT)) return TRUE;
+		if (GetHasFeat(FEAT_MONSTROUS_SPELLCASTING_REDSPAWN_ARCANISS)) return TRUE;
+		if (GetHasFeat(FEAT_OUTSIDER_SPELLCASTING_RAKSHASA)) return TRUE;
+		if (GetHasFeat(FEAT_SHAPECHANGER_SPELLCASTING_ARANEA)) return TRUE;
+		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ALIENIST_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_BSINGER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_BONDED_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_CMANCER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_DHEART_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_DSONG_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_FMM_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_GRAZZT_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_HARPERM_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_HAVOC_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_JPM_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_MAESTER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_MHARPER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_SSWORD_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_TIAMAT_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_TNECRO_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_WAYFARER_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SORCERER)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_SORCERER)) return TRUE;			
+	}
+	else if (bWarmage)
+	{
+		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ARCHMAGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ARCTRICK_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ASMODEUS_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_BSINGER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_BLDMAGUS_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_BONDED_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_CMANCER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_DHEART_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_DSONG_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ENLIGHTENEDFIST_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ELESAVANT_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ETHEURGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_FMM_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_FROSTMAGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_GRAZZT_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_HARPERM_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_HATHRAN_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_HAVOC_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_JPM_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_MAESTER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_MAGEKILLER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_MHARPER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_NOCTUMANCER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_OOZEMASTER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_PALEMASTER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_RAGEMAGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_SOULCASTER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_SPELLDANCER_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_SSWORD_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_TIAMAT_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_WARMAGE)) return TRUE;
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_WARMAGE)) return TRUE;
+	}
+		return FALSE;
+}
+
 int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
 {
     // If it's an item, get the hell out of here
@@ -1388,7 +1658,12 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
     //check its a sorc spell
     if(nCastingClass == CLASS_TYPE_SORCERER)
     {
-        //no need to check further if new spellbooks are disabled
+        if (CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			FloatingTextStringOnCreature("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
+			return TRUE;
+		}
+		//no need to check further if new spellbooks are disabled
         if(GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK))
             return TRUE;
         //check they have sorc levels
@@ -1400,10 +1675,23 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
         //check if they are casting via new spellbook
         if(GetLocalInt(oCaster, "NSB_Class") == CLASS_TYPE_SORCERER)
             return TRUE;
+		if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0 && CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sublime Chord w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}
+		if (CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Bard w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}			
         //check they have arcane PrC or Draconic Arcane Grace/Breath
         if(!(GetArcanePRCLevels(oCaster, nCastingClass) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
           && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCaster) || GetHasFeat(FEAT_DRACONIC_BREATH, oCaster)))
             return TRUE;
+
         //check they have sorc in first arcane slot
         //if(GetPrimaryArcaneClass() != CLASS_TYPE_SORCERER)
         if(GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oCaster, TRUE) != GetPrCAdjustedCasterLevel(CLASS_TYPE_SORCERER, oCaster, TRUE))
@@ -1418,31 +1706,60 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
     //check its a bard spell
     if(nCastingClass == CLASS_TYPE_BARD)
     {
-        //no need to check further if new spellbooks are disabled
+        if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> nCastingClass is Bard.", oCaster);
+		//no need to check further if new spellbooks are disabled
         if(GetPRCSwitch(PRC_BARD_DISALLOW_NEWSPELLBOOK))
-            return TRUE;
+		{
+            if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> PRC_BARD_DISALLOW_NEWSPELLBOOK.", oCaster);
+			return TRUE;
+		}
         //check they have bard levels
         if(!GetLevelByClass(CLASS_TYPE_BARD, oCaster))
-            return TRUE;
+		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Not a bard.", oCaster);
+			return TRUE;
+		}
         //check if they are casting via new spellbook
         if(GetLocalInt(oCaster, "NSB_Class") == CLASS_TYPE_BARD)
-            return TRUE;
-        //check they have arcane PrC or Draconic Arcane Grace/Breath
+ 		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Using new spellbook.", oCaster);
+			return TRUE;
+		}
+		if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0 && CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sublime Chord w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}
+		if (CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Bard w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}	        
+		//check they have arcane PrC or Draconic Arcane Grace/Breath
         if(!(GetArcanePRCLevels(oCaster, nCastingClass) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
           && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCaster) || GetHasFeat(FEAT_DRACONIC_BREATH, oCaster)))
-            return TRUE;
+ 		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> First Sublime Chord check.", oCaster);
+			return TRUE;
+		}
+					
         //check they have bard in first arcane slot
         //if(GetPrimaryArcaneClass() != CLASS_TYPE_BARD)
-        if(GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oCaster, TRUE) != GetPrCAdjustedCasterLevel(CLASS_TYPE_BARD, oCaster, TRUE))
-            return TRUE;
-
+        if(GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oCaster, TRUE) != GetPrCAdjustedCasterLevelByType(CLASS_TYPE_BARD, oCaster, TRUE))
+		{
+			if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> GetPrCAdjustedCasterLevelByType.", oCaster);
+			return TRUE;
+		}
         //at this point, they must be using the bioware spellbook
         //from a class that adds to bard
         FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
         return FALSE;
     }
 
-    return TRUE;
+    if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Returning TRUE.", oCaster);
+	return TRUE;
 }
 
 

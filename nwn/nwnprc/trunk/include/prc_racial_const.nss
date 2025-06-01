@@ -49,11 +49,12 @@ const int RACIAL_TYPE_ZENYRTHRI            = 206;
 const int RACIAL_TYPE_HVISTANI             = 146;
 const int RACIAL_TYPE_VISTANI              = 147;
 
-//Rokugan/Kara-Tur Races
+//:: Rokugan/Kara-Tur Races
+const int RACIAL_TYPE_TASLOI               = 140;
+const int RACIAL_TYPE_SPIRIT_FOLK          = 243;
 const int RACIAL_TYPE_KOROBKURU            = 245;
 const int RACIAL_TYPE_NEZUMI               = 246;
-const int RACIAL_TYPE_SPIRIT_FOLK          = 243;
-const int RACIAL_TYPE_TASLOI               = 140;
+
 
 //Spelljammer Races
 const int RACIAL_TYPE_SCRO                 = 182;

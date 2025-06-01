@@ -478,6 +478,10 @@ const int FEAT_TOUCH_OF_LUCK       = 4634;
 const int FEAT_FORESTLORD_TREEWALK = 4633;
 const int FEAT_KALASHTAR_PP        = 5205;
 
+const int FEAT_RACE_HARDINESS_VS_DISEASE	= 26400;
+const int FEAT_NEZUMI_IMMUNE_SHADOWLANDS	= 26401;
+const int FEAT_NEZUMI_KEEN_SCENT			= 26402;
+
 //::  PnP Weapon Proficiencies
 const int FEAT_WEAPON_PROFICIENCY_SHORTSWORD        = 7901;
 const int FEAT_WEAPON_PROFICIENCY_LONGSWORD         = 7902;
@@ -3643,6 +3647,10 @@ const int FEAT_LUCKY_SHOT                   = 24021;
 
 //:: Bloodclaw Master
 const int FEAT_BCM_RENDING_CLAWS			= 24065;
+
+//:: Ironmind
+const int FEAT_ARMOURED_MIND				= 3644;
+const int FEAT_MIND_OVER_BODY				= 3645;
 
 // Dread Necromancer
 const int FEAT_DN_SCABROUS_TOUCH			= 24145;

@@ -895,8 +895,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_SHADOWADEPT_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_SHADOW_ADEPT, oCaster);	
 
-		// if(GetHasFeat(FEAT_SUBCHORD_SPELLCASTING_BARD, oCaster))
-			// nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster);
+		if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BARD, oCaster))
+			nArcane += GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster);
 
 		if(GetHasFeat(FEAT_ULTMAGUS_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster);			

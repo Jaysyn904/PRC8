@@ -398,8 +398,8 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
     if (DEBUG) DoDebug("CheckMissingSpells 1 Level: " + IntToString(nLevel));
 
     if(!nLevel)
-        return FALSE;
-    
+        return FALSE; 
+	
 	if(nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
     {
         if((GetLevelByClass(nClass, oPC) == nLevel) //no PrC

@@ -544,13 +544,27 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     // Account for wild surge
     nAugPPCostReductions += nSurge;
     
-    // Midnight Augmentation feat from incarnum
+	// Midnight Augmentation feat from incarnum
+	if (GetHasFeat(FEAT_MIDNIGHT_AUGMENTATION, manif.oManifester))
+	{
+		int nPower = GetLocalInt(manif.oManifester, "MidnightAugPower");
+		if (manif.nSpellID == nPower)
+		{
+			int bUsedFocus = UsePsionicFocus(manif.oManifester);
+			if (bUsedFocus)
+			{
+				nAugPPCostReductions += GetEssentiaInvestedFeat(manif.oManifester, FEAT_MIDNIGHT_AUGMENTATION);
+			}
+		}
+	}
+
+/*     // Midnight Augmentation feat from incarnum
     if (GetHasFeat(FEAT_MIDNIGHT_AUGMENTATION, manif.oManifester))
     {
     	// Make sure the power is the correct one, and that you can expend your psionic focus
     	if (manif.nSpellID == GetLocalInt(manif.oManifester, "MidnightAugPower") && UsePsionicFocus(manif.oManifester))
     		nAugPPCostReductions += GetEssentiaInvestedFeat(manif.oManifester, FEAT_MIDNIGHT_AUGMENTATION);
-    }
+    } */
 
     /*/ Various effects modifying the augmentation go above /*/
 

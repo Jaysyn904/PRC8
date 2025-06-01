@@ -1403,6 +1403,7 @@ void HathranFear(object oPC)
 
 }
 
+
 void MephlingBreath(object oPC)  //:: Mephlings
 {	
 	if(!GetHasFeat(FEAT_MEPHLING_BREATH, oPC)) 
@@ -1616,6 +1617,28 @@ void FeatShadowblade(object oPC)
     FeatUsePerDay(oPC, FEAT_EPHEMERAL_WEAPON, -1, iShadowLevel);
     FeatUsePerDay(oPC, FEAT_SHADOWY_STRIKE, -1, iShadowLevel);
     FeatUsePerDay(oPC, FEAT_FAR_SHADOW, -1, iShadowLevel);
+}
+
+void FeatIronMind(object oPC)
+{
+    int iIronmindLvl = GetLevelByClass(CLASS_TYPE_IRONMIND, oPC);
+    if (iIronmindLvl <= 0) return;
+
+    int nBonus;
+
+    // Armoured Mind: starts at level 1
+    if (iIronmindLvl >= 1)
+    {
+        nBonus = 1 + (iIronmindLvl - 1) / 3;
+        FeatUsePerDay(oPC, FEAT_ARMOURED_MIND, -1, nBonus);
+    }
+
+    // Mind Over Body: starts at level 3
+    if (iIronmindLvl >= 3)
+    {
+        nBonus = 1 + (iIronmindLvl - 3) / 3;
+        FeatUsePerDay(oPC, FEAT_MIND_OVER_BODY, -1, nBonus);
+    }
 }
 
 void FeatNoble(object oPC)
@@ -2154,6 +2177,7 @@ void FeatSpecialUsePerDay(object oPC)
     FeatRacial(oPC);
     FeatShadowblade(oPC);
     SoulbornDefense(oPC);
+	FeatIronMind(oPC);
 
     int nDread = GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC);
     if (nDread >= 1)
