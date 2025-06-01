@@ -203,7 +203,7 @@ void main()
         {
             // Calculate Precise Strike damage and apply
             int nDam = d6(nDuel/5);
-            effect eDam = EffectDamage(nDam, DAMAGE_TYPE_MAGICAL); //Using this because any DR has already taken piercing damage
+            effect eDam = EffectDamage(IPDamageConstant(nDam), DAMAGE_TYPE_MAGICAL); //Using this because any DR has already taken piercing damage
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
             FloatingTextStringOnCreature("Precise Strike Damage: "+IntToString(nDam), oPC, FALSE); 
         }// end if - Item is a melee weapon
