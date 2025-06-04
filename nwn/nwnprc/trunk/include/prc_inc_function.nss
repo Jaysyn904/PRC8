@@ -2166,6 +2166,7 @@ void FeatSpecialUsePerDay(object oPC)
     FeatUsePerDay(oPC, FEAT_LIPS_RAPTUR);
 	FeatUsePerDay(oPC, FEAT_COMMAND_SPIDERS, ABILITY_CHARISMA, 3);
 	FeatUsePerDay(oPC, FEAT_FM_FOREST_DOMINION, ABILITY_CHARISMA, 3);
+	FeatUsePerDay(oPC, FEAT_SOD_DEATH_TOUCH, -1, (GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oPC)+4)/4);
     FeatDiabolist(oPC);
     FeatAlaghar(oPC);
     ShadowShieldUses(oPC);

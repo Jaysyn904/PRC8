@@ -533,23 +533,21 @@ int GetCurrentSpellLevel(int nClass, int nLevel)
     // ToB doesn't have a concept of spell levels, but still match up to it
     if(nClass == CLASS_TYPE_WARBLADE
         || nClass == CLASS_TYPE_SWORDSAGE
-        || nClass == CLASS_TYPE_CRUSADER)
+        || nClass == CLASS_TYPE_CRUSADER
+        || nClass == CLASS_TYPE_SHADOWCASTER)
     {
         return 9;
     }
 
+
     // Binders don't really have a concept of spell level
     if (nClass == CLASS_TYPE_BINDER
-        || nClass == CLASS_TYPE_DRAGON_SHAMAN)
+        || nClass == CLASS_TYPE_DRAGON_SHAMAN) // they can only reach 1st circle
         return 1;
 
     //Shadowsmith has no concept of spell levels
     if (nClass == CLASS_TYPE_SHADOWSMITH)
         return 2;
-
-    //Shadowcaster has no concept of spell levels
-    if (nClass == CLASS_TYPE_SHADOWCASTER)
-        return 9;
 
     if (nClass == CLASS_TYPE_WARLOCK
         || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT)
@@ -570,6 +568,20 @@ int GetCurrentSpellLevel(int nClass, int nLevel)
 
         currentLevel = nLevel - 1; // Level is 1 off of the row in the 2da
 
+        if  (nClass == CLASS_TYPE_FIST_OF_ZUOKEN
+            || nClass == CLASS_TYPE_PSION
+            || nClass == CLASS_TYPE_PSYWAR
+            || nClass == CLASS_TYPE_WILDER
+            || nClass == CLASS_TYPE_PSYCHIC_ROGUE
+            || nClass == CLASS_TYPE_WARMIND)
+            currentLevel = GetManifesterLevel(OBJECT_SELF, nClass, TRUE) - 1;
+
+        int totalLevel = Get2DARowCount(spellLevel2da);
+
+        // in case we somehow go over bounds just don't :)
+        if (currentLevel >= totalLevel)
+            currentLevel = totalLevel - 1;
+
         //Psionics have MaxPowerLevel as their column name
         string columnName = "MaxPowerLevel";
 
@@ -584,13 +596,13 @@ int GetCurrentSpellLevel(int nClass, int nLevel)
         {
             columnName = "EvolvingMind";
             spellLevel2da = "cls_true_maxlvl"; //has a different 2da we want to look at
-         }
+        }
 
-         if (nClass == CLASS_TYPE_BINDER)
-         {
+        if (nClass == CLASS_TYPE_BINDER)
+        {
             columnName = "VestigeLvl";
             spellLevel2da = "cls_bind_binder";
-         }
+        }
 
         // ToB doesn't have a concept of this, but we don't care.
 
@@ -601,21 +613,6 @@ int GetCurrentSpellLevel(int nClass, int nLevel)
 
 int GetMinSpellLevel(int nClass)
 {
-
-    // ToB doesn't have a concept of spell levels, but still match up to it
-    if(nClass == CLASS_TYPE_WARBLADE
-        || nClass == CLASS_TYPE_SWORDSAGE
-        || nClass == CLASS_TYPE_CRUSADER
-        || nClass == CLASS_TYPE_SHADOWCASTER  //Shadowsmiths doesn't have a progression 2da :)
-        || nClass == CLASS_TYPE_SHADOWSMITH  //Shadowcasters doesn't have a progression 2da :)
-        || nClass == CLASS_TYPE_BINDER // Binders don't really have a concept of spell level
-        || nClass == CLASS_TYPE_DRAGON_SHAMAN //Invokers have an issue with tracking accurate spell levels, so this is a work around
-        || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT
-        || nClass == CLASS_TYPE_WARLOCK)
-    {
-        return 1;
-    }
-
     // again sponts have their own function
     if(GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS
         || nClass == CLASS_TYPE_ARCHIVIST)
@@ -624,6 +621,23 @@ int GetMinSpellLevel(int nClass)
     }
     else
     {
+        if  (nClass == CLASS_TYPE_FIST_OF_ZUOKEN
+            || nClass == CLASS_TYPE_PSION
+            || nClass == CLASS_TYPE_PSYWAR
+            || nClass == CLASS_TYPE_WILDER
+            || nClass == CLASS_TYPE_PSYCHIC_ROGUE
+            || nClass == CLASS_TYPE_WARMIND
+            || nClass == CLASS_TYPE_WARBLADE
+            || nClass == CLASS_TYPE_SWORDSAGE
+            || nClass == CLASS_TYPE_CRUSADER
+            || nClass == CLASS_TYPE_WARLOCK
+            || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT
+            || nClass == CLASS_TYPE_DRAGON_SHAMAN
+            || nClass == CLASS_TYPE_SHADOWCASTER
+            || nClass == CLASS_TYPE_SHADOWSMITH
+            || nClass == CLASS_TYPE_BINDER)
+            return 1;
+
         return GetCurrentSpellLevel(nClass, 1);
     }
 
@@ -631,6 +645,16 @@ int GetMinSpellLevel(int nClass)
 
 int GetMaxSpellLevel(int nClass)
 {
+    if (nClass == CLASS_TYPE_WILDER
+        || nClass == CLASS_TYPE_PSION)
+        return 9;
+    if (nClass == CLASS_TYPE_PSYCHIC_ROGUE
+        || nClass == CLASS_TYPE_FIST_OF_ZUOKEN
+        || nClass == CLASS_TYPE_WARMIND)
+        return 5;
+    if (nClass == CLASS_TYPE_PSYWAR)
+        return 6;
+
     return GetCurrentSpellLevel(nClass, GetHighestLevelPossibleInClass(nClass));
 }
 

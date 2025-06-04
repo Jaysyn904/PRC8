@@ -163,7 +163,7 @@ void main()
                 int i, nPowerLevel;
                 int nMaxLevel = GetMaxEssentiaCapacityFeat(oMeldshaper);
                 string sFeatID;
-                for(i = 14001; i < 14260 ; i++)
+				for(i = 14001; i < 14260 ; i++)
                 {
                     nPowerLevel = StringToInt(Get2DACache("spells", "Innate", i));
 
@@ -180,7 +180,9 @@ void main()
                         if(SORT) AddToTempList(oMeldshaper, GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i))), i);
                         else     AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i))), i, oMeldshaper);   
                     }
-                } 
+                }
+				
+				TransferTempList(oMeldshaper);				
             } 			
 			else if(nStage == STAGE_SELECT_ESSENTIA_POWER)
             {

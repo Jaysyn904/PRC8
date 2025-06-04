@@ -19,20 +19,21 @@ void main()
     // Get the selected PRC spell we are going to cast
     int featId = GetLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
 
+    // if the spell has a master feat this is it. This will return 0 if not set.
+    int subSpellID = GetLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+
     int isPersonalFeat = GetLocalInt(OBJECT_SELF, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
 
     // if this is a personal feat then this was called directly since we never entered
     // targetting and this should be applied immediatly to the executing player.
     if (isPersonalFeat)
     {
-        ActionUseFeat(featId);
+        ActionUseFeat(featId, OBJECT_SELF, subSpellID);
         // we want to remove this just in case of weird cases.
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
     }
     else
     {
-        // if the spell has a master feat this is it. This will return 0 if not set.
-        int subSpellID = GetLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
 
         // Get the target and location data we are casting at
         object oTarget = GetLocalObject(OBJECT_SELF, "TARGETING_OBJECT");
@@ -47,4 +48,7 @@ void main()
 
         ActionUseFeat(featId, oTarget, subSpellID, spellLocation);
     }
+
+    DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
+    DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
 }

@@ -1660,7 +1660,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
     {
         if (CheckSecondaryPrC(oCaster) == TRUE)
 		{
-			FloatingTextStringOnCreature("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
 			return TRUE;
 		}
 		//no need to check further if new spellbooks are disabled
@@ -1683,7 +1683,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
 		}
 		if (CheckSecondaryPrC(oCaster) == TRUE)
 		{
-			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Bard w/RHD found.", oCaster);
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
 			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
 			return FALSE;
 		}			

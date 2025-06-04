@@ -760,6 +760,9 @@ const int FEAT_ED_PROTECTIVE_AURA					= 23526;
 const int FEAT_ED_STRENGTH_OF_WILL					= 23527;
 const int FEAT_ED_WILD_FRENZY						= 23528;
 
+//:: Slayer of Domiel
+const int FEAT_SOD_DEATH_TOUCH						= 2282;
+
 //Passive Feats
 const int FEAT_ETERNAL_FREEDOM                         = 4298;
 const int FEAT_INTUITIVE_ATTACK                        = 3166;

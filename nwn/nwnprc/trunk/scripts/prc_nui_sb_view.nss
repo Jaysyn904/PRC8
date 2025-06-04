@@ -119,6 +119,21 @@ string GetSpellLevelToolTip(int spellLevel);
 //
 json GetSpellIcon(int spellId, int nClass=0);
 
+//
+// HighlightButton
+// Takes NUI Button along with it's width and height and heighlights it with a drawn
+// colored rectangle to represent it's been selected.
+//
+// Arguments:
+//   jButton:json the NUI Button
+//   w:float the width of the button
+//   h:float the height of the button
+//
+// Returns:
+//   json the NUI button highlighted
+//
+json HighlightButton(json jButton, float w, float h);
+
 void main()
 {
     // look for existing window and destroy
@@ -187,6 +202,12 @@ void main()
     {
         geometry = NuiRect(893.0f,346.0f, 489.0f, 351.0f);
     }
+    else
+    {
+        float x = JsonGetFloat(JsonObjectGet(geometry, "x"));
+        float y = JsonGetFloat(JsonObjectGet(geometry, "y"));
+        geometry = NuiRect(x, y, 489.0f, 351.0f);
+    }
 
     // Set the binds to their default values
     NuiSetBind(OBJECT_SELF, nToken, "geometry", geometry);
@@ -218,11 +239,14 @@ json CreateSpellBookClassButtons()
             selectedClassId = classId;
             SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CLASSID_VAR, selectedClassId);
         }
-
+        float width = 32.0f;
+        float height = 32.0f;
         // Get the class icon from the classes.2da
         json jClassButton = NuiId(NuiButtonImage(JsonString(Get2DACache("classes", "Icon", classId))), PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID + IntToString(classId));
-        jClassButton = NuiWidth(jClassButton, 32.0f);
-        jClassButton = NuiHeight(jClassButton, 32.0f);
+        if (classId == selectedClassId)
+            jClassButton = HighlightButton(jClassButton, width, height);
+        jClassButton = NuiWidth(jClassButton, width);
+        jClassButton = NuiHeight(jClassButton, height);
         // Get the class name from the classes.2da and set it to the tooltip
         jClassButton = NuiTooltip(jClassButton, JsonString(GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", classId)))));
 
@@ -250,6 +274,7 @@ json CreateSpellbookCircleButtons(int nClass)
     {
         // get what is the highest circle the class can cast at
         int currentMaxSpellLevel = GetCurrentSpellLevel(nClass, casterLevel);
+
         // Get what the max circle the class can reach at is
         int totalMaxSpellLevel = GetMaxSpellLevel(nClass);
 
@@ -273,21 +298,21 @@ json CreateSpellbookCircleButtons(int nClass)
         {
             json enabled;
             json jButton = NuiId(NuiButtonImage(JsonString(GetSpellLevelIcon(i))), PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID + IntToString(i));
-            jButton = NuiWidth(jButton, 42.0f);
-            jButton = NuiHeight(jButton, 42.0f);
+            float width = 42.0f;
+            float height = 42.0f;
+            jButton = NuiWidth(jButton, width);
+            jButton = NuiHeight(jButton, height);
             jButton = NuiTooltip(jButton, JsonString(GetSpellLevelToolTip(i)));
 
             // if the current circle is selected or if the person can't cast at
             // that circle yet then disable the button.
-            if (currentCircle == i || i > currentMaxSpellLevel)
-            {
+            if (i > currentMaxSpellLevel)
                 enabled = JsonBool(FALSE);
-            }
             else
-            {
                 enabled = JsonBool(TRUE);
-            }
             jButton = NuiEnabled(jButton, enabled);
+            if (i == currentCircle)
+                jButton = HighlightButton(jButton, width, height);
 
             jRow = JsonArrayInsert(jRow, jButton);
         }
@@ -478,6 +503,34 @@ json GetSpellIcon(int spellId,int nClass=0)
     int featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
 
     return JsonString(Get2DACache("feat", "Icon", featId));
+}
+
+json HighlightButton(json jButton, float w, float h)
+{
+    json retValue = jButton;
+
+    json jBorders = JsonArray();
+
+    // set the points of the button shape
+    json jPoints = JsonArray();
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(h));
+
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(w));
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(h));
+
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(w));
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
+
+    jBorders = JsonArrayInsert(jBorders, NuiDrawListPolyLine(JsonBool(TRUE), NuiColor(71, 140, 32), JsonBool(FALSE), JsonFloat(2.0), jPoints));
+
+    return NuiDrawList(jButton, JsonBool(FALSE), jBorders);
 }
 
 string GetSpellLevelIcon(int spellLevel)

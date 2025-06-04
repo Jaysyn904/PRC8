@@ -77,7 +77,8 @@ void main()
         	// No hitting yourself or your friends
            	if(GetIsEnemy(oAreaTarget, oInitiator))
          	{
-                fDist += MetersToFeet(GetDistanceBetween(oInitiator, oAreaTarget));
+                //fDist += MetersToFeet(GetDistanceBetween(oInitiator, oAreaTarget));
+				fDist += PRCMax(10, FloatToInt(MetersToFeet(GetDistanceBetween(oInitiator, oAreaTarget))));
                 AssignCommand(oInitiator, ClearAllActions(TRUE));
                 AssignCommand(oInitiator, JumpToLocation(GetLocation(oAreaTarget)));
                 nBonus = (FloatToInt(fDist) / 5) * 2; // Bonus is +2 for every 5 feet moved

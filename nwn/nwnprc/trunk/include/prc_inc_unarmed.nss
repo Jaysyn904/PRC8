@@ -250,9 +250,9 @@ int FindUnarmedDamage(object oCreature)
     
     // Ronove is in place of monk, does not stack
     if (iRonove > iMonk) iMonk = iRonove;
-
-    // monks damage progesses every four levels, starts at 1d6
-    if (iMonk > 0)
+	
+	// monks damage progesses every four levels, starts at 1d6
+		if (iMonk > 0)
         iMonkDamage = iMonk / 4 + 3;
 
     // For medium monks in 3.0e skip 2d8 and go to 1d20
@@ -263,6 +263,7 @@ int FindUnarmedDamage(object oCreature)
     // without stacking.
     if (iShou > 0) iShouDamage = iShou + 2; // Lv. 1: 1d6, Lv. 2: 1d8, Lv. 3: 1d10
     if (iShou > 3) iShouDamage--;           // Lv. 4: 1d10, Lv. 5: 2d6
+	iShouDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iShouDamage));
     
     // Frostrager does not stack with other damage types
     if (iFrost > 0) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d6; // Lv. 1: 1d6
@@ -326,10 +327,15 @@ int FindUnarmedDamage(object oCreature)
     iBrawlerDamage += iDieIncrease;
     iFrostDamage   += iDieIncrease;
     iSUSDamage     += iDieIncrease;
+	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Size is: "+IntToString(iSize)+".", oCreature);	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Pre 2DA Lookup >> iMonkDamage = "+IntToString(iMonkDamage)+".", oCreature);
 
     // now, read the damage from the table in unarmed_dmg.2da
     iMonkDamage    = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iMonkDamage));
     iShouDamage    = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iShouDamage));
+	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Post 2DA Lookup >> iMonkDamage = "+IntToString(iMonkDamage)+".", oCreature);
 
     // Medium+ monks have some special values on the table in 3.0:
     if (iSize >= 5 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))

@@ -179,10 +179,10 @@ void main()
             if (masterSpellId)
             {
                 SetLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR, spellId);
-                spellId = masterSpellId;
+                featId = StringToInt(Get2DACache("spells", "FeatID", masterSpellId));
             }
-
-            featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+            else
+                featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
         }
     }
 
@@ -193,11 +193,13 @@ void main()
     if (nButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
     {
         CreateSpellDescriptionNUI(oPlayer, featId, spellId, realSpellId);
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
         return;
     }
     // If left click, operate normally
     if (nButton == NUI_PAYLOAD_BUTTON_LEFT_CLICK)
     {
+
         // We use the spell's FeatID to do actions, and we set the OnTarget action
         // to PRC_NUI_SPELLBOOK so the handler knows what the action is being done
         SetLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_FEATID_VAR, featId);
