@@ -296,15 +296,22 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
         }
     }
     // Suel Archanamach gets the Ignore Spell Failure Chance feats
-    else if(nCastingClass == CLASS_TYPE_SUEL_ARCHANAMACH)
-    {
-        int nLvl = GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oCaster);
+// Suel Archanamach gets the Ignore Spell Failure Chance feats
+	else if(nCastingClass == CLASS_TYPE_SUEL_ARCHANAMACH)
+	{
+		int nLvl = GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oCaster);
 
-        if (nLvl >= 10) nASF -= 20;
-        else if(nLvl >= 7) nASF -= 15;
-        else if(nLvl >= 4) nASF -= 10;
-        else if(nLvl >= 1) nASF -= 5;
-    }
+		if (nLvl >= 28) nASF -= 50;
+		else if(nLvl >= 25) nASF -= 45;
+		else if(nLvl >= 22) nASF -= 40;
+		else if(nLvl >= 19) nASF -= 35;
+		else if(nLvl >= 16) nASF -= 30;
+		else if(nLvl >= 13) nASF -= 25;
+		else if(nLvl >= 10) nASF -= 20;
+		else if(nLvl >= 7)  nASF -= 15;
+		else if(nLvl >= 4)  nASF -= 10;
+		else if(nLvl >= 1)  nASF -= 5;
+	}
     // Warmage can cast in light/medium armour and while using small shield.
     else if(nCastingClass == CLASS_TYPE_WARMAGE)
     {

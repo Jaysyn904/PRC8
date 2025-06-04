@@ -754,14 +754,12 @@ const int FEAT_ABFOC_WORD_OF_CHANGING				= 25213;
 const int FEAT_ED_CORRUPTING_BLAST					= 23521;
 const int FEAT_ED_DAMAGE_REDUCTION					= 23522;
 const int FEAT_ED_FEARFUL_GLARE						= 23523;
+const int FEAT_ED_FEARFUL_GLARE						= 23523;
 const int FEAT_ED_FIENDISH_RESISTANCE				= 23524;
 const int FEAT_ED_HEALING_BLAST						= 23525;
 const int FEAT_ED_PROTECTIVE_AURA					= 23526;
 const int FEAT_ED_STRENGTH_OF_WILL					= 23527;
 const int FEAT_ED_WILD_FRENZY						= 23528;
-
-//:: Slayer of Domiel
-const int FEAT_SOD_DEATH_TOUCH						= 2282;
 
 //:: Disciple of Asmodeus
 const int FEAT_DOA_CHARM 							= 1961;
@@ -772,6 +770,15 @@ const int FEAT_DOA_SUMMON_DEVIL						= 1965;
 const int FEAT_DOA_GREATER_COMMAND					= 1966;
 const int FEAT_DOA_DREAD_MIGHT						= 1967;
 const int FEAT_DOA_LEARN_SECRETS					= 1968;
+
+//:: Slayer of Domiel
+const int FEAT_SOD_DEATH_TOUCH						= 2282;
+
+//:: Suel Archanamach
+const int FEAT_SUEL_TENACIOUS_SPELL					= 2397;
+const int FEAT_SUEL_IGNORE_SPELL_FAILURE			= 2398;
+const int FEAT_SUEL_EXTENDED_SPELL					= 2399;
+const int FEAT_SUEL_DISPELLING_STRIKE				= 2400;
 
 //Passive Feats
 const int FEAT_ETERNAL_FREEDOM                         = 4298;
