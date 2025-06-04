@@ -763,6 +763,16 @@ const int FEAT_ED_WILD_FRENZY						= 23528;
 //:: Slayer of Domiel
 const int FEAT_SOD_DEATH_TOUCH						= 2282;
 
+//:: Disciple of Asmodeus
+const int FEAT_DOA_CHARM 							= 1961;
+const int FEAT_DOA_COMMAND 							= 1962;
+const int FEAT_DOA_HELLCAT 							= 1963;
+const int FEAT_DOA_EVIL_AUTHORITY 					= 1964;
+const int FEAT_DOA_SUMMON_DEVIL						= 1965;
+const int FEAT_DOA_GREATER_COMMAND					= 1966;
+const int FEAT_DOA_DREAD_MIGHT						= 1967;
+const int FEAT_DOA_LEARN_SECRETS					= 1968;
+
 //Passive Feats
 const int FEAT_ETERNAL_FREEDOM                         = 4298;
 const int FEAT_INTUITIVE_ATTACK                        = 3166;
