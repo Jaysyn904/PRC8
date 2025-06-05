@@ -57,7 +57,17 @@ void main()
     DoTimestopUnEquip(oPC, oItem);
     
     if (GetResRef(oItem) == "prc_crown_might") DestroyObject(oItem);    
-    if (GetResRef(oItem) == "prc_crown_prot") DestroyObject(oItem);   
+    if (GetResRef(oItem) == "prc_crown_prot") DestroyObject(oItem); 
+
+	int nItemType = GetBaseItemType(oItem);
+	
+	if(nItemType 	== BASE_ITEM_CBLUDGWEAPON
+					|| BASE_ITEM_CPIERCWEAPON
+					|| BASE_ITEM_CSLASHWEAPON
+					|| BASE_ITEM_CSLSHPRCWEAP)
+					{
+						DestroyObject(oItem);	
+					}
 	
 	int nClaw = GetStringLeft(GetResRef(oItem), 12) == "prc_diaclaw_" ? TRUE : FALSE;
     if(nClaw)DestroyObject(oItem);	
@@ -67,7 +77,6 @@ void main()
 	
 	int nUnarmed = GetStringLeft(GetResRef(oItem), 12) == "prc_unarmed_" ? TRUE : FALSE;
     if(nUnarmed)DestroyObject(oItem);		
-
 
     // Delay a bit to prevent TMI due to polymorph effect being braindead and running the unequip script for each and
     // bloody every item the character has equipped at the moment of effect application. Without detaching the script

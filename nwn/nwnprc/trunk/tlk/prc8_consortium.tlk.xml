@@ -37775,7 +37775,7 @@ Saving Throw: Fort partial.
 
 You make a crushing blow that staggers your opponent, leaving it unable to move.
 
-Make a single melee attack. If you successfully hit the creature, he takes an additional 1d6 damage. If he fails a Reflex save against 12 + your Strength modifier, he cannot move for one round.</entry>
+Make a single melee attack. If you successfully hit the creature, he takes an additional 1d6 damage. If he fails a Fortitude save (DC: 12 + your Strength modifier), he cannot move for one round.</entry>
   <entry id="52897" lang="en" sex="m">Stonefoot Stance</entry>
   <entry id="52898" lang="en" sex="m">Stone Dragon (Stance)
 Level: Crusader 1, Swordsage 1, Warblade 1
@@ -74816,7 +74816,7 @@ Truenaming: The epic Brimstone Speaker continues to increase in Truenaming level
 Spellcasting: At each odd class level the epic Brimstone Speaker continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Brimstone Speaker Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.</entry>
   <entry id="205214" lang="en" sex="m">Epic Shugenja</entry>
   <entry id="205215" lang="en" sex="m">Epic Shugenja Description - PLACEHOLDER</entry>
   <entry id="205216" lang="en" sex="m">Epic Hand of the Winged Masters</entry>

@@ -10,6 +10,7 @@
 
 #include "moi_inc_moifunc"
 #include "inc_dynconv"
+#include "psi_inc_powknown"
 
 //////////////////////////////////////////////////
 /* Constant definitions                         */
@@ -163,7 +164,49 @@ void main()
                 int i, nPowerLevel;
                 int nMaxLevel = GetMaxEssentiaCapacityFeat(oMeldshaper);
                 string sFeatID;
+				int added = 0;
+
 				for(i = 14001; i < 14260 ; i++)
+				{
+					nPowerLevel = StringToInt(Get2DACache("spells", "Innate", i));
+					if(nPowerLevel > nMaxLevel)
+						break;
+
+					string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i)));
+
+					if(sName != "")
+					{
+						// Replace this with the correct check for whether oMeldshaper actually knows the power.
+						// Example using GetHasSpell:
+						if (GetHasPower(i, oMeldshaper)) 
+						{
+							if(SORT) AddToTempList(oMeldshaper, sName, i);
+							else     AddChoice(sName, i, oMeldshaper);
+							added++;
+						}
+					}
+				}
+
+				if(SORT)
+				{
+					if(added == 0)
+					{
+						AddChoice("No valid powers found.", 0, oMeldshaper);
+					}
+					else
+					{
+						TransferTempList(oMeldshaper);
+					}
+				}
+            } 
+
+/* 			if(nStage == STAGE_SELECT_POWER)
+            {
+            	if(DEBUG) DoDebug("moi_midnightcnv: Building power selection");
+                int i, nPowerLevel;
+                int nMaxLevel = GetMaxEssentiaCapacityFeat(oMeldshaper);
+                string sFeatID;
+                for(i = 14001; i < 14260 ; i++)
                 {
                     nPowerLevel = StringToInt(Get2DACache("spells", "Innate", i));
 
@@ -180,10 +223,8 @@ void main()
                         if(SORT) AddToTempList(oMeldshaper, GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i))), i);
                         else     AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i))), i, oMeldshaper);   
                     }
-                }
-				
-				TransferTempList(oMeldshaper);				
-            } 			
+                } 
+            }  */			
 			else if(nStage == STAGE_SELECT_ESSENTIA_POWER)
             {
                 if(DEBUG) DoDebug("moi_midnightcnv: Building essentia selection");
@@ -237,12 +278,15 @@ void main()
            	if(DEBUG) DoDebug("moi_midnightcnv: Type selected");
            	SetLocalInt(oMeldshaper, "nPower", nChoice);         		
 
-            MarkStageNotSetUp(STAGE_SELECT_POWER, oMeldshaper);
+            nStage = STAGE_SELECT_ESSENTIA_POWER;
+			
+			MarkStageNotSetUp(STAGE_SELECT_POWER, oMeldshaper);
         }     
         else if(nStage == STAGE_SELECT_ESSENTIA_POWER)
         {
            	if(DEBUG) DoDebug("moi_midnightcnv: Feat Essentia selected");
            	SetLocalInt(oMeldshaper, "nEssentia", nChoice);
+			
            	nStage = STAGE_CONFIRM_SELECTION_POWER;
 
             MarkStageNotSetUp(STAGE_SELECT_ESSENTIA_POWER, oMeldshaper);
