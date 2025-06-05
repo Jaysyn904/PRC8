@@ -21347,6 +21347,8 @@ Use: Selected</entry>
   <entry id="49221" lang="en" sex="m">Type of Feat: Psionic
 Prerequisite: Wis 13
 Specifics: You get a +4 bonus to your concentration check to become psionically focused.
+
+NOTE: Due to technical limitations, this lowers the DC of your Concentration Check to become psionically focused by 4.
 Use: Automatic</entry>
   <entry id="49222" lang="en" sex="m">Power Penetration</entry>
   <entry id="49223" lang="en" sex="m">Type of Feat: Psionic
@@ -74789,7 +74791,7 @@ Special:
 Sneak Attack: The epic Skullclan Hunter's sneak attack continues to increase by 1d6 every 3 levels.
 
 Epic Skullclan Hunter Bonus Feat List:
-Armor Skin, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Skill Focus, Epic Weapon Focus, Epic Reputation, Fast Healing, Great Charisma, Invoke Divine Wrath, Improved Sneak Attack, Lingering Damage, Perfect Health, Planar Turning, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Skill Focus, Epic Weapon Focus, Epic Reputation, Fast Healing, Great Charisma, Great Smiting, Invoke Divine Wrath, Improved Sneak Attack, Lingering Damage, Perfect Health, Planar Turning, Superior Initiative.</entry>
   <entry id="205210" lang="en" sex="m">Epic Master Alchemist</entry>
   <entry id="205211" lang="en" sex="m">An epic Master Alchemist is a living crucible of arcane transmutation, distilling raw magic into liquid form with an artistry that defies mortal comprehension. With hands steady as time and minds sharp as diamond, these arcane chemists brew wonders that rival the greatest of spells ,  bottled miracles, captured storms, and essence of the gods. Able to craft potions imbued with ninth-circle sorcery, they shape the future in vials and flasks, offering power, salvation, or ruin with a single sip.
 

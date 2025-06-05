@@ -713,9 +713,14 @@ int DraDisFeats()
     */
     if(iBld > 1)
     {
-        FloatingTextStringOnCreature("You cannot select more than one Draconic Heritage.", OBJECT_SELF, FALSE);
+        FloatingTextStringOnCreature("You cannot select more than one Draconic Heritage. Repick your feats.", OBJECT_SELF, FALSE);
         return TRUE;
     }
+    if(iBld < 1)
+    {
+        FloatingTextStringOnCreature("You must choose a Draconic Heritage.  Repick your feats.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }	
     if (bLd == 1)
     {
         //if(DEBUG) FloatingTextStringOnCreature("Checking Heritage.", OBJECT_SELF, FALSE);
