@@ -6193,14 +6193,14 @@ Arcane Tricksters combine their knowledge of spells with a taste for intrigue, l
 REQUIREMENTS:
 
 Alignment: Non Lawful
-Skills: Lore 4 ranks, Disable Trap 7, Pick Lock 7.
+Skills: Lore 4 ranks, Disable Trap 7, Open Lock 7.
 Sneak Attack: 2d6
 Spells: Must be able to cast at least 3rd level Arcane spells.
 
 CLASS FEATURES:
 
 Level
-1: Ranged Legerdemain - Trap &amp; Pick Lock at 30' range, once per day.
+1: Ranged Legerdemain - Trap &amp; Open Lock at 30' range, once per day.
 2: Sneak Attack 1d6.
 3: Impromptu Sneak Attack - Arcane Trickster causes a sneak attack on target, can be used once per day.
 4: Sneak Attack 2d6.
@@ -6453,7 +6453,7 @@ Use: Activate Feat.</entry>
   <entry id="45248" lang="en" sex="m">Ranged Legerdemain</entry>
   <entry id="45249" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Arcane Trickster level 1
-Specifics: Allows an Arcane Trickster to attempt to Pick Lock or Disable Trap at a range of up to 30' feet. 1 Use a day at level 1, 2 uses at level 5, and 3 uses at level 9.
+Specifics: Allows an Arcane Trickster to attempt to Open Lock or Disable Trap at a range of up to 30' feet. 1 Use a day at level 1, 2 uses at level 5, and 3 uses at level 9.
 Use: Selected.</entry>
   <entry id="45250" lang="en" sex="m">Impromptu Sneak Attack</entry>
   <entry id="45251" lang="en" sex="m">Type of Feat: Class Specific
@@ -74883,7 +74883,7 @@ Spell Rage: The epic Rage Mage continues to gain a use of their Spell Rage abili
 Spellcasting: Every other class level the epic Rage Mage continues to increase in arcane caster level (and spells known, if applicable).
 
 Epic Rage Mage Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Forge Epic Ring, Fast Healing, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Legendary Commander, Mighty Rage, Overwhelming Critical, Superior Initiative, Tenacious Magic, Thundering Rage.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Fast Healing, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Legendary Commander, Mighty Rage, Overwhelming Critical, Superior Initiative, Tenacious Magic, Thundering Rage.</entry>
   <entry id="205226" lang="en" sex="m">Epic Dragonheart Mage</entry>
   <entry id="205227" lang="en" sex="m">The epic dragonheart mage is the living embodiment of draconic majesty fused with arcane mastery. As their blood grows richer with ancient draconic power, so too does their spellcraft swell with elemental might. Their breath becomes an instrument of cataclysm, a devastating release of stored arcane potential shaped by the legacy of their draconic forebears. With every spell cast, their presence becomes more commanding, their body more resilient, their soul more like that of a true dragon. 
 

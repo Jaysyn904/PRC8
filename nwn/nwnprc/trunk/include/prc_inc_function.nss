@@ -1538,7 +1538,15 @@ void BarbarianRage(object oPC)
     FeatUsePerDay(oPC, FEAT_BARBARIAN_RAGE, -1, nUses);
     FeatUsePerDay(oPC, FEAT_GREATER_RAGE, -1, nUses);
 
-    if(GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC) > 0)
+	int nLevel = GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC);
+	if (nLevel > 0)
+	{
+		// Spell Rage: starts at 1st level, +1 use every 5 Rage Mage levels
+		int nUses = 1 + ((nLevel - 1) / 5);
+
+		FeatUsePerDay(oPC, FEAT_SPELL_RAGE, -1, nUses);
+	}
+/*     if(GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC) > 0)
     {
         if(GetLevelByClass(CLASS_TYPE_RAGE_MAGE, oPC) > 9)
             nUses = 3;
@@ -1548,7 +1556,7 @@ void BarbarianRage(object oPC)
             nUses = 1;
 
         FeatUsePerDay(oPC, FEAT_SPELL_RAGE, -1, nUses);
-    }
+    } */
 }
 
 void BardSong(object oPC)
