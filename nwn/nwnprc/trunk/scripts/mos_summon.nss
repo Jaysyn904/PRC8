@@ -88,6 +88,7 @@ void main()
         ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eSummonB, GetLocation(oSummon));
         ChangeToStandardFaction(oSummon, STANDARD_FACTION_HOSTILE);
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, eCommand, oSummon);
+		DelayCommand(0.5, AugmentSummonedCreature(sSummon));
         DelayCommand(6.0, SummonUndeadPseudoHB(oCaster, oSummon, nChaMod, nSpellID));
         DestroyObject(oSummon, fDuration);
     }
