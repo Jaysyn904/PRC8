@@ -1865,6 +1865,38 @@ void ShadowShieldUses(object oPC)
 void BlighterFeats(object oPC)
 {
     int nClass = GetLevelByClass(CLASS_TYPE_BLIGHTER, oPC);
+    if (nClass <= 0) return;
+
+    // Phase 1: Levels 3–10
+    int nWildShapeUses = 0;
+    if (nClass >= 3)
+    {
+        int nPhase1 = (nClass <= 10) ? nClass : 10;
+        nWildShapeUses = 1 + ((nPhase1 - 3) / 2);
+    }
+
+    // Phase 2: Additional uses every 4 levels after 10
+    if (nClass > 10)
+    {
+        nWildShapeUses += ((nClass - 11) / 4) + 1;
+    }
+
+    // Contagious Touch: starts at level 5, +1 use every 2 levels
+    int nTouchUses = 0;
+    if (nClass >= 5)
+    {
+        nTouchUses = 1 + ((nClass - 5) / 2);
+    }
+
+    FeatUsePerDay(oPC, FEAT_UNDEAD_WILD_SHAPE, -1, nWildShapeUses);
+    FeatUsePerDay(oPC, FEAT_CONTAGIOUS_TOUCH, -1, nTouchUses);
+}
+
+
+
+/* void BlighterFeats(object oPC)
+{
+    int nClass = GetLevelByClass(CLASS_TYPE_BLIGHTER, oPC);
     if(0 >= nClass) return;
     
     if (nClass == 3)
@@ -1901,7 +1933,7 @@ void BlighterFeats(object oPC)
         FeatUsePerDay(oPC, FEAT_UNDEAD_WILD_SHAPE, -1, 5);         
         FeatUsePerDay(oPC, FEAT_CONTAGIOUS_TOUCH, -1, 3);
     }      
-}
+} */
 
 void MysteryFeats(object oPC)
 {
