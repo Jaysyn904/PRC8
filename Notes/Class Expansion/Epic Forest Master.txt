@@ -1,0 +1,11 @@
+At epic levels, the Forest Master becomes one with the primal wilds, embodying the ancient power of the forest. Their connection to nature grants them even greater physical resilience, enhanced plant-based abilities, and the enduring strength of the deep woods. They stand as timeless guardians of the green.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Forest Master gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Forest Master continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Forest Master Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus (Maul), Focused Spell Penetration, Epic Spellcasting, Fast Healing, Great Wisdom, Ignore Material Components, Improved Combat Casting, Overwhelmging Critical, Perfect Health, Plant Wild Shape, Tenacious Magic.

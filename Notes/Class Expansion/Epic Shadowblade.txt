@@ -1,0 +1,11 @@
+At epic levels, the shadowblade becomes a phantom of war—an untouchable presence whose strikes come from impossible angles and vanish without trace. Their unseen weapon evolves beyond mortal reach, letting them slip through defenses, extend their reach through shadow, and pierce even the strongest wards. As their bond with darkness deepens, so too does their lethality—each step silent, each blow fatal.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Shadowblade gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: The epic Shadowblade's sneak attack continues to increase in power.
+
+Epic Shadowblade Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Prowess, Epic Trapfinding, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.

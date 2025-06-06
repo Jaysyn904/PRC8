@@ -1,0 +1,11 @@
+Beyond the boundaries of mortal summoning, the Epic Bonded Summoner becomes one with the elemental forces, merging soul and essence with the raw power of the planes. Their companion, now a force of nature incarnate, stands as an unshakable sentinel, while the summoner transcends flesh, embracing an existence of pure elemental might.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Bonded Summoner gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Bonded Summoner continues to increase in caster level (and spells known, if applicable).
+
+Epic Bonded Summoner Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Combat Casting, Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Intelligence, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic.

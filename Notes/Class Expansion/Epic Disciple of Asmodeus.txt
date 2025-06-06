@@ -1,0 +1,12 @@
+An epic Disciple of Asmodeus becomes a true architect of tyranny, his will an unbreakable chain upon the minds of lesser beings. His commands echo with infernal authority, bending even the strongest to his purpose. Secrets fall into his hands like ripe fruit, and with each one, his dominion grows. Surrounded by devils and cloaked in dread majesty, he no longer merely serves Asmodeus, he embodies his dark doctrine.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Disciple of Asmodeus gains a bonus feat every four levels
+
+Special:
+Learn Secret: The epic Disciple of Asmodeus continues to gain a use of Learn Secret every odd class level.
+Spellcasting: Every other level the epic Disciple of Asmodeus continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Disciple of Asmodeus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.

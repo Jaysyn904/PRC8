@@ -1,0 +1,11 @@
+An epic Skullclan Hunter is the eternal bane of the undead. With eyes that pierce through shadow and a resolve that rivals divine judgment, they tread where others dare not — into tombs reeking with the chill of unlife. Each strike of their blade sears with holy vengeance, bypassing foul defenses and undoing necromantic abominations with grace and fury. Immune to the withering touch of unlife, they become a living bulwark against the darkness; a radiant scourge born to end what should never have risen.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Skullclan Hunter gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Skullclan Hunter's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Skullclan Hunter Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Skill Focus, Epic Weapon Focus, Epic Reputation, Fast Healing, Great Charisma, Invoke Divine Wrath, Improved Sneak Attack, Lingering Damage, Perfect Health, Planar Turning, Superior Initiative.

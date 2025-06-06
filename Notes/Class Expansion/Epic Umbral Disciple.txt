@@ -1,0 +1,12 @@
+Mastering the darkness within and without, the Epic Umbral Disciple becomes a living shadow, slipping unseen through the world and striking with spectral precision. They transcend physical limitations, extending their reach beyond mortal constraints and channeling pure shadow essence into devastating attacks.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Umbral Disciple gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
+Meldshaping: Increases as if gaining a level in your meldshaper class at each level.
+
+Epic Umbral Disciple Bonus Feat List:
+Armor Skin, Blinding Speed, Bonus Soulmeld, Epic Dodge, Epic Energy Resistance, Epic Essentia, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self-Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Weapon Focus, Extra Chakra Bind, Great Dexterity, Improved Sneak Attack, Lingering Damage, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.

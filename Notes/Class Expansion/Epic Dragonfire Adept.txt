@@ -1,0 +1,13 @@
+An epic Dragonfire Adept is a conduit of draconic magic made flesh, wielding their breath weapon with apocalyptic force and commanding invocations with the ease of thought. Their scales grow ever harder, their breath more versatile, and their arcane might ever deeper. 
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Dragonfire Adept gains a bonus feat every five levels.
+
+Special:
+Invocations: The Dragonfire Adept's invoker level continues to increase.
+Breath Weapon: The epic Dragonfire Adept's Breath weapon continues to gain in power.
+Draconic Armor: The epic Dragonfire Adept's Natural Armor bonus grows to +6 at level 23 and continues to increase by +1 every 5 levels thereafter.
+
+Epic Dragonfire Adept Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative

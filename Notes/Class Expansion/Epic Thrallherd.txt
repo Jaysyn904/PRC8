@@ -1,0 +1,11 @@
+The epic Thrallherd is no mere master of persuasion—they are a gravitational center of will, drawing minds like comets into their orbit. Words are unnecessary; their presence alone compels obedience. Servants do not follow out of duty, but because they believe it is destiny. Kings, monsters, even minds alien and ancient—none are beyond the Thrallherd’s reach. Their thoughts shape allegiance, and their will becomes the law of others.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Thrallherd gains a bonus feat every six levels.
+
+Special:
+Manifesting: At each class level the epic Thrallherd continues to increase in manifester level (and powers known, if applicable).
+
+Epic Thrallherd Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Leadership, Epic Skill Focus, Great Intelligence, Psionic Feats.

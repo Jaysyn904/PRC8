@@ -1,0 +1,13 @@
+You are a sworn protector of celestial wisdom and earthly honor. As a Knight of the Middle Circle, your blade defends the Stargazers' sacred charge while your presence extends their reach. You are both herald and guardian—trusted with secrets, tasked with missions few can know, and bound by duty to serve the light of knowledge and the cause of good.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Knight of the Middle Circle gains a bonus feat every three levels.
+
+Special:
+True Strike: the epic Knight of the Middle Circle continues to gain another usage of True Strike every three levels.
+Combat Sense: the epic Knight of the Middle Circle's Combat Sense continues to improve by +2 every four class levels.
+Spellcasting: At each even level the epic Knight of the Middle Circle continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Knight of the Middle Circle Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Improved Combat Casting, Improved Stunning Fist, Improved Whirlwind Attack Overwhelming Critical, Superior Initiative.

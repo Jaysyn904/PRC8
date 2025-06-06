@@ -1,0 +1,15 @@
+The Epic Legendary Dreadnought is an unstoppable juggernaut, a living engine of war whose mere presence on the battlefield turns the tide of conflict. With endurance beyond mortal limits and resilience that defies destruction, the Epic Legendary Dreadnought stands as an immovable force and an unstoppable weapon.
+
+Hit Die: d12
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Legendary Dreadnaught gains a bonus feat every five levels
+
+Level
+11: Unstoppable - Three times per day.
+12: Unmovable - Three times per day.
+13: Epic Toughness.* - Character gains an additional 20 HP.
+14: Epic Damage Reduction.* - Dreadnought gains 9/- damage reduction.
+15: Bonus Feat.
+
+Epic Legendary Dreadnaught Bonus Feats List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Reflexes, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Constitution, Great Strength, Overwhelming Critical

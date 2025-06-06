@@ -1,0 +1,12 @@
+A master of shaping darkness, the epic shadowsmith refines their control over shadowstuff to near-divine levels. Their creations become nearly indestructible, their armor of shadow rivals the strongest magical defenses, and their presence warps the battlefield with darkness itself.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic shadowsmith gains a bonus feat every three levels.
+
+Special:
+Shadowcraft: The shadowcraft enhancement bonus continues to advance into epic levels.
+Shadow Armor: Deflection AC bonus continues increasing at a rate of +2 per 3 epic shadowsmith levels past 10th.
+
+Epic Shadowsmith Bonus Feats List:
+Armor Skin, Blinding Speed, Energy Resistance, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Favored Mystery, Great Charisma, Great Intellgence, Improved Combat Casting, Nocturnal Caster, Path Focus, Greater Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat.

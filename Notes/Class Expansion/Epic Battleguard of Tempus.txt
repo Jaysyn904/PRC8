@@ -1,0 +1,12 @@
+The Epic Battleguard of Tempus stands as a living avatar of war, embodying the unrelenting force of battle. These warriors inspire entire armies, wield weapons of divine might, and endure wounds that would fell lesser beings. 
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Battleguard of Tempus gains a bonus feat every three levels
+
+Special:
+Enchant Weapon: The bonus from the Enchant Weapon ability continues increasing by +1 for every three class levels past 10th.
+Spellcasting: The epic Battleguard of Tempus continues to increase in caster level (and spells known, if applicable).
+
+Epic Battleguard of Tempus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Weapon Focus, Legendary Commander, Improved Combat Casting, Planar Turning

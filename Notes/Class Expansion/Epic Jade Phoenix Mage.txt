@@ -1,0 +1,12 @@
+At epic levels, the Jade Phoenix Mage attains unparalleled harmony between blade and spell. Arcane energy flows seamlessly through their martial forms, amplifying both precision and power. Their mastery allows them to unleash devastating elemental techniques, extend their mystic stances indefinitely, and call upon the eternal flame of the Phoenix to rise again, even in death.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Jade Phoenix Mage gains a bonus feat every four levels.
+
+Special:
+Spellcasting: At each class level the epic Jade Phoenix Mage continues to increase in arcane caster level (and spells known, if applicable).
+Maneuvers: At each class level the epic Jade Phoenix Mage continues to increase in initiator level.
+
+Epic Jade Phoenix Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Spellcasting, Epic Skill Focus, Epic Toughness, Epic Weapon Specialization, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Master Wand, Overwhelming Critical, Tenacious Magic.

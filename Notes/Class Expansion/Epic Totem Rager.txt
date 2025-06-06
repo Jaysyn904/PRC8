@@ -1,0 +1,11 @@
+An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces—they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Totem Rager gains a bonus feat every three levels.
+
+Special:
+Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each totem rager class level.
+
+Epic Totem Rager Bonus Feat List:
+Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.

@@ -1,0 +1,12 @@
+Epic Vassals of Bahamut embody the Platinum Dragon’s will, becoming unstoppable champions against evil dragons. Their divine gifts, martial prowess, and unwavering devotion make them legendary figures in the eternal war against tyranny and corruption.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Vassal of Bahamut gains a bonus feat every three levels
+
+Special:
+Shared Trove: The epic Vassal of Bahamut gains an allowance of 30,000gp every three levels.
+Dragonwrack: The epic Vassal of Bahamut's damage bonus against dragons continues increasing.
+
+Epic Vassal of Bahamut Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Stunning Fist, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative

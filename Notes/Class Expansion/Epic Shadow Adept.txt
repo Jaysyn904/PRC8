@@ -1,0 +1,13 @@
+Masters of the Shadow Weave, Epic Shadow Adepts wield darkness itself as both weapon and shield. They pierce the veil between worlds, their spells weaving illusions so potent they blur the line between reality and nightmare. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Shadow Adept gains a bonus feat every four levels
+
+Special:
+Shadow Defense: the epic Shadow Adept continues gaining a +1 Save vs. spells against the Enchantment, Illusion, Necromancy schools & the spells with the Darkness descriptor for every four class levels.
+Shadow Spell Power: the epic Shadow Adept continues gaining +1 DC for casting spells of the Enchantment, Illusion, Necromancy schools & the spells with the Darkness descriptor for every three class levels.
+Spellcasting: The epic Shadow Adept continues to increase in caster level (and spells known, if applicable).
+
+Epic Shadow Adept Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting.

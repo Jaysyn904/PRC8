@@ -1,0 +1,11 @@
+Epic Masters of Shadow are no longer mere commanders of darkness—they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Master of Shadow gains a bonus feat every three levels
+
+Special:
+Mysteries: The epic Master of Shadow continues to increase in mystery caster level (and mysteries known, if applicable).
+
+Epic Master of Shadow Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Skill Focus, Favored Mystery, Great Charisma, Great Intellgence, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. 

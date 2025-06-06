@@ -1,0 +1,14 @@
+Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form—walking veils between this world and the shadow that lies beyond.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Child of Night gains a bonus feat every five levels
+
+Special:
+Cloak of Shadow:  The epic Child of Night continues to gain a use of Cloak of Shadows every other level.
+Cold Resistance: The epic Child of Night's cold resistance continues to increase by 5 every four levels.
+Dancing Shadow: The epic Child of Night continues to gain a use of Dancing Shadows every four levels.
+Mysteries: The epic Child of Night continues to increase in mystery caster level (and mysteries known, if applicable).
+
+Epic Child of Night Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Skill Focus, Favored Mystery, Great Charisma, Great Intellgence, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. 

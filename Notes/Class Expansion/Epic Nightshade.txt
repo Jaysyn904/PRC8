@@ -1,0 +1,11 @@
+Masters of deception, infiltration, and assassination, Epic Nightshades become true phantoms of the Underdark. Their affinity for magic and venomous strikes makes them deadly foes, whether in the depths of drow society or among surface dwellers.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 6 + Intelligence modifier.
+Bonus Feats: The epic Nightshade gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: The epic Nightshade's sneak attack continues to increase in power.
+
+Epic Nightshade Bonus Feat List:
+Blinding Speed, Epic Dodge, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Skill Focus, Epic Weapon Focus, Great Dexterity, Improved Manyshot, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.

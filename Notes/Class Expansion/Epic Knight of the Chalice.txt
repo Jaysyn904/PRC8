@@ -1,0 +1,11 @@
+At epic levels, your crusade against demonic forces becomes a divine juggernaut. You embody unwavering righteous zeal, channeling holy power to smite fiends and inspire your allies in the heat of battle.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Forsaker gains a bonus feat every four levels
+
+Special:
+Demonslaying:  The epic Knight of the Chalice becomes a righteous engine of destruction. The demonslaying enhancement bonus increases by one every even level & the damage increases by either 1d6 physical or 1d6 divine every even level.
+
+Epic Knight of the Chalice Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Fortitude, Great Smiting, Improved Combat Casting, Improved Initiative, Superior Initiative, Epic Leadership, Improved Manyshot, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Planar Turning, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.

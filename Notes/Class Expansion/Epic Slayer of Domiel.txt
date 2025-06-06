@@ -1,0 +1,13 @@
+An epic Slayer of Domiel becomes a divine instrument of retribution, delivering swift and silent justice to the forces of evil. With holy precision and supernatural grace, they strike unseen, guided by celestial purpose. Their death touch grows ever more lethal, and their sacred presence turns stealth into salvation. In the epic ranks, no corrupt soul escapes the light they bring from the shadows.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Slayer of Domiel gains a bonus feat every four levels.
+
+Special:
+Death Touch: The epic Slayer of Domiel continues to gain a use of their Death Touch ability every even class level.
+Sneak Attack: the epic Slayer of Domiel's sneak attack continues to gain +1d6 damage every odd class level.
+Spellcasting: The epic Slayer of Domiel continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Slayer of Domiel Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Wisdom, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.

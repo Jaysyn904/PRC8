@@ -1,0 +1,12 @@
+Epic Brimstone Speakers are divine orators of sacred flame, their voices echoing with the resonance of celestial truth. Their mastery of truenames reaches apocalyptic potency—capable of invoking divine conflagrations that sear away corruption and summon angelic paragons from the farthest reaches of the Upper Planes. When an Epic Brimstone Speaker speaks, the heavens answer, fire obeys, and evil trembles before the purity of their word-forged wrath.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Brimstone Speaker gains a bonus feat every three levels.
+
+Special:
+Truenaming: The epic Brimstone Speaker continues to increase in Truenaming level.
+Spellcasting: At each odd class level the epic Brimstone Speaker continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Brimstone Speaker Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.

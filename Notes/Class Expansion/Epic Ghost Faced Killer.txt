@@ -1,0 +1,13 @@
+At epic levels, the Ghost-Faced Killer becomes a nearly unstoppable specter of death, striking from the shadows with terrifying precision. Their ghostly abilities expand, allowing more frequent use of ethereal movement and fear-based tactics. Few see them coming, and even fewer survive the encounter.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Ghost-Faced Killer gains a bonus feat every three levels.
+
+Special:
+Sudden Strike: The epic Ghost-Faced Killer's Sudden Strike damage continues to increase by +1d6 every three levels.
+Ghost Step: The epic Ghost-Faced Killer continues gaining a use of their Ghost Step ability every three class levels.
+Frightful Attack: The epic Ghost-Faced Killer continues gaining a use of their Frightful Attack ability every three class levels.
+
+Epic Ghost-Faced Killer Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Dodge, Epic Reputation, Epic Skill Focus, Epic Prowess, Epic Toughness, Epic Trapfinding, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Overwhelming Critical, Self-Concealment, Superior Initiative.

@@ -1,0 +1,8 @@
+An Epic Soul Eater is a walking extinction event. It no longer feeds just on life—it devours identity, power, and memory. Each victim makes it stronger, faster, and harder to stop. To face one is to risk becoming part of it forever.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Soul Eater gains a bonus feat every other level.
+
+Epic Soul Eater Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Legendary Commander, Superior Initiative.

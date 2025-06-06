@@ -1,0 +1,11 @@
+The path of the Epic Spinemeld Warrior is one of absolute mastery over body and soulmelds. Their honed discipline transforms them into living weapons, their spines striking with supernatural precision and adamantine strength.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Spinemeld Warrior gains a bonus feat every three levels.
+
+Special:
+Meldshaping: At each Spinemeld Warrior level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
+
+Epic Spinemeld Warrior Bonus Feat List:
+Armor Skin, Blinding Speed, Bonus Soulmeld, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Essentia, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Extra Chakra Bind, Legendary Commander, Open Heart Chakra, Open Soul Chakra, Overwhelming Critical, Perfect Two-Weapon Fighting, Rapid Meldshaping, Rebind Soulmeld, Superior Initiative, Two-Weapon Pounce, Two-Weapon Rend.

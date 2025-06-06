@@ -1,0 +1,12 @@
+The epic Cerebremancer is a scholar of two worlds—one of incantations and sigils, the other of thoughts shaped into force. They weave arcane threads with psionic clarity, bending the very essence of reality with twin pillars of intellect and magic. To them, the mind is just another spellbook, and magic merely another expression of will. In their hands, knowledge becomes transcendence, and dual mastery becomes a singular, unstoppable force.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Cerebremancer gains a bonus feat every six levels.
+
+Special:
+Spellcasting: At each class level the epic Cerebremancer continues to increase in arcane caster level (and spells known, if applicable).
+Manifesting: At each class level the epic Cerebremancer continues to increase in manifester level (and powers known, if applicable).
+
+Epic Cerebremancer Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Wisdom, Ignore Material Components, Improved Combat Casting, Psionic Feats, Tenacious Magic.

@@ -1,0 +1,12 @@
+Epic Foe Hunters are relentless executioners of their sworn enemies. With every strike, they channel years of training, hatred, and precision into devastating blows that bypass even supernatural defenses. At epic levels, their Rancor damage intensifies, their resistances grow stronger, and their Death Attacks become nearly impossible to avoid—making them the ultimate bane of their hated foes.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Foe Hunter gains a bonus feat every three levels
+
+Special:
+Rancor: the epic Foe Hunter's Rancor ability contiues to increase its damage bonus by +1d6 every odd level.
+Hated Enemy Damage Reduction: the epic Foe Hunter's Hated Enemy Damage Reduction ability contiues to increase its resistance by 2/- every three levels.
+
+Epic Foe Hunter Bonus Feat List:
+Armor Skin, Bane of Enemies, Blinding Speed, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Strength, Great Dexterity, Improved Manyshot, Perfect Health, Perfect Two-Weapon Fighting, Two-Weapon Rend, Superior Initiative.

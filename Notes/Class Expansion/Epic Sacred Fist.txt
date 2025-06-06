@@ -1,0 +1,13 @@
+The epic Sacred Fist is the ultimate fusion of divine power and martial discipline. Transcending the limits of mortal endurance, their bodies become living conduits of divine energy.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Sacred Fist gains a bonus feat every four levels
+
+Special:
+Sacred Armor Bonus: The epic Sacred Fist's armor class continues to improved by +1 every four levels.
+Sacred Flames: The epic Sacred Fist continues to gain a use of their Sacred Flames ability every five levels.
+Spellcasting: The epic Sacred Fist continues to increase in caster level (and spells known, if applicable).
+
+Epic Sacred Fist Bonus Feats List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Self Concealment, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Planar Turning, Self-Concealment, Superior Initiative.

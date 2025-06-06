@@ -1,0 +1,11 @@
+Epic Fists of Raziel become unstoppable champions of celestial wrath, striking down evil with overwhelming divine power. Their Smite Evil grows stronger, their holy strikes more potent, and their weapons become pure instruments of justice.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Fist of Raziel gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Fist of Raziel continues to increase in caster level (and spells known, if applicable).
+
+Epic Fist of Raziel Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Shield, Epic Prowess, Epic Reputation, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Improved Combat Casting, Invoke Divine Wrath, Overwhelming Critical, Perfect Health, Planar Turning

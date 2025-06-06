@@ -1,0 +1,12 @@
+The epic Warchief becomes the stuff of legend, feared and revered by entire nations. His warcries shake enemy lines, and his presence alone can rally tribes to conquer cities and kingdoms. As he grows in power, his influence spreads like wildfire, turning even the most fractured clans into an unstoppable force. Epic Warchiefs inspire absolute loyalty and demand unquestioning obedience, forging empires from chaos and blood.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Warchief gains a bonus feat every four levels.
+
+Special:
+Tribal Frenzy: the Strength bonus from the epic Warchief's Tribal Frenzy continues to grow by +2 every even level.
+Ability Boost: the epic Warchief's Charisma bonus continues to grow by +2 every four levels.
+
+Epic Warchief Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Leadership, Epic Prowess, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Constitution, Legendary Commander, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage.

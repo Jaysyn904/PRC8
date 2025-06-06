@@ -1,0 +1,12 @@
+At epic levels, you have become the ultimate master of secrets and shadows. Your uncanny ability to blend devastating sneak attacks with potent divinatory insight grows ever sharper.
+
+Hit Die: d4.
+Skill Points at Each Additional Level: 6 + Intelligence modifier.
+Bonus Feats: The epic Unseen Seer gains a bonus feat every three levels.
+
+Special:
+Spellcasting: The epic unseen seer continues to increase in caster level (and spells known, if applicable).
+Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Unseen Seer Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Blinding Speed, Combat Archery, Epic Dodge, Epic Skill Focus, Epic Trapfinding, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Uncanny Accuracy

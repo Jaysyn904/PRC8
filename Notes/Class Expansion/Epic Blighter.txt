@@ -1,0 +1,11 @@
+An epic blighter is the walking death of ecosystems, a roving apocalypse wrapped in bone and flame. Where they pass, forests blacken, rivers sour, and life recoils in terror. No longer merely forsaken by nature, they have become its antithesis, an unrelenting force of defilement. Their very breath poisons the wind, and their touch spreads pestilence faster than wildfire.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Blighter gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Blighter continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Blighter Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus, Focused Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Great Wisdom, Ignore Material Components, Improved Combat Casting, Overwhelmging Critical, Perfect Health, Tenacious Magic, Superior Initiative.

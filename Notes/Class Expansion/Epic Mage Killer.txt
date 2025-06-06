@@ -1,0 +1,23 @@
+At epic levels, your mastery in dismantling arcane defenses and countering spellcasters reaches its zenith. You have honed both your martial prowess and your specialized anti-magic spells to a razor’s edge, exposing and exploiting the vulnerabilities of even the most formidable mages.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Intelligence modifier
+Bonus Feats: The epic Mage Killer gains a bonus feat every two levels
+
+Improved Saves: The epic mage killer's training continues improving one of their weak saves each level.
+Spells: The epic mage killer increases caster level by one per level gained above 10th.
+
+Epic Mage Killer Bonus Feat List:
+Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.
+
+
+
+
+
+
+
+
+
+
+
+

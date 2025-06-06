@@ -1,0 +1,12 @@
+At epic levels, the Shadowmind becomes a whisper in the mind and a ghost in the dark. Blending silent footfalls with psychic sabotage, she can unravel thoughts before they are spoken, cloud perceptions before danger is noticed, and strike where no defense can reach. With powers that distort memory and stealth refined to supernatural precision, the epic Shadowmind is the perfect infiltrator; unseen, unknown, and unforgettable only to those who survive.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadowmind gains a bonus feat every other level.
+
+Special:
+Sneak Attack: the epic Shadowmind's sneak attack continues to gain +1d6 damage every three levels.
+Manifesting: At each class level the epic Shadowmind continues to increase in manifester level (and powers known, if applicable).
+
+Epic Shadowmind Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Intelligence, Great Wisdom, Improved Sneak Attack, Lingering Damage, Psionic Feats, Self-Concealment, Superior Initiative.

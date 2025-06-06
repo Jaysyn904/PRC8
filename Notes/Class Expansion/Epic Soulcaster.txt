@@ -1,0 +1,10 @@
+The Epic Soulcaster is a master of both incarnum and arcane (or psionic) energy, seamlessly weaving soul energy into their spells and manifestations. As their mastery deepens, they unlock unparalleled control over chakra binds, enhance their investments to extraordinary levels, and transcend the boundaries between mortal essence and pure magic.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Soulcaster gains a bonus feat every four levels
+Special:
+Caster/Manifester/Meldshaper Level: Increases as if gaining a level in both your arcane spellcasting class (or psionic manifester class) and your meldshaper class at each level.
+
+Epic Soulcaster Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.  In addition to the feats on this list, the Soulcaster may select any item creation feat or metamagic feat not listed here.  Soulmanifesters can pick from psionic & metapsionic feats instead of arcane feats.

@@ -1,0 +1,13 @@
+Masters of righteous subterfuge, the epic Shadowbane Stalkers are unseen hunters of evil, striking from the shadows with divine precision. They blend the arts of infiltration with unwavering faith, exposing deception and delivering swift justice. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Shadowbane Stalker gains a bonus feat every four levels
+
+Special:
+Sneak Attack: The epic Shadowbane Stalker's sneak attack continues to increase by 1d6 every 3 levels.
+Discover Subterfuge: The epic Shadowbane Stalker's bonus to Search & Sense Motive continues to row by +2 every 3 class levels.
+Spellcasting: The epic Shadowbane Stalker continues to increase in caster level (and spells known, if applicable).
+
+Epic Shadowbane Stalker Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Dodge, Epic Energy Resistance, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Ignore Material Components, Improved Combat Casting, Improved Sneak Attack, Lingering Damage, Perfect Health, Planar Turning, Self-Concealment, Superior Initiative, Tenacious Magic.

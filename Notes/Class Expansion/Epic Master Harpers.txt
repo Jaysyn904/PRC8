@@ -1,0 +1,11 @@
+Epic Master Harpers are legendary champions of freedom, lore, and harmony. Their mastery of ancient knowledge, music, and magic allows them to uplift allies, dismantle tyranny, and uncover secrets long forgotten. At epic levels, they gain deeper access to the Harper Secrets, further enhance their bardic and arcane talents, and wield their influence across the realms as inspirational figures and guardians of balance.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Master Harper gains a bonus feat every three levels
+
+Special:
+Spellcasting: At every class level, the epic Master Harper continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Master Harper Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Spellcasting, Epic Skill Focus, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Lasting Inspiration, Master Wand, Tenacious Magic.

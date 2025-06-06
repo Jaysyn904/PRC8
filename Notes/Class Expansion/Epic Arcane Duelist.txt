@@ -1,0 +1,11 @@
+An Epic Arcane Duelist becomes an untouchable master of deception and finesse, wielding illusion and swordplay in perfect harmony. Their chosen weapon strikes with uncanny precision, their defenses seem impenetrable, and they bewilder foes with dazzling speed and illusions, making them nearly impossible to best in combat.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Intelligence modifier
+Bonus Feats: The epic Arcane Duelist gains a bonus feat every three levels
+
+Special:
+Enchant Chosen Weapon: The epic Arcane Duelist's Chosen Weapon bonus continues to increase by +1 every other level and the maximum to enhancement to the Chosen Weapson is increased to +20.
+
+Epic Arcane Duelist Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical, Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Toughness, Epic Weapon Focus, Epic Will, Great Charisma, Great Intelligence, Improved Combat Casting, Improved Whirlwind Attack, Legendary Commander, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.

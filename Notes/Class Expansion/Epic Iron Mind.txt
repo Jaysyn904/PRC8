@@ -1,0 +1,14 @@
+An epic Iron Mind stands as an unbreakable bastion against psychic assault, her will as tempered as the armor she wears. With unshakable focus and hardened discipline, she deflects enchantments and mind control with effortless resolve. Her presence radiates mental fortitude, empowering allies and punishing those who dare probe her thoughts. In the epic tiers, the Iron Mind becomes the embodiment of pure, unyielding resistance.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Iron Mind gains a bonus feat every five levels
+
+Special:
+Armoured Mind: The epic Iron Mind continues to gain a use of Armoured Mind every three class levels.
+Damage Reduction: The epic Iron Mind's Damage Reduction continues to grow by +1 every three class levels.
+Mind Over Body: The epic Iron Mind continues to gain a use of Mind Over Body every three class levels.
+Manifesting: At each class level the epic Iron Mind continues to increase in manifester level (and powers known, if applicable).
+
+Epic Iron Mind Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. 

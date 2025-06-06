@@ -1,0 +1,12 @@
+An epic Swift Wing is more than a servant of the divine—they are the very breath, muscle, and will of the sacred dragon they revere. Their connection to draconic divinity becomes seamless, a fusion of holy purpose and ancient power. Their breath heals armies and scours the undead from the battlefield in blazing waves of divine flame. With wings unfurled and energy flowing through every fiber, they strike with celestial fury and soar above mortal bounds. In body and spirit, the epic swift wing is the swift vengeance and swift salvation of their god—wreathed in light, cloaked in scales, and unstoppable in purpose.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Swift Wing gains a bonus feat every three levels.
+
+Special:
+Breath of Life: The epic Swift Wing's Breath of Life continues to gain +1d6 damage vs undead every class level.
+Spellcasting: At each class level the epic Swift Wing continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Swift Wing Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Shield, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Perfect Health, Planar Turning, Superior Initiative, Tenacious Magic, Zone Of Animation.

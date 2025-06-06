@@ -1,0 +1,12 @@
+Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona’s rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Talontar Blightlords gains a bonus feat every five levels
+
+Special:
+Blight Touch: The epic Talontar Blightlord continues to gain a use of Blight Touch every other level.
+Spellcasting: The epic Talontar Blightlord continues to increase in arcane as well as divine caster level (and spells known, if applicable).
+
+Epic Talontar Blightlords Bonus Feat List:
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Will, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Legendary Commander.

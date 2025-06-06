@@ -1,0 +1,14 @@
+At epic levels, the True Necromancer transcends the boundaries between life and death, becoming a living conduit of necrotic power. No longer merely a manipulator of the dead, they embody death itself—an enduring presence whose will animates entire graveyards. Feared by the living and revered by the dead, their passage darkens the land, and even other necromancers whisper their name with dread. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic True Necromancer gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic True Necromancer continues to increase in arcane caster level (and spells known, if applicable).
+Rebuke: The epic True Necromancer's levels continue to stack with cleric levels for turning and rebuking undead. 
+Necromancer:  The epic True Necromancer continues to count all spellcasting levels for the purposes of necromancy spells.
+
+Epic True Necromancer Bonus Feat List:
+ 	
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Intelligence, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Undead Mastery, Zone of Animation

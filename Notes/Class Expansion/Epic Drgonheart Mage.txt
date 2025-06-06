@@ -1,0 +1,12 @@
+The epic dragonheart mage is the living embodiment of draconic majesty fused with arcane mastery. As their blood grows richer with ancient draconic power, so too does their spellcraft swell with elemental might. Their breath becomes an instrument of cataclysm, a devastating release of stored arcane potential shaped by the legacy of their draconic forebears. With every spell cast, their presence becomes more commanding, their body more resilient, their soul more like that of a true dragon. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Dragonheart Mage gains a bonus Draconic feat every level ending in 2, 4, or 8.
+
+Special:
+Draconic Breath: The epic Dragonheart Mage's Draconic Breath damage increases to 3d8 at level 16, 4d6 at 20, 4d8 at 26, and 5d6 at level 30.
+Spellcasting: At each class level the epic Dragonheart Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Dragonheart Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.

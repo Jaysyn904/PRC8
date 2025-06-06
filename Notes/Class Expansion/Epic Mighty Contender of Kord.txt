@@ -1,0 +1,11 @@
+Mighty Contenders of Kord strive for the ultimate fusion of physical and spiritual perfection. Champions of the Brawler, they push their bodies to their limits, believing that true strength leads to freedom. Through divine might and relentless training, they become living testaments to Kord’s power, breaking chains both literal and metaphorical in their quest for supremacy.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Mighty Contender of Kord gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Mighty Contender of Kord continues to increase in caster level (and spells known, if applicable).
+
+Epic Mighty Contender of Kord Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Commander, Legendary Wrestler, Improved Combat Casting, Perfect Health, Planar Turning, Overwhelming Critical

@@ -1,0 +1,11 @@
+Epic Henshin Mystics embody the ideals of discipline and transformation that define their order. As they progress beyond traditional limits, they further transcend physical boundaries and deepen their spiritual mastery. Their pursuit of perfection sharpens their awareness, focus, and presence, allowing them to act as beacons of balance and clarity. In battle and in stillness, their command of inner power continues to grow, reflecting their steady evolution toward the divine.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Henshin Mystic gains a bonus feat every three levels
+
+Special:
+Monk Abilities: The epic Henshin Mystic continues to add their class level to determine AC Bonus, Unarmed Damage & Monk movement speed increase.
+
+Epic Henshin Mystic Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative. 

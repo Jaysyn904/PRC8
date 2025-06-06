@@ -1,0 +1,12 @@
+Epic Talons of Tiamat are the chosen claws of dragonkind’s darkest queen, spreading her wrath and dominion across the realms. Empowered by draconic fury and ancient magic, they become living engines of destruction—breathing elemental death, sowing terror with their presence, and turning even mighty dragons into pawns of their will. Whether clad in steel or shrouded in sorcery, they are avatars of chromatic vengeance, feared by all who stand with metallic dragons and loathed as heretics by the righteous. Wherever they walk, Tiamat’s shadow follows.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Talon of Tiamat gains a bonus feat every three levels.
+
+Special:
+Voice of the Dragon: the epic Talon of Tiamat continues to gain a +2 bonus to Intimidate and Bluff checks every four class levels.
+Spellcasting: At each odd class level the epic Talon of Tiamat continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Talon of Tiamat Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Leadership, Epic Prowess, Epic Reflexes, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Constitution, Ignore Material Components, Improved Combat Casting, Improved Whirlwind Attack, Tenacious Magic, Superior Initiative.

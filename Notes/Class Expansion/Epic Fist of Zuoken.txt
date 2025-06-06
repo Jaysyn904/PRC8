@@ -1,0 +1,12 @@
+Epic Fists of Zuoken are masters of both body and mind, walking paths few dare to tread. Their strikes carry the weight of perfect training, and their thoughts cut as sharply as their fists. These monks have unlocked the deep synergy between psionics and martial discipline, weaving them into a single, flawless form. They are guardians of the awakened, defenders of mental freedom, and relentless opponents of oppression.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Fist of Zuoken gains a bonus feat every five levels
+
+Special:
+Monk Abilities: The epic Fist of Zuoken continues to add their class level to determine AC Bonus, Unarmed Damage & Monk movement speed increase.
+Manifesting: At each class level the epic Fist of Zuoken continues to increase in manifester level (and powers known, if applicable).
+
+Epic Fist of Zuoken Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Psionic Feats, Self-Concealment, Superior Initiative. 

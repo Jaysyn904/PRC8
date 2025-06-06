@@ -1,0 +1,11 @@
+The epic Disciple of Baalzebul is a master of lies, deception, and treachery. She weaves webs of manipulation, using guile and cunning to achieve her goals. A true servant of the Lord of Lies, she excels in deception, charming others to her will, summoning infernal allies, and calling upon swarms of vile insects to torment her enemies.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic Disciple of Baalzebu gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Disciple of Baalzebu's sneak attack continues to increase by 1d6 every 3 levels.
+
+Epic Disciple of Baalzebu Bonus Feat List:
+Armor Skin, Blinding Speed, Energy Resistance, Fast Healing, Perfect Health, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.

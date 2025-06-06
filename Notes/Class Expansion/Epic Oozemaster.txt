@@ -1,0 +1,12 @@
+At epic levels, the Oozemaster transcends the boundaries between flesh and slime, becoming a true master of amorphous existence. Their body constantly secretes potent oozes, their touch melts through the strongest defenses, and they wield corrosive globs with devastating accuracy.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic oozemaster gains a bonus feat every three levels.
+
+Special:
+Oozy Glob: Oozy glob uses per day keep advancing into epic levels.
+Caster Level: At each even level, the epic oozemaster's caster level increases as if gaining a level in their chosen spellcasting class.
+
+Epic Oozemaster Bonus Feat List:
+Arcane Defense, Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Great Constitution, Ignore Material Components, Improved Combat Casting, Tenacious Magic.

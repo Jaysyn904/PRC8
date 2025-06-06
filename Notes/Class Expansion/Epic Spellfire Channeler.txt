@@ -1,0 +1,8 @@
+You have reached the pinnacle of channeling the raw energies of the Weave. Building on your foundational abilities you now ascend into epic power. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Intelligence modifier
+Bonus Feats: The epic Spellfire Channeler gains a bonus feat every three levels
+
+Epic Spellfire Channeler Bonus Feats:
+Armor Skin, Blinding Speed, Great Constitution, Epic Prowess, Epic Toughness, Epic Skill Focus, Epic Weapon Focus (spellfire), Skill Focus, Epic Fortitude, Epic Reflexes, Epic Will, Toughness, Epic Spellfire Weider, Iron Will, Great Fortitude, Lightning Reflexes, Point Blank Shot, Ranged Recall, Weapon Focus (spellfire).

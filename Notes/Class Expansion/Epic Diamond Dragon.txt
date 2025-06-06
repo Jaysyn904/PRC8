@@ -1,0 +1,12 @@
+An epic diamond dragon is the embodiment of psionic and draconic synergy. Their mind channels the full strength of the draconic psionic collective, shaping energy into claws, wings, and breath with effortless will. Their presence unnerves even the boldest, radiating the calm, crystalline power of a mind sharpened to a perfect edge. They no longer tap into psionic dragon energy—they are its living expression.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Diamond Dragon gains a bonus feat every three levels.
+
+Special:
+Dragon Augmentation: Every five class levels the epic Diamond Dragon can choose to gain a +1 in either Strength, Dexterity, or Constitution.
+Manifesting: At each class level the epic Diamond Dragon continues to increase in manifester level (and powers known, if applicable).
+
+Epic Diamond Dragon Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.

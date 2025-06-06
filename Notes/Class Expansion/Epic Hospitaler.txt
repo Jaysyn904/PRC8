@@ -1,0 +1,11 @@
+At epic levels, the Hospitaler becomes a paragon of mercy and martial devotion. Their healing touch mends even the gravest wounds, their presence turns the tide of battle with divine fervor, and their unwavering dedication to protection and service inspires allies and humbles the wicked. With greater command over divine magic and an unbreakable will, the epic Hospitaler is a living beacon of hope in a world often shadowed by suffering.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Hospitaler gains a bonus feat every three levels
+
+Special:
+Spellcasting: At each even level the epic Hospitaler continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Hospitaler Bonus Feats List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Prowess, Epic Reputation, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Epic Will, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Spell Resistance, Overwhelming Critical, Perfect Health, Planar Turning.

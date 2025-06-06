@@ -1,0 +1,12 @@
+You are fire made flesh and vengeance given form. As a secret holy assassin of Kossuth, you walk between shadows and flame—striking down the faithless with blade and conviction. Your devotion is not for mercy, but for retribution. Kossuth burns within you, and your victims are simply fuel.
+
+Hit Die: d6.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Black Flame Zealot gains a bonus feat every three levels.
+
+Special:
+Sneak Attack: the epic Black Flame Zealot's sneak attack continues to gain +1d6 damage every three levels.
+Spellcasting: At each even level the epic Black Flame Zealot continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Black Flame Zealot Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Skill Focus, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Sneak Attack, Lingering Damage, Planar Turning.

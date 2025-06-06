@@ -1,0 +1,12 @@
+You’ve left behind distractions—there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy—just skill, steel, and silence.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Peerless Archer gains a bonus feat every three levels.
+
+Special:
+Ranged Sneak Attack: the epic Peerless Archer's ranged sneak attack continues to gain +1d6 damage every three levels.
+Fletching: The epic Peerless Archer's Fletching ability continues to increase by +1 every even level.
+
+Epic Peerless Archer Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Endurance, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization (longbow and shortbow), Great Dexterity, Improved Manyshot, Overwhelming Critical, Superior Initiative. 

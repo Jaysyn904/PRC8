@@ -1,0 +1,11 @@
+The epic Thrall of Orcus has turned from the warmth of life and pledged themseleves to Orcus, the demon prince of undeath. Where they walk, decay follows. The epic Thrall of Orcus communes with corpses, commands foul things, and revels in spreading dread. You are a hand of rot in a living world—and your god is watching.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Thrall of Orcus gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each even level the epic Thrall of Orcus continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Thrall of Orcus Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Planar Turning, Undead Mastery, Zone of Animation.

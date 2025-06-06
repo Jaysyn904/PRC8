@@ -1,0 +1,12 @@
+At the epic level, the Incandescent Champion ceases to be merely mortal—she becomes a radiant echo of the cosmic soul itself. Her presence hums with celestial harmony, her form a vessel of pure incandescent essence. No longer tethered by the limits of flesh or fear, she walks the realms as a beacon of luminous hope, a burning reminder that even the smallest spark can ignite a revolution of spirit.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Incandescent Champion gains a bonus feat every three levels.
+
+Special:
+Incarnum Overload: The epic Incandescent Champion continues to gain another use of Incarnum Overload every three levels.
+Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper class at each Incandescent Champion class level.
+
+Epic Incandescent Champion Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Prowess, Epic Toughness, Epic Weapon Focus, Great Constitution, Overwhelming Critical, Superior Initiative, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.

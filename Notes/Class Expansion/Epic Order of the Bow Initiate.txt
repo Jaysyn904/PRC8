@@ -1,0 +1,11 @@
+For the epic Order of the Bow Initiate, the bow is more than a weapon—it’s a path to truth. Through calm focus and steady aim, they turn archery into meditation. With each shot, they pursue mastery not just of the target, but of themselves. 
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Order of the Bow Initiate gains a bonus feat every three levels.
+
+Special:
+Ranged Precision : the epic Order of the Bow Initiate's ranged precision continues to gain +1d8 damage every three levels.
+
+Epic Order of the Bow Initiate Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Endurance, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization (longbow and shortbow), Great Dexterity Improved Combat Casting, Improved Manyshot, Overwhelming Critical, Superior Initiative. 

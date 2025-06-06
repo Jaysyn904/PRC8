@@ -1,0 +1,12 @@
+At epic levels, your beauty transcends mortal limits, becoming a divine presence that captivates all who behold you. Your voice weaves enchantments with effortless grace, and your very touch can inspire passion, devotion, or blissful surrender. As a living muse of Sune Firehair, you embody love, art, and charm in their purest forms.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Heartwarder gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Heartwarder continues to increase in caster level (and spells known, if applicable).
+Charisma Increase: The epic Heartwarder's continues to increase by +1 every other class level. 
+
+Epic Heartwarder Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Focused Spell Resistance, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning.

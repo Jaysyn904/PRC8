@@ -1,0 +1,13 @@
+At epic levels, the Iaijutsu Master becomes the embodiment of deadly precision and supernatural speed. Their blade strikes before enemies can react, fueled by focus, finesse, and flawless form. With every draw, they blur the line between motion and strike, gaining enhanced Iaijutsu damage, additional attacks, and even greater power from their force of personality. 
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Iaijutsu Master gains a bonus feat every three levels.
+
+Special:
+Echoes of the Edge: The epic Iaijutsu Master gains the Echoes of the Edge ability at 11th level and an additional use of it every three levels afterwards.
+Spirit Strike: The epic Iaijutsu Master gains the Spirit Strike ability at 12th level and an additional use of it every three levels afterwards.
+
+Epic Iaijutsu Master Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Dodge, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Weapon Focus, Epic Weapon Specialization, Improved Iaijutsu Focus (Epic), Improved Whirlwind Attack
+Overwhelming Critical, Superior Initiative

@@ -1,0 +1,12 @@
+Epic Contemplatives have moved beyond mere devotion into living embodiments of divine connection. Their thoughts echo the will of their deity, and their actions shape the world in subtle yet profound ways. Whether isolated in serene temples or walking amid the chaos of the world, they are guided by unshakable faith. Every breath is a prayer, every step a sacred act. In their presence, others feel the stillness of eternity, as if the divine is looking through their eyes. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Contemplative gains a bonus feat every five levels
+
+Special:
+Monk Abilities: The epic Contemplative continues to add their class level to determine AC Bonus, Unarmed Damage & Monk movement speed increase.
+Spellcasting: At each class level the epic Contemplative continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Contemplative Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Dodge, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Perfect Health, Planar Turning, Psionic Feats, Self-Concealment, Superior Initiative, Tenacious Magic. 

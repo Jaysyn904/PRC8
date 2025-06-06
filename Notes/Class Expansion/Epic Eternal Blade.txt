@@ -1,0 +1,12 @@
+Epic Eternal Blades are peerless elven warriors who have forged an unbreakable bond with their ancestral guides. Their mastery of martial maneuvers transcends time, allowing them to strike with preternatural precision and defend with foresight unmatched. As they grow in power, their eternal training deepens, granting even greater access to advanced techniques and the wisdom of ancient elven spirits, making them living legends on the battlefield.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Eternal Blade gains a bonus feat every three levels
+
+Special:
+Eternal Training:  At each odd class level the epic Eternal Blade continues to gain another use of Eternal Training.
+Maneuvers: At each class level the epic Eternal Blade continues to increase in initiator level.
+
+Epic Eternal Blade Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Fast Healing, Great Dexterity, Great Strength, Perfect Health, Overwhelming Critical, Superior Initiative.

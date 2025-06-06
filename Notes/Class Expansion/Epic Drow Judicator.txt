@@ -1,0 +1,12 @@
+An epic Drow Judicator is a terror of the Underdark, a living embodiment of Selvetarm’s relentless cruelty. Their war strikes sap the life from even the strongest foes, while their dominion over arachnids extends to legendary fiendish horrors.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Drow Judicator gains a bonus feat every three levels
+
+Special:
+Selvetarm's Wrath: The epic Drow Judicator continues to gain one use of Selvetarm's Wrath every three levels.
+Spellcasting: The epic Drow Judicator continues to increase in caster level (and spells known, if applicable) at every third class level.
+
+Epic Drow Judicator Bonus Feat List:
+Arcane Defense, Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Daylight Adaptation, Devastating Critical, Epic Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Ignore Material Components, Improved Combat Casting,  Overwhelming Critical, Perfect Health, Tenacious Magic.

@@ -24,8 +24,16 @@ void main()
 	    IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 	if(nClass > 7)
 	    IPSafeAddItemProperty(oSkin, ItemPropertyDarkvision(), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+	// Voice of the Dragon
+	if (nClass >= 2)
+	{
+		int nBonus = 2 * ((nClass - 1) / 4); // +2 at 2–5, +4 at 6–9, +6 at 10–13, etc.
+		SetCompositeBonus(oSkin, "ToT_Bluff", nBonus, ITEM_PROPERTY_SKILL_BONUS, SKILL_BLUFF);
+		SetCompositeBonus(oSkin, "ToT_Intim", nBonus, ITEM_PROPERTY_SKILL_BONUS, SKILL_INTIMIDATE);
+	}
 	    
-	//Voice of the Dragon
+/* 	//Voice of the Dragon
 	switch(nClass)
 	{
 	    case 2:
@@ -44,7 +52,7 @@ void main()
 	        SetCompositeBonus(oSkin, "ToT_Bluff", 6, ITEM_PROPERTY_SKILL_BONUS, SKILL_BLUFF);
                 SetCompositeBonus(oSkin, "ToT_Intim", 6, ITEM_PROPERTY_SKILL_BONUS, SKILL_INTIMIDATE); break;
 	    default: break;
-	}
+	} */
 	
 	//Immunities
 	if(GetHasFeat(FEAT_TOT_FIRE_IMMUNITY, oPC))

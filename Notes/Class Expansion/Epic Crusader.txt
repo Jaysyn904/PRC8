@@ -1,0 +1,12 @@
+An epic crusader continues to be the unwavering blade of their cause—unyielding, unbreakable, and fiercely committed. Their righteous fury deepens into divine inevitability, delaying even death through sheer force of will. With increased uses of smite and greater mastery of damage control, the epic crusader becomes a juggernaut of conviction, shrugging off even the most devastating effects through unwavering faith and epic resilience.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic crusader gains a bonus feat every three levels.
+
+Special:
+Maneuvers: At each class level the epic Crusader continues to increase in initiator level.
+Steely Resolve: the epic crusader's Steely Resolve abilty continues to improve by +5 every 4 levels beyond 20th.
+
+Epic Crusader Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Leadership, Epic Prowess, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Constitution, Great Smiting, Legendary Commander, Overwhelming Critical, Perfect Health.

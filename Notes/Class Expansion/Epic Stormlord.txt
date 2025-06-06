@@ -1,0 +1,11 @@
+At epic levels, you become a living tempest, a walking manifestation of Talos’ chaotic fury. Thunder and lightning answer your call, and your mere presence heralds destruction. Wielding your spear like the storm itself, you lay waste to all who stand before you, leaving only ruin in your wake.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Stormlord gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Stormlord continues to increase in caster level (and spells known, if applicable).
+
+Epic Stormlord Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Planar Turning, Undead Mastery, Zone of Animation, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health 

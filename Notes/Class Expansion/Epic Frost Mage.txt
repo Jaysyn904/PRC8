@@ -1,0 +1,12 @@
+Epic Frost Mages are winter incarnate—beings of arcane chill whose mere presence numbs the soul. Having transcended the mortal limits of frost magic, they wield glacial power with terrifying precision. Their spells freeze blood in veins and shatter stone with creeping ice. The frost itself answers their call, howling through the world as an extension of their will. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Frost Mage gains a bonus feat every four levels.
+
+Special:
+Natural Armor: The epic Frost Mage continues to gain +1 Natural Armor every three class levels.
+Spellcasting: At each class level the epic Frost Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Frost Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.

@@ -1,0 +1,11 @@
+An epic Master Alchemist is a living crucible of arcane transmutation, distilling raw magic into liquid form with an artistry that defies mortal comprehension. With hands steady as time and minds sharp as diamond, these arcane chemists brew wonders that rival the greatest of spells — bottled miracles, captured storms, and essence of the gods. 
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Master Alchemist gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Master Alchemist continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Master Alchemist Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Exceptional Artisan, Extraordinary Artisan, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Legendary Artisan, Tenacious Magic.

@@ -1,0 +1,13 @@
+At epic levels, the Enlightened Fist fully unites arcane power with martial mastery. Their fists strike with not only speed and precision, but with the force of magic itself. Every motion is charged with energy, allowing them to deliver devastating touch spells and elemental strikes in a blur of combat. They become spellcasters in motion, unarmed, unarmored, and unstoppable.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Enlightened Fist gains a bonus feat every five levels
+
+Special:
+Spell Resistance: The epic Enlightened Fist continues to add their class level to their spell resistance.
+Spellcasting: At each class level the epic Enlightened Fist continues to increase in arcane caster level (and spells known, if applicable).
+Monk Abilities: The epic Enlightened Fist continues to add their class level to determine Stunning Attacks, Unarmed Damage & Monk movement speed increase.
+
+Epic Enlightened Fist Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative.

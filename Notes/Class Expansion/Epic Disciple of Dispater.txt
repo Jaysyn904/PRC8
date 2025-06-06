@@ -1,0 +1,8 @@
+Epic Disciples of Dispater become nearly indestructible warlords, commanding infernal legions and shrouding themselves in layers of iron both literal and mystical. Their mastery of defense, deception, and destructive force makes them terrifying opponents who strike with overwhelming might while remaining almost untouchable on the battlefield.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Disciple of Dispater gains a bonus feat every three levels.
+
+Epic Disciple of Dispater Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Energy Resistance, Epic Damage Resistance, Epic Skill Focus, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Constitution, Legendary Commander, Overwhelming Critical, Superior Initiative

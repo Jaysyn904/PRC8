@@ -1,0 +1,14 @@
+At epic levels, you have honed your rejection of magic into a formidable source of strength. Relying solely on your own abilities, your body heals rapidly, your innate spell resistance climbs to daunting levels, and your damage reduction steadily increases, making you nearly impervious to harm. 
+
+Hit Die: d12
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Forsaker gains a bonus feat every three levels
+
+Special:
+Ability Bonus: The epic forsaker continues to increase in physcial & mental power at each level.
+Fast Healing: The epic forsaker's healing ability continues to increase in power every three levels.
+Spell Resistance: The epic forsaker's spell resistance continues to increase in power every 3 levels.
+Damage Reduction: THe epic forsaker's damage resistence increases every 3 levels.
+
+Epic Forsaker Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Perfect Health, Two-Weapon Rend

@@ -1,0 +1,13 @@
+The epic runecaster no longer simply inscribes symbols of divine power — they weave divine essence into the world itself. Their runes thrum with ancient energy, etched into stone, metal, and air alike. Each mark is a silent hymn, a declaration of faith and force, holding power that rivals full incantations. Thieves no longer dare approach the runecaster's artifacts, and foes learn too late that every step toward a runecaster is a step deeper into a trap. Their runes do not merely cast spells — they shape destiny.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Runecaster gains a bonus feat every three levels
+
+Special:
+Rune Craft: The epic Runecaster continues to gain a +1 on Runecarving checks at every odd level.
+Rune Power: The epic Runecaster's Rune Power ability continues to gain +1 to DC & spell penetration checks at every even level.
+Spellcasting: The epic Runecaster continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Runecaster Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.

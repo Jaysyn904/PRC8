@@ -1,0 +1,12 @@
+Epic Shadow Sun Ninjas are masters of duality, channeling both radiant and shadow energies in perfect harmony. At the peak of their path, they transcend the traditional boundaries of martial arts and mysticism, wielding darkness to strike down foes and light to lift allies. With enhanced ki control and the wisdom born of balance, they become avatars of twilight—warriors whose mere presence can tip the scales between salvation and ruin.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadow Sun Ninja gains a bonus feat every four levels
+
+Special:
+Monk Abilities: The epic Shadow Sun Ninja continues to add their class level to determine AC Bonus, Unarmed Damage & Stunning Fist uses per day.
+Maneuvers: At each class level the epic Shadow Sun Ninja continues to increase in initiator level.
+
+Epic Shadow Sun Ninja Bonus Feat List:
+Armor Skin, Blinding Speed, Damage Reduction, Epic Energy Resistance, Epic Dodge, Epic Prowess, Epic Toughness, Fast Healing, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative. 

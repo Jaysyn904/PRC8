@@ -1,0 +1,12 @@
+To the epic Psychic Theurge, the boundary between faith and thought is a veil easily pierced. Wielding divine miracles and mental might in seamless harmony, they are living conduits of transcendent purpose. Their prayers echo with psionic force, and their psionic power is guided by divine insight. These rare visionaries stand at the nexus of will and wonder, forging a path where no spell nor power is beyond reach.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Psychic Theurge gains a bonus feat every six levels.
+
+Special:
+Spellcasting: At each class level the epic Psychic Theurge continues to increase in divine caster level (and spells known, if applicable).
+Manifesting: At each class level the epic Psychic Theurge continues to increase in manifester level (and powers known, if applicable).
+
+Epic Psychic Theurge Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Sheild, Epic Divine Resistance, Epic Divine Vigor, Epic Energy Resistance, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning, Psionic Feats, Tenacious Magic, Zone Of Animation.

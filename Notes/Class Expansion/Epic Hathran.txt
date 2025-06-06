@@ -1,0 +1,11 @@
+At epic levels, your mastery of both arcane and divine magic crowns you as an exalted Hathran —a beacon of healing and leadership in Rashemen. You embody the sacred legacy of the learned sisters, extending your nurturing miracles and commanding spells that both protect your people and instill awe in your foes.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Hathran gains a bonus feat every three levels
+
+Special:
+Spells: The epic Hathran increases divine and arcane caster level by one every other level gained above 10th.
+
+Epic Hathran Bonus Feat List:
+Armor Skin, Blinding Speed, Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Epic Spellcasting, Ignore Material Components, Planar Turning, Undead Mastery, Zone of Animation, Dragon Wild Shape, Energy Resistance, Fast Healing, Ignore Material Components, Perfect Health 

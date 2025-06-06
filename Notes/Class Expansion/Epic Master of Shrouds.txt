@@ -1,0 +1,12 @@
+At epic levels, the Master of Shrouds commands the dread powers of the grave with terrifying authority. Her ability to summon incorporeal undead grows to include even greater horrors, and her dominion over death magic becomes absolute.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Master of Shrouds gains a bonus feat every three levels.
+
+Special:
+Summon Undead: The epic Master of Shrouds' undead thrall continues gaining power throughout epic levels.
+Spellcasting: At each class level the epic Master of Shrouds continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Master of Shrouds Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Vigor, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Invoke Divine Wrath, Planar Turning.

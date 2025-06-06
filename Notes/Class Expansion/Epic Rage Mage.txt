@@ -1,0 +1,12 @@
+An epic rage mage is an arcane storm in human form, where fury and magic fuse into devastating synergy. No longer shackled by the fragile composure most spellcasters cling to, she channels raw emotion into spellcraft that crackles with violent energy. Her rage no longer clouds her casting—it defines it. Each shout is a sonic blast, each heartbeat a surge of power. In battle, she becomes an avatar of destruction, tearing through enemies in a blaze of primal wrath and arcane fury.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Rage Mage gains a bonus feat every four levels.
+
+Special:
+Spell Rage: The epic Rage Mage continues to gain a use of their Spell Rage ability every five class levels.
+Spellcasting: Every other class level the epic Rage Mage continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Rage Mage Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Focused Spell Penetration, Forge Epic Ring, Fast Healing, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Legendary Commander, Mighty Rage, Overwhelming Critical, Superior Initiative, Tenacious Magic, Thundering Rage.     

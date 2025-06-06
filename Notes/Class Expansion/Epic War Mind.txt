@@ -1,0 +1,12 @@
+An epic War Mind channels unmatched clarity and precision in battle, moving with the focus of a weapon guided by thought alone. His mastery of the Talariic Codex unlocks deeper chains of war, each one enhancing his physical form and tactical prowess. Striking with devastating force and defending with near-impenetrable resolve, the epic War Mind blends mind and might into a perfect war machine, commanding the battlefield with every breath and motion.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic War Mind gains a bonus feat every five levels
+
+Special:
+Enduring Body: The epic War Mind's Damage Reduction continues to grow by +1 every three class levels.
+Manifesting: At each class level the epic War Mind continues to increase in manifester level (and powers known, if applicable).
+
+Epic War Mind Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Overwhelming Critical, Psionic Feats, Superior Initiative. 

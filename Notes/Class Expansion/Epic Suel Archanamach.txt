@@ -1,0 +1,13 @@
+An epic Suel Archanamach is a living relic of an empire that once challenged the gods themselves. Blade and spell move as one in their hands — seamless, relentless, unstoppable. They slip through magical wards as if they were cobwebs, unraveling spells and spellcasters alike with practiced ease. Masters of dispelling, cloaked in illusions, and steeped in ancient arcane warfare, these elusive warriors are nightmares whispered among archmages — for when a Suel Archanamach comes, even the most powerful wizard may find no sanctuary.
+
+Hit Die: d6
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Suel Archanamach gains a bonus feat every four levels.
+
+Special:
+Dispelling Strike: The epic Suel Archanamach continues to gain a use of their Dispelling Strike ability every four class levels.
+Ignore Spell Failure: the epic Suel Archanamach continues to increase the amount of spell failure they can overcome by 5% every three class levels.
+Spellcasting: The epic Suel Archanamach continues to increase in arcane caster level (and spells known, if applicable).
+
+Epic Suel Archanamach Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Weapon Focus, Great Charisma, Improved Combat Casting, Overwhelming Critical, Superior Initiative.

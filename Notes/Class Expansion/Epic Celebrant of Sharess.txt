@@ -1,0 +1,11 @@
+At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess’s dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
+
+Hit Die: d6
+Skill Points at Each Additional Level: 6 + Int Modifier
+Bonus Feats: The epic celebrant of Sharess gains a bonus feat every three levels
+
+Special:
+Rage:  The epic celebrant of Sharess continues to gain a useage of Rage every three levels.
+
+Epic Celebrant of Sharess Bonus Feat List:
+Armor Skin, Damage Reduction, Devastating Critical, Dire Charge, Epic Endurance, Epic Prowess, Epic Speed, Epic Toughness, Epic Weapon Focus, Fast Healing, Incite Rage, Legendary Climber, Legendary Leaper, Legendary Rider, Legendary Tracker, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Ruinous Rage, Terrifying Rage, Thundering Rage, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Ignore Material Components, Improved Combat Casting.

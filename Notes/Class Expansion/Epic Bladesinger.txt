@@ -1,0 +1,11 @@
+The Epic Bladesinger transcends the limits of mere martial prowess and arcane mastery, becoming a living embodiment of battle's deadly artistry. With unparalleled grace, they weave steel and spell into a seamless dance, striking down foes with fluid, lethal precision.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Bladesinger gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Bladesinger continues to increase in caster level (and spells known, if applicable) at every other level.
+
+Epic Bladesinger Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Spell Penetration, Epic Spell Focus, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Great Intelligence, Improved Combat Casting, Superior Initiative.

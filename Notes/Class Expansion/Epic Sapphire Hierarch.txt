@@ -1,0 +1,13 @@
+Ascended beyond mortal constraints, the Epic Sapphire Hierarch becomes an avatar of perfect order, an unyielding force against the encroaching tide of chaos. Guided by the will of the Sapphire Eidolon, these champions refine their meldshaping, divine magic, and unwavering discipline to an absolute pinnacle. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Sapphire Hierarch gains a bonus feat every five levels
+
+Special:
+Damage Reduction: Increases by 1 every three class levels.
+Caster Level: Increases as if gaining a level in your divine spellcasting class.
+Meldshaping: At each Sapphire Hierarch level after 10th, you increase your meldshaper level, the number of soulmelds you can shape, the number of chakra binds you can create, and your essentia pool as if you had gained a level in a meldshaping class to which you belonged prior to gaining the soulcaster level. You do not, however, gain any other abilities of that class, such as new tiers of chakra binds.
+
+Epic Sapphire Hierarch Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Bonus Soulmeld, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Essentia, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Extra Chakra Bind, Focused Spell Penetration, Great Charisma, Great Intelligence, Great Smiting, Great Wisdom, Ignore Material Components, Improved Combat Casting, Open Heart Chakra, Open Soul Chakra, Planar Turning, Rapid Meldshaping, Rebind Soulmeld, Tenacious Magic.

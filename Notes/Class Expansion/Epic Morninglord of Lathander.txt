@@ -1,0 +1,12 @@
+At epic levels, the Morninglord becomes a living vessel of Lathander's divine light. Their presence alone is a balm to the wounded and a bane to the undead. Their power to turn, heal, and sanctify grows radiant and awe-inspiring, suffused with the hope and renewal of dawn itself. Wherever they walk, darkness falters—and the sun seems to shine a little brighter.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Morninglord of Lathander gains a bonus feat every three levels
+
+Special:
+Greater Turning: The epic Morninglord of Lathander continues to gain a use of Greater Turning every four levels.
+Spellcasting: The epic Morninglord of Lathander continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Morninglord of Lathander Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.

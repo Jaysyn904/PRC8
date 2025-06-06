@@ -1,0 +1,12 @@
+You are a remorseless master of forbidden vestige magic, channeling displaced powers with ruthless ambition.
+
+Hit Die: d4
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic anima mage gains a bonus feat every four levels
+Special:
+Vestige Metamagic: Continues increasing at a rate of 1 use per 2 epic Anima Mage levels.
+
+Caster/Binder Level: Increases as if gaining a level in both your arcane spellcasting class and your soul binding class at each level.
+
+Epic Anima Mage Bonus Feat List:
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not listed here.

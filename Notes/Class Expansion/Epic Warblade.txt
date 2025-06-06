@@ -1,0 +1,11 @@
+At epic levels, the warblade becomes a supreme martial exemplar—combining flawless instinct, tactical genius, and indomitable might. Each battle is a canvas, each strike a masterstroke. With honed instincts and intellect driving every move, the epic warblade moves through combat like a storm of precision and power, outmaneuvering foes with sheer discipline and overwhelming them with raw skill.
+
+Hit Die: d12.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic warblade gains a bonus feat every three levels.
+
+Special:
+Maneuvers: At each class level the epic warblade continues to increase in initiator level.
+
+Epic Warblade Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Intelligence, Great Strength, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative.  In addition, the warblade can pick any feat on the fighter bonus feat list.

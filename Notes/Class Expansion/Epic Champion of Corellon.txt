@@ -1,0 +1,32 @@
+Masters of the blade and fearing no enemy, Epic Champions of Corellon Larethian are the absolute elite. They lead the elven warbands, maybe even command entire armies. Still they also fight in the front ranks, taking on the toughest foes.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Champion of Corellon gains a bonus feat every three levels
+
+CLASS FEATURES:
+
+Level
+11:  -
+12: Superior Defense +4
+13: Bonus Feat
+14:  -
+15: Superior Defense +5
+16: Bonus Feat
+17:  -
+18: Superior Defense +6
+19: Bonus Feat
+20:  -
+21: Superior Defense +7
+22: Bonus Feat
+23:  -
+24: Superior Defense +8
+25: Bonus Feat
+26:  -
+27: Superior Defense +9
+28: Bonus Feat
+29:  -
+30: Superior Defense +10
+
+Epic Champion of Corellon Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Leadership, Epic Prowess, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Strength, Improved Stunning Fist, Legendary Commander, Overwhelming Critical, Perfect Two-Weapon Fighting, Two-Weapon Rend.

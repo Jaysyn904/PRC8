@@ -1,0 +1,12 @@
+At epic levels, the Ruby Knight Vindicator becomes a divine instrument of vengeance and secrecy. Steeped in martial discipline and empowered by the divine will of Wee Jas, the vindicator learns to bend time with divine fervor, recover and execute maneuvers with near-limitless efficiency, and move through shadows in full armor as easily as others in silence. His turning power fuels even more devastating strikes and supernatural precision, and no marked enemy escapes his holy judgment.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Ruby Knight Vindicator gains a bonus feat every three levels
+
+Special:
+Spellcasting: The epic Ruby Knight Vindicator continues to increase in divine caster level (and spells known, if applicable).
+Maneuvers: At each class level the epic Ruby Knight Vindicator continues to increase in initiator level.
+
+Epic Ruby Knight Vindicator Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Overwhelming Critical, Tenacious Magic.

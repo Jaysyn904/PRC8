@@ -1,0 +1,12 @@
+A paragon of righteous fury, the epic Shadowbane Inquisitor is a relentless force against darkness. Wielding divine might, they expose and annihilate evil with overwhelming power. 
+
+Hit Die: d10
+Skill Points at Each Additional Level: 4 + Int Modifier
+Bonus Feats: The epic Shadowbane Inquisitor gains a bonus feat every three levels
+
+Special:
+Sneak Attack: The epic Shadowbane Inquisitor continues gaining sneak attack increases at the raite of 1d6 every three class levels.
+Smite: The epic Shadowbane Inquisitor continues to gain another use of Smite every four class levels.
+
+Epic Shadowbane Inquisitor Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Shield, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Toughness, Epic Weapon Focus, Great Smiting, Holy Martial Strike, Invoke Divine Wrath, Legendary Commander, Overwhelming Critical, Perfect Health, Planar Turning.

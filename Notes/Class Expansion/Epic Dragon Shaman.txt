@@ -1,0 +1,12 @@
+At epic levels, the dragon shaman becomes a living embodiment of draconic majesty. Their auras grow stronger, their breath weapon rivals that of ancient wyrms, and their resilience is all but unshakable. With wings unfurled and power drawn directly from their totem dragon’s essence, they stride through battle as a paragon of scaled might and unwavering purpose.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2 + Intelligence modifier.
+Bonus Feats: The epic Dragon Shaman gains a bonus feat every three levels.
+
+Special:
+Draconic Armor: The epic Dragon Shaman's Natural Armor bonus grows to +4 at level 22 and continues to increase by +1 every 5 levels thereafter.
+Draconic Aura: The epic Dragon Shaman's draconic aura power continues to increase, becoming +6 at 25 and growing by 1 every 5 levels thereafter.
+
+Epic Dragon Shaman Bonus Feat List:
+Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Fast Healing, Great Charisma, Great Constitution, Improved Whirlwind Attack, Legendary Commander, Superior Initiative

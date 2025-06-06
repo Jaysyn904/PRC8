@@ -1,0 +1,14 @@
+Epic Ravagers are avatars of pure slaughter, exalting in the chaos and horror they sow. As they ascend beyond mortal limits, their every blow spreads agony, their presence breaks wills, and their cruelty transcends mere violence—becoming a divine expression of Erythnul’s madness. 
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Ravager gains a bonus feat every five levels.
+
+Special:
+Pain Touch - At 11th level you gain a 4th use of Pain Touch and that increases by 1 use per day every five Ravager levels past 11th.	
+Aura of Fear - At 12th level you gain a 4th use of Aura of Fear and that increases by 1 use per day every five Ravager levels past 12th.	
+Cruelest Cut - At 13th level you gain a 4th use of Aura of Fear and that increases by 1 use per day every five Ravager levels past 13th.
+Visage of Terror - At 10th level you gain Visage of Terror and that increases by 1 use per day every five Ravager levels past 10th.
+
+Epic Ravager Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.

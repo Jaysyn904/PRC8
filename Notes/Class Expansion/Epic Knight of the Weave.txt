@@ -1,0 +1,11 @@
+At epic levels, a Knight of the Weave becomes a true conduit of raw magic, wielding the Weave itself as both weapon and shield. Their mastery of spellfire reaches devastating new heights, allowing them to consume and unleash magical energy with unmatched potency. 
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: The epic Knight of the Weave gains a bonus feat every three levels.
+
+Special:
+Spellcasting: The epic Knight of the Weave continues to increase in caster level (and spells known, if applicable).
+
+Epic Knight of the Weave Bonus Feat List:
+Arcane Defense, Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Leadership, Epic Prowess, Epic Reputation, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Epic Weapon Focus, Forge Epic Ring, Great Charisma, Great Intelligence, Great Wisdom, Great Smiting, Holy Strike, Ignore Material Components, Improved Combat Casting, Legendary Commander, Overwhelming Critical, Perfect Health, Planar Turning, Tenacious Magic.
