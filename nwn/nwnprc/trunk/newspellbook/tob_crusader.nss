@@ -6,16 +6,27 @@ void DelayedDamageHB(object oPC, int nCount);
 int LevelToDelayedDamage(int nLevel)
 {
 	int nDelayedDamage = -1;
-	
-	if (nLevel == 20) nDelayedDamage = 30;
+
+	if (nLevel >= 60) nDelayedDamage = 80;
+	else if (nLevel >= 56) nDelayedDamage = 75;
+	else if (nLevel >= 52) nDelayedDamage = 70;
+	else if (nLevel >= 48) nDelayedDamage = 65;
+	else if (nLevel >= 44) nDelayedDamage = 60;
+	else if (nLevel >= 40) nDelayedDamage = 55;
+	else if (nLevel >= 36) nDelayedDamage = 50;
+	else if (nLevel >= 32) nDelayedDamage = 45;
+	else if (nLevel >= 28) nDelayedDamage = 40;
+	else if (nLevel >= 24) nDelayedDamage = 35;
+	else if (nLevel >= 20) nDelayedDamage = 30;
 	else if (nLevel >= 16) nDelayedDamage = 25;
 	else if (nLevel >= 12) nDelayedDamage = 20;
 	else if (nLevel >= 8) nDelayedDamage = 15;
 	else if (nLevel >= 4) nDelayedDamage = 10;
 	else if (nLevel >= 1) nDelayedDamage = 5;
-	
+
 	return nDelayedDamage;
 }
+
 
 void IndomitableSoul(object oPC)
 {

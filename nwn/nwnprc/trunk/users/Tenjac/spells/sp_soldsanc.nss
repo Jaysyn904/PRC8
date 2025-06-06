@@ -47,7 +47,7 @@ void AllyCheck(object oPC, float fDur)
 	}
 	SetLocalInt(oPC, "SOLDIERS_OF_SANCTITY_ALLIES", nCount);
 	
-	SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, VersusRacialTypeEffect(EffectACIncrease(2), RACIAL_TYPE_UNDEAD), oPC, 6.0f);
+	SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, VersusRacialTypeEffect(EffectACIncrease(2, AC_DEFLECTION_BONUS), RACIAL_TYPE_UNDEAD), oPC, 6.0f);
 	DelayCommand(6.0f, AllyCheck(oPC, fDur- 6.0));
 }
 	

@@ -184,7 +184,7 @@ itemproperty ItemPropertyCastSpellCasterLevel(int nSpell, int nLevel)
 
 itemproperty ItemPropertyCastSpellDC(int nSpell, int nDC)
 {
-    //convert nSpell into reference to iprip_spells.2da
+    //convert nSpell into reference to iprp_spells.2da
     nSpell = IPGetIPConstCastSpellFromSpellID(nSpell);
 
     itemproperty ipReturn;

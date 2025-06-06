@@ -91,7 +91,7 @@ void main()
 	}
 	if(nSpellID == SPELL_ALIGNED_AURA_LAW)
 	{
-		eBuff = EffectACIncrease(1);
+		eBuff = EffectACIncrease(1, AC_DEFLECTION_BONUS);
 		eDebuff = EffectDamageDecrease(DAMAGE_BONUS_1, DAMAGE_TYPE_BLUDGEONING|DAMAGE_TYPE_PIERCING|DAMAGE_TYPE_SLASHING);
 		eVisHelp = EffectVisualEffect(VFX_IMP_AC_BONUS);
 		eVisHarm = EffectVisualEffect(VFX_IMP_HEAD_COLD);

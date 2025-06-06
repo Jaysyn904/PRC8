@@ -158,7 +158,35 @@ int GetRogueSneak(object oPC)
    iClassLevel = GetLevelByClass(CLASS_TYPE_UMBRAL_DISCIPLE, oPC);
    if (iClassLevel) iRogueSneak += (iClassLevel + 1) / 3;   
 
-   //Dragon Devotee and Hand of the Winged Masters
+	// Dragon Devotee and Hand of the Winged Masters
+	int nBonusFeatDice = 0;
+	int nCount;
+
+	// First check for 10d6 to 6d6 (second 2DA range: 24905–24901)
+	for(nCount = FEAT_SPECIAL_SNEAK_ATTACK_10D6; nCount >= FEAT_SPECIAL_SNEAK_ATTACK_6D6; nCount--)
+	{
+		if (GetHasFeat(nCount, oPC))
+		{
+			nBonusFeatDice = nCount - FEAT_SPECIAL_SNEAK_ATTACK_6D6 + 6;
+			//if (DEBUG) DoDebug("prc_inc_sneak: Bonus Sneak Dice: " + IntToString(nBonusFeatDice));
+			break;
+		}
+	}
+	// If nothing found yet, check original range 5d6 to 1d6
+	if (nBonusFeatDice == 0)
+	{
+		for(nCount = FEAT_SPECIAL_SNEAK_ATTACK_5D6; nCount >= FEAT_SPECIAL_SNEAK_ATTACK_1D6; nCount--)
+		{
+			if (GetHasFeat(nCount, oPC))
+			{
+				nBonusFeatDice = nCount - FEAT_SPECIAL_SNEAK_ATTACK_1D6 + 1;
+				//if (DEBUG) DoDebug("prc_inc_sneak: Bonus Sneak Dice: " + IntToString(nBonusFeatDice));
+				break;
+			}
+		}
+	}
+
+/*    //Dragon Devotee and Hand of the Winged Masters
    int nBonusFeatDice = 0;
    int nCount;
    for(nCount = FEAT_SPECIAL_SNEAK_ATTACK_5D6; nCount >= FEAT_SPECIAL_SNEAK_ATTACK_1D6; nCount--)
@@ -169,7 +197,7 @@ int GetRogueSneak(object oPC)
          //if (DEBUG) DoDebug("prc_inc_sneak: Bonus Sneak Dice: " + IntToString(nBonusFeatDice));
          break;
       }
-   }
+   } */
    
 	//:: Shadowbane Inquisitor
 	iClassLevel = GetLevelByClass(CLASS_TYPE_SHADOWBANE_INQUISITOR, oPC);
@@ -698,3 +726,5 @@ int GetFavouredEnemyBonus(object oPC)
    if (DEBUG) DoDebug("prc_inc_sneak: Favoured Enemy Bonus: " + IntToString(nFE));
    return nFE;
 }
+
+//;: void main (){}

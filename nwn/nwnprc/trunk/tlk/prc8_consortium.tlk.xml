@@ -4666,7 +4666,7 @@ Duration: 1 round/level
 A red nimbus surrounds you as you move smoothly 
 across the crowded battlefield.
 
-You gain the benefit of the Mobility feat (PH 98), 
+You gain the benefit of the Mobility feat, 
 even if you not meet the prerequisites. You do not
 have to be charging to gain this benefit.</entry>
   <entry id="13266" lang="en" sex="m">Energized Shield: Acid</entry>
@@ -68513,7 +68513,7 @@ Level
 3:  Darkvision
     Unseen Weapon (Unexpected Strike) - Your opponent is denied its Dexterity bonus against your next melee attack.
 4:  Sneak Attack +2d6
-5:  Unseen Weapon (Ephemeral Weapon) - Your next melee attack deals an extra 2d6 points of damage, as extraplanar darkness momentarily replaces portions of       your opponent's body.
+5:  Unseen Weapon (Ephemeral Weapon) - Your next melee attack deals an extra 2d6 points of damage, as extraplanar darkness momentarily replaces portions of your opponent's body.
 6:  Sneak Attack +3d6
 7:  Ultravision
     Unseen Weapon (Shadowy Strike) - Your next melee attack is resolved as a melee touch attack.
@@ -74824,13 +74824,13 @@ Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spe
 
 Hit Die: d8
 Skill Points at Each Additional Level: 6 + Int Modifier
-Bonus Feats: The epic Hands of the Winged Masters gains a bonus feat every three levels.
+Bonus Feats: The epic Hand of the Winged Masters gains a bonus feat every three levels.
 
 Special:
 Special Attack: the epic Hand of the Winged Masters's sneak attack or skirmish attack continues to gain +1d6 damage every three levels.
 
 Epic Hands of the Winged Masters Bonus Feat List:
-Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Trapfinding, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Intelligence, Improved Sneak Attack, Lingering Damage, Psionic Feats, Self-Concealment, Superior Initiative.</entry>
+Armor Skin, Blinding Speed, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
   <entry id="205218" lang="en" sex="m">Epic Talon of Tiamat</entry>
   <entry id="205219" lang="en" sex="m">Epic Talons of Tiamat are the chosen claws of dragonkind’s darkest queen, spreading her wrath and dominion across the realms. Empowered by draconic fury and ancient magic, they become living engines of destruction, breathing elemental death, sowing terror with their presence, and turning even mighty dragons into pawns of their will. Whether clad in steel or shrouded in sorcery, they are avatars of chromatic vengeance, feared by all who stand with metallic dragons and loathed as heretics by the righteous. Wherever they walk, Tiamat’s shadow follows.
 
@@ -74921,6 +74921,43 @@ Manifesting: At each class level the epic Diamond Dragon continues to increase i
 
 Epic Diamond Dragon Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Great Intelligence, Great Wisdom, Psionic Feats, Superior Initiative.</entry>
+  <entry id="205232" lang="en" sex="m">Epic Crusader</entry>
+  <entry id="205233" lang="en" sex="m">An epic crusader continues to be the unwavering blade of their cause-unyielding, unbreakable, and fiercely committed. Their righteous fury deepens into divine inevitability, delaying even death through sheer force of will. With increased uses of smite and greater mastery of damage control, the epic crusader becomes a juggernaut of conviction, shrugging off even the most devastating effects through unwavering faith and epic resilience.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic crusader gains a bonus feat every three levels.
+
+Special:
+Maneuvers: At each class level the epic Crusader continues to increase in initiator level.
+Steely Resolve: the epic crusader's Steely Resolve abilty continues to improve by +5 every 4 levels beyond 20th.
+
+Epic Crusader Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Leadership, Epic Prowess, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Constitution, Great Smiting, Legendary Commander, Overwhelming Critical, Perfect Health.</entry>
+  <entry id="205234" lang="en" sex="m">Epic Swordsage</entry>
+  <entry id="205235" lang="en" sex="m">An epic swordsage is the living embodiment of the Sublime Way, blending shadow, elemental power, and martial grace into a fluid and deadly whole. With every strike, leap, or step, the epic swordsage dances through the battlefield with supernatural precision and fluidity. Their mastery of disciplines allows them to transcend the limits of the body, the blade, and even reality itself.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 6 + Intelligence modifier.
+Bonus Feats: The epic swordsage gains a bonus feat every three levels.
+
+Special:
+Maneuvers: At each class level the epic swordsage continues to increase in initiator level.
+
+Epic swordsage Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Dexterity, Great Wisdom, Improved Stunning Fist, Overwhelming Critical, Perfect Health, Perfect Two-Weapon Fighting, Self Concealment, Superior Initiative, Two-Weapon Rend.</entry>
+  <entry id="205236" lang="en" sex="m">Epic Warblade</entry>  
+  <entry id="205237" lang="en" sex="m">At epic levels, the warblade becomes a supreme martial exemplar-combining flawless instinct, tactical genius, and indomitable might. Each battle is a canvas, each strike a masterstroke. With honed instincts and intellect driving every move, the epic warblade moves through combat like a storm of precision and power, outmaneuvering foes with sheer discipline and overwhelming them with raw skill.
+
+Hit Die: d12.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic warblade gains a bonus feat every three levels.
+
+Special:
+Maneuvers: At each class level the epic warblade continues to increase in initiator level.
+
+Epic Warblade Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Intelligence, Great Strength, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative.  In addition, the warblade can pick any feat on the fighter bonus feat list.</entry> 
   <entry id="205500" lang="en" sex="m">Hardiness Vs. Disease</entry>
   <entry id="205501" lang="en" sex="m">Type of Feat: Race
 Specifics: This feat grants a +2 racial bonus on saving throws vs. disease.
@@ -74936,7 +74973,18 @@ Prerequisites: Wisdom 11, Nezumi Race
 Specifics: You gain Keen Senses and +4 bonus to Spot, Listen, and Search.
 Use: Automatic</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
-  <entry id="210000" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
+  <entry id="210000" lang="en" sex="m">&lt;cÿÿÿ&gt;Special Attack&lt;/c&gt;</entry>
+  <entry id="210001" lang="en" sex="m"> At 2nd level, 5th level, 8th level and every three levels afterwards, your sneak attack or skirmish ability deals an extra 1d6 points of damage. If you have more than one of these abilities, you can improve any one ability of your choice, each time you gain this benefit.</entry>
+  <entry id="210002" lang="en" sex="m">Special Sneak Attack +6d6</entry>
+  <entry id="210003" lang="en" sex="m">Special Sneak Attack +7d6</entry>
+  <entry id="210004" lang="en" sex="m">Special Sneak Attack +8d6</entry>
+  <entry id="210005" lang="en" sex="m">Special Sneak Attack +9d6</entry>
+  <entry id="210006" lang="en" sex="m">Special Sneak Attack +10d6</entry>
+  <entry id="210010" lang="en" sex="m">Special Skirmish +6d6</entry>
+  <entry id="210011" lang="en" sex="m">Special Skirmish +7d6</entry>
+  <entry id="210012" lang="en" sex="m">Special Skirmish +d6</entry>
+  <entry id="210013" lang="en" sex="m">Special Skirmish +9d6</entry>
+  <entry id="210014" lang="en" sex="m">Special Skirmish +10d6</entry>
   <entry id="210999" lang="en" sex="m">## Vile Martial Strike Expansion ##</entry>
   <entry id="211000" lang="en" sex="m">Vile Martial Strike (Eagle Claw)</entry>
   <entry id="211001" lang="en" sex="m">Vile Martial Strike (Light Lance)</entry>
@@ -74971,6 +75019,27 @@ Use: Automatic</entry>
   <entry id="211064" lang="en" sex="m">Sanctify Martial Strike (Elven Lightblade)</entry>
   <entry id="211065" lang="en" sex="m">Sanctify Martial Strike (Elven Thinblade)</entry>
   <entry id="211066" lang="en" sex="m">Sanctify Martial Strike (Elven Courtblade)</entry>
+  <entry id="211199" lang="en" sex="m">## iprp_casterlvl Expansion ##</entry>
+  <entry id="211200" lang="en" sex="m">61</entry>
+  <entry id="211201" lang="en" sex="m">62</entry>
+  <entry id="211202" lang="en" sex="m">63</entry>
+  <entry id="211203" lang="en" sex="m">64</entry>
+  <entry id="211204" lang="en" sex="m">65</entry>
+  <entry id="211205" lang="en" sex="m">66</entry>
+  <entry id="211206" lang="en" sex="m">67</entry>
+  <entry id="211207" lang="en" sex="m">68</entry>
+  <entry id="211208" lang="en" sex="m">69</entry>
+  <entry id="211209" lang="en" sex="m">70</entry>
+  <entry id="211210" lang="en" sex="m">71</entry>
+  <entry id="211211" lang="en" sex="m">72</entry>
+  <entry id="211212" lang="en" sex="m">73</entry>
+  <entry id="211213" lang="en" sex="m">74</entry>
+  <entry id="211214" lang="en" sex="m">75</entry>
+  <entry id="211215" lang="en" sex="m">76</entry>
+  <entry id="211216" lang="en" sex="m">77</entry>
+  <entry id="211217" lang="en" sex="m">78</entry>
+  <entry id="211218" lang="en" sex="m">79</entry>
+  <entry id="211219" lang="en" sex="m">80</entry>
   <entry id="213092" lang="en" sex="m">Swarm of Arrows</entry>
   <entry id="213093" lang="en" sex="m">	Prerequisites
 	Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).

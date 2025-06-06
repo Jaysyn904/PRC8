@@ -93,7 +93,7 @@ void main()
     float fDuration = (nMetaMagic & METAMAGIC_EXTEND) ? fBaseDuration * 2.0 : fBaseDuration;
 
 //:: Setup the natural armor effect
-    effect eNaturalArmor = EffectACIncrease(nFinalBonus);
+    effect eNaturalArmor = EffectACIncrease(nFinalBonus, AC_NATURAL_BONUS);
 
 //:: Setup the movement speed penalty effect
 //:: Normal speed is 30 feet per round, spell reduces to 20 feet per round (1/3 slower)

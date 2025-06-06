@@ -41,7 +41,7 @@ void main()
 
 			// Apply the curse and vfx.
 			effect eCurse = EffectSavingThrowIncrease(SAVING_THROW_ALL, 1);
-			eCurse = EffectLinkEffects(eCurse, EffectACIncrease(1));
+			eCurse = EffectLinkEffects(eCurse, EffectACIncrease(1, AC_DEFLECTION_BONUS));
 			eCurse = EffectLinkEffects(eCurse, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
 			eCurse = EffectLinkEffects(eCurse, EffectVisualEffect(VFX_DUR_PROTECTION_GOOD_MINOR));
 			DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eCurse, oTarget, fDuration,TRUE,-1,nCasterLvl));

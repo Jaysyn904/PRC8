@@ -22,8 +22,36 @@ int SkirmishDamage(object oPC, object oTarget, int nClass)
         
         // Improved Skirmish
         if (GetLocalInt(oPC, "ScoutSkirmish") == 20) nDice += 2;
+		
+		// Dragon Devotee and Hand of the Winged Masters
+		int nBonusFeatDice = 0;
+		int nCount;
 
-        //Dragon Devotee and Hand of the Winged Masters damage bonus feats
+		// First check for 10d6 to 6d6 (second 2DA range: 24911-24915)
+		for(nCount = FEAT_SPECIAL_SKIRMISH_10D6; nCount >= FEAT_SPECIAL_SKIRMISH_6D6; nCount--)
+		{
+			if (GetHasFeat(nCount, oPC))
+			{
+				nBonusFeatDice = nCount - FEAT_SPECIAL_SKIRMISH_6D6 + 6;
+				//if (DEBUG) DoDebug("prc_scout: Bonus Sneak Dice: " + IntToString(nBonusFeatDice));
+				break;
+			}
+		}
+		// If nothing found yet, check original range 5d6 to 1d6
+		if (nBonusFeatDice == 0)
+		{
+			for(nCount = FEAT_SPECIAL_SKIRMISH_5D6; nCount >= FEAT_SPECIAL_SKIRMISH_1D6; nCount--)
+			{
+				if (GetHasFeat(nCount, oPC))
+				{
+					nBonusFeatDice = nCount - FEAT_SPECIAL_SKIRMISH_1D6 + 1;
+					//if (DEBUG) DoDebug("prc_scout: Bonus Sneak Dice: " + IntToString(nBonusFeatDice));
+					break;
+				}
+			}
+		}		
+
+/*         //Dragon Devotee and Hand of the Winged Masters damage bonus feats
         int nBonusFeatDice = 0;
         int nCount;
         for(nCount = FEAT_SPECIAL_SKIRMISH_5D6; nCount >= FEAT_SPECIAL_SKIRMISH_1D6; nCount--)
@@ -34,7 +62,7 @@ int SkirmishDamage(object oPC, object oTarget, int nClass)
                 if (DEBUG) DoDebug("prc_scout: Bonus Skirmish Dice: " + IntToString(nBonusFeatDice));
                 break;
             }
-        }
+        } */
         nDice += nBonusFeatDice;
 
         nDamage = d6(nDice);

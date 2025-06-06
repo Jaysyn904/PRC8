@@ -309,6 +309,49 @@ int RedWizardFeats()
     return FALSE;
 }
 
+int HotWMFeats()
+{	
+	int nHotWM = GetLevelByClass(CLASS_TYPE_HANDOTWM);
+	
+	if (nHotWM > 30)
+	{ 
+		nHotWM = 30;
+	}
+	int nCount = (nHotWM >= 2) ? ((nHotWM - 2) / 3) + 1 : 0;
+	
+    if(nCount > 1)
+    {
+        int iSpecAttack = GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_1D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_2D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_3D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_4D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_5D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_6D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_7D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_8D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_9D6)
+						+ GetHasFeat(FEAT_SPECIAL_SNEAK_ATTACK_10D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_1D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_2D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_3D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_4D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_5D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_6D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_7D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_8D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_9D6)
+						+ GetHasFeat(FEAT_SPECIAL_SKIRMISH_10D6);						
+
+        if(nCount != iSpecAttack)
+        {
+            FloatingTextStringOnCreature("You have an incorrect amount of Special Attacks. Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+
 int MageKiller()
 {
     int iMK = (GetLevelByClass(CLASS_TYPE_MAGEKILLER) + 1) / 2;
@@ -2834,6 +2877,7 @@ void main()
 //    || FavoredOfMilil()
     || FavouredSoul()
     || GenasaiFocus()
+	|| HotWMFeats()
     || LeadershipHD()
     || LingeringDamage()
     || MageKiller()
