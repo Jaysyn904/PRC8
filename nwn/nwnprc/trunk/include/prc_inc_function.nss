@@ -1310,7 +1310,32 @@ void DelayAddItemProperty(float fDelay, object oGenerationHolder, string sGenera
     }
 }
 
-void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iMod = 0, int iMin = 1)
+/**
+ * @brief Sets the number of remaining uses per day for a feat based on an ability modifier.
+ *
+ * This function calculates the number of daily uses for a feat (`iFeat`) that a creature (`oPC`)
+ * possesses, based on their ability modifier (default: Charisma). It first removes any existing
+ * remaining uses and then reassigns the number based on the effective modifier.
+ *
+ * @param oPC The creature object for whom the feat usage is being set.
+ * @param iFeat The feat constant (e.g., FEAT_WHATEVER) to set uses for.
+ * @param iAbiMod (Optional) The ability score to base the uses on (e.g., ABILITY_CHARISMA).
+ *                Use -1 to ignore ability modifiers. Defaults to ABILITY_CHARISMA.
+ * @param iMod (Optional) A flat modifier to add to the calculated ability modifier. Default is 0.
+ * @param iMin (Optional) The minimum number of uses to allow (even if the ability modifier is low). Default is 1.
+ *
+ * @note
+ * If the creature does not have the feat, no changes are made.
+ * If the ability modifier is negative or zero, it is treated as zero.
+ * If `iAbiMod` is -1, the ability modifier is ignored and `iMod` alone is used.
+ * The final number of uses will never be below `iMin`.
+ *
+ * @see GetAbilityModifier()
+ * @see GetHasFeat()
+ * @see DecrementRemainingFeatUses()
+ * @see IncrementRemainingFeatUses()
+ */
+ void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iMod = 0, int iMin = 1)
 {
     if(!GetHasFeat(iFeat,oPC))
         return;

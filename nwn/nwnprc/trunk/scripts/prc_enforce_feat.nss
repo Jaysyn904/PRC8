@@ -2095,6 +2095,62 @@ int WarlockFeats()
     return FALSE;
 }*/
 
+//:: Draconic Feat: At 2nd, 4th, and 8th level, you gain a 
+//:: bonus draconic feat. Choose any draconic feat for which
+//:: you meet the prerequisite
+
+int DragonHeartFeats()
+{
+    int nLevel = GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, OBJECT_SELF);
+    if (nLevel <= 0) return FALSE;
+
+    // Count required number of Draconic feats based on bonus feat levels
+    int nRequired = 0;
+    int i;
+
+    for (i = 2; i <= nLevel; i += 2)
+    {
+        if (i == 6 || i == 10 || i == 16 || i == 20 ||
+            i == 26 || i == 30 || i == 36 || i == 40)
+        {
+            continue;
+        }
+        nRequired++;
+		
+		if (nRequired > 11)  //:: Max Dragonheart Draconic feats
+			nRequired = 11;
+    }
+
+    // Count how many total Draconic feats the character has (includes Breath)
+    int nCount = 0;
+
+    if (GetHasFeat(FEAT_DRACONIC_BREATH, OBJECT_SELF))         nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_SKIN, OBJECT_SELF))           nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_KNOWLEDGE, OBJECT_SELF))      nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_VIGOR, OBJECT_SELF))          nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_ARMOR, OBJECT_SELF))          nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_PERSUADE, OBJECT_SELF))       nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_CLAW, OBJECT_SELF))           nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_PRESENCE, OBJECT_SELF))       nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_POWER, OBJECT_SELF))          nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_RESISTANCE, OBJECT_SELF))     nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_SENSES, OBJECT_SELF))         nCount++;
+    if (GetHasFeat(FEAT_DRACONIC_GRACE, OBJECT_SELF))          nCount++;
+    if (GetHasFeat(FEAT_DRAGONFIRE_ASSAULT, OBJECT_SELF))      nCount++;
+    if (GetHasFeat(FEAT_DRAGONFIRE_CHANNELING, OBJECT_SELF))   nCount++;
+    if (GetHasFeat(FEAT_DRAGONFIRE_INSPIRATION, OBJECT_SELF))  nCount++;
+    if (GetHasFeat(FEAT_DRAGONFIRE_STRIKE, OBJECT_SELF))       nCount++;
+
+    if (nCount < nRequired + 1) // +1 because Draconic Breath is automatic
+    {
+        FloatingTextStringOnCreature("You have too few Draconic feats. Please reselect your feats.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+
 int AcolyteEgo()
 {
     int nLevel = GetLevelByClass(CLASS_TYPE_ACOLYTE_EGO);
@@ -2900,6 +2956,7 @@ void main()
     || OcularAdeptDomains()
     || ReserveFeats()
 	|| CheckDivineGifts()
+	|| DragonHeartFeats()
   //|| Blightbringer()
   //|| Shaman()
        )

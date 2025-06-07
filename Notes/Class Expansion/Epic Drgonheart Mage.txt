@@ -2,10 +2,11 @@ The epic dragonheart mage is the living embodiment of draconic majesty fused wit
 
 Hit Die: d6
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Dragonheart Mage gains a bonus Draconic feat every level ending in 2, 4, or 8.
+Bonus Feats: The epic Dragonheart Mage gains a bonus feat every six levels.
 
 Special:
 Draconic Breath: The epic Dragonheart Mage's Draconic Breath damage increases to 3d8 at level 16, 4d6 at 20, 4d8 at 26, and 5d6 at level 30.
+Draconic Feats: The epic Dragonheart Mage continue to gain a new draconic feat at levels ending with 2,4 or 8.
 Spellcasting: At each class level the epic Dragonheart Mage continues to increase in arcane caster level (and spells known, if applicable).
 
 Epic Dragonheart Mage Bonus Feat List:
