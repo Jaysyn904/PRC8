@@ -176,8 +176,6 @@ void main()
 
 					if(sName != "")
 					{
-						// Replace this with the correct check for whether oMeldshaper actually knows the power.
-						// Example using GetHasSpell:
 						if (GetHasPower(i, oMeldshaper)) 
 						{
 							if(SORT) AddToTempList(oMeldshaper, sName, i);
@@ -296,6 +294,7 @@ void main()
         	if (nChoice)
         	{
         		SetLocalInt(oMeldshaper, "MidnightAugPower", GetLocalInt(oMeldshaper, "nPower"));
+				SetLocalInt(oMeldshaper, "MidnightAugPowerInvestment", GetLocalInt(oMeldshaper, "nEssentia"));
         		InvestEssentiaFeat(oMeldshaper, FEAT_MIDNIGHT_AUGMENTATION, GetLocalInt(oMeldshaper, "nEssentia"));
         		DeleteLocalInt(oMeldshaper, "nPower");
         		DeleteLocalInt(oMeldshaper, "nEssentia");

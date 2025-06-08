@@ -456,7 +456,7 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     int nAugPPCostReductions = 0;
     int bMaxAugment          = GetLocalInt(manif.oManifester, PRC_AUGMENT_MAXAUGMENT) &&
                                !GetLocalInt(manif.oManifester, PRC_AUGMENT_OVERRIDE); // Override profile also overrides max augment
-
+							   
     // Initialise the augmentation data in the manifestation structure to zero
     /* Probably unnecessary due to auto-init
     manif.nTimesAugOptUsed_1   = 0;
@@ -545,27 +545,25 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     nAugPPCostReductions += nSurge;
     
 	// Midnight Augmentation feat from incarnum
-	if (GetHasFeat(FEAT_MIDNIGHT_AUGMENTATION, manif.oManifester))
-	{
-		int nPower = GetLocalInt(manif.oManifester, "MidnightAugPower");
-		if (manif.nSpellID == nPower)
-		{
-			int bUsedFocus = UsePsionicFocus(manif.oManifester);
-			if (bUsedFocus)
-			{
-				nAugPPCostReductions += GetEssentiaInvestedFeat(manif.oManifester, FEAT_MIDNIGHT_AUGMENTATION);
-			}
-		}
-	}
-
-/*     // Midnight Augmentation feat from incarnum
-    if (GetHasFeat(FEAT_MIDNIGHT_AUGMENTATION, manif.oManifester))
+	int bMidAug	= GetLocalInt(manif.oManifester, "MidnightAugPower");
+	int nMidnightAugReduction = 0;
+	//if (GetHasFeat(FEAT_MIDNIGHT_AUGMENTATION, manif.oManifester))
+	if(bMidAug > 0)
     {
-    	// Make sure the power is the correct one, and that you can expend your psionic focus
+    	if(DEBUG) DoDebug("Checking Midnight Augumentation");
+		int bMidAugInvestment = GetLocalInt(manif.oManifester, "MidnightAugPowerInvestment");
+		
+		// Make sure the power is the correct one, and that you can expend your psionic focus
     	if (manif.nSpellID == GetLocalInt(manif.oManifester, "MidnightAugPower") && UsePsionicFocus(manif.oManifester))
-    		nAugPPCostReductions += GetEssentiaInvestedFeat(manif.oManifester, FEAT_MIDNIGHT_AUGMENTATION);
-    } */
-
+		{
+    		if(DEBUG) DoDebug("Midnight Augumentation power invested Essentia is: "+IntToString(bMidAugInvestment)+".");
+			//nAugPPCostReductions = nAugPPCostReductions + bMidAugInvestment;
+			nMidnightAugReduction = bMidAugInvestment;
+			
+			if(DEBUG) DoDebug("Final Midnight Augumentation power adjustment "+IntToString(nMidnightAugReduction)+".");
+		}
+    }		
+	
     /*/ Various effects modifying the augmentation go above /*/
 
     // Auto-distribution, if modifying effects provided more PP than has been used so far or
@@ -701,10 +699,11 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     }
 
     // Add in cost reduction
-    nAugPPCost = PRCMax(0, nAugPPCost - nAugPPCostReductions);
-
+    //nAugPPCost = PRCMax(0, nAugPPCost - nAugPPCostReductions);
+	nAugPPCost = nAugPPCost - nAugPPCostReductions;
     // Store the PP cost increase
     manif.nPPCost += nAugPPCost;
+	manif.nPPCost -= nMidnightAugReduction;  //:: Had to apply this directly, wouldn't work otherwise. -Jaysyn
 
     return manif;
 }

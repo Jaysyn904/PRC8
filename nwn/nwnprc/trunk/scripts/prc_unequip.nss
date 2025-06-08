@@ -61,13 +61,13 @@ void main()
 
 	int nItemType = GetBaseItemType(oItem);
 	
-	if(nItemType 	== BASE_ITEM_CBLUDGWEAPON
-					|| BASE_ITEM_CPIERCWEAPON
-					|| BASE_ITEM_CSLASHWEAPON
-					|| BASE_ITEM_CSLSHPRCWEAP)
-					{
-						DestroyObject(oItem);	
-					}
+	if(nItemType == BASE_ITEM_CBLUDGWEAPON
+	|| nItemType == BASE_ITEM_CPIERCWEAPON
+	|| nItemType == BASE_ITEM_CSLASHWEAPON
+	|| nItemType == BASE_ITEM_CSLSHPRCWEAP)
+	{
+		DestroyObject(oItem);	
+	}
 	
 	int nClaw = GetStringLeft(GetResRef(oItem), 12) == "prc_diaclaw_" ? TRUE : FALSE;
     if(nClaw)DestroyObject(oItem);	

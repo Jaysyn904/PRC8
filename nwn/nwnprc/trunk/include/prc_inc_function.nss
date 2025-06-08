@@ -1335,7 +1335,7 @@ void DelayAddItemProperty(float fDelay, object oGenerationHolder, string sGenera
  * @see DecrementRemainingFeatUses()
  * @see IncrementRemainingFeatUses()
  */
- void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iMod = 0, int iMin = 1)
+void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iMod = 0, int iMin = 1)
 {
     if(!GetHasFeat(iFeat,oPC))
         return;
@@ -2048,6 +2048,34 @@ void Factotum(object oPC)
     {
         if (nClass >= 20)
         {
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_TURN, ABILITY_WISDOM, 6);
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 6);
+        }    
+        else if (nClass >= 15)
+        {
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_TURN, ABILITY_WISDOM, 5);
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 5);
+        }  
+        else if (nClass >= 10)
+        {
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_TURN, ABILITY_WISDOM, 4);
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 4);
+        }              
+        else
+        {
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_TURN, ABILITY_WISDOM, 3);
+            FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 3);
+        }  
+    }        
+}
+
+/* void Factotum(object oPC)
+{
+    int nClass = GetLevelByClass(CLASS_TYPE_FACTOTUM, oPC);
+    if(nClass > 0)
+    {
+        if (nClass >= 20)
+        {
             FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_TURN, ABILITY_WISDOM, 0, 6);
             FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 0, 6);
         }    
@@ -2067,7 +2095,7 @@ void Factotum(object oPC)
             FeatUsePerDay(oPC, FEAT_OPPORTUNISTIC_PIETY_HEAL, ABILITY_WISDOM, 0, 3);
         }  
     }        
-}
+} */
 
 void Sharess(object oPC)
 {
