@@ -351,6 +351,49 @@ int HotWMFeats()
     return FALSE;
 }
 
+int DiamondDragonFeats()
+{
+    int iDiamond = (GetLevelByClass(CLASS_TYPE_DIAMOND_DRAGON) + 5) / 5;
+
+    if(iDiamond)
+    {
+        int iAugments 	= GetHasFeat(FEAT_DRAGON_AUGMENT_STR_1)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_2)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_3)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_4)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_5)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_6)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_7)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_8)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_9)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_1)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_2)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_3)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_4)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_5)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_6)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_7)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_8)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_9)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_1)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_2)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_3)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_4)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_5)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_6)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_7)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_8)
+						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_9);
+
+
+        if(iDiamond != iAugments)
+        {
+            FloatingTextStringOnCreature("You must pick a Diamond Dragon Ability Augment.  Please reslect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 
 int MageKiller()
 {
@@ -2957,6 +3000,7 @@ void main()
     || ReserveFeats()
 	|| CheckDivineGifts()
 	|| DragonHeartFeats()
+	|| DiamondDragonFeats()
   //|| Blightbringer()
   //|| Shaman()
        )

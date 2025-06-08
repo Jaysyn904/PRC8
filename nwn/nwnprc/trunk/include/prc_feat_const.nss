@@ -927,15 +927,36 @@ const int FEAT_KOB_DRAGONWROUGHT_GD                    = 3854;
 const int FEAT_KOB_DRAGONWROUGHT_SR                    = 3855;
 
 //Dragon Magic
-const int FEAT_DRAGON_AUGMENT_STR_1                    = 3857;
-const int FEAT_DRAGON_AUGMENT_STR_2                    = 3858;
-const int FEAT_DRAGON_AUGMENT_STR_3                    = 3859;
-const int FEAT_DRAGON_AUGMENT_DEX_1                    = 3860;
-const int FEAT_DRAGON_AUGMENT_DEX_2                    = 3861;
-const int FEAT_DRAGON_AUGMENT_DEX_3                    = 3862;
-const int FEAT_DRAGON_AUGMENT_CON_1                    = 3863;
-const int FEAT_DRAGON_AUGMENT_CON_2                    = 3864;
-const int FEAT_DRAGON_AUGMENT_CON_3                    = 3865;
+const int FEAT_DRAGON_AUGMENT_STR_1                    	= 3857;
+const int FEAT_DRAGON_AUGMENT_STR_2						= 3858;
+const int FEAT_DRAGON_AUGMENT_STR_3						= 3859;
+const int FEAT_DRAGON_AUGMENT_STR_4 					= 26382;
+const int FEAT_DRAGON_AUGMENT_STR_5 					= 26383;
+const int FEAT_DRAGON_AUGMENT_STR_6 					= 26384;
+const int FEAT_DRAGON_AUGMENT_STR_7 					= 26385;
+const int FEAT_DRAGON_AUGMENT_STR_8 					= 26386;
+const int FEAT_DRAGON_AUGMENT_STR_9 					= 26387;
+
+const int FEAT_DRAGON_AUGMENT_DEX_1                    	= 3860;
+const int FEAT_DRAGON_AUGMENT_DEX_2                    	= 3861;
+const int FEAT_DRAGON_AUGMENT_DEX_3                    	= 3862;
+const int FEAT_DRAGON_AUGMENT_DEX_4 					= 26388;
+const int FEAT_DRAGON_AUGMENT_DEX_5 					= 26389;
+const int FEAT_DRAGON_AUGMENT_DEX_6 					= 26390;
+const int FEAT_DRAGON_AUGMENT_DEX_7 					= 26391;
+const int FEAT_DRAGON_AUGMENT_DEX_8 					= 26392;
+const int FEAT_DRAGON_AUGMENT_DEX_9 					= 26393;
+
+const int FEAT_DRAGON_AUGMENT_CON_1                    	= 3863;
+const int FEAT_DRAGON_AUGMENT_CON_2                    	= 3864;
+const int FEAT_DRAGON_AUGMENT_CON_3                    	= 3865;
+const int FEAT_DRAGON_AUGMENT_CON_4 					= 26394;
+const int FEAT_DRAGON_AUGMENT_CON_5						= 26395;
+const int FEAT_DRAGON_AUGMENT_CON_6 					= 26396;
+const int FEAT_DRAGON_AUGMENT_CON_7 					= 26397;
+const int FEAT_DRAGON_AUGMENT_CON_8 					= 26398;
+const int FEAT_DRAGON_AUGMENT_CON_9 					= 26399;
+
 const int FEAT_CHANNEL_DRACLAWS                        = 3866;
 const int FEAT_PSIONIC_BREATH                          = 3867;
 const int FEAT_CHANNEL_DRAWINGS                        = 3868;

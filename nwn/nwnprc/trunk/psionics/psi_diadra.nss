@@ -63,6 +63,13 @@ void main()
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_1, oPC) ? 1 : 0;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_2, oPC) ? 2 : nBonus;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_3, oPC) ? 3 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_4, oPC) ? 4 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_5, oPC) ? 5 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_6, oPC) ? 6 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_7, oPC) ? 7 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_8, oPC) ? 8 : nBonus;
+		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_9, oPC) ? 9 : nBonus;
+
         nDiff = nBonus - iTest;
 
         if(nDiff != 0)
@@ -73,6 +80,13 @@ void main()
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_1, oPC) ? 1 : 0;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_2, oPC) ? 2 : nBonus;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_3, oPC) ? 3 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_4, oPC) ? 4 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_5, oPC) ? 5 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_6, oPC) ? 6 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_7, oPC) ? 7 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_8, oPC) ? 8 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_9, oPC) ? 9 : nBonus;
+		
         nDiff = nBonus - iTest;
 
         if(nDiff != 0)
@@ -83,6 +97,13 @@ void main()
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_1, oPC) ? 1 : 0;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_2, oPC) ? 2 : nBonus;
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_3, oPC) ? 3 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_4, oPC) ? 4 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_5, oPC) ? 5 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_6, oPC) ? 6 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_7, oPC) ? 7 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_8, oPC) ? 8 : nBonus;
+        nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_9, oPC) ? 9 : nBonus;
+		
         nDiff = nBonus - iTest;
 
         if(nDiff != 0)
