@@ -393,7 +393,18 @@ void main()
     if(GetHasSpellEffect(MOVE_DM_PEARL_BLACK_DOUBT, oSpellOrigin) && GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
     {
         // Will reset to 0.
-        DeleteLocalInt(oSpellOrigin, "PearlOfBlackDoubtBonus");
+		effect eEffect = GetFirstEffect(oSpellOrigin);
+		while(GetIsEffectValid(eEffect))
+		{
+			if(GetEffectTag(eEffect) == "PEARL_OF_BLACK_DOUBT_BONUS")
+			{
+				if(DEBUG) DoDebug("prc_onhit: PoBD onHit >> restting AC.");
+				DeleteLocalInt(oSpellOrigin, "PearlOfBlackDoubtBonus");
+				RemoveEffect(oSpellOrigin, eEffect);
+			}
+			eEffect = GetNextEffect(oSpellOrigin);
+		}
+
     }
     // Tactics of the Wolf
     if(GetHasSpellEffect(MOVE_WR_TACTICS_WOLF, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR)

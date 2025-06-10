@@ -896,7 +896,7 @@ void DeletePRCLocalInts(object oSkin)
     // Sacred Fist
     DeleteLocalInt(oSkin,"SacFisMv");
     // Minstrel
-    DeleteLocalInt(oSkin,"MinstrelSFBonus"); /// @todo Make ASF reduction compositable
+    DeleteLocalInt(oSkin,"MinstrelSFBonus"); //:: @todo Make ASF reduction compositable
     // Nightshade
     DeleteLocalInt(oSkin,"ImmuNSWeb");
     DeleteLocalInt(oSkin,"ImmuNSPoison");
@@ -929,7 +929,9 @@ void DeletePRCLocalInts(object oSkin)
     DeleteLocalInt(oSkin, "ThickerThanWater");
 	//:: Crusader
 	DeleteLocalInt(oPC, "DelayedDamageHB");
-
+	//:: Factotum
+	DeleteLocalInt(oPC, "InspirationHB");
+	
     // Feats
     DeleteLocalInt(oPC, "ForceOfPersonalityWis");
     DeleteLocalInt(oPC, "ForceOfPersonalityCha");

@@ -55,7 +55,8 @@ void main()
     if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nEssentia), DAMAGE_TYPE_BASE_WEAPON));
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
-    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+    //IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  //::  <- Wrong?
+	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLUESTEEL_BRACERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLOODED), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS) BluesteelBracersHB(oMeldshaper);
 }

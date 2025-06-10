@@ -54,6 +54,9 @@ void main()
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDuration = GetLevelByClass(CLASS_TYPE_DRUID, oPC)
                   + GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oPC);
+	
+	int bShiftingDruid = GetLocalInt(GetModule(),"PRC_DRUID_USES_SHIFTING");
+
     if (!GetLocalInt(GetModule(),"X3_NO_SHAPESHIFT_SPELL_CHECK"))
     { // check to see if abort due to being mounted
         if (PRCHorseGetIsMounted(oTarget))
@@ -71,6 +74,8 @@ void main()
 
     //this command will make shore that polymorph plays nice with the shifter
     ShifterCheck(OBJECT_SELF);
+	
+	StoreCurrentAppearanceAsTrueAppearance(oPC, TRUE);
 
     int nShape = GetPersistantLocalInt(oPC, PRC_PNP_SHIFTING + IntToString(nSpell));
     if(nShape > 0)
@@ -80,13 +85,31 @@ void main()
     }
 
     //Determine Polymorph subradial type
+	string sDruidShape;
+	
     if(nSpell == 401)
     {
-        nPoly = POLYMORPH_TYPE_BROWN_BEAR;
-        if (nDuration >= 12)
-        {
-            nPoly = POLYMORPH_TYPE_DIRE_BROWN_BEAR;
-        }
+        if (bShiftingDruid)
+		{
+			if (nDuration < 12)
+			{//:: Brown Bear 
+				//ShiftIntoResRef(oPC, SHIFTER_TYPE_DRUID, "nw_bearbrwn", FALSE);
+				sDruidShape = "nw_bearbrwn";
+			}
+			else
+			{//:: Dire Bear
+				//ShiftIntoResRef(oPC, SHIFTER_TYPE_DRUID, "nw_beardire", FALSE);
+				sDruidShape = "nw_beardire";
+			}			
+		}
+		else
+		{
+			nPoly = POLYMORPH_TYPE_BROWN_BEAR;
+			if (nDuration >= 12)
+			{
+				nPoly = POLYMORPH_TYPE_DIRE_BROWN_BEAR;
+			}
+		}
     }
     else if (nSpell == 402)
     {
@@ -158,7 +181,15 @@ void main()
 
     //Apply the VFX impact and effects
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, OBJECT_SELF);
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePoly, OBJECT_SELF, HoursToSeconds(nDuration));
+	if(bShiftingDruid)
+	{
+		ShiftIntoResRef(oPC, SHIFTER_TYPE_DRUID, sDruidShape, FALSE);
+		DelayCommand(HoursToSeconds(nDuration), SetShiftTrueForm(oPC));
+	}
+	else
+	{
+		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePoly, OBJECT_SELF, HoursToSeconds(nDuration));
+	}
 
     object oWeaponNew = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,OBJECT_SELF);
     object oArmorNew = GetItemInSlot(INVENTORY_SLOT_CARMOUR,OBJECT_SELF);

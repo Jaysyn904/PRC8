@@ -1903,6 +1903,14 @@ int ClassSLAStore(object oCaster, int nSpellID, int nCastingClass, int nSpellLev
     {
         FloatingTextStringOnCreature("SLA "+IntToString(nSLAID)+" stored", oCaster, FALSE);
         int nMetamagic = GetMetaMagicFeat();
+		
+        // Look up spell level if invalid (radial spells)
+        if(nSpellLevel < 0 || nSpellLevel >= 10)
+        {
+            string sInnateLevel = Get2DACache("spells", "Innate", nSpellID);
+            nSpellLevel = StringToInt(sInnateLevel);
+        }
+		
         SetPersistantLocalInt(oCaster, "PRC_SLA_SpellID_"+IntToString(nSLAID), nSpellID+1);
         SetPersistantLocalInt(oCaster, "PRC_SLA_Class_"+IntToString(nSLAID), nCastingClass);
         SetPersistantLocalInt(oCaster, "PRC_SLA_Meta_"+IntToString(nSLAID), nMetamagic);

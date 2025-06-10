@@ -313,6 +313,8 @@ int HotWMFeats()
 {	
 	int nHotWM = GetLevelByClass(CLASS_TYPE_HANDOTWM);
 	
+	if(nHotWM < 1) return FALSE;
+	
 	if (nHotWM > 30)
 	{ 
 		nHotWM = 30;
@@ -353,11 +355,15 @@ int HotWMFeats()
 
 int DiamondDragonFeats()
 {
-    int iDiamond = (GetLevelByClass(CLASS_TYPE_DIAMOND_DRAGON) + 5) / 5;
+    int iDiamond = GetLevelByClass(CLASS_TYPE_DIAMOND_DRAGON);
+	
+	if(iDiamond < 1) return FALSE;
+	
+	int nCount = (iDiamond + 5) / 5;
 
-    if(iDiamond)
+    if(nCount)
     {
-        int iAugments 	= GetHasFeat(FEAT_DRAGON_AUGMENT_STR_1)
+        int iAugments	= GetHasFeat(FEAT_DRAGON_AUGMENT_STR_1)
 						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_2)
 						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_3)
 						+ GetHasFeat(FEAT_DRAGON_AUGMENT_STR_4)
@@ -385,10 +391,9 @@ int DiamondDragonFeats()
 						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_8)
 						+ GetHasFeat(FEAT_DRAGON_AUGMENT_CON_9);
 
-
-        if(iDiamond != iAugments)
+        if(nCount != iAugments)
         {
-            FloatingTextStringOnCreature("You must pick a Diamond Dragon Ability Augment.  Please reslect your feats.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("You must pick a Diamond Dragon Ability Augment.  Please reselect your feats.", OBJECT_SELF, FALSE);
             return TRUE;
         }
     }
