@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: PRC Spellbook NUI Events
-//:: prc_nui_sb_event
+//:: prc_nui_sc_event
 //:://////////////////////////////////////////////
 /*
     This is the event script for the PRC Spellbook NUI that handles button presses
@@ -209,7 +209,7 @@ void main()
         if (sRange == "P")
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT, 1);
-            ExecuteScript("prc_nui_sb_trggr", oPlayer);
+            ExecuteScript("prc_nui_sc_trggr", oPlayer);
         }
         // otherwise enter targetting mode
         else

@@ -735,7 +735,7 @@ void main()
                  }
              }
         }
-   if (GetBaseItemType(oWeap)==BASE_ITEM_QUARTERSTAFF)
+   if (GetBaseItemType(oWeap)==BASE_ITEM_QUARTERSTAFF || GetBaseItemType(oWeap)==BASE_ITEM_MAGICSTAFF)
         {
         if (GetItemHasItemProperty(oWeap, ITEM_PROPERTY_KEEN) == TRUE)
              {

@@ -1154,6 +1154,7 @@ int GetIsDisciplineWeapon(object oWeapon, int nDiscipline)
         // Invalid is empty handed / Unarmed strike
         if(nType == BASE_ITEM_INVALID
         || nType == BASE_ITEM_QUARTERSTAFF
+        || nType == BASE_ITEM_MAGICSTAFF		
         || nType == BASE_ITEM_SHORTSWORD
         || nType == BASE_ITEM_NUNCHAKU)
             return TRUE;

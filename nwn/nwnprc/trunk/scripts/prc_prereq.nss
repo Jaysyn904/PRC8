@@ -1273,7 +1273,7 @@ void AOTSPreReqs(object oPC)
 	int iArcane = 0;
 	int iShadow = 0;
 	
-	if(GetLocalInt(oPC, "PRC_ArcSpell2") == 0)
+/* 	if(GetLocalInt(oPC, "PRC_ArcSpell2") == 0)
 	{ 
 		iArcane = 1;
 	}
@@ -1281,13 +1281,13 @@ void AOTSPreReqs(object oPC)
 	if(GetLocalInt(oPC, "PRC_MystLevel2") == 0)
 	{ 
 		iShadow = 1;
-	}
+	} */
 	
     // Initialize the prerequisite variable to 1
     SetLocalInt(oPC, "PRC_PrereqAOTS", 1);
 
     // Check if any of the conditions are met and set "PRC_PrereqAOTS" to 0 if true
-    if (iArcane > 0 || GetInvokerLevel(oPC) > 2 || iShadow > 0)
+    if (PRCGetCasterLevel(oPC) > 4 || GetInvokerLevel(oPC) > 4 || GetShadowcasterLevel(oPC) > 4)
     {
         SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
     }
@@ -1303,11 +1303,18 @@ void AOTSPreReqs(object oPC)
 
 void EnlF(object oPC)
 {
-     SetLocalInt(oPC, "PRC_PrereqEnlF", 1);
+	SetLocalInt(oPC, "PRC_PrereqEnlF", 1);
+    int iArcane = PRCGetCasterLevel(oPC);
+    if(iArcane >= 3 || GetInvokerLevel(oPC) >= 3)
+		SetLocalInt(oPC, "PRC_PrereqEnlF", 0);
+}
+	 
+	 
+/* 	 SetLocalInt(oPC, "PRC_PrereqEnlF", 1);
      int iArcane = GetLocalInt(oPC, "PRC_ArcSpell3");
      if(iArcane == 0 || GetInvokerLevel(oPC) >= 3)
          SetLocalInt(oPC, "PRC_PrereqEnlF", 0);
-}
+} */
 
 void LichPrereq(object oPC)
 {

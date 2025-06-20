@@ -10,6 +10,7 @@ int isSimple(object oItem)
       {
         case BASE_ITEM_MORNINGSTAR:
         case BASE_ITEM_QUARTERSTAFF:
+        case BASE_ITEM_MAGICSTAFF:		
         case BASE_ITEM_SHORTSPEAR:
         //case BASE_ITEM_HEAVYCROSSBOW:
           return 1;

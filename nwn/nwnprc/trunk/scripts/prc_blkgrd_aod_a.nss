@@ -6,7 +6,7 @@ void main()
     object oTarget = GetEnteringObject();
 
     // Apply the Aura of Despair penalties to hostiles only.
-    if (!GetIsReactionTypeFriendly(oTarget, oPC))
+    if (GetIsReactionTypeHostile(oTarget, oPC))
     {
         int nPen = 2;
         if (GetHasFeat(FEAT_IMPROVED_AURA_OF_DESPAIR, oPC)) nPen += 2;

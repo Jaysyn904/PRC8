@@ -20,7 +20,7 @@ void DoJump(object oPC, location lTarget, int bDoKnockdown);
 // DoSpellbookAction
 // This is a OnTarget event action handling the use of the NUI Spellbook's spell.
 // All this should do is take the manual targeting information and send it to the
-// prc_nui_sb_trggr to handle the use of the spell.
+// prc_nui_sc_trggr to handle the use of the spell.
 //
 // Arguments:
 //   oPC:object the player executing the action
@@ -85,7 +85,7 @@ void DoSpellbookAction(object oPC, object oTarget, location lTarget)
         SetLocalLocation(oPC, "TARGETING_POSITION", lTarget);
     }
 
-    ExecuteScript("prc_nui_sb_trggr", oPC);
+    ExecuteScript("prc_nui_sc_trggr", oPC);
     ClearEventVariables(oPC);
 }
 

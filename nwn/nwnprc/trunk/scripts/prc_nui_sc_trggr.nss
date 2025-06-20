@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: PRC Spellbook OnTrigger Script
-//:: prc_nui_sb_trggr
+//:: prc_nui_sc_trggr
 //:://////////////////////////////////////////////
 /*
     This is the OnTarget action script used to make spell attacks with the

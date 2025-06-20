@@ -119,7 +119,7 @@ void PRCFeat_Equip(object oPC, object oSkin, int iEquip)
 	//:: Charming the Arrow - Apply bonus if Charisma > Dexterity for bows & crossbows
 		if (GetHasFeat(FEAT_CHARMING_THE_ARROW, oPC))
 		{
-			if (nType == BASE_ITEM_HEAVYCROSSBOW || nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_LONGBOW || nType == BASE_ITEM_SHORTBOW)
+			if (nType == BASE_ITEM_HEAVYCROSSBOW || nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_LONGBOW || nType == BASE_ITEM_SHORTBOW || nType == BASE_ITEM_ARROW || nType == BASE_ITEM_BOLT)
 			{
 				int nChaMod = GetAbilityModifier(ABILITY_CHARISMA, oPC);
 				int nDexMod = GetAbilityModifier(ABILITY_DEXTERITY, oPC);

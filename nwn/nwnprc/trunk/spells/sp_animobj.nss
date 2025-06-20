@@ -47,6 +47,7 @@ int GetWeaponAnimateSize(object oTarget)
         case BASE_ITEM_LONGSWORD:
         case BASE_ITEM_MORNINGSTAR:
         case BASE_ITEM_QUARTERSTAFF:
+        case BASE_ITEM_MAGICSTAFF:		
         case BASE_ITEM_RAPIER:
         case BASE_ITEM_SCIMITAR:
         case BASE_ITEM_SHORTSPEAR:
@@ -128,6 +129,7 @@ int GetIsValidAnimate(object oTarget)
         case BASE_ITEM_LONGSWORD:
         case BASE_ITEM_MORNINGSTAR:
         case BASE_ITEM_QUARTERSTAFF:
+		case BASE_ITEM_MAGICSTAFF:
         case BASE_ITEM_RAPIER:
         case BASE_ITEM_SCIMITAR:
         case BASE_ITEM_SCYTHE:

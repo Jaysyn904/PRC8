@@ -156,6 +156,11 @@ int IsProficient(object oPC, int nBaseItem)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_WIZARD, oPC);                 
 
+        case BASE_ITEM_MAGICSTAFF:
+            return GetHasFeat(FEAT_WEAPON_PROFICIENCY_SIMPLE, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_DRUID, oPC)
+                 || GetHasFeat(FEAT_WEAPON_PROFICIENCY_WIZARD, oPC); 
+				 
         case BASE_ITEM_RAPIER:
             return GetHasFeat(FEAT_WEAPON_PROFICIENCY_RAPIER, oPC)
                  || GetHasFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, oPC)

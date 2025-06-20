@@ -2704,7 +2704,7 @@ Special Abilities:
 - +4 Level Adjustment
 - 4 Racial Hit Dice of Construct
 - Adamantine Body and Powerful Charge bonus feats
-- Immune to sneak attacks and critical hits
+- Moderate Fortification (Ex): When a critical hit or sneak attack is scored on a warforged charger, there is a 75% chance that the critical hit or sneak attack is negated and damage is instead rolled normally.
 - Two 1d8 slam attacks
 - Living Construct subtype:
   Immune to sleep, paralyze, poison, energy drain, and disease
@@ -5578,7 +5578,7 @@ Through this diabolic act of symbiosis, the Acolyte hopes to gain infernal power
 
 REQUIREMENTS:
 
-Arcane Spellcasting: Able to cast 3rd-level arcane spells.
+Arcane Spellcasting: Caster level 5th.
 Skills: Lore (8 ranks).
 Alignment: Any non-good.
 
@@ -27081,6 +27081,7 @@ Special Abilities:
 - Composite Plating: +2 to AC, cannot wear armor, and 5% arcane spell failure chance.
 - Living Construct subtype:
   Immune to sleep, paralyze, poison, energy drain, and disease
+- Light Fortification (Ex): When a critical hit or sneak attack is scored on a warforged, there is a 25% chance that the critical hit or sneak attack is negated and damage is instead rolled normally.  
   Does not heal naturally, healing spells only heal half the normal amount.
 - Construct: Warforged count as Constructs for the purpose of spells.</entry>
   <entry id="50988" lang="en" sex="m">You were created to fight in a great war, a construct designed to be a self-sufficient soldier and make decisions as necessary in the field.  The war ended, and because of your kind's sentience, you were freed.  With no war left to fight, and no owner other than yourself, you must find a new place in the world.</entry>
@@ -38650,7 +38651,7 @@ Area of Effect / Target: Single
 Duration: 10 minutes / level
 Additional Counter Spells:
 
-You bestow upon a character a scintillating aura around his head, imbuing him with great power. The target receives a +4 luck bonus to AC, attack rolls, saving throws, and all ability scores.
+You bestow upon a character a scintillating aura around his head, imbuing him with great power. The target receives a +4 deflection bonus to AC and a +4 luck bonus to attack rolls, saving throws, and all ability scores.
 </entry>
   <entry id="53026" lang="en" sex="m">Energy Immunity</entry>
   <entry id="53027" lang="en" sex="m">Caster Level(s): Cleric 6, Druid 6, Wizard / Sorcerer 7
@@ -46007,11 +46008,11 @@ You can create a ward against a specific type of creature for the duration. Any 
 Components: V,S
 Range: Touch
 Target: Creature touched
-Duration: Caster Level Rounds
+Duration: 1 Round / Caster level
 Saving Throw: None
 Spell Resistance: No
 
-You can create a permanent ward against all spells of 1st through 9th level that target the subject.</entry>
+You can create a ward against all hostile spells of 1st through 9th level that target the subject.  Like all other epic spells, Epic Spell Reflection is still subject to dispel attempts.</entry>
   <entry id="56173" lang="en" sex="m">Epic Spell: Epic Warding</entry>
   <entry id="56174" lang="en" sex="m">Researched Epic Spell: Epic Warding</entry>
   <entry id="56175" lang="en" sex="m">School: Abjuration

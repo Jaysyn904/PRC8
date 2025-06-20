@@ -30,7 +30,7 @@ void main()
     if(sWindowId == PRC_SPELLBOOK_NUI_WINDOW_ID
         || sWindowId == NUI_SPELL_DESCRIPTION_WINDOW_ID)
     {
-        ExecuteScript("prc_nui_sb_event");
+        ExecuteScript("prc_nui_sc_event");
     }
 
     return;

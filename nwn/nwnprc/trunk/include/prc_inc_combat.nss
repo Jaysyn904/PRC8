@@ -1082,6 +1082,7 @@ int GetIsTwoHandedMeleeWeaponType(int iWeaponType)
 		case BASE_ITEM_HEAVYFLAIL:			return TRUE;
 		case BASE_ITEM_SCYTHE:				return TRUE;
 		case BASE_ITEM_QUARTERSTAFF:		return TRUE;		
+		case BASE_ITEM_MAGICSTAFF:	 		return TRUE;		
 		case BASE_ITEM_ELVEN_COURTBLADE:	return TRUE;
 		case BASE_ITEM_MAUL:				return TRUE;
 		case BASE_ITEM_FALCHION:			return TRUE;	
@@ -1093,7 +1094,7 @@ int GetIsTwoHandedMeleeWeapon(object oWeap)
 {
    return GetIsTwoHandedMeleeWeaponType(GetBaseItemType(oWeap));
 }
-
+	
 int GetIsCreatureWeaponType(int iWeaponType)
 {
 // any of the three creature weapon types that produce bludgeoning, piercing or slashing damage
@@ -1130,6 +1131,7 @@ int GetIsSimpleWeaponType(int iWeaponType)
     {
         case BASE_ITEM_MORNINGSTAR:     return 1;
         case BASE_ITEM_QUARTERSTAFF:    return 1;
+		case BASE_ITEM_MAGICSTAFF:		return 1;		
         case BASE_ITEM_SHORTSPEAR:      return 1;
         case BASE_ITEM_HEAVYCROSSBOW:   return 1;
         case BASE_ITEM_INVALID:         return 1;
@@ -1562,6 +1564,19 @@ struct WeaponFeat GetAllFeatsOfWeaponType(int iWeaponType)
             sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_QUARTERSTAFF;
             break;
         }
+        case BASE_ITEM_MAGICSTAFF: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_STAFF;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_STAFF;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_QUARTERSTAFF;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_QUARTERSTAFF;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_STAFF;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_QUARTERSTAFF;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_QUARTERSTAFF;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_QUARTERSTAFF;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_QUARTERSTAFF;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_QUARTERSTAFF;
+            break;
+        }		
         case BASE_ITEM_RAPIER: {
             sFeat.Focus = FEAT_WEAPON_FOCUS_RAPIER;
             sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_RAPIER;

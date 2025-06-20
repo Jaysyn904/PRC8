@@ -11,7 +11,7 @@ void main()
     while(GetIsObjectValid(oTarget))
     {
         // Apply the Aura of Despair penalties to hostiles only.
-        if (!GetIsReactionTypeFriendly(oTarget, oPC))
+        if (GetIsReactionTypeHostile(oTarget, oPC))
         {
             ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
         }

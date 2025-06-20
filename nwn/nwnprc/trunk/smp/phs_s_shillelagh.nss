@@ -59,7 +59,8 @@ void main()
     {
         // What sort of item is it? is it a valid one!
         if(nItemType == BASE_ITEM_CLUB ||
-           nItemType == BASE_ITEM_QUARTERSTAFF)
+           nItemType == BASE_ITEM_QUARTERSTAFF
+		   nItemType == BASE_ITEM_MAGICSTAFF)
         {
             // Cannot be enchanted
             if(!PHS_IP_GetIsEnchanted(oTarget))

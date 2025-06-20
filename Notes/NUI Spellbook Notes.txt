@@ -1,16 +1,22 @@
-hp_pa_events		->	prc_nui_pa_event*	
+//:: Scripts
+hp_pa_events		->	prc_nui_pa_event
 hp_pa_script		->	prc_nui_pa_trggr
 hp_pa_view			->	prc_nui_pa_view	
-hp_sb_events		->	prc_nui_sb_event
-hp_sb_otscript		->	prc_nui_sb_trggr
-hp_sb_view			->	prc_nui_sb_view
+hp_sb_events		->	prc_nui_sc_event
+hp_sb_otscript		->	prc_nui_sc_trggr
+hp_sb_view			->	prc_nui_sc_view
+hp_desc_events		->	prc_nui_dsc_evnt
+hp_sb_desc_view		->	prc_nui_dsc_view
+hp_lvl_events		->	prc_nui_lv_event
+hp_lvl_view			->	prc_nui_lv_view
 
-
-//:: INCLUDES
+//:: Includes
 hp_nui_consts		->	prc_nui_consts
-hp_sb_script		->	prc_nui_sb_inc
+hp_sb_script		->	prc_nui_sc_inc
 hp_string_util		->	prc_string_inc
-hp_sb_desc_view		->	prc_nui_sbd_inc
+hp_desc_view		->	prc_nui_scd_inc
+hp_sb_common		->	prc_nui_com_inc
+hp_lvl_script		->	prc_nui_lv_inc
 
 //:: Events
 hp_chatscript		-> prc_onplayerchat

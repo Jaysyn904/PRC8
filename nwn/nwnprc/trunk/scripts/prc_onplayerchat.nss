@@ -139,7 +139,7 @@ void main()
         // If the first word is /sb then we open the Spellbook NUI
         if(firstWord == "/sb")
         {
-            ExecuteScript("prc_nui_sb_view", oPC);
+            ExecuteScript("prc_nui_sc_view", oPC);
 
             // clear message from chat
             SetPCChatMessage();
