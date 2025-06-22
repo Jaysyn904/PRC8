@@ -4,8 +4,8 @@
 //:://////////////////////////////////////////////
 /*
     This handles any NUI events and sends them to
-	appropriate NUI Event handler depending on the
-	window Id
+    appropriate NUI Event handler depending on the
+    window Id
 */
 //:://////////////////////////////////////////////
 //:: Created By: Rakiov
@@ -22,16 +22,18 @@ void main()
 
     // Open the Power Attack NUI
     if(sWindowId == NUI_PRC_POWER_ATTACK_WINDOW)
-    {
         ExecuteScript("prc_nui_pa_event");
-    }
 
     // Open the Spellbook NUI
-    if(sWindowId == PRC_SPELLBOOK_NUI_WINDOW_ID
-        || sWindowId == NUI_SPELL_DESCRIPTION_WINDOW_ID)
-    {
-        ExecuteScript("prc_nui_sc_event");
-    }
+    if(sWindowId == PRC_SPELLBOOK_NUI_WINDOW_ID)
+        ExecuteScript("prc_nui_sb_event");
+
+    if (sWindowId == NUI_SPELL_DESCRIPTION_WINDOW_ID)
+        ExecuteScript("prc_nui_dsc_evnt");
+
+    if (sWindowId == NUI_LEVEL_UP_WINDOW_ID)
+        ExecuteScript("prc_nui_lv_event");
 
     return;
 }
+

@@ -1549,7 +1549,7 @@ const int FEAT_STIGMATA 							   = 3163;
 const int FEAT_SERVHEAVEN 							   = 3355;
 const int FEAT_RANGED_SMITE 						   = 3356;
 const int FEAT_VOW_PURITY 							   = 5360;
-const int FEAT_VOWOFPOVERTY                            = 26001;
+const int FEAT_VOWOFPOVERTY                            = 26002;
 
 //Vile Feat
 const int FEAT_LICHLOVED                               = 3395;
@@ -1868,12 +1868,12 @@ const int FEAT_SANCTIFY_MARTIAL_SICKLE      = 3169;
 const int FEAT_SANCTIFY_MARTIAL_MINDBLADE   = 3623;
 const int FEAT_SANCTIFY_MARTIAL_WHIP        = 3596;
 const int FEAT_SANCTIFY_MARTIAL_TRIDENT     = 3597;
-const int FEAT_SANCTIFYKISTRIKE    		    = 26002;
-const int FEAT_HOLYKISTRIKE     			= 26003;
-const int FEAT_FISTOFHEAVENS     			= 26004;
-const int FEAT_VOWABSTINENCE     			= 26005;
-const int FEAT_VOWCHASTITY     			    = 26006;
-const int FEAT_GIFTOFFAITH      			= 26007;
+const int FEAT_SANCTIFYKISTRIKE    		    = 26003;
+const int FEAT_HOLYKISTRIKE     			= 26004;
+const int FEAT_FISTOFHEAVENS     			= 26005;
+const int FEAT_VOWABSTINENCE     			= 26006;
+const int FEAT_VOWCHASTITY     			    = 26007;
+const int FEAT_GIFTOFFAITH      			= 26008;
 
 //heartwarder
 const int FEAT_CHARISMA_INC1     = 3230;

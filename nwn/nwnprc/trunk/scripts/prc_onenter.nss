@@ -217,6 +217,11 @@ void main()
     // through the .2da's, the entering player already meets.
     ExecuteScript("prc_prereq", oPC);
     ExecuteScript("prc_psi_ppoints", oPC);
+	if (GetHasFeat(FEAT_VOWOFPOVERTY, oPC) == TRUE) 
+	{
+		ExecuteScript("prc_vop_feats_oe", oPC);
+	}
+	
     ResetTouchOfVitality(oPC);
     DelayCommand(0.15, DeleteLocalInt(oPC,"ONENTER"));
 

@@ -111,3 +111,48 @@ const string NUI_PRC_PA_TEXT_BIND = "nui_prc_pa_text_bind";
 const string NUI_PRC_PA_LEFT_BUTTON_ENABLED_BIND = "leftButtonEnabled";
 // Right Button Enabled Bind for Power Attack NUI
 const string NUI_PRC_PA_RIGHT_BUTTON_ENABLED_BIND = "rightButtonEnabled";
+
+//////////////////////////////////////////////////
+//                                              //
+// NUI Level Up                                 //
+//                                              //
+//////////////////////////////////////////////////
+
+const string NUI_LEVEL_UP_WINDOW_ID = "prcLevelUpNui";
+
+const string NUI_LEVEL_UP_SPELL_CIRCLE_BUTTON_BASEID = "NuiLevelUpCircleButton_";
+const string NUI_LEVEL_UP_SPELL_BUTTON_BASEID = "NuiLevelUpSpellButton_";
+const string NUI_LEVEL_UP_SPELL_DISABLED_BUTTON_BASEID = "NuiLevelUpDisabledSpellButton_";
+const string NUI_LEVEL_UP_SPELL_CHOSEN_BUTTON_BASEID = "NuiLevelUpChosenSpellButton_";
+const string NUI_LEVEL_UP_SPELL_CHOSEN_DISABLED_BUTTON_BASEID = "NuiLevelUpDisabledChosenSpellButton_";
+const string NUI_LEVEL_UP_DONE_BUTTON = "NuiLevelUpDoneButton";
+const string NUI_LEVEL_UP_RESET_BUTTON = "NuiLevelUpResetButton";
+
+const string NUI_LEVEL_UP_SELECTED_CLASS_VAR = "NUILevelUpSelectedClass";
+const string NUI_LEVEL_UP_SELECTED_CIRCLE_VAR = "NUILevelUpSelectedCircle";
+const string NUI_LEVEL_UP_KNOWN_SPELLS_VAR = "NUILevelUpKnownSpells";
+const string NUI_LEVEL_UP_CHOSEN_SPELLS_VAR = "NUILevelUpChosenSpells";
+const string NUI_LEVEL_UP_EXPANDED_KNOW_LIST_VAR = "NUILevelUpExpKnowList";
+const string NUI_LEVEL_UP_POWER_LIST_VAR = "NUILevelUpPowerList";
+const string NUI_LEVEL_UP_DISCIPLINE_INFO_VAR = "GetDisciplineInfoObjectCache_";
+const string NUI_LEVEL_UP_SPELLID_LIST_VAR = "NUILevelUpSpellIDList_";
+const string NUI_LEVEL_UP_REMAINING_CHOICES_CACHE_VAR = "NUIRemainingChoicesCache";
+const string NUI_LEVEL_UP_RELEARN_LIST_VAR = "NUILevelUpRelearnList";
+const string NUI_LEVEL_UP_ARCHIVIST_NEW_SPELLS_LIST_VAR = "NUILevelUpArchivistNewSpellsList";
+
+const string NUI_LEVEL_UP_EXPANDED_CHOICES_VAR = "NUIExpandedChoices";
+const string NUI_LEVEL_UP_EPIC_EXPANDED_CHOICES_VAR = "NUIEpicExpandedChoices";
+
+const int NUI_LEVEL_UP_MANEUVER_PREREQ_LIMIT = 6;
+
+const string NUI_LEVEL_UP_MANEUVER_TOTAL = "ManeuverTotal";
+const string NUI_LEVEL_UP_STANCE_TOTAL = "StanceTotal";
+
+const string NUI_LEVEL_UP_SPELLBOOK_OBJECT_CACHE_VAR = "GetSpellListObjectCache_";
+const string NUI_LEVEL_UP_KNOWN_INVOCATIONS_CACHE_VAR = "GetInvokerKnownListObjectCache_";
+
+const string NUI_SPELL_DESCRIPTION_FEATID_VAR = "NUISpellDescriptionFeatID";
+const string NUI_SPELL_DESCRIPTION_CLASSID_VAR = "NUISpellDescriptionClassID";
+const string NUI_SPELL_DESCRIPTION_SPELLID_VAR = "NUISpellDescriptionSpellID";
+const string NUI_SPELL_DESCRIPTION_REAL_SPELLID_VAR = "NUISpellDescriptionRealSpellID";
+

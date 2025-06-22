@@ -382,17 +382,17 @@ int GetPrCAdjustedClassLevel(int nClass, object oCaster = OBJECT_SELF)
     // is it arcane, divine or neither?
     if(GetIsArcaneClass(nClass, oCaster) && nClass != CLASS_TYPE_SUBLIME_CHORD)
     {
-        if (GetPrimaryArcaneClass(oCaster) == nClass) // adjust for any PrCs
+		if (GetPrimaryArcaneClass(oCaster) == nClass) // adjust for any PrCs
             iTemp = GetArcanePRCLevels(oCaster, nClass);
     }
     else if(GetIsDivineClass(nClass, oCaster))
     {
-        if (GetPrimaryDivineClass(oCaster) == nClass) // adjust for any PrCs
-            iTemp = GetDivinePRCLevels(oCaster, nClass);
+		if (GetPrimaryDivineClass(oCaster) == nClass) // adjust for any PrCs
+            iTemp = GetDivinePRCLevels(oCaster, nClass);			
     }
     else // a non-caster class or a PrC
     {
-        return 0;
+		return 0;
     }
     // add the caster class levels
     return iTemp += GetLevelByClass(nClass, oCaster);

@@ -1054,15 +1054,57 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
     //Master of Nine
     SetLocalInt(oPC, "PRC_PrereqMoNine", 1);
     // Needs 6 maneuvers, so check the persistent locals
-    int i, nCount, nSkills;
+	int nCount = 0;
+	int nTotal = 0;
+
+	int nDesert 	= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_DESERT_WIND);
+	if (nDesert > 0)	nCount += 1;
+	
+	int nDevoted 	= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_DEVOTED_SPIRIT);
+	if (nDevoted > 0)	nCount += 1;
+		
+	int nDiamond	= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_DIAMOND_MIND);
+	if (nDiamond > 0)	nCount += 1;
+	
+	int nTiger		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_TIGER_CLAW);	
+	if (nTiger > 0)	nCount += 1;
+	
+	int nShadow		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_SHADOW_HAND);	
+	if (nShadow > 0)	nCount += 1;
+	
+	int nStone 		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_STONE_DRAGON);
+	if (nStone > 0)	nCount += 1;	
+	
+	int nSun 		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_SETTING_SUN);
+	if (nSun > 0)	nCount += 1;
+	
+	int nRaven 		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_WHITE_RAVEN);	
+	if (nRaven > 0)	nCount += 1;	
+
+	nTotal = nDevoted + nDiamond + nTiger + nShadow + nStone + nSun + nRaven + nDesert;
+	
+	if (DEBUG) DoDebug("You have "+IntToString(nDevoted)+" Devoted Spirit Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nDiamond)+" Diamond Mind Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nTiger)+" Tiger Claw Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nShadow)+" Shadow Hand Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nStone)+" Stone Dragon Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nSun)+" Setting Sun Maneuvers");	
+	if (DEBUG) DoDebug("You have "+IntToString(nRaven)+" White Raven Maneuvers");
+	if (DEBUG) DoDebug("You have "+IntToString(nDesert)+" Desert Wind Maneuvers");	
+	
+	if (DEBUG) DoDebug("You have "+IntToString(nTotal)+" total Maneuvers from "+IntToString(nCount)+" Disciplines.");			
+			
+    // Needs 6 maneuvers, so check the persistent locals
+/*     int i, nCount, nSkills;
     for(i = 1; i <= 256; i <<= 1)
     {
         // Loop over all disciplines, and total up how many he knows
         if(_CheckPrereqsByDiscipline(oPC, i))
             nCount++;
-    }
+    }	 */
 
-    // Base ranks only
+    int nSkills = 0;
+	// Base ranks only
     if(GetSkillRank(SKILL_TUMBLE, oPC, TRUE) >= 10) nSkills += 1;
     if(GetSkillRank(SKILL_INTIMIDATE, oPC, TRUE) >= 10) nSkills += 1;
     if(GetSkillRank(SKILL_CONCENTRATION, oPC, TRUE) >= 10) nSkills += 1;
@@ -1071,6 +1113,8 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
     if(GetSkillRank(SKILL_HIDE, oPC, TRUE) >= 10) nSkills += 1;
     if(GetSkillRank(SKILL_JUMP, oPC, TRUE) >= 10) nSkills += 1;
     if(GetSkillRank(SKILL_PERSUADE, oPC, TRUE) >= 10) nSkills += 1;
+	
+	if (DEBUG) DoDebug("You have "+IntToString(nSkills)+" total Skills over 10 ranks.");	
 
     if(nCount >= 6 && nSkills >= 4)
         SetLocalInt(oPC, "PRC_PrereqMoNine", 0);

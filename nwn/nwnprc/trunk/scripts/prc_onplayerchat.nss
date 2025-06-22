@@ -3,9 +3,9 @@
 //:: prc_onplayerchat
 //:://////////////////////////////////////////////
 /*
-    A OnChat script that parses what is said and 
-	uses any commands or NUI associated with
-	commands.
+    A OnChat script that parses what is said and
+    uses any commands or NUI associated with
+    commands.
 */
 //:://////////////////////////////////////////////
 //:: Updated By: Rakiov
@@ -28,6 +28,7 @@ OR:
 #include "prc_string_inc"
 #include "prc_nui_sb_inc"
 #include "prc_nui_consts"
+#include "prc_nui_lv_inc"
 
 const string CHAT_COMMAND_INDICATOR_1 = "~~";
 const string CHAT_COMMAND_INDICATOR_2 = "..";
@@ -135,19 +136,31 @@ void main()
 
             // clear message from chat
             SetPCChatMessage();
+            return;
         }
         // If the first word is /sb then we open the Spellbook NUI
         if(firstWord == "/sb")
         {
-            ExecuteScript("prc_nui_sc_view", oPC);
+            ExecuteScript("prc_nui_sb_view", oPC);
 
             // clear message from chat
             SetPCChatMessage();
+            return;
+        }
+        if (firstWord == "/lvl")
+        {
+            if (JsonGetLength(sCommandSplit) >= 2)
+            {
+                int classPos = StringToInt(JsonGetString(JsonArrayGet(sCommandSplit, 1)));
+                int nClass = GetClassByPosition(classPos, oPC);
+                OpenNUILevelUpWindow(nClass, oPC);
+                SetPCChatMessage();
+                return;
+            }
         }
     }
-
-
 
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERCHAT);
 }
+

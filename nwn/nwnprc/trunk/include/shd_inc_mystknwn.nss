@@ -41,6 +41,7 @@ const string _MYSTERY_LIST_MISC_ARRAY    = "_MysteriesKnownMiscArray";
 const string _MYSTERY_LIST_LEVEL_ARRAY   = "_MysteriesKnownLevelArray_";
 const string _MYSTERY_LIST_GENERAL_ARRAY = "_MysteriesKnownGeneralArray";
 
+#include "shd_inc_shdfunc"
 
 //////////////////////////////////////////////////
 /*             Function prototypes              */

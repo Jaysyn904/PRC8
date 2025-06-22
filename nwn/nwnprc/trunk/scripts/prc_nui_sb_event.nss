@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: PRC Spellbook NUI Events
-//:: prc_nui_sc_event
+//:: prc_nui_sb_event
 //:://////////////////////////////////////////////
 /*
     This is the event script for the PRC Spellbook NUI that handles button presses
@@ -13,7 +13,6 @@
 
 #include "prc_nui_consts"
 #include "prc_nui_sb_inc"
-#include "prc_nui_sbd_inc"
 
 //
 // SetWindowGeometry
@@ -75,18 +74,9 @@ void main()
     string sElement  = NuiGetEventElement();
     string sWindowId = NuiGetWindowId(oPlayer, nToken);
 
-    // if this was the Spell Description NUI and the OK button was clicked
-    // then we close the window.
-    if (sWindowId == NUI_SPELL_DESCRIPTION_WINDOW_ID)
+    if (sEvent == "watch" && sElement == "geometry")
     {
-        if (sElement == NUI_SPELL_DESCRIPTION_OK_BUTTON)
-            NuiDestroy(oPlayer, nToken);
-        return;
-    }
-
-    // if the window is closed, save the geometry
-    if (sEvent == "close")
-    {
+        // Save the geometry
         SetWindowGeometry(oPlayer, nToken);
         return;
     }
@@ -96,9 +86,6 @@ void main()
     {
         return;
     }
-
-    // Save the geometry first
-    SetWindowGeometry(oPlayer, nToken);
 
     int spellId;
     int featId;
@@ -192,7 +179,8 @@ void main()
     // If right click, open the Spell Description NUI
     if (nButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
     {
-        CreateSpellDescriptionNUI(oPlayer, featId, spellId, realSpellId);
+        int classId = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
+        CreateSpellDescriptionNUI(oPlayer, featId, spellId, realSpellId, classId);
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
         return;
     }
@@ -209,7 +197,7 @@ void main()
         if (sRange == "P")
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT, 1);
-            ExecuteScript("prc_nui_sc_trggr", oPlayer);
+            ExecuteScript("prc_nui_sb_trggr", oPlayer);
         }
         // otherwise enter targetting mode
         else
@@ -228,7 +216,7 @@ void main()
 
             SetEnterTargetingModeData(oPlayer, iShape, fSizeX, fSizeY, nFlags, fRange);
             EnterTargetingMode(oPlayer, iTargetType);
-        }
+            }
     }
 }
 

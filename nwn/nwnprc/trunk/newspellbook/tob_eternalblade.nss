@@ -79,6 +79,7 @@ void RemoveUncannyDodge(object oInitiator)
         DeleteLocalInt(oInitiator, "ETBL_AUD_Applied");
     }
 }
+
 void BladeGuide(object oInitiator, object oItem)
 {
     if (GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
@@ -176,11 +177,12 @@ void main()
             oItem      = GetItemInSlot(INVENTORY_SLOT_CHEST, oInitiator);
     }
 
-    int nClass        = CLASS_TYPE_ETERNAL_BLADE;
-    int nLevel        = GetLevelByClass(CLASS_TYPE_ETERNAL_BLADE, oInitiator);
-    int nMoveTotal    = GetKnownManeuversModifier(oInitiator, nClass, MANEUVER_TYPE_MANEUVER);
-    int nStncTotal    = GetKnownManeuversModifier(oInitiator, nClass, MANEUVER_TYPE_STANCE);
-    int nRdyTotal     = GetReadiedManeuversModifier(oInitiator, nClass);
+    int nClass			= CLASS_TYPE_ETERNAL_BLADE;
+    int nLevel			= GetLevelByClass(CLASS_TYPE_ETERNAL_BLADE, oInitiator);
+	int nBladeClass 	= GetPrimaryBladeMagicClass(oInitiator);
+	int nMoveTotal		= GetKnownManeuversModifier(oInitiator, nBladeClass, MANEUVER_TYPE_MANEUVER);
+	int nStncTotal		= GetKnownManeuversModifier(oInitiator, nBladeClass, MANEUVER_TYPE_STANCE);
+	int nRdyTotal		= GetReadiedManeuversModifier(oInitiator, nBladeClass);
 
     if(DEBUG) DoDebug("tob_eternalblade running, event: " + IntToString(nEvent));
     if(DEBUG) DoDebug("tob_eternalblade nMoveTotal: " + IntToString(nMoveTotal));
@@ -203,57 +205,109 @@ void main()
         // It's not pretty, but it works
         if (nLevel >= 1 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade1"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 1");
-            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 1: " + IntToString(++nMoveTotal));
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            nMoveTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 1");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 1: " + IntToString(nMoveTotal));
+            //DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), nMoveTotal, MANEUVER_TYPE_MANEUVER));
+			SetKnownManeuversModifier(oInitiator, nBladeClass, nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade1", TRUE);
-            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
-        }
+            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", DISCIPLINE_DEVOTED_SPIRIT + 
+																	DISCIPLINE_DIAMOND_MIND + 
+																	DISCIPLINE_IRON_HEART + 
+																	DISCIPLINE_WHITE_RAVEN);  //:: (270)
+
+			if (DEBUG) DoDebug("Granted Maneuver at Level 1: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));
+		}
 
         if (nLevel >= 3 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade3"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 3");
-            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 3: " + IntToString(++nMoveTotal));
-            SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            nMoveTotal += 1;
+			nRdyTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 3");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 3: " + IntToString(nMoveTotal));
+            SetReadiedManeuversModifier(oInitiator, nBladeClass, nRdyTotal);
+            //DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), nMoveTotal, MANEUVER_TYPE_MANEUVER));
+			SetKnownManeuversModifier(oInitiator, nBladeClass, nMoveTotal, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade3", TRUE);
-            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
+            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", DISCIPLINE_DEVOTED_SPIRIT + 
+																	DISCIPLINE_DIAMOND_MIND + 
+																	DISCIPLINE_IRON_HEART + 
+																	DISCIPLINE_WHITE_RAVEN);  //:: (270)
+		
+			if (DEBUG) DoDebug("Granted Maneuver at Level 3: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));
         }
 
         if (nLevel >= 5 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade5"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 5");
+            nStncTotal += 1;
+			nMoveTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 5");
             if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 5: " + IntToString(++nMoveTotal));
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nStncTotal, MANEUVER_TYPE_STANCE));
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            //DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), nStncTotal, MANEUVER_TYPE_STANCE));
+            //DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            SetKnownManeuversModifier(oInitiator, nBladeClass, nStncTotal, MANEUVER_TYPE_STANCE);
+            SetKnownManeuversModifier(oInitiator, nBladeClass, nMoveTotal, MANEUVER_TYPE_MANEUVER);			
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade5", TRUE);
-            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
+            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", DISCIPLINE_DEVOTED_SPIRIT + 
+																	DISCIPLINE_DIAMOND_MIND + 
+																	DISCIPLINE_IRON_HEART + 
+																	DISCIPLINE_WHITE_RAVEN);  //:: (270)
+																				
+			if (DEBUG) DoDebug("Granted Maneuver at Level 5: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));
         }
 
         if (nLevel >= 6 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade6"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 6");
-            SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
+            nRdyTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 6");
+            SetReadiedManeuversModifier(oInitiator, nBladeClass, nRdyTotal);
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade6", TRUE);
+			
+			if (DEBUG) DoDebug("Granted Maneuver at Level 6: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");			
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));			
         }
 
         if (nLevel >= 7 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade7"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 7");
-            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 7: " + IntToString(++nMoveTotal));
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            nMoveTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 7");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 7: " + IntToString(nMoveTotal));
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, nBladeClass, nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade7", TRUE);
-            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
+            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", DISCIPLINE_DEVOTED_SPIRIT + 
+																	DISCIPLINE_DIAMOND_MIND + 
+																	DISCIPLINE_IRON_HEART + 
+																	DISCIPLINE_WHITE_RAVEN);  //:: (270)
+																	
+			if (DEBUG) DoDebug("Granted Maneuver at Level 7: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");			
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));																			
         }
 
         if (nLevel >= 9 && !GetPersistantLocalInt(oInitiator, "ToBEternalBlade9"))
         {
-            if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 9");
-            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 9: " + IntToString(++nMoveTotal));
-            SetReadiedManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nRdyTotal);
-            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, GetPrimaryBladeMagicClass(oInitiator), ++nMoveTotal, MANEUVER_TYPE_MANEUVER));
+            nMoveTotal += 1;
+			nRdyTotal += 1;
+			if(DEBUG) DoDebug("tob_eternalblade: Adding Maneuver 9");
+            if(DEBUG) DoDebug("tob_eternalblade SetKnownManeuversModifier 9: " + IntToString(nMoveTotal));
+            SetReadiedManeuversModifier(oInitiator, nBladeClass, nRdyTotal);
+            DelayCommand(0.0f, SetKnownManeuversModifier(oInitiator, nBladeClass, nMoveTotal, MANEUVER_TYPE_MANEUVER));
             SetPersistantLocalInt(oInitiator, "ToBEternalBlade9", TRUE);
-            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 270);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DIAMOND_MIND + DISCIPLINE_IRON_HEART + DISCIPLINE_WHITE_RAVEN
+            SetPersistantLocalInt(oInitiator, "AllowedDisciplines", DISCIPLINE_DEVOTED_SPIRIT + 
+																	DISCIPLINE_DIAMOND_MIND + 
+																	DISCIPLINE_IRON_HEART + 
+																	DISCIPLINE_WHITE_RAVEN);  //:: (270)
+																	
+			if (DEBUG) DoDebug("Granted Maneuver at Level 9: total now " + IntToString(nMoveTotal));
+			if (DEBUG) DoDebug(IntToString(nStncTotal) +" stances known");			
+			if (DEBUG) DoDebug("Readied maneuvers now: " + IntToString(nRdyTotal));		
         }
 
         // Hook to OnLevelDown to remove the maneuver slots granted here

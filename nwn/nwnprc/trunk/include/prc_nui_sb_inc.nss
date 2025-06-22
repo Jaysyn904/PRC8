@@ -10,10 +10,8 @@
 //:: Created By: Rakiov
 //:: Created On: 24.05.2005
 //:://////////////////////////////////////////////
-#include "inc_newspellbook"
-#include "psi_inc_psifunc"
-#include "inc_lookups"
-#include "prc_nui_consts"
+
+#include "prc_nui_com_inc"
 
 //
 // GetSpellListForCircle
@@ -42,69 +40,6 @@ json GetSpellListForCircle(object oPlayer, int nClass, int circle);
 //     NUI spellbook.
 //
 json GetSupportedNUISpellbookClasses(object oPlayer);
-
-//
-// GetCurrentSpellLevel
-// Gets the current spell level the class can achieve at the current
-// caster level (ranging from 0-9)
-//
-// Arguments:
-//   nClass:int the ClassID
-//   nLevel:int the caster level
-//
-// Returns:
-//   int the circle the class can achieve currently
-//
-int GetCurrentSpellLevel(int nClass, int nLevel);
-
-//
-// GetMaxSpellLevel
-// Gets the highest possible circle the class can achieve (from 0-9)
-//
-// Arguments:
-//   nClass:int the ClassID
-//
-// Returns:
-//   int the highest circle that can be achieved
-//
-int GetMaxSpellLevel(int nClass);
-
-//
-// GetMinSpellLevel
-// Gets the lowest possible circle the class can achieve (from 0-9)
-//
-// Arguments:
-//   nClass:int the ClassID
-//
-// Returns:
-//   int the lowest circle that can be achieved
-//
-int GetMinSpellLevel(int nClass);
-
-//
-// GetHighestLevelPossibleInClass
-// Given a class Id this will determine what the max level of a class can be
-// achieved
-//
-// Arguments:
-//   nClass:int the ClassID
-//
-// Returns:
-//   int the highest possible level the class can achieve
-//
-int GetHighestLevelPossibleInClass(int nClass);
-
-//
-// GetClassSpellbookFile
-// Gets the class 2da spellbook/ability for the given class Id
-//
-// Arguments:
-//   nClass:int the classID
-//
-// Returns:
-//   string the 2da file name for the spell/abilities of the ClassID
-//
-string GetClassSpellbookFile(int nClass);
 
 //
 // IsSpellKnown
@@ -235,23 +170,6 @@ json GetMetaMysteryFeatList();
 int GetTrueClassIfRHD(object oPlayer, int nClass);
 
 //
-// GetBinderSpellToFeatDictionary
-// Sets up the Binder Spell Dictionary that is used to match a binder's vestige
-// to their feat. This is constructed based off the binder's known location of
-// their feat and spell ranges in the base 2das respectivly. After constructing
-// this it will be saved to the player locally as a cached result since we do
-// not need to call this again.
-//
-// Argument:
-//   oPlayer:object the player
-//
-// Returns:
-//   json:Dictionary<String,Int> a dictionary of mapping between the SpellID
-//     and the FeatID of a vestige ability
-//
-json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF);
-
-//
 // ShouldAddSpell
 // Given a spellId and a class, determines if the spell should be added to the
 // spellbook (as some are added in it's own special row or for other reasons)
@@ -317,6 +235,18 @@ json GetInvokerEssenceSpellList(int nClass, object oPlayer=OBJECT_SELF);
 //   int:Boolean TRUE if item is found, FALSE otherwise
 //
 int JsonArrayContainsInt(json list, int item);
+
+//
+// IsSpellbookNUIOpen
+// Checks to see if the Spellbook NUI is open on a given player.
+//
+// Arguments:
+//   oPC:object the player
+//
+// Returns:
+//   int:Boolean TRUE if window is open, FALSE otherwise
+//
+int IsSpellbookNUIOpen(object oPC);
 
 json GetSpellListForCircle(object oPlayer, int nClass, int circle)
 {
@@ -397,86 +327,6 @@ int ShouldAddSpell(int nClass, int spellId, object oPlayer=OBJECT_SELF)
     return TRUE;
 }
 
-json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF)
-{
-    // a dictionary of <SpellID, FeatID>
-    json binderDict = GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR);
-    // if this hasn't been created, create it now.
-    if (binderDict == JsonNull())
-        binderDict = JsonObject();
-    else
-        return binderDict;
-
-    // the starting row for binder spells
-    int spellIndex = 19070;
-    // the starting row for binder feats
-    int featIndex = 9030;
-    //the end of the binder spells/feats
-    while  (spellIndex <= 19156 && featIndex <= 9104)
-    {
-        // get the SpellID tied to the feat
-        int spellID = StringToInt(Get2DACache("feat", "SPELLID", featIndex));
-        // if the spellID matches the current index, then this is the spell
-        // attached to the feat
-        if (spellID == spellIndex)
-        {
-            binderDict = JsonObjectSet(binderDict, IntToString(spellID), JsonInt(featIndex));
-
-            // move to next spell/feat
-            featIndex++;
-            spellIndex++;
-        }
-        // else we have reached a subdial spell
-        else
-        {
-            // loop through until we reach back at spellID
-            while (spellIndex < spellID)
-            {
-                int masterSpell = StringToInt(Get2DACache("spells", "Master", spellIndex));
-
-                // add the sub radial to the dict, tied to the master's FeatID
-                int featId = JsonGetInt(JsonObjectGet(binderDict, IntToString(masterSpell)));
-                binderDict = JsonObjectSet(binderDict, IntToString(spellIndex), JsonInt(featId));
-
-                spellIndex++;
-            }
-
-
-            // some feats overlap the same FeatID, can cause this to get stuck.
-            // if it happens then move on
-            if (spellIndex > spellID)
-                featIndex++;
-        }
-    }
-
-    // cache the result
-    SetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR, binderDict);
-    return binderDict;
-}
-
-string GetClassSpellbookFile(int nClass)
-{
-    string sFile;
-    // Spontaneous casters use a specific file name structure
-    if(GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS
-        || nClass == CLASS_TYPE_ARCHIVIST)
-    {
-        sFile = GetFileForClass(nClass);
-    }
-    // everyone else uses this structure
-    else
-    {
-        sFile = GetAMSDefinitionFileName(nClass);
-
-        if (nClass == CLASS_TYPE_BINDER)
-        {
-            sFile = "vestiges";
-        }
-    }
-
-    return sFile;
-}
-
 json GetSupportedNUISpellbookClasses(object oPlayer)
 {
     json retValue = JsonArray();
@@ -524,167 +374,6 @@ int IsSpellKnown(object oPlayer, int nClass, int spellId)
         return GetHasFeat(iFeatID, oPlayer);
 
     return FALSE;
-}
-
-int GetCurrentSpellLevel(int nClass, int nLevel)
-{
-    int currentLevel = nLevel;
-
-    // ToB doesn't have a concept of spell levels, but still match up to it
-    if(nClass == CLASS_TYPE_WARBLADE
-        || nClass == CLASS_TYPE_SWORDSAGE
-        || nClass == CLASS_TYPE_CRUSADER
-        || nClass == CLASS_TYPE_SHADOWCASTER)
-    {
-        return 9;
-    }
-
-
-    // Binders don't really have a concept of spell level
-    if (nClass == CLASS_TYPE_BINDER
-        || nClass == CLASS_TYPE_DRAGON_SHAMAN) // they can only reach 1st circle
-        return 1;
-
-    //Shadowsmith has no concept of spell levels
-    if (nClass == CLASS_TYPE_SHADOWSMITH)
-        return 2;
-
-    if (nClass == CLASS_TYPE_WARLOCK
-        || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT)
-        return 4;
-
-    // Spont casters have their own function
-    if(GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS
-        || nClass == CLASS_TYPE_ARCHIVIST)
-    {
-
-        int maxLevel = GetMaxSpellLevelForCasterLevel(nClass, currentLevel);
-        return maxLevel;
-    }
-    else
-    {
-        // everyone else uses this
-        string spellLevel2da = GetAMSKnownFileName(nClass);
-
-        currentLevel = nLevel - 1; // Level is 1 off of the row in the 2da
-
-        if  (nClass == CLASS_TYPE_FIST_OF_ZUOKEN
-            || nClass == CLASS_TYPE_PSION
-            || nClass == CLASS_TYPE_PSYWAR
-            || nClass == CLASS_TYPE_WILDER
-            || nClass == CLASS_TYPE_PSYCHIC_ROGUE
-            || nClass == CLASS_TYPE_WARMIND)
-            currentLevel = GetManifesterLevel(OBJECT_SELF, nClass, TRUE) - 1;
-
-        int totalLevel = Get2DARowCount(spellLevel2da);
-
-        // in case we somehow go over bounds just don't :)
-        if (currentLevel >= totalLevel)
-            currentLevel = totalLevel - 1;
-
-        //Psionics have MaxPowerLevel as their column name
-        string columnName = "MaxPowerLevel";
-
-        //Invokers have MaxInvocationLevel
-        if (nClass == CLASS_TYPE_WARLOCK
-            || nClass == CLASS_TYPE_DRAGON_SHAMAN
-            || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT)
-            columnName = "MaxInvocationLevel";
-
-         // Truenamers have 3 sets of utterances, ranging from 1-6, EvolvingMind covers the entire range
-        if (nClass == CLASS_TYPE_TRUENAMER)
-        {
-            columnName = "EvolvingMind";
-            spellLevel2da = "cls_true_maxlvl"; //has a different 2da we want to look at
-        }
-
-        if (nClass == CLASS_TYPE_BINDER)
-        {
-            columnName = "VestigeLvl";
-            spellLevel2da = "cls_bind_binder";
-        }
-
-        // ToB doesn't have a concept of this, but we don't care.
-
-        int maxLevel = StringToInt(Get2DACache(spellLevel2da, columnName, currentLevel));
-        return maxLevel;
-    }
-}
-
-int GetMinSpellLevel(int nClass)
-{
-    // again sponts have their own function
-    if(GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS
-        || nClass == CLASS_TYPE_ARCHIVIST)
-    {
-        return GetMinSpellLevelForCasterLevel(nClass, GetHighestLevelPossibleInClass(nClass));
-    }
-    else
-    {
-        if  (nClass == CLASS_TYPE_FIST_OF_ZUOKEN
-            || nClass == CLASS_TYPE_PSION
-            || nClass == CLASS_TYPE_PSYWAR
-            || nClass == CLASS_TYPE_WILDER
-            || nClass == CLASS_TYPE_PSYCHIC_ROGUE
-            || nClass == CLASS_TYPE_WARMIND
-            || nClass == CLASS_TYPE_WARBLADE
-            || nClass == CLASS_TYPE_SWORDSAGE
-            || nClass == CLASS_TYPE_CRUSADER
-            || nClass == CLASS_TYPE_WARLOCK
-            || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT
-            || nClass == CLASS_TYPE_DRAGON_SHAMAN
-            || nClass == CLASS_TYPE_SHADOWCASTER
-            || nClass == CLASS_TYPE_SHADOWSMITH
-            || nClass == CLASS_TYPE_BINDER)
-            return 1;
-
-        return GetCurrentSpellLevel(nClass, 1);
-    }
-
-}
-
-int GetMaxSpellLevel(int nClass)
-{
-    if (nClass == CLASS_TYPE_WILDER
-        || nClass == CLASS_TYPE_PSION)
-        return 9;
-    if (nClass == CLASS_TYPE_PSYCHIC_ROGUE
-        || nClass == CLASS_TYPE_FIST_OF_ZUOKEN
-        || nClass == CLASS_TYPE_WARMIND)
-        return 5;
-    if (nClass == CLASS_TYPE_PSYWAR)
-        return 6;
-
-    return GetCurrentSpellLevel(nClass, GetHighestLevelPossibleInClass(nClass));
-}
-
-int GetHighestLevelPossibleInClass(int nClass)
-{
-    string sFile;
-
-    //sponts have their spells in the classes.2da
-    if(GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS
-        || nClass == CLASS_TYPE_ARCHIVIST)
-    {
-        sFile = Get2DACache("classes", "SpellGainTable", nClass);
-    }
-    else
-    {
-        // everyone else uses this
-        sFile = GetAMSKnownFileName(nClass);
-
-        if (nClass == CLASS_TYPE_TRUENAMER)
-        {
-            sFile = "cls_true_maxlvl"; //has a different 2da we want to look at
-        }
-
-        if (nClass == CLASS_TYPE_BINDER)
-        {
-            sFile = "cls_bind_binder";
-        }
-    }
-
-    return Get2DARowCount(sFile);
 }
 
 int IsClassAllowedToUseNUISpellbook(object oPlayer, int nClass)
@@ -1142,6 +831,17 @@ int JsonArrayContainsInt(json list, int item)
     {
         if (JsonGetInt(JsonArrayGet(list, i)) == item)
             return TRUE;
+    }
+
+    return FALSE;
+}
+
+int IsSpellbookNUIOpen(object oPC)
+{
+    int nPreviousToken = NuiFindWindow(oPC, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    if (nPreviousToken != 0)
+    {
+        return TRUE;
     }
 
     return FALSE;

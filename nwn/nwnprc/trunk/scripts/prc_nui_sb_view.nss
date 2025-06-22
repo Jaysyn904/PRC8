@@ -10,7 +10,6 @@
 //:: Created On: 24.05.2005
 //:://////////////////////////////////////////////
 
-#include "nw_inc_nui"
 //#include "nw_inc_nui_insp"
 #include "prc_nui_sb_inc"
 #include "prc_nui_consts"
@@ -80,60 +79,6 @@ json CreateMetaMagicFeatButtons(int nClass);
 //
 json CreateMetaFeatButtonRow(json spellList);
 
-//
-// GetSpellLevelIcon
-// Takes the spell circle int and gets the icon appropriate for it (i.e. 0 turns
-// into "ir_cantrips"
-//
-// Arguments:
-//   spellLevel:int the spell level we want the icon for
-//
-// Returns:
-//   string the spell level icon
-//
-string GetSpellLevelIcon(int spellLevel);
-
-//
-// GetSpellLevelToolTip
-// Gets the spell level tool tip text based on the int spell level provided (i.e.
-// 0 turns into "Cantrips")
-//
-// Arguments:
-//   spellLevel:int the spell level we want the tooltip for
-//
-// Returns:
-//   string the spell level toop tip
-//
-string GetSpellLevelToolTip(int spellLevel);
-
-//
-// GetSpellIcon
-// Gets the spell icon based off the spellId by using the FeatID instead
-//
-// Arguments:
-//   nClass:int the class Id
-//   spellId:int the spell Id we want the icon for
-//
-// Returns:
-//   json:String the string of the icon we want.
-//
-json GetSpellIcon(int spellId, int nClass=0);
-
-//
-// HighlightButton
-// Takes NUI Button along with it's width and height and heighlights it with a drawn
-// colored rectangle to represent it's been selected.
-//
-// Arguments:
-//   jButton:json the NUI Button
-//   w:float the width of the button
-//   h:float the height of the button
-//
-// Returns:
-//   json the NUI button highlighted
-//
-json HighlightButton(json jButton, float w, float h);
-
 void main()
 {
     // look for existing window and destroy
@@ -200,7 +145,7 @@ void main()
     // Default to put this near the middle and let the person adjust its location
     if (geometry == JsonNull())
     {
-        geometry = NuiRect(893.0f,346.0f, 489.0f, 351.0f);
+        geometry = NuiRect(-1.0f,-1.0f, 489.0f, 351.0f);
     }
     else
     {
@@ -216,6 +161,8 @@ void main()
     NuiSetBind(OBJECT_SELF, nToken, "closable", JsonBool(TRUE));
     NuiSetBind(OBJECT_SELF, nToken, "transparent", JsonBool(TRUE));
     NuiSetBind(OBJECT_SELF, nToken, "border", JsonBool(FALSE));
+
+    NuiSetBindWatch(OBJECT_SELF, nToken, "geometry", TRUE);
 }
 
 json CreateSpellBookClassButtons()
@@ -243,8 +190,8 @@ json CreateSpellBookClassButtons()
         float height = 32.0f;
         // Get the class icon from the classes.2da
         json jClassButton = NuiId(NuiButtonImage(JsonString(Get2DACache("classes", "Icon", classId))), PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID + IntToString(classId));
-        if (classId == selectedClassId)
-            jClassButton = HighlightButton(jClassButton, width, height);
+        if (classId != selectedClassId)
+            jClassButton = GreyOutButton(jClassButton, width, height);
         jClassButton = NuiWidth(jClassButton, width);
         jClassButton = NuiHeight(jClassButton, height);
         // Get the class name from the classes.2da and set it to the tooltip
@@ -272,8 +219,6 @@ json CreateSpellbookCircleButtons(int nClass)
 
     if (minSpellLevel >= 0)
     {
-        // get what is the highest circle the class can cast at
-        int currentMaxSpellLevel = GetCurrentSpellLevel(nClass, casterLevel);
 
         // Get what the max circle the class can reach at is
         int totalMaxSpellLevel = GetMaxSpellLevel(nClass);
@@ -288,9 +233,9 @@ json CreateSpellbookCircleButtons(int nClass)
 
         // conversily if it is higher than the max the class has (possibly due to
         // switching classes) then set it to that.
-        if (currentCircle > currentMaxSpellLevel)
+        if (currentCircle > totalMaxSpellLevel)
         {
-            currentCircle = currentMaxSpellLevel;
+            currentCircle = totalMaxSpellLevel;
             SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR, currentCircle);
         }
 
@@ -306,13 +251,10 @@ json CreateSpellbookCircleButtons(int nClass)
 
             // if the current circle is selected or if the person can't cast at
             // that circle yet then disable the button.
-            if (i > currentMaxSpellLevel)
-                enabled = JsonBool(FALSE);
-            else
-                enabled = JsonBool(TRUE);
-            jButton = NuiEnabled(jButton, enabled);
-            if (i == currentCircle)
-                jButton = HighlightButton(jButton, width, height);
+
+            if (i != currentCircle)
+                jButton = GreyOutButton(jButton, width, height);
+
 
             jRow = JsonArrayInsert(jRow, jButton);
         }
@@ -340,22 +282,27 @@ json CreateSpellbookSpellButtons(int nClass, int circle)
     for (i = 0; i < JsonGetLength(spellListAtCircle); i++)
     {
         int spellbookId = JsonGetInt(JsonArrayGet(spellListAtCircle, i));
+        int featId;
         int spellId;
         // Binders don't have a spellbook, so spellbookId is actually SpellID
         if (nClass == CLASS_TYPE_BINDER)
+        {
             spellId = spellbookId;
+            featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+        }
         else
+        {
             spellId = StringToInt(Get2DACache(sFile, "SpellID", spellbookId));
+            featId = StringToInt(Get2DACache(sFile, "FeatID", spellbookId));
+        }
 
-        json jSpellButton = NuiId(NuiButtonImage(GetSpellIcon(spellId, nClass)), PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID + IntToString(spellbookId));
+        json jSpellButton = NuiId(NuiButtonImage(GetSpellIcon(spellId, featId, nClass)), PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID + IntToString(spellbookId));
         jSpellButton = NuiWidth(jSpellButton, 38.0f);
         jSpellButton = NuiHeight(jSpellButton, 38.0f);
 
         // the RealSpellID has the accurate descriptions for the spells/abilities
         int realSpellId = StringToInt(Get2DACache(sFile, "RealSpellID", spellbookId));
-        if (!realSpellId)
-            realSpellId = spellId;
-        jSpellButton = NuiTooltip(jSpellButton, JsonString(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", realSpellId)))));
+        jSpellButton = NuiTooltip(jSpellButton, JsonString(GetSpellName(spellId, realSpellId, featId, nClass)));
 
         // if the row limit has been reached, make a new row
         tempRow = JsonArrayInsert(tempRow, jSpellButton);
@@ -465,12 +412,23 @@ json CreateMetaFeatButtonRow(json spellList)
         else
             featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
 
+        int selectedFeatId = featId;
+        if (featId == FEAT_EXTEND_SPELL_ABILITY)
+            selectedFeatId = FEAT_EXTEND_SPELL;
+        if (featId == FEAT_EMPOWER_SPELL_ABILITY)
+            selectedFeatId = FEAT_EMPOWER_SPELL;
+        if (featId == FEAT_MAXIMIZE_SPELL_ABILITY)
+            selectedFeatId = FEAT_MAXIMIZE_SPELL;
+        if (featId == FEAT_QUICKEN_SPELL_ABILITY)
+            selectedFeatId = FEAT_QUICKEN_SPELL;
+        if (featId == FEAT_STILL_SPELL_ABILITY)
+            selectedFeatId = FEAT_STILL_SPELL;
 
-        if (GetHasFeat(featId, OBJECT_SELF, TRUE))
+        if (GetHasFeat(selectedFeatId, OBJECT_SELF, TRUE))
         {
             string featName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", spellId)));
 
-            json jMetaButton = NuiId(NuiButtonImage(GetSpellIcon(spellId)), PRC_SPELLBOOK_NUI_META_BUTTON_BASEID + IntToString(spellId));
+            json jMetaButton = NuiId(NuiButtonImage(GetSpellIcon(spellId, featId)), PRC_SPELLBOOK_NUI_META_BUTTON_BASEID + IntToString(spellId));
             jMetaButton = NuiWidth(jMetaButton, 32.0f);
             jMetaButton = NuiHeight(jMetaButton, 32.0f);
             jMetaButton = NuiTooltip(jMetaButton, JsonString(featName));
@@ -482,91 +440,3 @@ json CreateMetaFeatButtonRow(json spellList)
     return jRow;
 }
 
-json GetSpellIcon(int spellId,int nClass=0)
-{
-    // Binder's spells don't have the FeatID on the spells.2da, so we have to use
-    // the mapping we constructed to get it.
-    if (nClass == CLASS_TYPE_BINDER)
-    {
-        json binderDict = GetBinderSpellToFeatDictionary();
-        int featId = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
-        return JsonString(Get2DACache("feat", "Icon", featId));
-    }
-
-    int masterSpellID = StringToInt(Get2DACache("spells", "Master", spellId));
-
-    // if this is a sub radial spell, then we use spell's icon instead
-    if (masterSpellID)
-        return JsonString(Get2DACache("spells", "IconResRef", spellId));
-
-    // the FeatID holds the accurate spell icon, not the SpellID
-    int featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
-
-    return JsonString(Get2DACache("feat", "Icon", featId));
-}
-
-json HighlightButton(json jButton, float w, float h)
-{
-    json retValue = jButton;
-
-    json jBorders = JsonArray();
-
-    // set the points of the button shape
-    json jPoints = JsonArray();
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(h));
-
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(w));
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(h));
-
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(w));
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-    jPoints = JsonArrayInsert(jPoints, JsonFloat(0.0));
-
-    jBorders = JsonArrayInsert(jBorders, NuiDrawListPolyLine(JsonBool(TRUE), NuiColor(71, 140, 32), JsonBool(FALSE), JsonFloat(2.0), jPoints));
-
-    return NuiDrawList(jButton, JsonBool(FALSE), jBorders);
-}
-
-string GetSpellLevelIcon(int spellLevel)
-{
-    switch (spellLevel)
-    {
-        case 0: return "ir_cantrips";
-        case 1: return "ir_level1";
-        case 2: return "ir_level2";
-        case 3: return "ir_level3";
-        case 4: return "ir_level4";
-        case 5: return "ir_level5";
-        case 6: return "ir_level6";
-        case 7: return "ir_level789";
-        case 8: return "ir_level789";
-        case 9: return "ir_level789";
-    }
-
-    return "";
-}
-
-string GetSpellLevelToolTip(int spellLevel)
-{
-    switch (spellLevel)
-    {
-        case 0: return "Cantrips";
-        case 1: return "Level 1";
-        case 2: return "Level 2";
-        case 3: return "Level 3";
-        case 4: return "Level 4";
-        case 5: return "Level 5";
-        case 6: return "Level 6";
-        case 7: return "Level 7";
-        case 8: return "Level 8";
-        case 9: return "Level 9";
-    }
-
-    return "";
-}

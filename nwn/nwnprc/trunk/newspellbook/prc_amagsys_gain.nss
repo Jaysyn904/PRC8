@@ -31,6 +31,7 @@
 #include "tob_inc_tobfunc"
 #include "shd_inc_shdfunc"
 #include "inv_inc_invfunc"
+#include "prc_nui_lv_inc"
 
 //////////////////////////////////////////////////
 /*             Function prototypes              */
@@ -77,7 +78,7 @@ void main()
 
 void CheckSpellbooks(object oPC)
 {
-	
+
     if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oPC) > 0)
     {
         CheckMissingSpells(oPC, CLASS_TYPE_SUBLIME_CHORD, 4, 9);
@@ -87,7 +88,7 @@ void CheckSpellbooks(object oPC)
             CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 3);
         }
         if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_SORCERER))
-		{
+        {
             CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 3);
         }
         if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_WARMAGE, oPC))
@@ -98,7 +99,7 @@ void CheckSpellbooks(object oPC)
         {
             CheckMissingSpells(oPC, CLASS_TYPE_DUSKBLADE, 0, 3);
         }
-		if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BEGUILER, oPC))
+        if(GetHasFeat(FEAT_SUBLIME_CHORD_SPELLCASTING_BEGUILER, oPC))
         {
             CheckMissingSpells(oPC, CLASS_TYPE_BEGUILER, 0, 3);
         }
@@ -134,9 +135,9 @@ void CheckSpellbooks(object oPC)
 
 /* void CheckSpellbooks(object oPC)
 {
-	if(GetIsRHDSorcerer(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9))
+    if(GetIsRHDSorcerer(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, 0, 9))
         return;
-	if(GetIsRHDBard(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6))
+    if(GetIsRHDBard(oPC) && CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6))
         return;
     if(!GetPRCSwitch(PRC_BARD_DISALLOW_NEWSPELLBOOK) && CheckMissingSpells(oPC, CLASS_TYPE_BARD, 0, 6))
         return;
@@ -159,7 +160,7 @@ void CheckSpellbooks(object oPC)
     if(CheckMissingSpells(oPC, CLASS_TYPE_JUSTICEWW, 1, 4))
         return;
     if(CheckMissingSpells(oPC, CLASS_TYPE_KNIGHT_WEAVE, 1, 6))
-        return;        
+        return;
 //    if(CheckMissingSpells(oPC, CLASS_TYPE_WITCH, 0, 9))
 //        return;
     if(CheckMissingSpells(oPC, CLASS_TYPE_SUBLIME_CHORD, 4, 9))
@@ -191,7 +192,7 @@ void CheckPsionics(object oPC)
     if(CheckMissingPowers(oPC, CLASS_TYPE_PSYWAR))
         return;
     if(CheckMissingPowers(oPC, CLASS_TYPE_PSYCHIC_ROGUE))
-        return;        
+        return;
     if(CheckMissingPowers(oPC, CLASS_TYPE_FIST_OF_ZUOKEN))
         return;
     if(CheckMissingPowers(oPC, CLASS_TYPE_WARMIND))
@@ -278,10 +279,15 @@ int CheckMissingPowers(object oPC, int nClass)
 
     if(nCurrentPowers < nMaxPowers)
     {
+        if (nClass <= 0)
+            nClass = GetPrimaryPsionicClass(oPC);
+        if (!IsLevelUpNUIOpen(oPC))
+                OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain powers and start the conversation
         SetLocalInt(oPC, "nClass", nClass);
         StartDynamicConversation("psi_powconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
-
+        */
         return TRUE;
     }
     return FALSE;
@@ -304,9 +310,15 @@ int CheckMissingInvocations(object oPC, int nClass)
 
     if(nCurrentInvocations < nMaxInvocations)
     {
+        if (nClass == CLASS_TYPE_INVALID || nClass == -2)
+            nClass = GetPrimaryInvocationClass(oPC);
+        if (!IsLevelUpNUIOpen(oPC))
+                OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain invocations and start the conversation
         SetLocalInt(oPC, "nClass", nClass);
         StartDynamicConversation("inv_invokeconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        */
 
         return TRUE;
     }
@@ -358,49 +370,49 @@ void AddSpellsForLevel(int nClass, int nLevel)
 int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
 {
     int nLevel;
-	
+
 //:: Rakshasa cast as sorcerers
     if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_OUTSIDER, oPC);
 
-//:: Aranea cast as sorcerers	
-	else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
+//:: Aranea cast as sorcerers
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_SHAPECHANGER, oPC);
 
-//::Arkamoi cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI) 
+//::Arkamoi cast as sorcerers
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
-	
-//::Hobgoblin Warsouls cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL) 
+
+//::Hobgoblin Warsouls cast as sorcerers
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
-	
-//:: Driders cast as sorcerers	
-    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_DRIDER) 
+
+//:: Driders cast as sorcerers
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_DRIDER)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_ABERRATION, oPC);
-	
+
 //:: Marrutact cast as 6/7 sorcerers
-    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
-	
+
 //:: Redspawn Arcaniss cast as 3/4 sorcerers
-    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS) 
+    else if(nClass == CLASS_TYPE_SORCERER && !GetLevelByClass(CLASS_TYPE_SORCERER, oPC) && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
-		
-//:: Gloura cast as bards		
-    else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA) 
+
+//:: Gloura cast as bards
+    else if(nClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oPC) && GetRacialType(oPC) == RACIAL_TYPE_GLOURA)
         nLevel = GetSpellslotLevel(nClass, oPC); //GetLevelByClass(CLASS_TYPE_MONSTROUS, oPC);
-		
-    else    
+
+    else
         nLevel = nClass == CLASS_TYPE_SUBLIME_CHORD ? GetLevelByClass(nClass, oPC) : GetSpellslotLevel(nClass, oPC);
 
     if (DEBUG) DoDebug("CheckMissingSpells 1 Class: " + IntToString(nClass));
     if (DEBUG) DoDebug("CheckMissingSpells 1 Level: " + IntToString(nLevel));
 
     if(!nLevel)
-        return FALSE; 
-	
-	if(nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+        return FALSE;
+
+    if(nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
     {
         if((GetLevelByClass(nClass, oPC) == nLevel) //no PrC
             && !(GetHasFeat(FEAT_DRACONIC_GRACE, oPC) || GetHasFeat(FEAT_DRACONIC_BREATH, oPC))) //no Draconic feats that apply
@@ -411,36 +423,31 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
         int nLastGainLevel = GetPersistantLocalInt(oPC, "LastSpellGainLevel");
         nLevel = GetLevelByClass(CLASS_TYPE_ARCHIVIST, oPC);
 
+
+        //add cleric spells known for level 0
+        if(persistant_array_get_size(oPC, "Spellbook_Known_"+IntToString(CLASS_TYPE_ARCHIVIST)+"_0") < 5)  // TODO: replace with GetSpellKnownCurrentCount
+        {
+            ActionDoCommand(AddSpellsForLevel(CLASS_TYPE_ARCHIVIST, 0));
+        }
         if(nLastGainLevel < nLevel)
         {
-            if(nLevel == 1)
-            {
-                //count the number of available at 1st level spells
-                int nSpellsAvailable = 3 + GetAbilityModifier(ABILITY_INTELLIGENCE, oPC);
-                SetLocalInt(oPC, "LrnLvlUp", nSpellsAvailable);
-            }
-            else if(nLevel > 1)
-                //add additional 2 spells form cleric list
-                SetLocalInt(oPC, "LrnLvlUp", 2);
-
+            if (!IsLevelUpNUIOpen(oPC))
+                OpenNUILevelUpWindow(nClass, oPC);
+            /*
             SetLocalInt(oPC, "SpellGainClass", CLASS_TYPE_ARCHIVIST);
             SetLocalInt(oPC, "SpellbookMinSpelllevel", nMinLevel);
             StartDynamicConversation("prc_s_spellgain", oPC, DYNCONV_EXIT_NOT_ALLOWED, TRUE, FALSE, oPC);
+            */
 
             return TRUE;
-        }
-        //add cleric spells known for level 0
-        else if(persistant_array_get_size(oPC, "Spellbook_Known_"+IntToString(CLASS_TYPE_ARCHIVIST)+"_0") < 5)  // TODO: replace with GetSpellKnownCurrentCount
-        {
-            ActionDoCommand(AddSpellsForLevel(CLASS_TYPE_ARCHIVIST, 0));
         }
         else
             return FALSE;
     }
-    
+
     if (DEBUG) DoDebug("CheckMissingSpells 2 Class: " + IntToString(nClass));
     if (DEBUG) DoDebug("CheckMissingSpells 2 Level: " + IntToString(nLevel));
-     
+
     int i;
     for(i = nMinLevel; i <= nMaxLevel; i++)
     {
@@ -458,12 +465,15 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
                 }
                 else
                 {
+                    if (!IsLevelUpNUIOpen(oPC))
+                        OpenNUILevelUpWindow(nClass, oPC);
+                    /*
                     // Mark the class for which the PC is to gain powers and start the conversation
                     SetLocalInt(oPC, "SpellGainClass", nClass);
                     SetLocalInt(oPC, "SpellbookMinSpelllevel", nMinLevel);
                     SetLocalInt(oPC, "SpellbookMaxSpelllevel", nMaxLevel);
                     StartDynamicConversation("prc_s_spellgain", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
-
+                    */
                     return TRUE;
                 }
             }
@@ -474,20 +484,28 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
     int nALSpells = GetPersistantLocalInt(oPC, "AdvancedLearning_"+IntToString(nClass));
     if(nClass == CLASS_TYPE_BEGUILER && nALSpells < (nLevel+1)/4)//one every 4 levels starting at 3.
     {
+        if (!IsLevelUpNUIOpen(oPC))
+            OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain powers and start the conversation
         SetLocalInt(oPC, "SpellGainClass", CLASS_TYPE_BEGUILER);
         SetLocalInt(oPC, "SpellbookMinSpelllevel", nMinLevel);
         SetLocalInt(oPC, "AdvancedLearning", 1);
         StartDynamicConversation("prc_s_spellgain", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        */
         return TRUE;
     }
     else if(nClass == CLASS_TYPE_DREAD_NECROMANCER && nALSpells < nLevel/4)//one every 4 levels
     {
+        if (!IsLevelUpNUIOpen(oPC))
+            OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain powers and start the conversation
         SetLocalInt(oPC, "SpellGainClass", CLASS_TYPE_DREAD_NECROMANCER);
         SetLocalInt(oPC, "SpellbookMinSpelllevel", nMinLevel);
         SetLocalInt(oPC, "AdvancedLearning", 1);
         StartDynamicConversation("prc_s_spellgain", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        */
         return TRUE;
     }
     else if(nClass == CLASS_TYPE_WARMAGE)
@@ -502,11 +520,15 @@ int CheckMissingSpells(object oPC, int nClass, int nMinLevel, int nMaxLevel)
            (nLevel >= 6  && nLevel < 11 && nALSpells < 2) ||
            (nLevel >= 3  && nLevel < 6  && nALSpells < 1))
         {
+            if (!IsLevelUpNUIOpen(oPC))
+                OpenNUILevelUpWindow(nClass, oPC);
+            /*
             // Mark the class for which the PC is to gain powers and start the conversation
             SetLocalInt(oPC, "SpellGainClass", CLASS_TYPE_WARMAGE);
             SetLocalInt(oPC, "SpellbookMinSpelllevel", nMinLevel);
             SetLocalInt(oPC, "AdvancedLearning", 1);
             StartDynamicConversation("prc_s_spellgain", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+            */
             return TRUE;
         }
     }
@@ -535,9 +557,13 @@ int CheckMissingUtterances(object oPC, int nClass, int nLexicon)
 
     if(nCurrentUtterances < nMaxUtterances)
     {
+        if (!IsLevelUpNUIOpen(oPC))
+            OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain Utterances and start the conversation
         SetLocalInt(oPC, "nClass", nClass);
         StartDynamicConversation("true_utterconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        */
 
         return TRUE;
     }
@@ -557,9 +583,13 @@ int CheckMissingManeuvers(object oPC, int nClass)
 
     if(nCurrentManeuvers < nMaxManeuvers || nCurrentStances < nMaxStances)
     {
+        if (!IsLevelUpNUIOpen(oPC))
+            OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain powers and start the conversation
         SetLocalInt(oPC, "nClass", nClass);
         StartDynamicConversation("tob_moveconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        */
 
         return TRUE;
     }
@@ -577,10 +607,13 @@ int CheckMissingMysteries(object oPC, int nClass)
 
     if(nCurrentMysteries < nMaxMysteries)
     {
+        if (!IsLevelUpNUIOpen(oPC))
+            OpenNUILevelUpWindow(nClass, oPC);
+        /*
         // Mark the class for which the PC is to gain powers and start the conversation
         SetLocalInt(oPC, "nClass", nClass);
         StartDynamicConversation("shd_mystconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
-
+        */
         return TRUE;
     }
     return FALSE;

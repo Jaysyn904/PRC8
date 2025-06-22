@@ -85,11 +85,11 @@ void main()
 					if(nPreReq1>0 && !GetHasFeat(nPreReq1, oPC))						nAllPreReq = 0;
 					if(nPreReq1==213 && GetLevelByClass(CLASS_TYPE_MONK, oPC) >= 1)		nAllPreReq = 1; //for Ki Strike and monks 
 					if(nPreReq2>0 && !GetHasFeat(nPreReq2, oPC)) 						nAllPreReq = 0;
-					if(nCon>0 && !GetAbilityScore(oPC,ABILITY_CONSTITUTION) >= nCon)	nAllPreReq = 0;
-					if(nWis>0 && !GetAbilityScore(oPC,ABILITY_CONSTITUTION) >= nWis)	nAllPreReq = 0;
-					if(nCha>0 && !GetAbilityScore(oPC,ABILITY_CONSTITUTION) >= nCha)	nAllPreReq = 0;
-					if(nBAB>0 && !GetBaseAttackBonus(oPC) >= nBAB)						nAllPreReq = 0;
-					if(nLaw>0 && !GetAlignmentLawChaos(oPC) == ALIGNMENT_LAWFUL)		nAllPreReq = 0;
+					if(nCon>0 && GetAbilityScore(oPC,ABILITY_CONSTITUTION, TRUE) < nCon)		nAllPreReq = 0;
+					if(nWis>0 && GetAbilityScore(oPC,ABILITY_WISDOM, TRUE) < nWis)			nAllPreReq = 0;
+					if(nCha>0 && GetAbilityScore(oPC,ABILITY_CHARISMA, TRUE) < nCha)			nAllPreReq = 0;
+					if(nBAB>0 && GetBaseAttackBonus(oPC) < nBAB)						nAllPreReq = 0;
+					if(nLaw>0 && !(GetAlignmentLawChaos(oPC) == ALIGNMENT_LAWFUL))		nAllPreReq = 0;
 					
 					if (!GetHasFeat(nFeat, oPC) && !GetLocalInt(oPC, "VoPFeat"+IntToString(nFeat)) && nAllPreReq == 1)	AddChoice(sName, nFeat, oPC);
 				}
@@ -121,6 +121,9 @@ void main()
 	    if(nStage == STAGE_SELECT_ABIL)
         {
 			SetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevel),1); //Register the choice was made
+			
+			// Store the feat ID for recalling onClientEnter
+			SetPersistantLocalInt(oPC, "VoPFeatID" + IntToString(nChoice), 1);			
 			
 			//If it was not cancelled, give chosen feat to PC (as EffectBonusFeat)
 			if(nChoice > 0) 

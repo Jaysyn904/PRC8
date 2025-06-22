@@ -575,8 +575,8 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
 	            iReturnLevel = GetLevelByClass(CLASS_TYPE_SHAPECHANGER);
 			 
 	    }     
-        // Casting as a bard but don't have any levels in the class
-	    if(iCastingClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
+        // Casting as a bard but don't have any levels in the class  //:: Double-dipping?
+/* 	    if(iCastingClass == CLASS_TYPE_BARD && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
 	    {
 	        int nRace = GetRacialType(oCaster);
 	
@@ -584,7 +584,7 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
 	        //otherwise use RHD instead of bard levels
 	        if(nRace == RACIAL_TYPE_GLOURA)
 	            iReturnLevel = GetLevelByClass(CLASS_TYPE_FEY);	            
-	    }   	    
+	    }   */ 	    
 
         //Spell Rage ability
         if(GetHasSpellEffect(SPELL_SPELL_RAGE, oCaster)
@@ -960,8 +960,10 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 	}
 //:: End Bard Arcane PrC casting calculations
  
-	if(nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
+	if(nCastingClass == CLASS_TYPE_BARD || nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
 	{    
+		if(DEBUG) DoDebug("prc_inc_castlvl >> Found Fey RHD caster (not bard)");
+		
 		if(GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ABJURANT_CHAMPION, oCaster);
 		
@@ -1065,7 +1067,10 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
 
 		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_FEY, oCaster))
+		{
 			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+			if(DEBUG) DoDebug("prc_inc_castlvl >> Found Fey + Virtuoso PrC.  Arcane caster level is "+IntToString(nArcane)+".");
+		}
 		
 		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_FEY, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);

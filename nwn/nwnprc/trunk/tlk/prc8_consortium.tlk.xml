@@ -35992,6 +35992,7 @@ This is a supernatural maneuver.</entry>
   <entry id="52589" lang="en" sex="m">Fire Riposte</entry>
   <entry id="52590" lang="en" sex="m">Desert Wind (Counter)
 Level: Swordsage 2
+Prerequisite: One Desert Wind maneuver
 Initiation Action: 1 Immediate Action
 Range: Personal.
 Target: You.
@@ -36344,7 +36345,7 @@ This makes you flat-footed for the rest of the round.</entry>
   <entry id="52645" lang="en" sex="m">Doom Charge</entry>
   <entry id="52646" lang="en" sex="m">Devoted Spirit (Strike) [Evil]
 Level: Crusader 5
-Prerequisite: One Devoted Spirit maneuver
+Prerequisite: One Devoted Spirit maneuver, evil alignment
 Initiation Action: 1 Full-round action
 Range: Melee
 Target: One creature
@@ -36401,7 +36402,7 @@ Any creature you threaten takes a -4 penalty on attacks against allies.</entry>
   <entry id="52655" lang="en" sex="m">Law Bearer</entry>
   <entry id="52656" lang="en" sex="m">Devoted Spirit (Strike) [Law]
 Level: Crusader 5
-Prerequisite: One Devoted Spirit maneuver
+Prerequisite: One Devoted Spirit maneuver, lawful alignment
 Initiation Action: 1 Full-round action
 Range: Melee
 Target: One creature
@@ -36424,7 +36425,7 @@ Whenever you successfully strike a creature, you or your ally within 30 feet hea
   <entry id="52659" lang="en" sex="m">Radiant Charge</entry>
   <entry id="52660" lang="en" sex="m">Devoted Spirit (Strike) [Good]
 Level: Crusader 5
-Prerequisite: One Devoted Spirit maneuver
+Prerequisite: One Devoted Spirit maneuver, good alignment
 Initiation Action: 1 Full-round action
 Range: Melee
 Target: One creature
@@ -36469,7 +36470,7 @@ Your grant your ally a +4 shield bonus against the next attack made against him.
   <entry id="52667" lang="en" sex="m">Shield Counter</entry>
   <entry id="52668" lang="en" sex="m">Devoted Spirit (Counter)
 Level: Crusader 2
-Prerequisite: 2 Devoted Spirit maneuvers
+Prerequisite: Two Devoted Spirit maneuvers
 Initiation Action: 1 Swift Action
 Range: Melee Attack
 Target: One Creature
@@ -36503,7 +36504,7 @@ Any creature who attempts to move near you provokes an AoO.</entry>
   <entry id="52673" lang="en" sex="m">Tide Of Chaos</entry>
   <entry id="52674" lang="en" sex="m">Devoted Spirit (Strike) [Chaos]
 Level: Crusader 5
-Prerequisite: One Devoted Spirit maneuver
+Prerequisite: One Devoted Spirit maneuver, chaotic alignment
 Initiation Action: 1 Full-round action
 Range: Melee
 Target: One creature
@@ -37101,6 +37102,15 @@ A creature strikes, but you turn the blow straight back at it.
 
 Make an opposed attack roll against the targeted creature. If you succeed, he damages himself rather than you.</entry>
   <entry id="52779" lang="en" sex="m">Ghostly Defense</entry>
+  <entry id="52780" land="en" sex="m">Setting Sun (Stance)
+Level: Swordsage 8
+Prerequisite: Three Setting Sun maneuvers
+Initiation Action: 1 swift action
+Range: Personal
+Target : You
+Duration: Stance
+
+You are a ghost in the mist, capable of turning a foe against her allies. By gauging your opponent?s fighting stance, timing your dodge correctly, and placing yourself in the right position, you can lead her into attacking one of her allies rather than you. When your foe strikes, you duck out of the way. As she follows through with her attack, she inadvertently attacks an ally.</entry>
   <entry id="52781" lang="en" sex="m">Giant Killing Style</entry>
   <entry id="52782" lang="en" sex="m">Setting Sun (Stance)
 Level: Swordsage 3
@@ -37159,6 +37169,7 @@ Make an opposed attack roll against the targeted creature. If you succeed, he da
   <entry id="52791" lang="en" sex="m">Shifting Defense</entry>
   <entry id="52792" lang="en" sex="m">Setting Sun (Stance)
 Level: Swordsage 5
+Prerequisite: Two Setting Sun maneuvers
 Initiation Action: 1 Swift Action
 Range: Personal
 Target: You
@@ -37240,6 +37251,7 @@ You gain +2d6 Sneak Attack.</entry>
   <entry id="52805" lang="en" sex="m">Balance On The Sky</entry>
   <entry id="52806" lang="en" sex="m">Shadow Hand (Stance)
 Level: Swordsage 8
+Prerequisite: Three Shadow Hand maneuvers.
 Initiation Action: 1 Swift Action
 Range: Personal.
 Target: You.
@@ -37321,6 +37333,7 @@ This maneuver functions only against a flat-footed opponent. As part of this man
   <entry id="52819" lang="en" sex="m">Drain Vitality</entry>
   <entry id="52820" lang="en" sex="m">Shadow Hand (Strike)
 Level: Swordsage 2
+Prerequisite: One Shadow Hand maneuver
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creatures
@@ -37414,6 +37427,7 @@ This is a supernatural maneuver.</entry>
   <entry id="52833" lang="en" sex="m">One With Shadow</entry>
   <entry id="52834" lang="en" sex="m">Shadow Hand (Counter)
 Level: Swordsage 8
+Prerequisite: Three Shadow Hand maneuvers
 Initiation Action: 1 Immediate Action
 Range: Personal
 Target: You
@@ -37443,7 +37457,6 @@ This maneuver functions as the shadow jaunt maneuver, except that it can be init
   <entry id="52839" lang="en" sex="m">Shadow Garrote</entry>
   <entry id="52840" lang="en" sex="m">Shadow Hand (Strike)
 Level: Swordsage 3
-Prerequisite: One Shadow Hand maneuver
 Initiation Action: 1 Standard Action
 Range: 60'
 Target: One Living Creature
@@ -37616,6 +37629,7 @@ As part of this maneuver, you make a melee attack. This attack deals an extra 4d
   <entry id="52869" lang="en" sex="m">Crushing Weight Of The Mountain</entry>
   <entry id="52870" lang="en" sex="m">Stone Dragon (Stance)
 Level: Crusader 3, Swordsage 3, Warblade 3
+Prerequisite: One Stone Dragon maneuver
 Initiation Action: 1 Swift Action
 Range: Personal
 Target: You
@@ -37756,6 +37770,7 @@ You gain DR 5/adamantium (+5) for 1 round.</entry>
   <entry id="52893" lang="en" sex="m">Stone Dragon's Fury</entry>
   <entry id="52894" lang="en" sex="m">Stone Dragon (Strike)
 Level: Crusader 3, Swordsage 3, Warblade 3
+Prerequisite: One Stone Dragon maneuver
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -37788,6 +37803,7 @@ You gain a +2 bonus on Strength checks, and a +2 AC bonus against creatures larg
   <entry id="52899" lang="en" sex="m">White Raven Tactics</entry>
   <entry id="52900" lang="en" sex="m">White Raven (Boost)
 Level: Crusader 3, Warblade 3
+Prerequisite: One White Raven maneuver
 Initiation Action: 1 Swift Action
 Range: 10 ft.
 Target: One ally
@@ -37832,6 +37848,7 @@ While you are in this stance, you focus your efforts on preventing any devastati
   <entry id="52907" lang="en" sex="m">Blood In The Water</entry>
   <entry id="52908" lang="en" sex="m">Tiger Claw (Stance)
 Level: Swordsage 1, Warblade 1
+Prerequisite: One Tiger Claw maneuver
 Initiation Action: 1 Swift Action
 Range: Personal.
 Target: You.
@@ -37843,6 +37860,7 @@ Whenever you successfully critical hit a creature, you gain a +1 Attack and Dama
   <entry id="52909" lang="en" sex="m">Claw At The Moon</entry>
   <entry id="52910" lang="en" sex="m">Tiger Claw (Strike)
 Level: Swordsage 2, Warblade 2
+Prerequisite: Two Tiger Claw maneuvers
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -37889,6 +37907,7 @@ If your Jump check fails, you can make a singe attack normally. The maneuver is 
   <entry id="52917" lang="en" sex="m">Flesh Ripper</entry>
   <entry id="52918" lang="en" sex="m">Tiger Claw (Strike)
 Level: Swordsage 3, Warblade 3
+Prerequisite: Two Tiger Claw maneuvers
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -37950,6 +37969,7 @@ As part of this maneuver, you make a single melee attack. If this attack hits, i
   <entry id="52925" lang="en" sex="m">Hunter's Sense</entry>
   <entry id="52926" lang="en" sex="m">Tiger Claw (Stance)
 Level: Swordsage 1, Warblade 1
+Prerequisite: One Tiger Claw maneuver
 Initiation Action: 1 Swift Action
 Range: Personal.
 Target: You.
@@ -38028,6 +38048,7 @@ You make a flurry of deadly attacks. After initiating this boost, you can make t
   <entry id="52939" lang="en" sex="m">Soaring Raptor Strike</entry>
   <entry id="52940" lang="en" sex="m">Tiger Claw (Strike)
 Level: Swordsage 3, Warblade 3
+Prerequisite: One Tiger Claw maneuver
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -38039,6 +38060,7 @@ This must be used on a creature larger than you are.</entry>
   <entry id="52941" lang="en" sex="m">Sudden Leap</entry>
   <entry id="52942" lang="en" sex="m">Tiger Claw (Boost)
 Level: Swordsage 1, Warblade 1
+Prerequisite: One Tiger Claw maneuver
 Initiation Action: 1 Swift Action
 Range: Personal.
 Target: You.
@@ -38097,6 +38119,7 @@ While you are in this stance, you gain a 5 foot bonus to movement for every succ
   <entry id="52951" lang="en" sex="m">Wolverine Stance</entry>
   <entry id="52952" lang="en" sex="m">Tiger Claw (Stance)
 Level: Swordsage 3, Warblade 3
+Prerequisite: One Tiger Claw maneuver
 Initiation Action: 1 Swift Action
 Range: Personal.
 Target: You.
@@ -38108,6 +38131,7 @@ You may use any weapon in a grapple, and do not take the -4 penalty to attack. I
   <entry id="52953" lang="en" sex="m">Battle Leader's Charge</entry>
   <entry id="52954" lang="en" sex="m">White Raven (Strike)
 Level: Crusader 2, Warblade 2
+Prerequisite: One White Raven maneuver
 Initiation Action: 1 Full-round Action
 Range: Melee Attack
 Target: One Creature
@@ -38185,6 +38209,7 @@ If your strike hits, your target suffers a -4 penalty to AC.</entry>
   <entry id="52967" lang="en" sex="m">Lion's Roar</entry>
   <entry id="52968" lang="en" sex="m">White Raven (Boost)
 Level: Crusader 3, Warblade 3
+Prerequisite: One White Raven maneuver
 Initiation Action: 1 Swift Action
 Range: 60'
 Target: You
@@ -38242,6 +38267,7 @@ If you strike your foe, all allies in melee range make a single attack against t
   <entry id="52977" lang="en" sex="m">Tactical Strike</entry>
   <entry id="52978" lang="en" sex="m">White Raven (Strike)
 Level: Crusader 2, Warblade 2
+Prerequisite: One White Raven maneuver
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -38252,6 +38278,7 @@ Make a single melee attack. If you successfully hit the creature, all allies gai
   <entry id="52979" lang="en" sex="m">Tactics Of The Wolf</entry>
   <entry id="52980" lang="en" sex="m">White Raven (Stance)
 Level: Crusader 3, Warblade 3
+Prerequisite: One White Raven maneuver
 Initiation Action: 1 Swift Action
 Range: 10ft.
 Area: 10 ft radius centred on you.

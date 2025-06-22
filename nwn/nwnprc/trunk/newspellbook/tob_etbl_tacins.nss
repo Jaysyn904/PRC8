@@ -7,7 +7,7 @@
     10 MAR 09 by GC
 */ /** @file
 
-    Although you may be young by the elve's reckoning,
+    Although you may be young by the elves' reckoning,
     your blade guide lends you the experience and wisdom
     of one who has fought battles across countless fields.
 
@@ -53,7 +53,7 @@ void main()
         effect eAC;
         int nInt = GetAbilityModifier(ABILITY_INTELLIGENCE, oInitiator);
         if(nInt >= 1) eAC = EffectACDecrease(nInt);
-            PerformAttackRound(oTarget, oInitiator, eAC, 6.0, 0, 0, 0, FALSE, "", "", FALSE, FALSE, TRUE);
+            PerformAttackRound(oTarget, oInitiator, eAC, 6.0, 0, 0, 0, FALSE, "Tactical Insight: Hit!", "Tactical Insight: Miss!", FALSE, FALSE, TRUE);
 
     // Expend ability
     SetLocalInt(oInitiator, "ETBL_Tactical_Insight_Expended", TRUE);
