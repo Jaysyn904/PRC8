@@ -1441,8 +1441,9 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BARD)) return TRUE;
 		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_BARD)) return TRUE;	
 	}
-	else if (bBeguiler)
+	if (bBeguiler)
 	{
+		if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Entering Beguiler", oPC);
 		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_BEGUILER)) return TRUE;
 		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_BEGUILER)) return TRUE;
 		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_BEGUILER)) return TRUE;
@@ -1492,8 +1493,9 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 
 	
 	}
-	else if (bDuskblade)
+	if (bDuskblade)
 	{
+		if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Entering Dusblade", oPC);
 		if (GetHasFeat(FEAT_ABCHAMP_SPELLCASTING_DUSKBLADE)) return TRUE;
 		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_DUSKBLADE)) return TRUE;
 		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_DUSKBLADE)) return TRUE;
@@ -1540,8 +1542,9 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 	
 		
 	}
-	else if (bSorcerer)
+	if (bSorcerer)
 	{
+		if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Entering Sorcerer", oPC);
 		if (GetHasFeat(FEAT_ABERRATION_SPELLCASTING_DRIDER)) return TRUE;
 		if (GetHasFeat(FEAT_MONSTROUS_SPELLCASTING_ARKAMOI)) return TRUE;
 		if (GetHasFeat(FEAT_MONSTROUS_SPELLCASTING_MARRUTACT)) return TRUE;
@@ -1599,8 +1602,9 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_SORCERER)) return TRUE;
 		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_SORCERER)) return TRUE;			
 	}
-	else if (bWarmage)
+	if (bWarmage)
 	{
+		if(DEBUG) DoDebug("x2_inc_spellhook: CheckSecondaryPrC >>> Entering Warmage", oPC);
 		if (GetHasFeat(FEAT_AOTS_SPELLCASTING_WARMAGE)) return TRUE;
 		if (GetHasFeat(FEAT_ALCHEM_SPELLCASTING_WARMAGE)) return TRUE;
 		if (GetHasFeat(FEAT_ANIMA_SPELLCASTING_WARMAGE)) return TRUE;
@@ -1662,14 +1666,71 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
         return TRUE;    
 	}
 
-    //check its a sorc spell
+    //check its a sorcerer spell
     if(nCastingClass == CLASS_TYPE_SORCERER)
     {
-        if (CheckSecondaryPrC(oCaster) == TRUE)
+        if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> nCastingClass is Sorcerer.", oCaster);
+		//no need to check further if new spellbooks are disabled
+        if(GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK))
 		{
-			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
+            if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> PRC_SORC_DISALLOW_NEWSPELLBOOK.", oCaster);
 			return TRUE;
 		}
+        //check they have sorcerer levels
+        if(!GetLevelByClass(CLASS_TYPE_SORCERER, oCaster))
+		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Not a sorcerer.", oCaster);
+			return TRUE;
+		}
+        //check if they are casting via new spellbook
+        if(GetLocalInt(oCaster, "NSB_Class") != CLASS_TYPE_SORCERER && GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oCaster))
+		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> UltMagus using new spellbook.", oCaster);
+			return FALSE;   		
+		}
+        //check if they are casting via new spellbook
+        if(GetLocalInt(oCaster, "NSB_Class") == CLASS_TYPE_SORCERER)
+ 		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Using new spellbook.", oCaster);
+			return TRUE;
+		}
+		if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0 && CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sublime Chord w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}
+		if (CheckSecondaryPrC(oCaster) == TRUE)
+		{
+			if (DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> Sorcerer w/RHD found.", oCaster);
+			FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+			return FALSE;
+		}	        
+		//check they have arcane PrC or Draconic Arcane Grace/Breath
+        if(!(GetArcanePRCLevels(oCaster, nCastingClass) - GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster))
+          && !(GetHasFeat(FEAT_DRACONIC_GRACE, oCaster) || GetHasFeat(FEAT_DRACONIC_BREATH, oCaster)))
+ 		{
+            if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> First Sublime Chord check.", oCaster);
+			return TRUE;
+		}
+					
+        //check they have sorcerer in first arcane slot
+        //if(GetPrimaryArcaneClass() != CLASS_TYPE_SORCERER)
+        if(GetPrCAdjustedCasterLevelByType(TYPE_ARCANE, oCaster, TRUE) != GetPrCAdjustedCasterLevelByType(CLASS_TYPE_SORCERER, oCaster, TRUE))
+		{
+			if(DEBUG) DoDebug("x2_inc_spellhook: BardSorcPrCCheck >>> GetPrCAdjustedCasterLevelByType.", oCaster);
+			return TRUE;
+		}
+        //at this point, they must be using the bioware spellbook
+        //from a class that adds to bard
+        FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
+        return FALSE;
+    }
+
+
+/*     //check its a sorc spell
+    if(nCastingClass == CLASS_TYPE_SORCERER)
+    {
 		//no need to check further if new spellbooks are disabled
         if(GetPRCSwitch(PRC_SORC_DISALLOW_NEWSPELLBOOK))
             return TRUE;
@@ -1708,7 +1769,7 @@ int BardSorcPrCCheck(object oCaster, int nCastingClass, object oSpellCastItem)
         //from a class that adds to sorc
         FloatingTextStringOnCreature("You must use the new spellbook on the class radial.", oCaster, FALSE);
         return FALSE;
-    }
+    } */
 
     //check its a bard spell
     if(nCastingClass == CLASS_TYPE_BARD)

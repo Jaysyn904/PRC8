@@ -28,9 +28,9 @@ void main()
     int nStncTotal = GetKnownManeuversModifier(oInitiator, nClass, MANEUVER_TYPE_STANCE);
     int nRdyTotal  = GetReadiedManeuversModifier(oInitiator, nClass);
 
-DoDebug("nMoveTotal = "+IntToString(nMoveTotal));
-DoDebug("nStncTotal = "+IntToString(nStncTotal));
-DoDebug("nRdyTotal = "+IntToString(nRdyTotal));
+	if (DEBUG) DoDebug("nMoveTotal = "+IntToString(nMoveTotal));
+	if (DEBUG) DoDebug("nStncTotal = "+IntToString(nStncTotal));
+	if (DEBUG) DoDebug("nRdyTotal = "+IntToString(nRdyTotal));
 
     int nRubyLvl = GetLevelByClass(CLASS_TYPE_RUBY_VINDICATOR, oInitiator);
     int nRubyBonusMove = nRubyLvl / 2;
@@ -38,9 +38,9 @@ DoDebug("nRdyTotal = "+IntToString(nRdyTotal));
     if (nRubyLvl >= 6) nRubyBonusStance = 2; 
     int nRubyBonusReady = nRubyLvl > 8 ? 2 : nRubyLvl > 4 ? 1 : 0;
     int nMod;
-DoDebug("nRubyBonusMove = "+IntToString(nRubyBonusMove));
-DoDebug("nRubyBonusStance = "+IntToString(nRubyBonusStance));
-DoDebug("nRubyBonusReady = "+IntToString(nRubyBonusReady));
+	if (DEBUG) DoDebug("nRubyBonusMove = "+IntToString(nRubyBonusMove));
+	if (DEBUG) DoDebug("nRubyBonusStance = "+IntToString(nRubyBonusStance));
+	if (DEBUG) DoDebug("nRubyBonusReady = "+IntToString(nRubyBonusReady));
 
     // We aren't being called from any event, instead from EvalPRCFeats
     if(nEvent == FALSE)
