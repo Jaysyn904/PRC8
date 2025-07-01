@@ -53,6 +53,10 @@ void main()
 	int nRegen = 1+(nLevel-17)/7;
 	int nDR = 5*(1+(nLevel-10)/9);
 	int nER = (10*(1+(nLevel-13)/7))-5;
+	int nResist = 0;//Resistance (Ex): At 7th level, an ascetic gains a +1 resistance bonus on all saving throws. This bonus increases to +2 at 13th level, and to +3 at 17th level.
+	if (nLevel >= 17) nResist = 1 + (nLevel - 7) / 5;
+	else if (nLevel >= 13) nResist = 2;
+	else if (nLevel >= 7) nResist = 1; 
 	int nForsakerBonus = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC)/2;
 	int nSlot, nLevelCheck, nExaltedStrike, nTotalEnhancement;
 	
@@ -76,6 +80,24 @@ void main()
 				SetPersistantLocalInt(oPC,"VoPBoostCheck",nLevelCheck);
 				StartDynamicConversation("ft_vowpoverty_ab", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);	
 			}
+
+			//Applying stat boosts
+			if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)
+			{
+				if(!GetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck)))
+				{
+					SetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck), 0);
+				}
+				int oldValue = GetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck));
+				int newValue = 2 * (1 + (nLevel - nLevelCheck) / 4);
+				int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;
+				if (oldValue < newValue)
+				{
+					ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(stat, newValue - oldValue)), oPC);
+					SetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck), newValue);
+				}
+
+			}
 		
 			//Call exalted feat for each even level
 			if (!GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevelCheck)) && (nLevelCheck-(nLevelCheck/2)*2 == 0)) 
@@ -92,13 +114,14 @@ void main()
 		//Deflection Armor +1 each 6 levels
 		ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectACIncrease(nACDeflection, AC_DEFLECTION_BONUS)), oPC);
 		
-		//Resistences +1 on 7, then each 5 levels; must use SetPersistantLocalInt to avoid duplication on new levels
-		if ((nLevel>=7) && (nLevel-(nLevel/5)*5 == 2))
-		{	
-			if (!GetPersistantLocalInt(oPC, "VoPResistance"+IntToString(nLevel)))
+		//Resistance (Ex): At 7th level, an ascetic gains a +1 resistance bonus on all saving throws. This bonus increases to +2 at 13th level, and to +3 at 17th level.
+		if (nLevel>=7)
+		{
+			int oldValue = GetLocalInt(oPC, "VoPResistance");
+			if (nResist > oldValue)
 			{
-				ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, 1, SAVING_THROW_TYPE_ALL)), oPC);
-				SetPersistantLocalInt(oPC, "VoPResistance"+IntToString(nLevel),1);
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, nResist - oldValue, SAVING_THROW_TYPE_ALL)), oPC);
+				SetLocalInt(oPC, "VoPResistance", nResist);
 			}
 		}
 		

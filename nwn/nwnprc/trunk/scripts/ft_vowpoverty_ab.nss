@@ -98,25 +98,15 @@ void main()
         int nChoice = GetChoice(oPC);
 	    if(nStage == STAGE_SELECT_ABIL)
         {
-                ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(nChoice,2)),oPC); //Give the boost for the chosen option
 				SetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevel),(nChoice+10)); //Register the boost has been given
 				
-				//Give the boost for the ones chosen before
-                for(i = 0; i < nLevel; i++)
-				{
-					if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(i))>=10)
-					{
-						nTest = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(i))-10;
-						for(j = 0; j <= 5; j++)
-						{
-							if(j == nTest) ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(j,2)),oPC);
-						}
-					}
-				} 
 				DeletePersistantLocalInt(oPC,"VoPBoostCheck");
               
                 // And we're all done
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT); 
+
+                // Executing to apply new stat bonuses
+                ExecuteScript("ft_vowofpoverty", oPC);
         }
 
         if(DEBUG) DoDebug("ft_vowpoverty_ab: New stage: " + IntToString(nStage));

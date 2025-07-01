@@ -5,6 +5,7 @@
 #include "prc_inc_domain"
 #include "inc_dynconv"
 #include "inc_nwnx_funcs"
+#include "prc_inc_wpnrest"
 
 void AddDomainPower(object oPC, object oSkin, int bFuncs)
 {
@@ -211,9 +212,19 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
             }
             else
             {
-                int nWarWFIprop = FeatToIprop(nWarFocus);
-                AddSkinFeat(nWarFocus, nWarWFIprop, oSkin, oPC);
-                AddSkinFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, IP_CONST_FEAT_WEAPON_PROF_MARTIAL, oSkin, oPC);
+				effect  eMWP	= EffectBonusFeat(GetWeaponProfFeatByType(FocusToWeapProf(nWarFocus)));
+				effect 	eWF 	= EffectBonusFeat(nWarFocus);
+				
+						eWF		= EffectLinkEffects(eWF, eMWP);
+				
+						eWF 	= UnyieldingEffect(eWF);
+						eWF 	= TagEffect(eWF, "WAR_DOMAIN_WEAPON_FOCUS");
+				
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eWF, oPC);
+				
+				//int nWarWFIprop = FeatToIprop(nWarFocus);
+                //AddSkinFeat(nWarFocus, nWarWFIprop, oSkin, oPC);
+                //AddSkinFeat(FEAT_WEAPON_PROFICIENCY_MARTIAL, IP_CONST_FEAT_WEAPON_PROF_MARTIAL, oSkin, oPC);
             }
         }
         else

@@ -163,4 +163,3 @@ void main()
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERCHAT);
 }
-

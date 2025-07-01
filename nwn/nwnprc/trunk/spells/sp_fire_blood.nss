@@ -20,15 +20,54 @@ You deal 4d6 damage to any enemy who strikes you in melee.
 
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
-    /*
-      Spellcast Hook Code
-      Added 2003-07-07 by Georg Zoeller
-      If you want to make changes to all spells,
-      check x2_inc_spellhook.nss to find out more
+    // Define caster and target
+    object oCaster = OBJECT_SELF;
+    object oTarget = PRCGetSpellTargetObject();
 
-    */
+    // Set spell school for other systems (e.g. counters, logs)
+    SetLocalInt(oCaster, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
+
+    // Pre-spell cast checks (e.g. UMD, conditions)
+    if (!X2PreSpellCastCode())
+    {
+        // Clean up and exit if the spell shouldn't be cast
+        DeleteLocalInt(oCaster, "X2_L_LAST_SPELLSCHOOL_VAR");
+        return;
+    }
+
+    int nCasterLevel = PRCGetCasterLevel(oCaster);
+    int nMetaMagic   = PRCGetMetaMagicFeat();
+
+    // Base duration (1 round per caster level)
+    int nDuration = nCasterLevel;
+
+    // Double duration if Extended
+    if (CheckMetaMagic(nMetaMagic, METAMAGIC_EXTEND))
+    {
+        nDuration *= 2;
+    }
+
+    // Prepare effects
+    effect eShield = EffectDamageShield(0, DAMAGE_BONUS_2d12, DAMAGE_TYPE_MAGICAL);
+    effect eVFX    = EffectVisualEffect(VFX_IMP_GLOBE_USE);
+    effect eFinal  = EffectLinkEffects(eShield, eVFX);
+
+    // Prevent stacking
+    PRCRemoveEffectsFromSpell(oTarget, GetSpellId());
+
+    // Fire event for spellcasting
+    SignalEvent(oTarget, EventSpellCastAt(oCaster, GetSpellId(), FALSE));
+
+    // Apply effect
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFinal, oTarget, RoundsToSeconds(nDuration));
+
+    // Cleanup
+    DeleteLocalInt(oCaster, "X2_L_LAST_SPELLSCHOOL_VAR");
+}
+
+
+/* 	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
 
     if (!X2PreSpellCastCode())
     {
@@ -64,6 +103,4 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
 
 
 DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Erasing the variable used to store the spell's spell school
-}
-
+// Erasing the variable used to store the spell's spell school */

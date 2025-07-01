@@ -119,6 +119,7 @@ int GetSpellbookTypeForClass(int nClass)
     switch(nClass)
     {
         case CLASS_TYPE_ARCHIVIST:
+		case CLASS_TYPE_ASSASSIN:
         case CLASS_TYPE_BLACKGUARD:
         case CLASS_TYPE_BLIGHTER:
         case CLASS_TYPE_CLERIC:
@@ -141,7 +142,6 @@ int GetSpellbookTypeForClass(int nClass)
         case CLASS_TYPE_VIGILANT:
         case CLASS_TYPE_WIZARD:
             return SPELLBOOK_TYPE_PREPARED;
-        case CLASS_TYPE_ASSASSIN:
         case CLASS_TYPE_BARD:
         case CLASS_TYPE_BEGUILER:
         case CLASS_TYPE_CELEBRANT_SHARESS:

@@ -22,6 +22,9 @@ const int SPELL_BCM_RENDING_CLAWS			= 17997;
 //:: Complete Warrior
 const int SPELL_RANGED_DISARM				= 3493;
 
+//:: Tome of Battle
+const int SPELL_TOB_SNAP_KICK				= 3794;
+
 //marshal
 const int SPELL_MINAUR_DEMFORT              = 3500;
 const int SPELL_MINAUR_FORCEWILL            = 3501;

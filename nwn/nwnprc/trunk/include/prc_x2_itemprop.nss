@@ -1883,7 +1883,7 @@ int IPDamageConstant(int nDamBon)
         case 49: nIPBonus = IP_CONST_DAMAGEBONUS_49; break;
         case 50: nIPBonus = IP_CONST_DAMAGEBONUS_50; break;
     }
-        if (nDamBon > 20) nIPBonus = IP_CONST_DAMAGEBONUS_50;
+        if (nDamBon > 50) nIPBonus = IP_CONST_DAMAGEBONUS_50;
     
     return nIPBonus;
 } 

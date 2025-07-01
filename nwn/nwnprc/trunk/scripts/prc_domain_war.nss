@@ -31,6 +31,7 @@ const int STAGE_CONFIRMATION  = 1;
 //////////////////////////////////////////////////
 /* Main function                                */
 //////////////////////////////////////////////////
+#include "prc_inc_spells"
 
 void main()
 {
@@ -146,9 +147,19 @@ void main()
                 int nWeapon = GetLocalInt(oPC, "WarDomainWeapon");
                 int nWeaponFocus = GetFeatOfWeaponType(nWeapon, FEAT_TYPE_FOCUS);
                 int nWFIprop = FeatToIprop(nWeaponFocus);
+				
+				effect  eMWP	= EffectBonusFeat(GetWeaponProfFeatByType(FocusToWeapProf(nWeaponFocus)));
+				effect 	eWF 	= EffectBonusFeat(nWeaponFocus);
+				
+						eWF		= EffectLinkEffects(eWF, eMWP);
+				
+						eWF 	= UnyieldingEffect(eWF);
+						eWF 	= TagEffect(eWF, "WAR_DOMAIN_WEAPON_FOCUS");
+				
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eWF, oPC);
 
-                IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWFIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-                IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_MARTIAL), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+                //IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWFIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+                //IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_MARTIAL), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 
                 // Store the weapon feat for later reuse
                 // The reason we use the feat and not the iprop constant is so we can check using GetHasFeat whether to reapply

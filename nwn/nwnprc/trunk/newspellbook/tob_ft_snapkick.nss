@@ -26,7 +26,7 @@ void main()
     {
         FloatingTextStringOnCreature("Deactivating Snap Kick", oInitiator, FALSE);
         DeleteLocalInt(oInitiator, "SnapKick");
-        PRCRemoveEffectsFromSpell(OBJECT_SELF, 3741);
+        PRCRemoveEffectsFromSpell(OBJECT_SELF, SPELL_TOB_SNAP_KICK);
     }
     else
     {

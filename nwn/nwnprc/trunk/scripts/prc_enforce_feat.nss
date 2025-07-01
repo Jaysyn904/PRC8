@@ -1498,20 +1498,20 @@ int BonusDomains()
     //Determine minimum number of bonus domains (selected by player)
     int nMin;
     if(GetLevelByClass(CLASS_TYPE_MYSTIC))
-        nMin += 1;//1 domain at 1st level
+        nMin += 1; //1 domain at 1st level
     if(GetLevelByClass(CLASS_TYPE_TEMPLAR))
-        nMin += 2;//2 domains at 1st level
+        nMin += 2; //2 domains at 1st level
     if(GetLevelByClass(CLASS_TYPE_SHAMAN))
     {
         if(GetLevelByClass(CLASS_TYPE_SHAMAN) > 10)
-            nMin += 1;//1 PRC domain at 11th level
+            nMin += 1; //1 PRC domain at 11th level
     }
     if(GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE))
     {
         if(GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE) > 5)
-            nMin += 2;//2 domains at 6th level
+            nMin += 2; //2 domains at 6th level
         else
-            nMin += 1;//1 domain at 1st level
+            nMin += 1; //1 domain at 1st level
     }
 
 /*     if(!nMin)

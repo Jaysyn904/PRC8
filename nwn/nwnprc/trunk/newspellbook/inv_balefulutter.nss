@@ -44,15 +44,25 @@ void main()
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
         } */
 		int nType = GetObjectType(oTarget);
-		
-		if ((nType == OBJECT_TYPE_DOOR || nType == OBJECT_TYPE_PLACEABLE || nType == OBJECT_TYPE_TRIGGER) && 
-			!GetPlotFlag(oTarget) && 
-			GetIsTrapped(oTarget))
+
+		// Exclude all plot objects
+		if (GetPlotFlag(oTarget))
+			return;
+
+		// Fire on all doors and placeables
+		if (nType == OBJECT_TYPE_DOOR || nType == OBJECT_TYPE_PLACEABLE)
 		{
 			effect eDamage = EffectDamage(9999, DAMAGE_TYPE_MAGICAL);
 			effect eLink = EffectLinkEffects(eDamage, eVis);
 			ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
-		}		
+		}
+		// Fire only on triggers that are trapped
+		else if (nType == OBJECT_TYPE_TRIGGER && GetIsTrapped(oTarget))
+		{
+			effect eDamage = EffectDamage(9999, DAMAGE_TYPE_MAGICAL);
+			effect eLink = EffectLinkEffects(eDamage, eVis);
+			ApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
+		}	
         else if(nType == OBJECT_TYPE_CREATURE)
         {
             PRCSignalSpellEvent(oTarget, TRUE, INVOKE_BALEFUL_UTTERANCE, OBJECT_SELF);
