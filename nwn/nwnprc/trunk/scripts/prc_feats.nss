@@ -1286,7 +1286,7 @@ void PRCFeat_AddMisc(object oPC, object oSkin)
 {
     if(GetPersistantLocalInt(oPC, "EpicSpell_TransVital"))
     {
-        IPSafeAddItemProperty(oSkin, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_LEVEL_ABIL_DRAIN), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        IPSafeAddItemProperty(oSkin, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_DISEASE), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         IPSafeAddItemProperty(oSkin, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_POISON), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         SetCompositeBonus(oSkin, "TransVitalRegen", 1, ITEM_PROPERTY_REGENERATION);
         if(!GetPersistantLocalInt(oPC, "NWNX_TransVital"))
