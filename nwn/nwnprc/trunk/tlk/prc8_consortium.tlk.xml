@@ -46467,8 +46467,7 @@ Duration: Instantaneous
 Saving Throw: None
 Spell Resistance: No
 
-Because magic is powerful, so, too, is the ability to dispel magic. You can use Superb Dispelling to end ongoing spells that have been cast on a creature or object, or to end ongoing spells within an area.
-One object, creature, or affected area is the target of the spell. You make a dispel check against the spell currently in effect on the target. A dispel check is 1d20 + 1 per caster level (maximum +40) against a DC of 11 + the spells caster level. If successful, the target's effects are dispelled.</entry>
+As greater dispel magic, except that the maximum bonus on the dispel check is +40, and the character takes 10d6 points of backlash damage.</entry>
   <entry id="56287" lang="en" sex="m">Epic Spell: Symrustar's Spellbinding</entry>
   <entry id="56288" lang="en" sex="m">Researched Epic Spell: Symrustar's Spellbinding</entry>
   <entry id="56289" lang="en" sex="m">School: Enchantment

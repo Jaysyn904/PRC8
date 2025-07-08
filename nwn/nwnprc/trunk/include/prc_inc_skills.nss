@@ -374,6 +374,12 @@ int PRCIsFlying(object oCreature)
         
     if(GetRacialType(oCreature) == RACIAL_TYPE_GLOURA)
     	bFlying = TRUE;
+
+    if(GetRacialType(oCreature) == RACIAL_TYPE_AVARIEL)
+    	bFlying = TRUE;
+	
+	if(GetRacialType(oCreature) == RACIAL_TYPE_FEYRI)
+    bFlying = TRUE;
 	
 	if(GetRacialType(oCreature) == RACIAL_TYPE_SPIRETOPDRAGON)
     	bFlying = TRUE;

@@ -45,7 +45,25 @@ Created:   7/6/07
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+/* void PerformAttack(object oDefender, object oAttacker,
+    effect eSpecialEffect, float eDuration = 0.0, int iAttackBonusMod = 0,
+    int iDamageModifier = 0, int iDamageType = 0,
+    string sMessageSuccess = "", string sMessageFailure = "",
+    int iTouchAttackType = FALSE,
+    object oRightHandOverride = OBJECT_INVALID, object oLeftHandOverride = OBJECT_INVALID,
+    int nHandednessOverride = 0, int bCombatModeFlags = 0); // motu99: changed default of nHandednessOverride to FALSE (was -1) */
+
 #include "prc_inc_combat"
+
+int GetIsSlashingWeapon(object oItem)
+{
+    int iWeapType = StringToInt(Get2DACache("baseitems", "WeaponType", GetBaseItemType(oItem)));
+
+    if (iWeapType == 3 || iWeapType == 4) // slashing or slashing & piercing
+        return TRUE;
+    else
+        return FALSE;
+}
 
 void main()
 {
@@ -53,19 +71,42 @@ void main()
         
         PRCSetSchool(SPELL_SCHOOL_TRANSMUTATION);
         
-        object oPC = OBJECT_SELF;
-        vector vOrigin = GetPosition(oPC);
-        location lTarget = PRCGetSpellTargetLocation();
+        object oPC 			= OBJECT_SELF;
+		
+		object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+		
+		int bSlashing = GetIsSlashingWeapon(oWeapon);
+		
+		if(!bSlashing)
+		{
+			SendMessageToPC(oPC, "This spell requires a slashing weapon in the spellcaster's right hand.");
+			return;
+		}		
+		
+		int nClass 			= GetLastSpellCastClass();
+		int nStatMod 		= GetDCAbilityModForClass(nClass, oPC);
+		int nStatBonus 		= GetAbilityModifier(nStatMod);
+		
+        vector vOrigin 		= GetPosition(oPC);
+		
+        location lTarget 	= PRCGetSpellTargetLocation();
+		
+		float fLength 		= FeetToMeters(60.0);
+		
         effect eNone;
-        object oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, FeetToMeters(60.0f), lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
+		
+		SetLocalInt(oPC, "WhirlingBlade", TRUE);
+		
+        object oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
         
         while(GetIsObjectValid(oTarget))
         {
-                if(!GetIsReactionTypeFriendly(oTarget, oPC))
+                if (oTarget != oPC && GetIsReactionTypeHostile(oTarget, oPC))
                 {
-                        PerformAttack(oTarget, oPC, eNone);
+                        DelayCommand(0.0, PerformAttack(oTarget, oPC, eNone, 0.0, nStatBonus, 0, 0, "Whirling Blade: Hit!", "Whirling Blade: Miss!"));
                 }
-                oTarget = MyNextObjectInShape(SHAPE_SPELLCYLINDER, FeetToMeters(60.0f), lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
+                oTarget = MyNextObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
         }
+		DelayCommand(1.0f, DeleteLocalInt(oPC, "WhirlingBlade"));
         PRCSetSchool();
 }

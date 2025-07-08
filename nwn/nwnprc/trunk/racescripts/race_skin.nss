@@ -456,6 +456,14 @@ void main()
     {
         SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oPC);
     }     
+	if(GetRacialType(oPC) == RACIAL_TYPE_AVARIEL)
+    {
+        SetCreatureWingType(CREATURE_WING_TYPE_BIRD, oPC);
+    }     	
+	if(GetRacialType(oPC) == RACIAL_TYPE_FEYRI)
+    {
+        SetCreatureWingType(CREATURE_WING_TYPE_DEMON, oPC);
+    }    	
     if(GetRacialType(oPC) == RACIAL_TYPE_JAEBRIN)
     {
         SetCompositeBonus(oSkin, "Jaebrin_Spell", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPELLCRAFT);

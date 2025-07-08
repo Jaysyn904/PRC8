@@ -246,7 +246,7 @@ int GetSpellFromAbrev(string sAbrev)
     sAbrev = GetStringLowerCase(sAbrev);
     if(GetStringLeft(sAbrev, 8) == "epic_sp_")
         sAbrev = GetStringRight(sAbrev, GetStringLength(sAbrev)-8);
-    if(DEBUG) DoDebug("sAbrew to check vs: " + sAbrev);
+    if(DEBUG) DoDebug("sAbrev to check vs: " + sAbrev);
     int i = 0;
     string sLabel = GetStringLowerCase(Get2DACache("epicspells", "LABEL", i));
     while(sLabel != "")
