@@ -183,11 +183,11 @@ Level
    Resist Poison - Bestows a +4 bonus to all Fortitude saving throws vs. poison.
    Feat - Skill Focus: Intimidate - Provides a +3 bonus to all skill checks involving Intimidate.
 2: Aura of Courage - The Battlerager becomes immune to fear.
-   Feat - Knockdown.
+   Feat - Improved Trip.
 3: Battle Rage - 2/day.
    Feat - Improved Unarmed Strike.
 4: Feat - Great Cleave.
-   Feat - Improved Knockdown.
+   Feat - Reckless Offense.
 5: Battle Rage - 3/day.
    Natural Armor - The Battlerager's skin hardens, granting a +2 bonus to natural AC.
 </entry>
@@ -2002,7 +2002,7 @@ An unwilling creature can't be teleported by word of recall. Likewise, a creatur
   <entry id="12765" lang="en" sex="m">Knowledge is power and the quest for knowledge never ends. There is an ever lasting supply of divine lore for you, the epic archivist, to discover.
 
 Hit Die: d6
-Skill Points: 4 + Int modifier.
+- Skill Points: 4+ Int Modifier.
 Dark Knowledge (Ex): At 21st level and every 3 levels thereafter, the epic archivist gains an additional use of Dark Knowledge.
 Lore Mastery (Ex): The archivist adds an additional +1 bonus on all Lore skill checks at level 23 and every 5 levels thereafter.
 Bonus Feats: The epic archivist gains a bonus feat (selected from the list of epic class bonus feats) every three levels higher than 20th.
@@ -38928,7 +38928,7 @@ Descriptor(s):
 Component(s): Verbal, Somatic
 Range: Personal
 Area of Effect / Target: Colossal, centered on you
-Duration: Instant
+Duration: 1 Round / Level
 Additional Counter Spells:
 Save: None
 Spell Resistance: Yes (for detrimental effects)
@@ -52416,6 +52416,9 @@ The target creature is struck blind and deaf.</entry>
   <entry id="59218" lang="en" sex="m">Type of Feat: General
 Prerequisite: BAB +1
 Benefit: You can equip a weapon of one size larger than normal. You take a -2 penalty to all attack rolls when using Monkey Grip.
+
+* due to engine limitations, Tiny, Large and Huge creatures see no benefit from Monkey Grip.
+
 Use: Automatic</entry>
   <entry id="59219" lang="en" sex="m">COMBAT MANEUVER
 Step 1
@@ -73945,7 +73948,7 @@ Hit Die: d10
 Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Soldier of Light gains a bonus feat every three levels after 10th.
 
-ABILITIES:
+CLASS FEATURES:
 
 Level 
 13: Healing Domain - Healing spells are empowered.

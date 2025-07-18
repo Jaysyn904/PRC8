@@ -77,10 +77,13 @@ const int STAGE_SPELL_SHOPS_LEVEL_FILTER        =  48;
 const int STAGE_SPELL_SHOPS_ALPHABETICAL_FILTER =  49;
 const int STAGE_PLANTSHAPE_SLOTS                =  50;
 const int STAGE_PLANTSHAPE_SHAPE                =  51;
+const int STAGE_WIELDING		                =  52;
+const int STAGE_WIELDING_ONE	                =  53;
+const int STAGE_WIELDING_TWO	                =  54;
+const int STAGE_WIELDING_POLEARM	            =  55;
 
 // Confirmation stage for registering cohort
 const int STAGE_REGISTER_CONFIRM 				= 200; 
-
 
 const int STAGE_CDKEY_ADD                       = 509;
 const int STAGE_APPEARANCE                      = 510;
@@ -433,6 +436,11 @@ void main()
     // The stage is used to determine the active conversation node.
     // 0 is the entry node.
     int nStage = GetStage(oPC);
+	
+	object oWeaponR	= GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+	object oWeaponL	= GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC);
+	
+	int bRanged = GetWeaponRanged(oWeaponR);
 
     // Check which of the conversation scripts called the scripts
     if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort
@@ -477,7 +485,11 @@ void main()
                 AddChoice("Miscellaneous options.", 11);
                 if(DEBUG)//TO DO: add separate switch
                     AddChoice("Wipe PRC Spellbooks", 12);
-
+				if((!bRanged && oWeaponR != OBJECT_INVALID) && (PRCGetCreatureSize(oPC) > 1 && PRCGetCreatureSize(oPC) < 5))
+				{
+					AddChoice("Set weapon wielding.", 52);
+				}
+				
                 MarkStageSetUp(nStage, oPC);
                 SetDefaultTokens(); // Set the next, previous, exit and wait tokens to default values
             }
@@ -1298,6 +1310,340 @@ void main()
                 AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
                 MarkStageSetUp(nStage, oPC);
             }
+			else if (nStage == STAGE_WIELDING)
+			{
+				string sHeader = "With this option you can change the how you wield certain melee weapons.";
+				SetHeader(sHeader);
+				
+				int bShield 	= GetIsShield(oWeaponL);
+				int bTorch 		= (GetBaseItemType(oWeaponL) == BASE_ITEM_TORCH);
+
+				int bUnarmed 	= (oWeaponR == OBJECT_INVALID);
+				int bOneHand 	= (!bUnarmed && oWeaponL == OBJECT_INVALID);
+
+				int bMonkey 	= GetHasFeat(FEAT_MONKEY_GRIP);
+				int bPowerful 	= GetHasFeat(FEAT_RACE_POWERFUL_BUILD);
+
+				int bTwoHand	= GetIsTwoHandedMeleeWeapon(oWeaponR); 
+				int bDouble		= GetIsDoubleSidedWeapon(oWeaponR);
+
+				int bPolearm	= (GetBaseItemType(oWeaponR) == BASE_ITEM_HALBERD || 
+									GetBaseItemType(oWeaponR) == BASE_ITEM_QUARTERSTAFF ||
+									GetBaseItemType(oWeaponR) == BASE_ITEM_SHORTSPEAR ||
+									GetBaseItemType(oWeaponR) == BASE_ITEM_MAGICSTAFF);
+
+				int iSize	 	= PRCGetCreatureSize(oPC);
+				int iWeaponSize	= GetWeaponSize(oWeaponR); 
+
+				if (iSize == CREATURE_SIZE_TINY)
+				{
+					int bAdded1H = FALSE;
+					
+					if (iWeaponSize == 1 && !bShield && !bTorch)
+					{
+						AddChoice("Wield tiny weapon one-handed.", 1);
+						AddChoice("Wield tiny weapon two-handed.", 2);
+						bAdded1H = TRUE;
+					}
+					else if (iWeaponSize == 1 && (bShield || bTorch))
+					{
+						AddChoice("Wield tiny weapon one-handed.", 1);
+						bAdded1H = TRUE;
+					}					
+					if (iWeaponSize == 2 && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield small weapon one-handed.", 1);
+						AddChoice("Wield small weapon two-handed.", 2);
+						bAdded1H = TRUE;
+					}
+					else if (iWeaponSize == 2 && !bMonkey && !bPowerful && !bShield && !bTorch)
+					{
+						AddChoice("Wield small weapon two-handed.", 2);
+						
+						bAdded1H = TRUE;
+					}
+				}				
+				else if (iSize == CREATURE_SIZE_SMALL)
+				{
+					int bAdded1H = FALSE;
+					
+					if (!bShield && !bTorch && bTwoHand && !bPolearm)
+					{
+						AddChoice("Wield a large weapon two-handed.", 2);
+					}
+					else if (!bShield && !bTorch && bTwoHand && bPolearm)
+					{
+						AddChoice("Wield a polearm two-handed.", 2);
+					}					
+					if (iWeaponSize == 1 && !bShield && !bTorch)
+					{
+						AddChoice("Wield tiny weapon one-handed.", 1);
+						AddChoice("Wield tiny weapon two-handed.", 2);
+						bAdded1H = TRUE;
+					}
+					else if (iWeaponSize == 1 && (bShield || bTorch))
+					{
+						AddChoice("Wield tiny weapon one-handed.", 1);
+						bAdded1H = TRUE;
+					}					
+					if (iWeaponSize == 2 && (bShield || bTorch))
+					{
+						AddChoice("Wield small weapon one-handed.", 1);
+						bAdded1H = TRUE;
+					}
+					else if (iWeaponSize == 2 && !bShield && !bTorch)
+					{
+						AddChoice("Wield small weapon one-handed.", 1);
+						AddChoice("Wield small weapon two-handed.", 2);
+						bAdded1H = TRUE;
+					}
+					if (iWeaponSize == 3 && !bShield && !bTorch && !bMonkey && !bPowerful)
+					{
+						AddChoice("Wield medium weapon two-handed.", 2);
+					}		
+					else if (iWeaponSize == 3 && !bShield && !bTorch && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield medium weapon one-handed.", 1);
+						AddChoice("Wield medium weapon two-handed.", 2);
+					}						
+					else if (iWeaponSize == 3 && (bMonkey || bPowerful) && (bShield && bTorch))
+					{
+						AddChoice("Wield medium weapon one-handed.", 1);
+					}	
+				}
+				else if (iSize == CREATURE_SIZE_MEDIUM)
+				{
+					int bAdded1H = FALSE;
+					
+					if (bDouble && !bShield && !bTorch && (!bMonkey || !bPowerful))
+					{
+						AddChoice("Wield a double-sided weapon two-handed.", 3);
+					}
+					else if (bDouble && !bShield && !bTorch && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield a double-sided weapon one-handed.", 1);
+						AddChoice("Wield a double-sided weapon two-handed.", 3);
+						bAdded1H = TRUE;
+					}
+					else if (bDouble && (bMonkey || bPowerful) && (bShield || bTorch))
+					{
+						AddChoice("Wield a double-sided weapon one-handed.", 1);
+						bAdded1H = TRUE;
+					}					
+					if (!bTwoHand && !bPolearm && !bDouble && (bShield || bTorch))
+					{
+						AddChoice("Wield a small or medium weapon one-handed.", 1);
+						bAdded1H = TRUE;
+					}
+					else if (!bTwoHand && !bPolearm && !bDouble && (bMonkey || bPowerful) && (!bShield || !bTorch))
+					{
+						AddChoice("Wield a small or medium weapon one-handed.", 1);
+						AddChoice("Wield a small or medium weapon two-handed.", 2);
+						bAdded1H = TRUE;
+					}
+					
+					if  (bTwoHand && !bDouble && !bPolearm && !bDouble && (bMonkey || bPowerful) && (bShield || bTorch))
+					{
+						AddChoice("Wield a large weapon one-handed.", 1);
+					}
+					else if  (bTwoHand && !bDouble && bPolearm && !bDouble && (bMonkey || bPowerful) && (bShield || bTorch))
+					{
+						AddChoice("Wield a polearm one-handed.", 1);
+					}
+					
+					if (!bShield && !bTorch && !bDouble && bTwoHand && !bPolearm && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield a large weapon one-handed.", 1);
+						AddChoice("Wield a large weapon two-handed.", 2);
+					}
+
+					if (!bShield && !bTorch && bTwoHand && !bMonkey && !bPowerful && !bPolearm && !bDouble)
+					{
+						AddChoice("Wield a large weapon two-handed.", 2);
+					}
+
+					if (!bShield && !bTorch && bPolearm && !bDouble && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield a polearm one-handed.", 1);
+						AddChoice("Wield a polearm two-handed.", 3);
+					}
+					else if (bShield && bTorch && bPolearm && !bDouble && (bMonkey || bPowerful))
+					{
+						AddChoice("Wield a polearm one-handed.", 1);
+					}					
+
+					if (!bShield && !bTorch && bPolearm && !bDouble && !bMonkey && !bPowerful)
+					{
+						AddChoice("Wield a polearm two-handed.", 3);
+					}
+
+					if (!bAdded1H && !bShield && !bTorch && !bPolearm && !bDouble && !bTwoHand)
+					{
+						AddChoice("Wield a small or medium weapon one-handed.", 1);
+					}
+				}	
+				else if (iSize == CREATURE_SIZE_LARGE)
+				{
+					int bAdded1H = FALSE;
+					
+					if (bDouble && bOneHand && !bShield && !bTorch )
+					{
+						AddChoice("Wield a double-sided weapon one-handed.", 1);
+						AddChoice("Wield a double-sided weapon two-handed.", 3);
+					}	
+					
+					else if (bDouble && (!bOneHand || bShield || bTorch))
+					{
+						AddChoice("Wield a double-sided weapon one-handed.", 1);
+					}			
+					if (bTwoHand && !bPolearm && bOneHand && !bShield && !bTorch )
+					{
+						AddChoice("Wield a large weapon one-handed.", 1);
+						AddChoice("Wield a large weapon two-handed.", 2);
+					}	
+					
+					else if (bTwoHand && !bPolearm && (!bOneHand || bShield || bTorch))
+					{
+						AddChoice("Wield a large weapon one-handed.", 1);
+					}						
+					if (bPolearm && bOneHand && !bShield && !bTorch )
+					{
+						AddChoice("Wield a polearm one-handed.", 1);
+						AddChoice("Wield a polearm two-handed.", 3);
+					}	
+					
+					else if (bPolearm && (!bOneHand || bShield || bTorch))
+					{
+						AddChoice("Wield a polearm one-handed.", 1);
+					}	
+					if((iWeaponSize == 3) && bOneHand && !bShield && !bTorch )
+					{
+						AddChoice("Wield a medium weapon one-handed.", 1);
+						AddChoice("Wield a medium weapon two-handed.", 2);
+					}
+					else if(iWeaponSize == 3 && (!bOneHand || bShield || bTorch))
+					{
+						AddChoice("Wield a medium weapon one-handed.", 1);
+					}					
+					else if(iWeaponSize == 2)
+					{
+						AddChoice("Wield a small weapon one-handed.", 1);
+					}	
+				}				
+					
+                AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+				
+			}
+			else if (nStage == STAGE_WIELDING_ONE)
+			{
+				string sHeader = "One handed attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "1hreadyr", "");
+				ReplaceObjectAnimation(oPC, "1hreadyl", "");
+				ReplaceObjectAnimation(oPC, "1hslashl", "");
+				ReplaceObjectAnimation(oPC, "1hslashr", "");
+				ReplaceObjectAnimation(oPC, "1hstab", "");
+				ReplaceObjectAnimation(oPC, "1hcloseh", "");
+				ReplaceObjectAnimation(oPC, "1hclosel", "");
+				ReplaceObjectAnimation(oPC, "1hreach", "");
+				ReplaceObjectAnimation(oPC, "1hparryl", "");
+				ReplaceObjectAnimation(oPC, "1hparryr", "");
+				ReplaceObjectAnimation(oPC, "1hslasho", "");	
+				
+				ReplaceObjectAnimation(oPC, "2hreadyr", "1hreadyr");
+				ReplaceObjectAnimation(oPC, "2hreadyl", "1hreadyl");
+				ReplaceObjectAnimation(oPC, "2hslashl", "1hslashl");
+				ReplaceObjectAnimation(oPC, "2hslashr", "1hslashr");
+				ReplaceObjectAnimation(oPC, "2hstab", "1hstab");
+				ReplaceObjectAnimation(oPC, "2hcloseh", "1hcloseh");
+				ReplaceObjectAnimation(oPC, "2hclosel", "1hclosel");
+				ReplaceObjectAnimation(oPC, "2hreach", "1hreach");
+				ReplaceObjectAnimation(oPC, "2hparryl", "1hparryl");
+				ReplaceObjectAnimation(oPC, "2hparryr", "1hparryr");
+				ReplaceObjectAnimation(oPC, "2hslasho", "1hslasho");	
+				
+				ReplaceObjectAnimation(oPC, "plreadyr", "1hreadyr");
+				ReplaceObjectAnimation(oPC, "plreadyl", "1hreadyl");
+				ReplaceObjectAnimation(oPC, "plslashl", "1hslashl");
+				ReplaceObjectAnimation(oPC, "plslashr", "1hslashr");
+				ReplaceObjectAnimation(oPC, "plstab", "1hstab");
+				ReplaceObjectAnimation(oPC, "plcloseh", "1hcloseh");
+				ReplaceObjectAnimation(oPC, "plclosel", "1hclosel");
+				ReplaceObjectAnimation(oPC, "plreach", "1hreach");
+				ReplaceObjectAnimation(oPC, "plparryl", "1hparryl");
+				ReplaceObjectAnimation(oPC, "plparryr", "1hparryr");
+				ReplaceObjectAnimation(oPC, "plslasho", "1hslasho");	
+		
+				AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+			}
+			else if (nStage == STAGE_WIELDING_TWO)
+			{
+				string sHeader = "Two-handed attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "1hreadyr", "2hreadyr");
+				ReplaceObjectAnimation(oPC, "1hreadyl", "2hreadyl");
+				ReplaceObjectAnimation(oPC, "1hslashl", "2hslashl");
+				ReplaceObjectAnimation(oPC, "1hslashr", "2hslashr");
+				ReplaceObjectAnimation(oPC, "1hstab", "2hstab");
+				ReplaceObjectAnimation(oPC, "1hcloseh", "2hcloseh");
+				ReplaceObjectAnimation(oPC, "1hclosel", "2hclosel");
+				ReplaceObjectAnimation(oPC, "1hreach", "2hreach");
+				ReplaceObjectAnimation(oPC, "1hparryl", "2hparryl");
+				ReplaceObjectAnimation(oPC, "1hparryr", "2hparryr");
+				ReplaceObjectAnimation(oPC, "1hslasho", "2hslasho");
+
+				ReplaceObjectAnimation(oPC, "2hreadyr", "");
+				ReplaceObjectAnimation(oPC, "2hreadyl", "");
+				ReplaceObjectAnimation(oPC, "2hslashl", "");
+				ReplaceObjectAnimation(oPC, "2hslashr", "");
+				ReplaceObjectAnimation(oPC, "2hstab", "");
+				ReplaceObjectAnimation(oPC, "2hcloseh", "");
+				ReplaceObjectAnimation(oPC, "2hclosel", "");
+				ReplaceObjectAnimation(oPC, "2hreach", "");
+				ReplaceObjectAnimation(oPC, "2hparryl", "");
+				ReplaceObjectAnimation(oPC, "2hparryr", "");
+				ReplaceObjectAnimation(oPC, "2hslasho", "");	
+
+				ReplaceObjectAnimation(oPC, "plreadyr", "");
+				ReplaceObjectAnimation(oPC, "plreadyl", "");
+				ReplaceObjectAnimation(oPC, "plslashl", "");
+				ReplaceObjectAnimation(oPC, "plslashr", "");
+				ReplaceObjectAnimation(oPC, "plstab", "");
+				ReplaceObjectAnimation(oPC, "plcloseh", "");
+				ReplaceObjectAnimation(oPC, "plclosel", "");
+				ReplaceObjectAnimation(oPC, "plreach", "");
+				ReplaceObjectAnimation(oPC, "plparryl", "");
+				ReplaceObjectAnimation(oPC, "plparryr", "");
+				ReplaceObjectAnimation(oPC, "plslasho", "");					
+		
+				AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+			}	
+			else if (nStage == STAGE_WIELDING_POLEARM)
+			{
+				string sHeader = "Polearm attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "plreadyr", "");
+				ReplaceObjectAnimation(oPC, "plreadyl", "");
+				ReplaceObjectAnimation(oPC, "plslashl", "");
+				ReplaceObjectAnimation(oPC, "plslashr", "");
+				ReplaceObjectAnimation(oPC, "plstab", "");
+				ReplaceObjectAnimation(oPC, "plcloseh", "");
+				ReplaceObjectAnimation(oPC, "plclosel", "");
+				ReplaceObjectAnimation(oPC, "plreach", "");
+				ReplaceObjectAnimation(oPC, "plparryl", "");
+				ReplaceObjectAnimation(oPC, "plparryr", "");
+				ReplaceObjectAnimation(oPC, "plslasho", "");					
+		
+				AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+			}	
+			
         }
 
         // Do token setup
@@ -1379,6 +1725,8 @@ void main()
                 nStage = STAGE_LA_BUYOFF;                 
             else if(nChoice == 42)
                 nStage = STAGE_ENCOUNTER_AREAS;                 
+            else if(nChoice == 52)
+                nStage = STAGE_WIELDING;  			
             else if(nChoice == 10)
                 nStage = STAGE_APPEARANCE;
             else if(nChoice == 11)
@@ -2091,7 +2439,125 @@ void main()
             nStage = STAGE_ENTRY;
             MarkStageNotSetUp(nStage, oPC);
        }
+		else if (nStage == STAGE_WIELDING)
+		{
+			if(nChoice == CHOICE_RETURN_TO_PREVIOUS)
+			{
+                nStage = STAGE_ENTRY;
+				MarkStageNotSetUp(nStage, oPC);
+			}
+			
+			if(nChoice == 1)
+			{
+				string sHeader = "One handed attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "1hreadyr", "");
+				ReplaceObjectAnimation(oPC, "1hreadyl", "");
+				ReplaceObjectAnimation(oPC, "1hslashl", "");
+				ReplaceObjectAnimation(oPC, "1hslashr", "");
+				ReplaceObjectAnimation(oPC, "1hstab", "");
+				ReplaceObjectAnimation(oPC, "1hcloseh", "");
+				ReplaceObjectAnimation(oPC, "1hclosel", "");
+				ReplaceObjectAnimation(oPC, "1hreach", "");
+				ReplaceObjectAnimation(oPC, "1hparryl", "");
+				ReplaceObjectAnimation(oPC, "1hparryr", "");
+				ReplaceObjectAnimation(oPC, "1hslasho", "");	
+				
+				ReplaceObjectAnimation(oPC, "2hreadyr", "1hreadyr");
+				ReplaceObjectAnimation(oPC, "2hreadyl", "1hreadyl");
+				ReplaceObjectAnimation(oPC, "2hslashl", "1hslashl");
+				ReplaceObjectAnimation(oPC, "2hslashr", "1hslashr");
+				ReplaceObjectAnimation(oPC, "2hstab", "1hstab");
+				ReplaceObjectAnimation(oPC, "2hcloseh", "1hcloseh");
+				ReplaceObjectAnimation(oPC, "2hclosel", "1hclosel");
+				ReplaceObjectAnimation(oPC, "2hreach", "1hreach");
+				ReplaceObjectAnimation(oPC, "2hparryl", "1hparryl");
+				ReplaceObjectAnimation(oPC, "2hparryr", "1hparryr");
+				ReplaceObjectAnimation(oPC, "2hslasho", "1hslasho");	
+				
+				ReplaceObjectAnimation(oPC, "plreadyr", "1hreadyr");
+				ReplaceObjectAnimation(oPC, "plreadyl", "1hreadyl");
+				ReplaceObjectAnimation(oPC, "plslashl", "1hslashl");
+				ReplaceObjectAnimation(oPC, "plslashr", "1hslashr");
+				ReplaceObjectAnimation(oPC, "plstab", "1hstab");
+				ReplaceObjectAnimation(oPC, "plcloseh", "1hcloseh");
+				ReplaceObjectAnimation(oPC, "plclosel", "1hclosel");
+				ReplaceObjectAnimation(oPC, "plreach", "1hreach");
+				ReplaceObjectAnimation(oPC, "plparryl", "1hparryl");
+				ReplaceObjectAnimation(oPC, "plparryr", "1hparryr");
+				ReplaceObjectAnimation(oPC, "plslasho", "1hslasho");	
+		
+				//AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+			}
 
+			if(nChoice == 2)
+			{
+				string sHeader = "Two-handed attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "1hreadyr", "2hreadyr");
+				ReplaceObjectAnimation(oPC, "1hreadyl", "2hreadyl");
+				ReplaceObjectAnimation(oPC, "1hslashl", "2hslashl");
+				ReplaceObjectAnimation(oPC, "1hslashr", "2hslashr");
+				ReplaceObjectAnimation(oPC, "1hstab", "2hstab");
+				ReplaceObjectAnimation(oPC, "1hcloseh", "2hcloseh");
+				ReplaceObjectAnimation(oPC, "1hclosel", "2hclosel");
+				ReplaceObjectAnimation(oPC, "1hreach", "2hreach");
+				ReplaceObjectAnimation(oPC, "1hparryl", "2hparryl");
+				ReplaceObjectAnimation(oPC, "1hparryr", "2hparryr");
+				ReplaceObjectAnimation(oPC, "1hslasho", "2hslasho");
+
+				ReplaceObjectAnimation(oPC, "2hreadyr", "");
+				ReplaceObjectAnimation(oPC, "2hreadyl", "");
+				ReplaceObjectAnimation(oPC, "2hslashl", "");
+				ReplaceObjectAnimation(oPC, "2hslashr", "");
+				ReplaceObjectAnimation(oPC, "2hstab", "");
+				ReplaceObjectAnimation(oPC, "2hcloseh", "");
+				ReplaceObjectAnimation(oPC, "2hclosel", "");
+				ReplaceObjectAnimation(oPC, "2hreach", "");
+				ReplaceObjectAnimation(oPC, "2hparryl", "");
+				ReplaceObjectAnimation(oPC, "2hparryr", "");
+				ReplaceObjectAnimation(oPC, "2hslasho", "");	
+
+				ReplaceObjectAnimation(oPC, "plreadyr", "");
+				ReplaceObjectAnimation(oPC, "plreadyl", "");
+				ReplaceObjectAnimation(oPC, "plslashl", "");
+				ReplaceObjectAnimation(oPC, "plslashr", "");
+				ReplaceObjectAnimation(oPC, "plstab", "");
+				ReplaceObjectAnimation(oPC, "plcloseh", "");
+				ReplaceObjectAnimation(oPC, "plclosel", "");
+				ReplaceObjectAnimation(oPC, "plreach", "");
+				ReplaceObjectAnimation(oPC, "plparryl", "");
+				ReplaceObjectAnimation(oPC, "plparryr", "");
+				ReplaceObjectAnimation(oPC, "plslasho", "");					
+		
+				//AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);				
+			}	
+
+			if(nChoice == 3)
+			{
+				string sHeader = "Polearm attack animations set.";
+				SetHeader(sHeader); 
+				
+				ReplaceObjectAnimation(oPC, "plreadyr", "");
+				ReplaceObjectAnimation(oPC, "plreadyl", "");
+				ReplaceObjectAnimation(oPC, "plslashl", "");
+				ReplaceObjectAnimation(oPC, "plslashr", "");
+				ReplaceObjectAnimation(oPC, "plstab", "");
+				ReplaceObjectAnimation(oPC, "plcloseh", "");
+				ReplaceObjectAnimation(oPC, "plclosel", "");
+				ReplaceObjectAnimation(oPC, "plreach", "");
+				ReplaceObjectAnimation(oPC, "plparryl", "");
+				ReplaceObjectAnimation(oPC, "plparryr", "");
+				ReplaceObjectAnimation(oPC, "plslasho", "");					
+		
+				//AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
+                MarkStageSetUp(nStage, oPC);	
+			}			
+		}
         // Store the stage value. If it has been changed, this clears out the choices
         SetStage(nStage, oPC);
     }

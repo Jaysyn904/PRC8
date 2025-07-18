@@ -41,30 +41,65 @@ const float NUI_STYLE_TERTIARY_HEIGHT      = 30.0;
 const float NUI_STYLE_ROW_HEIGHT           = 25.0;
 
 // -----------------------
+// Bind params
+
+// These currently only affect presentation and serve as a
+// optimisation to let the client do the heavy lifting on this.
+// In particular, this enables you to bind an array of values and
+// transform them all at once on the client, instead of having to
+// have the server transform them before sending.
+
+// NB: These must be OR-ed together into a bitmask.
+
+const int NUI_NUMBER_FLAG_HEX              = 0x001;
+
+// NB: These must be OR-ed together into a bitmask.
+
+const int NUI_TEXT_FLAG_LOWERCASE          = 0x001;
+const int NUI_TEXT_FLAG_UPPERCASE          = 0x002;
+
+// -----------------------
 // Window
 
 // Special cases:
 // * Set the window title to JsonBool(FALSE), Collapse to JsonBool(FALSE) and bClosable to FALSE
 //   to hide the title bar.
 //   Note: You MUST provide a way to close the window some other way, or the user will be stuck with it.
-json                     // Window
-NuiWindow(
-  json jRoot,            // Layout-ish (NuiRow, NuiCol, NuiGroup)
-  json jTitle,           // Bind:String
-  json jGeometry,        // Bind:Rect        Set x and/or y to -1.0 to center the window on that axis
-                         //                  Set x and/or y to -2.0 to position the window's top left at the mouse cursor's position of that axis
-                         //                  Set x and/or y to -3.0 to center the window on the mouse cursor's position of that axis
-  json jResizable,       // Bind:Bool        Set to JsonBool(TRUE) or JsonNull() to let user resize without binding.
-  json jCollapsed,       // Bind:Bool        Set to a static value JsonBool(FALSE) to disable collapsing.
-                         //                  Set to JsonNull() to let user collapse without binding.
-                         //                  For better UX, leave collapsing on.
-  json jClosable,        // Bind:Bool        You must provide a way to close the window if you set this to FALSE.
-                         //                  For better UX, handle the window "closed" event.
-  json jTransparent,     // Bind:Bool        Do not render background
-  json jBorder,          // Bind:Bool        Do not render border
-  json jAcceptsInput =   // Bind:Bool        Set JsonBool(FALSE) to disable all input.
-    JSON_TRUE            //                  All hover, clicks and keypresses will fall through.
-);
+// * Set a minimum size constraint equal to the maximmum size constraint in the same dimension to prevent
+//   a window from being resized in that dimension.
+// - jRoot: Layout-ish (NuiRow, NuiCol, NuiGroup)
+// - jTitle: Bind:String
+// - jGeometry: Bind:Rect
+//              Set x and/or y to -1.0 to center the window on that axis.
+//              Set x and/or y to -2.0 to position the window's top left at the mouse cursor's position of that axis.
+//              Set x and/or y to -3.0 to center the window on the mouse cursor's position of that axis.
+// - jResizable: Bind:Bool
+//               Set to JsonBool(TRUE) or JsonNull() to let user resize without binding.
+// - jCollapsed: Bind:Bool
+//               Set to a static value JsonBool(FALSE) to disable collapsing.
+//               Set to JsonNull() to let user collapse without binding.
+//               For better UX, leave collapsing on.
+// - jCloseable: Bind:Bool
+//               You provide a way to close the window if you set this to FALSE.
+//               For better UX, handle the window "closed" event.
+// - jTransparent: Bind:Bool
+//                 Do not render background
+// - jBorder: Bind:Bool
+//            Do not render border
+// - jAcceptsInput: Bind:Bool
+//                  Set JsonBool(FALSE) to disable all input.
+//                  All hover, clicks and keypresses will fall through.
+// - jSizeConstraint: Bind:Rect
+//                    Constrains minimum and maximum size of window.
+//                    Set x to minimum width, y to minimum height, w to maximum width, h to maximum height.
+//                    Set any individual constraint to 0.0 to ignore that constraint.
+// - jEdgeConstraint: Bind:Rect
+//                    Prevents a window from being rendered within the specified margins.
+//                    Set x to left margin, y to top margin, w to right margin, h to bottom margin.
+//                    Set any individual constraint to 0.0 to ignore that constraint
+// - jFont: Bind:String
+//          Override font used on window, including decorations. See NuiStyleFont() for details.
+json NuiWindow(json jRoot, json jTitle, json jGeometry, json jResizable,json jCollapsed,json jClosable, json jTransparent, json jBorder, json jAcceptsInput = JSON_TRUE, json jSizeConstraint = JSON_NULL, json jEdgeConstraint = JSON_NULL, json jFont = JSON_STRING);
 
 // -----------------------
 // Values
@@ -74,144 +109,111 @@ NuiWindow(
 //    NuiSetBind(.., "mybindlabel", JsonString("hi"));
 // To create static values, just use the json types directly:
 //    JsonString("hi");
-json                      // Bind
-NuiBind(
-  string sId
-);
+//
+// You can parametrise this particular bind with the given flags.
+// These flags only apply to that particular usage of this bind value.
+//
+// - sId: string
+// - nNumberFlags: bitmask of NUI_NUMBER_FLAG_*
+// - nNumberPrecision: Precision to print number with (int or float)
+// - nTextFlags: bitmask of NUI_TEXT_FLAG_*
+json NuiBind(string sId, int nNumberFlags = 0, int nNumberPrecision = 0, int nTextFlags = 0);
 
 // Tag the given element with a id.
 // Only tagged elements will send events to the server.
-json                     // Element
-NuiId(
-  json jElem,            // Element
-  string sId             // String
-);
+json NuiId(json jElem, string sId);
 
 // A shim/helper that can be used to render or bind a strref where otherwise
 // a string value would go.
-json
-NuiStrRef(
-    int nStrRef          // STRREF
-);
+json NuiStrRef(int nStrRef);
 
 // -----------------------
 // Layout
 
 // A column will auto-space all elements inside of it and advise the parent
 // about it's desired size.
-json                     // Layout
-NuiCol(
-  json jList             // Layout[] or Element[]
-);
+// - jList: Layout[] or Element[]
+json NuiCol(json jList);
 
 // A row will auto-space all elements inside of it and advise the parent
 // about it's desired size.
-json                     // Layout
-NuiRow(
-  json jList             // Layout[] or Element[]
-);
+// - jList: Layout[] or Element[]
+json NuiRow(json jList);
 
 // A group, usually with a border and some padding, holding a single element. Can scroll.
 // Will not advise parent of size, so you need to let it fill a span (col/row) as if it was
 // a element.
-json                     // Layout
-NuiGroup(
-  json jChild,           // Layout or Element
-  int bBorder = TRUE,
-  int nScroll = NUI_SCROLLBARS_AUTO
-);
+// - jChild: Layout or Element
+json NuiGroup(json jChild, int bBorder = TRUE, int nScroll = NUI_SCROLLBARS_AUTO);
 
 // Modifiers/Attributes: These are all static and cannot be bound, since the UI system
 // cannot easily reflow once the layout is set up. You need to swap the layout if you
 // want to change element geometry.
 
-json                     // Element
-NuiWidth(
-  json jElem,            // Element
-  float fWidth           // Float: Element width in pixels (strength=required).
-);
+// - jElem: Element
+// - fWidth: Float: Element width in pixels (strength=required).
+json NuiWidth(json jElem, float fWidth);
 
-json                     // Element
-NuiHeight(
-  json jElem,            // Element
-  float fHeight          // Float: Height in pixels (strength=required).
-);
+// - jElem: Element
+// - fHeight: Float: Height in pixels (strength=required).
+json NuiHeight(json jElem, float fHeight);
 
-json                     // Element
-NuiAspect(
-  json jElem,            // Element
-  float fAspect          // Float: Ratio of x/y.
-);
+// - jElem: Element
+// - fAspect: Float: Ratio of x/y
+json NuiAspect(json jElem, float fAspect);
 
 // Set a margin on the widget. The margin is the spacing outside of the widget.
-json                     // Element
-NuiMargin(
-  json jElem,            // Element
-  float fMargin          // Float
-);
+json NuiMargin(json jElem, float fMargin);
 
 // Set padding on the widget. The margin is the spacing inside of the widget.
-json                     // Element
-NuiPadding(
-  json jElem,            // Element
-  float fPadding         // Float
-);
+json NuiPadding(json jElem, float fPadding);
 
 // Disabled elements are non-interactive and greyed out.
-json                     // Element
-NuiEnabled(
-  json jElem,            // Element
-  json jEnabler          // Bind:Bool
-);
+// - jElem: Element
+// - jEnabled: Bind:Bool
+json NuiEnabled(json jElem, json jEnabler);
 
 // Invisible elements do not render at all, but still take up layout space.
-json                     // Element
-NuiVisible(
-  json jElem,            // Element
-  json jVisible          // Bind:Bool
-);
+// - jElem: Element
+// - jVisible: Bind:Bool
+json NuiVisible(json jElem, json jVisible);
 
 // Tooltips show on mouse hover.
-json                     // Element
-NuiTooltip(
-  json jElem,            // Element
-  json jTooltip          // Bind:String
-);
+// - jElem: Element
+// - jTooltip: Bind:String
+json NuiTooltip(json jElem, json jTooltip);
 
 // Tooltips for disabled elements show on mouse hover.
-json                     // Element
-NuiDisabledTooltip(
-  json jElem,            // Element
-  json jTooltip          // Bind:String
-);
+// - jElem: Element
+// - jTooltip: Bind:String
+json NuiDisabledTooltip(json jElem, json jTooltip);
 
 // Encouraged elements have a breathing animated glow inside of it.
-json                     // Element
-NuiEncouraged(
-  json jElem,            // Element
-  json jEncouraged       // Bind:Bool
-);
+// - jElem: Element
+// - jEncouraged: Bind:Bool
+json NuiEncouraged(json jElem, json jEncouraged);
 
 // -----------------------
 // Props & Style
 
-json                     // Vec2
-NuiVec(float x, float y);
+json NuiVec(float x, float y);
 
-json                     // Rect
-NuiRect(float x, float y, float w, float h);
+json NuiRect(float x, float y, float w, float h);
 
-json                     // Color
-NuiColor(int r, int g, int b, int a = 255);
+json NuiColor(int r, int g, int b, int a = 255);
 
-// Style the foreground color of the widget. This is dependent on the widget
+// Style the foreground color of a widget or window title. This is dependent on the widget
 // in question and only supports solid/full colors right now (no texture skinning).
 // For example, labels would style their text color; progress bars would style the bar.
-json                     // Element
-NuiStyleForegroundColor(
-  json jElem,            // Element
-  json jColor            // Bind:Color
-);
+// - jElem: Element
+// - jColor: Bind:Color
+json NuiStyleForegroundColor(json jElem, json jColor);
+
+// Override the font used for this element. The font and it's properties needs to be listed in
+// nui_skin.tml, as all fonts are pre-baked into a texture atlas at content load.
+// - jElem: Element
+// - jColor: Bind:String ([[fonts]].name in nui_skin.tml)
+json NuiStyleFont(json jElem, json jFont);
 
 // -----------------------
 // Widgets
@@ -219,119 +221,87 @@ NuiStyleForegroundColor(
 // A special widget that just takes up layout space.
 // If you add multiple spacers to a span, they will try to size equally.
 //  e.g.: [ <spacer> <button|w=50> <spacer> ] will try to center the button.
-json                     // Element
-NuiSpacer();
+json NuiSpacer();
 
 // Create a label field. Labels are single-line stylable non-editable text fields.
-json                     // Element
-NuiLabel(
-  json jValue,           // Bind:String
-  json jHAlign,          // Bind:Int:NUI_HALIGN_*
-  json jVAlign           // Bind:Int:NUI_VALIGN_*
-);
+// - jValue: Bind:String
+// - jHAlign: Bind:Int:NUI_HALIGN_*
+// - jVAlign: Bind:Int:NUI_VALIGN_*
+json NuiLabel(json jValue, json jHAlign, json jVAlign);
 
 // Create a non-editable text field. Note: This text field internally implies a NuiGroup wrapped
 // around it, which is providing the optional border and scrollbars.
-json                     // Element
-NuiText(
-  json jValue,           // Bind:String
-  int bBorder = TRUE,    // Bool
-  int nScroll = NUI_SCROLLBARS_AUTO // Int:NUI_SCROLLBARS_*
-);
+// - jValue: Bind:String
+// - bBorder: Bool
+// - nScroll: Int:NUI_SCROLLBARS_*
+json NuiText(json jValue, int bBorder = TRUE, int nScroll = NUI_SCROLLBARS_AUTO);
 
 // A clickable button with text as the label.
 // Sends "click" events on click.
-json                     // Element
-NuiButton(
-  json jLabel            // Bind:String
-);
+// - jLabel: Bind:String
+json NuiButton(json jLabel);
 
 // A clickable button with an image as the label.
 // Sends "click" events on click.
-json                     // Element
-NuiButtonImage(
-  json jResRef           // Bind:ResRef
-);
+// - jResRef: Bind:String
+json NuiButtonImage(json jResRef);
 
 // A clickable button with text as the label.
 // Same as the normal button, but this one is a toggle.
 // Sends "click" events on click.
-json                     // Element
-NuiButtonSelect(
-  json jLabel,           // Bind:String
-  json jValue            // Bind:Bool
-);
+// - jLabel: Bind:String
+// - jValue: Bind:Bool
+json NuiButtonSelect(json jLabel, json jValue);
 
 // A checkbox with a label to the right of it.
-json                     // Element
-NuiCheck(
-  json jLabel,           // Bind:String
-  json jBool             // Bind:Bool
-);
+// - jLabel: Bind:String
+// - jBool: Bind:Bool
+json NuiCheck(json jLabel, json jBool);
 
 // A image, with no border or padding.
-json                     // Element
-NuiImage(
-  json jResRef,          // Bind:ResRef
-  json jAspect,          // Bind:Int:NUI_ASPECT_*
-  json jHAlign,          // Bind:Int:NUI_HALIGN_*
-  json jVAlign           // Bind:Int:NUI_VALIGN_*
-);
+// - jResRef: Bind:String
+// - jAspect: Bind:Int:NUI_ASPECT_*
+// - jHAlign: Bind:Int:NUI_HALIGN_*
+// - jVAlign: Bind:Int:NUI_VALIGN_*
+json NuiImage(json jResRef, json jAspect, json jHAlign, json jVAlign);
 
-// Optionally render only subregion of jImage.
+// Optionally render only subregion of jImage.  This property can be set on
+// NuiImage and NuiButtonImage widgets.
 // jRegion is a NuiRect (x, y, w, h) to indicate the render region inside the image.
-json                     // NuiImage
-NuiImageRegion(
-    json jImage,         // NuiImage
-    json jRegion         // Bind:NuiRect
-);
+json NuiImageRegion(json jImage, json jRegion);
 
 // A combobox/dropdown.
-json                     // Element
-NuiCombo(
-  json jElements,        // Bind:ComboEntry[]
-  json jSelected         // Bind:Int (index into jElements)
-);
+// - jElements: Bind:ComboEntry[]
+// - jSelected: Bind:Int (index into jElements)
+json NuiCombo(json jElements, json jSelected);
 
-json                     // ComboEntry
-NuiComboEntry(
-  string sLabel,
-  int nValue
-);
+json NuiComboEntry(string sLabel, int nValue);
 
 // A floating-point slider. A good step size for normal-sized sliders is 0.01.
-json                     // Element
-NuiSliderFloat(
-  json jValue,           // Bind:Float
-  json jMin,             // Bind:Float
-  json jMax,             // Bind:Float
-  json jStepSize         // Bind:Float
-);
+// - jValue: Bind:Float
+// - jMin: Bind:Float
+// - jMax: Bind:Float
+// - jStepSize: Bind:Float
+json NuiSliderFloat(json jValue, json jMin, json jMax, json jStepSize);
 
 // A integer/discrete slider.
-json                     // Element
-NuiSlider(
-  json jValue,           // Bind:Int
-  json jMin,             // Bind:Int
-  json jMax,             // Bind:Int
-  json jStepSize         // Bind:Int
-);
+// - jValue: Bind:Int
+// - jMin: Bind:Int
+// - jMax: Bind:Int
+// - jStepSize: Bind:Int
+json NuiSlider(json jValue, json jMin, json jMax, json jStepSize);
 
 // A progress bar. Progress is always from 0.0 to 1.0.
-json                     // Element
-NuiProgress(
-  json jValue            // Bind:Float (0.0->1.0)
-);
+// - jValue: Bind:Float (0.0->1.0
+json NuiProgress(json jValue);
 
 // A editable text field.
-json                     // Element
-NuiTextEdit(
-  json jPlaceholder,     // Bind:String
-  json jValue,           // Bind:String
-  int nMaxLength,        // UInt >= 1, <= 65535
-  int bMultiline,        // Bool
-  int bWordWrap = TRUE   // Bool
-);
+// - jPlaceholder: Bind:String
+// - jValue: Bind:String
+// - nMaxLength: UInt >= 1, <= 65535
+// - bMultiLine: Bool
+// - bWordWrap: Bool
+json NuiTextEdit(json jPlaceholder, json jValue, int nMaxLength, int bMultiline, int bWordWrap = TRUE);
 
 // Creates a list view of elements.
 // jTemplate needs to be an array of NuiListTemplateCell instances.
@@ -339,67 +309,52 @@ NuiTextEdit(
 // e.g. when rendering a NuiLabel(), the bound label String should be an array of strings.
 // You can pass in one of the template jRowCount into jSize as a convenience. The array
 // size will be uses as the Int bind.
-// jRowHeight defines the height of the rendered rows.
-json                     // Element
-NuiList(
-  json jTemplate,        // NuiListTemplateCell[] (max: 16)
-  json jRowCount,        // Bind:Int
-  float fRowHeight = NUI_STYLE_ROW_HEIGHT,
-  int bBorder = TRUE,
-  int nScroll = NUI_SCROLLBARS_Y  // Note: Cannot be AUTO.
-);
+// fRowHeight defines the height of the rendered rows.
+// - jTemplate: NuiListTemplateCell[] (max: 16)
+// - jRowCount: Bind:Int
+// - bBorder: Bool
+// - nScroll: Int:NUI_SCROLLBARS_*, Note: Cannot be AUTO
+json NuiList(json jTemplate, json jRowCount, float fRowHeight = NUI_STYLE_ROW_HEIGHT, int bBorder = TRUE, int nScroll = NUI_SCROLLBARS_Y);
 
-json                     // NuiListTemplateCell
-NuiListTemplateCell(
-  json jElem,            // Element
-  float fWidth,          // Float:0 = auto, >1 = pixel width
-  int bVariable          // Bool:Cell can grow if space is available; otherwise static
-);
+// - jElem: Element
+// - fWidth: Float:0 = auto, >1 = pixel width
+// - bVariable: Bool:Cell can grow if space is available; otherwise static
+json NuiListTemplateCell(json jElem, float fWidth, int bVariable);
 
 // A simple color picker, with no border or spacing.
-json                     // Element
-NuiColorPicker(
-  json jColor            // Bind:Color
-);
+// - jColor: Bind:Color
+json NuiColorPicker(json jColor);
 
 // A list of options (radio buttons). Only one can be selected
 // at a time. jValue is updated every time a different element is
 // selected. The special value -1 means "nothing".
-json                     // Element
-NuiOptions(
-  int nDirection,        // NUI_DIRECTION_*
-  json jElements,        // JsonArray of string labels
-  json jValue            // Bind:Int
-);
+// - nDirection: NUI_DIRECTION_*
+// - jElements: JsonArray of string labels
+// - jValue: Bind:UInt
+json NuiOptions(int nDirection, json jElements, json jValue);
 
-// A group of buttons.  Only one can be selected at a time.  jValue
-// is updated every time a different button is selected.  The special
+// A group of buttons. Only one can be selected at a time. jValue
+// is updated every time a different button is selected. The special
 // value -1 means "nothing".
-json                     // Element
-NuiToggles(
-  int nDirection,        // NUI_DIRECTION_*
-  json jElements,        // JsonArray of string labels
-  json jValue            // Bind:Int
-);
+// - nDirection: NUI_DIRECTION_*
+// - jElements: JsonArray of string labels
+// - jValue: Bind:Int
+json NuiToggles(int nDirection, json jElements,  json jValue);
 
 const int NUI_CHART_TYPE_LINES                 = 0;
 const int NUI_CHART_TYPE_COLUMN                = 1;
 
-json                     // NuiChartSlot
-NuiChartSlot(
-  int nType,             // Int:NUI_CHART_TYPE_*
-  json jLegend,          // Bind:String
-  json jColor,           // Bind:NuiColor
-  json jData             // Bind:Float[]
-);
+// - nType: Int:NUI_CHART_TYPE_*
+// - jLegend: Bind:String
+// - jColor: Bind:NuiColor
+// - jData: Bind:Float[]
+json NuiChartSlot(int nType, json jLegend, json jColor, json jData);
 
 // Renders a chart.
 // Currently, min and max values are determined automatically and
 // cannot be influenced.
-json                    // Element
-NuiChart(
-  json jSlots           // NuiChartSlot[]
-);
+// - jSlots: NuiChartSlot[]
+json NuiChart( json jSlots);
 
 // -----------------------
 // Draw Lists
@@ -417,6 +372,7 @@ const int NUI_DRAW_LIST_ITEM_TYPE_ARC          = 3;
 const int NUI_DRAW_LIST_ITEM_TYPE_TEXT         = 4;
 const int NUI_DRAW_LIST_ITEM_TYPE_IMAGE        = 5;
 const int NUI_DRAW_LIST_ITEM_TYPE_LINE         = 6;
+const int NUI_DRAW_LIST_ITEM_TYPE_RECT         = 7;
 
 // You can order draw list items to be painted either before, or after the
 // builtin render of the widget in question. This enables you to paint "behind"
@@ -438,100 +394,100 @@ const int NUI_DRAW_LIST_ITEM_RENDER_MOUSE_RIGHT  = 4;
 // Only render while MMB is held down.
 const int NUI_DRAW_LIST_ITEM_RENDER_MOUSE_MIDDLE = 5;
 
-json                    // DrawListItem
-NuiDrawListPolyLine(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jFill,           // Bind:Bool
-  json jLineThickness,  // Bind:Float
-  json jPoints,         // Bind:Float[]    Always provide points in pairs
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jFill: Bind:Bool
+// - jLineThickness: Bind:Float
+// - jPoints: Bind:Float[] Always provide points in pairs
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListPolyLine(json jEnabled, json jColor, json jFill, json jLineThickness, json jPoints, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // DrawListItem
-NuiDrawListCurve(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jLineThickness,  // Bind:Float
-  json jA,              // Bind:Vec2
-  json jB,              // Bind:Vec2
-  json jCtrl0,          // Bind:Vec2
-  json jCtrl1,          // Bind:Vec2
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jLineThickness: Bind:Float
+// - jA: Bind:Vec2
+// - jB: Bind:Vec2
+// - jCtrl0: Bind:Vec2
+// - jCtrl1: Bind:Vec2
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListCurve(json jEnabled, json jColor, json jLineThickness, json jA, json jB, json jCtrl0, json jCtrl1, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // DrawListItem
-NuiDrawListCircle(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jFill,           // Bind:Bool
-  json jLineThickness,  // Bind:Float
-  json jRect,           // Bind:Rect
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jFill: Bind:Bool
+// - jLineThickness: Bind:Float
+// - jRect: Bind:Rect
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListCircle(json jEnabled, json jColor, json jFill, json jLineThickness, json jRect, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // DrawListItem
-NuiDrawListArc(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jFill,           // Bind:Bool
-  json jLineThickness,  // Bind:Float
-  json jCenter,         // Bind:Vec2
-  json jRadius,         // Bind:Float
-  json jAMin,           // Bind:Float
-  json jAMax,           // Bind:Float
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jFill: Bind:Bool
+// - jLineThickness: Bind:Float
+// - jCenter: Bind:Rect
+// - jRadius: Bind:Float
+// - jAMin: Bind:Float
+// - jAMax: Bind:Float
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListArc(json jEnabled, json jColor, json jFill, json jLineThickness, json jCenter, json jRadius, json jAMin, json jAMax, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // DrawListItem
-NuiDrawListText(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jRect,           // Bind:Rect
-  json jText,           // Bind:String
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jRect: Bind:Rect
+// - jText: Bind:String
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+// - jFont: Bind:String
+json NuiDrawListText(json jEnabled, json jColor, json jRect, json jText, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE, json jFont = JSON_STRING);
 
-json                    // DrawListItem
-NuiDrawListImage(
-  json jEnabled,        // Bind:Bool
-  json jResRef,         // Bind:ResRef
-  json jPos,            // Bind:Rect
-  json jAspect,         // Bind:Int:NUI_ASPECT_*
-  json jHAlign,         // Bind:Int:NUI_HALIGN_*
-  json jVAlign,         // Bind:Int:NUI_VALIGN_*
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jResRef: Bind:String
+// - jPos: Bind:Rect
+// - jAspect: Bind:Int:NUI_ASPECT_*
+// - jHAlign: Bind:Int:NUI_HALIGN_*
+// - jVAlign: Bind:Int:NUI_VALIGN_*
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListImage(json jEnabled, json jResRef, json jPos, json jAspect, json jHAlign, json jVAlign, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // DrawListItemImage
-NuiDrawListImageRegion(
-  json jDrawListImage,  // DrawListItemImage
-  json jRegion          // Bind:NuiRect
-);
+// - jDrawListImage: DrawListItemImage
+// - jRegion: Bind:NuiRect
+json NuiDrawListImageRegion(json jDrawListImage, json jRegion);
 
-json                    // DrawListItem
-NuiDrawListLine(
-  json jEnabled,        // Bind:Bool
-  json jColor,          // Bind:Color
-  json jLineThickness,  // Bind:Float
-  json jA,              // Bind:Vec2
-  json jB,              // Bind:Vec2
-  int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, // Int:NUI_DRAW_LIST_ITEM_ORDER_*
-  int  nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS // Int:NUI_DRAW_LIST_ITEM_RENDER_*
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jLineThickness: Bind:Float
+// - jA: Bind:Vec2
+// - jB: Bind:Vec2
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListLine(json jEnabled, json jColor, json jLineThickness, json jA, json jB, int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
 
-json                    // Element
-NuiDrawList(
-  json jElem,           // Element
-  json jScissor,        // Bind:Bool       Constrain painted elements to widget bounds.
-  json jList            // DrawListItem[]
-);
+// - jEnabled: Bind:Bool
+// - jColor: Bind:Color
+// - jFill: Bind:Bool
+// - jLineThickness: Bind:Float
+// - jRext: Bind:Rect
+// - nOrder: Int:NUI_DRAW_LIST_ITEM_ORDER_*
+// - nRender: Int:NUI_DRAW_LIST_ITEM_RENDER_*
+// - nBindArrays: Values in binds are considered arrays-of-values
+json NuiDrawListRect(json jEnabled, json jColor, json jFill, json jLineThickness, json jRect, int  nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER, int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, int nBindArrays = FALSE);
+
+// - jElem: Element
+// - jScissor: Bind:Bool, Constrain painted elements to widget bounds.
+// - jList: DrawListItem[]
+json NuiDrawList(json jElem, json jScissor, json jList);
 
 // -----------------------
 // Implementation
@@ -546,21 +502,27 @@ NuiWindow(
   json jClosable,
   json jTransparent,
   json jBorder,
-  json jAcceptsInput
+  json jAcceptsInput = JSON_TRUE,
+  json jWindowConstraint = JSON_NULL,
+  json jEdgeConstraint = JSON_NULL,
+  json jFont = JSON_STRING
 )
 {
   json ret = JsonObject();
   // Currently hardcoded and here to catch backwards-incompatible data in the future.
-  ret = JsonObjectSet(ret, "version", JsonInt(1));
-  ret = JsonObjectSet(ret, "title", jTitle);
-  ret = JsonObjectSet(ret, "root", jRoot);
-  ret = JsonObjectSet(ret, "geometry", jGeometry);
-  ret = JsonObjectSet(ret, "resizable", jResizable);
-  ret = JsonObjectSet(ret, "collapsed", jCollapsed);
-  ret = JsonObjectSet(ret, "closable", jClosable);
-  ret = JsonObjectSet(ret, "transparent", jTransparent);
-  ret = JsonObjectSet(ret, "border", jBorder);
-  ret = JsonObjectSet(ret, "accepts_input", jAcceptsInput);
+  JsonObjectSetInplace(ret, "version", JsonInt(1));
+  JsonObjectSetInplace(ret, "title", jTitle);
+  JsonObjectSetInplace(ret, "root", jRoot);
+  JsonObjectSetInplace(ret, "geometry", jGeometry);
+  JsonObjectSetInplace(ret, "resizable", jResizable);
+  JsonObjectSetInplace(ret, "collapsed", jCollapsed);
+  JsonObjectSetInplace(ret, "closable", jClosable);
+  JsonObjectSetInplace(ret, "transparent", jTransparent);
+  JsonObjectSetInplace(ret, "border", jBorder);
+  JsonObjectSetInplace(ret, "accepts_input", jAcceptsInput);
+  JsonObjectSetInplace(ret, "size_constraint", jWindowConstraint);
+  JsonObjectSetInplace(ret, "edge_constraint", jEdgeConstraint);
+  JsonObjectSetInplace(ret, "font", jFont);
   return ret;
 }
 
@@ -572,18 +534,26 @@ NuiElement(
 )
 {
     json ret = JsonObject();
-    ret = JsonObjectSet(ret, "type", JsonString(sType));
-    ret = JsonObjectSet(ret, "label", jLabel);
-    ret = JsonObjectSet(ret, "value", jValue);
+    JsonObjectSetInplace(ret, "type", JsonString(sType));
+    JsonObjectSetInplace(ret, "label", jLabel);
+    JsonObjectSetInplace(ret, "value", jValue);
     return ret;
 }
 
 json
 NuiBind(
-  string sId
+  string sId,
+  int nNumberFlags = 0,
+  int nNumberPrecision = 0,
+  int nTextFlags = 0
 )
 {
-  return JsonObjectSet(JsonObject(), "bind", JsonString(sId));
+  json ret = JsonObject();
+  JsonObjectSetInplace(ret, "bind", JsonString(sId));
+  JsonObjectSetInplace(ret, "number_flags", JsonInt(nNumberFlags));
+  JsonObjectSetInplace(ret, "number_precision", JsonInt(nNumberPrecision));
+  JsonObjectSetInplace(ret, "text_flags", JsonInt(nTextFlags));
+  return ret;
 }
 
 json
@@ -601,7 +571,7 @@ NuiStrRef(
 )
 {
     json ret = JsonObject();
-    ret = JsonObjectSet(ret, "strref", JsonInt(nStrRef));
+    JsonObjectSetInplace(ret, "strref", JsonInt(nStrRef));
     return ret;
 }
 
@@ -629,9 +599,9 @@ NuiGroup(
 )
 {
   json ret = NuiElement("group", JsonNull(), JsonNull());
-  ret = JsonObjectSet(ret, "children", JsonArrayInsert(JsonArray(), jChild));
-  ret = JsonObjectSet(ret, "border", JsonBool(bBorder));
-  ret = JsonObjectSet(ret, "scrollbars", JsonInt(nScroll));
+  JsonObjectSetInplace(ret, "children", JsonArrayInsert(JsonArray(), jChild));
+  JsonObjectSetInplace(ret, "border", JsonBool(bBorder));
+  JsonObjectSetInplace(ret, "scrollbars", JsonInt(nScroll));
   return ret;
 }
 
@@ -720,8 +690,8 @@ json
 NuiVec(float x, float y)
 {
   json ret = JsonObject();
-  ret = JsonObjectSet(ret, "x", JsonFloat(x));
-  ret = JsonObjectSet(ret, "y", JsonFloat(y));
+  JsonObjectSetInplace(ret, "x", JsonFloat(x));
+  JsonObjectSetInplace(ret, "y", JsonFloat(y));
   return ret;
 }
 
@@ -729,10 +699,10 @@ json
 NuiRect(float x, float y, float w, float h)
 {
   json ret = JsonObject();
-  ret = JsonObjectSet(ret, "x", JsonFloat(x));
-  ret = JsonObjectSet(ret, "y", JsonFloat(y));
-  ret = JsonObjectSet(ret, "w", JsonFloat(w));
-  ret = JsonObjectSet(ret, "h", JsonFloat(h));
+  JsonObjectSetInplace(ret, "x", JsonFloat(x));
+  JsonObjectSetInplace(ret, "y", JsonFloat(y));
+  JsonObjectSetInplace(ret, "w", JsonFloat(w));
+  JsonObjectSetInplace(ret, "h", JsonFloat(h));
   return ret;
 }
 
@@ -740,10 +710,10 @@ json
 NuiColor(int r, int g, int b, int a = 255)
 {
   json ret = JsonObject();
-  ret = JsonObjectSet(ret, "r", JsonInt(r));
-  ret = JsonObjectSet(ret, "g", JsonInt(g));
-  ret = JsonObjectSet(ret, "b", JsonInt(b));
-  ret = JsonObjectSet(ret, "a", JsonInt(a));
+  JsonObjectSetInplace(ret, "r", JsonInt(r));
+  JsonObjectSetInplace(ret, "g", JsonInt(g));
+  JsonObjectSetInplace(ret, "b", JsonInt(b));
+  JsonObjectSetInplace(ret, "a", JsonInt(a));
   return ret;
 }
 
@@ -754,6 +724,15 @@ NuiStyleForegroundColor(
 )
 {
   return JsonObjectSet(jElem, "foreground_color", jColor);
+}
+
+json
+NuiStyleFont(
+  json jElem,
+  json jFont
+)
+{
+  return JsonObjectSet(jElem, "font", jFont);
 }
 
 json
@@ -770,8 +749,8 @@ NuiLabel(
 )
 {
   json ret = NuiElement("label", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "text_halign", jHAlign);
-  ret = JsonObjectSet(ret, "text_valign", jVAlign);
+  JsonObjectSetInplace(ret, "text_halign", jHAlign);
+  JsonObjectSetInplace(ret, "text_valign", jVAlign);
   return ret;
 }
 
@@ -783,8 +762,8 @@ NuiText(
 )
 {
   json ret = NuiElement("text", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "border", JsonBool(bBorder));
-  ret = JsonObjectSet(ret, "scrollbars", JsonInt(nScroll));
+  JsonObjectSetInplace(ret, "border", JsonBool(bBorder));
+  JsonObjectSetInplace(ret, "scrollbars", JsonInt(nScroll));
   return ret;
 }
 
@@ -831,9 +810,9 @@ NuiImage(
 )
 {
   json img = NuiElement("image", JsonNull(), jResRef);
-  img = JsonObjectSet(img, "image_aspect", jAspect);
-  img = JsonObjectSet(img, "image_halign", jHAlign);
-  img = JsonObjectSet(img, "image_valign", jVAlign);
+  JsonObjectSetInplace(img, "image_aspect", jAspect);
+  JsonObjectSetInplace(img, "image_halign", jHAlign);
+  JsonObjectSetInplace(img, "image_valign", jVAlign);
   return img;
 }
 
@@ -873,9 +852,9 @@ NuiSliderFloat(
 )
 {
   json ret = NuiElement("sliderf", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "min", jMin);
-  ret = JsonObjectSet(ret, "max", jMax);
-  ret = JsonObjectSet(ret, "step", jStepSize);
+  JsonObjectSetInplace(ret, "min", jMin);
+  JsonObjectSetInplace(ret, "max", jMax);
+  JsonObjectSetInplace(ret, "step", jStepSize);
   return ret;
 }
 
@@ -888,9 +867,9 @@ NuiSlider(
 )
 {
   json ret = NuiElement("slider", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "min", jMin);
-  ret = JsonObjectSet(ret, "max", jMax);
-  ret = JsonObjectSet(ret, "step", jStepSize);
+  JsonObjectSetInplace(ret, "min", jMin);
+  JsonObjectSetInplace(ret, "max", jMax);
+  JsonObjectSetInplace(ret, "step", jStepSize);
   return ret;
 }
 
@@ -912,9 +891,9 @@ NuiTextEdit(
 )
 {
   json ret = NuiElement("textedit", jPlaceholder, jValue);
-  ret = JsonObjectSet(ret, "max", JsonInt(nMaxLength));
-  ret = JsonObjectSet(ret, "multiline", JsonBool(bMultiline));
-  ret = JsonObjectSet(ret, "wordwrap", JsonBool(bWordWrap));
+  JsonObjectSetInplace(ret, "max", JsonInt(nMaxLength));
+  JsonObjectSetInplace(ret, "multiline", JsonBool(bMultiline));
+  JsonObjectSetInplace(ret, "wordwrap", JsonBool(bWordWrap));
   return ret;
 }
 
@@ -928,11 +907,11 @@ NuiList(
 )
 {
   json ret = NuiElement("list", JsonNull(), JsonNull());
-  ret = JsonObjectSet(ret, "row_template", jTemplate);
-  ret = JsonObjectSet(ret, "row_count", jRowCount);
-  ret = JsonObjectSet(ret, "row_height", JsonFloat(fRowHeight));
-  ret = JsonObjectSet(ret, "border", JsonBool(bBorder));
-  ret = JsonObjectSet(ret, "scrollbars", JsonInt(nScroll));
+  JsonObjectSetInplace(ret, "row_template", jTemplate);
+  JsonObjectSetInplace(ret, "row_count", jRowCount);
+  JsonObjectSetInplace(ret, "row_height", JsonFloat(fRowHeight));
+  JsonObjectSetInplace(ret, "border", JsonBool(bBorder));
+  JsonObjectSetInplace(ret, "scrollbars", JsonInt(nScroll));
   return ret;
 }
 
@@ -944,9 +923,9 @@ NuiListTemplateCell(
 )
 {
   json ret = JsonArray();
-  ret = JsonArrayInsert(ret, jElem);
-  ret = JsonArrayInsert(ret, JsonFloat(fWidth));
-  ret = JsonArrayInsert(ret, JsonBool(bVariable));
+  JsonArrayInsertInplace(ret, jElem);
+  JsonArrayInsertInplace(ret, JsonFloat(fWidth));
+  JsonArrayInsertInplace(ret, JsonBool(bVariable));
   return ret;
 }
 
@@ -967,8 +946,8 @@ NuiOptions(
 )
 {
   json ret = NuiElement("options", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "direction", JsonInt(nDirection));
-  ret = JsonObjectSet(ret, "elements", jElements);
+  JsonObjectSetInplace(ret, "direction", JsonInt(nDirection));
+  JsonObjectSetInplace(ret, "elements", jElements);
   return ret;
 }
 
@@ -980,8 +959,8 @@ NuiToggles(
 )
 {
   json ret = NuiElement("tabbar", JsonNull(), jValue);
-  ret = JsonObjectSet(ret, "direction", JsonInt(nDirection));
-  ret = JsonObjectSet(ret, "elements", jElements);
+  JsonObjectSetInplace(ret, "direction", JsonInt(nDirection));
+  JsonObjectSetInplace(ret, "elements", jElements);
   return ret;
 }
 
@@ -994,10 +973,10 @@ NuiChartSlot(
 )
 {
   json ret = JsonObject();
-  ret = JsonObjectSet(ret, "type", JsonInt(nType));
-  ret = JsonObjectSet(ret, "legend", jLegend);
-  ret = JsonObjectSet(ret, "color", jColor);
-  ret = JsonObjectSet(ret, "data", jData);
+  JsonObjectSetInplace(ret, "type", JsonInt(nType));
+  JsonObjectSetInplace(ret, "legend", jLegend);
+  JsonObjectSetInplace(ret, "color", jColor);
+  JsonObjectSetInplace(ret, "data", jData);
   return ret;
 }
 
@@ -1018,17 +997,19 @@ NuiDrawListItem(
   json jFill,
   json jLineThickness,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
   json ret = JsonObject();
-  ret = JsonObjectSet(ret, "type", JsonInt(nType));
-  ret = JsonObjectSet(ret, "enabled", jEnabled);
-  ret = JsonObjectSet(ret, "color", jColor);
-  ret = JsonObjectSet(ret, "fill", jFill);
-  ret = JsonObjectSet(ret, "line_thickness", jLineThickness);
-  ret = JsonObjectSet(ret, "order", JsonInt(nOrder));
-  ret = JsonObjectSet(ret, "render", JsonInt(nRender));
+  JsonObjectSetInplace(ret, "type", JsonInt(nType));
+  JsonObjectSetInplace(ret, "enabled", jEnabled);
+  JsonObjectSetInplace(ret, "color", jColor);
+  JsonObjectSetInplace(ret, "fill", jFill);
+  JsonObjectSetInplace(ret, "line_thickness", jLineThickness);
+  JsonObjectSetInplace(ret, "order", JsonInt(nOrder));
+  JsonObjectSetInplace(ret, "render", JsonInt(nRender));
+  JsonObjectSetInplace(ret, "arrayBinds", JsonBool(nBindArrays));
   return ret;
 }
 
@@ -1040,11 +1021,12 @@ NuiDrawListPolyLine(
   json jLineThickness,
   json jPoints,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_POLYLINE, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender);
-  ret = JsonObjectSet(ret, "points", jPoints);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_POLYLINE, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "points", jPoints);
   return ret;
 }
 
@@ -1058,14 +1040,15 @@ NuiDrawListCurve(
   json jCtrl0,
   json jCtrl1,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_CURVE, jEnabled, jColor, JsonBool(0), jLineThickness, nOrder, nRender);
-  ret = JsonObjectSet(ret, "a", jA);
-  ret = JsonObjectSet(ret, "b", jB);
-  ret = JsonObjectSet(ret, "ctrl0", jCtrl0);
-  ret = JsonObjectSet(ret, "ctrl1", jCtrl1);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_CURVE, jEnabled, jColor, JsonBool(0), jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "a", jA);
+  JsonObjectSetInplace(ret, "b", jB);
+  JsonObjectSetInplace(ret, "ctrl0", jCtrl0);
+  JsonObjectSetInplace(ret, "ctrl1", jCtrl1);
   return ret;
 }
 
@@ -1077,11 +1060,12 @@ NuiDrawListCircle(
   json jLineThickness,
   json jRect,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_CIRCLE, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender);
-  ret = JsonObjectSet(ret, "rect", jRect);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_CIRCLE, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "rect", jRect);
   return ret;
 }
 
@@ -1096,14 +1080,15 @@ NuiDrawListArc(
   json jAMin,
   json jAMax,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_ARC, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender);
-  ret = JsonObjectSet(ret, "c", jCenter);
-  ret = JsonObjectSet(ret, "radius", jRadius);
-  ret = JsonObjectSet(ret, "amin", jAMin);
-  ret = JsonObjectSet(ret, "amax", jAMax);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_ARC, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "c", jCenter);
+  JsonObjectSetInplace(ret, "radius", jRadius);
+  JsonObjectSetInplace(ret, "amin", jAMin);
+  JsonObjectSetInplace(ret, "amax", jAMax);
   return ret;
 }
 
@@ -1114,12 +1099,15 @@ NuiDrawListText(
   json jRect,
   json jText,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE,
+  json jFont = JSON_STRING
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_TEXT, jEnabled, jColor, JsonNull(), JsonNull(), nOrder, nRender);
-  ret = JsonObjectSet(ret, "rect", jRect);
-  ret = JsonObjectSet(ret, "text", jText);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_TEXT, jEnabled, jColor, JsonNull(), JsonNull(), nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "rect", jRect);
+  JsonObjectSetInplace(ret, "text", jText);
+  ret = NuiStyleFont(ret, jFont);
   return ret;
 }
 
@@ -1132,15 +1120,16 @@ NuiDrawListImage(
   json jHAlign,
   json jVAlign,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_IMAGE, jEnabled, JsonNull(), JsonNull(), JsonNull(), nOrder, nRender);
-  ret = JsonObjectSet(ret, "image", jResRef);
-  ret = JsonObjectSet(ret, "rect", jRect);
-  ret = JsonObjectSet(ret, "image_aspect", jAspect);
-  ret = JsonObjectSet(ret, "image_halign", jHAlign);
-  ret = JsonObjectSet(ret, "image_valign", jVAlign);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_IMAGE, jEnabled, JsonNull(), JsonNull(), JsonNull(), nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "image", jResRef);
+  JsonObjectSetInplace(ret, "rect", jRect);
+  JsonObjectSetInplace(ret, "image_aspect", jAspect);
+  JsonObjectSetInplace(ret, "image_halign", jHAlign);
+  JsonObjectSetInplace(ret, "image_valign", jVAlign);
   return ret;
 }
 
@@ -1161,12 +1150,30 @@ NuiDrawListLine(
   json jA,
   json jB,
   int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
-  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
 )
 {
-  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_LINE, jEnabled, jColor, JsonNull(), jLineThickness, nOrder, nRender);
-  ret = JsonObjectSet(ret, "a", jA);
-  ret = JsonObjectSet(ret, "b", jB);
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_LINE, jEnabled, jColor, JsonNull(), jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "a", jA);
+  JsonObjectSetInplace(ret, "b", jB);
+  return ret;
+}
+
+json
+NuiDrawListRect(
+  json jEnabled,
+  json jColor,
+  json jFill,
+  json jLineThickness,
+  json jRect,
+  int nOrder = NUI_DRAW_LIST_ITEM_ORDER_AFTER,
+  int nRender = NUI_DRAW_LIST_ITEM_RENDER_ALWAYS,
+  int nBindArrays = FALSE
+)
+{
+  json ret = NuiDrawListItem(NUI_DRAW_LIST_ITEM_TYPE_RECT, jEnabled, jColor, jFill, jLineThickness, nOrder, nRender, nBindArrays);
+  JsonObjectSetInplace(ret, "rect", jRect);
   return ret;
 }
 
@@ -1178,7 +1185,7 @@ NuiDrawList(
 )
 {
   json ret = JsonObjectSet(jElem, "draw_list", jList);
-  ret = JsonObjectSet(ret, "draw_list_scissor", jScissor);
+  JsonObjectSetInplace(ret, "draw_list_scissor", jScissor);
   return ret;
 }
 
@@ -1190,4 +1197,3 @@ NuiDrawList(
 //   json ret = NuiElement("canvas", JsonNull(), jList);
 //   return ret;
 // }
-

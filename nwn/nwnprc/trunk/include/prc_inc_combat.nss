@@ -1206,6 +1206,7 @@ int GetIsDoubleSidedWeaponType(int iWeaponType)
     return  (   iWeaponType == BASE_ITEM_DIREMACE
                 || iWeaponType == BASE_ITEM_DOUBLEAXE
                 || iWeaponType == BASE_ITEM_TWOBLADEDSWORD
+				|| iWeaponType == BASE_ITEM_DOUBLE_SCIMITAR
             );
 }
 

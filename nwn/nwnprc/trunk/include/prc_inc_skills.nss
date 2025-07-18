@@ -115,11 +115,11 @@ int PerformJump(object oPC, location lLoc, int bDoKnockDown = TRUE)
             iBonus = 4;
         }
      }
-     /*if (GetHasSpellEffect(MOVE_TC_LEAPING_DRAGON, oPC))
+     if (GetHasSpellEffect(MOVE_TC_LEAPING_DRAGON, oPC))
      {
             bIsRunningJump = TRUE;
-            iBonus = 10;
-     }     */
+            //iBonus = 10; //:: This is granted in the stance.
+     }    
      // PnP rules are height * 6 for run and height * 2 for jump.
      // I can't get height so that is assumed to be 6.
      // Changed maxed jump distance because the NwN distance is rather short

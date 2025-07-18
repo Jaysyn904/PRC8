@@ -49,6 +49,7 @@ void main()
         {
     		eDur = EffectLinkEffects(eDur, EffectMovementSpeedIncrease(33));
     		eDur = EffectLinkEffects(eDur, EffectACIncrease(1));
+			eDur = EffectLinkEffects(eDur, EffectSkillIncrease(SKILL_JUMP, 10));
     	}    		
     	if (GetLocalInt(oInitiator, "TigerFangSharpClaw"))  eDur = EffectLinkEffects(eDur, EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_BASE_WEAPON));       	       
         SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(eDur), oTarget);

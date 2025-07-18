@@ -31,7 +31,8 @@ void main()
         effect eSpeed = EffectMovementSpeedIncrease(99);
         effect eLink = EffectLinkEffects(eSpeed, eDur);
         float fDelay;
-        if(GetIsReactionTypeFriendly(oTarget) || GetFactionEqual(oTarget))
+        //if(GetIsReactionTypeFriendly(oTarget) || GetFactionEqual(oTarget))
+		if(!GetIsEnemy(oTarget, OBJECT_SELF))
         {
             fDelay = PRCGetRandomDelay(0.4, 1.1);
             //Fire spell cast at event for target

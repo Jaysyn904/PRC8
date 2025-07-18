@@ -84,19 +84,9 @@ void main()
 			//Applying stat boosts
 			if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)
 			{
-				if(!GetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck)))
-				{
-					SetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck), 0);
-				}
-				int oldValue = GetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck));
-				int newValue = 2 * (1 + (nLevel - nLevelCheck) / 4);
 				int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;
-				if (oldValue < newValue)
-				{
-					ApplyEffectToObject(DURATION_TYPE_PERMANENT,UnyieldingEffect(EffectAbilityIncrease(stat, newValue - oldValue)), oPC);
-					SetLocalInt(oPC, "VoPBoostGiven"+IntToString(nLevelCheck), newValue);
-				}
-
+				int value = 2 * (1 + (nLevel - nLevelCheck) / 4);
+				SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);
 			}
 		
 			//Call exalted feat for each even level
@@ -117,12 +107,7 @@ void main()
 		//Resistance (Ex): At 7th level, an ascetic gains a +1 resistance bonus on all saving throws. This bonus increases to +2 at 13th level, and to +3 at 17th level.
 		if (nLevel>=7)
 		{
-			int oldValue = GetLocalInt(oPC, "VoPResistance");
-			if (nResist > oldValue)
-			{
-				ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, nResist - oldValue, SAVING_THROW_TYPE_ALL)), oPC);
-				SetLocalInt(oPC, "VoPResistance", nResist);
-			}
+			SetCompositeBonus(oSkin, "VoPResist", nResist, ITEM_PROPERTY_SAVING_THROW_BONUS, SAVING_THROW_ALL);
 		}
 		
 		//Natural Armor +1 each 8 levels
@@ -172,16 +157,19 @@ void main()
 		for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots
 		{
 			oItem=GetItemInSlot(nSlot, oPC);
-			if((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")
-			  && !(nSlot == 4 || nSlot == 5)) 										   //Check if it is magical (all items but on the hands)
-			   || (nSlot == 1 && GetBaseAC(oItem) >= 1)                                //Check if it is an armor (AC>0)
-			   || (nSlot == 5 && GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD ||    //Check if it is a shield 
-							     GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD || 
-								 GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD))
+			if (!(GetTag(oItem) == "xp1_mystrashand") && !(GetTag(oItem) == "H2_SenseiAmulet"))
 			{
-				AssignCommand(oPC, ClearAllActions(TRUE));
-				AssignCommand(oPC, ActionUnequipItem(oItem));
-				FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+				if((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")
+				&& !(nSlot == 4 || nSlot == 5)) 										   //Check if it is magical (all items but on the hands)
+				|| (nSlot == 1 && GetBaseAC(oItem) >= 1)                                //Check if it is an armor (AC>0)
+				|| (nSlot == 5 && GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD ||    //Check if it is a shield 
+									GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD || 
+									GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD))
+				{
+					AssignCommand(oPC, ClearAllActions(TRUE));
+					AssignCommand(oPC, ActionUnequipItem(oItem));
+					FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+				}
 			}
 		}
 		
@@ -222,14 +210,16 @@ void main()
 			  && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))   iMagic = 1;
 			eCheckIP = GetNextItemProperty(oItem);
 		}
-		
-		if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed)) //Check if weapon is magical or not on allowed list	        
+		if (!(GetTag(oItem) == "xp1_mystrashand") && !(GetTag(oItem) == "H2_SenseiAmulet"))
 		{
-			if(!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY)) //Allow Mighty Bonus on Slings
+			if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed)) //Check if weapon is magical or not on allowed list	        
 			{
-				AssignCommand(oPC, ClearAllActions(TRUE));
-				AssignCommand(oPC, ActionUnequipItem(oItem));
-				FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+				if(!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY)) //Allow Mighty Bonus on Slings
+				{
+					AssignCommand(oPC, ClearAllActions(TRUE));
+					AssignCommand(oPC, ActionUnequipItem(oItem));
+					FloatingTextStringOnCreature(GetName(oItem)+" would break your vow!", oPC, FALSE);
+				}
 			}
 		}
 	}

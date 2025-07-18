@@ -452,7 +452,7 @@ void main()
         ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_PARALYSIS);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);		
     }      	
-	if(GetRacialType(oPC) == RACIAL_TYPE_GLOURA)
+	if(GetRacialType(oPC) == RACIAL_TYPE_GLOURA /* || GetRacialType(oPC) == RACIAL_TYPE_PIXIE */)
     {
         SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oPC);
     }     
