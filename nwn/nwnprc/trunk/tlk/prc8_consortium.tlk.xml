@@ -1338,7 +1338,7 @@ Spellcasting: The epic Dread Necromancer continues to increase in arcane caster 
 
 Epic Dread Necromancer Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Great Charisma, Ignore Material Components, Improved Combat Casting, Zone of Animation. </entry>
-  <entry id="12637" lang="en" sex="m">****</entry>
+  <entry id="12637" lang="en" sex="m">&lt;CUSTOM0&gt; uses Ranged Disarm.</entry>
   <entry id="12638" lang="en" sex="m">Practiced Spellcaster (Knight of the Weave)</entry>
   <entry id="12639" lang="en" sex="m">Practiced Spellcaster (Cultist of the Shattered Peak)</entry>
   <entry id="12640" lang="en" sex="m">Practiced Spellcaster (Archivist)</entry>
@@ -37102,7 +37102,7 @@ A creature strikes, but you turn the blow straight back at it.
 
 Make an opposed attack roll against the targeted creature. If you succeed, he damages himself rather than you.</entry>
   <entry id="52779" lang="en" sex="m">Ghostly Defense</entry>
-  <entry id="52780" land="en" sex="m">Setting Sun (Stance)
+  <entry id="52780" lang="en" sex="m">Setting Sun (Stance)
 Level: Swordsage 8
 Prerequisite: Three Setting Sun maneuvers
 Initiation Action: 1 swift action
