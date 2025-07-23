@@ -1069,11 +1069,11 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_ROD_CASTER_LEVEL);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_STAFF_CASTER_LEVEL);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_BASE_ITEMS);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_BREWPOTION_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_BREWPOTION_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_SCRIBESCROLL_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_CRAFTWAND_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_CRAFTWAND_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_SCRIBESCROLL_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_COSTMODIFIER);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_ARBITRARY);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_COST_SCALE);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);

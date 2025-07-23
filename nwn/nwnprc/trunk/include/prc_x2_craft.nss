@@ -44,14 +44,14 @@ const string  X2_CI_CRAFTSKILL_CONV ="x2_p_craftskills";
 /* moved to be code switches
 
 const int     X2_CI_BREWPOTION_MAXLEVEL       = 3;                      // Max Level for potions
-const int     X2_CI_BREWPOTION_COSTMODIFIER   = 50;                     // gp Brew Potion XPCost Modifier
+const int     PRC_X2_BREWPOTION_COSTMODIFIER   = 50;                     // gp Brew Potion XPCost Modifier
 
 // Scribe Scroll related constants
-const int     X2_CI_SCRIBESCROLL_COSTMODIFIER   = 25;                 // Scribescroll Cost Modifier
+const int     PRC_X2_SCRIBESCROLL_COSTMODIFIER   = 25;                 // Scribescroll Cost Modifier
 
 // Craft Wand related constants
-const int     X2_CI_CRAFTWAND_MAXLEVEL       = 4;
-const int     X2_CI_CRAFTWAND_COSTMODIFIER   = 750;
+const int     PRC_X2_CRAFTWAND_MAXLEVEL       = 4;
+const int     PRC_X2_CRAFTWAND_COSTMODIFIER   = 750;
 */
 const int     X2_CI_BREWPOTION_FEAT_ID       = 944; // Brew Potion feat simulation
 const int     X2_CI_SCRIBESCROLL_FEAT_ID     = 945;
@@ -593,7 +593,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // check if spell is below maxlevel for brew potions
     // -------------------------------------------------------------------------
-    int nPotionMaxLevel = GetPRCSwitch(X2_CI_BREWPOTION_MAXLEVEL);
+    int nPotionMaxLevel = GetPRCSwitch(PRC_X2_BREWPOTION_MAXLEVEL);
     if(nPotionMaxLevel == 0)
         nPotionMaxLevel = 3;
 
@@ -624,7 +624,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
-    int nCostModifier = GetPRCSwitch(X2_CI_BREWPOTION_COSTMODIFIER);
+    int nCostModifier = GetPRCSwitch(PRC_X2_BREWPOTION_COSTMODIFIER);
     if(nCostModifier == 0)
         nCostModifier = 50;
     int nCost = CIGetCraftGPCost(nLevel, nCostModifier, PRC_BREW_POTION_CASTER_LEVEL);
@@ -728,7 +728,7 @@ int CICraftCheckScribeScroll(object oSpellTarget, object oCaster, int nID = 0)
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
     int  nLevel    = CIGetSpellInnateLevel(nID,TRUE);
-    int nCostModifier = GetPRCSwitch(X2_CI_SCRIBESCROLL_COSTMODIFIER);
+    int nCostModifier = GetPRCSwitch(PRC_X2_SCRIBESCROLL_COSTMODIFIER);
     if(nCostModifier == 0)
         nCostModifier = 25;
     int nCost = CIGetCraftGPCost(nLevel, nCostModifier, PRC_SCRIBE_SCROLL_CASTER_LEVEL);
@@ -884,7 +884,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // check if spell is below maxlevel for craft want
     // -------------------------------------------------------------------------
-    int nMaxLevel = GetPRCSwitch(X2_CI_CRAFTWAND_MAXLEVEL);
+    int nMaxLevel = GetPRCSwitch(PRC_X2_CRAFTWAND_MAXLEVEL);
     if(nMaxLevel == 0)
         nMaxLevel = 4;
     if (nLevel > nMaxLevel)
@@ -896,7 +896,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
-    int nCostMod = GetPRCSwitch(X2_CI_CRAFTWAND_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTWAND_COSTMODIFIER);
     if(nCostMod == 0)
         nCostMod = 750;
     int nCost = CIGetCraftGPCost(nLevel, nCostMod, PRC_CRAFT_WAND_CASTER_LEVEL);
@@ -1027,7 +1027,7 @@ int CICraftCheckCraftStaff(object oSpellTarget, object oCaster, int nSpellID = 0
 These dont work as IPs since they are hardcoded */
         }
     }
-    int nCostMod = GetPRCSwitch(X2_CI_CRAFTSTAFF_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTSTAFF_COSTMODIFIER);
     if(!nCostMod) nCostMod = 750;
     int nLvlRow = IPGetIPConstCastSpellFromSpellID(nSpellID);
     int nCLevel = StringToInt(Get2DACache("iprp_spells","CasterLvl",nLvlRow));
@@ -1175,7 +1175,7 @@ int CICraftCheckCraftRod(object oSpellTarget, object oCaster, int nSpellID = 0)
 These dont work as IPs since they are hardcoded */
         }
     }
-    int nCostMod = GetPRCSwitch(X2_CI_CRAFTROD_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTROD_COSTMODIFIER);
     if(!nCostMod) nCostMod = 750;
     int nLvlRow = IPGetIPConstCastSpellFromSpellID(nSpellID);
     int nCLevel = StringToInt(Get2DACache("iprp_spells","CasterLvl",nLvlRow));

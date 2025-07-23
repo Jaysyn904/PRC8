@@ -21,6 +21,22 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
+void RemoveExtraImages(object oPC)
+{
+    string sImage1 = "PC_IMAGE"+ObjectToString(oPC)+"mirror";
+    string sImage2 = "PC_IMAGE"+ObjectToString(oPC)+"flurry";
+
+    object oCreature = GetFirstObjectInArea(GetArea(oPC));
+    while (GetIsObjectValid(oCreature))
+    {
+        if(GetTag(oCreature) == sImage1 || GetTag(oCreature) == sImage2)
+        {
+            DestroyObject(oCreature, 0.0);
+        }
+        oCreature = GetNextObjectInArea(GetArea(oPC));
+    }
+}
+
 void PrcFeats(object oPC)
 {
     if(DEBUG) DoDebug("prc_rest: Evaluating PC feats for " + DebugObject2Str(oPC));
@@ -348,6 +364,8 @@ void RestStarted(object oPC)
         }
     }
     */
+
+	RemoveExtraImages(oPC);
 
     if (GetIsPC(oPC)) SetLocalInt(oPC, "PnP_Rest_InitialHP", GetCurrentHitPoints(oPC));
     SetLocalInt(oPC, "PnP_Rest_InitialMax", GetMaxHitPoints(oPC));

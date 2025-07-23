@@ -1961,45 +1961,46 @@ const string PRC_CRAFTING_BASE_ITEMS               = "PRC_CRAFTING_BASE_ITEMS";
  * Max level of spells brewed into potions
  * defaults to 3
  */
-const string X2_CI_BREWPOTION_MAXLEVEL               = "X2_CI_BREWPOTION_MAXLEVEL";
+//const string X2_CI_BREWPOTION_MAXLEVEL               = "X2_CI_BREWPOTION_MAXLEVEL";
+const string PRC_X2_BREWPOTION_MAXLEVEL               = "PRC_X2_BREWPOTION_MAXLEVEL";
 
 /*
  * cost modifier of spells brewed into poitions
  * defaults to 50
  */
-const string X2_CI_BREWPOTION_COSTMODIFIER           = "X2_CI_BREWPOTION_COSTMODIFIER";
+const string PRC_X2_BREWPOTION_COSTMODIFIER           = "PRC_X2_BREWPOTION_COSTMODIFIER";
 
 /*
  * cost modifier of spells scribed into scrolls
  * defaults to 25
  */
-const string X2_CI_SCRIBESCROLL_COSTMODIFIER         = "X2_CI_SCRIBESCROLL_COSTMODIFIER";
+const string PRC_X2_SCRIBESCROLL_COSTMODIFIER         = "PRC_X2_SCRIBESCROLL_COSTMODIFIER";
 
 /*
  * Max level of spells crafted into wands
  * defaults to 4
  */
-const string X2_CI_CRAFTWAND_MAXLEVEL                = "X2_CI_CRAFTWAND_MAXLEVEL";
+const string PRC_X2_CRAFTWAND_MAXLEVEL                = "PRC_X2_CRAFTWAND_MAXLEVEL";
 
 /*
  * cost modifier of spells crafted into wands
  * defaults to 750
  */
-const string X2_CI_CRAFTWAND_COSTMODIFIER            = "X2_CI_CRAFTWAND_COSTMODIFIER";
+const string PRC_X2_CRAFTWAND_COSTMODIFIER            = "PRC_X2_CRAFTWAND_COSTMODIFIER";
 
 /*
  * cost modifier of spells crafted into rods
  * note that adding a second spell costs 75% and 3 or more costs 50%
  * defaults to 750
  */
-const string X2_CI_CRAFTROD_COSTMODIFIER            = "X2_CI_CRAFTROD_COSTMODIFIER";
+const string PRC_X2_CRAFTROD_COSTMODIFIER            = "PRC_X2_CRAFTROD_COSTMODIFIER";
 
 /*
  * cost modifier of spells crafted into staffs
  * note that adding a second spell costs 75% and 3 or more costs 50%
  * defaults to 750
  */
-const string X2_CI_CRAFTSTAFF_COSTMODIFIER            = "X2_CI_CRAFTSTAFF_COSTMODIFIER";
+const string PRC_X2_CRAFTSTAFF_COSTMODIFIER            = "PRC_X2_CRAFTSTAFF_COSTMODIFIER";
 
 /**
  * Allows the use of arbitrary itemproperties and uses NWN item costs
