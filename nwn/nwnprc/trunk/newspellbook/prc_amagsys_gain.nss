@@ -125,8 +125,8 @@ void CheckSpellbooks(object oPC)
     CheckMissingSpells(oPC, CLASS_TYPE_ARCHIVIST, 0, 9);
     CheckMissingSpells(oPC, CLASS_TYPE_BEGUILER, 0, 9);
     CheckMissingSpells(oPC, CLASS_TYPE_HARPER, 1, 3);
-    CheckMissingSpells(oPC, CLASS_TYPE_ASSASSIN, 1, 4);
-    CheckMissingSpells(oPC, CLASS_TYPE_CELEBRANT_SHARESS, 1, 4);
+	CheckMissingSpells(oPC, CLASS_TYPE_CELEBRANT_SHARESS, 1, 4);
+    //CheckMissingSpells(oPC, CLASS_TYPE_ASSASSIN, 1, 4);    
 
     // Check psionics
     DelayCommand(0.0f, CheckPsionics(oPC));

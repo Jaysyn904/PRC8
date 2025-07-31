@@ -3933,6 +3933,8 @@ const int FEAT_OPPORTUNISTIC_PIETY_HEAL       = 5358;
 const int FEAT_OPPORTUNISTIC_PIETY_TURN       = 5359;
 
 // Combat Maneuver Feats
+const int FEAT_CM_CHARGE				  	  = 2823;
+const int FEAT_CM_GRAPPLE					  = 3414;
 const int FEAT_CURLING_WAVE_STRIKE            = 2809;
 const int FEAT_SIDESTEP_CHARGE                = 3505;
 const int FEAT_POWERFUL_CHARGE                = 3506;

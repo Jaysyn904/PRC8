@@ -1148,8 +1148,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
-		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
+		//if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
+			//nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
 
 		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);

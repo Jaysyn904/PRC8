@@ -702,5 +702,4 @@
 698   XP_SPECIAL_REQ                     ****              1          1        1          ****    0                                 
 699   ACTIVATE_ITEM_ONHITSPELLCAST       ****              1          1        1          ****    0                                 
 700   Summon_Baatezu                     ****              1          1        1          ****    0                                 
-701   OnHitPlanarRift                    ****              1          1        1          ****    0                                 
-702
+701   OnHitPlanarRift                    ****              1          1        1          ****    0

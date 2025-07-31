@@ -513,6 +513,8 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
  
     if(nClass == CLASS_TYPE_BARD)
         nDC += StringToInt(Get2DACache("Spells", "Bard", nSpellID));
+	else if(nClass == CLASS_TYPE_ASSASSIN)
+        nDC += StringToInt(Get2DACache("Spells", "Assassin", nSpellID));
     else if(nClass == CLASS_TYPE_CLERIC || nClass == CLASS_TYPE_UR_PRIEST || nClass == CLASS_TYPE_OCULAR)
         nDC += StringToInt(Get2DACache("Spells", "Cleric", nSpellID));
     else if(nClass == CLASS_TYPE_DRUID)

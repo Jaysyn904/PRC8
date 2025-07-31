@@ -605,7 +605,7 @@ int PRCGetHasSpell(int nRealSpellID, object oCreature = OBJECT_SELF)
                 if(nSpellbookType == SPELLBOOK_TYPE_PREPARED)
                 {
                     nCount = persistant_array_get_int(oCreature, "NewSpellbookMem_" + IntToString(nClass), j);
-                    if(DEBUG) DoDebug("PRCGetHasSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(j) + "] = " + IntToString(nCount));
+                    if(DEBUG) DoDebug("prc_inc_core >> PRCGetHasSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(j) + "] = " + IntToString(nCount));
                     if(nCount > 0)
                     {
                         nUses += nCount;
@@ -615,7 +615,7 @@ int PRCGetHasSpell(int nRealSpellID, object oCreature = OBJECT_SELF)
                 {
                     nSpellLevel = StringToInt(Get2DACache(sFile, "Level", j));
                     nCount = persistant_array_get_int(oCreature, "NewSpellbookMem_" + IntToString(nClass), nSpellLevel);
-                    if(DEBUG) DoDebug("PRCGetHasSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(j) + "] = " + IntToString(nCount));
+                    if(DEBUG) DoDebug("prc_inc_core >> PRCGetHasSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(j) + "] = " + IntToString(nCount));
                     if(nCount > 0)
                     {
                         nUses += nCount;

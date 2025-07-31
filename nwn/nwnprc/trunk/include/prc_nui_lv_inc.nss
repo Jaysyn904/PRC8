@@ -782,7 +782,7 @@ int IsClassAllowedToUseLevelUpNUI(int nClass)
         return TRUE;
 
     if (nClass == CLASS_TYPE_ARCHIVIST)
-        return TRUE;
+        return TRUE;	
 
     return FALSE;
 }

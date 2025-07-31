@@ -559,7 +559,7 @@ int bKnowsAllClassSpells(int nClass)
     {
         //case CLASS_TYPE_WIZARD:
         case CLASS_TYPE_ARCHIVIST:
-        case CLASS_TYPE_ASSASSIN:
+        //case CLASS_TYPE_ASSASSIN:
         case CLASS_TYPE_BARD:
         case CLASS_TYPE_CELEBRANT_SHARESS:
         case CLASS_TYPE_CULTIST_SHATTERED_PEAK:
@@ -850,7 +850,7 @@ void SetupSpells(object oPC, int nClass)
     int nAbility = GetAbilityScoreForClass(nClass, oPC);
     int nSpellbookType = GetSpellbookTypeForClass(nClass);
     
-        if(DEBUG) DoDebug("SetupSpells\n"
+        if(DEBUG) DoDebug("SetupSpells()\n"
                         + "nClass = " + IntToString(nClass) + "\n"
                         + "nSpellslotLevel = " + IntToString(nLevel) + "\n"
                         + "nAbility = " + IntToString(nAbility) + "\n"
@@ -1178,7 +1178,7 @@ void CastSpontaneousSpell(int nClass, int bInstantSpell = FALSE)
         else if(GetLocalInt(OBJECT_SELF, "PRC_metamagic_state") == 1)
             SetLocalInt(OBJECT_SELF, "MetamagicFeatAdjust", 0);
     }
-
+	if (DEBUG) DoDebug("CastSpontaneousSpell(): nSpellLevel is: "+IntToString(nSpellLevel)+".");
     CheckSpontSlots(nClass, nSpellID, nSpellLevel);
     if(GetLocalInt(OBJECT_SELF, "NSB_Cast"))
         ActionDoCommand(CheckSpontSlots(nClass, nSpellID, nSpellLevel, TRUE));
@@ -1330,6 +1330,8 @@ void NewSpellbookSpell(int nClass, int nSpellbookType, int nMetamagic = METAMAGI
 
     string sFile = GetFileForClass(nClass);
     int nSpellLevel = StringToInt(Get2DACache(sFile, "Level", nSpellbookID));
+	
+	if (DEBUG) DoDebug("inc_newspellbook >> NewSpellbookSpell(): nSpellbookType is: "+IntToString(nSpellbookType)+".");
 
     // Make sure the caster has uses of this spell remaining
     // 2009-9-20: Add metamagic feat abilities. -N-S
@@ -1371,13 +1373,14 @@ void NewSpellbookSpell(int nClass, int nSpellbookType, int nMetamagic = METAMAGI
             else if(nSpellLevel > 9)//now test the spell level
             {
                 nMetamagic = METAMAGIC_NONE;
-                ActionDoCommand(SendMessageToPC(oPC, "Modified spell level is to high! Casting spell without metamagic"));
+                ActionDoCommand(SendMessageToPC(oPC, "Modified spell level is too high! Casting spell without metamagic"));
                 nSpellLevel = nSpellSlotLevel;
             }
             else if(GetLocalInt(oPC, "PRC_metamagic_state") == 1)
                 SetLocalInt(oPC, "MetamagicFeatAdjust", 0);
         }
-
+		
+		if (DEBUG) DoDebug("inc_newspellbook >> NewSpellbookSpell(): nSpellLevel is: "+IntToString(nSpellLevel)+".");
         CheckSpontSlots(nClass, nSpellID, nSpellLevel);
         if(GetLocalInt(oPC, "NSB_Cast"))
             ActionDoCommand(CheckSpontSlots(nClass, nSpellID, nSpellLevel, TRUE));
@@ -1460,7 +1463,7 @@ void CheckPrepSlots(int nClass, int nSpellID, int nSpellbookID, int bIsAction = 
 {
     DeleteLocalInt(OBJECT_SELF, "NSB_Cast");
     int nCount = persistant_array_get_int(OBJECT_SELF, "NewSpellbookMem_" + IntToString(nClass), nSpellbookID);
-    if(DEBUG) DoDebug("NewSpellbookSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(nSpellbookID) + "] = " + IntToString(nCount));
+    if(DEBUG) DoDebug("NewSpellbookSpell >> CheckPrepSlots: NewSpellbookMem_" + IntToString(nClass) + "[SpellbookID: " + IntToString(nSpellbookID) + "] = " + IntToString(nCount));
     if(nCount < 1)
     {
         string sSpellName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
@@ -1486,7 +1489,7 @@ void CheckSpontSlots(int nClass, int nSpellID, int nSpellSlotLevel, int bIsActio
 {
     DeleteLocalInt(OBJECT_SELF, "NSB_Cast");
     int nCount = persistant_array_get_int(OBJECT_SELF, "NewSpellbookMem_" + IntToString(nClass), nSpellSlotLevel);
-    if(DEBUG) DoDebug("NewSpellbookSpell: NewSpellbookMem_" + IntToString(nClass) + "[" + IntToString(nSpellSlotLevel) + "] = " + IntToString(nCount));
+    if(DEBUG) DoDebug("NewSpellbookSpell >> CheckSpontSlots: NewSpellbookMem_" + IntToString(nClass) + "[SpellSlotLevel: " + IntToString(nSpellSlotLevel) + "] = " + IntToString(nCount));
     if(nCount < 1)
     {
         // "You have no castings of spells of level " + IntToString(nSpellLevel) + " remaining"

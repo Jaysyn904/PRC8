@@ -108,7 +108,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_ALIENIST:              sScript = "prc_alienist";                    break;
                 case CLASS_TYPE_ARCANE_DUELIST:        sScript = "prc_arcduel";                     break;
                 case CLASS_TYPE_ARCHIVIST:             sScript = "prc_archivist";    iData |= 0x01; break;
-                case CLASS_TYPE_ASSASSIN:                                            iData |= 0x03; break;
+                case CLASS_TYPE_ASSASSIN:                                            				break;
                 case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
                 case CLASS_TYPE_BARD:                                                iData |= 0x07; break;
                 case CLASS_TYPE_BATTLESMITH:           sScript = "prc_battlesmith";                 break;
@@ -121,7 +121,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_BLIGHTLORD:            sScript = "prc_blightlord";                  break;
                 case CLASS_TYPE_BLOODCLAW_MASTER:      sScript = "tob_bloodclaw";                   break;
                 case CLASS_TYPE_BONDED_SUMMONNER:      sScript = "prc_bondedsumm";                  break;
-                case CLASS_TYPE_CELEBRANT_SHARESS:                                   iData |= 0x03; break;
+                case CLASS_TYPE_CELEBRANT_SHARESS:                                   iData |= 0x07; break;
                 case CLASS_TYPE_CHILD_OF_NIGHT:        sScript = "shd_childnight";                  break;
                 case CLASS_TYPE_COC:                   sScript = "prc_coc";                         break;
                 case CLASS_TYPE_COMBAT_MEDIC:          sScript = "prc_cbtmed";                      break;

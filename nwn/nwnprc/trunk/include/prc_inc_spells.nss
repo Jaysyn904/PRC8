@@ -20,6 +20,9 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+//:: Calculates total Shield AC bonuses from all sources
+int GetTotalShieldACBonus(object oCreature);
+
 //:: Handles psuedo-Foritifcation
 void DoFortification(object oPC = OBJECT_SELF, int nFortification = 25);
 
@@ -2223,6 +2226,78 @@ int GetControlledCelestialTotalHD(object oPC = OBJECT_SELF)
     return nTotalHD;
 }
 
+//:: Calculates total Shield AC bonuses from all sources
+int GetTotalShieldACBonus(object oCreature)
+{
+    int nShieldBonus = 0;
+    object oItem;
+
+    // Check left hand for shield
+    oItem = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCreature);
+    if (GetIsObjectValid(oItem))
+    {
+        int nBaseItem = GetBaseItemType(oItem);
+        if (nBaseItem == BASE_ITEM_SMALLSHIELD ||
+            nBaseItem == BASE_ITEM_LARGESHIELD ||
+            nBaseItem == BASE_ITEM_TOWERSHIELD)
+        {
+            nShieldBonus += GetItemACValue(oItem);
+			if(DEBUG) DoDebug("prc_inc_spells >> GetTotalShieldACBonus: Found Shield AC, bonus = " + IntToString(nShieldBonus)+".");
+        }
+    }
+
+    // Check creature weapon slots for shield AC bonus
+    oItem = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oCreature);
+    if (GetIsObjectValid(oItem))
+        nShieldBonus += GetItemACValue(oItem);
+
+    oItem = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oCreature);
+    if (GetIsObjectValid(oItem))
+        nShieldBonus += GetItemACValue(oItem);
+
+    oItem = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oCreature);
+    if (GetIsObjectValid(oItem))
+        nShieldBonus += GetItemACValue(oItem);
+	
+	// Add shield AC bonuses from magical effects
+	effect eEffect = GetFirstEffect(oCreature);
+    while (GetIsEffectValid(eEffect))
+    {	
+		int nACType = GetEffectInteger(eEffect, 0);
+		int nACAmount = GetEffectInteger(eEffect, 1);
+		
+		if(GetEffectType(eEffect) == EFFECT_TYPE_AC_INCREASE && nACType == AC_SHIELD_ENCHANTMENT_BONUS)
+		{
+			if(DEBUG) DoDebug("prc_inc_spells >> GetTotalShieldACBonus: Found Shield AC effect, bonus = " + IntToString(nACAmount)+".");
+			nShieldBonus += nACAmount;			
+		}
+		
+		eEffect = GetNextEffect(oCreature);		
+	}	
+	return nShieldBonus;
+}		
+			
+			
+	
+    // Add shield AC bonuses from magical effects
+/*     effect eEffect = GetFirstEffect(oCreature);
+    while (GetIsEffectValid(eEffect))
+    {
+        if (GetEffectType(eEffect) == EFFECT_TYPE_AC_INCREASE &&
+            GetEffectInteger(eEffect, 1) == AC_SHIELD_ENCHANTMENT_BONUS) 
+        {
+			int nMod = GetEffectInteger(eEffect, 0);
+			int nType = GetEffectInteger(eEffect, 1);
+			nShieldBonus += GetEffectInteger(eEffect, 0); 
+			string s = "Found AC effect: bonus = " + IntToString(nMod) + ", type = " + IntToString(nType);
+			SendMessageToPC(GetFirstPC(), s);			
+        }
+        eEffect = GetNextEffect(oCreature);
+    } 
+
+    return nShieldBonus;
+}*/
+//
 //:: Handles psuedo-Foritifcation
 void DoFortification(object oPC = OBJECT_SELF, int nFortification = 25)
 {
@@ -2275,7 +2350,7 @@ void DoFortification(object oPC = OBJECT_SELF, int nFortification = 25)
 		IPSafeAddItemProperty(oHide, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB));	
 	}		
 }
-
+//
 
 // wrapper for DecrementRemainingSpellUses, works for newspellbook 'fake' spells too
 // should also find and decrement metamagics for newspellbooks
