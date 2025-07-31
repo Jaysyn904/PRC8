@@ -3878,7 +3878,7 @@ Level Adjustment: +4</entry>
 Prerequisite: Paladin
 Specifics: You can quicken one paladin spell a round while the feat is active. However, you may not cast spells from any other classes.
 Use: Selected</entry>
-  <entry id="13181" lang="en" sex="m">Three or more times per day, an archlich can turn undead as a good cleric, making a turning (Charisma) check to determine how many HD of undead are affected.</entry>
+  <entry id="13181" lang="en" sex="m">Three or more times per day, an archlich or baelnorn can turn undead as a good cleric, making a turning (Charisma) check to determine how many HD of undead are affected.</entry>
   <entry id="13182" lang="en" sex="m">****</entry>
   <entry id="13183" lang="en" sex="m">Saint</entry>
   <entry id="13184" lang="en" sex="m">"Saint" is an acquired template that can be added to any living creature of good alignment that is not an outsider or an elemental (referred to hereafter as the "base creature").
@@ -3931,7 +3931,7 @@ Level Adjustment: Same as base creature +2.</entry>
 Holy Touch (Su): A saint's entire being is suffused with holy power, which likewise flows into any weapon the saint wields. A saint's melee attacks with any weapon (or unarmed) deal an additional 1d6 points of holy damage against evil creatures, and 1d8 points against evil undead and evil outsiders. Any evil creature that strikes a saint with a natural weapon takes holy damage as if hit by the saint's attack.</entry>
   <entry id="13189" lang="en" sex="m">Archlich</entry>
   <entry id="13190" lang="en" sex="m">Archliches are transformed human spellcasters-as often clerics or bards as wizards-who have deliberately and carefully accomplished their own transformation into liches.  They devote their undeath to the furtherance of whatever noble purpose motivated the transformation.
-Archliches appear as normal liches. They have all the characteristics of normal liches, including the spell ability and other class abilities they possessed in life. In addition, they can turn undead as good clerics (entitled to a number of turning attempts per day equal to 3 + their Charisma modifier). They also have the ability to animate dead (as described above) as well. They have the turning immunity defense described in the main entry for the good lich.</entry>
+Archliches appear as normal liches. They have all the characteristics of normal liches, including the spell ability and other class abilities they possessed in life. In addition, they can turn undead as good clerics (entitled to a number of turning attempts per day equal to 3 + their Charisma modifier). They also have the ability to animate dead as well as an immunity to Turning by good or neutral clerics. </entry>
   <entry id="13191" lang="en" sex="m">Aligned Aura:Chaos</entry>
   <entry id="13192" lang="en" sex="m">Aligned Aura:Evil</entry>
   <entry id="13193" lang="en" sex="m">Aligned Aura:Good</entry>
@@ -5289,6 +5289,29 @@ Level
   <entry id="16550" lang="en" sex="m">You sink your roots into the fertile soil below.</entry>
   <entry id="16551" lang="en" sex="m">You must be outside &amp; above ground to use this ability.</entry>
   <entry id="16552" lang="en" sex="m">&lt;CUSTOM0&gt; commands plants.</entry>
+  <entry id="16553" lang="en" sex="m">Baelnorn</entry>
+  <entry id="16554" lang="en" sex="m">Baelnorns are elves who have sought undeath to serve their families, communities, or other purposes (usually to see a wrong righted or to achieve a certain magical discovery or deed).  They are lich-like creatures that appear as impressive-looking elves with shriveled skin and glowing white eyes.
+
+REQUIREMENTS:
+
+Race: Living Elf.
+Skills: Concentration 5, Spellcraft 14.
+Class : 11 levels in Sorcerer, Wizard, or Cleric
+Alignment: Any Good
+
+CLASS FEATURES:
+Baelnorn Properties: +8 bonus to Hide, Listen, Move Silently, Search, Persuade, and Spot.
+         Baelnorn Touch: Touch attack causes 1d8 + 5 damage and permanent paralyzation.
+         Baelnorn Defense:  Damage Reduction 15/+2, Natural Armor + 5, immunity to cold and electricity, Turning Resistance +4.
+         Turn Undead:  Can turn undead 3 times per day as a cleric of the same level.
+         Turning Immunity:  Cannot be turned by Good or Neutral characters.
+         Projection:  Three times per day the Baelnorn may create a projection of itself.
+         Wisdom +2
+         Intelligence +2.
+         Charisma +2
+         Undeath
+
+     Note:  The Baelnorn is fully undead, and therefore is immune to sneak attacks, critical hits, level drain, poison, and disease.  An undead creature has no Constitution score.  However, this is not possible in Neverwinter Nights.  The player will gain +12 to constitution in order to simulate the increase of the Baelnorn's HD to d12.</entry>
   <entry id="16555" lang="en" sex="m">Wild Shape: Plant</entry>
   <entry id="16556" lang="en" sex="m">At 12th level, a druid becomes able to use wild shape to change into a plant creature with the same size restrictions as for animal forms. (A druid can’t use this ability to take the form of a plant that isn’t a creature.) </entry>
   <entry id="16557" lang="en" sex="m">Wild Shape, Treant</entry>
@@ -32600,7 +32623,7 @@ You point your finger at an object and can lift it and move it at will from a di
 </entry>
   <entry id="51972" lang="en" sex="m">Turning Immunity</entry>
   <entry id="51973" lang="en" sex="m">Feat Type:  Class Feat
-Prerequisite:  Archlich template or Baelnorn Level 4
+Prerequisite:  Archlich or Baelnorn template
 
 Description: Archliches, including baelnorns are immune to turning attempts by good or neutral clerics. If rebuked or commanded by an evil cleric, they are instead turned or destroyed.</entry>
   <entry id="51974" lang="en" sex="m">Command Undead</entry>
