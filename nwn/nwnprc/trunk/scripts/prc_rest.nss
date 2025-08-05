@@ -21,6 +21,16 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
+void ResetLionSwiftness(object oPC)
+{
+    int nLevel = GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oPC);
+    if (nLevel > 6)
+    {
+        if(DEBUG) DoDebug("You have "+IntToString(nLevel)+ " rounds of Lion's Swiftness.");
+		SetLocalInt(oPC, "LION_SWIFTNESS_ROUNDS_REMAINING", nLevel);
+    }
+}
+
 void RemoveExtraImages(object oPC)
 {
     string sImage1 = "PC_IMAGE"+ObjectToString(oPC)+"mirror";
@@ -312,6 +322,8 @@ void RestFinished(object oPC)
     {
         DelayCommand(1.0, ExecuteScript("prc_reservefeat", oPC));
     }
+	
+	ResetLionSwiftness(oPC);
     
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERREST_FINISHED);

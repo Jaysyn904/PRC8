@@ -253,6 +253,11 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
          //Wild Shape qualifies
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
+     if (GetLevelByClass(CLASS_TYPE_LION_OF_TALISID) >= 3)
+     {
+         //Wild Shape qualifies
+         SetLocalInt(oPC, "PRC_PrereqShift", 0);
+     }	 
      //These classes have appropriate alternate forms
      if (GetLevelByClass(CLASS_TYPE_SHAMAN) >= 7)
      {
@@ -277,12 +282,6 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
      if (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER) >= 10)
      {
          //Elemental Form qualifies
-         SetLocalInt(oPC, "PRC_PrereqShift", 0);
-     }
-     //This is not strictly necessary because Witch gains Polymorph Self
-     //at an earlier level, but add it here anyway for completeness:
-     if (GetLevelByClass(CLASS_TYPE_WITCH) >= 13)
-     {
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
 
@@ -678,6 +677,45 @@ void reqCombatMedic(object oPC)
             SetLocalInt(oPC, "PRC_PrereqCbtMed", 0);
     }
 }
+
+void reqLionOfTalisid(object oPC)
+{
+	//:: Get casting ability scores
+	int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);
+	int iInt = GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE);
+
+	//:: Check if the character knows Summon Nature's Ally II
+	int bKnowsSNA2 = PRCGetIsRealSpellKnown(SPELL_SUMMON_NATURES_ALLY_2, oPC);
+
+	//:: Archivist (INT-based)
+	if(iInt >= 12 && GetLevelByClass(CLASS_TYPE_ARCHIVIST) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Druid (WIS-based)
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_DRUID) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Ranger (WIS-based) – Rangers get 2nd-level spells at level 6
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_RANGER) >= 6 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Shaman (WIS-based)
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_SHAMAN) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+}
+
 
 void RedWizard(object oPC)
 {
@@ -1314,6 +1352,8 @@ void AlienistPreReqs(object oPC)
 
 void AOTSPreReqs(object oPC)
 {
+	if(DEBUG) DoDebug("prc_prereq >> AOTSPreReqs: Entering function.");
+	
 	int iArcane = 0;
 	int iShadow = 0;
 	
@@ -1334,6 +1374,7 @@ void AOTSPreReqs(object oPC)
     if (PRCGetCasterLevel(oPC) > 4 || GetInvokerLevel(oPC) > 4 || GetShadowcasterLevel(oPC) > 4)
     {
         SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
+		if(DEBUG) DoDebug("prc_prereq >> AOTSPreReqs: Unsetting varible to allow class.");
     }
 }
 
@@ -1884,6 +1925,7 @@ void main()
     WildMageReq(oPC);
     Witchborn(oPC);
     reqCombatMedic(oPC);
+	reqLionOfTalisid(oPC);
     // Truly massive debug message flood if activated.
    
 /*    if (DEBUG)

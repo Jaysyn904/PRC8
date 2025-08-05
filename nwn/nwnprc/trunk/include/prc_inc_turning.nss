@@ -14,17 +14,6 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
-												  
-												  
-												  
-
-
-						 
-					  
-						  
-						   
-
-
 //gets the number of class levels that count for turning
 int GetTurningClassLevel(object oCaster = OBJECT_SELF, int nTurnType = SPELL_TURN_UNDEAD);
 

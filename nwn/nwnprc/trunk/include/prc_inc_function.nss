@@ -180,6 +180,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_LASHER:                sScript = "prc_lasher";                      break;
                 case CLASS_TYPE_LEGENDARY_DREADNOUGHT: sScript = "prc_legendread";                  break;
                 case CLASS_TYPE_LICH:                  sScript = "pnp_lich_level";                  break;
+				case CLASS_TYPE_LION_OF_TALISID:	   sScript = "prc_lot";							break;
                 case CLASS_TYPE_MAGEKILLER:            sScript = "prc_magekill";                    break;
                 case CLASS_TYPE_MASTER_HARPER:         sScript = "prc_masterh";                     break;
                 case CLASS_TYPE_MASTER_OF_NINE:        sScript = "tob_masterofnine";                break;

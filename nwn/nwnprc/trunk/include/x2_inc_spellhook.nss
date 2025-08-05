@@ -145,7 +145,102 @@ int PRCGetUserSpecificSpellScriptFinished();
 #include "inc_dynconv"
 #include "inc_npc"
 
+
+int Spontaneity(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel)
+{
+	if(GetLocalInt(oCaster, "PRC_SpontRegen"))
+    {
+        DeleteLocalInt(oCaster, "PRC_SpontRegen");
+		
+		int nMetamagic 	= GetMetaMagicFeat();//we need bioware metamagic here
+        nSpellLevel 	= PRCGetSpellLevelForClass(nSpellID, nCastingClass);
+        nSpellLevel 	+= GetMetaMagicSpellLevelAdjustment(nMetamagic);
+        
+		int nRegenSpell;
+		
+		if(nCastingClass == CLASS_TYPE_DRUID)
+		{
+			switch(nSpellLevel)
+			{
+				case 0: return TRUE;
+				case 1: nRegenSpell = SPELL_REGEN_LIGHT_WOUNDS;		break;
+				case 2: nRegenSpell = SPELL_REGEN_MODERATE_WOUNDS;	break;
+				case 3: nRegenSpell = SPELL_REGEN_RING;				break;
+				case 4: nRegenSpell = SPELL_REGEN_SERIOUS_WOUNDS;	break;
+				case 5: nRegenSpell = SPELL_REGEN_CRITICAL_WOUNDS;	break;
+				case 6: nRegenSpell = SPELL_REGEN_CIRCLE;			break;
+				case 7: nRegenSpell = SPELL_REGEN_CIRCLE;			break;
+				case 8: nRegenSpell = SPELL_REGEN_CIRCLE;			break;
+				case 9: nRegenSpell = SPELL_REGENERATE;				break;
+			}
+			ActionCastSpell(nRegenSpell, 0, 0, 0, METAMAGIC_NONE, CLASS_TYPE_DRUID);
+		}			
+		else
+		{
+				switch(nSpellLevel)
+				{
+					case 0: return TRUE;
+					case 1: nRegenSpell = SPELL_REGEN_LIGHT_WOUNDS;	break;
+					case 2: nRegenSpell = SPELL_REGEN_LIGHT_WOUNDS;	break;
+					case 3: nRegenSpell = SPELL_REGEN_MODERATE_WOUNDS;	break;
+					case 4: nRegenSpell = SPELL_REGEN_MODERATE_WOUNDS;	break;
+					case 5: nRegenSpell = SPELL_REGEN_SERIOUS_WOUNDS;	break;
+					case 6: nRegenSpell = SPELL_REGEN_CRITICAL_WOUNDS;	break;
+					case 7: nRegenSpell = SPELL_REGENERATE;			break;
+					case 8: nRegenSpell = SPELL_REGENERATE;			break;
+					case 9: nRegenSpell = SPELL_REGENERATE;			break;
+				}
+
+				ActionCastSpell(nRegenSpell, 0, 0, 0, METAMAGIC_NONE, nCastingClass);
+		}
+		//Don't cast original spell
+		return FALSE;
+	}
+	return TRUE;	
+}
+
+
+
 int DruidSpontSummon(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel)
+{
+    if(nCastingClass != CLASS_TYPE_DRUID)
+        return TRUE;
+
+    if(GetLocalInt(oCaster, "PRC_SpontSummon"))
+    {
+        DeleteLocalInt(oCaster, "PRC_SpontSummon");
+        int nMetamagic = GetMetaMagicFeat();//we need bioware metamagic here
+        int nSpellLevel = PRCGetSpellLevelForClass(nSpellID, CLASS_TYPE_DRUID);
+        nSpellLevel += GetMetaMagicSpellLevelAdjustment(nMetamagic);
+        int nSummonSpell;
+        switch(nSpellLevel)
+        {
+            case 0: return TRUE;
+            case 1: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_1;	break;
+            case 2: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_2;   break;
+            case 3: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_3;	break;
+            case 4: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_4;   break;
+            case 5: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_5;	break;
+            case 6: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_6;   break;
+            case 7: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_7;  	break;
+            case 8: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_8;	break;
+            case 9: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_9;   break;
+        }
+
+		//:: All SNA spells are subradial spells
+		SetLocalInt(oCaster, "DomainOrigSpell", nSummonSpell);
+		SetLocalInt(oCaster, "DomainCastLevel", nSpellLevel);
+		SetLocalInt(oCaster, "DomainCastClass", CLASS_TYPE_DRUID);
+		StartDynamicConversation("prc_domain_conv", oCaster, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oCaster);
+
+        //Don't cast original spell
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+/* int DruidSpontSummon(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel)
 {
     if(nCastingClass != CLASS_TYPE_DRUID)
         return TRUE;
@@ -190,6 +285,8 @@ int DruidSpontSummon(object oCaster, int nCastingClass, int nSpellID, int nSpell
 
     return TRUE;
 }
+
+ */
 
 int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int nMetamagic, string sComponents)
 {
@@ -3398,6 +3495,12 @@ int X2PreSpellCastCode2()
         //---------------------------------------------------------------------------
         if (nContinue)
             nContinue = SpellAlignmentRestrictions(oCaster, nSpellID, nCastingClass);
+
+		//---------------------------------------------------------------------------
+		// Verdant Lord Spontaneous Regernate
+		//---------------------------------------------------------------------------
+		if(nContinue)
+			Spontaneity(oCaster, nCastingClass, nSpellID, nSpellLevel);
 
         //---------------------------------------------------------------------------
         // Druid spontaneous summoning

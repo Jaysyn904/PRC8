@@ -73281,6 +73281,99 @@ Strength of Will: You gain a bonus equal to 1/2 your class level (minimum +1) on
 Wild Frenzy: You gain a +2 bonus on attack rolls and damage rolls with melee weapons and eldritch blasts, along with temporary hit points equal to twice your class level. This effect lasts for a number of rounds equal to 3 + your Cha modifier (minimum 1 round). Your deity must be chaotic for you to select this gift.</entry>
   <entry id="77218" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick an invoking feat (1st lvl)&lt;/c&gt;</entry>
   <entry id="77219" lang="en" sex="m">Choose which invoking class to advance with the currently selected Prestige Class.  If you try take a marker feat after1st class level, your character will be releveled.</entry>
+  <entry id="77999" lang="en" sex="m">### PRC8 CLASS RESERVE ###</entry>
+  <entry id="78000" lang="en" sex="m">LoT</entry>
+  <entry id="78001" lang="en" sex="m">Lion of Talisid</entry>
+  <entry id="78002" lang="en" sex="m">Lions of Talisid</entry>
+  <entry id="78003" lang="en" sex="m">lion of Talisid</entry>
+  <entry id="78004" lang="en" sex="m">(PRESTIGE CLASS)
+The undisputed ruler of the guardinals, Talisid the Celestial Lion is an enormously powerful force for good—and good alone, undiluted by concerns of law or chaos. He is also a mighty druid, and his mortal and guardinal champions are druids and rangers who share both his fierce hatred of evil and his passionate love of the natural world and its creatures. Called the lions of Talisid, these protectors of nature and champions of good emulate their celestial patron in more concrete ways: adopting feline animal companions, assuming great cat forms with their wild shape ability, and eventually roaring like a leonal. Druids and rangers most commonly become lions of Talisid, and only a character with an animal companion can enter the class. Multiclass druid/rangers also commonly adopt the class, and less commonly, fighter/druids or cleric/rangers.
+
+Like their guardinal patron, lions of Talisid usually work alone or in small groups of close companions, rarely with other lions. NPC lions of Talisid can be found wandering the wilderness, fighting any who would defile the natural world with evil.  They are particularly concerned with areas where some evil presence corrupts nature itself, manifesting evil weather and vile corrupted creatures.
+
+- Hit Die: d8
+- Proficiencies: A lion of Talisid does not gain any additional weapon or armor proficiencies.
+- Skill Points: 4+ Int Modifier.
+- Spells per Day: At each lion of Talisid level the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead). 
+
+REQUIREMENTS:
+
+Alignment: Neutral good.
+Base Attack Bonus: +4.
+Skills: Lore 9 ranks, Heal 9 ranks.
+Feats: Favored of the Companions.
+Spells: Able to cast Summon Nature’s Ally II.
+Special: The character must have an animal companion as a class feature.
+
+CLASS FEATURES:
+Level
+1:  Animal Companion (Ex): A lion of Talisid can add his lion of Talisid levels to his effective druid level (his actual druid level or one-half his ranger level) to determine the capabilities of his animal companion.
+ Lion’s Courage (Ex): A lion of Talisid is immune to fear (magical or otherwise) and gains a +4 sacred bonus on Will saves against other mind-affecting spells and effects.
+2:  Scent (Ex): At 2nd level, a lion of Talisid gains the scent special quality. He can detect approaching enemies, sniff out hidden foes, and track by sense of smell.
+3:  Wild Shape (Su): At 3rd level, a lion of Talisid gains the ability to turn himself into any Small or Medium animal and back again once per day. This works exactly as the druid’s wild shape ability.
+4:  Exalted Companion: At 4th level, a lion of Talisid gains the Exalted Companion feat as a bonus feat.
+ Wild Shape (Su) (2 / day).
+5:  Lion’s Pounce (Ex): At 5th level, a lion of Talisid can make a full attack at the end of a charge.
+ Wild Shape (Su) (3 / day).
+6: Wild Shape (Su) (Large)* 
+7: Lion’s Swiftness (Ex): When he reaches 7th level, a lion of Talisid can act as if under the effects of a haste spell for a total of 1 round per class level per day. These rounds need not be consecutive.
+8: Wild Shape (Su) (4 / day).
+9: Wild Shape (Su) (Tiny)*
+10: Leonal’s Roar (Su): Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal’s roar spell. The saving throw DC is 20 + the lion of Talisid’s Charisma modifier.
+
+* Not implemented</entry>
+  <entry id="78005" lang="en" sex="m">Epic Lion of Talisid
+</entry>
+  <entry id="78006" lang="en" sex="m">Chosen by the celestial lion himself, these guardians of nature blend divine power with the ferocity of great cats. Noble and wild-hearted, they fight evil wherever it taints the natural world—roaming protectors guided by instinct, courage, and compassion. With animal companions at their side and the strength of a leonal in their soul, they embody both the serenity and savagery of the wild in service of pure good.
+
+Hit Die: d8.
+Skill Points at Each Additional Level: 4 + Intelligence modifier.
+Bonus Feats: The epic Lion of Talisid gains a bonus feat every three levels.
+
+Special:
+Spellcasting: At each class level the epic Lion of Talisid continues to increase in divine caster level (and spells known, if applicable).
+
+Epic Lion of Talisid Bonus Feat List:
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Focused Spell Penetration, Epic Spellcasting, Fast Healing, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Overwhelming Critical, Perfect Health, Tenacious Magic.
+</entry>
+  <entry id="78007" lang="en" sex="m">Lion of Talisid Spellcasting (Archivist)</entry>
+  <entry id="78008" lang="en" sex="m">Lion of Talisid Spellcasting (Cleric)</entry>
+  <entry id="78009" lang="en" sex="m">Lion of Talisid Spellcasting (Druid)</entry>
+  <entry id="78010" lang="en" sex="m">Lion of Talisid Spellcasting (Ranger)</entry>
+  <entry id="78011" lang="en" sex="m">Lion of Talisid Spellcasting (Healer)</entry>
+  <entry id="78012" lang="en" sex="m">Lion of Talisid Spellcasting (Soldier of Light)</entry>
+  <entry id="78013" lang="en" sex="m">Lion of Talisid Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="78014" lang="en" sex="m">Lion of Talisid Spellcasting (Shaman)</entry>
+  <entry id="78015" lang="en" sex="m">Lion of Talisid Spellcasting (Sohei)</entry>
+  <entry id="78016" lang="en" sex="m">Lion of Talisid Spellcasting (Nentyar Hunter)</entry>
+  <entry id="78017" lang="en" sex="m">Lion of Talisid Spellcasting (Favoured Soul)</entry>
+  <entry id="78018" lang="en" sex="m">Lion of Talisid Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="78019" lang="en" sex="m">Lion of Talisid Spellcasting (Spirit Shaman)</entry>
+  <entry id="78020" lang="en" sex="m">Spells per Day: At each lion of Talisid level the character gains new spells per day as if he had also gained a level in a divine spellcasting class to which he belonged before adding the prestige class level. He does not, however, gain any other benefit a character of that class would have gained (such as an improved chance of turning or rebuking undead).</entry>
+  <entry id="78021" lang="en" sex="m">Lion's Courage (Ex)
+</entry>
+  <entry id="78022" lang="en" sex="m">Type of Feat: Class-Specific
+Prerequisite: Lion of Talisid 1
+Specifics: A lion of Talisid is immune to fear (magical or otherwise) and gains a +4 sacred bonus on Will saves against other mind-affecting spells and effects.
+Use: Automatic.</entry>
+  <entry id="78023" lang="en" sex="m">Lion's Pounce (Ex)</entry>
+  <entry id="78024" lang="en" sex="m">Type of Feat: Class-Specific
+Prerequisite: Lion of Talisid 5
+Specifics: At 5th level, a lion of Talisid can make a full attack at the end of a charge.
+Use: Automatic.</entry>
+  <entry id="78025" lang="en" sex="m">Lion's Swiftness (Ex)</entry>
+  <entry id="78026" lang="en" sex="m">Type of Feat: Class-Specific
+Prerequisite: Lion of Talisid 7
+Specifics: When he reaches 7th level, a lion of Talisid can act as if under the effects of a haste spell for a total of 1 round per class level per day. These rounds need not be consecutive.
+Use: Selected.
+</entry>
+  <entry id="78027" lang="en" sex="m">Leonal’s Roar (Su)
+</entry>
+  <entry id="78028" lang="en" sex="m">Type of Feat: Class-Specific
+Prerequisite: Lion of Talisid 10
+Specifics: : Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal’s roar spell. The saving throw DC is 20 + the lion of Talisid’s Charisma modifier.
+Use: Selected.
+</entry>
   <entry id="79999" lang="en" sex="m">## iprp_damagecost.2da expansion ##</entry>
   <entry id="80000" lang="en" sex="m">21 Damage</entry>
   <entry id="80001" lang="en" sex="m">+21</entry>
@@ -73342,6 +73435,283 @@ Wild Frenzy: You gain a +2 bonus on attack rolls and damage rolls with melee wea
   <entry id="80057" lang="en" sex="m">+49</entry>
   <entry id="80058" lang="en" sex="m">50 Damage</entry>
   <entry id="80059" lang="en" sex="m">+50</entry>
+  <entry id="199000" lang="en" sex="m">Summon Nature's Ally I</entry>
+  <entry id="199001" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 1, Shaman 1, Ranger 1
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Badger
+Dire Rat
+Dog
+Hawk
+Tiny Viper
+</entry>
+  <entry id="199002" lang="en" sex="m">Summon Dire Badger</entry>
+  <entry id="199003" lang="en" sex="m">Summon Dire Rat</entry>
+  <entry id="199004" lang="en" sex="m">Summon Dog</entry>
+  <entry id="199005" lang="en" sex="m">Summon Hawk</entry>
+  <entry id="199006" lang="en" sex="m">Summon Tiny Viper
+</entry>
+  <entry id="199007" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199008" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199009" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199010" lang="en" sex="m">Summon Nature's Ally I (5)</entry>
+  <entry id="199011" lang="en" sex="m">Summon Nature's Ally I (10)</entry>
+  <entry id="199012" lang="en" sex="m">Summon Nature's Ally I (15)</entry>
+  <entry id="199013" lang="en" sex="m">****</entry>
+  <entry id="199014" lang="en" sex="m">Summon Nature's Ally II</entry>
+  <entry id="199015" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 2, Shaman 2, Ranger 2
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Dire Badger
+Cooshee
+Wolf
+Small Viper
+Black Bear
+</entry>
+  <entry id="199016" lang="en" sex="m">Summon Dire Boar</entry>
+  <entry id="199017" lang="en" sex="m">Summon Cooshee</entry>
+  <entry id="199018" lang="en" sex="m">Summon Wolf</entry>
+  <entry id="199019" lang="en" sex="m">Summon Small Viper</entry>
+  <entry id="199020" lang="en" sex="m">Summon Black Bear</entry>
+  <entry id="199021" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199022" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199023" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199024" lang="en" sex="m">Summon Nature's Ally II (5)</entry>
+  <entry id="199025" lang="en" sex="m">Summon Nature's Ally II (10)</entry>
+  <entry id="199026" lang="en" sex="m">Summon Nature's Ally II (15)</entry>
+  <entry id="199027" lang="en" sex="m">****</entry>
+  <entry id="199028" lang="en" sex="m">Summon Nature's Ally III</entry>
+  <entry id="199029" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 3, Shaman 3, Ranger 3
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Brown Bear
+Dire Wolf
+Large Viper
+Leopard
+Satyr [without pipes]
+</entry>
+  <entry id="199030" lang="en" sex="m">Summon Brown Bear</entry>
+  <entry id="199031" lang="en" sex="m">Summon Dire Wolf</entry>
+  <entry id="199032" lang="en" sex="m">Summon Large Viper</entry>
+  <entry id="199033" lang="en" sex="m">Summon Leopard</entry>
+  <entry id="199034" lang="en" sex="m">Summon Satyr</entry>
+  <entry id="199035" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199036" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199037" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199038" lang="en" sex="m">Summon Nature's Ally III (5)</entry>
+  <entry id="199039" lang="en" sex="m">Summon Nature's Ally III (10)</entry>
+  <entry id="199040" lang="en" sex="m">Summon Nature's Ally III (15)</entry>
+  <entry id="199041" lang="en" sex="m">****</entry>
+  <entry id="199042" lang="en" sex="m">Summon Nature's Ally IV</entry>
+  <entry id="199043" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 4, Shaman 4, Ranger 4
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Lion
+Polar Bear
+Dire Spider
+Viper, Huge
+Wereboar</entry>
+  <entry id="199044" lang="en" sex="m">Summon Lion</entry>
+  <entry id="199045" lang="en" sex="m">Summon Polar Bear</entry>
+  <entry id="199046" lang="en" sex="m">Summon Dire Spider</entry>
+  <entry id="199047" lang="en" sex="m">Summon Huge Viper</entry>
+  <entry id="199048" lang="en" sex="m">Summon Wereboar</entry>
+  <entry id="199049" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199050" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199051" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199052" lang="en" sex="m">Summon Nature's Ally IV (5)</entry>
+  <entry id="199053" lang="en" sex="m">Summon Nature's Ally IV (10)</entry>
+  <entry id="199054" lang="en" sex="m">Summon Nature's Ally IV (15)</entry>
+  <entry id="199055" lang="en" sex="m">****</entry>
+  <entry id="199056" lang="en" sex="m">Summon Nature's Ally V</entry>
+  <entry id="199057" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 5, Shaman 5
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Medium Air Elemental
+Medium Earth Elemental
+Medium Fire Elemental
+Medium Water Elemental
+Dire Bear
+</entry>
+  <entry id="199058" lang="en" sex="m">Summon Medium Air Elemental</entry>
+  <entry id="199059" lang="en" sex="m">Summon Medum Earth Elemental</entry>
+  <entry id="199060" lang="en" sex="m">Summon Medium Fire Elemental</entry>
+  <entry id="199061" lang="en" sex="m">Summon Medum Water Elemental</entry>
+  <entry id="199062" lang="en" sex="m">Summon Dire Bear</entry>
+  <entry id="199063" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199064" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199065" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199066" lang="en" sex="m">Summon Nature's Ally V (10)</entry>
+  <entry id="199067" lang="en" sex="m">Summon Nature's Ally V (15)</entry>
+  <entry id="199068" lang="en" sex="m">Summon Nature's Ally V (20)</entry>
+  <entry id="199069" lang="en" sex="m">****</entry>
+  <entry id="199070" lang="en" sex="m">Summon Nature's Ally VI</entry>
+  <entry id="199071" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 6, Shaman 6
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Large Air Elemental
+Large Earth Elemental
+Large Fire Elemental
+Large Water Elemental
+Dire Tiger
+</entry>
+  <entry id="199072" lang="en" sex="m">Summon Large Air Elemental</entry>
+  <entry id="199073" lang="en" sex="m">Summon Large Earth Elemental</entry>
+  <entry id="199074" lang="en" sex="m">Summon Large Fire Elemental</entry>
+  <entry id="199075" lang="en" sex="m">Summon Large Water Elemental</entry>
+  <entry id="199076" lang="en" sex="m">Summon Dire Tiger</entry>
+  <entry id="199077" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199078" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199079" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199080" lang="en" sex="m">Summon Nature's Ally VI (10)</entry>
+  <entry id="199081" lang="en" sex="m">Summon Nature's Ally VI (15)</entry>
+  <entry id="199082" lang="en" sex="m">Summon Nature's Ally VI (20)</entry>
+  <entry id="199083" lang="en" sex="m">****</entry>
+  <entry id="199084" lang="en" sex="m">Summon Nature's Ally VII
+</entry>
+  <entry id="199085" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 7, Shaman 7
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Buelette
+Invisible stalker
+Pixie Rogue
+Gorgon
+Manitcore</entry>
+  <entry id="199086" lang="en" sex="m">Summon Bulette</entry>
+  <entry id="199087" lang="en" sex="m">Summon Invisible Stalker</entry>
+  <entry id="199088" lang="en" sex="m">Summon Pixie Rogue</entry>
+  <entry id="199089" lang="en" sex="m">Summon Gorgon</entry>
+  <entry id="199090" lang="en" sex="m">Summon Manticore</entry>
+  <entry id="199091" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199092" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199093" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199094" lang="en" sex="m">Summon Nature's Ally VII (10)</entry>
+  <entry id="199095" lang="en" sex="m">Summon Nature's Ally VII (15)</entry>
+  <entry id="199096" lang="en" sex="m">Summon Nature's Ally VII (20)</entry>
+  <entry id="199097" lang="en" sex="m">****</entry>
+  <entry id="199098" lang="en" sex="m">Summon Nature's Ally VIII
+</entry>
+  <entry id="199099" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 8, Shaman 8
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+
+Greater Air Elemental
+Greater Earth Elemental
+Greater Fire Elemental
+Greater Water Elemental
+Nymph Druidess</entry>
+  <entry id="199100" lang="en" sex="m">Summon Greater Air Elemental</entry>
+  <entry id="199101" lang="en" sex="m">Summon Greater Earth Elemental</entry>
+  <entry id="199102" lang="en" sex="m">Summon Greater Fire Elemental</entry>
+  <entry id="199103" lang="en" sex="m">Summon Greater Water Elemental</entry>
+  <entry id="199104" lang="en" sex="m">Summon Nymph Druidess</entry>
+  <entry id="199105" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199106" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199107" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199108" lang="en" sex="m">Summon Nature's Ally VIII (10)</entry>
+  <entry id="199109" lang="en" sex="m">Summon Nature's Ally VIII (15)</entry>
+  <entry id="199110" lang="en" sex="m">Summon Nature's Ally VIII (20)</entry>
+  <entry id="199111" lang="en" sex="m">****</entry>
+  <entry id="199112" lang="en" sex="m">Summon Nature's Ally IX</entry>
+  <entry id="199113" lang="en" sex="m">Conjuration (Summoning)
+Level:  Druid 9, Shaman 9
+Components:  V, S, DF
+Casting time:  1 full round
+Range:  Close (25 ft. + 5 ft./2 levels)
+Effect:  One summoned creature
+Duration:  1 round/level (D)
+Saving Throw:  None
+Spell Resistance:  No
+
+This spell summons a natural creature. It appears where the character designates and acts immediately, on the characters turn. It attacks the characters opponents to the best of its ability. If the character can communicate with the creature, the character can direct it not to attack, to attack particular enemies, or to perform other actions.
+    
+Elder Air Elemental
+Elder Earth Elemental
+Elder Fire Elemental
+Elder Water Elemental
+Aranea Sorcerer</entry>
+  <entry id="199114" lang="en" sex="m">Summon Elder Air Elemental</entry>
+  <entry id="199115" lang="en" sex="m">Summon Elder Earth Elemental</entry>
+  <entry id="199116" lang="en" sex="m">Summon Elder Fire Elemental</entry>
+  <entry id="199117" lang="en" sex="m">Summon Elder Water Elemental</entry>
+  <entry id="199118" lang="en" sex="m">Summon Aranea Sorcerer</entry>
+  <entry id="199119" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199120" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199121" lang="en" sex="m">[FUTURE]</entry>
+  <entry id="199122" lang="en" sex="m">Summon Nature's Ally IX (10)</entry>
+  <entry id="199123" lang="en" sex="m">Summon Nature's Ally IX (15)</entry>
+  <entry id="199124" lang="en" sex="m">Summon Nature's Ally IX (20)</entry>
   <entry id="200000" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200001" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200002" lang="en" sex="m">Paper</entry>
@@ -75115,6 +75485,14 @@ Prerequisite: Ki Power, Proficiency with all martial weapons
 Specifics: Your fighter and ninja levels stack for the purpose of determining the size of your ki pool, as well as your AC bonus. For example, a 5th-level fighter/1st-level ninja with this feat could use his ki powers a number of times equal to 3 (one-half his ninja and fighter levels) + his Wisdom bonus (if any), and would have a +1 bonus to AC (as if he were a 6th-level ninja).
 Use: Automatic
 Special: A fighter can select Martial Stalker as one of his fighter bonus feats.</entry>
+  <entry id="213100" lang="en" sex="m">Favored of the Companions</entry>
+  <entry id="213101" lang="en" sex="m">Type of Feat: Exalted
+Prerequisite: Good Alignment*
+Specifics: Talisid or one of the Five Companions, the paragons of the guardinals, and in exchange gain power to act on their behalf. Once per day, you may call upon your archon patron to gain a +1 luck bonus to damage, attack roll and saving throws for 9 seconds.
+Use: Selected.
+Special: Once you take this feat, you may not take it again, nor can you take either the Servant of the Heavens feat or the Knight of Stars feat. Your allegiance is only yours to give once 
+
+(*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="213198" lang="en" sex="m">Investigator</entry>
   <entry id="213199" lang="en" sex="m">Type of Feat: General
 Benefit: You get a +2 bonus on all Sense Motive and Search checks.
@@ -75176,6 +75554,57 @@ When you take this feat, choose one 1st-level power from any psionic class list.
   <entry id="213246" lang="en" sex="m">Hidden Talent (Thicken Skin)</entry>
   <entry id="213247" lang="en" sex="m">Hidden Talent (Vigor)</entry>
   <entry id="213248" lang="en" sex="m">Hidden Talent (Grip Of Iron)</entry>
+  <entry id="213254" lang="en" sex="m">****</entry>
+  <entry id="213255" lang="en" sex="m">Leonal's Roar</entry>
+  <entry id="213256" lang="en" sex="m">Evocation [Good, Sonic]
+Level: Druid 8
+Components: V
+Casting Time: 1 standard action
+Range: 40 ft.
+Target: Nongood creatures in a 40-ft.-radius spread centered on you
+Duration: Instantaneous
+Saving Throw: Fortitude partial
+Spell Resistance: Yes
+
+This spell has the effect of a holy word, and it additionally deals 2d6 points of sonic damage to nongood creatures in the area.
+A successful Fortitude saving throw negates the sonic damage, but not the other effects of the spell.</entry>
+  <entry id="213257" lang="en" sex="m">Leonal's Roar (15)</entry>
+  <entry id="213258" lang="en" sex="m">Leonal's Roar (20)</entry>
+  <entry id="213259" lang="en" sex="m">****</entry>
+  <entry id="213260" lang="en" sex="m">Regenerate Ring</entry>
+  <entry id="213261" lang="en" sex="m">Conjuration (Healing)
+Level: Druid 3
+Components: V, S
+Casting Time: 1 action
+Range: 20 ft.
+Target: One creature/two levels, no two of which can be
+more than 30 ft. apart
+Duration: 10 rounds + 1 round/two levels
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell’s duration, not to that from previous injuries. Each subject heals 1 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate ring does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell’s duration by the full duration of the second spell.</entry>
+  <entry id="213262" lang="en" sex="m">Regenerate Ring (6)</entry>
+  <entry id="213263" lang="en" sex="m">Regenerate Ring (9)</entry>
+  <entry id="213264" lang="en" sex="m">Regenerate Ring (12)</entry>
+  <entry id="213265" lang="en" sex="m">****</entry>
+  <entry id="213266" lang="en" sex="m">Regenerate Circle</entry>
+  <entry id="213267" lang="en" sex="m">Conjuration (Healing)
+Level: Druid 5
+Components: V, S
+Casting Time: 1 action
+Range: 20 ft.
+Target: One creature/two levels, no two of which can be
+more than 30 ft. apart
+Duration: 10 rounds + 1 round/two levels
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell’s duration, not to that from previous injuries. Each subject heals 3 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate circle does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell’s duration by the full duration of the second spell.</entry>
+  <entry id="213268" lang="en" sex="m">Regenerate Circle (10)</entry>
+  <entry id="213269" lang="en" sex="m">Regenerate Circle (15)</entry>
+  <entry id="213270" lang="en" sex="m">Regenerate Circle (20)</entry>
+  <entry id="213271" lang="en" sex="m">****</entry>
   <entry id="213272" lang="en" sex="m">Force Missiles</entry>
   <entry id="213273" lang="en" sex="m">Evocation [Force]
 Level: Sorcerer 4, Wizard 4,
@@ -75201,6 +75630,7 @@ of a creature.
 
 You gain one missile for every four caster levels. Extra missiles distribute 
 themsleves amongst your enemies evenly.</entry>
+  <entry id="213274" lang="en" sex="m">****</entry>
   <entry id="213275" lang="en" sex="m">Force Missiles (8)</entry>
   <entry id="213276" lang="en" sex="m">Force Missiles (12)</entry>
   <entry id="213277" lang="en" sex="m">Chasing Perfection</entry>
@@ -75242,7 +75672,7 @@ first spell's duration by the full duration of the second spell.</entry>
   <entry id="213285" lang="en" sex="m">Regenerate Light Wounds (9)</entry>
   <entry id="213286" lang="en" sex="m">Regenerate Moderate Wounds</entry>
   <entry id="213287" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 2, Druid 2,
+Level: Cleric 3, Druid 2,
 Components: V, S,
 Casting Time: 1 action
 Range: Touch
@@ -75260,7 +75690,7 @@ first spell's duration by the full duration of the second spell.</entry>
   <entry id="213290" lang="en" sex="m">Regenerate Moderate Wounds (9)</entry>
   <entry id="213291" lang="en" sex="m">Regenerate Serious Wounds</entry>
   <entry id="213292" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 3, Druid 3,
+Level: Cleric 5, Druid 4,
 Components: V, S,
 Casting Time: 1 action
 Range: Touch
@@ -75278,7 +75708,7 @@ first spell's duration by the full duration of the second spell.</entry>
   <entry id="213295" lang="en" sex="m">Regenerate Serious Wounds (15)</entry>
   <entry id="213296" lang="en" sex="m">Regenerate Critical Wounds</entry>
   <entry id="213297" lang="en" sex="m">Conjuration (Healing)
-Level: Cleric 4, Druid 4,
+Level: Cleric 6, Druid 5,
 Components: V, S,
 Casting Time: 1 action
 Range: Touch
