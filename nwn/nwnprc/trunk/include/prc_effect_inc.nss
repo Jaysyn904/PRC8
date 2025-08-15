@@ -76,6 +76,13 @@ void DeathlessFrenzyCheck(object oTarget);
 void PRCRemoveSpellEffects(int nSpell_ID, object oCaster, object oTarget);
 
 /**
+ * Target is immune to gaze attacks
+ *
+ * @return           the Dazzle effect
+ */
+effect EffectGazeImmune();
+
+/**
  * Dazzles the target: -1 Attack, Search, Spot, and VFX
  *
  * @return           the Dazzle effect
@@ -583,7 +590,8 @@ effect PRCEffectHeal(int nHP, object oTarget)
     return EffectHeal(nHP);
 }
 
-effect EffectAbilityBasedSkillIncrease(int iAbility, int iIncrease = 1){
+effect EffectAbilityBasedSkillIncrease(int iAbility, int iIncrease = 1)
+{
     effect eReturn;
     switch(iAbility)
     {
@@ -639,7 +647,8 @@ effect EffectAbilityBasedSkillIncrease(int iAbility, int iIncrease = 1){
     return eReturn;
 }
 
-effect EffectAbilityBasedSkillDecrease(int iAbility, int iDecrease = 1){
+effect EffectAbilityBasedSkillDecrease(int iAbility, int iDecrease = 1)
+{
     effect eReturn;
     switch(iAbility)
     {
@@ -695,7 +704,8 @@ effect EffectAbilityBasedSkillDecrease(int iAbility, int iDecrease = 1){
     return eReturn;
 }
 
-effect EffectDamageImmunityAll(){
+effect EffectDamageImmunityAll()
+{
     effect eReturn = EffectDamageImmunityIncrease(DAMAGE_TYPE_ACID, 100);
            eReturn = EffectLinkEffects(eReturn, EffectDamageImmunityIncrease(DAMAGE_TYPE_BLUDGEONING, 100));
            eReturn = EffectLinkEffects(eReturn, EffectDamageImmunityIncrease(DAMAGE_TYPE_COLD, 100));
@@ -712,7 +722,8 @@ effect EffectDamageImmunityAll(){
     return eReturn;
 }
 
-effect EffectImmunityMiscAll(){
+effect EffectImmunityMiscAll()
+{
     effect eReturn = EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE);
            eReturn = EffectLinkEffects(eReturn, EffectImmunity(IMMUNITY_TYPE_BLINDNESS));
            eReturn = EffectLinkEffects(eReturn, EffectImmunity(IMMUNITY_TYPE_DEAFNESS));
@@ -732,6 +743,31 @@ effect EffectImmunityMiscAll(){
     return eReturn;
 }
 
+//:: Immunity to all gaze attacks
+effect EffectGazeImmune()
+{
+	effect eBlank;
+
+    effect eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_CHARM);	
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_CONFUSION);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DAZE);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DEATH);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DESTROY_CHAOS);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DESTROY_EVIL);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DESTROY_GOOD);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DESTROY_LAW);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DOMINATE);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_DOOM);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_FEAR);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_PARALYSIS);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_PETRIFY);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_STUNNED);
+			
+			eReturn = TagEffect(eReturn, "PRCGazeImmune");
+			
+    return eReturn;
+}
+
 int GetIsShaken(object oTarget)
 {
     effect eEffect = GetFirstEffect(oTarget);
@@ -748,3 +784,6 @@ int GetIsShaken(object oTarget)
     }
     return FALSE;
 }
+
+//:: Test void
+//:: void main() {}

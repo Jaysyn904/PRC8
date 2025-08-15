@@ -64,16 +64,17 @@ void main()
     {
         effect eLink    =                          EffectSkillIncrease(SKILL_SPOT,   4);
                eLink    = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SEARCH, 4));
+			   eLink    = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_PRESTIGE_DEFENSIVE_AWARENESS_2));
                eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_MAGICAL_SIGHT));
                eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
         float fDuration = 600.0f * manif.nManifesterLevel;
         if(manif.bExtend) fDuration *= 2;
 
         // Uncanny Dodge II gives immunity to flanking in EE
-        itemproperty ipUD = PRCItemPropertyBonusFeat(IP_CONST_FEAT_UNCANNY_DODGE1);
+/*         itemproperty ipUD = PRCItemPropertyBonusFeat(IP_CONST_FEAT_UNCANNY_DODGE1);
         IPSafeAddItemProperty(GetPCSkin(oTarget), ipUD, fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         itemproperty ipUD2 = PRCItemPropertyBonusFeat(IP_CONST_FEAT_UNCANNY_DODGE2);
-        IPSafeAddItemProperty(GetPCSkin(oTarget), ipUD2, fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+        IPSafeAddItemProperty(GetPCSkin(oTarget), ipUD2, fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); */
 
         // Apply effects
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE, manif.nSpellID, manif.nManifesterLevel);

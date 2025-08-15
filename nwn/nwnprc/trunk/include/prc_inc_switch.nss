@@ -70,6 +70,8 @@
 43  PRC_CRAFTING_BASE_ITEMS                 int        1
 44  PRC_XP_USE_SIMPLE_LA                    int        1
 45  PRC_XP_USE_SIMPLE_RACIAL_HD             int        1
+46  PRC_CREATE_INFUSION_CASTER_LEVEL		int        1
+47	PRC_CREATE_INFUSION_OPTIONAL_HERBS		int		   0
  */
 
  /* This variable MUST be updated with every new version of the PRC!!! */
@@ -1953,6 +1955,18 @@ const string PRC_CRAFT_ROD_CASTER_LEVEL             = "PRC_CRAFT_ROD_CASTER_LEVE
 const string PRC_CRAFT_STAFF_CASTER_LEVEL             = "PRC_CRAFT_STAFF_CASTER_LEVEL";
 
 /*
+ * As above, except it applies to herbal infusions
+ */
+const string PRC_CREATE_INFUSION_CASTER_LEVEL	= "PRC_CREATE_INFUSION_CASTER_LEVEL";
+
+/*
+ * Builder's Option:  Enables the optional PnP herbs for creating infusions.  
+ * Each herb is keyed to a spell circle level & spell school as shown on pg. 33
+ * of the Master's of the Wild sourcebook.
+ */
+const string PRC_CREATE_INFUSION_OPTIONAL_HERBS	= "PRC_CREATE_INFUSION_OPTIONAL_HERBS";
+
+/*
  * Characters with a crafting feat always have the appropriate base item in their inventory
  */
 const string PRC_CRAFTING_BASE_ITEMS               = "PRC_CRAFTING_BASE_ITEMS";
@@ -1975,6 +1989,12 @@ const string PRC_X2_BREWPOTION_COSTMODIFIER           = "PRC_X2_BREWPOTION_COSTM
  * defaults to 25
  */
 const string PRC_X2_SCRIBESCROLL_COSTMODIFIER         = "PRC_X2_SCRIBESCROLL_COSTMODIFIER";
+
+/*
+ * cost modifier of spells infused into herbs
+ * defaults to 25
+ */
+const string PRC_X2_CREATEINFUSION_COSTMODIFIER         = "PRC_X2_CREATEINFUSION_COSTMODIFIER";
 
 /*
  * Max level of spells crafted into wands

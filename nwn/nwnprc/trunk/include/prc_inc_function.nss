@@ -109,7 +109,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_ARCANE_DUELIST:        sScript = "prc_arcduel";                     break;
                 case CLASS_TYPE_ARCHIVIST:             sScript = "prc_archivist";    iData |= 0x01; break;
                 case CLASS_TYPE_ASSASSIN:                                            				break;
-                case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
+                //case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
                 case CLASS_TYPE_BARD:                                                iData |= 0x07; break;
                 case CLASS_TYPE_BATTLESMITH:           sScript = "prc_battlesmith";                 break;
                 case CLASS_TYPE_BEGUILER:                                            iData |= 0x03; break;
@@ -246,6 +246,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_TOTEM_RAGER:           sScript = "moi_totemrager";                  break;
                 case CLASS_TYPE_TRUENAMER:             sScript = "true_truenamer";   iData |= 0x01; break;
                 case CLASS_TYPE_VASSAL:                sScript = "prc_vassal";                      break;
+				case CLASS_TYPE_VERDANT_LORD:          sScript = "prc_verdantlord";                 break;
                 case CLASS_TYPE_VIGILANT:              sScript = "prc_vigilant";                    break;
                 case CLASS_TYPE_WARBLADE:              sScript = "tob_warblade";     iData |= 0x01; break;
                 case CLASS_TYPE_WARCHIEF:              sScript = "prc_warchief";                    break;
@@ -2265,6 +2266,8 @@ void FeatSpecialUsePerDay(object oPC)
 	FeatUsePerDay(oPC, FEAT_FM_FOREST_DOMINION, ABILITY_CHARISMA, 3);
 	FeatUsePerDay(oPC, FEAT_SOD_DEATH_TOUCH, -1, (GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oPC)+4)/4);
 	FeatUsePerDay(oPC, FEAT_SUEL_DISPELLING_STRIKE, -1, (GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC) + 2) / 4);
+	FeatUsePerDay(oPC, FEAT_PLANT_CONTROL, ABILITY_CHARISMA, 3);
+	FeatUsePerDay(oPC, FEAT_PLANT_DEFIANCE, ABILITY_CHARISMA, 3);
     FeatDiabolist(oPC);
     FeatAlaghar(oPC);
     ShadowShieldUses(oPC);

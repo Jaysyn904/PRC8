@@ -782,7 +782,7 @@ int IsClassAllowedToUseLevelUpNUI(int nClass)
         return TRUE;
 
     if (nClass == CLASS_TYPE_ARCHIVIST)
-        return TRUE;	
+        return TRUE;
 
     return FALSE;
 }
@@ -1566,10 +1566,6 @@ void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
         int nLevel = GetLevelByClass(nClass, oPC);
         SetPersistantLocalInt(oPC, "LastSpellGainLevel", nLevel);
     }
-	if (GetIsBladeMagicClass(nClass))
-	{
-		DeletePersistantLocalInt(oPC, "AllowedDisciplines");
-	}
     ClearLevelUpNUICaches(nClass, oPC);
 }
 
@@ -2573,7 +2569,8 @@ int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_S
     json chosenDisc = JsonObjectGet(discInfo, discipline);
     if (chosenDisc != JsonNull())
     {
-        int nManCount = JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)));
+        int nManCount = (JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)))
+			+ JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE))));
         if (nManCount >= prereqs)
             return TRUE;
     }
@@ -3338,5 +3335,3 @@ json GetArchivistNewSpellsList(object oPC=OBJECT_SELF)
     SetLocalJson(oPC, NUI_LEVEL_UP_ARCHIVIST_NEW_SPELLS_LIST_VAR, retValue);
     return retValue;
 }
-
-//:: void main(){}

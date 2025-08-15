@@ -768,7 +768,6 @@ int IPGetIsBludgeoningWeapon(object oItem)
 // ----------------------------------------------------------------------------
 // Return the IP_CONST_CASTSPELL_* ID matching to the SPELL_* constant given
 // in nSPELL_ID.
-// This uses Get2DAstring, so it is slow. Avoid using in loops!
 // returns -1 if there is no matching property for a spell
 // ----------------------------------------------------------------------------
 int IPGetIPConstCastSpellFromSpellID(int nSpellID)

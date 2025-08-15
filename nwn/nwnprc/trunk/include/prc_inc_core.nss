@@ -462,7 +462,7 @@ int PRCGetSpellLevelForClass(int nSpell, int nClass)
     return nSpellLevel;
 }
 
-// returns the spelllevel of nSpell as it can be cast by oCreature
+// returns the spell circle level of nSpell as it can be cast by oCreature
 int PRCGetSpellLevel(object oCreature, int nSpell)
 {
     /*if (!PRCGetHasSpell(nSpell, oCreature))

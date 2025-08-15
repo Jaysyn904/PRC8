@@ -22,7 +22,7 @@ void main()
     float fMaxDistance = 30.0;
     int nRegenRate = 1;
 
-    if (nSpellId == 9999)
+    if (nSpellId == SPELL_REGEN_CIRCLE)
     {
         nRegenRate = 3;
     }

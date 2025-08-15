@@ -39,6 +39,9 @@ dead after being hit by a fireball).
 //:://////////////////////////////////////////////
 //:: Created By: Stratovarius
 //:: Created On: August 20, 2004
+//::
+//:: Fixed By: Jaysyn
+//:: Fixed On: July 24, 2025
 //:://////////////////////////////////////////////
 #include "nw_inc_gff"
 #include "prc_inc_spells"
@@ -111,8 +114,7 @@ void StartMirrorImageTracking(object oSummoned, object oMaster)
 }
 
 void SetMirrorImageScripts(object oImage)
-{	
-	
+{		
 	string sTag = GetTag(oImage);
 	
 	if(DEBUG) DoDebug("sp_mirror >> SetMirrorImageScripts: Setting OnSpellCastAt script on "+ sTag +".");

@@ -20,6 +20,8 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+
+
 //:: Calculates total Shield AC bonuses from all sources
 int GetTotalShieldACBonus(object oCreature);
 
@@ -379,6 +381,36 @@ const int  TYPE_DIVINE   = -2;
 /*             Function definitions             */
 //////////////////////////////////////////////////
 
+
+// Returns TRUE if nSpellID is a subradial spell, FALSE otherwise
+int GetIsSubradialSpell(int nSpellID)
+{
+    string sMaster = Get2DAString("spells", "Master", nSpellID);
+
+    // A subradial will have a numeric master ID here, not ****
+    if (sMaster != "****")
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+// Returns the masterspell SpellID for a subradial spell.
+int GetMasterSpellFromSubradial(int nSpellID)
+{
+    string sMaster = Get2DAString("spells", "Master", nSpellID);
+
+    if (sMaster != "****")
+    {
+        return StringToInt(sMaster);
+    }
+
+    return -1; // No master
+}
+
+
+
 int GetPrCAdjustedClassLevel(int nClass, object oCaster = OBJECT_SELF)
 {
     int iTemp;
@@ -415,7 +447,9 @@ int GetPrCAdjustedCasterLevelByType(int nClassType, object oCaster = OBJECT_SELF
 {
 	int nClassLvl;
 	int nClass1, nClass2, nClass3, nClass4, nClass5, nClass6, nClass7, nClass8;
-	int nClass1Lvl, nClass2Lvl, nClass3Lvl, nClass4Lvl, nClass5Lvl, nClass6Lvl, nClass7Lvl, nClass8Lvl;
+	int nClass1Lvl = 0, nClass2Lvl = 0, nClass3Lvl = 0, nClass4Lvl = 0,
+		nClass5Lvl = 0, nClass6Lvl = 0, nClass7Lvl = 0, nClass8Lvl = 0;
+
 		
     nClass1 = GetClassByPosition(1, oCaster);
     nClass2 = GetClassByPosition(2, oCaster);

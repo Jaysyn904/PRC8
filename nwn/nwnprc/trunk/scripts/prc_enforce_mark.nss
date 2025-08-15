@@ -256,6 +256,12 @@ int UltMagusMarkerFeats();
 //:; Enforces Unseen Seer marker feats
 int UnseenMarkerFeats();
 
+//:; Enforces Verdant Lord marker feats
+int VerdantLordMarkerFeats();
+
+//:; Enforces Verdant Lord marker feats
+int VirtuosoMarkerFeats();
+
 //:; Enforces Warpriest marker feats
 int WarpriestMarkerFeats();
 
@@ -2115,7 +2121,6 @@ int LionofTalisidMarkerFeats()
     return FALSE;
 }	
 
-
 //:; Enforces Mighty Contender of Kord marker feats
 int MCoKMarkerFeats()
 {
@@ -3850,6 +3855,47 @@ int UnseenMarkerFeats()
     return FALSE;
 }	
 
+//:; Verdant Lord marker feats
+int VerdantLordMarkerFeats()
+{
+    if(GetLevelByClass(CLASS_TYPE_VERDANT_LORD))
+    {
+		int nVerdant	= GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_ARCHIVIST)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_CLERIC)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_DRUID)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_FAVOURED_SOUL)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_HEALER)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_JOWAW)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTC)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTMC)					
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_NENTYAR_HUNTER)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_PALADIN)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_RANGER)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOHEI)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOL)					
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_OASHAMAN)
+						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SPSHAMAN);
+
+					
+						
+        if(nVerdant > 1)
+        {
+            FloatingTextStringOnCreature("A Verdant Lord may only advance a single divine class.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+		
+		if(nVerdant < 1)
+        {
+            FloatingTextStringOnCreature("A Verdant Lord must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+	
+    return FALSE;
+}	
+
 //:; Enforces Virtuoso marker feats
 int VirtuosoMarkerFeats()
 {
@@ -4142,6 +4188,7 @@ void main()
 	|| TrueNecroMarkerFeats()
 	|| UltMagusMarkerFeats()
 	|| UnseenMarkerFeats()
+	|| VerdantLordMarkerFeats()
 	|| VirtuosoMarkerFeats()
 	|| WarpriestMarkerFeats()
 	|| WayfarerMarkerFeats()

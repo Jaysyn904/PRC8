@@ -36,7 +36,18 @@ string Get2DACache(string s2DA, string sColumn, int nRow)
     s2DA = GetStringLowerCase(s2DA);
     sColumn = GetStringLowerCase(sColumn);
 
-    /*//get the chest that contains the cache
+	string s = Get2DAString(s2DA, sColumn, nRow);
+    return s == "****" ? "" : s;
+}
+
+
+/*string Get2DACache(string s2DA, string sColumn, int nRow)
+{
+    //lower case the 2da and column
+    s2DA = GetStringLowerCase(s2DA);
+    sColumn = GetStringLowerCase(sColumn);
+
+    //get the chest that contains the cache
     object oCacheWP = GetObjectByTag("Bioware2DACache");
     //if no chest, use HEARTOFCHAOS in limbo as a location to make a new one
     if (!GetIsObjectValid(oCacheWP))
@@ -124,10 +135,10 @@ string Get2DACache(string s2DA, string sColumn, int nRow)
                        (s == "" ? "****" : s) ); // this sets the stored string to "****" if s is an empty string (else stores s)
         if(DEBUG_GET2DACACHE) DoDebug("Get2DACache: Missing from cache: " + s2DA + "|" + sColumn + "|" + IntToString(nRow));
     }
-    //if(DEBUG_GET2DACACHE) PrintString("Get2DACache: Returned value is '" + s + "'");*/
+    //if(DEBUG_GET2DACACHE) PrintString("Get2DACache: Returned value is '" + s + "'");
     string s = Get2DAString(s2DA, sColumn, nRow);
     return s == "****" ? "" : s;
-}
+}*/
 
 string GetBiowareDBName()
 {

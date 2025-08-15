@@ -180,6 +180,20 @@ int GetIsTurnOrRebuke(object oTarget, int nTurnType, int nTargetRace)
 
             break;
         }
+		case SPELL_PLANT_DEFIANCE:
+		{
+			if(nTargetRace == RACIAL_TYPE_PLANT)
+				nReturn = ACTION_TURN;	
+			
+			break;
+		}
+		case SPELL_PLANT_CONTROL:
+		{
+			if(nTargetRace == RACIAL_TYPE_PLANT)
+			nReturn = ACTION_REBUKE;
+		
+			break;	
+		}		
         case SPELL_TURN_PLANT:
         {
             // Plant domain rebukes or commands plants
@@ -372,6 +386,13 @@ int GetTurningClassLevel(object oCaster = OBJECT_SELF, int nTurnType = SPELL_TUR
     
 	if (nTurnType == SPELL_OPPORTUNISTIC_PIETY_TURN)
 		return GetLevelByClass(CLASS_TYPE_FACTOTUM, oCaster);
+	
+	if (nTurnType == SPELL_PLANT_DEFIANCE || nTurnType == SPELL_PLANT_CONTROL)
+	{
+		int nDivineLvl =  GetPrCAdjustedCasterLevelByType(TYPE_DIVINE, oCaster);
+		
+		return nDivineLvl;
+	}
 
     //Baelnorn & Archlich adds all class levels.
     if(GetLevelByClass(CLASS_TYPE_BAELNORN, oCaster) || GetHasFeat(FEAT_TEMPLATE_ARCHLICH_MARKER, oCaster)) //:: Archlich

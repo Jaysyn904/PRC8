@@ -1363,7 +1363,12 @@ const int	SPELL_SPIRIT_WORM						= 17248;
 const int	SPELL_FORCE_MISSILES					= 2480;
 
 //:: Masters of the Wild Spells
-const int	SPELL_LEONALS_ROAR						= 17240;
+const int	SPELL_FORESTFOLD						= 17090;
+const int	SPELL_CREEPING_COLD						= 17091;
+const int	SPELL_GREATER_CREEPING_COLD				= 17092;
+const int 	SPELL_CONTROL_PLANTS					= 17237;
+const int 	SPELL_ADRENALINE_SURGE					= 17238;
+const int	SPELL_INVULNERABILITY_TO_ELEMENTS		= 17239;	
 const int	SPELL_REGEN_RING		 				= 17241;
 const int	SPELL_REGEN_CIRCLE		 				= 17242;
 const int	SPELL_REGEN_LIGHT_WOUNDS 				= 17243;
@@ -1371,13 +1376,21 @@ const int	SPELL_REGEN_MODERATE_WOUNDS 			= 17244;
 const int	SPELL_REGEN_SERIOUS_WOUNDS 				= 17245;
 const int	SPELL_REGEN_CRITICAL_WOUNDS 			= 17246;
 const int	SPELL_SPEED_WIND 						= 17247;
-const int	SPELL_TORTISE_SHELL 					= 17250;  
+const int	SPELL_TORTISE_SHELL 					= 17250; 
+
+//:: Book of Exalted Deeds Spells
+const int	SPELL_LEONALS_ROAR						= 17240; 
 
 //:: Master of the Wild Feats
+const int SPELL_VL_WILD_SHAPE_TREANT				= 17989;
+const int SPELL_VL_ANIMATE_TREE						= 17990;
+const int SPELL_PLANT_DEFIANCE						= 17991;
+const int SPELL_PLANT_CONTROL						= 17992;
+
+//:: Book of Exalted Deeds Feats
 const int SPELL_FOT_LEONALS_ROAR					= 17993;
 const int SPELL_FOT_LIONS_SWIFTNESS					= 17994;
 const int SPELL_FAVORED_OF_THE_COMPANIONS 			= 17995;
-
 
 //x
 const int SPELL_TENSERS_FLOATING_DISK               = 3849;

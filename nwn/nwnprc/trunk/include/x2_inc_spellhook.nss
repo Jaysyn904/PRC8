@@ -144,6 +144,8 @@ int PRCGetUserSpecificSpellScriptFinished();
 #include "pnp_shft_main"
 #include "inc_dynconv"
 #include "inc_npc"
+#include "inc_infusion"
+#include "prc_add_spell_dc"
 
 
 int Spontaneity(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel)
@@ -199,8 +201,6 @@ int Spontaneity(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel
 	return TRUE;	
 }
 
-
-
 int DruidSpontSummon(object oCaster, int nCastingClass, int nSpellID, int nSpellLevel)
 {
     if(nCastingClass != CLASS_TYPE_DRUID)
@@ -217,14 +217,14 @@ int DruidSpontSummon(object oCaster, int nCastingClass, int nSpellID, int nSpell
         {
             case 0: return TRUE;
             case 1: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_1;	break;
-            case 2: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_2;   break;
+            case 2: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_2;	break;
             case 3: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_3;	break;
-            case 4: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_4;   break;
+            case 4: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_4;	break;
             case 5: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_5;	break;
-            case 6: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_6;   break;
-            case 7: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_7;  	break;
+            case 6: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_6;	break;
+            case 7: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_7;	break;
             case 8: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_8;	break;
-            case 9: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_9;   break;
+            case 9: nSummonSpell = SPELL_SUMMON_NATURES_ALLY_9;	break;
         }
 
 		//:: All SNA spells are subradial spells
@@ -1001,7 +1001,8 @@ int ShifterCasting(object oCaster, object oSpellCastItem, int nSpellLevel, int n
         {
             // Potion drinking is not restricted
             if(GetBaseItemType(oSpellCastItem) == BASE_ITEM_ENCHANTED_POTION
-            || GetBaseItemType(oSpellCastItem) == BASE_ITEM_POTIONS)
+            || GetBaseItemType(oSpellCastItem) == BASE_ITEM_POTIONS
+			|| GetBaseItemType(oSpellCastItem) == BASE_ITEM_INFUSED_HERB)
                 return TRUE;
 
             //OnHit properties on equipped items not restricted
@@ -3346,6 +3347,28 @@ int X2PreSpellCastCode2()
     X2BreakConcentrationSpells();
     
     //---------------------------------------------------------------------------
+    // Herbal Infusion Use check
+    //---------------------------------------------------------------------------	
+    if(nContinue && (GetBaseItemType(oSpellCastItem) == BASE_ITEM_INFUSED_HERB)) 
+	{
+		int bIsSubradial = GetIsSubradialSpell(nSpellID);
+	
+		if(bIsSubradial)
+		{
+			nSpellID = GetMasterSpellFromSubradial(nSpellID);
+		}
+		int nItemCL = GetCastSpellCasterLevelFromItem(oSpellCastItem, nSpellID);
+		if(DEBUG) DoDebug("x2_inc_spellhook >> X2PreSpellCastCode2: Item Spellcaster Level: "+IntToString(nItemCL)+".");
+		
+		if(DEBUG) DoDebug("x2_inc_spellhook >> X2PreSpellCastCode2: Herbal Infusion Found");
+		if(!DoInfusionUseChecks(oCaster, oSpellCastItem, nSpellID))
+		{
+			ApplyInfusionPoison(oCaster, nItemCL);	
+			nContinue = FALSE;			
+		}
+	}	
+	
+	//---------------------------------------------------------------------------
     // No casting while using expertise
     //---------------------------------------------------------------------------    
     if(nContinue)
