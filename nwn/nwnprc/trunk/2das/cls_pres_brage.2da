@@ -1,25 +1,24 @@
 2DA V2.0
 
    LABEL        ReqType ReqParam1      ReqParam2 
-0  Perform      SKILL   11             2         
-1  Intimidation SKILL   24             8         
-2  Lore         SKILL   7              2         
-3  Endurance    FEAT    2568           ****      
-4  Cleave       FEAT    6              ****      
-5  PowerAttack  FEAT    28             ****      
-6  Rage         FEAT    293            ****      
-7  Base_Attack  BAB     5              ****      
-8  Dwarf        RACE    0              ****      
-9  DSDwarf      RACE    33             ****      
-10 Mul          RACE    38             ****      
-11 DarkDwarf    RACE    47             ****      
-12 GullyDwarf   RACE    48             ****      
-13 FirebldDwrf  RACE    106            ****      
-14 ArcticDwarf  RACE    151            ****      
-15 GoldDwarf    RACE    152            ****      
-16 GreyDwarf    RACE    153            ****      
-17 GlacrDwarf   RACE    154            ****      
-18 Urdunnir     RACE    155            ****      
-19 WildDwarf    RACE    156            ****      
-20 Korobokuru   RACE    245            ****      
-21 ScriptVar    VAR     PRC_AllowBRage 0         
+0  Intimidation SKILL   24             8         
+1  Lore         SKILL   7              2         
+2  Toughness    FEAT    40             ****      
+3  Cleave       FEAT    6              ****      
+4  PowerAttack  FEAT    28             ****      
+5  Rage         FEAT    293            ****      
+6  Base_Attack  BAB     5              ****      
+7  Dwarf        RACE    0              ****      
+8  DSDwarf      RACE    33             ****      
+9  Mul          RACE    38             ****      
+10 DarkDwarf    RACE    47             ****      
+11 GullyDwarf   RACE    48             ****      
+12 FirebldDwrf  RACE    106            ****      
+13 ArcticDwarf  RACE    151            ****      
+14 GoldDwarf    RACE    152            ****      
+15 GreyDwarf    RACE    153            ****      
+16 GlacrDwarf   RACE    154            ****      
+17 Urdunnir     RACE    155            ****      
+18 WildDwarf    RACE    156            ****      
+19 Korobokuru   RACE    245            ****      
+20 ScriptVar    VAR     PRC_AllowBRage 0         

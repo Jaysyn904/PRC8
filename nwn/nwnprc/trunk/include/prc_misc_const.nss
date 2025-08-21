@@ -29,10 +29,6 @@ const int BASE_ITEM_CRAFTED_STAFF   	= 201;
 const int BASE_ITEM_ELVEN_LIGHTBLADE  	= 202;
 const int BASE_ITEM_ELVEN_THINBLADE   	= 203;
 const int BASE_ITEM_ELVEN_COURTBLADE  	= 204;
-const int BASE_ITEM_CRAFT_SCEPTER		= 249;
-const int BASE_ITEM_MAGIC_SCEPTER		= 250;
-const int BASE_ITEM_MUNDANE_HERB		= 252;
-const int BASE_ITEM_INFUSED_HERB		= 253;
 
 //:://////////////////////////////////////////////
 //:: Player Health Const

@@ -13,7 +13,7 @@
 //:: Created On: 2003-05-09
 //:: Last Updated On: 2003-10-14
 //:://////////////////////////////////////////////
-#include "prc_x2_itemprop"
+
 
 struct craft_struct
 {
@@ -44,24 +44,22 @@ const string  X2_CI_CRAFTSKILL_CONV ="x2_p_craftskills";
 /* moved to be code switches
 
 const int     X2_CI_BREWPOTION_MAXLEVEL       = 3;                      // Max Level for potions
-const int     PRC_X2_BREWPOTION_COSTMODIFIER   = 50;                     // gp Brew Potion XPCost Modifier
+const int     X2_CI_BREWPOTION_COSTMODIFIER   = 50;                     // gp Brew Potion XPCost Modifier
 
 // Scribe Scroll related constants
-const int     PRC_X2_SCRIBESCROLL_COSTMODIFIER   = 25;                 // Scribescroll Cost Modifier
+const int     X2_CI_SCRIBESCROLL_COSTMODIFIER   = 25;                 // Scribescroll Cost Modifier
 
 // Craft Wand related constants
-const int     PRC_X2_CRAFTWAND_MAXLEVEL       = 4;
-const int     PRC_X2_CRAFTWAND_COSTMODIFIER   = 750;
+const int     X2_CI_CRAFTWAND_MAXLEVEL       = 4;
+const int     X2_CI_CRAFTWAND_COSTMODIFIER   = 750;
 */
-const int     X2_CI_BREWPOTION_FEAT_ID       	= 944; // Brew Potion feat simulation
-const int     X2_CI_SCRIBESCROLL_FEAT_ID     	= 945;
-const int     X2_CI_CRAFTWAND_FEAT_ID        	= 946;
-const int     X2_CI_CRAFTROD_FEAT_ID         	= 2927;
-const int     X2_CI_CRAFTROD_EPIC_FEAT_ID    	= 3490;
-const int     X2_CI_CRAFTSTAFF_FEAT_ID       	= 2928;
-const int     X2_CI_CRAFTSTAFF_EPIC_FEAT_ID  	= 3491;
-const int	  X2_CI_CREATEINFUSION_FEAT_ID		= 25960;
-
+const int     X2_CI_BREWPOTION_FEAT_ID       = 944; // Brew Potion feat simulation
+const int     X2_CI_SCRIBESCROLL_FEAT_ID     = 945;
+const int     X2_CI_CRAFTWAND_FEAT_ID        = 946;
+const int     X2_CI_CRAFTROD_FEAT_ID         = 2927;
+const int     X2_CI_CRAFTROD_EPIC_FEAT_ID    = 3490;
+const int     X2_CI_CRAFTSTAFF_FEAT_ID       = 2928;
+const int     X2_CI_CRAFTSTAFF_EPIC_FEAT_ID  = 3491;
 const string  X2_CI_BREWPOTION_NEWITEM_RESREF   = "x2_it_pcpotion"; // ResRef for new potion item
 const string  X2_CI_SCRIBESCROLL_NEWITEM_RESREF = "x2_it_pcscroll"; // ResRef for new scroll item
 const string  X2_CI_CRAFTWAND_NEWITEM_RESREF    = "x2_it_pcwand";
@@ -187,17 +185,6 @@ int CheckAlternativeCrafting(object oPC, int nSpell, struct craft_cost_struct co
 // Returns the maximum of caster level used and other effective levels from emulating spells
 int GetAlternativeCasterLevel(object oPC, int nLevel);
 
-// -----------------------------------------------------------------------------
-// Create and Return an herbal infusion with an item property
-// matching nSpellID.
-// -----------------------------------------------------------------------------
-object CICreateInfusion(object oCreator, int nSpellID);
-
-// -----------------------------------------------------------------------------
-// Returns TRUE if the player successfully performed Create Infusion
-// -----------------------------------------------------------------------------
-int CICraftCheckCreateInfusion(object oSpellTarget, object oCaster, int nID = 0);
-
 //////////////////////////////////////////////////
 /* Include section                              */
 //////////////////////////////////////////////////
@@ -207,7 +194,6 @@ int CICraftCheckCreateInfusion(object oSpellTarget, object oCaster, int nID = 0)
 #include "prc_inc_newip"
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
-#include "inc_infusion"
 
 //////////////////////////////////////////////////
 /* Function definitions                         */
@@ -275,8 +261,7 @@ int CIGetIsCraftFeatBaseItem(object oItem)
         nBt == BASE_ITEM_BLANK_SCROLL ||
         nBt == BASE_ITEM_BLANK_WAND ||
         nBt == BASE_ITEM_CRAFTED_ROD ||
-        nBt == BASE_ITEM_CRAFTED_STAFF ||
-		nBt == BASE_ITEM_MUNDANE_HERB)
+        nBt == BASE_ITEM_CRAFTED_STAFF)
       return TRUE;
     else
       return FALSE;
@@ -468,158 +453,11 @@ object CICraftCraftWand(object oCreator, int nSpellID )
 
 // -----------------------------------------------------------------------------
 // Georg, 2003-06-12
-// Create and Return a magic scroll with an item property
-// matching nSpellID. 
+// Create and Return a magic wand with an item property
+// matching nSpellID. Charges are set to d20 + casterlevel
+// capped at 50 max
 // -----------------------------------------------------------------------------
 object CICraftScribeScroll(object oCreator, int nSpellID)
-{
-    if (DEBUG) DoDebug("CICraftScribeScroll: Enter (nSpellID=" + IntToString(nSpellID) + ")");
-
-    // Keep original and compute one-step master (if subradial)
-    int nSpellOriginal = nSpellID;
-    int nSpellMaster = nSpellOriginal;
-    if (GetIsSubradialSpell(nSpellOriginal))
-    {
-        nSpellMaster = GetMasterSpellFromSubradial(nSpellOriginal);
-        if (DEBUG) DoDebug("CICraftScribeScroll: subradial detected original=" + IntToString(nSpellOriginal) + " master=" + IntToString(nSpellMaster));
-    }
-
-    // Prefer iprp mapping for the original, fallback to master
-    int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellOriginal);
-    int nSpellUsedForIP = nSpellOriginal;
-    if (nPropID < 0)
-    {
-        if (DEBUG) DoDebug("CICraftScribeScroll: no iprp for original " + IntToString(nSpellOriginal) + ", trying master " + IntToString(nSpellMaster));
-        nPropID = IPGetIPConstCastSpellFromSpellID(nSpellMaster);
-        nSpellUsedForIP = nSpellMaster;
-    }
-
-    // If neither original nor master has an iprp row, we can still try templates,
-    // but most templates expect a matching iprp. Bail out now if nothing found.
-    if (nPropID < 0)
-    {
-        if (DEBUG) DoDebug("CICraftScribeScroll: no iprp_spells entry for original/master -> aborting");
-        FloatingTextStringOnCreature("This spell cannot be scribed (no item property mapping).", oCreator, FALSE);
-        return OBJECT_INVALID;
-    }
-
-    if (DEBUG) DoDebug("CICraftScribeScroll: using spell " + IntToString(nSpellUsedForIP) + " (iprp row " + IntToString(nPropID) + ") for item property");
-
-    // Material component check (based on resolved iprp row)
-    string sMat = GetMaterialComponentTag(nPropID);
-    if (sMat != "")
-    {
-        object oMat = GetItemPossessedBy(oCreator, sMat);
-        if (oMat == OBJECT_INVALID)
-        {
-            FloatingTextStrRefOnCreature(83374, oCreator); // Missing material component
-            return OBJECT_INVALID;
-        }
-        else
-        {
-            DestroyObject(oMat);
-        }
-    }
-
-    // Resolve class and scroll template
-    int nClass = PRCGetLastSpellCastClass();
-    string sClass = "";
-    switch (nClass)
-    {
-        case CLASS_TYPE_WIZARD:
-        case CLASS_TYPE_SORCERER: sClass = "Wiz_Sorc"; break;
-        case CLASS_TYPE_CLERIC:
-        case CLASS_TYPE_UR_PRIEST: sClass = "Cleric"; break;
-        case CLASS_TYPE_PALADIN: sClass = "Paladin"; break;
-        case CLASS_TYPE_DRUID:
-        case CLASS_TYPE_BLIGHTER: sClass = "Druid"; break;
-        case CLASS_TYPE_RANGER: sClass = "Ranger"; break;
-        case CLASS_TYPE_BARD: sClass = "Bard"; break;
-        case CLASS_TYPE_ASSASSIN: sClass = "Assassin"; break;
-    }
-
-    object oTarget = OBJECT_INVALID;
-    string sResRef = "";
-
-    // Try to find a class-specific scroll template.
-    if (sClass != "")
-    {
-        // Try original first (so if you made a subradial-specific template it will be used)
-        sResRef = Get2DACache(X2_CI_2DA_SCROLLS, sClass, nSpellOriginal);
-        if (sResRef == "")
-        {
-            // fallback to the spell that matched an iprp row (master or original)
-            sResRef = Get2DACache(X2_CI_2DA_SCROLLS, sClass, nSpellUsedForIP);
-        }
-        if (sResRef != "")
-        {
-            oTarget = CreateItemOnObject(sResRef, oCreator);
-            if (DEBUG) DoDebug("CICraftScribeScroll: created template " + sResRef + " for class " + sClass);
-            // Ensure template uses the correct cast-spell property: replace the template's cast-spell IP with ours
-            if (oTarget != OBJECT_INVALID)
-            {
-                itemproperty ipIter = GetFirstItemProperty(oTarget);
-                while (GetIsItemPropertyValid(ipIter))
-                {
-                    if (GetItemPropertyType(ipIter) == ITEM_PROPERTY_CAST_SPELL)
-                    {
-                        RemoveItemProperty(oTarget, ipIter);
-                        break;
-                    }
-                    ipIter = GetNextItemProperty(oTarget);
-                }
-                itemproperty ipSpell = ItemPropertyCastSpell(nPropID, IP_CONST_CASTSPELL_NUMUSES_SINGLE_USE);
-                AddItemProperty(DURATION_TYPE_PERMANENT, ipSpell, oTarget);
-            }
-        }
-    }
-
-    // If no template or sClass was empty, create generic scroll and add itemprop.
-    if (oTarget == OBJECT_INVALID)
-    {
-        sResRef = "craft_scroll";
-        oTarget = CreateItemOnObject(sResRef, oCreator);
-        if (oTarget == OBJECT_INVALID)
-        {
-            WriteTimestampedLogEntry("CICraftScribeScroll: failed to create craft_scroll template.");
-            return OBJECT_INVALID;
-        }
-        // Remove existing default IP and add correct one
-        itemproperty ipFirst = GetFirstItemProperty(oTarget);
-        if (GetIsItemPropertyValid(ipFirst))
-            RemoveItemProperty(oTarget, ipFirst);
-
-        itemproperty ipSpell = ItemPropertyCastSpell(nPropID, IP_CONST_CASTSPELL_NUMUSES_SINGLE_USE);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipSpell, oTarget);
-    }
-
-    // Add PRC metadata (use the same spell that matched the iprp row so metadata and IP line up)
-    if (GetPRCSwitch(PRC_SCRIBE_SCROLL_CASTER_LEVEL))
-    {
-        int nCasterLevel = GetAlternativeCasterLevel(oCreator, PRCGetCasterLevel(oCreator));
-        itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpellUsedForIP, nCasterLevel);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipLevel, oTarget);
-
-        itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpellUsedForIP, PRCGetMetaMagicFeat());
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipMeta, oTarget);
-
-        int nDC = PRCGetSpellSaveDC(nSpellUsedForIP, GetSpellSchool(nSpellUsedForIP), OBJECT_SELF);
-        itemproperty ipDC = ItemPropertyCastSpellDC(nSpellUsedForIP, nDC);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipDC, oTarget);
-    }
-
-    if (oTarget == OBJECT_INVALID)
-    {
-        WriteTimestampedLogEntry("prc_x2_craft::CICraftScribeScroll failed - Resref: " + sResRef + " Class: " + sClass + "(" + IntToString(nClass) + ") " + " SpellID " + IntToString(nSpellID));
-        return OBJECT_INVALID;
-    }
-
-    if (DEBUG) DoDebug("CICraftScribeScroll: Success - created scroll " + sResRef + " for spell " + IntToString(nSpellUsedForIP));
-    return oTarget;
-}
-
-
-/* object CICraftScribeScroll(object oCreator, int nSpellID)
 {
     int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellID);
     object oTarget;
@@ -653,7 +491,6 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
             break;
        case CLASS_TYPE_CLERIC:
        case CLASS_TYPE_UR_PRIEST:
-	   case CLASS_TYPE_OCULAR:
             sClass = "Cleric";
             break;
        case CLASS_TYPE_PALADIN:
@@ -669,9 +506,6 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
        case CLASS_TYPE_BARD:
             sClass = "Bard";
             break;
-       case CLASS_TYPE_ASSASSIN:
-            sClass = "Assassin";
-            break;			
     }
     string sResRef;
     if (sClass != "")
@@ -708,7 +542,7 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
     }
     return oTarget;
 }
- */
+
 // -----------------------------------------------------------------------------
 // Returns TRUE if the player used the last spell to brew a potion
 // -----------------------------------------------------------------------------
@@ -759,7 +593,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // check if spell is below maxlevel for brew potions
     // -------------------------------------------------------------------------
-    int nPotionMaxLevel = GetPRCSwitch(PRC_X2_BREWPOTION_MAXLEVEL);
+    int nPotionMaxLevel = GetPRCSwitch(X2_CI_BREWPOTION_MAXLEVEL);
     if(nPotionMaxLevel == 0)
         nPotionMaxLevel = 3;
 
@@ -790,7 +624,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
-    int nCostModifier = GetPRCSwitch(PRC_X2_BREWPOTION_COSTMODIFIER);
+    int nCostModifier = GetPRCSwitch(X2_CI_BREWPOTION_COSTMODIFIER);
     if(nCostModifier == 0)
         nCostModifier = 50;
     int nCost = CIGetCraftGPCost(nLevel, nCostModifier, PRC_BREW_POTION_CASTER_LEVEL);
@@ -894,7 +728,7 @@ int CICraftCheckScribeScroll(object oSpellTarget, object oCaster, int nID = 0)
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
     int  nLevel    = CIGetSpellInnateLevel(nID,TRUE);
-    int nCostModifier = GetPRCSwitch(PRC_X2_SCRIBESCROLL_COSTMODIFIER);
+    int nCostModifier = GetPRCSwitch(X2_CI_SCRIBESCROLL_COSTMODIFIER);
     if(nCostModifier == 0)
         nCostModifier = 25;
     int nCost = CIGetCraftGPCost(nLevel, nCostModifier, PRC_SCRIBE_SCROLL_CASTER_LEVEL);
@@ -1050,7 +884,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // check if spell is below maxlevel for craft want
     // -------------------------------------------------------------------------
-    int nMaxLevel = GetPRCSwitch(PRC_X2_CRAFTWAND_MAXLEVEL);
+    int nMaxLevel = GetPRCSwitch(X2_CI_CRAFTWAND_MAXLEVEL);
     if(nMaxLevel == 0)
         nMaxLevel = 4;
     if (nLevel > nMaxLevel)
@@ -1062,7 +896,7 @@ These dont work as IPs since they are hardcoded */
     // -------------------------------------------------------------------------
     // XP/GP Cost Calculation
     // -------------------------------------------------------------------------
-    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTWAND_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(X2_CI_CRAFTWAND_COSTMODIFIER);
     if(nCostMod == 0)
         nCostMod = 750;
     int nCost = CIGetCraftGPCost(nLevel, nCostMod, PRC_CRAFT_WAND_CASTER_LEVEL);
@@ -1193,7 +1027,7 @@ int CICraftCheckCraftStaff(object oSpellTarget, object oCaster, int nSpellID = 0
 These dont work as IPs since they are hardcoded */
         }
     }
-    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTSTAFF_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(X2_CI_CRAFTSTAFF_COSTMODIFIER);
     if(!nCostMod) nCostMod = 750;
     int nLvlRow = IPGetIPConstCastSpellFromSpellID(nSpellID);
     int nCLevel = StringToInt(Get2DACache("iprp_spells","CasterLvl",nLvlRow));
@@ -1341,7 +1175,7 @@ int CICraftCheckCraftRod(object oSpellTarget, object oCaster, int nSpellID = 0)
 These dont work as IPs since they are hardcoded */
         }
     }
-    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTROD_COSTMODIFIER);
+    int nCostMod = GetPRCSwitch(X2_CI_CRAFTROD_COSTMODIFIER);
     if(!nCostMod) nCostMod = 750;
     int nLvlRow = IPGetIPConstCastSpellFromSpellID(nSpellID);
     int nCLevel = StringToInt(Get2DACache("iprp_spells","CasterLvl",nLvlRow));
@@ -1710,7 +1544,7 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         // No point scribing Gems from items, and its not allowed.
         if (oItem != OBJECT_INVALID)
         {
-            FloatingTextStringOnCreature("You cannot attune a Gem from an item.", oCaster, FALSE);
+            FloatingTextStringOnCreature("You cannot scribe a Gem from an item.", oCaster, FALSE);
             return TRUE;
         }
     // oTarget here should be the gem. If it's not, fail.
@@ -2117,13 +1951,7 @@ int CIGetSpellWasUsedForItemCreation(object oSpellTarget)
                             // -------------------------------------------------
                            nRet = CICraftCheckCraftStaff(oSpellTarget,oCaster);
                            break;
-						   
-                case BASE_ITEM_MUNDANE_HERB :
-                            // -------------------------------------------------
-                            // Create Infusion
-                            // -------------------------------------------------
-                           nRet = CICraftCheckCreateInfusion(oSpellTarget,oCaster);
-                           break;
+
                 // you could add more crafting basetypes here....
         }
 
@@ -2912,11 +2740,6 @@ int GetMagicalArtisanFeat(int nCraftingFeat)
             nReturn = FEAT_MAGICAL_ARTISAN_CRAFT_SKULL_TALISMAN;
             break;
         }
-        case FEAT_CREATE_INFUSION:
-        {
-            nReturn = FEAT_MAGICAL_ARTISAN_CREATE_INFUSION;
-            break;
-        }		
         default:
         {
             if(DEBUG) DoDebug("GetMagicalArtisanFeat: invalid crafting feat");
@@ -3118,304 +2941,6 @@ int GetAlternativeCasterLevel(object oPC, int nLevel)
     return nLevel;
 }
 
-// -----------------------------------------------------------------------------
-// Returns TRUE if the player successfully performed Create Infusion
-// -----------------------------------------------------------------------------
-int CICraftCheckCreateInfusion(object oSpellTarget, object oCaster, int nID = 0)
-{
-    if (nID == 0) nID = PRCGetSpellId();
-	
-	int bIsSubradial = GetIsSubradialSpell(nID);
-
-	if(bIsSubradial)
-	{
-		nID = GetMasterSpellFromSubradial(nID);
-	}
-
-    // -------------------------------------------------------------------------
-    // Check if the caster has the Create Infusion feat
-    // -------------------------------------------------------------------------
-    if (!GetHasFeat(FEAT_CREATE_INFUSION, oCaster)) 
-    {
-        FloatingTextStrRefOnCreature(40487, oCaster); // Missing feat
-        return TRUE;
-    }
-
-    // -------------------------------------------------------------------------
-    // Divine spellcasters only
-    // -------------------------------------------------------------------------
-    int nClass = PRCGetLastSpellCastClass();
-    if (!GetIsDivineClass(nClass))
-    {
-        FloatingTextStringOnCreature("Only divine casters can create infusions.", oCaster, FALSE);
-        return TRUE;
-    }
-
-    // -------------------------------------------------------------------------
-    // Check if spell is restricted for Create Infusion
-    // -------------------------------------------------------------------------
-    if (CIGetIsSpellRestrictedFromCraftFeat(nID, X2_CI_CREATEINFUSION_FEAT_ID))
-    {
-        FloatingTextStrRefOnCreature(83451, oCaster); // Spell not allowed
-        return TRUE;
-    }
-
-	// -------------------------------------------------------------------------
-	// Optional PnP Herb check
-	// -------------------------------------------------------------------------
-	int bPnPHerbs = GetPRCSwitch(PRC_CREATE_INFUSION_OPTIONAL_HERBS);
-	if(bPnPHerbs)
-	{
-		int nSpellschool 	= GetSpellSchool(nID);
-		int nHerbSchool 	= GetHerbsSpellSchool(oSpellTarget);
-		
-		int nSpellLevel		= PRCGetSpellLevelForClass(nID, nClass);
-		int nHerbLevel		= GetHerbsInfusionSpellLevel(oSpellTarget);
-		
-		if(nSpellschool != nHerbSchool)
-		{
-		    // Herb is for wrong spellschool
-			FloatingTextStringOnCreature("This herb isn't appropriate for this spell school", oCaster); 
-			return TRUE;	
-		}
-		
-		if(nSpellLevel > nHerbLevel)
-		{
-			// Herb spell circle level too low
-			FloatingTextStringOnCreature("This herb isn't appropriate for this spell level", oCaster); 
-			return TRUE;					
-		}
-	}	
-
-    // -------------------------------------------------------------------------
-    // XP/GP Cost Calculation
-    // -------------------------------------------------------------------------
-    int nLevel = CIGetSpellInnateLevel(nID, TRUE);
-    int nCostModifier = GetPRCSwitch(PRC_X2_CREATEINFUSION_COSTMODIFIER);
-    if (nCostModifier == 0)
-        nCostModifier = 25;
-
-    int nCost = CIGetCraftGPCost(nLevel, nCostModifier, PRC_CREATE_INFUSION_CASTER_LEVEL);
-    struct craft_cost_struct costs = GetModifiedCostsFromBase(nCost, oCaster, FEAT_CREATE_INFUSION, FALSE);
-
-    // Adjust level for metamagic
-    if (GetPRCSwitch(PRC_CREATE_INFUSION_CASTER_LEVEL))
-    {
-        int nMetaMagic = PRCGetMetaMagicFeat();
-        switch(nMetaMagic)
-        {
-            case METAMAGIC_EMPOWER:  nLevel += 2; break;
-            case METAMAGIC_EXTEND:   nLevel += 1; break;
-            case METAMAGIC_MAXIMIZE: nLevel += 3; break;
-            // Unsupported metamagic IPs not added
-        }
-    }
-
-    // -------------------------------------------------------------------------
-    // Check Gold
-    // -------------------------------------------------------------------------
-    if (!GetHasGPToSpend(oCaster, costs.nGoldCost))
-    {
-        FloatingTextStrRefOnCreature(3786, oCaster); // Not enough gold
-        return TRUE;
-    }
-
-    // -------------------------------------------------------------------------
-    // Check XP
-    // -------------------------------------------------------------------------
-    if (!GetHasXPToSpend(oCaster, costs.nXPCost))
-    {
-        FloatingTextStrRefOnCreature(3785, oCaster); // Not enough XP
-        return TRUE;
-    }
-
-    // -------------------------------------------------------------------------
-    // Check alternative spell emulation requirements
-    // -------------------------------------------------------------------------
-    if (!CheckAlternativeCrafting(oCaster, nID, costs))
-    {
-        FloatingTextStringOnCreature("*Crafting failed!*", oCaster, FALSE);
-        return TRUE;
-    }
-
-	// -------------------------------------------------------------------------
-	// Create the infused herb item
-	// -------------------------------------------------------------------------
-	object oInfusion = CICreateInfusion(oCaster, nID);
-
-	if (GetIsObjectValid(oInfusion))
-	{
-		// Get the spell's display name from spells.2da via TLK
-		int nNameStrRef = StringToInt(Get2DAString("spells", "Name", nID));
-		string sSpellName = GetStringByStrRef(nNameStrRef);
-
-		// Rename the item
-		string sNewName = "Infusion of " + sSpellName;
-		SetName(oInfusion, sNewName);
-
-		// Post-creation actions
-		SetIdentified(oInfusion, TRUE);
-		ActionPlayAnimation(ANIMATION_FIREFORGET_READ, 1.0);
-		SpendXP(oCaster, costs.nXPCost);
-		SpendGP(oCaster, costs.nGoldCost);
-		DestroyObject(oSpellTarget);
-		FloatingTextStrRefOnCreature(8502, oCaster); // Item creation successful
-
-		if (!costs.nTimeCost) costs.nTimeCost = 1;
-		AdvanceTimeForPlayer(oCaster, RoundsToSeconds(costs.nTimeCost));
-		return TRUE;
-	}
-	else
-	{
-		FloatingTextStringOnCreature("Infusion creation failed", oCaster); // Item creation failed
-		FloatingTextStrRefOnCreature(76417, oCaster); // Item creation failed
-		return TRUE;
-	}
-
-/*     // -------------------------------------------------------------------------
-    // Create the infused herb item
-    // -------------------------------------------------------------------------
-    object oInfusion = CICreateInfusion(oCaster, nID);
-
-    if (GetIsObjectValid(oInfusion))
-    {
-        SetIdentified(oInfusion, TRUE);
-        ActionPlayAnimation(ANIMATION_FIREFORGET_READ, 1.0);
-        SpendXP(oCaster, costs.nXPCost);
-        SpendGP(oCaster, costs.nGoldCost);
-        DestroyObject(oSpellTarget);
-        FloatingTextStrRefOnCreature(8502, oCaster); // Item creation successful
-
-        if (!costs.nTimeCost) costs.nTimeCost = 1;
-        AdvanceTimeForPlayer(oCaster, RoundsToSeconds(costs.nTimeCost));
-        return TRUE;
-    }
-    else
-    {
-        FloatingTextStringOnCreature("Infusion creation failed", oCaster); // Item creation failed
-		FloatingTextStrRefOnCreature(76417, oCaster); // Item creation failed
-        return TRUE;
-    } */
-
-    return FALSE;
-}
-
-// -----------------------------------------------------------------------------
-// Create and return an herbal infusion with an item property matching nSpellID
-// -----------------------------------------------------------------------------
-object CICreateInfusion(object oCreator, int nSpellID)
-{
-    if (DEBUG) DoDebug("prc_x2_craft >> CICreateInfusion: Entering function");
-
-    // Keep the original spell id the engine gave us (may be a subradial)
-    int nSpellOriginal = nSpellID;
-
-    // Compute the master (one-step) if this is a subradial. Keep original intact.
-    int nSpellMaster = nSpellOriginal;
-    if (GetIsSubradialSpell(nSpellOriginal))
-    {
-        nSpellMaster = GetMasterSpellFromSubradial(nSpellOriginal);
-        if (DEBUG) DoDebug("CICreateInfusion: detected subradial " + IntToString(nSpellOriginal) + " master -> " + IntToString(nSpellMaster));
-    }
-
-    // Try to find an iprp_spells row for the original subradial first (preferred).
-    int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellOriginal);
-    int nSpellUsedForIP = nSpellOriginal;
-
-    // If not found for original, fall back to the master/base spell.
-    if (nPropID < 0)
-    {
-        if (DEBUG) DoDebug("CICreateInfusion: no iprp row for original " + IntToString(nSpellOriginal) + ", trying master " + IntToString(nSpellMaster));
-        nPropID = IPGetIPConstCastSpellFromSpellID(nSpellMaster);
-        nSpellUsedForIP = nSpellMaster;
-    }
-
-    // If still invalid, bail out with a helpful message
-    if (nPropID < 0)
-    {
-        if (DEBUG) DoDebug("CICreateInfusion: No iprp_spells entry for either original " + IntToString(nSpellOriginal) + " or master " + IntToString(nSpellMaster));
-        FloatingTextStringOnCreature("This spell cannot be infused (no item property mapping).", oCreator, FALSE);
-        return OBJECT_INVALID;
-    }
-
-    if (DEBUG) DoDebug("CICreateInfusion: using spell " + IntToString(nSpellUsedForIP) + " (iprp row " + IntToString(nPropID) + ") for item property");
-
-    // Optional: check for material component (use the resolved iprp row)
-    string sMat = GetMaterialComponentTag(nPropID);
-    if (sMat != "")
-    {
-        object oMat = GetItemPossessedBy(oCreator, sMat);
-        if (oMat == OBJECT_INVALID)
-        {
-            FloatingTextStrRefOnCreature(83374, oCreator); // Missing material component
-            return OBJECT_INVALID;
-        }
-        else
-        {
-            DestroyObject(oMat);
-        }
-    }
-
-    // Only allow divine spellcasters
-    int nClass = PRCGetLastSpellCastClass();
-    if (!GetIsDivineClass(nClass))
-    {
-        FloatingTextStringOnCreature("Only divine casters can use Create Infusion.", oCreator, FALSE);
-        return OBJECT_INVALID;
-    }
-
-    // Create base infusion item (herb)
-    string sResRef = "prc_infusion_000";
-    object oTarget = CreateItemOnObject(sResRef, oCreator);
-    if (oTarget == OBJECT_INVALID)
-    {
-        WriteTimestampedLogEntry("Create Infusion failed: couldn't create item with resref " + sResRef);
-        return OBJECT_INVALID;
-    }
-
-    // Confirm that the item is a herb
-    int nBaseItem = GetBaseItemType(oTarget);
-    if (nBaseItem != BASE_ITEM_INFUSED_HERB)
-    {
-        FloatingTextStringOnCreature("Only herbs may be infused.", oCreator, FALSE);
-        DestroyObject(oTarget);
-        return OBJECT_INVALID;
-    }
-
-    // Remove all non-material item properties from the herb
-    itemproperty ipRemove = GetFirstItemProperty(oTarget);
-    while (GetIsItemPropertyValid(ipRemove))
-    {
-        itemproperty ipNext = GetNextItemProperty(oTarget);
-        if (GetItemPropertyType(ipRemove) != ITEM_PROPERTY_MATERIAL)
-            RemoveItemProperty(oTarget, ipRemove);
-        ipRemove = ipNext;
-    }
-
-    // Add the cast-spell itemproperty using the iprp row we resolved
-    itemproperty ipSpell = ItemPropertyCastSpell(nPropID, IP_CONST_CASTSPELL_NUMUSES_SINGLE_USE);
-    AddItemProperty(DURATION_TYPE_PERMANENT, ipSpell, oTarget);
-
-    // Optional PRC casting metadata: use the SAME spell id that matched the iprp row
-    // so caster level/DC/meta line up with the actual cast property on the item.
-    if (GetPRCSwitch(PRC_CREATE_INFUSION_CASTER_LEVEL))
-    {
-        int nCasterLevel = GetAlternativeCasterLevel(oCreator, PRCGetCasterLevel(oCreator));
-        // nSpellUsedForIP is either original (if that had an iprp row) or the master (fallback)
-        itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpellUsedForIP, nCasterLevel);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipLevel, oTarget);
-
-        itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpellUsedForIP, PRCGetMetaMagicFeat());
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipMeta, oTarget);
-
-        int nDC = PRCGetSpellSaveDC(nSpellUsedForIP, GetSpellSchool(nSpellUsedForIP), OBJECT_SELF);
-        itemproperty ipDC = ItemPropertyCastSpellDC(nSpellUsedForIP, nDC);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipDC, oTarget);
-    }
-
-    return oTarget;
-}
-
 
 // Test main
-// void main(){}
+//void main(){}

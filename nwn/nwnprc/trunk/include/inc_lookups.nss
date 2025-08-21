@@ -242,7 +242,7 @@ void SetupLookupStage(object oMod, int n)
         case 11: SetLkupStage(n, oMod, CLASS_TYPE_DRAGON_SHAMAN,       "cls_inv_drgshm");   break;
         case 12: SetLkupStage(n, oMod, CLASS_TYPE_WARLOCK,             "cls_inv_warlok");   break;
         case 13: SetLkupStage(n, oMod, CLASS_TYPE_ARCHIVIST,           "cls_spell_archv");  break;
-        //case 14: SetLkupStage(n, oMod, CLASS_TYPE_ASSASSIN,            "cls_spell_asasin"); break;
+        case 14: SetLkupStage(n, oMod, CLASS_TYPE_ASSASSIN,            "cls_spell_asasin"); break;
         case 15: SetLkupStage(n, oMod, CLASS_TYPE_BARD,                "cls_spell_bard");   break;
         case 16: SetLkupStage(n, oMod, CLASS_TYPE_BEGUILER,            "cls_spell_beguil"); break;
         case 17: SetLkupStage(n, oMod, CLASS_TYPE_DREAD_NECROMANCER,   "cls_spell_dnecro"); break;
@@ -528,7 +528,7 @@ int SpellToSpellbookID(int nSpell)
     int nOutSpellID = GetLocalInt(oWP, /*"PRC_GetRowFromSpellID_" + */IntToString(nSpell));
     if(nOutSpellID == 0)
         nOutSpellID = -1;
-    if(DEBUG) DoDebug("inc_lookup >> SpellToSpellbookID: (nSpell: " + IntToString(nSpell) + ") = nOutSpellID: " + IntToString(nOutSpellID));
+    //if(DEBUG) DoDebug("SpellToSpellbookID(" + IntToString(nSpell) + ", " + sFile + ") = " + IntToString(nOutSpellID));
     return nOutSpellID;
 }
 

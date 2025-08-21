@@ -41,8 +41,7 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
     effect ePoly;
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int nDuration 	= GetLevelByClass(CLASS_TYPE_DRUID)
-					+ GetLevelByClass(CLASS_TYPE_LION_OF_TALISID);
+    int nDuration = GetLevelByClass(CLASS_TYPE_DRUID);
     if (!GetLocalInt(GetModule(),"X3_NO_SHAPESHIFT_SPELL_CHECK"))
     { // check to see if abort due to being mounted
         if (PRCHorseGetIsMounted(oTarget))

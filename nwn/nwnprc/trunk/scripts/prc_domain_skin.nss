@@ -168,13 +168,7 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
 			eBonusFeat = EffectBonusFeat(FEAT_EXTRA_TURNING); 		
 			eBonusFeat = SupernaturalEffect(eBonusFeat);
 			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
-		}
-		if (GetHasFeat(FEAT_DOMAIN_POWER_RUNE, oPC)) 
-		{
-			eBonusFeat = EffectBonusFeat(FEAT_SCRIBE_SCROLL); 		
-			eBonusFeat = SupernaturalEffect(eBonusFeat);
-			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
-		}			
+		}	
 		if (GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC)) 
 		{
 			eBonusFeat = EffectBonusFeat(FEAT_SPELL_FOCUS_ENCHANTMENT); 		

@@ -720,7 +720,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_polymorph", 155);
     SetPRCSwitch("PRC_FILE_END_portraits", 1300);
     SetPRCSwitch("PRC_FILE_END_prc_craft_alchem", 37);
-    SetPRCSwitch("PRC_FILE_END_prc_craft_gen_it", 253);
+    SetPRCSwitch("PRC_FILE_END_prc_craft_gen_it", 204);
     SetPRCSwitch("PRC_FILE_END_prc_craft_poison", 62);
     SetPRCSwitch("PRC_FILE_END_prc_domains", 59);
     SetPRCSwitch("PRC_FILE_END_prc_familiar", 10);
@@ -1069,16 +1069,14 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_ROD_CASTER_LEVEL);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_STAFF_CASTER_LEVEL);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_BASE_ITEMS);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_SCRIBESCROLL_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_COSTMODIFIER);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CREATEINFUSION_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_BREWPOTION_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_BREWPOTION_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_SCRIBESCROLL_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_CRAFTWAND_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), X2_CI_CRAFTWAND_COSTMODIFIER);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_ARBITRARY);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_COST_SCALE);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_CASTER_LEVEL);
 
 //spells
 

@@ -168,6 +168,8 @@ void main()
 	ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_LICH_FEAR_AURA);
 	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 	//marker feats
+	ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_LICH_MARKER);
+	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 	ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_ARCHLICH_MARKER);
 	IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     //animate dead

@@ -46,8 +46,7 @@ void main()
 	object oItem = IPGetTargetedOrEquippedMeleeWeapon();
 	// Add the OnHit
 	IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-        effect eDur;
-		effect eVFX = EffectVisualEffect(VFX_DUR_PROTECTION_EVIL_MAJOR);
+        effect eDur = EffectVisualEffect(VFX_DUR_BLOOD_FOUNTAIN);
         if (GetHasDefensiveStance(oInitiator, DISCIPLINE_TIGER_CLAW))
     		eDur = EffectLinkEffects(eDur, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_ALL));
         if (GetLevelByClass(CLASS_TYPE_BLOODCLAW_MASTER, oInitiator) >= 2)
@@ -57,6 +56,5 @@ void main()
     	}    	
     	if (GetLocalInt(oInitiator, "TigerFangSharpClaw"))  eDur = EffectLinkEffects(eDur, EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_BASE_WEAPON));       	       
         SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(eDur), oTarget);
-		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVFX, oTarget, 6.0f);
     }
 }

@@ -21,51 +21,6 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
-void ResetLionSwiftness(object oPC)
-{
-    int nLevel = GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oPC);
-    if (nLevel > 6)
-    {
-        if(DEBUG) DoDebug("You have "+IntToString(nLevel)+ " rounds of Lion's Swiftness.");
-		SetLocalInt(oPC, "LION_SWIFTNESS_ROUNDS_REMAINING", nLevel);
-    }
-}
-
-void ClearBloodintheWater(object oPC = OBJECT_SELF)
-{
-    // Remove all BITW effects
-    effect eOld = GetFirstEffect(oPC);
-    while (GetIsEffectValid(eOld))
-    {
-        if (GetEffectTag(eOld) == "BITW_BUFF")
-        {
-            RemoveEffect(oPC, eOld);
-			if(DEBUG) DoDebug("prc_rest >> ClearBloodintheWater: Clearing BitW EffectTag");
-        }
-        eOld = GetNextEffect(oPC);
-    }
-
-    // Reset stack counter
-    DeleteLocalInt(oPC, "BITW_STACKS");
-	if(DEBUG) DoDebug("prc_rest >> ClearBloodintheWater: Clearing BitW Variables");
-}
-
-void RemoveExtraImages(object oPC)
-{
-    string sImage1 = "PC_IMAGE"+ObjectToString(oPC)+"mirror";
-    string sImage2 = "PC_IMAGE"+ObjectToString(oPC)+"flurry";
-
-    object oCreature = GetFirstObjectInArea(GetArea(oPC));
-    while (GetIsObjectValid(oCreature))
-    {
-        if(GetTag(oCreature) == sImage1 || GetTag(oCreature) == sImage2)
-        {
-            DestroyObject(oCreature, 0.0);
-        }
-        oCreature = GetNextObjectInArea(GetArea(oPC));
-    }
-}
-
 void PrcFeats(object oPC)
 {
     if(DEBUG) DoDebug("prc_rest: Evaluating PC feats for " + DebugObject2Str(oPC));
@@ -118,7 +73,6 @@ void RestFinished(object oPC)
     DelayCommand(0.0, ClearMystLocalVars(oPC));
     DelayCommand(0.0, ClearLegacyUses(oPC));
     DelayCommand(0.1, ClearInvocationLocalVars(oPC));
-	DelayCommand(0.1, ClearBloodintheWater(oPC));
 
     // To heal up enslaved creatures...
     object oSlave = GetLocalObject(oPC, "EnslavedCreature");
@@ -342,8 +296,6 @@ void RestFinished(object oPC)
     {
         DelayCommand(1.0, ExecuteScript("prc_reservefeat", oPC));
     }
-	
-	ResetLionSwiftness(oPC);
     
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERREST_FINISHED);
@@ -396,8 +348,6 @@ void RestStarted(object oPC)
         }
     }
     */
-
-	RemoveExtraImages(oPC);
 
     if (GetIsPC(oPC)) SetLocalInt(oPC, "PnP_Rest_InitialHP", GetCurrentHitPoints(oPC));
     SetLocalInt(oPC, "PnP_Rest_InitialMax", GetMaxHitPoints(oPC));

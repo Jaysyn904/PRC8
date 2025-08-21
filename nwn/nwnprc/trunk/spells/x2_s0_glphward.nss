@@ -30,7 +30,7 @@ void main()
     object oGlyph = CreateObject(OBJECT_TYPE_PLACEABLE, "x2_plc_glyph", PRCGetSpellTargetLocation());
     object oTest = GetNearestObjectByTag("X2_PLC_GLYPH",oGlyph);
 
-    if(GetIsObjectValid(oTest) && GetDistanceBetween(oGlyph, oTest) < 5.0f)
+    if(GetIsObjectValid(oTest) && GetDistanceBetween(oGlyph, oTest) <5.0f)
     {
         FloatingTextStrRefOnCreature(84612, oCaster);
         DestroyObject(oGlyph);

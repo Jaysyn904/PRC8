@@ -70,8 +70,6 @@
 43  PRC_CRAFTING_BASE_ITEMS                 int        1
 44  PRC_XP_USE_SIMPLE_LA                    int        1
 45  PRC_XP_USE_SIMPLE_RACIAL_HD             int        1
-46  PRC_CREATE_INFUSION_CASTER_LEVEL		int        1
-47	PRC_CREATE_INFUSION_OPTIONAL_HERBS		int		   0
  */
 
  /* This variable MUST be updated with every new version of the PRC!!! */
@@ -1955,18 +1953,6 @@ const string PRC_CRAFT_ROD_CASTER_LEVEL             = "PRC_CRAFT_ROD_CASTER_LEVE
 const string PRC_CRAFT_STAFF_CASTER_LEVEL             = "PRC_CRAFT_STAFF_CASTER_LEVEL";
 
 /*
- * As above, except it applies to herbal infusions
- */
-const string PRC_CREATE_INFUSION_CASTER_LEVEL	= "PRC_CREATE_INFUSION_CASTER_LEVEL";
-
-/*
- * Builder's Option:  Enables the optional PnP herbs for creating infusions.  
- * Each herb is keyed to a spell circle level & spell school as shown on pg. 33
- * of the Master's of the Wild sourcebook.
- */
-const string PRC_CREATE_INFUSION_OPTIONAL_HERBS	= "PRC_CREATE_INFUSION_OPTIONAL_HERBS";
-
-/*
  * Characters with a crafting feat always have the appropriate base item in their inventory
  */
 const string PRC_CRAFTING_BASE_ITEMS               = "PRC_CRAFTING_BASE_ITEMS";
@@ -1975,52 +1961,45 @@ const string PRC_CRAFTING_BASE_ITEMS               = "PRC_CRAFTING_BASE_ITEMS";
  * Max level of spells brewed into potions
  * defaults to 3
  */
-//const string X2_CI_BREWPOTION_MAXLEVEL               = "X2_CI_BREWPOTION_MAXLEVEL";
-const string PRC_X2_BREWPOTION_MAXLEVEL               = "PRC_X2_BREWPOTION_MAXLEVEL";
+const string X2_CI_BREWPOTION_MAXLEVEL               = "X2_CI_BREWPOTION_MAXLEVEL";
 
 /*
  * cost modifier of spells brewed into poitions
  * defaults to 50
  */
-const string PRC_X2_BREWPOTION_COSTMODIFIER           = "PRC_X2_BREWPOTION_COSTMODIFIER";
+const string X2_CI_BREWPOTION_COSTMODIFIER           = "X2_CI_BREWPOTION_COSTMODIFIER";
 
 /*
  * cost modifier of spells scribed into scrolls
  * defaults to 25
  */
-const string PRC_X2_SCRIBESCROLL_COSTMODIFIER         = "PRC_X2_SCRIBESCROLL_COSTMODIFIER";
-
-/*
- * cost modifier of spells infused into herbs
- * defaults to 25
- */
-const string PRC_X2_CREATEINFUSION_COSTMODIFIER         = "PRC_X2_CREATEINFUSION_COSTMODIFIER";
+const string X2_CI_SCRIBESCROLL_COSTMODIFIER         = "X2_CI_SCRIBESCROLL_COSTMODIFIER";
 
 /*
  * Max level of spells crafted into wands
  * defaults to 4
  */
-const string PRC_X2_CRAFTWAND_MAXLEVEL                = "PRC_X2_CRAFTWAND_MAXLEVEL";
+const string X2_CI_CRAFTWAND_MAXLEVEL                = "X2_CI_CRAFTWAND_MAXLEVEL";
 
 /*
  * cost modifier of spells crafted into wands
  * defaults to 750
  */
-const string PRC_X2_CRAFTWAND_COSTMODIFIER            = "PRC_X2_CRAFTWAND_COSTMODIFIER";
+const string X2_CI_CRAFTWAND_COSTMODIFIER            = "X2_CI_CRAFTWAND_COSTMODIFIER";
 
 /*
  * cost modifier of spells crafted into rods
  * note that adding a second spell costs 75% and 3 or more costs 50%
  * defaults to 750
  */
-const string PRC_X2_CRAFTROD_COSTMODIFIER            = "PRC_X2_CRAFTROD_COSTMODIFIER";
+const string X2_CI_CRAFTROD_COSTMODIFIER            = "X2_CI_CRAFTROD_COSTMODIFIER";
 
 /*
  * cost modifier of spells crafted into staffs
  * note that adding a second spell costs 75% and 3 or more costs 50%
  * defaults to 750
  */
-const string PRC_X2_CRAFTSTAFF_COSTMODIFIER            = "PRC_X2_CRAFTSTAFF_COSTMODIFIER";
+const string X2_CI_CRAFTSTAFF_COSTMODIFIER            = "X2_CI_CRAFTSTAFF_COSTMODIFIER";
 
 /**
  * Allows the use of arbitrary itemproperties and uses NWN item costs

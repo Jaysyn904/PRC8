@@ -25,16 +25,9 @@ void main ()
     {
         if(GetLocalInt(oSkin, "Happo"))
             return;
-		
-		effect eHappo = EffectBonusFeat(FEAT_PRESTIGE_DEFENSIVE_AWARENESS_2);
-		effect eLink = EffectLinkEffects(eLink, eHappo);
-		
-		eLink = ExtraordinaryEffect(eLink);
-		
-		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
-		
-        //AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), oSkin);
-        //SetLocalInt(oSkin, "Happo", TRUE);
+
+        AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB), oSkin);
+        SetLocalInt(oSkin, "Happo", TRUE);
     }
 
     // Interaction - +4 to Taunt, Persuade, Bluff, and Intimidate

@@ -139,9 +139,6 @@ int JPMMarkerFeats();
 //:; Enforces Drow Judicator marker feats
 int JudicatorMarkerFeats();
 
-//:; Enforces Lion of Talisid marker feats
-int LionofTalisidMarkerFeats();
-
 //:; Enforces Mighty Contender of Kord marker feats
 int MCoKMarkerFeats();
 
@@ -255,12 +252,6 @@ int UltMagusMarkerFeats();
 
 //:; Enforces Unseen Seer marker feats
 int UnseenMarkerFeats();
-
-//:; Enforces Verdant Lord marker feats
-int VerdantLordMarkerFeats();
-
-//:; Enforces Verdant Lord marker feats
-int VirtuosoMarkerFeats();
 
 //:; Enforces Warpriest marker feats
 int WarpriestMarkerFeats();
@@ -2082,45 +2073,6 @@ int JudicatorMarkerFeats()
     return FALSE;
 }	
 
-//:; Lion of Talisid marker feats
-int LionofTalisidMarkerFeats()
-{
-    if(GetLevelByClass(CLASS_TYPE_LION_OF_TALISID))
-    {
-		int nLion	= GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_ARCHIVIST)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_CLERIC)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_DRUID)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_FAVOURED_SOUL)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_HEALER)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_JOWAW)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_KOTMC)					
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_NENTYAR_HUNTER)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_RANGER)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SOHEI)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SOL)					
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_OASHAMAN)
-					+ GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SPSHAMAN);
-
-					
-						
-        if(nLion > 1)
-        {
-            FloatingTextStringOnCreature("A Lion of Talisid may only advance a single divine class.", OBJECT_SELF, FALSE);
-            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
-            return TRUE;
-        }
-		
-		if(nLion < 1)
-        {
-            FloatingTextStringOnCreature("A Lion of Talisid must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
-            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
-            return TRUE;
-        }
-    }
-	
-    return FALSE;
-}	
-
 //:; Enforces Mighty Contender of Kord marker feats
 int MCoKMarkerFeats()
 {
@@ -3855,47 +3807,6 @@ int UnseenMarkerFeats()
     return FALSE;
 }	
 
-//:; Verdant Lord marker feats
-int VerdantLordMarkerFeats()
-{
-    if(GetLevelByClass(CLASS_TYPE_VERDANT_LORD))
-    {
-		int nVerdant	= GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_ARCHIVIST)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_CLERIC)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_DRUID)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_FAVOURED_SOUL)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_HEALER)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_JOWAW)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTC)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTMC)					
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_NENTYAR_HUNTER)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_PALADIN)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_RANGER)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOHEI)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOL)					
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_OASHAMAN)
-						+ GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SPSHAMAN);
-
-					
-						
-        if(nVerdant > 1)
-        {
-            FloatingTextStringOnCreature("A Verdant Lord may only advance a single divine class.", OBJECT_SELF, FALSE);
-            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
-            return TRUE;
-        }
-		
-		if(nVerdant < 1)
-        {
-            FloatingTextStringOnCreature("A Verdant Lord must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
-            FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);
-            return TRUE;
-        }
-    }
-	
-    return FALSE;
-}	
-
 //:; Enforces Virtuoso marker feats
 int VirtuosoMarkerFeats()
 {
@@ -4148,7 +4059,6 @@ void main()
 	|| IronMindMarkerFeats()
 	|| JPMMarkerFeats()
 	|| JudicatorMarkerFeats()
-	|| LionofTalisidMarkerFeats()
 	|| MCoKMarkerFeats()
 	|| MaesterMarkerFeats()
 	|| MagekillerMarkerFeats()
@@ -4188,7 +4098,6 @@ void main()
 	|| TrueNecroMarkerFeats()
 	|| UltMagusMarkerFeats()
 	|| UnseenMarkerFeats()
-	|| VerdantLordMarkerFeats()
 	|| VirtuosoMarkerFeats()
 	|| WarpriestMarkerFeats()
 	|| WayfarerMarkerFeats()

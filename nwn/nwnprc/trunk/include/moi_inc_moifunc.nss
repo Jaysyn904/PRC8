@@ -1182,7 +1182,7 @@ int GetMaxEssentiaCapacityFeat(object oMeldshaper)
 	// Don't allow more than they have
 	if (nMax > GetTotalUsableEssentia(oMeldshaper)) nMax = GetTotalUsableEssentia(oMeldshaper);
 
-	if(DEBUG) DoDebug("GetMaxEssentiaCapacityFeat: nHD "+IntToString(nHD)+" nMax "+IntToString(nMax));
+	//if (DEBUG) DoDebug("GetMaxEssentiaCapacityFeat: nHD "+IntToString(nHD)+" nMax "+IntToString(nMax));
 	return nMax;
 }
 

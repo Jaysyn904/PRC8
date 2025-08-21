@@ -167,7 +167,7 @@ void main()
 			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
 			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_STRENGTH, 2));
 			eLink = EffectLinkEffects(eLink, EffectACDecrease(1));  
-			//eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_INCREASE_1));
+			eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_INCREASE_1));
 			eLink = TagEffect(eLink, "ARCANE_SIZE_INCREASE");
 		}
 		else
@@ -176,7 +176,7 @@ void main()
 			eLink = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_DEXTERITY, 2));
 			eLink = EffectLinkEffects(eLink, EffectAbilityDecrease(ABILITY_STRENGTH, 2));
 			eLink = EffectLinkEffects(eLink, EffectACIncrease(1)); 
-			//eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_DECREASE_1));
+			eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SIZE_DECREASE_1));
 			eLink = TagEffect(eLink, "ARCANE_SIZE_DECREASE");			
 		}
 

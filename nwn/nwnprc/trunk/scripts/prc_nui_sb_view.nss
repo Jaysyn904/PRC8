@@ -133,7 +133,7 @@ void main()
         title = title + ": " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", selectedClassId)));
 
     // This is the main window with jRoot as the main pane.  It includes titles and parameters (more on those later)
-    json nui = NuiWindow(jRoot, JsonString(title), NuiBind("geometry"), NuiBind("resizable"), NuiBind("collapsed"), NuiBind("closable"), NuiBind("transparent"), NuiBind("border"),JSON_NULL,JSON_NULL, NuiBind("edgeConstraint"));
+    json nui = NuiWindow(jRoot, JsonString(title), NuiBind("geometry"), NuiBind("resizable"), NuiBind("collapsed"), NuiBind("closable"), NuiBind("transparent"), NuiBind("border"));
 
     // finally create it and it'll return us a non-zero token.
     int nToken = NuiCreate(OBJECT_SELF, nui, PRC_SPELLBOOK_NUI_WINDOW_ID);
@@ -141,7 +141,7 @@ void main()
     // get the geometry of the window in case we opened this before and have a
     // preference for location
     json geometry = GetLocalJson(OBJECT_SELF, PRC_SPELLBOOK_NUI_GEOMETRY_VAR);
-    
+
     // Default to put this near the middle and let the person adjust its location
     if (geometry == JsonNull())
     {
@@ -150,37 +150,18 @@ void main()
     else
     {
         float x = JsonGetFloat(JsonObjectGet(geometry, "x"));
-        float y = JsonGetFloat(JsonObjectGet(geometry, "y"));				
-		
-		float WINDOW_WIDTH = 489.0f;
-        float WINDOW_HEIGHT = 351.0f;
-		
-        geometry = NuiRect(x, y, WINDOW_WIDTH, WINDOW_HEIGHT);
+        float y = JsonGetFloat(JsonObjectGet(geometry, "y"));
+        geometry = NuiRect(x, y, 489.0f, 351.0f);
     }
 
-    float QUICKBAR_HEIGHT_ESTIMATE = 40.0f;
-	float CHAT_BAR_ESTIMATE = 20.0f;
-    float MIN_BOTTOM_PADDING = 10.0f;
-	
-	int uiScale = GetPlayerDeviceProperty(OBJECT_SELF, PLAYER_DEVICE_PROPERTY_GUI_SCALE); 
-    float scale = IntToFloat(uiScale) / 100.0f; 
-
-    float bottomSize = QUICKBAR_HEIGHT_ESTIMATE * scale + CHAT_BAR_ESTIMATE * scale + MIN_BOTTOM_PADDING;
-	float screenW = IntToFloat(GetPlayerDeviceProperty(OBJECT_SELF, PLAYER_DEVICE_PROPERTY_GUI_WIDTH));
-    float screenH = IntToFloat(GetPlayerDeviceProperty(OBJECT_SELF, PLAYER_DEVICE_PROPERTY_GUI_HEIGHT));
-	
-    json edgeConstraint = NuiRect(0.0f,0.0f, 0.0f, bottomSize);
-	
-	//json edgeConstraint = NuiRect(0.0f, 0.0f, 0.0f, 0.0f);
     // Set the binds to their default values
     NuiSetBind(OBJECT_SELF, nToken, "geometry", geometry);
     NuiSetBind(OBJECT_SELF, nToken, "collapsed", JsonBool(FALSE));
     NuiSetBind(OBJECT_SELF, nToken, "resizable", JsonBool(FALSE));
     NuiSetBind(OBJECT_SELF, nToken, "closable", JsonBool(TRUE));
     NuiSetBind(OBJECT_SELF, nToken, "transparent", JsonBool(TRUE));
-    NuiSetBind(OBJECT_SELF, nToken, "border", JsonBool(FALSE));		
-	NuiSetBind(OBJECT_SELF, nToken, "edgeConstraint", edgeConstraint);		      
-	
+    NuiSetBind(OBJECT_SELF, nToken, "border", JsonBool(FALSE));
+
     NuiSetBindWatch(OBJECT_SELF, nToken, "geometry", TRUE);
 }
 

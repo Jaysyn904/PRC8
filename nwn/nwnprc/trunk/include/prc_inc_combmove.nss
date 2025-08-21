@@ -1140,9 +1140,6 @@ void DoCharge(object oPC, object oTarget, int nDoAttack = TRUE, int nGenerateAoO
             	nPounce = TRUE;       
             if (GetHasSpellEffect(VESTIGE_CHUPOCLOPS, oPC) && GetLocalInt(oPC, "ExploitVestige") != VESTIGE_CHUPOCLOPS_POUNCE)	
             	nPounce = TRUE;
-			//:: Lion of Talisid
-            if(GetHasFeat(FEAT_LOT_LIONS_POUNCE, oPC))
-                nPounce = TRUE;			
             
             // Checks for a White Raven Stance
             // If it exists, +1 damage/initiator level
@@ -2315,10 +2312,7 @@ void DoShieldCharge(object oPC, object oTarget, int nSlam = FALSE)
         if(GetLevelByClass(CLASS_TYPE_CELEBRANT_SHARESS, oPC) >= 5)
         	nPounce = TRUE;
         if(GetRacialType(oPC) == RACIAL_TYPE_MARRUSAULT)
-        	nPounce = TRUE;
-		//:: Lion of Talisid
-		if(GetHasFeat(FEAT_LOT_LIONS_POUNCE, oPC))
-			nPounce = TRUE;			
+        	nPounce = TRUE;            	
         
         // Checks for a White Raven Stance
         // If it exists, +1 damage/initiator level

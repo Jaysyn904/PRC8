@@ -3,13 +3,9 @@
 //:: prc_ft_spnhlbrd.nss
 //::///////////////////////////////////////////////
 /*
-    Type of Feat: General
-	Prerequisite: Two-Weapon Fighting, Weapon Focus (halberd)
-	Benefit: When you make a full attack with your halberd, you gain 
-	a +1 dodge bonus to your Armor Class as well as an additional 
-	attack with the weapon at a -5 penalty. This attack deals points 
-	of bludgeoning damage equal to 1d6 + 1/2 your Strength modifier.
-	Use: Selected
+    If you hit the same creature with both your 
+    sword and your axe in the same round, you may 
+    make a free trip attempt against that foe.
 */
 //:://////////////////////////////////////////////
 //:: Modified By: Stratovarius

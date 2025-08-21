@@ -795,7 +795,7 @@ int GetWeaponSize(object oWeapon)
         case BASE_ITEM_GREATAXE:
         case BASE_ITEM_HEAVYFLAIL:
         case BASE_ITEM_QUARTERSTAFF:
-        //case BASE_ITEM_MAGICSTAFF:		
+        case BASE_ITEM_MAGICSTAFF:		
         case BASE_ITEM_SCYTHE:
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_ELVEN_COURTBLADE:
@@ -832,7 +832,7 @@ int PRCLargeWeaponCheck(int iBaseType, int nSize)
         case BASE_ITEM_GREATAXE:
         case BASE_ITEM_HEAVYFLAIL:
         case BASE_ITEM_QUARTERSTAFF:
-        //case BASE_ITEM_MAGICSTAFF:		
+        case BASE_ITEM_MAGICSTAFF:		
         case BASE_ITEM_SCYTHE:
         case BASE_ITEM_SHORTSPEAR:
         case BASE_ITEM_ELVEN_COURTBLADE:

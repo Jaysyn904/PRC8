@@ -299,7 +299,6 @@ int SpellfireDrainItem(object oPC, object oItem, int bCharged = TRUE, int bSingl
                         {
 
                             if((nBase == BASE_ITEM_POTIONS) ||
-								(nBase == BASE_ITEM_INFUSED_HERB) ||
                                 (nBase == BASE_ITEM_SCROLL) ||
                                 (nBase == BASE_ITEM_SPELLSCROLL) ||
                                 (nBase == BASE_ITEM_BLANK_POTION) ||
@@ -383,7 +382,6 @@ void SpellfireDrain(object oPC, object oTarget, int bCharged = TRUE, int bExempt
         if(GetPRCSwitch(PRC_SPELLFIRE_DISALLOW_DRAIN_SCROLL_POTION) &&
             ((nBase == BASE_ITEM_POTIONS) ||
             (nBase == BASE_ITEM_SCROLL) ||
-			(nBase == BASE_ITEM_INFUSED_HERB) ||
             (nBase == BASE_ITEM_BLANK_POTION) ||
             (nBase == BASE_ITEM_BLANK_SCROLL)
             )
@@ -527,4 +525,3 @@ void SpellfireCrown(object oPC)
     }
 }
 
-//:: void main() {}

@@ -1,9 +1,9 @@
 2DA V2.0
 
         Label           FeedbackStrref      ColorR  ColorG  ColorB
-0       Physical        5594                255     102     0
+0       Physical        5594                ****    ****    ****
 1       Magical         5593                204     119     255
-2       Acid            10458               0       255     0
+2       Acid            10458               0       102     0
 3       Cold            10459               153     255     255
 4       Divine          10460               255     255     0
 5       Electrical      10461               0       102     255

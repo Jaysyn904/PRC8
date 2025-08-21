@@ -18,7 +18,6 @@ const int TEMPLATE_CURST            	=	26;
 const int TEMPLATE_GRAVETOUCHED_GHOUL 	=	29;
 const int TEMPLATE_CRYPTSPAWN			=	30;
 const int TEMPLATE_ARCHLICH         	=	99;
-const int TEMPLATE_BAELNORN				=	100;
 const int TEMPLATE_LICH             	=	101;
 const int TEMPLATE_DEMILICH         	=	102;
 const int TEMPLATE_NECROPOLITAN     	=	105;
