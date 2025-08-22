@@ -27,6 +27,9 @@
 1734 - Turn_Blightspawned
 2259 - turn outsider
 3497 - Turn cold
+25992 - FEAT_PLANT_DEFIANCE
+25993 - FEAT_PLANT_CONTROL
+
 */
 
 #include "prc_inc_clsfunc"
@@ -57,7 +60,7 @@ void main()
     }    
 
     // Because Turn Undead/Outsider isn't from a domain, skip this check
-    if(nTurnType != SPELL_TURN_UNDEAD && nTurnType != SPELL_TURN_OUTSIDER)
+    if(nTurnType != SPELL_TURN_UNDEAD && nTurnType != SPELL_TURN_OUTSIDER && nTurnType != SPELL_PLANT_DEFIANCE && nTurnType != SPELL_PLANT_CONTROL)
     {
         // Used by the uses per day check code for bonus domains
         if(!DecrementDomainUses(GetTurningDomain(nTurnType), OBJECT_SELF))
@@ -210,7 +213,37 @@ void main()
                 }
                 else
                 {
-                    if(nTurnOrRebuke == ACTION_TURN)
+					if(nTurnOrRebuke == ACTION_TURN)
+					{
+						ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_SUNSTRIKE), oTest);
+
+						// If target's HD < half level we would normally destroy.
+						// For plants targeted by Plant Defiance/Control, never destroy — apply non-lethal outcome instead.
+						if(nTargetHD < nLevel/2)
+						{
+							if(nTargetRace == RACIAL_TYPE_PLANT
+							   && (nTurnType == SPELL_PLANT_DEFIANCE || nTurnType == SPELL_PLANT_CONTROL))
+							{
+								// For Turn-type (Plant Defiance) -> DoTurn (fear)
+								// For Control-type (Plant Control) -> DoCommand (dominate)
+								if(nTurnType == SPELL_PLANT_DEFIANCE)
+									DelayCommand(0.0, DoTurn(oTest));
+								else
+									DelayCommand(0.0, DoCommand(oTest));
+							}
+							else
+							{
+								// Default: destroy
+								DelayCommand(0.0, DoDestroy(oTest));
+							}
+						}
+						else
+						{
+							DoTurn(oTest);
+						}
+					}
+
+/*                     if(nTurnOrRebuke == ACTION_TURN)
                     {
                         ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_SUNSTRIKE), oTest);
                         //if half of level, destroy
@@ -219,7 +252,7 @@ void main()
                             DelayCommand(0.0, DoDestroy(oTest));
                         else
                             DoTurn(oTest);
-                    }
+                    } */
                     else
                     {
                         bDisplayCommandMessage = TRUE;

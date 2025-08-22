@@ -242,25 +242,27 @@ void SetupLookupStage(object oMod, int n)
         case 11: SetLkupStage(n, oMod, CLASS_TYPE_DRAGON_SHAMAN,       "cls_inv_drgshm");   break;
         case 12: SetLkupStage(n, oMod, CLASS_TYPE_WARLOCK,             "cls_inv_warlok");   break;
         case 13: SetLkupStage(n, oMod, CLASS_TYPE_ARCHIVIST,           "cls_spell_archv");  break;
-        case 14: SetLkupStage(n, oMod, CLASS_TYPE_ASSASSIN,            "cls_spell_asasin"); break;
-        case 15: SetLkupStage(n, oMod, CLASS_TYPE_BARD,                "cls_spell_bard");   break;
-        case 16: SetLkupStage(n, oMod, CLASS_TYPE_BEGUILER,            "cls_spell_beguil"); break;
-        case 17: SetLkupStage(n, oMod, CLASS_TYPE_DREAD_NECROMANCER,   "cls_spell_dnecro"); break;
-        case 18: SetLkupStage(n, oMod, CLASS_TYPE_DUSKBLADE,           "cls_spell_duskbl"); break;
-        case 19: SetLkupStage(n, oMod, CLASS_TYPE_FAVOURED_SOUL,       "cls_spell_favsol"); break;
-        case 20: SetLkupStage(n, oMod, CLASS_TYPE_HARPER,              "cls_spell_harper"); break;
-        case 21: SetLkupStage(n, oMod, CLASS_TYPE_HEXBLADE,            "cls_spell_hexbl");  break;
-        case 22: SetLkupStage(n, oMod, CLASS_TYPE_JUSTICEWW,           "cls_spell_justww"); break;
-        case 23: SetLkupStage(n, oMod, CLASS_TYPE_SORCERER,            "cls_spell_sorc");   break;
-        case 24: SetLkupStage(n, oMod, CLASS_TYPE_SUBLIME_CHORD,       "cls_spell_schord"); break;
-        case 25: SetLkupStage(n, oMod, CLASS_TYPE_SUEL_ARCHANAMACH,    "cls_spell_suel");   break;
-        case 26: SetLkupStage(n, oMod, CLASS_TYPE_VIGILANT,            "cls_spell_vigil");  break;
-        case 27: SetLkupStage(n, oMod, CLASS_TYPE_WARMAGE,             "cls_spell_wrmage"); break;
-        case 28: SetLkupStage(n, oMod, CLASS_TYPE_KNIGHT_WEAVE,        "cls_spell_kngtwv"); break;
-        case 29: SetLkupStage(n, oMod, CLASS_TYPE_PSYCHIC_ROGUE,       "cls_psipw_psyrog"); break;        
-        case 30: SetLkupStage(n, oMod, CLASS_TYPE_SHADOWCASTER,        "cls_myst_shdcst");  break;  
-        case 31: SetLkupStage(n, oMod, CLASS_TYPE_SHADOWSMITH,         "cls_myst_shdsmt");  break; 
-        case 32: SetLkupStage(n, oMod, CLASS_TYPE_CELEBRANT_SHARESS,   "cls_spell_sharss"); break; 
+        case 14: SetLkupStage(n, oMod, CLASS_TYPE_BARD,                "cls_spell_bard");   break;
+        case 15: SetLkupStage(n, oMod, CLASS_TYPE_BEGUILER,            "cls_spell_beguil"); break;
+        case 16: SetLkupStage(n, oMod, CLASS_TYPE_DREAD_NECROMANCER,   "cls_spell_dnecro"); break;
+        case 17: SetLkupStage(n, oMod, CLASS_TYPE_DUSKBLADE,           "cls_spell_duskbl"); break;
+        case 18: SetLkupStage(n, oMod, CLASS_TYPE_FAVOURED_SOUL,       "cls_spell_favsol"); break;
+        case 19: SetLkupStage(n, oMod, CLASS_TYPE_HARPER,              "cls_spell_harper"); break;
+        case 20: SetLkupStage(n, oMod, CLASS_TYPE_HEXBLADE,            "cls_spell_hexbl");  break;
+        case 21: SetLkupStage(n, oMod, CLASS_TYPE_JUSTICEWW,           "cls_spell_justww"); break;
+        case 22: SetLkupStage(n, oMod, CLASS_TYPE_SORCERER,            "cls_spell_sorc");   break;
+        case 23: SetLkupStage(n, oMod, CLASS_TYPE_SUBLIME_CHORD,       "cls_spell_schord"); break;
+        case 24: SetLkupStage(n, oMod, CLASS_TYPE_SUEL_ARCHANAMACH,    "cls_spell_suel");   break;
+        case 25: SetLkupStage(n, oMod, CLASS_TYPE_VIGILANT,            "cls_spell_vigil");  break;
+        case 26: SetLkupStage(n, oMod, CLASS_TYPE_WARMAGE,             "cls_spell_wrmage"); break;
+        case 27: SetLkupStage(n, oMod, CLASS_TYPE_KNIGHT_WEAVE,        "cls_spell_kngtwv"); break;
+        case 28: SetLkupStage(n, oMod, CLASS_TYPE_PSYCHIC_ROGUE,       "cls_psipw_psyrog"); break;        
+        case 29: SetLkupStage(n, oMod, CLASS_TYPE_SHADOWCASTER,        "cls_myst_shdcst");  break;  
+        case 30: SetLkupStage(n, oMod, CLASS_TYPE_SHADOWSMITH,         "cls_myst_shdsmt");  break; 
+        case 31: SetLkupStage(n, oMod, CLASS_TYPE_CELEBRANT_SHARESS,   "cls_spell_sharss"); break; 
+		
+		//:: These were all moved to the Bioware spellbooks -Jaysyn
+		//case 14: SetLkupStage(n, oMod, CLASS_TYPE_ASSASSIN,            "cls_spell_asasin"); break;
         //case 46: SetLkupStage(n, oMod, CLASS_TYPE_CULTIST_SHATTERED_PEAK, "cls_spell_cultst"); break; 
         //case 40: SetLkupStage(n, oMod, CLASS_TYPE_NENTYAR_HUNTER,      "cls_spell_hunter"); break;
         //case 28: SetLkupStage(n, oMod, CLASS_TYPE_SHADOWLORD,          "cls_spell_tfshad"); break;
@@ -528,7 +530,7 @@ int SpellToSpellbookID(int nSpell)
     int nOutSpellID = GetLocalInt(oWP, /*"PRC_GetRowFromSpellID_" + */IntToString(nSpell));
     if(nOutSpellID == 0)
         nOutSpellID = -1;
-    //if(DEBUG) DoDebug("SpellToSpellbookID(" + IntToString(nSpell) + ", " + sFile + ") = " + IntToString(nOutSpellID));
+    if(DEBUG) DoDebug("inc_lookup >> SpellToSpellbookID: (nSpell: " + IntToString(nSpell) + ") = nOutSpellID: " + IntToString(nOutSpellID));
     return nOutSpellID;
 }
 

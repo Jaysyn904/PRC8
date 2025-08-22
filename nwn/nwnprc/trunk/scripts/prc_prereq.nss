@@ -253,6 +253,11 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
          //Wild Shape qualifies
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
+     if (GetLevelByClass(CLASS_TYPE_LION_OF_TALISID) >= 3)
+     {
+         //Wild Shape qualifies
+         SetLocalInt(oPC, "PRC_PrereqShift", 0);
+     }	 
      //These classes have appropriate alternate forms
      if (GetLevelByClass(CLASS_TYPE_SHAMAN) >= 7)
      {
@@ -277,12 +282,6 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
      if (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER) >= 10)
      {
          //Elemental Form qualifies
-         SetLocalInt(oPC, "PRC_PrereqShift", 0);
-     }
-     //This is not strictly necessary because Witch gains Polymorph Self
-     //at an earlier level, but add it here anyway for completeness:
-     if (GetLevelByClass(CLASS_TYPE_WITCH) >= 13)
-     {
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
 
@@ -679,6 +678,95 @@ void reqCombatMedic(object oPC)
     }
 }
 
+void reqLionOfTalisid(object oPC)
+{
+	//:: Get casting ability scores
+	int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);
+	int iInt = GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE);
+
+	//:: Check if the character knows Summon Nature's Ally II
+	int bKnowsSNA2 = PRCGetIsRealSpellKnown(SPELL_SUMMON_NATURES_ALLY_2, oPC);
+
+	//:: Archivist (INT-based)
+	if(iInt >= 12 && GetLevelByClass(CLASS_TYPE_ARCHIVIST) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Druid (WIS-based)
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_DRUID) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Ranger (WIS-based) – Rangers get 2nd-level spells at level 6
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_RANGER) >= 6 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+
+	//:: Shaman (WIS-based)
+	if(iWis >= 12 && GetLevelByClass(CLASS_TYPE_SHAMAN) >= 3 && bKnowsSNA2)
+	{
+		SetLocalInt(oPC, "PRC_PrereqLoT", 0);
+		return;
+	}
+}
+
+void reqVerdantLord(object oPC)
+{
+	//:: Get casting ability scores
+	int iWis = GetAbilityScore(oPC, ABILITY_WISDOM, TRUE);
+	int iInt = GetAbilityScore(oPC, ABILITY_INTELLIGENCE, TRUE);
+
+	//:: Check if the character Control Plants
+	int bKnowsCtrlPlants = PRCGetIsRealSpellKnown(SPELL_CONTROL_PLANTS, oPC);
+	
+	int bHasPlantDomain = GetHasFeat(DOMAIN_PLANT) || GetHasFeat(FEAT_BONUS_DOMAIN_PLANT) || GetHasFeat(FEAT_PLANT_DOMAIN_POWER);
+
+	//:: Archivist (INT-based)
+	if(iInt >= 14 && GetLevelByClass(CLASS_TYPE_ARCHIVIST) >= 7 && bKnowsCtrlPlants)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}
+	//:: Druid (WIS-based)
+	if(iWis >= 14 && GetLevelByClass(CLASS_TYPE_DRUID) >= 7 && bKnowsCtrlPlants)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}
+	//:: Ranger (WIS-based) – Rangers get Plant Control at 3rd level 
+	//:: Rangers get 3rd lvl spells at level 11 w/ a 16 WIS
+	if(iWis >= 16 && GetLevelByClass(CLASS_TYPE_RANGER) >= 11 && bKnowsCtrlPlants)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}	
+	//:: Ranger (WIS-based) – Rangers get Plant Control at 3rd level 
+	if(iWis >= 13 && GetLevelByClass(CLASS_TYPE_RANGER) >= 12 && bKnowsCtrlPlants)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}
+	//:: Shaman (WIS-based & must have plant domain to cast Control Plants)
+	if(iWis >= 14 && GetLevelByClass(CLASS_TYPE_SHAMAN) >= 7 && bHasPlantDomain)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}
+	//:: Cleric (WIS-based & must have plant domain to cast Control Plants)
+	if(iWis >= 14 && GetLevelByClass(CLASS_TYPE_CLERIC) >= 7 && bHasPlantDomain)
+	{
+		SetLocalInt(oPC, "PRC_PrereqVerdantLord", 0);
+		return;
+	}	
+	
+}
+
 void RedWizard(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqRedWiz", 1);
@@ -1057,6 +1145,9 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
 	int nCount = 0;
 	int nTotal = 0;
 
+	int nIron 	= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_IRON_HEART);  //:: Some dumbass forgot this was a discipline -Jaysyn
+	if (nIron > 0)	nCount += 1;
+
 	int nDesert 	= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_DESERT_WIND);
 	if (nDesert > 0)	nCount += 1;
 	
@@ -1081,8 +1172,9 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
 	int nRaven 		= _CheckPrereqsByDiscipline(oPC, DISCIPLINE_WHITE_RAVEN);	
 	if (nRaven > 0)	nCount += 1;	
 
-	nTotal = nDevoted + nDiamond + nTiger + nShadow + nStone + nSun + nRaven + nDesert;
-	
+	nTotal = nDevoted + nDiamond + nTiger + nShadow + nStone + nSun + nRaven + nDesert +nIron;
+
+	if (DEBUG) DoDebug("You have "+IntToString(nIron)+" Iron Heart Maneuvers");	
 	if (DEBUG) DoDebug("You have "+IntToString(nDevoted)+" Devoted Spirit Maneuvers");
 	if (DEBUG) DoDebug("You have "+IntToString(nDiamond)+" Diamond Mind Maneuvers");
 	if (DEBUG) DoDebug("You have "+IntToString(nTiger)+" Tiger Claw Maneuvers");
@@ -1314,6 +1406,8 @@ void AlienistPreReqs(object oPC)
 
 void AOTSPreReqs(object oPC)
 {
+	if(DEBUG) DoDebug("prc_prereq >> AOTSPreReqs: Entering function.");
+	
 	int iArcane = 0;
 	int iShadow = 0;
 	
@@ -1334,6 +1428,7 @@ void AOTSPreReqs(object oPC)
     if (PRCGetCasterLevel(oPC) > 4 || GetInvokerLevel(oPC) > 4 || GetShadowcasterLevel(oPC) > 4)
     {
         SetLocalInt(oPC, "PRC_PrereqAOTS", 0);
+		if(DEBUG) DoDebug("prc_prereq >> AOTSPreReqs: Unsetting varible to allow class.");
     }
 }
 
@@ -1884,6 +1979,7 @@ void main()
     WildMageReq(oPC);
     Witchborn(oPC);
     reqCombatMedic(oPC);
+	reqLionOfTalisid(oPC);
     // Truly massive debug message flood if activated.
    
 /*    if (DEBUG)

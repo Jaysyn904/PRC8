@@ -95,6 +95,10 @@ void main()
                  //Restore original max henchmen
                  SetMaxHenchmen(nMax);
          }
+		 else
+		 {
+			 FloatingTextStringOnCreature("You must have celestial blood to cast this spell", oPC);
+		 }
 
          PRCSetSchool();
          //SPGoodShift(oPC);

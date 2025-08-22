@@ -89,9 +89,9 @@ void main()
             while(GetIsObjectValid(oTarget))
             {
                 // Targeting limitations
-                if(oTarget != oManifester                                            && // Don't hit self
-                   spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oManifester)   // Difficulty limits
-                   )
+                if(oTarget != oManifester                                            && 	//:: Don't hit self
+                   spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, oManifester)  	//:: Difficulty limits
+                   )																		//:: Only hits enemies
                 {
                     // Let the AI know
                     PRCSignalSpellEvent(oTarget, TRUE, manif.nSpellID, oManifester);

@@ -387,8 +387,7 @@ int IsClassAllowedToUseNUISpellbook(object oPlayer, int nClass)
          return TRUE;
 
     // Arcane Spont
-    if (nClass == CLASS_TYPE_ASSASSIN
-        || nClass == CLASS_TYPE_BEGUILER
+    if (nClass == CLASS_TYPE_BEGUILER
         || nClass == CLASS_TYPE_CELEBRANT_SHARESS
         || nClass == CLASS_TYPE_DREAD_NECROMANCER
         || nClass == CLASS_TYPE_DUSKBLADE
@@ -506,8 +505,7 @@ int CanClassUseMetamagicFeats(int nClass)
     // I don't want to spend the time looping through each class's
     // feat 2da so this is the list of all classes that are allowed to use the
     // Spellbook NUI and can use Metamagic
-    return (nClass == CLASS_TYPE_ASSASSIN
-        || nClass == CLASS_TYPE_BARD
+    return (nClass == CLASS_TYPE_BARD
         || nClass == CLASS_TYPE_SORCERER
         || nClass == CLASS_TYPE_BEGUILER
         || nClass == CLASS_TYPE_DREAD_NECROMANCER
@@ -527,7 +525,6 @@ int CanClassUseSuddenMetamagicFeats(int nClass)
     // Spellbook NUI and can use Sudden Metamagic
     return (nClass == CLASS_TYPE_SHADOWLORD
         || nClass == CLASS_TYPE_ARCHIVIST
-        || nClass == CLASS_TYPE_ASSASSIN
         || nClass == CLASS_TYPE_BARD
         || nClass == CLASS_TYPE_BEGUILER
         || nClass == CLASS_TYPE_DREAD_NECROMANCER

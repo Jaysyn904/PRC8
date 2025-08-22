@@ -1148,8 +1148,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_DIABOLIST_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_DIABOLIST, oCaster);
 		
-		if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
+		//if(GetHasFeat(FEAT_DHEART_SPELLCASTING_ASSASSIN, oCaster))
+			//nArcane += GetLevelByClass(CLASS_TYPE_DRAGONHEART_MAGE, oCaster);		
 
 		if(GetHasFeat(FEAT_EKNIGHT_SPELLCASTING_ASSASSIN, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_ELDRITCH_KNIGHT, oCaster);
@@ -3822,6 +3822,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_ARCHIVIST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
 		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
+		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_ARCHIVIST, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
 			
@@ -4148,7 +4151,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_CLERIC, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);		
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_CLERIC, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);		
@@ -4258,7 +4264,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_DRUID, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);			
 		
 		// if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_DRUID, oCaster))				
 			// nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);	
@@ -4370,10 +4379,13 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_FAVOURED_SOUL, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);	
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
-		// if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
-			// nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
 		
 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_FAVOURED_SOUL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
@@ -4478,6 +4490,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_HEALER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_HEALER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
@@ -4585,6 +4600,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_JUSTICEWW, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_JOWAW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
 		// if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_JUSTICEWW, oCaster))				
 			// nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);			
@@ -4796,6 +4814,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
 		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_KOTMC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
+		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */	
 			
@@ -4901,7 +4922,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);		
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);	
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */			
@@ -5212,7 +5236,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster); */
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_RANGER, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);	
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 			
 		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_RANGER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
@@ -5316,7 +5343,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_OASHAMAN, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);				
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_SHAMAN, oCaster);			
 		
 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_OASHAMAN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);		
@@ -5529,6 +5559,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SOHEI, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
 		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);
+		
 		// if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SOHEI, oCaster))				
 			// nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);		
 			
@@ -5635,6 +5668,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SOL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);		
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SOL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */

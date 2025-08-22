@@ -74,7 +74,7 @@ void EpicSwarmOfArrows(object oAttacker)
 
                 // Perform a single attack using full base attack bonus
                 int iBAB = GetBaseAttackBonus(oAttacker);
-                PerformAttack(
+                DelayCommand(0.0, PerformAttack(
                     oTarget,
                     oAttacker,
                     EffectVisualEffect(VFX_IMP_PDK_GENERIC_HEAD_HIT),
@@ -83,7 +83,7 @@ void EpicSwarmOfArrows(object oAttacker)
                     0,
                     DAMAGE_TYPE_PIERCING,
                     "*Swarm of Arrows Hit!*",
-                    "*Swarm of Arrows Miss*");
+                    "*Swarm of Arrows Miss*"));
             }
         }
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, fRadius, lAttacker, TRUE, OBJECT_TYPE_CREATURE);

@@ -31,7 +31,7 @@
 27         Shadowdancer             2944     ****   ****  0  
 28         Harper                   2956     S      Arc   0  
 29         Arcane_Archer            9003     ****   ****  0  
-30         Assassin                 9007     S      Arc   0  
+30         Assassin                 9007     P      Arc   0  
 31         Blackguard               9011     P      Div   0  
 32         Champion_Torm            9015     ****   ****  0  
 33         WeaponMaster             9019     ****   ****  0  
@@ -181,7 +181,7 @@
 177        Frenzied_Berserker       16824216 ****   ****  0  
 178        Tempest                  16824242 ****   ****  0  
 179        Foe_Hunter               16824256 ****   ****  0  
-180        ***Eye_of_Gruumsh***     ****     ****   ****  0  
+180        Verdant_Lord             16855246 ****   ****  0  
 181        Orc_Warlord              16824312 ****   ****  0  
 182        Thrall_of_Grazzt         16824516 ****   ****  0  
 183        Necrocarnate             16838080 ****   ****  0  
@@ -200,7 +200,7 @@
 196        EternalBlade             16834750 ****   ****  0  
 197        ShadowSunNinja           16834778 ****   ****  0  
 198        WitchbornBinder          16838144 S      Div   0  
-199        Baelnorn                 16829216 ****   ****  0  
+199        Lion_of_Talisid          16855216 ****   ****  0  
 200        Disciple_of_Meph         16823016 ****   ****  0  
 201        Soul_Eater               16832116 ****   ****  0  
 202        Henshin_Mystic           16825076 ****   ****  0  

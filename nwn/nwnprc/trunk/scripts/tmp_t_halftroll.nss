@@ -72,7 +72,12 @@ void main()
 //:: No undead.
     if(GetHasTemplate(TEMPLATE_LICH, oPC) ||
     GetHasTemplate(TEMPLATE_DEMILICH, oPC) ||
+    GetHasTemplate(TEMPLATE_NECROPOLITAN, oPC) ||
+	GetHasTemplate(TEMPLATE_ARCHLICH, oPC) ||	
+	GetHasTemplate(TEMPLATE_ALHOON, oPC) ||
+	GetHasTemplate(TEMPLATE_CURST, oPC) ||
 	GetHasTemplate(TEMPLATE_CRYPTSPAWN, oPC) ||
+	GetHasTemplate(TEMPLATE_BAELNORN, oPC) ||	
     GetLevelByClass(CLASS_TYPE_BAELNORN, oPC) > 0 ||
     GetLevelByClass(CLASS_TYPE_LICH, oPC) > 0)
     {

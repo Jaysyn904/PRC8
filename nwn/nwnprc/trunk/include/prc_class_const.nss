@@ -143,7 +143,7 @@ const int CLASS_TYPE_MASTER_HARPER         	= 176;
 const int CLASS_TYPE_FRE_BERSERKER         	= 177;
 const int CLASS_TYPE_TEMPEST               	= 178;
 const int CLASS_TYPE_FOE_HUNTER            	= 179;
-//:: Free = 180
+const int CLASS_TYPE_VERDANT_LORD			= 180;
 const int CLASS_TYPE_ORC_WARLORD           	= 181;
 const int CLASS_TYPE_THRALL_OF_GRAZZT_A    	= 182;
 const int CLASS_TYPE_NECROCARNATE          	= 183;
@@ -162,7 +162,7 @@ const int CLASS_TYPE_MASTER_OF_NINE        	= 195;
 const int CLASS_TYPE_ETERNAL_BLADE         	= 196;
 const int CLASS_TYPE_SHADOW_SUN_NINJA      	= 197;
 const int CLASS_TYPE_WITCHBORN_BINDER      	= 198;
-const int CLASS_TYPE_BAELNORN              	= 199;
+const int CLASS_TYPE_LION_OF_TALISID        = 199;
 const int CLASS_TYPE_DISCIPLE_OF_MEPH      	= 200;
 const int CLASS_TYPE_SOUL_EATER            	= 201;
 const int CLASS_TYPE_HENSHIN_MYSTIC        	= 202;
@@ -236,6 +236,7 @@ const int CLASS_TYPE_WITCH                 = -1;
 const int CLASS_TYPE_TEMPLAR               = -1;
 const int CLASS_TYPE_MYSTIC                = -1;
 const int CLASS_TYPE_NOBLE                 = -1;
+const int CLASS_TYPE_BAELNORN              = -2;
 
 
 //void main (){}

@@ -108,8 +108,8 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_ALIENIST:              sScript = "prc_alienist";                    break;
                 case CLASS_TYPE_ARCANE_DUELIST:        sScript = "prc_arcduel";                     break;
                 case CLASS_TYPE_ARCHIVIST:             sScript = "prc_archivist";    iData |= 0x01; break;
-                case CLASS_TYPE_ASSASSIN:                                            iData |= 0x03; break;
-                case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
+                case CLASS_TYPE_ASSASSIN:                                            				break;
+                //case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
                 case CLASS_TYPE_BARD:                                                iData |= 0x07; break;
                 case CLASS_TYPE_BATTLESMITH:           sScript = "prc_battlesmith";                 break;
                 case CLASS_TYPE_BEGUILER:                                            iData |= 0x03; break;
@@ -121,7 +121,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_BLIGHTLORD:            sScript = "prc_blightlord";                  break;
                 case CLASS_TYPE_BLOODCLAW_MASTER:      sScript = "tob_bloodclaw";                   break;
                 case CLASS_TYPE_BONDED_SUMMONNER:      sScript = "prc_bondedsumm";                  break;
-                case CLASS_TYPE_CELEBRANT_SHARESS:                                   iData |= 0x03; break;
+                case CLASS_TYPE_CELEBRANT_SHARESS:                                   iData |= 0x07; break;
                 case CLASS_TYPE_CHILD_OF_NIGHT:        sScript = "shd_childnight";                  break;
                 case CLASS_TYPE_COC:                   sScript = "prc_coc";                         break;
                 case CLASS_TYPE_COMBAT_MEDIC:          sScript = "prc_cbtmed";                      break;
@@ -180,6 +180,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_LASHER:                sScript = "prc_lasher";                      break;
                 case CLASS_TYPE_LEGENDARY_DREADNOUGHT: sScript = "prc_legendread";                  break;
                 case CLASS_TYPE_LICH:                  sScript = "pnp_lich_level";                  break;
+				case CLASS_TYPE_LION_OF_TALISID:	   sScript = "prc_lot";							break;
                 case CLASS_TYPE_MAGEKILLER:            sScript = "prc_magekill";                    break;
                 case CLASS_TYPE_MASTER_HARPER:         sScript = "prc_masterh";                     break;
                 case CLASS_TYPE_MASTER_OF_NINE:        sScript = "tob_masterofnine";                break;
@@ -245,6 +246,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_TOTEM_RAGER:           sScript = "moi_totemrager";                  break;
                 case CLASS_TYPE_TRUENAMER:             sScript = "true_truenamer";   iData |= 0x01; break;
                 case CLASS_TYPE_VASSAL:                sScript = "prc_vassal";                      break;
+				case CLASS_TYPE_VERDANT_LORD:          sScript = "prc_verdantlord";                 break;
                 case CLASS_TYPE_VIGILANT:              sScript = "prc_vigilant";                    break;
                 case CLASS_TYPE_WARBLADE:              sScript = "tob_warblade";     iData |= 0x01; break;
                 case CLASS_TYPE_WARCHIEF:              sScript = "prc_warchief";                    break;
@@ -2264,6 +2266,8 @@ void FeatSpecialUsePerDay(object oPC)
 	FeatUsePerDay(oPC, FEAT_FM_FOREST_DOMINION, ABILITY_CHARISMA, 3);
 	FeatUsePerDay(oPC, FEAT_SOD_DEATH_TOUCH, -1, (GetLevelByClass(CLASS_TYPE_SLAYER_OF_DOMIEL, oPC)+4)/4);
 	FeatUsePerDay(oPC, FEAT_SUEL_DISPELLING_STRIKE, -1, (GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC) + 2) / 4);
+	FeatUsePerDay(oPC, FEAT_PLANT_CONTROL, ABILITY_CHARISMA, 3);
+	FeatUsePerDay(oPC, FEAT_PLANT_DEFIANCE, ABILITY_CHARISMA, 3);
     FeatDiabolist(oPC);
     FeatAlaghar(oPC);
     ShadowShieldUses(oPC);

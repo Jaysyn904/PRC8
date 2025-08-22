@@ -16,26 +16,28 @@ const int	MATERIAL_TYPE_UNKNOWN			= 0;
 const int	MATERIAL_TYPE_BONE				= 1;
 const int	MATERIAL_TYPE_CERAMIC			= 2;
 const int	MATERIAL_TYPE_CRYSTAL			= 3;
-const int	MATERIAL_TYPE_FABRIC			= 4;
+const int	MATERIAL_TYPE_FIBER				= 4;
 const int	MATERIAL_TYPE_LEATHER			= 5;
 const int	MATERIAL_TYPE_METAL				= 6;
 const int	MATERIAL_TYPE_PAPER				= 7;
 const int	MATERIAL_TYPE_ROPE				= 8;
 const int	MATERIAL_TYPE_STONE				= 9;
 const int	MATERIAL_TYPE_WOOD				= 10;
+const int 	MATERIAL_TYPE_BOTANICAL			= 11;
 
 const string MATERIAL_TYPE_NAME_INVALID		= "";
 const string MATERIAL_TYPE_NAME_UNKNOWN		= "Unknown";
 const string MATERIAL_TYPE_NAME_BONE		= "Bone";
 const string MATERIAL_TYPE_NAME_CERAMIC		= "Ceramic";
 const string MATERIAL_TYPE_NAME_CRYSTAL		= "Crystal";
-const string MATERIAL_TYPE_NAME_FABRIC		= "Fabric";
+const string MATERIAL_TYPE_NAME_FIBER		= "Fiber";
 const string MATERIAL_TYPE_NAME_LEATHER		= "Leather";
 const string MATERIAL_TYPE_NAME_METAL		= "Metal";
 const string MATERIAL_TYPE_NAME_PAPER		= "Paper";
 const string MATERIAL_TYPE_NAME_ROPE		= "Rope";
 const string MATERIAL_TYPE_NAME_STONE		= "Stone";
 const string MATERIAL_TYPE_NAME_WOOD		= "Wood";
+const string MATERIAL_TYPE_NAME_BOTANICAL	= "Bontanical";
   
 //:: Material Itemproperty Constants
 //::////////////////////////////////////////////////////////////////////////////////
@@ -163,7 +165,8 @@ const int	IP_MATERIAL_OBSIDIAN 					= 140;
 const int	IP_MATERIAL_BAMBOO 						= 141;
 const int	IP_MATERIAL_POTTERY						= 142;
 const int	IP_MATERIAL_GLASSTEEL					= 143;
-const int	IP_NUM_MATERIALS						= 143;
+const int 	IP_MATERIAL_HERB 						= 144;
+const int	IP_NUM_MATERIALS						= 144;
   
 const string IP_MATERIAL_NAME_INVALID                	= "";
 const string IP_MATERIAL_NAME_UNKNOWN                	= "Unknown";
@@ -288,6 +291,7 @@ const string IP_MATERIAL_NAME_OBSIDIAN 					= "Obsidian";
 const string IP_MATERIAL_NAME_BAMBOO 					= "Bamboo";
 const string IP_MATERIAL_NAME_POTTERY 					= "Pottery";
 const string IP_MATERIAL_NAME_GLASSTEEL					= "Glassteel";
+const string IP_MATERIAL_NAME_HERB						= "Herbs";
   
 //::///////////////////////////////////////////////////////////////
 //  GetMaterialName( int iMaterialType, int bLowerCase = FALSE)
@@ -428,6 +432,7 @@ string GetMaterialName( int iMaterialType, int bLowerCase = FALSE)
 	case IP_MATERIAL_BAMBOO: 					sName = IP_MATERIAL_NAME_BAMBOO; 					break; 
 	case IP_MATERIAL_POTTERY: 					sName = IP_MATERIAL_NAME_POTTERY; 					break; 	
 	case IP_MATERIAL_GLASSTEEL:					sName = IP_MATERIAL_NAME_GLASSTEEL;					break; 		
+	case IP_MATERIAL_HERB:						sName = IP_MATERIAL_NAME_HERB;						break; 	
 	
     default: return "";
   }
@@ -573,6 +578,7 @@ int GetIPMaterial( string sMaterialName)
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_BAMBOO)) 					return IP_MATERIAL_BAMBOO;
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_POTTERY))					return IP_MATERIAL_POTTERY;	
 	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_GLASSTEEL))				return IP_MATERIAL_GLASSTEEL;		
+	else if( sMaterialName == GetStringUpperCase(IP_MATERIAL_NAME_HERB))					return IP_MATERIAL_HERB;		
 	
 	return IP_MATERIAL_INVALID;
 }
@@ -806,6 +812,9 @@ int GetMaterialType(int nMaterial)
 			|| nMaterial == IP_MATERIAL_DRAKE_IVORY )
 		return MATERIAL_TYPE_BONE;
 		
+	else if ( nMaterial == IP_MATERIAL_HERB )
+		return MATERIAL_TYPE_BOTANICAL;
+		
 	else if ( nMaterial == IP_MATERIAL_ELUKIAN_CLAY
 			|| nMaterial == IP_MATERIAL_POTTERY )
 		return MATERIAL_TYPE_CERAMIC;
@@ -814,7 +823,7 @@ int GetMaterialType(int nMaterial)
 			|| nMaterial == IP_MATERIAL_COTTON
 			|| nMaterial == IP_MATERIAL_SILK
 			|| nMaterial == IP_MATERIAL_WOOL )
-		return MATERIAL_TYPE_FABRIC;
+		return MATERIAL_TYPE_FIBER;
 		
 	else if ( nMaterial == IP_MATERIAL_GEM
 			|| nMaterial == IP_MATERIAL_GEM_ALEXANDRITE

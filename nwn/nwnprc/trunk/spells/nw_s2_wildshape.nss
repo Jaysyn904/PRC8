@@ -52,8 +52,9 @@ void main()
     effect ePoly;
     int nPoly;
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int nDuration = GetLevelByClass(CLASS_TYPE_DRUID, oPC)
-                  + GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oPC);
+    int nDuration 	= GetLevelByClass(CLASS_TYPE_DRUID, oPC)
+					+ GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oPC)
+					+ GetLevelByClass(CLASS_TYPE_ARCANE_HIEROPHANT, oPC);
 	
 	int bShiftingDruid = GetLocalInt(GetModule(),"PRC_DRUID_USES_SHIFTING");
 

@@ -108,8 +108,8 @@ void main()
 			eNoStun = ExtraordinaryEffect(eNoStun);
 			DelayCommand(0.0f, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eNoStun, oPC));
 		
-		//:: These are handled via cls_feat_formast.2da
-/* 			ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_PARALYSIS);
+		//:: These are handled via cls_feat_formast.2da (they don't seem to be)
+ 			ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_PARALYSIS);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 
 			ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_POISON);
@@ -119,7 +119,7 @@ void main()
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 
 			ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_CRITICAL_HITS);
-			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE); */
+			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE); 
 			
 			ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_BACKSTAB);
 			IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);

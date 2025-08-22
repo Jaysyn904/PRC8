@@ -1,14 +1,15 @@
 2DA V2.0
 
-           Label   Name    Constant              
-0          Unknown Unknown MATERIAL_TYPE_UNKNOWN 
-1          Bone    Bone    MATERIAL_TYPE_BONE    
-2          Ceramic Ceramic MATERIAL_TYPE_CERAMIC 
-3          Crystal Crystal MATERIAL_TYPE_CRYSTAL 
-4          Fabric  Fabric  MATERIAL_TYPE_FABRIC  
-5          Leather Leather MATERIAL_TYPE_LEATHER 
-6          Metal   Metal   MATERIAL_TYPE_METAL   
-7          Paper   Paper   MATERIAL_TYPE_PAPER   
-8          Rope    Rope    MATERIAL_TYPE_ROPE    
-9          Stone   Stone   MATERIAL_TYPE_STONE   
-10         Wood    Wood    MATERIAL_TYPE_WOOD    
+           Label      Name     Constant                
+0          Unknown    16977217 MATERIAL_TYPE_UNKNOWN   
+1          Bone       16977218 MATERIAL_TYPE_BONE      
+2          Ceramic    16977219 MATERIAL_TYPE_CERAMIC   
+3          Crystal    16977220 MATERIAL_TYPE_CRYSTAL   
+4          Fabric     16977221 MATERIAL_TYPE_FABRIC    
+5          Leather    16977222 MATERIAL_TYPE_LEATHER   
+6          Metal      16977223 MATERIAL_TYPE_METAL     
+7          Paper      16977224 MATERIAL_TYPE_PAPER     
+8          Rope       16977225 MATERIAL_TYPE_ROPE      
+9          Stone      16977226 MATERIAL_TYPE_STONE     
+10         Wood       16977227 MATERIAL_TYPE_WOOD      
+11         Bontanical 16977228 MATERIAL_TYPE_BOTANICAL 

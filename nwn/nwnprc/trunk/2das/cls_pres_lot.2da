@@ -1,0 +1,13 @@
+2DA V2.0
+
+           LABEL               ReqType  ReqParam1     ReqParam2 
+0          FEAT_FAV_COMPANIONS FEAT     25994         ****      
+1          Ranger              CLASSOR  7             ****      
+2          Druid               CLASSOR  3             ****      
+3          Shaman              CLASSOR  207           ****      
+4          CelebrantOfSharess  CLASSOR  73            ****      
+5          Blighter            CLASSNOT 247           ****      
+6          Ur-Priest           CLASSNOT 42            ****      
+7          Heal                SKILL    4             9         
+8          Lore                SKILL    7             9         
+9          ScriptVar           VAR      PRC_PrereqLoT 0         
