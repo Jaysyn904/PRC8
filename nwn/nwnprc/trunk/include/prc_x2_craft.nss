@@ -3309,21 +3309,23 @@ object CICreateInfusion(object oCreator, int nSpellID)
 
     // Keep the original spell id the engine gave us (may be a subradial)
     int nSpellOriginal = nSpellID;
+	if (DEBUG) DoDebug("prc_x2_craft >> CICreateInfusion: nSpellOriginal is "+IntToString(nSpellOriginal)+".");
 
-    // Compute the master (one-step) if this is a subradial. Keep original intact.
-    int nSpellMaster = nSpellOriginal;
+    // Compute the master if this is a subradial. Keep original intact.
+	int nSpellMaster = nSpellOriginal;
     if (GetIsSubradialSpell(nSpellOriginal))
     {
         nSpellMaster = GetMasterSpellFromSubradial(nSpellOriginal);
         if (DEBUG) DoDebug("CICreateInfusion: detected subradial " + IntToString(nSpellOriginal) + " master -> " + IntToString(nSpellMaster));
     }
+	if (DEBUG) DoDebug("prc_x2_craft >> CICreateInfusion: nSpellMaster is "+IntToString(nSpellMaster)+".");
 
     // Try to find an iprp_spells row for the original subradial first (preferred).
     int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellOriginal);
     int nSpellUsedForIP = nSpellOriginal;
 
     // If not found for original, fall back to the master/base spell.
-    if (nPropID < 0)
+	if (nPropID < 0)
     {
         if (DEBUG) DoDebug("CICreateInfusion: no iprp row for original " + IntToString(nSpellOriginal) + ", trying master " + IntToString(nSpellMaster));
         nPropID = IPGetIPConstCastSpellFromSpellID(nSpellMaster);

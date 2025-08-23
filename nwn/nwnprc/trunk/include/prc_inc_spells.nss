@@ -385,10 +385,10 @@ const int  TYPE_DIVINE   = -2;
 // Returns TRUE if nSpellID is a subradial spell, FALSE otherwise
 int GetIsSubradialSpell(int nSpellID)
 {
-    string sMaster = Get2DAString("spells", "Master", nSpellID);
+    string sMaster = Get2DACache("spells", "Master", nSpellID);
 
-    // A subradial will have a numeric master ID here, not ****
-    if (sMaster != "****")
+    // If the Master column is numeric, this spell is a subradial of that master
+    if (sMaster != "" && sMaster != "****")
     {
         return TRUE;
     }

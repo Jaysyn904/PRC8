@@ -8,7 +8,7 @@ Make cls_spcr_*.2da
 Make blank cls_spell_*.2da
 Add cls_spgn_*.2da to classes.2da
 Add class entry in prc_classes.2da
-Add the spellbook feat (#1999) to cls_feat_*.2da at the appropriate level
+Add the spellbook feat (#1999) to cls_feat_*.2da at the appropriate level (not needed for NWN:EE)
 Add class to PRCGetSpellSaveDC() in prc_add_spell_dc
 Add class to GetSpellbookTypeForClass() below
 Add class to GetAbilityScoreForClass() below
@@ -580,7 +580,79 @@ int bKnowsAllClassSpells(int nClass)
     return TRUE;
 }
 
+
 int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC)
+{
+    // If the character doesn't have any spell slots available on for this level, it can't know any spells of that level either
+    if(!GetSlotCount(nLevel, nSpellLevel, GetAbilityScoreForClass(nClass, oPC), nClass))
+    {
+        if(DEBUG) DoDebug("GetSpellKnownMaxCount: No slots available for " + IntToString(nClass) + " level " + IntToString(nLevel) + " circle " + IntToString(nSpellLevel));
+        return 0;
+    }
+    
+    int nKnown;
+    string sFile = Get2DACache("classes", "SpellKnownTable", nClass);
+    string sKnown = Get2DACache(sFile, "SpellLevel" + IntToString(nSpellLevel), nLevel - 1);
+    
+    if(DEBUG) 
+    {
+        DoDebug("GetSpellKnownMaxCount Details:");
+        DoDebug("- Class: " + IntToString(nClass));
+        DoDebug("- Passed Level: " + IntToString(nLevel));
+        DoDebug("- Base Class Level: " + IntToString(GetLevelByClass(nClass, oPC)));
+        DoDebug("- Effective Level: " + IntToString(GetSpellslotLevel(nClass, oPC)));
+        DoDebug("- Spell Level: " + IntToString(nSpellLevel));
+        DoDebug("- SpellKnownTable: " + sFile);
+        DoDebug("- MaxKnown from 2DA: " + sKnown);
+    }
+    
+    if(sKnown == "")
+    {
+        nKnown = -1;
+        if(DEBUG) DoDebug("GetSpellKnownMaxCount: Problem getting known numbers");
+    }
+    else
+        nKnown = StringToInt(sKnown);
+    
+    if(nKnown == -1)
+        return 0;
+
+    // COMPLETELY REWROTE THIS SECTION
+    // Bard and Sorcerer logic for prestige class advancement
+    if(nClass == CLASS_TYPE_SORCERER || nClass == CLASS_TYPE_BARD)
+    {
+        int baseClassLevel = GetLevelByClass(nClass, oPC);
+        int effectiveLevel = GetSpellslotLevel(nClass, oPC);
+        
+        // Debug the values we're checking
+        if(DEBUG)
+        {
+            DoDebug("Spont caster check - Base level: " + IntToString(baseClassLevel) + 
+                   ", Effective level: " + IntToString(effectiveLevel));
+        }
+        
+        // If they have prestige class advancement OR special feats, they should get spells
+        if(effectiveLevel > baseClassLevel || 
+           GetHasFeat(FEAT_DRACONIC_GRACE, oPC) || 
+           GetHasFeat(FEAT_DRACONIC_BREATH, oPC))
+        {
+            // Allow them to get spells - do nothing here, return nKnown at the end
+            if(DEBUG) DoDebug("Spontaneous caster eligible for new spells");
+        }
+        else
+        {
+            // No advancement, no special feats - no new spells
+            if(DEBUG) DoDebug("Spontaneous caster NOT eligible for new spells");
+            return 0;
+        }
+    }
+    
+    if(DEBUG) DoDebug("Final spell known count: " + IntToString(nKnown));
+    return nKnown;
+}
+
+
+/* int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC)
 {
     // If the character doesn't have any spell slots available on for this level, it can't know any spells of that level either
     // @todo Check rules. There might be cases where this doesn't hold
@@ -588,22 +660,9 @@ int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC)
         return 0;
     int nKnown;
     string sFile;
-    // Bioware casters use their classes.2da-specified tables
-    /*if(    nClass == CLASS_TYPE_WIZARD
-        || nClass == CLASS_TYPE_SORCERER
-        || nClass == CLASS_TYPE_BARD
-        || nClass == CLASS_TYPE_CLERIC
-        || nClass == CLASS_TYPE_DRUID
-        || nClass == CLASS_TYPE_PALADIN
-        || nClass == CLASS_TYPE_RANGER)
-    {*/
-        sFile = Get2DACache("classes", "SpellKnownTable", nClass);
-    /*}
-    else
-    {
-        sFile = Get2DACache("classes", "FeatsTable", nClass);
-        sFile = "cls_spkn" + GetStringRight(sFile, GetStringLength(sFile) - 8); // Hardcoded the cls_ part. It's not as if any class uses some other prefix - Ornedan, 20061231
-    }*/
+
+	sFile = Get2DACache("classes", "SpellKnownTable", nClass);
+
 
     string sKnown = Get2DACache(sFile, "SpellLevel" + IntToString(nSpellLevel), nLevel - 1);
     if(DEBUG) DoDebug("GetSpellKnownMaxCount(" + IntToString(nLevel) + ", " + IntToString(nSpellLevel) + ", " + IntToString(nClass) + ", " + GetName(oPC) + ") = " + sKnown);
@@ -626,6 +685,7 @@ int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC)
     }
     return nKnown;
 }
+ */
 
 int GetSpellKnownCurrentCount(object oPC, int nSpellLevel, int nClass)
 {
@@ -700,6 +760,44 @@ int GetSpellUnknownCurrentCount(object oPC, int nSpellLevel, int nClass)
     if(!GetIsObjectValid(oCache))
     {
         if(DEBUG) DoDebug("GetSpellUnknownCurrentCount: " + sTag + " is not valid");
+        
+        // Add code to create the missing lookup object
+        if(DEBUG) DoDebug("Attempting to create missing spell lookup token");
+        ExecuteScript("prc_create_spellb", oPC);
+        
+        // Try again after creating it
+        oCache = GetObjectByTag(sTag);
+        if(!GetIsObjectValid(oCache))
+        {
+            if(DEBUG) DoDebug("Still couldn't create spell lookup token");
+            return 0;
+        }
+        else
+        {
+            if(DEBUG) DoDebug("Successfully created spell lookup token");
+        }
+    }
+    
+    // Read the total number of spells on the given level and determine how many are already known
+    int nTotal = array_get_size(oCache, "Lkup");
+    int nKnown = GetSpellKnownCurrentCount(oPC, nSpellLevel, nClass);
+    int nUnknown = nTotal - nKnown;
+
+    if(DEBUG) DoDebug("GetSpellUnknownCurrentCount(" + GetName(oPC) + ", " + IntToString(nSpellLevel) + ", " + IntToString(nClass) + ") = " + IntToString(nUnknown));
+    if(DEBUG) DoDebug("  Total spells in lookup: " + IntToString(nTotal) + ", Known spells: " + IntToString(nKnown));
+    
+    return nUnknown;
+}
+
+
+/* int GetSpellUnknownCurrentCount(object oPC, int nSpellLevel, int nClass)
+{
+    // Get the lookup token created by MakeSpellbookLevelLoop()
+    string sTag = "SpellLvl_" + IntToString(nClass) + "_Level_" + IntToString(nSpellLevel);
+    object oCache = GetObjectByTag(sTag);
+    if(!GetIsObjectValid(oCache))
+    {
+        if(DEBUG) DoDebug("GetSpellUnknownCurrentCount: " + sTag + " is not valid");
         return 0;
     }
     // Read the total number of spells on the given level and determine how many are already known
@@ -709,7 +807,7 @@ int GetSpellUnknownCurrentCount(object oPC, int nSpellLevel, int nClass)
 
     if(DEBUG) DoDebug("GetSpellUnknownCurrentCount(" + GetName(oPC) + ", " + IntToString(nSpellLevel) + ", " + IntToString(nClass) + ") = " + IntToString(nUnknown));
     return nUnknown;
-}
+} */
 
 void AddSpellUse(object oPC, int nSpellbookID, int nClass, string sFile, string sArrayName, int nSpellbookType, object oSkin, int nFeatID, int nIPFeatID, string sIDX = "")
 {
