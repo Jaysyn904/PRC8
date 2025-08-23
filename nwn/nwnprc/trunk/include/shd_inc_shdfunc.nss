@@ -236,12 +236,12 @@ int GetShadowcasterLevel(object oShadow = OBJECT_SELF, int nSpecificClass = CLAS
     // For when you want to assign the caster level.
     if(nLevel)
     {
-        if(DEBUG) SendMessageToPC(oShadow, "GetShadowcasterLevel(): Forced-level shadowcasting at level " + IntToString(nLevel));
+        if(DEBUG) DoDebug("GetShadowcasterLevel(): Forced-level shadowcasting at level " + IntToString(nLevel));
         //DelayCommand(1.0, DeleteLocalInt(oShadow, PRC_CASTERLEVEL_OVERRIDE));
         return nLevel + nAdjust;
     }
 
-    if (DEBUG) FloatingTextStringOnCreature("GetShadowcasterLevel: "+GetName(oShadow)+" is a "+IntToString(nSpecificClass), oShadow);
+    if (DEBUG) DoDebug("GetShadowcasterLevel: "+GetName(oShadow)+" is a "+IntToString(nSpecificClass), oShadow);
     // The function user needs to know the character's Shadowcaster level in a specific class
     // instead of whatever the character last shadowcast a mystery as
     if(nSpecificClass != CLASS_TYPE_INVALID)
@@ -288,7 +288,7 @@ int GetShadowcasterLevel(object oShadow = OBJECT_SELF, int nSpecificClass = CLAS
             nLevel -= 4;             
     }
     
-    if(DEBUG) FloatingTextStringOnCreature("Shadowcaster Level: " + IntToString(nLevel), oShadow, FALSE);
+    if(DEBUG) DoDebug("Shadowcaster Level: " + IntToString(nLevel));
 
     return nLevel + nAdjust;
 }
