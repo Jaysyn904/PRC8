@@ -808,7 +808,24 @@ int GetIsOnHitCastSpell(object oSpellTarget = OBJECT_INVALID, object oSpellCastI
 		if (DEBUG) DoDebug("GetIsOnHitCastSpell: item "+GetName(oSpellCastItem)+" is armor; attacker = "+GetName(oAttacker)+", defender = "+GetName(oDefender));
 	}
 	// is the spell type item a weapon?
-	else if (iWeaponType == StringToInt(Get2DACache("baseitems", "WeaponType", iBaseType)))
+	int nWT = StringToInt(Get2DACache("baseitems", "WeaponType", iBaseType));
+	if (nWT > 0)
+	{
+		if (oSpellTarget == OBJECT_INVALID)
+			oSpellTarget = PRCGetSpellTargetObject(oSpellOrigin);
+
+		oAttacker = oSpellOrigin;
+		oDefender = oSpellTarget;
+
+		if (DEBUG) DoDebug("GetIsOnHitCastSpell: item "+GetName(oSpellCastItem)+" is weapon [WT="+IntToString(nWT)+"]; attacker="+GetName(oAttacker)+", defender="+GetName(oDefender));
+	}
+	else
+	{
+		if (DEBUG) DoDebug("GetIsOnHitCastSpell: item "+GetName(oSpellCastItem)+" is neither weapon nor armor; returning FALSE");
+		return FALSE;
+	}
+		
+/* 	else if (iWeaponType == StringToInt(Get2DACache("baseitems", "WeaponType", iBaseType)))
 	{		
 		// determine the target, if not already given
 		if (oSpellTarget == OBJECT_INVALID)
@@ -823,7 +840,7 @@ int GetIsOnHitCastSpell(object oSpellTarget = OBJECT_INVALID, object oSpellCastI
 	{
 		if (DEBUG) DoDebug("GetIsOnHitCastSpell: item "+GetName(oSpellCastItem)+" is neither weapon nor armor; returning FALSE");		
 		return FALSE;
-	}
+	} */
 
 
 	// the spell origin must possess the item that cast the spell (at least for the aurora engine, in prc_inc_combat that may differ)
