@@ -128,7 +128,7 @@ void BondedSummoner(object oPC)
         case 7:
         case 8: sResRef = "nw_s_"+sElem+"great"; break;
         case 9:
-        case 10: sResRef = "nw_s_"+sElem+"elder"; break;
+        default: sResRef = "nw_s_"+sElem+"elder"; break;
     }
 
     oFam = CreateLocalNPC(oPC, ASSOCIATE_TYPE_FAMILIAR, sResRef, PRCGetSpellTargetLocation(), NPC_BONDED_FAMILIAR);
