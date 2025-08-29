@@ -49,7 +49,7 @@ dead after being hit by a fireball).
 // Validates and tracks mirror image alignment with master
 void TrackMirrorImage(object oSummoned)
 {
- 	DoDebug("sp_mirror >> TrackMirrorImage: Running.");
+ 	if(DEBUG) DoDebug("sp_mirror >> TrackMirrorImage: Running.");
 	
 	if (!GetIsObjectValid(oSummoned)) 
 	{
@@ -109,7 +109,7 @@ void StartMirrorImageTracking(object oSummoned, object oMaster)
 	
 	SetLocalObject(oSummoned, "oMaster", oMaster);
 
-	DoDebug("sp_mirror >> StartMirrorImageTracking: Firing TrackMirrorImage().");
+	if(DEBUG) DoDebug("sp_mirror >> StartMirrorImageTracking: Firing TrackMirrorImage().");
     TrackMirrorImage(oSummoned);
 }
 

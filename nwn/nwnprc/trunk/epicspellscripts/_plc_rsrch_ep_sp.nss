@@ -75,7 +75,7 @@ void main()
                 GetIsEpicShaman(oPC) || GetIsEpicArchivist(oPC))) nAllowed = TRUE;
             else if (WHO_CAN_RESEARCH == "ARCANE" && (GetIsEpicSorcerer(oPC) ||
                 GetIsEpicWizard(oPC) || GetIsEpicWarmage(oPC) || GetIsEpicDreadNecromancer(oPC) ||
-                GetIsEpicWitch(oPC) || GetIsEpicSublimeChord(oPC) || GetIsEpicBeguiler(oPC))) nAllowed = TRUE;
+                GetIsEpicSublimeChord(oPC) || GetIsEpicBeguiler(oPC))) nAllowed = TRUE;
         }
         if (nAllowed == TRUE)
         {

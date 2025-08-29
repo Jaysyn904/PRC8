@@ -1539,8 +1539,8 @@ int GetRemainingSpellChoices(int nClass, int circleLevel, object oPC=OBJECT_SELF
             // default logic for spont casters
             totalSpellsKnown = GetSpellKnownMaxCount(casterLevel, circleLevel, nClass, oPC);
             // Favoured Soul has more 0 choices than there are spells for some reason
-            if (nClass == CLASS_TYPE_FAVOURED_SOUL && circleLevel == 0 && totalSpellsKnown > 6)
-                totalSpellsKnown = 6;
+           if (nClass == CLASS_TYPE_FAVOURED_SOUL && circleLevel == 0 && totalSpellsKnown > 7)
+                totalSpellsKnown = 7;
 
             // logic for spont casters
             json selectedCircle = JsonObjectGet(chosenSpells, IntToString(circleLevel));

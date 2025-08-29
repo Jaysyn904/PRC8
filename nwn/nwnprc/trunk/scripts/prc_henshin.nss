@@ -6,6 +6,8 @@
     Jeremiah Teague
 
     Rewritten by Stratovarius to use CompositeBonus
+    
+    Fixed by Jaysyn to work more like PnP
 */
 #include "prc_inc_unarmed"
 

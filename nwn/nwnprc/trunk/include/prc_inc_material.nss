@@ -430,8 +430,8 @@ string GetMaterialName( int iMaterialType, int bLowerCase = FALSE)
 	case IP_MATERIAL_ROPE_GIANT_HAIR: 			sName = IP_MATERIAL_NAME_ROPE_GIANT_HAIR; 			break; 
 	case IP_MATERIAL_OBSIDIAN: 					sName = IP_MATERIAL_NAME_OBSIDIAN; 					break; 
 	case IP_MATERIAL_BAMBOO: 					sName = IP_MATERIAL_NAME_BAMBOO; 					break; 
-	case IP_MATERIAL_POTTERY: 					sName = IP_MATERIAL_NAME_POTTERY; 					break; 	
-	case IP_MATERIAL_GLASSTEEL:					sName = IP_MATERIAL_NAME_GLASSTEEL;					break; 		
+	case IP_MATERIAL_POTTERY: 					sName = IP_MATERIAL_NAME_POTTERY; 					break;
+	case IP_MATERIAL_GLASSTEEL:					sName = IP_MATERIAL_NAME_GLASSTEEL;					break;
 	case IP_MATERIAL_HERB:						sName = IP_MATERIAL_NAME_HERB;						break; 	
 	
     default: return "";

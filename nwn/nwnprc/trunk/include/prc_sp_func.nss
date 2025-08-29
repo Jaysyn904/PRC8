@@ -180,6 +180,24 @@ void RunImpactScript(object oPC, int nSpellID, int nEventType)
     DeleteLocalInt(oPC, PRC_SPELLID_OVERRIDE);
 }
 
+//Returns true if the spell is one of the repair spells
+int IsRepair(int nSpellID)
+{
+    return ((nSpellID >= SPELL_REPAIR_MINOR_DAMAGE) && (nSpellID <= SPELL_REPAIR_CRITICAL_DAMAGE));
+}
+
+//Returns true if the spell is one of the mass repair spells
+int IsMassRepair(int nSpellID)
+{
+    return ((nSpellID >= SPELL_MASS_REPAIR_LIGHT_DAMAGE) && (nSpellID <= SPELL_MASS_REPAIR_CRITICAL_DAMAGE));
+}
+
+//Returns true if the spell is one of the mass inflict damage spells
+int IsMassInflictDamage(int nSpellID)
+{
+    return ((nSpellID >= SPELL_MASS_INFLICT_LIGHT_DAMAGE) && (nSpellID <= SPELL_MASS_INFLICT_CRITICAL_DAMAGE));
+}
+
 //Returns true if the spell is one of the cure spells
 int IsCure(int nSpellID)
 {

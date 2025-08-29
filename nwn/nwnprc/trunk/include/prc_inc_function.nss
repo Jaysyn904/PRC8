@@ -109,7 +109,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_ARCANE_DUELIST:        sScript = "prc_arcduel";                     break;
                 case CLASS_TYPE_ARCHIVIST:             sScript = "prc_archivist";    iData |= 0x01; break;
                 case CLASS_TYPE_ASSASSIN:                                            				break;
-                //case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                    break;
+                //case CLASS_TYPE_BAELNORN:              sScript = "prc_baelnorn";                  break;
                 case CLASS_TYPE_BARD:                                                iData |= 0x07; break;
                 case CLASS_TYPE_BATTLESMITH:           sScript = "prc_battlesmith";                 break;
                 case CLASS_TYPE_BEGUILER:                                            iData |= 0x03; break;

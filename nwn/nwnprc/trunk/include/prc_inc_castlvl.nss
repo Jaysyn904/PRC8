@@ -3859,7 +3859,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_ARCHIVIST, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);					
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_ARCHIVIST, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -4193,7 +4196,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_CLERIC, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_CLERIC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);			
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_CLERIC, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -4309,9 +4315,12 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_DRUID, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	*/
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_DRUID, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
-		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_DRUID, oCaster))	
+/*		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_DRUID, oCaster))	
 			nDivine += GetLevelByClass(CLASS_TYPE_BFZ, oCaster + 1) / 2	 */		
 			
 		// if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_DRUID, oCaster))			
@@ -4421,7 +4430,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_FAVOURED_SOUL, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_FAVOURED_SOUL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_FAVOURED_SOUL, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -4534,7 +4546,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);		 */	
 			
 /* 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_HEALER, oCaster))	
-			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2; */			
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2; */	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_HEALER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);			
 			
 		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_HEALER, oCaster))			
 			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;				
@@ -4641,7 +4656,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_JUSTICEWW, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_JOWAW, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);			
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_JUSTICEWW, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;				
@@ -4742,6 +4760,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			
 		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);			
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_KNIGHT_CHALICE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
@@ -4849,6 +4870,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			
 		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_KOTMC, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);				
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_KNIGHT_MIDDLECIRCLE, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
@@ -4962,6 +4986,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			
 		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_NENTYAR_HUNTER, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	 */		
@@ -5164,6 +5191,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			
 		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_PALADIN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_PALADIN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_PALADIN, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
@@ -5272,7 +5302,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_RANGER, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_RANGER, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_RANGER, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -5385,7 +5418,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_OASHAMAN, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_OASHAMAN, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_OASHAMAN, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -5599,7 +5635,10 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
 			
 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_SOHEI, oCaster))				
-			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);	
+
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOHEI, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_SOHEI, oCaster))	
 			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;			
@@ -5704,6 +5743,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 			
 		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_SOL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SOL, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);		
 			
 /* 		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_SOL, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);			

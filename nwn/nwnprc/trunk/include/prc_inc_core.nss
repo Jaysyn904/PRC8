@@ -410,6 +410,8 @@ int PRCGetSpellLevelForClass(int nSpell, int nClass)
         sSpellLevel = Get2DACache("spells", "Cleric", nSpell);
     else if (nClass == CLASS_TYPE_BARD)
         sSpellLevel = Get2DACache("spells", "Bard", nSpell);
+	else if (nClass == CLASS_TYPE_ASSASSIN)
+        sSpellLevel = Get2DACache("spells", "Assassin", nSpell);
     else if (nClass == CLASS_TYPE_CULTIST_SHATTERED_PEAK)
         sSpellLevel = Get2DACache("spells", "Cultist", nSpell);  
     else if (nClass == CLASS_TYPE_NENTYAR_HUNTER)

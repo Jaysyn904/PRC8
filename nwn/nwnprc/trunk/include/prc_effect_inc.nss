@@ -78,7 +78,7 @@ void PRCRemoveSpellEffects(int nSpell_ID, object oCaster, object oTarget);
 /**
  * Target is immune to gaze attacks
  *
- * @return           the Dazzle effect
+ * @return           the Gaze Immunity effect
  */
 effect EffectGazeImmune();
 

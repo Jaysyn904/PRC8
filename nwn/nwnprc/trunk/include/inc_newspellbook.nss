@@ -20,6 +20,8 @@ Add class to GetCasterLvl() in prc_inc_spells
 Add Practiced Spellcaster feat to feat.2da and to PracticedSpellcasting() in prc_inc_castlvl
 Run the assemble_spellbooks.bat file
 Make the prc_* scripts in newspellbook. The filenames can be found under the spell entries for the class in spells.2da.
+Update the fileends for all relevant files in inc_switch_setup
+Delete prc_data in the \database\ folder before testing new spells.
 
 Spont:
 Make cls_spgn_*.2da
@@ -41,6 +43,8 @@ Add class to prc_amagsys_gain if(CheckMissingSpells(oPC, CLASS_TYPE_SORCERER, Mi
 Add class to ExecuteScript("prc_amagsys_gain", oPC) list in EvalPRCFeats in prc_inc_function
 Run the assemble_spellbooks.bat file
 Make the prc_* scripts in newspellbook
+Update the fileends for all relevant files in inc_switch_setup
+Delete prc_data in the \database\ folder before testing new spells.
 
 prc_classes.2da entry:
 Label       - name for the class

@@ -529,6 +529,7 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
         case CLASS_TYPE_WIZARD:
         case CLASS_TYPE_SORCERER: sClass = "Wiz_Sorc"; break;
         case CLASS_TYPE_CLERIC:
+        case CLASS_TYPE_OCULAR:
         case CLASS_TYPE_UR_PRIEST: sClass = "Cleric"; break;
         case CLASS_TYPE_PALADIN: sClass = "Paladin"; break;
         case CLASS_TYPE_DRUID:

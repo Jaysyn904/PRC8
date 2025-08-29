@@ -401,4 +401,3 @@ int GetBestAvailableSpell(object oTarget)
     if(nBestSpell == 99999) nBestSpell = GetBestL0Spell(oTarget, nBestSpell);
     return nBestSpell;
 }
-

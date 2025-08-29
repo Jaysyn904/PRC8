@@ -221,9 +221,9 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_cls_spcr_bard", 144);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_beguil", 142);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_blkgrd", 47);
-    SetPRCSwitch("PRC_FILE_END_cls_spcr_dnecro", 137);
+    SetPRCSwitch("PRC_FILE_END_cls_spcr_dnecro", 138);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_duskbl", 69);
-    SetPRCSwitch("PRC_FILE_END_cls_spcr_favsol", 290);
+    SetPRCSwitch("PRC_FILE_END_cls_spcr_favsol", 300);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_harper", 35);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_healer", 77);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_hexbl", 73);
@@ -251,9 +251,9 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_cls_spell_bard", 169);
     SetPRCSwitch("PRC_FILE_END_cls_spell_beguil", 119);
     SetPRCSwitch("PRC_FILE_END_cls_spell_blkgrd", 163);
-    SetPRCSwitch("PRC_FILE_END_cls_spell_dnecro", 134);
+    SetPRCSwitch("PRC_FILE_END_cls_spell_dnecro", 135);
     SetPRCSwitch("PRC_FILE_END_cls_spell_duskbl", 84);
-    SetPRCSwitch("PRC_FILE_END_cls_spell_favsol", 363);
+    SetPRCSwitch("PRC_FILE_END_cls_spell_favsol", 373);
     SetPRCSwitch("PRC_FILE_END_cls_spell_harper", 21);
     SetPRCSwitch("PRC_FILE_END_cls_spell_healer", 271);
     SetPRCSwitch("PRC_FILE_END_cls_spell_hexbl", 79);
@@ -267,7 +267,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_cls_spell_sod", 110);
     SetPRCSwitch("PRC_FILE_END_cls_spell_sohei", 131);
     SetPRCSwitch("PRC_FILE_END_cls_spell_sol", 114);
-    SetPRCSwitch("PRC_FILE_END_cls_spell_sorc", 541);
+    SetPRCSwitch("PRC_FILE_END_cls_spell_sorc", 550);
     SetPRCSwitch("PRC_FILE_END_cls_spell_suel", 160);
     SetPRCSwitch("PRC_FILE_END_cls_spell_templ", 95);
     SetPRCSwitch("PRC_FILE_END_cls_spell_tfshad", 70);
@@ -355,7 +355,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_des_crft_poison", 100);
     SetPRCSwitch("PRC_FILE_END_des_crft_props", 27);
     SetPRCSwitch("PRC_FILE_END_des_crft_scroll", 3999);
-    SetPRCSwitch("PRC_FILE_END_des_crft_spells", 19348);
+    SetPRCSwitch("PRC_FILE_END_des_crft_spells", 20000);
     SetPRCSwitch("PRC_FILE_END_des_crft_weapon", 29);
     SetPRCSwitch("PRC_FILE_END_des_cutconvdur", 26);
     SetPRCSwitch("PRC_FILE_END_des_feat2item", 1000);
@@ -423,7 +423,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_iprp_damvulcost", 7);
     SetPRCSwitch("PRC_FILE_END_iprp_decvalue1", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_decvalue2", 9);
-    SetPRCSwitch("PRC_FILE_END_iprp_feats", 24819);
+    SetPRCSwitch("PRC_FILE_END_iprp_feats", 26999);
     SetPRCSwitch("PRC_FILE_END_iprp_immuncost", 7);
     SetPRCSwitch("PRC_FILE_END_iprp_immunity", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_incvalue1", 9);
@@ -458,11 +458,11 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_iprp_soakcost", 50);
     SetPRCSwitch("PRC_FILE_END_iprp_speed_dec", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_speed_enh", 9);
-    SetPRCSwitch("PRC_FILE_END_iprp_spellcost", 243);
+    SetPRCSwitch("PRC_FILE_END_iprp_spellcost", 298);
     SetPRCSwitch("PRC_FILE_END_iprp_spellcstr", 42);
     SetPRCSwitch("PRC_FILE_END_iprp_spelllvcost", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_spelllvlimm", 9);
-    SetPRCSwitch("PRC_FILE_END_iprp_spells", 1456);
+    SetPRCSwitch("PRC_FILE_END_iprp_spells", 1552);
     SetPRCSwitch("PRC_FILE_END_iprp_spellshl", 7);
     SetPRCSwitch("PRC_FILE_END_iprp_srcost", 99);
     SetPRCSwitch("PRC_FILE_END_iprp_staminacost", -1);
@@ -492,9 +492,9 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_itmwizwands", 38);
     SetPRCSwitch("PRC_FILE_END_keymap", 70);
     SetPRCSwitch("PRC_FILE_END_lightcolor", 32);
-    SetPRCSwitch("PRC_FILE_END_loadhints", 88);
+    SetPRCSwitch("PRC_FILE_END_loadhints", 101);
     SetPRCSwitch("PRC_FILE_END_loadscreens", 259);
-    SetPRCSwitch("PRC_FILE_END_masterfeats", 113);
+    SetPRCSwitch("PRC_FILE_END_masterfeats", 125);
     SetPRCSwitch("PRC_FILE_END_materialcomp", 200);
     SetPRCSwitch("PRC_FILE_END_metamagic", 6);
     SetPRCSwitch("PRC_FILE_END_namefilter", 3);

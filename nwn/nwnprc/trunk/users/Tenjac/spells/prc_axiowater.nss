@@ -15,7 +15,7 @@ Spell Resistance: Yes (object)
 You speak the ancient, slippery words as you pour the iron and silver into the flask. Despite the fact that there
 is more powder than will fit in the container, all of it dissolves, leaving a flask of water dotted with motes of gunmetal gray.
 
-This transmutation imbues a flask (1 pint) of water with the order of law, turning it into axiomatic water. Axiomati
+This transmutation imbues a flask (1 pint) of water with the order of law, turning it into axiomatic water. Axiomatic
 water damages chaotic outsiders the way holy water damages undead and evil outsiders. A flask of axiomatic water can 
 be thrown as a splash weapon. Treat this attack as a ranged touch attack with a range increment of 10 feet. A flask
 breaks if thrown against the body of a corporeal creature, but to use it against an incorporeal creature, the bearer
@@ -95,6 +95,5 @@ void main()
 		}
 		MyGetNextObjectInShape(SHAPE_SPHERE, fRadius, lTarget);
 	}
-}
-			
+}	
 		

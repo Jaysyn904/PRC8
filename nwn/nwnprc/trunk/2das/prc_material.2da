@@ -104,7 +104,7 @@
 100        Paper                  16977218 paper            7            0        2                IP_MATERIAL_PAPER                  
 101        Glass                  16977219 crystal          3            1        1                IP_MATERIAL_GLASS                  
 102        Ice                    16977220 crystal          3            0        3                IP_MATERIAL_ICE                    
-103        "Rope, Hemp"           16977221 rope             8            0        2                IP_MATERIAL_ROPE_HEMP              
+103        Rope_Hemp              16977221 rope             8            0        2                IP_MATERIAL_ROPE_HEMP              
 104        Stone                  16977222 stone            9            8        15               IP_MATERIAL_STONE                  
 105        Deep_Coral             16977223 stone            9            8        15               IP_MATERIAL_DEEP_CORAL             
 106        Wood_Living            16977224 wood             10           5        10               IP_MATERIAL_WOOD_LIVING            
