@@ -3,6 +3,16 @@
 //by ebonfowl
 //Dedicated to Edgar, the real Ebonfowl
 
+/* 
+SUMMON ELEMENTAL [RESERVE]
+You can channel the summoning power you hold to briefly bring forth an elemental servant.
+Prerequisite: Ability to cast 4th-level spells.
+Benefit: As long as you have a summoning spell of 4th level or higher available to cast, you can summon a Small elemental (air, earth, fire, or water; your choice) within a range of 30 feet. The elemental acts as if summoned by a summon monster spell (PH 285). The duration of the summoning is equal to 1 round per level of the highest-level conjuration (summoning) spell you have available to cast.
+You can have only one summoned elemental from this feat at a time; if you use the ability a second time, the first elemental disappears. Also, you must remain close to the elemental you summon. If at the end of your turn you are more than 30 feet from the elemental, it disappears.
+If you have a conjuration (summoning) spell of 6th level or higher available to cast, you can summon a Medium elemental instead. If you have a conjuration (summoning) spell of 8th | level or higher available to cast, you can summon a Large elemental instead.
+As a secondary benefit, you gain a +1 competence bonus to your caster level when casting conjuration (summoning) spells. 
+*/
+
 #include "prc_inc_spells"
 
 void MarkElemental(object oPC)
