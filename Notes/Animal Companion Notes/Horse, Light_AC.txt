@@ -1,0 +1,24 @@
+Horses make useful beasts of burden, and the best of them also make good warhorses.
+
+Skills: Listen +4, Spot +4
+Feats: Endurance*, Scent, Low-light Vision
+
+Progression:
+PC Level    Bonus HD  Natural AC+	Str/Dex+     Feat			Special                    Skills
+1st-2nd     +0 (3)    +0 (3)        +0 (14/13)   Endurance*     Link, share spells         Spot(3)
+3rd-5th     +2 (5)    +2 (5)        +1 (15/14)   Weapon Focus   Evasion, +1 CON (16)       Spot(5) 
+6th-8th     +4 (7)    +4 (7)        +2 (16/15)   -              Devotion                   Spot(8)
+9th-11th    +6 (9)    +6 (9)        +3 (17/16)   Power Attack   Multiattack, +1 CON (17)   Spot(11)
+12th-14th   +8 (11)   +8 (11)       +4 (19/18)   -              -       				   Spot(16) Listen(3)
+15th-17th   +10 (13)  +10 (13)      +5 (21/18)   -              Imp Evasion, +1 CON (18)   Spot(16) Listen(4)
+18th-20th   +12 (15)  +12 (15)		+6 (20/19)   Imp Crit       -			               Spot(18) Listen(5)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+     Feat			Special         Skills    
+21st-23rd   +14 (17)  +14 (17)     +7 (21/20)   Blind-fight     +1 CON (19)		Spot(20) Listen(6)
+24th-26th   +16 (19)  +16 (19)     +8 (22/21)   -               -               Spot(22) Listen(7)
+27th-29th   +18 (21)  +18 (21)     +9 (23/22)   Epic WF	    	+1 CON (20)     Spot(24) Listen(8)
+30th-32nd   +20 (23)  +20 (23)     +10 (24/23)	Armor Skin      -               Spot(26) Listen(9)   
+33rd-35th   +22 (25)  +22 (25)     +11 (25/24)  -               +1 CON (21)     Spot(28) Listen(10)
+36th-38th   +24 (27)  +24 (27)     +12 (26/25)  OW Crit         -               Spot(30) Listen(11)
+39th-40th   +26 (29)  +26 (29)     +13 (27/26)  E. Prowess      +1 CON (22)     Spot(32) Listen(12)

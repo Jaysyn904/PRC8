@@ -120,7 +120,7 @@ void BondedSummoner(object oPC)
     switch(nLevel)
     {
         case 1:
-        case 2: sResRef = "x1_s_"+sElem+"small"; break;//this is the 4HD version in the SRD, which is medium
+        case 2: sResRef = "x1_s_"+sElem+"small"; break;		//this is the 4HD version in the SRD, which is medium
         case 3:
         case 4: sResRef = "prc_s_"+sElem+"large"; break;
         case 5:
@@ -130,6 +130,8 @@ void BondedSummoner(object oPC)
         case 9:
         default: sResRef = "nw_s_"+sElem+"elder"; break;
     }
+	
+	if(DEBUG) DoDebug("nw_s2_familiar >> Elemental resref is: "+sResRef+".");
 
     oFam = CreateLocalNPC(oPC, ASSOCIATE_TYPE_FAMILIAR, sResRef, PRCGetSpellTargetLocation(), NPC_BONDED_FAMILIAR);
     AddAssociate(oPC, oFam);

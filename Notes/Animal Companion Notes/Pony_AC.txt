@@ -1,0 +1,24 @@
+Ponies are small horses, under 5 feet tall at the shoulder. Ponies are otherwise similar to light horses and cannot fight while carrying a rider. 
+
+Skills: Listen +5, Spot +5
+Feats: Endurance*, Scent, Low-light Vision
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+     Feat            Special                    Skills
+1st-2nd     +0 (2)    +0           +0 (13/13)   Endurance*      Link, share spells         Spot(5)
+3rd-5th     +2 (4)    +2           +1 (14/14)   Imp Nat Att     Evasion, +1 CON (13)       Spot(7) 
+6th-8th     +4 (6)    +4           +2 (15/15)   -               Devotion                   Spot(9)
+9th-11th    +6 (8)    +6           +3 (16/16)   Power Attack    Multiattack, +1 CON (14)   Spot(11)
+12th-14th   +8 (10)   +8           +4 (17/17)   Cleave          -                          Spot(13)
+15th-17th   +10 (12)  +10          +5 (18/18)   -               Imp Evasion, +1 CON (15)   Spot(15)
+18th-20th   +12 (14)  +12          +6 (19/19)   Imp Crit        -                          Spot(17)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+     Feat                Special        Skills    
+21st-23rd   +14 (16)  +14          +7 (20/20)   Blind-fight        +1 CON (16)     Spot(19)
+24th-26th   +16 (18)  +16          +8 (21/21)   -                  -               Spot(21)
+27th-29th   +18 (20)  +18          +9 (22/22)   Weapon Focus       +1 CON (17)     Spot(23)
+30th-32nd   +20 (22)  +20          +10 (23/23)  Armor Skin         -               Spot(25)    
+33rd-35th   +22 (24)  +22          +11 (24/24)  -                  +1 CON (18)     Spot(27)
+36th-38th   +24 (26)  +24          +12 (25/25)  OW Crit            -               Spot(29)
+39th-40th   +26 (28)  +26          +13 (26/26)  E. Prowess         +1 WIS (12)     Spot(31)

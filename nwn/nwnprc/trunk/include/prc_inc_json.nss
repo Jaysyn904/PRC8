@@ -97,9 +97,37 @@ struct SizeModifiers
     int dexSkillMod;
 };
 
+//:: Returns ability mod for score
+int GetAbilityModFromValue(int nAbilityValue)
+{
+    int nMod = (nAbilityValue - 10) / 2;
+
+    // Adjust if below 10 and odd
+    if (nAbilityValue < 10 && (nAbilityValue % 2) != 0)
+    {
+        nMod = nMod - 1;
+    }
+    return nMod;
+}
+
+
 //::---------------------------------------------|
 //:: JSON functions                              |
 //::---------------------------------------------|
+
+//:: Returns the Constitution value from a GFF creature UTC
+int json_GetCONValue(json jCreature)
+{
+    int nCon = 0; // default if missing
+
+    // Check if the Con field exists
+    if (GffGetFieldExists(jCreature, "Con"))
+    {
+        nCon = JsonGetInt(GffGetByte(jCreature, "Con"));
+    }
+
+    return nCon;
+}
 
 //:: Returns the integer value of a VarTable entry named sVarName, or 0 if not found.
 int json_GetLocalIntFromVarTable(json jCreature, string sVarName)
@@ -141,12 +169,12 @@ int json_GetLocalIntFromVarTable(json jCreature, string sVarName)
     return 0;
 }
 
-//:: Returns the total Hit Dice from a JSON creature GFF.
-int json_GetCreatureHD(json jGff)
+//:: Returns the total Hit Dice from a JSON'd creature GFF.
+int json_GetCreatureHD(json jCreature)
 {
     int nHD = 0;
 
-    json jClasses = GffGetList(jGff, "ClassList");
+    json jClasses = GffGetList(jCreature, "ClassList");
     if (jClasses == JsonNull())
         return 0;
 
@@ -170,6 +198,30 @@ int json_GetCreatureHD(json jGff)
     return nHD;
 }
 
+
+json json_RecalcMaxHP(json jCreature, int iHitDieValue)
+{
+    int iHD  = json_GetCreatureHD(jCreature);
+    int iCON = json_GetCONValue(jCreature);
+    int iMod = GetAbilityModFromValue(iCON);
+
+    int nConBonusHP = iMod * iHD;
+    int iNewMaxHP   = (iHitDieValue * iHD); /* nConBonusHP */
+
+    //jCreature = GffReplaceShort(jCreature, "MaxHitPoints", iNewMaxHP);
+    jCreature = GffReplaceShort(jCreature, "CurrentHitPoints", iNewMaxHP);
+    jCreature = GffReplaceShort(jCreature, "HitPoints", iNewMaxHP);
+
+/* 	SendMessageToPC(GetFirstPC(), "HD = " + IntToString(iHD));
+	SendMessageToPC(GetFirstPC(), "HitDieValue = " + IntToString(iHitDieValue));
+	SendMessageToPC(GetFirstPC(), "CON = " + IntToString(iCON));
+	SendMessageToPC(GetFirstPC(), "Mod = " + IntToString(iMod));
+	SendMessageToPC(GetFirstPC(), "New HP = " + IntToString(iNewMaxHP)); */
+
+    return jCreature;
+}
+
+	
 //:: Reads ABILITY_TO_INCREASE from creature's VarTable and applies stat boosts based on increased HD
 json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifierCap)
 {
@@ -180,7 +232,7 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifier
     int nAbilityToIncrease = json_GetLocalIntFromVarTable(jCreature, "ABILITY_TO_INCREASE");
     if (nAbilityToIncrease < 0 || nAbilityToIncrease > 5)
     {
-        if(DEBUG) DoDebug("json_ApplyAbilityBoostFromHD: Invalid ABILITY_TO_INCREASE value: " + IntToString(nAbilityToIncrease));
+        DoDebug("json_ApplyAbilityBoostFromHD: Invalid ABILITY_TO_INCREASE value: " + IntToString(nAbilityToIncrease));
         return jCreature; // Invalid ability index
     }
 
@@ -188,7 +240,7 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifier
     json jClassList = GffGetList(jCreature, "ClassList");
     if (jClassList == JsonNull())
     {
-        if(DEBUG) DoDebug("json_ApplyAbilityBoostFromHD: Failed to get ClassList");
+        DoDebug("json_ApplyAbilityBoostFromHD: Failed to get ClassList");
         return jCreature;
     }
 
@@ -211,7 +263,7 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifier
 
     if (nCurrentTotalHD <= 0)
     {
-        if(DEBUG) DoDebug("json_ApplyAbilityBoostFromHD: No valid Hit Dice found");
+        DoDebug("json_ApplyAbilityBoostFromHD: No valid Hit Dice found");
         return jCreature;
     }
 
@@ -273,7 +325,7 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifier
     return jCreature;
 }
 
-//:: Adjust a skill by its ID (more efficient than name lookup)
+//:: Adjust a skill by its ID
 json json_AdjustCreatureSkillByID(json jCreature, int nSkillID, int nMod)
 {
     // Get the SkillList
@@ -470,7 +522,7 @@ int json_GetArraySize(json jArray)
     return iSize;
 }
 
-//:: Directly modifies oCreature's Base Natural AC if iNewAC is higher.
+//:: Directly updates oCreature's Base Natural AC if iNewAC is higher.
 //::
 json json_UpdateBaseAC(json jCreature, int iNewAC)
 {
@@ -493,6 +545,26 @@ json json_UpdateBaseAC(json jCreature, int iNewAC)
 	}
 }
 
+//:: Increases jCreature's Natural AC by iAddAC.
+//::
+json json_IncreaseBaseAC(json jCreature, int iAddAC)
+{
+    json jBaseAC = GffGetByte(jCreature, "NaturalAC");
+
+    if (jBaseAC == JsonNull())
+    {
+        return JsonNull();
+    }
+    else
+    {
+        int nBaseAC = JsonGetInt(jBaseAC);          // convert JSON number -> int
+        int nNewAC  = nBaseAC + iAddAC;
+
+        jCreature = GffReplaceByte(jCreature, "NaturalAC", nNewAC);
+        return jCreature;
+    }
+}
+
 //:: Directly modifies jCreature's Challenge Rating.
 //:: This is useful for most XP calculations.
 json json_UpdateCR(json jCreature, int nBaseCR, int nCRMod)
@@ -510,8 +582,7 @@ json json_UpdateCR(json jCreature, int nBaseCR, int nCRMod)
 
 //:: Directly modifies ability scores in a creature's JSON GFF.
 //::
-json json_UpdateTemplateStats(json jCreature, int iModStr = 0, int iModDex = 0, int iModCon = 0,
-                              int iModInt = 0, int iModWis = 0, int iModCha = 0)
+json json_UpdateTemplateStats(json jCreature, int iModStr = 0, int iModDex = 0, int iModCon = 0, int iModInt = 0, int iModWis = 0, int iModCha = 0)
 {
     int iCurrent;
 
@@ -742,6 +813,37 @@ json json_AdjustCreatureSize(json jCreature, int nSizeDelta)
     }
 
     if(DEBUG) DoDebug("json_AdjustCreatureSize completed successfully");
+    return jCreature;
+}
+
+//:: Changes jCreature's creature type.
+json JsonModifyRacialType(json jCreature, int nNewRacialType)
+{
+    if(DEBUG)DoDebug("prc_inc_function >> JsonModifyRacialType: Entering function");
+	
+	// Retrieve the RacialType field
+    json jRacialTypeField = JsonObjectGet(jCreature, "Race");
+
+    if (JsonGetType(jRacialTypeField) == JSON_TYPE_NULL)
+    {
+        DoDebug("prc_inc_function >> JsonModifyRacialType: JsonGetType error 1: " + JsonGetError(jRacialTypeField));
+		//SpeakString("JsonGetType error 1: " + JsonGetError(jRacialTypeField));
+        return JsonNull();
+    }
+
+    // Retrieve the value to modify
+    json jRacialTypeValue = JsonObjectGet(jRacialTypeField, "value");
+
+    if (JsonGetType(jRacialTypeValue) != JSON_TYPE_INTEGER)
+    {
+        DoDebug("prc_inc_function >> JsonModifyRacialType: JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
+		//SpeakString("JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
+        return JsonNull();
+    }
+
+	jCreature = GffReplaceByte(jCreature, "Race", nNewRacialType);
+
+    // Return the new creature object
     return jCreature;
 }
 

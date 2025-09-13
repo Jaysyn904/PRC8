@@ -68,9 +68,12 @@ void main()
         
         ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_PRISMATIC_SPHERE), lTarget, fDurAoE);
         ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAoE, lTarget, fDurAoE);
-
+		
         object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_PRISMATIC_SPHERE");
         SetAllAoEInts(SPELL_PRISMATIC_SPHERE, oAoE, PRCGetSpellSaveDC(SPELL_PRISMATIC_SPHERE, SPELL_SCHOOL_ABJURATION), 0, nCasterLvl);
+
+		effect eVFX = EffectVisualEffect(VFX_DUR_PRISMATIC_SPHERE);
+		ApplyEffectToObject(DURATION_TYPE_PERMANENT, eVFX, oAoE);	
 
         // Declare blindness
         effect eBlind = EffectBlindness();

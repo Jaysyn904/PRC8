@@ -1,0 +1,24 @@
+This enormous rat looks bigger than most dogs.  It has coarse, spiky fur, malevolent eyes & a long naked tail.
+
+Skills: Climb +11, Hide +8, Listen +4, Move Silently +4, Spot +4, Swim +11
+Feats: Alertness*, Low-Light Vision, Scent, Weapon Finesse
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat          Special
+1st-2nd     +0        +0           +0 (10/17)	Alertness*    Link, share spells
+3rd-5th     +2        +2           +1 (11/18)	Dodge         Evasion
+6th-8th     +4        +4           +2 (12/19)	-             Devotion, +1 CON (13)
+9th-11th    +6        +6           +3 (13/20)	WF(Creature)  Multiattack
+12th-14th   +8        +8           +4 (14/21)	Mobility      +1 CON (14)
+15th-17th   +10       +10          +5 (15/22)	-             Improved evasion
+18th-20th   +12       +12          +6 (16/23)	Blind-fight   +1 CON (15)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat            Special    
+21st-23rd   +14       +14          +7 (17/24)   Spr Attack      -
+24th-26th   +16       +16          +8 (18/25)   -               +1 CON (16)
+27th-29th   +18       +18          +9 (19/26)   Iron Will       -
+30th-32nd   +20       +20          +10 (20/27)  Epic Prowess    +1 CON (17)
+33rd-35th   +22       +22          +11 (21/28)  -               -
+36th-38th   +24       +24          +12 (22/29)  EWF (Creature)  +1 CON (18)
+39th-40th   +26       +26          +13 (23/30)  Armor Skin      -

@@ -45,6 +45,7 @@ dead after being hit by a fireball).
 //:://////////////////////////////////////////////
 #include "nw_inc_gff"
 #include "prc_inc_spells"
+#include "prc_inc_json"
 
 // Validates and tracks mirror image alignment with master
 void TrackMirrorImage(object oSummoned)
@@ -132,36 +133,6 @@ void SetMirrorImageScripts(object oImage)
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_SPAWN_IN, "");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_SPELLCASTAT, "mirror_image_sa");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_USER_DEFINED_EVENT, "");
-}
-
-json JsonModifyRacialType(json jCreature, int nNewRacialType)
-{
-    if(DEBUG)DoDebug("sp_mirror >> JsonModifyRacialType: Entering function");
-	
-	// Retrieve the RacialType field
-    json jRacialTypeField = JsonObjectGet(jCreature, "Race");
-
-    if (JsonGetType(jRacialTypeField) == JSON_TYPE_NULL)
-    {
-        DoDebug("sp_mirror >> JsonModifyRacialType: JsonGetType error 1: " + JsonGetError(jRacialTypeField));
-		//SpeakString("JsonGetType error 1: " + JsonGetError(jRacialTypeField));
-        return JsonNull();
-    }
-
-    // Retrieve the value to modify
-    json jRacialTypeValue = JsonObjectGet(jRacialTypeField, "value");
-
-    if (JsonGetType(jRacialTypeValue) != JSON_TYPE_INTEGER)
-    {
-        DoDebug("sp_mirror >> JsonModifyRacialType: JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
-		//SpeakString("JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
-        return JsonNull();
-    }
-
-	jCreature = GffReplaceByte(jCreature, "Race", nNewRacialType);
-
-    // Return the new creature object
-    return jCreature;
 }
 
 void CleanCopy(object oImage)

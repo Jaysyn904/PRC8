@@ -1477,6 +1477,10 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
 
     if(!GetIsObjectValid(oTarget)) oTarget = PRCGetSpellTargetObject();
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
+	
+//:: [TO DO] make Inscribe Epic Rune.
+	if(nCaster > 20) nCaster = 20;
+	
     int nDC = PRCGetSaveDC(oTarget, oCaster);
     if(!nSpell) nSpell = PRCGetSpellId();
     int nSpellLevel = 0;
@@ -1498,6 +1502,7 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
     if (nSpellLevel == 0) nSpellLevel = StringToInt(lookup_spell_innate(nSpell));
     // Minimum level.
     if (nSpellLevel == 0) nSpellLevel = 1;
+
 
     // This will be modified with Runecaster code later.
     int nCharges = 1;

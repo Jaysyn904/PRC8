@@ -1,0 +1,24 @@
+Vipers are not particularly aggressive, but will often lash out with a venomous bite attack before attempting to retreat. 
+
+Skills: Balance +11, Climb +11, Hide +12, Listen +5, Spot +5, Swim +7
+Feats: Scent, Weapon Finesse
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat           Special						Skills
+1st-2nd     +0        +0           +0 (8/17)	Imp Init       Link, share spells			Spot(4)
+3rd-5th     +2        +2           +1 (9/18)    Imp Nat Att    Evasion, +1 CON (12)			Spot(6) 
+6th-8th     +4        +4           +2 (10/19)   -              Devotion						Spot(8)
+9th-11th    +6        +6           +3 (11/20)   WF (Creature)  Multiattack, +1 CON (13)		Spot(10)
+12th-14th   +8        +8           +4 (12/21)   Dodge          -							Spot(12)
+15th-17th   +10       +10          +5 (13/22)   -              Imp Evasion, +1 CON (14)		Spot(14)
+18th-20th   +12       +12          +6 (14/23)   Mobility       -							Spot(16)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat           	Special			Skills    
+21st-23rd   +14       +14          +7 (15/24)   Spring Att     	+1 CON (15)		Spot(18)
+24th-26th   +16       +16          +8 (16/25)   -              	-				Spot(20)
+27th-29th   +18       +18          +9 (17/26)   Blind-fight    	+1 CON (16)		Spot(22)
+30th-32nd   +20       +20          +10 (18/27)  Imp Crit       	-				Spot(24)	
+33rd-35th   +22       +22          +11 (19/28)  -              	+1 CON (17)		Spot(26)
+36th-38th   +24       +24          +12 (20/29)  E. Prowess		-				Spot(28)
+39th-40th   +26       +26          +13 (21/30)  Armor Skin     	+1 CON (18)		Spot(30)

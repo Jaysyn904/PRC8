@@ -476,6 +476,13 @@ void main()
 		AddNaturalPrimaryWeapon(oPC, sResRef, 1);     
     }      
     
+    //damage invulnerability fire
+    if(GetHasFeat(FEAT_DRAGON_IMMUNE_FIRE))
+    {
+        ipIP = ItemPropertyDamageImmunity(DAMAGE_TYPE_FIRE, IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+    }
+	
     //fire resistance 5
     if(GetHasFeat(FEAT_RESIST_FIRE5))
     {

@@ -1,0 +1,24 @@
+Camels are known for their ability to travel long distances without food or water.
+
+Skills: Listen +5, Spot +5
+Feats: Alertness*, Endurance, Low-light vision, Scent
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat           	Special						Skills
+1st-2nd     +0 (3)    +0           +0 (18/16)	Alertness      	Link, share spells)			Spot(3)
+3rd-5th     +2 (5)    +2           +1 (19/17)   Imp Nat Att    	Evasion, +1 CON (14)		Spot(5) 
+6th-8th     +4 (7)    +4           +2 (20/18)   -              	Devotion					Spot(7)
+9th-11th    +6 (9)    +6           +3 (21/19)   WF (Creature)  	Multiattack, +1 CON (15)	Spot(9)
+12th-14th   +8 (12)   +8           +4 (22/20)   -				-							Spot(11)
+15th-17th   +10 (13)  +10          +5 (23/21)   Dodge         	Imp Evasion, +1 CON (16)	Spot(13)
+18th-20th   +12 (15)  +12          +6 (24/22)   Mobility       	-							Spot(15)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat           	Special			Skills    
+21st-23rd   +14 (17)  +14          +7 (25/23)   Spring Att     	+1 CON (17)		Spot(17)
+24th-26th   +16 (19)  +16          +8 (26/24)   -              	-				Spot(19)
+27th-29th   +18 (21)  +18          +9 (27/25)   Blind-fight    	+1 CON (18)		Spot(21)
+30th-32nd   +20 (23)  +20          +10 (28/26)  EWF (Creature) 	-				Spot(23)	
+33rd-35th   +22 (25)  +22          +11 (29/27)  -              	+1 CON (19)		Spot(25)
+36th-38th   +24 (27)  +24          +12 (30/28)  E. Prowess		-				Spot(27)
+39th-40th   +26 (29)  +26          +13 (31/29)  Armor Skin     	+1 CON (20)		Spot(29)

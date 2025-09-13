@@ -1,0 +1,24 @@
+These silent, nocturnal birds are master hunters.
+
+Skills: Listen +14, Move Silently +17, Spot +8
+Feats: Alertness*, Weapon Finesse, Low-light Vision
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+		Feat           Special					Skills
+1st-2nd     +0        +0           +0 (4/17)    Alertness*     Link, share spells		L(10) MS (14) Sp(4)
+3rd-5th     +2        +2           +1 (5/18)    Imp Nat Att    Evasion					L(12) MS (14) Sp(4)
+6th-8th     +4        +4           +2 (6/19)    -              Devotion, +1 CON (11)	L(14) MS (14) Sp(4)
+9th-11th    +6        +6           +3 (7/20)    WF(Creature)   Multiattack				L(16) MS (14) Sp(4)
+12th-14th   +8        +8           +4 (8/21)    Dodge          +1 CON (12)				L(18) MS (14) Sp(4)
+15th-17th   +10       +10          +5 (9/22)    -              Improved evasion			L(20) MS (14) Sp(4)
+18th-20th   +12       +12          +6 (10/23)   Mobility       +1 CON (13)				L(22) MS (14) Sp(4)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat            Special   		Skills 
+21st-23rd   +14       +14          +7 (11/24)   Spring Att      -				L(24) MS (14) Sp(4)
+24th-26th   +16       +16          +8 (12/25)   -               +1 CON (14)		L(26) MS (14) Sp(4)
+27th-29th   +18       +18          +9 (13/26)   Imp Critical    -				L(28) MS (14) Sp(4)
+30th-32nd   +20       +20          +10 (14/27)  Blind-fight     +1 CON (15)		L(30) MS (14) Sp(4)
+33rd-35th   +22       +22          +11 (15/28)  -               -				L(34) MS (14) Sp(4)
+36th-38th   +24       +24          +12 (16/29)  EWF (Creature)  +1 CON (16)		L(36) MS (14) Sp(4)
+39th-40th   +26       +26          +13 (17/30)  Armor Skin      -				L(38) MS (14) Sp(4)

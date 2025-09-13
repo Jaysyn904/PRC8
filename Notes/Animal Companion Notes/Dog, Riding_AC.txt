@@ -1,0 +1,24 @@
+A canine companion, as loyal as it is large.
+
+Skills: Jump +8, Listen +5, Spot +5
+Feats: Alertness*, Low-light Vision, Scent, Track
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+     Feat            Special                    Skills
+1st-2nd     +0 (2)    +0           +0 (15/15)  	Alertness*      Link, share spells         Spot(2)
+3rd-5th     +2 (4)    +2           +1 (16/16)   Weapon Focus    Evasion, +1 CON (16)       Spot(4) 
+6th-8th     +4 (6)    +4           +2 (17/17)   -               Devotion                   Spot(7)
+9th-11th    +6 (8)    +6           +3 (18/18)   Power Attack    Multiattack, +1 CON (17)   Spot(10)
+12th-14th   +8 (10)   +8           +4 (19/19)  	Cleave          -                          Spot(13)
+15th-17th   +10 (12)  +10          +5 (20/20)   -               Imp Evasion, +1 CON (18)   Spot(15) L(3)
+18th-20th   +12 (14)  +12          +6 (21/21)  	Imp Crit        -                          Spot(17) L(4)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+     Feat                Special        Skills    
+21st-23rd   +14 (16)  +14          +7 (22/22)   Blind-fight        +1 CON (19)     Spot(19) L(5)
+24th-26th   +16 (18)  +16          +8 (23/23)  	-                  -               Spot(21) L(6)
+27th-29th   +18 (20)  +18          +9 (24/24)   Knockdown	       +1 CON (20)     Spot(23) L(7)
+30th-32nd   +20 (22)  +20          +10 (25/25) 	Armor Skin         -               Spot(25) L(8)   
+33rd-35th   +22 (24)  +22          +11 (26/26)  -                  +1 CON (21)     Spot(27) L(9)
+36th-38th   +24 (26)  +24          +12 (27/27)  OW Crit            -               Spot(29) L(10)
+39th-40th   +26 (28)  +26          +13 (28/28)  E. Prowess         +1 CON (22)     Spot(31) L(11)

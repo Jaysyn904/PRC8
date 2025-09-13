@@ -1,0 +1,24 @@
+These birds of prey inhabit nearly every terrain and climate, though they all prefer high, secluded nesting spots. 
+
+Skills: Listen +4 Spot +16
+Feats: Alertness*, Weapon Finesse, Low-light Vision
+
+Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat           Special					Skills
+1st-2nd     +0        +0           +0 (10/15)   Alertness*     Link, share spells		Listen(0) Spot(12)
+3rd-5th     +2        +2           +1 (11/16)   Imp Nat Att    Evasion					Listen(1) Spot(13)
+6th-8th     +4        +4           +2 (12/17)   -              Devotion, +1 CON (13)	Listen(1) Spot(15)
+9th-11th    +6        +6           +3 (13/18)   WF(Creature)   Multiattack				Listen(2) Spot(16)
+12th-14th   +8        +8           +4 (14/19)   Dodge          +1 CON (14)				Listen(2) Spot(18)
+15th-17th   +10       +10          +5 (15/20)   -              Improved evasion			Listen(3) Spot(19)
+18th-20th   +12       +12          +6 (16/21)   Mobility       +1 CON (15)				Listen(3) Spot(21)
+
+Epic Progression:
+PC Level    Bonus HD  Natural AC+  Str/Dex+  	Feat            Special  		Skills  
+21st-23rd   +14       +14          +7 (17/22)   Spring Att      -				Listen(4) Spot(22)
+24th-26th   +16       +16          +8 (18/23)   -               +1 CON (16)		Listen(4) Spot(24)
+27th-29th   +18       +18          +9 (19/24)   Imp Critical    -				Listen(5) Spot(25)
+30th-32nd   +20       +20          +10 (20/25)  Blind-fight     +1 CON (17)		Listen(5) Spot(27)
+33rd-35th   +22       +22          +11 (21/26)  -               -				Listen(6) Spot(28)
+36th-38th   +24       +24          +12 (22/27)  EWF (Creature)  +1 CON (18)		Listen(6) Spot(30)
+39th-40th   +26       +26          +13 (23/28)  Armor Skin      -				Listen(7) Spot(31)
