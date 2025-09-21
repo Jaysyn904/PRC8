@@ -5257,7 +5257,8 @@ REQUIREMENTS:
 
 Race: Living Elf.
 Skills: Concentration 5, Spellcraft 14.
-Class : 11 levels in Sorcerer, Wizard, or Cleric
+Spellcasting: Able to cast 6th level arcane or divine spells.
+Feat: Craft Wonderous Item.
 Alignment: Any Good
 
 CLASS FEATURES:
@@ -16506,7 +16507,7 @@ Levels
 5: Major Oozy Touch
 6: Charisma Penalty -3
   Oozy Glob - Can use three times per day.
-  Indiscernible Anatomy - Immunity to critical hits and sneak attacks.
+  Indiscernible Anatomy - The oozemaster gains Light Fortification.
 7: Major Oozy Touch - Can choose a major ooze for a touch attack or another minor ooze.
 8: Charisma Penalty -4
   Oozy Glob - Can use four times a day.

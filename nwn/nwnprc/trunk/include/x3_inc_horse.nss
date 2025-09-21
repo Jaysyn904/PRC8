@@ -2736,6 +2736,47 @@ object HorseSummonPaladinMount(int bPHBDuration=FALSE)
     return oMount;
 } // HorseSummonPaladinMount()
 
+object HorseSummonPhantomSteed(int nCasterLvl, int nDuration)
+{ // PURPOSE: Summon Phantom Steed
+    object oSummoner=OBJECT_SELF;
+    object oMount;
+    location lLoc;
+    int nDespawnTime;
+    int nCurrentTime;
+    int nMountNum=1;
+    string sResRef=HORSE_PALADIN_PREFIX;
+    effect eVFX;
+    oMount=HorseGetPaladinMount(oSummoner);
+    if (!GetIsObjectValid(oMount) && GetObjectType(oSummoner) == OBJECT_TYPE_CREATURE)
+    { // okay to summon - only one mount at a time
+        if ((GetIsPC(oSummoner) || GetIsDM(oSummoner))&&!GetHasFeat(FEAT_HORSE_MENU,oSummoner)) HorseAddHorseMenu(oSummoner);
+        if (nCasterLvl < 11) nMountNum = 2;
+        else if (nCasterLvl > 10 && nCasterLvl < 15) nMountNum = 3;
+        else if (nCasterLvl > 14 && nCasterLvl < 25) nMountNum = 4;
+        else if (nCasterLvl > 24 && nCasterLvl < 30) nMountNum = 5;
+        else if (nCasterLvl > 29 && nCasterLvl < 35) nMountNum = 6;
+        else if (nCasterLvl > 34 && nCasterLvl < 40) nMountNum = 7;
+        else if (nCasterLvl > 39) nMountNum = 8;
+        lLoc=HORSE_SupportGetMountLocation(oSummoner,oSummoner);
+        oMount=HorseCreateHorse(sResRef+IntToString(nMountNum),lLoc,oSummoner);
+        if (!GetIsObjectValid(oMount)) oMount=HorseCreateHorse(sResRef+IntToString(nMountNum),GetLocation(oSummoner),oSummoner);
+        if (GetIsObjectValid(oMount))
+        { // oMount created
+            eVFX=EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY);
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY,eVFX,oMount,3.0);
+            eVFX=EffectVisualEffect(VFX_FNF_SUMMON_MONSTER_2);
+            if (nMountNum>3) eVFX=EffectVisualEffect(VFX_FNF_SUMMON_MONSTER_3);
+            ApplyEffectAtLocation(DURATION_TYPE_INSTANT,eVFX,GetLocation(oMount));
+            nCurrentTime=HORSE_SupportAbsoluteMinute();
+            nDespawnTime=(nDuration*60)+nCurrentTime;
+            SetLocalInt(oSummoner,"nX3_PALADIN_UNSUMMON",nDespawnTime);
+            if (GetLocalInt(GetModule(),"X3_ENABLE_MOUNT_DB")&&GetIsPC(oSummoner)) SetLocalInt(oSummoner,"bX3_STORE_MOUNT_INFO",TRUE);
+            SetLocalObject(oSummoner,"oX3PaladinMount",oMount);
+        } // oMount created
+    } // okay to summon - only one paladin mount at a time
+    else { oMount=OBJECT_INVALID; }
+    return oMount;
+} // HorseSummonPaladinMount()
 
 void HorseUnsummonPaladinMount()
 { // PURPOSE: Unsummon Paladin Mount

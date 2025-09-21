@@ -308,7 +308,7 @@ int FindUnarmedDamage(object oCreature)
     if      (GetHasFeat(FEAT_INCREASE_DAMAGE2, oCreature)) iDieIncrease = 2;
     else if (GetHasFeat(FEAT_INCREASE_DAMAGE1, oCreature)) iDieIncrease = 1;
 	
-	//:: Expansion / Compression powers
+/* 	//:: Expansion / Compression powers (Double dipping?)
 	int nExpansion = GetLocalInt(oCreature, "PRC_Power_Expansion_SizeIncrease");
 	int nCompression = GetLocalInt(oCreature, "PRC_Power_Compression_SizeReduction");
 	
@@ -320,7 +320,7 @@ int FindUnarmedDamage(object oCreature)
 	if (nCompression)
 	{
 		iSize -= nCompression;
-	}	
+	} */	
 
     iMonkDamage    += iDieIncrease;
     iShouDamage    += iDieIncrease;

@@ -228,6 +228,20 @@ void main()
             SetLocalInt(oSpellOrigin, "ImpRicochetVarRunning", 1);
         }
     }
+	
+    // Xaniqos School
+    if (iItemBaseType == BASE_ITEM_BOLT && GetLocalInt(oSpellOrigin, "XaniqosSchool") > 0)
+	{ 
+        effect eDam = EffectDamage(d6(), DAMAGE_TYPE_PIERCING);
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oSpellTarget); 
+ 
+/*         // Prevents the heartbeat script from running multiple times
+        if(GetLocalInt(oSpellOrigin, "ImpRicochetVarRunning") != 1)
+        {
+            DelayCommand(6.0, SetImprovedRicochetVar(oSpellOrigin) );
+            SetLocalInt(oSpellOrigin, "ImpRicochetVarRunning", 1);
+        } */
+    }	
 
     // Warchief Devoted Bodyguards
     if(iItemBaseType == BASE_ITEM_ARMOR && GetLevelByClass(CLASS_TYPE_WARCHIEF, oSpellOrigin) > 7)
@@ -451,6 +465,7 @@ void main()
 			ApplyEffectToObject(DURATION_TYPE_INSTANT, eVFX, oSpellTarget);
 		}
 }
+
 /* 	if (GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) &&	GetBaseItemType(oItem) != BASE_ITEM_ARMOR)
 	{
 		// Fake critical hit check

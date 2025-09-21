@@ -185,6 +185,7 @@ int GetIsShaken(object oTarget);
 //////////////////////////////////////////////////
 
 #include "prc_inc_castlvl" // get prc_racial_const, prc_inc_nwscript, prc_inc_newip
+#include "inc_epicspelldef"
 
 //////////////////////////////////////////////////
 /* Internal functions                           */
@@ -746,7 +747,6 @@ effect EffectImmunityMiscAll()
 //:: Immunity to all gaze attacks
 effect EffectGazeImmune()
 {
-	effect eBlank;
 
     effect eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_CHARM);	
 			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_CONFUSION);
@@ -764,6 +764,23 @@ effect EffectGazeImmune()
 			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_STUNNED);
 			
 			eReturn = TagEffect(eReturn, "PRCGazeImmune");
+			
+    return eReturn;
+}
+
+//:: Immunity to all perification attacks
+effect EffectPetrificationImmune()
+{
+    effect eReturn = EffectSpellImmunity(SPELLABILITY_TOUCH_PETRIFY);	
+			eReturn = EffectSpellImmunity(SPELLABILITY_BREATH_PETRIFY);
+			eReturn = EffectSpellImmunity(SPELL_FLESH_TO_STONE);
+			eReturn = EffectSpellImmunity(SPELL_STONEHOLD);
+			eReturn = EffectSpellImmunity(SPELL_EPIC_A_STONE);
+			eReturn = EffectSpellImmunity(POWER_CRYSTALLIZE);
+			eReturn = EffectSpellImmunity(MELD_BASILISK_MASK);
+			eReturn = EffectSpellImmunity(SPELLABILITY_GAZE_PETRIFY);
+			
+			eReturn = TagEffect(eReturn, "PRCPetrificationImmune");
 			
     return eReturn;
 }

@@ -270,15 +270,15 @@ void InlindlSchool(object oInitiator)
 void XaniqosSchool(object oInitiator, object oTarget, object oItem, int nEvent)
 {
     int nType = GetBaseItemType(oItem);
-    if(nEvent == EVENT_ITEM_ONHIT)
+/*     if(nEvent == EVENT_ITEM_ONHIT)  //:: handled in prc_onhitcast becuase it wasn't stacking w/ Skirmish
     {
         if(GetLocalInt(oInitiator, "XaniqosSchool") && IPGetIsProjectile(oItem))  // oItem is the ammo, since it's only applies to crossbows
         {    
             effect eDam = EffectDamage(d6(), DAMAGE_TYPE_PIERCING);
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget); 
         }    
-    }    
-    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
+    }  */   
+    if(nEvent == EVENT_ONPLAYEREQUIPITEM)
     {    
         if (nType == BASE_ITEM_LIGHTCROSSBOW || nType == BASE_ITEM_HEAVYCROSSBOW)
         {
@@ -369,7 +369,7 @@ void CrossbowSniper(object oInitiator, object oItem, int nEvent)
             (nType == BASE_ITEM_HEAVYCROSSBOW && GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_CROSSBOW, oInitiator)))
         {
             object oAmmo = GetItemInSlot(INVENTORY_SLOT_BOLTS, oInitiator);
-            IPSafeAddItemProperty(oAmmo, ItemPropertyDamageBonus(DAMAGE_TYPE_PIERCING, nDex/2), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+            IPSafeAddItemProperty(oAmmo, ItemPropertyDamageBonus(DAMAGE_TYPE_PIERCING, IPDamageConstant(nDex/2)), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         }
     }    
     else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
@@ -378,7 +378,7 @@ void CrossbowSniper(object oInitiator, object oItem, int nEvent)
             (nType == BASE_ITEM_HEAVYCROSSBOW && GetHasFeat(FEAT_WEAPON_FOCUS_HEAVY_CROSSBOW, oInitiator)))
         {    
             object oAmmo = GetItemInSlot(INVENTORY_SLOT_BOLTS, oInitiator);
-            RemoveSpecificProperty(oAmmo, ITEM_PROPERTY_DAMAGE_BONUS, DAMAGE_TYPE_PIERCING, nDex/2, 1, "", -1, DURATION_TYPE_TEMPORARY);
+            RemoveSpecificProperty(oAmmo, ITEM_PROPERTY_DAMAGE_BONUS, DAMAGE_TYPE_PIERCING, IPDamageConstant(nDex/2), 1, "", -1, DURATION_TYPE_TEMPORARY);
         }    
     }
 }   

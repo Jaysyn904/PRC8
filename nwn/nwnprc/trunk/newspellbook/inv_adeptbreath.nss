@@ -131,7 +131,7 @@ void main()
         case BREATH_BAHAMUT_LINE:
              //evil characters can't use this breath
              if(nAlignment == ALIGNMENT_EVIL) return;
-             BaseBreath = CreateBreath(oPC, TRUE, fRange * 2, DAMAGE_TYPE_MAGICAL, 6, nDice * 2, ABILITY_CONSTITUTION, nSaveDCBonus, BREATH_NORMAL, 0);
+             BaseBreath = CreateBreath(oPC, TRUE, fRange * 2, DAMAGE_TYPE_MAGICAL, 6, nDice * 2, ABILITY_CONSTITUTION, nSaveDCBonus, BREATH_NORMAL, 0, SAVING_THROW_FORT);
              ApplyBreath(BaseBreath, lTarget); 
              if(nAlignment == ALIGNMENT_GOOD) ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nClass * 2, DAMAGE_TYPE_POSITIVE, DAMAGE_POWER_ENERGY), oPC);
              if(nAlignment == ALIGNMENT_NEUTRAL) ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nClass * 4, DAMAGE_TYPE_POSITIVE, DAMAGE_POWER_ENERGY), oPC);
