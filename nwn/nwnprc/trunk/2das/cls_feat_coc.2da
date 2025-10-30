@@ -21,8 +21,8 @@
 17  Whirlwind_Attack                               867       1    -1             1      
 18  Weapon_Finesse                                 42        1    -1             0      
 19  Improved_Expertise                             390       1    -1             1      
-20  ImprovedDisarm                                 5196      1    -1             1      
-21  ImprovedTrip                                   2807      1    -1             1      
+20  ImprovedDisarm                                 5196      1    -1             0      
+21  ImprovedTrip                                   2807      1    -1             0      
 22  MountedArchery                                 1088      1    -1             0      
 23  Def_Arrow                                      8         0    -1             0      
 24  FEAT_EPIC_REPUTATION                           586       1    -1             0      

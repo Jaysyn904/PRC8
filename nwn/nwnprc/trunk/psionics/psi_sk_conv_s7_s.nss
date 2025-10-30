@@ -5,6 +5,8 @@
 /*
     Checks whether to show Shield of Thought +7 and 
     whether it is to be added or removed.
+	
+	PRC8 Token prefix = 161838	
 */
 //:://////////////////////////////////////////////
 //:: Created By: Fox
@@ -20,13 +22,13 @@ int StartingConditional()
     // Check if the flag is already present
     if(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T") & MBLADE_FLAG_SHIELD_7)
     {
-        SetCustomToken(121, GetStringByStrRef(7654)); // Remove
+        SetCustomToken(161838121, GetStringByStrRef(7654)); // Remove
         nReturn = TRUE;
     }
     // It isn't, so see if there is enough bonus left to add it
     else if(GetTotalEnhancementCost(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T")) + GetFlagCost(MBLADE_FLAG_SHIELD_7) <= GetMaxEnhancementCost(GetPCSpeaker()))
     {
-        SetCustomToken(121, GetStringByStrRef(62476)); // Add
+        SetCustomToken(161838121, GetStringByStrRef(62476)); // Add
         nReturn = TRUE;
     }
     

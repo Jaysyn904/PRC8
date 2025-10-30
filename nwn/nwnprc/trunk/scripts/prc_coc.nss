@@ -12,6 +12,7 @@
 //compiler would completely crap itself unless this include was here
 //#include "prc_alterations"
 #include "prc_craft_inc"
+#include "prc_inc_wpnrest"
 
 //adds onhit: unique power, copied from swashbuckler code
 void CritSTR(object oPC, int iEquip)
@@ -137,6 +138,7 @@ void SuperiorDefense(object oPC, int nLevel)
 	(SetCompositeBonus(oSkin, "SuperiorDefense", 0, ITEM_PROPERTY_AC_BONUS));
 } */
 
+
 void main()
 {
     object oPC = OBJECT_SELF;
@@ -144,6 +146,32 @@ void main()
     object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);
     int nBase = GetBaseItemType(oWeapon);
     int iEquip= GetLocalInt(oPC,"ONEQUIP");
+	
+	int bCorellonWeapon = GetHasCorellonWeapon(oPC);
+
+    if(nLevel >= 2)
+    {
+        if(bCorellonWeapon) ActionCastSpellOnSelf(SPELL_COC_DAMAGE);
+        
+		else PRCRemoveEffectsFromSpell(oPC, SPELL_COC_DAMAGE);
+		
+        CritSTR(oPC, iEquip);
+    }
+    if(nLevel >= 3)
+    {
+    	SuperiorDefense(oPC, nLevel);
+    }
+}
+
+/* void main()
+{
+    object oPC = OBJECT_SELF;
+    int nLevel = (GetLevelByClass(CLASS_TYPE_COC, oPC));
+    object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);
+    int nBase = GetBaseItemType(oWeapon);
+    int iEquip= GetLocalInt(oPC,"ONEQUIP");
+	
+	int bCorellonWeapon = GetHasCorellonWeapon(oPC);
 
     if(nLevel >= 2)
     {
@@ -164,4 +192,4 @@ void main()
     {
     	SuperiorDefense(oPC, nLevel);
     }
-}
+} */

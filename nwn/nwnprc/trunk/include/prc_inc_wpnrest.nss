@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: Weapon Restriction System Include
-//:: prc_inc_restwpn.nss
+//:: prc_inc_wpnrest.nss
 //::///////////////////////////////////////////////
 /*
     Functions to support PnP Weapon Proficiency and
@@ -23,6 +23,70 @@
  * @param nHand     The hand the weapon is wielded in.  In the form of 
  *                  ATTACK_BONUS_ONHAND or ATTACK_BONUS_OFFHAND.
  */ 
+
+//:: returns TRUE if the wielded weapon works with the Swashbuckler's class abilities.
+int GetHasSwashbucklerWeapon(object oPC)
+{
+    object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+    if (!GetIsObjectValid(oWeap)) return FALSE;
+
+    int nType = GetBaseItemType(oWeap);
+
+    switch (nType)
+    {
+        case BASE_ITEM_DAGGER:
+        case BASE_ITEM_KATAR:
+        case BASE_ITEM_HANDAXE:
+        case BASE_ITEM_KAMA:
+        case BASE_ITEM_KUKRI:
+        case BASE_ITEM_LIGHTHAMMER:
+        case BASE_ITEM_LIGHTMACE:
+        case BASE_ITEM_LIGHT_PICK:
+        case BASE_ITEM_RAPIER:
+        case BASE_ITEM_SHORTSWORD:
+        case BASE_ITEM_SICKLE:
+        case BASE_ITEM_WHIP:
+        case BASE_ITEM_SAI:
+        case BASE_ITEM_SAP:
+        case BASE_ITEM_NUNCHAKU:
+        case BASE_ITEM_GOAD:
+        case BASE_ITEM_ELVEN_LIGHTBLADE:
+        case BASE_ITEM_ELVEN_THINBLADE:
+        case BASE_ITEM_EAGLE_CLAW:
+            return TRUE;
+    }
+
+    // Iaijutsu Master allows katana
+    if (GetLevelByClass(CLASS_TYPE_IAIJUTSU_MASTER, oPC) > 0)
+    {
+        if (nType == BASE_ITEM_KATANA) return TRUE;
+    }
+
+    return FALSE;
+}
+ 
+//:: returns TRUE if the wielded weapon works with the Champion of Corellon's Elegant Strike.
+int GetHasCorellonWeapon(object oPC)
+{
+    object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+    if (!GetIsObjectValid(oWeap)) return FALSE;
+
+    int nType = GetBaseItemType(oWeap);
+
+    switch (nType)
+    {
+        case BASE_ITEM_SCIMITAR:
+        case BASE_ITEM_LONGSWORD:
+        case BASE_ITEM_RAPIER:
+        case BASE_ITEM_ELVEN_COURTBLADE:
+        case BASE_ITEM_ELVEN_LIGHTBLADE:
+        case BASE_ITEM_ELVEN_THINBLADE:
+            return TRUE;
+    }
+	
+	return FALSE;
+}
+
 void DoRacialEquip(object oPC, int nBaseType);
  
  //return if PC has proficiency in an item

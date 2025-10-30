@@ -43,7 +43,7 @@ Updated by AshLancer 1/22/2020 to be PnP accurate
 int ApplyPrismaticEffect(int nEffect, object oTarget,int nDC,int CasterLvl);
 
 //:: modified by mr_bumpkin Dec 4, 2003 for PRC stuff
-#include "prc_inc_spells"  
+#include "prc_inc_spells"
 #include "prc_add_spell_dc"
 //:: left its elemental damage alone, since it's already determined randomly.
 
@@ -75,7 +75,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     object oTarget;
     int CasterLvl = PRCGetCasterLevel(OBJECT_SELF);
 
-   
+
 
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nRandom;
@@ -84,7 +84,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     effect eVisual;
     int bTwoEffects;
     int nPenetr = CasterLvl + SPGetPenetr();
-    
+
     //Set the delay to apply to effects based on the distance to the target
     float fDelay = 0.5 + GetDistanceBetween(OBJECT_SELF, oTarget)/20;
     //Get first target in the spell area
@@ -226,55 +226,74 @@ int ApplyPrismaticEffect(int nEffect, object oTarget,int nDC,int CasterLvl)
             {
                 if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
                 {
-                    ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget);
-                    ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oTarget);
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), oTarget);
+                    // makes the target invisible
+                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
+                    // allows pathfinding through the target
+                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
+                    // paralyzes the target, ignores immunity
+                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
+                    // save the target location for later visual effect
+                    location lLoc = GetLocation(oTarget);
 
-                    int nMessageRoll = d6(1);
-                    int nTalk;
-
-                    switch(nMessageRoll)
+                    // separate player targets from NPCs
+                    if(GetIsPC(oTarget))
                     {
-                        case 1:
-                        {
-                            nTalk = 1729332;
-                            break;
-                        }
+                        int nMessageRoll = d6(1);
+                        int nTalk;
 
-                        case 2:
+                        switch(nMessageRoll)
                         {
-                            nTalk = 1729333;
-                            break;
-                        }
+                            case 1:
+                            {
+                                nTalk = 1729332;
+                                break;
+                            }
 
-                        case 3:
-                        {
-                            nTalk = 1729334;
-                            break;
-                        }
+                            case 2:
+                            {
+                                nTalk = 1729333;
+                                break;
+                            }
 
-                        case 4:
-                        {
-                            nTalk = 1729335;
-                            break;
-                        }
+                            case 3:
+                            {
+                                nTalk = 1729334;
+                                break;
+                            }
 
-                        case 5:
-                        {
-                            nTalk = 1729336;
-                            break;
-                        }
+                            case 4:
+                            {
+                                nTalk = 1729335;
+                                break;
+                            }
 
-                        case 6:
-                        {
-                            nTalk = 1729337;
-                            break;
+                            case 5:
+                            {
+                                nTalk = 1729336;
+                                break;
+                            }
+
+                            case 6:
+                            {
+                                nTalk = 1729337;
+                                break;
+                            }
                         }
+                        //Death Popup
+                        // allow respawn, but not wait for help since sent away
+                        // also if not letting respawn and cannot reload, the player cannot continue via GUI
+                        DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, TRUE , FALSE, nTalk));
+                        DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
                     }
-
-                    //Death Popup
-                    DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, FALSE , TRUE, nTalk));
-                    DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
+                    else
+                    {
+                        // Target is not a player
+                        // To simplify against NPCs and also reward xp, applies same death as Green color
+                        DeathlessFrenzyCheck(oTarget);
+                        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
+                    }
+                    // a visual effect for banishment
+                    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), lLoc);
                 }
             }
         break;

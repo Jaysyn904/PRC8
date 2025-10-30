@@ -20,13 +20,13 @@ int StartingConditional()
     // Check if the flag is already present
     if(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T") & MBLADE_FLAG_COLLISION)
     {
-        SetCustomToken(108, GetStringByStrRef(7654)); // Remove
+        SetCustomToken(161838308, GetStringByStrRef(7654)); // Remove
         nReturn = TRUE;
     }
     // It isn't, so see if there is enough bonus left to add it
     else if(GetTotalEnhancementCost(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T")) + GetFlagCost(MBLADE_FLAG_COLLISION) <= GetMaxEnhancementCost(GetPCSpeaker()))
     {
-        SetCustomToken(108, GetStringByStrRef(62476)); // Add
+        SetCustomToken(161838308, GetStringByStrRef(62476)); // Add
         nReturn = TRUE;
     }
     

@@ -20,13 +20,13 @@ int StartingConditional()
     // Check if the flag is already present
     if(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T") & MBLADE_FLAG_MINDCRUSHER)
     {
-        SetCustomToken(109, GetStringByStrRef(7654)); // Remove
+        SetCustomToken(161838309, GetStringByStrRef(7654)); // Remove
         nReturn = TRUE;
     }
     // It isn't, so see if there is enough bonus left to add it
     else if(GetTotalEnhancementCost(GetLocalInt(GetPCSpeaker(), MBLADE_FLAGS + "_T")) + GetFlagCost(MBLADE_FLAG_MINDCRUSHER) <= GetMaxEnhancementCost(GetPCSpeaker()))
     {
-        SetCustomToken(109, GetStringByStrRef(62476)); // Add
+        SetCustomToken(161838309, GetStringByStrRef(62476)); // Add
         nReturn = TRUE;
     }
     

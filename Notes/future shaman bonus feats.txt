@@ -9,7 +9,7 @@ Improved Trip
 Superior Expertise = Imp. Combat Expertise
 Improved Grapple
 
--Should be possible
+-Possible
 Falling Star Strike
 Freezing the Lifeblood
 Ki Shout & Great Ki Shout
@@ -22,7 +22,7 @@ Defensive Throw
 Grappling Block
 Karmic Strike
 Defensive Strike
+Great Throw
 
 - Not possible due to engine limitations
-Great Throw
 Combat Reflexes

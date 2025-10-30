@@ -572,7 +572,10 @@ int GetMaxEssentiaCapacity(object oMeldshaper, int nClass, int nMeld)
 {
 	int nMax = 1; // Always can invest one
 	int nHD = GetHitDice(oMeldshaper);
-	if (nHD >= 31) nMax = 5;
+	if (nHD >= 61) nMax = 8;
+	else if (nHD >= 51) nMax = 7;
+	else if (nHD >= 41) nMax = 6;
+	else if (nHD >= 31) nMax = 5;
 	else if (nHD >= 18) nMax = 4;
 	else if (nHD >= 12) nMax = 3;
 	else if (nHD >= 6) nMax = 2;

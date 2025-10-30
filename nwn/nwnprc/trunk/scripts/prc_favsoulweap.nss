@@ -3,7 +3,7 @@
 //:: prc_favsoulweap
 //:://////////////////////////////////////////////
 /** @file
-    This allows you to choose the weapon for the diety
+    This allows you to choose the weapon for the deity
 
 
     @author Stratovarius
@@ -66,7 +66,7 @@ void main()
             if(nStage == STAGE_WEAPON_CHOICE)
             {
                 string sHeader1 = "Select your Deity's favoured weapon.\n";
-                sHeader1 += "This will grant you weapon focus and, eventually, weapon specialization in that weapon.";
+                sHeader1 += "This will grant you weapon proficiency at 1st level, weapon focus at 3rd level, and weapon specialization at 12th level in that weapon.";
                 // Set the header
                 SetHeader(sHeader1);
                 // Add responses for the PC
@@ -139,19 +139,28 @@ void main()
         {
             if(nChoice == TRUE)
             {
-                object oSkin = GetPCSkin(oPC);
-                int nWeapon = GetLocalInt(oPC, "FavouredSoulWeapon");
-        int nWeaponFocus = GetFeatOfWeaponType(nWeapon, FEAT_TYPE_FOCUS);
-        int nWFIprop = FeatToIprop(nWeaponFocus);
-        int nWeaponSpec = GetFeatOfWeaponType(nWeapon, FEAT_TYPE_SPECIALIZATION);
-        int nWSIprop = FeatToIprop(nWeaponSpec);
+                object oSkin 		= GetPCSkin(oPC);
+                int nWeapon 		= GetLocalInt(oPC, "FavouredSoulWeapon");
+				int nWeaponProf		= GetFeatOfWeaponType(nWeapon, FEAT_TYPE_WEAPON_PROFICIENCY);
+				int nWProfIprop		= FeatToIprop(nWeaponProf);
+				int nWeaponFocus 	= GetFeatOfWeaponType(nWeapon, FEAT_TYPE_FOCUS);
+				int nWFIprop 		= FeatToIprop(nWeaponFocus);
+				int nWeaponSpec 	= GetFeatOfWeaponType(nWeapon, FEAT_TYPE_SPECIALIZATION);
+				int nWSIprop 		= FeatToIprop(nWeaponSpec);
 
-        IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWFIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-        if (GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL, oPC) >= 12) IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWSIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+                int nLevel = GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL, oPC);
 
-        // Store the weapon for later reuse
-        // The reason we use the weapon is so we can use the GetFeatByWeaponType function to get both Focus and Spec
-        SetPersistantLocalInt(oPC, "FavouredSoulDietyWeapon", nWeapon);
+                // Grant feats based on current Favoured Soul level
+                if (nLevel >= 1)
+                    IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWProfIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+                if (nLevel >= 3)
+                    IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWFIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+                if (nLevel >= 12)
+                    IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(nWSIprop), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
+                // Store the weapon for later reuse
+                // The reason we use the weapon is so we can use the GetFeatByWeaponType function to get both Focus and Spec
+                SetPersistantLocalInt(oPC, "FavouredSoulDietyWeapon", nWeapon);
 
                 // And we're all done
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT);

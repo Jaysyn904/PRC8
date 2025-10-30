@@ -150,7 +150,7 @@ void main()
 		SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectHeal(GetMaxHitPoints(oChoice) + 10, oChoice), oChoice);
 		ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_RAISE_DEAD), GetLocation(oChoice));
 		
-		ExecuteScript("prc_pw_ressurection", oChoice);
+		ExecuteScript("prc_pw_res", oChoice);
 		if (GetPRCSwitch(PRC_PW_DEATH_TRACKING) && GetIsPC(oChoice))
                 	SetPersistantLocalInt(oChoice, "persist_dead", FALSE);
             	AssignCommand(oChoice, ActionJumpToObject(oPC));

@@ -86,7 +86,7 @@ void main()
             eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
             eExplode = EffectVisualEffect(VFX_FNF_FIREBALL);
 
-            if (!GetLocalInt(oPC, "FieryBurstBonus"))
+            if (nBonus < 1)
             {
                 FloatingTextStringOnCreature("You do not have a spell available of adequate level or type", oPC, FALSE);
                 return;

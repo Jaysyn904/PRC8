@@ -21,6 +21,8 @@ Options selected:
 Category A: <CUSTOM105>
 Category B: <CUSTOM106>
 Category C: <CUSTOM107>
+
+PRC8 token pre-fix = 161838
 */
 void main()
 {
@@ -28,14 +30,14 @@ void main()
 	int nACLevel = GetLocalInt(oPC, ASTRAL_CONSTRUCT_LEVEL + EDIT);
 	int nFlags = GetLocalInt(oPC, ASTRAL_CONSTRUCT_OPTION_FLAGS + EDIT);
 	
-	SetCustomToken(100, IntToString(nACLevel) + "  (Base PP cost " + IntToString(nACLevel * 2 - 1) + ")");
-	SetCustomToken(101, GetSizeAsString(nACLevel));
-	SetCustomToken(102, GetHPAsString(nACLevel, nFlags));
-	SetCustomToken(103, GetSpeedAsString(nACLevel, nFlags));
-	SetCustomToken(104, IntToString(GetMaxSlotsForLevel(nACLevel, oPC) - GetTotalNumberOfSlotsUsed(oPC)));
-	SetCustomToken(105, GetMenuASelectionsAsString(oPC));
-	SetCustomToken(106, GetMenuBSelectionsAsString(oPC));
-	SetCustomToken(107, GetMenuCSelectionsAsString(oPC));
+	SetCustomToken(161838200, IntToString(nACLevel) + "  (Base PP cost " + IntToString(nACLevel * 2 - 1) + ")");
+	SetCustomToken(161838201, GetSizeAsString(nACLevel));
+	SetCustomToken(161838202, GetHPAsString(nACLevel, nFlags));
+	SetCustomToken(161838203, GetSpeedAsString(nACLevel, nFlags));
+	SetCustomToken(161838204, IntToString(GetMaxSlotsForLevel(nACLevel, oPC) - GetTotalNumberOfSlotsUsed(oPC)));
+	SetCustomToken(161838205, GetMenuASelectionsAsString(oPC));
+	SetCustomToken(161838206, GetMenuBSelectionsAsString(oPC));
+	SetCustomToken(161838207, GetMenuCSelectionsAsString(oPC));
 }
 	
 	

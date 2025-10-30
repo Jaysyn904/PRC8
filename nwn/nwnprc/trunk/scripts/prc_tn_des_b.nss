@@ -10,7 +10,17 @@
 
 void main()
 {
-    object oTarget = GetExitingObject();
+	object oTarget = GetExitingObject();
+	
+	effect eAOE = GetFirstEffect(oTarget);
+	if(GetEffectCreator(eAOE) == GetAreaOfEffectCreator())
+	{
+		string sTag = GetEffectTag(eAOE);
+		if(sTag == "EFFECT_DESECRATE_AURA" || sTag == "EFFECT_DESECRATE_HP")
+			RemoveEffect(oTarget, eAOE);
+	}
+	
+/*     object oTarget = GetExitingObject();
 
     if(GetHasSpellEffect(SPELL_DES_20, oTarget) || GetHasSpellEffect(SPELL_DES_100, oTarget) || GetHasSpellEffect(SPELL_DESECRATE, oTarget))
     {
@@ -26,5 +36,5 @@ void main()
             //Get next effect on the target
             eAOE = GetNextEffect(oTarget);
         }
-    }
+    } */
 }

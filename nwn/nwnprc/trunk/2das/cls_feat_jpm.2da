@@ -340,3 +340,17 @@
 336        FAST_HEALING_3                                 4147      1    2              0      
 337        Feat_Ignore_Material_Components                2597      1    2              0      
 338        MasterWand                                     5312      1    2              0      
+339        FEAT_SCRIBE_SCROLL                             945       1    -1             0      
+340        FEAT_BREW_POTION                               944       1    -1             0      
+341        FEAT_CRAFT_WAND                                946       1    -1             0      
+342        FEAT_EPIC_SPELLCASTING                         4073      1    2              0      
+343        FEAT_EPIC_IMPROVED_COMBAT_CASTING              696       1    2              0      
+344        FEAT_EPIC_AUTOMATIC_QUICKEN_1                  857       1    2              0      
+345        FEAT_EPIC_AUTOMATIC_QUICKEN_2                  858       1    2              0      
+346        FEAT_EPIC_AUTOMATIC_QUICKEN_3                  859       1    2              0      
+347        FEAT_EPIC_AUTOMATIC_SILENT_SPELL_1             860       1    2              0      
+348        FEAT_EPIC_AUTOMATIC_SILENT_SPELL_2             861       1    2              0      
+349        FEAT_EPIC_AUTOMATIC_SILENT_SPELL_3             862       1    2              0      
+350        FEAT_EPIC_AUTOMATIC_STILL_SPELL_1              863       1    2              0      
+351        FEAT_EPIC_AUTOMATIC_STILL_SPELL_2              864       1    2              0      
+352        FEAT_EPIC_AUTOMATIC_STILL_SPELL_3              865       1    2              0      

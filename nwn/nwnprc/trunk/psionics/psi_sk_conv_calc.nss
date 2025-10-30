@@ -48,7 +48,7 @@ int StartingConditional()
     if(nFlags & MBLADE_FLAG_SHIELD_9)           { sSelect += (bFirst-- > 0 ? "":" ,") + "Shield of Thought +9"; }    
     if(nFlags & MBLADE_FLAG_SHIELD_10)          { sSelect += (bFirst-- > 0 ? "":" ,") + "Shield of Thought +10"; }    
     
-    SetCustomToken(100, sSelect);
+    SetCustomToken(161838300, sSelect);
     
     // Build free enhancement boni
     //SetCustomToken(101, IntToString(GetMaxEnhancementCost(oPC) - GetTotalEnhancementCost(nFlags));

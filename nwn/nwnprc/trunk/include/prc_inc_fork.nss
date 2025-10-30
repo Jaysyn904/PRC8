@@ -23,10 +23,13 @@ const int FEAT_TYPE_IMPROVED_CRITICAL     = 5;
 const int FEAT_TYPE_OVERWHELMING_CRITICAL = 6;
 const int FEAT_TYPE_DEVASTATING_CRITICAL  = 7;
 const int FEAT_TYPE_WEAPON_OF_CHOICE      = 8;
+const int FEAT_TYPE_WEAPON_PROFICIENCY	  = 9;
 
 //////////////////////////////////////////////////
 /* Function prototypes                          */
 //////////////////////////////////////////////////
+ 
+ int GetProficiencyFeatOfWeaponType(int iWeaponType);
  
 /**
  * Returns the appropriate weapon feat given a weapon type.
@@ -210,9 +213,84 @@ int GetFeatOfWeaponType(int iWeaponType, int iFeatType)
         case FEAT_TYPE_OVERWHELMING_CRITICAL:   return GetOverwhelmingCriticalFeatOfWeaponType(iWeaponType);
         case FEAT_TYPE_DEVASTATING_CRITICAL:    return GetDevastatingCriticalFeatOfWeaponType(iWeaponType);
         case FEAT_TYPE_WEAPON_OF_CHOICE:        return GetWeaponOfChoiceFeatOfWeaponType(iWeaponType);
+		case FEAT_TYPE_WEAPON_PROFICIENCY:		return GetProficiencyFeatOfWeaponType(iWeaponType);
     }
     return -1;
 }
+
+int GetProficiencyFeatOfWeaponType(int iWeaponType)
+{
+	switch(iWeaponType)
+	{
+		case BASE_ITEM_CBLUDGWEAPON:
+        case BASE_ITEM_CPIERCWEAPON:
+        case BASE_ITEM_CSLASHWEAPON:
+        case BASE_ITEM_CSLSHPRCWEAP:	return FEAT_WEAPON_PROFICIENCY_CREATURE;
+        case BASE_ITEM_INVALID:         return FEAT_IMPROVED_UNARMED_STRIKE;
+
+        case BASE_ITEM_BASTARDSWORD:    return FEAT_WEAPON_PROFICIENCY_BASTARD_SWORD;
+        case BASE_ITEM_BATTLEAXE:       return FEAT_WEAPON_PROFICIENCY_BATTLEAXE;
+        case BASE_ITEM_CLUB:            return FEAT_WEAPON_PROFICIENCY_CLUB;
+        case BASE_ITEM_DAGGER:          return FEAT_WEAPON_PROFICIENCY_DAGGER;
+        case BASE_ITEM_DART:            return FEAT_WEAPON_PROFICIENCY_DART;
+        case BASE_ITEM_DIREMACE:        return FEAT_WEAPON_PROFICIENCY_DIRE_MACE;
+        case BASE_ITEM_DOUBLEAXE:       return FEAT_WEAPON_PROFICIENCY_DOUBLE_AXE;
+        case BASE_ITEM_DWARVENWARAXE:   return FEAT_WEAPON_PROFICIENCY_DWARVEN_WARAXE;
+        case BASE_ITEM_GREATAXE:        return FEAT_WEAPON_PROFICIENCY_GREATAXE;
+        case BASE_ITEM_GREATSWORD:      return FEAT_WEAPON_PROFICIENCY_GREATSWORD;
+        case BASE_ITEM_HALBERD:         return FEAT_WEAPON_PROFICIENCY_HALBERD;
+        case BASE_ITEM_HANDAXE:         return FEAT_WEAPON_PROFICIENCY_HANDAXE;
+        case BASE_ITEM_HEAVYCROSSBOW:   return FEAT_WEAPON_PROFICIENCY_HEAVY_XBOW;
+        case BASE_ITEM_HEAVYFLAIL:      return FEAT_WEAPON_PROFICIENCY_HEAVY_FLAIL;
+        case BASE_ITEM_KAMA:            return FEAT_WEAPON_PROFICIENCY_KAMA;
+        case BASE_ITEM_KATANA:          return FEAT_WEAPON_PROFICIENCY_KATANA;
+        case BASE_ITEM_KUKRI:           return FEAT_WEAPON_PROFICIENCY_KUKRI;
+        case BASE_ITEM_LIGHTCROSSBOW:   return FEAT_WEAPON_PROFICIENCY_LIGHT_XBOW;
+        case BASE_ITEM_LIGHTFLAIL:      return FEAT_WEAPON_PROFICIENCY_LIGHT_FLAIL;
+        case BASE_ITEM_LIGHTHAMMER:     return FEAT_WEAPON_PROFICIENCY_LIGHT_HAMMER;
+        case BASE_ITEM_LIGHTMACE:       return FEAT_WEAPON_PROFICIENCY_LIGHT_MACE;
+        case BASE_ITEM_LONGBOW:         return FEAT_WEAPON_PROFICIENCY_LONGBOW;
+        case BASE_ITEM_LONGSWORD:       return FEAT_WEAPON_PROFICIENCY_LONGSWORD;
+        case BASE_ITEM_MORNINGSTAR:     return FEAT_WEAPON_PROFICIENCY_MORNINGSTAR;
+        case BASE_ITEM_QUARTERSTAFF:    return FEAT_WEAPON_PROFICIENCY_QUARTERSTAFF;
+		case BASE_ITEM_MAGICSTAFF:	    return FEAT_WEAPON_PROFICIENCY_QUARTERSTAFF;		
+        case BASE_ITEM_RAPIER:          return FEAT_WEAPON_PROFICIENCY_RAPIER;
+        case BASE_ITEM_SCIMITAR:        return FEAT_WEAPON_PROFICIENCY_SCIMITAR;
+        case BASE_ITEM_SCYTHE:          return FEAT_WEAPON_PROFICIENCY_SCYTHE;
+        case BASE_ITEM_SHORTBOW:        return FEAT_WEAPON_PROFICIENCY_SHORTBOW;
+        case BASE_ITEM_SHORTSPEAR:      return FEAT_WEAPON_PROFICIENCY_SHORTSPEAR;
+        case BASE_ITEM_SHORTSWORD:      return FEAT_WEAPON_PROFICIENCY_SHORTSWORD;
+        case BASE_ITEM_SHURIKEN:        return FEAT_WEAPON_PROFICIENCY_SHURIKEN;
+        case BASE_ITEM_SICKLE:          return FEAT_WEAPON_PROFICIENCY_SICKLE;
+        case BASE_ITEM_SLING:           return FEAT_WEAPON_PROFICIENCY_SLING;
+        case BASE_ITEM_THROWINGAXE:     return FEAT_WEAPON_PROFICIENCY_THROWING_AXE;
+		case BASE_ITEM_TRIDENT:			return FEAT_WEAPON_PROFICIENCY_TRIDENT;
+        case BASE_ITEM_TWOBLADEDSWORD:  return FEAT_WEAPON_PROFICIENCY_TWO_BLADED_SWORD;
+        case BASE_ITEM_WARHAMMER:       return FEAT_WEAPON_PROFICIENCY_WARHAMMER;
+        case BASE_ITEM_WHIP:            return FEAT_WEAPON_PROFICIENCY_WHIP;
+
+	//:: new item types
+		case BASE_ITEM_DOUBLE_SCIMITAR:	  	return FEAT_WEAPON_PROFICIENCY_DOUBLE_SCIMITAR;
+		case BASE_ITEM_EAGLE_CLAW:			return FEAT_WEAPON_PROFICIENCY_EAGLE_CLAW;
+        case BASE_ITEM_ELVEN_COURTBLADE:	return FEAT_WEAPON_PROFICIENCY_ELVEN_COURTBLADE;
+        case BASE_ITEM_ELVEN_LIGHTBLADE:	return FEAT_WEAPON_PROFICIENCY_ELVEN_LIGHTBLADE;
+        case BASE_ITEM_ELVEN_THINBLADE:		return FEAT_WEAPON_PROFICIENCY_ELVEN_THINBLADE;		
+		case BASE_ITEM_FALCHION:			return FEAT_WEAPON_PROFICIENCY_FALCHION;
+		case BASE_ITEM_GOAD:				return FEAT_WEAPON_PROFICIENCY_GOAD;
+		case BASE_ITEM_HEAVY_MACE:			return FEAT_WEAPON_PROFICIENCY_HEAVY_MACE;
+		case BASE_ITEM_HEAVY_PICK:			return FEAT_WEAPON_PROFICIENCY_HEAVY_PICK;
+		case BASE_ITEM_KATAR:				return FEAT_WEAPON_PROFICIENCY_KATAR;
+		case BASE_ITEM_LIGHT_LANCE:			return FEAT_WEAPON_PROFICIENCY_LIGHT_LANCE;
+		case BASE_ITEM_LIGHT_PICK:			return FEAT_WEAPON_PROFICIENCY_LIGHT_PICK;
+		case BASE_ITEM_MAUL:				return FEAT_WEAPON_PROFICIENCY_MAUL;
+		case BASE_ITEM_NUNCHAKU:			return FEAT_WEAPON_PROFICIENCY_NUNCHAKU;
+		case BASE_ITEM_SAI:					return FEAT_WEAPON_PROFICIENCY_SAI;
+		case BASE_ITEM_SAP:					return FEAT_WEAPON_PROFICIENCY_SAP;	
+	}
+	
+    return -1;	
+}
+		
 
 int GetFocusFeatOfWeaponType(int iWeaponType)
 {
@@ -845,3 +923,5 @@ int PRCLargeWeaponCheck(int iBaseType, int nSize)
     }
     return sTest != "" && sTest != IntToString(nSize);
 }
+
+//::void main(){}

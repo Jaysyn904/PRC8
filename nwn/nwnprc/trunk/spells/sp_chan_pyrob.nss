@@ -66,6 +66,127 @@ void main()
     //Check Spell Resistance
     if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
     {
+        int nVFX; // visual effect variable
+
+        //swift
+        if(nSpell == SPELL_CHANNELED_PYROBURST_1)
+        {
+            if(!TakeSwiftAction(oPC))
+            {
+                return;
+            }
+
+            nDam = d4(PRCMin((nCasterLvl/2), 10));
+            nVFX = VFX_IMP_FLAME_S; // single-target fire burst
+
+            if(nMetaMagic & METAMAGIC_MAXIMIZE)
+            {
+                nDam = 4 * (PRCMin((nCasterLvl/2), 10));
+            }
+        }
+
+        //standard
+        else if(nSpell == SPELL_CHANNELED_PYROBURST_2)
+        {
+            nDam = d6(PRCMin(10, nCasterLvl));
+            fRadius = 3.048f;
+            nVFX = VFX_IMP_DIVINE_STRIKE_FIRE; // medium fire explosion
+
+            if(nMetaMagic & METAMAGIC_MAXIMIZE)
+            {
+                nDam = 6 * (PRCMin(10, nCasterLvl));
+            }
+        }
+
+        //full round
+        else if(nSpell == SPELL_CHANNELED_PYROBURST_3)
+        {
+            nDam = d8(PRCMin(10, nCasterLvl));
+            fRadius = 4.57f;
+            nVFX = VFX_FNF_FIREBALL; // large fiery burst
+
+            if(nMetaMagic & METAMAGIC_MAXIMIZE)
+            {
+                nDam = 8 * (PRCMin(10, nCasterLvl));
+            }
+        }
+
+        //two rounds
+        else if(nSpell == SPELL_CHANNELED_PYROBURST_4)
+        {
+            nDam = d10(PRCMin(10, nCasterLvl));
+            fRadius = 6.10f;
+            nVFX = VFX_FNF_FIRESTORM; // reuse large explosion, fits scale
+
+            if(nMetaMagic & METAMAGIC_MAXIMIZE)
+            {
+                nDam = 10 * (PRCMin(10, nCasterLvl));
+            }
+        }
+
+        else
+        {
+            PRCSetSchool();
+            return;
+        }
+
+        //Metamagic Empower
+        if(nMetaMagic & METAMAGIC_EMPOWER)
+        {
+            nDam += (nDam/2);
+        }
+        nDam += SpellDamagePerDice(oPC, PRCMin(10, nCasterLvl));
+
+        if(PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_FIRE))
+        {
+            nDam = nDam/2;
+        }
+
+        effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_FIRE);
+
+        // apply visuals and damage
+        if(fRadius == 0.0f)
+        {
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(nVFX), oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+        }
+        else
+        {
+            ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(nVFX), lLoc);
+            oTarget = MyFirstObjectInShape(SHAPE_SPHERE, fRadius, lLoc, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
+
+            while(GetIsObjectValid(oTarget))
+            {
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                oTarget = MyNextObjectInShape(SHAPE_SPHERE, fRadius, lLoc, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
+            }
+        }
+    }
+    PRCSetSchool();
+}
+
+
+/* void main()
+{
+    if(!X2PreSpellCastCode()) return;
+
+    PRCSetSchool(SPELL_SCHOOL_EVOCATION);
+
+    object oPC = OBJECT_SELF;
+    int nSpell = PRCGetSpellId();
+    int nCasterLvl = PRCGetCasterLevel(oPC);
+    object oTarget = PRCGetSpellTargetObject();
+    location lLoc = PRCGetSpellTargetLocation();
+    int nDC = PRCGetSaveDC(oTarget, oPC);
+    int nDam;
+    int nMetaMagic = PRCGetMetaMagicFeat();
+    float fRadius = 0.0f;
+
+    PRCSignalSpellEvent(oTarget, TRUE, SPELL_CHANNELED_PYROBURST, oPC);
+
+    //Check Spell Resistance
+    if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
+    {
         //swift
         if(nSpell == SPELL_CHANNELED_PYROBURST_1)
         {
@@ -158,6 +279,6 @@ void main()
     PRCSetSchool();
 }
 
-
+ */
 
 

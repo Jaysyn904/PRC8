@@ -35,8 +35,24 @@ Created:   6/13/06
 //:://////////////////////////////////////////////
 
 #include "prc_inc_spells"
-
 void main()
+{
+    object oTarget = GetEnteringObject();
+    
+    // Ignore DMs if not possessing a creature
+    if (GetIsDM(oTarget) && !GetIsDMPossessed(oTarget))
+        return;
+
+    if (!PRCGetHasEffect(EFFECT_TYPE_DARKNESS, oTarget))
+    {
+        if (GetAlignmentGoodEvil(oTarget) == ALIGNMENT_EVIL)
+        {
+            SPApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectBlindness(), oTarget);
+        }
+    }
+}
+
+/* void main()
 {
 	object oTarget = GetEnteringObject();
 	
@@ -47,6 +63,6 @@ void main()
 			SPApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectBlindness(), oTarget);
 		}
 	}
-}
+} */
 		
 	

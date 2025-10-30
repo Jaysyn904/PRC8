@@ -19,5 +19,5 @@ void main()
     object oPC = GetPCSpeaker();
 
     // Run the exit handler
-    _DynConvInternal_ExitedConvo(oPC, FALSE);
+	_DynConvInternal_ExitedConvo(oPC, FALSE);
 }

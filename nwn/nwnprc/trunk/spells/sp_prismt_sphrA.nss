@@ -15,11 +15,11 @@ multicolored light that surrounds you and protects
 you from all forms of attack. The sphere flashes in
 all colors of the visible spectrum.
 
-The sphere’s blindness effect on creatures with less
+The sphereï¿½s blindness effect on creatures with less
 than 8 HD lasts 2d4x10 minutes.
 
 You can pass into and out of the prismatic sphere and
-remain near it without harm. However, when you’re
+remain near it without harm. However, when youï¿½re
 inside it, the sphere blocks any attempt to project
 something through the sphere (including spells). Other
 creatures that attempt to attack you or pass through
@@ -49,6 +49,7 @@ Created:   7/6/07
 
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
+
 void main()
 {
         object oPC = GetAreaOfEffectCreator();
@@ -143,73 +144,75 @@ void main()
                 {
                         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
                         {
-                                ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget);
-                                ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oTarget);
-                                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), oTarget);
+                                // makes the target invisible
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
+                                // allows pathfinding through the target
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
+                                // paralyzes the target, ignores immunity
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
+                                // save the target location for later visual effect
+                                location lLoc = GetLocation(oTarget);
 
-                                int nMessageRoll = d6(1);
-                                int nTalk;
-
-                                switch(nMessageRoll)
+                                // separate player targets from NPCs
+                                if(GetIsPC(oTarget))
                                 {
-                                        case 1:
-                                        {
-                                                nTalk = 1729332;
-                                                break;
-                                        }
+                                        int nMessageRoll = d6(1);
+                                        int nTalk;
 
-                                        case 2:
+                                        switch(nMessageRoll)
                                         {
-                                                nTalk = 1729333;
-                                                break;
-                                        }
+                                                case 1:
+                                                {
+                                                        nTalk = 1729332;
+                                                        break;
+                                                }
 
-                                        case 3:
-                                        {
-                                                nTalk = 1729334;
-                                                break;
-                                        }
+                                                case 2:
+                                                {
+                                                        nTalk = 1729333;
+                                                        break;
+                                                }
 
-                                        case 4:
-                                        {
-                                                nTalk = 1729335;
-                                                break;
-                                        }
+                                                case 3:
+                                                {
+                                                        nTalk = 1729334;
+                                                        break;
+                                                }
 
-                                        case 5:
-                                        {
-                                                nTalk = 1729336;
-                                                break;
-                                        }
+                                                case 4:
+                                                {
+                                                        nTalk = 1729335;
+                                                        break;
+                                                }
 
-                                        case 6:
-                                        {
-                                                nTalk = 1729337;
-                                                break;
+                                                case 5:
+                                                {
+                                                        nTalk = 1729336;
+                                                        break;
+                                                }
+
+                                                case 6:
+                                                {
+                                                        nTalk = 1729337;
+                                                        break;
+                                                }
                                         }
+                                        //Death Popup
+                                        // allow respawn, but not wait for help since sent away
+                                        // also if not letting respawn and cannot reload, the player cannot continue via GUI
+                                        DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, TRUE , FALSE, nTalk));
+                                        DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
                                 }
-                                //Death Popup
-                                DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, FALSE , TRUE, nTalk));
-                                DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
+                                else
+                                {
+                                        // Target is not a player
+                                        // To simplify against NPCs and also reward xp, applies same death as Green color
+                                        DeathlessFrenzyCheck(oTarget);
+                                        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
+                                }
+                                // a visual effect for banishment
+                                ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), lLoc);
                         }
                 }
         }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

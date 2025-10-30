@@ -12,6 +12,7 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//PRC8 Token pre-fix = 161838
 
 //////////////////////////////////////////////////
 /* Constant definitions                         */
@@ -21,23 +22,23 @@ const int DYNCONV_EXITED        = -2;
 const int DYNCONV_ABORTED       = -3;
 const int DYNCONV_SETUP_STAGE   = -1;
 
-const int DYNCONV_TOKEN_HEADER  = 99;
-const int DYNCONV_TOKEN_REPLY_0 = 100;
-const int DYNCONV_TOKEN_REPLY_1 = 101;
-const int DYNCONV_TOKEN_REPLY_2 = 102;
-const int DYNCONV_TOKEN_REPLY_3 = 103;
-const int DYNCONV_TOKEN_REPLY_4 = 104;
-const int DYNCONV_TOKEN_REPLY_5 = 105;
-const int DYNCONV_TOKEN_REPLY_6 = 106;
-const int DYNCONV_TOKEN_REPLY_7 = 107;
-const int DYNCONV_TOKEN_REPLY_8 = 108;
-const int DYNCONV_TOKEN_REPLY_9 = 109;
-const int DYNCONV_TOKEN_EXIT    = 110;
-const int DYNCONV_TOKEN_WAIT    = 111;
-const int DYNCONV_TOKEN_NEXT    = 112;
-const int DYNCONV_TOKEN_PREV    = 113;
-const int DYNCONV_MIN_TOKEN     = 99;
-const int DYNCONV_MAX_TOKEN     = 113;
+const int DYNCONV_TOKEN_HEADER  = 16183899;
+const int DYNCONV_TOKEN_REPLY_0 = 161838100;
+const int DYNCONV_TOKEN_REPLY_1 = 161838101;
+const int DYNCONV_TOKEN_REPLY_2 = 161838102;
+const int DYNCONV_TOKEN_REPLY_3 = 161838103;
+const int DYNCONV_TOKEN_REPLY_4 = 161838104;
+const int DYNCONV_TOKEN_REPLY_5 = 161838105;
+const int DYNCONV_TOKEN_REPLY_6 = 161838106;
+const int DYNCONV_TOKEN_REPLY_7 = 161838107;
+const int DYNCONV_TOKEN_REPLY_8 = 161838108;
+const int DYNCONV_TOKEN_REPLY_9 = 161838109;
+const int DYNCONV_TOKEN_EXIT    = 161838110;
+const int DYNCONV_TOKEN_WAIT    = 161838111;
+const int DYNCONV_TOKEN_NEXT    = 161838112;
+const int DYNCONV_TOKEN_PREV    = 161838113;
+const int DYNCONV_MIN_TOKEN     = 16183899;
+const int DYNCONV_MAX_TOKEN     = 161838113;
 
 const int DYNCONV_STRREF_PLEASE_WAIT = 16824202; // "Please wait"
 const int DYNCONV_STRREF_PREVIOUS    = 16824203; // "Previous"
@@ -477,9 +478,28 @@ void _DynConvInternal_ExitedConvo(object oPC, int bAbort)
             DeleteLocalInt(oPC, DYNCONV_STAGE);
             DeleteLocalString(oPC, DYNCONV_SCRIPT);
             DeleteLocalString(oPC, "DynConv_HeaderText");
-            int i;
-            for(i = DYNCONV_MIN_TOKEN; i <= DYNCONV_MAX_TOKEN; i++)
-                DeleteLocalString(oPC, GetTokenIDString(i));
+			
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_HEADER));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_0));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_1));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_2));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_3));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_4));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_5));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_6));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_7));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_8));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_REPLY_9));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_EXIT));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_WAIT));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_NEXT));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_TOKEN_PREV));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_MIN_TOKEN));
+			DeleteLocalString(oPC, GetTokenIDString(DYNCONV_MAX_TOKEN));
+			
+            //int i;
+            //for(i = DYNCONV_MIN_TOKEN; i <= DYNCONV_MAX_TOKEN; i++)
+                //DeleteLocalString(oPC, GetTokenIDString(i));
         }
     }
 }

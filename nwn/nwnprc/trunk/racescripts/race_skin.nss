@@ -487,7 +487,7 @@ void main()
     if(GetHasFeat(FEAT_RESIST_FIRE5))
     {
         ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGERESIST_5);
-        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     }
     if(GetRacialType(oPC) == RACIAL_TYPE_UNDERFOLK)
     {

@@ -52,8 +52,50 @@
     Augment: For every additional power point you spend, this power’s duration
              increases by 2 rounds.
 */
-
 #include "prc_inc_spells"
+
+void main()
+{
+    object oTarget  = GetEnteringObject();
+    object oCreator = GetAreaOfEffectCreator();
+
+    string sCreatorID = GetObjectUUID(oCreator);
+    string sVar = "FoD_FEAR_IMMUNE_" + sCreatorID;
+
+    // Skip if target already immune to this manifester's frightful presence
+    if (GetLocalInt(oTarget, sVar))
+        return;
+
+    effect eLink = EffectShaken();
+    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_MIND_AFFECTING_FEAR));
+    eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE));
+
+    effect eVis = EffectVisualEffect(VFX_IMP_FEAR_S);
+
+    int nDC       = 16 + GetAbilityModifier(ABILITY_CHARISMA, oCreator);
+    int nDuration = d6(5);
+
+    if (GetIsEnemy(oTarget, oCreator))
+    {
+        SignalEvent(oTarget, EventSpellCastAt(oCreator, SPELLABILITY_AURA_FEAR));
+
+        if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR))
+        {
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration));
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+        }
+        else
+        {
+            // Successful save grants 24-hour immunity to this manifester’s aura
+            SetLocalInt(oTarget, sVar, TRUE);
+            DelayCommand(HoursToSeconds(24), DeleteLocalInt(oTarget, sVar));
+        }
+    }
+}
+
+
+
+/* #include "prc_inc_spells"
 
 void main()
 {
@@ -78,4 +120,4 @@ void main()
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
         }
     }
-}
+} */

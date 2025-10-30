@@ -1,12 +1,14 @@
 2DA V2.0
 
-  LABEL         ReqType ReqParam1       ReqParam2 
-0 Human         RACE    6               ****      
-1 HalfElf       RACE    4               ****      
-2 HalfDrow      RACE    183             ****      
-3 Stealthy      FEAT    387             ****      
-4 MountedCombat FEAT    1087            ****      
-5 MS            SKILL   8               8         
-6 Hide          SKILL   5               8         
-7 Ride          SKILL   27              8         
-8 ScriptVar     VAR     PRC_AllowCrinti 0         
+     LABEL            ReqType ReqParam1       ReqParam2 
+0    Human            RACE    6               ****      
+1    HalfElf          RACE    4               ****      
+2    HalfDrow         RACE    183             ****      
+3    Stealthy         FEAT    387             ****      
+4    MountedCombat    FEAT    1087            ****      
+5    MS               SKILL   8               8         
+6    Hide             SKILL   5               8         
+7    Ride             SKILL   27              8         
+8    ScriptVar        VAR     PRC_AllowCrinti 0         
+9    Silverbrow_Human RACE    110             ****      
+10   Karsite          RACE    65              ****      

@@ -4962,7 +4962,7 @@ Special Abilities:
 - Iron Will as a bonus feat
 - Spell Eater (Su): If a warsoul succeeds on her save against a spell, she gains 5 temporary hit points and a +2 bonus on attack rolls. The attack bonus lasts for 1 round. The temporary hit points last for 1 minute.
 - Soul Tyrant (Su): As a swift action, a warsoul can draw arcane power from a willing hobgoblin within 30 feet who has 10 or fewer hit points. That hobgoblin is immediately slain, leaving behind a desiccated corpse. The warsoul heals 1 hit point per Hit Die she has, and she receives a +2 bonus to the save DC of the next spell she casts. She also gains a +2 bonus on any attack roll required by the next spell she casts. If that spell deals damage, the warsoul receives a bonus on the damage roll equal to her Hit Dice.
-- Cult of Power (Ex): A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master’s soul tyrant ability.
+- Cult of Power (Ex): A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master's soul tyrant ability.
 - Monstrous Humanoid: Hobgoblin Warsoul are considered Monstrous Humanoids for the purpose of spells
 - Sorcerer Casting: Hobgoblin Warsoul cast spells as a Sorcerer of their racial hit dice
 
@@ -4972,7 +4972,7 @@ Racial Hit Dice/Class: 10 of Monstrous Humanoid</entry>
   <entry id="13526" lang="en" sex="m">Cult of Power</entry>
   <entry id="13527" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Hobgoblin Warsoul
-Specifics: A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master’s soul tyrant ability.
+Specifics: A warsoul is accompanied by 2d4 1st level hobgoblin warriors who have sworn their lives to her. These thralls willingly sacrifice themselves for their master's soul tyrant ability.
 Use: Selected.</entry>
   <entry id="13528" lang="en" sex="m">Soul Tyrant</entry>
   <entry id="13529" lang="en" sex="m">Type of Feat: Racial
@@ -5033,7 +5033,7 @@ Use: Selected.</entry>
 
     Automatic Languages: Common and Elven. Bonus Languages: Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan.
 
-    Favored Class: Wizard. A multiclass gray elf’s wizard class does not count when determining whether she takes an experience point penalty for multiclassing.
+    Favored Class: Wizard. A multiclass gray elf's wizard class does not count when determining whether she takes an experience point penalty for multiclassing.
 
     Level Adjustment: +0</entry>
   <entry id="16446" lang="en" sex="m">Grey Elf Biography.</entry>
@@ -5208,7 +5208,7 @@ Level
 	Nature Sense* (Ex): The forest master can identify plants and animals with perfect accuracy. He can determine whether water is safe to drink or dangerous.
 2:  Forest Dominion (Su): The forest master gains the ability to rebuke or command plants as an evil cleric can rebuke or command undead.
     Great Mallet (Su): A forest master begins to awaken magical abilities within the wood and metal that make up his maul. 
-3:  Natural Armor (Ex): The forest master’s skin changes into a tough, barklike hide, granting him natural armor +3
+3:  Natural Armor (Ex): The forest master's skin changes into a tough, barklike hide, granting him natural armor +3
 4:  Oak Strength (Ex): The forest master gains a +2 bonus to Strength and the ability to make slam attacks. 
 5:  Spruce Growth (Su): Once per day the forest master can temporarily increase his size and strength as if using a righteous might spell.
 7:  Oakheart (Ex): Type changes to plant, gain weakness to fire.
@@ -5226,17 +5226,17 @@ Level
   <entry id="16528" lang="en" sex="m">Forest Dominion (Su)</entry>
   <entry id="16529" lang="en" sex="m"> At 2nd level, the forest master gains the ability to rebuke or command plants as an evil cleric can rebuke or command undead.  His effective level for this ability is his class level, and he may use it a number of times perday equal to 3 + his Charisma modifier. If he already has this ability because he is a cleric with the Plant domain, these levels stack with his cleric levels and vice versa.</entry>
   <entry id="16530" lang="en" sex="m">Great Mallet (Su)</entry>
-  <entry id="16531" lang="en" sex="m">Beginning at 2nd level, a forest master begins to awaken magical abilities within the wood and metal that make up his maul. Any maul used by a forest master is treated as if it were a +2 maul with either the frost or shock property (the forest master decides each round whether the weapon’s extra damage is cold or electricity). If the weapon has additional abilities (such as defending), these abilities still apply, and if the weapon has an enhancement bonus better than +2 the higher of the two bonuses is used. The maul does not gain these abilities if it is not wielded by the forest master.  At 6th-level, the forest master’s' maul acts as a +2 icy burst or +2 shocking burst weapon, with the forest master deciding each round what effect the weapon has.  At 9th level, the forest master’s maul acts as a +3 mighty cleaving weapon in addition to its other properties (including its icy burst or shocking burst ability).</entry>
+  <entry id="16531" lang="en" sex="m">Beginning at 2nd level, a forest master begins to awaken magical abilities within the wood and metal that make up his maul. Any maul used by a forest master is treated as if it were a +2 maul with either the frost or shock property (the forest master decides each round whether the weapon's extra damage is cold or electricity). If the weapon has additional abilities (such as defending), these abilities still apply, and if the weapon has an enhancement bonus better than +2 the higher of the two bonuses is used. The maul does not gain these abilities if it is not wielded by the forest master.  At 6th-level, the forest master's' maul acts as a +2 icy burst or +2 shocking burst weapon, with the forest master deciding each round what effect the weapon has.  At 9th level, the forest master's maul acts as a +3 mighty cleaving weapon in addition to its other properties (including its icy burst or shocking burst ability).</entry>
   <entry id="16532" lang="en" sex="m">Icy Mallet</entry>
   <entry id="16533" lang="en" sex="m">Shocking Mallet</entry>
   <entry id="16534" lang="en" sex="m">Natural Armor (Ex)</entry>
-  <entry id="16535" lang="en" sex="m">At 3rd level, the forest master’s skin changes into a tough, bark like hide, granting him natural armor +3. This bonus increases to +5 at 5th level and +7 at 7th level.</entry>
+  <entry id="16535" lang="en" sex="m">At 3rd level, the forest master's skin changes into a tough, bark like hide, granting him natural armor +3. This bonus increases to +5 at 5th level and +7 at 7th level.</entry>
   <entry id="16536" lang="en" sex="m">Oak Strength (Ex)</entry>
-  <entry id="16537" lang="en" sex="m">Beginning at 4th level, the forest master gains a +2 bonus to Strength and the ability to make slam attacks. A Small creature'’s slam attack deals 1d4 points of damage, one from a Medium-size creature deals 1d6 points of damage, and a Large forest master’s' slam attack deals 1d8 points of damage. Slam attacks are natural weapon attacks and do not provoke an attack of opportunity from the defender. A forest master can select Improved Critical (Creature), Weapon Focus (Creature), and (if a fighter of 4th level or higher) Weapon Specialization (Creature). Upon gaining this ability, the forest master’s' hair takes on a green, leafy appearance.</entry>
+  <entry id="16537" lang="en" sex="m">Beginning at 4th level, the forest master gains a +2 bonus to Strength and the ability to make slam attacks. A Small creature''s slam attack deals 1d4 points of damage, one from a Medium-size creature deals 1d6 points of damage, and a Large forest master's' slam attack deals 1d8 points of damage. Slam attacks are natural weapon attacks and do not provoke an attack of opportunity from the defender. A forest master can select Improved Critical (Creature), Weapon Focus (Creature), and (if a fighter of 4th level or higher) Weapon Specialization (Creature). Upon gaining this ability, the forest master's' hair takes on a green, leafy appearance.</entry>
   <entry id="16538" lang="en" sex="m">Spruce Growth (Su)</entry>
   <entry id="16539" lang="en" sex="m">At 5th level, once per day the forest master can temporarily increase his size and strength as if using a righteous might spell.</entry>
   <entry id="16540" lang="en" sex="m">Oakheart (Ex)</entry>
-  <entry id="16541" lang="en" sex="m">Upon reaching 7th level, a forest master’s' body becomes a thing of wood and leaf rather than meat and bone. His type changes to plant. As such, he is immune to mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. He is not subject to critical hits or sneak attacks. However, the forest master becomes vulnerable to fire, and suffers double damage from fire attacks.</entry>
+  <entry id="16541" lang="en" sex="m">Upon reaching 7th level, a forest master's body becomes a thing of wood and leaf rather than meat and bone. His type changes to plant. As such, he is immune to mind-affecting effects, poison, sleep, paralysis, stunning, and polymorphing. He is not subject to critical hits or sneak attacks. However, the forest master becomes vulnerable to fire, and suffers double damage from fire attacks.</entry>
   <entry id="16542" lang="en" sex="m">Deep Roots (Su)</entry>
   <entry id="16543" lang="en" sex="m">Beginning at 8th level, once per day the forestmaster may sink roots into the ground in any natural surface that can support at least some vegetation. While rooted, the forest master gains fast healing 5, but has an effective Dexterity score of 1 and may not move from the spot in which he stands. The forest master can withdraw his roots and end the healing as a free action.</entry>
   <entry id="16544" lang="en" sex="m">Forest Longevity (Ex)</entry>
@@ -26066,7 +26066,7 @@ Warlocks are born, not made.  Their ancestors traded portions of their soul for 
 
 - Hit Die: d6
 - Proficiencies: Warlocks are proficient with simple weapons and light armor.
-- Skill Points: 2+ Int Modifier
+- Skill Points: 2+ Int Modifier.
 
 CLASS FEATURES:
 
@@ -46464,7 +46464,15 @@ Epic Eldritch Theurge Bonus Feats: Craft Epic Magic Arms and Armor, Craft Epic R
 
 *An epic eldritch theurge must meet this feat's prerequisites to select it as an epic bonus feat.</entry>
   <entry id="57092" lang="en" sex="m">Echoblade</entry>
-  <entry id="57093" lang="en" sex="m">If you use your bardic music ability while wielding an echoblade, the blade resonates in harmony, dealing additional sonic damage on each attack equal to half your bardic level.</entry>
+  <entry id="57093" lang="en" sex="m">If you use your bardic music ability while wielding an echoblade, the blade resonates in harmony, dealing additional sonic damage on each attack equal to half your bardic level.
+Prerequisites:
+
+Caster Level: 10
+Special: Must be a Bard.
+
+Cost:
+
++10000gp</entry>
   <entry id="57100" lang="en" sex="m">##START OF WARLOCK INVOCATIONS##</entry>
   <entry id="57101" lang="en" sex="m">All Seeing Eyes</entry>
   <entry id="57102" lang="en" sex="m">Least Invocation
@@ -71180,7 +71188,7 @@ Special Abilities:
   <entry id="75745" lang="en" sex="m">Talon of Tiamat Spellcasting (Fey)</entry>
   <entry id="75746" lang="en" sex="m">True Necromancer Spellcasting (Fey)</entry>
   <entry id="75747" lang="en" sex="m">Ultimate Magus Spellcasting (Fey)</entry>
-  <entry id="75748" lang="en" sex="m">Unseen Spellcasting (Fey)</entry>
+  <entry id="75748" lang="en" sex="m">Unseen Seer Spellcasting (Fey)</entry>
   <entry id="75749" lang="en" sex="m">Virtuoso Spellcasting (Fey)</entry>
   <entry id="75750" lang="en" sex="m">Wild Mage Spellcasting (Fey)</entry>
   <entry id="75751" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Fey)</entry>
@@ -71443,7 +71451,7 @@ Special Abilities:
   <entry id="76008" lang="en" sex="m">Spellsword Spellcasting (Bard)</entry>
   <entry id="76009" lang="en" sex="m">Talon of Tiamat Spellcasting (Bard)</entry>
   <entry id="76010" lang="en" sex="m">Ultimate Magus Spellcasting (Bard)</entry>
-  <entry id="76011" lang="en" sex="m">Unseen Spellcasting (Bard)</entry>
+  <entry id="76011" lang="en" sex="m">Unseen Seer Spellcasting (Bard)</entry>
   <entry id="76012" lang="en" sex="m">Virtuoso Spellcasting (Bard)</entry>
   <entry id="76013" lang="en" sex="m">Wild Mage Spellcasting (Bard)</entry>
   <entry id="76014" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Bard)</entry>
@@ -71961,7 +71969,7 @@ Special Abilities:
   <entry id="76526" lang="en" sex="m">Spellsword Spellcasting (Warmage)</entry>
   <entry id="76527" lang="en" sex="m">Talon of Tiamat Spellcasting (Warmage)</entry>
   <entry id="76528" lang="en" sex="m">Ultimate Magus Spellcasting (Warmage)</entry>
-  <entry id="76529" lang="en" sex="m">Unseen Spellcasting (Warmage)</entry>
+  <entry id="76529" lang="en" sex="m">Unseen Seer Spellcasting (Warmage)</entry>
   <entry id="76530" lang="en" sex="m">Virtuoso Spellcasting (Warmage)</entry>
   <entry id="76531" lang="en" sex="m">Wild Mage Spellcasting (Warmage)</entry>
   <entry id="76532" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Warmage)</entry>
@@ -72008,7 +72016,7 @@ Special Abilities:
   <entry id="76573" lang="en" sex="m">Talon of Tiamat Spellcasting (Wizard)</entry>
   <entry id="76574" lang="en" sex="m">True Necromancer Spellcasting (Wizard)</entry>
   <entry id="76575" lang="en" sex="m">Ultimate Magus Spellcasting (Wizard)</entry>
-  <entry id="76576" lang="en" sex="m">Unseen Spellcasting (Wizard)</entry>
+  <entry id="76576" lang="en" sex="m">Unseen Seer Spellcasting (Wizard)</entry>
   <entry id="76577" lang="en" sex="m">Virtuoso Spellcasting (Wizard)</entry>
   <entry id="76578" lang="en" sex="m">Wayfarer Guide Spellcasting (Wizard)</entry>
   <entry id="76579" lang="en" sex="m">Wild Mage Spellcasting (Wizard)</entry>
@@ -72670,7 +72678,7 @@ Wild Frenzy: You gain a +2 bonus on attack rolls and damage rolls with melee wea
   <entry id="78002" lang="en" sex="m">Lions of Talisid</entry>
   <entry id="78003" lang="en" sex="m">lion of Talisid</entry>
   <entry id="78004" lang="en" sex="m">(PRESTIGE CLASS)
-The undisputed ruler of the guardinals, Talisid the Celestial Lion is an enormously powerful force for good—and good alone, undiluted by concerns of law or chaos. He is also a mighty druid, and his mortal and guardinal champions are druids and rangers who share both his fierce hatred of evil and his passionate love of the natural world and its creatures. Called the lions of Talisid, these protectors of nature and champions of good emulate their celestial patron in more concrete ways: adopting feline animal companions, assuming great cat forms with their wild shape ability, and eventually roaring like a leonal. Druids and rangers most commonly become lions of Talisid, and only a character with an animal companion can enter the class. Multiclass druid/rangers also commonly adopt the class, and less commonly, fighter/druids or cleric/rangers.
+The undisputed ruler of the guardinals, Talisid the Celestial Lion is an enormously powerful force for good— and good alone, undiluted by concerns of law or chaos. He is also a mighty druid, and his mortal and guardinal champions are druids and rangers who share both his fierce hatred of evil and his passionate love of the natural world and its creatures. Called the lions of Talisid, these protectors of nature and champions of good emulate their celestial patron in more concrete ways: adopting feline animal companions, assuming great cat forms with their wild shape ability, and eventually roaring like a leonal. Druids and rangers most commonly become lions of Talisid, and only a character with an animal companion can enter the class. Multiclass druid/rangers also commonly adopt the class, and less commonly, fighter/druids or cleric/rangers.
 
 Like their guardinal patron, lions of Talisid usually work alone or in small groups of close companions, rarely with other lions. NPC lions of Talisid can be found wandering the wilderness, fighting any who would defile the natural world with evil.  They are particularly concerned with areas where some evil presence corrupts nature itself, manifesting evil weather and vile corrupted creatures.
 
@@ -72685,24 +72693,24 @@ Alignment: Neutral good.
 Base Attack Bonus: +4.
 Skills: Lore 9 ranks, Heal 9 ranks.
 Feats: Favored of the Companions.
-Spells: Able to cast Summon Nature’s Ally II.
+Spells: Able to cast Summon Nature's Ally II.
 Special: The character must have an animal companion as a class feature.
 
 CLASS FEATURES:
 Level
 1:  Animal Companion (Ex): A lion of Talisid can add his lion of Talisid levels to his effective druid level (his actual druid level or one-half his ranger level) to determine the capabilities of his animal companion.
- Lion’s Courage (Ex): A lion of Talisid is immune to fear (magical or otherwise) and gains a +4 sacred bonus on Will saves against other mind-affecting spells and effects.
+ Lion's Courage (Ex): A lion of Talisid is immune to fear (magical or otherwise) and gains a +4 sacred bonus on Will saves against other mind-affecting spells and effects.
 2:  Scent (Ex): At 2nd level, a lion of Talisid gains the scent special quality. He can detect approaching enemies, sniff out hidden foes, and track by sense of smell.
-3:  Wild Shape (Su): At 3rd level, a lion of Talisid gains the ability to turn himself into any Small or Medium animal and back again once per day. This works exactly as the druid’s wild shape ability.
+3:  Wild Shape (Su): At 3rd level, a lion of Talisid gains the ability to turn himself into any Small or Medium animal and back again once per day. This works exactly as the druid's wild shape ability.
 4:  Exalted Companion: At 4th level, a lion of Talisid gains the Exalted Companion feat as a bonus feat.
  Wild Shape (Su) (2 / day).
-5:  Lion’s Pounce (Ex): At 5th level, a lion of Talisid can make a full attack at the end of a charge.
+5:  Lion's Pounce (Ex): At 5th level, a lion of Talisid can make a full attack at the end of a charge.
  Wild Shape (Su) (3 / day).
 6: Wild Shape (Su) (Large)* 
-7: Lion’s Swiftness (Ex): When he reaches 7th level, a lion of Talisid can act as if under the effects of a haste spell for a total of 1 round per class level per day. These rounds need not be consecutive.
+7: Lion's Swiftness (Ex): When he reaches 7th level, a lion of Talisid can act as if under the effects of a haste spell for a total of 1 round per class level per day. These rounds need not be consecutive.
 8: Wild Shape (Su) (4 / day).
 9: Wild Shape (Su) (Tiny)*
-10: Leonal’s Roar (Su): Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal’s roar spell. The saving throw DC is 20 + the lion of Talisid’s Charisma modifier.
+10: Leonal's Roar (Su): Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal's roar spell. The saving throw DC is 20 + the lion of Talisid's Charisma modifier.
 
 * Not implemented</entry>
   <entry id="78005" lang="en" sex="m">Epic Lion of Talisid</entry>
@@ -72746,10 +72754,10 @@ Use: Automatic.</entry>
 Prerequisite: Lion of Talisid 7
 Specifics: When he reaches 7th level, a lion of Talisid can act as if under the effects of a haste spell for a total of 1 round per class level per day. These rounds need not be consecutive.
 Use: Selected.</entry>
-  <entry id="78027" lang="en" sex="m">Leonal’s Roar (Su)</entry>
+  <entry id="78027" lang="en" sex="m">Leonal's Roar (Su)</entry>
   <entry id="78028" lang="en" sex="m">Type of Feat: Class-Specific
 Prerequisite: Lion of Talisid 10
-Specifics: : Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal’s roar spell. The saving throw DC is 20 + the lion of Talisid’s Charisma modifier.
+Specifics: : Three times a day, a 10th-level lion of Talisid can issue a roar that duplicates the effects of the leonal's roar spell. The saving throw DC is 20 + the lion of Talisid's Charisma modifier.
 Use: Selected.</entry>
   <entry id="78029" lang="en" sex="m">****</entry>
   <entry id="78030" lang="en" sex="m">VrL</entry>
@@ -72757,9 +72765,9 @@ Use: Selected.</entry>
   <entry id="78032" lang="en" sex="m">Verdant Lords</entry>
   <entry id="78033" lang="en" sex="m">verdant lord</entry>
   <entry id="78034" lang="en" sex="m">(PRESTIGE CLASS)
-Saying the verdant lord has a green thumb is like calling a red dragon a creature with a slight affinity for fire. The verdant lord is the final defender of the Forest. He has left behind the druid’s search for global understanding of nature’s secrets to focus all his energies on the world’s plant life.  Elven and half-elven druids are the most likely characters to embrace the role of the verdant lord. Druids of other races, rangers, and the occasional priest of Obad Hai or Ehlonna have also been known to adopt this prestige class. It’s almost impossible for characters without such ties to become verdant lords because they have neither the interest in nor the required understanding of seeds, saplings, and trees.  Since most verdant lords have little use for civilization, they tend to be loners, watching the years pass by from their groves. 
+Saying the verdant lord has a green thumb is like calling a red dragon a creature with a slight affinity for fire. The verdant lord is the final defender of the Forest. He has left behind the druid's search for global understanding of nature's secrets to focus all his energies on the world's plant life.  Elven and half-elven druids are the most likely characters to embrace the role of the verdant lord. Druids of other races, rangers, and the occasional priest of Obad Hai or Ehlonna have also been known to adopt this prestige class. It's almost impossible for characters without such ties to become verdant lords because they have neither the interest in nor the required understanding of seeds, saplings, and trees.  Since most verdant lords have little use for civilization, they tend to be loners, watching the years pass by from their groves. 
 
-Adventuring verdant lords are rare, but those who do exist are marvelous to behold. They tend to take their gardens with them, often bringing several plant creatures, such as animated trees and treants, along on adventures. Verdant lords tend to be soft-spoken, easygoing individuals—right up until someone lights a torch and threatens living plants.
+Adventuring verdant lords are rare, but those who do exist are marvelous to behold. They tend to take their gardens with them, often bringing several plant creatures, such as animated trees and treants, along on adventures. Verdant lords tend to be soft-spoken, easygoing individuals, —right up until someone lights a torch and threatens living plants.
  
  - Hit Die: d8
  - Proficiencies: A verdant lord does not gain any additional weapon or armor proficiencies.
@@ -72783,11 +72791,11 @@ Adventuring verdant lords are rare, but those who do exist are marvelous to beho
  5:  Fast Healing: At 5th level, the verdant lord gains Fast Healing as a bonus feat. 
  6:  Treant Wild Shape (Sp): Beginning at 6th level, the verdant lord can use wild shape to take the form of a treant.
  8:  Animate Tree (Sp): At 8th level, a verdant lord can animate a tree within 180 feet of him once per day.
- 10: Gaea’s Embrace: At 10th level, the verdant lord permanently becomes a plant creature.
+ 10: Gaea's Embrace: At 10th level, the verdant lord permanently becomes a plant creature.
  
  * NOT IMPLEMENTED</entry>
   <entry id="78035" lang="en" sex="m">Epic Verdant Lord</entry>
-  <entry id="78036" lang="en" sex="m">Chosen by the very soul of the forest, the verdant lord is a master of all things green and growing; a guardian whose life is intertwined with the ancient trees and blossoming wilds. These protectors transcend the druid’s path of broad natural wisdom to become singular champions of plant life itself, commanding the power of roots and branches to defend the wilds.
+  <entry id="78036" lang="en" sex="m">Chosen by the very soul of the forest, the verdant lord is a master of all things green and growing; a guardian whose life is intertwined with the ancient trees and blossoming wilds. These protectors transcend the druid's path of broad natural wisdom to become singular champions of plant life itself, commanding the power of roots and branches to defend the wilds.
 
 Hit Die: d8.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -72827,7 +72835,7 @@ Benefit: At 2nd level, the verdant lord gains the ability to draw energy from th
   <entry id="78057" lang="en" sex="m">Spontaneity</entry>
   <entry id="78058" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 3
-Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn’t prepared ahead of time. This works like the cleric’s spontaneous casting ability, with the following exceptions. He can “lose” a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
+Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn’t prepared ahead of time. This works like the cleric's spontaneous casting ability, with the following exceptions. He can “lose” a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
   <entry id="78059" lang="en" sex="m">Plant Facility</entry>
   <entry id="78060" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 4
@@ -72840,7 +72848,7 @@ Beginning at 6th level, the verdant lord can use wild shape to take the form of 
   <entry id="78064" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 8
 Beneft: At 8th level, a verdant lord can animate a tree within 180 feet of him once per day. It takes a full round for a tree to uproot itself; thereafter it has a speed of 30 feet and fights as a treant with respect to attacks and damage. The animated tree gains a number of bonus Hit Dice equal to the number of verdant lord
-levels the character possesses. Though its Intelligence score is only 2 while animated, the tree automatically understands the verdant lord’s commands. The character can
+levels the character possesses. Though its Intelligence score is only 2 while animated, the tree automatically understands the verdant lord's commands. The character can
 return the animated tree to its normal state at will, and it automatically returns to its normal state if it dies or if the verdant lord who animated it is incapacitated or
 moves out of range. Once the tree returns to its normal state by any means, the verdant lord cannot animate another tree for 24 hours.</entry>
   <entry id="78065" lang="en" sex="m">Gaea's Embrace</entry>
@@ -73205,7 +73213,7 @@ Target: One creature
 Duration: 3 rounds
 Saving Throw: Fortitude half
 Spell Resistance: Yes
-You turn the subject’s sweat to ice, creating blisters as ice forms on and inside the skin. The spell deals 1d6 cumulative points of cold damage per round it is in effect (that is, 1d6 on the 1st round, 2d6 on the second, and 3d6 on the third). 
+You turn the subject's sweat to ice, creating blisters as ice forms on and inside the skin. The spell deals 1d6 cumulative points of cold damage per round it is in effect (that is, 1d6 on the 1st round, 2d6 on the second, and 3d6 on the third). 
 Only one save is allowed against the spell; if successful, it halves the damage each round. 
 
 Focus: A small glass or pottery vessel worth at least 25 gp filled with ice, snow, or water.</entry>
@@ -73224,9 +73232,9 @@ Duration: Up to 6 rounds (see text)
 Saving Throw: Fortitude half
 Spell Resistance: Yes
 
-This spell functions like creeping cold, causing intense cold to accumulate inside the target’s body, but with extended duration and increased damage.
+This spell functions like creeping cold, causing intense cold to accumulate inside the target's body, but with extended duration and increased damage.
 
-You turn the subject’s sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on—dealing 3d6 on the third round and 4d6 on the fourth.
+You turn the subject's sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on—dealing 3d6 on the third round and 4d6 on the fourth.
 
 If the caster is at least 15th level, the spell continues for a fifth round, dealing 5d6 cold damage. At 20th level or higher, a sixth round is added, dealing 6d6 cold damage. The spell never deals more than 6d6 damage in any round, and it ends early if the target dies.
 
@@ -73777,7 +73785,7 @@ A character can gain this feat multiple times. Its effects do not stack. Each ti
   <entry id="202063" lang="en" sex="m">Ability Focus (Word of Changing)</entry>
   <entry id="204999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="205000" lang="en" sex="m">Epic Eye of Gruumsh</entry>
-  <entry id="205001" lang="en" sex="m">You are the living embodiment of Gruumsh’s savage fury—a one-eyed martyr whose terrible sacrifice has unlocked epic levels of brutal power. Your scarred visage and impaired sight serve as a constant reminder of your oath, granting you a glimpse into your deity’s blind rage. In the heat of battle, your ferocity and unholy devotion enable you to strike terror into the hearts of your foes, as you channel the very essence of an orcish legend.
+  <entry id="205001" lang="en" sex="m">You are the living embodiment of Gruumsh's savage fury—a one-eyed martyr whose terrible sacrifice has unlocked epic levels of brutal power. Your scarred visage and impaired sight serve as a constant reminder of your oath, granting you a glimpse into your deity's blind rage. In the heat of battle, your ferocity and unholy devotion enable you to strike terror into the hearts of your foes, as you channel the very essence of an orcish legend.
 
 Hit Die: d12
 Skill Points at Each Additional Level: 2 + Intelligence modifier
@@ -73861,7 +73869,7 @@ Spells: The epic spellsword increases caster level by one per two levels gained 
 Epic Spellsword Bonus Feat List:
 Armor Skin, Blinding Speed, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Fortitude, Epic Reflexes, Epic, Will, Great Intelligence, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Initiative, Superior Initiative, Spell Focus, Spell Penetration, Tenacious Magic, Damage Reduction, Devastating Critical, Epic Leadership, Epic Prowess, Energy Resistance, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Improved Manyshot, Improved Stunning Fist, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Overwhelming Critical, Perfect Two-Weapon Fighting, Superior Initiative,  Two-Weapon Rend.  In addition to the feats on this list, the epic spellsword may select any metamagic or fighter bonus feat not listed here.</entry>
   <entry id="205016" lang="en" sex="m">Epic Acolyte of the Skin</entry>
-  <entry id="205017" lang="en" sex="m">You have embraced a perilous pact with infernal power, binding a living demon’s skin to your own. As your bond deepens, you gain supernatural defenses along with elemental resistances and a fearsome gaze.
+  <entry id="205017" lang="en" sex="m">You have embraced a perilous pact with infernal power, binding a living demon's skin to your own. As your bond deepens, you gain supernatural defenses along with elemental resistances and a fearsome gaze.
 
 Hit Die: d4.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
@@ -73894,7 +73902,7 @@ Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 e
 Epic Unseen Seer Bonus Feat List:
 Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative</entry>
   <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
-  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess’s dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
+  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
 
 Hit Die: d6
 Skill Points at Each Additional Level: 6 + Int Modifier
@@ -73996,7 +74004,7 @@ Spellcasting: The epic Fist of Raziel continues to increase in caster level (and
 Epic Fist of Raziel Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Shield, Epic Prowess, Epic Reputation, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Improved Combat Casting, Invoke Divine Wrath, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
   <entry id="205036" lang="en" sex="m">Epic Vassal of Bahamut</entry>
-  <entry id="205037" lang="en" sex="m">Epic Vassals of Bahamut embody the Platinum Dragon’s will, becoming unstoppable champions against evil dragons. Their divine gifts, martial prowess, and unwavering devotion make them legendary figures in the eternal war against tyranny and corruption.
+  <entry id="205037" lang="en" sex="m">Epic Vassals of Bahamut embody the Platinum Dragon's will, becoming unstoppable champions against evil dragons. Their divine gifts, martial prowess, and unwavering devotion make them legendary figures in the eternal war against tyranny and corruption.
 
 Hit Die: d10
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74349,7 +74357,7 @@ Sneak Attack: The epic Disciple of Baalzebu's sneak attack continues to increase
 Epic Disciple of Baalzebu Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Energy Resistance, Fast Healing, Perfect Health, Epic Dodge, Epic Prowess, Epic Reputation, Epic Skill Focus, Great Charisma, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
   <entry id="205090" lang="en" sex="m">Epic Mighty Contender of Kord</entry>
-  <entry id="205091" lang="en" sex="m">Mighty Contenders of Kord strive for the ultimate fusion of physical and spiritual perfection. Champions of the Brawler, they push their bodies to their limits, believing that true strength leads to freedom. Through divine might and relentless training, they become living testaments to Kord’s power, breaking chains both literal and metaphorical in their quest for supremacy.
+  <entry id="205091" lang="en" sex="m">Mighty Contenders of Kord strive for the ultimate fusion of physical and spiritual perfection. Champions of the Brawler, they push their bodies to their limits, believing that true strength leads to freedom. Through divine might and relentless training, they become living testaments to Kord's power, breaking chains both literal and metaphorical in their quest for supremacy.
 
 Hit Die: d10
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74412,7 +74420,7 @@ Ritual Scarring : The epic Runescarred Berzerker continues to gain +1 Natural AC
 Epic Runescarred Berserkers Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage</entry>
   <entry id="205100" lang="en" sex="m">Epic Talontar Blightlord</entry>
-  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona’s rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
+  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona's rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74489,7 +74497,7 @@ Sneak Attack: The epic Shadowblade's sneak attack continues to increase in power
 Epic Shadowblade Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Dodge, Epic Prowess, Epic Reputation, Epic Self-Concealment, Epic Skill Focus, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Superior Initiative.</entry>
   <entry id="205112" lang="en" sex="m">Epic Dragon Shaman</entry>
-  <entry id="205113" lang="en" sex="m">At epic levels, the dragon shaman becomes a living embodiment of draconic majesty. Their auras grow stronger, their breath weapon rivals that of ancient wyrms, and their resilience is all but unshakable. With wings unfurled and power drawn directly from their totem dragon’s essence, they stride through battle as a paragon of scaled might and unwavering purpose.
+  <entry id="205113" lang="en" sex="m">At epic levels, the dragon shaman becomes a living embodiment of draconic majesty. Their auras grow stronger, their breath weapon rivals that of ancient wyrms, and their resilience is all but unshakable. With wings unfurled and power drawn directly from their totem dragon's essence, they stride through battle as a paragon of scaled might and unwavering purpose.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
@@ -74584,7 +74592,7 @@ Incarnum Overload: The epic Incandescent Champion continues to gain another use 
 Epic Incandescent Champion Bonus Feat List:
 Armor Skin, Blinding Speed, Bonus Soulmeld, Devastating Critical, Epic Energy Resistance, Epic Essentia, Epic Leadership, Epic Prowess, Epic Toughness, Epic Weapon Focus, Extra Chakra Bind, Great Constitution, Legendary Commander, Open Heart Chakra, Open Soul Chakra, Overwhelming Critical, Rapid Meldshaping, Rebind Soulmeld, Superior Initiative.</entry>
   <entry id="205126" lang="en" sex="m">Epic Justice of Weald and Woe</entry>
-  <entry id="205127" lang="en" sex="m">You are the forest’s final answer. Where diplomacy fails, your arrows speak. Moving unseen, striking without mercy, you end threats to elvenkind with lethal precision, and vanish like mist before dawn.
+  <entry id="205127" lang="en" sex="m">You are the forest's final answer. Where diplomacy fails, your arrows speak. Moving unseen, striking without mercy, you end threats to elvenkind with lethal precision, and vanish like mist before dawn.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -74728,7 +74736,7 @@ Spellcasting: The epic Thrall of Graz'zt continues to increase in arcane caster 
 Epic Thrall of Graz'zt Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
   <entry id="205150" lang="en" sex="m">Epic Eldritch Disciple</entry>
-  <entry id="205151" lang="en" sex="m">At epic levels, the Eldritch Disciple becomes a master of both divine magic and eldritch power. Her patron’s gifts grow stronger, allowing her to blend invocations and divine spells with greater ease. As a chosen vessel of her deity's will, she channels supernatural power with unmatched versatility and purpose.
+  <entry id="205151" lang="en" sex="m">At epic levels, the Eldritch Disciple becomes a master of both divine magic and eldritch power. Her patron's gifts grow stronger, allowing her to blend invocations and divine spells with greater ease. As a chosen vessel of her deity's will, she channels supernatural power with unmatched versatility and purpose.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74947,7 +74955,7 @@ Manifesting: At each class level the epic Cerebremancer continues to increase in
 Epic Cerebremancer Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Energy Resistance, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Skill Focus, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Wisdom, Ignore Material Components, Improved Combat Casting, Epic Psionic Feats, Tenacious Magic.</entry>
   <entry id="205188" lang="en" sex="m">Epic Thrallherd</entry>
-  <entry id="205189" lang="en" sex="m">The epic Thrallherd is no mere master of persuasion, they are a gravitational center of will, drawing minds like comets into their orbit. Words are unnecessary; their presence alone compels obedience. Servants do not follow out of duty, but because they believe it is destiny. Kings, monsters, even minds alien and ancient, none are beyond the Thrallherd’s reach. Their thoughts shape allegiance, and their will becomes the law of others.
+  <entry id="205189" lang="en" sex="m">The epic Thrallherd is no mere master of persuasion, they are a gravitational center of will, drawing minds like comets into their orbit. Words are unnecessary; their presence alone compels obedience. Servants do not follow out of duty, but because they believe it is destiny. Kings, monsters, even minds alien and ancient, none are beyond the Thrallherd's reach. Their thoughts shape allegiance, and their will becomes the law of others.
 
 Hit Die: d4
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -75131,7 +75139,7 @@ Special Attack: the epic Hand of the Winged Masters's sneak attack or skirmish a
 Epic Hands of the Winged Masters Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Great Dexterity, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative.</entry>
   <entry id="205218" lang="en" sex="m">Epic Talon of Tiamat</entry>
-  <entry id="205219" lang="en" sex="m">Epic Talons of Tiamat are the chosen claws of dragonkind’s darkest queen, spreading her wrath and dominion across the realms. Empowered by draconic fury and ancient magic, they become living engines of destruction, breathing elemental death, sowing terror with their presence, and turning even mighty dragons into pawns of their will. Whether clad in steel or shrouded in sorcery, they are avatars of chromatic vengeance, feared by all who stand with metallic dragons and loathed as heretics by the righteous. Wherever they walk, Tiamat’s shadow follows.
+  <entry id="205219" lang="en" sex="m">Epic Talons of Tiamat are the chosen claws of dragonkind's darkest queen, spreading her wrath and dominion across the realms. Empowered by draconic fury and ancient magic, they become living engines of destruction, breathing elemental death, sowing terror with their presence, and turning even mighty dragons into pawns of their will. Whether clad in steel or shrouded in sorcery, they are avatars of chromatic vengeance, feared by all who stand with metallic dragons and loathed as heretics by the righteous. Wherever they walk, Tiamat's shadow follows.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -75661,7 +75669,7 @@ Duration: 10 rounds + 1 round/two levels
 Saving Throw: Will negates (harmless)
 Spell Resistance: Yes (harmless)
 
-You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell’s duration, not to that from previous injuries. Each subject heals 1 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate ring does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell’s duration by the full duration of the second spell.</entry>
+You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell's duration, not to that from previous injuries. Each subject heals 1 hit point per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate ring does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell's duration by the full duration of the second spell.</entry>
   <entry id="213262" lang="en" sex="m">Regenerate Ring (6)</entry>
   <entry id="213263" lang="en" sex="m">Regenerate Ring (9)</entry>
   <entry id="213264" lang="en" sex="m">Regenerate Ring (12)</entry>
@@ -75678,7 +75686,7 @@ Duration: 10 rounds + 1 round/two levels
 Saving Throw: Will negates (harmless)
 Spell Resistance: Yes (harmless)
 
-You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell’s duration, not to that from previous injuries. Each subject heals 3 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate circle does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell’s duration by the full duration of the second spell.</entry>
+You invoke healing energy over a group of creatures, granting each the fast healing ability for the duration of the spell. This healing applies only to damage sustained during the spell's duration, not to that from previous injuries. Each subject heals 3 hit points per round of such damage until the spell ends and is automatically stabilized if he or she begins dying from hit point loss during that time. Regenerate circle does not restore hit points lost from starvation, thirst, or suffocation, nor does it allow a creature to regrow or attach lost body parts.  The effects of multiple regenerate spells do not stack; only the highest-level effect applies. Applying a second regenerate spell of equal level extends the first spell's duration by the full duration of the second spell.</entry>
   <entry id="213268" lang="en" sex="m">Regenerate Circle (10)</entry>
   <entry id="213269" lang="en" sex="m">Regenerate Circle (15)</entry>
   <entry id="213270" lang="en" sex="m">Regenerate Circle (20)</entry>

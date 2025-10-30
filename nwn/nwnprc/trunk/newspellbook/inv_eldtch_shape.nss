@@ -158,7 +158,194 @@ void main()
     if(nEssence == INVOKE_PENETRATING_BLAST || nEssence2 == INVOKE_PENETRATING_BLAST)
         nPenetr += 4;
 
-    //Get first target in spell area
+//Get first target in spell area
+object oTarget = MyFirstObjectInShape(nShape, fRange, lTargetArea, TRUE,
+    OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(oPC));
+
+while(GetIsObjectValid(oTarget))
+{
+    int nDamage = d6(nDmgDice);
+    if(GetHasSpellEffect(INVOKE_WILD_FRENZY, oPC))
+        nDamage += 2;
+
+    //Bane Blast
+    int nRace = MyPRCGetRacialType(oTarget);
+    if(nRace == ((nEssenceData >>> 16) & 0xFF) - 1
+    || nRace == ((nEssenceData2 >>> 16) & 0xFF) - 1)
+        nDamage += d6(2);
+
+    //Hammer Blast
+    if(GetObjectType(oTarget) != OBJECT_TYPE_CREATURE
+    && nEssence != INVOKE_HAMMER_BLAST
+    && nEssence2 != INVOKE_HAMMER_BLAST)
+    {
+        nDamage /= 2;
+        if(nDamage < 1) nDamage = 1;
+        nHellFire /= 2;
+    }
+
+    int nRep = bDoom ? SPELL_TARGET_SELECTIVEHOSTILE : SPELL_TARGET_STANDARDHOSTILE;
+
+    // Heal friendly undead when affected by Doom + negative energy
+    if (nDamageType == DAMAGE_TYPE_NEGATIVE && bDoom && GetIsFriend(oTarget, oPC)
+        && MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
+    {
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nDamage), oTarget);
+    }
+    // Skip all other allies when bDoom is active
+    else if (bDoom && GetIsFriend(oTarget, oPC))
+    {
+        oTarget = MyNextObjectInShape(nShape, fRange, lTargetArea, TRUE,
+            OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(oPC));
+        continue;
+    }
+    else if (spellsIsTarget(oTarget, nRep, oPC) && oTarget != oPC)
+    {
+        //Fire cast spell at event for the specified target
+        SignalEvent(oTarget, EventSpellCastAt(oPC, INVOKE_ELDRITCH_BLAST));
+        float fDelay = GetDistanceBetween(oPC, oTarget)/20;
+
+        nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, nReflexSaveType);
+        if(nDamage > 0)
+        {
+            int iSR = PRCDoResistSpell(oPC, oTarget, nPenetr);
+            if(!iSR)
+            {
+                // secondary essence effects...
+                if(nEssence == INVOKE_PENETRATING_BLAST || nEssence2 == INVOKE_PENETRATING_BLAST)
+                {
+                    eEssence = EffectSpellResistanceDecrease(5);
+                    if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(1));
+                }
+                if((nEssence == INVOKE_HINDERING_BLAST || nEssence2 == INVOKE_HINDERING_BLAST)
+                    && PRCGetIsAliveCreature(oTarget))
+                {
+                    eEssence = EffectSlow();
+                    if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(1));
+                }
+                if(nEssence == INVOKE_BINDING_BLAST || nEssence2 == INVOKE_BINDING_BLAST)
+                {
+                    eEssence = EffectStunned();
+                    if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(1));
+                }
+                if(nEssence == INVOKE_BEWITCHING_BLAST || nEssence2 == INVOKE_BEWITCHING_BLAST)
+                {
+                    eEssence = PRCEffectConfused();
+                    if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(1));
+                }
+                if((nEssence == INVOKE_BESHADOWED_BLAST || nEssence2 == INVOKE_BESHADOWED_BLAST)
+                    && PRCGetIsAliveCreature(oTarget))
+                {
+                    eEssence = EffectBlindness();
+                    if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(1));
+                }
+                if((nEssence == INVOKE_HELLRIME_BLAST || nEssence2 == INVOKE_HELLRIME_BLAST))
+                {
+                    eEssence = EffectAbilityDecrease(ABILITY_DEXTERITY, 4);
+                    if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(10));
+                }
+                if(nEssence == INVOKE_UTTERDARK_BLAST || nEssence2 == INVOKE_UTTERDARK_BLAST)
+                {
+                    eEssence = EffectNegativeLevel(2);
+                    if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, HoursToSeconds(1));
+                }
+                if(nEssence == INVOKE_FRIGHTFUL_BLAST || nEssence2 == INVOKE_FRIGHTFUL_BLAST)
+                {
+                    effect eDur2 = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+                    effect eFear = EffectFrightened();
+                    effect eAttackD = EffectAttackDecrease(2);
+                    effect eDmgD = EffectDamageDecrease(2, DAMAGE_TYPE_BLUDGEONING|DAMAGE_TYPE_PIERCING|DAMAGE_TYPE_SLASHING);
+                    effect SaveD = EffectSavingThrowDecrease(SAVING_THROW_ALL,2);
+                    effect Skill = EffectSkillDecrease(SKILL_ALL_SKILLS,2);
+
+                    eEssence = EffectLinkEffects(eDmgD, eDur2);
+                    eEssence = EffectLinkEffects(eEssence, eAttackD);
+                    eEssence = EffectLinkEffects(eEssence, SaveD);
+                    eEssence = EffectLinkEffects(eEssence, eFear);
+                    eEssence = EffectLinkEffects(eEssence, Skill);
+
+                    if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(1));
+                }
+                if(nEssence == INVOKE_NOXIOUS_BLAST || nEssence2 == INVOKE_NOXIOUS_BLAST)
+                {
+                    eEssence = EffectDazed();
+                    if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(1));
+                }
+                if(nEssence == INVOKE_CORRUPTING_BLAST || nEssence2 == INVOKE_CORRUPTING_BLAST)
+                {
+                    if(CheckTurnUndeadUses(oPC, 1))
+                    {
+                        int nRed = GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oPC) / 2;
+                        if(nRed < 1) nRed = 1;
+                        eEssence = EffectSavingThrowDecrease(SAVING_THROW_WILL, nRed);
+                        eEssence = EffectLinkEffects(eEssence, EffectVisualEffect(VFX_DUR_MIND_AFFECTING_NEGATIVE));
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, RoundsToSeconds(1));
+                    }
+                    else
+                        SpeakStringByStrRef(40550);
+                }
+                if((nEssence == INVOKE_SICKENING_BLAST || nEssence2 == INVOKE_SICKENING_BLAST)
+                    && PRCGetIsAliveCreature(oTarget))
+                {
+                    eEssence = EffectSickened();
+                    if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
+                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, 60.0);
+                }
+                if((nEssence == INVOKE_BRIMSTONE_BLAST || nEssence2 == INVOKE_BRIMSTONE_BLAST)
+                    && !GetLocalInt(oTarget, "BrimstoneFire"))
+                {
+                    if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_FIRE))
+                    {
+                        SetLocalInt(oTarget, "BrimstoneFire", TRUE);
+                        int nDuration = nInvLevel / 5;
+                        DelayCommand(RoundsToSeconds(nDuration), DeleteLocalInt(oTarget, "BrimstoneFire"));
+
+                        int i;
+                        float fRound = RoundsToSeconds(1);
+                        for(i = 1; i <= nDuration; i++)
+                        {
+                            DelayCommand(fRound * i, DoDelayedBlast(oTarget));
+                        }
+                    }
+                }
+
+                ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+            }
+
+            // Vitriolic ignores SR
+            if(nEssence == INVOKE_VITRIOLIC_BLAST || nEssence2 == INVOKE_VITRIOLIC_BLAST)
+            {
+                if(iSR) ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+
+                int nDuration = nInvLevel / 5;
+                int i;
+                float fRound = RoundsToSeconds(1);
+                for(i = 1; i <= nDuration; i++)
+                {
+                    DelayCommand(fRound * i, DoDelayedBlast(oTarget, DAMAGE_TYPE_ACID, VFX_IMP_ACID_S));
+                }
+            }
+
+            ApplyBlastDamage(oPC, oTarget, 1, iSR, nDamage, nDamageType, nDamageType2, nHellFire, FALSE);
+        }
+    }
+
+    oTarget = MyNextObjectInShape(nShape, fRange, lTargetArea, TRUE,
+        OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(oPC));
+
+    if(DEBUG) DoDebug("inv_eldtch_shape: Next target is: " + DebugObject2Str(oTarget));
+}
+
+/*     //Get first target in spell area
     object oTarget = MyFirstObjectInShape(nShape, fRange, lTargetArea, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(oPC));
     while(GetIsObjectValid(oTarget))
     {
@@ -327,7 +514,7 @@ void main()
         oTarget = MyNextObjectInShape(nShape, fRange, lTargetArea, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, GetPosition(oPC));
         if(DEBUG) DoDebug("inv_eldtch_shape: Next target is: " + DebugObject2Str(oTarget));
     }
-
+ */
     if(nBlast == INVOKE_ELDRITCH_LINE)
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectBeam(nBeamVFX, oPC, BODY_NODE_HAND, FALSE), oBeamTarget, 1.0f);
     else if(nBlast == INVOKE_ELDRITCH_DOOM)

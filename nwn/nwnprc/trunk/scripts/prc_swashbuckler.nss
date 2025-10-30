@@ -1,4 +1,5 @@
 #include "prc_inc_spells"
+#include "prc_inc_wpnrest"
 
 //DAMAGE_TYPE_BASE_WEAPON
 //GetAbilityModifier(ABILITY_INTELLIGENCE, oPC)
@@ -58,6 +59,31 @@ void Dodge(object oPC, object oSkin,int sDodge)
 //make this not apply if you are wearing medium or heavy armor, or are encumbered.
 void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
 {
+	object oArmor=GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
+	int iBase = GetBaseAC(oArmor);
+	int iMax = 3;
+
+	int iLight = GetHasSwashbucklerWeapon(oPC);	   
+
+	if  (iBase > iMax ) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
+
+	else if (iLight < 1) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
+	
+	else
+	{
+		if (GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC)))
+		{
+			ActionCastSpellOnSelf(SPELL_SWASH_DAMAGE);
+		}
+		else
+		{
+			PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
+		}
+	}
+}
+
+/* void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
+{
    object oArmor=GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
    int iBase = GetBaseAC(oArmor);
    int iMax = 3;
@@ -88,9 +114,9 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
 	}
    	
 
-   if  (GetBaseAC(oArmor)>iMax ) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
+   if  (iBase > iMax ) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
 
-   else if (iLight<1) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
+   else if (iLight < 1) PRCRemoveEffectsFromSpell(oPC, SPELL_SWASH_DAMAGE);
    else
    {
           if (GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC)))
@@ -103,6 +129,7 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
             }
    }
 }
+ */
 
 //This makes a unique on hit which calls on the "prc_swashweak" scripts
 //to simulate a critical hit roll percentage.  On success, it deals

@@ -216,55 +216,74 @@ void DoRay(object oTarget, int nSaveDC, int nRoll, int nCasterLvl, object oPC)
                 {
                         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nSaveDC, SAVING_THROW_TYPE_SPELL))
                         {
-                                ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget);
-                                ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oTarget);
-                                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), oTarget);
+                                // makes the target invisible
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
+                                // allows pathfinding through the target
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
+                                // paralyzes the target, ignores immunity
+                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
+                                // save the target location for later visual effect
+                                location lLoc = GetLocation(oTarget);
 
-                                int nMessageRoll = d6(1);
-                                int nTalk;
-
-                                switch(nMessageRoll)
+                                // separate player targets from NPCs
+                                if(GetIsPC(oTarget))
                                 {
-                                        case 1:
-                                        {
-                                                nTalk = 1729332;
-                                                break;
-                                        }
+                                        int nMessageRoll = d6(1);
+                                        int nTalk;
 
-                                        case 2:
+                                        switch(nMessageRoll)
                                         {
-                                                nTalk = 1729333;
-                                                break;
-                                        }
+                                                case 1:
+                                                {
+                                                        nTalk = 1729332;
+                                                        break;
+                                                }
 
-                                        case 3:
-                                        {
-                                                nTalk = 1729334;
-                                                break;
-                                        }
+                                                case 2:
+                                                {
+                                                        nTalk = 1729333;
+                                                        break;
+                                                }
 
-                                        case 4:
-                                        {
-                                                nTalk = 1729335;
-                                                break;
-                                        }
+                                                case 3:
+                                                {
+                                                        nTalk = 1729334;
+                                                        break;
+                                                }
 
-                                        case 5:
-                                        {
-                                                nTalk = 1729336;
-                                                break;
-                                        }
+                                                case 4:
+                                                {
+                                                        nTalk = 1729335;
+                                                        break;
+                                                }
 
-                                        case 6:
-                                        {
-                                                nTalk = 1729337;
-                                                break;
+                                                case 5:
+                                                {
+                                                        nTalk = 1729336;
+                                                        break;
+                                                }
+
+                                                case 6:
+                                                {
+                                                        nTalk = 1729337;
+                                                        break;
+                                                }
                                         }
+                                        //Death Popup
+                                        // allow respawn, but not wait for help since sent away
+                                        // also if not letting respawn and cannot reload, the player cannot continue via GUI
+                                        DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, TRUE , FALSE, nTalk));
+                                        DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
                                 }
-
-                                //Death Popup
-                                DelayCommand(2.75, PopUpDeathGUIPanel(oTarget, FALSE , TRUE, nTalk));
-                                DelayCommand(2.75, ExecuteScript("prc_ondeath", oTarget));
+                                else
+                                {
+                                        // Target is not a player
+                                        // To simplify against NPCs and also reward xp, applies same death as Green color
+                                        DeathlessFrenzyCheck(oTarget);
+                                        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
+                                }
+                                // a visual effect for banishment
+                                ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), lLoc);
                         }
                 }
         }

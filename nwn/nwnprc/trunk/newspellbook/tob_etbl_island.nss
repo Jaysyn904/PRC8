@@ -42,7 +42,7 @@ void main()
     // Expended already?
     if(GetLocalInt(oInitiator, "ETBL_Island_In_Time_Expended"))
     {
-        FloatingTextStringOnCreature("*Tactical Insight expended already*", oInitiator, FALSE);
+        FloatingTextStringOnCreature("*Island in Time expended already*", oInitiator, FALSE);
         return;
     }
 

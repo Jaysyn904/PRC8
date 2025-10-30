@@ -520,9 +520,9 @@ void GainPsionicFocus(object oGainee = OBJECT_SELF)
     {
         int nPsySneak = 1;
         if(GetHasFeat(FEAT_PSY_SNEAK_ATTACK_2d6, oGainee))
-            nPsySneak += 2;
+            nPsySneak += 1;
         if(GetHasFeat(FEAT_PSY_SNEAK_ATTACK_3d6, oGainee))
-            nPsySneak += 3; 
+            nPsySneak += 1; 
         
         SetLocalInt(oGainee, "PsyRogueSneak",nPsySneak);
         DelayCommand(0.1, ExecuteScript("prc_sneak_att", oGainee));

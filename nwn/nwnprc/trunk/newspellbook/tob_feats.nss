@@ -34,6 +34,7 @@ void ShadowBlade(object oInitiator)
     if (nDisc == DISCIPLINE_SHADOW_HAND && nWeap)
     {   
         int nDamageType = GetWeaponDamageType(oWeapon);
+		if(DEBUG) DoDebug("tob_feats >> ShadowBlade(): " + IntToString(nDex) +": extra points of "+IntToString(nDamageType)+" Damage.");
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nDex), nDamageType)), oInitiator, 6.0); 
         SetLocalInt(oInitiator, "ShadowBladeDam", nDex);
         DelayCommand(6.0, DeleteLocalInt(oInitiator, "ShadowBladeDam"));

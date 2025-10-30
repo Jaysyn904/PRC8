@@ -58,6 +58,46 @@ void main()
 
     if(MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
     {
+        // Prevent stacking — only apply once per source
+        effect eTest = GetFirstEffect(oTarget);
+        while(GetIsEffectValid(eTest))
+        {
+            if(GetEffectCreator(eTest) == GetAreaOfEffectCreator() &&
+               GetStringLeft(GetEffectTag(eTest), 11) == "EFFECT_DESE")
+            {
+                return; // Already has desecrate from this AOE
+            }
+            eTest = GetNextEffect(oTarget);
+        }
+
+        effect eLink = EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_NEGATIVE);
+               eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1));
+               eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, 1));
+               eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+        effect eHP = EffectTemporaryHitpoints(GetHitDice(oTarget));
+        effect eVis = EffectVisualEffect(VFX_IMP_HOLY_AID);
+
+        // Give a unique tag so it can be recognized later
+        eLink = TagEffect(eLink, "EFFECT_DESECRATE_AURA");
+        eHP   = TagEffect(eHP,   "EFFECT_DESECRATE_HP");
+
+        if(!GetPRCSwitch(PRC_TRUE_NECROMANCER_ALTERNATE_VISUAL))
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+        else
+            eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_PROTECTION_EVIL_MINOR));
+
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eHP, oTarget);
+    }
+}
+
+
+/* void main()
+{
+    object oTarget = GetEnteringObject();
+
+    if(MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
+    {
         effect eLink = EffectDamageIncrease(DAMAGE_BONUS_1, DAMAGE_TYPE_NEGATIVE);
                eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1));
                eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, 1));
@@ -74,3 +114,4 @@ void main()
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, eHP, oTarget);
     }
 }
+ */

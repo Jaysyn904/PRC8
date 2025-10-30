@@ -96,7 +96,7 @@ void main()
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
-    int nFireResist;
+    int nFireResist  = -1;
     if(GetHasFeat(FEAT_WARLOCK_RESIST_FIRE))
         nFireResist = nResistAmt;
     if(nHellFire > 1)

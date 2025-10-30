@@ -23,13 +23,14 @@
 //:://////////////////////////////////////////////
 //:: Created By: Various people
 //:://////////////////////////////////////////////
-
+#include "prc_inc_wpnrest"
 #include "psi_inc_onhit"
 #include "inc_rend"
 #include "psi_inc_ac_const"
 #include "prc_inc_onhit"
 #include "tob_inc_tobfunc"
 #include "prc_inc_sp_tch"
+
 
 void SetRancorVar(object oPC);
 void SetImprovedRicochetVar(object oPC);
@@ -118,7 +119,7 @@ void main()
 
     object oSpellTarget = PRCGetSpellTargetObject(oSpellOrigin); // On a weapon: The one being hit. On an armor: The one hitting the armor
     
-    // Make sure you don't hit yourself. Some idiot didn't check that.
+    // Make sure you don't hit yourself.
     if (oSpellOrigin == oSpellTarget)
     	oSpellTarget = GetProperTarget(oSpellOrigin, oSpellTarget);    
 
@@ -143,17 +144,19 @@ void main()
     //int bItemIsWeapon;
 
     //nBArcher   = GetLevelByClass(CLASS_TYPE_BLARCHER, oSpellOrigin);
+	
+	int bSwashWeapon 	= GetHasSwashbucklerWeapon(oSpellOrigin);
+	int bCorellonWeapon = GetHasCorellonWeapon(oSpellOrigin); 
 
     //// Swashbuckler Weakening and Wounding Criticals
-    if(GetHasFeat(INSIGHTFUL_STRIKE, oSpellOrigin))
+    if(GetHasFeat(INSIGHTFUL_STRIKE, oSpellOrigin) && bSwashWeapon)
         ExecuteScript("prc_swashweak", oSpellOrigin);
 
     //// Champion of Corellon damage healing for sneak/critical immune creatures
-    if(GetHasFeat(FEAT_COC_ELEGANT_STRIKE, oSpellOrigin))
+    if(GetHasFeat(FEAT_COC_ELEGANT_STRIKE, oSpellOrigin) && bCorellonWeapon)
         ExecuteScript("prc_coc_heal", oSpellOrigin);
 
     //// Stormlord Shocking & Thundering Spear
-
     if(GetHasFeat(FEAT_THUNDER_WEAPON, oSpellOrigin))
         ExecuteScript("ft_shockweap", oSpellOrigin);
 

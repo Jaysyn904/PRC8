@@ -12,8 +12,17 @@
 void main()
 {
     object oTarget = GetExitingObject();
+	
+	effect eAOE = GetFirstEffect(oTarget);
+	
+	if(GetEffectCreator(eAOE) == GetAreaOfEffectCreator())
+	{
+		string sTag = GetEffectTag(eAOE);
+		if(sTag == "EFFECT_DESECRATE_AURA" || sTag == "EFFECT_DESECRATE_HP")
+			RemoveEffect(oTarget, eAOE);
+	}	
 
-    if(GetHasSpellEffect(SPELL_DES_20, oTarget) || GetHasSpellEffect(SPELL_DES_100, oTarget) || GetHasSpellEffect(SPELL_DESECRATE, oTarget))
+/*     if(GetHasSpellEffect(SPELL_DES_20, oTarget) || GetHasSpellEffect(SPELL_DES_100, oTarget) || GetHasSpellEffect(SPELL_DESECRATE, oTarget))
     {
         //Search through the valid effects on the target.
         effect eAOE = GetFirstEffect(oTarget);
@@ -27,5 +36,5 @@ void main()
             //Get next effect on the target
             eAOE = GetNextEffect(oTarget);
         }
-    }
+    } */
 }
