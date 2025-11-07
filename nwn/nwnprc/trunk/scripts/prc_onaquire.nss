@@ -114,7 +114,7 @@ void UpdateIPs(object oItem)
                     case 16: nClass = CLASS_TYPE_VIGILANT; break;
                     case 17: nClass = CLASS_TYPE_VASSAL; break;
                     case 18: nClass = CLASS_TYPE_SUBLIME_CHORD; break;
-                    case 19: nClass = CLASS_TYPE_ANTI_PALADIN; break;
+                    case 19: nClass = CLASS_TYPE_NENTYAR_HUNTER; break;
                     case 20: nClass = CLASS_TYPE_SOLDIER_OF_LIGHT; break;
                     case 21: nClass = CLASS_TYPE_SHADOWLORD; break;
                     case 22: nClass = CLASS_TYPE_JUSTICEWW; break;
@@ -131,14 +131,48 @@ void UpdateIPs(object oItem)
                     case 33: nClass = CLASS_TYPE_SOHEI; break;
                     case 34: nClass = CLASS_TYPE_WARMAGE; break;
                     case 35: nClass = CLASS_TYPE_TEMPLAR; break;
+                    case 36: nClass = CLASS_TYPE_JUSTICEWW; break;
+                    case 37: nClass = CLASS_TYPE_BLIGHTER; break;					
+					case 38: nClass = CLASS_TYPE_SHADOWLORD; break;					
+					case 39: nClass = CLASS_TYPE_KNIGHT_WEAVE; break;					
+					case 40: nClass = CLASS_TYPE_CULTIST_SHATTERED_PEAK; break;					
+					case 41: nClass = CLASS_TYPE_CELEBRANT_SHARESS; break;					
                 }
 
-                if(nClass == CLASS_TYPE_DRUID)
+                if(nClass == CLASS_TYPE_ASSASSIN)
+                    bAdd = Get2DACache("Spells", "Assassin", nSpellID) == "" ? FALSE : TRUE;
+                else if(nClass == CLASS_TYPE_BLACKGUARD)
+                    bAdd = Get2DACache("Spells", "Blackguard", nSpellID) == "" ? FALSE : TRUE;				
+                else if(nClass == CLASS_TYPE_BLIGHTER)
+                    bAdd = Get2DACache("Spells", "Blighter", nSpellID) == "" ? FALSE : TRUE;				
+				else if(nClass == CLASS_TYPE_KNIGHT_CHALICE)
+                    bAdd = Get2DACache("Spells", "Chalice", nSpellID) == "" ? FALSE : TRUE;				
+				else if(nClass == CLASS_TYPE_CULTIST_SHATTERED_PEAK)
+                    bAdd = Get2DACache("Spells", "Cultist", nSpellID) == "" ? FALSE : TRUE;					
+				else if(nClass == CLASS_TYPE_DRUID)
                     bAdd = Get2DACache("Spells", "Druid", nSpellID) == "" ? FALSE : TRUE;
+                else if(nClass == CLASS_TYPE_SHADOWLORD)
+                    bAdd = Get2DACache("Spells", "Telflammar", nSpellID) == "" ? FALSE : TRUE;					
+                else if(nClass == CLASS_TYPE_SHAMAN)
+                    bAdd = Get2DACache("Spells", "Shaman", nSpellID) == "" ? FALSE : TRUE;				
+                else if(nClass == CLASS_TYPE_SLAYER_OF_DOMIEL)
+                    bAdd = Get2DACache("Spells", "Domiel", nSpellID) == "" ? FALSE : TRUE;				
+                else if(nClass == CLASS_TYPE_SOHEI)
+                    bAdd = Get2DACache("Spells", "Sohei", nSpellID) == "" ? FALSE : TRUE;					
+                else if(nClass == CLASS_TYPE_SOLDIER_OF_LIGHT)
+                    bAdd = Get2DACache("Spells", "SoLight", nSpellID) == "" ? FALSE : TRUE;					
+                else if(nClass == CLASS_TYPE_HEALER)
+                    bAdd = Get2DACache("Spells", "Healer", nSpellID) == "" ? FALSE : TRUE;				
+                else if(nClass == CLASS_TYPE_KNIGHT_MIDDLECIRCLE)
+                    bAdd = Get2DACache("Spells", "MiddleCircle", nSpellID) == "" ? FALSE : TRUE;				
+                else if(nClass == CLASS_TYPE_NENTYAR_HUNTER)
+                    bAdd = Get2DACache("Spells", "Nentyar", nSpellID) == "" ? FALSE : TRUE;				
                 else if(nClass == CLASS_TYPE_PALADIN)
                     bAdd = Get2DACache("Spells", "Paladin", nSpellID) == "" ? FALSE : TRUE;
                 else if(nClass == CLASS_TYPE_RANGER)
                     bAdd = Get2DACache("Spells", "Ranger", nSpellID) == "" ? FALSE : TRUE;
+                else if(nClass == CLASS_TYPE_VASSAL)
+                    bAdd = Get2DACache("Spells", "Bahamut", nSpellID) == "" ? FALSE : TRUE;				
                 else if(nClass == CLASS_TYPE_WIZARD || nClass == CLASS_TYPE_SORCERER)
                     bAdd = RealSpellToSpellbookID(CLASS_TYPE_SORCERER, nSpellID) == -1 ? FALSE : TRUE;
                 else if(nClass == CLASS_TYPE_CLERIC)

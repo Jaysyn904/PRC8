@@ -16,8 +16,6 @@
 // panicked -2 save + flee away ,50 % drop object holding
 #include "prc_inc_spells"
 
-#include "prc_inc_spells"
-
 const string VAR_FEAR_IMMUNE = "DRACONIC_AURA_FEAR_IMMUNE_";
 
 void main()

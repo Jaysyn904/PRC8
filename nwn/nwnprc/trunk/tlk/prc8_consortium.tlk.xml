@@ -75349,6 +75349,21 @@ Use: Automatic</entry>
   <entry id="211217" lang="en" sex="m">78</entry>
   <entry id="211218" lang="en" sex="m">79</entry>
   <entry id="211219" lang="en" sex="m">80</entry>
+  <entry id="211500" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###
+</entry>
+  <entry id="211501" lang="en" sex="m">Warlock (Default)
+</entry>
+  <entry id="211502" lang="en" sex="m">(STARTING PACKAGE)
+
+The default warlock package focuses on improving dexterity and feats that make Eldritch Blast more effective.
+
+Equipment:
+Torch
+Studded Leather Armor
+Morningstar
+Light Crossbow
+(2) quivers of bolts.
+(3) Healing Kits</entry>
   <entry id="211999" lang="en" sex="m">### CRAFT INFUSION RESERVE###</entry>
   <entry id="212000" lang="en" sex="m">Create Infusion</entry>
   <entry id="212001" lang="en" sex="m">Type of Feat: Item Creation
