@@ -1,18 +1,3 @@
-
-trunk/compileepic.bat
-trunk/compilensb.bat
-trunk/compileocfix.bat
-trunk/compilepsi.bat
-trunk/compilerace.bat
-trunk/compilescripts.bat
-trunk/compilespells.bat
-trunk/compilespells.bat
-trunk/compilescripts.bat
-trunk/compilerace.bat
-trunk/compilepsi.bat
-trunk/compileocfix.bat
-trunk/compilensb.bat
-trunk/compileepic.bat
 *.tmp
 *.hak
 *.ncs
@@ -24,13 +9,10 @@ nwn/nwnprc/trunk/CompiledResources/config.xml
 nwn/nwnprc/trunk/CompiledResources/config.xml
 nwn/nwnprc/trunk/makefile.temp
 *.temp
-*.temp
-*.temp
 nwn/nwnprc/trunk/makefile.temp
 nwn/nwnprc/DocGen/trunk/2da/*.2da
 nwn/nwnprc/DocGen/trunk/tlk/*.tlk
 nwn/nwnprc/trunk/makefile.temp
-nwn/nwnprc/DocGen/trunk/manual/
 nwn/nwnprc/DocGen/trunk/errorlog
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij+all,java

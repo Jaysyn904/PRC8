@@ -1,0 +1,142 @@
+
+<html>
+<head>
+<title> Player Resource Consortium </title>
+
+<title>Player Resource Consortium :: Manual :: Content :: Epic Spells</title>
+<link type="text/css" href="../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../styles/manual_content_common.css" rel="stylesheet">
+<link type="text/css" href="../../styles/manual_content_main.css" rel="stylesheet">
+
+</head>
+<body>
+
+<br>
+<div><h1>:: Epic Spellcasting ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+Epic characters with spellcasting capabilities are often capable of casting epic spells. You must have over 24 ranks in Spellcraft and Lore and be able to cast 9-th level arcane or divine spells. In order to use the Epic Spellcasting system, one must open up the radial menu (right-click), go to the class icon (any base class) and select the 'PRC options icon'.
+
+<br><br>
+A dialog will appear. It has several options, mostly self-explanitory - choose "Manage Epic Spells" option now. Here you can "memorize" epic spells. This will put spells that you know onto the radial, or remove them. Due to a bioware bug, you can only have 6 epic spells ready to cast at any time. You can change spells on the radial at any point, you do not have to rest, and the radial changes instantly. You can also learn Epic Spells by using "Research an Epic Spell" option.
+
+<br><br>
+<div><h1>:: Learning Epic Spells ::</h1></div>
+<br>
+Every epic spell requires several things to learn:
+<br><br>
+<ol>
+<li> High enough Spellcraft skill to successfully learn it. The DC varies. Range from 25 to 100, approx. Spell focus feats reduce this DC. </li>
+<li> Excess experience. The XP cost varies. You can not lose a level, so any XP must be above the minimum for that level. The XP is equal to GP divided by 25, so between 9,000 and 36,000.</li>
+<li> Gold. The price varies. The gold cost is equal to the DC multiplied by 9,000, so between 225,000 and 900,000 GP.</li>
+<li> Proper seed(s). Some spells also require other epic spells to have been researched first.</li>
+</ol>
+
+To determine the requirements of an epic spell, you can use the spellbook.i.e. Use the uniqe power ability of the spell book you wish to learn. This will also show you what that spells effect are, and what is required to cast as some spells burn XP and/or cause backlash damage.
+<br><br>
+The seeds are available as spellbooks from the shop in PRC options menu (if it is enabled). These basically teach your character 'secrets' which are needed to learn to spell. For example, an "Seed of Armor" is required to cast "Epic Mage Armor." To acquire the knowledge of a spell seed, simply use the book. This does not cost anything. It has a chance to disintegrate, which is good for controlling the availability of seeds in persistent worlds.
+<br><br>
+Once you have all the required things, learning a spell can be attempted. You simply place the book of the epic spell in the inventory of the container summoned when selecting "Research an Epic Spell" option. You will be automatically successful if you have the components and your Spellcraft skill + 10 is equal to or higher than the required Spellcraft. Otherwise, you will do a skill check to see if learning it succeeds. If you suceed the check, the GP and XP is removed. If you fail, no XP is lost, but you do loose half the GP cost. If you cannot do the research becuase you dont know the right seeds or cant pay the cost, you suffer no penalty.
+
+<br><br>
+<div><h1>:: Casting Epic Spells ::</h1></div>
+<br>
+
+Once you've learned an epic spell, it needs to be added to your radial menu. To do this, go back to the "PRC Options" icon on your radial menu. One of the options should be to manage your epic spells. Here you can add/remove spells from your radial menu. There is also a handy, "Identify all items" option.
+<br><br>
+Once you have the spell added to your radial menu, I recommend you add it to the hotbar at the bottom of the screen. This ensures it is easy to access.
+<br><br>
+You have a limit per day of how many epic spells you can cast. You can gain these back if you rest. It is determined by your Lore skill. It is equal to lore/10 and includes skill focus feats.
+<br><br>
+Some epic spells can cost XP/Gold each time you cast them. In order to cast a spell you must again pass a spellcraft check. The "Spellcraft + 10 >= Required Skill" rule still applies, but if your spellcraft isn't that good you might fail and lose your slot and whatever XP/Gold components are required by that spell.
+
+<br><br>
+<div><h1>:: Other Information ::</h1></div>
+<br>
+
+This replaces the bioware spells, so they are no longer avaliable as feats. Characters that already have the bioware epic spells may experience bugs.
+<br><br>
+Boneshank put a lot of toggle switches into the scripts, check "inc_epicspells" for details. Here, you can also change costs, DC for any spells, prerequsiites for any spells and attatch research cutscenes.
+
+<br><br>
+<center>
+<table class="table_contenttable">
+<tr><th>Epic Spell </th> <th>Default DC</th> <th>XP Casting Cost</th> <th>Backlash</th> </tr>
+
+<tr><td>Audience of Stone</td> <td>41</td> <td></td> <td></td></tr>
+<tr><td>Achilles Heel    </td> <td>54</td> <td></td> <td></td></tr>
+<tr><td>Allied Martyr    </td> <td>47</td> <td></td> <td></td></tr>
+<tr><td>All Hope Lost    </td> <td>29</td> <td></td> <td></td></tr>
+<tr><td>Anarchy's Call   </td> <td>43</td> <td></td> <td></td></tr>
+<tr><td>Animus Blast     </td> <td>30</td> <td></td> <td></td></tr>
+<tr><td>Animus Blizzard  </td> <td>58</td> <td></td> <td></td></tr>
+<tr><td>Army Unfallen    </td> <td>66</td> <td></td> <td>d6/per ally</td></tr>
+<tr><td>Battle Bounding  </td> <td>41</td> <td></td> <td></td></tr>
+<tr><td>Celestial Council</td> <td>27</td> <td></td> <td></td></tr>
+<tr><td>Champion's Valor </td> <td>45</td> <td>200</td> <td></td></tr>
+<tr><td>Contingent Resurrection </td> <td>52</td> <td></td> <td></td></tr>
+<tr><td>Contingent Reunion      </td> <td>44</td> <td></td> <td></td></tr>
+<tr><td>Deadeye Sense </td> <td>47</td> <td>400</td> <td></td></tr>
+<tr><td>Dire Winter   </td> <td>99</td> <td>2000</td> <td></td></tr>
+<tr><td>Dreamscape    </td> <td>29</td> <td></td> <td></td></tr>
+<tr><td>Dragon Knight </td> <td>48</td> <td></td> <td></td></tr>
+<tr><td>Deathmark     </td> <td>59</td> <td></td> <td></td></tr>
+<tr><td>Dullblades    </td> <td>54</td> <td></td> <td>10d6</td></tr>
+<tr><td>Dweomer Thief </td> <td>65</td> <td></td> <td></td></tr>
+<tr><td>Enslave       </td> <td>60</td> <td>3500</td> <td></td></tr>
+<tr><td>Epic Mage Armor </td> <td>46</td> <td></td> <td></td></tr>
+<tr><td>Epic Repulsion  </td> <td>34</td> <td></td> <td></td></tr>
+<tr><td>Epic Spell Reflection </td> <td>52</td> <td>10000</td> <td></td></tr>
+<tr><td>Epic Warding          </td> <td>68</td> <td></td> <td></td></tr>
+<tr><td>Eternal Freedom       </td> <td>101</td> <td>10000</td> <td></td></tr>
+<tr><td>Fiendish Words        </td> <td>27</td> <td></td> <td></td></tr>
+<tr><td>Fleetness of Foot     </td> <td>32</td> <td></td> <td></td></tr>
+<tr><td>Gem Cage              </td> <td>48</td> <td></td> <td></td></tr>
+<tr><td>Godsmite              </td> <td>63</td> <td></td> <td>d4/per level</td></tr>
+<tr><td>Greater Ruin          </td> <td>59</td> <td></td> <td></td></tr>
+<tr><td>Greater Spell Resistance </td> <td>67</td> <td></td> <td></td></tr>
+<tr><td>Greater Timestop         </td> <td>27</td> <td></td> <td></td></tr>
+<tr><td>Hellball              </td> <td>70</td> <td>400</td> <td>10d6</td></tr>
+<tr><td>Hell Send             </td> <td>34</td> <td></td> <td></td></tr>
+<tr><td>Herculean Alliance    </td> <td>61</td> <td></td> <td></td></tr>
+<tr><td>Herculean Empowerment </td> <td>51</td> <td></td> <td></td></tr>
+<tr><td>Impenetrability    </td> <td>54</td> <td></td> <td>10d6</td></tr>
+<tr><td>Leech Field        </td> <td>64</td> <td></td> <td></td></tr>
+<tr><td>Legendary Artisan  </td> <td>78</td> <td></td> <td></td></tr>
+<tr><td>Life Force Transfer</td> <td>0</td> <td></td> <td></td></tr>
+<tr><td>Magma Burst        </td> <td>80</td> <td></td> <td></td></tr>
+<tr><td>Mass Penguin       </td> <td>35</td> <td></td> <td></td></tr>
+<tr><td>Momento Mori       </td> <td>78</td> <td></td> <td></td></tr>
+<tr><td>Mummy Dust         </td> <td>35</td> <td></td> <td></td></tr>
+<tr><td>Nailed to the Sky  </td> <td>42</td> <td>1000</td> <td></td></tr>
+<tr><td>Night's Undoing    </td> <td>24</td> <td></td> <td></td></tr>
+<tr><td>Order Restored     </td> <td>43</td> <td></td> <td></td></tr>
+<tr><td>Paths Become Known </td> <td>36</td> <td></td> <td></td></tr>
+<tr><td>Peerless Penitence </td> <td>68</td> <td>1000</td> <td></td></tr>
+<tr><td>Pestilence         </td> <td>44</td> <td>600</td> <td></td></tr>
+<tr><td>Pious Parley       </td> <td>36</td> <td></td> <td></td></tr>
+<tr><td>Planar Cell        </td> <td>51</td> <td></td> <td></td></tr>
+<tr><td>Psionic Salvo      </td> <td>74</td> <td></td> <td></td></tr>
+<tr><td>Rain of Fire       </td> <td>75</td> <td>500</td> <td></td></tr>
+<tr><td>Risen Reunited     </td> <td>67</td> <td></td> <td></td></tr>
+<tr><td>Ruin               </td> <td>29</td> <td></td> <td></td></tr>
+<tr><td>Singular Sunder    </td> <td>58</td> <td></td> <td></td></tr>
+<tr><td>Spell Worm         </td> <td>25</td> <td></td> <td></td></tr>
+<tr><td>Storm Mantle       </td> <td>74</td> <td></td> <td></td></tr>
+<tr><td>Summon Aberration       </td> <td>42</td> <td></td> <td></td></tr>
+<tr><td>Superb Dispelling       </td> <td>59</td> <td></td> <td>10d6</td></tr>
+<tr><td>Symrustar's Spellbinding</td> <td>0</td> <td></td> <td></td></tr>
+<tr><td>The Withering           </td> <td>69</td> <td>300</td> <td></td></tr>
+<tr><td>Tolodine's Killing Wind </td> <td>91</td> <td>400</td> <td></td></tr>
+<tr><td>Transcendent Vitality   </td> <td>101</td> <td>10000</td> <td></td></tr>
+<tr><td>Twinfiend           </td> <td>64</td> <td></td> <td></td></tr>
+<tr><td>Unholy Disciple     </td> <td>47</td> <td>300</td> <td></td></tr>
+<tr><td>Unimpinged          </td> <td>54</td> <td></td> <td>10d6</td></tr>
+<tr><td>Unseen Wanderer     </td> <td>101</td> <td>10000</td> <td></td></tr>
+<tr><td>Whip of Shar        </td> <td>73</td> <td></td> <td></td></tr>
+</table>
+
+</div>
+</body>
+</html>

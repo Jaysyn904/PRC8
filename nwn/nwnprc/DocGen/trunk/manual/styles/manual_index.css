@@ -1,0 +1,30 @@
+<!--
+
+/* PRC style by Psi   */
+
+#td_mainmenu
+{
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #6c6c6c;
+	width: 150px;
+	text-align: center;
+	padding: 10px;
+}
+
+#td_content
+{
+	padding: 5px;
+}
+
+#td_contentmenu
+{
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: #6c6c6c;
+	width: 180px;
+	text-align: center;
+	padding: 10px, 0px, 10px, 10px;
+}
+
+-->

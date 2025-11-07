@@ -1,0 +1,305 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Item Crafting :: System</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Item Crafting :: System ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<center><b><big><big>PRC Crafting System v2.0</big></big></b><br><br>
+by CRV§ADER//KY<br>
+v1.0 by RabbitHail<br></center>
+<br><div align="justify">
+
+<a href="#intro">Introduction</a><br>
+<a href="#reqs">Requirements</a><br>
+<a href="#setup">Setup</a><br>
+<a href="#recipes">Writing Recipes</a><br>
+<a href="#script">SCRIPT and SCRIPTOR ReqTypes and scripted RESULT</a><br>
+<a href="#faq">FAQ</a><br>
+<br>
+<br>
+
+<a name="intro"><b>Introduction</b></a><br>
+<br>
+The PRC Crafting System is a highly configurable engine for item creation. Out of the box, it gives the caster classes the ability to create magic items from recipe scrolls, books, or any item with the proper TAG. It also allows users to create recipes from already existing items. This allows modules and persistent worlds to have full control over what items the users can have and create. If you want to introduce a dynamic economy, don't let magic items drop from monster kills or crates. Only allow kills to drop money, gems and crafting components. Have merchants only sell recipe scrolls - or keep very high prices - and then your magic users will have to spend gold and XP to create magic items. For every crafted item, the system requires 1/2 of its market value in GP and 1/25 of it in XP. This creates a money and XP sink, which will help your PW from having an inflationary economy. The fighters will have to pay the wizards and clerics to make magical items. The wizards will use spells, feats, money and XP to make items. This will push the wizards to work with the fighters in order to get the XP and spells they need to make the items they need to advance to higher levels. This also helps separate the reward system from your areas (in many cases I have seen new areas always giving away better stuff, just to attract players to that area).<br>
+<br>
+Use the "Examine item or recipe" feat on any inventory item. If the item is listed in the item_to_ireq.2da file, a recipe scroll will be created. Use the "Craft Item" feat on the scroll to start the item creation process. "Examine item or recipe" can be used on a recipe scroll to display what item will be created and the requirements needed to make that item. Some recipes for very powerful items may require a level 20 wizard or cleric! <br>
+<br>
+Creating custom recipes, or modifying the existing ones, is very straightforward and offers nearly unlimited possibilities: you may separate the crafting process into semi-processed items, i.e. iron bars or wooden sticks. You may create recipes for very powerful items that don't require an exceedingly amount of money, but require an ingredient that can only be found in a very dangerous area. For example, a Red Dragon Scalemail could require Red Dragon Scales, which usually dragons don't give away willingly. You may require that the player uses a mystical anvil that can only be found at the end of a particular dungeon, or require very high skill checks (i.e. DC40 for a plate mail) and then give the players a +20 bonus to the appropriate skill when they're near an anvil - this will prevent PCs from crafting broadswords in the middle of a wood. You may also use this system for artifacts that must be assembled from separated parts and that can be later empowered by other components, just like in Baldur's Gate II. As you can see, what you can do is (almost) only limited by your fantasy.<br>
+<br>
+For those who don't want to write recipes, however, there are nearly 700 pre-made recipes for various magical items. The Crafting System can also be used in the single player Official Campaign, too: you'll just have to use "Examine item or recipe" on any of those 700 objects and a recipe will be immediately created.<br>
+
+<br>
+<br>
+<a name="reqs"><b>Requirements</b></a>
+<ul>
+	<li>None, but activating the PRC 2DA Caching System will greatly improve performance.</li>
+</ul>
+<br>
+
+<a name="setup"><b>Setup</b></a><br>
+<br>
+The PRC Crafting System v2.0 is controlled by the following module variables:<br>
+<br>
+<table border="1" style="color: #c0c0c0">
+	<tr>
+		<td><b>Name</b></td>
+		<td><b>Type</b></td>
+		<td><b>Description</b></td>
+	</tr>
+	<tr>
+		<td>PRC_DISABLE_CRAFT</td>
+		<td>int</td>
+		<td align="justify">Completely disable the PRC Crafting System. (default: enabled)</td>
+	</tr>
+	<tr>
+		<td>PRC_CraftTimerMultiplier</td>
+		<td>float</td>
+		<td align="justify">Multiply the delay (in seconds) after the creation of an item in which a PC can't craft anything. Normally, it's set to the market price of the item. Set it to less than 1 to reduce it instead. (default: 1.0).<td>
+	</tr>
+	<tr>
+		<td>PRC_CraftTimerMax</td>
+		<td>int</td>
+		<td align="justify">Absolute maximum delay (in seconds) where crafting is disabled for a PC, regardless of the item's market price. By default it's 0 (meaning that there's no delay at all).</td>
+	</tr>
+	<tr>
+		<td>PRC_CraftTimerMin</td>
+		<td>int</td>
+		<td align="justify">Absolute minimum delay (in seconds) in which crafting is disabled, regardless of the item's market price. (default: 0)</td>
+	</tr>
+</table>
+<br>
+<br>
+The following variables were used by the PRC Crafting System v1.0 and are now obsolete:<pre>
+nICHoursInDayCycle
+fICMinDays
+fICMaxDays</pre>
+<br>
+
+<a name="recipes"><b>Writing Recipes</b></a><br>
+<br>
+Recipes are contained within the <b>prc_craft2das.hak</b> file. Each recipe corresponds to a 2DA file, similar to those used for prestige classes requisites:
+<pre>
+2DA V2.0
+
+      LABEL         ReqType     ReqParam1     ReqParam2
+0     row_title     TYPE        PARAM1        PARAM2
+1     row_title     TYPE        PARAM1        PARAM2
+</pre>
+ReqParam2 must be replaced by **** if not existing.<br>
+The fields shall not contain any spaces or tabs.<br>
+<br>
+These are all the supported ReqTypes. "AND" means that you absolutely need that component, or the creation process will fail; "OR" means that you just need to have at least one of the requirements <i>of the same type.</i><br>
+<br>
+<table border=1 style="color: #c0c0c0">
+<tr>
+	<td><b>ReqType</b></td>
+	<td><b>ReqParam1</b></td>
+	<td><b>ReqParam2</b></td>
+	<td><b>AND/OR</b></td>
+	<td><b>Description</b></td>
+</tr><tr>
+	<td>RESULT</td>
+	<td>ResRef<hr>script name</td>
+	<td>stack size<hr>arguments</td>
+	<td>-</td>
+	<td align="justify">Creation result. For every recipe there must be <b>one and only one</b> result. ReqParam1 may be the ResRef of any item, placeable or creature, or the name of a script (see section <a href="#script"><i>SCRIPT and SCRIPTOR ReqTypes and scripted RESULT</i></a>). ReqParam2 (if any) must be the number of objects to create (note that it will work for stackable items only; default is 1, NOT the default item stack size) or the argument of the script.<br><b>NOTE:</b> if the RESULT is not an item, it will have zero GP and XP cost. You should set EXTRAGOLD and EXTRAXP accordingly.</td>
+</tr><tr>
+	<td>CASTERLVL</td>
+	<td>n</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Minimum caster level (any).</td>
+</tr><tr>
+	<td>ARCCASTERLVL</td>
+	<td>n</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Minimum caster level (arcane).</td>
+</tr><tr>
+	<td>DIVCASTERLVL</td>
+	<td>n</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Minimum caster level (divine).</td>
+</tr><tr>
+	<td>PSICASTERLVL</td>
+	<td>n</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Minimum caster level (psionic).</td>
+</tr><tr>
+	<td>EXTRAGOLD</td>
+	<td>GP</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Additional GP required for creation.<br>It will <b>not</b> increase the XP cost as well.</td>
+</tr><tr>
+	<td>EXTRAXP</td>
+	<td>XP</td>
+	<td>****</td>
+	<td>AND</td>
+	<td>Additional XP required for creation.</td>
+</tr><tr>
+	<td>FEAT<br>FEATOR</td>
+	<td>ID</td>
+	<td>****</td>
+	<td>AND<br>OR</td>
+	<td>Required feat. ID is the corresponding row in feat.2da.<br></td>
+</tr><tr>
+	<td>SPELL<br>SPELLOR</td>
+	<td>ID</td>
+	<td>****</td>
+	<td>AND</td>
+	<td align="justify">Spell needed. ID is the corresponding row in spells.2da. It can either be a prepared spell (it will be consumed) or a spell that has been previously cast on the recipe.<br>Note that all SPELL requirements will be consumed, while only the first SPELLOR one will.</td>
+</tr><tr>
+	<td>ITEM<br>ITEMOR</td>
+	<td>ResRef</td>
+	<td>stack size</td>
+	<td>AND<br>OR</td>
+	<td align="justify">Required item(s). Half of their market price will be detracted from the GP creation cost (while the XP cost will remain unchanged); the item cost cannot drop below 0. The stack size can be used for non-stackable items, too (**** means 1).<br>Using ITEMOR you should note that, for example, if you require 5x ItemA or 20x ItemB, every ItemA will be worth 4 ItemB (i.e. 3x ItemA + 8x ItemB will be enough).</td>
+</tr><tr>
+	<td>SKILL<br>SKILLOR</td>
+	<td>ID</td>
+	<td>score</td>
+	<td>AND<br>OR</td>
+	<td>Minimum skill requirement. ID is the corresponding row in skills.2da.</td>
+</tr><tr>
+	<td>SKILLDC</td>
+	<td>ID</td>
+	<td>DC</td>
+	<td>AND</td>
+	<td>Skill check. All components (GP, XP, items and scripted requirements) will be lost in case of failure. ID is the corresponding row in skills.2da.</td>
+</tr><tr>
+	<td>LEVEL<br>LEVELOR</td>
+	<td>class ID</td>
+	<td>level</td>
+	<td>AND<br>OR</td>
+	<td>Minimum level in a given class. ID  is the corresponding row in classes.2da.</td>
+</tr><tr>
+	<td>HELPER<br>HELPEROR</td>
+	<td>TAG</td>
+	<td>distance</td>
+	<td>AND<br>OR</td>
+	<td align="justify">TAG of an object (of any type) that must be near the PC or in the PC's inventory (it will not be consumed). If not specified, the maximum distance is 5.0.</td>
+</tr><tr>
+	<td>SCRIPT<br>SCRIPTOR</td>
+	<td>ResRef</td>
+	<td>arguments</td>
+	<td>AND<br>OR</td>
+	<td align="justify">User-defined script. ReqParam2 will be passed to it as is. Read the <a href="#script">dedicated help section</a> for further details.</td>
+</tr><tr>
+	<td>RACE</td>
+	<td>ID</td>
+	<td>subrace</td>
+	<td>OR</td>
+	<td>PC's race. ID  is the corresponding row in racialtypes.2da. If ReqParam2 is left ****, subrace will be ignored.</td>
+</tr><tr>
+	<td>ALIGN</td>
+	<td>alignement</td>
+	<td>****</td>
+	<td>OR</td>
+	<td>LG, LN, LE, NG, N, NE, CG, CN or CE.</td>
+</tr><tr>
+	<td>AREA</td>
+	<td>partial tag</td>
+	<td>reference tag</td>
+	<td>OR</td>
+	<td align="justify">TAG substring, or the whole TAG, of the area in which the PC must be.<br>ReqParam2 is the complete TAG of an area to use to display the area name.</td>
+</tr><tr>
+	<td>DEITY</td>
+	<td>name</td>
+	<td>****</td>
+	<td>OR</td>
+	<td>Name of the PC's deity.</td>
+</tr>
+</table>
+<br>
+<br>
+For example, this is the recipe for "White Robe of the Archmagi". We will call it "<b>ireq_robearcw.2da</b>":<br><pre>
+2DA V2.0
+
+     LABEL                          ReqType     ReqParam1          ReqParam2
+0    Robe_of_the_Archmagi_White     RESULT      nw_mcloth002       ****
+1    CasterLevel14th                CASTERLVL   14                 ****
+2    Craft_Wondrous_Item_Feat       FEAT        2925               ****
+3    Mage_Armor                     SPELL       102                ****
+4    Bless                          SPELL       6                  ****
+5    Spell_Resistance               SPELL       168                ****
+6    Lawful_Good                    ALIGN       LG                 ****
+7    Neutral_Good                   ALIGN       NG                 ****
+8    Chaotic_Good                   ALIGN       CG                 ****
+</pre>
+<br>
+
+The <b>item_to_ireq.2da</b> file is "the glue that binds". This file is used to do a reverse binding between a magic item and a recipe. If the recipe and the item exist you can place both anywhere into this file, so the users of the Crafting System can use "Examine item or recipe" on the item to make a recipe. This allows users in single player modules to make recipes for items they come across. This can also be used by a dynamic machine that could create a dialog with all the items in the file and the user would get a recipe from the selection.<br>
+<b>item_to_ireq.2da</b> is used by the 2DA Caching System, too, so it's very important that there's an entry in it for every recipe you write.<br>
+<br>
+For example, this is the entry for "White Robe of the Archmagi":<pre>
+2DA V2.0
+
+    LABEL                            L_RESREF          RECIPE_TAG
+...
+...
+133 Robe_of_the_Archmagi_White       nw_mcloth002      IREQ_ROBEARCW
+</pre>
+<br>
+
+<a name="script"><b>SCRIPT and SCRIPTOR ReqTypes and scripted RESULT</b></a><br>
+<br>
+You may write custom requirement scripts for some items. Also, you may not want to create an object as the result of the crafting process, but call a script instead.<br>
+OBJECT_SELF is the PC that is trying to craft the item.<br>
+These are the functions you should use to interface with the PRC Crafting System:<br>
+
+<pre><span style="color: green;">#include "prc_inc_craft"</span>
+
+<span style="color: grey;">//Set the requirement caption that will be displayed.
+//For RESULT ReqType, set the name of the recipe final result.</span>
+<span style="color: red;">void</span> PRCCraft_SetCaption(<span style="color: red;">string</span> sText);
+
+<span style="color: grey;">//Return TRUE (success) or FALSE (requirement missing) (SCRIPT and SCRIPTOR only).</span>
+<span style="color: red;">void</span> PRCCraft_SetReturnValue(<span style="color: red;">int</span> nValue);
+
+<span style="color: grey;">//Get ReqParam2 from the recipe, if any.</span>
+<span style="color: red;">string</span> PRCCraft_GetArguments();
+
+<span style="color: grey;">//Check if the script should consume whatever's needed (if any) / create the result
+//or is just checking for requirements / name.</span>
+<span style="color: red;">int</span> PRCCraft_GetConsume();
+</pre>
+<br>
+Here's a sample script:<br>
+<pre><span style="color: grey;">//check if the Sandy Resque Quest has been completed</span>
+<span style="color: green;">#include "prc_inc_craft"</span>
+
+<span style="color: red;">void</span> main()
+{
+    PRCCraft_SetCaption(<span style="color: purple;">"Sandy's been resqued"</span>);
+    <span style="color: red;">int</span> resqued = GetLocalInt(GetModule(), <span style="color: purple;">"SandyResqued"</span>);
+    PRCCraft_SetReturnValue(resqued);
+}</pre>
+
+<br>
+
+<a name="faq"><b>FAQ</b></a><br>
+<br>
+<b>Q)</b> I'm not the administrator of a dedicated server. Should I care about this?<br>
+<b>A)</b> Yes. You can use the crafting system in any module, also single player, that supports PRC. You don't have to worry about setting any module variable or writing custom recipes or scripts, though. It will just work, out of the box. Note that, however, many items don't have a recipe so you won't be able to replicate them.<br>
+<br>
+
+<b>Q)</b> Is it compatible with the SoU and HotU crafting systems?<br>
+<b>A)</b> Yes, it is, since the three systems are completely indipendent.<br>
+<br>
+
+<b>Q)</b> Should I enable the PRC 2DA Caching System only for this?<br>
+<b>A)</b> That depends on how many players you've got. Without cache, your server will freeze for about half a second every time someone uses the crafting feats, while with cache it will be a matter of milliseconds. So if you've got more than 3-4 players you should really do it.<br>
+<br>
+
+</div>
+</body>
+</html>

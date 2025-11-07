@@ -1,0 +1,115 @@
+<?xml version ="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Player Resource Consortium :: Manual :: PnP Poison System Documentation</title>
+        <!-- The general stylesheet -->
+        <link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+        <link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+
+        <!-- Some style defs specific to this document -->
+        <style type="text/css">
+            .highlight {
+            font-style: italic;
+            }
+            p {
+            margin-left: 1%;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>PnP Poison System</h1>
+            <div class="div_paddedcontent">
+                <h2>Introduction</h2>
+                <p>
+                    Once upon a time, there was a player who was messing about with rogue/wizard and was looking for something to add a bit of extra punch against all the damn monsters in the OC. He saw the poisons appliable to weapons that had come along with HotU and went "Oooh, neat!". But all was not well, for he soon noticed that the implementation sucked much goat balls and was about as far from the PnP specifications as one could get. So he went and implemented his own system that works using the poisons defined in <span class="highlight">poison.2da</span> instead of plain static 1d2 damage to ability X and is hopefully more useful to players (and evil DMs).
+                </p>
+                <p>
+                    This document contains some info on how the system works and how to use it. Full implementation details are available in the header comments of the poison_*.nss script files.
+                </p>
+
+                <h2>Users</h2>
+                <p>
+                    According to the Dungeon Master's Guide, poisons are divided into four types: Contact, Ingested, Inhaled, Injury. This distinction has been implemented using a new column in <span class="highlight">poison.2da</span>, the values of which correspond to rows in <span class="highlight">poisontypedef.2da</span>.
+                </p>
+                <ul>
+                    <li>Contact: Can be used to
+                        <ul>
+                            <li>Poison a weapon so that creatures hit with it are poisoned.</li>
+                            <li>Coat an item with poison so that creatures picking it up or equipping it are poisoned.</li>
+                            <li>Thrown at someone to poison them.</li>
+                        </ul>
+                    </li>
+                    <li>Ingested: Can be used to poison a food item. This requires effort on the part of a module builder to hook in.</li>
+                    <li>Inhaled: The container can be thrown so that the gasous poison bursts out into 5' radius, affecting everyone in the area.</li>
+                    <li>Injury: Can be used to coat a weapon so that creatures hit with it are poisoned.</li>
+                </ul>
+                <p>
+                    There is an item implementing a vial of poison for almost every poison with specs in (DMG|BoVD|BoED). These items have crafting recipes created for them, available from the recipe merchant in the epic spell lab, so they are accessible from any module.
+                    <br />
+                    The items are used through a set of item spells implementing the uses in the list above.
+                </p>
+
+
+                <h2>Builders</h2>
+
+                <h3>Items and recipes</h3>
+                <p>
+                    The pre-made "poison vial" items have resrefs of 2dapoisonXXX, where XXX is the <span class="highlight">poison.2da</span> index of the poison it's meant to be. The pre-made recipes for creating them have resrefs of ireq_poisonXXX. However, these two numberings are not relevant to the poison system.<br />
+                    The values used by the poison system are the tag of the item and/or a local variable called <span class="highlight">pois_idx</span>. They indicate the <span class="highlight">poison.2da</span> index of the poison. The value in the tag is stored in the last 3 characters, with zero-padding if necessary.
+                </p>
+                <p>
+                    If you add your own poison items, they can have certain <span class="highlight">Cast Spell</span> abilities, depending on the poison type. A single item may be of only a single poison at a time.
+                </p>
+                <ul>
+                    <li>Contact -<br />
+                        Cast Spell: Poison Item (PnP poisons)<br />
+                        Cast Spell: Poison Weapon (PnP poisons)<br />
+                        Cast Spell: Throw Poison Vial
+                    </li>
+                    <li>Ingested - Cast Spell: Poison Food (PnP Poisons)</li>
+                    <li>Inhaled - Cast Spell: Throw Poison Vial</li>
+                    <li>Injury - Poison Weapon (PnP poisons)</li>
+                </ul>
+
+                <h3>Pre-poisoned loot</h3>
+                <p>
+                    It is not particularly easy to create pre-poisoned items directly in the toolset. However, it is quite straightforward by using scripting. The items need to have the following 3 local variables set on them:
+                </p>
+                <ul>
+                    <li><span class="highlight">pois_itm_idx</span> - local integer. Specifies <span class="highlight">poison.2da</span> line.</li>
+                    <li><span class="highlight">pois_itm_uses</span> - local integer. Specifies number of times creatures may be poisoned from touching the item before the poison wears off.</li>
+                    <li><span class="highlight">pois_item_trap_dc</span> - local integer. Specifies the DC for Spot checks to notice that the item is poisoned and the Disable Traps DC to remove the poison.</li>
+                </ul>
+                <p>
+                    In addition, the must have <span class="highlight">Cast Spell: Clean Poison Off</span> with unlimited uses and have the following functions called via a script:
+                </p>
+                <pre>
+                    object oItem = [the poisoned item];
+                    AddEventScript(oItem, EVENT_ITEM_ONACQUIREITEM,     "poison_onaquire", TRUE, FALSE);
+                    AddEventScript(oItem, EVENT_ITEM_ONPLAYEREQUIPITEM, "poison_onequip",  TRUE, FALSE);
+                </pre>
+
+                <h2>Technical details</h2>
+                <h3>Poisoned weapons</h3>
+                <p>
+                    When a weapon is poisoned (script <span class="highlight">poison_appl_weap</span>), first the object being poisoned is checked out to make sure it's valid for being poisoned in this manner. Then, the script gets the index of the poison to use, either from the tag of the item being used to poison or from a local integer on it.<br />
+                    Then, after some more checks on the poison id, the user gets to roll for success in applying the poison.If it fails, the user gets poisoned with whatever was used. Either way, the poison is applied to the weapon.<br />
+                    Two local integers are set on the weapon. One is the index of the poison used in <span class="highlight">poison.2da</span> and the other is the number of times the poison can be applied from the weapon before it wears out. An <span class="highlight">OnHitCastSpell: Unique</span> itemproperty is also applied to the item so that the script <span class="highlight">poison_wpn_onhit</span> can be eventhooked to it.<br />
+                    <span class="highlight">poison_wpn_onhit</span> gets the index of the poison to use from the local integer and applies a corresponding EffectPoison() to the object hit. It then decrements remaining uses and if they reach 0, the local integers are removed from the item and the script is removed from the eventhook. The OnHitCast property is also removed if it wasn't already present when the weapon was poisoned.
+                </p>
+
+                <h3>Poisoned items</h3>
+                <p>
+                    Poisoning an object first gets the poison to use. Then, it makes some validity checks. First, that the poison is a contact poison and second that the item has not been poisoned in this manner previously.<br />
+                    The poisoner rolls Set Trap to set DC for Spotting and removing the poison. The number of times the poison applied can affect people is calculated. These values are stored on the item poisoned and eventhook scripts are added to the item for OnEquip (<span class="highlight">poison_onequip</span>) and OnAcquire (<span class="highlight">poison_onaquire</span>). An object reference is stored on the item pointing at the poisoner.<br />
+                    In addition, a <span class="highlight">Cast Spell: Clean Poison Off</span> itemproperty is added to the item.<br />
+                    <br />
+                    The OnEquip script first checks if the equipper knows that the item is poisoned. If it does, either being the original poisoner or someone who has succeeded in a spot check to notice the poison during OnAcquire, it tries to clean the poison off first. The original poisoner is automatically successfull, others roll Disable Trap against the DC set by the poisoner.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,472 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Item Crafting :: System</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Item Crafting :: System ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<center><b><big><big>PRC New Crafting System</big></big></b><br><br>
+by Flaming_Sword<br></center>
+<br><div align="justify">
+<p>
+<a href="#intro">Introduction</a><p>
+<a name="top"></a><b>For Players</b><p>
+<a href="#featuse">Feat Use</a><br>
+<a href="#nonmagic">Crafting Non-Magical Items</a><br>
+<a href="#magic">Crafting Magic Items</a>
+<ul>
+<li><a href="#name">Change Name</a></li>
+<li><a href="#appearance">Change Appearance</a></li>
+<li><a href="#special">Craft Magic Arms and Armour: Adding a special ability</a></li>
+<li><a href="#wondrous">Ring/Wondrous Item Crafting</a></li>
+<li><a href="#staff">Staff Crafting</a></li><p>
+</ul>
+<a href="#dc">Crafting DC Information</a><br>
+<a href="#cost">Crafting Cost Information</a><br>
+<a href="#playerarb">Arbitrary (non-PnP) Crafting</a><p>
+<b>For Builders</b><p>
+<a href="#npc">Crafting Facilities</a><br>
+<a href="#switch">Switches</a><br>
+<a href="#2da">2DAs</a><br>
+<a href="#script">Scripting - Adding New Items/Special Abilities</a><br>
+<p>
+<p><hr><p>
+<a name="intro"><b>Introduction</b></a><p>
+This is a guide to the new crafting system, implementing PnP crafting. Feedback on errors/missing information/style/possible improvements is appreciated.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="featuse"><b>Feat Use</b></a><p>
+On the class radial of one of the base classes there should be a read recipe feat with a purple icon. This should open a subradial with 2 subfeats. The first is the original recipe based crafting system feat, used exactly like before. The second should be named &quot;Craft Item&quot; and is the subfeat used for the new system. It is recommended that you craft items in a distraction-free environment. Otherwise you risk disrupting the crafting conversation or ruining the magic item you are attempting to craft.<p>
+If there is a problem that prematurely aborts the conversation (eg. TMI) using the feat again should reset all the variables, as well as display a recovery message. Use the feat one more time to start again.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="nonmagic"><b>Crafting Non-Magical Items</b></a><p>
+To craft non-magical items, target yourself with the subfeat. Note that you will make skill checks with either the craft weapon or craft armour skills to craft your items. You must wait as a list of base items is created, after which &quot;*Done*&quot; will appear above the character's head and in the log. Choose &quot;Continue&quot; and you should see a list of weapons and shields, as well as armour, sorted alphabetically.<p>
+If you have chosen either a longbow or a shortbow, you will then see a list of Mighty values to add to the bow, representing the crafting of a composite bow. You may choose zero if you do not want to craft a composite bow.<p>
+If you have chosen to craft armour, a list of armour types (base AC 0-8) will be displayed, allowing you to choose the type of armour to craft.<p>
+You will then see a list of options, allowing you to choose to make a normal item, a masterwork item, or an item made of an applicable material (darkwood for wooden items, adamantine or mithral for metallic items, etc.). Staffs, rings and wondrous items can only use the &quot;normal&quot; option. Armour with base AC 0 (robes) can be crafted as wondrous items if the normal option is chosen, and enchanted like armour if the masterwork option is chosen. Cloaks will have their colours randomised. Note that some materials cannot be implemented in NWN (cold steel, alchemical silver, adamantine for weapons).<p>
+Afterwards you will be presented with a description of the desired item, along with a cost in gp. You will be able to choose &quot;Confirm&quot; if you have the required gp.<p>
+You will then make a skill check based on the item you have selected (and another one if the item is masterwork). If you succeed, the item you have chosen to craft will appear in your inventory. The crafting cost in gp will be deducted regardless of whether you succeed or not.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="magic"><b>Crafting Magic Items</b></a><p>
+To craft magical arms and armour, you will need either a masterwork item, or an existing magical item. For other items, you will need the blank item created through non-magical crafting (see above). You must also have the required feat to craft the particular item.<p>
+Target the item to be crafted using the subfeat. You must wait as a list is created. As with non-magical crafting, &quot;*Done*&quot; will appear when the list is finished.<p>
+At this time, rod crafting is unavailabe, because rods as written in the SRD have been impossible to do without extra scripting.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="name"><b>Change Name</b></a><p>
+If you choose &quot;Change Name&quot; you will have about 30 seconds in which to use chat to state the exact name of your item. A visual effect will appear to indicate success.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="appearance"><b>Change Appearance</b></a><p>
+If you choose &quot;Change Appearance&quot; you will be given a series of numbers separated by dashes (appearance code). This code represents the appearance of your item. This is given for your information in case you make a mistake and wish to change you item's appearance to what it was when you started (it also allows you write down the appearance of an item that you really like so you can reproduce it later). To change the appearance, choose "Set new appearance code". A listener will spawn, allowing you to shout a new appearance code (in the same format) for your item (similar to changing names). Substituting an asterisk will leave a value unchanged.<p>
+ModelType:<ul><li>0 - simple appearance, eg. rings, amulets<ul><li>Format: single number - icon</li></ul></li><li>1 - simple appearance + colours, helmet/cloak<ul><li>Format: x-x-x-x-x-x-x (7 values, 1 model, 6 colour)<ul><li>model</li><li>leather1</li><li>leather2</li><li>cloth1</li><li>cloth2</li><li>metal1</li><li>metal2</li></ul></li></ul></li><li>2 - weapons/boots<ul><li>Format: x-x-x-x-x-x (6 values, 3 colour, 3 model)<ul><li>bottom colour</li><li>middle colour</li><li>top colour</li><li>bottom model</li><li>middle model</li><li>top model</li></ul></li></ul></li><li>3 - armour (25 values, 19 model, 6 colour)<ul><li>Format: x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x<ul><li>right foot</li><li>left foot</li><li>right shin</li><li>left shin</li><li>left thigh</li><li>right thigh</li><li>pelvis</li><li>torso</li><li>belt</li><li>neck</li><li>right forearm</li><li>left forearm</li><li>right bicep</li><li>left bicep</li><li>right shoulder</li><li>left shoulder</li><li>right hand</li><li>left hand</li><li>robe</li><li>leather1</li><li>leather2</li><li>cloth1</li><li>cloth2</li><li>metal1</li><li>metal2</li></ul></li></ul></li></ul>
+Model numbers are numbers corresponding to the relevant .mdl files (will work with additional models added through haks). Colour numbers are numbers corresponding to different colours on the palette.<p>
+At this time (NWN patch 1.68), attempting to change the model of a cloak will instead destroy it (CopyItemAndModify() doesn't work for cloak models yet)<p>
+Admittedly, this system is powerful, yet hard to use. However, in the future, appearance changes through conversation (providing a front-end for the underlying code) may be implemented.<p>
+One way to get the exact appearance you want is to first make the item in the toolset and save it. Then use a program (eg. Leto's advanced editor, nwnexplorer, etc.) to open the saved blueprint in the temp directory used by the toolset. For most items (except weapons and boots) model/colour numbers will be shown in the order given above. Weapons and boots are shown in a similar order (bottom, middle, top) as digits, with the last digit being the colour and first (one or more) being the model.<p>
+As much as I would like to implement it, there is currently no way to change the description of the item. It will likely work in the same way as changing the name if I ever get it to work.<p>
+ <a href="#top">Back to Top</a><p><hr><p>
+<a name="special"><b>Craft Magic Arms and Armour: Adding a special ability</b></a><p>
+If the item you are crafting is a weapon, armour or shield, you will be given the option of adding enhancement or special abilities. Enhancement or special abilities added will replace similar types, and downgrading is not possible.<p>
+If you have chosen to add Bane or Dread to a weapon, you must wait as a list of available races is created. You will then be able to choose which race is affected by the bane property. The Bane/Dread properties also depend on the current level of enhancment, so it is recommended that it be added after any changes to the enhancement.<p>
+If you have chosen a property to add to your item, A description of the property will appear, along with the crafting cost in gp, xp and time (if applicable). If you have the gp and xp required (you are not allowed to spend enough xp to lose a level) you will be able to choose the &quot;Confirm&quot; option.<p>
+If the time delay scale is set to instantaneous, your item will be upgraded and the costs deducted, as well as any required spell uses decreased. Otherwise, there will be a delay, with floating text messages indicating the number of rounds left. You must not do anything strenuous such as fighting, casting spells or anything else that disrupts concentration. Otherwise, you will have to begin the crafting process again. At the end of the delay, your item will be upgraded and the costs deducted, as well as required spell uses decreased.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="wondrous"><b>Ring/Wondrous Item Crafting</b></a><p>
+Unlike magic weapons/armour/shields, you may only craft specific items. A list of items will appear if you are crafting with a blank item (created through non-magical crafting, see above), otherwise you will only see the name and appearance changing options. In all other respects it is the same as crafting weapons/armour/shields.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="staff"><b>Staff Crafting</b></a><p>
+Staff crafting works like wand crafting, where you cast a spell on the base item (obtainable through non-magical crafting, see above). However, unlike wand crafting, you may add multiple spells to the staff by casting more spells on it (up to 8), provided you can meet the gp/xp cost. Since real epic staffs are not possible (unless level 10+ spell slots are added to the game), metamagic can only be applied to staffs if the caster possesses the Craft Epic Staff feat (an artificial limitation).<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="dc"><b>Crafting DC</b></a><p>
+<table cellpadding="0" cellspacing="0" align="center" border="1" class="table_contenttable">
+<tr>
+<td><b>Item</b></td>
+<td><b>DC</b></td>
+</tr>
+<tr>
+<td><b>Armour/Weapons/Shields</b></td>
+<td><b>10 + Base AC</b></td>
+</tr>
+<tr>
+<td><b>Crossbows</b></td>
+<td><b>15</b></td>
+</tr>
+<tr>
+<td><b>Bows</b></td>
+<td><b>12</b></td>
+</tr>
+<tr>
+<td><b>Composite Bows</b></td>
+<td><b>15 + 2 x Mighty value</b></td>
+</tr>
+<tr>
+<td><b>Simple melee weapons</b></td>
+<td><b>12</td>
+</tr>
+<tr>
+<td><b>Martial melee weapons</b></td>
+<td><b>15</b></td>
+</tr>
+<tr>
+<td><b>Exotic melee weapons</b></td>
+<td><b>18</b></td>
+</tr>
+<tr>
+<td><b>Masterwork</b></td>
+<td><b>20 (separate roll)</b></td>
+</tr>
+<tr>
+</table>
+<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="cost"><b>Crafting Cost</b></a><p>
+Costs in gp (market price) unless noted.<p>
+<b>Non-Magical</b><p>
+<table cellpadding="0" cellspacing="0" align="center" border="1" class="table_contenttable">
+<tr>
+<td><b>Type</b></td>
+<td><b>Light Armour</b></td>
+<td><b>Medium Armour</b></td>
+<td><b>Heavy Armour</b></td>
+<td><b>Shields</b></td>
+<td><b>Weapons</b></td>
+<td><b>Ammunition (99 units)</b></td>
+</tr>
+<tr>
+<td><b>Masterwork</b></td>
+<td><b>150</b></td>
+<td><b>150</b></td>
+<td><b>150</b></td>
+<td><b>150</b></td>
+<td><b>300</b></td>
+<td><b>594</b></td>
+</tr>
+<tr>
+<td><b>Adamantine</b></td>
+<td><b>5,000</b></td>
+<td><b>10,000</b></td>
+<td><b>15,000</b></td>
+<td><b>N/A</b></td>
+<td><b>N/A</b></td>
+<td><b>N/A</b></td>
+</tr>
+<tr>
+<td><b>Darkwood</b></td>
+<td><b>N/A</b></td>
+<td><b>N/A</b></td>
+<td><b>N/A</b></td>
+<td colspan="2"><b>10/lb of weight</b></td>
+<td><b>N/A</b></td>
+</tr>
+<tr>
+<td><b>Dragonhide</b></td>
+<td colspan="4"><b>Double total cost (base + masterwork)</b></td>
+<td><b>N/A</b></td>
+<td><b>N/A</b></td>
+</tr>
+<tr>
+<td><b>Mithral</b></td>
+<td><b>1,000</b></td>
+<td><b>4,000</b></td>
+<td><b>9,000</b></td>
+<td><b>1,000</b></td>
+<td><b>500/lb of weight</b></td>
+<td><b>N/A</b></td>
+</tr>
+</table>
+Crafting cost is 1/3 market price.<p>
+<b>Magical</b><p>
+Market Price = (Non-Magical Price) + (Enhancement Cost) + (Additional Cost)<p>
+Non-Magical Price is price from previous section.<p>
+Enhancement Cost = (Base Enhancement Cost) x (Effective Enhancement)<sup>2</sup><p>
+Additional Cost from properties adds linearly.<p>
+Base Enhancement Cost is 1,000gp for armour/shields, 2,000gp for weapons<p>
+Effective Enhancement = Enhancement + Enhancement values on properties (eg. +5 for vorpal weapons)<p>
+For epic items, the enhancement cost is x10 what it is for non-epic items, eg. non-epic, +5 vorpal sword is 2000x(10)<sup>2</sup> (+5, +5 for vorpal) = 200,000gp, epic, +10 sword is 2000x(10)<sup>2</sup>x10 (for being epic) = 2,000,000gp<p>
+Crafting cost is 1/2 market price in gp, 1/25 market price in xp if non-epic, 10,000 + 1/100 market price if epic. Upgrading items costs the difference in cost of the old and the new item according to the rules presented here.<p>
+Time cost is 1 game hour/1,000gp market price by default.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="playerarb"><b>Arbitrary (non-PnP) Crafting</b></a><p>
+If a particular switch is set (see switches below), Most of the information above relating to magic item crafting may be ignored. Instead of choosing special abilites or making specific items, you instead choose particular itemproperties.<p>
+You will be presented with a list of itemproperty types to choose from. If applicable, you will then be able to choose the subtype, costtablevalue and param1value. Cost will be the difference in cost between the old and the new item according to NWN, with gp/xp/time costs calculated according to the rules in the section above.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="npc"><b>Crafting Facilities</b></a><p>
+You can provide facilities to player for crafting, either through a npc or placeable. To create a facility, find the item named &quot;PRC_CRAFT_TOKEN&quot; and put it in the inventory of the npc or placeable, taking care to make sure the object is plot, the item cannot be pickpocketed, the placeable is locked, etc.<p>
+Players within 10m of the object will be able to craft without the normal restrictions, for market price in gp and zero xp.<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="switch"><b>Switches</b></a><p>
+These are all &quot;int&quot; type switches<p>
+<table cellpadding="0" cellspacing="0" align="center" border="1" class="table_contenttable">
+<tr>
+<td><b>Switch</b></td>
+<td><b>Description</b></td>
+<td><b>Default</b></td>
+</tr>
+<tr>
+<td><b>PRC_DISABLE_CRAFT</b></td>
+<td><b>Disables the crafting system altogether</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>PRC_DISABLE_CRAFT_EPIC</b></td>
+<td><b>Disables epic crafting</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>PRC_AREA_DISABLE_CRAFTING</b></td>
+<td><b>Set in area, disables crafting in that area.</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>PRC_AREA_DISABLE_CRAFTING_INVERT</b></td>
+<td><b>Inverts the behavior of previous switch. Will disable crafting on all areas BUT ones with the PRC_AREA_DISABLE_CRAFTING switch set.</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFT_TIMER_MULTIPLIER</b></td>
+<td><b>Scales the time cost for crafting by this value/100</b></td>
+<td><b>100</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFT_STAFF_CASTER_LEVEL</b></td>
+<td><b>Crafted staffs have the casterlevel of the creator.</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>X2_CI_CRAFTSTAFF_COSTMODIFIER</b></td>
+<td><b>Cost modifier of spells crafted into staffs</b></td>
+<td><b>750</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFTING_ARBITRARY</b></td>
+<td><b>Disables PnP crafting and instead allows all NWN itemproperties (subject to cost)</b></td>
+<td><b>FALSE</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFTING_COST_SCALE</b></td>
+<td><b>Scales the gp cost for crafting by this value/100</b></td>
+<td><b>100</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFTING_MUNDANE_COST_SCALE</b></td>
+<td><b>Scales the gp cost for non-magical crafting by this value/100</b></td>
+<td><b>100</b></td>
+</tr>
+<tr>
+<td><b>PRC_CRAFTING_TIME_SCALE</b></td>
+<td><b>Sets crafting time per 1000gp in market price:
+<ol>
+<li>off, no time required</li>
+<li>round</li>
+<li>turn</li>
+<li>game hour</li>
+<li>game day</li>
+</ol></b></td>
+<td><b>4</b></td>
+</tr>
+</table><p>
+To disable a specific item/special ability in PnP crafting, set a switch with this name:<p>
+<b>PRC_CRAFT_DISABLE_&lt;name of crafting 2da file&gt;_&lt;line number of property&gt;</b>
+where the 2da files are named craft_* (lower case) or itempropdef in the case of arbitrary crafting
+<p>
+eg. <b>PRC_CRAFT_DISABLE_itempropdef_15</b>
+<p>
+disables all castspell properties in arbitrary crafting mode
+<p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="2da"><b>2DAs</b></a><p>
+When adding lines to 2das used, modify SetDefaultFileEnds() within prc_inc_switch.nss to allow the scripts to read the required number of lines. Code will be in the form:<p>
+<tt>
+&nbsp;&nbsp;&nbsp;&nbsp;SetPRCSwitch("PRC_FILE_END_&lt;file name&gt;", &lt;number&gt;);<p>
+</tt>
+The file name will be in alphabetical order and in lower case.<p>
+<b>craft_*.2da</b><p>
+Used to store items/special abilities and their prerequisites<p>
+<table cellpadding="0" cellspacing="0" align="center" border="1" class="table_contenttable">
+<tr>
+<td><b>Column Name</b></td>
+<td><b>Description</b></td>
+<td><b>Format</b></td>
+</tr>
+<tr>
+<td><b>Name</b></td>
+<td><b>Name</b></td>
+<td><b>TLK entry</b></td>
+</tr>
+<tr>
+<td><b>Label</b></td>
+<td><b>Just a label</b></td>
+<td><b>String</b></td>
+</tr>
+<tr>
+<td><b>PropertyType</b></td>
+<td><b>Crafting type, &quot;M&quot; for magic, &quot;P&quot; for psionic (not implemented yet), blank for any</b></td>
+<td><b>Character</b></td>
+</tr>
+<tr>
+<td><b>Level</b></td>
+<td><b>Level (caster, manifester, etc.) prerequisite</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>PrereqMisc</b></td>
+<td><b>Underscore delimited string with 5 values:<p>
+Format:<br>
+&lt;Race&gt;_&lt;Feat&gt;_&lt;AlignGE&gt;_&lt;AlignLC&gt;_&lt;Class&gt;<p>
+Use a single asterisk (*) for blank, or four asterisks (****) for all blank<p>
+<ul>
+<li>Race - Race prerequisite, line in racialtypes.2da (evaluated using MyPRCGetRacialType())</li>
+<li>Feat - Feat prerequisite, line in feat.2da</li>
+<li>AlignGE - Alignment prerequisite, &quot;G&quot; for good, &quot;E&quot; for evil, &quot;N&quot; for neutral, blank for any</li>
+<li>AlignLC - Alignment prerequisite, &quot;L&quot; for lawful, &quot;C&quot; for chaotic, &quot;N&quot; for neutral, blank for any</li>
+<li>Class - Class prerequisite, line in classes.2da</li>
+</ul>
+</b></td>
+<td><b>String (Underscore delimited, contains Integers)</b></td>
+</tr>
+<tr>
+<td><b>Skill</b></td>
+<td><b>Skill prerequisite, line in skills.2da</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>SkillRanks</b></td>
+<td><b>Number of ranks for skill prerequiste</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>Spells</b></td>
+<td><b>Underscore delimited string with 5 values:<p>
+Format:<br>
+&lt;Spell1&gt;_&lt;Spell2&gt;_&lt;Spell3&gt;_&lt;SpellOR1&gt;_&lt;SpellOR2&gt;<p>
+Use a single asterisk (*) for blank, or four asterisks (****) for all blank<p>
+<ul>
+<li>Spell1 - Spell prerequisite, line in spells.2da</li>
+<li>Spell2 - Spell prerequisite, line in spells.2da</li>
+<li>Spell3 - Spell prerequisite, line in spells.2da</li>
+<li>SpellOR1 - Spell prerequisite, crafter must have one of SpellOR1 or SpellOR2, line in spells.2da</li>
+<li>SpellOR2 - Spell prerequisite, crafter must have one of SpellOR1 or SpellOR2, line in spells.2da. If SpellOR2 is blank crafter must have SpellOR1</li>
+</ul>
+</b></td>
+<td><b>String (Underscore delimited, contains Integers)</b></td>
+</tr>
+<tr>
+<td><b>Enhancement</b></td>
+<td><b>Enhancement value for cost calculations</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>AdditionalCost</b></td>
+<td><b>Additional cost for cost calculations</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>ReplaceLast</b></td>
+<td><b>Property will disable this number of the preceding lines, for weapon/armour/shield crafting</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>BaseItem</b></td>
+<td><b>Base item filter for wondrous item crafting, line in baseitems.2da, ignored for craft_ring.2da</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>IPN</b></td>
+<td><b>Underscore delimited string with 4 values, Nth itemproperty to add (up to 6):<p>
+Format:<br>
+&lt;Type&gt;_&lt;SubType&gt;_&lt;CostTableValue&gt;_&lt;Param1Value&gt;<p>
+Use a single asterisk (*) for blank, or four asterisks (****) for all blank<p>
+<ul>
+<li>Type - Type of the Nth itemproperty to add</li>
+<li>SubType - SubType of the Nth itemproperty to add</li>
+<li>CostTableValue - CostTableValue of the Nth itemproperty to add</li>
+<li>Param1Value - Param1Value of the Nth itemproperty to add</li>
+</ul>
+</b></td>
+<td><b>String (Underscore delimited, contains Integers)</b></td>
+</tr>
+<tr>
+<td><b>Epic</b></td>
+<td><b>Epic prerequisite, whether the creator needs the epic crafting feat</b></td>
+<td><b>Integer</b></td>
+</tr>
+<tr>
+<td><b>Special</b></td>
+<td><b>Determines whether the property needs special handling by the scripts</b></td>
+<td><b>Integer</b></td>
+</tr>
+</table><p>
+<b>prc_craft_get_it.2da</b><p>
+Used for non-magical crafting, lines must match baseitems.2da<p>
+<table cellpadding="0" cellspacing="0" align="center" border="1" class="table_contenttable">
+<tr>
+<td><b>Column Name</b></td>
+<td><b>Description</b></td>
+<td><b>Format</b></td>
+</tr>
+<tr>
+<td><b>Name</b></td>
+<td><b>Name of base item</b></td>
+<td><b>TLK entry</b></td>
+</tr>
+<tr>
+<td><b>label</b></td>
+<td><b>A label</b></td>
+<td><b>String</b></td>
+</tr>
+<tr>
+<td><b>Blueprint</b></td>
+<td><b>Resref of blank/generic item to create when crafting</b></td>
+<td><b>String</b></td>
+</tr>
+<tr>
+<td><b>Type</b></td>
+<td><b>Identifies the type of base item for the crafting scripts:
+<ol>
+<li>PRC_CRAFT_ITEM_TYPE_WEAPON</li>
+<li>PRC_CRAFT_ITEM_TYPE_ARMOUR</li>
+<li>PRC_CRAFT_ITEM_TYPE_SHIELD</li>
+<li>PRC_CRAFT_ITEM_TYPE_AMMO</li>
+<li>PRC_CRAFT_ITEM_TYPE_MISC</li>
+<li>PRC_CRAFT_ITEM_TYPE_CASTSPELL</li>
+</ol></b></td>
+<td><b>Integer</b></td>
+</tr>
+</table><p>
+<a href="#top">Back to Top</a><p><hr><p>
+<a name="script"><b>Scripting - Adding New Items/Special Abilities</b></a><p>
+To add properties, add lines to the relevant crafting 2das, then add code to the functions below (in prc_craft_inc.nss), using existing code as a guide. You must be proficient in 2da editing and NWScript.<p>
+<b>Get2DALineFromItemprop()</b><p>
+Weapon/armour/shield crafting, uses an itemproperty to find what special abilities have been added to an item. Hardcoded to avoid having to search through the 2das for every itemproperty on an item.<p>
+<b>DisallowType()</b><p>
+Weapon/armour/shield crafting, disallows special abilities that are similar to existing properties (for items being upgraded that were not created using this system).<p>
+<b>PrereqSpecialHandling()</b><p>
+Extra rules for handling prerequisites.<p>
+<b>CheckCraftingSpells()</b><p>
+Section handles unusual spell prerequisites.<p>
+<b>GetItemVars()</b><p>
+A portion of this function disables some special abilities for ranged weapons, listed here.<p>
+<blockquote>
+<tt>
+if(bArmsArmour)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int nBase = GetBaseItemType(oItem);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int bRangedType = StringToInt(Get2DACache("baseitems", "RangedWeapon", nBase));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(bRangedType && (bRangedType != nBase))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;//disallowed because ranged weapons can't have onhit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 22, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 24, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 26, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 34, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 40, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_set_int(oPC, PRC_CRAFT_ITEMPROP_ARRAY, 42, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</tt></blockquote><p>
+<a href="#top">Back to Top</a><p><hr>
+</div>
+</body>
+</html>

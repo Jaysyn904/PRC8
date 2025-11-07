@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Player Resource Consortium 8 :: Manual :: Installation :: Guide</title>
+
+
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet"></head><body scroll="auto">
+<br>
+<div><h1>:: Installation :: Guide ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+You will need:
+
+<ul>
+<li>Neverwinter Nights: EE updated to the latest patch</li>
+<li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=21">Microsoft .NET Framework Redistributable Package</a> (Windows only)</li>
+<li>The PRC8 (<a href="https://gitea.raptio.us/Jaysyn/PRC8/releases" target="_blank">Archive</a>) </li>
+</ul>
+
+You may want:
+
+<br>
+<ul>
+
+<li><a href="https://drive.google.com/file/d/1L8Z_m4i1s7659e5Rp5PyhB2BX3MyMhu4/view?usp=sharing" target="_blank">Downloadable version of this manual</a></li>
+<li><a href="https://gitea.raptio.us/Jaysyn/PRC_Merges" target="_blank">Various merge haks</a> (if you are using CEP, see <a href="cep_merge_instructions.html">relevant section</a>)</li>
+<li><a href="https://neverwintervault.org/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://neverwintervault.org/sites/neverwintervault.org/files/project/648/files/serverpack1_8_3.rar&amp;nid=648" target="_blank">PRC Server Pack (Defunct)</a> (for those who want to run a server, see <a href="prc_server.html">relevant section </a>)[This has been left in the manual for historical purposes]</li>
+<li><a href="https://neverwintervault.org/project/nwnee/hakpak/alternate-combat-animations-pack-acp-41-hak-and-nit-automated-wizard-version" target="_blank">ACP v4.1</a> (Alternate Combat Animations Pack, see <a href="acp_installation_instructions.html">relevant section</a>)</li>
+
+</ul>
+
+<p>
+</p><hr>
+<b>Installation Instructions</b>
+<p>Extract the contents into the correct directories in the directory
+in which Neverwinter Nights is installed (the module updater can be put
+anywhere):
+</p><p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><b>Extension</b></td>
+<td><b>Directory</b></td>
+</tr>
+<tr>
+<td>hak</td>
+<td>hak</td>
+</tr>
+<tr>
+<td>hif</td>
+<td>hak</td>
+</tr>
+<tr>
+<td>erf</td>
+<td>erf</td>
+</tr>
+<tr>
+<td>tlk</td>
+<td>tlk</td>
+</tr>
+<tr>
+<td>2da</td>
+<td>override</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>module</td>
+</tr>
+</tbody></table>
+</p><p>
+</p><hr>
+
+<p>
+<b>Installing PRC8 into modules</b>
+</p><p>Before installation, back up your modules. Something may go
+wrong or you may need the originals for patching as is the case for the
+Bioware campaigns.
+</p><p>
+Using the module updater:
+</p><p>
+<img src="../../../images/content_installer.jpg">
+</p><p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><b>Option</b></td>
+<td><b>Notes</b></td>
+</tr>
+<tr>
+<td>prc8_consortium</td>
+<td>Install PRC8 into a module</td>
+</tr>
+<tr>
+<td>prc8_ocfix</td>
+<td>Installs extra fixes for the Bioware campaigns</td>
+</tr>
+</tbody></table>
+</p><p>These options are contained within the relevant .hif files. You
+may also create your own .hif file for installing other content (they
+are plain text, see an existing one for an example).
+</p><p>
+Manual installation:
+
+</p><ol>
+<li>Open the module using the toolset (or other software, if not using windows).</li>
+
+<li>
+Add these haks (on top of any existing haks):
+<p>
+</p><ul>
+<li>prc8_2das.hak</li>
+<li>prc8_scripts.hak</li>
+<li>prc8_nsb.hak</li>
+<li>prc8_spells.hak</li>
+<li>prc8_epicspells.hak</li>
+<li>prc8_psionics.hak</li>
+<li>prc8_race.hak</li>
+<li>prc8_textures.hak</li>
+<li>prc8_misc.hak</li>
+<li>prc8_craft2das.hak</li>
+</ul>
+<p>If the existing haks contain conflicting content, you must merge the
+contents in a new hak using the application of your choice (to be
+placed on top of the list).
+</p><p>At some point the toolset (if you are using it) will attempt to
+build the module. Click cancel as fast as you can, or the toolset may
+crash.
+</p><p>
+<img src="../../../images/cancelbuild.jpg">
+
+
+</p></li><li>Set the Custom Tlk to prc8_consortium.tlk. If there already
+is a file there, you must merge the contents in a new tlk using the
+application of your choice.</li>
+<li>Import prc_consortium.erf (and prc8_ocfix.erf if this is a Bioware campaign modue)</li>
+<li>Add the following module event scripts:
+<p>
+<table class="table_contenttable" align="center" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr><td><b>Event</b></td><td><b>Script</b></td></tr>
+<tr><td>OnAcquireItem</td><td>prc_onaquire</td></tr>
+<tr><td>OnActivateItem</td><td>prc_onactivate</td></tr>
+<tr><td>OnClientEnter</td><td>prc_onenter</td></tr>
+<tr><td>OnClientLeave</td><td>prc_onleave</td></tr>
+<tr><td>OnCutsceneAbort</td><td>prc_oncutabort</td></tr>
+<tr><td>OnHeartbeat</td><td>prc_onheartbeat</td></tr>
+<tr><td>OnModuleLoad</td><td>prc_onmodload</td></tr>
+<tr><td>OnNUIEvent</td><td>prc_onplayernui</td></tr>
+<tr><td>OnPlayerChat</td><td>prc_onplayerchat</td></tr>
+<tr><td>OnPlayerDeath</td><td>prc_ondeath</td></tr>
+<tr><td>OnPlayerDying</td><td>prc_ondying</td></tr>
+<tr><td>OnPlayerEquipItem</td><td>prc_equip</td></tr>
+<tr><td>OnPlayerLevelUp</td><td>prc_levelup</td></tr>
+<tr><td>OnPlayerRest</td><td>prc_rest</td></tr>
+<tr><td>OnPlayerTarget</td><td>prc_onplaytarget</td></tr>
+<tr><td>OnPlayerRespawn</td><td>prc_onrespawn</td></tr>
+<tr><td>OnUnaquireItem</td><td>prc_onunaquire</td></tr>
+<tr><td>OnPlayerUnequipItem</td><td>prc_unequip</td></tr>
+<tr><td>OnUserDefined</td><td>prc_onuserdef</td></tr>
+</tbody></table>
+</p><p>
+If the module already has scripts attached to events (and it probably
+does) then you will either need to edit those scripts and add
+ExecuteScript("prc_xxx"); at the top of each one or make a new script
+that calls ExecuteScript() for both the prc script and the old event
+script.
+</li>
+<li>Save the module</li>
+</ol>
+
+</div>
+</body></html>

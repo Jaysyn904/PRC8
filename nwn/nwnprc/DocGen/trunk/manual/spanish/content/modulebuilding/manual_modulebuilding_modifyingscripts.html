@@ -1,0 +1,84 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Module Building :: Modifying Scripts</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Module Building :: Modifying Scripts ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+Many builders will find it necissary to change some of the scripts in
+the PRC to their liking.  This is especially true for the spell
+scripts,
+including epic spells.  Moreover, to make changes to certain parts of
+the epic spell system (for example, to disable certain spells or make
+them harder to cast,) the script "inc_epicspells" must be changed.
+<br><br>
+The Aurora toolset has problems with the sheer enormity of our scripts,
+but there is an easy and ideal way to make changes outside of the
+toolset.
+<br><br>
+First, you need to go to your NWN directory.  There should be a
+subfolder called utils.  There are two programs which are useful here:
+nwhak.exe and clcompile.exe.
+<br><br>
+First, create some folders anywhere on your computer, depending on what
+you intend to change: one for epicspellscripts if you intend to change
+epic spells, one for racescripts if you intend to change races, and one
+for everything else.  I'll refer to these as "epicspellscripts",
+"racescripts", and "scripts" respectively.  You'll want to copy
+clcompile.exe from the utils directory into each working directory you
+make.
+<br><br>
+Open nwhak.exe.  Go to File, then Open... browse to the hak subfolder
+under your NWN directory.  Open up "prc_scripts", "prc_epicspells", or
+"prc_race", depending on what you want to change.
+<br><br>
+When it opens, go to the Resource menu, and select Export All.  Select
+the appropriate folder you created, and click "OK".  Wait awhile,
+there's no progress bar, so you'll only know it's done if you wait for
+awhile.
+<br><br>
+Go to that folder, and open up the script you want to edit with your
+text editor.  Make the changes you want.  TextPad is good for this,
+especially if you download the TextPad NWScript viewer from Bioware.
+That way you'll have syntax highlighted properly.
+<br><br>
+Now, you'll need to compile the script.  This can be tricky because it
+requires the use of the command line.  Go to the Start menu, and click
+on "Run..."  Windows 98/Me users, type "command" and hit OK.  Windows
+2000/XP users, type "cmd" and hit ok.  You'll be at the DOS prompt.
+Make sure you're on the drive your working folders reside on.  If not,
+type the letter of the drive followed by a colon (example: C: )
+<br><br>
+You need to navigate to your directory using the "cd" command.  If your
+folder was in c:\nwn\scripts, then you'd type "cd \nwn\scripts".
+<br><br>
+Once you're in the directory, type "clcompile.exe [name of the script
+you edited]".  If everything is right, your code will compile with no
+errors (and it will tell you such.)  If you have errors, you need to
+debug them much like you would in the Aurora toolset.
+<br><br>
+Once you have the file compiled, open up nwhak.exe again, but this time
+make sure you go to File/New.  Go to "Resource", then "Add", and find
+your working directory.  Select the [name of script].ncs file then
+click OK.  Click File/Save As, and save it into your NWN hak directory
+as whatever you choose.  Don't overwrite anything!
+<br><br>
+Finally, in the Aurora toolset, you'll need to go to Edit/Module
+Properties.  Under the "Custom Content" tab, you can add your hak.  Use
+the "Move Up" button to make sure it's on top.
+<br><br>
+Click OK, and presto, your changes are in!  You can safely abort the
+rebuild process.
+<br><br>
+Keep in mind that future changes and additions can be made to your new
+hak.  Just "add" the resources to it instead of a fresh new hak.  You
+won't have to open the toolset again if you continue to use that hak.
+<br><br>
+</div>
+</body>
+</html>

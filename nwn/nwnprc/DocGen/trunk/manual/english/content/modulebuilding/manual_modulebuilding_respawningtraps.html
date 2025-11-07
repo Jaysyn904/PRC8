@@ -1,0 +1,96 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Module Building :: Respawning Traps</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Module Building :: Respawning Traps ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<br>
+<br>Note: This system was written and implemented before NWN 1.67 added the function for creating
+traps though scripting. If you wish to, this can be incorporated into normal traps by setting the trigger
+script to "prgt_trap_fire" and set a trap struct (defined in prgt_inc_trap) as a local named "TrapSettings".
+<br>
+<br>PRC v3.0 includes a novel spawning ground trap system. This system has several unique attributes:
+<ul><li>Does not require any toolset placed objects.</li>
+<li>Vast selection of trap types.</li>
+<li>Can have a random trap type.</li>
+<li>Ability to create new trap types purely from scripting.</li>
+<li>Easily award XP (or other rewards) from the trap, either from the PRC XP system or via custom scripting.</li>
+<li>Spell-casting traps any arbitrary caster level.</li>
+<li>Can be hooked up to NPC events so they can lay traps too.</li>
+<li>Can be set to automatically respawn after a period of time.</li></ul>
+<br>The way the system works internally is fairly complex, but the outline is this:
+<ul><li>Two invisible auras are created, one as a trigger, and one as a detection area.</li>
+<li>This auras have certain attributes set on them when created such as detection and disarm DCs.</li>
+<li>Every 6 seconds a creature is in the detection trigger in detect mode, there is a chance to reveal the trap.</li>
+<li>When the trap is detected, a grid of invisible placeables are spawned inside the trigger aura.</li>
+<li>Each of these invisible placeables are trapped, this gives off a red glow to display where the trap is.</li>
+<li>If detected or not, the trap goes off when a creature enters the trigger aura. The exception to this
+is if the creature is moving to disarm, flag, or recover one of the trapped invisible placeables.</li>
+<li>If a creature is inside the trigger aura and not disarming, flagging, or recovering, the trap goes off.</li>
+<li>When the trap is triggered, there are several things that can happed.
+	<ul><li>If there is a custom script assigned to the trap, it will be run.</li>
+	<li>If there is a spell assigned to the trap, it will be cast.</li>
+	<li>Otherwise, the trap will do its pre-set damage, VFX, etc.</li></ul></li>
+<li>After a trap has triggered, again several things could happen.
+	<ul><li>The trap could be destroyed entirely, for a one-shot trap.</li>
+	<li>The trap may stay around untill disarmed.</li>
+	<li>The trap may be destroyed for a time and respawn later.</li></ul></li></ul>
+<br>
+<div><h1>Examples</h1></div>
+<br>The simplest way for a builder to implement respawning ground traps is to create
+a set of invisible object placeables that replace themselves with traps in-game. This
+can either be done with a range of pre-fixed difficulties or dynamically integrated into
+a spawn system.
+<br>Below is an example of a pre-set difficulty script that will spawn a random trap.
+This is in the PRC as prgt_spawneg. Simply place it in the OnHeartbeat event of an invisible
+non-static non-plot placeable. This trap will not repsawn and will be a one-shot trap
+<pre>//An example OnHB script for an invisible placeable to spawn a ground trap
+#include "prc_alterations"
+#include "prgt_inc"
+void main()
+{
+    struct trap tTrap;
+    //this will use 5 as the CR for the trap
+    tTrap = CreateRandomTrap(5);
+    //add code in here to change things if you want to
+    //for example, to set the detect DC to be 25 use:
+    //tTrap.nDetectDC = 25;
+    CreateTrap(GetLocation(OBJECT_SELF), tTrap);
+    DestroyObject(OBJECT_SELF);
+}</pre>
+<br>If you want to have a respawning trap, you need to set nRespawnSeconds to be greater
+than zero, as shown in the script below. Also, this script will recreate the random
+trap each time it respawns.
+<pre>//An example OnHB script for an invisible placeable to spawn a ground trap
+#include "prc_alterations"
+#include "prgt_inc"
+void main()
+{
+    struct trap tTrap;
+    //this will use 5 as the CR for the trap
+    tTrap = CreateRandomTrap(5);
+    //add code in here to change things if you want to
+    //for example, to set the detect DC to be 25 use:
+    //tTrap.nDetectDC = 25;
+    tTrap.nRespawnSeconds = 600; //will respawn after 10 minutes
+    tTrap.nRespawnCR      = 5;   //will rerandomize the trap each time its respawned
+    CreateTrap(GetLocation(OBJECT_SELF), tTrap);
+    DestroyObject(OBJECT_SELF);
+}</pre>
+<br>
+<br>The full details of the variables in a trap are detailed in prgt_inc. The main
+upshot is that you can either have it cast a spell, complete with specified level, DC,
+and metamgic, or you can apply direct damage along with radius damage and almost any
+visual effect you can think of. All of the information on a trap is stored in the
+trap struct and can be accessed using the . operator (dot).
+<br>
+<br>
+</div>
+</body>
+</html>

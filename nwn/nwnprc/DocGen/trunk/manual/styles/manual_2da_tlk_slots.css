@@ -1,0 +1,34 @@
+
+<!--
+
+/* Used by the tlk / 2da slot viewer */
+
+#.div_bioslot
+{
+	background-color: #280000;
+	color: #DD0000;
+	padding: 5px;
+}
+
+#.div_prcslot
+{
+	background-color: #000000;
+	color: #C0C0C0;
+	padding: 5px;
+}
+
+#.div_reservedslot
+{
+	background-color: #000028;
+	color: #C8C8FF;
+	padding: 5px;
+}
+
+#.div_openslot
+{
+	background-color: #002800;
+	color: #00DD00;
+	padding: 5px;
+}
+
+-->

@@ -1,0 +1,58 @@
+<!--
+
+/* PRC style by Psi   */
+
+A
+{
+	color: #c0c0c0;
+}
+
+A:hover
+{
+	text-decoration: none;
+}
+
+DIV.div_menu_line_padding
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+DIV.div_menu_padding
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+DIV.div_menu_padding_right
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10;
+}
+
+DIV.div_menuitem
+{
+	font-size: 10pt;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6c6c6c;
+	text-align: center;
+	padding: 2px;
+	letter-spacing: 1pt;
+}
+
+DIV.div_menuitem_right
+{
+	font-size: 10pt;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6c6c6c;
+	text-align: center;
+	padding: 2px;
+	letter-spacing: 1pt;
+}
+
+-->

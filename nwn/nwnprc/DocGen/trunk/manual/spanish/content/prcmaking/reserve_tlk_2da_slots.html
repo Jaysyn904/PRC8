@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: PrC Making :: Reserve 2da/tlk Slots </title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+
+<script language="JavaScript">
+<!-- Hide from old Browsers
+
+function is_form_valid( )
+{
+	valid = true;
+
+	if ( document.reserve_slots.StartSlot.value == "" && valid)
+	{
+		valid = false;
+		alert ( "Please fill in starting slot." );
+		document.reserve_slots.StartSlot.focus();
+	}
+
+	if(isNaN(document.reserve_slots.StartSlot.value) && valid)
+	{
+		valid = false;
+		alert ( "Please fill in starting slot with a numeric value.");
+		document.reserve_slots.StartSlot.value="";
+		document.reserve_slots.StartSlot.focus();
+	}
+
+	if ( document.reserve_slots.EndSlot.value == "" && valid)
+	{
+		valid = false;
+		alert ( "Please fill in ending slot." );
+		document.reserve_slots.EndSlot.focus();
+	}
+
+	if(isNaN(document.reserve_slots.EndSlot.value) && valid)
+	{
+		valid = false;
+		alert ( "Please fill in ending slot with a numeric value." );
+		document.reserve_slots.EndSlot.value="";
+		document.reserve_slots.EndSlot.focus();
+	}
+
+	if ( document.reserve_slots.Name.value == ""  && valid)
+	{
+		valid = false;
+		alert ( "Please fill in your name or project name." );
+		document.reserve_slots.Name.focus();
+	}
+
+	if ( document.reserve_slots.Reason.value == ""  && valid)
+	{
+		valid = false;
+		alert ( "Please fill in your reason for reserving these slots." );
+		document.reserve_slots.Reason.focus();
+	}
+
+	return valid;
+}
+
+//-->
+</script>
+
+
+</head>
+
+<body bgcolor="#000000" text="#C0C0C0" vlink="#006A9D" link="#0082BF" alink="#009CE8" scroll="auto">
+<!-- <body scroll="auto"> //-->
+<br>
+<div><h1>:: PrC Making :: Reserve 2da/tlk Slots ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+<form name="reserve_slots" action="http://www.nwnprc.com/cgi-bin/tlk_2da_update_database.cgi" method="POST" onSubmit="return is_form_valid( );">
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+<tr>
+	<td class="padded">File to reserve slots in: </td>
+	<td class="padded">
+		<select name="File">
+			<option value="classes"> classes.2da </option>
+			<option value="feat"> feat.2da </option>
+			<option value="spells"> spells.2da </option>
+			<option value="tlk"> prc_consortium.tlk </option>
+			<option value="sub_radials"> sub-radials </option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="padded">Reserve slots: </td>
+	<td class="padded">
+		<input type="text" name="StartSlot" size="10" maxlength="10"> to
+		<input type="text" name="EndSlot" size="10" maxlength="10">
+	</td>
+</tr>
+<tr>
+	<td class="padded">Name: </td>
+	<td class="padded">
+		<input type="text" name="Name" size="27" maxlength="35">
+	</td>
+</tr>
+<tr>
+	<td class="padded">Reason: </td>
+	<td class="padded">
+		<input type="text" name="Reason" size="27" maxlength="100">
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center" class="padded">
+		<input type="submit" value="Reserve Slots">
+	</td>
+</tr>
+
+</table>
+</form>
+
+<br><br>
+</div>
+</body>
+</html>

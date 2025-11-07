@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="en-gb">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Player Resource Consortium :: Manual :: Installation :: PRC Server Pack</title>
+
+
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet"></head><body scroll="auto">
+<br>
+<div><h1>:: Installation :: PRC Server Pack ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+
+<br>
+<br><h4>NOTE: This document pertains to NWN1 v1.69 only, not NWN:Enhanced Edition! Please understand this before continuing.<br>
+</h4>
+<h4>The ConvoCC is still a work-in-progress. Please report any bugs and
+issues you might have, after first checking that you have followed this
+guide, that the issues have not already been fixed, and that it is a
+reporoducable bug. Make sure you include as much information as
+possible in reports, including at least what OS and database you are
+running, where you got the ConvoCC from, what haks you are using, how
+you precached the 2das, what character you are building, and exactly
+what steps you take to expose the bug. A screenshot of the bug as well
+as both the serverlog and NWNX-ODBC log files is also very helpful.
+Without reliable feedback and reports, I cannot improve the ConvoCC.
+Thank you for your cooperation.</h4>
+
+<br>
+<br>This is a step-by-step guide on how to install the PRC Server Pack.
+<br>The PRC Server Pack is needed if you want to do any of the following:
+<ul><li>Use the Conversation Character Creator. This allows the creation of
+characters with new races, new classes or other custom content at level 1.
+</li><li>Use the Letoscript enhancements for things such as permanent stat adjustments, etc.
+</li><li>Use a database other than biowares to cache 2da information in.</li></ul>
+
+<br>The system is composed of several components. Firstly, there is <a href="http:%5C%5Cwww.nwnx.org">NWNX2</a>.
+This is an application that hooks into memory locations of the NWServer in order to pass information
+into and out of the game. It relies on plugins to provide functionallity.
+<br>
+<br>Two plugins are included in the PRC Server Pack:
+<br>One is a database plugin, <a href="http://www.nwnx.org/index.php?id=doc_odbc2">NWNX-ODBC2</a>, which is used
+to access a <a href="http://www.sqlite.org/">SQLite database</a>.
+<br>The other is the <a href="http://weathersong.infopop.cc/groupee/forums/a/frm/f/9616039431">NWNX-Letoscript</a> plugin <a href="http://sourceforge.net/project/showfiles.php?group_id=92983&amp;package_id=111517">build 24</a>.
+<br>
+<br>There is also a prechacher tool build-into prc.jar and a stand-alone SQLite commandline tool.
+These are used to insert the 2da files into the database where they can be accessed quicker.
+<br>
+<br>Many servers may already have NWNX setup, possibly already using
+NWNX-ODBC2 to provide database functionallity. Some servers use MySQL
+instead of SQLite as a database. In these cases, the precacher can be
+set to provide MySQL compatible syntax. (NOTE: I know little about
+non-SQLite databases, so I dont know how well this works or any details
+of it. If you have more information, please contact the PRC team so
+this manual can be updated)
+<br>
+<br>
+<br>The first step is to download the PRC Server Pack from
+<a href="http://nwvault.ign.com/View.php?view=Hakpaks.Detail&amp;id=7870">here</a>.
+If your using windows, you should get the .exe installer.
+<br>To install the PRC Server Pack, simply run the exe. It should automatically
+detect your NWN directory. After it has installed itself, it will offer to precache
+the 2das for you straght away.
+<br>
+<br>If you are using another OS there is a .rar version as well, which
+should be extracted to your NWN directoy. Then you will need to
+manually start the precaching by running the "precache sqlite.bat" file
+(NOTE: I dont know anything about non-windows OS, so I dont know if a
+batch file applies or not. If you have more information, please contact
+the PRC team so this manual can be updated).
+<br>
+<br>If you are looking to add the ConvoCC to an existing server, then
+you should use the method above (after making a full backup of course).
+If your existing server uses MySQL, then you will have to use the rar
+distribution and run "precache mysql.bat" instead. This will produce a
+file named "out.sql" which you should then run through your database
+tools. A command like "mysql -u USER -p DATABASENAME &lt; out.sql &gt;
+out.log" (replace USER and DATABASENAME with the values you use) should
+work. You may have to copy the out.sql file to wherever MySQL is
+installed. (NOTE: I know little about non-SQLite databases, so I dont
+know how well this works or any details of it. If you have more
+information, please contact the PRC team so this manual can be updated)
+<br>
+<br>Once the precacher has finished, you should have a ready populated
+database with all the 2da information in it. This is needed so that
+SQL-queries can be used to retrieve lists of feats etc, rather than
+lengthy loops over all the rows in the 2das.
+<br>
+<br>If you need to precache the 2da files again in the future, for
+example a new PRC version is released, run the "precache sqlite.bat"
+file (or "precache mysql.bat" if using MySQL and then process the
+out.sql file as before) in your NWN directory. This will remove the
+tables that the precacher previously added, so it should preserve any
+other existing data. However, it is probably a good idea to make a
+backup before you update, just to be save!
+<br>
+<br>Now that you have a populated database, you can go about setting up the ConvoCC
+<br>This is done mainly through the switch system. The minimum switches that should
+be set are:
+<br><br><table class="table_contenttable" align="center" border="1" bordercolor="#6c6c6c" cellpadding="0" cellspacing="0">
+<tbody><tr><td>PRC_CONVOCC_ENABLE</td><td>This enables the ConvoCC via the OnClientEnter event.</td></tr>
+<tr><td>PRC_CONVOCC_USE_XP_FOR_NEW_CHAR</td><td>This uses zero XP on a character to mark them as new.</td></tr>
+<tr><td>PRC_USE_DATABASE</td><td>Turn on database useage.</td></tr>
+<tr><td>PRC_DB_SQLLITE or PRC_DB_MYSQL</td><td>Set it to the correct SQL syntax.</td></tr>
+<tr><td>PRC_USE_LETOSCRIPT</td><td>Turn on Letoscript.</td></tr>
+<tr><td>PRC_LETOSCRIPT_NWN_DIR</td><td>A string pointing to your NWN installation directory.</td></tr></tbody></table>
+<br>If you want further information on switches, see the prc_inc_switch script.
+<br>
+<br>
+<br><h2>Symptom: Letoscript fails to find the NWN directory.</h2>
+<br>Check the PRC_LETOSCRIPT_NWN_DIR switch. Try different slash options, / // \ \\ as well as having a trailing slash or not.
+<br>Check you are using NWNX-Letoscipt <a href="http://sourceforge.net/project/showfiles.php?group_id=92983&amp;package_id=111517">build 24</a>
+<br>
+<br>
+<br><h2>Symptom: Not all options are displayed on occasion</h2>
+<br>This appears to be lag-related. Try selecting an option and then
+responding "no" to the confirmation. This should re-generate the list
+with all the options present, though it may take a few attempts.
+<br>
+<br>
+<br><h2>Symptom: No options are present and the conversation cannot be aborted.</h2>
+<br>This is usually the result of a bug, you can use Alt-F4 to quit NWN without using Ctr-Alt-Delete.
+<br>Please report this including what OS and database you are running,
+where you got the ConvoCC from, what haks you are using, how you
+precached the 2das, what character you are building, and exactly what
+steps you take to expose the bug.
+<br>
+<br>
+<br>
+</div>
+</body></html>

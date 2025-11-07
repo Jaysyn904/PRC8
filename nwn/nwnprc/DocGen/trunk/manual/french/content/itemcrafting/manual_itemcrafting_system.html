@@ -1,0 +1,90 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: Item Crafting :: System</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+<body scroll="auto">
+<br>
+<div><h1>:: Item Crafting :: System ::</h1></div>
+<br>
+<div class="div_paddedcontent">
+<div><h2>Item Creation</h2></div>
+<br>
+Special thanks goes too RabbitHail for making and coding this wonderful system.
+<br><br>
+<div><h2>Usage</h2></div>
+<br>
+Item crafting gives the caster classes the ability to create magic items from recipe scrolls, books, or any item with the proper TAG.  It also allows the user to create recipes from already existing magic items.  This allows PWs, and modules to have full control over what magic items the users can have and create.  If you want to introduce a near dynamic economy, don’t let magic items “drop” from monster kills.  Only allow kills to drop money and spell scrolls.  Have merchants only sell recipe scrolls and then your magic users will have to spend gold and exp to create magic items.  This creates a money and exp sink, which will help your PW from having an inflationary economy.  The fighters will have to pay the mages to make items.  The mages will use spells, feats, money and exp to make items.  This will push the mages to work with the fighters in order to get the exp and spells they need to make the items they need to advance to higher levels.  This also helps separate the reward system from your areas (in many cases I have seen new areas always giving away better stuff, just to attract players to that area).
+<br><br>
+Use the read magic cantrip on a magic item.  If a magic item is listed in the item_to_ireq.2da file a recipe scroll will be created.  Use the proper craft feat on the scroll to start the magic item creation process.  Read magic can be used on a recipe scroll to display what item will be created and the required feats need to make that item.  Some recipes for very powerful items may require a level 20 mage / level 20 cleric!
+<br><br>
+<div><h2>Module variables</h2></div>
+<br>Int nICHoursInDayCycle // sets the number of hours in a day (default is 1)
+<br>Float</font> fICMinDays // sets the minimum number of days an item creation will take (default is .1)
+<br>Float</font> fICMaxDays // sets the maximum number of days an item creation will take (default is .2)
+<br>
+<br>NOTE: To all PWs, the above settings are done so for the single player that has no clue how to set module variables, has no reason to wait around while the item is being crafted, and probably won’t even read this file.  To have a truly PnP “experience” with item crafting use these settings:
+<br>
+<br>nICHoursInDayCycle = 24;
+<br>fICMinDays = 1.0;
+<br>fICMaxDays = 1000.0;
+<br><br>
+<div><h2>Item recipes</h2></div>
+Recipes are contained within the prc_craft2da.hak file.  Each recipe is its own 2da file.  The 2da files are setup just like prestige class prerequisite files.  This is the recipe for making the helm of brilliance:
+<br><br>
+FileName: ireq_helmbril.2da
+<br><br>
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+<tr><th>&nbsp;</th> <th>LABEL</th> <th>ReqType</th> <th>ReqParam1</th> <th>ReqParam2</th></tr>
+<tr><td>0</td> <td>Helm_of_Brilliance </td> <td>RESULT</td> <td>x0_armhe012</td> <td>****</td></tr>
+<tr><td>1</td> <td>CasterLevel13th</td> <td>CASTERLVL </td> <td>13</td> <td>****</td></tr>
+<tr><td>2</td> <td>Craft_Wondrous_Item_Feat </td> <td>FEAT</td> <td>2925</td> <td>****</td></tr>
+<tr><td>3</td> <td>Light</td> <td>SPELL</td> <td>62</td> <td>****</td></tr>
+<tr><td>4</td> <td>Fire Ball</td> <td>SPELL</td> <td>100</td> <td>****</td></tr>
+<tr><td>5</td> <td>Prismatic_Spray</td> <td>SPELL</td> <td>135</td> <td>****</td></tr>
+<tr><td>6</td> <td>Wall_of_Fire</td> <td>SPELL</td> <td>191</td> <td>****</td></tr>
+<tr><td>7</td> <td>Flame_Lash </td> <td>SPELL</td> <td>60</td> <td>****</td></tr>
+<tr><td>8</td> <td>Protection_from_Elements</td> <td>SPELL</td> <td>137</td> <td>****</td></tr>
+</table>
+<br>
+NOTE: The numbers in the ReqParam1 field are the line numbers that those things exist on in their respective 2da files.  The filename is important because that’s what you must set an items TAG to in order to have it be used by the craft feats to make an item.
+<br><br>
+<table cellpadding="0" cellspacing="0" align="center" border="0" class="table_contenttable">
+<tr><th colspan="3">ReqType list: const string</th> </tr>
+<tr><td> sReqTypeResult     </td><td>= "RESULT";   </td><td>// min</td></tr>
+<tr><td> sReqTypeCasterLevel</td><td>= "CASTERLVL";</td><td>// min</td></tr>
+<tr><td> sReqTypeExtraXP    </td><td>= "EXTRAXP";  </td><td>// min</td></tr>
+<tr><td> sReqTypeExtraGold  </td><td>= "EXTRAGOLD";</td><td>// min <br>Increases XP cost as well</td></tr>
+<tr><td>&nbsp;</td> <td></td> <td></td> <td></td> <td></td></tr>
+<tr><td> sReqTypeFeat </td><td>= "FEAT"; </td><td>// and</td></tr>
+<tr><td> sReqTypeSpell</td><td>= "SPELL";</td><td>// and</td></tr>
+<tr><td> sReqTypeItem </td><td>= "ITEM"; </td><td>// and</td></tr>
+<tr><td> sReqTypeSkill</td><td>= "SKILL";</td><td>// and</td></tr>
+<tr><td> sReqTypeLevel</td><td>= "LEVEL";</td><td>// and</td></tr>
+<tr><td>&nbsp;</td> <td></td> <td></td> <td></td> <td></td></tr>
+<tr><td> sReqTypeRace </td><td>= "RACE"; </td><td>// or</td></tr>
+<tr><td> sReqTypeAlign</td><td>= "ALIGN";</td><td>// or</td></tr>
+<tr><td> sReqTypeArea </td><td>= "AREA"; </td><td>// or</td></tr>
+<tr><td> sReqTypeDeity</td><td>= "DEITY";</td><td>// or</td></tr>
+<tr><td>&nbsp;</td> <td></td> <td></td> <td></td> <td></td></tr>
+<tr><td> sReqTypeFeatOR </td><td>= "FEATOR"; </td><td>// or</td></tr>
+<tr><td> sReqTypeSpellOR</td><td>= "SPELLOR";</td><td>// or</td></tr>
+<tr><td> sReqTypeItemOR </td><td>= "ITEMOR"; </td><td>// or</td></tr>
+<tr><td> sReqTypeSkillOR</td><td>= "SKILLOR";</td><td>// or</td></tr>
+<tr><td> sReqTypeLevelOR</td><td>= "LEVELOR";</td><td>// or</td></tr>
+</table>
+<br><br>
+The item_to_ireq.2da file “The glue that binds”.  This file is used to do a reverse binding between a magic item and a recipe.  If the recipe and the magic item exist you can place both anywhere into this file so the users of the craft system can use read magic on a magic it to be able to make a recipe.  This allows users in single player modules to make recipes for items they come across.  This can also be used by a dynamic machine that could create a dialog with all the items in the file and the user would get a recipe from the selection.
+<br></br>
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+<tr><th>&nbsp</th> <th>LABEL</th> <th>L_RESREF</th> <th>RECIPE_TAG</th></tr>
+<tr><td>0</td> <td>Arvoreens_Amulet_of_Aid</td> <td>x0_it_mneck005</td> <td>IREQ_AMULARVR</td></tr>
+</table>
+<br><br>
+NOTE: This file is NOT required for the system to run, and may not make sense for PWs to have.
+<br><br>
+</div>
+</body>
+</html>

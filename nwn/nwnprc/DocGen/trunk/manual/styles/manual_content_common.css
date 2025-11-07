@@ -1,0 +1,82 @@
+<!--
+
+/* PRC style by Psi   */
+
+TR
+{
+	vertical-align: top;
+	padding: 5px;
+}
+
+TH
+{
+	text-align: left;
+}
+
+TABLE.table_contenttable
+{
+	font-family: verdana, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #c0c0c0;
+	width: 550px;
+	height: 50px;
+}
+
+TD.padded
+{
+	padding: 5px;
+}
+
+DIV.div_paddedcontent
+{
+	padding: 0px 40px 0px 40px;
+}
+
+TH.th_header
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6c6c6c;
+	padding: 5px;
+}
+
+TD.td_noborder
+{
+	padding: 5px;
+}
+
+TD.td_bordered
+{
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #6c6c6c;
+	padding: 5px;
+}
+
+DIV.div_paddedicon
+{
+	padding-bottom: 1em;
+}
+
+DIV.div_spellsubradiallist
+{
+	padding-top: 2em;
+}
+
+DIV.div_spellsubradiallistentry
+{
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+
+DIV.div_paddedtop
+{
+	padding-top: 1em;
+}
+
+DIV.div_pretablepad
+{
+    padding-top: 2em;
+}
+
+-->

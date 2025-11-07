@@ -1,0 +1,1230 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Player Resource Consortium :: Manual :: PrC Making :: Guide</title>
+<link type="text/css" href="../../../styles/manual_common.css" rel="stylesheet">
+<link type="text/css" href="../../../styles/manual_content_common.css" rel="stylesheet">
+</head>
+
+<body bgcolor="#000000" text="#C0C0C0" vlink="#006A9D" link="#0082BF" alink="#009CE8" scroll="auto">
+
+<br>
+<a name="top">
+<div><h1>:: PrC Making :: Guide ::</h1></div>
+</a>
+<br>
+<div class="div_paddedcontent">
+
+<ol type="I">
+<li> <a href="#intro"> Introduction </a> </li>
+<li> <a href="#prelude"> Prelude </a> </li>
+<li> <a href="#tools"> Tools of the Trade </a> </li>
+<li> <a href="#irc"> IRC Information </a> </li>
+<li> <a href="#comp"> Script Compiler </a> </li>
+<!-- <li> <a href="#cvs"> CVS Information </a> </li> -->
+<!-- <li> <a href="#make"> The Make System </a> </li> -->
+<li> <a href="#folder"> Hak Overview </a> </li>
+<li> <a href="#file"> File Overview </a> </li>
+<li> <a href="#start"> Getting Started </a> </li>
+<li> <a href="#rules"> PRC Rules and General Guidelines </a> </li>
+<li> <a href="#classes"> Classes.2da </a> </li>
+<li> <a href="#req2da"> Other Required 2da's </a> </li>
+<li> <a href="#feat"> Feat.2da </a> </li>
+<li> <a href="#spells"> Spells.2da </a> </li>
+<li> <a href="#activefeat"> Creating Active Feats </a> </li>
+<li> <a href="#combatfeat"> Creating Combat Feats </a> </li>
+<li> <a href="#passivefeat"> Creating Passive Feats </a> </li>
+</ol>
+
+<a name="intro">
+<div><h2>Introduction</h2></div>
+</a>
+<br>
+I have decicided to create a tutorial on how to make a
+Prestige Class and how to make it compatible with the Player Resource Consortium.
+I hope this allows new custom content builders to help make their content compatible with the PRC.
+This will make it easier for them to use both their content and ours, and also make it easier on us
+if they would allow us to add their content to our pack.
+<br><br>
+<a name="prelude">
+<div><h2>Prelude</h2></div>
+</a>
+<br>
+That being said, I would like to reiterate the information in the basic section with the following links.
+I cannot stress how useful these two links are when developing.
+The 2da coverage from the CCG is very useful when making feats and spells.
+The Lexicon has some good tutorials for those new to scripting.
+In addition, the Lexicon has a listing of all the functions in the engine with information on
+how to use them.
+This is very useful if you script outside of the toolset as many of us in the PRC do.
+
+<br><br>
+
+For information on 2da's, harcoded limitations, etc. Check the
+<a href="http://ccg.dladventures.com/index.php/Main_Page" target="_blank"> Neverwinter Nights Custom Content Guide</a>.
+<br>
+For questions concerning scripting check out the
+<a href="http://www.nwnlexicon.com/" target="_blank"> NWN Lexicon</a>.
+
+<br><br>
+<a name="tools">
+<div><h2>Tools of the Trade</h2></div>
+</a>
+<br>
+The following is a list of utility programs that are quite handy for making PrC's.
+
+<br><br>
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+<tr><td valign="top" align="center"> NotePad </td>
+<td valign="top">A basic text editor... .2da and .nss files are both plain text files, making a plain text editor a definite must.</td></tr>
+
+<tr><td valign="top" align="center"> TextPad </td>
+<td valign="top">Another text editor.  Can be found <a href="http://www.textpad.com/" target="_new"> here</a>.
+This text editor can mass replace text in many files rather quickly.  Excellent when making mass replaces.  You can also use C++ language highlighting and it is much like using the NwN Toolset when scripting.</td></tr>
+
+<tr><td valign="top" align="center"> NwN Toolset </td>
+<td valign="top">Occasionally the toolset is useful.  Especially, if you are making summonable critters or dialogues.</td></tr>
+
+<tr><td valign="top" align="center">CCCH</td>
+<td valign="top"> The CODI Custom Content Helper.  Has a .tlk editor as well as some pretty decent 2da editing capabilities.  Some use it, some do not.  Definitely worth mentioning though.  It can be found <a href="http://nwvault.ign.com/Files/other/data/1067993746453.shtml" target="_new"> here</a>. </td></tr>
+
+<tr><td valign="top" align="center">NWN TLK Editor 1.1</td>
+<td valign="top"> My preferred method of modifying the .tlk file.  It can be found <a href="http://nwvault.ign.com/Files/other/data/1026158289672.shtml" target="_new"> here</a>.</td></tr>
+
+<tr><td valign="top" align="center">NwN Explorer</td>
+<td valign="top"> A good tool to look through all the standard files of the game.  Great for checking out the games icon when you want to modify them to create new ones.  It can be found <a href="http://nwvault.ign.com/Files/other/data/1055545441750.shtml" target="_new"> here</a>. </td></tr>
+
+<tr><td valign="top" align="center">mIRC</td>
+<td valign="top"> We use this to communicate, for more information see section below. </td></tr>
+
+<!--<tr><td valign="top" align="center">Tortoise CVS</td>
+<td valign="top"> We use this to store and share all our scripts and data.  For more information, see section below. </td></tr>
+-->
+
+</table>
+<br><a href="#top">Back to Top</a>
+<br><br>
+<a name="irc">
+<div><h2>IRC Information</h2></div>
+</a>
+<br>
+The PrC members often use IRC (Internet Relay Chat) to communicate with eachother.
+For those new to IRC you need to download a program called mIRC.
+(There are likely others, though I do not know them.)
+
+The following steps will allow you to connect to our main channel.
+
+<ul>
+<li>Download mIRC <a href="http://www.mirc.com/" target="_new"> here</a>.</li>
+<li>Go to "Tools" and select "Options"</li>
+<li>Open the "Connect" tree and select "Servers"</li>
+<li>Click the "Add" button</li>
+<li>Fill in Description and Group as "PRC"</li>
+<li>Fill in IRC Server as "irc.neverwinterconnections.com"</li>
+<li>Click the "Connect to Server" button</li>
+<li>Once connected type in "/join #terran"</li>
+</ul>
+
+If you want to automatically connect to the server when you open mIRC you can go back into Tools > Options > Connect > Options.
+There should be a checkbox labled "Connect on Startup".  Select that option and you will automatically connect to "irc.neverwinterconnections.com".
+
+<br><br>
+
+Additionally, if you want to automatically join a channel on startup you can again  go into Tools > Options > Connect > Options.
+<ul>
+<li>Click the "Perform" button.</li>
+<li>Check the "Enable Perform on Connect" checkbox.</li>
+<li>In the "Perform Commands:" textbox fill in all commands you want to run. </li>
+<li>Type in "/join #terran" to connect to our channel.</li>
+</ul>
+
+Feel free to visit us in the IRC channel sometime.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><a name="comp">
+<div><h2>Script Compiler</h2></div>
+</a>
+<br>
+
+The PRC team has done some modifications to Torlack's compiler so that we can
+compile all of our scripts outside of the compiler.
+It was not something we orginally wanted to do, but it seems we hit some kind of hardcoded
+limit in the standard compiler and could no longer compile our work.
+We decided to release this compiler publicly for developers to use you can get a
+link to it in the downloads section of the website.
+
+<br><br>
+To make any script changes to the PRC you will need to:
+
+<br><br>
+<ul>
+<li>Extract the include files from prc_include.hak into a temporary "include"
+folder in the same directory as the compiler.</li>
+<li>Run the compiler on your scripts:
+<br>Usage:
+<br>nwnnsscomp [-cdegoqx] [-t#] [-v#] [[-i pathspec] ...] infile [outfile]
+<br>
+<br>  pathspec - semicolon separated list of directories to search for files.
+<br>  infile - name of the input file.
+<br>  outfile - name of the output file.
+<br>  -c - Compile the script (default)
+<br>  -d - Decompile the script (can't be used with -c)
+<br>  -e - Enable non-Bioware extensions
+<br>  -g - Don't produce ndb debug file
+<br>  -i - Add Search Path
+<br>  -o - Optimize the compiled source
+<br>  -q - Silence most messages
+<br>  -x - Extract script from NWN data files
+<br>  -vx.xx - Set the version of the compiler
+<br>  -t1 - Perform a compilation test with BIF scripts
+<br>  -t2 - Perform a compilation test with the given module
+<br>  -t3 - Optimization space saving report with the given module
+<br>  -t4 - Perform a compilation test with the given file or files
+<br>
+<br>-i is basically an include folder,
+though the system may look for your compile file in there as well if you are elsewhere
+<br>&nbsp;
+</li>
+<li>Copy the modified .ncs files into a custom hak and make sure that hak is
+on the top of the list in the module properties.</li>
+</ul>
+
+For more compiler information you can check the orginal developer's website:
+<br><a href="http://www.torlack.com/index.html?topics=nwnnsscomp_readme" target="_blank">http://www.torlack.com/index.html?topics=nwnnsscomp_readme</a>
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><a name="folder">
+<div><h2>Hak Overview</h2></div>
+</a>
+<br>
+
+If you open up your hak folder you should find quite a few hak files.
+Here is a brief overview of those haks.
+Most of them are rather self explanatory, but we might as well explain them anyways.
+
+<br><br>
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+	<tr>
+		<td valign="top">prc_2das</td>
+		<td valign="top">Location of almost all 2da files for the PrC.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_Craft2das</td>
+		<td valign="top">2da files specifically for the crafting system.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_epicspellscripts</td>
+		<td valign="top">Scripts for the Epic Spell System are in here</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_misc</td>
+		<td valign="top">All icons, textures, dialogues creature templates, etc go in here.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_include</td>
+		<td valign="top">All include scripts go in here.  One of the most important folders.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_race</td>
+		<td valign="top">2da files and scripts for the race pack.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_scripts</td>
+		<td valign="top">Custom scripts for PrC's go in here.</td>
+	</tr>
+	<tr>
+		<td valign="top">prc_spells</td>
+		<td valign="top">This directory is for all the official Bioware spell scripts.</td>
+	</tr>
+</table>
+<br><br>
+
+You will likely notice there are a few directories I did not mention above.
+Any directory containing "objs" in its name holds compiled data.
+This prevents PrC makers from having to compile every single script whenever they use the Make System.
+The tempcpl directory is an empty directory that temporarily stores data while compiling.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><a name="file">
+<div><h2>File Overview</h2></div>
+</a>
+<br>
+There are many files in the PRC pack, so I will label those most important to PrC makers, and what they do.
+If you are using the .hak files they have the same name as the directories.
+For example, /2das is the same as prc_2das.hak.
+<br><br>
+
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+	<tr>
+		<th valign="top"> Folder / File </th>
+		<th valign="top"> Description </th>
+	</tr>
+	<tr>
+	    <td valign="top"> /2das </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> classes.2da </td>
+		<td valign="top"> The 2da containing all classes.  For more information check out the Custom Content Guide. </td>
+	</tr>
+	<tr>
+		<td valign="top"> feat.2da </td>
+		<td valign="top"> The 2da for feats...  again check the CCG for more info. </td>
+	</tr>
+	<tr>
+		<td valign="top"> spells.2da </td>
+		<td valign="top"> The 2da for spells. </td>
+	</tr>
+	<tr>
+		<td valign="top"> masterfeats.2da </td>
+		<td valign="top"> This 2da is for feats like Favored Enemy or Weapon Focus, where it is a single feat, but you have to select a certain version of the feat. </td>
+	</tr>
+	<tr>
+		<td valign="top"> skills.2da </td>
+		<td valign="top"> The 2da for skills </td>
+	</tr>
+	<tr>
+		<td valign="top"> cls_skill_****.2da </td>
+		<td valign="top"> These files determine the class and cross-class skills for your PrC.  They reference the value in skills.2da. </td>
+	</tr>
+	<tr>
+		<td valign="top"> cls_pres_****.2da </td>
+		<td valign="top"> These files list requirements for a prestige class. </td>
+	</tr>
+	<tr>
+		<td valign="top"> cls_feat_****.2da </td>
+		<td valign="top"> These files contain the feats and at which level a PrC gains them. </td>
+	</tr>
+	<tr>
+		<td valign="top"> cls_bfeat_****.2da </td>
+		<td valign="top"> This file contains bonus feat allocation for the PrC.  Bonus feats are those such as fighter feats or rogue bonus feats.  Also note that most classes gain bonus feats during epic levels. </td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /include </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_class_const.nss </td>
+		<td valign="top"> All FEAT_* constants go in here. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_feat_const.nss </td>
+		<td valign="top"> All CLASS_TYPE_* constants go here. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_racialtypes_const.nss </td>
+		<td valign="top"> All RACIAL_TYPE_* constants go here. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_spell_const.nss </td>
+		<td valign="top"> All SPELL_* constants go here. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_ipfeat_const.nss </td>
+		<td valign="top"> All constants dealing with item properties go here. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_function.nss </td>
+		<td valign="top"> This file is not necessarily the most intuitively named.  While it does contain a few functions used by several classes, its main use is the heart of the passive feat system.  Passive feats are applied by calling a class specific script on multiple events, such as onequip, onload, and onlevel.  When a line is added into the EvalPRCFeats function, it will execute the script on all the main events.  This saves us from having to put the code in multiple places.  If your passive feats are not working, be sure that you added the proper line of code here.  It is an easy thing to forget, I know I have done it before. <br><br>  Another important function in this file is DeletePRCLocalInts.  This file is used to delete local integers stored to make sure an ability is or is not updated.  For instance, if you have an ability that can upgrade on level up, then you would want to delete the local int so that your code will re-add the bonus.  Just make sure you use the SetCompositeBonus function described later in the guide.  <br><br>  While those are the two primary functions, you might find some of the other functions useful.</td>
+	</tr>
+	<tr>
+		<td valign="top"> inc_item_props.nss </td>
+		<td valign="top"> Another very important file.  Here you will find the aforementioned SetCompositeBonus function as well as numerous other functions that deal with creature skins and item properties. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_util.nss </td>
+		<td valign="top"> A new file created for utility functions.  Those that could be useful for multiple classes or abilities. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_clsfunc.nss </td>
+		<td valign="top"> A file for all class functions that need to be included in multiple files.  This prevents us from having many includes for various classes. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_alterations.nss </td>
+		<td valign="top"> This one is important if you ever need to determine a creatures RACIAL_TYPE_* constant.  This file houses the MyPRCGetRacialType function. </td>
+	</tr>
+	<tr>
+		<td valign="top"> inc_combat.nss, <br> inc_combat2.nss, <br> prc_inc_combat.nss</td>
+		<td valign="top"> inc_combat and inc_combat2 are the original coding used to simulate combat for attacks such as the Arcane Trickster's Impromtu Sneak Attack ability.  prc_inc_combat took the data in the previous files and added to it.  New coders should <b>use prc_inc_combat</b>, though I thought I would mention all of them so coders do not get confused. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_sneak.nss </td>
+		<td valign="top"> This file contains numerous functions used to simulate sneak attacks and to add sneak attacks to prestige classes.  In order to make new classes with sneak attack stack, we add a dummy feat to the player.  The code that gives them the sneak attack feat(s) is placed in this file. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_unarmed.nss </td>
+		<td valign="top"> Determines the unarmed "creature weapon" damage of many of the monk PrC's.  For those making a monk PrC that has fist damage upgrades, this is the file to look into. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_inc_spells.nss </td>
+		<td valign="top"> Contains many useful functions for determining caster level, mostly.  The goal is to consolidate all caster level functions into this file.  In the future, all new PrC's that add to caster levels should be added to the GetArcanePRCLevels and GetDivinePRCLevels functions.  Very little else should be necessary, except when new casting feats are created. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prcsp_engine.nss </td>
+		<td valign="top"> Functions that determine spell resistance and if a player resists a spell. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prcsp_spell_adjs.nss </td>
+		<td valign="top"> Functions that return spell penetration bonuses. </td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /scripts </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_prereq.nss </td>
+		<td valign="top"> This script allows a PrC builder to add in custom scripts to determine if a player can take a PrC.  Bioware's 2da system had a few limitations that prevented us from properly doing some class requirements.  A good example would be the Tempest.  Tempests need Ambidexterity and Two-Weapon Fighting or Ranger Dual wield.  In addition, they need  Weapon Focus(any melee weapon) or Weapon Finesse.  The 2da files FEATOR required did not allow two or conditions, it ended up working if you had any of the feats.  We needed to script in the check for Ranger Dual Wield or Ambidexterity and Two-Weapon Fighting. </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_enforce_feat.nss </td>
+		<td valign="top"> This script is used to circimvent some issues in the bioware engine and how feats are granted.  There are several things that cannot be done with the 2da files such as race or gender specific feats.  In adddition this file is also used to limit bonus feats and the levels they can be gained at.  This was required for classes such as the Red Wizard as they are only supposed to take the Limited School feats at certain levels.</td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /race2das </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> race_feat_****.2da </td>
+		<td valign="top"> This 2da holds all the racial feats for the specific race.  Note: This also contains feats for spells associated with a race.</td>
+	</tr>
+	<tr>
+		<td valign="top"> racialtypes.2da </td>
+		<td valign="top"> This file stores the base information about each race. Contains information that links it to the aforementioned race 2das.</td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /racescripts </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> race_hb.nss </td>
+		<td valign="top"> Any abiltiies that require a heartbeat to check go in here.  Things like Light Blindness/Sensitivity. </td>
+	</tr>
+	<tr>
+		<td valign="top"> race_skin.nss </td>
+		<td valign="top"> All bonuses that are applies to the skin for a race.   Damage Resistance, Natural Armor, etc.  Most things a race would need are already implemented, just need to give a race the proper feat.</td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /spells </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> x2_s3_onhitcast.nss </td>
+		<td valign="top"> Script used for On Hit: Unique Powers.  It should not be needed for most classes, but I figured it was worth mentioning. </td>
+	</tr>
+	<tr>
+		<td valign="top"> &nbsp; </td>
+		<td valign="top"> &nbsp; </td>
+	</tr>
+	<tr>
+	    <td valign="top"> /tlk </td>
+		<td valign="top"> directory </td>
+	</tr>
+	<tr>
+		<td valign="top"> prc_consortium.tlk </td>
+		<td valign="top"> The only file in this directory.  The tlk file holds the in game text for all the PrC's, feats, spells, etc. </td>
+	</tr>
+</table>
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="start">
+<div><h2>Getting Started</h2></div>
+</a>
+<br>
+
+If you plan to make your PrC compatible with the PRC pack,
+then it is best to get the most current files from the PRC.
+To get those files, you will likely need to contact Stratovarius.
+The reason this is important is because you will want to make sure you are using open .tlk, and .2da slots.
+If you are not, then either another PRC member or yourself will need to move a lot of data around to add your PrC.
+<br><br>
+
+For the most current list of open 2da / tlk slots <a href="http://www.nwnprc.com/cgi-bin/tlk_2da_info.cgi" target="_blank">click here</a>.
+[Note: Link requires active internet connection to work]
+<br><br>
+
+The first thing I usually do is make a text file.
+I store a main text file for each PrC I make.
+In this file I keep all the important things I will need.
+The class desription, bab, class skill list, abilities, ability descriptions, etc.
+Having all of this in a text file is very convenient since you can copy / paste the information into the .tlk file.
+It is also very handy having the PnP ability description in an easy to access location while you are scripting its abilities.
+<br><br>
+
+The second thing I do is open up a another text file that has a small template for the spell, feats, and classes.2da.
+Doing all the 2da work outside of the 2da's is good because you can copy/paste the data at your leisure.
+A few of us PRC members learned how nice it can be, especially when two people are both editing the same 2da file...
+One persons change can overwrite anothers, it is always a good idea to have a backup.
+<br><br>
+
+Throughout PrC making you have to edit quite a few files.
+I suggest using Textpad because you can have a small section of the window list all open files.
+This is great for switching from one file to another quickly, and leaving them all close at hand if
+you need to edit any of them.  Most useful while compiling and debugging scripts.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="rules">
+<div><h2>PRC Rules and General Guidelines</h2></div>
+</a>
+<br>
+The following are things that should or must be done for all classes.
+It is a short list of guidelines for those interested in making files compatible with the PRC.
+
+<ul>
+<li>All files MUST be in a 16.3 naming format, no exceptions.</li>
+<li>No hex numbers for 2da enteries.</li>
+<li>No class abilities on rods or items. They must be integrated with the class.</li>
+<li>All permenant stat bonuses must conform to our existing system.
+Take a look at the prc_heartwarder for an example.</li>
+
+<li>Use the appropriate constants instead of integers in scripts:</li>
+	<ul>
+	<li>Add CLASS_TYPE_* constants to prc_class_const.nss.</li>
+	<li>Add FEAT_* constants to prc_feat_const.nss.</li>
+	<li>Add SPELL_* constants to prc_spell_const.nss.</li>
+	<li>Add IP_CONST_* constants to prc_ipfeat_const.nss.</li>
+	<li>Add RACIAL_TYPE_* constants to prc_racial_const.nss.</li>
+	</ul>
+<li>Name all class scripts prc_className_abilityName. OR <br>
+Name all class scripts className_ablityName.</li>
+</ul>
+
+On to the main files you will need to edit!
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="classes">
+<div><h2>Classes.2da</h2></div>
+</a>
+<br>
+
+Naturally, if you want to make a PrC, you are going to have to edit classes.2da.
+Upon first opening the file you might say, "What in the nine hells is all this junk?!"
+<br><br>
+
+The 2da's are setup much like a database, or spreadsheet, except of course they are only text files.
+The first column is the ID column, the number of the row.
+<br><br>
+
+I would like to note a few things before moving on.  One major thing to note is how the tlk data works.
+Bioware has has reserved a ton of spaces so that no custom tlk should ever conflict with their own.
+When making classes we often use a custom tlk as you will see in the column descriptions below.
+When using a custom tlk we take our actual entry number and add, <b>16777216</b>, to it.
+<br><br>
+
+All tlk entries before 16777216 are read from the standard default.tlk.
+Note: 16777217 is for BadStrRef and should not be used.
+<br><br>
+
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+	<tr>
+		<th valign="top"> Column </th>
+		<th valign="top"> About the Column </th>
+	</tr>
+	<tr>
+	    <td valign="top"> ID Number </td>
+		<td valign="top"> The value that the CLASS_TYPE_* constant should equal. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> Label </td>
+		<td valign="top"> Arbitrary column for naming the class.  Useful for those looking at the 2da </td>
+	</tr>
+	<tr>
+	    <td valign="top"> Name </td>
+		<td valign="top"> The tlk entry # containing the name of the class. <br>
+		                  For example, custom tlk #50000 = 16827216</td>
+	</tr>
+	<tr>
+	    <td valign="top"> Plural </td>
+		<td valign="top"> The tlk entry # containing the plural name of a class.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> Lower </td>
+		<td valign="top"> The tlk entry # containing the class name in lower case.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> Description </td>
+		<td valign="top"> The tlk entry # containing the class description.  This includes information such as the level up table and such. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> Icon </td>
+		<td valign="top"> The name of the icon file.  <br>
+		                  This is not case sensitive. <br>
+		                  Files must be 24-bit tga files to show up properly in game.  <br>
+		                  File name should be less than 16 characters long.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> HitDie </td>
+		<td valign="top"> The die rolled when the class levels up.  (Ex: 4, 6, 8, 10, 12) </td>
+	</tr>
+	<tr>
+	    <td valign="top"> AttackBonusTable </td>
+		<td valign="top"> The name of the attack bonus table used by the class.  This is usually one of the following: <br>
+		                  CLS_ATTACK_1 - Fighter BAB, max pre-epic +20.  <br>
+		                  CLS_ATTACK_2 - Rogue BAB, max pre-epic +15. <br>
+		                  CLS_ATTACK_3 - Wizard BAB, max pre-epic +10. <br><br>
+
+		                  CLS_ATTACK_4 - A file added by the PRC, gives +0 BAB.
+		                  </td>
+	</tr>
+	<tr>
+	    <td valign="top"> FeatsTable </td>
+		<td valign="top"> CLS_FEAT_**** file.  The feats your class gets, each class has its own file.  You have to make one for your class. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> SavingThrowTable </td>
+		<td valign="top"> CLS_SAVTHR_**** file.  You can make your own, though most classes use very similar saving throw tables.  You will likely be able to use the same one as another class. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> SkillsTable </td>
+		<td valign="top"> CLS_SKILL_**** file.  The file that lists class skills for this class.  You have to make one for your class. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> BonusFeatsTable </td>
+		<td valign="top"> CLS_BFEAT_**** file.  This file lists any "bonus" feats a class can select (like fighter, wizard, or rogue) at certain levels. You have to make one for your class.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> SkillPointBase </td>
+		<td valign="top"> The base skills per level of the class. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> * SpellGainTable </td>
+		<td valign="top">  </td>
+	</tr>
+	<tr>
+	    <td valign="top"> * SpellKnownTable </td>
+		<td valign="top">  </td>
+	</tr>
+	<tr>
+	    <td valign="top"> PlayerClass </td>
+		<td valign="top"> 1, unless you don't want people to play it. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> SpellCaster </td>
+		<td valign="top"> Can class cast spells? 1 = True, 0 = false. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> Str, Dex, Con,  <br> Wis, Int Cha </td>
+		<td valign="top"> The classes ideal ability scores, used for recomended and auto-level. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> PrimaryAbil </td>
+		<td valign="top"> The classes primary ability score. Again, used for that recommended button. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> AlignRestrict </td>
+		<td valign="top"> Possible Values:
+			              <br>0x00 - No restrictions
+			              <br>0x01 - No Neutral
+			              <br>0x02 - No Lawful
+			              <br>0x03 - No Lawful, No Neutral
+			              <br>0x04 - No Chaotic
+			              <br>0x05 - No Chaotic, No Neutral
+			              <br>0x06 - No Chaotic, No Lawful
+			              <br>0x07 - No Chaotic, No Lawful, No Neutral
+			              <br>0x08 - No Good
+			              <br>0x09 - No Good, No Neutral
+			              <br>0x0A - No Good, No Lawful
+			              <br>0x0B - No Good, No Lawful, No Neutral
+			              <br>0x0C - No Good, No Chaotic
+			              <br>0x0D - No Good, No Chaotic, No Neutral
+			              <br>0x0E - No Good, No Chaotic, No Lawful
+			              <br>0x0F - No Good, No Chaotic, No Lawful, No Neutral
+			              <br>0x10 - No Evil
+			              <br>0x11 - No Evil, No Neutral
+			              <br>0x12 - No Evil, No Lawful
+			              <br>0x13 - No Evil, No Lawful, No Neutral
+			              <br>0x14 - No Evil, No Chaotic
+			              <br>0x15 - No Evil, No Chaotic, No Neutral
+			              <br>0x16 - No Evil, No Chaotic, No Lawful
+			              <br>0x17 - No Evil, No Chaotic, No Lawful, No Neutral
+			              <br>0x18 - No Evil, No Good
+			              <br>0x19 - No Evil, No Good, No Neutral
+			              <br>0x1A - No Evil, No Good, No Lawful
+			              <br>0x1B - No Evil, No Good, No Lawful, No Neutral
+			              <br>0x1C - No Evil, No Good, No Chaotic
+			              <br>0x1D - No Evil, No Good, No Chaotic, No Neutral
+			              <br>0x1E - No Evil, No Good, No Chaotic, No Lawful
+			              <br>0x1F - No Evil, No Good, No Chaotic, No Lawful, No Neutral
+                          </td>
+	</tr>
+	<tr>
+	    <td valign="top"> AlignRstrctType </td>
+		<td valign="top"> Possible Values:
+		                  <br>0x0 None
+		                  <br>0x1 = Law/Chaos
+		                  <br>0x2 = Good/Evil
+		                  <br>0x3 = Both
+		                  </td>
+	</tr>
+	<tr>
+	    <td valign="top"> InvertRestrict </td>
+		<td valign="top"> Invert the alignment restriction? True = 1, False = 0. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> Constant </td>
+		<td valign="top"> CLASS_TYPE_*  This refers to the constant that the class goes by in scripts. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> EffCRLvl01 - EffCRLvl20 </td>
+		<td valign="top"> 1 to 20 respectively... never seen it as anything else. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> PreReqTable </td>
+		<td valign="top"> CLS_PRES_**** file.  The prerequisite file for the class.  You have to make one for your class.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> MaxLevel </td>
+		<td valign="top"> The classes maximum level possible. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> XPPenalty </td>
+		<td valign="top"> Will this class cause an XP penalty?  True = 1, False = 0. For PrC's this should always be 0.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> * ArcSpellLvlMod </td>
+		<td valign="top"> Arcane spell level modifier. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> * DivSpellLvlMod </td>
+		<td valign="top"> Divine spell level modifier. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> EpicLevel </td>
+		<td valign="top"> At what level does the class start being epic.</td>
+	</tr>
+	<tr>
+	    <td valign="top"> Package </td>
+		<td valign="top"> The line number in Packages.2da.  This refers to what the class starts with.</td>
+	</tr>
+</table>
+<br><br>
+
+It is often easier to just copy another class row and then modify the values you need to change.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="req2da">
+<div><h2>Other Required 2da's</h2></div>
+</a>
+<br>
+
+As you may have noticed while looking at the classes.2da section,
+there are several 2da files that will have to create for your new PrC.
+The required files include cls_pres_****.2da, cls_skill_****.2da, cls_feat_****.2da, and cls_bfeat_****.2da.
+<br><br>
+
+The **** in those file names should be something short, about 4-6 characters, for your PRC's name.
+For example for the Frenzied Berserker I used FREBZK.
+It must be different from any other class, and something you can remember later is always a good thing.
+<br><br>
+
+It is usually much easier to just copy another file and rename it.
+Then modify its contents to suite your needs.
+<br><br>
+
+Each of the files has their own data inside of them and their own uses.
+Firstly, the cls_pres_****.2da is used to set your PrC's prerequisites.
+The first column is index number, I am not sure if it is even required.
+It is recommended to make them sequential numbers starting at 0.
+The second column is just a text reminder of that the prerequisite is.
+<br><br>
+
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+	<tr>
+		<th valign="top"> ReqType </th>
+		<th valign="top"> Description</th>
+		<th valign="top"> ReqParam1</th>
+		<th valign="top"> ReqParam2</th>
+	</tr>
+	<tr>
+	    <td valign="top"> FEAT </td>
+		<td valign="top"> A feat required for the class. </td>
+		<td valign="top"> feat # in feats.2da </td>
+		<td valign="top"> **** </td>
+	</tr>
+	<tr>
+	    <td valign="top"> FEATOR </td>
+		<td valign="top"> This feat OR another feat that uses FEATOR. </td>
+		<td valign="top"> feat # in feats.2da </td>
+		<td valign="top"> **** </td>
+	</tr>
+	<tr>
+	    <td valign="top"> RACE </td>
+		<td valign="top"> Only races allowed to take this class. </td>
+		<td valign="top"> race # in racialtypes.2da </td>
+		<td valign="top"> **** </td>
+	</tr>
+	<tr>
+	    <td valign="top"> BAB </td>
+		<td valign="top"> Minimum BAB required to take class. </td>
+		<td valign="top"> any # </td>
+		<td valign="top"> **** </td>
+	</tr>
+	<tr>
+	    <td valign="top"> ARCSPELL </td>
+		<td valign="top"> (Do not use this with PRC) </td>
+		<td valign="top"> spell level required </td>
+		<td valign="top"> **** </td>
+	</tr>
+	<tr>
+	    <td valign="top"> SKILL </td>
+		<td valign="top"> Skill points required for class. </td>
+		<td valign="top"> skill # from skills.2da </td>
+		<td valign="top"> skill ranks </td>
+	</tr>
+	<tr>
+	    <td valign="top"> VAR </td>
+		<td valign="top"> Variable name that turns this class on or off. </td>
+		<td valign="top"> 0 = on or 1 = off </td>
+		<td valign="top"> **** </td>
+	</tr>
+</table>
+<br><br>
+
+You might be wondering why you should not use "ARCSPELL" with the PRC.
+It is because we actually have a script set for the Arcane or Divine Spell casting level detection.
+This was done because using the 2da's did not work properly, and because there were also other prerequisites
+that could not be done using the 2da.  Some good examples of "impossible" class requirements include:
+gender, deity, cleric domain(s), etc.  This information was easily accessible through scripting, so
+we chose to use a custom script as a prerequisite.  If your PRC needs to do something that the 2da cannot do, then refer to prc_prereq.nss.
+<br><br>
+
+All classes should have at least one VAR requirement.
+Typically this is PRC_Allow_****.  Of course, the ****'s are whatever you want to represent that class with.
+This variable can be used by module builders to turn the whole class off if they want too,
+it makes it easier for world builders if they feel the PrC causes imbalance in their world.
+<br><br>
+
+Some classes will have a second variable.
+This is typically associated with the custom prerequisite script.
+If a player's character fails to pass a check for the special requirements.
+This variable is turned off, causing the player to not have access to the class.
+<br><br>
+<br><br>
+
+The second file is cls_skill_****.2da.  Once again the first column is an index number.
+This file really only has two important things: the SkillIndex which points to a line in skills.2da,
+and the ClassSkill which is either 1 or 0.  Any skill that has a 1 in the class skill column is a
+class skill.  One thing to note is that any class that doesn't a have a skill listed at all,
+cannot take the skill at all.  For instance, if you don't have Use Magic Device listed, you will not
+be able to put any points in it as a cross-class skill.  Most classes should not have
+Use Magic Device or Animal Empathy in their class list, unless they do in PnP.
+<br><br>
+<br><br>
+
+
+The third file is cls_feat_****.2da.  This file contains all the feats your PrC will gain upon level up.
+It also contains all the bonus feats that the PrC can select, and all the epic feats available to the class.
+
+<table cellpadding="0" cellspacing="0" align="center" border="1" bordercolor="#6c6c6c" class="table_contenttable">
+	<tr>
+		<th valign="top"> Column </th>
+		<th valign="top"> Description</th>
+	</tr>
+	<tr>
+	    <td valign="top"> FeatLabel </td>
+		<td valign="top"> Short name to describe what feat it is.  Can be anything really. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> FeatIndex </td>
+		<td valign="top"> feat # in feat.2da </td>
+	</tr>
+	<tr>
+	    <td valign="top"> List </td>
+		<td valign="top"> Possible Values: <br>
+		                  0 = Selectable on level up <br>
+		                  1 = Regular feat or bonus feat (Figher/Wizard bonus feats) <br>
+		                  2 = Bonus feat only <br>
+		                  3 = Automatically granted feat </td>
+	</tr>
+	<tr>
+	    <td valign="top"> GrantedOnLevel </td>
+		<td valign="top"> The level PrC gains the feat, or -1 for any time. </td>
+	</tr>
+	<tr>
+	    <td valign="top"> OnMenu </td>
+		<td valign="top"> Is shown on class radial menu?  Yes = 1, No = 0 </td>
+	</tr>
+</table>
+
+<br><br>
+<br><br>
+
+On to the last file, cls_bfeat_****.2da.
+This file just has a listing of levels and a 0 or 1.
+If the class gets a bonus feat at that level, then put a 1.
+If not, then put a 0.
+<br><br>
+
+One thing to be careful of when doing this file is to watch your epic level progression.
+For example if your PrC has a max level of 30 and starts being epic at level 10,
+then you will need to have a bonus feat every X levels starting at level 10.
+This is because all classes gain their feats during epic levels as bonus feats!
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="feat">
+<div><h2>Feat.2da</h2></div>
+</a>
+<br>
+
+There is not much I can really say about feat.2da.
+It is mostly quite straight forward.
+If you run into any questions the best place to look is the CCG.
+I even went ahead and got a direct link for you.
+<a href="http://ccg.dladventures.com/index.php/Feat.2da" target="_blank"> Click here</a> for feat.2da information!
+<br><br>
+
+Now to make this section helpful, I would like to note that almost all PrC abilities will actually need to
+be done using feats.  Typically, if a PrC can cast something X times a day, we create a feat with the
+proper uses per day, and point it to the correct spell entry in spells.2da.  The same principle applies to creating custom
+abilties.  I will cover this again in better depth in the Creating Active Feats section.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="spells">
+<div><h2>Spells.2da</h2></div>
+</a>
+<br>
+
+Spells.2da is much more confusing than the feat.2da.  I definitely recommend bookmarking this guide,
+or the direct link to spells.2da page on the CCG.  Speaking of the direct link,
+<a href="http://ccg.dladventures.com/index.php/Spells.2da" target="_blank"> here</a> it is.
+<br><br>
+
+Since most active PrC abilities end up being spells,
+you will likely find yourself in this file a lot more than you would like.
+That is why I recommend bookmarking the guide.
+I know I often forget what all the stuff means.
+The easiest way to make a new spell/feat is to simply copy a similiar one as a reference,
+and change everything you need to.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="activefeat">
+<div><h2>Creating Active Feats</h2></div>
+</a>
+<br>
+
+What is an active feat?  An active feat is a feat that the player must willingly activate.
+Something like Smite, Acrobatic Attack, Mimic, Wildshape, etc.
+Creating these feats is a rather straight forward process.
+Most of the following steps can be done in any order you prefer, though it sometimes makes more
+sense to do them in a certain order.
+<br><br>
+
+<ol type="1">
+<li>Create all required entries in the .tlk file</li>
+<li>Write script(s) that perform the required action(s)</li>
+<li>Create icon(s)</li>
+<li>Create an entry in feat.2da</li>
+<li>Create an entry in spells.2da</li>
+<li>Create an entry in cls_feat_****.2da</li>
+<li>Create an entry in prc_feat_const.nss</li>
+<li>Compile script, test script, debug script</li>
+<li>Refer to step 8, until it works</li>
+</ol>
+
+Aside from debugging, I generally do the 2da work last.
+This is because you need to put an icon entry in both feat.2da and spells.2da.
+In addition, you need to have all the tlk entries and your script name in the 2da.
+You can do it in any order you like, but you will need to make sure the entries
+in the 2da's match the actual files.
+<br><br>
+
+You can also do each part in sections.
+Making the tlk entries, and then the 2da entries, then testing if the feat displays up in game.
+If it shows up properly, then you can code the script that'll make it work.
+There really is no set way to do it, as long as all of those steps get finished eventually.
+
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="combatfeat">
+<div><h2>Creating Combat Feats</h2></div>
+</a>
+<br>
+
+A combat feat is a special kind of active feat.
+Combat feats are those that are directly linked to an attack of some sort.
+Some good examples are the Arcane Trickster's "Impromtu Sneak Attack",
+the Foe Hunter's "Death Attack", and the Ravager's "Cruelest Cut".
+All of those special abilities do something special when you hit the enemy.
+A feat with limited uses a day (usually) that deals special damage through an attack is a combat feat.
+<br><br>
+
+If you did not already know, the actual game engine's combat system is hard coded.
+You cannot simply write a script that says.
+"Add this players cha bonus as divine damage applied to the enemy if they hit
+them on the first strike of this attack round."
+<br><br>
+
+You are probably thinking right about now... Hey!  The PRC has made those feats, it must be possible! ...
+Indeed, remember I said you could not "simply" tell the game to do that...
+At least not until the PRC created the "Combat Simulation System".
+<br><br>
+
+It all started with inc_combat.nss.
+While that script was very helpful it was still missing several nice features.
+Along came inc_combat2.nss.  This file added even more functionality to the previous combat system.
+Things like elemental weapons, spell effect calculations, etc.
+It made the system much calculate attack bonus and damage more acurately than it did before.
+While inc_combat2.nss was being written and upgraded, Oni5115 started to develope prc_inc_combat.nss.
+He used the majority of the code from inc_combat.nss and inc_combat2.nss, piled on a bit of new
+functionality, documented the code, and made a system that is far more scripter friendly.
+<br><br>
+
+<b>Note: </b>You will need numerous PRC files in order to use the Combat Simulation System.
+The script is not standalone, though it is not tied to the older combat includes.
+The easiest way to find out what files you will need are to simply open "prc_inc_combat.nss" and
+take a quick look at the list of included files.
+The list is also helpful for scripters so that they do not include the same files multiple times.
+<br><br>
+
+Now, on to the good part!  Coding a combat script.
+<br><br>
+
+A good example of what you might want to do is the Ravager's "Cruelist Cut".
+This ability is only usable up to three times per day.
+On a successful melee attack, the player deals 1d4 constitution damage to the enemy.
+This damage lasts 5 + Ravager level rounds.
+<br><br>
+
+First, you'll have to include the line [#include "prc_inc_combat"] without the brackets.
+This tells your script to load the include file.
+Then the script will have its void main.
+Inside the main function it would calculate everything required to perform its action.
+
+<br><br>
+Because this script does not deal any extra physical damage, there are a few less function calls required.
+written below is the actual script so you can take a look at how it works.
+
+<br>
+<br>#include "prc_inc_combat"
+<br>void main()
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     //Declare major variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     object oPC = OBJECT_SELF;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     object oTarget = GetSpellTargetObject();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     int iDur = 5 + GetLevelByClass(CLASS_TYPE_RAVAGER, oPC);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     int bIsRangedAttack = GetWeaponRanged(oWeap);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     effect eCon  = EffectAbilityDecrease(ABILITY_CONSTITUTION, d4(1) );
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            eCon = SupernaturalEffect(eCon);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     // script now uses combat system to hit and apply effect if appropriate
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     string sSuccess = "*Cruelist Cut Hit*";
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     string sMiss = "*Cruelist Cut Miss";
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     if (bIsRangedAttack)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          SendMessageToPC(oPC,"You must use a melee weapon with this ability!");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          IncrementRemainingFeatUses(oPC, 2348);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          return;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     }
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     // If they are not within 5 ft, they can't do a melee attack.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     if(!bIsRangedAttack && GetIsInMeleeRange(oTarget, oPC))
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          SendMessageToPC(oPC,"You are not close enough to your target to attack!");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          IncrementRemainingFeatUses(oPC, 2348);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          return;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     }
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     PerformAttackRound(oTarget, oPC, eCon, RoundsToSeconds(iDur), 0, 0, 0, FALSE, sSuccess, sMiss);
+<br>}
+<br><br>
+
+If you are used to script all of those functions should have been relatively familiar,
+except for "PerformAttackRound".  That is the primary function in the include that makes
+your life as a scripter far, far easier.  I reduced my original Impromtu Sneak Attack code from
+200 lines down to about 60 lines.  And it is also more accurately done, can deal elemental damage,
+and is generally much better all thanks to this function.
+<br><br>
+
+I'll do a break down of the parameters of this function so that everyone can see how to use it.
+<br><br>
+
+<ol type="1">
+<li> oTarget - GetSpellTargetObject() - the person being smited! </li>
+<li> oPC - The person attacking, typically the player. </li>
+<li> eLink - A special effect or effects to apply to the player. </li>
+<li> eDuration - the duration of the effects applied to the object. <br>
+    <ol type="i">
+    <li> 0.0 - DURATION_TYPE_INSTANT - effect lasts 0.0 seconds </li>
+    <li>>0.0 - DURATION_TYPE_TEMPORARY - Effect lasts for the duration specified </li>
+    <li><0.0 - DURATION_TYPE_PERMAMENT - Effect lasts until dispelled, not recommended </li>
+    </ol>
+</li>
+<li> iAttackBonusMod - the attack bonus modifer for attack(s) </li>
+<li> iDamageModifier - damage added to attack
+    <ol type="i">
+    <li> If bonuses are <b>only</b> on first attack, this can be an int <b>or</b> a DAMAGE_BONUS_* constant. </li>
+    <li> Otherwise, this must be a DAMAGE_BONUS_* constant. </li>
+    </ol>
+</li>
+<li> iDamageType - the DAMAGE_TYPE_* const of the iDamageModifier. </li>
+<li> bEffectAllAttacks - True or False. </li>
+    <ol type="i">
+    <li> True - Effects all attacks. </li>
+    <li> False - Effects only the first attack that round. </li>
+    </ol>
+<li> sMessageSuccess - message to display on a successful hit. (i.e. "*Cruelist Cut Hit*") </li>
+<li> sMessageFailure - message to display on a failure to hit. (i.e. "*Cruelist Cut Miss*") </li>
+</ol>
+
+This function redirects itself to many of the other functions within the combat include.
+The nice thing is, all you need to deal with is this single function call.
+Once it's setup right, your script will run.
+<br><br>
+
+Any improvements to the combat script are typically added to that attack automatically, no recoding the feat.
+It takes care of the entire attack round, wether it be a ranged attack or a melee attack, two-handed weapon,
+two-weapon fighting, unarmed...  Pretty much everything, certainly much more than could be scripted that easily.
+<br><br>
+
+If you happen to run into a feat that cannot be done with this, you can always open up the script.
+I'll warn you, as of the writing of this guide it is over 3,500 lines of code.
+However, the code is well organized and you should not have too much difficulty following it.
+Many of those "lines" are actually documentation.
+
+<br><br>
+Should there be any bugs in the system, please post a report in our forums.
+Also feel free to post any additional things that you would find useful while scripting.
+Oni5115 is interested in knowing anything the script cannot handle, so he can add it.
+<br><br>
+
+If more example scripts would be helpful feel free to check out the following scripts in the scripts directory (or hak).
+<ul>
+<li> prc_at_isa.nss - Impromptu Sneak Attack </li>
+<li> prc_dj_selwrath.nss - Selvetarm's Wrath </li>
+<li> prc_dj_warstrike.nss - War Strike </li>
+</ul>
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="passivefeat">
+<div><h2>Creating Passive Feats</h2></div>
+</a>
+<br>
+
+What is a passive feat? A passive feat is any feat that automatically
+adjusts something on the character.
+Things like Absolute Ambidexterity, Sight of Gruumsh, etc.
+Creating these feats is not as straight forward as an active feat,
+but it is fairly easy once you get used to it.
+<br><br>
+
+Below is a basic list of what must be done to create a passive feat,
+notice it is very similiar to an active feat.
+
+<ol type="1">
+<li>Create all required entries in the .tlk file</li>
+<li>Write script(s) that perform the required player modifications(s)</li>
+<li>Create icon(s)</li>
+<li>Create an entry in feat.2da</li>
+<li>Create an entry in cls_feat_****.2da</li>
+<li>Create an entry in spells.2da</li>
+<li>Create an entry in prc_feat_const.nss</li>
+<li>Create an entry in prc_inc_function.nss.</li>
+<li>Compile script, test script, debug script</li>
+<li>Refer to step 9, until it works</li>
+</ol>
+
+The single most important file for passive feats is "prc_inc_function.nss".
+Hands down this is it.  Without this file none of your passive feats will work.
+This file is called on all major events (onlevel, onequip, onunequip, etc.)
+your passive feat will be called when this script is.
+
+<br><br>
+To create an "entry" in prc_inc_function, you will need to check out the
+"EvalPRCFeats" function.
+Inside the function you should see a bunch of lines like the following:
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(GetLevelByClass(CLASS_TYPE_DUELIST, oPC) > 0)             ExecuteScript("prc_duelist", oPC);
+
+<br><br>
+This function executes your passive feat script.
+Passive feats do not require a script entry in the 2da column as active feats do.
+Intead, they require a script entry here in this file.
+Make sure you use the approprate CLASS_TYPE_* constant as stored in "prc_class_const.nss".
+
+<br><br>
+Another important function is the "DeletePRCLocalInts" function.
+This function removes any local ints stored on a character.
+This is quite useful and ensures that your script will reset a new value when fired.
+An example line from this section is
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeleteLocalInt(oSkin,"CannyDefenseBonus");
+
+<br><br>
+Scripting the passive feat beyond that is not all that unlike scriping anything else in NwN.
+Here is an example function for a passive ability.
+
+<br>
+<br>// Applies the Duelist's reflex bonuses as CompositeBonuses on the object's skin.
+<br>// iLevel = integer reflex save bonus
+<br>void DuelistGrace(object oPC, object oSkin, int iLevel)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    if(GetLocalInt(oSkin, "GraceBonus") == iLevel) return;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    if(iLevel > 0)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        SetCompositeBonus(oSkin, "GraceBonus", iLevel, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEBASETYPE_REFLEX);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        if(GetLocalInt(oPC, "Grace") != TRUE)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            FloatingTextStringOnCreature("Grace On", oPC);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        SetLocalInt(oPC, "Grace", TRUE);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    }
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    else
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        SetCompositeBonus(oSkin, "GraceBonus", 0, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEBASETYPE_REFLEX);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        if(GetLocalInt(oPC, "Grace") != FALSE)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            FloatingTextStringOnCreature("Grace Off", oPC);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        SetLocalInt(oPC, "Grace", FALSE);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    }
+<br>}
+
+<br><br>
+You might be wondering what the "SetCompositeBonus" function is.
+This is another very important function.
+This function is responsible for storing and stacking bonuses on a character.
+For more information you can check out "inc_item_props.nss".
+
+<br><br>
+It should be fairly easy to make most passive feats with this system.
+Sometimes however you might also need to dig a little deeper.
+For instance, a class might need a passive feat that effects attacks or damage.
+While many such feats are typically active, there are some bonuses that end up being passive.
+A good example would be the Foe Hunter's Rancor Attack, which deals an additional Xd6 damage
+if the enemy is their Hated Enemy.  Scripts like this need to go in "x2_s3_onhitcast.nss".
+This is in the spells directory (or hak).
+In this script you will see a lot of stuff that the PRC needs for one class or another.
+There are plenty of examples of what you might need to do in there.
+
+<br><br><a href="#top">Back to Top</a>
+<br><br><A name="">
+<div><h2>  </h2></div>
+</a>
+<br>
+
+<br><br>
+</div>
+
+</body>
+</html>
