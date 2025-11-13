@@ -71128,17 +71128,17 @@ Special Abilities:
   <entry id="75568" lang="en" sex="m">Spellcasting: Upon reaching levels 2, 3, 4, 5, 6 the Sanctified Mind gains new spells as if he had also gained a level in his highest level divine spellcasting class.</entry>
   <entry id="75569" lang="en" sex="m">Spellcasting: Each level, the Soulmanifester gains new spells per day as if they had also gained a level in their highest level arcane spellcasting class.</entry>
   <entry id="75679" lang="en" sex="m">### BEGIN SPELLCASTER MARKER FEATS#</entry>
-  <entry id="75680" lang="en" sex="m">Aberration Spellcasting (Sublime Chord)</entry>
-  <entry id="75681" lang="en" sex="m">Fey Spellcasting (Sublime Chord)</entry>
-  <entry id="75682" lang="en" sex="m">Monstrous Spellcasting (Sublime Chord)</entry>
-  <entry id="75683" lang="en" sex="m">Outsider Spellcasting (Sublime Chord)</entry>
-  <entry id="75684" lang="en" sex="m">Shapechanger Spellcasting (Sublime Chord)</entry>
-  <entry id="75685" lang="en" sex="m">Bard Spellcasting (Sublime Chord)</entry>
-  <entry id="75686" lang="en" sex="m">Beguiler Spellcasting (Sublime Chord)</entry>
-  <entry id="75687" lang="en" sex="m">Duskblade Spellcasting (Sublime Chord)</entry>
-  <entry id="75688" lang="en" sex="m">Sorcerer Spellcasting (Sublime Chord)</entry>
-  <entry id="75689" lang="en" sex="m">Warmage Spellcasting (Sublime Chord)</entry>
-  <entry id="75690" lang="en" sex="m">Wizard Spellcasting (Sublime Chord)</entry>
+  <entry id="75680" lang="en" sex="m">Sublime Chord Spellcasting (Aberration)</entry>
+  <entry id="75681" lang="en" sex="m">Sublime Chord Spellcasting (Fey)</entry>
+  <entry id="75682" lang="en" sex="m">Sublime Chord Spellcasting (Monstrous)</entry>
+  <entry id="75683" lang="en" sex="m">Sublime Chord Spellcasting (Outsider)</entry>
+  <entry id="75684" lang="en" sex="m">Sublime Chord Spellcasting (Shapechanger)</entry>
+  <entry id="75685" lang="en" sex="m">Sublime Chord Spellcasting (Bard)</entry>
+  <entry id="75686" lang="en" sex="m">Sublime Chord Spellcasting (Beguiler)</entry>
+  <entry id="75687" lang="en" sex="m">Sublime Chord Spellcasting (Duskblade)</entry>
+  <entry id="75688" lang="en" sex="m">Sublime Chord Spellcasting (Sorcerer)</entry>
+  <entry id="75689" lang="en" sex="m">Sublime Chord Spellcasting (Warmage)</entry>
+  <entry id="75690" lang="en" sex="m">Sublime Chord Spellcasting (Wizard)</entry>
   <entry id="75691" lang="en" sex="m">Spellcasting: A sublime chord's caster level for both her sublime chord spells and the spells she gains from other arcane spellcasting classes is determined by adding her sublime chord level to her level in another arcane spellcasting class. If she had more than one arcane spellcasting class before becoming a sublime chord, she must choose which class to add her sublime chord levels for the purpose of determining her sublime chord spellcaster level.</entry>
   <entry id="75700" lang="en" sex="m">Bardic Spellcasting (Gloura)</entry>
   <entry id="75701" lang="en" sex="m">Sorcerous Spellcasting (Drider)</entry>
@@ -71211,7 +71211,7 @@ Special Abilities:
   <entry id="75768" lang="en" sex="m">Elemental Savant Spellcasting (Aberration)</entry>
   <entry id="75769" lang="en" sex="m">Eldritch Theurge Spellcasting (Aberration)</entry>
   <entry id="75770" lang="en" sex="m">Force Missile Mage Spellcasting (Aberration)</entry>
-  <entry id="75771" lang="en" sex="m">Fochulan Lyrist Spellcasting (Aberration)</entry>
+  <entry id="75771" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Aberration)</entry>
   <entry id="75772" lang="en" sex="m">Frost Mage Spellcasting (Aberration)</entry>
   <entry id="75773" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Aberration)</entry>
   <entry id="75774" lang="en" sex="m">Harper Mage Spellcasting (Aberration)</entry>
@@ -71258,7 +71258,7 @@ Special Abilities:
   <entry id="75815" lang="en" sex="m">Elemental Savant Spellcasting (Monstrous Humaniod)</entry>
   <entry id="75816" lang="en" sex="m">Eldritch Theurge Spellcasting (Monstrous Humaniod)</entry>
   <entry id="75817" lang="en" sex="m">Force Missile Mage Spellcasting (Monstrous Humaniod)</entry>
-  <entry id="75818" lang="en" sex="m">Fochulan Lyrist Spellcasting (Monstrous Humaniod)</entry>
+  <entry id="75818" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Monstrous Humaniod)</entry>
   <entry id="75819" lang="en" sex="m">Frost Mage Spellcasting (Monstrous Humaniod)</entry>
   <entry id="75820" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Monstrous Humaniod)</entry>
   <entry id="75821" lang="en" sex="m">Harper Mage Spellcasting (Monstrous Humaniod)</entry>
@@ -71305,7 +71305,7 @@ Special Abilities:
   <entry id="75862" lang="en" sex="m">Elemental Savant Spellcasting (Outsider)</entry>
   <entry id="75863" lang="en" sex="m">Eldritch Theurge Spellcasting (Outsider)</entry>
   <entry id="75864" lang="en" sex="m">Force Missile Mage Spellcasting (Outsider)</entry>
-  <entry id="75865" lang="en" sex="m">Fochulan Lyrist Spellcasting (Outsider)</entry>
+  <entry id="75865" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Outsider)</entry>
   <entry id="75866" lang="en" sex="m">Frost Mage Spellcasting (Outsider)</entry>
   <entry id="75867" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Outsider)</entry>
   <entry id="75868" lang="en" sex="m">Harper Mage Spellcasting (Outsider)</entry>
@@ -71352,7 +71352,7 @@ Special Abilities:
   <entry id="75909" lang="en" sex="m">Elemental Savant Spellcasting (Shapechanger)</entry>
   <entry id="75910" lang="en" sex="m">Eldritch Theurge Spellcasting (Shapechanger)</entry>
   <entry id="75911" lang="en" sex="m">Force Missile Mage Spellcasting (Shapechanger)</entry>
-  <entry id="75912" lang="en" sex="m">Fochulan Lyrist Spellcasting (Shapechanger)</entry>
+  <entry id="75912" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Shapechanger)</entry>
   <entry id="75913" lang="en" sex="m">Frost Mage Spellcasting (Shapechanger)</entry>
   <entry id="75914" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Shapechanger)</entry>
   <entry id="75915" lang="en" sex="m">Harper Mage Spellcasting (Shapechanger)</entry>
@@ -71394,7 +71394,7 @@ Special Abilities:
   <entry id="75951" lang="en" sex="m">Enlightened Fist Spellcasting (Assassin)</entry>
   <entry id="75952" lang="en" sex="m">Elemental Savant Spellcasting (Assassin)</entry>
   <entry id="75953" lang="en" sex="m">Eldritch Theurge Spellcasting (Assassin)</entry>
-  <entry id="75954" lang="en" sex="m">Fochulan Lyrist Spellcasting (Assassin)</entry>
+  <entry id="75954" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Assassin)</entry>
   <entry id="75955" lang="en" sex="m">Frost Mage Spellcasting (Assassin)</entry>
   <entry id="75956" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Assassin)</entry>
   <entry id="75957" lang="en" sex="m">Havoc Mage Spellcasting (Assassin)</entry>
@@ -71412,7 +71412,7 @@ Special Abilities:
   <entry id="75969" lang="en" sex="m">Ultimate Magus Spellcasting (Assassin)</entry>
   <entry id="75970" lang="en" sex="m">Unseen Seer Spellcasting (Assassin)</entry>
   <entry id="75971" lang="en" sex="m">Wild Mage Spellcasting (Assassin)</entry>
-  <entry id="75972" lang="en" sex="m">Abjurant Championon Spellcasting (Bard)</entry>
+  <entry id="75972" lang="en" sex="m">Abjurant Champion Spellcasting (Bard)</entry>
   <entry id="75973" lang="en" sex="m">Acolyte of the Skin Spellcasting (Bard)</entry>
   <entry id="75974" lang="en" sex="m">Master Alchemist Spellcasting (Bard)</entry>
   <entry id="75975" lang="en" sex="m">Alienist Spellcasting (Bard)</entry>
@@ -71472,8 +71472,8 @@ Special Abilities:
   <entry id="76029" lang="en" sex="m">Eldritch Knight Spellcasting (Beguiler)</entry>
   <entry id="76030" lang="en" sex="m">Enlightened Fist Spellcasting (Beguiler)</entry>
   <entry id="76031" lang="en" sex="m">Elemental Savant Spellcasting (Beguiler)</entry>
-  <entry id="76032" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Beguiler)</entry>
-  <entry id="76033" lang="en" sex="m">Fochulan Lyrist Spellcasting (Beguiler)</entry>
+  <entry id="76032" lang="en" sex="m">Eldritch Theurge Spellcasting (Beguiler)</entry>
+  <entry id="76033" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Beguiler)</entry>
   <entry id="76034" lang="en" sex="m">Frost Mage Spellcasting (Beguiler)</entry>
   <entry id="76035" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Beguiler)</entry>
   <entry id="76036" lang="en" sex="m">Harper Mage Spellcasting (Beguiler)</entry>
@@ -71541,8 +71541,8 @@ Special Abilities:
   <entry id="76098" lang="en" sex="m">Eldritch Knight Spellcasting (Cultist of the Shattered Peaks)</entry>
   <entry id="76099" lang="en" sex="m">Enlightened Fist Spellcasting (Cultist of the Shattered Peaks)</entry>
   <entry id="76100" lang="en" sex="m">Elemental Savant Spellcasting (Cultist of the Shattered Peaks)</entry>
-  <entry id="76101" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Cultist of the Shattered Peaks)</entry>
-  <entry id="76102" lang="en" sex="m">Fochulan Lyrist Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="76101" lang="en" sex="m">Eldritch Theurge Spellcasting (Cultist of the Shattered Peaks)</entry>
+  <entry id="76102" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Cultist of the Shattered Peaks)</entry>
   <entry id="76103" lang="en" sex="m">Frost Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
   <entry id="76104" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Cultist of the Shattered Peaks)</entry>
   <entry id="76105" lang="en" sex="m">Harper Mage Spellcasting (Cultist of the Shattered Peaks)</entry>
@@ -71580,8 +71580,8 @@ Special Abilities:
   <entry id="76137" lang="en" sex="m">Eldritch Knight Spellcasting (Dread Necromancer)</entry>
   <entry id="76138" lang="en" sex="m">Enlightened Fist Spellcasting (Dread Necromancer)</entry>
   <entry id="76139" lang="en" sex="m">Elemental Savant Spellcasting (Dread Necromancer)</entry>
-  <entry id="76140" lang="en" sex="m">Eldritch Theurge Adept Spellcasting (Dread Necromancer)</entry>
-  <entry id="76141" lang="en" sex="m">Fochulan Lyrist Spellcasting (Dread Necromancer)</entry>
+  <entry id="76140" lang="en" sex="m">Eldritch Theurge Spellcasting (Dread Necromancer)</entry>
+  <entry id="76141" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Dread Necromancer)</entry>
   <entry id="76142" lang="en" sex="m">Frost Mage Spellcasting (Dread Necromancer)</entry>
   <entry id="76143" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Dread Necromancer)</entry>
   <entry id="76144" lang="en" sex="m">Harper Mage Spellcasting (Dread Necromancer)</entry>
@@ -71623,7 +71623,7 @@ Special Abilities:
   <entry id="76180" lang="en" sex="m">Enlightened Fist Spellcasting (Duskblade)</entry>
   <entry id="76181" lang="en" sex="m">Elemental Savant Spellcasting (Duskblade)</entry>
   <entry id="76182" lang="en" sex="m">Eldritch Theurge Spellcasting (Duskblade)</entry>
-  <entry id="76183" lang="en" sex="m">Fochulan Lyrist Spellcasting (Duskblade)</entry>
+  <entry id="76183" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Duskblade)</entry>
   <entry id="76184" lang="en" sex="m">Frost Mage Spellcasting (Duskblade)</entry>
   <entry id="76185" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Duskblade)</entry>
   <entry id="76186" lang="en" sex="m">Harper Mage Spellcasting (Duskblade)</entry>
@@ -71661,7 +71661,7 @@ Special Abilities:
   <entry id="76218" lang="en" sex="m">Enlightened Fist Spellcasting (Harper Scout)</entry>
   <entry id="76219" lang="en" sex="m">Elemental Savant Spellcasting (Harper Scout)</entry>
   <entry id="76220" lang="en" sex="m">Eldritch Theurge Spellcasting (Harper Scout)</entry>
-  <entry id="76221" lang="en" sex="m">Fochulan Lyrist Spellcasting (Harper Scout)</entry>
+  <entry id="76221" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Harper Scout)</entry>
   <entry id="76222" lang="en" sex="m">Frost Mage Spellcasting (Harper Scout)</entry>
   <entry id="76223" lang="en" sex="m">Harper Mage Spellcasting (Harper Scout)</entry>
   <entry id="76224" lang="en" sex="m">Hathran Spellcasting (Harper Scout)</entry>
@@ -71696,7 +71696,7 @@ Special Abilities:
   <entry id="76253" lang="en" sex="m">Enlightened Fist Spellcasting (Hexblade)</entry>
   <entry id="76254" lang="en" sex="m">Elemental Savant Spellcasting (Hexblade)</entry>
   <entry id="76255" lang="en" sex="m">Eldritch Theurge Spellcasting (Hexblade)</entry>
-  <entry id="76256" lang="en" sex="m">Fochulan Lyrist Spellcasting (Hexblade)</entry>
+  <entry id="76256" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Hexblade)</entry>
   <entry id="76257" lang="en" sex="m">Frost Mage Spellcasting (Hexblade)</entry>
   <entry id="76258" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Hexblade)</entry>
   <entry id="76259" lang="en" sex="m">Harper Mage Spellcasting (Hexblade)</entry>
@@ -71714,7 +71714,7 @@ Special Abilities:
   <entry id="76271" lang="en" sex="m">Soulcaster Spellcasting (Hexblade)</entry>
   <entry id="76272" lang="en" sex="m">Spelldancer Spellcasting (Hexblade)</entry>
   <entry id="76273" lang="en" sex="m">Spellsword Spellcasting (Hexblade)</entry>
-  <entry id="76274" lang="en" sex="m">Talont of Talon of Tiamat Spellcasting (Hexblade)</entry>
+  <entry id="76274" lang="en" sex="m">Talon of Tiamat Spellcasting (Hexblade)</entry>
   <entry id="76275" lang="en" sex="m">True Necromancer Spellcasting (Hexblade)</entry>
   <entry id="76276" lang="en" sex="m">Ultimate Magus Spellcasting (Hexblade)</entry>
   <entry id="76277" lang="en" sex="m">Unseen Seer Spellcasting (Hexblade)</entry>
@@ -71734,7 +71734,7 @@ Special Abilities:
   <entry id="76291" lang="en" sex="m">Elemental Savant Spellcasting (Knight of the Weave)</entry>
   <entry id="76292" lang="en" sex="m">Eldritch Theurge Spellcasting (Knight of the Weave)</entry>
   <entry id="76293" lang="en" sex="m">Force Missile Mage Spellcasting (Knight of the Weave)</entry>
-  <entry id="76294" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Weave)</entry>
+  <entry id="76294" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Knight of the Weave)</entry>
   <entry id="76295" lang="en" sex="m">Frost Mage Spellcasting (Knight of the Weave)</entry>
   <entry id="76296" lang="en" sex="m">Harper Mage Spellcasting (Knight of the Weave)</entry>
   <entry id="76297" lang="en" sex="m">Hathran Spellcasting (Knight of the Weave)</entry>
@@ -71771,7 +71771,7 @@ Special Abilities:
   <entry id="76328" lang="en" sex="m">Enlightened Fist Spellcasting (Telflammar Shadowlord)</entry>
   <entry id="76329" lang="en" sex="m">Elemental Savant Spellcasting (Telflammar Shadowlord)</entry>
   <entry id="76330" lang="en" sex="m">Eldritch Theurge Spellcasting (Telflammar Shadowlord)</entry>
-  <entry id="76331" lang="en" sex="m">Fochulan Lyrist Spellcasting (Telflammar Shadowlord)</entry>
+  <entry id="76331" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Telflammar Shadowlord)</entry>
   <entry id="76332" lang="en" sex="m">Frost Mage Spellcasting (Telflammar Shadowlord)</entry>
   <entry id="76333" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Telflammar Shadowlord)</entry>
   <entry id="76334" lang="en" sex="m">Harper Mage Spellcasting (Telflammar Shadowlord)</entry>
@@ -71815,7 +71815,7 @@ Special Abilities:
   <entry id="76372" lang="en" sex="m">Elemental Savant Spellcasting (Sorcerer)</entry>
   <entry id="76373" lang="en" sex="m">Eldritch Theurge Spellcasting (Sorcerer)</entry>
   <entry id="76374" lang="en" sex="m">Force Missile Mage Spellcasting (Sorcerer)</entry>
-  <entry id="76375" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sorcerer)</entry>
+  <entry id="76375" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Sorcerer)</entry>
   <entry id="76376" lang="en" sex="m">Frost Mage Spellcasting (Sorcerer)</entry>
   <entry id="76377" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Sorcerer)</entry>
   <entry id="76378" lang="en" sex="m">Harper Mage Spellcasting (Sorcerer)</entry>
@@ -71861,7 +71861,7 @@ Special Abilities:
   <entry id="76418" lang="en" sex="m">Enlightened Fist Spellcasting (Sublime Chord)</entry>
   <entry id="76419" lang="en" sex="m">Elemental Savant Spellcasting (Sublime Chord)</entry>
   <entry id="76420" lang="en" sex="m">Eldritch Theurge Spellcasting (Sublime Chord)</entry>
-  <entry id="76421" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sublime Chord)</entry>
+  <entry id="76421" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Sublime Chord)</entry>
   <entry id="76422" lang="en" sex="m">Frost Mage Spellcasting (Sublime Chord)</entry>
   <entry id="76423" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Sublime Chord)</entry>
   <entry id="76424" lang="en" sex="m">Harper Mage Spellcasting (Sublime Chord)</entry>
@@ -71904,7 +71904,7 @@ Special Abilities:
   <entry id="76461" lang="en" sex="m">Enlightened Fist Spellcasting (Suel Archanamach)</entry>
   <entry id="76462" lang="en" sex="m">Elemental Savant Spellcasting (Suel Archanamach)</entry>
   <entry id="76463" lang="en" sex="m">Eldritch Theurge Spellcasting (Suel Archanamach)</entry>
-  <entry id="76464" lang="en" sex="m">Fochulan Lyrist Spellcasting (Suel Archanamach)</entry>
+  <entry id="76464" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Suel Archanamach)</entry>
   <entry id="76465" lang="en" sex="m">Frost Mage Spellcasting (Suel Archanamach)</entry>
   <entry id="76466" lang="en" sex="m">Thrall of Graz'zt Spellcasting (Suel Archanamach)</entry>
   <entry id="76467" lang="en" sex="m">Harper Mage Spellcasting (Suel Archanamach)</entry>
@@ -71954,7 +71954,7 @@ Special Abilities:
   <entry id="76511" lang="en" sex="m">Hathran Spellcasting (Warmage)</entry>
   <entry id="76512" lang="en" sex="m">Havoc Mage Spellcasting (Warmage)</entry>
   <entry id="76513" lang="en" sex="m">Jade Phoenix Mage Spellcasting (Warmage)</entry>
-  <entry id="76514" lang="en" sex="m">Judicator Spellcasting (Warmage)</entry>
+  <entry id="76514" lang="en" sex="m">Drow Judicator Spellcasting (Warmage)</entry>
   <entry id="76515" lang="en" sex="m">Maester Spellcasting (Warmage)</entry>
   <entry id="76516" lang="en" sex="m">Mage Killer Spellcasting (Warmage)</entry>
   <entry id="76517" lang="en" sex="m">Master Harper Spellcasting (Warmage)</entry>
@@ -72022,14 +72022,14 @@ Special Abilities:
   <entry id="76579" lang="en" sex="m">Wild Mage Spellcasting (Wizard)</entry>
   <entry id="76580" lang="en" sex="m">War Wizard of Cormyr Spellcasting (Wizard)</entry>
   <entry id="76581" lang="en" sex="m">Black Flame Zealot Spellcasting (Archivist)</entry>
-  <entry id="76582" lang="en" sex="m">Blightlord Spellcasting (Archivist)</entry>
+  <entry id="76582" lang="en" sex="m">Talontar Blightlord Spellcasting (Archivist)</entry>
   <entry id="76583" lang="en" sex="m">Brimstone Speaker Spellcasting (Archivist)</entry>
   <entry id="76584" lang="en" sex="m">Combat Medic Spellcasting (Archivist)</entry>
   <entry id="76585" lang="en" sex="m">Contemplative Spellcasting (Archivist)</entry>
   <entry id="76586" lang="en" sex="m">Eldritch Disciple Spellcasting (Archivist)</entry>
   <entry id="76587" lang="en" sex="m">Fist of Raziel Spellcasting (Archivist)</entry>
   <entry id="76588" lang="en" sex="m">Forest Master Spellcasting (Archivist)</entry>
-  <entry id="76589" lang="en" sex="m">Fochulan Lyrist Spellcasting (Archivist)</entry>
+  <entry id="76589" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Archivist)</entry>
   <entry id="76590" lang="en" sex="m">Hathran Spellcasting (Archivist)</entry>
   <entry id="76591" lang="en" sex="m">Heartwarder Spellcasting (Archivist)</entry>
   <entry id="76592" lang="en" sex="m">Hierophant Spellcasting (Archivist)</entry>
@@ -72056,12 +72056,12 @@ Special Abilities:
   <entry id="76613" lang="en" sex="m">True Necromancer Spellcasting (Archivist)</entry>
   <entry id="76614" lang="en" sex="m">Warpriest Spellcasting (Archivist)</entry>
   <entry id="76615" lang="en" sex="m">Black Flame Zealot Spellcasting (Blackguard)</entry>
-  <entry id="76616" lang="en" sex="m">Blightlord Spellcasting (Blackguard)</entry>
+  <entry id="76616" lang="en" sex="m">Talontar Blightlord Spellcasting (Blackguard)</entry>
   <entry id="76617" lang="en" sex="m">Contemplative Spellcasting (Blackguard)</entry>
   <entry id="76618" lang="en" sex="m">Eldritch Disciple Spellcasting (Blackguard)</entry>
-  <entry id="76619" lang="en" sex="m">Fochulan Lyrist Spellcasting (Blackguard)</entry>
+  <entry id="76619" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Blackguard)</entry>
   <entry id="76620" lang="en" sex="m">Hospitaler Spellcasting (Blackguard)</entry>
-  <entry id="76621" lang="en" sex="m">Judicator Spellcasting (Blackguard)</entry>
+  <entry id="76621" lang="en" sex="m">Drow Judicator Spellcasting (Blackguard)</entry>
   <entry id="76622" lang="en" sex="m">Mystic Theurge Spellcasting (Blackguard)</entry>
   <entry id="76623" lang="en" sex="m">Oozemaster Spellcasting (Blackguard)</entry>
   <entry id="76624" lang="en" sex="m">Thrall of Orcus Spellcasting (Blackguard)</entry>
@@ -72076,13 +72076,13 @@ Special Abilities:
   <entry id="76633" lang="en" sex="m">Battleguard of Tempus Spellcasting (Blackguard)</entry>
   <entry id="76634" lang="en" sex="m">Warpriest Spellcasting (Blackguard)</entry>
   <entry id="76635" lang="en" sex="m">Black Flame Zealot Spellcasting (Blighter)</entry>
-  <entry id="76636" lang="en" sex="m">Blightlord Spellcasting (Blighter)</entry>
+  <entry id="76636" lang="en" sex="m">Talontar Blightlord Spellcasting (Blighter)</entry>
   <entry id="76637" lang="en" sex="m">Contemplative Spellcasting (Blighter)</entry>
   <entry id="76638" lang="en" sex="m">Eldritch Disciple Spellcasting (Blighter)</entry>
-  <entry id="76639" lang="en" sex="m">Fochulan Lyrist Spellcasting (Blighter)</entry>
+  <entry id="76639" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Blighter)</entry>
   <entry id="76640" lang="en" sex="m">Hierophant Spellcasting (Blighter)</entry>
   <entry id="76641" lang="en" sex="m">Hospitaler Spellcasting (Blighter)</entry>
-  <entry id="76642" lang="en" sex="m">Judicator Spellcasting (Blighter)</entry>
+  <entry id="76642" lang="en" sex="m">Drow Judicator Spellcasting (Blighter)</entry>
   <entry id="76643" lang="en" sex="m">Master of Shrouds Spellcasting (Blighter)</entry>
   <entry id="76644" lang="en" sex="m">Mystic Theurge Spellcasting (Blighter)</entry>
   <entry id="76645" lang="en" sex="m">Oozemaster Spellcasting (Blighter)</entry>
@@ -72098,13 +72098,13 @@ Special Abilities:
   <entry id="76655" lang="en" sex="m">True Necromancer Spellcasting (Blighter)</entry>
   <entry id="76656" lang="en" sex="m">Warpriest Spellcasting (Blighter)</entry>
   <entry id="76657" lang="en" sex="m">Black Flame Zealot Spellcasting (Cleric)</entry>
-  <entry id="76658" lang="en" sex="m">Blightlord Spellcasting (Cleric)</entry>
+  <entry id="76658" lang="en" sex="m">Talontar Blightlord Spellcasting (Cleric)</entry>
   <entry id="76659" lang="en" sex="m">Brimstone Speaker Spellcasting (Cleric)</entry>
   <entry id="76660" lang="en" sex="m">Combat Medic Spellcasting (Cleric)</entry>
   <entry id="76661" lang="en" sex="m">Contemplative Spellcasting (Cleric)</entry>
   <entry id="76662" lang="en" sex="m">Eldritch Disciple Spellcasting (Cleric)</entry>
   <entry id="76663" lang="en" sex="m">Fist of Raziel Spellcasting (Cleric)</entry>
-  <entry id="76664" lang="en" sex="m">Fochulan Lyrist Spellcasting (Cleric)</entry>
+  <entry id="76664" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Cleric)</entry>
   <entry id="76665" lang="en" sex="m">Forest Master Spellcasting (Cleric)</entry>
   <entry id="76666" lang="en" sex="m">Hathran Spellcasting (Cleric)</entry>
   <entry id="76667" lang="en" sex="m">Heartwarder Spellcasting (Cleric)</entry>
@@ -72156,12 +72156,12 @@ Special Abilities:
   <entry id="76713" lang="en" sex="m">Combat Medic Spellcasting (Druid)</entry>
   <entry id="76714" lang="en" sex="m">Contemplative Spellcasting (Druid)</entry>
   <entry id="76715" lang="en" sex="m">Eldritch Disciple Spellcasting (Druid)</entry>
-  <entry id="76716" lang="en" sex="m">Fochulan Lyrist Spellcasting (Druid)</entry>
+  <entry id="76716" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Druid)</entry>
   <entry id="76717" lang="en" sex="m">Forest Master Spellcasting (Druid)</entry>
   <entry id="76718" lang="en" sex="m">Hathran Spellcasting (Druid)</entry>
   <entry id="76719" lang="en" sex="m">Hierophant Spellcasting (Druid)</entry>
   <entry id="76720" lang="en" sex="m">Hospitaler Spellcasting (Druid)</entry>
-  <entry id="76721" lang="en" sex="m">Judicator Spellcasting (Druid)</entry>
+  <entry id="76721" lang="en" sex="m">Drow Judicator Spellcasting (Druid)</entry>
   <entry id="76722" lang="en" sex="m">Mystic Theurge Spellcasting (Druid)</entry>
   <entry id="76723" lang="en" sex="m">Oozemaster Spellcasting (Druid)</entry>
   <entry id="76724" lang="en" sex="m">Psychic Theurge Spellcasting (Druid)</entry>
@@ -72174,14 +72174,14 @@ Special Abilities:
   <entry id="76731" lang="en" sex="m">Swift Wing Spellcasting (Druid)</entry>
   <entry id="76732" lang="en" sex="m">Warpriest Spellcasting (Druid)</entry>
   <entry id="76733" lang="en" sex="m">Black Flame Zealot Spellcasting (Favoured Soul)</entry>
-  <entry id="76734" lang="en" sex="m">Blightlord Spellcasting (Favoured Soul)</entry>
+  <entry id="76734" lang="en" sex="m">Talontar Blightlord Spellcasting (Favoured Soul)</entry>
   <entry id="76735" lang="en" sex="m">Brimstone Speaker Spellcasting (Favoured Soul)</entry>
   <entry id="76736" lang="en" sex="m">Combat Medic Spellcasting (Favoured Soul)</entry>
   <entry id="76737" lang="en" sex="m">Contemplative Spellcasting (Favoured Soul)</entry>
   <entry id="76738" lang="en" sex="m">Eldritch Disciple Spellcasting (Favoured Soul)</entry>
   <entry id="76739" lang="en" sex="m">Fist of Raziel Spellcasting (Favoured Soul)</entry>
   <entry id="76740" lang="en" sex="m">Forest Master Spellcasting (Favoured Soul)</entry>
-  <entry id="76741" lang="en" sex="m">Fochulan Lyrist Spellcasting (Favoured Soul)</entry>
+  <entry id="76741" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Favoured Soul)</entry>
   <entry id="76742" lang="en" sex="m">Hathran Spellcasting (Favoured Soul)</entry>
   <entry id="76743" lang="en" sex="m">Heartwarder Spellcasting (Favoured Soul)</entry>
   <entry id="76744" lang="en" sex="m">Hierophant Spellcasting (Favoured Soul)</entry>
@@ -72212,7 +72212,7 @@ Special Abilities:
   <entry id="76769" lang="en" sex="m">Combat Medic Spellcasting (Healer)</entry>
   <entry id="76770" lang="en" sex="m">Contemplative Spellcasting (Healer)</entry>
   <entry id="76771" lang="en" sex="m">Eldritch Disciple Spellcasting (Healer)</entry>
-  <entry id="76772" lang="en" sex="m">Fochulan Lyrist Spellcasting (Healer)</entry>
+  <entry id="76772" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Healer)</entry>
   <entry id="76773" lang="en" sex="m">Hathran Spellcasting (Healer)</entry>
   <entry id="76774" lang="en" sex="m">Heartwarder Spellcasting (Healer)</entry>
   <entry id="76775" lang="en" sex="m">Hierophant Spellcasting (Healer)</entry>
@@ -72229,16 +72229,16 @@ Special Abilities:
   <entry id="76786" lang="en" sex="m">Sanctified Mind Spellcasting (Healer)</entry>
   <entry id="76787" lang="en" sex="m">Sapphire Hierarch Spellcasting (Healer)</entry>
   <entry id="76788" lang="en" sex="m">Shadowbane Stalker Spellcasting (Healer)</entry>
-  <entry id="76789" lang="en" sex="m">Shining Blade Spellcasting (Healer)</entry>
+  <entry id="76789" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Healer)</entry>
   <entry id="76790" lang="en" sex="m">Swift Wing Spellcasting (Healer)</entry>
   <entry id="76791" lang="en" sex="m">Warpriest Spellcasting (Healer)</entry>
   <entry id="76792" lang="en" sex="m">Black Flame Zealot Spellcasting (Justice of Weald and Woe)</entry>
-  <entry id="76793" lang="en" sex="m">Blightlord Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76793" lang="en" sex="m">Talontar Blightlord Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76794" lang="en" sex="m">Brimstone Speaker Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76795" lang="en" sex="m">Combat Medic Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76796" lang="en" sex="m">Contemplative Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76797" lang="en" sex="m">Eldritch Disciple Spellcasting (Justice of Weald and Woe)</entry>
-  <entry id="76798" lang="en" sex="m">Fochulan Lyrist Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="76798" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76799" lang="en" sex="m">Hathran Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76800" lang="en" sex="m">Heartwarder Spellcasting (Justice of Weald and Woe)</entry>
   <entry id="76801" lang="en" sex="m">Hospitaler Spellcasting (Justice of Weald and Woe)</entry>
@@ -72266,7 +72266,7 @@ Special Abilities:
   <entry id="76823" lang="en" sex="m">Contemplative Spellcasting (Knight of the Chalice)</entry>
   <entry id="76824" lang="en" sex="m">Eldritch Disciple Spellcasting (Knight of the Chalice)</entry>
   <entry id="76825" lang="en" sex="m">Fist of Raziel Spellcasting (Knight of the Chalice)</entry>
-  <entry id="76826" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76826" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Knight of the Chalice)</entry>
   <entry id="76827" lang="en" sex="m">Hathran Spellcasting (Knight of the Chalice)</entry>
   <entry id="76828" lang="en" sex="m">Hospitaler Spellcasting (Knight of the Chalice)</entry>
   <entry id="76829" lang="en" sex="m">Mystic Theurge Spellcasting (Knight of the Chalice)</entry>
@@ -72278,7 +72278,7 @@ Special Abilities:
   <entry id="76835" lang="en" sex="m">Sanctified Mind Spellcasting (Knight of the Chalice)</entry>
   <entry id="76836" lang="en" sex="m">Sapphire Hierarch Spellcasting (Knight of the Chalice)</entry>
   <entry id="76837" lang="en" sex="m">Shadowbane Stalker Spellcasting (Knight of the Chalice)</entry>
-  <entry id="76838" lang="en" sex="m">Shining Blade Spellcasting (Knight of the Chalice)</entry>
+  <entry id="76838" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Knight of the Chalice)</entry>
   <entry id="76839" lang="en" sex="m">Swift Wing Spellcasting (Knight of the Chalice)</entry>
   <entry id="76840" lang="en" sex="m">Warpriest Spellcasting (Knight of the Chalice)</entry>
   <entry id="76841" lang="en" sex="m">Brimstone Speaker Spellcasting (Knight of the Middle Circle)</entry>
@@ -72286,7 +72286,7 @@ Special Abilities:
   <entry id="76843" lang="en" sex="m">Contemplative Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76844" lang="en" sex="m">Eldritch Disciple Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76845" lang="en" sex="m">Fist of Raziel Spellcasting (Knight of the Middle Circle)</entry>
-  <entry id="76846" lang="en" sex="m">Fochulan Lyrist Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76846" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76847" lang="en" sex="m">Hathran Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76848" lang="en" sex="m">Heartwarder Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76849" lang="en" sex="m">Hospitaler Spellcasting (Knight of the Middle Circle)</entry>
@@ -72301,7 +72301,7 @@ Special Abilities:
   <entry id="76858" lang="en" sex="m">Sanctified Mind Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76859" lang="en" sex="m">Sapphire Hierarch Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76860" lang="en" sex="m">Shadowbane Stalker Spellcasting (Knight of the Middle Circle)</entry>
-  <entry id="76861" lang="en" sex="m">Shining Blade Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="76861" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76862" lang="en" sex="m">Swift Wing Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76863" lang="en" sex="m">Warpriest Spellcasting (Knight of the Middle Circle)</entry>
   <entry id="76864" lang="en" sex="m">Brimstone Speaker Spellcasting (Nentyar Hunter)</entry>
@@ -72309,7 +72309,7 @@ Special Abilities:
   <entry id="76866" lang="en" sex="m">Contemplative Spellcasting (Nentyar Hunter)</entry>
   <entry id="76867" lang="en" sex="m">Eldritch Disciple Spellcasting (Nentyar Hunter)</entry>
   <entry id="76868" lang="en" sex="m">Forest Master Spellcasting (Nentyar Hunter)</entry>
-  <entry id="76869" lang="en" sex="m">Fochulan Lyrist Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76869" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Nentyar Hunter)</entry>
   <entry id="76870" lang="en" sex="m">Hathran Spellcasting (Nentyar Hunter)</entry>
   <entry id="76871" lang="en" sex="m">Hospitaler Spellcasting (Nentyar Hunter)</entry>
   <entry id="76872" lang="en" sex="m">Mighty Contender of Kord Spellcasting (Nentyar Hunter)</entry>
@@ -72323,11 +72323,11 @@ Special Abilities:
   <entry id="76880" lang="en" sex="m">Sanctified Mind Spellcasting (Nentyar Hunter)</entry>
   <entry id="76881" lang="en" sex="m">Sapphire Hierarch Spellcasting (Nentyar Hunter)</entry>
   <entry id="76882" lang="en" sex="m">Shadowbane Stalker Spellcasting (Nentyar Hunter)</entry>
-  <entry id="76883" lang="en" sex="m">Shining Blade Spellcasting (Nentyar Hunter)</entry>
+  <entry id="76883" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Nentyar Hunter)</entry>
   <entry id="76884" lang="en" sex="m">Swift Wing Spellcasting (Nentyar Hunter)</entry>
   <entry id="76885" lang="en" sex="m">Warpriest Spellcasting (Nentyar Hunter)</entry>
   <entry id="76886" lang="en" sex="m">Black Flame Zealot Spellcasting (Ocular Adept)</entry>
-  <entry id="76887" lang="en" sex="m">Blightlord Spellcasting (Ocular Adept)</entry>
+  <entry id="76887" lang="en" sex="m">Talontar Blightlord Spellcasting (Ocular Adept)</entry>
   <entry id="76888" lang="en" sex="m">Eldritch Disciple Spellcasting (Ocular Adept)</entry>
   <entry id="76889" lang="en" sex="m">Hierophant Spellcasting (Ocular Adept)</entry>
   <entry id="76890" lang="en" sex="m">Hospitaler Spellcasting (Ocular Adept)</entry>
@@ -72356,17 +72356,17 @@ Special Abilities:
   <entry id="76913" lang="en" sex="m">Sanctified Mind Spellcasting (Paladin)</entry>
   <entry id="76914" lang="en" sex="m">Sapphire Hierarch Spellcasting (Paladin)</entry>
   <entry id="76915" lang="en" sex="m">Shadowbane Stalker Spellcasting (Paladin)</entry>
-  <entry id="76916" lang="en" sex="m">Shining Blade Spellcasting (Paladin)</entry>
+  <entry id="76916" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Paladin)</entry>
   <entry id="76917" lang="en" sex="m">Swift Wing Spellcasting (Paladin)</entry>
   <entry id="76918" lang="en" sex="m">Warpriest Spellcasting (Paladin)</entry>
   <entry id="76919" lang="en" sex="m">Black Flame Zealot Spellcasting (Ranger)</entry>
-  <entry id="76920" lang="en" sex="m">Blightlord Spellcasting (Ranger)</entry>
+  <entry id="76920" lang="en" sex="m">Talontar Blightlord Spellcasting (Ranger)</entry>
   <entry id="76921" lang="en" sex="m">Brimstone Speaker Spellcasting (Ranger)</entry>
   <entry id="76922" lang="en" sex="m">Combat Medic Spellcasting (Ranger)</entry>
   <entry id="76923" lang="en" sex="m">Contemplative Spellcasting (Ranger)</entry>
   <entry id="76924" lang="en" sex="m">Eldritch Disciple Spellcasting (Ranger)</entry>
   <entry id="76925" lang="en" sex="m">Forest Master Spellcasting (Ranger)</entry>
-  <entry id="76926" lang="en" sex="m">Fochulan Lyrist Spellcasting (Ranger)</entry>
+  <entry id="76926" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Ranger)</entry>
   <entry id="76927" lang="en" sex="m">Hathran Spellcasting (Ranger)</entry>
   <entry id="76928" lang="en" sex="m">Heartwarder Spellcasting (Ranger)</entry>
   <entry id="76929" lang="en" sex="m">Hospitaler Spellcasting (Ranger)</entry>
@@ -72384,19 +72384,19 @@ Special Abilities:
   <entry id="76941" lang="en" sex="m">Sanctified Mind Spellcasting (Ranger)</entry>
   <entry id="76942" lang="en" sex="m">Sapphire Hierarch Spellcasting (Ranger)</entry>
   <entry id="76943" lang="en" sex="m">Shadowbane Stalker Spellcasting (Ranger)</entry>
-  <entry id="76944" lang="en" sex="m">Shining Blade Spellcasting (Ranger)</entry>
+  <entry id="76944" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Ranger)</entry>
   <entry id="76945" lang="en" sex="m">Stormlord Spellcasting (Ranger)</entry>
   <entry id="76946" lang="en" sex="m">Swift Wing Spellcasting (Ranger)</entry>
   <entry id="76947" lang="en" sex="m">Battleguard of Tempus Spellcasting (Ranger)</entry>
   <entry id="76948" lang="en" sex="m">Tenebrous Apostate Spellcasting (Ranger)</entry>
   <entry id="76949" lang="en" sex="m">Warpriest Spellcasting (Ranger)</entry>
   <entry id="76950" lang="en" sex="m">Black Flame Zealot Spellcasting (Shaman)</entry>
-  <entry id="76951" lang="en" sex="m">Blightlord Spellcasting (Shaman)</entry>
+  <entry id="76951" lang="en" sex="m">Talontar Blightlord Spellcasting (Shaman)</entry>
   <entry id="76952" lang="en" sex="m">Brimstone Speaker Spellcasting (Shaman)</entry>
   <entry id="76953" lang="en" sex="m">Combat Medic Spellcasting (Shaman)</entry>
   <entry id="76954" lang="en" sex="m">Contemplative Spellcasting (Shaman)</entry>
   <entry id="76955" lang="en" sex="m">Eldritch Disciple Spellcasting (Shaman)</entry>
-  <entry id="76956" lang="en" sex="m">Fochulan Lyrist Spellcasting (Shaman)</entry>
+  <entry id="76956" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Shaman)</entry>
   <entry id="76957" lang="en" sex="m">Forest Master Spellcasting (Shaman)</entry>
   <entry id="76958" lang="en" sex="m">Hathran Spellcasting (Shaman)</entry>
   <entry id="76959" lang="en" sex="m">Heartwarder Spellcasting (Shaman)</entry>
@@ -72418,7 +72418,7 @@ Special Abilities:
   <entry id="76975" lang="en" sex="m">Sanctified Mind Spellcasting (Shaman)</entry>
   <entry id="76976" lang="en" sex="m">Sapphire Hierarch Spellcasting (Shaman)</entry>
   <entry id="76977" lang="en" sex="m">Shadowbane Stalker Spellcasting (Shaman)</entry>
-  <entry id="76978" lang="en" sex="m">Shining Blade Spellcasting (Shaman)</entry>
+  <entry id="76978" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Shaman)</entry>
   <entry id="76979" lang="en" sex="m">Stormlord Spellcasting (Shaman)</entry>
   <entry id="76980" lang="en" sex="m">Swift Wing Spellcasting (Shaman)</entry>
   <entry id="76981" lang="en" sex="m">Tenebrous Apostate Spellcasting (Shaman)</entry>
@@ -72426,12 +72426,12 @@ Special Abilities:
   <entry id="76983" lang="en" sex="m">True Necromancer Spellcasting (Shaman)</entry>
   <entry id="76984" lang="en" sex="m">Warpriest Spellcasting (Shaman)</entry>
   <entry id="76985" lang="en" sex="m">Black Flame Zealot Spellcasting (Sohei)</entry>
-  <entry id="76986" lang="en" sex="m">Blightlord Spellcasting (Sohei)</entry>
+  <entry id="76986" lang="en" sex="m">Talontar Blightlord Spellcasting (Sohei)</entry>
   <entry id="76987" lang="en" sex="m">Brimstone Speaker Spellcasting (Sohei)</entry>
   <entry id="76988" lang="en" sex="m">Contemplative Spellcasting (Sohei)</entry>
   <entry id="76989" lang="en" sex="m">Eldritch Disciple Spellcasting (Sohei)</entry>
   <entry id="76990" lang="en" sex="m">Fist of Raziel Spellcasting (Sohei)</entry>
-  <entry id="76991" lang="en" sex="m">Fochulan Lyrist Spellcasting (Sohei)</entry>
+  <entry id="76991" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Sohei)</entry>
   <entry id="76992" lang="en" sex="m">Hathran Spellcasting (Sohei)</entry>
   <entry id="76993" lang="en" sex="m">Hospitaler Spellcasting (Sohei)</entry>
   <entry id="76994" lang="en" sex="m">Drow Judicator Spellcasting (Sohei)</entry>
@@ -72445,7 +72445,7 @@ Special Abilities:
   <entry id="77002" lang="en" sex="m">Sacred Purifier Spellcasting (Sohei)</entry>
   <entry id="77003" lang="en" sex="m">Sanctified Mind Spellcasting (Sohei)</entry>
   <entry id="77004" lang="en" sex="m">Sapphire Hierarch Spellcasting (Sohei)</entry>
-  <entry id="77005" lang="en" sex="m">Shining Blade Spellcasting (Sohei)</entry>
+  <entry id="77005" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Sohei)</entry>
   <entry id="77006" lang="en" sex="m">Swift Wing Spellcasting (Sohei)</entry>
   <entry id="77007" lang="en" sex="m">Tenebrous Apostate Spellcasting (Sohei)</entry>
   <entry id="77008" lang="en" sex="m">Warpriest Spellcasting (Sohei)</entry>
@@ -72453,7 +72453,7 @@ Special Abilities:
   <entry id="77010" lang="en" sex="m">Combat Medic Spellcasting (Soldier of Light)</entry>
   <entry id="77011" lang="en" sex="m">Contemplative Spellcasting (Soldier of Light)</entry>
   <entry id="77012" lang="en" sex="m">Eldritch Disciple Spellcasting (Soldier of Light)</entry>
-  <entry id="77013" lang="en" sex="m">Fochulan Lyrist Spellcasting (Soldier of Light)</entry>
+  <entry id="77013" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Soldier of Light)</entry>
   <entry id="77014" lang="en" sex="m">Hathran Spellcasting (Soldier of Light)</entry>
   <entry id="77015" lang="en" sex="m">Hospitaler Spellcasting (Soldier of Light)</entry>
   <entry id="77016" lang="en" sex="m">Morninglord of Lathander Spellcasting (Soldier of Light)</entry>
@@ -72467,12 +72467,12 @@ Special Abilities:
   <entry id="77024" lang="en" sex="m">Swift Wing Spellcasting (Soldier of Light)</entry>
   <entry id="77025" lang="en" sex="m">Warpriest Spellcasting (Soldier of Light)</entry>
   <entry id="77026" lang="en" sex="m">Black Flame Zealot Spellcasting (Spirit Shaman)</entry>
-  <entry id="77027" lang="en" sex="m">Blightlord Spellcasting (Spirit Shaman)</entry>
+  <entry id="77027" lang="en" sex="m">Talontar Blightlord Spellcasting (Spirit Shaman)</entry>
   <entry id="77028" lang="en" sex="m">Brimstone Speaker Spellcasting (Spirit Shaman)</entry>
   <entry id="77029" lang="en" sex="m">Combat Medic Spellcasting (Spirit Shaman)</entry>
   <entry id="77030" lang="en" sex="m">Contemplative Spellcasting (Spirit Shaman)</entry>
   <entry id="77031" lang="en" sex="m">Eldritch Disciple Spellcasting (Spirit Shaman)</entry>
-  <entry id="77032" lang="en" sex="m">Fochulan Lyrist Spellcasting (Spirit Shaman)</entry>
+  <entry id="77032" lang="en" sex="m">Fochlucan Lyrist Spellcasting (Spirit Shaman)</entry>
   <entry id="77033" lang="en" sex="m">Forest Master Spellcasting (Spirit Shaman)</entry>
   <entry id="77034" lang="en" sex="m">Hathran Spellcasting (Spirit Shaman)</entry>
   <entry id="77035" lang="en" sex="m">Heartwarder Spellcasting (Spirit Shaman)</entry>
@@ -72490,10 +72490,10 @@ Special Abilities:
   <entry id="77047" lang="en" sex="m">Sanctified Mind Spellcasting (Spirit Shaman)</entry>
   <entry id="77048" lang="en" sex="m">Sapphire Hierarch Spellcasting (Spirit Shaman)</entry>
   <entry id="77049" lang="en" sex="m">Shadowbane Stalker Spellcasting (Spirit Shaman)</entry>
-  <entry id="77050" lang="en" sex="m">Shining Blade Spellcasting (Spirit Shaman)</entry>
+  <entry id="77050" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Spirit Shaman)</entry>
   <entry id="77051" lang="en" sex="m">Stormlord Spellcasting (Spirit Shaman)</entry>
   <entry id="77052" lang="en" sex="m">Swift Wing Spellcasting (Spirit Shaman)</entry>
-  <entry id="77053" lang="en" sex="m">Battleguard Tempus Spellcasting (Spirit Shaman)</entry>
+  <entry id="77053" lang="en" sex="m">Battleguard of Tempus Spellcasting (Spirit Shaman)</entry>
   <entry id="77054" lang="en" sex="m">Tenebrous Apostate Spellcasting (Spirit Shaman)</entry>
   <entry id="77055" lang="en" sex="m">Warpriest Spellcasting (Spirit Shaman)</entry>
   <entry id="77056" lang="en" sex="m">Black Flame Zealot Spellcasting (Ur-Priest)</entry>
@@ -72514,7 +72514,7 @@ Special Abilities:
   <entry id="77071" lang="en" sex="m">Warpriest Spellcasting (Ur-Priest)</entry>
   <entry id="77072" lang="en" sex="m">Brimstone Speaker Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77073" lang="en" sex="m">Contemplative Spellcasting (Vassal of Bahamut)</entry>
-  <entry id="77074" lang="en" sex="m">Fist of Raziel (Vassal of Bahamut)</entry>
+  <entry id="77074" lang="en" sex="m">Fist of Raziel Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77075" lang="en" sex="m">Hathran Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77076" lang="en" sex="m">Hospitaler Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77077" lang="en" sex="m">Mystic Theurge Spellcasting (Vassal of Bahamut)</entry>
@@ -72527,7 +72527,7 @@ Special Abilities:
   <entry id="77084" lang="en" sex="m">Sanctified Mind Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77085" lang="en" sex="m">Sapphire Hierarch Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77086" lang="en" sex="m">Shadowbane Stalker Spellcasting (Vassal of Bahamut)</entry>
-  <entry id="77087" lang="en" sex="m">Shining Blade Spellcasting (Vassal of Bahamut)</entry>
+  <entry id="77087" lang="en" sex="m">Shining Blade of Heironeous Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77088" lang="en" sex="m">Swift Wing Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77089" lang="en" sex="m">Warpriest Spellcasting (Vassal of Bahamut)</entry>
   <entry id="77090" lang="en" sex="m">Disciple of Asmodeus Spellcasting (N/A)</entry>
@@ -72536,6 +72536,7 @@ Special Abilities:
   <entry id="77093" lang="en" sex="m">Ollam Spellcasting (N/A)</entry>
   <entry id="77094" lang="en" sex="m">Combat Medic Spellcasting (Paladin)</entry>
   <entry id="77095" lang="en" sex="m">Morninglord of Lathander Spellcasting (Sohei)</entry>
+  <entry id="77096" lang="en" sex="m">Thrall of Orcus Spellcasting (Ur-Priest)</entry>
   <entry id="77100" lang="en" sex="m">Bardic Casting: Gloura cast spells as a Bard of their hit dice (7th level).</entry>
   <entry id="77101" lang="en" sex="m">Sorcerous Casting: Driders cast spells as a Sorcerer of their hit dice (6th level).</entry>
   <entry id="77102" lang="en" sex="m">Sorcerous Casting: Arkamoi cast spells as a Sorcerer of their hit dice (4th level).</entry>
@@ -72625,14 +72626,14 @@ Special Abilities:
   <entry id="77190" lang="en" sex="m">Spellcasting isn't required to take the Talon of Tiamat prestige class.  If you currently have an arcane spellcasting, shadowcasting or invoking class, do not pick this marker feat.</entry>
   <entry id="77191" lang="en" sex="m">Spellcasting isn't required to take the Dragonsong Lyrist prestige class.  If you currently have an arcane spellcasting or shadowcasting class, do not pick this marker feat.</entry>
   <entry id="77192" lang="en" sex="m">Spellcasting isn't required to take the Ollam prestige class.  If you currently have an arcane spellcasting or shadowcasting class, do not pick this marker feat.</entry>
-  <entry id="77200" lang="en" sex="m">Archivist Spellcasting (Master of Shrouds)</entry>
-  <entry id="77201" lang="en" sex="m">Blackguard Spellcasting (Master of Shrouds)</entry>
-  <entry id="77202" lang="en" sex="m">Druid Spellcasting (Master of Shrouds)</entry>
-  <entry id="77203" lang="en" sex="m">Favoured Soul Spellcasting (Master of Shrouds)</entry>
-  <entry id="77204" lang="en" sex="m">Justice of Weald and Woe Spellcasting (Master of Shrouds)</entry>
-  <entry id="77205" lang="en" sex="m">Ranger Spellcasting (Master of Shrouds)</entry>
-  <entry id="77206" lang="en" sex="m">Sohei Spellcasting (Master of Shrouds)</entry>
-  <entry id="77207" lang="en" sex="m">Ur-Priest Spellcasting (Master of Shrouds)</entry>
+  <entry id="77200" lang="en" sex="m">Master of Shrouds Spellcasting (Archivist)</entry>
+  <entry id="77201" lang="en" sex="m">Master of Shrouds Spellcasting (Blackguard)</entry>
+  <entry id="77202" lang="en" sex="m">Master of Shrouds Spellcasting (Druid)</entry>
+  <entry id="77203" lang="en" sex="m">Master of Shrouds Spellcasting (Favoured Soul)</entry>
+  <entry id="77204" lang="en" sex="m">Master of Shrouds Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="77205" lang="en" sex="m">Master of Shrouds Spellcasting (Ranger)</entry>
+  <entry id="77206" lang="en" sex="m">Master of Shrouds Spellcasting (Sohei)</entry>
+  <entry id="77207" lang="en" sex="m">Master of Shrouds Spellcasting (Ur-Priest)</entry>
   <entry id="77208" lang="en" sex="m">Sorcerous Spellcasting (Hobgoblin Warsoul)</entry>
   <entry id="77209" lang="en" sex="m">Sorcerous Casting: Hobgoblin Warsoul's cast spells as a Sorcerer of their hit dice (10th level).</entry>
   <entry id="77210" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick a spellcasting feat (1st lvl)&lt;/c&gt;</entry>

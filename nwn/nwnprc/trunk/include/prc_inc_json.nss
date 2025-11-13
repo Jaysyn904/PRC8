@@ -223,7 +223,8 @@ json json_RecalcMaxHP(json jCreature, int iHitDieValue)
 
 	
 //:: Reads ABILITY_TO_INCREASE from creature's VarTable and applies stat boosts based on increased HD
-json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifierCap)
+
+json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD)
 {
     if (jCreature == JsonNull())
         return jCreature;
@@ -309,7 +310,7 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD, int nModifier
 
     // Clamp to valid byte range
     if (nNewScore < 1) nNewScore = 1;
-    if (nNewScore > 255) nNewScore = 255;
+    if (nNewScore > 250) nNewScore = 250;
 
     if(DEBUG) DoDebug("json_ApplyAbilityBoostFromHD: Increasing " + sAbilityField + " from " + IntToString(nCurrentScore) + " to " + IntToString(nNewScore));
 
@@ -365,7 +366,7 @@ json json_AdjustCreatureSkillByID(json jCreature, int nSkillID, int nMod)
     
     // Clamp to valid range
     if (nNewRank < 0) nNewRank = 0;
-    if (nNewRank > 255) nNewRank = 255;
+    if (nNewRank > 127) nNewRank = 127;
     
     // Update the rank in the skill struct
     jSkill = GffReplaceByte(jSkill, "Rank", nNewRank);
@@ -679,7 +680,7 @@ json json_AddHitDice(json jCreature, int nAmount)
 }
 
 //:: Adjusts a creature's size by nSizeChange (-4 to +4) and updates ability scores accordingly.
-json json_AdjustCreatureSize(json jCreature, int nSizeDelta)
+json json_AdjustCreatureSize(json jCreature, int nSizeDelta, int nIncorporeal = FALSE)
 {
     if(DEBUG) DoDebug("prc_inc_json >> json_AdjustCreatureSize: Entering function. nSizeDelta=" + IntToString(nSizeDelta));
 
@@ -713,6 +714,11 @@ json json_AdjustCreatureSize(json jCreature, int nSizeDelta)
     int conMod      = nSteps * 2;
     int naturalAC   = nSteps * 1;
     int dexSkillMod = nSteps * -2;
+	
+	if(nIncorporeal)
+	{
+		strMod = 0;
+	}
 
     if(DEBUG) DoDebug("prc_inc_json >> json_AdjustCreatureSize: Applying stat modifiers: STR=" + IntToString(strMod) +
                                  " DEX=" + IntToString(dexMod) +

@@ -975,7 +975,8 @@ void RemoveSpellFromChosenList(int nClass, int spellbookId, int spellCircle, obj
         // for psionics we need to check if the removed spell was a expanded knowledge choice
         // or not. The id of the list is -1 or -2.
         int i;
-        for (i == -1; i >= -2; i--)
+        //for (i == -1; i >= -2; i--)
+		for (i = -1; i >= -2; i--)			
         {
             json expList = (i == -1) ? GetExpandedChoicesList(nClass, oPC) :
                 GetEpicExpandedChoicesList(nClass, oPC);
@@ -1559,6 +1560,19 @@ int GetRemainingSpellChoices(int nClass, int circleLevel, object oPC=OBJECT_SELF
 
 void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
 {
+	RemoveSpells(nClass, oPC);
+	LearnSpells(nClass, oPC);
+	if (nClass == CLASS_TYPE_ARCHIVIST)
+	{
+		int nLevel = GetLevelByClass(nClass, oPC);
+		SetPersistantLocalInt(oPC, "LastSpellGainLevel", nLevel);
+	}
+	CloseNUILevelUpWindow(oPC); // Close while selected-class var is still set
+	ClearLevelUpNUICaches(nClass, oPC);
+}
+
+/* void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
+{
     RemoveSpells(nClass, oPC);
     LearnSpells(nClass, oPC);
     if (nClass == CLASS_TYPE_ARCHIVIST)
@@ -1567,7 +1581,7 @@ void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
         SetPersistantLocalInt(oPC, "LastSpellGainLevel", nLevel);
     }
     ClearLevelUpNUICaches(nClass, oPC);
-}
+} */
 
 void ClearLevelUpNUICaches(int nClass, object oPC=OBJECT_SELF)
 {

@@ -15,6 +15,7 @@
 //#include "inc_dispel"
 #include "prc_inc_assoc"
 #include "prc_inc_template"
+#include "prc_inc_json"
 
 const int PACKAGE_ELEMENTAL_STR = PACKAGE_ELEMENTAL;
 const int PACKAGE_ELEMENTAL_DEX = PACKAGE_FEY;
@@ -32,7 +33,7 @@ void main()
     if(GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oPC))
     {
         //handles summoning of shadow familiar
-        MasterShadow(oPC);
+        DelayCommand(0.0f, MasterShadow(oPC));
     }
     else if(GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER, oPC))
     {
@@ -299,7 +300,185 @@ void SummonPRCFamiliar(object oPC)
     SetName(oFam, sName);
 }
 
+// Watch function: despawns Shadow Servant if master is dead or out of range
+void ShadowServantWatch(object oShadow, object oPC)
+{
+    if(DEBUG) DoDebug("nw_s2_familiar >> ShadowServantWatch: Starting function.");
+	
+	int nMaster = GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oPC);
+	
+	float fRange  = 30.0 + (nMaster * 10);
+	
+	if (!GetIsObjectValid(oShadow) || !GetIsObjectValid(oPC)) return;
+
+    if (GetIsDead(oPC) ||
+        GetDistanceBetween(oShadow, oPC) > FeetToMeters(fRange))
+    {
+        DestroyObject(oShadow);
+        return;
+    }
+
+    DelayCommand(1.0, ShadowServantWatch(oShadow, oPC));
+}
+
 void MasterShadow(object oPC)
+{
+    object oShadow = GetAssociateNPC(ASSOCIATE_TYPE_FAMILIAR, oPC, NPC_MS_ELEMENTAL);
+
+    //remove previously summoned familiar
+    if(GetIsObjectValid(oShadow))
+        DestroyAssociate(oShadow);
+        
+    int nMaster = GetLevelByClass(CLASS_TYPE_MASTER_OF_SHADOW, oPC);
+	
+	int nDexBonus = (nMaster >= 5 && (nMaster % 2)) ? (nMaster - 3) : 0;
+	
+	float fRange  = 30.0 + (nMaster * 10);
+	
+    string SHADOW_SERVANT_RESREF = "prc_shadow_serv";
+	
+    // Target location
+    location lTarget = GetLocation(oPC);	
+	
+    // Distance check
+    if (GetDistanceBetweenLocations(GetLocation(oPC), lTarget) > FeetToMeters(fRange))
+    {
+        SendMessageToPC(oPC, "That location is too far away.");
+        return;
+    }
+
+    // Load template
+    json jShadow = TemplateToJson(SHADOW_SERVANT_RESREF, RESTYPE_UTC);
+    if (jShadow == JSON_NULL)
+    {
+        SendMessageToPC(oPC, "nw_s2_familiar: TemplateToJson failed — bad resref or resource missing.");
+        return;
+    }	
+
+    // Original HD
+    int nOriginalHD = json_GetCreatureHD(jShadow);
+    if (nOriginalHD <= 0)
+    {
+        SendMessageToPC(oPC, "nw_s2_familiar: json_GetCreatureHD failed — template missing HD data.");
+        return;
+    }
+
+    //:: Add Hit Dice
+	int nHDToAdd  = nMaster -1;	
+	if (nHDToAdd < 0) nHDToAdd = 0;
+	
+    jShadow = json_AddHitDice(jShadow, nHDToAdd);	
+    if (jShadow == JSON_NULL)
+    {
+        SendMessageToPC(oPC, "nw_s2_familiar: json_AddHitDice failed - JSON became invalid.");
+        return;
+    }
+
+	//:: Update feats
+	jShadow = json_AddFeatsFromCreatureVars(jShadow, nOriginalHD);
+	if (jShadow == JSON_NULL)
+	{
+		SendMessageToPC(oPC, "nw_s2_familiar: json_AddFeatsFromCreatureVars failed — JSON became invalid.");
+		return;
+	}
+
+	//:: Update Skills
+	jShadow = json_AdjustCreatureSkillByID(jShadow, SKILL_LISTEN, nHDToAdd);
+	if(jShadow == JSON_NULL)
+	{
+		SendMessageToPC(oPC, "nw_s2_familiar: json_AdjustCreatureSkillByID failed — JSON became invalid.");
+		return;
+	}
+	
+    //:: Update stats
+    jShadow = json_ApplyAbilityBoostFromHD(jShadow, nOriginalHD);
+    if (jShadow == JSON_NULL)
+    {
+        SendMessageToPC(oPC, "nw_s2_familiar: json_ApplyAbilityBoostFromHD failed — JSON became invalid.");
+        return;
+    }
+	
+	//:: Bonus DEX from Shadow Servant class ability
+	jShadow = json_UpdateTemplateStats(jShadow, 0, nDexBonus);	
+
+    // Size increase
+    if (nMaster > 2)
+    {
+        jShadow = json_AdjustCreatureSize(jShadow, 1, TRUE);
+        if (jShadow == JSON_NULL)
+        {
+			SendMessageToPC(oPC, "nw_s2_familiar: json_AdjustCreatureSize failed - JSON became invalid.");
+            return;
+        }
+    }    
+
+	//string sNewResRef = GetPCPublicCDKey(oPC, TRUE)+"SHSERV";
+	
+	//if(DEBUG) DoDebug("New resref is: "+sNewResRef+".");
+	
+	//JsonToTemplate(jShadow, "shadowservant", RESTYPE_UTC);	
+	
+	oShadow = JsonToObject(jShadow, lTarget);
+    
+	effect eSummon = ExtraordinaryEffect(EffectSummonCreature("", VFX_FNF_SUMMON_UNDEAD, 0.0, 0, VFX_IMP_UNSUMMON, oShadow));
+	
+	ApplyEffectAtLocation(DURATION_TYPE_PERMANENT, eSummon, lTarget);
+       
+    //oShadow = CreateLocalNPC(oPC, ASSOCIATE_TYPE_FAMILIAR, sNewResRef, lTarget, NPC_MS_ELEMENTAL);
+	
+	//oShadow = CreateObject(OBJECT_TYPE_CREATURE, "shadowservant", GetLocation(oPC));
+	
+	object oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF);
+	
+	if(GetIsObjectValid(oSummon))
+	{
+		if(GetResRef(oSummon) == SHADOW_SERVANT_RESREF)		
+		{
+			SetLocalNPC(oPC, oShadow, ASSOCIATE_TYPE_FAMILIAR, 1);
+			SetAssociateState(NW_ASC_HAVE_MASTER, TRUE, oShadow);
+			SetAssociateState(NW_ASC_DISTANCE_2_METERS);
+			SetAssociateState(NW_ASC_DISTANCE_4_METERS, FALSE);
+			SetAssociateState(NW_ASC_DISTANCE_6_METERS, FALSE);
+
+			SetLocalInt(oPC, "FamiliarToTheDeath", 100);
+
+			effect eVis = EffectVisualEffect(VFX_FNF_SUMMON_UNDEAD);
+			ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis, GetLocation(oShadow));	
+		}
+	}
+	
+	if(DEBUG) DoDebug("MasterShadow: Creature object created.");
+	
+    AddAssociate(oPC, oShadow);  
+	if(DEBUG) DoDebug("MasterShadow: Associate Added.");
+	
+    if (nMaster >= 3) // Grow to size large
+        SetCreatureAppearanceType(oShadow, APPEARANCE_TYPE_SHADOW_FIEND);	
+	
+    //set its name
+    string sName = GetFamiliarName(oPC);
+    if(sName == "")
+        sName = GetName(oPC)+ "'s Shadow Servant";
+    SetName(oShadow, sName);    
+
+    itemproperty ipIP;
+    object oSkin = GetPCSkin(oShadow);
+    if (nMaster >= 10)
+        ipIP =ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_COLD,IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+    else if (nMaster >= 6)
+        ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGERESIST_20); 
+    else if (nMaster >= 4)
+        ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGERESIST_10);            
+    else if (nMaster >= 2)
+        ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGERESIST_5); 
+        
+    IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);        
+        
+
+}    
+
+
+/* void MasterShadow(object oPC)
 {
     object oFam = GetAssociateNPC(ASSOCIATE_TYPE_FAMILIAR, oPC, NPC_MS_ELEMENTAL);
 
@@ -321,7 +500,7 @@ void MasterShadow(object oPC)
     //set its name
     string sName = GetFamiliarName(oPC);
     if(sName == "")
-        sName = GetName(oPC)+ "'s Shadow Elemental";
+        sName = GetName(oPC)+ "'s Shadow Servant";
     SetName(oFam, sName);    
 
     itemproperty ipIP;
@@ -339,4 +518,4 @@ void MasterShadow(object oPC)
         
     if (nLevel >= 3) // Grow to size large
         SetCreatureAppearanceType(oFam, APPEARANCE_TYPE_SHADOW_FIEND);
-}    
+}    */

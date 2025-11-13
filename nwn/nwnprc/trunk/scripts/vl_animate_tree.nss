@@ -122,7 +122,7 @@ void main()
 	}
 
     //:: Update stats
-    jTree = json_ApplyAbilityBoostFromHD(jTree, nOriginalHD, nVerdant);
+    jTree = json_ApplyAbilityBoostFromHD(jTree, nOriginalHD);
     if (jTree == JSON_NULL)
     {
         SendMessageToPC(oPC, "json_ApplyAbilityBoostFromHD failed — JSON became invalid.");

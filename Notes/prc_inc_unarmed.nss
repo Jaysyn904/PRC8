@@ -91,107 +91,6 @@ float DamageAvg(int iDamage);
 /* Function defintions                          */
 //////////////////////////////////////////////////
 
-// StepDie: increases a damage die by 'nSteps' steps according to d20 SRD progression
-// Increment the unarmed damage by nSteps
-int StepDie(int nDamage, int nSteps)
-{
-	int i;
-    for (i = 0; i < nSteps; i++)
-    {
-        switch (nDamage)
-        {
-            // 1-dice increments
-            case IP_CONST_MONSTERDAMAGE_1d2:	nDamage = IP_CONST_MONSTERDAMAGE_1d3; break;
-            case IP_CONST_MONSTERDAMAGE_1d3:	nDamage = IP_CONST_MONSTERDAMAGE_1d4; break;
-            case IP_CONST_MONSTERDAMAGE_1d4:	nDamage = IP_CONST_MONSTERDAMAGE_1d6; break;
-            case IP_CONST_MONSTERDAMAGE_1d6:	nDamage = IP_CONST_MONSTERDAMAGE_1d8; break;
-            case IP_CONST_MONSTERDAMAGE_1d8:	nDamage = IP_CONST_MONSTERDAMAGE_1d10; break;
-            case IP_CONST_MONSTERDAMAGE_1d10:	nDamage = IP_CONST_MONSTERDAMAGE_1d12; break;
-            case IP_CONST_MONSTERDAMAGE_1d12:	nDamage = IP_CONST_MONSTERDAMAGE_2d8; break;
-
-            // 2-dice increments
-            //case IP_CONST_MONSTERDAMAGE_2d3:   nDamage = IP_CONST_MONSTERDAMAGE_2d4; break;				
-            case IP_CONST_MONSTERDAMAGE_2d4:   	nDamage = IP_CONST_MONSTERDAMAGE_2d6; break;			
-            case IP_CONST_MONSTERDAMAGE_2d6:   	nDamage = IP_CONST_MONSTERDAMAGE_2d8; break;
-            case IP_CONST_MONSTERDAMAGE_2d8:   	nDamage = IP_CONST_MONSTERDAMAGE_2d10; break;
-            case IP_CONST_MONSTERDAMAGE_2d10:  	nDamage = IP_CONST_MONSTERDAMAGE_2d12; break;
-            case IP_CONST_MONSTERDAMAGE_2d12:  	nDamage = IP_CONST_MONSTERDAMAGE_3d10; break;			
-
-            // 3-dice increments
-            case IP_CONST_MONSTERDAMAGE_3d4:   	nDamage = IP_CONST_MONSTERDAMAGE_3d6; break;
-            case IP_CONST_MONSTERDAMAGE_3d6:   	nDamage = IP_CONST_MONSTERDAMAGE_3d8; break;
-            case IP_CONST_MONSTERDAMAGE_3d8:   	nDamage = IP_CONST_MONSTERDAMAGE_3d10; break;
-            case IP_CONST_MONSTERDAMAGE_3d10:   nDamage = IP_CONST_MONSTERDAMAGE_3d12; break;		
-            case IP_CONST_MONSTERDAMAGE_3d12:   nDamage = IP_CONST_MONSTERDAMAGE_4d8; break;				
-
-            // 4-dice increments
-            case IP_CONST_MONSTERDAMAGE_4d4:   	nDamage = IP_CONST_MONSTERDAMAGE_4d6; break;
-			case IP_CONST_MONSTERDAMAGE_4d6:   	nDamage = IP_CONST_MONSTERDAMAGE_4d8; break;
-            case IP_CONST_MONSTERDAMAGE_4d8:   	nDamage = IP_CONST_MONSTERDAMAGE_4d10; break;
-            case IP_CONST_MONSTERDAMAGE_4d10:   nDamage = IP_CONST_MONSTERDAMAGE_4d12; break;			
-            case IP_CONST_MONSTERDAMAGE_4d12:   nDamage = IP_CONST_MONSTERDAMAGE_5d8; break;
-
-            // 5-dice increments
-            case IP_CONST_MONSTERDAMAGE_5d4:   	nDamage = IP_CONST_MONSTERDAMAGE_5d6; break;			
-            case IP_CONST_MONSTERDAMAGE_5d6:   	nDamage = IP_CONST_MONSTERDAMAGE_5d8; break;
-            case IP_CONST_MONSTERDAMAGE_5d8:   	nDamage = IP_CONST_MONSTERDAMAGE_5d10; break;
-			case IP_CONST_MONSTERDAMAGE_5d10:   nDamage = IP_CONST_MONSTERDAMAGE_5d12; break;
-			case IP_CONST_MONSTERDAMAGE_5d12:   nDamage = IP_CONST_MONSTERDAMAGE_6d10; break;			
-
-            // 6-dice increments
-			//case IP_CONST_MONSTERDAMAGE_6d4:   nDamage = IP_CONST_MONSTERDAMAGE_6d6; break;
-            case IP_CONST_MONSTERDAMAGE_6d6:	nDamage = IP_CONST_MONSTERDAMAGE_6d8; break;
-            case IP_CONST_MONSTERDAMAGE_6d8:	nDamage = IP_CONST_MONSTERDAMAGE_6d10; break;
-            case IP_CONST_MONSTERDAMAGE_6d10:   nDamage = IP_CONST_MONSTERDAMAGE_6d12; break;	
-			case IP_CONST_MONSTERDAMAGE_6d12:   nDamage = IP_CONST_MONSTERDAMAGE_7d10; break;
-
-            // 7-dice increments
-            case IP_CONST_MONSTERDAMAGE_7d4:	nDamage = IP_CONST_MONSTERDAMAGE_7d6; break;
-			case IP_CONST_MONSTERDAMAGE_7d6:   	nDamage = IP_CONST_MONSTERDAMAGE_7d8; break;
-            case IP_CONST_MONSTERDAMAGE_7d8:   	nDamage = IP_CONST_MONSTERDAMAGE_7d10; break;
-			case IP_CONST_MONSTERDAMAGE_7d10:   nDamage = IP_CONST_MONSTERDAMAGE_7d12; break;
-            case IP_CONST_MONSTERDAMAGE_7d12:   nDamage = IP_CONST_MONSTERDAMAGE_9d10; break;
-
-            // 8-dice increments
-            //case IP_CONST_MONSTERDAMAGE_8d4:	nDamage = IP_CONST_MONSTERDAMAGE_8d6; break;
-			case IP_CONST_MONSTERDAMAGE_8d6:   	nDamage = IP_CONST_MONSTERDAMAGE_8d8; break;
-            case IP_CONST_MONSTERDAMAGE_8d8:   	nDamage = IP_CONST_MONSTERDAMAGE_8d10; break;
-			case IP_CONST_MONSTERDAMAGE_8d10:   nDamage = IP_CONST_MONSTERDAMAGE_8d12; break;
-            case IP_CONST_MONSTERDAMAGE_8d12:   nDamage = IP_CONST_MONSTERDAMAGE_10d10; break;
-            
-			// 9-dice increments			
-            //case IP_CONST_MONSTERDAMAGE_9d4:	nDamage = IP_CONST_MONSTERDAMAGE_9d6; break;
-			case IP_CONST_MONSTERDAMAGE_9d6:   	nDamage = IP_CONST_MONSTERDAMAGE_9d8; break;
-            case IP_CONST_MONSTERDAMAGE_9d8:   	nDamage = IP_CONST_MONSTERDAMAGE_9d10; break;
-			case IP_CONST_MONSTERDAMAGE_9d10:   nDamage = IP_CONST_MONSTERDAMAGE_9d12; break;
-            case IP_CONST_MONSTERDAMAGE_9d12:   nDamage = IP_CONST_MONSTERDAMAGE_6d20; break;
-			
-            // 10-dice increments
-            //case IP_CONST_MONSTERDAMAGE_10d4:	nDamage = IP_CONST_MONSTERDAMAGE_10d6; break;	
-            case IP_CONST_MONSTERDAMAGE_10d6:	nDamage = IP_CONST_MONSTERDAMAGE_10d8; break;
-            case IP_CONST_MONSTERDAMAGE_10d8:	nDamage = IP_CONST_MONSTERDAMAGE_10d10; break;
-            case IP_CONST_MONSTERDAMAGE_10d10:	nDamage = IP_CONST_MONSTERDAMAGE_10d12; break;
-            case IP_CONST_MONSTERDAMAGE_10d12:	nDamage = IP_CONST_MONSTERDAMAGE_7d20; break;		
-			
-            // d20 increments
-            case IP_CONST_MONSTERDAMAGE_1d20:	nDamage = IP_CONST_MONSTERDAMAGE_3d8; break;
-            case IP_CONST_MONSTERDAMAGE_2d20:	nDamage = IP_CONST_MONSTERDAMAGE_4d12; break;
-            case IP_CONST_MONSTERDAMAGE_3d20:	nDamage = IP_CONST_MONSTERDAMAGE_8d8; break;
-            case IP_CONST_MONSTERDAMAGE_4d20:	nDamage = IP_CONST_MONSTERDAMAGE_8d12; break;			
-            case IP_CONST_MONSTERDAMAGE_5d20:	nDamage = IP_CONST_MONSTERDAMAGE_9d12; break;  //:: Everything breaks down here
-            case IP_CONST_MONSTERDAMAGE_6d20:	nDamage = IP_CONST_MONSTERDAMAGE_1d20; break;
-            case IP_CONST_MONSTERDAMAGE_7d20:	nDamage = IP_CONST_MONSTERDAMAGE_8d20; break;
-            case IP_CONST_MONSTERDAMAGE_8d20:	nDamage = IP_CONST_MONSTERDAMAGE_9d20; break;
-            case IP_CONST_MONSTERDAMAGE_9d20:	nDamage = IP_CONST_MONSTERDAMAGE_10d20; break;
-
-            default: break; // top tier or unknown
-        }
-    }
-	
-	return nDamage;
-}
-
-
 // Clean up any extras in the inventory.
 void CleanExtraFists(object oCreature)
 {
@@ -269,169 +168,12 @@ void ApplyUnarmedAttackEffects(object oCreature)
 }
 
 // Determines the amount of damage a character can do.
-// IoDM: +1 die at level 4, +2 dice at level 8
+// IoDM: +1 dice at level 4, +2 dice at level 8
 // Sacred Fist: Levels add to monk levels, or stand alone as monk levels.
 // Shou: 1d6 at level 1, 1d8 at level 2, 1d10 at level 3, 2d6 at level 5
 // Monk: 1d6 at level 1, 1d8 at level 4, 1d10 at level 8, 2d6 at level 12, 2d8 at level 16, 2d10 at level 20
 // Frostrager: 1d6 at level 1, 1d8 at level 4
 int FindUnarmedDamage(object oCreature)
-{
-    int iDamage = 0;
-    int iMonk = GetLevelByClass(CLASS_TYPE_MONK, oCreature) + GetLocalInt(oCreature, "LiPengMonk");
-    int iShou = GetLevelByClass(CLASS_TYPE_SHOU, oCreature);
-    int iBrawler = GetLevelByClass(CLASS_TYPE_BRAWLER, oCreature);
-    int iSacredFist = GetLevelByClass(CLASS_TYPE_SACREDFIST, oCreature);
-    int iEnlightenedFist = GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oCreature);
-    int iHenshin = GetLevelByClass(CLASS_TYPE_HENSHIN_MYSTIC, oCreature);
-    int iZuoken = GetLevelByClass(CLASS_TYPE_FIST_OF_ZUOKEN, oCreature);
-    int iShadowSunNinja = GetLevelByClass(CLASS_TYPE_SHADOW_SUN_NINJA, oCreature);
-    int iFrost = GetLevelByClass(CLASS_TYPE_FROSTRAGER, oCreature);
-    int iAscetic = GetLevelByClass(CLASS_TYPE_NINJA, oCreature);
-    int iRonove = 0;
-    int iMonkDamage = 1;
-    int iShouDamage = 1;
-    int iBrawlerDamage = 1;
-    int iFrostDamage = 1;
-    int iSUSDamage = 1;
-    int iDieIncrease = 0;
-    int iSize;
-	
-    if (GetHasSpellEffect(VESTIGE_RONOVE, oCreature) && GetLevelByClass(CLASS_TYPE_BINDER, oCreature))
-        iRonove = GetLocalInt(oCreature, "RonovesFists");
-
-    //:: Determine creature size
-    if( GetIsPolyMorphedOrShifted(oCreature) || GetPRCSwitch(PRC_APPEARANCE_SIZE))
-    {
-         iSize = PRCGetCreatureSize(oCreature) - CREATURE_SIZE_MEDIUM + 5;
-    }
-    else
-    {
-        iSize = 5;  // medium
-        if (GetHasFeat(FEAT_TINY,  oCreature)) iSize = 3;
-        if (GetHasFeat(FEAT_SMALL, oCreature)) iSize = 4;
-        if (GetHasFeat(FEAT_LARGE, oCreature)) iSize = 6;
-        if (GetHasFeat(FEAT_HUGE,  oCreature)) iSize = 7;
-        iSize += PRCGetCreatureSize(oCreature) - PRCGetCreatureSize(oCreature, PRC_SIZEMASK_NONE);
-        if (iSize < 1) iSize = 1;
-        if (iSize > 9) iSize = 9;
-    }
-
-    // Sacred Fist code break protection
-    if (GetHasFeat(FEAT_SF_CODE, oCreature)) iSacredFist = 0;
-
-    // Combine monk-like levels
-    iMonk += iSacredFist + iHenshin + iEnlightenedFist + iShou + iZuoken + iShadowSunNinja;
-
-    // Superior Unarmed Strike
-    if (GetHasFeat(FEAT_SUPERIOR_UNARMED_STRIKE, oCreature))
-    {
-        iMonk += 4;
-        int nHD = GetHitDice(oCreature);
-        if      (nHD >= 16) iSUSDamage = IP_CONST_MONSTERDAMAGE_2d6;
-        else if (nHD >= 12) iSUSDamage = IP_CONST_MONSTERDAMAGE_1d10;
-        else if (nHD >= 8)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d8;
-        else if (nHD >= 4)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d6;
-        else if (nHD >= 3)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d4;
-    }
-
-    // Ascetic Stalker
-    if (GetHasFeat(FEAT_ASCETIC_STALKER, oCreature))
-        iMonk += iAscetic;
-
-    // Cap monk progression
-    if (iMonk > 16 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE)) iMonk = 16;
-    else if (iMonk > 20) iMonk = 20;
-
-    // Ronove replacement
-    if (iRonove > iMonk) iMonk = iRonove;
-
-    // Monk damage calculation (2DA row)
-    if (iMonk > 0) iMonkDamage = iMonk / 4 + 3;
-    if (iSize == 5 && iMonkDamage == 7 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
-        iMonkDamage = 8;
-
-    // Shou Disciple base damage
-    if (iShou > 0)
-    {
-        int nRow;
-        if      (iShou == 1) nRow = 3;
-        else if (iShou == 2) nRow = 4;
-        else if (iShou == 3) nRow = 5;
-        else if (iShou == 4) nRow = 5;
-        else if (iShou == 5) nRow = 6;
-        else                 nRow = 3;
-
-        if (nRow > 6) nRow = 6;
-
-        iShouDamage = StringToInt(Get2DACache("unarmed_dmg", "size" + IntToString(iSize), nRow));
-    }
-
-    // Frostrager
-    if (iFrost > 0) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d6;
-    if (iFrost > 3) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d8;
-
-    // Brawler
-    if (iBrawler > 0) iBrawlerDamage = iBrawler / 6 + 3;
-    if (iBrawler >= 36) iBrawlerDamage += 2;
-
-    // Armor/shield penalties
-    if (iMonkDamage > 1)
-    {
-        object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
-        object oShield = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCreature);
-        int bShieldEq = GetBaseItemType(oShield) == BASE_ITEM_SMALLSHIELD ||
-                        GetBaseItemType(oShield) == BASE_ITEM_LARGESHIELD ||
-                        GetBaseItemType(oShield) == BASE_ITEM_TOWERSHIELD;
-        if (GetBaseAC(oArmor) > 0 || bShieldEq)
-            iMonkDamage = 1;
-    }
-
-    if (iShouDamage > 1)
-    {
-        object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
-        object oShield = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCreature);
-        int bShieldEq = GetBaseItemType(oShield) == BASE_ITEM_SMALLSHIELD ||
-                        GetBaseItemType(oShield) == BASE_ITEM_LARGESHIELD ||
-                        GetBaseItemType(oShield) == BASE_ITEM_TOWERSHIELD;
-        if (GetBaseAC(oArmor) > 3 || bShieldEq)
-            iShouDamage = 1;
-    }
-
-    // Determine IoDM die increase
-    if      (GetHasFeat(FEAT_INCREASE_DAMAGE2, oCreature)) iDieIncrease = 2;
-    else if (GetHasFeat(FEAT_INCREASE_DAMAGE1, oCreature)) iDieIncrease = 1;
-
-    // Lookup monk damage in 2DA
-    iMonkDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iMonkDamage));
-
-    // 3.0e monk special cases
-    if (iSize <= 5 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
-    {
-        if (iMonkDamage == IP_CONST_MONSTERDAMAGE_2d6)  iMonkDamage = IP_CONST_MONSTERDAMAGE_1d12;
-        if (iMonkDamage == IP_CONST_MONSTERDAMAGE_2d10) iMonkDamage = IP_CONST_MONSTERDAMAGE_1d20;
-    }
-
-    // Apply IoDM die increase last, after 2DA lookups
-    if (iMonkDamage > 0) iMonkDamage = StepDie(iMonkDamage, iDieIncrease);
-    if (iShouDamage > 0) iShouDamage = StepDie(iShouDamage, iDieIncrease);
-    if (iBrawlerDamage > 0) iBrawlerDamage = StepDie(iBrawlerDamage, iDieIncrease);
-    if (iFrostDamage > 0) iFrostDamage = StepDie(iFrostDamage, iDieIncrease);
-    if (iSUSDamage > 0) iSUSDamage = StepDie(iSUSDamage, iDieIncrease);
-	
-    // Select best damage
-    iDamage = iMonkDamage;
-    iDamage = (DamageAvg(iShouDamage   ) > DamageAvg(iDamage)) ? iShouDamage    : iDamage;
-    iDamage = (DamageAvg(iFrostDamage  ) > DamageAvg(iDamage)) ? iFrostDamage   : iDamage;
-    iDamage = (DamageAvg(iSUSDamage    ) > DamageAvg(iDamage)) ? iSUSDamage     : iDamage;
-    iDamage = (DamageAvg(iBrawlerDamage) > DamageAvg(iDamage)) ? iBrawlerDamage : iDamage;
-
-    if (DEBUG) DoDebug("prc_inc_unarmed: iDamage "+IntToString(iDamage));
-
-    return iDamage;
-}
-
-
-/* int FindUnarmedDamage(object oCreature)
 {
     int iDamage = 0;
     int iMonk = GetLevelByClass(CLASS_TYPE_MONK, oCreature) + GetLocalInt(oCreature, "LiPengMonk");
@@ -453,30 +195,36 @@ int FindUnarmedDamage(object oCreature)
     int iDieIncrease = 0;
     int iSize;
     
-    if (GetHasSpellEffect(VESTIGE_RONOVE, oCreature) && GetLevelByClass(CLASS_TYPE_BINDER, oCreature))
-        iRonove = GetLocalInt(oCreature, "RonovesFists");
+    if (GetHasSpellEffect(VESTIGE_RONOVE, oCreature) && GetLevelByClass(CLASS_TYPE_BINDER, oCreature)) iRonove = GetLocalInt(oCreature, "RonovesFists");
 
-    // Determine creature size
-    if( GetIsPolyMorphedOrShifted(oCreature) || GetPRCSwitch(PRC_APPEARANCE_SIZE))
+    // if the creature is shifted, use model size
+    // otherwise, we want to stick to what the feats say they "should" be.
+    // No making pixies with Dragon Appearance for "huge" fist damage.
+    if( GetIsPolyMorphedOrShifted(oCreature)
+        || GetPRCSwitch(PRC_APPEARANCE_SIZE))
     {
-         iSize = PRCGetCreatureSize(oCreature) - CREATURE_SIZE_MEDIUM + 5;
+         iSize = PRCGetCreatureSize(oCreature) - CREATURE_SIZE_MEDIUM + 5; // medium is size 5 for us
     }
     else
     {
-        iSize = 5;  // medium
+        // Determine creature size by feats.
+        iSize = 5;  // medium is size 5 for us
         if (GetHasFeat(FEAT_TINY,  oCreature)) iSize = 3;
         if (GetHasFeat(FEAT_SMALL, oCreature)) iSize = 4;
         if (GetHasFeat(FEAT_LARGE, oCreature)) iSize = 6;
         if (GetHasFeat(FEAT_HUGE,  oCreature)) iSize = 7;
+        // include size changes
         iSize += PRCGetCreatureSize(oCreature) - PRCGetCreatureSize(oCreature, PRC_SIZEMASK_NONE);
+        // cap if needed
         if (iSize < 1) iSize = 1;
         if (iSize > 9) iSize = 9;
     }
 
-    // Sacred Fist code break protection
+    // Sacred Fist cannot add their levels if they've broken their code.
     if (GetHasFeat(FEAT_SF_CODE, oCreature)) iSacredFist = 0;
 
-    // Combine monk-like levels
+    // several classes add their levels to the monk class,
+    // or use monk progression if the character has no monk levels
     iMonk += iSacredFist + iHenshin + iEnlightenedFist + iShou + iZuoken + iShadowSunNinja;
     
     // Superior Unarmed Strike
@@ -484,66 +232,49 @@ int FindUnarmedDamage(object oCreature)
     {
         iMonk += 4;
         int nHD = GetHitDice(oCreature);
-        if      (nHD >= 16) iSUSDamage = IP_CONST_MONSTERDAMAGE_2d6;
+        if (nHD >= 16) iSUSDamage = IP_CONST_MONSTERDAMAGE_2d6;
         else if (nHD >= 12) iSUSDamage = IP_CONST_MONSTERDAMAGE_1d10;
-        else if (nHD >= 8)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d8;
-        else if (nHD >= 4)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d6;
-        else if (nHD >= 3)  iSUSDamage = IP_CONST_MONSTERDAMAGE_1d4;
+        else if (nHD >= 8) iSUSDamage = IP_CONST_MONSTERDAMAGE_1d8;
+        else if (nHD >= 4) iSUSDamage = IP_CONST_MONSTERDAMAGE_1d6;
+        else if (nHD >= 3) iSUSDamage = IP_CONST_MONSTERDAMAGE_1d4;
     }    
     
     // Ascetic Stalker
     if (GetHasFeat(FEAT_ASCETIC_STALKER, oCreature))
         iMonk += iAscetic;
 
-    // Cap monk progression
-    if (iMonk > 16 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE)) iMonk = 16;
-    else if (iMonk > 20) iMonk = 20;
+    // In 3.0e, Monk progression stops after level 16:
+    if (iMonk > 16 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE) ) iMonk = 16;
+    // in 3.5e, monk progression stops at 20.
+    else if(iMonk > 20) iMonk = 20;
     
-    // Ronove replacement
+    // Ronove is in place of monk, does not stack
     if (iRonove > iMonk) iMonk = iRonove;
 	
-    // Monk damage calculation
-    if (iMonk > 0) iMonkDamage = iMonk / 4 + 3;
+	// monks damage progesses every four levels, starts at 1d6
+		if (iMonk > 0)
+        iMonkDamage = iMonk / 4 + 3;
 
-    if(iSize == 5 && iMonkDamage == 7 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
-        iMonkDamage = 8;
+    // For medium monks in 3.0e skip 2d8 and go to 1d20
+    if(iSize == 5 && iMonkDamage == 7 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE) ) iMonkDamage = 8;
 
     // Shou Disciple either adds its level to existing class or does its own damage, depending
     // on which is better. Here we will determine how much damage the Shou Disciple does
     // without stacking.
-    //if (iShou > 0) iShouDamage = iShou + 2; // Lv. 1: 1d6, Lv. 2: 1d8, Lv. 3: 1d10
-    //if (iShou > 3) iShouDamage--;           // Lv. 4: 1d10, Lv. 5: 2d6
-	//iShouDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iShouDamage));
-	
-	if (iShou > 0)
-	{
-		// Determine 2DA row for Shou progression
-		int nRow;
-		if      (iShou == 1) nRow = 3; // monk1
-		else if (iShou == 2) nRow = 4; // monk2
-		else if (iShou == 3) nRow = 5; // monk3
-		else if (iShou == 4) nRow = 6; // monk4
-		else if (iShou == 5) nRow = 7; // monk5
-		else if (iShou == 6) nRow = 8; // monk6
-		else if (iShou == 7) nRow = 9; // monk7
-		else                  nRow = 10; // monk8+
-		
-		nRow += iDieIncrease;
-		if (nRow > 10) nRow = 10; // clamp to max row
+    if (iShou > 0) iShouDamage = iShou + 2; // Lv. 1: 1d6, Lv. 2: 1d8, Lv. 3: 1d10
+    if (iShou > 3) iShouDamage--;           // Lv. 4: 1d10, Lv. 5: 2d6
+	iShouDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iShouDamage));
+    
+    // Frostrager does not stack with other damage types
+    if (iFrost > 0) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d6; // Lv. 1: 1d6
+    if (iFrost > 3) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d8; // Lv. 3: 1d8
 
-		// Lookup damage in unarmed_damage.2da using size column
-		iShouDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), nRow));
-	}
+    // Brawler follows monk progression except for the last one (3d8)
+    if (iBrawler >   0) iBrawlerDamage = iBrawler / 6 + 3;   // 1d6, 1d8, 1d10, 2d6, 2d8, 2d10
+    if (iBrawler >= 36) iBrawlerDamage += 2;		       // 3d8
 
-    // Frostrager
-    if (iFrost > 0) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d6;
-    if (iFrost > 3) iFrostDamage = IP_CONST_MONSTERDAMAGE_1d8;
-
-    // Brawler
-    if (iBrawler > 0) iBrawlerDamage = iBrawler / 6 + 3;
-    if (iBrawler >= 36) iBrawlerDamage += 2;
-
-    // Armor/shield penalties
+    // Monks and monk-like classes deal no additional damage when wearing any armor, at
+    // least in NWN.  This is to reflect that.  No shields too.
     if (iMonkDamage > 1)
     {
         object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
@@ -553,10 +284,13 @@ int FindUnarmedDamage(object oCreature)
                         GetBaseItemType(oShield) == BASE_ITEM_TOWERSHIELD;
 
         if (GetBaseAC(oArmor) > 0 || bShieldEq)
+        {
             iMonkDamage = 1;
+		}
     }
 
-    if (iShouDamage > 1)
+// Shou Disciples can wear light armor
+        if (iShouDamage > 1)
     {
         object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
         object oShield = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCreature);
@@ -565,31 +299,53 @@ int FindUnarmedDamage(object oCreature)
                         GetBaseItemType(oShield) == BASE_ITEM_TOWERSHIELD;
 
         if (GetBaseAC(oArmor) > 3 || bShieldEq)
-            iShouDamage = 1;
+        {
+             iShouDamage = 1;
+        }
     }
 
-    // IoDM die increase
+    // For Initiate of Draconic Mysteries
     if      (GetHasFeat(FEAT_INCREASE_DAMAGE2, oCreature)) iDieIncrease += 2;
     else if (GetHasFeat(FEAT_INCREASE_DAMAGE1, oCreature)) iDieIncrease += 1;
+	
+/* 	//:: Expansion / Compression powers (Double dipping?)
+	int nExpansion = GetLocalInt(oCreature, "PRC_Power_Expansion_SizeIncrease");
+	int nCompression = GetLocalInt(oCreature, "PRC_Power_Compression_SizeReduction");
+	
+	if (nExpansion)
+	{
+		iSize += nExpansion;
+	}
+	
+	if (nCompression)
+	{
+		iSize -= nCompression;
+	} */	
 
     iMonkDamage    += iDieIncrease;
     iShouDamage    += iDieIncrease;
     iBrawlerDamage += iDieIncrease;
     iFrostDamage   += iDieIncrease;
     iSUSDamage     += iDieIncrease;
+	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Size is: "+IntToString(iSize)+".", oCreature);	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Pre 2DA Lookup >> iMonkDamage = "+IntToString(iMonkDamage)+".", oCreature);
 
-    // Lookup final monk damage in 2DA
+    // now, read the damage from the table in unarmed_dmg.2da
     iMonkDamage    = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iMonkDamage));
+    iShouDamage    = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iShouDamage));
+	
+	//FloatingTextStringOnCreature("prc_inc_unarmed: Post 2DA Lookup >> iMonkDamage = "+IntToString(iMonkDamage)+".", oCreature);
 
-    // 3.0e monk special cases
+    // Medium+ monks have some special values on the table in 3.0:
     if (iSize >= 5 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
     {
         if (iMonkDamage == IP_CONST_MONSTERDAMAGE_2d6)  iMonkDamage = IP_CONST_MONSTERDAMAGE_1d12;
         if (iMonkDamage == IP_CONST_MONSTERDAMAGE_2d10) iMonkDamage = IP_CONST_MONSTERDAMAGE_1d20;
     }
 
-    // Select best damage
     iDamage = iMonkDamage;
+    // Future unarmed classes:  if you do your own damage, add in "comparisons" below here.
     iDamage = (DamageAvg(iShouDamage   ) > DamageAvg(iDamage)) ? iShouDamage    : iDamage;
     iDamage = (DamageAvg(iFrostDamage  ) > DamageAvg(iDamage)) ? iFrostDamage   : iDamage;
     iDamage = (DamageAvg(iSUSDamage    ) > DamageAvg(iDamage)) ? iSUSDamage     : iDamage;
@@ -598,8 +354,6 @@ int FindUnarmedDamage(object oCreature)
 
     return iDamage;
 }
- */
-
 
 // Adds appropriate feats to the skin. Stolen from SoulTaker + expanded with overwhelming/devastating critical.
 void UnarmedFeats(object oCreature)

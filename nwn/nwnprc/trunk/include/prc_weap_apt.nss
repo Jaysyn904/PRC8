@@ -47,11 +47,9 @@ int GetWeaponFocusFeatItemProperty(int nFeatNumber)
     if(nItemProperty != -1) return nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_TRIDENT, IP_CONST_FEAT_WEAPON_FOCUS_TRIDENT);
     if(nItemProperty != -1) return nItemProperty;	
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_LIGHT_LANCE, IP_CONST_FEAT_WEAPON_FOCUS_GOAD);
+    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_EAGLE_CLAW, IP_CONST_FEAT_WEAPON_FOCUS_GOAD);
     if(nItemProperty != -1) return nItemProperty;	
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_LIGHTBLADE);
-    if(nItemProperty != -1) return nItemProperty;
-    nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_EAGLE_CLAW, IP_CONST_FEAT_WEAPON_FOCUS_EAGLE_CLAW);
     if(nItemProperty != -1) return nItemProperty;
     nItemProperty = GetFeatItemProperty(nFeatNumber, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_THINBLADE, IP_CONST_FEAT_WEAPON_FOCUS_ELVEN_THINBLADE);
     if(nItemProperty != -1) return nItemProperty;	

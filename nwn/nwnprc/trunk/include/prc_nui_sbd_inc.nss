@@ -28,11 +28,17 @@ void CreateSpellDescriptionNUI(object oPlayer, int featID, int spellId=0, int re
 void CreateSpellDescriptionNUI(object oPlayer, int featID, int spellId=0, int realSpellId=0)
 {
     // look for existing window and destroy
-    int nPreviousToken = NuiFindWindow(OBJECT_SELF, NUI_SPELL_DESCRIPTION_WINDOW_ID);
+    int nPreviousToken = NuiFindWindow(oPlayer, NUI_SPELL_DESCRIPTION_WINDOW_ID);
+    if(nPreviousToken != 0)
+    {
+        NuiDestroy(oPlayer, nPreviousToken);
+    }
+
+/* 	int nPreviousToken = NuiFindWindow(OBJECT_SELF, NUI_SPELL_DESCRIPTION_WINDOW_ID);
     if(nPreviousToken != 0)
     {
         NuiDestroy(OBJECT_SELF, nPreviousToken);
-    }
+    } */
 
     // in order of accuracy for names it goes RealSpellID > SpellID > FeatID
     string spellName;

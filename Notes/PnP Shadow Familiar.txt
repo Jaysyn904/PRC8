@@ -1,0 +1,57 @@
+Shadow Servant
+Medium Elemental (Extraplanar and Incorporeal)
+Initiative: +5; Senses: blindsight 60 ft., Listen +3, and Spot +4
+AC: 12 (+1 Dex, +1 deflection), touch 12, flat-footed 11
+Hit Dice: 4d8+8 (26 hp)
+Fort +3, Ref +5, Will +1 Speed: Fly 40 ft. (perfect)
+Space: 5 ft./5 ft.
+Base Attack +3; Grapple +3
+Attack: Incorporeal touch +4 melee
+Damage: Incorporeal touch 1d6 plus 1d6 cold
+Special Attacks/Actions: Shadow mastery, dusk and dawn 
+
+Abilities: Str -, Dex 12, Con 14, Int 4, Wis 11, Cha 11
+Special Qualities: elemental traits, incorporeal traits
+Feats: Combat Reflexes; Improved Initiative
+Skills: Listen +3 and Spot +4
+
+
+PC Lvl 	Bonus HD 	Dex Adj. 	Stat Increase	Special 				Feat				Master's Bidding
+0th		+0			-			-				Weapon Finesse			Alertness#		-
+0th		+0			-			-				-						-					-
+0th		+0			-			-				-						Imp. Initiative		-
+0th		+0			-			-				-						-					-
+1st 	+0 			- 			-				- 						-					Interact with corporeal, fast healing 1
+2nd 	+1 			- 			-				Resistance to cold 5 	WF: Creature (291)	Extra attack
+3rd 	+2 			- 			+4 CON,-2 DEX	Size becomes Large 		-					-
+4th 	+3 			- 			+1 CON			Resistance to cold 10 	-					Cold damage +1d8
+5th 	+4 			+2 			-				Deliver touch spells 	Dodge (10)			-
+6th 	+5 			-			-				Resistance to cold 20 	-					-
+7th 	+6 			+4 			-				- 						-					Reach +5 ft.
+8th 	+7 			- 			+1 CON			- 						Mobility (26)		DR 5/-
+9th 	+8 			+6 			-				- 						-					Speed +20 ft.
+10th 	+9 			-			-				Immunity to cold 		-					-
+11th	+10			+8			-				-						Spr. Attack (392)	-
+12th	+11			-			+1 CON			-						-					-
+13th	+12			+10			-				-						-					-
+14th	+13			-			-				-						Iron Will (22)		-
+15th	+14			+12			-				-						-					-
+16th	+15			-			+1 CON			-						-					-
+17th	+16			+14			-				-						Lightn. Ref. (24)	-
+18th	+17			-			-				-						-					-
+19th	+18			+16			-				-						-					-
+20th	+19			-			+1 CON			-						Imp. Crit (292)		-
+21st	+20			+18			-				-						-					-
+22nd	+21			-			-				-						-					-
+23rd	+22			+20			-				-						Blind-Fight	(408)	-
+24th	+23			-			+1 CON			-						-					-
+25th	+24			+22			-				-						-					-
+26th	+25			-			-				-						Toughness (40)		-
+27th	+26			+24			-				-						-					-
+28th	+27			-			+1 CON			-						-					-
+29th	+28			+26			-				-						Gr. Fort (14)		-
+30th	+29			-			-				-						-					-
+
++1 Listen per Bonus HD
+
+# Replaces Combat Reflexes

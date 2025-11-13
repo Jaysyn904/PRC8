@@ -68,10 +68,12 @@ void main()
                 sHeader1 += "This will grant you proficiency and weapon focus in that weapon.";
                 // Set the header
                 SetHeader(sHeader1);
-                // Add responses for the PC
-        // Response numbers are baseitems.2da row
-        AddChoice("Warhammer", 5, oPC);
-        AddChoice("Light Hammer", 37, oPC);
+				
+                // Add responses for the PC				
+				// Response numbers are baseitems.2da row
+				AddChoice("Warhammer", 5, oPC);
+				AddChoice("Light Hammer", 37, oPC);
+				AddChoice("Maul", 123, oPC);
 
                 MarkStageSetUp(STAGE_WEAPON_CHOICE, oPC); // This prevents the setup being run for this stage again until MarkStageNotSetUp is called for it
                 SetDefaultTokens(); // Set the next, previous, exit and wait tokens to default values
