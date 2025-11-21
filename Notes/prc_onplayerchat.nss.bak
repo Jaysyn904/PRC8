@@ -34,28 +34,6 @@ const string CHAT_COMMAND_INDICATOR_1 = "~~";
 const string CHAT_COMMAND_INDICATOR_2 = "..";
 const int CHAT_COMMAND_INDICATOR_LENGHT = 2;
 
-void ForceRemoveAllSpells(object oPC)
-{
-    int classId;
-    for(classId = 1; classId < CLASS_TYPE_INVALID; classId++)
-    {
-        int j;
-        for (j = 0; j <= 40; j++)
-        {
-            DelayCommand(0.0f, CallSpellUnlevelScript(oPC, classId, j));
-        }
-    }
-    SendMessageToPC(oPC, "Finished removing spells.");
-}
-
-void ResetCharacterXPAndRemoveSpells(object oPC)
-{
-    int xp = GetXP(oPC);
-    ForceRemoveAllSpells(oPC);
-    SetXP(oPC, 1);
-    SetXP(oPC, xp);
-}
-
 int GetIsChatCommand(string sString)
 {
     string sTest = GetStringLeft(sString, CHAT_COMMAND_INDICATOR_LENGHT);
@@ -133,50 +111,6 @@ void main()
         string firstWord = JsonGetString(JsonArrayGet(sCommandSplit, 0));
 
         // if first word is /pa we are using the power attack interface
-        if (firstWord == "/relevel")
-        {
-            int confirmed = GetLocalInt(oPC, "RelevelConfirm");
-            if(confirmed)
-            {
-                SendMessageToPC(oPC, "Please wait as we relevel you, this may take some time...");
-                DelayCommand(1.0f, ResetCharacterXPAndRemoveSpells(oPC));
-                DeleteLocalInt(oPC, "RelevelConfirm");
-            }
-            else
-            {
-                SendMessageToPC(oPC, "This will relevel you back to level 1 while preserving XP, type /relevel again to confirm.");
-                SetLocalInt(oPC, "RelevelConfirm", 1);
-                CloseNUILevelUpWindow(oPC, TRUE);
-            }
-            SetPCChatMessage();
-        }
-        else
-        {
-            DeleteLocalInt(oPC, "RelevelConfirm");
-            SetPCChatMessage();
-        }
-        if (firstWord == "/resetSpells")
-        {
-            int confirmed = GetLocalInt(oPC, "ResetSpellsConfirm");
-            if (confirmed)
-            {
-                SendMessageToPC(oPC, "Please wait as we remove your spells, this may take some time...");
-                DelayCommand(1.0f, ForceRemoveAllSpells(oPC));
-                DeleteLocalInt(oPC, "ResetSpellsConfirm");
-                CloseNUILevelUpWindow(oPC, TRUE);
-            }
-            else
-            {
-                SendMessageToPC(oPC, "This will reset all spell choices among all PRC classes. Type /resetSpells again to confirm.");
-                SetLocalInt(oPC, "ResetSpellsConfirm", 1);
-            }
-            SetPCChatMessage();
-        }
-        else
-        {
-            DeleteLocalInt(oPC, "ResetSpellsConfirm");
-            SetPCChatMessage();
-        }
         if(firstWord == "/pa")
         {
             if(JsonGetLength(sCommandSplit) >= 2)
@@ -212,6 +146,17 @@ void main()
             // clear message from chat
             SetPCChatMessage();
             return;
+        }
+        if (firstWord == "/lvl")
+        {
+            if (JsonGetLength(sCommandSplit) >= 2)
+            {
+                int classPos = StringToInt(JsonGetString(JsonArrayGet(sCommandSplit, 1)));
+                int nClass = GetClassByPosition(classPos, oPC);
+                OpenNUILevelUpWindow(nClass, oPC);
+                SetPCChatMessage();
+                return;
+            }
         }
     }
 

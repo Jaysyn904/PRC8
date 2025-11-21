@@ -10,6 +10,7 @@
 #include "psi_inc_psifunc"
 #include "inc_ecl"
 #include "prc_inc_assoc"
+#include "prc_inc_combmove"
 
 void PreyOnTheWeak(object oDead)
 {
@@ -48,6 +49,9 @@ void main()
 {
     object oDead   = GetLastBeingDied();
     object oKiller = MyGetLastKiller();
+	
+	DelayCommand(0.1f, EndGrapple(oDead, oKiller));
+	DelayCommand(0.2f, EndGrapple(oKiller, oDead));
 
     // We are not actually dead until -10
     // Unless it's a spell death

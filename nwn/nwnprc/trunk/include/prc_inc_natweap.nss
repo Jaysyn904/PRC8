@@ -277,6 +277,32 @@ void ClearNaturalWeapons(object oPC)
     array_delete(oPC, ARRAY_NAT_PRI_WEAP_ATTACKS);
 }
 
+/**
+ * @brief Adds a natural primary weapon to a creature (PC/NPC).
+ * 
+ * This function manages a creature's natural primary weapons by storing their
+ * resource references and attack counts in persistent arrays. If the weapon
+ * being added is the first natural weapon, it may automatically become the
+ * creature's active primary natural weapon, unless the creature is a Monk or
+ * Brawler. Optionally, the weapon can be forced to become the active primary
+ * weapon regardless of class.
+ * 
+ * @param oPC The creature object to which the natural weapon will be added.
+ * @param sResRef The resource reference string of the natural weapon.
+ * @param nCount (Optional) The number of attacks this natural weapon provides.
+ *               Default is 1.
+ * @param nForceUse (Optional) If TRUE, forces this weapon to become the active
+ *                   primary natural weapon regardless of the creature's class.
+ *                   Default is FALSE.
+ * 
+ * @details
+ * - Creates persistent arrays for weapon references and attack counts if they
+ *   do not already exist.
+ * - Checks if the weapon is already present to avoid duplicates.
+ * - Adds the weapon and attack count to the arrays.
+ * - Sets the primary natural weapon index to this weapon if it is the first
+ *   natural weapon added, unless the creature is a Monk or Brawler.
+ */
 void AddNaturalPrimaryWeapon(object oPC, string sResRef, int nCount = 1, int nForceUse = FALSE)
 {
     int nFirstNaturalWeapon = FALSE;

@@ -22,14 +22,14 @@ void main()
         {
             case  1:
             case  2:
-            case  3: sSummon = "ep_summonaberat1"; break;
+            case  3: sSummon = "ep_summonaberat1"; break;	//:: Summoned Drider Chief
             case  4:
             case  5:
-            case  6: sSummon = "ep_summonaberat2"; break;
+            case  6: sSummon = "ep_summonaberat2"; break;	//:: Summoned Beholder
             case  7:
-            case  8: sSummon = "ep_summonaberat3"; break;
-            case  9: sSummon = "ep_summonaberat4"; break;
-            case 10: sSummon = "ep_summonaberat5"; break;
+            case  8: sSummon = "ep_summonaberat3"; break;	//:: Summoned Mind Flayer Darkener
+            case  9: sSummon = "ep_summonaberat4"; break;	//:: Summoned Umber Hulk
+            case 10: sSummon = "ep_summonaberat5"; break;	//:: Summoned Battle Devourer
         }
 
         effect eSummon = ExtraordinaryEffect(EffectSummonCreature(sSummon, VFX_FNF_SUMMON_EPIC_UNDEAD, 1.0f));

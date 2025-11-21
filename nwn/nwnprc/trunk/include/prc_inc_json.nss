@@ -18,6 +18,8 @@
 //:://////////////////////////////////////////////
 #include "nw_inc_gff"
 #include "inc_debug"
+#include "prc_inc_racial"
+#include "prc_inc_nwscript"
 
 
 //::---------------------------------------------|
@@ -30,6 +32,8 @@ int GetMaxPossibleHP(object oCreature)
     int nMaxHP = 0;  // Stores the total maximum hitpoints
     int i = 1;       // Initialize position for class index
 	int nConb	= GetAbilityModifier(ABILITY_CONSTITUTION, oCreature);
+	int nRacial	= MyPRCGetRacialType(oCreature);
+	int nSize 	= PRCGetCreatureSize(oCreature);
     
     // Loop through each class position the creature may have, checking each class in turn
     while (TRUE)
@@ -54,7 +58,24 @@ int GetMaxPossibleHP(object oCreature)
         i++;
     }
     
+	if(nRacial == RACIAL_TYPE_CONSTRUCT || nRacial == RACIAL_TYPE_UNDEAD)
+	{
+		nConb = 0;
+	}	
+	
 	nMaxHP += nConb * GetHitDice(oCreature);
+	
+	if(nRacial == RACIAL_TYPE_CONSTRUCT)
+	{
+		if(nSize == CREATURE_SIZE_FINE) nMaxHP += 0;
+		if(nSize == CREATURE_SIZE_DIMINUTIVE) nMaxHP += 0;		
+		if(nSize == CREATURE_SIZE_TINY) nMaxHP += 0;		
+		if(nSize == CREATURE_SIZE_SMALL) nMaxHP += 10;
+		if(nSize == CREATURE_SIZE_MEDIUM) nMaxHP += 20;
+		if(nSize == CREATURE_SIZE_LARGE) nMaxHP += 30;
+		if(nSize == CREATURE_SIZE_HUGE) nMaxHP += 40;
+		if(nSize == CREATURE_SIZE_GARGANTUAN) nMaxHP += 60;			
+	}	
 	
     return nMaxHP;
 }
@@ -202,13 +223,44 @@ int json_GetCreatureHD(json jCreature)
 json json_RecalcMaxHP(json jCreature, int iHitDieValue)
 {
     int iHD  = json_GetCreatureHD(jCreature);
-    int iCON = json_GetCONValue(jCreature);
-    int iMod = GetAbilityModFromValue(iCON);
+	
+	//:: Retrieve the RacialType field
+    json jRacialTypeField = JsonObjectGet(jCreature, "Race");	
+	int nRacialType = JsonGetInt(jRacialTypeField);
+	
+	//:: Retrieve the CreatureSize from the creature appearance field
+    json jAppearanceField = JsonObjectGet(jCreature, "Appearance_Type");	
+	int nAppearance = JsonGetInt(jAppearanceField);	
+	
+	int nSize = StringToInt(Get2DAString("appearance", "SizeCategory", nAppearance));
+	
+    //CEP adds other sizes, take them into account too
+    if(nSize == 20)
+        nSize = CREATURE_SIZE_DIMINUTIVE;
+    else if(nSize == 21)
+        nSize = CREATURE_SIZE_FINE;
+    else if(nSize == 22)
+        nSize = CREATURE_SIZE_GARGANTUAN;
+    else if(nSize == 23)
+        nSize = CREATURE_SIZE_COLOSSAL;	
+	
+    int iNewMaxHP   = (iHitDieValue * iHD);
 
-    int nConBonusHP = iMod * iHD;
-    int iNewMaxHP   = (iHitDieValue * iHD); /* nConBonusHP */
+	if(nRacialType == RACIAL_TYPE_CONSTRUCT)
+	{
+		if(nSize == CREATURE_SIZE_FINE) iNewMaxHP += 0;
+		if(nSize == CREATURE_SIZE_DIMINUTIVE) iNewMaxHP += 0;		
+		if(nSize == CREATURE_SIZE_TINY) iNewMaxHP += 0;		
+		if(nSize == CREATURE_SIZE_SMALL) iNewMaxHP += 10;
+		if(nSize == CREATURE_SIZE_MEDIUM) iNewMaxHP += 20;
+		if(nSize == CREATURE_SIZE_LARGE) iNewMaxHP += 30;
+		if(nSize == CREATURE_SIZE_HUGE) iNewMaxHP += 40;
+		if(nSize == CREATURE_SIZE_GARGANTUAN) iNewMaxHP += 60;			
+	}	
+	
+	if(DEBUG) DoDebug("prc_inc_json >> json_RecalcMaxHP | New MaxHP is: "+IntToString(iNewMaxHP)+ ".");
 
-    //jCreature = GffReplaceShort(jCreature, "MaxHitPoints", iNewMaxHP);
+    jCreature = GffReplaceShort(jCreature, "MaxHitPoints", iNewMaxHP);
     jCreature = GffReplaceShort(jCreature, "CurrentHitPoints", iNewMaxHP);
     jCreature = GffReplaceShort(jCreature, "HitPoints", iNewMaxHP);
 
@@ -425,7 +477,7 @@ json json_AddFeatsFromCreatureVars(json jCreature, int nOriginalHD)
     if(DEBUG) DoDebug("json_AddFeatsFromCreatureVars: Original feat count: " + IntToString(nOriginalFeatCount));
 
     int nAdded = 0;
-    int i = 1;
+    int i = 0;
     int nMaxIterations = 100; // Safety valve
     int nIterations = 0;
 

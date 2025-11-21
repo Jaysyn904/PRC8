@@ -966,6 +966,17 @@ void main()
         sResRef += GetAffixForSize(nSize);
         AddNaturalPrimaryWeapon(oPC, sResRef, 2);
     }
+    else if(nRace==RACIAL_TYPE_ZAKYA_RAKSHASA)
+    {
+        string sResRef = "prc_raks_bite_";
+        int nSize = PRCGetCreatureSize(oPC);
+        sResRef += GetAffixForSize(nSize);
+        AddNaturalSecondaryWeapon(oPC, sResRef);
+        //primary weapon
+        sResRef = "prc_claw_1d6l_";
+        sResRef += GetAffixForSize(nSize);
+        AddNaturalPrimaryWeapon(oPC, sResRef, 1);
+    }	
     else if(nRace==RACIAL_TYPE_LIZARDFOLK)
     {
         string sResRef = "prc_lizf_bite_";

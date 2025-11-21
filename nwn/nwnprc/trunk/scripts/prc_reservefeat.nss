@@ -142,8 +142,8 @@ int GetHighestSpellAvailableByDescriptor(object oPC, string sDescriptor)
         sSpellLabel = Get2DACache(sFile, "Label", i);
         if(sSpellLabel != "") // Non-blank row
         {
-			SendMessageToPC(oPC, "GetHighestSpellAvailableByDescriptor >> Entered function.");
-			SendMessageToPC(oPC, "Row " + IntToString(i) + 
+			if (DEBUG) DoDebug("GetHighestSpellAvailableByDescriptor >> Entered function.");
+			if (DEBUG) DoDebug("Row " + IntToString(i) + 
                 " Label = " + sSpellLabel + 
                 " SpellID = " + IntToString(nSpellID) + 
                 " HasSpell  " + IntToString(PRCGetHasSpell(nSpellID, oPC)));

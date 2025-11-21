@@ -363,8 +363,11 @@ int PRCIsFlying(object oCreature)
         bFlying = TRUE;
     }
     if(!bFlying
-        && ((nWings > 0 && nWings < 79) || nWings == 90))//CEP and Project Q wing models
-        bFlying = TRUE;
+        && ((nWings > 0 && nWings < 79) 
+		|| (nWings > 1959 && nWings < 1962) 
+		|| (nWings > 1962 && nWings < 1966) 
+		|| nWings == 90))//CEP and Project Q wing models
+        	bFlying = TRUE;
         
     if (GetHasSpellEffect(MOVE_SH_BALANCE_SKY, oCreature))
         bFlying = TRUE;

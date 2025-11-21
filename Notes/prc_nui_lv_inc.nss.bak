@@ -98,9 +98,21 @@ void OpenNUILevelUpWindow(int nClass, object oPC=OBJECT_SELF);
 //
 // CloseNUILevelUpWindow
 // Closes the NUI Level Up Window if its open
-// setting reset to 1 will make it clear the entire cache as if the NUI was never opened
 //
-void CloseNUILevelUpWindow(object oPC=OBJECT_SELF, int reset=0);
+void CloseNUILevelUpWindow(object oPC=OBJECT_SELF);
+
+//
+// GetTrueClassType
+// Gets the true class Id for a provided class Id, mostly for RHD and for
+// ToB prestige classes
+//
+// Arguments:
+//   nClass:int classId
+//
+// Returns:
+//   int the true classId based off nClass
+//
+int GetTrueClassType(int nClass, object oPC=OBJECT_SELF);
 
 //
 // GetRemainingSpellChoices
@@ -420,7 +432,7 @@ json GetChosenReplaceListObject(object oPC=OBJECT_SELF);
 // Returns:
 //   int:Boolean TRUE if the spell is a expanded knowledge spell, FALSE otherwise
 //
-int IsExpKnowledgePower(int nClass, int spellbookId, object oPC=OBJECT_SELF);
+int IsExpKnowledgePower(int nClass, int spellbookId);
 
 //
 // GetExpKnowledgePowerListRequired
@@ -849,7 +861,7 @@ void AddSpellToChosenList(int nClass, int spellbookId, int spellCircle, object o
         // if the power is a expanded knowledge than we immediatly add it to the
         // extra list, otherwise check to make sure we have made all choices in our
         // base list first before adding it to the extra list.
-        if (IsExpKnowledgePower(nClass, spellbookId, oPC)
+        if (IsExpKnowledgePower(nClass, spellbookId)
             || GetRemainingPowerChoices(nClass, spellCircle, oPC, FALSE) == 0)
         {
             string sFile = GetClassSpellbookFile(nClass);
@@ -963,7 +975,8 @@ void RemoveSpellFromChosenList(int nClass, int spellbookId, int spellCircle, obj
         // for psionics we need to check if the removed spell was a expanded knowledge choice
         // or not. The id of the list is -1 or -2.
         int i;
-        for (i == -1; i >= -2; i--)
+        //for (i == -1; i >= -2; i--)
+		for (i = -1; i >= -2; i--)			
         {
             json expList = (i == -1) ? GetExpandedChoicesList(nClass, oPC) :
                 GetEpicExpandedChoicesList(nClass, oPC);
@@ -1049,20 +1062,53 @@ void OpenNUILevelUpWindow(int nClass, object oPC=OBJECT_SELF)
     // figure out what the true base class is (mostly true for RHD)
     int chosenClass = GetTrueClassType(nClass, oPC);
     SetLocalInt(oPC, NUI_LEVEL_UP_SELECTED_CLASS_VAR, chosenClass);
+
     ExecuteScript("prc_nui_lv_view", oPC);
 }
 
-void CloseNUILevelUpWindow(object oPC=OBJECT_SELF, int reset=0)
+int GetTrueClassType(int nClass, object oPC=OBJECT_SELF)
+{
+    if (nClass == CLASS_TYPE_JADE_PHOENIX_MAGE
+        || nClass == CLASS_TYPE_MASTER_OF_NINE
+        || nClass == CLASS_TYPE_DEEPSTONE_SENTINEL
+        || nClass == CLASS_TYPE_BLOODCLAW_MASTER
+        || nClass == CLASS_TYPE_RUBY_VINDICATOR
+        || nClass == CLASS_TYPE_ETERNAL_BLADE
+        || nClass == CLASS_TYPE_SHADOW_SUN_NINJA)
+    {
+        int trueClass = GetPrimaryBladeMagicClass(oPC);
+        return trueClass;
+    }
+
+    if ((nClass == CLASS_TYPE_SHAPECHANGER
+            && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
+     || (nClass == CLASS_TYPE_OUTSIDER
+            && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
+     || (nClass == CLASS_TYPE_ABERRATION
+            && GetRacialType(oPC) == RACIAL_TYPE_DRIDER)
+     || (nClass == CLASS_TYPE_MONSTROUS
+            && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI)
+     || (nClass == CLASS_TYPE_MONSTROUS
+            && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
+     || (nClass == CLASS_TYPE_MONSTROUS
+            && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS)
+     || (nClass == CLASS_TYPE_MONSTROUS
+            && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT))
+            return CLASS_TYPE_SORCERER;
+     if (nClass == CLASS_TYPE_FEY
+            && GetRacialType(oPC) == RACIAL_TYPE_GLOURA)
+         return CLASS_TYPE_BARD;
+
+    return nClass;
+}
+
+void CloseNUILevelUpWindow(object oPC=OBJECT_SELF)
 {
     int currentClass = GetLocalInt(oPC, NUI_LEVEL_UP_SELECTED_CLASS_VAR);
     // if we are refreshing the NUI but not finished we need to clear some caching done
     // to save computation time as they will need to be reprocessed.
     DeleteLocalJson(oPC, NUI_LEVEL_UP_DISCIPLINE_INFO_VAR + IntToString(currentClass));
     SetLocalInt(oPC, NUI_LEVEL_UP_REMAINING_CHOICES_CACHE_VAR, -20);
-    if (reset)
-    {
-        ClearLevelUpNUICaches(currentClass, oPC);
-    }
     int nPreviousToken = NuiFindWindow(oPC, NUI_LEVEL_UP_WINDOW_ID);
     if (nPreviousToken != 0)
     {
@@ -1081,7 +1127,7 @@ int ShouldSpellButtonBeEnabled(int nClass, int circleLevel, int spellbookId, obj
 
         // if its an expanded knowledge choice and we have already made all our
         // exp knowledge choices then it needs to be disabled.
-        if (IsExpKnowledgePower(nClass, spellbookId, oPC))
+        if (IsExpKnowledgePower(nClass, spellbookId))
         {
             int remainingExp = GetRemainingExpandedChoices(nClass, POWER_LIST_EXP_KNOWLEDGE, oPC)
                 + GetRemainingExpandedChoices(nClass, POWER_LIST_EPIC_EXP_KNOWLEDGE, oPC);
@@ -1494,7 +1540,7 @@ int GetRemainingSpellChoices(int nClass, int circleLevel, object oPC=OBJECT_SELF
             // default logic for spont casters
             totalSpellsKnown = GetSpellKnownMaxCount(casterLevel, circleLevel, nClass, oPC);
             // Favoured Soul has more 0 choices than there are spells for some reason
-            if (nClass == CLASS_TYPE_FAVOURED_SOUL && circleLevel == 0 && totalSpellsKnown > 6)
+           if (nClass == CLASS_TYPE_FAVOURED_SOUL && circleLevel == 0 && totalSpellsKnown > 7)
                 totalSpellsKnown = 7;
 
             // logic for spont casters
@@ -1509,11 +1555,23 @@ int GetRemainingSpellChoices(int nClass, int circleLevel, object oPC=OBJECT_SELF
 
     if (chosenCircle == circleLevel)
         SetLocalInt(oPC, NUI_LEVEL_UP_REMAINING_CHOICES_CACHE_VAR, remainingChoices);
-    if (DEBUG) DoDebug("Remaining spell choices is " + IntToString(remainingChoices));
     return remainingChoices;
 }
 
 void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
+{
+	RemoveSpells(nClass, oPC);
+	LearnSpells(nClass, oPC);
+	if (nClass == CLASS_TYPE_ARCHIVIST)
+	{
+		int nLevel = GetLevelByClass(nClass, oPC);
+		SetPersistantLocalInt(oPC, "LastSpellGainLevel", nLevel);
+	}
+	CloseNUILevelUpWindow(oPC); // Close while selected-class var is still set
+	ClearLevelUpNUICaches(nClass, oPC);
+}
+
+/* void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
 {
     RemoveSpells(nClass, oPC);
     LearnSpells(nClass, oPC);
@@ -1523,7 +1581,7 @@ void FinishLevelUp(int nClass, object oPC=OBJECT_SELF)
         SetPersistantLocalInt(oPC, "LastSpellGainLevel", nLevel);
     }
     ClearLevelUpNUICaches(nClass, oPC);
-}
+} */
 
 void ClearLevelUpNUICaches(int nClass, object oPC=OBJECT_SELF)
 {
@@ -1620,13 +1678,11 @@ void RemoveSpells(int nClass, object oPC=OBJECT_SELF)
                 {
                     string sFile = GetClassSpellbookFile(nClass);
                     string sSpellBook = GetSpellsKnown_Array(nClass);
-                    string spellsAtLevelList = "SpellsKnown_" + IntToString(nClass) + "_AtLevel" + IntToString(GetHitDice(oPC));
                     // remove the spell from the spellbook
                     array_extract_int(oPC, sSpellBook, nSpellbookID);
-                    array_extract_int(oPC, spellsAtLevelList, nSpellbookID);
                     // wipe the spell from the player
                     int ipFeatID = StringToInt(Get2DACache(sFile, "IPFeatID", nSpellbookID));
-                    RemoveIPFeat(oPC, ipFeatID);
+                    WipeSpellFromHide(ipFeatID, oPC);
                 }
             }
         }
@@ -1737,7 +1793,6 @@ void LearnSpells(int nClass, object oPC=OBJECT_SELF)
 
                     // get location of persistant storage on the hide
                     string sSpellbook = GetSpellsKnown_Array(nClass, nSpellLevel);
-                    if (DEBUG) DoDebug("Adding spell " + IntToString(nSpellbookID) + "to " + sSpellbook);
                     //object oToken = GetHideToken(oPC);
 
                     // Create spells known persistant array if it is missing
@@ -1748,25 +1803,13 @@ void LearnSpells(int nClass, object oPC=OBJECT_SELF)
                         nSize = 0;
                     }
 
-                    string spellsAtLevelList = "SpellsKnown_" + IntToString(nClass) + "_AtLevel" + IntToString(GetHitDice(oPC));
-                    int spellsAtLevelSize = persistant_array_get_size(oPC, spellsAtLevelList);
-                    if (spellsAtLevelSize < 0)
-                    {
-                        persistant_array_create(oPC, spellsAtLevelList);
-                        spellsAtLevelSize = 0;
-                    }
-                    // set the list of spells learned at this level
-                    string sFile = GetClassSpellbookFile(nClass);
-                    int spellId = StringToInt(Get2DACache(sFile, "SpellID", nSpellbookID));
-                    persistant_array_set_int(oPC, spellsAtLevelList, spellsAtLevelSize, spellId);
-                    if (DEBUG) DoDebug("Adding spells to array " + spellsAtLevelList);
-
                     // Mark the spell as known (e.g. add it to the end of oPCs spellbook)
                     persistant_array_set_int(oPC, sSpellbook, nSize, nSpellbookID);
 
                     if (nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)
                     {
                         // add spell
+                        string sFile = GetClassSpellbookFile(nClass);
                         string sArrayName = "NewSpellbookMem_" + IntToString(nClass);
                         int featId = StringToInt(Get2DACache(sFile, "FeatID", nSpellbookID));
                         int ipFeatID = StringToInt(Get2DACache(sFile, "IPFeatID", nSpellbookID));
@@ -1946,7 +1989,7 @@ void RemoveSpellKnown(int nClass, int spellbookId, object oPC=OBJECT_SELF, int n
             //if we could not find the spell here, something went wrong
             if (persistant_array_extract_int(oPC, sTestArray, spellID) < 0)
             {
-                if (DEBUG) DoDebug("Could not find spellID " + IntToString(spellID) + " in the class's spellbook!");
+                SendMessageToPC(oPC, "Could not find spellID " + IntToString(spellID) + " in the class's spellbook!");
                 return;
             }
         }
@@ -1973,7 +2016,10 @@ void RemoveSpellKnown(int nClass, int spellbookId, object oPC=OBJECT_SELF, int n
 
     // remove spell from player
     int ipFeatID = StringToInt(Get2DACache(sFile, "IPFeatID", spellbookId));
-    RemoveIPFeat(oPC, ipFeatID);
+    itemproperty ipFeat = PRCItemPropertyBonusFeat(ipFeatID);
+    object oSkin = GetPCSkin(oPC);
+    RemoveItemProperty(oSkin, ipFeat);
+    CheckAndRemoveFeat(oSkin, ipFeat);
 }
 
 json GetSpellIDsKnown(int nClass, object oPC=OBJECT_SELF, int nList=0)
@@ -2056,7 +2102,7 @@ string ReasonForDisabledSpell(int nClass, int spellbookId, object oPC=OBJECT_SEL
 
         // if its an expanded knowledge choice and we have already made all our
         // exp knowledge choices then it needs to be disabled.
-        if (IsExpKnowledgePower(nClass, spellbookId, oPC))
+        if (IsExpKnowledgePower(nClass, spellbookId))
         {
             int remainingExp = GetRemainingExpandedChoices(nClass, POWER_LIST_EXP_KNOWLEDGE, oPC)
                 + GetRemainingExpandedChoices(nClass, POWER_LIST_EPIC_EXP_KNOWLEDGE, oPC);
@@ -2290,15 +2336,11 @@ json GetChosenReplaceListObject(object oPC=OBJECT_SELF)
 ////////////////////////////////////////////////////////////////////////////
 
 
-int IsExpKnowledgePower(int nClass, int spellbookId, object oPC=OBJECT_SELF)
+int IsExpKnowledgePower(int nClass, int spellbookId)
 {
     string sFile = GetClassSpellbookFile(nClass);
     int isExp = StringToInt(Get2DACache(sFile, "Exp", spellbookId));
-    if (isExp)
-        return TRUE;
-    int featId = StringToInt(Get2DACache(sFile, "FeatID", spellbookId));
-    int isOuterDomain = (featId) ? !CheckPowerPrereqs(featId, oPC) : FALSE;
-    return isOuterDomain;
+    return isExp;
 }
 
 json GetCurrentPowerList(object oPC=OBJECT_SELF)
@@ -2318,8 +2360,12 @@ int ShouldAddPower(int nClass, int spellbookId, object oPC=OBJECT_SELF)
     string sFile = GetClassSpellbookFile(nClass);
     int featId = StringToInt(Get2DACache(sFile, "FeatID", spellbookId));
     int isExp = StringToInt(Get2DACache(sFile, "Exp", spellbookId));
+    // if you don't have the prereqs for a power then don't add it. Specific for
+    // psions
+    if (!CheckPowerPrereqs(featId, oPC))
+        return FALSE;
     // if the power is a expanded knowledge power
-    if (!CheckPowerPrereqs(featId, oPC) || isExp)
+    if (isExp)
     {
         // and we have a expanded knowledge choice left to make then show
         // the button
@@ -2328,12 +2374,10 @@ int ShouldAddPower(int nClass, int spellbookId, object oPC=OBJECT_SELF)
         int currentCircle = GetLocalInt(oPC, NUI_LEVEL_UP_SELECTED_CIRCLE_VAR);
 
         int choicesLeft = GetRemainingExpandedChoices(nClass, POWER_LIST_EXP_KNOWLEDGE, oPC);
-		if (DEBUG) DoDebug("You still have " + IntToString(choicesLeft) + " expanded power choices left!");
         if (choicesLeft && (currentCircle <= (maxLevel-1)))
             addPower = TRUE;
         choicesLeft = GetRemainingExpandedChoices(nClass, POWER_LIST_EPIC_EXP_KNOWLEDGE, oPC);
-		if (DEBUG) DoDebug("You still have " + IntToString(choicesLeft) + " epic expanded power choices left!");
-        if (choicesLeft && (currentCircle <= (maxLevel-1)))
+        if (choicesLeft)
             addPower = TRUE;
         // otherwise don't show the button.
         return addPower;
@@ -2353,7 +2397,7 @@ void LearnPowers(int nClass, object oPC=OBJECT_SELF)
         int nSpellbookID = JsonGetInt(JsonArrayGet(powerList, i));
         // get the expanded knowledge list we are adding to if any
         int expKnow = GetExpKnowledgePowerListRequired(nClass, nSpellbookID, oPC);
-        AddPowerKnown(oPC, nClass, nSpellbookID, TRUE, GetHitDice(oPC), expKnow);
+        AddPowerKnown(oPC, nClass, nSpellbookID, TRUE, GetManifesterLevel(oPC, nClass, TRUE), expKnow);
     }
 }
 
@@ -2540,7 +2584,7 @@ int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_S
     if (chosenDisc != JsonNull())
     {
         int nManCount = (JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)))
-            + JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE))));
+			+ JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE))));
         if (nManCount >= prereqs)
             return TRUE;
     }
@@ -3136,18 +3180,13 @@ json GetInvokerKnownListObject(int nClass, object oPC=OBJECT_SELF)
     }
 
     SetLocalJson(oPC, NUI_LEVEL_UP_KNOWN_INVOCATIONS_CACHE_VAR + IntToString(nClass), knownObject);
-    if (DEBUG) DoDebug("Printing json representation of allowed invocations for class " + IntToString(nClass));
-    if (DEBUG) DoDebug(JsonDump(knownObject, 2));
     return knownObject;
 }
 
 int GetRemainingInvocationChoices(int nClass, int chosenCircle, object oPC=OBJECT_SELF, int extra=TRUE)
 {
-    if (DEBUG) DoDebug ("Getting remaining invocation choices at " + IntToString(chosenCircle) + " circle");
     int remaining = 0;
     int nLevel = GetInvokerLevel(oPC, nClass);
-    if (nClass == CLASS_TYPE_DRAGON_SHAMAN) nLevel = GetLevelByClass(nClass, oPC);
-    if (DEBUG) DoDebug("Invoker level is " + IntToString(nLevel));
 
     json knownObject = GetInvokerKnownListObject(nClass, oPC);
     json chosenInv = GetChosenSpellListObject(nClass, oPC);
@@ -3175,10 +3214,8 @@ int GetRemainingInvocationChoices(int nClass, int chosenCircle, object oPC=OBJEC
                     currentChosen += 1;
             }
         }
-        if (DEBUG) DoDebug(IntToString(currentChosen) + " incantations chosen at " + IntToString(chosenCircle) + " circle");
 
         int allowedAtCircle = JsonGetInt(JsonObjectGet(currentLevelKnown, IntToString(i)));
-        if (DEBUG) DoDebug(IntToString(allowedAtCircle) + " incantations allowed at " + IntToString(chosenCircle) + " circle");
 
         remaining = (allowedAtCircle - currentChosen + remaining);
         // if the circle is below the chosen circle and we have a positive remaining,

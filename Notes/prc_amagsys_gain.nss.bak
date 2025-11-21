@@ -37,8 +37,6 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
-void CheckIfDeleveled(object oPC);
-void UpdateLastKnownLevels(object oPC);
 void CheckSpellbooks(object oPC);
 void CheckPsionics(object oPC);
 void CheckInvocations(object oPC);
@@ -73,70 +71,7 @@ void main()
         eTest = GetNextEffect(oPC);
     }
 
-    CheckIfDeleveled(oPC);
-
     DelayCommand(0.0f, CheckSpellbooks(oPC));
-}
-
-void CheckIfDeleveled(object oPC)
-{
-    int lastKnownLevel = GetPersistantLocalInt(oPC, "PCLastKnownLevel");
-    int currentLevel = GetHitDice(oPC);
-    if (lastKnownLevel > 0 && currentLevel < lastKnownLevel)
-    {
-        if (DEBUG) DoDebug("The player has de-leveled, checking spells!");
-        json changedClassList = JsonArray();
-        int i;
-        for (i = 1; i <= 8; i++)
-        {
-            int storedClass = GetPersistantLocalInt(oPC, "PCLastKnownClass" + IntToString(i));
-            if (storedClass && storedClass != CLASS_TYPE_INVALID)
-            {
-                int storedLevel = GetPersistantLocalInt(oPC, "PCLastKnownClass" + IntToString(i) + "Levels");
-                int nClass = GetClassByPosition(i, oPC);
-                int currentClassLevels = (GetIsArcaneClass(nClass, oPC) || GetIsDivineClass(nClass, oPC))
-                    ? GetPrCAdjustedClassLevel(nClass, oPC) : GetLevelByClass(nClass, oPC);
-                if (nClass == CLASS_TYPE_INVALID
-                    || (nClass == storedClass && storedLevel != currentClassLevels))
-                {
-                    DoDebug("Class " + IntToString(storedClass) + " lost levels!");
-                    changedClassList = JsonArrayInsert(changedClassList, JsonInt(storedClass));
-                }
-
-            }
-        }
-
-        for (i = lastKnownLevel; i > currentLevel; i--)
-        {
-            int totalChangedClasses = JsonGetLength(changedClassList);
-
-            int j;
-            for (j = 0; j < totalChangedClasses; j++)
-            {
-                int nClass = JsonGetInt(JsonArrayGet(changedClassList, j));
-                DelayCommand(0.0f, CallSpellUnlevelScript(oPC, nClass, i));
-            }
-        }
-    }
-    DoDebug("Setting last known player level to " + IntToString(currentLevel));
-    UpdateLastKnownLevels(oPC);
-}
-
-void UpdateLastKnownLevels(object oPC)
-{
-    int i;
-    for (i = 1; i <= 8; i++)
-    {
-        int nClass = GetClassByPosition(i, oPC);
-        int classLevel = (GetIsArcaneClass(nClass, oPC) || GetIsDivineClass(nClass, oPC))
-            ? GetPrCAdjustedClassLevel(nClass, oPC) : GetLevelByClass(nClass, oPC);
-
-        SetPersistantLocalInt(oPC, "PCLastKnownClass" + IntToString(i), nClass);
-        SetPersistantLocalInt(oPC, "PCLastKnownClass" + IntToString(i) + "Levels", classLevel);
-    }
-
-    int currentLevel = GetHitDice(oPC);
-    SetPersistantLocalInt(oPC, "PCLastKnownLevel", currentLevel);
 }
 
 // Handle new spellbooks
@@ -190,8 +125,8 @@ void CheckSpellbooks(object oPC)
     CheckMissingSpells(oPC, CLASS_TYPE_ARCHIVIST, 0, 9);
     CheckMissingSpells(oPC, CLASS_TYPE_BEGUILER, 0, 9);
     CheckMissingSpells(oPC, CLASS_TYPE_HARPER, 1, 3);
-    CheckMissingSpells(oPC, CLASS_TYPE_CELEBRANT_SHARESS, 1, 4);
-    //CheckMissingSpells(oPC, CLASS_TYPE_ASSASSIN, 1, 4);
+	CheckMissingSpells(oPC, CLASS_TYPE_CELEBRANT_SHARESS, 1, 4);
+    //CheckMissingSpells(oPC, CLASS_TYPE_ASSASSIN, 1, 4);    
 
     // Check psionics
     DelayCommand(0.0f, CheckPsionics(oPC));

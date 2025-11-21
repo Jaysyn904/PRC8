@@ -2349,7 +2349,7 @@
 2345  ShieldCharge                                              ****            1        1      1        ****  0           
 2346  ShieldSlam                                                ****            1        1      1        ****  0           
 2347  PhantomSteed                                              ****            1        1      1        3     0           
-2348  GaseousForm                                               ****            1        1      1        3     0           
+2348  GaseousForm                                               1564            0        0      0        3     0           
 2349  begin_psionics                                            ****            1        1      1        ****  0           
 2350  Augment_QuickSelects                                      ****            1        1      1        ****  0           
 2351  Augment_Digits_0_4                                        ****            1        1      1        ****  0           
@@ -12696,9 +12696,9 @@
 12692 Favoured_Soul_Enthrall                                    ****            1        1      1        2     0           
 12693 Favoured_Soul_SPIRITUAL_WEAPON                            ****            1        1      1        2     0           
 12694 Favoured_Soul_REGEN_LIGHT_WOUNDS                          ****            1        1      1        1     0           
-12695 Favoured_Soul_REGEN_MODERATE_WOUNDS                       ****            1        1      1        2     0           
-12696 Favoured_Soul_REGEN_SERIOUS_WOUNDS                        ****            1        1      1        4     0           
-12697 Favoured_Soul_REGEN_CRITICAL_WOUNDS                       ****            1        1      1        5     0           
+12695 Favoured_Soul_REGEN_MODERATE_WOUNDS                       ****            1        1      1        3     0           
+12696 Favoured_Soul_REGEN_SERIOUS_WOUNDS                        ****            1        1      1        5     0           
+12697 Favoured_Soul_REGEN_CRITICAL_WOUNDS                       ****            1        1      1        6     0           
 12698 Favoured_Soul_Hallow                                      ****            1        1      1        6     0           
 12699 Favoured_Soul_SPELL_CHASING_PERFECTION                    ****            1        1      1        6     0           
 12700 Sohei_Silent_Bless_Weapon                                 ****            1        1      1        2     0           

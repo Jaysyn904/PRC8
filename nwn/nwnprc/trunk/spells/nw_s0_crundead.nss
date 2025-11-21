@@ -40,6 +40,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
     //Declare major variables
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nCasterLevel = PRCGetCasterLevel(OBJECT_SELF);
+	int bIsPC = GetIsPC(OBJECT_SELF);
     int nDuration = nCasterLevel;
     nDuration = 24;
     string sResRef;
@@ -62,7 +63,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
 
     //Apply VFX impact and summon effect
     MultisummonPreSummon();
-    if(GetPRCSwitch(PRC_CREATE_UNDEAD_UNCONTROLLED))
+    if(GetPRCSwitch(PRC_CREATE_UNDEAD_UNCONTROLLED) && bIsPC)
     {
         object oSummon = CreateObject(OBJECT_TYPE_CREATURE, sResRef, PRCGetSpellTargetLocation());
         //this is to 

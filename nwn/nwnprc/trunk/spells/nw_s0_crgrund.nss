@@ -41,6 +41,9 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nCasterLevel = PRCGetCasterLevel(OBJECT_SELF);
     int nDuration = nCasterLevel;
+	
+	int bIsPC = GetIsPC(OBJECT_SELF);
+	
     nDuration = 24;
     string sResRef;
     //effect eVis = EffectVisualEffect(VFX_FNF_SUMMON_UNDEAD);
@@ -61,7 +64,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_NECROMANCY);
     effect eSummon = EffectSummonCreature(sResRef,VFX_FNF_SUMMON_UNDEAD);
     //Apply summon effect and VFX impact.
     MultisummonPreSummon();
-    if(GetPRCSwitch(PRC_CREATE_UNDEAD_UNCONTROLLED))
+    if(GetPRCSwitch(PRC_CREATE_UNDEAD_UNCONTROLLED) && bIsPC)
     {
         object oSummon = CreateObject(OBJECT_TYPE_CREATURE, sResRef, PRCGetSpellTargetLocation());
         //make it hostile

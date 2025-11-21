@@ -27,7 +27,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     int nDuration = nCasterLevel; // * Duration 1 turn/level
     if (CheckMetaMagic(nMetaMagic, METAMAGIC_EXTEND))    //Duration is +100%
          nDuration *= 2;
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, 421, FALSE));
+    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_SHIELD_OF_FAITH, FALSE));
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_AC_BONUS), oTarget);
     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, TurnsToSeconds(nDuration),TRUE,-1,nCasterLevel);
 

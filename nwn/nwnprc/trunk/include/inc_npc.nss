@@ -111,7 +111,7 @@ object CreateLocalNextNPC(object oMaster,int nAssociateType,string sTemplate,loc
   SetLocalObject(oMaster, IntToString(nAssociateType)+"oHench"+IntToString(nCount), oSummon);
   SetLocalInt(oSummon, "iAssocNth", nCount);
 
-  SetAssociateState(NW_ASC_HAVE_MASTER,TRUE,oSummon);
+  SetAssociateState(NW_ASC_HAVE_MASTER, TRUE, oSummon);
   SetAssociateState(NW_ASC_DISTANCE_2_METERS);
   SetAssociateState(NW_ASC_DISTANCE_4_METERS, FALSE);
   SetAssociateState(NW_ASC_DISTANCE_6_METERS, FALSE);

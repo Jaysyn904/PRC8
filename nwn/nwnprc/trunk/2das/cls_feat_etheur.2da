@@ -78,7 +78,7 @@
 74  Bane_Magic_Undead                            23578     0    -1             0      
 75  Bane_Magic_Vermin                            23579     0    -1             0      
 76  **Epic_Feats**                               ****      **** ****           ****   
-77  FEAT_EPIC_ELDRITCH_THEURGE                   23516     3    21             0      
+77  FEAT_EPIC_ELDRITCH_THEURGE                   23516     3    11             0      
 78  FEAT_CRAFT_EPIC_WONDROUS_ITEM                3488      0    -1             0      
 79  FEAT_CRAFT_EPIC_MAGIC_ARMS_AND_ARMOR         3489      0    -1             0      
 80  FEAT_CRAFT_EPIC_ROD                          3490      0    -1             0      

@@ -3,8 +3,19 @@
 
 void main()
 {
-    ExecuteScript("nw_ch_summon_9", OBJECT_SELF);
-    ExecuteScript("prc_npc_spawn", OBJECT_SELF);
+    object oNPC = OBJECT_SELF;
+	
+	ExecuteScript("nw_ch_summon_9", oNPC);
+    ExecuteScript("prc_npc_spawn", oNPC);
+	
+    //:: Used for the Twinfiend Pit Fiend summon
+	int nUltravision = GetLocalInt(oNPC,"INNATE_ULTRAVISION");
+    if(nUltravision)
+        {
+            effect eUltra = EffectUltravision();
+            eUltra = UnyieldingEffect(eUltra);
+            DelayCommand(0.0f, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eUltra, oNPC));
+        }	
     
     //use companion appearances
     /*if(GetPRCSwitch(MARKER_PRC_COMPANION))

@@ -1,6 +1,6 @@
 
 #include "prc_alterations"
-#include "inc_Timestop"
+#include "inc_timestop"
 void main()
 {
     object oTarget = GetExitingObject();

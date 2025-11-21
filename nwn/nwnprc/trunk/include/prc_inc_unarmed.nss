@@ -672,13 +672,13 @@ void UnarmedFists(object oCreature)
 
         // Sacred Fists who break their code get no benefits.
         if (GetHasFeat(FEAT_SF_CODE,oCreature)) iSacFist = 0;
-
+		
         // The monk adds all these classes.
-        int iMonkEq = iMonk + iShou + iSacFist + iHenshin + iZuoken + iShadowSunNinja;
-        
+        int iMonkEq = iMonk + iShou + iSacFist + iHenshin + iZuoken + iShadowSunNinja;     
+
         // Ascetic Stalker
         if (GetHasFeat(FEAT_ASCETIC_STALKER, oCreature))
-            iMonkEq += iAscetic;        
+            iMonkEq += iAscetic;   
 
         // Determine the type of damage the character should do.
         string sWeapType;

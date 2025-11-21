@@ -93,9 +93,8 @@ void GainPowerPoints(object oChar, int nGain, int bCanExceedMax = FALSE, int bIn
  * @param bInform   If TRUE, runs TellCharacterPowerPointStatus() on oChar
  *                  after making the modification.
  */
-/*
 void GainTemporaryPowerPoints(object oChar, int nGain, float fDuration, int bInform = TRUE);
-*/
+
 /**
  * Decreases the character's current power point count by up to the given
  * amount, limited to not going below 0.

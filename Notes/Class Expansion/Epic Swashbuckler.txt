@@ -1,0 +1,12 @@
+You have become the embodiment of panache and daring. You are an epic Swashbuckler.
+
+Hit Die: d10
+Skill Points at Each Additional Level: 4+ Int Modifier
+Bonus Feats: The epic swashbuckler gains a bonus feat every three levels.
+
+Special:
+Swashbuckler Dodge: This bonus continues to increase by +1 at every five levels after 20th.
+Grace: An epic swashbuckler gains another +1 bonus on Reflex saves at 29th and 39th level.  A swashbuckler loses this bonus when wearing medium or heavy armor or when encumbered. 
+ 
+Epic Swashbuckler Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Improved Stunning Fist, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative

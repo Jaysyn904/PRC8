@@ -3,7 +3,6 @@
 #include "psi_inc_psifunc"
 #include "inc_lookups"
 #include "nw_inc_nui"
-#include "tob_inc_tobfunc"
 
 //
 // GetCurrentSpellLevel
@@ -154,53 +153,8 @@ json GreyOutButton(json jButton, float w, float h);
 //
 json CreateGreyOutRectangle(float w, float h);
 
-//
-// GetTrueClassType
-// Gets the true class Id for a provided class Id, mostly for RHD and for
-// ToB prestige classes
-//
-// Arguments:
-//   nClass:int classId
-//
-// Returns:
-//   int the true classId based off nClass
-//
-int GetTrueClassType(int nClass, object oPC=OBJECT_SELF);
-
 void CreateSpellDescriptionNUI(object oPlayer, int featID, int spellId=0, int realSpellId=0, int nClass=0);
-
-void CallSpellUnlevelScript(object oPC, int nClass, int nLevel);
 void ClearSpellDescriptionNUI(object oPlayer=OBJECT_SELF);
-void RemoveIPFeat(object oPC, int ipFeatID);
-
-void CallSpellUnlevelScript(object oPC, int nClass, int nLevel)
-{
-	SetScriptParam("UnLevel_ClassChoice", IntToString(nClass));
-	SetScriptParam("UnLevel_LevelChoice", IntToString(nLevel));
-    ExecuteScript("prc_unlvl_script", oPC);
-}
-
-void RemoveIPFeat(object oPC, int ipFeatID)
-{
-	   object oSkin = GetPCSkin(oPC);
-	   itemproperty ipTest = GetFirstItemProperty(oSkin);
-	   while(GetIsItemPropertyValid(ipTest))
-    	{
-    		// Check if the itemproperty is a bonus feat that has been marked for removal
-        if(GetItemPropertyType(ipTest) == ITEM_PROPERTY_BONUS_FEAT)
-        		{
-    			     if (GetItemPropertySubType(ipTest) == ipFeatID)
-            			{
-    				        if(DEBUG) DoDebug("_ManeuverRecurseRemoveArray(): Removing bonus feat itemproperty:\n" + DebugIProp2Str(ipTest));
-    				        // If so, remove it
-    				        RemoveItemProperty(oSkin, ipTest);
-            			}
-
-        		}
-
-    		ipTest = GetNextItemProperty(oSkin);
-    	}
-}
 
 int GetCurrentSpellLevel(int nClass, int nLevel)
 {
@@ -572,41 +526,5 @@ void ClearSpellDescriptionNUI(object oPlayer=OBJECT_SELF)
     DeleteLocalInt(oPlayer, NUI_SPELL_DESCRIPTION_SPELLID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELL_DESCRIPTION_REAL_SPELLID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELL_DESCRIPTION_CLASSID_VAR);
-}
-
-int GetTrueClassType(int nClass, object oPC=OBJECT_SELF)
-{
-    if (nClass == CLASS_TYPE_JADE_PHOENIX_MAGE
-        || nClass == CLASS_TYPE_MASTER_OF_NINE
-        || nClass == CLASS_TYPE_DEEPSTONE_SENTINEL
-        || nClass == CLASS_TYPE_BLOODCLAW_MASTER
-        || nClass == CLASS_TYPE_RUBY_VINDICATOR
-        || nClass == CLASS_TYPE_ETERNAL_BLADE
-        || nClass == CLASS_TYPE_SHADOW_SUN_NINJA)
-    {
-        int trueClass = GetPrimaryBladeMagicClass(oPC);
-        return trueClass;
-    }
-
-    if ((nClass == CLASS_TYPE_SHAPECHANGER
-            && GetRacialType(oPC) == RACIAL_TYPE_ARANEA)
-     || (nClass == CLASS_TYPE_OUTSIDER
-            && GetRacialType(oPC) == RACIAL_TYPE_RAKSHASA)
-     || (nClass == CLASS_TYPE_ABERRATION
-            && GetRacialType(oPC) == RACIAL_TYPE_DRIDER)
-     || (nClass == CLASS_TYPE_MONSTROUS
-            && GetRacialType(oPC) == RACIAL_TYPE_ARKAMOI)
-     || (nClass == CLASS_TYPE_MONSTROUS
-            && GetRacialType(oPC) == RACIAL_TYPE_HOBGOBLIN_WARSOUL)
-     || (nClass == CLASS_TYPE_MONSTROUS
-            && GetRacialType(oPC) == RACIAL_TYPE_REDSPAWN_ARCANISS)
-     || (nClass == CLASS_TYPE_MONSTROUS
-            && GetRacialType(oPC) == RACIAL_TYPE_MARRUTACT))
-            return CLASS_TYPE_SORCERER;
-     if (nClass == CLASS_TYPE_FEY
-            && GetRacialType(oPC) == RACIAL_TYPE_GLOURA)
-         return CLASS_TYPE_BARD;
-
-    return nClass;
 }
 

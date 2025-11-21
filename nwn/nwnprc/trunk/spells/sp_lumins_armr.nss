@@ -91,14 +91,15 @@ void main()
         {
             nArmor = nLevel + 5;
             DoCorruptionCost(oPC, ABILITY_STRENGTH, d2(1), 0);
+			SignalEvent(oTarget, EventSpellCastAt(oPC, nSpell));
         }
 
         else if(nSpell == SPELL_GREATER_LUMINOUS_ARMOR)
         {
             nArmor = nLevel + 8;
             DoCorruptionCost(oPC, ABILITY_STRENGTH, d3(), 0);
+			SignalEvent(oTarget, EventSpellCastAt(oPC, nSpell));
         }
-
         else
         {
             return;

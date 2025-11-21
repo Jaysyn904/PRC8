@@ -55,13 +55,25 @@ int DoPower(object oManifester, object oTarget, struct manifestation manif)
         // It's a creature, target their primary weapon
         oTarget = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);
     }
-    // Make sure the target is either weapon or ammo
+
+	// Validate that the target is a weapon or ammunition
+	int bIsWeapon = GetWeaponRanged(oTarget) || IPGetIsMeleeWeapon(oTarget);
+
+	int nBase = GetBaseItemType(oTarget);
+	int bIsAmmo = nBase == BASE_ITEM_ARROW || nBase == BASE_ITEM_BOLT || nBase == BASE_ITEM_BULLET;
+
+	if (!(bIsWeapon || bIsAmmo))
+	{
+		oTarget = OBJECT_INVALID;
+	}	
+	
+/*     // Make sure the target is either weapon or ammo
     if(!(GetWeaponRanged(oTarget) || IPGetIsMeleeWeapon(oTarget) ||
          GetBaseItemType(oTarget) == BASE_ITEM_ARROW ||
          GetBaseItemType(oTarget) == BASE_ITEM_BOLT  ||
          GetBaseItemType(oTarget) == BASE_ITEM_BULLET
        ) )
-        oTarget = OBJECT_INVALID;
+        oTarget = OBJECT_INVALID; */
 
     // Make sure we have a valid target
     if(!GetIsObjectValid(oTarget))

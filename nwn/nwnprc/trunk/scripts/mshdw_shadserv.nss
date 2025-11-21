@@ -158,10 +158,6 @@ void main()
 	
 	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eGhost, oShadow);	
 
-    // Full round wait then move
-    AssignCommand(oShadow, ClearAllActions());
-    AssignCommand(oShadow, ActionWait(6.0));
-    AssignCommand(oShadow, ActionMoveToObject(oPC));
 
     // Start watch loop
     DelayCommand(6.1, ShadowServantWatch(oShadow, oPC));

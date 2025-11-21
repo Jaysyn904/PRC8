@@ -27152,11 +27152,18 @@ Major Auras are granted on levels
 ~Grant Move Action~
 A marshal can haste himself and his allies for 1 round.  This ability may be used once per day per 4 class levels.</entry>
   <entry id="51043" lang="en" sex="m">Epic Swashbuckler</entry>
-  <entry id="51044" lang="en" sex="m">You have become the embodiment of panache and daring.  You are an epic Swashbuckler.
+  <entry id="51044" lang="en" sex="m">You have become the embodiment of panache and daring. You are an epic Swashbuckler.
 
 Hit Die: d10
 Skill Points at Each Additional Level: 4+ Int Modifier
-Bonus Feats: The epic swashbuckler gains a bonus feat every three levels, starting at level 23 </entry>
+Bonus Feats: The epic swashbuckler gains a bonus feat every three levels.
+
+Special:
+Swashbuckler Dodge: This bonus continues to increase by +1 at every five levels after 20th.
+Grace: An epic swashbuckler gains another +1 bonus on Reflex saves at 29th and 39th level.  A swashbuckler loses this bonus when wearing medium or heavy armor or when encumbered. 
+ 
+Epic Swashbuckler Bonus Feat List:
+Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Improved Stunning Fist, Improved Whirlwind Attack, Overwhelming Critical, Superior Initiative</entry>
   <entry id="51045" lang="en" sex="m">Epic Marshal</entry>
   <entry id="51046" lang="en" sex="m">An epic marshal commands legions of soldiers and sometimes rules his own nation.
 His followers are loyal to the death, and his empire is the stuff of legend.
@@ -46024,15 +46031,15 @@ Spell Resistance: No (harmless)
 Physical frailty is but a memory for the subject of this spell. The targeted creature is granted permanent immunity to poison and disease, regeneration +1, and a Constitution bonus of +5.</entry>
   <entry id="56299" lang="en" sex="m">Epic Spell: Twinfiend</entry>
   <entry id="56300" lang="en" sex="m">Researched Epic Spell: Twinfiend</entry>
-  <entry id="56301" lang="en" sex="m">School: Conjuration (Summoning)
-Components: V,S
-Range: Short
-Effect: Two summoned pit fiends
-Duration: 20 rounds
-Saving Throw: None
-Spell Resistance: No
+  <entry id="56301" lang="en" sex="m">	School: Conjuration (Summoning, Evil)
+	Components: V,S
+	Range: Short
+	Effect: Summons two advanced pit fiends
+	Duration: 1 Turn / Caster level
+	Saving Throw: None
+	Spell Resistance: No
 
-You summon two pit fiends from the abyss to do your bidding. These devils follow your orders to the best of their abilities, for the duration.</entry>
+	You summon two advanced pit fiends from the Nine Hells to do your bidding. These devils recieve one bonus hit die for every 2 caster levels of the summoner and maximum hit points per die. The pit fiends follow your orders to the best of their abilities, for the duration of the spell.</entry>
   <entry id="56302" lang="en" sex="m">Epic Spell: Unholy Disciple</entry>
   <entry id="56303" lang="en" sex="m">Researched Epic Spell: Unholy Disciple</entry>
   <entry id="56304" lang="en" sex="m">School: Necromancy
@@ -73578,9 +73585,9 @@ Transmuting energy spreads out around the targets, dealing 4d8 points of damage 
   <entry id="199260" lang="en" sex="m">Mass Inflict Critical Damage (15)</entry>
   <entry id="199261" lang="en" sex="m">Mass Inflict Critical Damage (20)</entry>
   <entry id="199262" lang="en" sex="m">****</entry>
-  <entry id="199263" lang="en" sex="m">****</entry>
-  <entry id="199264" lang="en" sex="m">****</entry>
-  <entry id="199265" lang="en" sex="m">****</entry>
+  <entry id="199263" lang="en" sex="m">Gaseous Form (5)</entry>
+  <entry id="199264" lang="en" sex="m">Gaseous Form (10)</entry>
+  <entry id="199265" lang="en" sex="m">Gaseous Form (15)</entry>
   <entry id="199266" lang="en" sex="m">****</entry>
   <entry id="199267" lang="en" sex="m">****</entry>
   <entry id="199268" lang="en" sex="m">****</entry>

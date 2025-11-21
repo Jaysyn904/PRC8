@@ -31,7 +31,7 @@ void main()
     int bKing = GetHasFeat(FEAT_KING_LIES, oPC) ? 4 : 0;
     int bDevil = GetHasFeat(FEAT_TONGUE_DEVIL, oPC) ? iInt : 0;
 
-    if (bKing>0)   KingofLies(oPC, oSkin,bKing);
+    //if (bKing>0)   KingofLies(oPC, oSkin,bKing);  Handled in stat 2DA now
     if (bDevil>0) DevilTongue(oPC, oSkin,bDevil);
 
 }
