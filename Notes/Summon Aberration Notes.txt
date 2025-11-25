@@ -1,0 +1,22 @@
+Beholder
+12.) Point-blank Shot (27)
+15.) Weapon Focus: Ray (4819)
+18.) Blind Fight (408)
+21.) Fast Heaing I  (4145)
+24.) Armor Skin (490)
+27.) Fast Heaing II (4146)
+30.) Epic Reflexes (585)
+33.) Fast Heaing III (4147)
+
+Umber Hulk
+9.)  Blind-fight (408)
+12.) Improved Critical: Creature (292)
+15.) Weapon Focus: Creature (291)
+18.) Lightining Reflexes (24)
+21.) Epic Prowess (584)
+24.) Armor Skin (490)
+
+Battle Devourer
+9.)  Blind-fight (408)
+12.) Improved Critical: Creature (292)
+15.) Improved Trip (2807)

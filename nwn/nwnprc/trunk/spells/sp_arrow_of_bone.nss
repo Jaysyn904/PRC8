@@ -78,8 +78,16 @@ void main()
         //Decrement the stack
         int nNewStack = GetItemStackSize(oStack);
         nNewStack--;
+		
+		if (nNewStack < 1)
+		{
+			DestroyObject(oStack);
+		}
         
-        SetItemStackSize(oStack, nNewStack);
+        if( oStack != OBJECT_INVALID)
+		{
+			SetItemStackSize(oStack, nNewStack);
+		}
         
         //create appropriate item
         object oArrowBone = CreateItemOnObject(sBone, oPC, 1);

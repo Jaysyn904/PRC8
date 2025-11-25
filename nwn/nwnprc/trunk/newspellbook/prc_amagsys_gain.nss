@@ -118,7 +118,7 @@ void CheckIfDeleveled(object oPC)
             }
         }
     }
-    DoDebug("Setting last known player level to " + IntToString(currentLevel));
+    if(DEBUG) DoDebug("Setting last known player level to " + IntToString(currentLevel));
     UpdateLastKnownLevels(oPC);
 }
 

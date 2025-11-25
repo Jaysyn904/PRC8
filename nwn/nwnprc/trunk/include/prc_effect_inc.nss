@@ -269,6 +269,8 @@ object GetObjectToApplyNewEffect(string sTag, object oPC, int nStripEffects = TR
         SetCreatureAppearanceType(oWP, APPEARANCE_TYPE_INVISIBLE_HUMAN_MALE);
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oWP);
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oWP);
+		AssignCommand(oWP, ActionUseSkill(SKILL_HIDE, oWP));
+		
     }
     //remove previous effects
     if(nStripEffects)

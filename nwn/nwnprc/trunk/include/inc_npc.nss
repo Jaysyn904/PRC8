@@ -7,8 +7,11 @@
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
+//:: Levels up an NPC according to variables set on NPC.
+void LevelUpSummon(object oSummon, int iTargetLvl);
+ 
 // Get the master of oAssociate.
-object GetMasterNPC(object oAssociate=OBJECT_SELF);
+object GetMasterNPC(object oAssociate0 = OBJECT_SELF);
 
 // Returns the associate type of the specified creature.
 // - Returns ASSOCIATE_TYPE_NONE if the creature is not the associate of anyone.
@@ -75,7 +78,6 @@ void DestroySummon(object oSummon)
    DestroyObject(oSummon);
 }
 
-
 object CreateLocalNPC(object oMaster,int nAssociateType,string sTemplate,location loc,int Nth=1,string sTag="")
 {
      object oSummon=CreateObject(OBJECT_TYPE_CREATURE,sTemplate,loc,FALSE,sTag);
@@ -122,6 +124,7 @@ object CreateLocalNextNPC(object oMaster,int nAssociateType,string sTemplate,loc
   return oSummon;
 
 }
+
 object GetMasterNPC(object oAssociate=OBJECT_SELF)
 {
    object oMaster = GetLocalObject(oAssociate, "oMaster");
@@ -220,4 +223,173 @@ int GetAssociateHealMasterNPC()
     return FALSE;
 }
 
+/**
+ * @brief Levels up a summoned creature based on its master's total casting level,
+ *        while respecting configured HD limits and multiclass transition rules.
+ *		  Should only be called on the NPC onSpawn event.
+ *
+ * This function:
+ *  - Retrieves the master’s total casting level and clamps it to the creature’s
+ *    minimum and maximum HD (iMinHD, iMaxHD).
+ *  - Repeatedly calls LevelUpHenchman() until the creature reaches that level,
+ *    switching classes when the creature's stored "ClassXStart" thresholds are met.
+ *
+ * Local variables recognized on the summoned creature:
+ *
+ * | Variable Name   | Purpose                                                     |
+ * |-----------------|-------------------------------------------------------------|
+ * | iMinHD          | Minimum HD allowed                                          |
+ * | iMaxHD          | Maximum HD allowed                                          |
+ * | Class2Start     | Level to begin second class progression                     |
+ * | Class2          | Class type for second progression                           |
+ * | Class2Package   | Package for second progression                              |
+ * | Class3Start     | Level to begin third class progression                      |
+ * | Class3          | Class type for third progression                            |
+ * | Class3Package   | Package for third progression                               |
+ * | Class4Start     | Level to begin fourth class progression                     |
+ * | Class4          | Class type for fourth progression                           |
+ * | Class4Package   | Package for fourth progression                              |
+ *
+ * Behavior notes:
+ *  - Leveling continues until the creature reaches the master’s effective
+ *    casting level (bounded by iMinHD/iMaxHD).
+ *  - If LevelUpHenchman() returns 0, the creature shouts a failure message.
+ *  - CLASS_TYPE_INVALID causes the creature to level in its current class.
+ *
+ * @param oCreature The summoned creature being leveled. Defaults to OBJECT_SELF.
+ *
+ * @see LevelUpHenchman
+ * @see GetLocalInt
+ * @see GetHitDice
+ */
+void LevelUpSummon(object oSummon, int iTargetLvl)
+{
+    int nCurrentHD = GetHitDice(oSummon);
+    int iNewHD = nCurrentHD;
 
+    // Read multiclassing info from locals
+    int iClass2Start   = GetLocalInt(oSummon, "Class2Start");
+    int iClass2        = GetLocalInt(oSummon, "Class2");
+    int iClass2Package = GetLocalInt(oSummon, "Class2Package");
+
+    int iClass3Start   = GetLocalInt(oSummon, "Class3Start");
+    int iClass3        = GetLocalInt(oSummon, "Class3");
+    int iClass3Package = GetLocalInt(oSummon, "Class3Package");
+
+    int iClass4Start   = GetLocalInt(oSummon, "Class4Start");
+    int iClass4        = GetLocalInt(oSummon, "Class4");
+    int iClass4Package = GetLocalInt(oSummon, "Class4Package");
+
+    int iClass;      // current class to level
+    int iPackage;    // package to use
+
+    // Main leveling loop
+    while (nCurrentHD < iTargetLvl && nCurrentHD > 0)
+    {
+        // Determine which class and package to use
+        if (iClass4Start != 0 && nCurrentHD >= iClass4Start)
+        {
+            iClass = iClass4;
+            iPackage = iClass4Package;
+        }
+        else if (iClass3Start != 0 && nCurrentHD >= iClass3Start)
+        {
+            iClass = iClass3;
+            iPackage = iClass3Package;
+        }
+        else if (iClass2Start != 0 && nCurrentHD >= iClass2Start)
+        {
+            iClass = iClass2;
+            iPackage = iClass2Package;
+        }
+        else
+        {
+            // Base class (first class in the sheet)
+            iClass = CLASS_TYPE_INVALID;  // keeps current
+            iPackage = PACKAGE_INVALID;
+        }
+
+        // Level up one HD
+        iNewHD = LevelUpHenchman(oSummon, iClass, TRUE, iPackage);
+
+        if (iNewHD == 0)
+        {
+            SpeakString(GetName(oSummon) + " failed to level properly!", TALKVOLUME_SHOUT);
+            break;
+        }
+
+        nCurrentHD = iNewHD;
+    }
+
+    // Force the creature to rest to memorize spells
+    // PRCForceRest(oSummon);
+
+}
+
+
+ 
+ 
+ 
+/*  void LevelUpSummon(object oSummon, int iTargetLvl)
+{
+	//get the default hit dice of the summon
+	int nDefaultHD = GetHitDice(oSummon);
+	
+	if (DEBUG) DoDebug("inc_npc >> LevelUpSummon: nDefaultHD = " +IntToString(nDefaultHD)+".");
+	
+	if (DEBUG) DoDebug("inc_npc >> LevelUpSummon: iTargetLvl = " +IntToString(iTargetLvl)+".");
+
+	//get the multiclassing variables to see if we need to change classes from its base class
+	int iClass2Start 	= GetLocalInt(oSummon, "Class2Start");
+	int iClass2			= GetLocalInt(oSummon, "Class2");
+	int iClass2Package 	= GetLocalInt(oSummon, "Class2Package");
+
+	int iClass3Start 	= GetLocalInt(oSummon, "Class3Start");
+	int iClass3 		= GetLocalInt(oSummon, "Class3");
+	int iClass3Package 	= GetLocalInt(oSummon, "Class3Package");
+	
+	int iClass4Start 	= GetLocalInt(oSummon, "Class4Start");
+	int iClass4 		= GetLocalInt(oSummon, "Class4");
+	int iClass4Package 	= GetLocalInt(oSummon, "Class4Package");	
+
+	//check for zero cause thats an error
+	//if creatures are not leveling then best bet is they are not legal creatures
+	while( (nDefaultHD < iTargetLvl) && (nDefaultHD > 0) )
+	{
+		//check the multiclassing numbers to change classes
+		if( (iClass4Start != 0) && (nDefaultHD >= iClass4Start) )
+		{
+			//level up using the new class and Packageage
+			nDefaultHD = LevelUpHenchman(oSummon, iClass4 ,TRUE, iClass4Package);
+			
+			if(nDefaultHD == 0)
+				SpeakString(GetName(oSummon) + " Failed on fourth class", TALKVOLUME_SHOUT);
+		}		
+		else if( (iClass3Start != 0) && (nDefaultHD >= iClass3Start) )
+		{
+			//level up using the new class and Packageage
+			nDefaultHD = LevelUpHenchman(oSummon, iClass3 ,TRUE, iClass3Package);
+			
+			if(nDefaultHD == 0)
+				SpeakString(GetName(oSummon) + " Failed on third class", TALKVOLUME_SHOUT);
+		}
+		else if( (iClass2Start != 0) && (nDefaultHD >= iClass2Start) )
+		{
+			//level up using the new class and Packageage
+			nDefaultHD = LevelUpHenchman(oSummon, iClass2 ,TRUE, iClass2Package);
+			
+			if(nDefaultHD == 0)
+				SpeakString(GetName(oSummon) + " Failed on second class", TALKVOLUME_SHOUT);
+		}
+		else
+		{
+			//just level up using the class it already has
+			nDefaultHD = LevelUpHenchman(oSummon, CLASS_TYPE_INVALID ,TRUE);
+			
+			if(nDefaultHD == 0)
+				SpeakString(GetName(oSummon) + " Failed to level properly", TALKVOLUME_SHOUT);
+		}	
+	}
+}
+ */
+//:: void main() {}

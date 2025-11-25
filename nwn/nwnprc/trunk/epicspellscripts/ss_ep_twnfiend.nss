@@ -42,6 +42,10 @@ void SpawnTwinFiend(object oPC, json jDevil, location lTarget, float fDuration)
 	
 	object oFiend = JsonToObject(jDevil, lTarget);
 	
+	int nHD = GetHitDice(oFiend);
+	
+	SetLocalInt(oFiend, "PRC_CASTERLEVEL_OVERRIDE", nHD);
+	
 	int nCasterLvl = GetTotalCastingLevel(oPC);
 	
 	if (!GetIsObjectValid(oFiend))
@@ -103,14 +107,13 @@ void main()
 {
     object oPC = OBJECT_SELF;
 	
-	DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
-    SetLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
-
     if (!X2PreSpellCastCode())
     {
         DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
         return;
     }
+	
+	SetLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 
 	// Target location
     location lTarget = PRCGetSpellTargetLocation();
@@ -174,9 +177,28 @@ void main()
     {
         SendMessageToPC(oPC, "ss_ep_twinfiend >> json_ApplyAbilityBoostFromHD failed — JSON became invalid.");
         return;
-    }	
-
-    // Size increase
+    }
+	
+	//:: Pit Fiend w 20 INT gets 13 (8+5) skill points per HD
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPOT, nCasterLvl/2);	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LORE, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LISTEN, nCasterLvl/2);	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SEARCH, nCasterLvl/2);	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_HIDE, nCasterLvl/2);	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_MOVE_SILENTLY, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CONCENTRATION, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_BLUFF, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CLIMB, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPELLCRAFT, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_JUMP, nCasterLvl/2);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_TUMBLE, nCasterLvl/4);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_USE_MAGIC_DEVICE, nCasterLvl/4);
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed — JSON became invalid.");
+        return;
+    }
+	
+    //:: Size increase
     if (nCasterLvl > 14)
     {
         jDevil = json_AdjustCreatureSize(jDevil, 1);
@@ -303,13 +325,14 @@ void main()
 			}
 			else DoDebug("ss_ep_twinfiend >> No size change detected.");
 			
-            AssignCommand(oFiend, DetermineCombatRound());
-            AssignCommand(oFiend2, DetermineCombatRound());
+			AssignCommand(oFiend, DetermineCombatRound());
+			AssignCommand(oFiend2, DetermineCombatRound());
 			
-            DestroyObject(oFiend, fDuration);
-            DelayCommand(fDuration, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis2, GetLocation(oFiend)));
-            DestroyObject(oFiend2, fDuration);
-            DelayCommand(fDuration, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis2, GetLocation(oFiend2)));
+			DestroyObject(oFiend, fDuration);
+			DelayCommand(fDuration, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis2, GetLocation(oFiend)));
+			DestroyObject(oFiend2, fDuration);
+			DelayCommand(fDuration, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis2, GetLocation(oFiend2)));
+		
         }
     }
 	

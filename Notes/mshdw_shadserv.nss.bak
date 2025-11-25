@@ -68,7 +68,7 @@ void main()
 	float fRange  = 30.0 + (nMaster * 10);
 
     // Target location
-    location lTarget = GetSpellTargetLocation();
+    location lTarget = PRCGetSpellTargetLocation();
 
     // Distance check
     if (GetDistanceBetweenLocations(GetLocation(oPC), lTarget) > FeetToMeters(fRange))
@@ -135,7 +135,14 @@ void main()
             return;
         }
     }
-	
+	//:: One skill point per HD
+	jShadow = json_AdjustCreatureSkillByID(jShadow, SKILL_SPOT, nHDToAdd);	
+	if (jShadow == JSON_NULL)
+	{
+		DoDebug("mdshdw_shadserv >> json_AdjustCreatureSkillByID failed — JSON became invalid.");
+		return;
+	}
+		
 	object oShadow = JsonToObject(jShadow, lTarget);
             effect eSummon = ExtraordinaryEffect(EffectSummonCreature("", VFX_FNF_SUMMON_UNDEAD, 0.0, 0, VFX_IMP_UNSUMMON, oShadow));
 			

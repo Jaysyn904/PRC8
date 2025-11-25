@@ -6380,7 +6380,7 @@ Skill Points at Each Additional Level: 4 + Int modifier
  Bonus Feats: The epic arcane trickster gains a bonus feat (selected from the list of epic arcane trickster feats) every 4 levels after 10th.
  Epic Arcane Trickster Bonus Feat List: (Automatic) Silent Spell, (Automatic) Still Spell, (Automatic) Quicken Spell, Blinding Speed, Epic Skill Focus, Improved Combat Casting, Improved Sneak Attack, Self-Concealment, Epic Dodge, (Greater) Spell Focus, (Greater) Spell Penetration.B</entry>
   <entry id="45224" lang="en" sex="m">Exalted Companion</entry>
-  <entry id="45225" lang="en" sex="m">Type of Feat: General
+  <entry id="45225" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Animal Companion, Good Alignment (if you select this feat with another alignment, it will fail).
 Specifics: Applies the celestial template to your animal companion. It gains the ability to Smite Evil 1/day, as a paladin, Spell Resistance of 2 times HD, capping at 25, Darkvision, and benefits per the table below.
 
@@ -9687,7 +9687,7 @@ Prerequisite: Thrall of Orcus Level 10
 Specifics: A Thrall of Orcus can summon a Nightwing once per day.
 Use: Selected.</entry>
   <entry id="46128" lang="en" sex="m">Servant of The Heavens</entry>
-  <entry id="46129" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="46129" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Good Alignment*
 Specifics: You swear allegiance to one of the Tome Archons who rule the Seven Heavens, and in exchange gain power to act on their behalf. Once per day, you may call upon your archon patron to gain a +1 luck bonus to damage, attack roll and saving throws for 9 seconds.
 Use: Selected.
@@ -19562,7 +19562,7 @@ Prerequisite: Tamer of Beasts level 1
 Specifics: The tamer can have companions whose Hit Dice total no more than the sum of twice his tamer level plus twice his caster level for animal friendship. No individual companions can have more Hit Dice than the tamer.
 Use: Automatic.</entry>
   <entry id="48686" lang="en" sex="m">Touch of Golden Ice</entry>
-  <entry id="48687" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48687" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Con 13, Good Alignment*.
 Specifics: Any evil being you hit (with glove or natural attack) is ravaged by Golden Ice (Poison DC 14, 2d6/1d6 Dex). You cannot wield a weapon and use this ability at the same time.
 Use: Automatic.
@@ -19573,7 +19573,7 @@ Use: Automatic.
   <entry id="48690" lang="en" sex="m">Stigmata Con -4</entry>
   <entry id="48691" lang="en" sex="m">Stigmata Con -2</entry>
   <entry id="48692" lang="en" sex="m">Stigmata</entry>
-  <entry id="48693" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48693" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Nimbus of Light, Good Alignment*.
 Specifics:  You can heal the wounds and ailments of others' using your own life energy. When you activate this ability, as a free action, you immediately take at least 2 points of temporary Constitution damage. You can take as many points of Constitution damage as you wish**, as long as you remain alive and conscious.
  Once you have activated your stigmata, you can touch your allies to heal them of 1 point of constitution damage per level they possess for every 2 points of Constitution damage you take. In addition, any character you touch who is suffering from a disease is cured of it.***
@@ -19586,14 +19586,14 @@ Notes:
 **: Limited to 2, 4, 6 and 8 points due to technical limits.
 ***: Due to technical limits, one cannot "hold the charge" on the stigmata. To make up for that, diseases will always be cured.</entry>
   <entry id="48694" lang="en" sex="m">Holy Radiance</entry>
-  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Cha 15, Nimbus of Light, Good Alignment*.
 Specifics: You can increase the intensity of the light surrounding you to damage undead creatures. At will, as a free action, you can empower the radiance surrounding you into a blazing glow that sheds bright light in a 10-foot radius. Undead within 10 feet of you take 1d4 damage per round they remain within your halo.
 Use: Selected.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48696" lang="en" sex="m">Nimbus of Light</entry>
-  <entry id="48697" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48697" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Base Attack Bonus 1, Good Alignment*.
 Required For: Holy Radiance, Stigmata.
 Specifics: You are cloaked in a radiant light that marks you as a servant of purest ideals. You gain a +2 bonus to persuade. Your radiance sheds light with a radius of 5 feet.
@@ -19601,21 +19601,21 @@ Use: Selected.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48698" lang="en" sex="m">Intuitive Attack</entry>
-  <entry id="48699" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48699" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Base Attack Bonus 1, Good Alignment*.
 Specifics: With a simple weapon or a natural weapon, you may use your Wisdom modifier instead your Strength modifier on attack rolls.
 Use: Automatic.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48700" lang="en" sex="m">Hand of a Healer</entry>
-  <entry id="48701" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48701" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Cha 13, Lay on Hand, Good Alignment*.
 Specifics: When you determining how many hit points you can cure, treat your Charisma score as if it were 2 points higher.
 Use: Automatic.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48702" lang="en" sex="m">Exalted Turning</entry>
-  <entry id="48703" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48703" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Turn Undead, Good or Neutral Alignment*.
 Specifics: Any Undead that you turns take an extra 3d6 damage in addition to the normal turning effect.
 Use: Automatic.
@@ -45964,15 +45964,15 @@ Spell Resistance: Will Negates (Harmless)
 You cast forth a field of minor storms that create barriers around the caster and all allies within a 20 radius that absorbs all incoming spells. The barriers can absorb 1d12+10 spell levels each before collapsing.</entry>
   <entry id="56281" lang="en" sex="m">Epic Spell: Summon Aberration</entry>
   <entry id="56282" lang="en" sex="m">Researched Epic Spell: Summon Aberration</entry>
-  <entry id="56283" lang="en" sex="m">School: Conjuration (Summoning)
-Components: V,S
-Range: Short
-Effect: One summoned aberration
-Duration: 20 hours
-Saving Throw: None
-Spell Resistance: No
+  <entry id="56283" lang="en" sex="m">	School: Conjuration (Summoning)
+	Components: V,S
+	Range: Short
+	Effect: Summons advanced aberration(s)
+	Duration: 1 Turn / Caster level
+	Saving Throw: None
+	Spell Resistance: No
 
-You summon one of a variety of aberrations. It is never clear which type of aberration will appear, but it will always be one of these: a Drider Chief, a Beholder, a Mind Flayer Darkener, an Umber Hulk, or a Battle Devourer. The summoned aberration will do your bidding to the best of its abilities, for the duration. </entry>
+	You summon one or more advanced psuedonatural aberrations from the Far Realms to do your bidding. The aberration receives one bonus hit die for every 2 caster levels of the summoner, up to the maximum hit dice for the creature, and maximum hit points per die. The aberration follows your orders to the best of its ability, for the duration of the spell.  Possible summons are a: Drider, Beholder, Illithid, Umber Hulk, or 2-3 Battle Devourers.</entry>
   <entry id="56284" lang="en" sex="m">Epic Spell: Superb Dispelling</entry>
   <entry id="56285" lang="en" sex="m">Researched Epic Spell: Superb Dispelling</entry>
   <entry id="56286" lang="en" sex="m">School: Abjuration
@@ -72680,6 +72680,12 @@ Strength of Will: You gain a bonus equal to 1/2 your class level (minimum +1) on
 Wild Frenzy: You gain a +2 bonus on attack rolls and damage rolls with melee weapons and eldritch blasts, along with temporary hit points equal to twice your class level. This effect lasts for a number of rounds equal to 3 + your Cha modifier (minimum 1 round). Your deity must be chaotic for you to select this gift.</entry>
   <entry id="77218" lang="en" sex="m">&lt;cÿÿÿ&gt;Pick an invoking feat (1st lvl)&lt;/c&gt;</entry>
   <entry id="77219" lang="en" sex="m">Choose which invoking class to advance with the currently selected Prestige Class.  If you try take a marker feat after1st class level, your character will be releveled.</entry>
+  <entry id="77220" lang="en" sex="m">Exalted Feats</entry>
+  <entry id="77221" lang="en" sex="m">Exalted feats are only available to good-aligned characters and creatures.
+
+Due to technical reasons, we cannot enforce this limitation directly. If you do take one of these feats without qualifying for it, it will be useless to you.</entry>
+  <entry id="77997" lang="en" sex="m">Cancel Spell</entry>
+  <entry id="77998" lang="en" sex="m">This will allow the caster to end any self-cast spell effects on their person.</entry>
   <entry id="77999" lang="en" sex="m">### PRC8 CLASS RESERVE ###</entry>
   <entry id="78000" lang="en" sex="m">LoT</entry>
   <entry id="78001" lang="en" sex="m">Lion of Talisid</entry>
@@ -73664,7 +73670,8 @@ Benefit: Beginning at 13th level, you can multiply your weight by 8, gaining a +
 
 Use: Selected</entry>
   <entry id="200102" lang="en" sex="m">Vow of Poverty</entry>
-  <entry id="200103" lang="en" sex="m">You have taken a sacred vow to forswear material possessions.
+  <entry id="200103" lang="en" sex="m">Type of Feat: Exalted
+You have taken a sacred vow to forswear material possessions.
   
 You gain bonuses to your Armor Class, ability scores, and saving throws, as well as bonus exalted feats, all depending on your character level.
   

@@ -998,8 +998,8 @@
 994        Faerie_Fire                           16793699 1         1         750    2924       0         1       1          iss_faerie_fire   
 995        SPELL_FORCE_MISSILES_8                16790491 8         4         24000  2480       0         1       1          iss_X1LesMis      
 996        SPELL_FORCE_MISSILES_12               16790488 12        4         36000  2480       0         1       1          iss_X1LesMis      
-997        SPELL_CHASING_PERFECTION_12           16790495 12        6         54000  2479       0         0       1          fot_strengthone   
-998        SPELL_CHASING_PERFECTION_16           16790496 16        6         72000  2479       0         0       1          fot_strengthone   
+997        SPELL_CHASING_PERFECTION_12           16990495 12        6         54000  2479       0         0       1          fot_strengthone   
+998        SPELL_CHASING_PERFECTION_16           16990496 16        6         72000  2479       0         0       1          fot_strengthone   
 999        ****                                  ****     ****      ****      ****   ****       ****      ****    ****       ****              
 1000       Acid_Orb                              16830292 7         4         21000  3100       0         1       1          iss_acidorb       
 1001       Acid_Orb                              16830293 15        4         45000  3100       0         1       1          iss_acidorb       

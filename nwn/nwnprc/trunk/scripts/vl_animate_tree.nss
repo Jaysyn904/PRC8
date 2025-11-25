@@ -77,7 +77,7 @@ void main()
     }
 
     // Target location
-    location lTarget = GetSpellTargetLocation();
+    location lTarget = PRCGetSpellTargetLocation();
 
     // Distance check
     if (GetDistanceBetweenLocations(GetLocation(oPC), lTarget) > FeetToMeters(TREE_RANGE_FEET))

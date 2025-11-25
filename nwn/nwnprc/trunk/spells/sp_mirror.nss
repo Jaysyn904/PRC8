@@ -282,7 +282,7 @@ void main2()
 	object oImage;	
 	json jImage = ObjectToJson(oCaster);
 	
-	jImage = JsonModifyRacialType(jImage, RACIAL_TYPE_CONSTRUCT);
+	jImage = json_ModifyRacialType(jImage, RACIAL_TYPE_CONSTRUCT);
 
 	oImage = JsonToObject(jImage, GetLocation(oCaster));
 	

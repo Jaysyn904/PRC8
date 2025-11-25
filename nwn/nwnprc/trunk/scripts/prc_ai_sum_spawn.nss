@@ -1,5 +1,6 @@
 #include "prc_alterations"
 #include "prc_compan_inc"
+#include "inc_npc"
 
 void main()
 {
@@ -11,11 +12,13 @@ void main()
     //:: Used for the Twinfiend Pit Fiend summon
 	int nUltravision = GetLocalInt(oNPC,"INNATE_ULTRAVISION");
     if(nUltravision)
-        {
-            effect eUltra = EffectUltravision();
-            eUltra = UnyieldingEffect(eUltra);
-            DelayCommand(0.0f, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eUltra, oNPC));
-        }	
+	{
+		effect eUltra = EffectUltravision();
+		eUltra = UnyieldingEffect(eUltra);
+		DelayCommand(0.0f, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eUltra, oNPC));
+	}	
+	
+	
     
     //use companion appearances
     /*if(GetPRCSwitch(MARKER_PRC_COMPANION))

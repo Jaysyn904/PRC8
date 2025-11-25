@@ -20,7 +20,13 @@
 #include "inc_debug"
 #include "prc_inc_racial"
 #include "prc_inc_nwscript"
+#include "prc_inc_spells"
+#include "prc_inc_util"
+#include "prc_inc_fork"
+#include "prc_inc_natweap"
 
+//:: Get a random General feat.
+void ApplyParagonBonusFeat(object oCreature, int iFeat);
 
 //::---------------------------------------------|
 //:: Helper functions                            |
@@ -131,6 +137,440 @@ int GetAbilityModFromValue(int nAbilityValue)
     return nMod;
 }
 
+//:: Get a random General feat.
+void PickParagonBonusFeat(object oCreature)
+{
+//:: Paragon creatures get a +15 to all ability scores, 
+//:: so can always meet feat pre-reqs.
+
+//:: Detect spellcasting classes  (FOR FUTURE USE)
+	int i;
+    for (i = 1; i <= 8; i++)
+    {
+        if (GetIsArcaneClass(GetClassByPosition(i, oCreature)))
+        {
+            SetLocalInt(oCreature, "ParagonArcaneCaster", 0);
+        }
+        if (GetIsDivineClass(GetClassByPosition(i, oCreature)))
+        {
+            SetLocalInt(oCreature, "ParagonDivineCaster", 0);
+        }			
+    }	
+	switch (Random(18))
+    {
+	//:: Dodge -> Mobility -> Spring Attack
+        case 0: 
+		{
+			int iDodge 			= GetHasFeat(FEAT_DODGE, oCreature);
+			int iMobility 		= GetHasFeat(FEAT_MOBILITY, oCreature);
+			int iSpringAttack 	= GetHasFeat(FEAT_SPRING_ATTACK, oCreature);
+	
+		//:: Grant only the first missing feat in the chain
+            if (iDodge == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_DODGE);
+            } 
+			else if (iMobility == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_MOBILITY);
+            }
+			else if (iSpringAttack == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_SPRING_ATTACK);
+            }
+		}
+        break;
+	//:: Power Attack -> Cleave -> Imp Power Attack -> Great Cleave
+        case 1: 
+		{
+			int iPower 		= GetHasFeat(FEAT_POWER_ATTACK, oCreature);
+			int iCleave 	= GetHasFeat(FEAT_CLEAVE, oCreature);
+			int iImpPower 	= GetHasFeat(FEAT_IMPROVED_POWER_ATTACK, oCreature);
+			int iGrCleave 	= GetHasFeat(FEAT_GREAT_CLEAVE, oCreature);
+	
+		//:: Grant only the first missing feat in the chain
+            if (iPower == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_POWER_ATTACK);
+            } 
+			else if (iCleave == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_CLEAVE);
+            }
+			else if (iImpPower == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_POWER_ATTACK);
+            }
+			else if (iGrCleave == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_GREAT_CLEAVE);
+            }			
+		}
+        break;	
+	//:: Expertise -> Imp Expertise -> Whirlwind Attack -> Imp  Whirlwind Attack
+        case 2: 
+		{
+			int iEx 		= GetHasFeat(FEAT_EXPERTISE, oCreature);
+			int iImpEx		= GetHasFeat(FEAT_IMPROVED_EXPERTISE, oCreature);
+			int iWhirl		= GetHasFeat(FEAT_WHIRLWIND_ATTACK, oCreature);
+			int iImpWhirl	= GetHasFeat(FEAT_IMPROVED_WHIRLWIND, oCreature);
+	
+		//:: Grant only the first missing feat in the chain
+            if (iEx == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_EXPERTISE);
+            } 
+			else if (iImpEx == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_EXPERTISE);
+            }
+			else if (iWhirl == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_WHIRLWIND_ATTACK);
+            }
+			else if (iImpWhirl == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_WHIRLWIND);
+            }
+		}
+        break;	
+	//:: Disarm -> Expertise -> Improved Disarm -> Imp Expertise
+        case 3: 
+		{
+			int iDisarm		= GetHasFeat(FEAT_DISARM, oCreature);
+			int iEx 		= GetHasFeat(FEAT_EXPERTISE, oCreature);
+			int iImpDisarm	= GetHasFeat(FEAT_IMPROVED_DISARM, oCreature);
+			int iImpEx		= GetHasFeat(FEAT_IMPROVED_EXPERTISE, oCreature);
+	
+		//:: Grant only the first missing feat in the chain
+            if (iDisarm == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_DISARM);
+            } 
+			else if (iEx == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_EXPERTISE);
+            }
+			else if (iImpDisarm == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_DISARM);
+            }
+			else if (iImpEx == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_EXPERTISE);
+            }
+		}
+        break;			
+	//:: Toughness
+        case 4:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_TOUGHNESS);
+		}
+		break;
+	//:: Great Fortitude
+        case 5:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_GREAT_FORTITUDE);
+		}
+		break;
+	//:: Lightining Reflexes
+        case 6:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_LIGHTNING_REFLEXES);
+		}
+		break;		
+	//:: Iron Will -> Unnatural Will
+        case 7:
+		{
+			int iIronWill 			= GetHasFeat(FEAT_IRON_WILL, oCreature);
+			int iUnnaturalWill 		= GetHasFeat(FEAT_UNNATURAL_WILL, oCreature);
+			
+		//:: Grant only the first missing feat in the chain
+			if (iIronWill == 0) 
+			{
+				ApplyParagonBonusFeat(oCreature, FEAT_IRON_WILL);
+			} 			
+			else if (iUnnaturalWill == 0)		
+			{
+				ApplyParagonBonusFeat(oCreature, FEAT_UNNATURAL_WILL);
+			}
+		}
+		break;	
+	//:: Blind-Fight
+        case 8:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_BLIND_FIGHT);
+		}
+		break;	
+	//:: Improved Initiative
+        case 9:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_IMPROVED_INITIATIVE);
+		}
+		break;	
+	//:: Alertness
+        case 10:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_ALERTNESS);
+		}
+		break;	
+	//:: Blooded
+        case 11:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_BLOODED);
+		}
+		break;	
+	//:: Side-step Charge
+        case 12:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_SIDESTEP_CHARGE);
+		}
+		break;
+	//:: Thug
+        case 13:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_THUG);
+		}
+		break;			
+	//:: Dive for Cover
+        case 14:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_DIVE_FOR_COVER);
+		}
+		break;		
+	//:: Endurance -> Strong Stomach
+        case 15: 
+		{
+			int iEndurance 			= GetHasFeat(FEAT_ENDURANCE, oCreature);
+			int iStrStomach 		= GetHasFeat(FEAT_STRONG_STOMACH, oCreature);
+	
+		//:: Grant only the first missing feat in the chain
+            if (iEndurance == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_ENDURANCE);
+            } 
+			else if (iStrStomach == 0) 
+			{
+                ApplyParagonBonusFeat(oCreature, FEAT_STRONG_STOMACH);
+            }
+		}
+        break;
+	//:: Resist Disease
+        case 16:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_RESIST_DISEASE);
+		}
+		break;			
+	//:: Resist Poison
+        case 17:
+		{
+			ApplyParagonBonusFeat(oCreature, FEAT_RESIST_POISON);
+		}
+		break;			
+	}
+}
+
+//:: Check & apply the feat using EffectBonusFeat if it 
+//:: doesn't exist on the creature already
+void ApplyParagonBonusFeat(object oCreature, int iFeat)
+{
+    // If the creature does not already have the feat, apply it
+    if (!GetHasFeat(iFeat, oCreature))
+    {
+        effect eFeat = EffectBonusFeat(iFeat);
+		effect eLink = UnyieldingEffect(eFeat);
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oCreature);
+    }
+	else
+	{
+		DelayCommand(0.0f, PickParagonBonusFeat(oCreature));
+	}		
+}
+
+//:: Apply Paragon effects to a non-PC creature
+void ApplyParagonEffects(object oCreature, int nBaseHD, int nBaseCR) 
+{
+//:: Declare major variables	
+	int nNewCR;
+	
+	effect eParagon;
+
+//:: Set maximum hit points for each HD
+    int nParagonHP = (GetMaxPossibleHP(oCreature) + (nBaseHD * GetAbilityModifier(ABILITY_CONSTITUTION, oCreature)));
+    SetCurrentHitPoints(oCreature, nParagonHP);
+	
+//:: Tripling the speed for all movement types
+	eParagon = EffectLinkEffects(eParagon, EffectMovementSpeedIncrease(300));
+	
+//:: +25 luck bonus on all attack rolls
+	eParagon = EffectLinkEffects(eParagon, EffectAttackIncrease(25));	
+	
+//:: +20 luck bonus on damage rolls for melee and thrown ranged attacks
+	eParagon = EffectLinkEffects(eParagon, EffectDamageIncrease(20));	
+
+//:: AC Bonuses: +12 insight, +12 luck
+    eParagon = EffectLinkEffects(eParagon, EffectACIncrease(12, AC_DODGE_BONUS));
+	eParagon = EffectLinkEffects(eParagon, EffectACIncrease(12, AC_DEFLECTION_BONUS));
+    
+//:: Boost caster & SLA level by 15
+		SetLocalInt(oCreature, PRC_CASTERLEVEL_ADJUSTMENT, 15);
+
+//:: Fire and cold resistance 10, or keep the higher existing resistance if applicable
+    eParagon = EffectLinkEffects(eParagon, EffectDamageResistance(DAMAGE_TYPE_FIRE, 10));
+    eParagon = EffectLinkEffects(eParagon, EffectDamageResistance(DAMAGE_TYPE_COLD, 10));
+
+//:: Damage Reduction 20/epic or retain existing DR if higher
+    eParagon = EffectLinkEffects(eParagon, EffectDamageReduction(20, DAMAGE_POWER_ENERGY));
+
+//:: Spell Resistance equal to CR +10, or retain existing SR if higher
+	int iExSR = GetSpellResistance(oCreature);
+	int nSpellResistance;
+	
+	if (iExSR < nBaseCR + 10)
+	{
+		nSpellResistance = nBaseCR + 10;
+	}
+	else
+	{
+		nSpellResistance = 0;
+	}	
+	
+    eParagon = EffectLinkEffects(eParagon, EffectSpellResistanceIncrease(nSpellResistance));
+
+//:: Fast Healing 20
+    eParagon = EffectLinkEffects(eParagon, EffectRegenerate(20, 6.0f));
+
+//:: Saving Throws: +10 insight bonus on all saving throws
+    eParagon = EffectLinkEffects(eParagon, EffectSavingThrowIncrease(SAVING_THROW_ALL, 10));
+
+//:: Skills: +10 competence bonus to all skill checks	
+    int nSkillID = 0; 
+
+    while (TRUE)
+    {
+        //:: Get & check skill
+        string sSkillLabel = Get2DACache("skills", "Label", nSkillID);
+
+        //::  Break when out of skills
+        if (sSkillLabel == "")
+            break;
+
+        //:: Apply the skill increase effect for the current skill
+        eParagon = EffectLinkEffects(eParagon, EffectSkillIncrease(nSkillID, 10));
+        
+
+        //:: Move to the next skill ID
+        nSkillID++;
+    }
+	
+//:: Two free general feats.	
+	PickParagonBonusFeat(oCreature);
+	PickParagonBonusFeat(oCreature);
+	
+	eParagon = UnyieldingEffect(eParagon);
+	
+	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eParagon, oCreature);	
+}
+
+void ReallyEquipItemInSlot(object oNPC, object oItem, int nSlot)
+{
+  if (GetItemInSlot(nSlot) != oItem)
+  {
+    //ClearAllActions();
+    AssignCommand(oNPC, ActionEquipItem(oItem, nSlot));
+    DelayCommand(0.5, ReallyEquipItemInSlot(oNPC, oItem, nSlot));
+  }
+}
+
+// Get the size of a JSON array
+int GetJsonArraySize(json jArray)
+{
+    int iSize = 0;
+    while (JsonArrayGet(jArray, iSize) != JsonNull())
+    {
+        iSize++;
+    }
+    return iSize;
+}
+
+int CheckForWeapon(object oCreature)
+{
+    if (GetIsWeapon(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oCreature)) == 1 || GetIsWeapon(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCreature)) == 1)
+    {
+		// oCreature has a weapon in at least one hand
+		return TRUE;
+    }
+    else
+    {
+        // oCreature doesn't have a weapon in either hand
+		return FALSE;
+    }
+}
+
+//:: Adds Psuedonatural resistances & DR.
+void ApplyPseudonaturalEffects(object oCreature)
+{
+    if(!GetIsObjectValid(oCreature)) return;
+
+    int nHD = GetHitDice(oCreature);
+	if(DEBUG) DoDebug("prc_inc_json >> ApplyPseudonaturalEffects: nHD is: "+IntToString(nHD)+".");
+    // -------------------------
+    // Spell Resistance
+    // SR = 10 + HD (max 25)
+    // -------------------------
+    int nSR = 10 + nHD;
+    if(nSR > 25) nSR = 25;
+
+    effect eSR = EffectSpellResistanceIncrease(nSR);
+	eSR = TagEffect(eSR, "PSEUDO_SR");
+	eSR = EffectLinkEffects(eSR, UnyieldingEffect(eSR));
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSR, oCreature);
+
+    // -------------------------
+    // Acid/Electricity Resistance
+    // Reference Table:
+    // HD 1–3  : Resist 5
+    // HD 4–7  : Resist 5
+    // HD 8–11 : Resist 10
+    // HD >=12 : Resist 15
+    // -------------------------
+    int nResist;
+
+	if(nHD <= 7) 		nResist = 5;
+    else if(nHD <=11) 	nResist = 10;
+    else              	nResist = 15;
+
+    effect eResAcid  = EffectDamageResistance(DAMAGE_TYPE_ACID, nResist);
+    eResAcid  = TagEffect(eResAcid, "PSEUDO_RES_ACID");
+	eResAcid = EffectLinkEffects(eResAcid, UnyieldingEffect(eResAcid));
+
+    effect eResElec  = EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nResist);
+    eResElec  = TagEffect(eResElec, "PSEUDO_RES_ELEC");
+	eResElec = EffectLinkEffects(eResElec, UnyieldingEffect(eResElec));
+
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eResAcid,  oCreature);
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eResElec,  oCreature);
+
+    // -------------------------
+    // Damage Reduction
+    // Reference Table:
+    // HD 1–3  : none
+    // HD 4–7  : DR 5 / magic
+    // HD 8–11 : DR 5 / magic
+    // HD >=12 : DR 10 / magic
+    // -------------------------
+
+    int nDR;
+    if(nHD <= 3) 		{ nDR = 0; }
+    else if(nHD <= 11)	{ nDR = 5; }
+    else 				{ nDR = 10; }
+
+    effect eDR = EffectDamageReduction(nDR, DAMAGE_POWER_PLUS_ONE, 0, FALSE);
+    eDR = TagEffect(eDR, "PSEUDO_DR_MAGIC");
+	eDR = EffectLinkEffects(eDR, UnyieldingEffect(eDR));
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDR, oCreature);
+}
+
 
 //::---------------------------------------------|
 //:: JSON functions                              |
@@ -148,6 +588,23 @@ int json_GetCONValue(json jCreature)
     }
 
     return nCon;
+}
+
+//:: Returns the Challenge Rating from a GFF creature UTC
+float json_GetChallengeRating(json jCreature)
+{
+    float fCR = 0.25; // default if missing
+
+    if (GffGetFieldExists(jCreature, "ChallengeRating"))
+    {
+        json jCR = GffGetFloat(jCreature, "ChallengeRating");
+        if (jCR != JsonNull())
+        {
+            fCR = JsonGetFloat(jCR);
+        }
+    }
+
+    return fCR;
 }
 
 //:: Returns the integer value of a VarTable entry named sVarName, or 0 if not found.
@@ -190,6 +647,46 @@ int json_GetLocalIntFromVarTable(json jCreature, string sVarName)
     return 0;
 }
 
+//:: Returns the string value of a VarTable entry named sVarName, or "" if not found.
+string json_GetLocalStringFromVarTable(json jCreature, string sVarName)
+{
+    json jVarTable = GffGetList(jCreature, "VarTable");
+    if (jVarTable == JsonNull())
+        return "";
+
+    int nCount = JsonGetLength(jVarTable);
+    int i;
+    for (i = 0; i < nCount; i++)
+    {
+        json jEntry = JsonArrayGet(jVarTable, i);
+        if (jEntry == JsonNull()) continue;
+
+        // Get the Name field using GFF functions
+        json jName = GffGetString(jEntry, "Name");
+        if (jName == JsonNull()) continue;
+        string sName = JsonGetString(jName);
+
+        if (sName == sVarName)
+        {
+            // Get the Type field to verify it's a string
+            json jType = GffGetDword(jEntry, "Type");
+            if (jType != JsonNull())
+            {
+                int nType = JsonGetInt(jType);
+                if (nType == 3) // Type 3 = string
+                {
+                    // Get the Value field using GFF functions
+                    json jValue = GffGetString(jEntry, "Value");
+                    if (jValue == JsonNull()) return "";
+                    return JsonGetString(jValue);
+                }
+            }
+        }
+    }
+
+    return "";
+}
+
 //:: Returns the total Hit Dice from a JSON'd creature GFF.
 int json_GetCreatureHD(json jCreature)
 {
@@ -218,7 +715,6 @@ int json_GetCreatureHD(json jCreature)
     if (nHD <= 0) nHD = 1;
     return nHD;
 }
-
 
 json json_RecalcMaxHP(json jCreature, int iHitDieValue)
 {
@@ -273,9 +769,7 @@ json json_RecalcMaxHP(json jCreature, int iHitDieValue)
     return jCreature;
 }
 
-	
 //:: Reads ABILITY_TO_INCREASE from creature's VarTable and applies stat boosts based on increased HD
-
 json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD)
 {
     if (jCreature == JsonNull())
@@ -313,6 +807,8 @@ json json_ApplyAbilityBoostFromHD(json jCreature, int nOriginalHD)
             }
         }
     }
+	
+	if(DEBUG) DoDebug("prc_inc_json >> json_ApplyAbilityBoostFromHD: nCurrentTotalHD = "+IntToString(nCurrentTotalHD)+".");
 
     if (nCurrentTotalHD <= 0)
     {
@@ -714,7 +1210,6 @@ json json_AddHitDice(json jCreature, int nAmount)
     // Grab the first class entry
     json jFirstClass = JsonArrayGet(jClasses, 0);
 
-    // Only touch ClassLevel; do NOT modify Class type
     json jCurrentLevel = GffGetShort(jFirstClass, "ClassLevel");
     int nCurrentLevel = JsonGetInt(jCurrentLevel);
     int nNewLevel = nCurrentLevel + nAmount;
@@ -875,16 +1370,16 @@ json json_AdjustCreatureSize(json jCreature, int nSizeDelta, int nIncorporeal = 
 }
 
 //:: Changes jCreature's creature type.
-json JsonModifyRacialType(json jCreature, int nNewRacialType)
+json json_ModifyRacialType(json jCreature, int nNewRacialType)
 {
-    if(DEBUG)DoDebug("prc_inc_function >> JsonModifyRacialType: Entering function");
+    if(DEBUG)DoDebug("prc_inc_json >> json_ModifyRacialType: Entering function");
 	
 	// Retrieve the RacialType field
     json jRacialTypeField = JsonObjectGet(jCreature, "Race");
 
     if (JsonGetType(jRacialTypeField) == JSON_TYPE_NULL)
     {
-        DoDebug("prc_inc_function >> JsonModifyRacialType: JsonGetType error 1: " + JsonGetError(jRacialTypeField));
+        DoDebug("prc_inc_json >> json_ModifyRacialType: JsonGetType error 1: " + JsonGetError(jRacialTypeField));
 		//SpeakString("JsonGetType error 1: " + JsonGetError(jRacialTypeField));
         return JsonNull();
     }
@@ -894,7 +1389,7 @@ json JsonModifyRacialType(json jCreature, int nNewRacialType)
 
     if (JsonGetType(jRacialTypeValue) != JSON_TYPE_INTEGER)
     {
-        DoDebug("prc_inc_function >> JsonModifyRacialType: JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
+        DoDebug("prc_inc_json >> json_ModifyRacialType: JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
 		//SpeakString("JsonGetType error 2: " + JsonGetError(jRacialTypeValue));
         return JsonNull();
     }
@@ -905,6 +1400,206 @@ json JsonModifyRacialType(json jCreature, int nNewRacialType)
     return jCreature;
 }
 
+//:: Adds Paragon SLA's to jCreature.
+//::
+json json_AddParagonPowers(json jCreature)
+{
+    // Get the existing SpecAbilityList (if it exists)
+    json jSpecAbilityList = GffGetList(jCreature, "SpecAbilityList");
 
+    // Create the SpecAbilityList if it doesn't exist
+    if (jSpecAbilityList == JsonNull())
+    {
+        jSpecAbilityList = JsonArray();
+    }
+    
+//:: Greater Dispelling 3x / Day
+	int i;
+    for (i = 0; i < 3; i++)
+    {
+        json jSpecAbility = JsonObject();
+        jSpecAbility = GffAddWord(jSpecAbility, "Spell", 67);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellCasterLevel", 15);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellFlags", 1);
+
+        // Manually add to the array
+        jSpecAbilityList = JsonArrayInsert(jSpecAbilityList, jSpecAbility);
+    }
+
+//:: Add Haste 3x / Day
+    for (i = 0; i < 3; i++)
+    {
+        json jSpecAbility = JsonObject();
+        jSpecAbility = GffAddWord(jSpecAbility, "Spell", 78);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellCasterLevel", 15);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellFlags", 1);
+        
+        // Manually add to the array
+        jSpecAbilityList = JsonArrayInsert(jSpecAbilityList, jSpecAbility);
+    }
+
+//:: See Invisiblity 3x / Day
+    for (i = 0; i < 3; i++)
+    {
+        json jSpecAbility = JsonObject();
+        jSpecAbility = GffAddWord(jSpecAbility, "Spell", 157);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellCasterLevel", 15);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellFlags", 1);
+
+        // Manually add to the array
+        jSpecAbilityList = JsonArrayInsert(jSpecAbilityList, jSpecAbility);
+    }
+
+//:: Add the list to the creature
+    jCreature = GffAddList(jCreature, "SpecAbilityList", jSpecAbilityList);
+	
+	return jCreature;
+}
+
+//:: Directly modifies jCreature's Challenge Rating.
+//:: This is useful for most XP calculations.
+//::
+json json_UpdateParagonCR(json jCreature, int nBaseCR, int nBaseHD)
+{
+	int nNewCR;
+	
+//:: Calculate additional CR by HD
+	if(nBaseHD <= 6)
+	{
+		nNewCR = nBaseCR + 18;
+	}	
+	else if(nBaseHD <= 16) 
+	{
+		nNewCR = nBaseCR + 15;
+	}	
+	else
+		{nNewCR = nBaseCR + 12;}
+	
+//:: Modify Challenge Rating
+	jCreature = GffReplaceFloat(jCreature, "ChallengeRating"/* /value" */, IntToFloat(nNewCR));
+	
+	return jCreature;
+}
+
+//:: Adds Psuedonatural SLA's to jCreature.
+//::
+json json_AddPsuedonaturalPowers(json jCreature)
+{
+    // Get the existing SpecAbilityList (if it exists)
+    json jSpecAbilityList = GffGetList(jCreature, "SpecAbilityList");
+
+    // Create the SpecAbilityList if it doesn't exist
+    if (jSpecAbilityList == JsonNull())
+    {
+        jSpecAbilityList = JsonArray();
+    }
+    
+//:: True Strike 1x / Day
+	int i;
+    for (i = 0; i < 1; i++)
+    {
+        json jSpecAbility = JsonObject();
+        jSpecAbility = GffAddWord(jSpecAbility, "Spell", 415);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellCasterLevel", 15);
+        jSpecAbility = GffAddByte(jSpecAbility, "SpellFlags", 1);
+
+        // Manually add to the array
+        jSpecAbilityList = JsonArrayInsert(jSpecAbilityList, jSpecAbility);
+    }
+
+//:: Add the list to the creature
+    jCreature = GffAddList(jCreature, "SpecAbilityList", jSpecAbilityList);
+	
+	return jCreature;
+}
+
+//:: Directly modifies jCreature's Challenge Rating.
+//:: This is useful for most XP calculations.
+//::
+json json_UpdatePsuedonaturalCR(json jCreature, int nBaseCR, int nBaseHD)
+{
+	int nNewCR;
+	
+//:: Calculate additional CR by HD
+    if (nBaseHD >= 4 && nBaseHD <= 11)
+    {
+        nNewCR = nBaseCR + 1;
+    }
+    else if (nBaseHD >= 12)
+    {
+        nNewCR = nBaseCR + 2;
+    }	
+	
+//:: Modify Challenge Rating
+	jCreature = GffReplaceFloat(jCreature, "ChallengeRating"/* /value" */, IntToFloat(nNewCR));
+	
+	return jCreature;
+}
+
+
+//:: Spawns a Psuedonatural creature from a template
+object MakePsuedonaturalCreatureFromTemplate(string sResref, location lSpawnLoc)
+{
+	json jPsuedo = TemplateToJson(sResref, RESTYPE_UTC);
+	if (jPsuedo == JSON_NULL)
+    {
+        DoDebug("prc_inc_json >> SpawnPsuedonaturalCreatureFromTemplate: TemplateToJson failed — bad resref or resource missing.");
+        return OBJECT_INVALID;
+    }
+	
+    //:: Get current HD
+    int nCurrentHD = json_GetCreatureHD(jPsuedo);
+    if (nCurrentHD <= 0)
+    {
+        DoDebug("make_psuedonat >> MakePsuedonaturalCreatureFromTemplate failed — template missing HD data.");
+        return OBJECT_INVALID;
+    }	
+	
+    //:: Get current CR
+	int nBaseCR = 1;
+    nBaseCR = json_GetCreatureHD(jPsuedo);
+    if (nBaseCR <= 0)
+    {
+        DoDebug("make_psuedonat >> MakePsuedonaturalCreatureFromTemplate failed — template missing CR data.");
+        return OBJECT_INVALID;
+    }	
+	
+	//:: Get local vars to transfer over.
+	int iMinHD 			= json_GetLocalIntFromVarTable(jPsuedo, "iMinHD");
+	int iMaxHD 			= json_GetLocalIntFromVarTable(jPsuedo, "iMaxHD");
+	int nOriginalHD 	= json_GetLocalIntFromVarTable(jPsuedo, "nOriginalHD");
+	int iClass2			= json_GetLocalIntFromVarTable(jPsuedo, "Class2");
+	int iClass2Package	= json_GetLocalIntFromVarTable(jPsuedo, "Class2Package");
+	int iClass2Start	= json_GetLocalIntFromVarTable(jPsuedo, "Class2Start");
+	int iMagicUse		= json_GetLocalIntFromVarTable(jPsuedo, "X2_L_BEH_MAGIC");
+	string sAI			= json_GetLocalStringFromVarTable(jPsuedo, "X2_SPECIAL_COMBAT_AI_SCRIPT");
+		
+	//:: Adds True Strike 1x / day to jCreature.
+	jPsuedo = json_AddPsuedonaturalPowers(jPsuedo);
+	
+	//:: Change jCreature's racialtype to outsider
+	jPsuedo = json_ModifyRacialType(jPsuedo, RACIAL_TYPE_OUTSIDER);	
+	
+	jPsuedo = json_UpdatePsuedonaturalCR(jPsuedo, nBaseCR, nCurrentHD);	
+	
+	//:: Spawn the creature
+    object oPsuedo = JsonToObject(jPsuedo, lSpawnLoc);
+	
+	//:: Set variables	
+	SetLocalInt(oPsuedo, "TEMPLATE_PSUEDONATURAL", 1);	
+	SetLocalInt(oPsuedo, "iMinHD", iMinHD);		
+	SetLocalInt(oPsuedo, "iMaxHD", iMaxHD);
+	SetLocalInt(oPsuedo, "nOriginalHD", nOriginalHD);	
+	SetLocalInt(oPsuedo, "Class2", iClass2);
+	SetLocalInt(oPsuedo, "Class2Package", iClass2Package);
+	SetLocalInt(oPsuedo, "Class2Start", iClass2Start);
+	SetLocalInt(oPsuedo, "X2_L_BEH_MAGIC", iMagicUse);
+	SetLocalString(oPsuedo, "X2_SPECIAL_COMBAT_AI_SCRIPT", sAI);	
+
+	return oPsuedo;
+	
+}
+
+	
 //:: Test void
 //:: void main (){}
