@@ -10,7 +10,6 @@
 //:: Created By: Georg Zoeller
 //:: Created On: 2003-07-16
 //:://////////////////////////////////////////////
-
 #include "prc_inc_function"
 #include "prc_inc_wpnrest"
 #include "inc_timestop"
@@ -31,6 +30,9 @@ void main()
 
     if(!GetIsObjectValid(oPC))
         return;
+	
+	//:: Use with bioware polymorphs
+	DetectMonkGloveEquip(oItem);
 
     //if(DEBUG) DoDebug("Running OnEquip, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 

@@ -15,6 +15,56 @@
 #include "inc_item_props"
 #include "prc_x2_itemprop"
 
+//:: Detects if "monk" gloves are being equipped & set a 
+//:: variable if TRUE for use with other functions
+void DetectMonkGloveEquip(object oItem)
+{
+	int nItemType	= GetBaseItemType(oItem);
+	
+	object oPC = GetItemPossessor(oItem);
+    if (!GetIsObjectValid(oItem))
+    {
+        if (DEBUG) DoDebug("prc_inc_wpnrest >> DetectMonkGloveEquip(): Unable to determine item possessor");
+        return;
+    }
+	
+	if(nItemType != BASE_ITEM_GLOVES && nItemType != BASE_ITEM_BRACER) {return;}
+	
+	else if (nItemType == BASE_ITEM_BRACER)
+	{
+		if(DEBUG) DoDebug("prc_inc_wpnrest >> DetectMonkGloveEquip(): Bracer found!");
+		DeleteLocalInt(oPC, "WEARING_MONK_GLOVES");
+		return;
+	}	
+	else
+	{
+		itemproperty ipG = GetFirstItemProperty(oItem);
+	
+		while(GetIsItemPropertyValid(ipG))
+		{
+			int nTypeG = GetItemPropertyType(ipG);
+
+			// Damage related properties we care about
+			if(nTypeG == ITEM_PROPERTY_DAMAGE_BONUS
+			|| nTypeG == ITEM_PROPERTY_ATTACK_BONUS
+			|| nTypeG == ITEM_PROPERTY_DAMAGE_BONUS_VS_ALIGNMENT_GROUP
+			|| nTypeG == ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP
+			|| nTypeG == ITEM_PROPERTY_DAMAGE_BONUS_VS_SPECIFIC_ALIGNMENT)
+			{
+				if(DEBUG) DoDebug("prc_inc_wpnrest >> DetectMonkGloves(): Monk gloves found!");
+				SetLocalInt(oPC, "WEARING_MONK_GLOVES", 1);
+				return;
+			}
+			else
+			{
+				if(DEBUG) DoDebug("prc_inc_wpnrest >> DetectMonkGloves(): Monk gloves not found!  You should never see this.");
+				DeleteLocalInt(oPC, "WEARING_MONK_GLOVES");
+				return;
+			}
+		}
+	}
+}
+
 /**
  * All of the following functions use the following parameters:
  *
@@ -23,7 +73,6 @@
  * @param nHand     The hand the weapon is wielded in.  In the form of 
  *                  ATTACK_BONUS_ONHAND or ATTACK_BONUS_OFFHAND.
  */ 
-
 //:: returns TRUE if the wielded weapon works with the Swashbuckler's class abilities.
 int GetHasSwashbucklerWeapon(object oPC)
 {

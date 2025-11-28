@@ -552,13 +552,13 @@ const string PRC_BARD_DISALLOW_NEWSPELLBOOK     = "PRC_BARD_DISALLOW_NEWSPELLBOO
  */
 const string PRC_BARD_LIGHT_ARMOR_SPELLCASTING  = "PRC_BARD_LIGHT_ARMOR_SPELLCASTING";
 
-/**
+/*
  * By default, CW Samurai get a plain katana and a plain wakizashi (shortsword) at 1st level.
  * Setting this to non-zero value prevents that.
  */
 const string PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO = "PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO";
 
-/**
+/*
  * Determines the number of wight henchmen a Soul Eater can have via their Soul Slave
  * class ability.
  * Default: 4
@@ -568,7 +568,7 @@ const string PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO = "PRC_CWSAMURAI_NO_HEIRLOOM_DAISH
 const string PRC_SOUL_EATER_MAX_SLAVES       = "PRC_SOUL_EATER_MAX_SLAVES";
 
 
-/**
+/*
  * For the Psionic Slayer prestige class, this switch limits the Favored Enemy selection
  * to the Aberration racial type.
  *
@@ -581,7 +581,7 @@ const string PRC_SOUL_EATER_MAX_SLAVES       = "PRC_SOUL_EATER_MAX_SLAVES";
  */
 const string PRC_PSIONIC_SLAYER_FAV_ENEMY_ABERRATION_ONLY       = "PRC_PSIONIC_SLAYER_FAV_ENEMY_ABERRATION_ONLY";
 
-/**
+/*
  * For the Psionic Slayer prestige class, this switch requires a character to make a "kill"
  * of a specific type of creature before the class becomes available.
  *
@@ -603,9 +603,9 @@ const string PRC_PSIONIC_SLAYER_FAV_ENEMY_ABERRATION_ONLY       = "PRC_PSIONIC_S
 const string PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN       = "PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN";
 
 
-/**
+/*
  * By default the Werewolf class uses the Bioware Polymorph effect to perfrom its
- * Hybrid Form Shapchange.
+ * Hybrid Form Shapechange.
  *
  * This switch allows the Werewolf class to be toggled to use the PRC Shifter 
  * Shapchange code instead. 
@@ -614,9 +614,9 @@ const string PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN       = "PRC_PSIONIC_SLAYER_R
  * Values: 0 [Default] (Werewolf Hybrid Shapchange uses Bioware Polymorph)
  *		   1 (Werewolf Hybrid Shapchange uses PRC Shifter shape change code)
  */
-const string PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPCHANGE       = "PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPCHANGE";
+const string PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE       = "PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE";
 
-/**
+/*
  * Sets the max bonus for the PnP Shifter shifting systems
  *
  * Type: Int 
@@ -1204,8 +1204,11 @@ const string PRC_SPELL_ALIGNMENT_RESTRICT            = "PRC_SPELL_ALIGNMENT_REST
   */
  const string PRC_APPEARNCE_CHANGE_DISABLE                      = "PRC_APPEARNCE_CHANGE_DISABLE";
 
-
-
+/*
+ * Allow "Monk" gloves to merge with a creature weapons when Wildshaped.
+ * Will also merge bracers with creature hides when Wildshaped.
+*/
+const string PRC_WILDSHAPE_ALLOWS_ARMS_SLOT						= "PRC_WILDSHAPE_ALLOWS_ARMS_SLOT";
 
 /******************************************************************************\
 *                      Death/Bleeding system                                   *

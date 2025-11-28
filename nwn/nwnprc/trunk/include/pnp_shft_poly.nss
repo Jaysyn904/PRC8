@@ -11,8 +11,123 @@ void ShifterCheck(object oPC);
 #include "prc_inc_shifting"
 
 const string PRC_PNP_SHIFTING = "PRC_Shift";
+void LycanthropePoly(object oPC, int nPoly)
+{
+    effect eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
+    effect ePoly = SupernaturalEffect(EffectPolymorph(nPoly));
 
-////////////////Begin Werewolf//////////////////
+    int bMonkGloves = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
+    int bArmsSlotAllowed = GetPRCSwitch(PRC_WILDSHAPE_ALLOWS_ARMS_SLOT); // <--- new
+
+    int bWeapon = StringToInt(Get2DACache("polymorph","MergeW",nPoly)) == 1;
+    int bArmor  = StringToInt(Get2DACache("polymorph","MergeA",nPoly)) == 1;
+    int bItems  = StringToInt(Get2DACache("polymorph","MergeI",nPoly)) == 1;
+
+    object oWeaponOld = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+    object oArmorOld = GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
+    object oRing1Old = GetItemInSlot(INVENTORY_SLOT_LEFTRING,oPC);
+    object oRing2Old = GetItemInSlot(INVENTORY_SLOT_RIGHTRING,oPC);
+    object oAmuletOld = GetItemInSlot(INVENTORY_SLOT_NECK,oPC);
+    object oCloakOld  = GetItemInSlot(INVENTORY_SLOT_CLOAK,oPC);
+    object oBootsOld  = GetItemInSlot(INVENTORY_SLOT_BOOTS,oPC);
+    object oBeltOld   = GetItemInSlot(INVENTORY_SLOT_BELT,oPC);
+    object oHelmetOld = GetItemInSlot(INVENTORY_SLOT_HEAD,oPC);
+    object oShield    = GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);
+    object oGlovesOld = GetItemInSlot(INVENTORY_SLOT_ARMS,oPC);
+
+    if (GetIsObjectValid(oShield))
+    {
+        int nShieldType = GetBaseItemType(oShield);
+        if (nShieldType != BASE_ITEM_LARGESHIELD &&
+            nShieldType != BASE_ITEM_SMALLSHIELD &&
+            nShieldType != BASE_ITEM_TOWERSHIELD)
+        {
+            oShield = OBJECT_INVALID;
+        }
+    }
+
+    ShifterCheck(oPC);
+    ClearAllActions();
+
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, ePoly, oPC);
+
+    object oWeaponNewRight = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oPC);
+    object oWeaponNewLeft  = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
+    object oWeaponNewBite  = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
+    object oArmorNew       = GetItemInSlot(INVENTORY_SLOT_CARMOUR,oPC);
+
+    /* ----------------
+       Weapon merge block
+       If arms-slot-merge is enabled we DO NOT apply gloves here.
+       ---------------- */
+    if (bWeapon)
+    {
+        if (!bMonkGloves)
+        {
+            if (GetIsObjectValid(oWeaponOld))
+            {
+                if (GetIsObjectValid(oWeaponNewLeft)) IPWildShapeCopyItemProperties(oWeaponOld, oWeaponNewLeft, TRUE);
+                if (GetIsObjectValid(oWeaponNewRight)) IPWildShapeCopyItemProperties(oWeaponOld, oWeaponNewRight, TRUE);
+                if (GetIsObjectValid(oWeaponNewBite)) IPWildShapeCopyItemProperties(oWeaponOld, oWeaponNewBite, TRUE);
+            }
+        }
+        else if (!bArmsSlotAllowed) // only apply gloves-to-weapons here if arms-slot is NOT allowed
+        {
+            if (DEBUG) DoDebug("LycanthropePoly: Monk gloves overriding weapon merge (arms slot NOT allowed).");
+            if (GetIsObjectValid(oGlovesOld))
+            {
+                if (GetIsObjectValid(oWeaponNewLeft)) IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewLeft, TRUE);
+                if (GetIsObjectValid(oWeaponNewRight)) IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewRight, TRUE);
+                if (GetIsObjectValid(oWeaponNewBite)) IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewBite, TRUE);
+            }
+        }
+    }
+
+    /* ----------------
+       Armor merge block
+       When arms-slot-allowed is TRUE, merge gloves here into the creature's weapons
+       (so forms that don't normally merge weapons/items still get glove damage).
+       ---------------- */
+    if (bArmor)
+    {
+        if (GetIsObjectValid(oArmorNew))
+        {
+            if (GetIsObjectValid(oShield))      IPWildShapeCopyItemProperties(oShield, oArmorNew);
+            if (GetIsObjectValid(oHelmetOld))   IPWildShapeCopyItemProperties(oHelmetOld, oArmorNew);
+            if (GetIsObjectValid(oArmorOld))    IPWildShapeCopyItemProperties(oArmorOld, oArmorNew);
+
+            /* If module allows arms-slot merging, and player is wearing monk gloves,
+               copy the gloves' IPs to any creature weapon slot from the armor branch.
+               This runs regardless of bWeapon (i.e. even if MergeW == 0). */
+            if (bArmsSlotAllowed && bMonkGloves && GetIsObjectValid(oGlovesOld))
+            {
+                if (DEBUG) DoDebug("LycanthropePoly: Arms-slot allowed -> applying gloves to creature weapons from armor branch.");
+
+                if (GetIsObjectValid(oWeaponNewLeft))  IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewLeft, TRUE);
+                if (GetIsObjectValid(oWeaponNewRight)) IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewRight, TRUE);
+                if (GetIsObjectValid(oWeaponNewBite))  IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewBite, TRUE);
+            }
+        }
+        else
+        {
+            if (DEBUG) DoDebug("LycanthropePoly: MergeA set, but oArmorNew invalid.");
+        }
+    }
+
+    if (bItems && GetIsObjectValid(oArmorNew))
+    {
+        if (GetIsObjectValid(oRing1Old)) IPWildShapeCopyItemProperties(oRing1Old, oArmorNew);
+        if (GetIsObjectValid(oRing2Old)) IPWildShapeCopyItemProperties(oRing2Old, oArmorNew);
+        if (GetIsObjectValid(oAmuletOld)) IPWildShapeCopyItemProperties(oAmuletOld, oArmorNew);
+        if (GetIsObjectValid(oCloakOld)) IPWildShapeCopyItemProperties(oCloakOld, oArmorNew);
+        if (GetIsObjectValid(oBootsOld)) IPWildShapeCopyItemProperties(oBootsOld, oArmorNew);
+        if (GetIsObjectValid(oBeltOld))  IPWildShapeCopyItemProperties(oBeltOld, oArmorNew);
+    }
+}
+
+
+/* ////////////////Begin Werewolf//////////////////
 
 void LycanthropePoly(object oPC, int nPoly)
 {
@@ -21,6 +136,9 @@ void LycanthropePoly(object oPC, int nPoly)
 
     ePoly = EffectPolymorph(nPoly);
     ePoly = SupernaturalEffect(ePoly);
+	
+	int bMonkGloves = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
+	//int bMonkSwitch = GetPRCSwitch(PRC_WILDSHAPE_USES_ARM_SLOTS);
 
     int bWeapon = StringToInt(Get2DACache("polymorph","MergeW",nPoly)) == 1;
     int bArmor  = StringToInt(Get2DACache("polymorph","MergeA",nPoly)) == 1;
@@ -36,6 +154,7 @@ void LycanthropePoly(object oPC, int nPoly)
     object oBeltOld = GetItemInSlot(INVENTORY_SLOT_BELT,oPC);
     object oHelmetOld = GetItemInSlot(INVENTORY_SLOT_HEAD,oPC);
     object oShield    = GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);
+	object oGlovesOld = GetItemInSlot(INVENTORY_SLOT_ARMS,oPC);	
     if (GetIsObjectValid(oShield))
     {
         if (GetBaseItemType(oShield) !=BASE_ITEM_LARGESHIELD &&
@@ -55,16 +174,26 @@ void LycanthropePoly(object oPC, int nPoly)
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, ePoly, oPC);
 
-    object oWeaponNewRight = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oPC);
-    object oWeaponNewLeft = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
-    object oWeaponNewBite = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
-    object oArmorNew = GetItemInSlot(INVENTORY_SLOT_CARMOUR,oPC);
+    object oWeaponNewRight 	= GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oPC);
+    object oWeaponNewLeft 	= GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
+    object oWeaponNewBite 	= GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
+    object oArmorNew 		= GetItemInSlot(INVENTORY_SLOT_CARMOUR,oPC);
 
     if (bWeapon)
     {
-        IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewLeft, TRUE);
-        IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewRight, TRUE);
-        IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewBite, TRUE);
+		if(!bMonkGloves)
+		{
+			IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewLeft, TRUE);
+			IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewRight, TRUE);
+			IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewBite, TRUE);
+		}
+		else
+		{
+			if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Found monk gloves in bWeapon branch.");
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewLeft, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewRight, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewBite, TRUE);	
+		}			
     }
     if (bArmor)
     {
@@ -84,7 +213,119 @@ void LycanthropePoly(object oPC, int nPoly)
 
 }
 
-////////////////End Werewolf//////////////////
+////////////////End Werewolf////////////////// */
+
+
+/* ////////////////Begin Werewolf//////////////////
+
+void LycanthropePoly(object oPC, int nPoly)
+{
+    
+	if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering fucntion.");
+	effect eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
+    effect ePoly;
+
+    ePoly = EffectPolymorph(nPoly);
+    ePoly = SupernaturalEffect(ePoly);
+	
+	int bMonkGloves = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
+	int bMonkSwitch = GetPRCSwitch(PRC_WILDSHAPE_USES_ARM_SLOTS);
+
+    int bWeapon = StringToInt(Get2DACache("polymorph","MergeW",nPoly)) == 1;
+    int bArmor  = StringToInt(Get2DACache("polymorph","MergeA",nPoly)) == 1;
+    int bItems  = StringToInt(Get2DACache("polymorph","MergeI",nPoly)) == 1;	
+	
+
+    object oWeaponOld = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+    object oArmorOld = GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
+    object oRing1Old = GetItemInSlot(INVENTORY_SLOT_LEFTRING,oPC);
+    object oRing2Old = GetItemInSlot(INVENTORY_SLOT_RIGHTRING,oPC);
+    object oAmuletOld = GetItemInSlot(INVENTORY_SLOT_NECK,oPC);
+    object oCloakOld  = GetItemInSlot(INVENTORY_SLOT_CLOAK,oPC);
+    object oBootsOld  = GetItemInSlot(INVENTORY_SLOT_BOOTS,oPC);
+    object oBeltOld = GetItemInSlot(INVENTORY_SLOT_BELT,oPC);
+    object oHelmetOld = GetItemInSlot(INVENTORY_SLOT_HEAD,oPC);
+    object oShield    = GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);
+	object oGlovesOld = GetItemInSlot(INVENTORY_SLOT_ARMS,oPC);
+    if (GetIsObjectValid(oShield))
+    {
+        if (GetBaseItemType(oShield) !=BASE_ITEM_LARGESHIELD &&
+            GetBaseItemType(oShield) !=BASE_ITEM_SMALLSHIELD &&
+            GetBaseItemType(oShield) !=BASE_ITEM_TOWERSHIELD)
+        {
+            oShield = OBJECT_INVALID;
+        }
+    }
+	
+    //check if a shifter and if shifted then unshift
+    ShifterCheck(oPC);
+
+    ClearAllActions(); // prevents an exploit
+
+    //Apply the VFX impact and effects
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, ePoly, oPC);
+
+    object oWeaponNewRight = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oPC);
+    object oWeaponNewLeft = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
+    object oWeaponNewBite = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
+    object oArmorNew = GetItemInSlot(INVENTORY_SLOT_CARMOUR,oPC);
+	
+    if (bWeapon)
+    {
+		if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering bWeapon branch.");
+		IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewLeft, TRUE);
+        IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewRight, TRUE);
+        IPWildShapeCopyItemProperties(oWeaponOld,oWeaponNewBite, TRUE);	
+    }
+
+    if (bArmor)
+    {
+        if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering bArmor branch.");
+		IPWildShapeCopyItemProperties(oShield,oArmorNew);
+        IPWildShapeCopyItemProperties(oHelmetOld,oArmorNew);
+        IPWildShapeCopyItemProperties(oArmorOld,oArmorNew);
+
+		if(bMonkGloves)
+		{
+			if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering bMonkSwitch -> bMonkGloves branch.");
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewLeft, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewRight, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld,oWeaponNewBite, TRUE);	
+		}		
+		else
+		{
+			if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering bMonkSwitch -> !bMonkGloves branch.");
+			IPWildShapeCopyItemProperties(oGlovesOld,oArmorNew);
+		}
+					
+    }
+    if (bItems)
+    {
+        IPWildShapeCopyItemProperties(oRing1Old,oArmorNew);
+        IPWildShapeCopyItemProperties(oRing2Old,oArmorNew);
+        IPWildShapeCopyItemProperties(oAmuletOld,oArmorNew);
+        IPWildShapeCopyItemProperties(oCloakOld,oArmorNew);
+        IPWildShapeCopyItemProperties(oBootsOld,oArmorNew);
+        IPWildShapeCopyItemProperties(oBeltOld,oArmorNew);
+
+		if(!bMonkGloves)
+		{
+			if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering !bMonkSwitch -> !bMonkGloves branch.");
+			IPWildShapeCopyItemProperties(oGlovesOld, oArmorNew);
+		}
+		else
+		{
+			if(DEBUG) DoDebug("pnp_shift_poly >> LycanthropePoly(): Entering !bMonkSwitch -> bMonkGloves branch.");
+			IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewLeft, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewRight, TRUE);
+			IPWildShapeCopyItemProperties(oGlovesOld, oWeaponNewBite, TRUE);
+		}
+		
+    }
+}
+
+////////////////End Werewolf////////////////// */
 
 void ShifterCheck(object oPC)
 {
@@ -247,3 +488,5 @@ void DoTail(object oPC, int nTailType)
     //override any stored default appearance
     SetPersistantLocalInt(oPC,    "AppearanceStoredTail", nTailType);
 }
+
+//::void main (){}

@@ -31,6 +31,27 @@ void PrcFeats(object oPC, object oItem)
      DeleteLocalInt(oPC,"ONEQUIP");
 }
 
+//:: Unsets a variable used for Bioware polymorphs
+void DoGloveUnequip(object oItem)
+{
+	object oPC = OBJECT_SELF;
+	
+	int nItemType	= GetBaseItemType(oItem);
+	
+	if(nItemType != BASE_ITEM_GLOVES) 
+	{
+		if (DEBUG) DoDebug("prc_unequip >> DoGloveUnequip(): Not gloves.");
+		return;
+	}
+	
+	else 
+	{
+		if (DEBUG) DoDebug("prc_unequip >> DoGloveUnequip(): Removing WEARING_MONK_GLOVES token.");
+		DeleteLocalInt(oPC, "WEARING_MONK_GLOVES");
+		return;
+	}
+}
+
 void DoNaturalWeaponEffect(object oPC)
 {
     if (DEBUG) DoDebug("GetIsUsingPrimaryNaturalWeapons "+IntToString(GetIsUsingPrimaryNaturalWeapons(oPC))+" PrimaryNaturalWeapEffect "+IntToString(GetLocalInt(oPC, "PrimaryNaturalWeapEffect")));
@@ -55,6 +76,8 @@ void main()
 //if(DEBUG) DoDebug("Running OnUnEquip, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
     DoTimestopUnEquip(oPC, oItem);
+	
+	DoGloveUnequip(oItem);
     
     if (GetResRef(oItem) == "prc_crown_might") DestroyObject(oItem);    
     if (GetResRef(oItem) == "prc_crown_prot") DestroyObject(oItem); 

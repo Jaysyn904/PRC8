@@ -8,8 +8,9 @@
 //:://////////////////////////////////////////////
 //:: Created By: Fox
 //:: Created On: Feb 12, 2008
+//:: Updated by: Jaysyn
+//:: Updated on: 2025-11-25 10:48:32
 //:://////////////////////////////////////////////
-
 #include "prc_alterations"
 
 void CreateWarforgedArmor(object oPC)
@@ -49,7 +50,7 @@ void CreateWarforgedArmor(object oPC)
     SetDroppableFlag(oHelm, FALSE);
     SetItemCursedFlag(oHelm, TRUE);        
 
-    // Force equip
+    //:: Force equip
     DelayCommand(1.0, AssignCommand(oPC, ActionEquipItem(oArmor, INVENTORY_SLOT_CHEST)));
     DelayCommand(1.0, AssignCommand(oPC, ActionEquipItem(oHelm, INVENTORY_SLOT_HEAD)));
 }
@@ -68,13 +69,13 @@ void main()
     int nEvent = GetRunningEvent();
     if(DEBUG) DoDebug("race_warforged running, event: " + IntToString(nEvent));
 
-    // Init the PC.
+    //:: Init the PC.
     object oPC = OBJECT_SELF;
     object oItem;
     object oArmor;
     object oSkin;
 
-    // We aren't being called from any event, instead from EvalPRCFeats
+    //:: We aren't being called from any event, instead from EvalPRCFeats
     if(nEvent == FALSE)
     {
          oPC = OBJECT_SELF;
@@ -83,7 +84,7 @@ void main()
                          || GetIsObjectValid(GetItemPossessedBy(oPC, "prc_wf_mithbody"))
                          || GetIsObjectValid(GetItemPossessedBy(oPC, "prc_wf_admtbody"))
                          || GetIsObjectValid(GetItemPossessedBy(oPC, "prc_wf_compbody"));
-        // Hook in the events
+        //:: Hook in the events
         if(DEBUG) DoDebug("race_warforged: Adding eventhooks");
         AddEventScript(oPC, EVENT_ONHEARTBEAT, "race_warforged", TRUE, FALSE);
         //may not be needed, put in just in case(ala HotU start)
@@ -109,7 +110,7 @@ void main()
                 IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
                 if(DEBUG) DoDebug("race_warforged - ironwood - adding item property "+ItemPropertyToString(ipIP));
             }    
-            // Force equip
+            //:: Force equip
             oItem = GetItemPossessedBy(oPC, "prc_wf_woodbody");
             if (oItem != GetItemInSlot(INVENTORY_SLOT_CHEST, oPC))
                 AssignCommand(oPC, ActionEquipItem(oItem, INVENTORY_SLOT_CHEST)); 
@@ -123,7 +124,7 @@ void main()
                 IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
                 if(DEBUG) DoDebug("race_warforged - mithril - adding item property "+ItemPropertyToString(ipIP));
             }    
-            // Force equip
+            //:: Force equip
             oItem = GetItemPossessedBy(oPC, "prc_wf_mithbody");
             if (oItem != GetItemInSlot(INVENTORY_SLOT_CHEST, oPC))
                 AssignCommand(oPC, ActionEquipItem(oItem, INVENTORY_SLOT_CHEST)); 
@@ -137,20 +138,20 @@ void main()
                 IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
                 if(DEBUG) DoDebug("race_warforged - adamantine - adding item property "+ItemPropertyToString(ipIP));
             }    
-            // Force equip
+            //:: Force equip
             oItem = GetItemPossessedBy(oPC, "prc_wf_admtbody");
             if (oItem != GetItemInSlot(INVENTORY_SLOT_CHEST, oPC))
                 AssignCommand(oPC, ActionEquipItem(oItem, INVENTORY_SLOT_CHEST)); 
         }  
         else if(GetHasFeat(FEAT_COMPOSITE_PLATING, oPC))
         {
-            // Force equip
+            //:: Force equip
             oItem = GetItemPossessedBy(oPC, "prc_wf_compbody");
             if (oItem != GetItemInSlot(INVENTORY_SLOT_CHEST, oPC))
                 AssignCommand(oPC, ActionEquipItem(oItem, INVENTORY_SLOT_CHEST));            
         }
 
-        // Delay a bit to make sure they are appropriately dressed
+        //:: Delay a bit to make sure they are appropriately dressed
         DelayCommand(0.5f, DoWarforgedCheck(oPC)); 
     }
     else if(nEvent == EVENT_ONUNAQUIREITEM)

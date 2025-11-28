@@ -1612,30 +1612,139 @@ int IPGetDamageBonusConstantFromNumber(int nNumber)
 // oOld - Item equipped before polymorphing (source for item props)
 // oNew - Item equipped after polymorphing  (target for item props)
 // bWeapon - Must be set TRUE when oOld is a weapon.
-// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------		
 void IPWildShapeCopyItemProperties(object oOld, object oNew, int bWeapon = FALSE)
 {
-    if (GetIsObjectValid(oOld) && GetIsObjectValid(oNew))
-    {
-        itemproperty ip = GetFirstItemProperty(oOld);
-        while (GetIsItemPropertyValid(ip))
-        {
-            if (bWeapon)
-            {
-                if (GetWeaponRanged(oOld) == GetWeaponRanged(oNew)   )
-                {
-                    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oNew);
-                }
-            }
-            else
-            {
-                    AddItemProperty(DURATION_TYPE_PERMANENT,ip,oNew);
-            }
-            ip = GetNextItemProperty(oOld);
+	// Invalid source/target
+	if (!GetIsObjectValid(oOld) || !GetIsObjectValid(oNew))
+		return;
+	
+	// Determine possessor
+	object oPC = GetItemPossessor(oOld);
+	if (!GetIsObjectValid(oPC))
+		oPC = GetItemPossessor(oNew);
 
-        }
-    }
+	if (!GetIsObjectValid(oPC))
+	{
+		if (DEBUG) DoDebug("IPWS: Unable to determine item possessor");
+		return;
+	}
+
+	// Determine glove state once
+	int bMonkGloves = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
+
+	// Weapon ranged mismatch = do nothing (intent is no partial copy)
+	if (bWeapon && GetWeaponRanged(oOld) != GetWeaponRanged(oNew))
+	{
+		if (DEBUG) DoDebug("IPWS: Weapon ranged mismatch — skipping all IP copy");
+		return;
+	}
+
+	// Begin property copy
+	itemproperty ip = GetFirstItemProperty(oOld);
+	while (GetIsItemPropertyValid(ip))
+	{
+		int nType = GetItemPropertyType(ip);
+
+		// If copying from gloves and monk gloves are active
+		if (bMonkGloves
+			&& (nType == ITEM_PROPERTY_DAMAGE_BONUS
+			 || nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP
+			 || nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_ALIGNMENT_GROUP))
+		{
+			// Always apply glove damage IPs
+			AddItemProperty(DURATION_TYPE_PERMANENT, ip, oNew);
+			ip = GetNextItemProperty(oOld);
+			continue;
+		}
+
+		// Normal weapon pass
+		if (bWeapon)
+		{
+			// If monk gloves active ? skip ALL weapon damage IPs
+			if (bMonkGloves
+				&& (nType == ITEM_PROPERTY_DAMAGE_BONUS
+				 || nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP
+				 || nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_ALIGNMENT_GROUP))
+			{
+				ip = GetNextItemProperty(oOld);
+				continue;
+			}
+
+			AddItemProperty(DURATION_TYPE_PERMANENT, ip, oNew);
+		}
+		else
+		{
+			AddItemProperty(DURATION_TYPE_PERMANENT, ip, oNew);
+		}
+
+		ip = GetNextItemProperty(oOld);
+	}
 }
+
+
+/* // ----------------------------------------------------------------------------
+// GZ, Sept. 30 2003
+// Special Version of Copy Item Properties for use with greater wild shape
+// oOld - Item equipped before polymorphing (source for item props)
+// oNew - Item equipped after polymorphing  (target for item props)
+// bWeapon - Must be set TRUE when oOld is a weapon.
+// ----------------------------------------------------------------------------		
+void IPWildShapeCopyItemProperties(object oOld, object oNew, int bWeapon = FALSE)
+{
+	if (!GetIsObjectValid(oOld) || !GetIsObjectValid(oNew))
+		return;
+	
+	object oPC = GetItemPossessor(oOld);
+	if (!GetIsObjectValid(oPC))
+	{	
+		oPC = GetItemPossessor(oNew);
+	}
+    if (!GetIsObjectValid(oPC))
+    {
+        if (DEBUG) DoDebug("IPWS: Unable to determine item possessor");
+        return;
+    }
+
+    int bMonkGloves = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
+	
+	itemproperty ip = GetFirstItemProperty(oOld);
+	while (GetIsItemPropertyValid(ip))
+	{
+		if (bWeapon)
+		{
+			// Gloves override weapon damage — skip weapon damage properties
+			if (bMonkGloves)
+			{
+				int nType = GetItemPropertyType(ip);
+
+				// skip damage props
+				if (nType == ITEM_PROPERTY_DAMAGE_BONUS
+					|| nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP
+					|| nType == ITEM_PROPERTY_DAMAGE_BONUS_VS_ALIGNMENT_GROUP)
+				{
+					if (DEBUG) DoDebug("IPWS: SKIPPED weapon damage IP");
+				}
+				else
+				{
+					if (DEBUG) DoDebug("IPWS: Applied non-damage weapon IP");
+					AddItemProperty(DURATION_TYPE_PERMANENT, ip, oNew);
+				}
+
+			}
+			else if (GetWeaponRanged(oOld) == GetWeaponRanged(oNew)   )
+			{
+				AddItemProperty(DURATION_TYPE_PERMANENT,ip,oNew);
+			}
+		}
+		else
+		{
+			AddItemProperty(DURATION_TYPE_PERMANENT,ip,oNew);
+		}
+		
+		ip = GetNextItemProperty(oOld);
+	}
+} */
 
 // ----------------------------------------------------------------------------
 // Returns the current enhancement bonus of a weapon (+1 to +20), 0 if there is
@@ -2019,3 +2128,5 @@ int IPOnHitSaveDC(int nSaveDC)
     
     return nIPBonus;
 } */
+
+//:: void main(){}

@@ -27,7 +27,7 @@ void main()
     int nPoly;
 
     // Retrieve Module flag 
-    int iPnPShifterShapchange = GetPRCSwitch(PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPCHANGE);
+    int iPnPShifterShapchange = GetPRCSwitch(PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE);
     
     
    if (GetLocalInt(oPC, "WWHybrid") != TRUE)
