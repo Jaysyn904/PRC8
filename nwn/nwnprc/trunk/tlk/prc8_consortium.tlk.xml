@@ -3074,8 +3074,7 @@ Range: Personal
 Target: You
 Duration: 10 minutes/level
 
-A silver glow sheathes your body as you complete the spell. As the glow fades, you feel a touch of the divine at the back of your mind. This divine touch spreads until you feel your concerns and anxieties
-fade away.
+A silver glow sheathes your body as you complete the spell. As the glow fades, you feel a touch of the divine at the back of your mind. This divine touch spreads until you feel your concerns and anxieties fade away.
 
 You gain a +4 sacred bonus on saving throws made against mind-affecting spells and effects.</entry>
   <entry id="13016" lang="en" sex="m">Cloak of Bravery</entry>
@@ -5275,7 +5274,7 @@ Baelnorn Properties: +8 bonus to Hide, Listen, Move Silently, Search, Persuade, 
 
      Note:  The Baelnorn is fully undead, and therefore is immune to sneak attacks, critical hits, level drain, poison, and disease.  An undead creature has no Constitution score.  However, this is not possible in Neverwinter Nights.  The player will gain +12 to constitution in order to simulate the increase of the Baelnorn's HD to d12.</entry>
   <entry id="16555" lang="en" sex="m">Wild Shape: Plant</entry>
-  <entry id="16556" lang="en" sex="m">At 12th level, a druid becomes able to use wild shape to change into a plant creature with the same size restrictions as for animal forms. (A druid can’t use this ability to take the form of a plant that isn’t a creature.) </entry>
+  <entry id="16556" lang="en" sex="m">At 12th level, a druid becomes able to use wild shape to change into a plant creature with the same size restrictions as for animal forms. (A druid can't use this ability to take the form of a plant that isn't a creature.) </entry>
   <entry id="16557" lang="en" sex="m">Wild Shape, Treant</entry>
   <entry id="16558" lang="en" sex="m">Wild Shape, Shambling Mound</entry>
   <entry id="16559" lang="en" sex="m">Wild Shape, Twig Blight</entry>
@@ -19586,7 +19585,7 @@ Notes:
 **: Limited to 2, 4, 6 and 8 points due to technical limits.
 ***: Due to technical limits, one cannot "hold the charge" on the stigmata. To make up for that, diseases will always be cured.</entry>
   <entry id="48694" lang="en" sex="m">Holy Radiance</entry>
-  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted.
+  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Cha 15, Nimbus of Light, Good Alignment*.
 Specifics: You can increase the intensity of the light surrounding you to damage undead creatures. At will, as a free action, you can empower the radiance surrounding you into a blazing glow that sheds bright light in a 10-foot radius. Undead within 10 feet of you take 1d4 damage per round they remain within your halo.
 Use: Selected.
@@ -72921,7 +72920,7 @@ Adventuring verdant lords are rare, but those who do exist are marvelous to beho
  1:  Create Infusion: At 1st level, the verdant lord gains Create Infusion as a bonus feat.  
  2:  Expert Infusion: At 2nd level, the character can automatically identify the spell contained in an infusion and the caster level of that spell.
          Sun Sustenance (Ex)*: At 2nd level, the verdant lord gains the ability to draw energy from the sun.
- 3:  Spontaneity: Beginning at 3rd level, the verdant lord can channel stored spell energy into regeneration spells that he hasn’t prepared ahead of time.
+ 3:  Spontaneity: Beginning at 3rd level, the verdant lord can channel stored spell energy into regeneration spells that he hasn't prepared ahead of time.
  4:  Plant Facility: At 4th level, the verdant lord can rebuke or command plants as if he were three levels higher than the actual caster level he uses to determine the benefits of that feat.
  5:  Fast Healing: At 5th level, the verdant lord gains Fast Healing as a bonus feat. 
  6:  Treant Wild Shape (Sp): Beginning at 6th level, the verdant lord can use wild shape to take the form of a treant.
@@ -72970,7 +72969,7 @@ Benefit: At 2nd level, the verdant lord gains the ability to draw energy from th
   <entry id="78057" lang="en" sex="m">Spontaneity</entry>
   <entry id="78058" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 3
-Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn’t prepared ahead of time. This works like the cleric's spontaneous casting ability, with the following exceptions. He can “lose” a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
+Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn't prepared ahead of time. This works like the cleric's spontaneous casting ability, with the following exceptions. He can “lose” a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
   <entry id="78059" lang="en" sex="m">Plant Facility</entry>
   <entry id="78060" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 4
@@ -74103,7 +74102,7 @@ Meldshaping: At each ironsoul forgemaster level after 10th, you increase your me
 Epic Ironsoul Forgemaster Bonus Feat List:
 Armor Skin, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Spell Focus, Epic Fortitude, Epic Reflexes, Superior Initiative, Epic Leadership, Energy Resistance, Epic Toughness, Forge Epic Ring, Legendary Commander, Bonus Soulmeld, Epic Essentia, Extra Chakra Bind, Open Heart Chakra, Open Soul Chakra, Rapid Meldshaping, Rebind Soulmeld.</entry>
   <entry id="205030" lang="en" sex="m">Epic Stormlord</entry>
-  <entry id="205031" lang="en" sex="m">At epic levels, you become a living tempest, a walking manifestation of Talos’ chaotic fury. Thunder and lightning answer your call, and your mere presence heralds destruction. Wielding your spear like the storm itself, you lay waste to all who stand before you, leaving only ruin in your wake.
+  <entry id="205031" lang="en" sex="m">At epic levels, you become a living tempest, a walking manifestation of Talos' chaotic fury. Thunder and lightning answer your call, and your mere presence heralds destruction. Wielding your spear like the storm itself, you lay waste to all who stand before you, leaving only ruin in your wake.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74753,7 +74752,7 @@ Truenaming: The epic Acolyte of the Ego continues to increase in Truenaming leve
 Epic Acolyte of the Ego Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Prowess, Epic Reflexes, Epic Skill Focus, Epic Toughness, Epic Reputation, Epic Will, Fast Healing, Great Intelligence, Perfect Health, Superior Initiative.</entry>
   <entry id="205130" lang="en" sex="m">Epic Peerless Archer</entry>
-  <entry id="205131" lang="en" sex="m">You’'ve left behind distractions, there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy, just skill, steel, and silence.
+  <entry id="205131" lang="en" sex="m">You've left behind distractions, there is only the bow. While others boast and brawl, you craft arrows with care and strike from shadows with precision. Every breath you take centers you. Every arrow you loose is a lesson in dominance. No magic, no mercy, just skill, steel, and silence.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
@@ -74857,7 +74856,7 @@ Hated Enemy Damage Reduction: the epic Foe Hunter's Hated Enemy Damage Reduction
 Epic Foe Hunter Bonus Feat List:
 Armor Skin, Bane of Enemies, Blinding Speed, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Great Strength, Great Dexterity, Perfect Health, Perfect Two-Weapon Fighting, Two-Weapon Rend, Superior Initiative.</entry>
   <entry id="205148" lang="en" sex="m">Epic Thrall of Grazzt</entry>
-  <entry id="205149" lang="en" sex="m">Epic Thralls of Graz’zt become living conduits of seduction and destruction. Their dark charisma becomes irresistible, allowing them to manipulate even the most stalwart minds. Their spell betrayal abilities reach deadly precision, turning every opening into an opportunity for pain. With the power to summon greater demons and twist arcane energy into lethal cunning, an Epic Thrall of Graz'zt no longer merely follows the Dark Prince, they act as his voice, his blade, and his will.
+  <entry id="205149" lang="en" sex="m">Epic Thralls of Graz'zt become living conduits of seduction and destruction. Their dark charisma becomes irresistible, allowing them to manipulate even the most stalwart minds. Their spell betrayal abilities reach deadly precision, turning every opening into an opportunity for pain. With the power to summon greater demons and twist arcane energy into lethal cunning, an Epic Thrall of Graz'zt no longer merely follows the Dark Prince, they act as his voice, his blade, and his will.
 
 Hit Die: d6
 Skill Points at Each Additional Level: 4 + Int Modifier
@@ -75485,10 +75484,8 @@ Use: Automatic</entry>
   <entry id="211217" lang="en" sex="m">78</entry>
   <entry id="211218" lang="en" sex="m">79</entry>
   <entry id="211219" lang="en" sex="m">80</entry>
-  <entry id="211500" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###
-</entry>
-  <entry id="211501" lang="en" sex="m">Warlock (Default)
-</entry>
+  <entry id="211500" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###</entry>
+  <entry id="211501" lang="en" sex="m">Warlock (Default)</entry>
   <entry id="211502" lang="en" sex="m">(STARTING PACKAGE)
 
 The default warlock package focuses on improving dexterity and feats that make Eldritch Blast more effective.

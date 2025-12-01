@@ -152,8 +152,7 @@ void main()
         }
         else
         {
-            DeleteLocalInt(oPC, "RelevelConfirm");
-            SetPCChatMessage();
+            DeleteLocalInt(oPC, "RelevelConfirm");            
         }
         if (firstWord == "/resetSpells")
         {
@@ -175,7 +174,6 @@ void main()
         else
         {
             DeleteLocalInt(oPC, "ResetSpellsConfirm");
-            SetPCChatMessage();
         }
         if(firstWord == "/pa")
         {
