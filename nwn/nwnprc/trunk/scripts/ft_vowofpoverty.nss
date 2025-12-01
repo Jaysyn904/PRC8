@@ -157,7 +157,12 @@ void main()
 		for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots
 		{
 			oItem=GetItemInSlot(nSlot, oPC);
-			if (!(GetTag(oItem) == "xp1_mystrashand") && !(GetTag(oItem) == "H2_SenseiAmulet"))
+			if (!(GetTag(oItem) == "xp1_mystrashand") 
+				&& !(GetTag(oItem) == "H2_SenseiAmulet") 
+			&& !(GetResRef(oItem) == "prc_sk_mblade_bs") 
+			&& !(GetResRef(oItem) == "prc_sk_mblade_th")
+			&& !(GetResRef(oItem) == "prc_sk_mblade_ss")
+			&& !(GetResRef(oItem) == "prc_sk_mblade_ls"))
 			{
 				if((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")
 				&& !(nSlot == 4 || nSlot == 5)) 										   //Check if it is magical (all items but on the hands)
@@ -210,7 +215,12 @@ void main()
 			  && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))   iMagic = 1;
 			eCheckIP = GetNextItemProperty(oItem);
 		}
-		if (!(GetTag(oItem) == "xp1_mystrashand") && !(GetTag(oItem) == "H2_SenseiAmulet"))
+		if (!(GetTag(oItem) == "xp1_mystrashand") 
+			&& !(GetTag(oItem) == "H2_SenseiAmulet")
+			&& !(GetResRef(oItem) == "prc_sk_mblade_bs") 
+			&& !(GetResRef(oItem) == "prc_sk_mblade_th")
+			&& !(GetResRef(oItem) == "prc_sk_mblade_ss")
+			&& !(GetResRef(oItem) == "prc_sk_mblade_ls"))
 		{
 			if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed)) //Check if weapon is magical or not on allowed list	        
 			{

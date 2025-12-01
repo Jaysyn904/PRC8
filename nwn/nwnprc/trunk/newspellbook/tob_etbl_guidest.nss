@@ -37,7 +37,6 @@ void main()
     object oInitiator    = OBJECT_SELF;
     object oTarget       = PRCGetSpellTargetObject();
     
-    if(!TakeSwiftAction(oInitiator)) return;
     // Blade guide check
     if(GetLocalInt(oInitiator, "ETBL_BladeGuideDead"))
     {
@@ -46,13 +45,13 @@ void main()
     }
     if(!TakeSwiftAction(oInitiator)) return;
     struct maneuver move = EvaluateManeuver(oInitiator, oTarget, TRUE);
-    effect eNone;
+    effect eImp = EffectVisualEffect(VFX_COM_HIT_SONIC); 
 
     if(move.bCanManeuver)
     {
-    SetLocalInt(oInitiator, "MoveIgnoreDR", TRUE);
-            DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, FALSE, "", "", FALSE, FALSE, TRUE));
-    // Cleanup
-    DelayCommand(3.0, DeleteLocalInt(oInitiator, "MoveIgnoreDR"));
+		SetLocalInt(oInitiator, "MoveIgnoreDR", TRUE);
+		DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eImp, 0.0, 0, 0, 0, FALSE, "", "", FALSE, FALSE, TRUE));
+		// Cleanup
+		DelayCommand(3.0, DeleteLocalInt(oInitiator, "MoveIgnoreDR"));
     }
 }

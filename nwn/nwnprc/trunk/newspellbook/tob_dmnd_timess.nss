@@ -42,11 +42,27 @@ void main()
         object oInitiator    = OBJECT_SELF;
         object oTarget       = PRCGetSpellTargetObject();
         struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
-        effect eNone;
+        effect eHit = EffectVisualEffect(VFX_COM_HIT_SONIC);
         
         if(move.bCanManeuver)
         {
-                DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, TRUE, "Time Stands Still Hit", "Time Stands Still Miss", FALSE, FALSE, TRUE));                
-                DelayCommand(1.0, PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, TRUE, "Time Stands Still Hit", "Time Stands Still Miss", FALSE, FALSE, FALSE));
+			// Get total attacks per round  
+			int nMainAttacks = GetMainHandAttacks(oInitiator);  
+			int nOffAttacks = GetOffHandAttacks(oInitiator, nMainAttacks);  
+			int nTotalAttacks = nMainAttacks + nOffAttacks; 
+			
+			// Apply VFX for each attack  
+			int i;  
+			for (i = 0; i < nTotalAttacks; i++)  
+			{  
+				DelayCommand(i * 0.2, ApplyEffectAtLocation(  
+					DURATION_TYPE_INSTANT,   
+					EffectVisualEffect(VFX_COM_HIT_SONIC),   
+					GetLocation(oTarget)  
+				));  
+			} 
+		
+			DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eHit, 0.0, 0, 0, 0, TRUE, "Time Stands Still Hit!", "Time Stands Still Miss!", FALSE, FALSE, TRUE));                
+			DelayCommand(1.0, PerformAttackRound(oTarget, oInitiator, eHit, 0.0, 0, 0, 0, TRUE, "Time Stands Still Hit!", "Time Stands Still Miss!", FALSE, FALSE, FALSE));
         }
 }

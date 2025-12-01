@@ -447,6 +447,9 @@ json GetSpellIcon(int spellId,int featId=0,int nClass=0)
 
     // the FeatID holds the accurate spell icon, not the SpellID
     int nFeatID = StringToInt(Get2DACache("spells", "FeatID", spellId));
+	// however if no featId was found use the spell's icon instead
+	if (!nFeatID)
+		return JsonString(Get2DACache("spells", "IconResRef", spellId));
 
     return JsonString(Get2DACache("feat", "Icon", nFeatID));
 }

@@ -156,3 +156,16 @@ const string NUI_SPELL_DESCRIPTION_CLASSID_VAR = "NUISpellDescriptionClassID";
 const string NUI_SPELL_DESCRIPTION_SPELLID_VAR = "NUISpellDescriptionSpellID";
 const string NUI_SPELL_DESCRIPTION_REAL_SPELLID_VAR = "NUISpellDescriptionRealSpellID";
 
+
+//////////////////////////////////////////////////
+//                                              //
+// Spell Duration NUI                           //
+//                                              //
+//////////////////////////////////////////////////
+
+const string DURATION_NUI_WINDOW_ID = "DurationNUI";
+const string NUI_DURATION_MANUALLY_OPENED_PARAM = "DurationNUIManuallyOpenedParam";
+const string NUI_DURATION_NO_LOOP_PARAM = "DurationNUINoLoopParam";
+const string NUI_DURATION_TRACKED_SPELLS = "durationNUI_trackedSpellList";
+const string NUI_SPELL_DURATION_BASE_BIND = "durationNUI_durationSpellId";
+const string NUI_SPELL_DURATION_SPELLID_BASE_CANCEL_BUTTON = "NuiDurationCancelButtonSpellID";

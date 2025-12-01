@@ -31,7 +31,7 @@ void main()
 
     object oInitiator    = OBJECT_SELF;
     object oTarget       = PRCGetSpellTargetObject();
-    
+	
     if(!TakeSwiftAction(oInitiator)) return;
     // Blade guide check
     if(GetLocalInt(oInitiator, "ETBL_BladeGuideDead"))
@@ -47,13 +47,33 @@ void main()
     }
 
     struct maneuver move = EvaluateManeuver(oInitiator, oTarget, TRUE);
-    effect eNone;
+    effect eHit = EffectVisualEffect(VFX_COM_HIT_SONIC ); 
 
     if(move.bCanManeuver)
     {
-        DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, FALSE, "Island in Time Hit", "Island in Time Miss", FALSE, FALSE, FALSE));
+		// Get total attacks per round  
+		int nMainAttacks = GetMainHandAttacks(oInitiator);  
+		int nOffAttacks = GetOffHandAttacks(oInitiator, nMainAttacks);  
+		int nTotalAttacks = nMainAttacks + nOffAttacks;  
+	
+		effect eVFX = EffectVisualEffect(VFX_IMP_HOLY_AID_DN_BLUE );  
+		ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVFX, GetLocation(oInitiator));  
+		
+		// Apply VFX for each attack  
+		int i;  
+		for (i = 0; i < nTotalAttacks; i++)  
+		{  
+			DelayCommand(i * 0.2, ApplyEffectAtLocation(  
+				DURATION_TYPE_INSTANT,   
+				EffectVisualEffect(VFX_COM_HIT_SONIC),   
+				GetLocation(oTarget)  
+			));  
+		} 
+	
+		DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, eHit, 0.0, 0, 0, 0, FALSE, "Island in Time Hit!", "Island in Time Miss", FALSE, FALSE, FALSE));
 
         // Expend ability
         SetLocalInt(oInitiator, "ETBL_Island_In_Time_Expended", TRUE);
     }
+	 
 }

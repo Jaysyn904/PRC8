@@ -70,13 +70,13 @@
 43  PRC_CRAFTING_BASE_ITEMS                 int        1
 44  PRC_XP_USE_SIMPLE_LA                    int        1
 45  PRC_XP_USE_SIMPLE_RACIAL_HD             int        1
-46  PRC_CREATE_INFUSION_CASTER_LEVEL		int        1
-47	PRC_CREATE_INFUSION_OPTIONAL_HERBS		int		   0
+46  PRC_CREATE_INFUSION_CASTER_LEVEL        int        1
+47  PRC_CREATE_INFUSION_OPTIONAL_HERBS      int        0
  */
 
  /* This variable MUST be updated with every new version of the PRC!!! */
 
- const string PRC_VERSION                           = "PRC8 4.71";
+ const string PRC_VERSION                           = "PRC8 4.72";
 
  /* This variable MUST be updated every time 'assemble_spellbooks.bat' is run!!! */
 
@@ -91,11 +91,11 @@
  * This allows material components in NWN through the materialcomp.2da
  * Just put the SpellID and UTC resref in, MINUS the .utc on the end.
  * This also requires the names of the items, formatted like so ("" included): "Object Name"
- * 
+ *
  * Set switch to 2 to activate this
  * Deducts gold instead of requiring material components
  * Put the gold value in the Cost column
- 
+
  * Set switch to 3 to activate both at the same time
  * WARNING: This will slow spellcasting down due to 2da reads and inventory loops
  */
@@ -129,7 +129,7 @@ const string PRC_BIOWARE_NEUTRALIZE_POISON           = "PRC_BIOWARE_NEUTRALIZE_P
 /** Remove the cap PRC added to this spell */
 const string PRC_BIOWARE_REMOVE_DISEASE              = "PRC_BIOWARE_REMOVE_DISEASE";
 
-/** 
+/**
  * This replaces the 3.0 Spell Focus bonuses with the 3.5 edition ones
  */
 const string PRC_35_SPELL_FOCUS                      = "PRC_35_SPELL_FOCUS";
@@ -263,8 +263,8 @@ const string PRC_165_DEATH_IMMUNITY                  = "PRC_165_DEATH_IMMUNITY";
 
 /*
  * PRC_ACTIVATE_MAX_SPELL_DC_CAP:  activate a max cap on DC casted by creature/player
- * PRC_SET_MAX_SPELL_DC_CAP: the max value ex: 99 
- * 
+ * PRC_SET_MAX_SPELL_DC_CAP: the max value ex: 99
+ *
 */
 const string PRC_ACTIVATE_MAX_SPELL_DC_CAP           = "PRC_ACTIVATE_MAX_SPELL_DC_CAP";
 const string PRC_SET_MAX_SPELL_DC_CAP                = "PRC_SET_MAX_SPELL_DC_CAP";
@@ -291,8 +291,8 @@ const string PRC_DC_BASE_OVERRIDE                   = "PRC_DC_BASE_OVERRIDE";
 const string PRC_DC_ADJUSTMENT                       = "PRC_DC_ADJUSTMENT";
 
 /*
- * By default when calculating caster level for characters with PrCs, the highest class rule will 
- * be used (ie. Bard 2/Wizard 4/Elemental Savant 6 - Wizard is the highest arcane class so levels 
+ * By default when calculating caster level for characters with PrCs, the highest class rule will
+ * be used (ie. Bard 2/Wizard 4/Elemental Savant 6 - Wizard is the highest arcane class so levels
  * form PrC will be added to that class, and the caster level will be 2 for Bard and 10 for Wizard).
  * When this is set, the first class rule will be used (with the same character caster level would
  * be 8 for Bard and 4 for Wizard).
@@ -552,13 +552,13 @@ const string PRC_BARD_DISALLOW_NEWSPELLBOOK     = "PRC_BARD_DISALLOW_NEWSPELLBOO
  */
 const string PRC_BARD_LIGHT_ARMOR_SPELLCASTING  = "PRC_BARD_LIGHT_ARMOR_SPELLCASTING";
 
-/*
+/**
  * By default, CW Samurai get a plain katana and a plain wakizashi (shortsword) at 1st level.
  * Setting this to non-zero value prevents that.
  */
 const string PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO = "PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO";
 
-/*
+/**
  * Determines the number of wight henchmen a Soul Eater can have via their Soul Slave
  * class ability.
  * Default: 4
@@ -568,58 +568,58 @@ const string PRC_CWSAMURAI_NO_HEIRLOOM_DAISHO = "PRC_CWSAMURAI_NO_HEIRLOOM_DAISH
 const string PRC_SOUL_EATER_MAX_SLAVES       = "PRC_SOUL_EATER_MAX_SLAVES";
 
 
-/*
+/**
  * For the Psionic Slayer prestige class, this switch limits the Favored Enemy selection
  * to the Aberration racial type.
  *
- * This switch is provided to allow builders to more closely represent the Pen and Paper 
+ * This switch is provided to allow builders to more closely represent the Pen and Paper
  * Illithid Slayer class, instead of the broader Open Game License "Slayer" class.
  *
- * Type: Int  
+ * Type: Int
  * Values: 0 [Default] (Favored Enemy racial type is not limited)
- *		   1 (Favored Enemy race is limited to Aberration only)
+ *         1 (Favored Enemy race is limited to Aberration only)
  */
 const string PRC_PSIONIC_SLAYER_FAV_ENEMY_ABERRATION_ONLY       = "PRC_PSIONIC_SLAYER_FAV_ENEMY_ABERRATION_ONLY";
 
-/*
+/**
  * For the Psionic Slayer prestige class, this switch requires a character to make a "kill"
  * of a specific type of creature before the class becomes available.
  *
- * Use of this switch requires that the module builder add a "Psionic Slayer Kill Token" 
- * (included in the PRC Items) to the designated creature. 
+ * Use of this switch requires that the module builder add a "Psionic Slayer Kill Token"
+ * (included in the PRC Items) to the designated creature.
  *
- * Alternately, a script or item can be made that will run the script "prc_psysly_killt" 
+ * Alternately, a script or item can be made that will run the script "prc_psysly_killt"
  * on the PC. This script will set the flag that allows the target PC to take the Psionic Slayer Class.
- * Example code:  
- *				ExecuteScript("prc_psysly_killt", oPC); // Where oPC is an player charcter object
+ * Example code:
+ *              ExecuteScript("prc_psysly_killt", oPC); // Where oPC is an player charcter object
  *
- * This switch is provided to allow builders to more closely represent the Pen and Paper 
+ * This switch is provided to allow builders to more closely represent the Pen and Paper
  * Illithid Slayer class, instead of the broader Open Game License "Slayer" class.
  *
- * Type: Int  
+ * Type: Int
  * Values: 0 [Default] (Kill Token / Script NOT required for taking the Psionic Slayer Class)
- *		   1 (Kill Token / Script REQUIRED before the Psionic Slayer Class is available to take)
+ *         1 (Kill Token / Script REQUIRED before the Psionic Slayer Class is available to take)
  */
 const string PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN       = "PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN";
 
 
-/*
+/**
  * By default the Werewolf class uses the Bioware Polymorph effect to perfrom its
- * Hybrid Form Shapechange.
+ * Hybrid Form Shapchange.
  *
- * This switch allows the Werewolf class to be toggled to use the PRC Shifter 
- * Shapchange code instead. 
+ * This switch allows the Werewolf class to be toggled to use the PRC Shifter
+ * Shapchange code instead.
  *
- * Type: Int 
+ * Type: Int
  * Values: 0 [Default] (Werewolf Hybrid Shapchange uses Bioware Polymorph)
- *		   1 (Werewolf Hybrid Shapchange uses PRC Shifter shape change code)
+ *         1 (Werewolf Hybrid Shapchange uses PRC Shifter shape change code)
  */
 const string PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE       = "PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE";
 
-/*
+/**
  * Sets the max bonus for the PnP Shifter shifting systems
  *
- * Type: Int 
+ * Type: Int
  * Values: any greater than 0
  */
 const string PRC_PNP_SHIFTER_BONUS                            = "PRC_PNP_SHIFTER_BONUS";
@@ -783,7 +783,7 @@ const string PRC_STAFF_CASTER_LEVEL                  = "PRC_STAFF_CASTER_LEVEL";
 /**
  * [DEFUNCT]
  * A wand must be equipped before it can cast a spell
- * 
+ *
  * Any value above 0 turns off the requirement to have a wand equipped to use it
  *
  * This switch is defunct, wands must *always* be equipped to use them.
@@ -931,7 +931,7 @@ const string PRC_PNP_FAMILIAR_FEEDING                = "PRC_PNP_FAMILIAR_FEEDING
 
 /**
  * Use PRC henchmen-familiars instead of BioWare's - this will allow
- * new classes to have familiars, but summoned creatures will no longer 
+ * new classes to have familiars, but summoned creatures will no longer
  * be 'true' familiars (ie. can't possess PRC familiar)
  */
 const string PRC_FAMILIARS                           = "PRC_FAMILIARS";
@@ -1114,7 +1114,7 @@ const string PRC_SPELL_ALIGNMENT_RESTRICT            = "PRC_SPELL_ALIGNMENT_REST
   * Disable registration of custom cohorts
   */
  const string PRC_DISABLE_REGISTER_COHORTS                      = "PRC_DISABLE_REGISTER_COHORTS";
- 
+
   /*
    * Disable cohorts starting with gear
    */
@@ -1144,19 +1144,19 @@ const string PRC_SPELL_ALIGNMENT_RESTRICT            = "PRC_SPELL_ALIGNMENT_REST
   * Medium armor is a 25% speed reduction, Heavy is a 33% reduction
   */
  const string PRC_PNP_ARMOR_SPEED                      = "PRC_PNP_ARMOR_SPEED";
- 
+
  /*
    * Applies a 99% speed boost when out of combat
    * Warning that it will likely cause PCs to be overly speedy when combat starts
    * Potential problem causer
    */
  const string PRC_FAST_TRAVEL_SPEED                      = "PRC_FAST_TRAVEL_SPEED";
- 
+
   /*
    * Applys a Discipline bonus equal to BAB to all characters if turned on
    * Bonus only applies to characters with 0 ranks in Discipline
    */
- const string PRC_PNP_KNOCKDOWN                      = "PRC_PNP_KNOCKDOWN"; 
+ const string PRC_PNP_KNOCKDOWN                      = "PRC_PNP_KNOCKDOWN";
 
  /*
   * by Bioware rules, PCs have approximatly a 7th faster movement than NPCs
@@ -1226,7 +1226,7 @@ const string PRC_PNP_DEATH_ENABLE                           = "PRC_PNP_DEATH_ENA
   *  if FALSE, dont bleed just die
   *  By PnP this would be 1 round, or 6 seconds
   */
-const string PRC_DEATH_OR_BLEED     						= "PRC_DEATH_OR_BLEED";
+const string PRC_DEATH_OR_BLEED                             = "PRC_DEATH_OR_BLEED";
 
 /*
  * Damage when bleeding
@@ -1319,7 +1319,7 @@ const string PRC_ACP_DELAY                           = "PRC_ACP_DELAY";
 
 
 /******************************************************************************
-*                               File End switches                              
+*                               File End switches
 ******************************************************************************/
 
 /**
@@ -1493,10 +1493,10 @@ const string PRC_POISON_IS_FOOD_SCRIPT_NAME          = "PRC_POISON_IS_FOOD_SCRIP
 const string PRC_POISON_ALLOW_CLEAN_IN_EQUIP         = "PRC_POISON_ALLOW_CLEAN_IN_EQUIP";
 
 /**
- * 
+ *
  * Default: crafting requires only gold and xp
  */
-const string PRC_CRAFT_POISON_USE_INGREDIENST        = "PRC_CRAFT_POISON_USE_INGREDIENST";
+const string PRC_CRAFT_POISON_USE_INGREDIENTS        = "PRC_CRAFT_POISON_USE_INGREDIENTS";
 
 /******************************************************************************\
 *                             PRGT system switches                             *
@@ -1545,10 +1545,10 @@ const string PRC_PSI_ASTRAL_CONSTRUCT_DUR_MOD        = "PRC_PSI_ASTRAL_CONSTRUCT
 
 /**
  * If this is set, The Astral Seed power will attempt to use the provided string as
- * the ResRef to create the Astral Seed object instead of the of the phylactery 
+ * the ResRef to create the Astral Seed object instead of the of the phylactery
  * ResRef("x2_plc_phylact").
  * May be used by builders to create an object that CAN be destroyed, or has other traits,
- * as desired. 
+ * as desired.
  * Type: String
  * Values: "" [Default] (Blank, or not set: Use default phylactery ResRef for Astral Seed)
  *         STRING (Entered String will be used as the ResRef of created Astral Seed object)
@@ -1556,14 +1556,14 @@ const string PRC_PSI_ASTRAL_CONSTRUCT_DUR_MOD        = "PRC_PSI_ASTRAL_CONSTRUCT
 const string PRC_PSI_ASTRAL_SEED_RESREF        = "PRC_PSI_ASTRAL_SEED_RESREF";
 
 /**
- * By default the Astral Seed power respawns the player, and then makes them immobile for 
+ * By default the Astral Seed power respawns the player, and then makes them immobile for
  * 24-game-hours.
- * If this switch is set, it will adjust the imobility time period; shortening it, lengthing it, or 
+ * If this switch is set, it will adjust the imobility time period; shortening it, lengthing it, or
  * effectively eliminating it.
  * Type: Int
  * Values: 0 [Default] (Not set: Use default 24 hour duration)
  *         -1          (Any negative value will result in a fixed duratoion of 2 seconds, which effectively eliminates the wait period)
- *         1           (Any potitive value: multiply duration by the value provided and then divide result by 1000. 
+ *         1           (Any potitive value: multiply duration by the value provided and then divide result by 1000.
  *                      Values less than 1000 will shorten the duration, values higher than 1000 will lengthen it.)
  */
 const string PRC_PSI_ASTRAL_SEED_RESPAWN_DELAY_X1000        = "PRC_PSI_ASTRAL_SEED_RESPAWN_DELAY_X1000";
@@ -1574,7 +1574,7 @@ const string PRC_PSI_ASTRAL_SEED_RESPAWN_DELAY_X1000        = "PRC_PSI_ASTRAL_SE
  * If this flag is set, the XP loss is completely eliminated. The standard PRC event hook script
  * of "prc_pw_astralseed" may be used to script any additional effects to occure upon Astral Seed
  * respawning, including scripting specific XP loss amount.
- * Type: Int 
+ * Type: Int
  * Values: 0 [Default] (Not set: lose 1 level worth of XP upon Astral Seed respawn)
  *         1           (Any potitive value: Remove all XP loss from Astral Seed respawn)
  */
@@ -1960,14 +1960,14 @@ const string PRC_CRAFT_STAFF_CASTER_LEVEL             = "PRC_CRAFT_STAFF_CASTER_
 /*
  * As above, except it applies to herbal infusions
  */
-const string PRC_CREATE_INFUSION_CASTER_LEVEL	= "PRC_CREATE_INFUSION_CASTER_LEVEL";
+const string PRC_CREATE_INFUSION_CASTER_LEVEL   = "PRC_CREATE_INFUSION_CASTER_LEVEL";
 
 /*
- * Builder's Option:  Enables the optional PnP herbs for creating infusions.  
+ * Builder's Option:  Enables the optional PnP herbs for creating infusions.
  * Each herb is keyed to a spell circle level & spell school as shown on pg. 33
  * of the Master's of the Wild sourcebook.
  */
-const string PRC_CREATE_INFUSION_OPTIONAL_HERBS	= "PRC_CREATE_INFUSION_OPTIONAL_HERBS";
+const string PRC_CREATE_INFUSION_OPTIONAL_HERBS = "PRC_CREATE_INFUSION_OPTIONAL_HERBS";
 
 /*
  * Characters with a crafting feat always have the appropriate base item in their inventory
@@ -2345,7 +2345,7 @@ const string PRC_XP_GIVE_XP_TO_NPCS                  = "PRC_XP_GIVE_XP_TO_NPCS";
 /**
  * Setting this switch will turn off the messages about being too far awy to gain XP
  */
-const string PRC_XP_DISABLE_SPAM                 	 = "PRC_XP_DISABLE_SPAM";
+const string PRC_XP_DISABLE_SPAM                     = "PRC_XP_DISABLE_SPAM";
 
 /**
  * PCs must be in the same area as the CR to gain XP.
@@ -2904,13 +2904,13 @@ const string PRC_PERFECTED_MAP_MULTIPLIER            = "PRC_PERFECTED_MAP_MULTIP
 \******************************************************************************/
 
 /**
- * Sets how many seconds it takes to contact a vestige. 
+ * Sets how many seconds it takes to contact a vestige.
  * Any number less than 6 is ignored
  */
 const string PRC_CONTACT_VESTIGE_TIMER               = "PRC_CONTACT_VESTIGE_TIMER";
 
 /**
- * Sets how many seconds it takes to bind a vestige. 
+ * Sets how many seconds it takes to bind a vestige.
  * Any number less than 12 is ignored
  */
 const string PRC_BIND_VESTIGE_TIMER                  = "PRC_BIND_VESTIGE_TIMER";
@@ -2943,6 +2943,20 @@ const string PRC_PW_SECURITY_CD_CHECK            = "PRC_PW_SECURITY_CD_CHECK";
  * Toggles everything guarded by "if(DEBUG)". Mostly calls to DoDebug().
  */
 const string PRC_DEBUG                               = "PRC_DEBUG";
+
+/******************************************************************************\
+*                             Duration NUI Switches                            *
+\******************************************************************************/
+
+/**
+ * Toggles allowing player to remove friendly PC spells on player through Duration NUI
+ * instead of just their own spells.
+ */
+const string PRC_ALLOWED_TO_REMOVE_FRIENDLY_SPELLS  = "PRC_ALLOWED_TO_REMOVE_FRIENDLY_SPELLS";
+/**
+ * Toggles allowing players to see the duration of hostile spells on them.
+ */
+const string PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS = "PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS";
 
 
 

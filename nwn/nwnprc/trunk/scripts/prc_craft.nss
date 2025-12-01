@@ -1429,7 +1429,7 @@ void main()
                 }
                 case STAGE_CONFIRM_POISON:
                 {
-                    int bIngredients = GetPRCSwitch(PRC_CRAFT_POISON_USE_INGREDIENST);
+                    int bIngredients = GetPRCSwitch(PRC_CRAFT_POISON_USE_INGREDIENTS);
                     string sIngr1Name = Get2DACache("prc_craft_poison", "Ingr1Name", nLine);
                     string sIngr2Name = Get2DACache("prc_craft_poison", "Ingr2Name", nLine);
                     string sCost = Get2DACache("prc_craft_poison", "GoldCost", nLine);
@@ -2046,7 +2046,7 @@ void main()
                 }
                 else if(nChoice == CHOICE_CONFIRM)
                 {
-                    int bIngredients = GetPRCSwitch(PRC_CRAFT_POISON_USE_INGREDIENST);
+                    int bIngredients = GetPRCSwitch(PRC_CRAFT_POISON_USE_INGREDIENTS);
                     int nCost = StringToInt(Get2DACache("prc_craft_poison", "GoldCost", nLine));
                     int nPCGold = GetGold(oPC);
                     object oIngr1, oIngr2;

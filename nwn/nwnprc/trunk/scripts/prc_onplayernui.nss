@@ -34,6 +34,9 @@ void main()
     if (sWindowId == NUI_LEVEL_UP_WINDOW_ID)
         ExecuteScript("prc_nui_lv_event");
 
+    if (sWindowId == DURATION_NUI_WINDOW_ID)
+        ExecuteScript("prc_nui_sd_event");
+
     return;
 }
 
