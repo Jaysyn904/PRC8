@@ -5285,6 +5285,20 @@ Baelnorn Properties: +8 bonus to Hide, Listen, Move Silently, Search, Persuade, 
   <entry id="16564" lang="en" sex="m">Twig Blight</entry>
   <entry id="16565" lang="en" sex="m">Myconid</entry>
   <entry id="16566" lang="en" sex="m">Algoid</entry>
+  <entry id="16567" lang="en" sex="m">****</entry>
+  <entry id="16568" lang="en" sex="m">****
+</entry>
+  <entry id="16569" lang="en" sex="m">****</entry>
+  <entry id="16570" lang="en" sex="m">****</entry>
+  <entry id="16571" lang="en" sex="m">Abundant Step (Su)</entry>
+  <entry id="16572" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Monk level 12.
+Specifics: At 12th level, a monk can slip magically between spaces, as per the spell dimension door, once per day. This is a spell-like ability, and the monk's effective casting level is one-half her actual level (rounded down). 
+Use: Selected.</entry>
+  <entry id="16573" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Monk level 13.
+Specifics: The monk gains spell resistance equal to their class level + 10.
+Use: Automatic.</entry>
   <entry id="20400" lang="en" sex="m">++++++++++ ACP Styles ++++++++++</entry>
   <entry id="20401" lang="en" sex="m">Kensai</entry>
   <entry id="20402" lang="en" sex="m">Assassin</entry>
@@ -9785,13 +9799,13 @@ Level
   Zealous Heart - Immune to all forms of fear.
 2: Poison Use - No chance of poisoning self while applying poison to a weapon
 3: Sneak Attack +1d6
-4: Blank
+4: -
 5: Fateful Stride - Dimension Door 1/day (Teleport to anywhere within view)
 6: Sneak Attack +2d6
 7: Sacred Flame - All melee attacks gain 1d6 fire damage
-8: Blank
+8: -
 9: Sneak Attack +3d6
-10: Blank
+10: -
 
 BONUS DIVINE SPELLS
 
@@ -19585,7 +19599,7 @@ Notes:
 **: Limited to 2, 4, 6 and 8 points due to technical limits.
 ***: Due to technical limits, one cannot "hold the charge" on the stigmata. To make up for that, diseases will always be cured.</entry>
   <entry id="48694" lang="en" sex="m">Holy Radiance</entry>
-  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted
+  <entry id="48695" lang="en" sex="m">Type of Feat: Exalted.
 Prerequisite: Cha 15, Nimbus of Light, Good Alignment*.
 Specifics: You can increase the intensity of the light surrounding you to damage undead creatures. At will, as a free action, you can empower the radiance surrounding you into a blazing glow that sheds bright light in a 10-foot radius. Undead within 10 feet of you take 1d4 damage per round they remain within your halo.
 Use: Selected.
@@ -19593,9 +19607,8 @@ Use: Selected.
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48696" lang="en" sex="m">Nimbus of Light</entry>
   <entry id="48697" lang="en" sex="m">Type of Feat: Exalted
-Prerequisite: Base Attack Bonus 1, Good Alignment*.
-Required For: Holy Radiance, Stigmata.
-Specifics: You are cloaked in a radiant light that marks you as a servant of purest ideals. You gain a +2 bonus to persuade. Your radiance sheds light with a radius of 5 feet.
+Prerequisite: Cha 15, Nimbus of Light, Good Alignment*.
+Specifics: You can increase the intensity of the light surrounding you to damage undead creatures. At will, as a free action, you can empower the radiance surrounding you into a blazing glow that sheds bright light in a 10-foot radius. Undead within 10 feet of you take 1d4 damage per round they remain within your halo.
 Use: Selected.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
@@ -60974,125 +60987,6 @@ Temples to evil deities sell cursed water at cost (making no profit).</entry>
   <entry id="63507" lang="en" sex="m">Vassal of Bahamut Diamond Spray</entry>
   <entry id="63508" lang="en" sex="m">Vassal of Bahamut Sunmantle</entry>
   <entry id="63509" lang="en" sex="m">Vassal of Bahamut Greater Luminous Armor</entry>
-  <entry id="63510" lang="en" sex="m">Sublime Chord Abyssal Might</entry>
-  <entry id="63076" lang="en" sex="m">Beguiler Daze</entry>
-  <entry id="63077" lang="en" sex="m">Beguiler Read Magic</entry>
-  <entry id="63078" lang="en" sex="m">Beguiler Charm Person</entry>
-  <entry id="63079" lang="en" sex="m">Beguiler Color Spray</entry>
-  <entry id="63080" lang="en" sex="m">Beguiler Disguise Self</entry>
-  <entry id="63081" lang="en" sex="m">Beguiler Disguise Self - Learn Shape</entry>
-  <entry id="63082" lang="en" sex="m">Beguiler Disguise Self - Options</entry>
-  <entry id="63083" lang="en" sex="m">Beguiler Disguise Self - Quickslot 1</entry>
-  <entry id="63084" lang="en" sex="m">Beguiler Disguise Self - Quickslot 2</entry>
-  <entry id="63085" lang="en" sex="m">Beguiler Disguise Self - Quickslot 3</entry>
-  <entry id="63086" lang="en" sex="m">Beguiler Drug Resistance</entry>
-  <entry id="63087" lang="en" sex="m">Beguiler Expeditious Retreat</entry>
-  <entry id="63088" lang="en" sex="m">Beguiler Mage Armor</entry>
-  <entry id="63089" lang="en" sex="m">Beguiler Nybor's Gentle Reminder</entry>
-  <entry id="63090" lang="en" sex="m">Beguiler Obscuring Mist</entry>
-  <entry id="63091" lang="en" sex="m">Beguiler Rouse</entry>
-  <entry id="63092" lang="en" sex="m">Beguiler Sleep</entry>
-  <entry id="63093" lang="en" sex="m">Beguiler Undetectable Alignment</entry>
-  <entry id="63094" lang="en" sex="m">Beguiler Addiction</entry>
-  <entry id="63095" lang="en" sex="m">Beguiler Addiction: Terran Brandy</entry>
-  <entry id="63096" lang="en" sex="m">Beguiler Addiction: Mushroom Powder</entry>
-  <entry id="63097" lang="en" sex="m">Beguiler Addiction: Vodare</entry>
-  <entry id="63098" lang="en" sex="m">Beguiler Addiction: Agony</entry>
-  <entry id="63099" lang="en" sex="m">Beguiler Blindness/Deafness</entry>
-  <entry id="63100" lang="en" sex="m">Beguiler Blur</entry>
-  <entry id="63101" lang="en" sex="m">Beguiler Continual Flame</entry>
-  <entry id="63102" lang="en" sex="m">Beguiler Daze Monster</entry>
-  <entry id="63103" lang="en" sex="m">Beguiler Fog Cloud</entry>
-  <entry id="63104" lang="en" sex="m">Beguiler Ghostly Visage</entry>
-  <entry id="63105" lang="en" sex="m">Beguiler Glitterdust</entry>
-  <entry id="63106" lang="en" sex="m">Beguiler Invisibility</entry>
-  <entry id="63107" lang="en" sex="m">Beguiler Knock</entry>
-  <entry id="63108" lang="en" sex="m">Beguiler Masochism</entry>
-  <entry id="63109" lang="en" sex="m">Beguiler Mirror Image</entry>
-  <entry id="63110" lang="en" sex="m">Beguiler See Invisibility</entry>
-  <entry id="63111" lang="en" sex="m">Beguiler Shadow Spray</entry>
-  <entry id="63112" lang="en" sex="m">Beguiler Silence</entry>
-  <entry id="63113" lang="en" sex="m">Beguiler Tasha's Hideous Laughter</entry>
-  <entry id="63114" lang="en" sex="m">Beguiler Touch of Idiocy</entry>
-  <entry id="63115" lang="en" sex="m">Beguiler Clairaudience/Clairvoyance</entry>
-  <entry id="63116" lang="en" sex="m">Beguiler Curse of the Putrid Husk</entry>
-  <entry id="63117" lang="en" sex="m">Beguiler Deep Slumber</entry>
-  <entry id="63118" lang="en" sex="m">Beguiler Dispel Magic</entry>
-  <entry id="63119" lang="en" sex="m">Beguiler Displacement</entry>
-  <entry id="63120" lang="en" sex="m">Beguiler Elation</entry>
-  <entry id="63121" lang="en" sex="m">Beguiler Evil Eye</entry>
-  <entry id="63122" lang="en" sex="m">Beguiler Glibness</entry>
-  <entry id="63123" lang="en" sex="m">Beguiler Halt</entry>
-  <entry id="63124" lang="en" sex="m">Beguiler Haste</entry>
-  <entry id="63125" lang="en" sex="m">Beguiler Heroism</entry>
-  <entry id="63126" lang="en" sex="m">Beguiler Hold Person</entry>
-  <entry id="63127" lang="en" sex="m">Beguiler Invisibility Sphere</entry>
-  <entry id="63128" lang="en" sex="m">Beguiler Nondetection</entry>
-  <entry id="63129" lang="en" sex="m">Beguiler Reality Blind</entry>
-  <entry id="63130" lang="en" sex="m">Beguiler Slow</entry>
-  <entry id="63131" lang="en" sex="m">Beguiler Charm Monster</entry>
-  <entry id="63132" lang="en" sex="m">Beguiler Confusion</entry>
-  <entry id="63133" lang="en" sex="m">Beguiler Crushing Despair</entry>
-  <entry id="63134" lang="en" sex="m">Beguiler Freedom of Movement</entry>
-  <entry id="63135" lang="en" sex="m">Beguiler Improved Invisibility</entry>
-  <entry id="63136" lang="en" sex="m">Beguiler Locate Creature</entry>
-  <entry id="63137" lang="en" sex="m">Beguiler Phantasmal Killer</entry>
-  <entry id="63138" lang="en" sex="m">Beguiler Rainbow Pattern</entry>
-  <entry id="63139" lang="en" sex="m">Beguiler Shadow Conjuration</entry>
-  <entry id="63140" lang="en" sex="m">Beguiler Shadow Conjuration, Summon Shadow</entry>
-  <entry id="63141" lang="en" sex="m">Beguiler Shadow Conjuration, Darkness</entry>
-  <entry id="63142" lang="en" sex="m">Beguiler Shadow Conjuration, Invisibility</entry>
-  <entry id="63143" lang="en" sex="m">Beguiler Shadow Conjuration, Mage Armor</entry>
-  <entry id="63144" lang="en" sex="m">Beguiler Shadow Conjuration, Magic Missile</entry>
-  <entry id="63145" lang="en" sex="m">Beguiler Solid Fog</entry>
-  <entry id="63146" lang="en" sex="m">Beguiler Break Enchantment</entry>
-  <entry id="63147" lang="en" sex="m">Beguiler Dominate Person</entry>
-  <entry id="63148" lang="en" sex="m">Beguiler Feeblemind</entry>
-  <entry id="63149" lang="en" sex="m">Beguiler Greater Shadow Conjuration</entry>
-  <entry id="63150" lang="en" sex="m">Beguiler Greater Shadow Conjuration, Summon Shadow</entry>
-  <entry id="63151" lang="en" sex="m">Beguiler Greater Shadow Conjuration, Acid Arrow</entry>
-  <entry id="63152" lang="en" sex="m">Beguiler Greater Shadow Conjuration, Ghostly Visage</entry>
-  <entry id="63153" lang="en" sex="m">Beguiler Greater Shadow Conjuration, Web</entry>
-  <entry id="63154" lang="en" sex="m">Beguiler Greater Shadow Conjuration, Minor Globe of Invulnerability</entry>
-  <entry id="63155" lang="en" sex="m">Beguiler Hold Monster</entry>
-  <entry id="63156" lang="en" sex="m">Beguiler Mind Fog</entry>
-  <entry id="63157" lang="en" sex="m">Beguiler Symbol of Sleep</entry>
-  <entry id="63158" lang="en" sex="m">Beguiler Ethereal Visage</entry>
-  <entry id="63159" lang="en" sex="m">Beguiler Greater Dispelling</entry>
-  <entry id="63160" lang="en" sex="m">Beguiler Greater Heroism</entry>
-  <entry id="63161" lang="en" sex="m">Beguiler Mass Haste</entry>
-  <entry id="63162" lang="en" sex="m">Beguiler Mislead</entry>
-  <entry id="63163" lang="en" sex="m">Beguiler Repulsion</entry>
-  <entry id="63164" lang="en" sex="m">Beguiler Shades</entry>
-  <entry id="63165" lang="en" sex="m">Beguiler Summon Shadow</entry>
-  <entry id="63166" lang="en" sex="m">Beguiler Shades, Cone of Cold</entry>
-  <entry id="63167" lang="en" sex="m">Beguiler Shades, Fireball</entry>
-  <entry id="63168" lang="en" sex="m">Beguiler Shades, Stoneskin</entry>
-  <entry id="63169" lang="en" sex="m">Beguiler Shades, Wall of Fire</entry>
-  <entry id="63170" lang="en" sex="m">Beguiler Symbol of Persuasion</entry>
-  <entry id="63171" lang="en" sex="m">Beguiler True Seeing</entry>
-  <entry id="63172" lang="en" sex="m">Beguiler Greater Sanctuary</entry>
-  <entry id="63173" lang="en" sex="m">Beguiler Insanity</entry>
-  <entry id="63174" lang="en" sex="m">Beguiler Mass Hold Person</entry>
-  <entry id="63175" lang="en" sex="m">Beguiler Nybor's Stern Reproof</entry>
-  <entry id="63176" lang="en" sex="m">Beguiler Power Word Blind</entry>
-  <entry id="63177" lang="en" sex="m">Beguiler Protection from Spells</entry>
-  <entry id="63178" lang="en" sex="m">Beguiler Shadow Shield</entry>
-  <entry id="63179" lang="en" sex="m">Beguiler Spell Turning</entry>
-  <entry id="63180" lang="en" sex="m">Beguiler Symbol of Stunning</entry>
-  <entry id="63181" lang="en" sex="m">Beguiler Discern Location</entry>
-  <entry id="63182" lang="en" sex="m">Beguiler Mass Blindness/Deafness</entry>
-  <entry id="63183" lang="en" sex="m">Beguiler Mass Charm</entry>
-  <entry id="63184" lang="en" sex="m">Beguiler Mind Blank</entry>
-  <entry id="63185" lang="en" sex="m">Beguiler Power Word, Stun</entry>
-  <entry id="63186" lang="en" sex="m">Beguiler Scintillating Pattern</entry>
-  <entry id="63187" lang="en" sex="m">Beguiler Symbol of Insanity</entry>
-  <entry id="63188" lang="en" sex="m">Beguiler Dominate Monster</entry>
-  <entry id="63189" lang="en" sex="m">Beguiler Foresight</entry>
-  <entry id="63190" lang="en" sex="m">Beguiler Mass Hold Monster</entry>
-  <entry id="63191" lang="en" sex="m">Beguiler Power Word, Kill</entry>
-  <entry id="63192" lang="en" sex="m">Beguiler Time Stop</entry>
-  <entry id="63193" lang="en" sex="m">Beguiler Weird</entry>
   <entry id="63510" lang="en" sex="m">Sublime Chord Abyssal Might</entry>
   <entry id="63511" lang="en" sex="m">Sublime Chord Acid Orb</entry>
   <entry id="63512" lang="en" sex="m">Sublime Chord Arcane Eye</entry>

@@ -13,6 +13,9 @@ const int SPELL_BLACKLIGHT                  = 2091;
 const int SPELL_BARD_SONG 					= 411;
 const int SPELL_BARD_CURSE_SONG 			= 644;
 
+//:: Monk
+const int SPELL_MONK_ABUNDANT_STEP			= 17986;
+
 //:: Epic Level Handbook
 const int SPELL_EPIC_SWARM_OF_ARROWS		= 17996;
 

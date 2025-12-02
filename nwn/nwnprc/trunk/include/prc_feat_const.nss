@@ -3726,6 +3726,9 @@ const int FEAT_EPIC_ARTIFICER               = 4072;
 ////////////////   END INFUSIONS   /////////////////
 //////////////////////////////////////////////////*/
 
+//:: Monk
+const int FEAT_MONK_ABUNDANT_STEP				= 2351; 
+
 //Justice of Weald and Woe
 const int FEAT_LUCKY_SHOT                   = 24021;
 
