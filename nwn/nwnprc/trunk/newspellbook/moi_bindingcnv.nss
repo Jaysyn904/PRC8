@@ -159,7 +159,7 @@ void main()
             {
                 if(DEBUG) DoDebug("moi_bindingcnv: Building meld selection");
                 
-                SetHeader("You are binding soulmelds as a "+GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", nClass)))+". You can bind up to "+IntToString(GetMaxBindCount(oMeldshaper, nClass))+" soulmelds. If you exit this conversation without selecting all your binds, you will need to rest to bind melds.");
+                SetHeader("You are binding soulmelds as a "+GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", nClass)))+". You can bind up to "+IntToString(GetMaxBindCount(oMeldshaper, nClass))+" soulmelds. Totemists should bind their Totem chakra first.  If you exit this conversation without selecting all your binds, you will need to rest to bind melds.");
                
                 int i, nTest;
                 for(i = 1; i < 22 ; i++)
@@ -172,15 +172,27 @@ void main()
                     
                     // If we're doing totemist, and it's been bound to the totem meld, and you don't have the 11th level class feature
                     if (GetIsMeldBound(oMeldshaper, nMeld) == CHAKRA_TOTEM && nClass == CLASS_TYPE_TOTEMIST && 11 > GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper)) nTotem = FALSE;
-                    
                     if (DEBUG) DoDebug("moi_bindingcnv nTotem: "+IntToString(nTotem));
                     
-                    // Something was stored in the Chakra, and the character has access to a bind, and it's not been bound to the totem chakra. If it's already bound, skip it
-                    if(nMeld && (GetCanBindChakra(oMeldshaper, i) || (nClass == CLASS_TYPE_TOTEMIST && GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) >= 2)) && nTotem && !GetIsMeldBound(oMeldshaper, nMeld) && !GetIsChakraBound(oMeldshaper, i)) 
+					// Something was stored in the Chakra, and the character has access to a bind, and it's not been bound to the totem chakra. If it's already bound, skip it
+					if(nMeld && (GetCanBindChakra(oMeldshaper, i) || (nClass == CLASS_TYPE_TOTEMIST && GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) >= 2)) && nTotem && !GetIsChakraBound(oMeldshaper, i)) 
+					{
+						int nMeldBoundTo = GetIsMeldBound(oMeldshaper, nMeld);
+						int nCanDoubleBind = (GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) >= 11);
+						
+						// Skip if already bound, UNLESS it's bound to a totem chakra and character can double-bind
+						if (!nMeldBoundTo || ((nMeldBoundTo == CHAKRA_TOTEM || nMeldBoundTo == CHAKRA_DOUBLE_TOTEM) && nCanDoubleBind))
+						{
+							AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nMeld))), i, oMeldshaper);  
+							nTest++;
+						}
+					}
+					
+					/* if(nMeld && (GetCanBindChakra(oMeldshaper, i) || (nClass == CLASS_TYPE_TOTEMIST && GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) >= 2)) && nTotem && !GetIsMeldBound(oMeldshaper, nMeld) && !GetIsChakraBound(oMeldshaper, i)) 
                     {
 						AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nMeld))), i, oMeldshaper);  
 						nTest++;
-                    }
+                    } */
                 }
                 if(GetMaxBindCount(oMeldshaper, nClass) == 0) // This can happen with multiclassing
                    	AddChoice("Next Class", -1, oMeldshaper);

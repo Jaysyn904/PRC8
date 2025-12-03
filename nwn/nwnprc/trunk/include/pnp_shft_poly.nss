@@ -63,7 +63,7 @@ void LycanthropePoly(object oPC, int nPoly)
     object oMergeWeaponSource = OBJECT_INVALID;
     object oMergeArmorSource  = OBJECT_INVALID;
 
-    // ---- Determine Weapon Merge Source ----
+    //:: Determine Weapon Merge Source
     if (bWeapon)
     {
         if (bMonkGloves)
@@ -73,18 +73,18 @@ void LycanthropePoly(object oPC, int nPoly)
         }
         else
         {
-            // Always attempt to merge melee weapon to creature weapon
+            //:: Always attempt to merge melee weapon to creature weapon
             oMergeWeaponSource = oWeaponOld; // even if empty, ensures proper state
         }
     }
     else
     {
-        // Weapon not requested, but arms-slot allowed monk gloves can merge via armor branch
+        //:: Weapon not requested, but arms-slot allowed monk gloves can merge via armor branch
         if (bMonkGloves && bArmsSlotAllowed && GetIsObjectValid(oGlovesOld))
             oMergeWeaponSource = oGlovesOld;
     }
 
-    // ---- Determine Armor Merge Source ----
+    //:: Determine Armor Merge Source
     if (bArmor && GetIsObjectValid(oArmorNew))
     {
         if (!bMonkGloves)
@@ -108,16 +108,16 @@ void LycanthropePoly(object oPC, int nPoly)
         DoDebug("LycanthropePoly: MergeA set, but oArmorNew invalid.");
     }
 
-    // ---- Apply Weapon Merge ----
+    //:: Apply Weapon Merge
     if (GetIsObjectValid(oMergeWeaponSource) || bWeapon)
     {
-        // Always attempt to merge weapon properties even if source is OBJECT_INVALID
+        //:: Always attempt to merge weapon properties even if source is OBJECT_INVALID
         if (GetIsObjectValid(oWeaponNewLeft))  IPWildShapeCopyItemProperties(oMergeWeaponSource, oWeaponNewLeft, TRUE);
         if (GetIsObjectValid(oWeaponNewRight)) IPWildShapeCopyItemProperties(oMergeWeaponSource, oWeaponNewRight, TRUE);
         if (GetIsObjectValid(oWeaponNewBite))  IPWildShapeCopyItemProperties(oMergeWeaponSource, oWeaponNewBite, TRUE);
     }
 
-    // ---- Apply Armor Merge ----
+    //:: Apply Armor Merge
     if (GetIsObjectValid(oMergeArmorSource))
     {
         if (GetIsObjectValid(oArmorNew)) IPWildShapeCopyItemProperties(oMergeArmorSource, oArmorNew);

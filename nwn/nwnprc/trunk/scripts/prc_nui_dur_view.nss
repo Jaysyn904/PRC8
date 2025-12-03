@@ -107,6 +107,13 @@ int UpdateBindsAndCheckRefresh(int nuiToken)
     return TRUE;
 }
 
+string GetSpellNameFromEffect(effect selectedEffect)
+{
+    int spellId = GetEffectSpellId(selectedEffect);
+    int featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+    return GetSpellName(spellId, 0, featId);
+}
+
 json CreateEffectEntry(effect selectedEffect)
 {
     json jRow = JsonArray();
@@ -140,7 +147,9 @@ json CreateEffectEntry(effect selectedEffect)
     if (GetIsEffectValid(selectedEffect))
     {
         spellId = GetEffectSpellId(selectedEffect);
-        spellName = GetSpellName(spellId);
+        spellName = GetSpellNameFromEffect(selectedEffect);
+        if (spellName == "Bad Strref")
+            spellName = ("SpellID: " + IntToString(spellId));
         json spellList = GetLocalJson(OBJECT_SELF, NUI_DURATION_TRACKED_SPELLS);
         if (spellList == JsonNull())
             spellList = JsonObject();
@@ -281,7 +290,7 @@ void main()
 
         // Set the binds to their default values
         NuiSetBind(OBJECT_SELF, nToken, "geometry", geometry);
-        NuiSetBind(OBJECT_SELF, nToken, "resizable", JsonBool(TRUE));
+        NuiSetBind(OBJECT_SELF, nToken, "resizable", JsonBool(FALSE));
         NuiSetBind(OBJECT_SELF, nToken, "closable", JsonBool(TRUE));
         NuiSetBind(OBJECT_SELF, nToken, "transparent", JsonBool(FALSE));
         NuiSetBind(OBJECT_SELF, nToken, "border", JsonBool(TRUE));

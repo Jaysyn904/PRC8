@@ -41,6 +41,8 @@ const int POWER_LIST_WARMIND        = CLASS_TYPE_WARMIND;
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+int IsHiddenTalent(object oPC = OBJECT_SELF);
+
 /**
  * Attempts to use psionic focus. If the creature was focused, it
  * loses the focus. If it has Epic Psionic Focus feats, it will
@@ -786,68 +788,11 @@ int GetIsPsionicCharacter(object oCreature)
               GetHasFeat(FEAT_KALASHTAR_PP,              oCreature) ||
               GetHasFeat(FEAT_NATPSIONIC_1,              oCreature) ||
               GetHasFeat(FEAT_NATPSIONIC_2,              oCreature) ||
-              GetHasFeat(FEAT_NATPSIONIC_3,              oCreature)
+              GetHasFeat(FEAT_NATPSIONIC_3,              oCreature)	||
+			  IsHiddenTalent(oCreature)
               // Racial psionicity signifying feats go here
              );
 }
-
-int IsHiddenTalent(object oPC = OBJECT_SELF)
-{
-	if (GetHasFeat(FEAT_HIDDEN_TALENT_BIOFEEDBACK, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_BITE_WOLF, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_BOLT, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_BURST, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CALLTOMIND, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CALL_WEAPONRY, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CHAMELEON, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CLAWS_BEAST, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_COMPRESSION, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CONCEALTHOUGHT, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CREATESOUND, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_CRYSTALSHARD, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DAZE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DECELERATION, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DEFPRECOG, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DEMORALIZE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DISABLE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_DISTRACT, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC)   ||
-		//GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_FORCESCREEN, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_GREASE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_HAMMER, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_INERTIALARMOUR, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_MATTERAGITATION, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_MINDTHRUST, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_MYLIGHT, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRECOG, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRESC, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM_WEAPON, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_SKATE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_STOMP, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_SYNESTHETE, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_TELEMPATHICPRO, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_THICKSKIN, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_VIGOR, oPC)   ||
-		GetHasFeat(FEAT_HIDDEN_TALENT_GRIP_IRON, oPC))
-	{
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
-}
-	
 
 void LocalCleanExtraFists(object oCreature)
 {
@@ -985,6 +930,48 @@ int PracticedManifesting(object oManifester, int iManifestingClass, int iManifes
 
 int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVALID, int nMaxPowerLevel = FALSE)
 {
+	// Handle POWER_LIST_MISC (Hidden Talent) powers  
+    // Check if this is a power list call  
+	int nPowerType = GetLocalInt(oManifester, "PRC_UsePowerList");
+	
+    if(nSpecificClass == CLASS_TYPE_INVALID && nPowerType == POWER_LIST_MISC)  
+    {  
+        if(DEBUG) DoDebug("psi_inc_core >> GetManifesterLevel: CLASS_TYPE_INVALID + POWER_LIST_MISC found!");
+		// Check if character has psionic class levels  
+        int nPsionLevel = GetLevelByClass(CLASS_TYPE_PSION, oManifester);  
+        int nPsywarLevel = GetLevelByClass(CLASS_TYPE_PSYWAR, oManifester);  
+        int nWilderLevel = GetLevelByClass(CLASS_TYPE_WILDER, oManifester);  
+        int nWarmindLevel = GetLevelByClass(CLASS_TYPE_WARMIND, oManifester);  
+        int nFistOfZuokenLevel = GetLevelByClass(CLASS_TYPE_FIST_OF_ZUOKEN, oManifester);  
+        int nPsychicRogueLevel = GetLevelByClass(CLASS_TYPE_PSYCHIC_ROGUE, oManifester);  
+          
+        // If no psionic levels, use Charisma-based calculation (treat as 1st level)  
+        if(nPsionLevel + nPsywarLevel + nWilderLevel + nWarmindLevel +   
+           nFistOfZuokenLevel + nPsychicRogueLevel == 0)  
+        {  
+            // Hidden Talent: considered 1st-level manifester, but must have CHA 11+ 
+			if(DEBUG) DoDebug("psi_inc_core >> GetManifesterLevel: Hidden Talent found!");			
+            if(GetAbilityScore(oManifester, ABILITY_CHARISMA) >= 11)  
+                return 1;  
+            else  
+                return 0; // Cannot manifest without CHA 11+  
+        }  
+		
+		if(DEBUG) DoDebug("psi_inc_core >> GetManifesterLevel: nSpecificClass=" + IntToString(nSpecificClass) +   
+                  ", nPowerType=" + IntToString(nPowerType));
+          
+        // Has psionic levels - return highest manifester level  
+        int nHighest = 0;  
+        if(nPsionLevel > 0) nHighest = GetManifesterLevel(oManifester, CLASS_TYPE_PSION);  
+        if(nPsywarLevel > 0) nHighest = PRCMax(nHighest, GetManifesterLevel(oManifester, CLASS_TYPE_PSYWAR));  
+        if(nWilderLevel > 0) nHighest = PRCMax(nHighest, GetManifesterLevel(oManifester, CLASS_TYPE_WILDER));  
+        if(nWarmindLevel > 0) nHighest = PRCMax(nHighest, GetManifesterLevel(oManifester, CLASS_TYPE_WARMIND));  
+        if(nFistOfZuokenLevel > 0) nHighest = PRCMax(nHighest, GetManifesterLevel(oManifester, CLASS_TYPE_FIST_OF_ZUOKEN));  
+        if(nPsychicRogueLevel > 0) nHighest = PRCMax(nHighest, GetManifesterLevel(oManifester, CLASS_TYPE_PSYCHIC_ROGUE));  
+          
+        return nHighest;  
+    }
+	
     int nLevel;
     int nAdjust = GetLocalInt(oManifester, PRC_CASTERLEVEL_ADJUSTMENT);
     nAdjust -= GetLocalInt(oManifester, "WoLManifPenalty");
@@ -1049,17 +1036,27 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
 
         DelayCommand(1.0, DeleteLocalInt(oManifester, PRC_CASTERLEVEL_OVERRIDE));
         nLevel = GetLocalInt(oManifester, PRC_CASTERLEVEL_OVERRIDE);
-    }
-    else if(GetManifestingClass(oManifester) != CLASS_TYPE_INVALID)
-    {		
-        //Gets the manifesting class
-        int nManifestingClass = GetManifestingClass(oManifester);
-        if(DEBUG) DoDebug("Manifesting Class #2: " + IntToString(nManifestingClass), oManifester);
-        nLevel = GetLevelByClass(nManifestingClass, oManifester);
-        // Add levels from +ML PrCs only for the first manifesting class
-        nLevel += GetPsionicPRCLevels(oManifester, nManifestingClass);
-		//nLevel += nManifestingClass == GetPrimaryPsionicClass(oManifester) ? GetPsionicPRCLevels(oManifester) : 0;
-        
+    }	
+	else if(GetManifestingClass(oManifester) != CLASS_TYPE_INVALID)
+	{		
+		//Gets the manifesting class
+		int nManifestingClass = GetManifestingClass(oManifester);
+		if(DEBUG) DoDebug("Manifesting Class #2: " + IntToString(nManifestingClass), oManifester);
+		
+		nLevel = GetLevelByClass(nManifestingClass, oManifester);
+		// Add levels from +ML PrCs only for the first manifesting class
+		nLevel += GetPsionicPRCLevels(oManifester, nManifestingClass);
+		
+		// CHECK: If this is Hidden Talent and character has no levels, set to 1
+		if(nLevel == 0 && GetLocalInt(oManifester, "PRC_UsePowerList") == TRUE && 
+		   GetLocalInt(oManifester, "PRC_PowerListType") == POWER_LIST_MISC)
+		{
+			if(GetAbilityScore(oManifester, ABILITY_CHARISMA) >= 11)
+			{
+				if(DEBUG) DoDebug("GetManifesterLevel: Hidden Talent with no psionic levels, returning 1");
+				nLevel = 1;
+			}
+		}    
 		// Psionic vestiges are tucked in here to override things.
 		// This assumes that there will never be a psion with this spell effect manifesting things
         if (nManifestingClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_ARETE, oManifester) && !nMaxPowerLevel)
@@ -1085,7 +1082,37 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
 //        if(DEBUG) DoDebug("Level gotten via GetLevelByClass: " + IntToString(nLevel), oManifester);
     }
     
-    // If you have a primary psionic class and no manifester level yet, get levels based on that
+	// If you have a primary psionic class and no manifester level yet, get levels based on that
+    if (GetPrimaryPsionicClass(oManifester) && nLevel == 0) 
+    {
+    	int nClass = GetPrimaryPsionicClass(oManifester);
+    	nLevel = GetLevelByClass(nClass, oManifester);
+        nLevel += GetPsionicPRCLevels(oManifester, nClass);
+        nLevel += PracticedManifesting(oManifester, nClass, nLevel);
+    }
+
+    // If everything else fails, check for Hidden Talent before returning 0
+    if(nLevel == 0)
+    {
+        // Check if this is a Hidden Talent power
+        if(GetLocalInt(oManifester, "PRC_UsePowerList") == POWER_LIST_MISC)
+        {
+            // Hidden Talent: manifester level is 1 if they have CHA 11+
+            if(GetAbilityScore(oManifester, ABILITY_CHARISMA) >= 11)
+            {
+                if(DEBUG) DoDebug("GetManifesterLevel: Hidden Talent character, returning level 1");
+                return 1;
+            }
+        }
+        
+        if(DEBUG)             DoDebug("Failed to get manifester level for creature " + DebugObject2Str(oManifester) + ", using first class slot");
+        //else WriteTimestampedLogEntry("Failed to get manifester level for creature " + DebugObject2Str(oManifester) + ", using first class slot");
+
+        return 0;
+    }
+
+
+/*     // If you have a primary psionic class and no manifester level yet, get levels based on that
     if (GetPrimaryPsionicClass(oManifester) && nLevel == 0) 
     {
     	int nClass = GetPrimaryPsionicClass(oManifester);
@@ -1102,7 +1129,7 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
 
         return 0;
     }
-
+ */
 
     // The bonuses inside only apply to normal manifestation
     if(!GetLocalInt(oManifester, PRC_IS_PSILIKE))
@@ -1665,4 +1692,172 @@ int GetMaxPowerLevel(object oManifester)
     int nMax = StringToInt(Get2DACache(sFile, "MaxPowerLevel", nLevel));
     if (DEBUG) DoDebug("GetMaxPowerLevel is "+IntToString(nMax));
     return nMax;
+}
+
+//////////////////////////////////////////////////////
+/*				START HIDDEN TALENT					*/
+//////////////////////////////////////////////////////
+
+int IsHiddenTalent(object oPC = OBJECT_SELF)
+{
+	if (GetHasFeat(FEAT_HIDDEN_TALENT_BIOFEEDBACK, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BITE_WOLF, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BOLT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_BURST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CALLTOMIND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CALL_WEAPONRY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CHAMELEON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CLAWS_BEAST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_COMPRESSION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CONCEALTHOUGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CREATESOUND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_CRYSTALSHARD, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DAZE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DECELERATION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DEFPRECOG, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DEMORALIZE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISABLE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_DISTRACT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC)   ||
+		//GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_FORCESCREEN, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_GREASE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_HAMMER, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_INERTIALARMOUR, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MATTERAGITATION, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MINDTHRUST, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_MYLIGHT, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRECOG, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRESC, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM_WEAPON, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_SKATE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_STOMP, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_SYNESTHETE, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_TELEMPATHICPRO, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_THICKSKIN, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_VIGOR, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_GRIP_IRON, oPC))
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+	
+int GetHiddenTalentCount(object oPC = OBJECT_SELF)
+{
+    int nCount = 0;
+
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_BIOFEEDBACK, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_BITE_WOLF, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_BOLT, oPC))               nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_BURST, oPC))              nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CALLTOMIND, oPC))         nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CALL_WEAPONRY, oPC))      nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CHAMELEON, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CLAWS_BEAST, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_COMPRESSION, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CONCEALTHOUGHT, oPC))     nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CREATESOUND, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_CRYSTALSHARD, oPC))       nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DAZE, oPC))               nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DECELERATION, oPC))       nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DEFPRECOG, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DEMORALIZE, oPC))         nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DISABLE, oPC))            nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH, oPC))   nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_DISTRACT, oPC))           nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC))           nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC))            nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC))          nCount++;
+    //if (GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC))           nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC))            nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_FORCESCREEN, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_GREASE, oPC))             nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_HAMMER, oPC))             nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_INERTIALARMOUR, oPC))     nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_MATTERAGITATION, oPC))    nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW, oPC))  nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON, oPC))nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_MINDTHRUST, oPC))         nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_MYLIGHT, oPC))            nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRECOG, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRESC, oPC))           nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM, oPC))           nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM_WEAPON, oPC))    nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_SKATE, oPC))              nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_STOMP, oPC))              nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_SYNESTHETE, oPC))         nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_TELEMPATHICPRO, oPC))     nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_THICKSKIN, oPC))          nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_VIGOR, oPC))              nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_GRIP_IRON, oPC))          nCount++;
+
+    return nCount;
+}
+
+int GetIsHiddenTalentPower(object oPC, int nPower)
+{
+    // Check each Hidden Talent feat to see if it grants this power
+    if(nPower == POWER_BIOFEEDBACK           && GetHasFeat(FEAT_HIDDEN_TALENT_BIOFEEDBACK, oPC))           return TRUE;
+    if(nPower == POWER_BITE_WOLF             && GetHasFeat(FEAT_HIDDEN_TALENT_BITE_WOLF, oPC))             return TRUE;
+    if(nPower == POWER_BOLT                  && GetHasFeat(FEAT_HIDDEN_TALENT_BOLT, oPC))                  return TRUE;
+    if(nPower == POWER_BURST                 && GetHasFeat(FEAT_HIDDEN_TALENT_BURST, oPC))                 return TRUE;
+    if(nPower == POWER_CALLTOMIND            && GetHasFeat(FEAT_HIDDEN_TALENT_CALLTOMIND, oPC))            return TRUE;
+    if(nPower == POWER_CALL_WEAPONRY         && GetHasFeat(FEAT_HIDDEN_TALENT_CALL_WEAPONRY, oPC))         return TRUE;
+    if(nPower == POWER_CHAMELEON             && GetHasFeat(FEAT_HIDDEN_TALENT_CHAMELEON, oPC))             return TRUE;
+    if(nPower == POWER_CLAWS_BEAST           && GetHasFeat(FEAT_HIDDEN_TALENT_CLAWS_BEAST, oPC))           return TRUE;
+    if(nPower == POWER_COMPRESSION           && GetHasFeat(FEAT_HIDDEN_TALENT_COMPRESSION, oPC))           return TRUE;
+    if(nPower == POWER_CONCEALTHOUGHT        && GetHasFeat(FEAT_HIDDEN_TALENT_CONCEALTHOUGHT, oPC))        return TRUE;
+    if(nPower == POWER_CREATESOUND           && GetHasFeat(FEAT_HIDDEN_TALENT_CREATESOUND, oPC))           return TRUE;
+    if(nPower == POWER_CRYSTALSHARD          && GetHasFeat(FEAT_HIDDEN_TALENT_CRYSTALSHARD, oPC))          return TRUE;
+    if(nPower == POWER_DAZE                  && GetHasFeat(FEAT_HIDDEN_TALENT_DAZE, oPC))                  return TRUE;
+    if(nPower == POWER_DECELERATION          && GetHasFeat(FEAT_HIDDEN_TALENT_DECELERATION, oPC))          return TRUE;
+    if(nPower == POWER_DEFPRECOG             && GetHasFeat(FEAT_HIDDEN_TALENT_DEFPRECOG, oPC))             return TRUE;
+    if(nPower == POWER_DEMORALIZE            && GetHasFeat(FEAT_HIDDEN_TALENT_DEMORALIZE, oPC))            return TRUE;
+    if(nPower == POWER_DISABLE               && GetHasFeat(FEAT_HIDDEN_TALENT_DISABLE, oPC))               return TRUE;
+    if(nPower == POWER_DISSIPATINGTOUCH      && GetHasFeat(FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH, oPC))      return TRUE;
+    if(nPower == POWER_DISTRACT              && GetHasFeat(FEAT_HIDDEN_TALENT_DISTRACT, oPC))              return TRUE;
+    if(nPower == POWER_ELFSIGHT              && GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC))              return TRUE;
+    if(nPower == POWER_EMPATHY               && GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC))               return TRUE;
+    if(nPower == POWER_EMPTYMIND             && GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC))             return TRUE;
+    //if(nPower == POWER_ENERGYRAY           && GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;
+    if(nPower == POWER_ENTANGLE              && GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC))              return TRUE;
+    if(nPower == POWER_EXPANSION             && GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC))             return TRUE;
+    if(nPower == POWER_FARHAND               && GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC))               return TRUE;
+    if(nPower == POWER_FORCESCREEN           && GetHasFeat(FEAT_HIDDEN_TALENT_FORCESCREEN, oPC))           return TRUE;
+    if(nPower == POWER_GREASE                && GetHasFeat(FEAT_HIDDEN_TALENT_GREASE, oPC))                return TRUE;
+    if(nPower == POWER_HAMMER                && GetHasFeat(FEAT_HIDDEN_TALENT_HAMMER, oPC))                return TRUE;
+    if(nPower == POWER_INERTIALARMOUR        && GetHasFeat(FEAT_HIDDEN_TALENT_INERTIALARMOUR, oPC))        return TRUE;
+    if(nPower == POWER_MATTERAGITATION       && GetHasFeat(FEAT_HIDDEN_TALENT_MATTERAGITATION, oPC))       return TRUE;
+    if(nPower == POWER_METAPHYSICAL_CLAW     && GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW, oPC))     return TRUE;
+    if(nPower == POWER_METAPHYSICAL_WEAPON   && GetHasFeat(FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON, oPC))   return TRUE;
+    if(nPower == POWER_MINDTHRUST            && GetHasFeat(FEAT_HIDDEN_TALENT_MINDTHRUST, oPC))            return TRUE;
+    if(nPower == POWER_MYLIGHT               && GetHasFeat(FEAT_HIDDEN_TALENT_MYLIGHT, oPC))               return TRUE;
+    if(nPower == POWER_OFFPRECOG             && GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRECOG, oPC))             return TRUE;
+    if(nPower == POWER_OFFPRESC              && GetHasFeat(FEAT_HIDDEN_TALENT_OFFPRESC, oPC))              return TRUE;
+    if(nPower == POWER_PREVENOM              && GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM, oPC))              return TRUE;
+    if(nPower == POWER_PREVENOM_WEAPON       && GetHasFeat(FEAT_HIDDEN_TALENT_PREVENOM_WEAPON, oPC))       return TRUE;
+    if(nPower == POWER_SKATE                 && GetHasFeat(FEAT_HIDDEN_TALENT_SKATE, oPC))                 return TRUE;
+    if(nPower == POWER_STOMP                 && GetHasFeat(FEAT_HIDDEN_TALENT_STOMP, oPC))                 return TRUE;
+    if(nPower == POWER_SYNESTHETE            && GetHasFeat(FEAT_HIDDEN_TALENT_SYNESTHETE, oPC))            return TRUE;
+    if(nPower == POWER_TELEMPATHICPRO        && GetHasFeat(FEAT_HIDDEN_TALENT_TELEMPATHICPRO, oPC))        return TRUE;
+    if(nPower == POWER_THICKSKIN             && GetHasFeat(FEAT_HIDDEN_TALENT_THICKSKIN, oPC))             return TRUE;
+    if(nPower == POWER_VIGOR                 && GetHasFeat(FEAT_HIDDEN_TALENT_VIGOR, oPC))                 return TRUE;
+    if(nPower == POWER_GRIP_IRON             && GetHasFeat(FEAT_HIDDEN_TALENT_GRIP_IRON, oPC))             return TRUE;
+
+    return FALSE;
 }

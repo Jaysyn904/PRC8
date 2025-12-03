@@ -188,7 +188,8 @@ void SetInspiration(object oPC)
     for(i = FEAT_FONT_INSPIRATION_1; i <= FEAT_FONT_INSPIRATION_10; i++)
         if(GetHasFeat(i, oPC)) nFont++;
 
-    nInspiration += nFont * (1 + nFont + 1) / 2;	
+    //nInspiration += nFont * (1 + nFont + 1) / 2;	
+	nInspiration += nFont * (nFont + 1) / 2;
 	SetLocalInt(oPC, "InspirationPool", nInspiration);
 	FloatingTextStringOnCreature("Encounter begins with "+IntToString(nInspiration)+" inspiration", oPC, FALSE);
 }	
@@ -201,6 +202,8 @@ void ClearInspiration(object oPC)
 
 int ExpendInspiration(object oPC, int nCost)
 {
+	if (nCost <= 0) return FALSE;
+	
 	int nInspiration = GetLocalInt(oPC, "InspirationPool");
 	if (nInspiration >= nCost)
 	{

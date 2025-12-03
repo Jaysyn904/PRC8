@@ -277,8 +277,15 @@ void main()
                     if (DEBUG) DoDebug("sChakra: "+sChakra+" nChakra: "+IntToString(nChakra));
                     
                     // Non-blank row, not shaped already, it can be attached to the chosen Chakra, and it's for the right class, and it doesn't contradict alignment
-                    if(nTest && sSpell != "" && !GetIsMeldShaped(oMeldshaper, nMeld, nClass) && StringToInt(sChakra) == nChakra && SoulmeldAlignmentCheck(oMeldshaper, nMeld, nClass) && DragonbloodedCheck(oMeldshaper, nMeld)) 
-                    {
+                    //if(nTest && sSpell != "" && !GetIsMeldShaped(oMeldshaper, nMeld, nClass) && StringToInt(sChakra) == nChakra && SoulmeldAlignmentCheck(oMeldshaper, nMeld, nClass) && DragonbloodedCheck(oMeldshaper, nMeld)) 
+					int nIsTotemBound = (GetIsChakraUsed(oMeldshaper, CHAKRA_TOTEM, CLASS_TYPE_TOTEMIST) == nMeld);  
+					int nCanDoubleBind = (GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper) >= 11);  
+					if(nTest && sSpell != "" &&   
+					   (!GetIsMeldShaped(oMeldshaper, nMeld, nClass) || (nIsTotemBound && nCanDoubleBind)) &&   
+					   StringToInt(sChakra) == nChakra &&   
+					   SoulmeldAlignmentCheck(oMeldshaper, nMeld, nClass) &&   
+					   DragonbloodedCheck(oMeldshaper, nMeld))                    
+					{
 						AddChoice(GetStringByStrRef(StringToInt(Get2DACache(sMeldFile, "Name", i))), nMeld, oMeldshaper);  
                     }
                 }

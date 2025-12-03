@@ -11,8 +11,8 @@ void TriggerInspiration(object oPC, int nCombat)
 	// We just entered combat
 	if (nCurrent == TRUE && nCombat == FALSE)
 		SetInspiration(oPC);
-	/*else if (nCurrent == FALSE && nCombat == TRUE) // Just left combat
-		ClearInspiration(oPC);*/
+	else if (nCurrent == FALSE && nCombat == TRUE) // Just left combat
+		ClearInspiration(oPC);
  
     DelayCommand(0.25, TriggerInspiration(oPC, nCurrent));
 }

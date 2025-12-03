@@ -572,7 +572,11 @@ int GetMaxPowerCount(object oCreature, int nList)
 
 int GetHasPower(int nPower, object oCreature = OBJECT_SELF)
 {
-    if((GetLevelByClass(CLASS_TYPE_PSION, oCreature)
+		// Check MISC list first (for Hidden Talent and similar feats)  
+		if(GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_INVALID), oCreature))  
+        return TRUE;
+
+		if((GetLevelByClass(CLASS_TYPE_PSION, oCreature)
         && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSION), oCreature)
         ) ||
        (GetLevelByClass(CLASS_TYPE_PSYWAR, oCreature)

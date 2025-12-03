@@ -180,21 +180,82 @@ void main()
     }
 	
 	//:: Pit Fiend w 20 INT gets 13 (8+5) skill points per HD
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPOT, nCasterLvl/2);	
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LORE, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LISTEN, nCasterLvl/2);	
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SEARCH, nCasterLvl/2);	
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_HIDE, nCasterLvl/2);	
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_MOVE_SILENTLY, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CONCENTRATION, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_BLUFF, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CLIMB, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPELLCRAFT, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_JUMP, nCasterLvl/2);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_TUMBLE, nCasterLvl/4);
-	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_USE_MAGIC_DEVICE, nCasterLvl/4);
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPOT, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
 	{
-        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed — JSON became invalid.");
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on SPOT — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LORE, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on LORE — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_LISTEN, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on LISTEN — JSON became invalid.");
+        return;
+    }		
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SEARCH, nCasterLvl/2);
+	if (jDevil == JSON_NULL)	
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on SEARCH — JSON became invalid.");
+        return;
+    }		
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_HIDE, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on HIDE — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_MOVE_SILENTLY, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on MS — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CONCENTRATION, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on CONCENTRATION — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_BLUFF, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on BLUFF — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_CLIMB, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on CLIMB — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_SPELLCRAFT, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on SPELLCRAFT — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_JUMP, nCasterLvl/2);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on JUMP — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_TUMBLE, nCasterLvl/4);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on TUMBLE — JSON became invalid.");
+        return;
+    }	
+	jDevil = json_AdjustCreatureSkillByID(jDevil, SKILL_USE_MAGIC_DEVICE, nCasterLvl/4);
+	if (jDevil == JSON_NULL)
+	{
+        SendMessageToPC(oPC, "ss_ep_twinfiend >> json_AdjustCreatureSkillByID failed on UMD — JSON became invalid.");
         return;
     }
 	

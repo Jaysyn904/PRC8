@@ -1,3 +1,5 @@
+//:: prc_inc_nat_hb
+
 void DoNaturalWeaponHB(object oPC = OBJECT_SELF);
 
 #include "prc_inc_combat"
@@ -289,59 +291,72 @@ void DoOverflowOnhandAttack(int nAttackMod)
         );
 }
 
-void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
+/* void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
 {
     //not in combat, abort
     if(!GetIsInCombat(oPC))
         return;
 
-//    if(DEBUG) DoDebug("entered DoNaturalWeaponHB");
+	if(DEBUG) DoDebug("prc_inc_nat_hb: entered DoNaturalWeaponHB");
 
     float fDelay = 0.1 + IntToFloat(Random(10))/100.0;
 
     //no natural weapons, abort
     //in a different form, abort for now fix it later
-    if(array_exists(oPC, ARRAY_NAT_SEC_WEAP_RESREF)
-        && !GetIsPolyMorphedOrShifted(oPC))
+if(array_exists(oPC, ARRAY_NAT_SEC_WEAP_RESREF)
+    && !GetIsPolyMorphedOrShifted(oPC))
+{
+    DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: creature has natural secondary weapons");
+    UpdateSecondaryWeaponSizes(oPC);
+    int i;
+    while(i < array_get_size(oPC, ARRAY_NAT_SEC_WEAP_RESREF))
     {
-        // DoDebug("DoNaturalWeaponHB: creature has natural secondary weapons");
-        UpdateSecondaryWeaponSizes(oPC);
-        int i;
-        while(i < array_get_size(oPC, ARRAY_NAT_SEC_WEAP_RESREF))
+        string sResRef = array_get_string(oPC, ARRAY_NAT_SEC_WEAP_RESREF, i);
+        if(sResRef != "")
         {
-            //get the resref to use
-            string sResRef = array_get_string(oPC, ARRAY_NAT_SEC_WEAP_RESREF, i);
-            //if null, move to next
-            if(sResRef != "")
+            // Get stored weapon object, or create if doesn't exist
+            object oWeapon = GetLocalObject(oPC, "NAT_SEC_WEAP_" + sResRef);
+            
+            if(!GetIsObjectValid(oWeapon))
             {
-                //get the created item
-                object oWeapon = GetObjectByTag(sResRef);
+                DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: creating and storing creature weapon " + sResRef);
+                oWeapon = CreateItemOnObject(sResRef, oPC);
+                
                 if(!GetIsObjectValid(oWeapon))
                 {
-                    object oLimbo = GetObjectByTag("HEARTOFCHAOS");
-                    location lLimbo = GetLocation(oLimbo);
-                    if(!GetIsObjectValid(oLimbo))
-                        lLimbo = GetStartingLocation();
-                    oWeapon = CreateObject(OBJECT_TYPE_ITEM, sResRef, lLimbo);
+                    DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: ERROR - CreateItemOnObject FAILED for " + sResRef);
                 }
+                else
+                {
+                    DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: SUCCESS - weapon created, tag=" + GetTag(oWeapon) + ", name=" + GetName(oWeapon));
+                    SetIdentified(oWeapon, TRUE);
+                    SetLocalObject(oPC, "NAT_SEC_WEAP_" + sResRef, oWeapon);
+                }
+            }
+            else
+            {
+                DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: using stored creature weapon object");
+            }
 
-                // DoDebug(COLOR_WHITE + "DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
-                //do the attack within a delay
-                /*
-                // motu99: commented this out; AssignCommand ist not needed, because OBJECT_SELF is oPC - using AssignCommand will only degrade performance
-                AssignCommand(oPC, DelayCommand(fDelay, DoNaturalAttack(oWeapon)));
-                */
-
+            // Double-check validity before scheduling
+            if(GetIsObjectValid(oWeapon))
+            {
+                DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
                 DelayCommand(fDelay, DoNaturalAttack(oWeapon));
 
-                //calculate the delay to use next time
                 fDelay += 2.05;
                 if(fDelay > 6.0)
-                fDelay -= 6.0;
+                    fDelay -= 6.0;
             }
-            i++;
+            else
+            {
+                DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: ERROR - weapon object is INVALID, cannot schedule attack");
+            }
         }
+        i++;
     }
+}
+
 
     int iMod = 5;   // motu99: added check for monk weapon
     if(GetHasMonkWeaponEquipped(oPC)) iMod = 3;
@@ -357,10 +372,10 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
         for(i = 0; i < nOverflowAttackCount; i++)
         {
             // DoDebug(COLOR_WHITE + "DoNaturalWeaponHB(): scheduling a scripted overflow attack with attack mod "+IntToString(nAttackPenalty)+" at delay "+FloatToString(fDelay)); 
-            /*
+            
             // motu99: see comment above why this is commented out
-                AssignCommand(oPC, DelayCommand(fDelay, DoOverflowOnhandAttack(nAttackPenalty)));
-            */
+                //AssignCommand(oPC, DelayCommand(fDelay, DoOverflowOnhandAttack(nAttackPenalty)));
+           
             DelayCommand(fDelay, DoOverflowOnhandAttack(nAttackPenalty));
 
             //calculate the delay to use
@@ -399,6 +414,118 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
         }
     }
 }
+ */
+
+void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
+{
+    //not in combat, abort
+    if(!GetIsInCombat(oPC))
+        return;
+
+	if(DEBUG) DoDebug("prc_inc_nat_hb: entered DoNaturalWeaponHB");
+
+    float fDelay = 0.1 + IntToFloat(Random(10))/100.0;
+
+    //no natural weapons, abort
+    //in a different form, abort for now fix it later
+    if(array_exists(oPC, ARRAY_NAT_SEC_WEAP_RESREF)
+        && !GetIsPolyMorphedOrShifted(oPC))
+    {
+        DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: creature has natural secondary weapons");
+        UpdateSecondaryWeaponSizes(oPC);
+        int i;
+        while(i < array_get_size(oPC, ARRAY_NAT_SEC_WEAP_RESREF))
+        {
+            //get the resref to use
+            string sResRef = array_get_string(oPC, ARRAY_NAT_SEC_WEAP_RESREF, i);
+            //if null, move to next
+            if(sResRef != "")
+            {
+                //get the created item
+                object oWeapon = GetObjectByTag(sResRef);
+                if(!GetIsObjectValid(oWeapon))
+                {
+                    object oLimbo = GetObjectByTag("HEARTOFCHAOS");
+                    location lLimbo = GetLocation(oLimbo);
+                    if(!GetIsObjectValid(oLimbo))
+                        lLimbo = GetStartingLocation();
+                    oWeapon = CreateObject(OBJECT_TYPE_ITEM, sResRef, lLimbo);
+					DoDebug(PRC_TEXT_WHITE + "prc_inc_nat_hb >> DoNaturalWeaponHB: creature weapon object found!!!");
+                }
+	
+				DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
+                //do the attack within a delay                
+                // motu99: commented this out; AssignCommand ist not needed, because OBJECT_SELF is oPC - using AssignCommand will only degrade performance
+                //AssignCommand(oPC, DelayCommand(fDelay, DoNaturalAttack(oWeapon)));               
+
+                DelayCommand(fDelay, DoNaturalAttack(oWeapon));
+
+                //calculate the delay to use next time
+                fDelay += 2.05;
+                if(fDelay > 6.0)
+                fDelay -= 6.0;
+            }
+            i++;
+        }
+    }
+
+    int iMod = 5;   // motu99: added check for monk weapon
+    if(GetHasMonkWeaponEquipped(oPC)) iMod = 3;
+
+    // check for overflow (main hand) attacks
+    int nOverflowAttackCount = GetLocalInt(oPC, "OverflowBaseAttackCount");
+    if(nOverflowAttackCount)
+    {
+        int i;
+        // the first overflow attack would be the seventh main hand attack, at an AB of -30
+        int nAttackPenalty = -6 * iMod; // -30 for normal bab, -18 for monks
+        // DoDebug("DoNaturalWeaponHB(): number of scripted overflow attacks: "+IntToString(nOverflowAttackCount));
+        for(i = 0; i < nOverflowAttackCount; i++)
+        {
+            // DoDebug(COLOR_WHITE + "DoNaturalWeaponHB(): scheduling a scripted overflow attack with attack mod "+IntToString(nAttackPenalty)+" at delay "+FloatToString(fDelay)); 
+            
+			// motu99: see comment above why this is commented out
+            //    AssignCommand(oPC, DelayCommand(fDelay, DoOverflowOnhandAttack(nAttackPenalty)));
+            
+            DelayCommand(fDelay, DoOverflowOnhandAttack(nAttackPenalty));
+
+            //calculate the delay to use
+            fDelay += 2.05;
+            if(fDelay > 6.0)
+                fDelay -= 6.0;
+            //calculate new attack penalty
+            nAttackPenalty -= iMod; // motu99: usually -5, for monks -3 (unarmed or kama)
+        }
+    }
+
+    // motu99: this is only here for debugging in order to  test PerformAttackRound()
+    // must be deleted after debugging!!!
+    //if (GetPRCSwitch(PRC_PNP_TRUESEEING)) DelayCommand(0.01, DoOffhandAttackRound());
+
+
+    // check for overflow offhand attacks
+    int nOffhandAttackCount = GetLocalInt(oPC, "OffhandOverflowAttackCount");
+//    if (DEBUG) DoDebug("DoNaturalWeaponHB: number of scripted offhand attacks = "+IntToString(nOffhandAttackCount));
+    if(nOffhandAttackCount)
+    {
+        int i;
+        int nAttackPenalty = -2 * iMod;  // offhand attacks always come at -5 per additional attack (but for monks we assume -3) 
+        for(i = 0; i < nOffhandAttackCount; i++)
+        {
+            // DoDebug(COLOR_WHITE + "DoNaturalWeaponHB(): scheduling a scripted offhand attack with attack mod "+IntToString(nAttackPenalty)+" at delay "+FloatToString(fDelay)); 
+
+            DelayCommand(fDelay, DoOffhandAttack(nAttackPenalty));
+
+            //calculate the delay to use
+            fDelay += 2.05;
+            if(fDelay > 6.0)
+                fDelay -= 6.0;
+            //calculate new attack penalty
+            nAttackPenalty -= iMod;
+        }
+    }
+}
+
 
 /* 
  * motu99's test functions. Not actually used by PRC scripts 

@@ -407,6 +407,8 @@ void _CleanManifestationVariables(object oManifester)
     DeleteLocalInt(oManifester, PRC_POWER_LEVEL);
     DeleteLocalInt(oManifester, PRC_IS_PSILIKE);
     DeleteLocalInt(oManifester, PRC_AUGMENT_OVERRIDE);
+	DeleteLocalInt(oManifester, "PRC_UsePowerList");  
+	DeleteLocalInt(oManifester, "PRC_PowerListType");
 }
 
 /** Internal function.
@@ -692,10 +694,28 @@ void _UsePowerAux(object oManifester, object oMfToken, int nSpellId,
 
 struct manifestation EvaluateManifestation(object oManifester, object oTarget, struct power_augment_profile pap, int nMetaPsiFlags)
 {
-    /* Get some data */
+    //:: Handle Hidden Talent
+	int nSpellID = PRCGetSpellId();
+	int bIsHiddenTalent = GetIsHiddenTalentPower(oManifester, nSpellID);
+	if(bIsHiddenTalent)  
+	{  
+		SetLocalInt(oManifester, "PRC_UsePowerList", TRUE);  
+		SetLocalInt(oManifester, "PRC_PowerListType", POWER_LIST_MISC);  
+	}	
+	/* Get some data */
     int bIgnoreConstraints = (DEBUG) ? GetLocalInt(oManifester, PRC_DEBUG_IGNORE_CONSTRAINTS) : FALSE;
+	
     // Manifester-related stuff
-    int nManifesterLevel = GetManifesterLevel(oManifester);
+    //int nManifesterLevel = GetManifesterLevel(oManifester);
+	int nManifesterLevel;  
+    if(bIsHiddenTalent)  
+	{
+        nManifesterLevel = GetManifesterLevel(oManifester, CLASS_TYPE_INVALID); 
+	}
+    else 
+	{		
+        nManifesterLevel = GetManifesterLevel(oManifester);
+	}
     int nPowerLevel      = GetPowerLevel(oManifester);
     int nClass           = GetManifestingClass(oManifester);
     int nWildSurge       = GetWildSurge(oManifester);
@@ -713,6 +733,8 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
     manif.nPsiFocUsesRemain = GetPsionicFocusesAvailable(oManifester);// Determine how many times psionic focus could be used
     manif.nManifesterLevel  = nManifesterLevel;
     manif.nSpellID          = PRCGetSpellId();
+
+
 
     // Run an ability score check to see if the manifester can manifest the power at all
 	if (bIsPsiLike)
@@ -767,7 +789,9 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
             //If the manifester does not have enough points before hostile modifiers, cancel power
             if(manif.nPPCost > nManifesterPP && !bIsPsiLike && !bIgnoreConstraints)
             {
-                FloatingTextStrRefOnCreature(16826412, oManifester, FALSE); // "You do not have enough Power Points to manifest this power"
+                // DEBUG: show why the cost over cap branch triggered
+				FloatingTextStringOnCreature("DEBUG: manif.nManifesterLevel=" + IntToString(manif.nManifesterLevel) + " manif.nPPCost=" + IntToString(manif.nPPCost) +" PRC_UsePowerList=" + IntToString(GetLocalInt(manif.oManifester, "PRC_UsePowerList")), manif.oManifester, FALSE);
+				FloatingTextStrRefOnCreature(16826412, oManifester, FALSE); // "You do not have enough Power Points to manifest this power"
                 manif.bCanManifest = FALSE;
             }
             // The manifester has enough power points that they would be able to use the power, barring extra costs

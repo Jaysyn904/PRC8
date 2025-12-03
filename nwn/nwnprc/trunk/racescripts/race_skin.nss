@@ -14,6 +14,8 @@ void main()
     object oSkin = GetPCSkin(oPC);
     int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
     itemproperty ipIP;
+	
+	if(DEBUG) DoDebug("race_skin >> Entering main function");
     
     // Any PC that needs this feat will have a claw, which they're automatically proficient in
     IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_PROF_CREATURE), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -195,7 +197,15 @@ void main()
     if(nAC) SetCompositeBonus(oSkin, "RacialNaturalArmor", nAC, ITEM_PROPERTY_AC_BONUS);
 
 
-    //immunity to breathing-targetted spells
+    if (GetHasFeat(FEAT_ABERRANT_DEEPSPAWN, oPC))
+    {
+        string sResRef = "prc_tentacle_";
+        int nSize = PRCGetCreatureSize(oPC);
+        sResRef += GetAffixForSize(nSize);
+		if (DEBUG) DoDebug("race_skin >> Aberrant Tentacles added to oPC");
+        AddNaturalSecondaryWeapon(oPC, sResRef, 2);
+    }    
+    //immunity to breathing-targeted spells
     if(GetHasFeat(FEAT_BREATHLESS))
     {
         ipIP = ItemPropertySpellImmunitySpecific(SPELL_DROWN);
@@ -203,8 +213,6 @@ void main()
         ipIP = ItemPropertySpellImmunitySpecific(SPELL_MASS_DROWN);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
         ipIP = ItemPropertySpellImmunitySpecific(SPELL_CLOUDKILL);
-        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_ACID_FOG);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
         ipIP = ItemPropertySpellImmunitySpecific(SPELL_STINKING_CLOUD);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
@@ -935,7 +943,7 @@ void main()
         SetCompositeBonus(oSkin, "RacialDragonTrsining", 4, ITEM_PROPERTY_AC_BONUS_VS_ALIGNMENT_GROUP, RACIAL_TYPE_DRAGON);
 
     //natural weapons
-    //replace with a feat check
+    //replace with a feat check	
     int nRace = GetRacialType(oPC);
     if(nRace==RACIAL_TYPE_MINOTAUR || nRace==RACIAL_TYPE_KRYNN_MINOTAUR)
     {
@@ -1192,14 +1200,6 @@ void main()
         int nSize = PRCGetCreatureSize(oPC);
         sResRef += GetAffixForSize(nSize);
         AddNaturalPrimaryWeapon(oPC, sResRef, 2);
-    }    
-    
-    if (GetHasFeat(FEAT_ABERRANT_DEEPSPAWN, oPC))
-    {
-        string sResRef = "prc_cent_hoof_";
-        int nSize = PRCGetCreatureSize(oPC);
-        sResRef += GetAffixForSize(nSize);
-        AddNaturalSecondaryWeapon(oPC, sResRef, 2);
     }    
     else if(nRace==RACIAL_TYPE_LASHEMOI)
     {
