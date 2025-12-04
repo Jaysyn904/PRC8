@@ -216,6 +216,8 @@ int ShouldCreateEffectEntry(effect selectedEffect)
     if (spellList == JsonNull())
         return TRUE;
     int spellId = GetEffectSpellId(selectedEffect);
+    if (spellId == -1)
+        return FALSE;
 
     if (!GetPRCSwitch(PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS))
     {

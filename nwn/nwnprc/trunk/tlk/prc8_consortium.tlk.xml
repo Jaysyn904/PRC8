@@ -14754,7 +14754,7 @@ Level:
 26: 11 Epic Wild Shape/day.
 29: 13 Epic Wild Shape/day.</entry>
   <entry id="47155" lang="en" sex="m">Archetypal Form</entry>
-  <entry id="47156" lang="en" sex="m">Type of Feat: DM Tool - "The dirty hobbitses will not get their hands on my preciousss"
+  <entry id="47156" lang="en" sex="m">Type of Feat: Builder's Tool
 Prerequisite: A creature you don't want people to polymorph into
 Specifics: The presence of this feat on a creature, as tested for using GetHasFeat(), prevents the use of it as a template
 by users of PRC polymorphing mechanics (PnP Shifter, Soul Eater, etc.)
@@ -72698,6 +72698,16 @@ Wild Frenzy: You gain a +2 bonus on attack rolls and damage rolls with melee wea
   <entry id="77221" lang="en" sex="m">Exalted feats are only available to good-aligned characters and creatures.
 
 Due to technical reasons, we cannot enforce this limitation directly. If you do take one of these feats without qualifying for it, it will be useless to you.</entry>
+  <entry id="77222" lang="en" sex="m">Intrinsic Armor</entry>
+  <entry id="77223" lang="en" sex="m">Type of Feat: Builder's Tool
+Prerequisite: A creature with armor you don't want "rended"
+Specifics: The presence of this feat on a creature prevents it from losing it's armor to a Beblith's Rend attack.
+Use: Automatic, checked for in x2_s3_ruinarmor and prc_evnt_clbebil</entry>
+  <entry id="77224" lang="en" sex="m">Intrinsic Weapon</entry>
+  <entry id="77225" lang="en" sex="m">Type of Feat: Builder's Tool
+Prerequisite: A creature with a weapon you don't want disarmed.
+Specifics: The presence of this feat on a creature prevents it from being disarmed.
+Use: Automatic, checked for in DoDisarm()</entry>
   <entry id="77997" lang="en" sex="m">Cancel Spell</entry>
   <entry id="77998" lang="en" sex="m">This will allow the caster to end any self-cast spell effects on their person.</entry>
   <entry id="77999" lang="en" sex="m">### PRC8 CLASS RESERVE ###</entry>

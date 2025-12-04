@@ -75,6 +75,7 @@ void DeathlessFrenzyCheck(object oTarget);
 // * PRC Version of a Bioware function to disable include loops
 void PRCRemoveSpellEffects(int nSpell_ID, object oCaster, object oTarget);
 
+
 /**
  * Target is immune to gaze attacks
  *
@@ -88,6 +89,9 @@ effect EffectGazeImmune();
  * @return           the Dazzle effect
  */
 effect EffectDazzle();
+
+//ebonfowl: adding this function to check if a target is already shaken
+int GetIsShaken(object oTarget);
 
 /**
  * Shaken effect: -2 to attack, all skills and saving throws
@@ -177,13 +181,9 @@ effect EffectAbilityBasedSkillIncrease(int iAbility, int iIncrease = 1);
  */
 effect EffectAbilityBasedSkillDecrease(int iAbility, int iDecrease = 1);
 
-//ebonfowl: adding this function to check if a target is already shaken
-int GetIsShaken(object oTarget);
-
 //////////////////////////////////////////////////
 /* Include section                              */
 //////////////////////////////////////////////////
-
 #include "prc_inc_castlvl" // get prc_racial_const, prc_inc_nwscript, prc_inc_newip
 #include "inc_epicspelldef"
 
@@ -804,5 +804,11 @@ int GetIsShaken(object oTarget)
     return FALSE;
 }
 
+// Forward declarations for size change effects  
+// Implementations are in prc_inc_size  
+effect EffectSizeChange(object oTarget, int nObjectType, int bEnlarge, int nChanges);  
+void DelayedSetVisualTransform(int nExpectedGeneration, object oTarget, int nTransform, float fValue);  
+void DelaySetVisualTransform(float fDelay, object oTarget, string sGenerationName, int nTransform, float fValue);
+
 //:: Test void
-//:: void main() {}
+//::void main() {}

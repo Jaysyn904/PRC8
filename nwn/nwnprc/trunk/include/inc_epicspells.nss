@@ -303,11 +303,18 @@ int GetIsEpicShaman(object oPC)
          && GetAbilityScore(oPC, ABILITY_WISDOM) > 18;
 }
 
-int GetIsEpicSorcerer(object oPC)
+int GetIsEpicSorcerer(object oPC)  
+{  
+    return GetHitDice(oPC) >= 21  
+         && GetCasterLvl(CLASS_TYPE_SORCERER, oPC) > 17  
+         && GetAbilityScore(oPC, ABILITY_CHARISMA) > 18;  
+}
+
+/* int GetIsEpicSorcerer(object oPC)
 {
     return GetPrCAdjustedCasterLevel(CLASS_TYPE_SORCERER, oPC, FALSE) > 17
          && GetAbilityScore(oPC, ABILITY_CHARISMA) > 18;
-}
+} */
 
 int GetIsEpicSublimeChord(object oPC)
 {

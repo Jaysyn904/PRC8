@@ -273,6 +273,7 @@ void TigerBlooded(object oInitiator, object oTarget);
 
 #include "prc_inc_combat"
 #include "prc_inc_sp_tch"
+#include "prc_feat_const"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */
@@ -1941,10 +1942,21 @@ void TigerBlooded(object oInitiator, object oTarget)
 int DoDisarm(object oPC, object oTarget, int nExtraBonus = 0, int nGenerateAoO = TRUE, int nCounter = TRUE)
 {
     object oTargetWep = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);
+	
+	int bNoDisarm = GetHasFeat(FEAT_INTRINSIC_WEAPON, oTarget);
+	
+	string sName = GetName(oTarget);
+	
+	if(bNoDisarm)
+	{
+		FloatingTextStringOnCreature(sName+" is wielding an intrinsic weapon", oPC, FALSE);
+		AssignCommand(oPC, ActionAttack(oTarget));
+		return FALSE;
+	}
     
     if (!GetIsObjectValid(oTargetWep) || GetPlotFlag(oTargetWep) || (!GetIsCreatureDisarmable(oTarget) && !GetPRCSwitch(PRC_PNP_DISARM)) || GetLocalInt(oTarget, "TigerFangDisarm")) 
     {    
-        FloatingTextStringOnCreature("Target is not a legal target", oPC, FALSE);
+        FloatingTextStringOnCreature(sName+" is not a legal target", oPC, FALSE);
         AssignCommand(oPC, ActionAttack(oTarget));
         return FALSE;
     }    

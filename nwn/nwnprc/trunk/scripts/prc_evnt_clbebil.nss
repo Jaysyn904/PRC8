@@ -13,6 +13,14 @@ void main()
 	object oShield = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oSpellTarget);
 	int bArmor;
 	int bShield;
+	
+	int bNoRend	= GetHasFeat(FEAT_INTRINSIC_ARMOR, oSpellTarget);
+	
+	if (bNoRend)
+	{
+		SendMessageToPC(oSpellOrigin, "Your target's armor cannot be rended.");
+		return;
+	}
 
 	if(GetIsObjectValid(oShield))
 	{

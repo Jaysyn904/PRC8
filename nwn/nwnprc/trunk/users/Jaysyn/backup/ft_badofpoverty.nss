@@ -39,26 +39,13 @@ effect VoPDamage(int nTotalEnhancement)
 
 void main()
 {
-    int nEvent = GetRunningEvent();
-    if(DEBUG) DoDebug("prc_forsaker running, event: " + IntToString(nEvent));
-	
-	// Get the PC. This is event-dependent
     object oPC;
-    switch(nEvent)
-    {
-        case EVENT_ITEM_ONHIT:          oPC = OBJECT_SELF;               break;
-        case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;
-        case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;
-        case EVENT_ONHEARTBEAT:         oPC = OBJECT_SELF;               break;
-
-        default:
-            oPC = OBJECT_SELF;
-    }
-	
+	oPC = OBJECT_SELF;
     object oItem;
 	object oArmor;
 	object oShield;
     object oSkin = GetPCSkin(oPC);
+	int nEvent = GetCurrentlyRunningEvent();
     int nLevel = GetCharacterLevel(oPC)-GetPersistantLocalInt(oPC,"VoPLevel1")+1;
 	int nACArmor = 4+nLevel/3;
 	int nACDeflection = nLevel/6;

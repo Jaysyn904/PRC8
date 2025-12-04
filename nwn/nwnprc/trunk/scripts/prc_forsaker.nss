@@ -4,41 +4,51 @@
 //:: Created By: Stratosvarious
 //:: Edited By: Fencas
 //:://////////////////////////////////////////////
-
+#include "prc_inc_function"
 #include "prc_inc_combat"
 #include "inc_dynconv"
-#include "prc_class_const"
 #include "prc_alterations"
-#include "prc_ipfeat_const"
-#include "nw_i0_spells"
 
 void main()
 {
-	object oPC = OBJECT_SELF;
+    int nEvent = GetRunningEvent();
+    if(DEBUG) DoDebug("prc_forsaker running, event: " + IntToString(nEvent));
+	
+	// Get the PC. This is event-dependent
+    object oPC;
+    switch(nEvent)
+    {
+        case EVENT_ITEM_ONHIT:          oPC = OBJECT_SELF;               break;
+        case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;
+        case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;
+        case EVENT_ONHEARTBEAT:         oPC = OBJECT_SELF;               break;
+
+        default:
+            oPC = OBJECT_SELF;
+    }
 	object oItem;
 	object oArmor;
 	object oShield;
     object oSkin = GetPCSkin(oPC);
 	
 	int nSlot;
-    int nClass = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
-	int nClassCheck;
-    int nBonus = nClass/2;
-	int nRegen = 1 + nClass/4;	
-	int nSR    = 10 + nClass;
-	int nEvent = GetCurrentlyRunningEvent();
-
-    // We aren't being called from any event, instead from EvalPRCFeats
+    int nForsakerLvl 		= GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
+	int nForsakerLvlCheck;
+    int nBonus 				= nForsakerLvl/2;
+	int nRegen 				= 1 + nForsakerLvl/4;	
+	int nSR    				= 10 + nForsakerLvl;
+		
     if(nEvent == FALSE)
     {	
+		
 		//Check if level up bonus has already been chosen and given for any of past Forsaker levels
-		for(nClassCheck=1; nClassCheck <= nClass; nClassCheck++)
+		for(nForsakerLvlCheck=1; nForsakerLvlCheck <= nForsakerLvl; nForsakerLvlCheck++)
 		{
-			if(!GetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nClassCheck)))
+			if(!GetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nForsakerLvlCheck)))
 			{
 				//Level up box for stat bonus
 				AssignCommand(oPC, ClearAllActions(TRUE));
-				SetPersistantLocalInt(oPC,"ForsakerBoostCheck",nClassCheck);
+				SetPersistantLocalInt(oPC,"ForsakerBoostCheck",nForsakerLvlCheck);
 				StartDynamicConversation("prc_forsake_abil", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
 			}
 		}
@@ -50,10 +60,148 @@ void main()
 		IPSafeAddItemProperty(oSkin, ItemPropertyBonusSpellResistance(GetSRByValue(nSR)), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 		
 		//DR starting on level 2 = (level+1)/(Level/2)
-		if (nClass >=2) ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectDamageReduction((nClass+1),(nClass/2)),oPC);
+		if (nForsakerLvl >=2) ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectDamageReduction((nForsakerLvl+1),(nForsakerLvl/2)),oPC);
 
 		//Natural AC increase by CON starting on level 3
-		if (nClass >= 3) 
+		if (nForsakerLvl >= 3) 
+		{
+			effect eEffect1 = EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS);
+				   eEffect1 = ExtraordinaryEffect(eEffect1);
+				   eEffect1 = TagEffect(eEffect1, "EffectToughDefense");
+			
+			//Remove any prior bonus to avoid duplication
+			effect eCheckEffect = GetFirstEffect(oPC);
+			while (GetIsEffectValid(eCheckEffect))
+			{
+				if(GetEffectTag(eCheckEffect) == "EffectToughDefense") RemoveEffect(oPC, eCheckEffect);
+				eCheckEffect = GetNextEffect(oPC);
+			}
+			
+			//Give player the bonus
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eEffect1, oPC); 	
+		}
+
+		if(!GetHasFeat(FEAT_VOWOFPOVERTY,oPC))
+		{
+			for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots  
+			{  
+				oItem=GetItemInSlot(nSlot, oPC);  
+				//Check if it is magical and not a torch  
+				if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) &&   
+				   !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper") &&  
+				   GetResRef(oItem) != "nw_it_torch001")  
+				{  
+					AssignCommand(oPC, ClearAllActions(TRUE));  
+					AssignCommand(oPC, ActionUnequipItem(oItem));  
+					FloatingTextStringOnCreature(GetName(oItem)+" is a magical item!", oPC, FALSE);  
+				}  
+			}
+
+			if(GetIsUnarmed(oPC) && (nForsakerLvl >= 3)) //If it is unarmed, give DR bypass
+			{
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackIncrease(nBonus),oPC);
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackDecrease(nBonus),oPC);
+				
+				//Remove last weapon(s) bonus
+				oItem = GetPCItemLastUnequipped();
+				if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)))
+				{
+					RemoveSpecificProperty(oItem, ITEM_PROPERTY_ATTACK_BONUS, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+					RemoveSpecificProperty(oItem, ITEM_PROPERTY_DECREASED_ATTACK_MODIFIER, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+				}
+			}
+		}		
+        // Hook in the events, needed from level 1 for Magic Hatred
+        if(DEBUG) DoDebug("prc_forsaker: Adding eventhooks");
+        AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_forsaker", TRUE, FALSE);
+        AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_forsaker", TRUE, FALSE);
+    }
+    // We are called from the OnPlayerEquipItem eventhook. Add OnHitCast: Unique Power to oPC's weapon
+    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
+    {
+        oPC   = GetItemLastEquippedBy();
+        oItem = GetItemLastEquipped();
+        if(DEBUG) DoDebug("prc_forsaker - OnEquip\n"
+                        + "oPC = " + DebugObject2Str(oPC) + "\n"
+                        + "oItem = " + DebugObject2Str(oItem) + "\n");
+						
+		if(!GetHasFeat(FEAT_VOWOFPOVERTY,oPC))
+		{
+			for (nSlot=0; nSlot < 13; nSlot++) //All but creatures slots  
+			{  
+				oItem=GetItemInSlot(nSlot, oPC);  
+				//Check if it is magical and not a torch  
+				if(GetIsItemPropertyValid(GetFirstItemProperty(oItem)) &&   
+				   !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper") &&  
+				   GetResRef(oItem) != "nw_it_torch001")  
+				{  
+					AssignCommand(oPC, ClearAllActions(TRUE));  
+					AssignCommand(oPC, ActionUnequipItem(oItem));  
+					FloatingTextStringOnCreature(GetName(oItem)+" is a magical item!", oPC, FALSE);  
+				}  
+			}
+
+			if(GetIsUnarmed(oPC) && (nForsakerLvl >= 3)) //If it is unarmed, give DR bypass
+			{
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackIncrease(nBonus),oPC);
+				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackDecrease(nBonus),oPC);
+				
+				//Remove last weapon(s) bonus
+				oItem = GetPCItemLastUnequipped();
+				if((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)))
+				{
+					RemoveSpecificProperty(oItem, ITEM_PROPERTY_ATTACK_BONUS, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+					RemoveSpecificProperty(oItem, ITEM_PROPERTY_DECREASED_ATTACK_MODIFIER, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+				}
+			}
+		}
+	}		
+    // We are called from the OnPlayerUnEquipItem eventhook. Remove OnHitCast: Unique Power from oPC's weapon
+    else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)
+    {
+        oPC   = GetItemLastUnequippedBy();
+        oItem = GetItemLastUnequipped();
+        if(DEBUG) DoDebug("prc_forsaker - OnUnEquip\n"
+                        + "oPC = " + DebugObject2Str(oPC) + "\n"
+                        + "oItem = " + DebugObject2Str(oItem) + "\n"
+                          );
+
+        // Only applies to weapons
+        if(IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))
+        {
+            if (nForsakerLvl >= 3) RemoveSpecificProperty(oItem, ITEM_PROPERTY_ATTACK_BONUS, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+            if (nForsakerLvl >= 3) RemoveSpecificProperty(oItem, ITEM_PROPERTY_DECREASED_ATTACK_MODIFIER, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
+        }
+    }	
+}
+	
+
+/*     // We aren't being called from any event, instead from EvalPRCFeats
+    if(nEvent == FALSE)
+    {	
+		//Check if level up bonus has already been chosen and given for any of past Forsaker levels
+		for(nForsakerLvlCheck=1; nForsakerLvlCheck <= nForsakerLvl; nForsakerLvlCheck++)
+		{
+			if(!GetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nForsakerLvlCheck)))
+			{
+				//Level up box for stat bonus
+				AssignCommand(oPC, ClearAllActions(TRUE));
+				SetPersistantLocalInt(oPC,"ForsakerBoostCheck",nForsakerLvlCheck);
+				StartDynamicConversation("prc_forsake_abil", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+			}
+		}
+		
+		//Fast healing 1 (+1 each 4 levels)
+		SetCompositeBonus(oSkin,"ForsakerFH",nRegen,ITEM_PROPERTY_REGENERATION);
+		
+		//SR = 10 + Forsaker level
+		IPSafeAddItemProperty(oSkin, ItemPropertyBonusSpellResistance(GetSRByValue(nSR)), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+		
+		//DR starting on level 2 = (level+1)/(Level/2)
+		if (nForsakerLvl >=2) ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectDamageReduction((nForsakerLvl+1),(nForsakerLvl/2)),oPC);
+
+		//Natural AC increase by CON starting on level 3
+		if (nForsakerLvl >= 3) 
 		{
 			effect eEffect1 = EffectACIncrease(GetAbilityModifier(ABILITY_CONSTITUTION, oPC), AC_NATURAL_BONUS);
 				   eEffect1 = ExtraordinaryEffect(eEffect1);
@@ -86,7 +234,7 @@ void main()
 				}
 			}
 
-			if(GetIsUnarmed(oPC) && (nClass >= 3)) //If it is unarmed, give DR bypass
+			if(GetIsUnarmed(oPC) && (nForsakerLvl >= 3)) //If it is unarmed, give DR bypass
 			{
 				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackIncrease(nBonus),oPC);
 				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackDecrease(nBonus),oPC);
@@ -131,7 +279,7 @@ void main()
 		}
 		else 
 		{
-			if(nClass>=3)
+			if(nForsakerLvl>=3)
 			{
 				//Give bonus to weapon(s)
 				IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nBonus), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
@@ -149,3 +297,4 @@ void main()
 		}
     }
 }
+ */

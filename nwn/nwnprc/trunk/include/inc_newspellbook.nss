@@ -112,7 +112,7 @@ void ProcessPreparedSpellLevel(object oPC, int nClass, int nSpellLevel, int nLev
                                     //Must load in this order.
 //#include "prc_inc_castlvl"        //access via prc_inc_core
 //#include "prc_inc_descrptr"       //access via prc_inc_core
-
+#include "inc_item_props" 
 
 //////////////////////////////////////////////////
 /*             Function definitions             */

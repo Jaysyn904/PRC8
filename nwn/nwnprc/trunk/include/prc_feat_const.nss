@@ -4,6 +4,11 @@
 //:: PRC Options Conversation
 const int FEAT_OPTIONS_CONVERSATION = 2285;
 
+//;; Builder Feats
+const int FEAT_ARCHETYPAL_FORM 		= 2918;
+const int FEAT_INTRINSIC_ARMOR 		= 25990;
+const int FEAT_INTRINSIC_WEAPON 	= 25991;
+
 //:: Missing Bioware Feats
 const int FEAT_EPIC_PLANAR_TURNING = 854;
 
