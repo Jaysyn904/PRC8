@@ -23,6 +23,14 @@ Called Elsewhere:
 void main()
 {
     object oPC = OBJECT_SELF;
+	
+	// Block forsakers from using spellfire  
+	if(GetLevelByClass(CLASS_TYPE_FORSAKER, oPC) > 0)  
+	{  
+		SendMessageToPC(oPC, "Forsakers cannot use the power of spellfire.");  
+		return;  
+	}
+	
     if(GetHasFeat(FEAT_SHADOWWEAVE, oPC))
     {
         SendMessageToPC(oPC, "You no longer have access to the weave and cannot use spellfire");

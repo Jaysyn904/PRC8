@@ -75031,11 +75031,11 @@ Spellcasting: At each class level the epic Contemplative continues to increase i
 Epic Contemplative Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Dodge, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Perfect Health, Planar Turning, Self-Concealment, Superior Initiative, Tenacious Magic. </entry>
   <entry id="205194" lang="en" sex="m">Epic Runecaster</entry>
-  <entry id="205195" lang="en" sex="m">The epic runecaster no longer simply inscribes symbols of divine power, they weave divine essence into the world itself. Their runes thrum with ancient energy, etched into stone, metal, and air alike. Each mark is a silent hymn, a declaration of faith and force, holding power that rivals full incantations. Thieves no longer dare approach the runecaster's artifacts, and foes learn too late that every step toward a runecaster is a step deeper into a trap. Their runes do not merely cast spells, they shape destiny.
+  <entry id="205195" lang="en" sex="m">The epic runecaster no longer simply inscribes symbols of divine power, they weave divine essence into the world itself. Their runes thrum with ancient energy, etched into stone, metal, and the earth itself. Each mark is a silent hymn, a declaration of faith and force, holding power that rivals full incantations. Thieves no longer dare approach the runecaster's artifacts, and foes learn too late that every step toward a runecaster is a step deeper into a trap. Their runes do not merely cast spells, they shape destiny.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Runecaster gains a bonus feat every three levels
+Bonus Feats: The epic Runecaster gains a bonus feat every four levels.
 
 Special:
 Rune Craft: The epic Runecaster continues to gain a +1 on Runecarving checks at every odd level.
@@ -75043,7 +75043,7 @@ Rune Power: The epic Runecaster's Rune Power ability continues to gain +1 to DC 
 Spellcasting: The epic Runecaster continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Runecaster Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Great Charisma, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Inscribe Epic Runes, Great Charisma, Great Intelligence, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.</entry>
   <entry id="205196" lang="en" sex="m">Epic Warchief</entry>
   <entry id="205197" lang="en" sex="m">The epic Warchief becomes the stuff of legend, feared and revered by entire nations. His warcries shake enemy lines, and his presence alone can rally tribes to conquer cities and kingdoms. As he grows in power, his influence spreads like wildfire, turning even the most fractured clans into an unstoppable force. Epic Warchiefs inspire absolute loyalty and demand unquestioning obedience, forging empires from chaos and blood.
 
@@ -75577,6 +75577,13 @@ Benefit: You create an infusion of any divine spell available to you. Infusing a
   <entry id="212169" lang="en" sex="m">****</entry>
   <entry id="212170" lang="en" sex="m">Mundane Herbs</entry>
   <entry id="212171" lang="en" sex="m">These herbs can be used with the create infusion feat.  Target them with the spell you want to store for later use.</entry>
+  <entry id="212172" lang="en" sex="m">****</entry>
+  <entry id="212173" lang="en" sex="m">Inscribe Epic Runes</entry>
+  <entry id="212174" lang="en" sex="m">Type of Feat: Epic
+Prerequisite: Inscribe Rune, Craft (armor) 24 ranks, INT 19
+Benefit: You can inscribe runes that exceed the normal limits and as such can craft runes with a caster level greater than 20th. Even this feat does not allow you to inscribe a rune with an epic spell. Such magic defies the power of the written word and thus cannot be scribed into runic form.
+Use: Selected</entry>
+  <entry id="212175" lang="en" sex="m">****</entry>
   <entry id="212179" lang="en" sex="m">### PRC8 CRAFT SCEPTER RESERVE ###</entry>
   <entry id="212180" lang="en" sex="m">Craft Scepter</entry>
   <entry id="212181" lang="en" sex="m">Type of Feat: Item Creation

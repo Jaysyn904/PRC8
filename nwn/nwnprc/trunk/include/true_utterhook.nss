@@ -43,6 +43,16 @@ int TruePreUtterCastCode()
     int nContinue = !ExecuteScriptAndReturnInt("prespellcode",oTrueSpeaker);
 
     //---------------------------------------------------------------------------
+    // Block forsakers from using truenaming
+    //---------------------------------------------------------------------------
+
+	if(GetLevelByClass(CLASS_TYPE_FORSAKER, oTrueSpeaker) > 0)  
+	{  
+		SendMessageToPC(oTrueSpeaker, "Forsakers cannot use the power of truenaming.");  
+		return FALSE;  
+	}
+
+    //---------------------------------------------------------------------------
     // Break any spell require maintaining concentration
     //---------------------------------------------------------------------------
     X2BreakConcentrationSpells();

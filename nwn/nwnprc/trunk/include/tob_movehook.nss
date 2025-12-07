@@ -78,7 +78,14 @@ int PreManeuverCastCode()
     //---------------------------------------------------------------------------    
     if(nContinue)
     	nContinue = !GetLocalInt(oInitiator, "CrusaderBreak");
-
+	//---------------------------------------------------------------------------  
+	// Forsakers can't use supernatural maneuvers  
+	//---------------------------------------------------------------------------  
+	if (nContinue && GetIsManeuverSupernatural(nMoveId) && GetLevelByClass(CLASS_TYPE_FORSAKER, oInitiator))  
+	{  
+		FloatingTextStringOnCreature("Forsakers cannot use supernatural maneuvers!", oInitiator, FALSE);  
+		nContinue = FALSE;  
+	}  
     //---------------------------------------------------------------------------
     // Run NullPsionicsField Check
     //---------------------------------------------------------------------------

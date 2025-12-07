@@ -302,7 +302,7 @@ object CICraftBrewPotion(object oCreator, int nSpellID )
         return OBJECT_INVALID;
     }
 
-    /* //just a tad retarded, don't you think? other crafting feats are not similarly restricted
+    /* //just a tad silly, don't you think? other crafting feats are not similarly restricted
     //Uses per day
     int nUsesAllowed;
 
@@ -710,6 +710,7 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
     return oTarget;
 }
  */
+
 // -----------------------------------------------------------------------------
 // Returns TRUE if the player used the last spell to brew a potion
 // -----------------------------------------------------------------------------
@@ -863,7 +864,6 @@ These dont work as IPs since they are hardcoded */
      }
 
 }
-
 
 
 // -----------------------------------------------------------------------------
@@ -1133,6 +1133,9 @@ These dont work as IPs since they are hardcoded */
     return FALSE;
 }
 
+// -----------------------------------------------------------------------------
+// Returns TRUE if the player used the last spell to craft a staff
+// -----------------------------------------------------------------------------
 int CICraftCheckCraftStaff(object oSpellTarget, object oCaster, int nSpellID = 0)
 {
 
@@ -1281,6 +1284,9 @@ These dont work as IPs since they are hardcoded */
     return TRUE;
 }
 
+// -----------------------------------------------------------------------------
+// Returns TRUE if the player used the last spell to craft a rod
+// -----------------------------------------------------------------------------
 int CICraftCheckCraftRod(object oSpellTarget, object oCaster, int nSpellID = 0)
 {
 
@@ -1427,6 +1433,7 @@ These dont work as IPs since they are hardcoded */
     return TRUE;
 }
 
+
 int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, int nSpell = 0)
 {
     if(!GetIsObjectValid(oCaster)) oCaster = OBJECT_SELF;
@@ -1478,8 +1485,9 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
     if(!GetIsObjectValid(oTarget)) oTarget = PRCGetSpellTargetObject();
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
 	
-//:: [TO DO] make Inscribe Epic Rune.
-	if(nCaster > 20) nCaster = 20;
+//:: Check for Inscribe Epic Runes and cap CL at 20 if it doesn't exist.
+	int bEpicRunes = GetHasFeat(EPIC_FEAT_INSCRIBE_EPIC_RUNES, oCaster);
+	if (!bEpicRunes) { if(nCaster > 20) nCaster = 20; }
 	
     int nDC = PRCGetSaveDC(oTarget, oCaster);
     if(!nSpell) nSpell = PRCGetSpellId();

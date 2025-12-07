@@ -75,6 +75,15 @@ int PsiPrePowerCastCode()
 
     int nContinue = !ExecuteScriptAndReturnInt("prespellcode", oManifester);
 
+	//---------------------------------------------------------------------------  
+	// Forsakers can't use psionics  
+	//---------------------------------------------------------------------------  
+	if (nContinue && GetLevelByClass(CLASS_TYPE_FORSAKER, oManifester))  
+	{  
+		FloatingTextStringOnCreature("Forsakers cannot manifest psionic powers!", oManifester, FALSE);  
+		nContinue = FALSE;  
+	}
+
     //---------------------------------------------------------------------------
     // Break any spell require maintaining concentration
     //---------------------------------------------------------------------------
@@ -209,3 +218,4 @@ int PsiPrePowerCastCode()
     return nContinue;
 }
 
+//:: void main (){}

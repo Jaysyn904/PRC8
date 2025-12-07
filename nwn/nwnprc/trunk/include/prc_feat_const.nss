@@ -1319,6 +1319,7 @@ const int FEAT_SOMATIC_WEAPONRY                        = 5186;
 
 // Forgotten Realms Campaign Setting
 const int FEAT_INSCRIBE_RUNE                           = 2462;
+const int EPIC_FEAT_INSCRIBE_EPIC_RUNES                = 2549;
 
 // Miniature Handbook
 const int FEAT_SHIELDMATE                              = 3258;

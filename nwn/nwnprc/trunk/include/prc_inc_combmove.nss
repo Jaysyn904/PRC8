@@ -1322,7 +1322,29 @@ int DoTrip(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TRUE,
                     DelayCommand(0.0, PerformAttack(oTarget, oPC, eNone, 0.0, 0, 0, 0, "Improved Trip Free Attack Hit", "Improved Trip Free Attack Miss"));     
             }        
         }
-        else // If you fail, enemy gets a counter trip attempt, using Strength
+		else // If you fail, enemy gets a counter trip attempt, using Strength  
+		{  
+			if(!nCounterTrip)   
+			{  
+				nTargetStat = GetAbilityModifier(ABILITY_STRENGTH, oTarget) + GetCombatMoveCheckBonus(oTarget, COMBAT_MOVE_TRIP, FALSE, TRUE);  
+				FloatingTextStringOnCreature("You have failed on your Trip attempt",oPC, FALSE);  
+				// Roll counter trip attempt  
+				nTargetCheck = nTargetStat + nTargetBonus + d20();  
+				nPCCheck = nPCStat + nPCBonus + d20();  
+				// If counters aren't allowed, don't knock em down  
+				// Its down here to allow the text message to go through  
+				SendMessageToPC(oPC, "Enemy Counter Trip Check: "+IntToString(nPCCheck)+" vs "+IntToString(nTargetCheck));  
+				  
+				SetLocalInt(oPC, "TripDifference", nTargetCheck - nPCCheck);  
+				DelayCommand(2.0, DeleteLocalInt(oPC, "TripDifference"));  
+			}  
+			if (nTargetCheck >= nPCCheck && nCounterTrip)  
+			{  
+					// Knock em down  
+					ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oPC, 6.0);  
+			}  
+		}		
+/*         else // If you fail, enemy gets a counter trip attempt, using Strength
         {
             nTargetStat = GetAbilityModifier(ABILITY_STRENGTH, oTarget) + GetCombatMoveCheckBonus(oTarget, COMBAT_MOVE_TRIP, FALSE, TRUE);
             FloatingTextStringOnCreature("You have failed on your Trip attempt",oPC, FALSE);
@@ -1339,7 +1361,7 @@ int DoTrip(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TRUE,
             }
             SetLocalInt(oPC, "TripDifference", nTargetCheck - nPCCheck);
             DelayCommand(2.0, DeleteLocalInt(oPC, "TripDifference"));
-        }
+        } */
     }
     else
         FloatingTextStringOnCreature("You have failed on your Trip attempt",oPC, FALSE);

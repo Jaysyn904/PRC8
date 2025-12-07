@@ -426,7 +426,7 @@ int Vile_Feat(int iTypeWeap)
 														GetHasFeat(FEAT_VILE_MARTIAL_RAPIER) || 
 														GetHasFeat(FEAT_VILE_MARTIAL_ELVEN_THINBLADE));
 														
-            case BASE_ITEM_ELVEN_COURTBLADE: 	return GetHasFeat(FEAT_VILE_MARTIAL_GREATSWORD || 
+            case BASE_ITEM_ELVEN_COURTBLADE: 	return (GetHasFeat(FEAT_VILE_MARTIAL_GREATSWORD) || 
 														GetHasFeat(FEAT_VILE_MARTIAL_ELVEN_COURTBLADE));
 			
 			case BASE_ITEM_DOUBLE_SCIMITAR:		return GetHasFeat(FEAT_VILE_MARTIAL_DBL_SCIMITAR);

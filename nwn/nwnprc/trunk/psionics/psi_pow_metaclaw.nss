@@ -37,9 +37,110 @@
 #include "psi_spellhook"
 #include "prc_alterations"
 
-void main()
+// Cleanup function for Metaphysical Claw virtual enhancements  
+void MetaphysicalClawCleanup(object oManifester, object oTarget, int nSpellID, int nBeatsRemaining)  
+{  
+    if(!((nBeatsRemaining-- == 0)                                          ||  
+         PRCGetDelayedSpellEffectsExpired(nSpellID, oTarget, oManifester)  ||  
+         PRCGetHasEffect(EFFECT_TYPE_POLYMORPH, oTarget))  
+       )  
+    {  
+        // Schedule next check  
+        DelayCommand(6.0f, MetaphysicalClawCleanup(oManifester, oTarget, nSpellID, nBeatsRemaining));  
+    }  
+    // Power expired - clean up variables  
+    else  
+    {  
+        DeleteLocalInt(oTarget, "PRC_NAT_WEAPON_ENHANCE");  
+        DeleteLocalFloat(oTarget, "PRC_NAT_WEAPON_ENH_DUR");  
+    }  
+}
+
+void main()  
+{  
+    if (!PsiPrePowerCastCode())  
+    {  
+        return;  
+    }  
+  
+    object oManifester = OBJECT_SELF;  
+    object oTarget     = PRCGetSpellTargetObject();  
+    struct manifestation manif =  
+        EvaluateManifestation(oManifester, oTarget,  
+                              PowerAugmentationProfile(4,  
+                                                       4, PRC_UNLIMITED_AUGMENTATION  
+                                                       ),  
+                              METAPSIONIC_EXTEND  
+                              );  
+  
+    if(manif.bCanManifest)  
+    {  
+        int nBonus           = 1 + manif.nTimesAugOptUsed_1;  
+        object oLClaw        = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oTarget);  
+        object oRClaw        = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oTarget);  
+        object oBite         = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oTarget);  
+        effect eDur          = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+        effect eVis          = EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE);  
+        itemproperty ipBonus = ItemPropertyEnhancementBonus(nBonus);  
+        float fDuration      = (manif.nTimesAugOptUsed_1 == 0 ? 60.0f : HoursToSeconds(1)) * manif.nManifesterLevel;  
+        if(manif.bExtend) fDuration *= 2;  
+  
+		// Check for natural weapons - both physical and virtual  
+		int bHasNaturalWeapon = FALSE;  
+		int bHasVirtualWeapon = FALSE;  
+		  
+		// Check physical slots  
+		if(GetIsObjectValid(oLClaw) || GetIsObjectValid(oRClaw) || GetIsObjectValid(oBite))  
+		{  
+			bHasNaturalWeapon = TRUE;  
+		}  
+		  
+		// ALWAYS check for virtual secondary weapons  
+		if(array_exists(oTarget, ARRAY_NAT_SEC_WEAP_RESREF))  
+		{  
+			bHasVirtualWeapon = TRUE;  
+			bHasNaturalWeapon = TRUE;  
+		}  
+		  
+		// Must have a natural attack  
+		if(!bHasNaturalWeapon)  
+		{  
+			FloatingTextStrRefOnCreature(16826656, oManifester, FALSE);  
+			return;  
+		}
+  
+        // Apply enhancement to physical weapons  
+        if(GetIsObjectValid(oLClaw))  
+            AddItemProperty(DURATION_TYPE_TEMPORARY, ipBonus, oLClaw, fDuration);  
+        if(GetIsObjectValid(oRClaw))  
+            AddItemProperty(DURATION_TYPE_TEMPORARY, ipBonus, oRClaw, fDuration);  
+        if(GetIsObjectValid(oBite))  
+            AddItemProperty(DURATION_TYPE_TEMPORARY, ipBonus, oBite,  fDuration);  
+  
+        // Apply enhancement to virtual weapons  
+        if(bHasVirtualWeapon)  
+        {  
+            // Store enhancement on the creature for the virtual weapon system  
+            SetLocalInt(oTarget, "PRC_NAT_WEAPON_ENHANCE", nBonus);  
+            SetLocalFloat(oTarget, "PRC_NAT_WEAPON_ENH_DUR", fDuration);  
+              
+            // Start cleanup monitor - similar to Bite of the Wolf  
+            DelayCommand(6.0f,   
+                MetaphysicalClawCleanup(oManifester, oTarget, manif.nSpellID, FloatToInt(fDuration) / 6));  
+        }  
+  
+        // Do VFX  
+        SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);  
+        DelayCommand(1.0, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));  
+        DelayCommand(2.0, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));  
+        SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDur, oTarget, fDuration);  
+    }  
+}  
+  
+
+/*void main()
 {
-/*
+
   Spellcast Hook Code
   Added 2004-11-02 by Stratovarius
   If you want to make changes to all powers,
@@ -47,7 +148,7 @@ void main()
 
 */
 
-    if (!PsiPrePowerCastCode())
+/*     if (!PsiPrePowerCastCode())
     {
     // If code within the PrePowerCastHook (i.e. UMD) reports FALSE, do not run this spell
         return;
@@ -97,4 +198,4 @@ void main()
         DelayCommand(2.0, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
         SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDur, oTarget, fDuration);
     }// end if - Successfull manifestation
-}
+} */

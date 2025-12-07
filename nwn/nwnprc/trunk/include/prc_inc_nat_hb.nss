@@ -1,11 +1,68 @@
 //:: prc_inc_nat_hb
+//::
+//:: void main(){}
+
 
 void DoNaturalWeaponHB(object oPC = OBJECT_SELF);
 
 #include "prc_inc_combat"
 #include "prc_inc_template"
-
-object GetProperTarget(object oPC, object oTarget)
+/**  
+ * Finds a valid enemy target in melee range when the original target is invalid.  
+ * Now includes input validation, LOS checks, configurable radius, and target priority.  
+ *   
+ * @param oPC        The creature seeking a new target  
+ * @param oTarget    The original (invalid) target  
+ * @param fRadius    Search radius in meters (optional, defaults to melee range)  
+ * @return           A valid enemy target or OBJECT_INVALID if none found  
+ */  
+object GetProperTarget(object oPC, object oTarget, float fRadius = MELEE_RANGE_METERS)  
+{  
+    // Input validation  
+    if(!GetIsObjectValid(oPC))  
+    {  
+        DoDebug("GetProperTarget(): Invalid oPC parameter");  
+        return OBJECT_INVALID;  
+    }  
+      
+    // Use target list system for better target selection  
+    PurgeTargetList(oPC);  
+      
+    location lPC = GetLocation(oPC);  
+    object oTest = MyFirstObjectInShape(SHAPE_SPHERE, fRadius, lPC, TRUE, OBJECT_TYPE_CREATURE);  
+      
+    while(GetIsObjectValid(oTest))  
+    {  
+        // Basic validation checks  
+        if(oTest != oPC &&                                    // Not self  
+           GetIsEnemy(oPC, oTest) &&                          // Is enemy  
+           GetIsInMeleeRange(oPC, oTest) &&                   // In melee range  
+           !GetIsDead(oTest) &&                               // Is alive  
+           LineOfSightObject(oPC, oTest))                     // Has line of sight  
+        {  
+            // Add to target list with priority based on distance (nearest first)  
+            AddToTargetList(oTest, oPC, INSERTION_BIAS_DISTANCE, FALSE);  
+        }  
+          
+        oTest = MyNextObjectInShape(SHAPE_SPHERE, fRadius, lPC, TRUE, OBJECT_TYPE_CREATURE);  
+    }  
+      
+    // Get the highest priority target (nearest enemy)  
+    object oBestTarget = GetTargetListHead(oPC);  
+    PurgeTargetList(oPC);  
+      
+    if(GetIsObjectValid(oBestTarget))  
+    {  
+        DoDebug("GetProperTarget(): Selected target " + GetName(oBestTarget) +   
+                " for " + GetName(oPC));  
+        return oBestTarget;  
+    }  
+      
+    // No valid target found  
+    DoDebug("GetProperTarget(): No valid target found for " + GetName(oPC));  
+    return OBJECT_INVALID;  
+}
+/* object GetProperTarget(object oPC, object oTarget)
 {
     location lTarget = GetLocation(oPC);
     // Use the function to get the closest creature as a target
@@ -23,7 +80,7 @@ object GetProperTarget(object oPC, object oTarget)
     }
     
     return oTarget;
-}
+} */
 
 void DoNaturalAttack(object oWeapon)
 {
@@ -452,6 +509,16 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
                     oWeapon = CreateObject(OBJECT_TYPE_ITEM, sResRef, lLimbo);
 					DoDebug(PRC_TEXT_WHITE + "prc_inc_nat_hb >> DoNaturalWeaponHB: creature weapon object found!!!");
                 }
+				
+				// Check for enhancements after creating the weapon object 
+				int nEnhance = GetLocalInt(oPC, "PRC_NAT_WEAPON_ENHANCE");  
+				if(nEnhance > 0)  
+				{  
+					
+					DoDebug(PRC_TEXT_WHITE + "prc_inc_nat_hb >> DoNaturalWeaponHB: Applying enhancement.");
+					float fDuration = GetLocalFloat(oPC, "PRC_NAT_WEAPON_ENH_DUR");  
+					IPSafeAddItemProperty(oWeapon, ItemPropertyEnhancementBonus(nEnhance), fDuration, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
+				}
 	
 				DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
                 //do the attack within a delay                

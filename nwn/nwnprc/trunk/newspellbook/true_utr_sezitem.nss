@@ -76,6 +76,7 @@ void main()
     	}
 
         // Impact Effects
-        ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_DUR_FLOATING_DISK), GetLocation(oTarget));
+        //ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_DUR_FLOATING_DISK), GetLocation(oTarget));
+		ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_FLOATING_DISK), GetLocation(oTarget), 3.0f);
     }// end if - Successful utterance
 }

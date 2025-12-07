@@ -1462,7 +1462,60 @@ void LichPrereq(object oPC)
          SetLocalInt(oPC, "PRC_PrereqLich", 0);
 }
 
-void DragDisciple(object oPC)
+void DragDisciple(object oPC)  
+{  
+    int bRace = FALSE;  
+    int bSpells = FALSE;  
+    SetLocalInt(oPC, "PRC_PrereqDrDis", 1);  
+  
+    //Any nondragon (cannot already be a half-dragon)  
+    int nRace = GetRacialType(oPC);  
+    if(!GetHasTemplate(TEMPLATE_HALF_DRAGON, oPC)  
+    && nRace != RACIAL_TYPE_SPIRETOPDRAGON  
+    && nRace != RACIAL_TYPE_BOZAK  
+    && nRace != RACIAL_TYPE_KAPAK)  
+        bRace = TRUE;  
+  
+    // Ability to cast arcane spells without preparation  
+    // (dragon blooded feat eliminates that requirement)  
+    if(GetHasFeat(DRAGON_BLOODED, oPC))  
+        bSpells = TRUE;  
+    else if(GetLevelByClass(CLASS_TYPE_ASSASSIN, oPC)  
+        || GetLevelByClass(CLASS_TYPE_BARD, oPC)  
+        || GetLevelByClass(CLASS_TYPE_BEGUILER, oPC)  
+        || GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oPC)  
+        || GetLevelByClass(CLASS_TYPE_DUSKBLADE, oPC)  
+        || GetLevelByClass(CLASS_TYPE_HEXBLADE, oPC)  
+        || GetLevelByClass(CLASS_TYPE_KNIGHT_WEAVE, oPC)          
+        || GetLevelByClass(CLASS_TYPE_SORCERER, oPC)  
+        || GetLevelByClass(CLASS_TYPE_SUEL_ARCHANAMACH, oPC)  
+        || GetLevelByClass(CLASS_TYPE_WARMAGE, oPC)  
+        || GetLevelByClass(CLASS_TYPE_WITCH, oPC))  
+    {  
+        if(!GetLocalInt(oPC, "PRC_ArcSpell0")  
+        || !GetLocalInt(oPC, "PRC_ArcSpell1"))  
+              bSpells = TRUE;  
+    }  
+      
+    // Racial spellcasters that qualify via racial hit dice  
+    // They have innate ability to cast arcane spells without preparation  
+    if(nRace == RACIAL_TYPE_ARANEA  
+        || nRace == RACIAL_TYPE_RAKSHASA    
+        || nRace == RACIAL_TYPE_DRIDER  
+        || nRace == RACIAL_TYPE_ARKAMOI  
+        || nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL  
+        || nRace == RACIAL_TYPE_REDSPAWN_ARCANISS  
+        || nRace == RACIAL_TYPE_MARRUTACT  
+        || nRace == RACIAL_TYPE_GLOURA)  
+    {  
+        bSpells = TRUE;  
+    }  
+  
+    if(bRace && bSpells)  
+        SetLocalInt(oPC, "PRC_PrereqDrDis", 0);  
+}
+
+/* void DragDisciple(object oPC)
 {
     int bRace = FALSE;
     int bSpells = FALSE;
@@ -1500,7 +1553,7 @@ void DragDisciple(object oPC)
     if(bRace && bSpells)
         SetLocalInt(oPC, "PRC_PrereqDrDis", 0);
 }
-
+ */
 void WarlockPrCs(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqHFWar", 1);

@@ -120,8 +120,15 @@ void main()
     object oSpellTarget = PRCGetSpellTargetObject(oSpellOrigin); // On a weapon: The one being hit. On an armor: The one hitting the armor
     
     // Make sure you don't hit yourself.
-    if (oSpellOrigin == oSpellTarget)
-    	oSpellTarget = GetProperTarget(oSpellOrigin, oSpellTarget);    
+	if (oSpellOrigin == oSpellTarget || !GetIsEnemy(oSpellOrigin, oSpellTarget))  
+	{  
+		if (DEBUG) DoDebug("prc_onhitcast: Preventing on-hit spell on non-enemy or self");  
+		// Clear the local int and exit without applying on-hit effects  
+		DeleteLocalInt(oSpellOrigin, "prc_ohc");  
+		return;  
+	}	
+/*     if (oSpellOrigin == oSpellTarget)
+    	oSpellTarget = GetProperTarget(oSpellOrigin, oSpellTarget);  */   
 
     // motu99: replacing call to Bioware's GetSpellCastItem with new PRC wrapper function
     // will ensure that we retrieve a valid item when we are called from scripted combat (prc_inc_combat) or

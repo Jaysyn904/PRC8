@@ -444,6 +444,7 @@ int Get2DALineFromItemprop(string sFile, itemproperty ip, object oItem)
                 }
                 break;
             }
+			case ITEM_PROPERTY_ECHOBLADE: return 46; break;
         }
     }
     return -1;

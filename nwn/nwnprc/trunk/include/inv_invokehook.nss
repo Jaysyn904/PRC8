@@ -78,6 +78,15 @@ int PreInvocationCastCode()
     int nContinue = !ExecuteScriptAndReturnInt("prespellcode", oInvoker);
 
     //---------------------------------------------------------------------------
+    // Block forsakers from using invocations 
+    //---------------------------------------------------------------------------
+	if(GetLevelByClass(CLASS_TYPE_FORSAKER, oInvoker) > 0)  
+	{  
+		SendMessageToPC(oInvoker, "Forsakers cannot use invocations.");  
+		return FALSE;  
+	}
+
+    //---------------------------------------------------------------------------
     // Break any spell require maintaining concentration
     //---------------------------------------------------------------------------
     X2BreakConcentrationSpells();
@@ -168,3 +177,4 @@ int PreInvocationCastCode()
     return nContinue;
 }
 
+//:: void main (){}

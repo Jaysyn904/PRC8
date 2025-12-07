@@ -221,7 +221,47 @@ void main()
 
                 break;
             }
-            case SPELL_VIRTUOSO_SHARP_NOTE:
+			case SPELL_VIRTUOSO_SHARP_NOTE:  
+			{  
+				oItem = IPGetTargetedOrEquippedMeleeWeapon();  
+				if(GetIsObjectValid(oItem))  
+				{  
+					// Check if Dragonfire Inspiration is active and preserve its properties  
+					int bHasDragonfire = GetHasFeat(FEAT_DRAGONFIRE_INSPIRATION, oPC) &&   
+										GetLocalInt(oPC, "DragonFireInspirationOn");  
+					  
+					// Store existing Dragonfire properties if present  
+					itemproperty ipDragonfire = GetFirstItemProperty(oItem);  
+					int bDragonfireFound = FALSE;  
+					  
+					if(bHasDragonfire)  
+					{  
+						ipDragonfire = GetFirstItemProperty(oItem);  
+						while(GetIsItemPropertyValid(ipDragonfire))  
+						{  
+							if(GetItemPropertyType(ipDragonfire) == ITEM_PROPERTY_ONHITCASTSPELL)  
+							{  
+								bDragonfireFound = TRUE;  
+								break;  
+							}  
+							ipDragonfire = GetNextItemProperty(oItem);  
+						}  
+					}  
+					  
+					// Apply Keen property  
+					nTemp = StringToInt(Get2DACache("baseitems", "WeaponType", GetBaseItemType(oItem)));  
+					if(nTemp && (nTemp != 2))   //piercing and slashing weapons  
+						IPSafeAddItemProperty(oItem,ItemPropertyKeen(), 600.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING ,TRUE,TRUE);  
+					  
+					// Restore Dragonfire property if it was removed  
+					if(bHasDragonfire && bDragonfireFound && !GetItemHasItemProperty(oItem, ITEM_PROPERTY_ONHITCASTSPELL))  
+					{  
+						IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);  
+					}  
+				}  
+				break;  
+			}			
+/*             case SPELL_VIRTUOSO_SHARP_NOTE:
             {
                 oItem = IPGetTargetedOrEquippedMeleeWeapon();
                 if(GetIsObjectValid(oItem))
@@ -231,7 +271,7 @@ void main()
                         IPSafeAddItemProperty(oItem,ItemPropertyKeen(), 600.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING ,TRUE,TRUE);
                 }
                 break;
-            }
+            } */
             case SPELL_VIRTUOSO_MINDBENDING_MELODY:
             {
                 break;

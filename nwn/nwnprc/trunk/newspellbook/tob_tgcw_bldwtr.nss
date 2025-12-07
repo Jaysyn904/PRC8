@@ -20,7 +20,26 @@
     The smell of blood drives you into a fury. As you slash into your foe,
     each fresh wound you inflict spurs you onward.
     
-    Whenever you successfully critical hit a creature, you gain a +1 Attack and Damage bonus for one minute.
+    Whenever you successfully critical hit a creature, you gain a +1 
+	Attack and Damage bonus for one minute.
+	
+	DEV NOTE: This *should* process on undead & constructs
+	Magic Items and Critical Hits (Dungeon Masters Guide Pg. 222)
+
+    Magic Weapons and Critical Hits: Some weapon qualities and some
+	specific weapons have an extra effect on a critical hit. A flaming
+	burst weapon, for example, does extra fire damage on a critical hit.
+	This special effect functions against creatures not subject to
+	critical hits, such as undead, elementals, and constructs. When
+	fighting against such creatures, roll for critical hits as you
+	would against humanoids or any other creature subject to critical
+	hits. On a successful critical roll, apply the special effect, but
+	do not multiply the weapon’s regular damage.
+
+	Things in the ToB that work on critical hits specify they do not
+	work on things that are unaffected by critical hits (i.e., Feral
+	Death Blow & Flesh Ripper); this one does not.
+
 */
 
 #include "tob_inc_move"
@@ -59,7 +78,8 @@ void main()
         int nHasEffect = 0;
 		
         // --- add harmless anchor so chain persists ---
-        eDur = EffectLinkEffects(EffectAttackIncrease(1), EffectAttackDecrease(1));
+        //eDur = EffectLinkEffects(EffectAttackIncrease(1), EffectAttackDecrease(1));
+		eDur = EffectIcon(EFFECT_ICON_ATTACK_INCREASE);
         nHasEffect = 1;		
 
         if (GetHasDefensiveStance(oInitiator, DISCIPLINE_TIGER_CLAW))
@@ -87,7 +107,7 @@ void main()
             else eDur = EffectLinkEffects(eDur, eTmp);
         }
 
-        // apply stance bonuses permanently (cleared by your stance removal code elsewhere)
+        // apply stance bonuses permanently
         if (nHasEffect)
             SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(eDur), oTarget);
 

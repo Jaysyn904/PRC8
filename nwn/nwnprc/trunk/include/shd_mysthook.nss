@@ -133,6 +133,15 @@ int ShadPreMystCastCode()
     int nContinue = !ExecuteScriptAndReturnInt("prespellcode",oShadow);
 
     //---------------------------------------------------------------------------
+    // Block forsakers from using shadowcasting
+    //---------------------------------------------------------------------------
+	if(GetLevelByClass(CLASS_TYPE_FORSAKER, oShadow) > 0)  
+	{  
+		SendMessageToPC(oShadow, "Forsakers cannot use the power of shadowcasting.");  
+		return FALSE;  
+	}
+	
+    //---------------------------------------------------------------------------
     // Break any spell require maintaining concentration
     //---------------------------------------------------------------------------
     X2BreakConcentrationSpells();
@@ -278,3 +287,5 @@ int ShadPreMystCastCode()
     if(DEBUG) DoDebug("ShadPreMystCastCode nContinue #6: " + IntToString(nContinue));    
     return nContinue;
 }
+
+//:: void main (){}

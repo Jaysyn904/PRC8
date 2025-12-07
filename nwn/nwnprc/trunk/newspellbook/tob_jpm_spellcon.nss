@@ -50,7 +50,7 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
             while(i < MaxValue)
             {
                 nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
-                if(GetHasSpell(nSpellID, oPC))
+                if(PRCGetHasSpell(nSpellID, oPC))
                 {
                     string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
                     AddChoice(sName, nChoice, oPC);
@@ -79,7 +79,7 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
             while(i < MaxValue)
             {
                 nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
-                if(GetHasSpell(nSpellID, oPC))
+                if(PRCGetHasSpell(nSpellID, oPC))
                 {
                     string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
                     AddChoice(sName, nChoice, oPC);
@@ -99,7 +99,7 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
             while(i < MaxValue)
             {
                 nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
-                if(GetHasSpell(nSpellID, oPC))
+                if(PRCGetHasSpell(nSpellID, oPC))
                 {
                     string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
                     AddChoice(sName, nChoice, oPC);
@@ -119,7 +119,7 @@ void PopulateList(object oPC, int nLevel, int iClass, int nChoice)
             while(i < MaxValue)
             {
                 nSpellID = StringToInt(Get2DACache(sFile, "RealSpellID", array_get_int(oToken, "Lkup", i)));
-                if(GetHasSpell(nSpellID, oPC))
+                if(PRCGetHasSpell(nSpellID, oPC))
                 {
                     string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpellID)));
                     AddChoice(sName, nChoice, oPC);
