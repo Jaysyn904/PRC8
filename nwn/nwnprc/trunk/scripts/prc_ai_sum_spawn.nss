@@ -1,10 +1,12 @@
 #include "prc_alterations"
 #include "prc_compan_inc"
 #include "inc_npc"
+#include "prc_inc_onhit"
 
 void main()
 {
     object oNPC = OBJECT_SELF;
+	object oMaster = GetMaster(oNPC); 
 	
 	ExecuteScript("nw_ch_summon_9", oNPC);
     ExecuteScript("prc_npc_spawn", oNPC);

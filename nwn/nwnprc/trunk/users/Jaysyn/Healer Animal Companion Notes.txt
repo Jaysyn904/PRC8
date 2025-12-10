@@ -1,0 +1,65 @@
+| Class Level | Bonus HD | NatAC Bonus  | Str/Dex/Int Bonus | Special                                                         	 | Feats from  HD | Ability Increases |
+|-------------|----------|--------------|-------------------|--------------------------------------------------------------------|----------------|-------------------|
+| 8th–11th    | +0       | +0           | +0                | Empathic link, improved evasion, share saving throws, share spells | 0			  | 0				  |
+| 12th–14th   | +2       | +2           | +2                |                                                                    | 0			  | 0				  |
+| 15th–17th   | +4       | +4           | +2                | Devotion                                                           | 2			  | 1				  |
+| 18th–20th   | +6       | +6           | +2                | Improved Speed, Spell Resistance                                   | 2			  | 1				  |
+| 21st–23rd   | +8       | +8           | +2                |                                                                    | 4			  | 2				  |
+| 24th–26th   | +10      | +10          | +2                |                                                                    | 5			  | 3				  |
+| 27th–29th   | +12      | +12          | +2                |                                                                    | 6			  | 3				  |
+| 30th–32nd   | +14      | +14          | +2                |                                                                    | 7			  | 3				  |
+| 33rd–35th   | +16      | +16          | +2                |                                                                    | 8			  | 4				  |
+| 36th–38th   | +18      | +18          | +2                |                                                                    | 9			  | 4				  |
+| 39th–40th   | +20      | +20          | +2                |                                                                    | 10			  | 5				  |
+
+
+
+
+Lammasu
+
+| Class Level | Bonus HD | NatAC Bonus  | Str/Dex/Int Bonus | Special                                                         	 | Feats from  HD | Ability Increases |
+|-------------|----------|--------------|-------------------|--------------------------------------------------------------------|----------------|-------------------|
+| 8th–11th    | +0       | +0           | +0                | Empathic link, improved evasion, share saving throws, share spells | 0			  | 0				  |
+| 12th–14th   | +2       | +2           | +2                |                                                                    | 0			  | 0				  |
+| 15th–17th   | +4       | +4           | +2                | Devotion                                                           | 2			  | 1				  |
+| 18th–20th   | +6       | +6           | +2                | Improved Speed, Spell Resistance                                   | 2			  | 1				  |
+| 21st–23rd   | +8       | +8           | +2                |                                                                    | 4			  | 2				  |
+| 24th–26th   | +10      | +10          | +2                |                                                                    | 5			  | 3				  |
+| 27th–29th   | +12      | +12          | +2                |                                                                    | 6			  | 3				  |
+| 30th–32nd   | +14      | +14          | +2                |                                                                    | 7			  | 3				  |
+| 33rd–35th   | +16      | +16          | +2                |                                                                    | 8			  | 4				  |
+| 36th–38th   | +18      | +18          | +2                |                                                                    | 9			  | 4				  |
+| 39th–40th   | +20      | +20          | +2                |                                                                    | 10			  | 5				  |
+
+Lammasu
+Weapon Focus: Creature (291)
+Improved Critical: Creature (292)
+Dodge (10)
+Mobility (26)
+Spring Attack (392)
+Epic Prowess (584)
+Armor Skin (490)
+
+
+
+Androsphinx
+Improved Bullrush (2806)
+Awesome Blow (5370)
+Improved Critical: Creature (292)
+Epic Prowess (584)
+Armor Skin (490)
+Weapon Focus: Creature (291)
+Epic Weapon Focus: Creature (291)
+
+
+Weapon Focus: Creature (291)
+Improved Critical: Creature (292)
+Power Attack (28)
+Improved Bullrush (2806)
+Awesome Blow (5370)
+Epic Prowess (584)
+Armor Skin (490)
+
+
+
+

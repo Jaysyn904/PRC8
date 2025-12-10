@@ -28494,8 +28494,10 @@ Metautterances: None
 
 Normal:  The universe responds to your words by forcing your target closer to you.
          Your target is moved closer to you by 40 feet.
+		 The Truespeak DC of this utterance increases by 2 for every size category the target is larger than Medium.
 Reverse: Your target is repelled, forced away by your command of Truespeech.
-         Your target is moved away from you by 40 feet.</entry>
+         Your target is moved away from you by 40 feet.
+		 The DC of this utterance increases by 2 for every size category the target is larger than Medium.</entry>
   <entry id="51430" lang="en" sex="m">Eldritch Attraction, Normal</entry>
   <entry id="51431" lang="en" sex="m">Eldritch Attraction, Reverse</entry>
   <entry id="51432" lang="en" sex="m">Energy Negation, Greater</entry>
@@ -75388,7 +75390,27 @@ Use: Automatic</entry>
   <entry id="211217" lang="en" sex="m">78</entry>
   <entry id="211218" lang="en" sex="m">79</entry>
   <entry id="211219" lang="en" sex="m">80</entry>
-  <entry id="211500" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###</entry>
+  <entry id="211400" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###</entry>
+  <entry id="211493" lang="en" sex="m">Healer (Default)</entry>
+  <entry id="211494" lang="en" sex="m">(STARTING PACKAGE)
+
+The default healer package is focused on survivability &amp; increasing the amount of healing the Healer can perform per spell or skill check.
+
+Equipment:
+Torch
+Leather Armor
+Spear
+Dagger
+Light Crossbow
+Scroll of Cure Light Wounds
+(2) quivers of bolts.
+(1) Healing Kit</entry>
+  <entry id="211495" lang="en" sex="m">Healer Reserve2</entry>
+  <entry id="211496" lang="en" sex="m">Healer Reserve2</entry>
+  <entry id="211497" lang="en" sex="m">Healer Reserve3</entry>
+  <entry id="211498" lang="en" sex="m">Healer Reserve3</entry>
+  <entry id="211499" lang="en" sex="m">Healer Reserve4</entry>
+  <entry id="211500" lang="en" sex="m">Healer Reserve4</entry>
   <entry id="211501" lang="en" sex="m">Warlock (Default)</entry>
   <entry id="211502" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75401,6 +75423,14 @@ Morningstar
 Light Crossbow
 (2) quivers of bolts.
 (3) Healing Kits</entry>
+  <entry id="211503" lang="en" sex="m">Warlock Reserve1</entry>
+  <entry id="211504" lang="en" sex="m">Warlock Reserve1</entry>
+  <entry id="211505" lang="en" sex="m">Warlock Reserve2</entry>
+  <entry id="211506" lang="en" sex="m">Warlock Reserve2</entry>
+  <entry id="211507" lang="en" sex="m">Warlock Reserve3</entry>
+  <entry id="211508" lang="en" sex="m">Warlock Reserve3</entry>
+  <entry id="211509" lang="en" sex="m">Warlock Reserve4</entry>
+  <entry id="211510" lang="en" sex="m">Warlock Reserve4</entry>
   <entry id="211999" lang="en" sex="m">### CRAFT INFUSION RESERVE###</entry>
   <entry id="212000" lang="en" sex="m">Create Infusion</entry>
   <entry id="212001" lang="en" sex="m">Type of Feat: Item Creation

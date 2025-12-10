@@ -1497,15 +1497,13 @@ void DragDisciple(object oPC)
               bSpells = TRUE;  
     }  
       
-    // Racial spellcasters that qualify via racial hit dice  
-    // They have innate ability to cast arcane spells without preparation  
+    // Some racial spellcasters qualify via racial hit dice  
+    // Races that *should* cast as wizards do not.  
     if(nRace == RACIAL_TYPE_ARANEA  
         || nRace == RACIAL_TYPE_RAKSHASA    
         || nRace == RACIAL_TYPE_DRIDER  
         || nRace == RACIAL_TYPE_ARKAMOI  
-        || nRace == RACIAL_TYPE_HOBGOBLIN_WARSOUL  
         || nRace == RACIAL_TYPE_REDSPAWN_ARCANISS  
-        || nRace == RACIAL_TYPE_MARRUTACT  
         || nRace == RACIAL_TYPE_GLOURA)  
     {  
         bSpells = TRUE;  

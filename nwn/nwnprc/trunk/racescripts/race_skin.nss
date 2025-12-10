@@ -263,12 +263,7 @@ void main()
         SetCompositeBonus(oSkin, "SpiritFolk_Balance", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);
         SetCompositeBonus(oSkin, "SpiritFolk_Jump", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_JUMP);
         SetCompositeBonus(oSkin, "SpiritFolk_Tumble", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_TUMBLE);
-    }    
-    //:: Nezumi Hardiness vs. Disease
-    if(GetHasFeat(FEAT_RACE_HARDINESS_VS_DISEASE))
-	{
-		SetCompositeBonus(oSkin, "NezumiDiseaseHardiness", 2, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, IP_CONST_SAVEVS_DISEASE);
-	}     
+    }        
     //Azer Heat Damage +1 (armed and unarmed)
     if (GetHasFeat(FEAT_AZER_HEAT, oPC))
     {

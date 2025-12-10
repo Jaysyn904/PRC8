@@ -1011,11 +1011,16 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
         // Plague Resistant gives a +4 bonus on disease saves
         if(GetHasFeat(FEAT_PLAGUE_RESISTANT, oTarget))
             nDC -= 4;
+        // Racial +2 vs disease saves
+        if(GetHasFeat(FEAT_RACE_HARDINESS_VS_DISEASE, oTarget))
+            nDC -= 2;		
         // +4/+2 bonus on saves against disease, done here
         if(GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oTarget) > 13)
             nDC -= 4;
         else if(GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oTarget) > 3)
             nDC -= 2;
+		
+		
     }
     else if(nSaveType == SAVING_THROW_TYPE_POISON)
     {

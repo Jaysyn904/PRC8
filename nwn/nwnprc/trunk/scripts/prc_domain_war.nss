@@ -36,6 +36,10 @@ const int STAGE_CONFIRMATION  = 1;
 void main()
 {
     object oPC = GetPCSpeaker();
+	
+	if(!GetIsPC(oPC))
+		return;
+	
     /* Get the value of the local variable set by the conversation script calling
      * this script. Values:
      * DYNCONV_ABORTED     Conversation aborted

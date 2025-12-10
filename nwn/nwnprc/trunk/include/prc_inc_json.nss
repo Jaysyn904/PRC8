@@ -31,6 +31,43 @@ void ApplyParagonBonusFeat(object oCreature, int iFeat);
 //::---------------------------------------------|
 //:: Helper functions                            |
 //::---------------------------------------------|
+int GetHealerCompanionBonus(int nHealerLvl)
+{
+    // No bonus before 12th level
+    if (nHealerLvl < 12)
+        return 0;
+
+    int nBonus = 0;
+
+    // Non-epic improvements: 12, 15, 18, 21 (every 3 levels)
+    if (nHealerLvl >= 12)
+    {
+        int nPreEpicIntervals = ( (nHealerLvl < 21) ? (nHealerLvl - 12) : (21 - 12) ) / 3;
+        nBonus += 2 + (nPreEpicIntervals * 2);
+    }
+
+    // Epic improvements: 24, 28, 32, 36... (every 4 levels)
+    if (nHealerLvl >= 24)
+    {
+        int nEpicIntervals = (nHealerLvl - 24) / 4;
+        // First epic improvement is +2 at 24
+        nBonus += 2 + (nEpicIntervals * 2);
+    }
+
+    return nBonus;
+}
+
+/* int GetHealerCompanionBonus(int nHealerLvl)
+{
+    if (nHealerLvl < 12)
+        return 0;
+
+    // Shift so that 12–14 yields interval 0
+    int nIntervals = (nHealerLvl - 12) / 3;
+
+    return 2 + (nIntervals * 2);
+} */
+
 
 //:: Function to calculate the maximum possible hitpoints for oCreature
 int GetMaxPossibleHP(object oCreature)
@@ -471,6 +508,81 @@ void ApplyParagonEffects(object oCreature, int nBaseHD, int nBaseCR)
 	
 	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eParagon, oCreature);	
 }
+
+// Build and return all effects for the Celestial Template
+effect CelestialTemplateEffects(int nHD)
+{
+    int nResist;
+    int nDRAmount;
+    int nDRBypass;
+
+    // -------------------------
+    // Elemental Resistances
+    // -------------------------
+    // 1–7 HD = 5
+    // 8+ HD = 10
+    if (nHD >= 8)
+    {
+        nResist = 10;
+    }
+    else
+    {
+        nResist = 5;
+    }
+
+    // -------------------------
+    // Damage Reduction
+    // -------------------------
+    // 1–3 HD = none
+    // 4–11 HD = 5/magic
+    // 12+ HD = 10/magic
+    if (nHD >= 12)
+    {
+        nDRAmount = 10;
+        nDRBypass = DAMAGE_POWER_PLUS_ONE;   // DR 10/magic
+    }
+    else if (nHD >= 4)
+    {
+        nDRAmount = 5;
+        nDRBypass = DAMAGE_POWER_PLUS_ONE;   // DR 5/magic
+    }
+    else
+    {
+        nDRAmount = 0;
+        nDRBypass = 0;                       // no DR
+    }
+
+    // -------------------------
+    // Build Effects
+    // -------------------------
+    effect eEffects;
+    effect eRes;
+
+    // Acid
+    eRes = EffectDamageResistance(DAMAGE_TYPE_ACID, nResist, 0);
+    eEffects = eRes;
+
+    // Cold
+    eRes = EffectDamageResistance(DAMAGE_TYPE_COLD, nResist, 0);
+    eEffects = EffectLinkEffects(eEffects, eRes);
+
+    // Electricity
+    eRes = EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nResist, 0);
+    eEffects = EffectLinkEffects(eEffects, eRes);
+
+    // DR if any
+    if (nDRAmount > 0)
+    {
+        effect eDR = EffectDamageReduction(nDRAmount, nDRBypass, 0);
+        eEffects = EffectLinkEffects(eEffects, eDR);
+    }
+
+	eEffects = UnyieldingEffect(eEffects);
+	
+    return eEffects;
+}
+
+
 
 void ReallyEquipItemInSlot(object oNPC, object oItem, int nSlot)
 {
@@ -1400,6 +1512,283 @@ json json_ModifyRacialType(json jCreature, int nNewRacialType)
     return jCreature;
 }
 
+//:: Updates CR for Celestial template  
+json json_UpdateCelestialCR(json jCreature, int nBaseCR, int nHD)  
+{  
+    int nNewCR;  
+      
+    //:: Calculate CR based on HD  
+    if (nHD <= 3)  
+    {  
+        nNewCR = nBaseCR;  
+    }  
+    else if (nHD <= 7)  
+    {  
+        nNewCR = nBaseCR + 1;  
+    }  
+    else  
+    {  
+        nNewCR = nBaseCR + 2;  
+    }  
+      
+    //:: Modify Challenge Rating  
+    jCreature = GffReplaceFloat(jCreature, "ChallengeRating", IntToFloat(nNewCR));  
+    return jCreature;  
+}
+
+//:: Adds Celestial SLA's to creature  
+json json_AddCelestialPowers(json jCreature)  
+{  
+    // Get the existing SpecAbilityList  
+    json jSpecAbilityList = GffGetList(jCreature, "SpecAbilityList");  
+    if (jSpecAbilityList == JsonNull())  
+    {  
+        jSpecAbilityList = JsonArray();  
+    }  
+      
+    //:: Add Smite Evil 1x / day  
+    json jSpecAbility = JsonObject();  
+    jSpecAbility = GffAddWord(jSpecAbility, "Spell", SPELLABILITY_SMITE_EVIL);  
+    jSpecAbility = GffAddByte(jSpecAbility, "SpellCasterLevel", json_GetCreatureHD(jCreature));  
+    jSpecAbility = GffAddByte(jSpecAbility, "SpellFlags", 1);  
+    jSpecAbilityList = JsonArrayInsert(jSpecAbilityList, jSpecAbility);  
+      
+    //:: Add the list to the creature  
+    jCreature = GffAddList(jCreature, "SpecAbilityList", jSpecAbilityList);  
+    return jCreature;  
+}
+
+//:: Apply Celestial template to a creature JSON template  
+json json_MakeCelestial(json jCreature, int nBaseHD, int nBaseCR)  
+{  
+    if (jCreature == JsonNull())  
+        return JsonNull();  
+      
+    //:: Get current HD for scaling  
+    int nHD = json_GetCreatureHD(jCreature);  
+    if (nHD <= 0)  
+    {  
+        DoDebug("prc_inc_json >> json_MakeCelestial: Invalid HD");  
+        return JsonNull();  
+    }  
+	
+	//:: Get current CR
+	float fCR = json_GetChallengeRating(jCreature);
+
+	//:: Update CR using Celestial formula
+	jCreature = json_UpdateCelestialCR(jCreature, FloatToInt(fCR), nHD);	
+	if (jCreature == JsonNull())  
+    {  
+        DoDebug("prc_inc_json >> json_MakeCelestial: json_UpdateCelestialCR failed");  
+        return JsonNull();  
+    }
+    
+    //:: Ensure Intelligence is at least 4  
+    json jInt = GffGetByte(jCreature, "Int");  
+    if (jInt != JsonNull() && JsonGetInt(jInt) < 4)  
+    {  
+        jCreature = GffReplaceByte(jCreature, "Int", 4);  
+    }  
+      
+    //:: Add celestial Smite Evil
+    jCreature = json_AddCelestialPowers(jCreature);  
+    if (jCreature == JsonNull())  
+    {  
+        DoDebug("prc_inc_json >> json_MakeCelestial: json_AddCelestialPowers failed");  
+        return JsonNull();  
+    }  
+      
+    //:: Change creature type if animal/beast/vermin to magical beast  
+    int nRacialType = JsonGetInt(GffGetByte(jCreature, "Race"));  
+    if (nRacialType == RACIAL_TYPE_ANIMAL || nRacialType == RACIAL_TYPE_VERMIN || nRacialType == RACIAL_TYPE_BEAST)  
+    {  
+        jCreature = json_ModifyRacialType(jCreature, RACIAL_TYPE_MAGICAL_BEAST);  
+    }  
+     
+	//:: Update creature CR
+	jCreature = json_UpdateCelestialCR(jCreature, nBaseCR, nHD);  
+    if (jCreature == JsonNull())  
+    {  
+        DoDebug("prc_inc_json >> json_MakeCelestial: json_UpdateCelestialCR failed");  
+        return JsonNull();  
+    }
+	 
+    return jCreature;  
+}  
+ 
+//:: Spawns a Celestial Companion from a template  
+object MakeCelestialCompanionFromTemplate(string sResref, location lSpawnLoc, int nHealerLvl)  
+{  
+	int nBonus = GetHealerCompanionBonus(nHealerLvl);
+	
+	json jCelestial = TemplateToJson(sResref, RESTYPE_UTC);  
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("prc_inc_json >> MakeCelestialCompanionFromTemplate: TemplateToJson failed — bad resref or resource missing.");  
+        return OBJECT_INVALID;  
+    }  	  
+	  
+	//:: Get local vars to transfer over.  
+	int iMinHD 			= json_GetLocalIntFromVarTable(jCelestial, "iMinHD");  
+	int iMaxHD 			= json_GetLocalIntFromVarTable(jCelestial, "iMaxHD");  
+	int nOriginalHD 	= json_GetLocalIntFromVarTable(jCelestial, "nOriginalHD");  
+	int iClass2			= json_GetLocalIntFromVarTable(jCelestial, "Class2");  
+	int iClass2Package	= json_GetLocalIntFromVarTable(jCelestial, "Class2Package");  
+	int iClass2Start	= json_GetLocalIntFromVarTable(jCelestial, "Class2Start"); 
+	int iBaseCL			= json_GetLocalIntFromVarTable(jCelestial, "iBaseCL");	
+	int iMagicUse		= json_GetLocalIntFromVarTable(jCelestial, "X2_L_BEH_MAGIC");  
+	string sAI			= json_GetLocalStringFromVarTable(jCelestial, "X2_SPECIAL_COMBAT_AI_SCRIPT");  
+		  
+	//:: Get the original Challenge Rating
+	int nBaseCR = FloatToInt(json_GetChallengeRating(jCelestial));
+		  
+	//:: Apply celestial template modifications  
+	jCelestial = json_MakeCelestial(jCelestial, nBonus, nBaseCR);  
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("prc_inc_json >> MakeCelestialCompanionFromTemplate failed — json_MakeCelestial returned invalid JSON.");  
+        return OBJECT_INVALID;  
+    }  
+
+	//:: Apply +2 Natural AC bonus per 3 Healer levels 	  
+	jCelestial = json_IncreaseBaseAC(jCelestial, nBonus);
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("prc_inc_json >> MakeCelestialCompanionFromTemplate failed — json_IncreaseBaseAC returned invalid JSON.");  
+        return OBJECT_INVALID;  
+    }
+	
+	//:: +2 STR, DEX & INT per 3 Healer levels
+	jCelestial = json_UpdateTemplateStats(jCelestial, nBonus, nBonus, 0, nBonus, 0, 0);
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("prc_inc_json >> MakeCelestialCompanionFromTemplate failed — json_UpdateTemplateStats returned invalid JSON.");  
+        return OBJECT_INVALID;  
+    }	
+	
+	//:: The Companion always has Improved Evasion if the healer qualifies, 
+	//:: but adding it this way gives the base creature more utility for builders.
+	if (nHealerLvl > 7)
+	{
+		//:: Add Improved Evasion feat directly to FeatList 
+		json jFeatList = GffGetList(jCelestial, "FeatList");  
+		if (jFeatList == JsonNull())  
+			jFeatList = JsonArray();  
+		  
+		//:: Check if creature already has Improved Evasion  
+		int bHasFeat = FALSE;  
+		int nFeatCount = JsonGetLength(jFeatList);  
+		int j;  
+		  
+		for (j = 0; j < nFeatCount; j++)  
+		{  
+			json jFeatStruct = JsonArrayGet(jFeatList, j);  
+			if (jFeatStruct != JsonNull())  
+			{  
+				json jFeatValue = GffGetWord(jFeatStruct, "Feat");  
+				if (jFeatValue != JsonNull() && JsonGetInt(jFeatValue) == FEAT_IMPROVED_EVASION)  
+				{  
+					bHasFeat = TRUE;  
+					break;  
+				}  
+			}  
+		}  
+		  
+		//:: Add feat only if not already present  
+		if (!bHasFeat)  
+		{  
+			json jNewFeat = JsonObject();  
+			jNewFeat = JsonObjectSet(jNewFeat, "__struct_id", JsonInt(1));  
+			jNewFeat = GffAddWord(jNewFeat, "Feat", FEAT_IMPROVED_EVASION);  
+			  
+			jFeatList = JsonArrayInsert(jFeatList, jNewFeat);  
+			jCelestial = GffReplaceList(jCelestial, "FeatList", jFeatList);  
+		}
+	}		
+	
+	//:: Spawn the creature  
+	object oCelestial = JsonToObject(jCelestial, lSpawnLoc);  
+	  
+	//:: Set variables for LevelUpSummon()
+	SetLocalInt(oCelestial, "TEMPLATE_CELESTIAL", 1);	  
+	SetLocalInt(oCelestial, "iMinHD", iMinHD);		  
+	SetLocalInt(oCelestial, "iMaxHD", iMaxHD);  
+	SetLocalInt(oCelestial, "nOriginalHD", nOriginalHD);	  
+	SetLocalInt(oCelestial, "Class2", iClass2);  
+	SetLocalInt(oCelestial, "Class2Package", iClass2Package);  
+	SetLocalInt(oCelestial, "Class2Start", iClass2Start);  
+	SetLocalInt(oCelestial, "iBaseCL", iBaseCL); 
+	SetLocalInt(oCelestial, "X2_L_BEH_MAGIC", iMagicUse);	
+	SetLocalString(oCelestial, "X2_SPECIAL_COMBAT_AI_SCRIPT", sAI);
+	
+	return oCelestial;
+}
+ 
+//:: Spawns a Celestial creature from a template  
+object MakeCelestialCreatureFromTemplate(string sResref, location lSpawnLoc)  
+{  
+	json jCelestial = TemplateToJson(sResref, RESTYPE_UTC);  
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("prc_inc_json >> MakeCelestialCreatureFromTemplate: TemplateToJson failed — bad resref or resource missing.");  
+        return OBJECT_INVALID;  
+    }  
+	  
+    //:: Get current HD  
+    int nCurrentHD = json_GetCreatureHD(jCelestial);  
+    if (nCurrentHD <= 0)  
+    {  
+        DoDebug("make_celestial >> MakeCelestialCreatureFromTemplate failed — template missing HD data.");  
+        return OBJECT_INVALID;  
+    }	  
+	  
+    //:: Get current CR  
+	int nBaseCR = 1;  
+    nBaseCR = FloatToInt(json_GetChallengeRating(jCelestial));  
+    if (nBaseCR <= 0)  
+    {  
+        DoDebug("make_celestial >> MakeCelestialCreatureFromTemplate failed — template missing CR data.");  
+        return OBJECT_INVALID;  
+    }	  
+	  
+	//:: Get local vars to transfer over.  
+	int iMinHD 			= json_GetLocalIntFromVarTable(jCelestial, "iMinHD");  
+	int iMaxHD 			= json_GetLocalIntFromVarTable(jCelestial, "iMaxHD");  
+	int nOriginalHD 	= json_GetLocalIntFromVarTable(jCelestial, "nOriginalHD");  
+	int iClass2			= json_GetLocalIntFromVarTable(jCelestial, "Class2");  
+	int iClass2Package	= json_GetLocalIntFromVarTable(jCelestial, "Class2Package");  
+	int iClass2Start	= json_GetLocalIntFromVarTable(jCelestial, "Class2Start"); 
+	int iBaseCL			= json_GetLocalIntFromVarTable(jCelestial, "iBaseCL");	
+	int iMagicUse		= json_GetLocalIntFromVarTable(jCelestial, "X2_L_BEH_MAGIC");  
+	string sAI			= json_GetLocalStringFromVarTable(jCelestial, "X2_SPECIAL_COMBAT_AI_SCRIPT");  
+		  
+	//:: Apply celestial template modifications  
+	jCelestial = json_MakeCelestial(jCelestial, nCurrentHD, nBaseCR);  
+	if (jCelestial == JSON_NULL)  
+    {  
+        DoDebug("make_celestial >> MakeCelestialCreatureFromTemplate failed — MakeCelestial returned invalid JSON.");  
+        return OBJECT_INVALID;  
+    }  
+	  
+	//:: Spawn the creature  
+    object oCelestial = JsonToObject(jCelestial, lSpawnLoc);  
+	  
+	//:: Set variables	  
+	SetLocalInt(oCelestial, "TEMPLATE_CELESTIAL", 1);	  
+	SetLocalInt(oCelestial, "iMinHD", iMinHD);		  
+	SetLocalInt(oCelestial, "iMaxHD", iMaxHD);  
+	SetLocalInt(oCelestial, "nOriginalHD", nOriginalHD);	  
+	SetLocalInt(oCelestial, "Class2", iClass2);  
+	SetLocalInt(oCelestial, "Class2Package", iClass2Package);  
+	SetLocalInt(oCelestial, "Class2Start", iClass2Start);  
+	SetLocalInt(oCelestial, "Class2Start", iClass2Start);
+	SetLocalInt(oCelestial, "iBaseCL", iBaseCL); 	
+	SetLocalInt(oCelestial, "X2_L_BEH_MAGIC", iMagicUse);  
+	SetLocalString(oCelestial, "X2_SPECIAL_COMBAT_AI_SCRIPT", sAI);	  
+  
+	return oCelestial;  
+}  
+  
 //:: Adds Paragon SLA's to jCreature.
 //::
 json json_AddParagonPowers(json jCreature)
@@ -1600,6 +1989,5 @@ object MakePsuedonaturalCreatureFromTemplate(string sResref, location lSpawnLoc)
 	
 }
 
-	
 //:: Test void
-//:: void main (){}
+//::void main (){}

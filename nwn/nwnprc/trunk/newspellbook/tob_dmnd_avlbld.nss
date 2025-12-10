@@ -56,31 +56,29 @@ void main()
         }
 }
 
-void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
-{
-    if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty += 1;
-
-    if (nHit == 1)
-    {
-        effect eNone;
-        PerformAttack(oTarget, oInitiator, eNone, 0.0, nPenalty, 0, 0, "Avalanche of Blades Hit", "Avalanche of Blades Miss");
-
-        // Check result of attack
-        if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
-        {
-            nPenalty -= 4;
-            if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty -= 1;
-            
-            // Continue the loop only on hit
-            DelayCommand(0.1, Owieowieowowow(oInitiator, oTarget, 1, nPenalty));
-			
-			DelayCommand(3.0, DeleteLocalInt(oTarget, "PRCCombat_StruckByAttack"));
-        }
-        // No else block: if the attack missed, don't queue another call
-    }
+void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)  
+{  
+    if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty += 1;  
+      
+    // Clear any existing hit flag before attacking  
+    DeleteLocalInt(oTarget, "PRCCombat_StruckByAttack");  
+      
+    effect eNone;  
+    PerformAttack(oTarget, oInitiator, eNone, 0.0, nPenalty, 0, 0, "Avalanche of Blades Hit", "Avalanche of Blades Miss");  
+      
+    // Check if the attack hit  
+    if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))   
+    {  
+        nHit = 1;  
+        nPenalty -= 4;  
+        // Make sure the bonus doesn't get passed around  
+        if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty -= 1;  
+          
+        // Use longer delay to ensure flag is cleared before next attack  
+        DelayCommand(1.1, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));  
+    }  
+    // If miss, function terminates (no recursive call)  
 }
-
-
 
 /* void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
 {
