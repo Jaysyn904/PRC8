@@ -141,6 +141,7 @@ int GetHasUtterance(int nUtter, object oCreature = OBJECT_SELF);
 #include "inc_pers_array"
 #include "prc_inc_nwscript"
 #include "inc_lookups"
+#include "prc_x2_itemprop"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */

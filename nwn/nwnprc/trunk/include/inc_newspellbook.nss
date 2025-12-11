@@ -108,11 +108,10 @@ void ProcessPreparedSpellLevel(object oPC, int nClass, int nSpellLevel, int nLev
 //#include "prc_effect_inc"         //access via prc_inc_core
 //#include "inc_lookups"            //access via prc_inc_core
 #include "prc_inc_core"
-#include "inc_sp_gain_mem"          //providing child access to prc_inc_core
-                                    //Must load in this order.
+#include "inc_sp_gain_mem"
 //#include "prc_inc_castlvl"        //access via prc_inc_core
 //#include "prc_inc_descrptr"       //access via prc_inc_core
-#include "inc_item_props" 
+#include "inc_item_props"
 
 //////////////////////////////////////////////////
 /*             Function definitions             */
@@ -1622,6 +1621,3 @@ void DoCleanUp(int nMetamagic)
     DeleteLocalInt(OBJECT_SELF, "NSB_SpellLevel");
     DeleteLocalInt(OBJECT_SELF, "NSB_SpellbookID");
 }
-
-//:: Test Void
-//:: void main (){}

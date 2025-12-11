@@ -89,7 +89,7 @@ The array is indexed by a counter (the i-th spell of a given level in the class 
 
 #include "x2_inc_spellhook"
 #include "inc_dynconv"
-#include "inc_sp_gain_mem"
+#include "inc_newspellbook"
 
 //////////////////////////////////////////////////
 /* Constant defintions                          */

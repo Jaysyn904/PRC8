@@ -44,6 +44,7 @@ void CreateSwitchNameArray();
 
 #include "prc_inc_array" // Needs direct include instead of inc_utility
 #include "prc_inc_switch"
+#include "inc_2dacache"
 
 //////////////////////////////////////////////////
 /*             Function definitions             */

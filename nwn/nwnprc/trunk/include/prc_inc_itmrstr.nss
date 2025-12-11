@@ -36,6 +36,8 @@ void CheckForPnPHolyAvenger(object oItem);
 
 #include "inc_utility"
 #include "prc_inc_newip"
+#include "prc_inc_castlvl"
+#include "inc_newspellbook"
 
 
 //////////////////////////////////////////////////

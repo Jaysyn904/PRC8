@@ -1,4 +1,5 @@
 #include "prc_inc_clsfunc"
+#include "prc_inc_sp_tch"
 
 int GetBlastDamageDices(object oInvoker, int nInvokerLevel)
 {

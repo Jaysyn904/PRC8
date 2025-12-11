@@ -31,8 +31,8 @@ Sorcerer:
 Upon reaching 4th level, and at every even-numbered sorcerer level
 after that (6th, 8th, and so on), a sorcerer can choose to learn a
 new spell in place of one he already knows. In effect, the
-sorcerer “loses” the old spell in exchange for the new one.
-The new spell’s level must be the same as that of the spell
+sorcerer ï¿½losesï¿½ the old spell in exchange for the new one.
+The new spellï¿½s level must be the same as that of the spell
 being exchanged, and it must be at least two levels lower than
 the highest-level sorcerer spell the sorcerer can cast. A
 sorcerer may swap only a single spell at any given level, and
@@ -42,8 +42,8 @@ that he gains new spells known for the level.
 Bard:
 Upon reaching 5th level, and at every third bard level after that
 (8th, 11th, and so on), a bard can choose to learn a new spell in
-place of one he already knows. In effect, the bard “loses” the
-old spell in exchange for the new one. The new spell’s level must be
+place of one he already knows. In effect, the bard ï¿½losesï¿½ the
+old spell in exchange for the new one. The new spellï¿½s level must be
 the same as that of the spell being exchanged, and it must be at least
 two levels lower than the highest-level bard spell the bard can cast.
 A bard may swap only a single spell at any given level, and must choose
@@ -54,8 +54,8 @@ Favored Soul:
 Upon reaching 4th level, and at every even-numbered 
 favored soul level after that (6th, 8th, and so on), a favored 
 soul can choose to learn a new spell in place of one she 
-already knows. In effect, the favored soul “loses” the old 
-spell in exchange for the new one. The new spell’s level 
+already knows. In effect, the favored soul ï¿½losesï¿½ the old 
+spell in exchange for the new one. The new spellï¿½s level 
 must be the same as that of the spell being exchanged, and 
 it must be at least two levels lower than the highest-level 
 favored soul spell the favored soul can cast. A favored soul 
@@ -66,11 +66,11 @@ that she gains new spells known for the level.
 Warmage:
 When a warmage gains access to a 
 new level of spells, he automatically knows all the spells for 
-that level listed on the warmage’s spell list. Essentially, his 
+that level listed on the warmageï¿½s spell list. Essentially, his 
 spell list is the same as his spells known list. Warmages also 
 have the option of adding to their existing spell list through 
 their advanced learning ability as they increase in level (see 
-below). See page 90 for the warmage’s spell list.
+below). See page 90 for the warmageï¿½s spell list.
 
 Advanced Learning (Ex): At 3rd, 6th, 11th, and 16th 
 level, a warmage can add a new spell to his list, representing 
@@ -78,14 +78,14 @@ the result of personal study and experimentation. The spell
 must be a wizard spell of the evocation school, and of a level 
 no higher than that of the highest-level spell the warmage 
 already knows. Once a new spell is selected, it is forever added 
-to that warmage’s spell list and can be cast just like any other 
-spell on the warmage’s list.
+to that warmageï¿½s spell list and can be cast just like any other 
+spell on the warmageï¿½s list.
 
 Hexblade:
 Upon reaching 12th level, and at every third hexblade level 
 after that (15th and 18th), a hexblade can choose to learn a new spell in place of one he 
-already knows. In effect, the hexblade “loses” the 
-old spell in exchange for the new one. The new spell’s 
+already knows. In effect, the hexblade ï¿½losesï¿½ the 
+old spell in exchange for the new one. The new spellï¿½s 
 level must be the same as that of the spell being exchanged, 
 and it must be at least two levels lower than the highest-level 
 hexblade spell the hexblade can cast. For instance, upon 
@@ -105,8 +105,8 @@ Duskblade:
 Upon reaching 5th level, and at every odd-numbered 
 Duskblade level after that (7th, 9th, and so on), a Duskblade
  can choose to learn a new spell in place of one she 
-already knows. In effect, the Duskblade “loses” the old 
-spell in exchange for the new one. The new spell’s level 
+already knows. In effect, the Duskblade ï¿½losesï¿½ the old 
+spell in exchange for the new one. The new spellï¿½s level 
 must be the same as that of the spell being exchanged, and 
 it must be at least two levels lower than the highest-level 
 Duskblade spell the Duskblade can cast. A Duskblade
@@ -126,7 +126,6 @@ class level beginning at 4th
 #include "prc_inc_function"
 #include "inc_dynconv"
 #include "inc_newspellbook"
-#include "inc_sp_gain_mem"
 #include "x3_inc_string"
 
 //////////////////////////////////////////////////

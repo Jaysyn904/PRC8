@@ -30,6 +30,7 @@ int GetDamageFromConstant(int nIPConst);
 void DoFrostRend(object oTarget, object oAttacker, object oWeapon);
 
 #include "moi_inc_moifunc"
+#include "prc_inc_combat"
 
 //////////////////////////////////////////////////
 /* Function defintions                          */

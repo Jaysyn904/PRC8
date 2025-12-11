@@ -124,6 +124,8 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 //////////////////////////////////////////////////
 
 #include "prc_alterations"
+#include "prcsp_archmaginc"
+#include "prc_inc_spells"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */

@@ -1,4 +1,6 @@
 #include "prc_feat_const"
+#include "inc_item_props"
+#include "prc_inc_spells"
 
 const string BRUTAL_STRIKE_MODE_VAR = "PRC_BRUTAL_STRIKE_MODE";
 

@@ -17,6 +17,8 @@
 #include "prc_inc_spells"
 #include "inc_utility"
 #include "prc_inc_itmrstr"
+#include "shd_inc_shdfunc"
+#include "lookup_2da_spell"
 
 // This function holds all functions that are supposed to run before the actual
 // spellscript gets run. If this functions returns FALSE, the spell is aborted

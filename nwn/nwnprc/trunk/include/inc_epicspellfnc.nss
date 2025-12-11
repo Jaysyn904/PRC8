@@ -26,7 +26,7 @@ int GetSpellFromAbrev(string sAbrev);
 //////////////////////////////////////////////////
 
 #include "inc_utility"
-//#include "inc_epicspelldef"
+#include "inc_epicspells"
 
 // SEED FUNCTIONS
 

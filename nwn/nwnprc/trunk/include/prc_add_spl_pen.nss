@@ -54,7 +54,7 @@ int SPGetPenetrAOE(object oCaster = OBJECT_SELF, int nCasterLvl = 0);
 /*                  Includes                    */
 //////////////////////////////////////////////////
 
-//#include "prc_inc_spells"
+#include "prc_inc_spells"
 //#include "prc_alterations"
 //#include "prcsp_archmaginc"
 //#include "prc_inc_racial"

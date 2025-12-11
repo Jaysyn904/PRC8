@@ -16,6 +16,7 @@ Command summary:
 */
 
 #include "prc_inc_chat"
+#include "inc_persist_loca"
 
 const string CMD_POWER_ATTACK = "pow-erattack";
 
