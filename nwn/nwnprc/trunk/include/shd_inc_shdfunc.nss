@@ -210,6 +210,7 @@ int GetHasNocturnal(object oShadow, int nPath);
 #include "prc_alterations"
 #include "shd_inc_myst"
 #include "shd_inc_mystknwn"
+#include "lookup_2da_spell"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */

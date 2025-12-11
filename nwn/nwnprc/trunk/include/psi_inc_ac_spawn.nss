@@ -11,6 +11,7 @@
 #include "prc_ipfeat_const"
 #include "prc_feat_const"
 #include "inc_vfx_const"
+#include "prc_inc_nwscript"
 
 
 //////////////////////////////////////////////////

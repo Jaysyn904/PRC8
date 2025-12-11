@@ -133,6 +133,7 @@ const int METAMAGIC_QUICKEN_LEVEL = 4;
 #include "prc_inc_damage"
 #include "prc_inc_sb_const"	// Spell Book Constants
 #include "x0_i0_position"
+#include "inc_newspellbook"
 
 /*
 	access to prc_inc_nwscript via prc_inc_damage

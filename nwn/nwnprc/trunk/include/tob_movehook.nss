@@ -14,6 +14,7 @@
 #include "prc_inc_spells"
 #include "inc_utility"
 #include "x2_inc_spellhook"
+#include "tob_inc_tobfunc"
 
 // This function holds all functions that are supposed to run before the actual
 // spellscript gets run. If this functions returns FALSE, the spell is aborted

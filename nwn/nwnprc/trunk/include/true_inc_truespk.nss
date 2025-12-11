@@ -109,11 +109,14 @@ int GetIsSyllable(int nSpellId);
  */
 int DoSpellTruenameCheck(object oTrueSpeaker, object oTarget, int nPersonal = FALSE);
 
+string GetNormalUtterSpellId(int nSpellId);
+
 //////////////////////////////////////////////////
 /*                  Includes                    */
 //////////////////////////////////////////////////
 
 #include "prc_inc_spells"
+#include "true_inc_trufunc"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */

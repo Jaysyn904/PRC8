@@ -18,6 +18,7 @@
 #include "prc_inc_spells"
 #include "inc_utility"
 #include "prc_inc_itmrstr"
+#include "true_inc_trufunc"
 
 
 // This function holds all functions that are supposed to run before the actual

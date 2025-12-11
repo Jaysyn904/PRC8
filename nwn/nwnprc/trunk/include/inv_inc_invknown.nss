@@ -135,6 +135,9 @@ int GetHasInvocation(int nInvocation, object oCreature = OBJECT_SELF);
 /*                  Includes                    */
 //////////////////////////////////////////////////
 
+int GetPrimaryInvocationClass(object oCreature = OBJECT_SELF);
+int GetInvocationPRCLevels(object oCaster);
+
 #include "inc_item_props"
 #include "prc_x2_itemprop"
 #include "inc_lookups"

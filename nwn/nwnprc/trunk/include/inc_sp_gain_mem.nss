@@ -17,9 +17,6 @@ Created:   May 1, 2008
 
 //:: Updated for .35 by Jaysyn 2023/03/11
 
-//:: Test Void
-//void main (){}
-
 //:://////////////////////////////////////////////
 //:: Constants
 //:://////////////////////////////////////////////
@@ -62,6 +59,14 @@ string GetMetaMagicString_Short(int nMetaMagic);
 string GetMetaMagicString(int nMetaMagic);
 int GetMetaMagicFromFeat(int nFeat);
 int GetMetaMagicOfCaster(object oPC = OBJECT_SELF);
+
+string GetFileForClass(int nClass);
+int GetSpellslotLevel(int nClass, object oPC);
+int GetSpellKnownMaxCount(int nLevel, int nSpellLevel, int nClass, object oPC);
+int GetSpellbookTypeForClass(int nClass);
+
+#include "inc_pers_array"
+#include "inc_2dacache"
 
 // name of the new spellbook file (cls_spell_*)
 string GetNSBDefinitionFileName(int nClass)

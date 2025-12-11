@@ -11,7 +11,7 @@
 //:://////////////////////////////////////////////
 
 #include "prc_inc_spells"
-#include "inc_sp_gain_mem"
+#include "inc_newspellbook"
 
 void main()
 {

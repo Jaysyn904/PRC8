@@ -73,6 +73,7 @@ void SetMasteryOfElements();
 
 //#include "lookup_2da_spell"
 #include "prcsp_reputation"
+#include "prc_inc_core"
 //#include "prc_inc_spells"
 
 

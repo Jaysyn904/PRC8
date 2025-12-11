@@ -169,8 +169,8 @@ int GetSubschoolFlags(int nSpellID);
 /*                  Includes                    */
 //////////////////////////////////////////////////
 
-#include "inc_2dacache"   // already has access via inc_utility
-//#include "inc_utility"
+#include "inc_2dacache"
+#include "inc_utility"
 
 //////////////////////////////////////////////////
 /*             Function definitions             */

@@ -14,6 +14,7 @@
 #include "prc_class_const"
 */
 #include "prc_alterations"
+#include "prcsp_engine"
 
 // Constants that dictate ResistPower results
 const int POWER_RESIST_FAIL = 1;

@@ -260,6 +260,7 @@ int GetCadenceCount(object oTrueSpeaker);
 #include "prc_alterations"
 #include "true_inc_utter"
 #include "true_inc_truknwn"
+#include "true_inc_truespk"
 
 //////////////////////////////////////////////////
 /*             Function definitions             */

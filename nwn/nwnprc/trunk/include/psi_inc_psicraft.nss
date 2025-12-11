@@ -40,7 +40,8 @@ void IdentifyPower(object oManifester, int nPowerId);
 
 // Always access via psi_inc_psifunc.
 
-//#include "psi_inc_core"
+#include "psi_inc_core"
+#include "inc_2dacache"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */

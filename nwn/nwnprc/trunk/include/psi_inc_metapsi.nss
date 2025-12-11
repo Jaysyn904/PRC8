@@ -110,6 +110,7 @@ object GetSplitPsionicRayTarget(struct manifestation manif, object oPrimaryTarge
 //////////////////////////////////////////////////
 
 #include "psi_inc_core"
+#include "psi_inc_psifunc"
 
 //////////////////////////////////////////////////
 /*             Internal functions               */
