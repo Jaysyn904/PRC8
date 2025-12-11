@@ -36,11 +36,8 @@ Created:   6/28/06
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-
-
-
 #include "prc_inc_spells"
-#include "prc_ip_srcost.nss"
+#include "prc_ip_srcost"
 
 int GetERSpellResistance(int nCasterLvl)
 {
@@ -101,7 +98,7 @@ void main()
     }    
 
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
-    itemproperty ipArmor = ItemPropertyACBonus(nBonusAC += nArmor);
+    itemproperty ipArmor = ItemPropertyACBonus(nBonusAC + nArmor);
     itemproperty ipDR    = ItemPropertyDamageReduction(IP_CONST_DAMAGEREDUCTION_2, IP_CONST_DAMAGESOAK_10_HP);
     itemproperty ipSR    = ItemPropertyBonusSpellResistance(nSR);
 

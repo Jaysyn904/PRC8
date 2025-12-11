@@ -328,9 +328,12 @@ void SecondaryTargetsCheck(object oManifester, object oMainTarget, int nSecondar
                 // Store the target in the secondary target array
                 array_set_object(oManifester, SECONDARY_TARGETS_ARRAY, i, oTest);
 
-                // Find next empty slot
-                while(array_get_object(oManifester, SECONDARY_TARGETS_ARRAY, ++i) != OBJECT_INVALID)
-                    ;
+				// Find next empty slot  
+				while(i < nSecondaryTargets &&   
+					  array_get_object(oManifester, SECONDARY_TARGETS_ARRAY, ++i) != OBJECT_INVALID)  
+				{  
+					// Continue searching  
+				}
             }
 
             // Get next potential target

@@ -20,9 +20,6 @@
 //:: Last Update: 2003-10-07
 //:://////////////////////////////////////////////
 
-//:: Test void
-//:: void main (){}
-
 //Changed by primogenitor to include CEP itemtypes
 
 // *  The tag of the ip work container, a placeable which has to be set into each

@@ -38,7 +38,7 @@
 
 #include "psi_inc_psifunc"
 #include "psi_spellhook"
-#include "spinc_dimdoor";
+#include "spinc_dimdoor"
 
 
 void main()

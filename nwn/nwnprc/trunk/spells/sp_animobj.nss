@@ -1,6 +1,6 @@
 
 #include "prc_alterations"
-#include "prc_inc_spells.nss"
+#include "prc_inc_spells"
 #include "prc_add_spell_dc"
 
 int GetIsValidAnimate(object oTarget);
@@ -248,6 +248,3 @@ void main()
         SendMessageToPC(OBJECT_SELF, "Target cannot be magical");
     }
 }
-
-
-

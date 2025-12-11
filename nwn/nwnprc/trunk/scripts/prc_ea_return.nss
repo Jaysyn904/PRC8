@@ -1,6 +1,6 @@
 void Cleanup(object oArea)
 {
-	if (GetResRef(oArea) == "bdd_cave");
+	if (GetResRef(oArea) == "bdd_cave")
 	{
 		DestroyArea(GetObjectByTag("bdd_basinrim"));
 		//DestroyArea(GetObjectByTag("bdd_cave"));

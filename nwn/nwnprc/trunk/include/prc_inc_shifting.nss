@@ -1370,7 +1370,9 @@ void _prc_inc_shifting_ShiftIntoTemplateAux(object oShifter, int nShifterType, o
             if(GetIsObjectValid(oShifterCWpR)) MyDestroyObject(oShifterCWpR);
             if(GetIsObjectValid(oShifterCWpL)) MyDestroyObject(oShifterCWpL);
             if(GetIsObjectValid(oShifterCWpB)) MyDestroyObject(oShifterCWpB);
-            oShifterCWpR = oShifterCWpL = oShifterCWpR = OBJECT_INVALID;
+            oShifterCWpR = OBJECT_INVALID;
+			oShifterCWpL = OBJECT_INVALID;
+			oShifterCWpB = OBJECT_INVALID;
     
             // Copy the template's weapons and assign equipping
             
