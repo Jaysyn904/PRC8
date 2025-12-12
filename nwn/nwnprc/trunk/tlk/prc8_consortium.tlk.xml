@@ -40753,7 +40753,7 @@ Epic Levels:
   <entry id="54699" lang="en" sex="m">####END_OF_NEW_SPELLBOOK_RESERVE</entry>
   <entry id="54700" lang="en" sex="m">Inscribe Rune</entry>
   <entry id="54701" lang="en" sex="m">Type of Feat: Item Creation
-Prerequisite: Intelligence 13, Divine Spells level 2.
+Prerequisite: Intelligence 13, Divine Spells level 2, Craft Armor 1 rank
 Specifics: You can cast any divine spell you have prepared as a rune. The caster must have the spell memorized to be able to create the rune. Crafting a rune costs Spell level * Caster level * 50 in gold pieces for a normal caster (half the base cost of Spell level * Caster level * 100), and Spell level * Caster level * 25 for a Runecaster (half again). It also takes XP equal to 1/25th of the base cost. If you cannot pay the casting cost or the XP loss would drop you a level, the crafting will fail, and the spell will be lost. Crafting the rune requires a craft check vs DC 20 + Spell Level. If the craft check fails, the spell is lost, but the caster does not pay the gold and experience. A rune is permanent until used, and all spells are centred on the user.
 Use: Selected.</entry>
   <entry id="54702" lang="en" sex="m">Cast Rune</entry>
