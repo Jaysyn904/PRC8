@@ -72957,6 +72957,52 @@ At 10th level, the verdant lord permanently becomes a plant creature, though all
   <entry id="80057" lang="en" sex="m">+49</entry>
   <entry id="80058" lang="en" sex="m">50 Damage</entry>
   <entry id="80059" lang="en" sex="m">+50</entry>
+  <entry id="80101" lang="en" sex="m">### PRC8 CRAFTED ITEM RESERVE ###</entry>
+  <entry id="80102" lang="en" sex="m">Harness of Armor +1</entry>
+  <entry id="80103" lang="en" sex="m">Harness of Armor +2</entry>
+  <entry id="80104" lang="en" sex="m">Harness of Armor +3</entry>
+  <entry id="80105" lang="en" sex="m">Harness of Armor +4</entry>
+  <entry id="80106" lang="en" sex="m">Harness of Armor +5</entry>
+  <entry id="80107" lang="en" sex="m">Harness of Armor +6</entry>
+  <entry id="80108" lang="en" sex="m">Harness of Armor +7</entry>
+  <entry id="80109" lang="en" sex="m">Harness of Armor +8</entry>
+  <entry id="80110" lang="en" sex="m">Epic Harness of Armor +11</entry>
+  <entry id="80111" lang="en" sex="m">Epic Harness of Armor +12</entry>
+  <entry id="80112" lang="en" sex="m">Epic Harness of Armor +13</entry>
+  <entry id="80113" lang="en" sex="m">Epic Harness of Armor +14</entry>
+  <entry id="80114" lang="en" sex="m">Epic Harness of Armor +15</entry>
+  <entry id="80115" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers. 
+Moderate conjuration; CL 7th; Craft Wondrous Item, mage armor, creator’s caster level must be at least two times the bonus placed in the harness; 
+Price 1,500 gp (+1), 6,000 gp (+2), 12,500 gp (+3), 24,000 gp (+4), 37,500 gp (+5), 54,000(+6), 73,500 gp (+7), 96,000 gp (+8); 
+Weight 1 lb.</entry>
+  <entry id="80116" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers. </entry>
+  <entry id="80117" lang="en" sex="m">****</entry>
+  <entry id="80118" lang="en" sex="m">Aroma of Curdled Death</entry>
+  <entry id="80119" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
+
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
+Constitution damage (Fort DC 17 half) per round of exposure.
+
+Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.
+
+Cost to Create: 2,250 gp, 180 XP, 5 days</entry>
+  <entry id="80120" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
+
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
+Constitution damage (Fort DC 17 half) per round of exposure.</entry>
+  <entry id="80121" lang="en" sex="m">****</entry>
+  <entry id="80122" lang="en" sex="m">Beetle Elixir</entry>
+  <entry id="80123" lang="en" sex="m">The viscous liquid in this vial has an oily brown color and smells a little like wet leaves.  Drinking beetle elixir causes your skin to harden, darken, and gloss over, and short antennae to sprout from your forehead.
+
+You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.
+
+Prerequisites: Craft Wondrous Item, alter self, darkvision, Craft (alchemy) 5 ranks.
+
+Cost to Create: 675 gp, 54 XP, 2 days</entry>
+  <entry id="80124" lang="en" sex="m">The viscous liquid in this vial has an oily brown color and smells a little like wet leaves.  Drinking beetle elixir causes your skin to harden, darken, and gloss over, and short antennae to sprout from your forehead.
+
+You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.</entry>
+  <entry id="80125" lang="en" sex="m">****</entry>
   <entry id="199000" lang="en" sex="m">Summon Nature's Ally I</entry>
   <entry id="199001" lang="en" sex="m">Conjuration (Summoning)
 Level:  Druid 1, Shaman 1, Ranger 1
@@ -75622,11 +75668,69 @@ Prerequisite: Lore 4 Ranks, Can cast 9th circle spells.
 Benefit: You can create a scepter that holds any spell of 7th level or lower that you know. Unlike a magic wand, a scepter can contain up to two spells, each of which has a cost in charges to use. Both spell effects draw from a common pool of charges, so they can be used in any combination. 
 
 Crafting a scepter takes one day for each 1,000 gp in its base price. The base price of a scepter is its caster level × the spell level × 750 gp for the highest-level spell included, plus the caster level × the spell level × 375 gp for the second spell, if any. To craft a scepter, you must spend 1/25 of this base price in XP and use up raw materials costing one-half of this amount. A newly created scepter has 50 charges. Any scepter that stores a spell with a costly material component or an XP cost also carries a commensurate cost. In addition to the cost derived from the base price, you must expend fifty units of the material component or pay fifty times the XP cost.</entry>
-  <entry id="212182" lang="en" sex="m">Mundane Scepter</entry>
-  <entry id="212183" lang="en" sex="m">Mundane scepters are club-like magical implements that can be used by characters with the craft scepter feat to create magical scepters of any targeted spell of 7th level or lower.
-In order to craft a magical scepter, the caster needs to target the scepter with the spell they want to craft into it.</entry>
-  <entry id="212184" lang="en" sex="m">Enchanted Scepter</entry>
-  <entry id="212185" lang="en" sex="m">The scepter is potentially a magically-charged item. Powers and effects vary greatly.</entry>
+  <entry id="212182" lang="en" sex="m">Magical Artisan: Craft Scepter</entry>
+  <entry id="212183" lang="en" sex="m">Crafted Scepter</entry>
+  <entry id="212184" lang="en" sex="m">The scepter is potentially a magically-charged item. Powers and effects vary greatly.</entry>
+  <entry id="212185" lang="en" sex="m">Base Damage: 1d6
+Base Critical Threat: x2
+Base Damage Type: Bludgeoning
+Weapon Size: Medium
+Feats Required: Simple, Druid, or Wizard</entry>
+  <entry id="212186" lang="en" sex="m">Crafted Vial</entry>
+  <entry id="212187" lang="en" sex="m">Vials like these are used in the crafting of consumable wonderous items.</entry>
+  <entry id="212188" lang="en" sex="m">****</entry>
+  <entry id="212189" lang="en" sex="m">###CWI Descriptions###</entry>
+  <entry id="212190" lang="en" sex="m">This amulet fortifies the wearer’s physical resilience, magically enhancing their Constitution while it is worn. The benefit is continuous and requires no activation as long as the amulet is worn.</entry>
+  <entry id="212191" lang="en" sex="m">This amulet causes the wearer’s skin to harden and toughen through magic, granting a constant enhancement to natural armor while it is worn.</entry>
+  <entry id="212192" lang="en" sex="m">This broad, heavy belt is imbued with magic that greatly increases the wearer’s physical power, providing a continuous enhancement to Strength for as long as it is worn.</entry>
+  <entry id="212193" lang="en" sex="m">These soft, flexible boots are enchanted to mute the wearer’s footsteps, granting a significant magical bonus to Move Silently checks while they are worn.</entry>
+  <entry id="212194" lang="en" sex="m">These boots can be activated to fill the wearer with magical swiftness, granting the effects of extraordinary speed for short periods each day, allowing them to move and act far faster than normal.</entry>
+  <entry id="212195" lang="en" sex="m">These enchanted boots lighten the wearer’s step, granting a constant increase to movement speed and allowing them to cover ground more quickly and effortlessly while the boots are worn.</entry>
+  <entry id="212196" lang="en" sex="m">These boots allow the wearer to instantly transport themselves across great distances, casting teleportation when activated and enabling instant travel to a chosen destination.</entry>
+  <entry id="212197" lang="en" sex="m">These sturdy boots keep the wearer warm and protected in bitterly cold environments, allowing them to move unhindered across snow and ice while resisting the effects of extreme cold.</entry>
+  <entry id="212198" lang="en" sex="m">These magical bracers surround the wearer with an invisible protective field, providing a continuous enhancement to their armor class without the need to wear actual armor.</entry>
+  <entry id="212199" lang="en" sex="m">These bracers magically bolster the wearer’s vitality, granting a permanent enhancement to Constitution while worn and significantly improving their overall health and endurance.</entry>
+  <entry id="212200" lang="en" sex="m">These bracers magically strengthen the wearer’s physical power, providing a continuous bonus to Strength while worn and enhancing their ability to exert force and perform feats of might.</entry>
+  <entry id="212201" lang="en" sex="m">This brooch surrounds the wearer with a protective magical barrier, increasing shield AC and immunity to magic missiles while it is worn.</entry>
+  <entry id="212202" lang="en" sex="m">This circlet is enchanted to unleash powerful energy blasts with a thought, allowing them to project a magical ray of fire when activated.</entry>
+  <entry id="212203" lang="en" sex="m">This circlet subtly enhances the wearer’s charisma, granting a continuous magical bonus to Charisma-based checks, making them more charming and persuasive in social interactions.</entry>
+  <entry id="212204" lang="en" sex="m">This black garment, embroidered with a weblike pattern in silk, gives the wearer the ability to climb as if a spider climb spell had been placed upon her. In addition, the cloak grants her immunity to entrapment by web spells or webs of any sort—she can actually move in webs at half her normal speed.  Once per day, the wearer of this cloak can cast web.  She also gains a +2 luck bonus on all Fortitude saves against poison from spiders.</entry>
+  <entry id="212205" lang="en" sex="m">This cloak magically enhances the wearer’s personal presence, granting a continuous bonus to Charisma as long as it is worn, making them more compelling and influential.</entry>
+  <entry id="212206" lang="en" sex="m">This cloak creates a magical illusion that makes the wearer appear slightly out of position, making them harder to strike and granting a constant bonus to avoid attacks while it is worn.</entry>
+  <entry id="212207" lang="en" sex="m">This cloak subtly blends the wearer with their surroundings, providing a constant magical bonus to Hide checks and making them more difficult to detect while it is worn.</entry>
+  <entry id="212208" lang="en" sex="m">This cloak allows the wearer to shift into the ethereal plane when activated, enabling them to move through solid objects and travel in ways impossible on the material plane.</entry>
+  <entry id="212209" lang="en" sex="m">This cloak bolsters the wearer’s defenses against harmful magic, granting a constant enhancement to all saving throws while it is worn.</entry>
+  <entry id="212210" lang="en" sex="m">These enchanted lenses allow the wearer to magically influence the feelings of others, giving them the ability to charm creatures as if casting a charm spell.</entry>
+  <entry id="212211" lang="en" sex="m">These eyes radiate malevolent energy, enabling the wearer to strike fear or cause harm through magical effects when activated.</entry>
+  <entry id="212212" lang="en" sex="m">These magical eyes sharpen the wearer’s vision, granting enhanced perception, extended visual range, and improved accuracy for seeing distant or fine details.</entry>
+  <entry id="212213" lang="en" sex="m">These magical eyes allow the wearer to turn others to stone, enabling them to petrify a creature with a gaze when activated.</entry>
+  <entry id="212214" lang="en" sex="m">These gauntlets magically increase the wearer’s physical strength, granting a constant enhancement to Strength and enabling them to perform feats of great power while worn.</entry>
+  <entry id="212215" lang="en" sex="m">These gloves magically enhance the wearer’s agility, providing a continuous bonus to Dexterity and improving their precision, reflexes, and overall nimbleness while worn.</entry>
+  <entry id="212216" lang="en" sex="m">These goggles magically sharpen the wearer’s vision, allowing them to perceive extremely fine details and small objects with exceptional clarity.</entry>
+  <entry id="212217" lang="en" sex="m">These goggles grant the wearer the ability to see in complete darkness, providing darkvision as long as they are worn.</entry>
+  <entry id="212218" lang="en" sex="m">This magical item enhances allows the wearer to use the Mage Hand spell at will.</entry>
+  <entry id="212219" lang="en" sex="m">This headband magically sharpens the wearer’s mind, granting a constant bonus to Intelligence and enhancing their reasoning, memory, and problem-solving abilities while worn.</entry>
+  <entry id="212220" lang="en" sex="m">This helm is imbued with powerful magic that can emit dazzling beams of light, protecting the wearer and allowing them to unleash radiant energy against foes when activated.</entry>
+  <entry id="212221" lang="en" sex="m">This helm allows the wearer to instantly transport themselves to a chosen location, functioning as a teleportation device when activated.</entry>
+  <entry id="212222" lang="en" sex="m">This cloak surrounds the wearer with a magical barrier that makes it harder for spells to affect them, granting constant spell resistance while it is worn.</entry>
+  <entry id="212223" lang="en" sex="m">This cloak enhances the wearer’s ability to move unseen, granting a continuous magical bonus to Hide checks and making them significantly harder to detect while it is worn.</entry>
+  <entry id="212224" lang="en" sex="m">This skull-shaped mask grants the wearer the power to unleash a Finger of Death spell once per day.</entry>
+  <entry id="212225" lang="en" sex="m">This necklace holds a number of magical beads, each of which can be detached and thrown to explode like a fireball spell, allowing the wearer to unleash powerful bursts of fire at a chosen target.</entry>
+  <entry id="212226" lang="en" sex="m">This pendant protects the wearer from disease, granting continuous immunity to all natural and magical illnesses while it is worn.</entry>
+  <entry id="212227" lang="en" sex="m">This pendant shields the wearer from toxins, granting complete immunity to all forms of poison while it is worn.</entry>
+  <entry id="212228" lang="en" sex="m">This pendant magically enhances the wearer’s mental clarity, granting a constant bonus to Wisdom and improving their perception, insight, and willpower while worn.</entry>
+  <entry id="212229" lang="en" sex="m">This pendant accelerates the wearer’s natural healing, allowing wounds to close more quickly and improving recovery from injuries while it is worn.</entry>
+  <entry id="212230" lang="en" sex="m">This robe is a powerful magical garment that protects the wearer, enhances their spellcasting, and provides resistance to various forms of attack, granting both defensive and arcane benefits while worn.</entry>
+  <entry id="212231" lang="en" sex="m">This robe is covered with magical eyes that grant the wearer constant, all-around vision, the ability to see invisible creatures, and protection against surprise attacks.</entry>
+  <entry id="212232" lang="en" sex="m">This robe dazzles onlookers with constantly shifting, brilliant colors, creating a mesmerizing visual display that can confuse and distract observers while it is worn.</entry>
+  <entry id="212233" lang="en" sex="m">This magical scarab protects the wearer by granting a constant deflection bonus to Armor Class, providing immunity to certain death effects, and offering resistance to some spell effects while it is worn.</entry>
+  <entry id="212234" lang="en" sex="m">This vest allows the wearer to slip free from restraints and evade danger, granting the ability to escape bonds and move quickly out of hazardous situations.</entry>
+  <entry id="212235" lang="en" sex="m">This amulet improves the wearer’s mastery of Truespeech, granting a magical bonus to the Truespeak skill checks and making their mystical words more precise and effective while it is worn.</entry>
+  <entry id="212236" lang="en" sex="m">This phylactery empowers the wearer to turn or rebuke undead more effectively, granting a substantial enhancement to their turning ability while it is worn.</entry>
+  <entry id="212237" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers.</entry>
+  <entry id="212238" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
+
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.</entry>
   <entry id="213092" lang="en" sex="m">Swarm of Arrows</entry>
   <entry id="213093" lang="en" sex="m">	Prerequisites
 	Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).

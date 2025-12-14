@@ -280,6 +280,13 @@ void main()
                            // -------------------------------------------------
                            nRet = CICraftCheckCraftStaff(oBaseItem,oPC,nSpell);
                            break;
+						   
+                        case BASE_ITEM_CRAFTED_SCEPTER :
+                           // -------------------------------------------------
+                           // Craft Scepter
+                           // -------------------------------------------------
+                           nRet = CICraftCheckCraftScepter(oBaseItem,oPC,nSpell);
+                           break;						   
                     }
                 }
                 SetLocalInt(oPC, "ImbueCraftingSuccess", nRet);

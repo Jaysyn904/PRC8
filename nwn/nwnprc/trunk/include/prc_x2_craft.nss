@@ -61,6 +61,7 @@ const int     X2_CI_CRAFTROD_EPIC_FEAT_ID    	= 3490;
 const int     X2_CI_CRAFTSTAFF_FEAT_ID       	= 2928;
 const int     X2_CI_CRAFTSTAFF_EPIC_FEAT_ID  	= 3491;
 const int	  X2_CI_CREATEINFUSION_FEAT_ID		= 25960;
+const int	  X2_CI_CRAFTSCEPTER_FEAT_ID		= 25962;
 
 const string  X2_CI_BREWPOTION_NEWITEM_RESREF   = "x2_it_pcpotion"; // ResRef for new potion item
 const string  X2_CI_SCRIBESCROLL_NEWITEM_RESREF = "x2_it_pcscroll"; // ResRef for new scroll item
@@ -276,6 +277,7 @@ int CIGetIsCraftFeatBaseItem(object oItem)
         nBt == BASE_ITEM_BLANK_WAND ||
         nBt == BASE_ITEM_CRAFTED_ROD ||
         nBt == BASE_ITEM_CRAFTED_STAFF ||
+		nBt == BASE_ITEM_CRAFTED_SCEPTER ||		
 		nBt == BASE_ITEM_MUNDANE_HERB)
       return TRUE;
     else
@@ -1131,6 +1133,166 @@ These dont work as IPs since they are hardcoded */
      }
 
     return FALSE;
+}
+
+// -----------------------------------------------------------------------------
+// Returns TRUE if the player used the last spell to craft a scepter
+// -----------------------------------------------------------------------------
+int CICraftCheckCraftScepter(object oSpellTarget, object oCaster, int nSpellID = 0)
+{
+
+    if(nSpellID == 0) nSpellID = PRCGetSpellId();
+    int nCasterLevel = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
+    int bSuccess = TRUE;
+    int nCount = 0;
+    itemproperty ip = GetFirstItemProperty(oSpellTarget);
+	int nMetaMagic = PRCGetMetaMagicFeat();
+	
+    while(GetIsItemPropertyValid(ip))
+    {
+        if(GetItemPropertyType(ip) == ITEM_PROPERTY_CAST_SPELL)
+            nCount++;
+        ip = GetNextItemProperty(oSpellTarget);
+    }
+    if(nCount >= 2)  //:: Scepters are limited to two spells
+    {
+        FloatingTextStringOnCreature("* Failure  - Too many castspell itemproperties *", oCaster);
+        return TRUE;
+    }
+    if(!GetHasFeat(X2_CI_CRAFTSCEPTER_FEAT_ID, oCaster))
+    {
+        FloatingTextStrRefOnCreature(40487, oCaster); // Item Creation Failed - Don't know how to create that type of item
+        return TRUE; // tried item creation but do not know how to do it
+    }
+    if(CIGetIsSpellRestrictedFromCraftFeat(nSpellID, X2_CI_CRAFTSCEPTER_FEAT_ID))
+    {
+        FloatingTextStrRefOnCreature(16829169, oCaster); // can not be used with this feat
+        return TRUE;
+    }
+	
+	// Get the base spell level (circle) before metamagic adjustments  
+	int nBaseLevel = CIGetSpellInnateLevel(nSpellID, TRUE);  
+	  
+	// Check if spell circle is 7th level or lower  
+	if (nBaseLevel > 7)  
+	{  
+		//FloatingTextStrRefOnCreature(83623, oCaster); // Spell level too high
+		FloatingTextStringOnCreature("* Failure - scepters can not hold spells higher than level 7", oCaster);
+		return TRUE;  
+	}  	
+	
+	int nLevel = nBaseLevel;
+	
+    if(GetPRCSwitch(PRC_CRAFT_SCEPTER_CASTER_LEVEL))
+    {
+        switch(nMetaMagic)
+        {
+            case METAMAGIC_EMPOWER:
+                nLevel += 2;
+                break;
+            case METAMAGIC_EXTEND:
+                nLevel += 1;
+                break;
+            case METAMAGIC_MAXIMIZE:
+                nLevel += 3;
+                break;
+/*            case METAMAGIC_QUICKEN:
+                nLevel += 1;
+                break;
+            case METAMAGIC_SILENT:
+                nLevel += 5;
+                break;
+            case METAMAGIC_STILL:
+                nLevel += 6;
+                break;
+			These dont work as IPs since they are hardcoded */
+        }
+    }
+	
+    int nCostMod = GetPRCSwitch(PRC_X2_CRAFTSCEPTER_COSTMODIFIER);
+    if(!nCostMod) nCostMod = 750;
+    int nLvlRow = IPGetIPConstCastSpellFromSpellID(nSpellID);
+    int nCLevel = StringToInt(Get2DACache("iprp_spells","CasterLvl",nLvlRow));
+    int nCost = CIGetCraftGPCost(nLevel, nCostMod, PRC_CRAFT_SCEPTER_CASTER_LEVEL);
+
+    //discount for second spell
+    if(nCount+1 == 2)
+        nCost = (nCost/2);
+
+    //takes epic xp costs into account
+    struct craft_cost_struct costs = GetModifiedCostsFromBase(nCost, oCaster, FEAT_CRAFT_SCEPTER, (nMetaMagic > 0));
+
+    if(costs.nGoldCost < 1) costs.nXPCost = 1;
+    if(costs.nXPCost < 1) costs.nXPCost = 1;
+    //if(GetGold(oCaster) < nGoldCost)  //  enough gold?
+    if (!GetHasGPToSpend(oCaster, costs.nGoldCost))
+    {
+        FloatingTextStrRefOnCreature(3786, oCaster); // Item Creation Failed - not enough gold!
+        return TRUE;
+    }
+    int nHD = GetHitDice(oCaster);
+    int nMinXPForLevel = (nHD * (nHD - 1)) * 500;
+    int nNewXP = GetXP(oCaster) - costs.nXPCost;
+    //if (nMinXPForLevel > nNewXP || nNewXP == 0 )
+    if (!GetHasXPToSpend(oCaster, costs.nXPCost))
+    {
+         FloatingTextStrRefOnCreature(3785, oCaster); // Item Creation Failed - Not enough XP
+         return TRUE;
+    }
+    //check spell emulation
+    if(!CheckAlternativeCrafting(oCaster, nSpellID, costs))
+    {
+        FloatingTextStringOnCreature("*Crafting failed!*", oCaster, FALSE);
+        return TRUE;
+    }
+    int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellID);
+    if (nPropID == 0 && nSpellID != 0)
+    {
+        FloatingTextStrRefOnCreature(84544,oCaster);
+        return TRUE;
+    }
+    if (nPropID != -1)
+    {
+        AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyCastSpell(nPropID,IP_CONST_CASTSPELL_NUMUSES_1_CHARGE_PER_USE),oSpellTarget);
+
+        if(GetPRCSwitch(PRC_CRAFT_SCEPTER_CASTER_LEVEL))
+        {
+            AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyCastSpellCasterLevel(nSpellID, nCasterLevel),oSpellTarget);
+            AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyCastSpellMetamagic(nSpellID, PRCGetMetaMagicFeat()),oSpellTarget);
+            AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyCastSpellDC(nSpellID, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF)),oSpellTarget);
+        }
+    }
+    else
+        bSuccess = FALSE;
+
+    if(bSuccess)
+    {
+        //TakeGoldFromCreature(nGoldCost, oCaster, TRUE);
+        //SetXP(oCaster, nNewXP);
+        SpendXP(oCaster, costs.nXPCost);
+        SpendGP(oCaster, costs.nGoldCost);
+        //DestroyObject (oSpellTarget);
+        FloatingTextStrRefOnCreature(8502, oCaster); // Item Creation successful
+
+        //advance time here
+        if(!costs.nTimeCost) costs.nTimeCost = 1;
+        AdvanceTimeForPlayer(oCaster, RoundsToSeconds(costs.nTimeCost));
+        string sName;
+        sName = GetName(oCaster)+"'s Magic Scepter";
+		SetItemCharges(oSpellTarget, 50);
+        //sName = Get2DACache("spells", "Name", nID);
+        //sName = "Wand of "+GetStringByStrRef(StringToInt(sName));
+        SetName(oSpellTarget, sName);
+        SetItemCursedFlag(oSpellTarget, FALSE);
+        SetDroppableFlag(oSpellTarget, TRUE);
+        return TRUE;
+    }
+    else
+    {
+        FloatingTextStrRefOnCreature(76417, oCaster); // Item Creation Failed
+        return TRUE;
+    }
+    return TRUE;
 }
 
 // -----------------------------------------------------------------------------
@@ -2131,6 +2293,13 @@ int CIGetSpellWasUsedForItemCreation(object oSpellTarget)
                             // -------------------------------------------------
                            nRet = CICraftCheckCraftStaff(oSpellTarget,oCaster);
                            break;
+
+                case BASE_ITEM_CRAFTED_SCEPTER :
+                            // -------------------------------------------------
+                            // Craft Scepter
+                            // -------------------------------------------------
+                           nRet = CICraftCheckCraftScepter(oSpellTarget,oCaster);
+                           break;
 						   
                 case BASE_ITEM_MUNDANE_HERB :
                             // -------------------------------------------------
@@ -2930,7 +3099,12 @@ int GetMagicalArtisanFeat(int nCraftingFeat)
         {
             nReturn = FEAT_MAGICAL_ARTISAN_CREATE_INFUSION;
             break;
-        }		
+        }	
+        case FEAT_CRAFT_SCEPTER:
+        {
+            nReturn = FEAT_MAGICAL_ARTISAN_CRAFT_SCEPTER;
+            break;
+        }			
         default:
         {
             if(DEBUG) DoDebug("GetMagicalArtisanFeat: invalid crafting feat");

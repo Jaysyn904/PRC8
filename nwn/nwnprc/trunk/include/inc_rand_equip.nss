@@ -3433,6 +3433,7 @@ int PrimoGetWeaponSize(object oItem)
         case BASE_ITEM_LIGHTFLAIL:
         case BASE_ITEM_KATANA:
         case BASE_ITEM_MAGICSTAFF:
+        case BASE_ITEM_CRAFTED_SCEPTER:		
         case BASE_ITEM_LONGSWORD:
         case BASE_ITEM_TRIDENT:		
         case BASE_ITEM_MORNINGSTAR:

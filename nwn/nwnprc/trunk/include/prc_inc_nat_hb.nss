@@ -520,7 +520,7 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
 					IPSafeAddItemProperty(oWeapon, ItemPropertyEnhancementBonus(nEnhance), fDuration, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
 				}
 	
-				DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
+				if(DEBUG) DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: scheduling a secondary natural attack with "+GetName(oWeapon)+" at delay "+FloatToString(fDelay)); 
                 //do the attack within a delay                
                 // motu99: commented this out; AssignCommand ist not needed, because OBJECT_SELF is oPC - using AssignCommand will only degrade performance
                 //AssignCommand(oPC, DelayCommand(fDelay, DoNaturalAttack(oWeapon)));               

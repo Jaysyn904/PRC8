@@ -1082,7 +1082,7 @@ int GetIsTwoHandedMeleeWeaponType(int iWeaponType)
 		case BASE_ITEM_HEAVYFLAIL:			return TRUE;
 		case BASE_ITEM_SCYTHE:				return TRUE;
 		case BASE_ITEM_QUARTERSTAFF:		return TRUE;		
-		case BASE_ITEM_MAGICSTAFF:	 		return TRUE;		
+		//case BASE_ITEM_MAGICSTAFF:	 		return TRUE;		
 		case BASE_ITEM_ELVEN_COURTBLADE:	return TRUE;
 		case BASE_ITEM_MAUL:				return TRUE;
 		case BASE_ITEM_FALCHION:			return TRUE;	
@@ -1141,8 +1141,8 @@ int GetIsSimpleWeaponType(int iWeaponType)
         case BASE_ITEM_CSLSHPRCWEAP:    return 1;
         case BASE_ITEM_GLOVES:          return 1;
         case BASE_ITEM_BRACER:          return 1;
-
-        case BASE_ITEM_CLUB:            return 2;
+        case BASE_ITEM_CRAFTED_SCEPTER:    return 1;
+		
         case BASE_ITEM_DAGGER:          return 2;
         case BASE_ITEM_LIGHTMACE:       return 2;
         case BASE_ITEM_SICKLE:          return 2;
@@ -1279,6 +1279,19 @@ struct WeaponFeat GetAllFeatsOfWeaponType(int iWeaponType)
             sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_CLUB;
             break;
         }
+        case BASE_ITEM_CRAFTED_SCEPTER: {
+            sFeat.Focus = FEAT_WEAPON_FOCUS_CLUB;
+            sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_CLUB;
+            sFeat.EpicFocus = FEAT_EPIC_WEAPON_FOCUS_CLUB;
+            sFeat.EpicSpecialization = FEAT_EPIC_WEAPON_SPECIALIZATION_CLUB;
+            sFeat.ImprovedCritical = FEAT_IMPROVED_CRITICAL_CLUB;
+            sFeat.OverwhelmingCritical = FEAT_EPIC_OVERWHELMING_CRITICAL_CLUB;
+            sFeat.DevastatingCritical = FEAT_EPIC_DEVASTATING_CRITICAL_CLUB;
+            sFeat.WeaponOfChoice = FEAT_WEAPON_OF_CHOICE_CLUB;
+            sFeat.SanctifyMartialStrike = FEAT_SANCTIFY_MARTIAL_CLUB;
+            sFeat.VileMartialStrike = FEAT_VILE_MARTIAL_CLUB;
+            break;
+        }		
         case BASE_ITEM_DAGGER: {
             sFeat.Focus = FEAT_WEAPON_FOCUS_DAGGER;
             sFeat.Specialization = FEAT_WEAPON_SPECIALIZATION_DAGGER;

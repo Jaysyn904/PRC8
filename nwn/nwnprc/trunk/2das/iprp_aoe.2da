@@ -1,10 +1,11 @@
 2DA V2.0
 
-  LABEL          Name     Cost AoEID EnterScript HBScript ExitScript 
-0 Darkness       786      1.0  11    ****        ****     ****       
-1 DeeperDarkness 16832052 1.0  213   ****        ****     ****       
-2 CircleVsEvil   854      1.0  12    ****        ****     ****       
-3 CircleVsGood   855      1.0  13    ****        ****     ****       
-4 CircleVsLaw    856      1.0  14    ****        ****     ****       
-5 CircleVsChaos  853      1.0  15    ****        ****     ****       
-6 DamnDarkness   16829506 1.0  203   ****        ****     ****       
+     LABEL          Name     Cost AoEID EnterScript     HBScript        ExitScript      
+0    Darkness       786      1.0  11    ****            ****            ****            
+1    DeeperDarkness 16832052 1.0  213   ****            ****            ****            
+2    CircleVsEvil   854      1.0  12    ****            ****            ****            
+3    CircleVsGood   855      1.0  13    ****            ****            ****            
+4    CircleVsLaw    856      1.0  14    ****            ****            ****            
+5    CircleVsChaos  853      1.0  15    ****            ****            ****            
+6    DamnDarkness   16829506 1.0  203   ****            ****            ****            
+7    CurdeledDeath  16857333 1.0  185   curdled_death_a curdled_death_c ****            

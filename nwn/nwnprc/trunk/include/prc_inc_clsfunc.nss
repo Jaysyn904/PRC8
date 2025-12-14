@@ -380,6 +380,7 @@ int Vile_Feat(int iTypeWeap)
             case BASE_ITEM_BASTARDSWORD: return GetHasFeat(FEAT_VILE_MARTIAL_BASTARDSWORD);
             case BASE_ITEM_BATTLEAXE: return GetHasFeat(FEAT_VILE_MARTIAL_BATTLEAXE);
             case BASE_ITEM_CLUB: return GetHasFeat(FEAT_VILE_MARTIAL_CLUB);
+			case BASE_ITEM_CRAFTED_SCEPTER: return GetHasFeat(FEAT_VILE_MARTIAL_CLUB);
             case BASE_ITEM_DAGGER: return GetHasFeat(FEAT_VILE_MARTIAL_DAGGER);
             case BASE_ITEM_DART: return GetHasFeat(FEAT_VILE_MARTIAL_DART);
             case BASE_ITEM_DIREMACE: return GetHasFeat(FEAT_VILE_MARTIAL_DIREMACE);
@@ -461,6 +462,7 @@ int GetSanctifedMartialFeat(int iTypeWeap)
             case BASE_ITEM_BASTARDSWORD: 		return FEAT_SANCTIFY_MARTIAL_BASTARDSWORD;
             case BASE_ITEM_BATTLEAXE: 			return FEAT_SANCTIFY_MARTIAL_BATTLEAXE;
             case BASE_ITEM_CLUB: 				return FEAT_SANCTIFY_MARTIAL_CLUB;
+			case BASE_ITEM_CRAFTED_SCEPTER:		return FEAT_SANCTIFY_MARTIAL_CLUB;
             case BASE_ITEM_DAGGER: 				return FEAT_SANCTIFY_MARTIAL_DAGGER;
             case BASE_ITEM_DART: 				return FEAT_SANCTIFY_MARTIAL_DART;
             case BASE_ITEM_DIREMACE: 			return FEAT_SANCTIFY_MARTIAL_DIREMACE;
@@ -535,6 +537,7 @@ int Sanctify_Feat(int iTypeWeap)
             case BASE_ITEM_BASTARDSWORD: 		return GetHasFeat(FEAT_SANCTIFY_MARTIAL_BASTARDSWORD);
             case BASE_ITEM_BATTLEAXE: 			return GetHasFeat(FEAT_SANCTIFY_MARTIAL_BATTLEAXE);
             case BASE_ITEM_CLUB: 				return GetHasFeat(FEAT_SANCTIFY_MARTIAL_CLUB);
+			case BASE_ITEM_CRAFTED_SCEPTER:		return GetHasFeat(FEAT_SANCTIFY_MARTIAL_CLUB);			
             case BASE_ITEM_DAGGER: 				return GetHasFeat(FEAT_SANCTIFY_MARTIAL_DAGGER);
             case BASE_ITEM_DART: 				return GetHasFeat(FEAT_SANCTIFY_MARTIAL_DART);
             case BASE_ITEM_DIREMACE: 			return GetHasFeat(FEAT_SANCTIFY_MARTIAL_DIREMACE);

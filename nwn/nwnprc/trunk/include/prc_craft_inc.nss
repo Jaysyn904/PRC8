@@ -1530,7 +1530,12 @@ void ApplyItemProps(object oItem, string sFile, int nLine)
             break;  //no more itemprops, no gaps, assuming no errors
     }
     if(sFile != "craft_weapon" && sFile != "craft_armour")
-        SetName(oItem, GetStringByStrRef(StringToInt(Get2DACache(sFile, "Name", nLine))));
+    {    
+		SetName(oItem, GetStringByStrRef(StringToInt(Get2DACache(sFile, "Name", nLine))));	
+		string sDescRef = Get2DACache(sFile, "CraftedDescription", nLine);  
+		if(sDescRef != "")  
+		SetDescription(oItem, GetStringByStrRef(StringToInt(sDescRef)));
+	}
 }
 
 //Partly ripped off the lexicon :P
@@ -1621,7 +1626,8 @@ string GetCrafting2DA(object oItem)
         (nBase == BASE_ITEM_BOOTS) ||
         (nBase == BASE_ITEM_GLOVES) ||
         (nBase == BASE_ITEM_BRACER) ||
-        (nBase == BASE_ITEM_CLOAK))
+        (nBase == BASE_ITEM_CLOAK)	||
+        (nBase == BASE_ITEM_CRAFTED_VIAL))
         )
         return "craft_wondrous";
 
@@ -1658,19 +1664,28 @@ int GetCraftingFeat(object oItem)
     if(nBase == BASE_ITEM_RING) return FEAT_FORGE_RING;
 
     //routing bioware feats through this convo
+	if((nBase == BASE_ITEM_CRAFTED_SCEPTER) ||
+		(nBase == BASE_ITEM_CRAFTED_SCEPTER)
+		)
+		return FEAT_CRAFT_SCEPTER;
+		
     if((nBase == BASE_ITEM_MAGICROD) ||
         (nBase == BASE_ITEM_CRAFTED_ROD)
         )
         return FEAT_CRAFT_ROD;
+		
     if((nBase == BASE_ITEM_MAGICSTAFF) ||
         (nBase == BASE_ITEM_CRAFTED_STAFF)
         )
         return FEAT_CRAFT_STAFF;
+		
     if((nBase == BASE_ITEM_MAGICWAND) ||
         (nBase == BASE_ITEM_BLANK_WAND)
         )
         return FEAT_CRAFT_WAND;
+		
     if(nBase == BASE_ITEM_BLANK_POTION) return FEAT_BREW_POTION;
+	
     if(nBase == BASE_ITEM_BLANK_SCROLL) return FEAT_SCRIBE_SCROLL;
 
     if(((nBase == BASE_ITEM_HELMET) ||
@@ -1679,7 +1694,8 @@ int GetCraftingFeat(object oItem)
         (nBase == BASE_ITEM_BOOTS) ||
         (nBase == BASE_ITEM_GLOVES) ||
         (nBase == BASE_ITEM_BRACER) ||
-        (nBase == BASE_ITEM_CLOAK))
+        (nBase == BASE_ITEM_CLOAK)	||
+        (nBase == BASE_ITEM_CRAFTED_VIAL))
         )
     return FEAT_CRAFT_WONDROUS;
 

@@ -1911,7 +1911,7 @@ const string PRC_CRAFT_TIMER_MAX                     = "PRC_CRAFT_TIMER_MAX";
  */
 const string PRC_CRAFT_TIMER_MIN                     = "PRC_CRAFT_TIMER_MIN";
 
-/**
+/*
  * These three switches modify Bioware crafting so that the items produced have the
  * casterlevel of the spellcaster who created them. Normally under Bioware, it is possible
  * for a level 3 caster to produce level 9 items and for a level 40 caster to only produce
@@ -1956,6 +1956,11 @@ const string PRC_CRAFT_ROD_CASTER_LEVEL             = "PRC_CRAFT_ROD_CASTER_LEVE
  * As above, except it applies to staffs
  */
 const string PRC_CRAFT_STAFF_CASTER_LEVEL             = "PRC_CRAFT_STAFF_CASTER_LEVEL";
+
+/*
+ * As above, except it applies to scepters
+ */
+const string PRC_CRAFT_SCEPTER_CASTER_LEVEL             = "PRC_CRAFT_SCEPTER_CASTER_LEVEL";
 
 /*
  * As above, except it applies to herbal infusions
@@ -2017,6 +2022,13 @@ const string PRC_X2_CRAFTWAND_COSTMODIFIER            = "PRC_X2_CRAFTWAND_COSTMO
  * defaults to 750
  */
 const string PRC_X2_CRAFTROD_COSTMODIFIER            = "PRC_X2_CRAFTROD_COSTMODIFIER";
+
+/*
+ * cost modifier of spells crafted into scepters
+ * note that adding a second spell costs 75%
+ * defaults to 750
+ */
+const string PRC_X2_CRAFTSCEPTER_COSTMODIFIER            = "PRC_X2_CRAFTSCEPTER_COSTMODIFIER";
 
 /*
  * cost modifier of spells crafted into staffs

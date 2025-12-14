@@ -2902,7 +2902,7 @@ int WandEquipped(object oCaster, object oSpellCastItem)
     
     int nType = GetBaseItemType(oSpellCastItem);
     
-    if(nType == BASE_ITEM_MAGICWAND || nType == BASE_ITEM_ENCHANTED_WAND) // Has to be a wand, obv
+    if(nType == BASE_ITEM_MAGICWAND || nType == BASE_ITEM_ENCHANTED_WAND || nType == BASE_ITEM_CRAFTED_SCEPTER) // Has to be a wand, obv
     {
         if(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oCaster) == oSpellCastItem || GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oCaster) == oSpellCastItem) // Needs to be equipped
         {
@@ -2910,7 +2910,7 @@ int WandEquipped(object oCaster, object oSpellCastItem)
         }
         else
         {
-            FloatingTextStringOnCreature("You must equip a wand to cast from it.", oCaster, FALSE);
+            FloatingTextStringOnCreature("You must equip this item to cast from it.", oCaster, FALSE);
             return FALSE; // It's a wand not equipped
         }   
     }

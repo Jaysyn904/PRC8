@@ -353,21 +353,19 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 
 			if (nBaseItemType == BASE_ITEM_QUARTERSTAFF && !GetIsMagicItem(oMyWeapon))
 			{
-			// Execute the code for non-magical quarterstaff here
 
 				bCondition = bCondition && TRUE; // Update the condition as needed
 				fDuration = TurnsToSeconds(nDuration);
 			}
 			else if (nBaseItemType == BASE_ITEM_CLUB && !GetIsMagicItem(oMyWeapon))
 			{
-			// Execute the code for non-magical club here
 
 				bCondition = bCondition && TRUE; // Update the condition as needed
 				fDuration = TurnsToSeconds(nDuration);
 			}
 			else
 			{
-			// Invalid weapon type, do nothing or handle the error here
+			// Invalid weapon type
 
 				bCondition = bCondition && FALSE; // Update the condition as needed
 				fDuration = 0.0; // Update the duration as needed

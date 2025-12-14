@@ -76,7 +76,10 @@ void main()
         int bEnlarge = ((nSpellID == SPELL_ENLARGE_PERSON) ||    
                         (nSpellID == SPELL_ENLARGE_PERSON_MASS));    
     
-        AddEventScript(oTarget, EVENT_ONPLAYERREST_FINISHED, "sp_enred", TRUE, FALSE);    
+		//:: Attempt to fix older characters.
+		RemoveEventScript(oTarget, EVENT_ONPLAYERREST_FINISHED, "sp_enred", TRUE, FALSE); 
+		RemoveEventScript(oTarget, EVENT_ONPLAYERREST_STARTED, "sp_enred", TRUE, FALSE); 
+		AddEventScript(oTarget, EVENT_ONPLAYERREST_FINISHED, "sp_enred", TRUE, FALSE);    
     
         if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;    
         location lTarget;    

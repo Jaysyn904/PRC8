@@ -1414,6 +1414,10 @@ const int SPELL_FOT_LEONALS_ROAR					= 17993;
 const int SPELL_FOT_LIONS_SWIFTNESS					= 17994;
 const int SPELL_FAVORED_OF_THE_COMPANIONS 			= 17995;
 
+//:: Magic Item Compendium
+const int SPELL_AROMA_OF_CURDLED_DEATH				= 17987;
+const int SPELL_ELIXIR_OF_THE_BEETLE				= 17987;
+
 //x
 const int SPELL_TENSERS_FLOATING_DISK               = 3849;
 const int SPELL_WOLFSKIN                            = 3850;

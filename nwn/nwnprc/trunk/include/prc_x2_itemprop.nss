@@ -694,6 +694,7 @@ if(nItem == BASE_ITEM_BASTARDSWORD
     || nItem == BASE_ITEM_SICKLE
     || nItem == BASE_ITEM_TWOBLADEDSWORD
     || nItem == BASE_ITEM_CLUB
+	|| nItem == BASE_ITEM_CRAFTED_SCEPTER
     || nItem == BASE_ITEM_DAGGER
     || nItem == BASE_ITEM_DIREMACE
     || nItem == BASE_ITEM_HEAVYFLAIL
@@ -726,6 +727,7 @@ if(nItem == BASE_ITEM_BASTARDSWORD
     || nItem == BASE_ITEM_ELVEN_THINBLADE
     || nItem == BASE_ITEM_ELVEN_COURTBLADE
     || nItem == BASE_ITEM_CRAFTED_STAFF
+    || nItem == BASE_ITEM_CRAFTED_SCEPTER
     || nItem == 300 //CEP Trident
     || nItem == 303 //CEP Sai
     || nItem == 304 //CEP nunchaku

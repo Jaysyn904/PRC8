@@ -336,7 +336,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_craft_golem", 40);
     SetPRCSwitch("PRC_FILE_END_craft_ring", 41);
     SetPRCSwitch("PRC_FILE_END_craft_weapon", 46);
-    SetPRCSwitch("PRC_FILE_END_craft_wondrous", 115);
+    SetPRCSwitch("PRC_FILE_END_craft_wondrous", 131);
     SetPRCSwitch("PRC_FILE_END_creaturesize", 5);
     SetPRCSwitch("PRC_FILE_END_creaturespeed", 8);
     SetPRCSwitch("PRC_FILE_END_crtemplates", 10);
@@ -409,7 +409,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_iprp_ammocost", 15);
     SetPRCSwitch("PRC_FILE_END_iprp_ammotype", 2);
     SetPRCSwitch("PRC_FILE_END_iprp_amount", 4);
-    SetPRCSwitch("PRC_FILE_END_iprp_aoe", 7);
+    SetPRCSwitch("PRC_FILE_END_iprp_aoe", 8);
     SetPRCSwitch("PRC_FILE_END_iprp_arcspell", 19);
     SetPRCSwitch("PRC_FILE_END_iprp_base1", -1);
     SetPRCSwitch("PRC_FILE_END_iprp_bladecost", 5);
@@ -431,8 +431,8 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_iprp_incvalue2", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_kitcost", 50);
     SetPRCSwitch("PRC_FILE_END_iprp_lightcost", 4);
-    SetPRCSwitch("PRC_FILE_END_iprp_matcost", 77);
-    SetPRCSwitch("PRC_FILE_END_iprp_material", 77);
+    SetPRCSwitch("PRC_FILE_END_iprp_matcost", 145);
+    SetPRCSwitch("PRC_FILE_END_iprp_material", 145);
     SetPRCSwitch("PRC_FILE_END_iprp_maxpp", 8);
     SetPRCSwitch("PRC_FILE_END_iprp_meleecost", 20);
     SetPRCSwitch("PRC_FILE_END_iprp_metamagic", 6);
@@ -867,6 +867,31 @@ void CreateSwitchNameArray()
     //if you add more switches, add them to this list
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DEBUG);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_COMBAT_DEBUG);
+	
+//craft
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_CRAFT);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MULTIPLIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MAX);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MIN);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_BREW_POTION_CASTER_LEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_SCRIBE_SCROLL_CASTER_LEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_WAND_CASTER_LEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_ROD_CASTER_LEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_STAFF_CASTER_LEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_BASE_ITEMS);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_SCRIBESCROLL_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_MAXLEVEL);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_COSTMODIFIER);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CREATEINFUSION_COSTMODIFIER);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_ARBITRARY);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_COST_SCALE);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_CASTER_LEVEL);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_OPTIONAL_HERBS);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_SCEPTER_CASTER_LEVEL);
+	
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_MATERIAL_COMPONENTS);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_COMPONENTS_SHOP);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_PNP_TRUESEEING);
@@ -1060,29 +1085,6 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_LETOSCRIPT_FIX_ABILITIES);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_LETOSCRIPT_UNICORN_SQL);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_LETOSCRIPT_GETNEWESTBIC);
-
-//craft
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_CRAFT);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MULTIPLIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MAX);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MIN);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_BREW_POTION_CASTER_LEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_SCRIBE_SCROLL_CASTER_LEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_WAND_CASTER_LEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_ROD_CASTER_LEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_STAFF_CASTER_LEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_BASE_ITEMS);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_BREWPOTION_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_SCRIBESCROLL_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_MAXLEVEL);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CRAFTWAND_COSTMODIFIER);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_X2_CREATEINFUSION_COSTMODIFIER);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_ARBITRARY);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_COST_SCALE);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_CASTER_LEVEL);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_OPTIONAL_HERBS);
 
 //spells
 

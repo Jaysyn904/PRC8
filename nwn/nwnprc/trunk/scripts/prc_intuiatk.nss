@@ -16,6 +16,7 @@ int isSimple(object oItem)
           return 1;
           break;
         case BASE_ITEM_CLUB:
+		case BASE_ITEM_CRAFTED_SCEPTER:
         case BASE_ITEM_DAGGER:
         case BASE_ITEM_LIGHTMACE:
         case BASE_ITEM_SICKLE:

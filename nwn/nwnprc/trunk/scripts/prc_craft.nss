@@ -1664,6 +1664,13 @@ void main()
                                        // -------------------------------------------------
                                        bFailed = CICraftCheckCraftStaff(oItem,oPC,nSpell);
                                        break;
+									   
+                                    case BASE_ITEM_CRAFTED_SCEPTER :
+                                       // -------------------------------------------------
+                                       // Craft Scepter
+                                       // -------------------------------------------------
+                                       bFailed = CICraftCheckCraftScepter(oItem,oPC,nSpell);
+                                       break;									   
 
                                     default:
                                         if(GetLocalInt(oPC, "InscribeRune"))

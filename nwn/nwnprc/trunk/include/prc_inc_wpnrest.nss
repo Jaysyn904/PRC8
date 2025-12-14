@@ -876,6 +876,7 @@ int IsMeleeWeapon(int nBaseItemType)
         case BASE_ITEM_CLOAK:
         case BASE_ITEM_CRAFTED_ROD:
         case BASE_ITEM_CRAFTED_STAFF:
+		case BASE_ITEM_CRAFTED_SCEPTER:
         case BASE_ITEM_CRAFTMATERIALMED:
         case BASE_ITEM_CRAFTMATERIALSML:
         case BASE_ITEM_CREATUREITEM:

@@ -2,7 +2,7 @@
    ----------------
    Swarm Tactics, Exit
 
-   tob_wtrn_swarmt.nss
+   tob_wtrn_swarmtb.nss
    ----------------
 
     29/09/07 by Stratovarius

@@ -224,6 +224,9 @@ const int FEAT_MAGICAL_ARTISAN_CREATE_INFUSION	= 25961;
 const int FEAT_PLANT_DEFIANCE					= 25992;
 const int FEAT_PLANT_CONTROL					= 25993;
 
+ //:: Lost Empires of Faerun feats
+const int FEAT_CRAFT_SCEPTER					= 25962;
+const int FEAT_MAGICAL_ARTISAN_CRAFT_SCEPTER	= 25963;
 
 //:: Racial Feats
 const int FEAT_WEMIC_JUMP_8        = 4518;

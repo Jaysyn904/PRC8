@@ -754,7 +754,11 @@ void main()
 		if (GetHasSpellEffect(VESTIGE_KARSUS, oBinder) && GetLevelByClass(CLASS_TYPE_BINDER, oBinder) && !GetIsVestigeExploited(oBinder, VESTIGE_KARSUS_WILL))
 		{
         	int nType = GetBaseItemType(oItem);
-        	if(nType == BASE_ITEM_MAGICWAND || nType == BASE_ITEM_ENCHANTED_WAND || nType == BASE_ITEM_MAGICSTAFF || nType == BASE_ITEM_CRAFTED_STAFF || nType == BASE_ITEM_BLANK_WAND || nType == BASE_ITEM_MAGICROD || nType == BASE_ITEM_CRAFTED_ROD)
+        	if(nType == BASE_ITEM_MAGICWAND || nType == BASE_ITEM_ENCHANTED_WAND 
+			|| nType == BASE_ITEM_MAGICSTAFF || nType == BASE_ITEM_CRAFTED_STAFF 
+			|| nType == BASE_ITEM_CRAFTED_SCEPTER			
+			|| nType == BASE_ITEM_BLANK_WAND 
+			|| nType == BASE_ITEM_MAGICROD || nType == BASE_ITEM_CRAFTED_ROD)
         	{		
 				IPSafeAddItemProperty(oItem, ItemPropertyLimitUseByClass(CLASS_TYPE_BINDER), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);   
 			}

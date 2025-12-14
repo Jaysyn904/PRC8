@@ -35,6 +35,8 @@ int GetWeaponAnimateSize(object oTarget)
             return SIZE_MEDIUM;
             break;
         case BASE_ITEM_DWARVENWARAXE:
+		case BASE_ITEM_CRAFTED_SCEPTER:
+		case BASE_ITEM_CLUB:
         case BASE_ITEM_BATTLEAXE:
         case BASE_ITEM_DAGGER:
         case BASE_ITEM_HANDAXE:
@@ -112,6 +114,8 @@ int GetIsValidAnimate(object oTarget)
         case BASE_ITEM_BASTARDSWORD:
         case BASE_ITEM_BATTLEAXE:
         case BASE_ITEM_DAGGER:
+		case BASE_ITEM_CLUB:
+		case BASE_ITEM_CRAFTED_SCEPTER:
         case BASE_ITEM_DIREMACE:
         case BASE_ITEM_DOUBLEAXE:
         case BASE_ITEM_DWARVENWARAXE:

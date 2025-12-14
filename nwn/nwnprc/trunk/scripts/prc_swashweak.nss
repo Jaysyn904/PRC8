@@ -177,7 +177,7 @@ void main()
                  }
              }
         }
-   if (GetBaseItemType(oWeap)==BASE_ITEM_CLUB)
+   if (GetBaseItemType(oWeap)==BASE_ITEM_CLUB || GetBaseItemType(oWeap)==BASE_ITEM_CRAFTED_SCEPTER)
         {
         if (GetItemHasItemProperty(oWeap, ITEM_PROPERTY_KEEN) == TRUE)
              {
