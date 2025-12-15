@@ -142,8 +142,8 @@ int _GetFeatBonusPP(object oChar)
         nBonusPP += 2;
 
 //:: Hidden Talent
-    if(IsHiddenTalent())
-        nBonusPP += 2 * GetHiddenTalentCount(oChar);
+    if(GetHasFeat(FEAT_HIDDEN_TALENT, oChar))
+        nBonusPP += 2;
 
 //:: Psionic Feats
 	int i;

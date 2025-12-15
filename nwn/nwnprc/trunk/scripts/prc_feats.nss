@@ -635,7 +635,7 @@ void PRCFeat_AddBonusFeats(object oPC, object oSkin)
     if(!GetHasFeat(FEAT_COMBAT_MOVE_3, oPC))
         AddSkinFeat(FEAT_COMBAT_MOVE_3, IP_CONST_FEAT_COMBAT_MOVE_3, oSkin, oPC);           
 
-    if(GetHasFeat(FEAT_WILD_TALENT, oPC))
+    if(GetHasFeat(FEAT_WILD_TALENT, oPC) || (GetHasFeat(FEAT_HIDDEN_TALENT, oPC)))
         AddSkinFeat(FEAT_PSIONIC_FOCUS, IP_CONST_FEAT_PSIONIC_FOCUS, oSkin, oPC);
 	
 	if(IsHiddenTalent())

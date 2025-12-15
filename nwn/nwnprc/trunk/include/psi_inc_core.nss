@@ -1755,6 +1755,59 @@ int IsHiddenTalent(object oPC = OBJECT_SELF)
 	}
 }
 	
+int GetHiddenTalentPowerFromFeat(int nFeatID)  
+{  
+    // Map Hidden Talent feats to their corresponding power IDs  
+    // Using the same mappings as GetIsHiddenTalentPower()  
+    if(nFeatID == FEAT_HIDDEN_TALENT_BIOFEEDBACK)     return POWER_BIOFEEDBACK;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_BITE_WOLF)       return POWER_BITE_WOLF;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_BOLT)            return POWER_BOLT;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_BURST)           return POWER_BURST;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CALLTOMIND)      return POWER_CALLTOMIND;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CALL_WEAPONRY)   return POWER_CALL_WEAPONRY;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CHAMELEON)       return POWER_CHAMELEON;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CLAWS_BEAST)     return POWER_CLAWS_BEAST;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_COMPRESSION)     return POWER_COMPRESSION;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CONCEALTHOUGHT)  return POWER_CONCEALTHOUGHT;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CREATESOUND)     return POWER_CREATESOUND;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_CRYSTALSHARD)    return POWER_CRYSTALSHARD;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DAZE)            return POWER_DAZE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DECELERATION)    return POWER_DECELERATION;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DEFPRECOG)       return POWER_DEFPRECOG;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DEMORALIZE)      return POWER_DEMORALIZE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DISABLE)         return POWER_DISABLE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DISSIPATINGTOUCH)return POWER_DISSIPATINGTOUCH;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_DISTRACT)        return POWER_DISTRACT;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_ELFSIGHT)        return POWER_ELFSIGHT;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_EMPATHY)         return POWER_EMPATHY;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_EMPTYMIND)       return POWER_EMPTYMIND;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_ENTANGLE)        return POWER_ENTANGLE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_EXPANSION)       return POWER_EXPANSION;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_FARHAND)         return POWER_FARHAND;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_FORCESCREEN)     return POWER_FORCESCREEN;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_GREASE)          return POWER_GREASE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_HAMMER)          return POWER_HAMMER;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_INERTIALARMOUR)  return POWER_INERTIALARMOUR;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_MATTERAGITATION) return POWER_MATTERAGITATION;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_METAPHYSICAL_CLAW) return POWER_METAPHYSICAL_CLAW;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_METAPHYSICAL_WEAPON) return POWER_METAPHYSICAL_WEAPON;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_MINDTHRUST)      return POWER_MINDTHRUST;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_MYLIGHT)         return POWER_MYLIGHT;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_OFFPRECOG)       return POWER_OFFPRECOG;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_OFFPRESC)        return POWER_OFFPRESC;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_PREVENOM)        return POWER_PREVENOM;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_PREVENOM_WEAPON) return POWER_PREVENOM_WEAPON;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_SKATE)           return POWER_SKATE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_STOMP)           return POWER_STOMP;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_SYNESTHETE)      return POWER_SYNESTHETE;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_TELEMPATHICPRO)  return POWER_TELEMPATHICPRO;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_THICKSKIN)       return POWER_THICKSKIN;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_VIGOR)           return POWER_VIGOR;  
+    if(nFeatID == FEAT_HIDDEN_TALENT_GRIP_IRON)       return POWER_GRIP_IRON;  
+      
+    return -1; // Not found  
+}	
+
 int GetHiddenTalentCount(object oPC = OBJECT_SELF)
 {
     int nCount = 0;

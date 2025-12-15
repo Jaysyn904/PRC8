@@ -60,7 +60,14 @@ void main()
     ExecuteScript("prc_vassal_treas", oPC);
     ExecuteScript("tob_evnt_recover", oPC);
     ExecuteScript("moi_wchb_royal", oPC);
-
+	
+	// Handle Hidden Talent 
+	if(GetHasFeat(FEAT_HIDDEN_TALENT, oPC) && !GetPersistantLocalInt(oPC, "HiddenTalentChosen"))  
+	{  
+		// Trigger Hidden Talent power selection conversation  
+		AssignCommand(oPC, ActionStartConversation(oPC, "hidden_talent_cv", TRUE, FALSE));  
+	}   
+	
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERLEVELUP);
     if(DEBUG) DoDebug("prc_levelup: Exiting");

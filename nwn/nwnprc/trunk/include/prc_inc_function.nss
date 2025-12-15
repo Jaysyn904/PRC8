@@ -431,7 +431,7 @@ void EvalPRCFeats(object oPC)
         ExecuteScript("moi_events", oPC); 
         
     if (GetIsBinder(oPC))
-        ExecuteScript("bnd_events", oPC);        
+        ExecuteScript("bnd_events", oPC); 
 
     // check if character with crafting feat has appropriate base item in her inventory
     // x - moved from prc_onhb_indiv.nss
