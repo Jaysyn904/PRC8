@@ -13,10 +13,13 @@ void main()
 		// One round recovery time
 		DelayCommand(6.0, DeleteLocalInt(oInitiator, "WarbladeRecoveryRound"));
 		RecoverExpendedManeuvers(oInitiator, MANEUVER_LIST_WARBLADE);
+		DelayCommand(6.5, FloatingTextStringOnCreature("Maneuver recovery completed.", oInitiator));
 	}
 	else
 	{
 		// Delayed Recovery Mechanics
 		ExecuteScript("tob_gen_recover", oInitiator);
 	}
+	
+	FloatingTextStringOnCreature("Maneuver recovery initiated.", oInitiator);
 }

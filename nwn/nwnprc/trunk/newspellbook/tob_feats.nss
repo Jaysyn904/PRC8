@@ -518,7 +518,8 @@ void ShieldSpecialization(object oInitiator)
 {
 	object oItem = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oInitiator);
     // Shield specialization
-    if((GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oInitiator)) || (GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oInitiator)))
+    if((GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oInitiator)) 
+		|| (GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oInitiator)))
     {
 		itemproperty ip = GetFirstItemProperty(oItem);
 		int iTemp;
@@ -914,7 +915,8 @@ void main()
         if(GetHasFeat(FEAT_QUICK_STAFF, oInitiator)) QuickStaff(oInitiator);
         if(GetHasFeat(FEAT_IMPROVED_RAPID_SHOT, oInitiator)) ImprovedRapidShot(oInitiator);
         if(GetHasFeat(FEAT_BEAR_FANG, oInitiator)) BearFangHB(oInitiator);
-        if(GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oInitiator) || GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oInitiator)) ShieldSpecialization(oInitiator);
+		//:: Moved to onEquip and onUnequiped stop constant "Shield AC" spam.
+        //if(GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oInitiator) || GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oInitiator)) ShieldSpecialization(oInitiator);
         if(GetHasFeat(FEAT_FOCUSED_SHIELD, oInitiator)) FocusedShield(oInitiator);
         if(GetHasFeat(FEAT_SHIELDMATE, oInitiator)) Shieldmate(oInitiator);
         if(GetRacialType(oInitiator) == RACIAL_TYPE_RETH_DEKALA) RethDekalaAura(oInitiator);

@@ -16,6 +16,20 @@
 #include "prc_inc_combat"
 #include "prc_inc_template"
 
+//:: Shield Specialization moved here to stop Shield AC message spam
+void RemoveShieldSpecialization(object oPC, object oItem)   
+{
+	effect eOldEffect = GetFirstEffect(oPC);
+	while (GetIsEffectValid(eOldEffect))
+	{
+		if (GetEffectTag(eOldEffect) == "ShieldSpecialization")
+		{
+			RemoveEffect(oPC, eOldEffect);
+		}
+		eOldEffect = GetNextEffect(oPC);
+	}
+}
+
 void PrcFeats(object oPC, object oItem)
 {
      SetLocalInt(oPC,"ONEQUIP",1);
@@ -72,13 +86,14 @@ void main()
 {
     object oItem = GetItemLastUnequipped();
     object oPC   = GetItemLastUnequippedBy();
-
+	
 //if(DEBUG) DoDebug("Running OnUnEquip, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
     DoTimestopUnEquip(oPC, oItem);
 	
 	DoGloveUnequip(oItem);
-    
+	
+	    
     if (GetResRef(oItem) == "prc_crown_might") DestroyObject(oItem);    
     if (GetResRef(oItem) == "prc_crown_prot") DestroyObject(oItem); 
 
@@ -91,6 +106,12 @@ void main()
 	{
 		DestroyObject(oItem);	
 	}
+	
+	if((GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oPC)) 
+	|| (GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oPC)))
+    {
+		RemoveShieldSpecialization(oPC, oItem);
+	}	
 	
 	int nClaw = GetStringLeft(GetResRef(oItem), 12) == "prc_diaclaw_" ? TRUE : FALSE;
     if(nClaw)DestroyObject(oItem);	

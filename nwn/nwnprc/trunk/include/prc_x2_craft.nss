@@ -1782,9 +1782,14 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
         // If they have this active, the bonuses are already added, so skip
         // If they don't, add the bonuses down below
         if(GetHasSpellEffect(SPELL_RUNE_CHANT))
-            nRuneChant = 0;
+            nRuneChant = 0;       
 
-        itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, PRCGetCasterLevel());
+		//:: Check for Inscribe Epic Runes and cap CL at 20 if it doesn't exist.
+		nCaster = PRCGetCasterLevel();
+		
+		if (!bEpicRunes) { if(nCaster > 20) nCaster = 20; }	
+		
+		itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, nCaster);
         AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel,oRune);
         itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpell, PRCGetMetaMagicFeat());
         AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta,oRune);

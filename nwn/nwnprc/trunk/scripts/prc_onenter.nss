@@ -9,6 +9,24 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
+void RestoreForsakerAbilities(object oPC)
+{
+    int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
+    int i;
+	
+    for(i = 1; i <= nForsakerLevel; i++)
+    {
+        int nAbility = GetPersistantLocalInt(oPC, "ForsakerBoost" + IntToString(i));
+        
+        if(nAbility > 0 && nAbility <= 6)
+        {
+            effect eAbility = EffectAbilityIncrease(nAbility - 1, 1);
+            eAbility = SupernaturalEffect(eAbility);
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC);
+        }
+    }
+}
+
 /**
  * Reads the 2da file onenter_locals.2da and sets local variables
  * on the entering PC accordingly. 2da format same as personal_switches.2da,
@@ -220,6 +238,11 @@ void main()
 	if (GetHasFeat(FEAT_VOWOFPOVERTY, oPC) == TRUE) 
 	{
 		ExecuteScript("prc_vop_feats_oe", oPC);
+	}
+
+	if (GetLevelByClass(CLASS_TYPE_FORSAKER, oPC) >= 1) 
+	{
+		RestoreForsakerAbilities(oPC);
 	}
 	
     ResetTouchOfVitality(oPC);

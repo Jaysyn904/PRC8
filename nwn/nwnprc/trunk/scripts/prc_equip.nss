@@ -23,6 +23,45 @@
 //Removed the delay. It was messing up evaluation scripts that use GetItemLastEquipped(By)
 //  Ornedan - 07.03.2005
 
+
+//:: Shield Specialization moved here to stop Shield AC message spam
+void ApplyShieldSpecialization(object oPC, object oItem)
+{
+	itemproperty ip = GetFirstItemProperty(oItem);
+	int iTemp;
+	while(GetIsItemPropertyValid(ip))
+	{
+		int iIpType = GetItemPropertyType(ip);
+		if (iIpType == ITEM_PROPERTY_AC_BONUS)
+		{
+			iTemp = GetItemPropertyCostTableValue(ip);
+			break;
+		}    
+
+		ip = GetNextItemProperty(oItem);
+	}	
+	
+	// Remove any existing shield specialization effect to prevent stacking
+	effect eOldEffect = GetFirstEffect(oPC);
+	while (GetIsEffectValid(eOldEffect))
+	{
+		if (GetEffectTag(eOldEffect) == "ShieldSpecialization")
+		{
+			RemoveEffect(oPC, eOldEffect);
+		}
+		eOldEffect = GetNextEffect(oPC);
+	}
+	
+	// Apply the shield specialization bonus with TagEffect
+	effect eShieldBonus = EffectACIncrease(iTemp+1, AC_SHIELD_ENCHANTMENT_BONUS);
+	UnyieldingEffect(eShieldBonus);
+	//effect eShieldBonus = EffectACIncrease(iTemp+1, AC_DODGE_BONUS);
+	eShieldBonus = TagEffect(eShieldBonus, "ShieldSpecialization");
+	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eShieldBonus, oPC);
+  	 		 
+}
+
+
 void main()
 {
     object oItem = GetItemLastEquipped();
@@ -31,8 +70,10 @@ void main()
     if(!GetIsObjectValid(oPC))
         return;
 	
+	if(DEBUG) DoDebug("prc_equip: Running event script.");
+	
 	//:: Use with bioware polymorphs
-	DetectMonkGloveEquip(oItem);
+	DetectMonkGloveEquip(oItem);	
 
     //if(DEBUG) DoDebug("Running OnEquip, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
@@ -73,6 +114,7 @@ void main()
         ForceUnequip(oPC, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC), INVENTORY_SLOT_RIGHTHAND);
         SendMessageToPC(oPC, "You cannot use your right hand");
     }
+	
     if (GetHasSpellEffect(SPELL_LUMINOUS_ARMOR, oPC) || GetHasSpellEffect(SPELL_GREATER_LUMINOUS_ARMOR, oPC))
     {
         object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
@@ -87,7 +129,7 @@ void main()
 
     //timestop noncombat equip
     DoTimestopEquip(oPC, oItem);
-	
+
 //:: Saint / Holy Touch doesn't work w/ ranged weapons
 	if (GetHasTemplate(TEMPLATE_SAINT, oPC))
 	{
@@ -123,26 +165,41 @@ void main()
 	}
 
 //:: Clear Echoblade effect if weapon is changed
-	int nBaseItem = GetBaseItemType(oItem);
+	int nBaseItemType = GetBaseItemType(oItem);
 	
 	effect eEffect = GetFirstEffect(oPC);
 	
-	if (nBaseItem == BASE_ITEM_AMULET || nBaseItem == BASE_ITEM_ARMOR ||  nBaseItem == BASE_ITEM_ARROW ||  nBaseItem == BASE_ITEM_BELT ||  nBaseItem == BASE_ITEM_BOLT ||  nBaseItem == BASE_ITEM_BOOTS 
-	||  nBaseItem == BASE_ITEM_BRACER ||  nBaseItem == BASE_ITEM_BULLET ||  nBaseItem == BASE_ITEM_CBLUDGWEAPON ||  nBaseItem == BASE_ITEM_CLOAK ||  nBaseItem == BASE_ITEM_CPIERCWEAPON 
-	||  nBaseItem == BASE_ITEM_CREATUREITEM ||  nBaseItem == BASE_ITEM_CSLASHWEAPON ||  nBaseItem == BASE_ITEM_CSLSHPRCWEAP ||  nBaseItem == BASE_ITEM_GLOVES ||  nBaseItem == BASE_ITEM_HELMET 
-	||  nBaseItem == BASE_ITEM_RING ||  nBaseItem == BASE_ITEM_LARGESHIELD ||  nBaseItem == BASE_ITEM_RING ||  nBaseItem == BASE_ITEM_SMALLSHIELD ||  nBaseItem == BASE_ITEM_TOWERSHIELD)  
+	if (nBaseItemType != BASE_ITEM_AMULET && nBaseItemType != BASE_ITEM_ARMOR &&  nBaseItemType != BASE_ITEM_ARROW &&  nBaseItemType != BASE_ITEM_BELT &&  nBaseItemType != BASE_ITEM_BOLT &&  nBaseItemType != BASE_ITEM_BOOTS 
+	&&  nBaseItemType != BASE_ITEM_BRACER &&  nBaseItemType != BASE_ITEM_BULLET &&  nBaseItemType != BASE_ITEM_CBLUDGWEAPON &&  nBaseItemType != BASE_ITEM_CLOAK &&  nBaseItemType != BASE_ITEM_CPIERCWEAPON 
+	&&  nBaseItemType != BASE_ITEM_CREATUREITEM &&  nBaseItemType != BASE_ITEM_CSLASHWEAPON &&  nBaseItemType != BASE_ITEM_CSLSHPRCWEAP &&  nBaseItemType != BASE_ITEM_GLOVES &&  nBaseItemType != BASE_ITEM_HELMET 
+	&&  nBaseItemType != BASE_ITEM_RING &&  nBaseItemType != BASE_ITEM_LARGESHIELD &&  nBaseItemType != BASE_ITEM_RING &&  nBaseItemType != BASE_ITEM_SMALLSHIELD &&  nBaseItemType != BASE_ITEM_TOWERSHIELD) 
 	{
-		return;
-	}
-	else
-	{
+		// Only remove echoblade for weapon types
 		while(GetIsEffectValid(eEffect))
 		{
-			if(GetEffectTag(eEffect) == "Echoblade")
-			RemoveEffect(oPC, eEffect);
+			if(GetEffectTag(eEffect) != "Echoblade")
+				RemoveEffect(oPC, eEffect);
 			eEffect = GetNextEffect(oPC);
-		}	
-	}	
+		}
+	}
+
+/* 	if((nBaseItemType == BASE_ITEM_SMALLSHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oPC)) 
+	|| (nBaseItemType == BASE_ITEM_LARGESHIELD && GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oPC))) */
+
+	if(DEBUG) DoDebug("prc_equip: nBaseItemType is: "+ IntToString(nBaseItemType) +".");
+	
+	if(nBaseItemType == BASE_ITEM_SMALLSHIELD || nBaseItemType == BASE_ITEM_LARGESHIELD)
+    {
+		if(DEBUG) DoDebug("prc_equip: Large or Small Shield found.");
+		
+		if(GetHasFeat(FEAT_SHIELD_SPECIALIZATION_LIGHT, oPC) || GetHasFeat(FEAT_SHIELD_SPECIALIZATION_HEAVY, oPC))
+		{
+			if(DEBUG) DoDebug("prc_equip: Shield Specialization found.");
+			
+			ApplyShieldSpecialization(oPC, oItem);
+		}
+	}
+	
 	
 //:: Execute scripts hooked to this event for the creature and item triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYEREQUIPITEM);
