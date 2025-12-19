@@ -48,7 +48,8 @@ void main()
     int nLevel = PRCGetCasterLevel(oCaster);
     float fDuration = TurnsToSeconds(nLevel);
 
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oCaster, fDuration);
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oCaster, 3.0f);
+	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IOUN_STONE_RED), oCaster, fDuration);
 
     DetectRaceAura(0, RACIAL_TYPE_UNDEAD, GetLocation(oCaster), VFX_BEAM_ODD, FeetToMeters(60.0));
 

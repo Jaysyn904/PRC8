@@ -1,0 +1,24 @@
+2DA V2.0
+
+           SkillIndex Label          
+0          28         Jump           
+1          5          Hide           
+2          8          MoveSilently   
+3          12         Persuade       
+4          17         Spot           
+5          19         UseMagicDevice 
+6          7          Lore           
+7          16         Spellcraft     
+8          23         Bluff          
+9          14         Search         
+10         4          Heal           
+11         24         Intimidate     
+12         6          Listen         
+13         34         CraftAlchemy   
+14         35         CraftPoison    
+15         38         GraftGeneral   
+16         26         CraftWeapon    
+17         25         CraftArmor     
+18         37         Climb          
+19         29         Truespeak      
+20         20         Appraise       

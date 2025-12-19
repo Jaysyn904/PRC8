@@ -47748,36 +47748,29 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57593" lang="en" sex="m">Default Scout</entry>
   <entry id="57594" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57595" lang="en" sex="m">Default Healer</entry>
-  <entry id="57596" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57597" lang="en" sex="m">Default Beguiler</entry>
-  <entry id="57598" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57595" lang="en" sex="m">****</entry>
+  <entry id="57596" lang="en" sex="m">****</entry>
+  <entry id="57597" lang="en" sex="m">****</entry>
+  <entry id="57598" lang="en" sex="m">****</entry>
   <entry id="57599" lang="en" sex="m">Default Artificer</entry>
   <entry id="57600" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57601" lang="en" sex="m">Default Warlock</entry>
-  <entry id="57602" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57603" lang="en" sex="m">Default Anti-Paladin</entry>
-  <entry id="57604" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57605" lang="en" sex="m">Default Ultimate Ranger</entry>
-  <entry id="57606" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57607" lang="en" sex="m">Default Bowman</entry>
-  <entry id="57608" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57601" lang="en" sex="m">****</entry>
+  <entry id="57602" lang="en" sex="m">****</entry>
+  <entry id="57603" lang="en" sex="m">****</entry>
+  <entry id="57604" lang="en" sex="m">****</entry>
+  <entry id="57605" lang="en" sex="m">****</entry>
+  <entry id="57606" lang="en" sex="m">****</entry>
+  <entry id="57607" lang="en" sex="m">****</entry>
+  <entry id="57608" lang="en" sex="m">****</entry>
   <entry id="57609" lang="en" sex="m">Default Samurai</entry>
   <entry id="57610" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
   <entry id="57611" lang="en" sex="m">Default Ninja</entry>
   <entry id="57612" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57613" lang="en" sex="m">Default Dragon Shaman</entry>
-  <entry id="57614" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57613" lang="en" sex="m">****</entry>
+  <entry id="57614" lang="en" sex="m">****</entry>
   <entry id="57615" lang="en" sex="m">Default Dragonfire Adept</entry>
   <entry id="57616" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
@@ -47796,12 +47789,10 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57625" lang="en" sex="m">Default Dread Necromancer</entry>
   <entry id="57626" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57627" lang="en" sex="m">Default Mystic</entry>
-  <entry id="57628" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57629" lang="en" sex="m">Default Noble</entry>
-  <entry id="57630" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57627" lang="en" sex="m">****</entry>
+  <entry id="57628" lang="en" sex="m">****</entry>
+  <entry id="57629" lang="en" sex="m">****</entry>
+  <entry id="57630" lang="en" sex="m">****</entry>
   <entry id="57631" lang="en" sex="m">Default Archivist</entry>
   <entry id="57632" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
@@ -47838,9 +47829,8 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57653" lang="en" sex="m">Default Knight</entry>
   <entry id="57654" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57655" lang="en" sex="m">Default Brawler</entry>
-  <entry id="57656" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57655" lang="en" sex="m">****</entry>
+  <entry id="57656" lang="en" sex="m">****</entry>
   <entry id="57657" lang="en" sex="m">Two Weapon Pounce</entry>
   <entry id="57658" lang="en" sex="m">Type of Feat: General
 Prerequisite: Two-Weapon Fighting, Dex 15, Base Attack Bonus +6 
@@ -75482,6 +75472,47 @@ Light Crossbow
   <entry id="211408" lang="en" sex="m">Beguiler4</entry>
   <entry id="211409" lang="en" sex="m">Beguiler5</entry>
   <entry id="211410" lang="en" sex="m">Beguiler5</entry>
+  <entry id="211411" lang="en" sex="m">Dragon Shaman (Defender)</entry>
+  <entry id="211412" lang="en" sex="m">(STARTING PACKAGE)
+
+The defender package focuses on standing firm in the front line, using draconic resilience and supportive auras to absorb enemy pressure, protect allies, and maintain control of key positions on the battlefield.
+
+Equipment:
+Torch
+Large Shield
+Scale Mail
+Morningstar
+Sling
+(2) pouches of bullets
+(3) Healing Kits</entry>
+  <entry id="211413" lang="en" sex="m">Dragon Shaman (Destroyer)</entry>
+  <entry id="211414" lang="en" sex="m">(STARTING PACKAGE)
+
+The Destroyer pacakage on dealing steady, close-range damage while pressing the attack, using draconic power and offensive auras to overwhelm enemies and break opposing lines.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Morningstar
+50 Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211415" lang="en" sex="m">Dragon Shaman (Second-Rank Warrior)</entry>
+  <entry id="211416" lang="en" sex="m">(STARTING PACKAGE)
+
+The second-rank warrior focuses on supporting the front line from just behind it, reinforcing allies with draconic auras while delivering reliable melee attacks and exploiting openings without drawing primary enemy focus.
+
+Equipment:
+Torch
+Studded Leather
+Spear
+Light Crossbow
+(2) quivers of bolts.
+(3) Healing Kits</entry>
+  <entry id="211417" lang="en" sex="m">Dragon Shaman 4</entry>
+  <entry id="211418" lang="en" sex="m">Dragon Shaman 4</entry>
+  <entry id="211419" lang="en" sex="m">Dragon Shaman 5</entry>
+  <entry id="211420" lang="en" sex="m">Dragon Shaman 5</entry>
   <entry id="211493" lang="en" sex="m">Healer (Default)</entry>
   <entry id="211494" lang="en" sex="m">(STARTING PACKAGE)
 

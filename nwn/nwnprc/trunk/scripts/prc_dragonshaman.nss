@@ -37,13 +37,13 @@ void main()
         IPSafeAddItemProperty(oSkin, ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_FEAR), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     }
 
-    // For Draconic Armor
-    if(GetHasFeat(FEAT_DRAGONSHAMAN_ARMOR, oPC))
+    // For Draconic Armor  <- handled in cls_stat_drgshm now -Jaysyn
+/*     if(GetHasFeat(FEAT_DRAGONSHAMAN_ARMOR, oPC))
     {
         int nBonus = (GetLevelByClass(CLASS_TYPE_DRAGON_SHAMAN, oPC) - 2) / 5;//+1 every 5 levels starting at lvl 7
         SetCompositeBonus(oSkin, "ScaleThicken", nBonus, ITEM_PROPERTY_AC_BONUS);
     }
-
+ */
     //For Energy Immunity
     if(GetHasFeat(FEAT_DRAGONSHAMAN_ENERGY_IMMUNITY, oPC))
     {

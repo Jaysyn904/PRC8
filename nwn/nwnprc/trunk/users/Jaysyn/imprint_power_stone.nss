@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------  
 int CICraftCheckImprintPowerStone(object oSpellTarget, object oCaster, int nPowerID = 0)  
 {  
-    if(nPowerID == 0) nPowerID = PRCGetSpellId(); // Using same function for powers  
+    if(nPowerID == 0) nPowerID = PRCGetSpellId();  
   
     // -------------------------------------------------------------------------  
     // check if imprint stone feat is there  
@@ -17,7 +17,7 @@ int CICraftCheckImprintPowerStone(object oSpellTarget, object oCaster, int nPowe
     // -------------------------------------------------------------------------  
     // Check if the power is allowed to be used with Imprint Stone  
     // -------------------------------------------------------------------------  
-    if (CIGetIsSpellRestrictedFromCraftFeat(nPowerID, FEAT_IMPRINT_STONE)) // Using same restriction function  
+    if (CIGetIsSpellRestrictedFromCraftFeat(nPowerID, FEAT_IMPRINT_STONE))  
     {  
         FloatingTextStrRefOnCreature(83451, oCaster); // can not be used with this feat  
         return TRUE;  
@@ -54,12 +54,13 @@ int CICraftCheckImprintPowerStone(object oSpellTarget, object oCaster, int nPowe
          return TRUE;  
     }  
   
-    //check power emulation (using same function)  
+	//:: Warlocks & Artificers can't craft psionic items.
+/*     //check power emulation  
     if(!CheckAlternativeCrafting(oCaster, nPowerID, costs))  
     {  
         FloatingTextStringOnCreature("*Crafting failed!*", oCaster, FALSE);  
         return TRUE;  
-    }  
+    }   */
   
     // -------------------------------------------------------------------------  
     // Here we imprint the power stone  
@@ -153,9 +154,9 @@ object CICraftImprintPowerStone(object oCreator, int nPowerID)
     string sClass = "";  
     switch (nClass)  
     {  
-        case CLASS_TYPE_PSION:      sClass = "Psion"; break;  
-        case CLASS_TYPE_PSYCHIC_WARRIOR: sClass = "PsychicWarrior"; break;  
-        case CLASS_TYPE_WILDER:     sClass = "Wilder"; break;  
+        case CLASS_TYPE_PSION:      		sClass = "Psion"; break;  
+        case CLASS_TYPE_PSYCHIC_WARRIOR:	sClass = "PsychicWarrior"; break;  
+        case CLASS_TYPE_WILDER:     		sClass = "Wilder"; break;  
     }  
   
     object oTarget = OBJECT_INVALID;  
@@ -165,11 +166,11 @@ object CICraftImprintPowerStone(object oCreator, int nPowerID)
     if (sClass != "")  
     {  
         // Try original first (so if you made a subradial-specific template it will be used)  
-        sResRef = Get2DACache("des_crft_powerstone", sClass, nPowerOriginal);  
+        sResRef = Get2DACache("des_crft_pwstone", sClass, nPowerOriginal);  
         if (sResRef == "")  
         {  
             // fallback to the power that matched an iprp row (master or original)  
-            sResRef = Get2DACache("des_crft_powerstone", sClass, nPowerUsedForIP);  
+            sResRef = Get2DACache("des_crft_pwstone", sClass, nPowerUsedForIP);  
         }  
         if (sResRef != "")  
         {  
