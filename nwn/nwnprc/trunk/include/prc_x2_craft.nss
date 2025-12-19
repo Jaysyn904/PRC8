@@ -1897,12 +1897,22 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
     // oTarget here should be the gem. If it's not, fail.
     if(!GetIsObjectValid(oTarget)) oTarget = PRCGetSpellTargetObject();
     // Only accepts bioware gems & Craftable Natural Resources gems, but not gem dust.
-    if ((GetStringLeft(GetResRef(oTarget), 5) == "it_gem") || (GetStringLeft(GetResRef(oTarget), 6) == "cnrgem") && (GetStringLeft(GetResRef(oTarget), 10) != "cnrgemdust"))
+	int bIsBioGem = (GetStringLeft(GetResRef(oTarget), 5) == "it_gem");
+	int bIsCNRGem = (GetStringLeft(GetResRef(oTarget), 6) == "cnrgem");
+	int bIsDust   = (GetStringLeft(GetResRef(oTarget), 10) == "cnrgemdust");
+
+	if (!(bIsBioGem || bIsCNRGem) || bIsDust)
+	{
+		FloatingTextStringOnCreature("Spell target is not a valid gem.", oCaster, FALSE);
+		return TRUE;
+	}
+	
+/*     if ((GetStringLeft(GetResRef(oTarget), 5) == "it_gem") || (GetStringLeft(GetResRef(oTarget), 6) == "cnrgem") && (GetStringLeft(GetResRef(oTarget), 10) != "cnrgemdust"))
     {
         FloatingTextStringOnCreature("Spell target is not a valid gem.", oCaster, FALSE);
         // And out we go
         return TRUE;
-    }
+    } */
 
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
     int nDC = PRCGetSaveDC(oTarget, oCaster);
@@ -3613,5 +3623,4 @@ object CICreateInfusion(object oCreator, int nSpellID)
 
 
 // Test main
-// 
-void main(){}
+// void main(){}
