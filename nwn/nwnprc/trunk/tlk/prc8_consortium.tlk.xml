@@ -248,7 +248,7 @@ Every 2 levels the character gains new spells per day as if they had also gained
   <entry id="12330" lang="en" sex="m">Having become a paragon of the way of Bushido and achieved enlightenment, tales of your bravery and honour have spread far and wide.  None dare oppose you or question your will.
 
 Hit Die: d10.
-Skill Points at Each Additional Level: 4 + Int Modifier.
+Skill Points at Each Additional Level: 4+ Int Modifier.
 Bonus Feats: The epic samurai gains a bonus feat every two levels after 20th.
 To further improve your Ancestral Daisho ability, you must take the Epic Ancestral Daisho feats.
 
@@ -1988,7 +1988,7 @@ An unwilling creature can't be teleported by word of recall. Likewise, a creatur
   <entry id="12765" lang="en" sex="m">Knowledge is power and the quest for knowledge never ends. There is an ever lasting supply of divine lore for you, the epic archivist, to discover.
 
 Hit Die: d6
-- Skill Points: 4+ Int Modifier.
+Skill Points: 4+ Int Modifier.
 Dark Knowledge (Ex): At 21st level and every 3 levels thereafter, the epic archivist gains an additional use of Dark Knowledge.
 Lore Mastery (Ex): The archivist adds an additional +1 bonus on all Lore skill checks at level 23 and every 5 levels thereafter.
 Bonus Feats: The epic archivist gains a bonus feat (selected from the list of epic class bonus feats) every three levels higher than 20th.
@@ -5286,8 +5286,7 @@ Baelnorn Properties: +8 bonus to Hide, Listen, Move Silently, Search, Persuade, 
   <entry id="16565" lang="en" sex="m">Myconid</entry>
   <entry id="16566" lang="en" sex="m">Algoid</entry>
   <entry id="16567" lang="en" sex="m">****</entry>
-  <entry id="16568" lang="en" sex="m">****
-</entry>
+  <entry id="16568" lang="en" sex="m">****</entry>
   <entry id="16569" lang="en" sex="m">****</entry>
   <entry id="16570" lang="en" sex="m">****</entry>
   <entry id="16571" lang="en" sex="m">Abundant Step (Su)</entry>
@@ -5777,7 +5776,7 @@ Level
   <entry id="45091" lang="en" sex="m">With Bane guiding your every step, you have ascended through the ranks of Bane's faithful to become a symbol of his domination and power.
 
 Hit Die: d10.
-Skill Points: 2 + Int Modifier.
+Skill Points: 2+ Int Modifier.
 Bonus Feats: The Epic Champion of Bane gains a bonus feat every four levels.
 Special:
 Sacred Defense: Saving throws continue to improve by +1 every 2 levels.
@@ -8044,7 +8043,7 @@ A mortal imbued with fiendish cruelty, the drow judicator is a knight most foul.
 
 -Hit Die: d8.
 -Proficiencies: All simple and martial weapons, light, medium and heavy armor, small and large shields
--Skill Points: 2 + Int Modifier.
+-Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS
 Alignment: Any evil
@@ -10516,7 +10515,7 @@ Epic Soulknife:
 
 The epic soulknife is adept at channeling the entirety of his psychic might into the creation of an increasingly potent blade of mental energy.
   Hit Die: d10
-  Skill Points at Each Additional Level: 4 + Int modifier.
+  Skill Points at Each Additional Level: 4+ Int Modifier.
   Mind Blade: At 25th level and every five levels thereafter, the soulknife gains an additional +1 enhancement bonus on attack rolls and damage rolls (+6 at 25th, +7 at 30th, and so on).
   Mind Blade Enhancement: The epic soulknife's mind blade gains additional powers as the soulknife gains epic levels. At 22nd level and every four levels thereafter, the soulknife can improve the value of the weapon special abilities on his mind blade by 1 (+5 equivalent bonus at 22nd, +6 at 26th, and so on). As noted in the soulknife class description, reassigning qualities still takes 8 hours of concentration.
   Psychic strike: The epic soulknife's psychic strike progression continues past 20th level, continuing to grant an additional die (d8) of damage every four levels higher than 19th (+6d8 at 23rd, +7d8 at 27th, and so on).
@@ -14756,8 +14755,7 @@ Level:
   <entry id="47155" lang="en" sex="m">Archetypal Form</entry>
   <entry id="47156" lang="en" sex="m">Type of Feat: Builder's Tool
 Prerequisite: A creature you don't want people to polymorph into
-Specifics: The presence of this feat on a creature, as tested for using GetHasFeat(), prevents the use of it as a template
-by users of PRC polymorphing mechanics (PnP Shifter, Soul Eater, etc.)
+Specifics: The presence of this feat on a creature, as tested for using GetHasFeat(), prevents the use of it as a template by users of PRC polymorphing mechanics (PnP Shifter, Soul Eater, etc.)
 Use: Automatic, used in the function GetCanShiftIntoCreature() in prc_inc_shifting</entry>
   <entry id="47157" lang="en" sex="m">Soak 4 Damage</entry>
   <entry id="47158" lang="en" sex="m">Soak 6 Damage</entry>
@@ -23076,7 +23074,7 @@ Special Abilities:
 
 (The following may or may not be in use, depending on the module switch settings)
 Level Adjustment: +3
-Racial Hit Dice/Class: 4 of Monstrous Humanoid</entry>
+Racial Hit Dice/Class: 5 of Monstrous Humanoid</entry>
   <entry id="49745" lang="en" sex="m">The wild, empty savannah is not enough to satisfy your natural curiosity about the world for any length of time. Forsaking your own pride, at least for the time being, your wanderings have brought you in contact with the puny Two-Legs who leap so boldly into the face of adventure.</entry>
   <entry id="49746" lang="en" sex="m">Brownie</entry>
   <entry id="49747" lang="en" sex="m">brownie</entry>
@@ -46384,7 +46382,7 @@ Level: 0 1 2 3 4 5 6 7 8 9
 
 Hit Die: d8
 
-Skill Points at Each Additional Level: 4 + Int modifier.
+Skill Points at Each Additional Level: 4+ Int Modifier.
 
 Spells: Your caster level is equal to your class level. Your number of spells per day does not increase after 20th level.
 
@@ -68835,7 +68833,7 @@ Epic Warlock Bonus Feats: Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft
 
 Hit Die: d6.
 
-Skill Points at Each Additional Level: 4 + Int modifier.
+Skill Points at Each Additional Level: 4+ Int Modifier.
 
 Spells: The epic shaman's caster level is equal to his class level. The shaman's number of spells per day does not increase after 20th level. 
 
@@ -75516,7 +75514,7 @@ Light Crossbow
   <entry id="211493" lang="en" sex="m">Healer (Default)</entry>
   <entry id="211494" lang="en" sex="m">(STARTING PACKAGE)
 
-The default healer package is focused on survivability &amp; increasing the amount of healing the Healer can perform per spell or skill check.
+The default healer package is focused on survivability and increasing the amount of healing the Healer can perform per spell or skill check.
 
 Equipment:
 Torch

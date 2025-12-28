@@ -18,4 +18,4 @@ Extract archive contents to your NWN directory according to file type:
 | erf | erf |  
 | tlk | tlk |  
 | 2da | override |  
-| mod | module |
+| mod | modules |

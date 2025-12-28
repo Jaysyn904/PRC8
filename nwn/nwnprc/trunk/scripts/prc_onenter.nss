@@ -8,6 +8,7 @@
 #include "prc_inc_dragsham"
 #include "shd_inc_myst"
 #include "prc_inc_template"
+#include "prc_inc_factotum" 
 
 void RestoreForsakerAbilities(object oPC)
 {
@@ -244,6 +245,17 @@ void main()
 	{
 		RestoreForsakerAbilities(oPC);
 	}
+
+    if(GetLevelByClass(CLASS_TYPE_FACTOTUM, oPC) > 0)
+    {
+        // Re-add all event hooks that were lost during disconnect
+        AddEventScript(oPC, EVENT_ONPLAYERREST_FINISHED, "prc_factotum", FALSE, FALSE);
+        // Reinitialize the Inspiration system
+        DeleteLocalInt(oPC, "InspirationHB");
+        DeleteLocalInt(oPC, "InspirationHBRunning");
+        TriggerInspiration(oPC, FALSE);
+        SetLocalInt(oPC, "InspirationHB", TRUE);
+    }
 	
     ResetTouchOfVitality(oPC);
     DelayCommand(0.15, DeleteLocalInt(oPC,"ONENTER"));

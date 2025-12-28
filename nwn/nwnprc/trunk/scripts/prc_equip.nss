@@ -177,7 +177,7 @@ void main()
 		// Only remove echoblade for weapon types
 		while(GetIsEffectValid(eEffect))
 		{
-			if(GetEffectTag(eEffect) != "Echoblade")
+			if(GetEffectTag(eEffect) == "Echoblade")
 				RemoveEffect(oPC, eEffect);
 			eEffect = GetNextEffect(oPC);
 		}

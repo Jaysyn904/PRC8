@@ -487,7 +487,8 @@ void SpellfireChargeItem(object oPC, object oItem)
             AddSpellfireLevels(oPC, nNewCharges - 50);
             nNewCharges = 50;
         }
-        SetItemCharges(oItem, nCharges + nExpend);
+        //SetItemCharges(oItem, nCharges + nExpend);
+		SetItemCharges(oItem, nNewCharges);
         //Assuming 50 is the maximum
            //refunding excess charges
     }

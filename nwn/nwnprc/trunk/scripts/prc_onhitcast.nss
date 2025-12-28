@@ -620,10 +620,11 @@ void main()
 				if(DEBUG) DoDebug("prc_onhit: PoBD onHit >> restting AC.");
 				DeleteLocalInt(oSpellOrigin, "PearlOfBlackDoubtBonus");
 				RemoveEffect(oSpellOrigin, eEffect);
+				
+				SetLocalInt(oSpellOrigin, "PearlOfBlackDoubt_JustHit", TRUE);
 			}
 			eEffect = GetNextEffect(oSpellOrigin);
-		}
-
+		}		
     }
     // Tactics of the Wolf
     if(GetHasSpellEffect(MOVE_WR_TACTICS_WOLF, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR)

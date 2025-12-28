@@ -94,8 +94,36 @@ void main()
 		float fLength 		= FeetToMeters(60.0);
 		
         effect eNone;
-		
 		SetLocalInt(oPC, "WhirlingBlade", TRUE);
+ 
+		// Store original location to prevent movement
+		location lOrigin = GetLocation(oPC);
+		 
+		object oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, 
+			OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
+		 
+		while(GetIsObjectValid(oTarget))
+		{
+			if (oTarget != oPC && GetIsReactionTypeHostile(oTarget, oPC))
+			{
+				// Clear actions to prevent automatic movement
+				AssignCommand(oPC, ClearAllActions(TRUE));
+				
+				// Perform the attack with stat bonus to BOTH attack and damage
+				DelayCommand(0.0, PerformAttack(oTarget, oPC, eNone, 0.0, 
+					nStatBonus, nStatBonus, 0,  // ? Fixed: was (nStatBonus, 0, 0)
+					"Whirling Blade: Hit!", "Whirling Blade: Miss!"));
+				
+				// Force caster back to original position if they moved
+				DelayCommand(0.1, AssignCommand(oPC, ActionJumpToLocation(lOrigin)));
+			}
+			oTarget = MyNextObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, 
+				OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
+		}
+		 
+		DelayCommand(1.0f, DeleteLocalInt(oPC, "WhirlingBlade"));
+		
+/* 		SetLocalInt(oPC, "WhirlingBlade", TRUE);
 		
         object oTarget = MyFirstObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
         
@@ -103,10 +131,11 @@ void main()
         {
                 if (oTarget != oPC && GetIsReactionTypeHostile(oTarget, oPC))
                 {
-                        DelayCommand(0.0, PerformAttack(oTarget, oPC, eNone, 0.0, nStatBonus, 0, 0, "Whirling Blade: Hit!", "Whirling Blade: Miss!"));
+                        DelayCommand(0.0, PerformAttack(oTarget, oPC, eNone, 0.0, nStatBonus, nStatBonus, 0, 
+								"Whirling Blade: Hit!", "Whirling Blade: Miss!", TOUCH_ATTACK_RANGED_SPELL));
                 }
                 oTarget = MyNextObjectInShape(SHAPE_SPELLCYLINDER, fLength, lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE, vOrigin);
-        }
+        } */
 		DelayCommand(1.0f, DeleteLocalInt(oPC, "WhirlingBlade"));
         PRCSetSchool();
 }

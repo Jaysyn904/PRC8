@@ -7,6 +7,46 @@
 
 void main()
 {
+    object oPC = OBJECT_SELF;
+    string sMsg;
+
+    if (!GetLocalInt(oPC, "HavocMageBattlecast"))
+    {
+        // Activate
+        effect eFeat = EffectBonusFeat(FEAT_EPIC_IMPROVED_COMBAT_CASTING);
+        eFeat = UnyieldingEffect(eFeat);
+        TagEffect(eFeat, "BATTLECAST_FEAT");
+
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eFeat, oPC);
+        SetLocalInt(oPC, "HavocMageBattlecast", TRUE);
+
+        sMsg = "*Battlecast Activated*";
+    }
+    else
+    {
+        // Deactivate: remove the tagged unyielding effect
+        effect e = GetFirstEffect(oPC);
+        while (GetIsEffectValid(e))
+        {
+            if (GetEffectTag(e) == "BATTLECAST_FEAT")
+            {
+                RemoveEffect(oPC, e);
+                break;
+            }
+            e = GetNextEffect(oPC);
+        }
+
+        DeleteLocalInt(oPC, "HavocMageBattlecast");
+        sMsg = "*Battlecast Deactivated*";
+    }
+
+    FloatingTextStringOnCreature(sMsg, oPC, FALSE);
+}
+
+
+
+/* void main()
+{
 
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
@@ -29,4 +69,4 @@ void main()
     }
 
     FloatingTextStringOnCreature(nMes, oPC, FALSE);
-}
+} */

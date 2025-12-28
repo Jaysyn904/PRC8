@@ -39,7 +39,6 @@ void main()
   check psi_spellhook to find out more
 
 */
-
     if (!PsiPrePowerCastCode())
     {
     // If code within the PrePowerCastHook (i.e. UMD) reports FALSE, do not run this spell
@@ -49,24 +48,24 @@ void main()
 // End of Spell Cast Hook
 
     object oManifester = OBJECT_SELF;
-    object oTarget     = IPGetTargetedOrEquippedMeleeWeapon();
-
+    object oItem     = IPGetTargetedOrEquippedMeleeWeapon();
+  
     // Validity check
-    if(!GetIsObjectValid(oTarget))
+    if(!GetIsObjectValid(oItem))
     {
         FloatingTextStrRefOnCreature(83615, oManifester); // Item must be weapon or creature holding a weapon
     	return;
     }
 
     struct manifestation manif =
-        EvaluateManifestation(oManifester, oTarget,
+        EvaluateManifestation(oManifester, oItem,
                               PowerAugmentationProfile(),
                               METAPSIONIC_EXTEND
                               );
 
     if(manif.bCanManifest)
     {
-        int nDamageType = GetWeaponDamageType(oTarget);
+        int nDamageType = GetWeaponDamageType(oItem);
         effect eVis     = EffectVisualEffect(VFX_IMP_SUPER_HEROISM);
         float fDuration = 600.0f * manif.nManifesterLevel;
         if(manif.bExtend) fDuration *= 2;
@@ -74,9 +73,10 @@ void main()
         if(nDamageType == DAMAGE_TYPE_PIERCING ||
            nDamageType == DAMAGE_TYPE_SLASHING
            )
+		   
         {
-            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oTarget));
-            IPSafeAddItemProperty(oTarget, ItemPropertyKeen(), fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, TRUE, TRUE);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oItem));
+            IPSafeAddItemProperty(oItem, ItemPropertyKeen(), fDuration, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         }
     }
 }

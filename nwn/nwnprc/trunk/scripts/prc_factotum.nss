@@ -1,7 +1,8 @@
 #include "prc_inc_factotum" 
 #include "inc_dynconv"
 
-void TriggerInspiration(object oPC, int nCombat);
+//:: Moved to prc_inc_factotum --Jaysyn
+/* void TriggerInspiration(object oPC, int nCombat);
 
 void TriggerInspiration(object oPC, int nCombat)
 {
@@ -16,7 +17,7 @@ void TriggerInspiration(object oPC, int nCombat)
  
     DelayCommand(0.25, TriggerInspiration(oPC, nCurrent));
 }
-
+ */
 void main()
 {
     int nEvent = GetRunningEvent();
@@ -68,6 +69,16 @@ void main()
             SetLocalInt(oPC, "InspirationHB", TRUE);
         }         	
     }
+    else if(EVENT_ONCLIENTENTER)
+	{
+		if(GetLevelByClass(CLASS_TYPE_FACTOTUM, oPC) > 0)
+		{
+			DeleteLocalInt(oPC, "InspirationHB");
+			DeleteLocalInt(oPC, "InspirationHBRunning");
+			TriggerInspiration(oPC, FALSE);
+			SetLocalInt(oPC, "InspirationHB", TRUE);
+		}
+	}
     else if(nEvent == EVENT_ONPLAYERREST_FINISHED && nClass >= 2)    
     {
         AssignCommand(oPC, ClearAllActions(TRUE));

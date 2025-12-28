@@ -21,7 +21,37 @@ level before dispersing.
 #include "inv_inc_invfunc"
 #include "inv_invokehook"
 
+
 void main()
+{
+    if(!PreInvocationCastCode()) return;
+ 
+    object oCaster = OBJECT_SELF;
+    object oExistingFog = GetLocalObject(oCaster, "ChillingFog");
+    
+    // Check if there's an existing fog and destroy it
+    if(GetIsObjectValid(oExistingFog))
+    {
+        DestroyObject(oExistingFog);
+        DeleteLocalObject(oCaster, "ChillingFog");
+    }
+ 
+    //Declare major variables including Area of Effect Object
+    location lTarget = PRCGetSpellTargetLocation();
+    int CasterLvl = GetInvokerLevel(oCaster, GetInvokingClass());
+    float fDuration = TurnsToSeconds(CasterLvl);
+    effect eAOE = EffectAreaOfEffect(INVOKE_AOE_CHILLFOG);
+    effect eImpact = EffectVisualEffect(257);
+    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, lTarget);
+    ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, lTarget, fDuration);
+ 
+    object oAoE = GetAreaOfEffectObject(lTarget, "INVOKE_AOE_CHILLFOG");
+    SetAllAoEInts(INVOKE_CHILLING_FOG, oAoE, GetInvocationSaveDC(OBJECT_INVALID, OBJECT_SELF, INVOKE_CHILLING_FOG), 0, CasterLvl);
+    SetLocalObject(oCaster, "ChillingFog", oAoE);
+}
+
+
+/* void main()
 {
     if(!PreInvocationCastCode()) return;
 
@@ -46,4 +76,4 @@ void main()
     object oAoE = GetAreaOfEffectObject(lTarget, "INVOKE_AOE_CHILLFOG");
     SetAllAoEInts(INVOKE_CHILLING_FOG, oAoE, GetInvocationSaveDC(OBJECT_INVALID, OBJECT_SELF, INVOKE_CHILLING_FOG), 0, CasterLvl);
     SetLocalObject(oCaster, "ChillingFog", oAoE);
-}
+} */

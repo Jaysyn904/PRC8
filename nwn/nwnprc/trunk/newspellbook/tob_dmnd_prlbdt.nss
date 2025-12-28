@@ -121,6 +121,13 @@ void main()
 
 		if (nBonus > 0)
 		{
+			if(GetLocalInt(oTarget, "PearlOfBlackDoubt_JustHit"))
+			{
+				DeleteLocalInt(oTarget, "PearlOfBlackDoubt_JustHit");
+				// Skip this heartbeat's bonus calculation
+				return;
+			}
+
 			if(DEBUG) DoDebug("Applying AC Bonus: " + IntToString(nBonus));
 			
 			effect eAC 	= EffectACIncrease(nBonus);

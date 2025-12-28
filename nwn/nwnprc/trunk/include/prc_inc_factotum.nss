@@ -49,6 +49,8 @@ const int BRILLIANCE_SLOT_3 = 3919;
 //////////////////////////////////////////////////
 /* Function definitions                         */
 //////////////////////////////////////////////////
+void TriggerInspiration(object oPC, int nCombat);
+
 
 void PrepareArcDilSpell(object oPC, int nSpell)
 {
@@ -263,6 +265,21 @@ void FactotumTriggerAbil(object oPC, int nAbil)
     	
     IPSafeAddItemProperty(oSkin, ipIP, 60.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); 	
 }
+
+void TriggerInspiration(object oPC, int nCombat)
+{
+	SetLocalInt(oPC, "InspirationHBRunning", TRUE);
+	DelayCommand(0.249, DeleteLocalInt(oPC, "InspirationHBRunning"));
+	int nCurrent = GetIsInCombat(oPC);
+	// We just entered combat
+	if (nCurrent == TRUE && nCombat == FALSE)
+		SetInspiration(oPC);
+	else if (nCurrent == FALSE && nCombat == TRUE) // Just left combat
+		ClearInspiration(oPC);
+ 
+    DelayCommand(0.25, TriggerInspiration(oPC, nCurrent));
+}
+
 
 /*void AddCunningBrillianceAbility(object oPC, int nAbil)
 {

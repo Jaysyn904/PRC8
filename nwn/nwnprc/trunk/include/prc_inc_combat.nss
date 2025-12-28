@@ -8103,7 +8103,12 @@ void AttackLoopLogic(object oDefender, object oAttacker,
     if (DEBUG) DoDebug("entered AttackLoopLogic: bFirstAttack = " + IntToString(bFirstAttack) + ", cleave = " + IntToString(bIsCleaveAttack) + ", current action = " + GetActionName(iAction));
     if (DEBUG) DoDebug("AttackLoopLogic: iMainAttacks = " + IntToString(iMainAttacks) + ", iOffHandAttacks = " + IntToString(iOffHandAttacks) + ", iBonusAttacks = " + IntToString(iBonusAttacks));
 
-    int bIsRangedAttack = sAttackVars.bIsRangedWeapon || sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL || sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED;
+    //int bIsRangedAttack = sAttackVars.bIsRangedWeapon || sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL || sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED;
+	
+	int bIsRangedAttack = sAttackVars.bIsRangedWeapon || 
+		sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL || 
+		sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED || 
+		GetLocalInt(oAttacker, "WhirlingBlade");
 
     // check for valid target etc., but only if it is not a cleave or circle kick (in this case we checked all of this before)
     if (!bIsCleaveAttack)
