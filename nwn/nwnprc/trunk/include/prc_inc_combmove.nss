@@ -1502,7 +1502,35 @@ int DoGrapple(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TR
         {
             FloatingTextStringOnCreature("You have successfully grappled " + GetName(oTarget), oPC, FALSE);
             int nBearFang = GetLocalInt(oPC, "BearFangGrapple");
-            SetGrapple(oPC);
+			 
+			SetGrapple(oPC);
+			SetGrapple(oTarget);
+			SetLocalInt(oPC, "GrappleOriginator", TRUE);
+			SetGrappleTarget(oPC, oTarget);  // Move this up from line 1544
+			 
+			effect eHold = EffectCutsceneParalyze();
+			effect eEntangle = EffectVisualEffect(VFX_DUR_SPELLTURNING_R);
+			effect eLink = EffectLinkEffects(eHold, eEntangle);
+			 
+			if (!GetLocalInt(oPC, "Flay_Grapple")) 
+				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eLink), oPC, 9999.0);
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eLink), oTarget, 9999.0);
+			 
+			nSucceed = TRUE;
+			 
+			if (nBearFang) 
+			{
+				DelayCommand(0.1, PerformAttack(oTarget, oPC, eNone, 0.0, -4, 0, 0, "Bear Fang Attack Hit", "Bear Fang Attack Miss")); 
+				DeleteLocalInt(oPC, "BearFangGrapple");
+			}
+			else
+			{
+				object oWeap = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oPC);
+				effect eDam = GetAttackDamage(oTarget, oPC, oWeap, GetWeaponBonusDamage(oWeap, oTarget), GetMagicalBonusDamage(oPC, oTarget));
+				DelayCommand(0.1, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));  // Delay damage
+			} 
+			
+/*             SetGrapple(oPC);
             SetGrapple(oTarget);
             SetLocalInt(oPC, "GrappleOriginator", TRUE);
             effect eHold = EffectCutsceneParalyze();
@@ -1526,7 +1554,7 @@ int DoGrapple(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TR
                 effect eDam = GetAttackDamage(oTarget, oPC, oWeap, GetWeaponBonusDamage(oWeap, oTarget), GetMagicalBonusDamage(oPC, oTarget));
                 ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
             } 
-			_HeartOfFireGrapple(oPC, oTarget);
+ */			_HeartOfFireGrapple(oPC, oTarget);
             
             // If you kill them with this, best to clean up right away
             if (GetIsDead(oTarget) || !GetIsObjectValid(oTarget)) 

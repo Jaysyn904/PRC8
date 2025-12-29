@@ -25,7 +25,7 @@
 21  GOOD_AIM_MODIFIER                             1                                                                                                                  
 22  STUNNING_FIST_TO_HIT_MODIFIER                 -4                                                                                                                 
 23  STUNNING_FIST_DAMAGE_MODIFIER                 -4                                                                                                                 
-24   STUNNING_FIST_EFFECT_DURATION                6.0
+24  STUNNING_FIST_EFFECT_DURATION                 6.0                                                                                                                
 25  STUNNING_FIST_BASE_SAVE_DC                    10                                                                                                                 
 26  CRIPPLING_STRIKE_STRENGTH_MODIFIER            2                                                                                                                  
 27  ****                                          ****                                                                                                               
@@ -336,12 +336,12 @@
 332 SKILL_EXAMINE_TRAP_DURATION                   4.5f                                                                                                               
 333 SKILL_OPEN_LOCK_DURATION                      4.5f                                                                                                               
 334 SKILL_LOCK_DURATION                           4.5f                                                                                                               
-335 SKILL_HIDE_IN_PLAIN_SIGHT_COOLDOWN            3000                                                                                                                  
+335 SKILL_HIDE_IN_PLAIN_SIGHT_COOLDOWN            3000                                                                                                               
 336 SKILL_TAUNT_COOLDOWN                          6000                                                                                                               
 337 SKILL_PICKPOCKET_COOLDOWN                     6000                                                                                                               
 338 SKILL_ANIMAL_EMPATHY_COOLDOWN                 6000                                                                                                               
 339 ENCOUNTERS_ON_ENTER_FIRE_BEFORE_SPAWN         0                                                                                                                  
-340  MONK_SPELL_RESISTANCE_CAN_BE_LOWERED             0
+340 MONK_SPELL_RESISTANCE_CAN_BE_LOWERED          0                                                                                                                  
 341 ****                                          ****                                                                                                               
 342 ****                                          ****                                                                                                               
 343 ****                                          ****                                                                                                               
@@ -519,7 +519,7 @@
 515 CHARGEN_ABILITY_MODIFIER_INCREMENT            2                                                                                                                  
 516 CHARGEN_SKILL_MAX_LEVEL_1_BONUS               3                                                                                                                  
 517 CHARGEN_ALLOW_CUSTOM_PORTRAITS                1                                                                                                                  
-518 CHARGEN_ENABLE_RECOMMENDED_BUTTON             0                                                                                                                  
+518 CHARGEN_ENABLE_RECOMMENDED_BUTTON             1                                                                                                                  
 519 MULTICLASS_LIMIT                              8                                                                                                                  
 520 ALL_ASSOCIATES_CAN_INTERACT                   0                                                                                                                  
-521  EMOTE_ANIMATIONS_USE_MDL_TIMINGS                 0
+521 EMOTE_ANIMATIONS_USE_MDL_TIMINGS              0                                                                                                                  
