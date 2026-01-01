@@ -443,6 +443,8 @@ struct manifestation{
     int bWiden;
     /// Whether Quicken Power was used with this manifestation
     int bQuicken;
+	//:: Whether Defensive Manifesation was used with this manifestation
+    int bDefensive;
 };
 
 //////////////////////////////////////////////////

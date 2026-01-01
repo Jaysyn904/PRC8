@@ -2528,7 +2528,79 @@ int IsRequiredForOtherManeuvers(int nClass, int prereq, string discipline, objec
     return FALSE;
 }
 
-int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_SELF)
+int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_SELF)  
+{  
+    string sFile = GetClassSpellbookFile(nClass);  
+    int prereqs = StringToInt(Get2DACache(sFile, "Prereqs", spellbookId));  
+    string discipline = Get2DACache(sFile, "Discipline", spellbookId);  
+      
+    // First check if this class is allowed to access this discipline  
+    if (!IsAllowedDiscipline(nClass, spellbookId, oPC))  
+        return FALSE;  
+      
+    // If no prerequisites required and class has access, allow it  
+    if (!prereqs)  
+        return TRUE;  
+      
+    // For maneuvers with prerequisites, count across all Blade Magic classes  
+    json discInfo = GetDisciplineInfoObject(nClass, oPC);  
+    json classDisc2Info = JsonObject();  
+    json classDisc3Info = JsonObject();  
+      
+    if (nClass == CLASS_TYPE_SWORDSAGE)  
+    {  
+        if (GetLevelByClass(CLASS_TYPE_WARBLADE, oPC))  
+            classDisc2Info = GetDisciplineInfoObject(CLASS_TYPE_WARBLADE, oPC);  
+        if (GetLevelByClass(CLASS_TYPE_CRUSADER, oPC))  
+            classDisc3Info = GetDisciplineInfoObject(CLASS_TYPE_CRUSADER, oPC);  
+    }  
+    if (nClass == CLASS_TYPE_CRUSADER)  
+    {  
+        if (GetLevelByClass(CLASS_TYPE_WARBLADE, oPC))  
+            classDisc2Info = GetDisciplineInfoObject(CLASS_TYPE_WARBLADE, oPC);  
+        if (GetLevelByClass(CLASS_TYPE_SWORDSAGE, oPC))  
+            classDisc3Info = GetDisciplineInfoObject(CLASS_TYPE_SWORDSAGE, oPC);  
+    }  
+    if (nClass == CLASS_TYPE_WARBLADE)  
+    {  
+        if (GetLevelByClass(CLASS_TYPE_CRUSADER, oPC))  
+            classDisc2Info = GetDisciplineInfoObject(CLASS_TYPE_CRUSADER, oPC);  
+        if (GetLevelByClass(CLASS_TYPE_SWORDSAGE, oPC))  
+            classDisc3Info = GetDisciplineInfoObject(CLASS_TYPE_SWORDSAGE, oPC);  
+    }  
+      
+    // Sum up maneuver counts from all classes for this discipline  
+    int nManCount = 0;  
+      
+    // Check primary class  
+    json chosenDisc = JsonObjectGet(discInfo, discipline);  
+    if (chosenDisc != JsonNull())  
+    {  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)));  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE)));  
+    }  
+      
+    // Check second class  
+    chosenDisc = JsonObjectGet(classDisc2Info, discipline);  
+    if (chosenDisc != JsonNull())  
+    {  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)));  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE)));  
+    }  
+      
+    // Check third class  
+    chosenDisc = JsonObjectGet(classDisc3Info, discipline);  
+    if (chosenDisc != JsonNull())  
+    {  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_MANEUVER)));  
+        nManCount += JsonGetInt(JsonObjectGet(chosenDisc, IntToString(MANEUVER_TYPE_STANCE)));  
+    }  
+      
+    // Check if we have enough maneuvers for the prerequisite  
+    return nManCount >= prereqs;  
+}
+
+/* int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_SELF)
 {
     string sFile = GetClassSpellbookFile(nClass);
     int prereqs = StringToInt(Get2DACache(sFile, "Prereqs", spellbookId));
@@ -2546,7 +2618,7 @@ int HasPreRequisitesForManeuver(int nClass, int spellbookId, object oPC=OBJECT_S
     }
 
     return FALSE;
-}
+} */
 
 int GetMaxInitiatorCircle(int nClass, object oPC=OBJECT_SELF)
 {

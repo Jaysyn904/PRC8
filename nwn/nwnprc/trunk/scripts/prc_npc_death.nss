@@ -3,6 +3,7 @@
 //:: prc_npc_death
 //:://////////////////////////////////////////////
 #include "moi_inc_moifunc"
+#include "prc_inc_combmove"
 
 void main()
 {
@@ -135,7 +136,7 @@ void main()
     	DelayCommand(HoursToSeconds(1), DeleteLocalInt(oBinder, "AgaresDelay"));
     	DelayCommand(HoursToSeconds(1), FloatingTextStringOnCreature("You can now resummon your elemental companion!", oBinder, FALSE));
     }
-
+	
     // Trigger the death/bleed if the PRC Death system is enabled (ElgarL).
     if(GetPRCSwitch(PRC_PNP_DEATH_ENABLE))
         AddEventScript(oDead, EVENT_ONHEARTBEAT, "prc_timer_dying", TRUE, FALSE);

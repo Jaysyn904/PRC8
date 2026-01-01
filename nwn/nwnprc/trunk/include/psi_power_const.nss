@@ -1,3 +1,6 @@
+
+const int DEFENSIVE_MANIFESTATION				= 2375;
+
 //real power spell constants
 
 // Level 1 Powers

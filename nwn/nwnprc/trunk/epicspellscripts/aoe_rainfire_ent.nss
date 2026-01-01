@@ -33,7 +33,7 @@ void main()
         {
             fDelay = PRCGetRandomDelay(0.5, 2.0);
             nDamage = d6(1);
-            eDam = EffectDamage(nDamage, DAMAGE_TYPE_FIRE);
+            eDam = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_FIRE);
             if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_FIRE, oCaster, fDelay))
             {
                 DelayCommand(fDelay,

@@ -56,6 +56,14 @@ void main()
         eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_PIERCING, 5));
         eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_SLASHING, 5));
         eLink = EffectLinkEffects(eLink, EffectACIncrease(2, AC_NATURAL_BONUS));
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE));
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_MIND_SPELLS));
+		eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_SNEAK_ATTACK));
+		eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_IMPROVED_INITIATIVE));
+		eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_UNDEAD));		
+		
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, OBJECT_SELF, HoursToSeconds(nDuration));        
         return;
     }
@@ -141,7 +149,15 @@ void main()
     eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_PIERCING, 5));
     eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_SLASHING, 5));
     eLink = EffectLinkEffects(eLink, EffectACIncrease(2, AC_NATURAL_BONUS));
-    ePoly = EffectLinkEffects(ePoly, eLink);    
+	eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));
+	eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE));
+	eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));
+	eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_MIND_SPELLS));
+	eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_SNEAK_ATTACK));
+	eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_IMPROVED_INITIATIVE));	
+	eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_UNDEAD));
+    ePoly = EffectLinkEffects(ePoly, eLink);
+    
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, OBJECT_SELF);
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePoly, OBJECT_SELF, HoursToSeconds(nDuration));
 

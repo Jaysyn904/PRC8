@@ -38,7 +38,7 @@ void main()
                 SignalEvent(oTarget,
                     EventSpellCastAt(oCaster, SPELL_INCENDIARY_CLOUD));
                 nDamage = d6(1);
-                eDam = EffectDamage(nDamage, DAMAGE_TYPE_FIRE);
+                eDam = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_FIRE);
                 int nDC = GetEpicSpellSaveDC(oCaster, oTarget, SPELL_EPIC_RAINFIR);
                 if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_FIRE, oCaster, fDelay))
                 {

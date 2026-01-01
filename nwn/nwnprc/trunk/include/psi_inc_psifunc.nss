@@ -819,6 +819,25 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
                     // Psionic focus loss from using metapsionics. Has a side effect of telling the manifester which metapsionics were actually active
                     PayMetapsionicsFocuses(manif);
                 }
+				
+				if(GetLocalInt(oManifester, "PRC_DefensiveManifestActive"))  
+				{  
+					// Concentration check (DC 15 + power level)  
+					int nPowerLevel = GetPowerLevel(oManifester);  
+					int nDC = 15 + nPowerLevel;  
+					  
+					if(!GetPRCIsSkillSuccessful(oManifester, SKILL_CONCENTRATION, nDC))  
+					{  
+						// Failed - PP already deducted, but prevent manifestation  
+						manif.bCanManifest = FALSE;  
+						SendMessageToPC(oManifester, "Defensive manifestion concentration check failed.");
+						return manif;  
+					}  
+					  
+					// Set defensive flag for any other systems that need it  
+					SendMessageToPC(oManifester, "Defensive manifestion concentration check successful.");
+					manif.bDefensive = TRUE;  
+				}			
 
                 //* APPLY SIDE-EFFECTS THAT RESULT FROM SUCCESSFULL MANIFESTATION HERE *//
                 // Psicraft for all those who can see

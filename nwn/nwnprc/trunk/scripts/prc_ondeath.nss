@@ -50,9 +50,6 @@ void main()
     object oDead   = GetLastBeingDied();
     object oKiller = MyGetLastKiller();
 	
-	DelayCommand(0.1f, EndGrapple(oDead, oKiller));
-	DelayCommand(0.2f, EndGrapple(oKiller, oDead));
-
     // We are not actually dead until -10
     // Unless it's a spell death
 
@@ -137,6 +134,28 @@ void main()
 
     DeleteLocalInt(oDead, "PRC_SPELL_CHARGE_COUNT");
     DeleteLocalInt(oDead, "PRC_SPELL_HOLD");
+	
+	// Clean up grapples when any creature dies    
+	// Check if dead creature was actively grappling  
+	if (GetGrapple(oDead))    
+	{    
+		object oGrappleTarget = GetGrappleTarget(oDead);    
+		if (GetIsObjectValid(oGrappleTarget))    
+		{    
+			EndGrapple(oDead, oGrappleTarget);    
+			RemoveEventScript(oDead, EVENT_ONHEARTBEAT, "prc_grapple", TRUE, FALSE);    
+			DeleteLocalInt(oDead, "GrappleHeartbeatTimer");   
+		}    
+	}  
+	  
+	// ALSO check if dead creature was someone's grapple target  
+	object oPossibleGrappler = GetLocalObject(oDead, "GrappledBy");  
+	if (GetIsObjectValid(oPossibleGrappler))  
+	{  
+		EndGrapple(oPossibleGrappler, oDead);  
+		RemoveEventScript(oPossibleGrappler, EVENT_ONHEARTBEAT, "prc_grapple", TRUE, FALSE);  
+		DeleteLocalInt(oDead, "GrappleHeartbeatTimer");   
+	}	
 
     // Trigger the death/bleed if the PRC Death system is enabled (ElgarL).
     if((GetPRCSwitch(PRC_PNP_DEATH_ENABLE)) && GetIsPC(oDead))

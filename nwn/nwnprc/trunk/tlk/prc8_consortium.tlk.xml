@@ -37466,7 +37466,6 @@ Whenever you successfully critical hit a creature, you gain a +1 Attack and Dama
   <entry id="52909" lang="en" sex="m">Claw At The Moon</entry>
   <entry id="52910" lang="en" sex="m">Tiger Claw (Strike)
 Level: Swordsage 2, Warblade 2
-Prerequisite: Two Tiger Claw maneuvers
 Initiation Action: 1 Standard Action
 Range: Melee Attack
 Target: One Creature
@@ -47827,8 +47826,8 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57653" lang="en" sex="m">Default Knight</entry>
   <entry id="57654" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57655" lang="en" sex="m">****</entry>
-  <entry id="57656" lang="en" sex="m">****</entry>
+  <entry id="57655" lang="en" sex="m">Defensive Manifestation</entry>
+  <entry id="57656" lang="en" sex="m">If you want to manifest a power without provoking attacks of opportunity, you need to dodge and weave. You must make a Concentration check (DC 15 + the level of the power you’re manifesting) to succeed. You lose the power points without successful manifestation if you fail. </entry>
   <entry id="57657" lang="en" sex="m">Two Weapon Pounce</entry>
   <entry id="57658" lang="en" sex="m">Type of Feat: General
 Prerequisite: Two-Weapon Fighting, Dex 15, Base Attack Bonus +6 
@@ -48204,7 +48203,7 @@ Use: Selected</entry>
   <entry id="57826" lang="en" sex="m">Undead Wild Shape</entry>
   <entry id="57827" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Blighter 3
-Benefit: You can undead wild shape into a Bear, Boar, Badger, Wolf, or Panther. These forms gain the following changes:
+Benefit: You can wild shape into a skeletal Bear, Boar, Badger, Wolf, or Panther. These forms gain the following changes:
 
 - Type changes to undead. 
 - Natural bonus +2
@@ -48215,11 +48214,11 @@ Benefit: You can undead wild shape into a Bear, Boar, Badger, Wolf, or Panther. 
 You get a 2nd use at 4th, 3rd at 6th, 4th at 8th, and 5th at 10th levels. You also gain better forms at class levels 5th and 9th.
 
 Use: Selected</entry>
-  <entry id="57828" lang="en" sex="m">Undead Bears</entry>
-  <entry id="57829" lang="en" sex="m">Undead Panthers</entry>
-  <entry id="57830" lang="en" sex="m">Undead Wolves</entry>
-  <entry id="57831" lang="en" sex="m">Undead Boars</entry>
-  <entry id="57832" lang="en" sex="m">Undead Badgers</entry>
+  <entry id="57828" lang="en" sex="m">Undead Bear</entry>
+  <entry id="57829" lang="en" sex="m">Undead Panther</entry>
+  <entry id="57830" lang="en" sex="m">Undead Wolve</entry>
+  <entry id="57831" lang="en" sex="m">Undead Boar</entry>
+  <entry id="57832" lang="en" sex="m">Undead Badger</entry>
   <entry id="57833" lang="en" sex="m">Animate Dead Animal</entry>
   <entry id="57834" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Blighter 6
