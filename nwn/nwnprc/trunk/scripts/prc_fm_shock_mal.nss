@@ -40,6 +40,7 @@ void main()
     if(!bHasMaul)
     {
         FloatingTextStringOnCreature(GetStringByStrRef(16548+0x01000000), oPC, FALSE);
+		return;
     }
 
 //:: Remove the Cleave or Great Cleave bonus feat from the maul being unequipped
