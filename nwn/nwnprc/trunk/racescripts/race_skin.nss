@@ -454,8 +454,27 @@ void main()
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_PARALYSIS);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);		
-    }      	
-	if(GetRacialType(oPC) == RACIAL_TYPE_GLOURA /* || GetRacialType(oPC) == RACIAL_TYPE_PIXIE */)
+    }     
+	if(GetRacialType(oPC) == RACIAL_TYPE_GLOURA /* || GetRacialType(oPC) == RACIAL_TYPE_PIXIE */)  
+	{  
+		// Only apply racial wings if player doesn't have custom wings  
+		if(!GetPersistantLocalInt(oPC, "AppearanceStoredWing"))  
+			SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oPC);  
+	}
+	if(GetRacialType(oPC) == RACIAL_TYPE_AVARIEL)  
+	{  
+		// Only apply racial wings if player doesn't have custom wings  
+		if(!GetPersistantLocalInt(oPC, "AppearanceStoredWing"))  
+			SetCreatureWingType(CREATURE_WING_TYPE_BIRD, oPC);  
+	}
+	if(GetRacialType(oPC) == RACIAL_TYPE_FEYRI)  
+	{  
+		// Only apply racial wings if player doesn't have custom wings  
+		if(!GetPersistantLocalInt(oPC, "AppearanceStoredWing"))  
+			SetCreatureWingType(CREATURE_WING_TYPE_DEMON, oPC);  
+	}
+ 	
+/* 	if(GetRacialType(oPC) == RACIAL_TYPE_GLOURA) // || GetRacialType(oPC) == RACIAL_TYPE_PIXIE
     {
         SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oPC);
     }     
@@ -466,7 +485,7 @@ void main()
 	if(GetRacialType(oPC) == RACIAL_TYPE_FEYRI)
     {
         SetCreatureWingType(CREATURE_WING_TYPE_DEMON, oPC);
-    }    	
+    }    */ 	
     if(GetRacialType(oPC) == RACIAL_TYPE_JAEBRIN)
     {
         SetCompositeBonus(oSkin, "Jaebrin_Spell", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPELLCRAFT);

@@ -101,61 +101,78 @@ void main()
     }
 }
 
-void DoEnergyDrain(object oEater, object oTarget,int nDamage)
-{
-    // Immunity prevents anything from actually happening
-    if(!GetIsImmune(oTarget, IMMUNITY_TYPE_NEGATIVE_LEVEL))
-    {
-        // Apply the actual drain
-        effect eDrain = SupernaturalEffect(EffectNegativeLevel(nDamage));
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDrain, oTarget);
-
-        // Update marker
-        IncrementMarker(oEater);
-        DelayCommand(HoursToSeconds(24), DecrementMarker(oEater));
-
-
-        /// Soul X side effects
-        // Clear out old effects
-        PRCRemoveSpellEffects(PRCGetSpellId(), oEater, oEater);
-
-        // Generate new effects
-        int nClassLevel    = GetLevelByClass(CLASS_TYPE_SOUL_EATER, oEater);
-        effect eSideEffect = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
-
-        // Soul Strength
-        if(nClassLevel >= 2)
-        {
-            eSideEffect = EffectLinkEffects(eSideEffect, EffectAbilityIncrease(ABILITY_STRENGTH, 4));
-        }
-
-        // Soul Enchancement
-        if(nClassLevel >= 4)
-        {
-            eSideEffect = EffectLinkEffects(eSideEffect, EffectSavingThrowIncrease(SAVING_THROW_TYPE_ALL, 2));
-            eSideEffect = EffectLinkEffects(eSideEffect, EffectSkillIncrease(SKILL_ALL_SKILLS, 2));
-        }
-
-        // Soul Endurance
-        if(nClassLevel >= 5)
-        {
-            eSideEffect = EffectLinkEffects(eSideEffect, EffectAbilityIncrease(ABILITY_CONSTITUTION, 4));
-        }
-
-        // Soul Agility
-        if(nClassLevel >= 8)
-        {
-            eSideEffect = EffectLinkEffects(eSideEffect, EffectAbilityIncrease(ABILITY_DEXTERITY, 4));
-        }
-
-        // Apply the gathered side effects. All the abilities are supernatural and last 24h
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY,
-                            SupernaturalEffect(eSideEffect),
-                            oEater,
-                            HoursToSeconds(24)
-                            );
-
-
+void DoEnergyDrain(object oEater, object oTarget, int nDamage)  
+{  
+    // Immunity prevents anything from actually happening  
+    if(!GetIsImmune(oTarget, IMMUNITY_TYPE_NEGATIVE_LEVEL))  
+    {  
+        // Apply the actual drain  
+        effect eDrain = SupernaturalEffect(EffectNegativeLevel(nDamage));  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDrain, oTarget);  
+  
+        // Update marker  
+        IncrementMarker(oEater);  
+        DelayCommand(HoursToSeconds(24), DecrementMarker(oEater));  
+  
+        //:: Soul X side effects  
+        // Remove existing tagged effects before applying new ones  
+        effect eOld = GetFirstEffect(oEater);  
+        while(GetIsEffectValid(eOld))  
+        {  
+            string sTag = GetEffectTag(eOld);  
+            if(sTag == "SOULEATER_SOUL_STRENGTH" ||  
+               sTag == "SOULEATER_SOUL_ENHANCEMENT" ||  
+               sTag == "SOULEATER_SOUL_ENDURANCE" ||  
+               sTag == "SOULEATER_SOUL_AGILITY")  
+            {  
+                RemoveEffect(oEater, eOld);  
+            }  
+            eOld = GetNextEffect(oEater);  
+        }  
+  
+        // Generate new effects with tags  
+        int nClassLevel    = GetLevelByClass(CLASS_TYPE_SOUL_EATER, oEater);  
+  
+        // Soul Strength  
+        if(nClassLevel >= 2)  
+        {  
+            effect eStr = EffectAbilityIncrease(ABILITY_STRENGTH, 4);  
+            eStr = SupernaturalEffect(eStr);  
+            eStr = TagEffect(eStr, "SOULEATER_SOUL_STRENGTH");  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eStr, oEater, HoursToSeconds(24));  
+        }  
+  
+        // Soul Enchancement  
+        if(nClassLevel >= 4)  
+        {  
+            effect eSave = EffectSavingThrowIncrease(SAVING_THROW_TYPE_ALL, 2);  
+            eSave = SupernaturalEffect(eSave);  
+            eSave = TagEffect(eSave, "SOULEATER_SOUL_ENHANCEMENT");  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSave, oEater, HoursToSeconds(24));  
+              
+            effect eSkill = EffectSkillIncrease(SKILL_ALL_SKILLS, 2);  
+            eSkill = SupernaturalEffect(eSkill);  
+            eSkill = TagEffect(eSkill, "SOULEATER_SOUL_ENHANCEMENT");  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSkill, oEater, HoursToSeconds(24));  
+        }  
+  
+        // Soul Endurance  
+        if(nClassLevel >= 5)  
+        {  
+            effect eCon = EffectAbilityIncrease(ABILITY_CONSTITUTION, 4);  
+            eCon = SupernaturalEffect(eCon);  
+            eCon = TagEffect(eCon, "SOULEATER_SOUL_ENDURANCE");  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eCon, oEater, HoursToSeconds(24));  
+        }  
+  
+        // Soul Agility  
+        if(nClassLevel >= 8)  
+        {  
+            effect eDex = EffectAbilityIncrease(ABILITY_DEXTERITY, 4);  
+            eDex = SupernaturalEffect(eDex);  
+            eDex = TagEffect(eDex, "SOULEATER_SOUL_AGILITY");  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDex, oEater, HoursToSeconds(24));  
+        }  
         // Soul Power
         // Rebalanced to give +2 to all DCs and just double Soul Blast uses, due to it not being sanely
         // possible to find out all use-limited abilities one may have
