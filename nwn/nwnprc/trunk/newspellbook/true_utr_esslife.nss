@@ -27,6 +27,7 @@
 #include "true_inc_trufunc"
 #include "true_utterhook"
 //#include "prc_alterations"
+#include "spinc_remeffct"
 
 void main()
 {
@@ -64,18 +65,16 @@ void main()
         	// This utterance applies only to friends
         	utter.bFriend = TRUE;
         	
-            	effect eFear = GetFirstEffect(oTarget);
-            	//Get the first effect on the current target
-            	while(GetIsEffectValid(eFear))
-            	{
-            	    if (GetEffectType(eFear) == EFFECT_TYPE_NEGATIVELEVEL)
-            	    {
-            	        //Remove any fear effects and apply the VFX impact
-            	        RemoveEffect(oTarget, eFear);
-            	    }
-            	    //Get the next effect on the target
-            	    eFear = GetNextEffect(oTarget);
-            	}
+		effect eTest = GetFirstEffect(oTarget);  
+		while(GetIsEffectValid(eTest))  
+		{  
+			if(GetEffectType(eTest) == EFFECT_TYPE_NEGATIVELEVEL)  
+			{  
+				if(!GetShouldNotBeRemoved(eTest)) 
+					RemoveEffect(oTarget, eTest);  
+			}  
+			eTest = GetNextEffect(oTarget);  
+		}
         	utter.eLink2 = EffectVisualEffect(VFX_IMP_REMOVE_CONDITION);
         }
         // The REVERSE effect of the Utterance goes here

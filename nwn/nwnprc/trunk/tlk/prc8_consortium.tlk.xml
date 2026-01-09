@@ -75424,8 +75424,51 @@ Use: Automatic</entry>
   <entry id="211218" lang="en" sex="m">79</entry>
   <entry id="211219" lang="en" sex="m">80</entry>
   <entry id="211400" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###</entry>
-  <entry id="211401" lang="en" sex="m">Beguiler (Controller)</entry>
+  <entry id="211401" lang="en" sex="m">Archivist (Cloistered Scholar)</entry>
   <entry id="211402" lang="en" sex="m">(STARTING PACKAGE) 
+
+This package focuses on back-line support, research, maximum spell access and skill utility.
+
+Equipment:
+Torch
+Studded Leather Armor
+Dagger
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits
+(2) Blank Scrolls</entry>
+  <entry id="211403" lang="en" sex="m">Archivist (Healer)</entry>
+  <entry id="211404" lang="en" sex="m">(STARTING PACKAGE) 
+
+This package focuses on restoration, condition removal, and party sustain rather than offense.
+
+Equipment:
+Torch
+Scale Mail
+Quarterstaff
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits
+(2) Antitoxin</entry>
+  <entry id="211405" lang="en" sex="m">Archivist (Occult Hunter)</entry>
+  <entry id="211406" lang="en" sex="m">(STARTING PACKAGE) 
+
+Focuses on identifying, countering, and exploiting the weaknesses of supernatural threats, using forbidden lore and meticulous preparation to neutralize undead, outsiders, and other occult foes.
+
+Equipment:
+Torch
+Scale Mail
+Heavy Mace
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits
+(2) Holy Water</entry>
+  <entry id="211407" lang="en" sex="m">Archvist 4</entry>
+  <entry id="211408" lang="en" sex="m">Archvist 4</entry>
+  <entry id="211409" lang="en" sex="m">Archvist 5</entry>
+  <entry id="211410" lang="en" sex="m">Archvist 5</entry>
+  <entry id="211411" lang="en" sex="m">Beguiler (Controller)</entry>
+  <entry id="211412" lang="en" sex="m">(STARTING PACKAGE) 
 
 This package focuses on using enchantments and illusions to dominate the battlefield, disabling or redirecting enemies through confusion, charms, fear, and misdirection.
 
@@ -75437,8 +75480,8 @@ Light Crossbow
 (2) quivers of bolts.
 (2) Healing Kits
 (1) Thieves' Tools</entry>
-  <entry id="211403" lang="en" sex="m">Beguiler (Investigator)</entry>
-  <entry id="211404" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211413" lang="en" sex="m">Beguiler (Investigator)</entry>
+  <entry id="211414" lang="en" sex="m">(STARTING PACKAGE)
 
 This packkage leverages illusions, enchantments, and keen observation to uncover secrets, extract information, and reconstruct events, using subtle magic and social manipulation to solve problems without drawing attention.
 
@@ -75450,9 +75493,8 @@ Shortbow
 (2) quivers of arrows
 (2) Healing Kits
 (1) Thieves' Tools</entry>
-  <entry id="211405" lang="en" sex="m">Beguiler (Trickster)
-</entry>
-  <entry id="211406" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211415" lang="en" sex="m">Beguiler (Trickster)</entry>
+  <entry id="211416" lang="en" sex="m">(STARTING PACKAGE)
 
 The trickster package focuses on illusions, enchantments, and clever misdirection to deceive foes and bypass obstacles, relying on feints, false appearances, and manipulation rather than direct confrontation.
 
@@ -75463,14 +75505,43 @@ Morningstar
 Light Crossbow
 (2) quivers of bolts.
 (2) Healing Kits
-(1) Thieves' Tools
-</entry>
-  <entry id="211407" lang="en" sex="m">Beguiler4</entry>
-  <entry id="211408" lang="en" sex="m">Beguiler4</entry>
-  <entry id="211409" lang="en" sex="m">Beguiler5</entry>
-  <entry id="211410" lang="en" sex="m">Beguiler5</entry>
-  <entry id="211411" lang="en" sex="m">Dragon Shaman (Defender)</entry>
-  <entry id="211412" lang="en" sex="m">(STARTING PACKAGE)
+(1) Thieves' Tools</entry>
+  <entry id="211417" lang="en" sex="m">Beguiler 4</entry>
+  <entry id="211418" lang="en" sex="m">Beguiler 4</entry>
+  <entry id="211419" lang="en" sex="m">Beguiler 5</entry>
+  <entry id="211420" lang="en" sex="m">Beguiler 5</entry>
+  <entry id="211421" lang="en" sex="m">Binder1</entry>
+  <entry id="211422" lang="en" sex="m">Binder1</entry>
+  <entry id="211423" lang="en" sex="m">Binder2</entry>
+  <entry id="211424" lang="en" sex="m">Binder2</entry>
+  <entry id="211425" lang="en" sex="m">Binder3</entry>
+  <entry id="211426" lang="en" sex="m">Binder3</entry>
+  <entry id="211427" lang="en" sex="m">Binder4</entry>
+  <entry id="211428" lang="en" sex="m">Binder4</entry>
+  <entry id="211429" lang="en" sex="m">Binder5</entry>
+  <entry id="211430" lang="en" sex="m">Binder5</entry>
+  <entry id="211431" lang="en" sex="m">Crusader1</entry>
+  <entry id="211432" lang="en" sex="m">Crusader1</entry>
+  <entry id="211433" lang="en" sex="m">Crusader2</entry>
+  <entry id="211434" lang="en" sex="m">Crusader2</entry>
+  <entry id="211435" lang="en" sex="m">Crusader3</entry>
+  <entry id="211436" lang="en" sex="m">Crusader3</entry>
+  <entry id="211437" lang="en" sex="m">Crusader4</entry>
+  <entry id="211438" lang="en" sex="m">Crusader4</entry>
+  <entry id="211439" lang="en" sex="m">Crusader5</entry>
+  <entry id="211440" lang="en" sex="m">Crusader5</entry>
+  <entry id="211441" lang="en" sex="m">DragonFireAdept1</entry>
+  <entry id="211442" lang="en" sex="m">DragonFireAdept1</entry>
+  <entry id="211443" lang="en" sex="m">DragonFireAdept2</entry>
+  <entry id="211444" lang="en" sex="m">DragonFireAdept2</entry>
+  <entry id="211445" lang="en" sex="m">DragonFireAdept3</entry>
+  <entry id="211446" lang="en" sex="m">DragonFireAdept3</entry>
+  <entry id="211447" lang="en" sex="m">DragonFireAdept4</entry>
+  <entry id="211448" lang="en" sex="m">DragonFireAdept4</entry>
+  <entry id="211449" lang="en" sex="m">DragonFireAdept5</entry>
+  <entry id="211450" lang="en" sex="m">DragonFireAdept5</entry>
+  <entry id="211451" lang="en" sex="m">Dragon Shaman (Defender)</entry>
+  <entry id="211452" lang="en" sex="m">(STARTING PACKAGE)
 
 The defender package focuses on standing firm in the front line, using draconic resilience and supportive auras to absorb enemy pressure, protect allies, and maintain control of key positions on the battlefield.
 
@@ -75482,8 +75553,8 @@ Morningstar
 Sling
 (2) pouches of bullets
 (3) Healing Kits</entry>
-  <entry id="211413" lang="en" sex="m">Dragon Shaman (Destroyer)</entry>
-  <entry id="211414" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211453" lang="en" sex="m">Dragon Shaman (Destroyer)</entry>
+  <entry id="211454" lang="en" sex="m">(STARTING PACKAGE)
 
 The Destroyer package focuses on dealing steady, close-range damage while pressing the attack, using draconic power and offensive auras to overwhelm enemies and break opposing lines.
 
@@ -75494,8 +75565,8 @@ Large Shield
 Morningstar
 50 Throwing Axes
 (3) Healing Kits</entry>
-  <entry id="211415" lang="en" sex="m">Dragon Shaman (Second-Rank Warrior)</entry>
-  <entry id="211416" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211455" lang="en" sex="m">Dragon Shaman (Second-Rank Warrior)</entry>
+  <entry id="211456" lang="en" sex="m">(STARTING PACKAGE)
 
 The second-rank warrior focuses on supporting the front line from just behind it, reinforcing allies with draconic auras while delivering reliable melee attacks and exploiting openings without drawing primary enemy focus.
 
@@ -75506,12 +75577,22 @@ Spear
 Light Crossbow
 (2) quivers of bolts.
 (3) Healing Kits</entry>
-  <entry id="211417" lang="en" sex="m">Dragon Shaman 4</entry>
-  <entry id="211418" lang="en" sex="m">Dragon Shaman 4</entry>
-  <entry id="211419" lang="en" sex="m">Dragon Shaman 5</entry>
-  <entry id="211420" lang="en" sex="m">Dragon Shaman 5</entry>
-  <entry id="211421" lang="en" sex="m">Duskblade (Blaster)</entry>
-  <entry id="211422" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211457" lang="en" sex="m">DragonShamanReserve4</entry>
+  <entry id="211458" lang="en" sex="m">DragonShamanReserve4</entry>
+  <entry id="211459" lang="en" sex="m">DragonShamanReserve5</entry>
+  <entry id="211460" lang="en" sex="m">DragonShamanReserve5</entry>
+  <entry id="211461" lang="en" sex="m">DreadNecromancer1</entry>
+  <entry id="211462" lang="en" sex="m">DreadNecromancer1</entry>
+  <entry id="211463" lang="en" sex="m">DreadNecromancer2</entry>
+  <entry id="211464" lang="en" sex="m">DreadNecromancer2</entry>
+  <entry id="211465" lang="en" sex="m">DreadNecromancer3</entry>
+  <entry id="211466" lang="en" sex="m">DreadNecromancer3</entry>
+  <entry id="211467" lang="en" sex="m">DreadNecromancer4</entry>
+  <entry id="211468" lang="en" sex="m">DreadNecromancer4</entry>
+  <entry id="211469" lang="en" sex="m">DreadNecromancer5</entry>
+  <entry id="211470" lang="en" sex="m">DreadNecromancer5</entry>
+  <entry id="211471" lang="en" sex="m">Duskblade (Blaster)</entry>
+  <entry id="211472" lang="en" sex="m">(STARTING PACKAGE)
 
 This package focuses on dealing direct magical damage at range, relying on ranged touch attack spells and arcane power to strike accurately and hard without engaging in sustained melee.
 
@@ -75521,8 +75602,8 @@ Scale Mail
 Greataxe
 50 Throwing Axes
 (3) Healing Kits</entry>
-  <entry id="211423" lang="en" sex="m">Duskblade (Defender)</entry>
-  <entry id="211424" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211473" lang="en" sex="m">Duskblade (Defender)</entry>
+  <entry id="211474" lang="en" sex="m">(STARTING PACKAGE)
 
 This package focuses on holding the line through a blend of martial durability and protective magic, using armor, self-enhancment and battlefield presence to absorb pressure while remaining a credible threat.
 
@@ -75534,8 +75615,8 @@ Dwarven Waraxe
 Sling
 (2) Pouches of Bullets
 (3) Healing Kits</entry>
-  <entry id="211425" lang="en" sex="m">Duskblade (Skirmisher)</entry>
-  <entry id="211426" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211475" lang="en" sex="m">Duskblade (Skirmisher)</entry>
+  <entry id="211476" lang="en" sex="m">(STARTING PACKAGE)
 
 This package focuses on mobility and opportunistic attacks, combining movement, melee strikes, and short-duration arcane effects to hit quickly, reposition, and avoid prolonged engagement.
 
@@ -75546,53 +75627,28 @@ Halberd
 Shortbow
 (2) Quivers of Arrows
 (3) Healing Kits</entry>
-  <entry id="211427" lang="en" sex="m">Duskblade 4</entry>
-  <entry id="211428" lang="en" sex="m">Duskblade 4</entry>
-  <entry id="211429" lang="en" sex="m">Duskblade 5</entry>
-  <entry id="211430" lang="en" sex="m">Duskblade 5</entry>
-  <entry id="211431" lang="en" sex="m">Knight (Cavalier)</entry>
-  <entry id="211432" lang="en" sex="m">(STARTING PACKAGE)
-
-The cavalier on commanding the battlefield through presence and discipline, leading from the front with mounted or charging tactics while using challenges and positioning to control enemy attention.
-
-Equipment:
-Torch
-Chain Shirt
-Light Lance
-Longsword
-Throwing Axes
-(3) Healing Kits</entry>
-  <entry id="211433" lang="en" sex="m">Knight (Defender)</entry>
-  <entry id="211434" lang="en" sex="m">(STARTING PACKAGE)
-
-The Defender focuses on locking down enemies and protecting allies, using challenges, positioning, and heavy armor to draw attacks, hold the line, and prevent foes from reaching vulnerable party members.
-
-Equipment:
-Torch
-Scale Mail
-Large Shield
-Dwarven Waraxe
-Warhammer
-Throwing Axes
-(3) Healing Kits</entry>
-  <entry id="211435" lang="en" sex="m">Knight (Destroyer)</entry>
-  <entry id="211436" lang="en" sex="m">(STARTING PACKAGE)
-
-The Destroyer focuses on aggressive melee pressure, using martial prowess and decisive strikes to break enemy lines and eliminate threats rather than simply holding ground.
-
-Equipment:
-Torch
-Scale Mail
-Large Shield
-Battleaxe
-Throwing Axes
-(3) Healing Kits</entry>
-  <entry id="211437" lang="en" sex="m">Knight 4</entry>
-  <entry id="211438" lang="en" sex="m">Knight 4</entry>
-  <entry id="211439" lang="en" sex="m">Knight 5</entry>
-  <entry id="211440" lang="en" sex="m">Knight 5</entry>
-  <entry id="211493" lang="en" sex="m">Healer (Default)</entry>
-  <entry id="211494" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211477" lang="en" sex="m">Factotum1</entry>
+  <entry id="211478" lang="en" sex="m">Factotum1</entry>
+  <entry id="211479" lang="en" sex="m">Factotum2</entry>
+  <entry id="211480" lang="en" sex="m">Factotum2</entry>
+  <entry id="211481" lang="en" sex="m">Factotum3</entry>
+  <entry id="211482" lang="en" sex="m">Factotum3</entry>
+  <entry id="211483" lang="en" sex="m">Factotum4</entry>
+  <entry id="211484" lang="en" sex="m">Factotum4</entry>
+  <entry id="211485" lang="en" sex="m">Factotum5</entry>
+  <entry id="211486" lang="en" sex="m">Factotum5</entry>
+  <entry id="211487" lang="en" sex="m">FavouredSoul1</entry>
+  <entry id="211488" lang="en" sex="m">FavouredSoul1</entry>
+  <entry id="211489" lang="en" sex="m">FavouredSoul2</entry>
+  <entry id="211490" lang="en" sex="m">FavouredSoul2</entry>
+  <entry id="211491" lang="en" sex="m">FavouredSoul3</entry>
+  <entry id="211492" lang="en" sex="m">FavouredSoul3</entry>
+  <entry id="211493" lang="en" sex="m">FavouredSoul4</entry>
+  <entry id="211494" lang="en" sex="m">FavouredSoul4</entry>
+  <entry id="211495" lang="en" sex="m">FavouredSoul5</entry>
+  <entry id="211496" lang="en" sex="m">FavouredSoul5</entry>
+  <entry id="211497" lang="en" sex="m">Healer (Default)</entry>
+  <entry id="211498" lang="en" sex="m">(STARTING PACKAGE)
 
 The default healer package is focused on survivability and increasing the amount of healing the Healer can perform per spell or skill check.
 
@@ -75605,16 +75661,268 @@ Light Crossbow
 Scroll of Cure Light Wounds
 (2) quivers of bolts.
 (1) Healing Kit</entry>
-  <entry id="211495" lang="en" sex="m">Healer Reserve2</entry>
-  <entry id="211496" lang="en" sex="m">Healer Reserve2</entry>
-  <entry id="211497" lang="en" sex="m">Healer Reserve3</entry>
-  <entry id="211498" lang="en" sex="m">Healer Reserve3</entry>
-  <entry id="211499" lang="en" sex="m">Healer Reserve4</entry>
-  <entry id="211500" lang="en" sex="m">Healer Reserve4</entry>
-  <entry id="211501" lang="en" sex="m">Warlock (Default)</entry>
-  <entry id="211502" lang="en" sex="m">(STARTING PACKAGE)
+  <entry id="211499" lang="en" sex="m">Healer_Reserve2</entry>
+  <entry id="211500" lang="en" sex="m">Healer_Reserve2</entry>
+  <entry id="211501" lang="en" sex="m">Healer_Reserve3</entry>
+  <entry id="211502" lang="en" sex="m">Healer_Reserve3</entry>
+  <entry id="211503" lang="en" sex="m">Healer_Reserve4</entry>
+  <entry id="211504" lang="en" sex="m">Healer_Reserve4</entry>
+  <entry id="211505" lang="en" sex="m">Healer_Reserve5</entry>
+  <entry id="211506" lang="en" sex="m">Healer_Reserve5</entry>
+  <entry id="211507" lang="en" sex="m">Hexblade1</entry>
+  <entry id="211508" lang="en" sex="m">Hexblade1</entry>
+  <entry id="211509" lang="en" sex="m">Hexblade2</entry>
+  <entry id="211510" lang="en" sex="m">Hexblade2</entry>
+  <entry id="211511" lang="en" sex="m">Hexblade3</entry>
+  <entry id="211512" lang="en" sex="m">Hexblade3</entry>
+  <entry id="211513" lang="en" sex="m">Hexblade4</entry>
+  <entry id="211514" lang="en" sex="m">Hexblade4</entry>
+  <entry id="211515" lang="en" sex="m">Hexblade5</entry>
+  <entry id="211516" lang="en" sex="m">Hexblade5</entry>
+  <entry id="211517" lang="en" sex="m">Incarnate1</entry>
+  <entry id="211518" lang="en" sex="m">Incarnate1</entry>
+  <entry id="211519" lang="en" sex="m">Incarnate2</entry>
+  <entry id="211520" lang="en" sex="m">Incarnate2</entry>
+  <entry id="211521" lang="en" sex="m">Incarnate3</entry>
+  <entry id="211522" lang="en" sex="m">Incarnate3</entry>
+  <entry id="211523" lang="en" sex="m">Incarnate4</entry>
+  <entry id="211524" lang="en" sex="m">Incarnate4</entry>
+  <entry id="211525" lang="en" sex="m">Incarnate5</entry>
+  <entry id="211526" lang="en" sex="m">Incarnate5</entry>
+  <entry id="211527" lang="en" sex="m">Knight (Cavalier)</entry>
+  <entry id="211528" lang="en" sex="m">(STARTING PACKAGE)
 
-The default warlock package focuses on improving dexterity and feats that make Eldritch Blast more effective.
+The cavalier on commanding the battlefield through presence and discipline, leading from the front with mounted or charging tactics while using challenges and positioning to control enemy attention.
+
+Equipment:
+Torch
+Chain Shirt
+Light Lance
+Longsword
+Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211529" lang="en" sex="m">Knight (Defender)</entry>
+  <entry id="211530" lang="en" sex="m">(STARTING PACKAGE)
+
+The Defender focuses on locking down enemies and protecting allies, using challenges, positioning, and heavy armor to draw attacks, hold the line, and prevent foes from reaching vulnerable party members.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Dwarven Waraxe
+Warhammer
+Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211531" lang="en" sex="m">Knight (Destroyer)</entry>
+  <entry id="211532" lang="en" sex="m">(STARTING PACKAGE)
+
+The Destroyer focuses on aggressive melee pressure, using martial prowess and decisive strikes to break enemy lines and eliminate threats rather than simply holding ground.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Battleaxe
+Throwing Axes</entry>
+  <entry id="211533" lang="en" sex="m">Knight 4</entry>
+  <entry id="211534" lang="en" sex="m">Knight 4</entry>
+  <entry id="211535" lang="en" sex="m">Knight 5</entry>
+  <entry id="211536" lang="en" sex="m">Knight 5</entry>
+  <entry id="211537" lang="en" sex="m">Marshal1</entry>
+  <entry id="211538" lang="en" sex="m">Marshal1</entry>
+  <entry id="211539" lang="en" sex="m">Marshal2</entry>
+  <entry id="211540" lang="en" sex="m">Marshal2</entry>
+  <entry id="211541" lang="en" sex="m">Marshal3</entry>
+  <entry id="211542" lang="en" sex="m">Marshal3</entry>
+  <entry id="211543" lang="en" sex="m">Marshal4</entry>
+  <entry id="211544" lang="en" sex="m">Marshal4</entry>
+  <entry id="211545" lang="en" sex="m">Marshal5</entry>
+  <entry id="211546" lang="en" sex="m">Marshal5</entry>
+  <entry id="211547" lang="en" sex="m">Ninja1</entry>
+  <entry id="211548" lang="en" sex="m">Ninja1</entry>
+  <entry id="211549" lang="en" sex="m">Ninja2</entry>
+  <entry id="211550" lang="en" sex="m">Ninja2</entry>
+  <entry id="211551" lang="en" sex="m">Ninja3</entry>
+  <entry id="211552" lang="en" sex="m">Ninja3</entry>
+  <entry id="211553" lang="en" sex="m">Ninja4</entry>
+  <entry id="211554" lang="en" sex="m">Ninja4</entry>
+  <entry id="211555" lang="en" sex="m">Ninja5</entry>
+  <entry id="211556" lang="en" sex="m">Ninja5</entry>
+  <entry id="211557" lang="en" sex="m">Psion_Egoist</entry>
+  <entry id="211558" lang="en" sex="m">Psion_Egoist</entry>
+  <entry id="211559" lang="en" sex="m">Psion_Nomad</entry>
+  <entry id="211560" lang="en" sex="m">Psion_Nomad</entry>
+  <entry id="211561" lang="en" sex="m">Psion_Savant</entry>
+  <entry id="211562" lang="en" sex="m">Psion_Savant</entry>
+  <entry id="211563" lang="en" sex="m">Psion_Seer</entry>
+  <entry id="211564" lang="en" sex="m">Psion_Seer</entry>
+  <entry id="211565" lang="en" sex="m">Psion_Shaper</entry>
+  <entry id="211566" lang="en" sex="m">Psion_Shaper</entry>
+  <entry id="211567" lang="en" sex="m">Psion_Telepath</entry>
+  <entry id="211568" lang="en" sex="m">Psion_Telepath</entry>
+  <entry id="211569" lang="en" sex="m">PsionReserve1</entry>
+  <entry id="211570" lang="en" sex="m">PsionReserve1</entry>
+  <entry id="211571" lang="en" sex="m">PsionReserve2</entry>
+  <entry id="211572" lang="en" sex="m">PsionReserve2</entry>
+  <entry id="211573" lang="en" sex="m">PsionReserve3</entry>
+  <entry id="211574" lang="en" sex="m">PsionReserve3</entry>
+  <entry id="211575" lang="en" sex="m">PsionReserve4</entry>
+  <entry id="211576" lang="en" sex="m">PsionReserve4</entry>
+  <entry id="211577" lang="en" sex="m">PsychicRogue1</entry>
+  <entry id="211578" lang="en" sex="m">PsychicRogue1</entry>
+  <entry id="211579" lang="en" sex="m">PsychicRogue2</entry>
+  <entry id="211580" lang="en" sex="m">PsychicRogue2</entry>
+  <entry id="211581" lang="en" sex="m">PsychicRogue3</entry>
+  <entry id="211582" lang="en" sex="m">PsychicRogue3</entry>
+  <entry id="211583" lang="en" sex="m">PsychicRogue4</entry>
+  <entry id="211584" lang="en" sex="m">PsychicRogue4</entry>
+  <entry id="211585" lang="en" sex="m">PsychicRogue5</entry>
+  <entry id="211586" lang="en" sex="m">PsychicRogue5</entry>
+  <entry id="211587" lang="en" sex="m">PsychicWarrior1</entry>
+  <entry id="211588" lang="en" sex="m">PsychicWarrior1</entry>
+  <entry id="211589" lang="en" sex="m">PsychicWarrior2</entry>
+  <entry id="211590" lang="en" sex="m">PsychicWarrior2</entry>
+  <entry id="211591" lang="en" sex="m">PsychicWarrior3</entry>
+  <entry id="211592" lang="en" sex="m">PsychicWarrior3</entry>
+  <entry id="211593" lang="en" sex="m">PsychicWarrior4</entry>
+  <entry id="211594" lang="en" sex="m">PsychicWarrior4</entry>
+  <entry id="211595" lang="en" sex="m">PsychicWarrior5</entry>
+  <entry id="211596" lang="en" sex="m">PsychicWarrior5</entry>
+  <entry id="211597" lang="en" sex="m">Samurai1</entry>
+  <entry id="211598" lang="en" sex="m">Samurai1</entry>
+  <entry id="211599" lang="en" sex="m">Samurai2</entry>
+  <entry id="211600" lang="en" sex="m">Samurai2</entry>
+  <entry id="211601" lang="en" sex="m">Samurai3</entry>
+  <entry id="211602" lang="en" sex="m">Samurai3</entry>
+  <entry id="211603" lang="en" sex="m">Samurai4</entry>
+  <entry id="211604" lang="en" sex="m">Samurai4</entry>
+  <entry id="211605" lang="en" sex="m">Samurai5</entry>
+  <entry id="211606" lang="en" sex="m">Samurai5</entry>
+  <entry id="211607" lang="en" sex="m">SamuraiCW1</entry>
+  <entry id="211608" lang="en" sex="m">SamuraiCW1</entry>
+  <entry id="211609" lang="en" sex="m">SamuraiCW2</entry>
+  <entry id="211610" lang="en" sex="m">SamuraiCW2</entry>
+  <entry id="211611" lang="en" sex="m">SamuraiCW3</entry>
+  <entry id="211612" lang="en" sex="m">SamuraiCW3</entry>
+  <entry id="211613" lang="en" sex="m">SamuraiCW4</entry>
+  <entry id="211614" lang="en" sex="m">SamuraiCW4</entry>
+  <entry id="211615" lang="en" sex="m">SamuraiCW5</entry>
+  <entry id="211616" lang="en" sex="m">SamuraiCW5</entry>
+  <entry id="211617" lang="en" sex="m">Scout1</entry>
+  <entry id="211618" lang="en" sex="m">Scout1</entry>
+  <entry id="211619" lang="en" sex="m">Scout2</entry>
+  <entry id="211620" lang="en" sex="m">Scout2</entry>
+  <entry id="211621" lang="en" sex="m">Scout3</entry>
+  <entry id="211622" lang="en" sex="m">Scout3</entry>
+  <entry id="211623" lang="en" sex="m">Scout4</entry>
+  <entry id="211624" lang="en" sex="m">Scout4</entry>
+  <entry id="211625" lang="en" sex="m">Scout5</entry>
+  <entry id="211626" lang="en" sex="m">Scout5</entry>
+  <entry id="211627" lang="en" sex="m">Shadowcaster1</entry>
+  <entry id="211628" lang="en" sex="m">Shadowcaster1</entry>
+  <entry id="211629" lang="en" sex="m">Shadowcaster2</entry>
+  <entry id="211630" lang="en" sex="m">Shadowcaster2</entry>
+  <entry id="211631" lang="en" sex="m">Shadowcaster3</entry>
+  <entry id="211632" lang="en" sex="m">Shadowcaster3</entry>
+  <entry id="211633" lang="en" sex="m">Shadowcaster4</entry>
+  <entry id="211634" lang="en" sex="m">Shadowcaster4</entry>
+  <entry id="211635" lang="en" sex="m">Shadowcaster5</entry>
+  <entry id="211636" lang="en" sex="m">Shadowcaster5</entry>
+  <entry id="211637" lang="en" sex="m">Shaman1</entry>
+  <entry id="211638" lang="en" sex="m">Shaman1</entry>
+  <entry id="211639" lang="en" sex="m">Shaman2</entry>
+  <entry id="211640" lang="en" sex="m">Shaman2</entry>
+  <entry id="211641" lang="en" sex="m">Shaman3</entry>
+  <entry id="211642" lang="en" sex="m">Shaman3</entry>
+  <entry id="211643" lang="en" sex="m">Shaman4</entry>
+  <entry id="211644" lang="en" sex="m">Shaman4</entry>
+  <entry id="211645" lang="en" sex="m">Shaman5</entry>
+  <entry id="211646" lang="en" sex="m">Shaman5</entry>
+  <entry id="211647" lang="en" sex="m">Sohei1</entry>
+  <entry id="211648" lang="en" sex="m">Sohei1</entry>
+  <entry id="211649" lang="en" sex="m">Sohei2</entry>
+  <entry id="211650" lang="en" sex="m">Sohei2</entry>
+  <entry id="211651" lang="en" sex="m">Sohei3</entry>
+  <entry id="211652" lang="en" sex="m">Sohei3</entry>
+  <entry id="211653" lang="en" sex="m">Sohei4</entry>
+  <entry id="211654" lang="en" sex="m">Sohei4</entry>
+  <entry id="211655" lang="en" sex="m">Sohei5</entry>
+  <entry id="211656" lang="en" sex="m">Sohei5</entry>
+  <entry id="211657" lang="en" sex="m">Soulborn1</entry>
+  <entry id="211658" lang="en" sex="m">Soulborn1</entry>
+  <entry id="211659" lang="en" sex="m">Soulborn2</entry>
+  <entry id="211660" lang="en" sex="m">Soulborn2</entry>
+  <entry id="211661" lang="en" sex="m">Soulborn3</entry>
+  <entry id="211662" lang="en" sex="m">Soulborn3</entry>
+  <entry id="211663" lang="en" sex="m">Soulborn4</entry>
+  <entry id="211664" lang="en" sex="m">Soulborn4</entry>
+  <entry id="211665" lang="en" sex="m">Soulborn5</entry>
+  <entry id="211666" lang="en" sex="m">Soulborn5</entry>
+  <entry id="211667" lang="en" sex="m">Soulknife1</entry>
+  <entry id="211668" lang="en" sex="m">Soulknife1</entry>
+  <entry id="211669" lang="en" sex="m">Soulknife2</entry>
+  <entry id="211670" lang="en" sex="m">Soulknife2</entry>
+  <entry id="211671" lang="en" sex="m">Soulknife3</entry>
+  <entry id="211672" lang="en" sex="m">Soulknife3</entry>
+  <entry id="211673" lang="en" sex="m">Soulknife4</entry>
+  <entry id="211674" lang="en" sex="m">Soulknife4</entry>
+  <entry id="211675" lang="en" sex="m">Soulknife5</entry>
+  <entry id="211676" lang="en" sex="m">Soulknife5</entry>
+  <entry id="211677" lang="en" sex="m">Swashbuckler1</entry>
+  <entry id="211678" lang="en" sex="m">Swashbuckler1</entry>
+  <entry id="211679" lang="en" sex="m">Swashbuckler2</entry>
+  <entry id="211680" lang="en" sex="m">Swashbuckler2</entry>
+  <entry id="211681" lang="en" sex="m">Swashbuckler3</entry>
+  <entry id="211682" lang="en" sex="m">Swashbuckler3</entry>
+  <entry id="211683" lang="en" sex="m">Swashbuckler4</entry>
+  <entry id="211684" lang="en" sex="m">Swashbuckler4</entry>
+  <entry id="211685" lang="en" sex="m">Swashbuckler5</entry>
+  <entry id="211686" lang="en" sex="m">Swashbuckler5</entry>
+  <entry id="211687" lang="en" sex="m">Swordsage1</entry>
+  <entry id="211688" lang="en" sex="m">Swordsage1</entry>
+  <entry id="211689" lang="en" sex="m">Swordsage2</entry>
+  <entry id="211690" lang="en" sex="m">Swordsage2</entry>
+  <entry id="211691" lang="en" sex="m">Swordsage3</entry>
+  <entry id="211692" lang="en" sex="m">Swordsage3</entry>
+  <entry id="211693" lang="en" sex="m">Swordsage4</entry>
+  <entry id="211694" lang="en" sex="m">Swordsage4</entry>
+  <entry id="211695" lang="en" sex="m">Swordsage5</entry>
+  <entry id="211696" lang="en" sex="m">Swordsage5</entry>
+  <entry id="211697" lang="en" sex="m">Totemist1</entry>
+  <entry id="211698" lang="en" sex="m">Totemist1</entry>
+  <entry id="211699" lang="en" sex="m">Totemist2</entry>
+  <entry id="211700" lang="en" sex="m">Totemist2</entry>
+  <entry id="211701" lang="en" sex="m">Totemist3</entry>
+  <entry id="211702" lang="en" sex="m">Totemist3</entry>
+  <entry id="211703" lang="en" sex="m">Totemist4</entry>
+  <entry id="211704" lang="en" sex="m">Totemist4</entry>
+  <entry id="211705" lang="en" sex="m">Totemist5</entry>
+  <entry id="211706" lang="en" sex="m">Totemist5</entry>
+  <entry id="211707" lang="en" sex="m">Truenamer1</entry>
+  <entry id="211708" lang="en" sex="m">Truenamer1</entry>
+  <entry id="211709" lang="en" sex="m">Truenamer2</entry>
+  <entry id="211710" lang="en" sex="m">Truenamer2</entry>
+  <entry id="211711" lang="en" sex="m">Truenamer3</entry>
+  <entry id="211712" lang="en" sex="m">Truenamer3</entry>
+  <entry id="211713" lang="en" sex="m">Truenamer4</entry>
+  <entry id="211714" lang="en" sex="m">Truenamer4</entry>
+  <entry id="211715" lang="en" sex="m">Truenamer5</entry>
+  <entry id="211716" lang="en" sex="m">Truenamer5</entry>
+  <entry id="211717" lang="en" sex="m">Warblade1</entry>
+  <entry id="211718" lang="en" sex="m">Warblade1</entry>
+  <entry id="211719" lang="en" sex="m">Warblade2</entry>
+  <entry id="211720" lang="en" sex="m">Warblade2</entry>
+  <entry id="211721" lang="en" sex="m">Warblade3</entry>
+  <entry id="211722" lang="en" sex="m">Warblade3</entry>
+  <entry id="211723" lang="en" sex="m">Warblade4</entry>
+  <entry id="211724" lang="en" sex="m">Warblade4</entry>
+  <entry id="211725" lang="en" sex="m">Warblade5</entry>
+  <entry id="211726" lang="en" sex="m">Warblade5</entry>
+  <entry id="211727" lang="en" sex="m">Warlock (Blaster)</entry>
+  <entry id="211728" lang="en" sex="m">(STARTING PACKAGE)
+
+The blaster package focuses on improving dexterity and feats that make Eldritch Blast more effective.
 
 Equipment:
 Torch
@@ -75623,14 +75931,34 @@ Morningstar
 Light Crossbow
 (2) quivers of bolts.
 (3) Healing Kits</entry>
-  <entry id="211503" lang="en" sex="m">Warlock Reserve1</entry>
-  <entry id="211504" lang="en" sex="m">Warlock Reserve1</entry>
-  <entry id="211505" lang="en" sex="m">Warlock Reserve2</entry>
-  <entry id="211506" lang="en" sex="m">Warlock Reserve2</entry>
-  <entry id="211507" lang="en" sex="m">Warlock Reserve3</entry>
-  <entry id="211508" lang="en" sex="m">Warlock Reserve3</entry>
-  <entry id="211509" lang="en" sex="m">Warlock Reserve4</entry>
-  <entry id="211510" lang="en" sex="m">Warlock Reserve4</entry>
+  <entry id="211729" lang="en" sex="m">Warlock_RESERVE2</entry>
+  <entry id="211730" lang="en" sex="m">Warlock_RESERVE2</entry>
+  <entry id="211731" lang="en" sex="m">Warlock_RESERVE3</entry>
+  <entry id="211732" lang="en" sex="m">Warlock_RESERVE3</entry>
+  <entry id="211733" lang="en" sex="m">Warlock_RESERVE4</entry>
+  <entry id="211734" lang="en" sex="m">Warlock_RESERVE4</entry>
+  <entry id="211735" lang="en" sex="m">Warlock_RESERVE5</entry>
+  <entry id="211736" lang="en" sex="m">Warlock_RESERVE5</entry>
+  <entry id="211737" lang="en" sex="m">Warmage1</entry>
+  <entry id="211738" lang="en" sex="m">Warmage1</entry>
+  <entry id="211739" lang="en" sex="m">Warmage2</entry>
+  <entry id="211740" lang="en" sex="m">Warmage2</entry>
+  <entry id="211741" lang="en" sex="m">Warmage3</entry>
+  <entry id="211742" lang="en" sex="m">Warmage3</entry>
+  <entry id="211743" lang="en" sex="m">Warmage4</entry>
+  <entry id="211744" lang="en" sex="m">Warmage4</entry>
+  <entry id="211745" lang="en" sex="m">Warmage5</entry>
+  <entry id="211746" lang="en" sex="m">Warmage5</entry>
+  <entry id="211747" lang="en" sex="m">Wilder1</entry>
+  <entry id="211748" lang="en" sex="m">Wilder1</entry>
+  <entry id="211749" lang="en" sex="m">Wilder2</entry>
+  <entry id="211750" lang="en" sex="m">Wilder2</entry>
+  <entry id="211751" lang="en" sex="m">Wilder3</entry>
+  <entry id="211752" lang="en" sex="m">Wilder3</entry>
+  <entry id="211753" lang="en" sex="m">Wilder4</entry>
+  <entry id="211754" lang="en" sex="m">Wilder4</entry>
+  <entry id="211755" lang="en" sex="m">Wilder5</entry>
+  <entry id="211756" lang="en" sex="m">Wilder5</entry>
   <entry id="211999" lang="en" sex="m">### CRAFT INFUSION RESERVE###</entry>
   <entry id="212000" lang="en" sex="m">Create Infusion</entry>
   <entry id="212001" lang="en" sex="m">Type of Feat: Item Creation

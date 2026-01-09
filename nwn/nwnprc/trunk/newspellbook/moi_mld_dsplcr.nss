@@ -35,7 +35,7 @@ void main()
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
     effect eLink       = EffectSkillIncrease(SKILL_HIDE, 2 + (nEssentia*2));
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) eLink = EffectLinkEffects(eLink, EffectConcealment(20));
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SHOULDERS) eLink = EffectLinkEffects(eLink, EffectConcealment(20));
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DISPLACER_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
