@@ -40,6 +40,7 @@ struct ipstruct GetIpStructFromString(string sIp);
 //#include "prc_inc_listener"
 #include "prc_inc_chat"
 #include "prc_x2_craft"
+#include "prc_inc_material"
 
 const int NUM_MAX_PROPERTIES            = 200;
 const int NUM_MAX_SUBTYPES              = 256;
@@ -1861,6 +1862,9 @@ void MakeAdamantine(object oItem)
             IPSafeAddItemProperty(oItem, ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_BLUDGEONING, nBonus), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
             IPSafeAddItemProperty(oItem, ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_PIERCING, nBonus)   , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
             IPSafeAddItemProperty(oItem, ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_SLASHING, nBonus)   , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+			
+			itemproperty ipAdamantine = ItemPropertyMaterial(IP_MATERIAL_ADAMANTINE); 
+			IPSafeAddItemProperty(oItem, ipAdamantine, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         }
     }
 }
@@ -1883,6 +1887,9 @@ void MakeDarkwood(object oItem)
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_SET_TRAP, nBonus)     , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_TUMBLE, nBonus)       , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_JUMP, nBonus)         , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		itemproperty ipDarkwood = ItemPropertyMaterial(IP_MATERIAL_WOOD_DARKWOOD_ZALANTAR); 
+		IPSafeAddItemProperty(oItem, ipDarkwood, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
     }
 }
 
@@ -1911,33 +1918,44 @@ void MakeMithral(object oItem)
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_SET_TRAP, nBonus)     , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_TUMBLE, nBonus)       , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_JUMP, nBonus)         , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
-        IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_BALANCE, nBonus)         , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
-        IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_CLIMB, nBonus)         , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+        IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_BALANCE, nBonus)      , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+        IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_CLIMB, nBonus)        , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         if(GetItemBaseAC(oItem) == 1)
             IPSafeAddItemProperty(oItem, ItemPropertyArcaneSpellFailure(IP_CONST_ARCANE_SPELL_FAILURE_MINUS_5_PERCENT), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         else
             IPSafeAddItemProperty(oItem, ItemPropertyArcaneSpellFailure(IP_CONST_ARCANE_SPELL_FAILURE_MINUS_10_PERCENT), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		itemproperty ipMithral = ItemPropertyMaterial(IP_MATERIAL_MITHRAL); 
+		IPSafeAddItemProperty(oItem, ipMithral, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);		
     }
 }
 
 void MakeColdIron(object oItem)
 {
-    //Does nothing so far
+	//Does nothing so far
+	itemproperty ipColdIron = ItemPropertyMaterial(IP_MATERIAL_COLD_IRON); 
+	IPSafeAddItemProperty(oItem, ipColdIron, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
 
 void MakeSilver(object oItem)
 {
-    //Does nothing so far
+	//Does nothing so far
+	itemproperty ipSilver = ItemPropertyMaterial(IP_MATERIAL_SILVER); 
+	IPSafeAddItemProperty(oItem, ipSilver, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);    
 }
 
 void MakeMundaneCrystal(object oItem)
 {
-    //Does nothing so far
+	//Does nothing so far
+	itemproperty ipCrystal = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_MUNDANE); 
+	IPSafeAddItemProperty(oItem, ipCrystal, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
 
 void MakeDeepCrystal(object oItem)
 {
-    //Does nothing so far
+	//Does nothing so far
+	itemproperty ipDeepCrystal = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_DEEP); 
+	IPSafeAddItemProperty(oItem, ipDeepCrystal, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
 
 //Creates an item on oOwner, from the baseitemtype and base AC (for armour)

@@ -276,7 +276,11 @@ void ApplyUnarmedAttackEffects(object oCreature)
 // Frostrager: 1d6 at level 1, 1d8 at level 4
 int FindUnarmedDamage(object oCreature)
 {
-    int iDamage = 0;
+    DoDebug("FindUnarmedDamage: FUNCTION CALLED AT ALL");
+	if (DEBUG) DoDebug("=== FindUnarmedDamage DEBUG START ===");  
+	if (DEBUG) DoDebug("Creature: " + GetName(oCreature)); 
+
+	int iDamage = 0;
     int iMonk = GetLevelByClass(CLASS_TYPE_MONK, oCreature) + GetLocalInt(oCreature, "LiPengMonk");
     int iShou = GetLevelByClass(CLASS_TYPE_SHOU, oCreature);
     int iBrawler = GetLevelByClass(CLASS_TYPE_BRAWLER, oCreature);
@@ -299,7 +303,46 @@ int FindUnarmedDamage(object oCreature)
     if (GetHasSpellEffect(VESTIGE_RONOVE, oCreature) && GetLevelByClass(CLASS_TYPE_BINDER, oCreature))
         iRonove = GetLocalInt(oCreature, "RonovesFists");
 
-    //:: Determine creature size
+	//:: Determine creature size  
+	if( GetIsPolyMorphedOrShifted(oCreature) || GetPRCSwitch(PRC_APPEARANCE_SIZE))  
+	{  
+		 iSize = PRCGetCreatureSize(oCreature) - CREATURE_SIZE_MEDIUM + 5;  
+	}  
+	else  
+	{  
+		if (DEBUG) DoDebug("FindUnarmedDamage: Before size adjustment, iSize = " + IntToString(iSize));
+		
+		// Start with feat-based size calculation  
+		iSize = 5;  // medium  
+		if (GetHasFeat(FEAT_TINY,  oCreature)) iSize = 3;  
+		if (GetHasFeat(FEAT_SMALL, oCreature)) iSize = 4;  
+		if (GetHasFeat(FEAT_LARGE, oCreature)) iSize = 6;  
+		if (GetHasFeat(FEAT_HUGE,  oCreature)) iSize = 7; 
+		
+		if (DEBUG) DoDebug("FindUnarmedDamage: After size adjustment, iSize = " + IntToString(iSize));
+
+		if (DEBUG) DoDebug("Has FEAT_LARGE: " + IntToString(GetHasFeat(FEAT_LARGE, oCreature)));  
+		if (DEBUG) DoDebug("Size adjustment value: " + IntToString(PRCGetCreatureSize(oCreature) - PRCGetCreatureSize(oCreature, PRC_SIZEMASK_NONE)));		
+		  
+		// Only apply size adjustment if no explicit size feat is present  
+		// This prevents overriding racial size feats like Centaur's FEAT_LARGE  
+		if (!GetHasFeat(FEAT_TINY, oCreature) &&   
+			!GetHasFeat(FEAT_SMALL, oCreature) &&   
+			!GetHasFeat(FEAT_LARGE, oCreature) &&   
+			!GetHasFeat(FEAT_HUGE, oCreature))  
+		{  
+			iSize += PRCGetCreatureSize(oCreature) - PRCGetCreatureSize(oCreature, PRC_SIZEMASK_NONE);  
+		}  
+		  
+		if (iSize < 1) iSize = 1;  
+		if (iSize > 9) iSize = 9; 
+
+		if (DEBUG) DoDebug("FindUnarmedDamage: Final iSize = " + IntToString(iSize));  
+		if (DEBUG) DoDebug("FindUnarmedDamage: iMonkDamage = " + IntToString(iMonkDamage));  
+		if (DEBUG) DoDebug("FindUnarmedDamage: 2DA lookup result = " + IntToString(StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iMonkDamage))));			
+			
+	}
+/*     //:: Determine creature size
     if( GetIsPolyMorphedOrShifted(oCreature) || GetPRCSwitch(PRC_APPEARANCE_SIZE))
     {
          iSize = PRCGetCreatureSize(oCreature) - CREATURE_SIZE_MEDIUM + 5;
@@ -314,7 +357,7 @@ int FindUnarmedDamage(object oCreature)
         iSize += PRCGetCreatureSize(oCreature) - PRCGetCreatureSize(oCreature, PRC_SIZEMASK_NONE);
         if (iSize < 1) iSize = 1;
         if (iSize > 9) iSize = 9;
-    }
+    } */
 
     // Sacred Fist code break protection
     if (GetHasFeat(FEAT_SF_CODE, oCreature)) iSacredFist = 0;
@@ -347,6 +390,7 @@ int FindUnarmedDamage(object oCreature)
 
     // Monk damage calculation (2DA row)
     if (iMonk > 0) iMonkDamage = iMonk / 4 + 3;
+	if (DEBUG) DoDebug("iMonkDamage row = " + IntToString(iMonkDamage));
     if (iSize == 5 && iMonkDamage == 7 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
         iMonkDamage = 8;
 
@@ -403,6 +447,7 @@ int FindUnarmedDamage(object oCreature)
 
     // Lookup monk damage in 2DA
     iMonkDamage = StringToInt(Get2DACache("unarmed_dmg","size" + IntToString(iSize), iMonkDamage));
+	if (DEBUG) DoDebug("FindUnarmedDamage: Final damage value = " + IntToString(iMonkDamage));
 
     // 3.0e monk special cases
     if (iSize <= 5 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE))
@@ -426,8 +471,10 @@ int FindUnarmedDamage(object oCreature)
     iDamage = (DamageAvg(iBrawlerDamage) > DamageAvg(iDamage)) ? iBrawlerDamage : iDamage;
 
     if (DEBUG) DoDebug("prc_inc_unarmed: iDamage "+IntToString(iDamage));
-
+	
     return iDamage;
+	
+	if (DEBUG) DoDebug("=== FindUnarmedDamage DEBUG END ===");
 }
 
 

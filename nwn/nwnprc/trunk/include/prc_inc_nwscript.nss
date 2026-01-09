@@ -493,6 +493,29 @@ int PRCGetCreatureSize(object oObject = OBJECT_SELF, int nSizeMask = PRC_SIZEMAS
     int nSize = StringToInt(Get2DAString("appearance", "SizeCategory", GetAppearanceType(oObject)));
     if (DEBUG) DoDebug("Appearance-based GetCreatureSize, returning size: "+IntToString(nSize));
     if (DEBUG) DoDebug("Bioware GetCreatureSize, returning size: "+IntToString(GetCreatureSize(oObject)));
+	
+	// Check for racial size feats FIRST - these override appearance size  
+	if(GetHasFeat(FEAT_TINY, oObject))    
+		nSize = 3;  // PRC Tiny  
+	else if(GetHasFeat(FEAT_SMALL, oObject))    
+		nSize = 4;  // PRC Small    
+	else if(GetHasFeat(FEAT_LARGE, oObject))    
+		nSize = 6;  // PRC Large  
+	else if(GetHasFeat(FEAT_HUGE, oObject))    
+		nSize = 7;  // PRC Huge 
+	else  
+	{  
+		// Map appearance sizes to PRC sizes when no racial feat present
+		if(nSize == 1) 		nSize = 3;  // Tiny creatures 		
+		else if(nSize == 2) nSize = 4;  // Small creatures  
+		else if(nSize == 3) nSize = 5;  // Medium creatures    
+		else if(nSize == 4) nSize = 6;  // Large creatures  
+		else if(nSize == 5) nSize = 7;  // Huge creatures 
+	}
+	
+	if (DEBUG) DoDebug("Has FEAT_LARGE: " + IntToString(GetHasFeat(FEAT_LARGE, oObject)));
+	if (DEBUG) DoDebug("PRCGetCreatureSize: After racial feats, nSize = " + IntToString(nSize));
+	
     //CEP adds other sizes, take them into account too
     if(nSize == 20)
         nSize = CREATURE_SIZE_DIMINUTIVE;

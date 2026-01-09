@@ -96,7 +96,36 @@ void main()
             SendMessageToPC(oPC, GetStringByStrRef(53308));//"You already have that spell in your spellbook."
             return;
         }
-
+		
+		// Make a Lore check to learn the spell  
+		string sSpellLevel = Get2DACache("spells", "Cleric", nSpellID);  
+		nSpellLevel = StringToInt(sSpellLevel);  
+		// If no cleric level, check innate level  
+		if (nSpellLevel == 0)  
+			nSpellLevel = StringToInt(Get2DACache("spells", "Innate", nSpellID));  
+		  
+		int nDC = 15 + nSpellLevel;  
+		  
+		// Check for previous failed attempts  
+		string sFailVar = "PRC_Archivist_Fail_" + IntToString(nSpellID);  
+		int nFailedLore = GetPersistantLocalInt(oPC, sFailVar);  
+		int nCurrentLore = GetSkillRank(SKILL_LORE, oPC);  
+		  
+		// If failed before and Lore hasn't improved, deny attempt  
+		if (nFailedLore > 0 && nCurrentLore <= nFailedLore)  
+		{  
+			FloatingTextStringOnCreature("You must improve your Lore skill before attempting to learn this spell again.", oPC, FALSE);  
+			return;  
+		}  
+		  
+		if(!GetPRCIsSkillSuccessful(oPC, SKILL_LORE, nDC))  
+		{  
+			// Store the Lore rank at time of failure  
+			SetPersistantLocalInt(oPC, sFailVar, nCurrentLore);  
+			FloatingTextStringOnCreature("Lore check failed (DC " + IntToString(nDC) + "). You cannot learn this spell.", oPC, FALSE);  
+			return;  
+		}
+		
         //destroy the scroll
         int nStack = GetNumStackedItems(oScroll);
         if (nStack > 1)

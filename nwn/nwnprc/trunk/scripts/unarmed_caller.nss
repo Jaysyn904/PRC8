@@ -15,19 +15,24 @@
 
 #include "prc_inc_unarmed"
 
-void main()
+void main()  
 {
-    //PrintString("Executing unarmed_caller");
-    int bCont = FALSE;
-    if(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FEATS))
-    {
-        UnarmedFeats(OBJECT_SELF);
-        bCont = TRUE;
-    }
-    if(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FISTS))
-    {
-        UnarmedFists(OBJECT_SELF);
-        bCont = TRUE;
+	DoDebug("unarmed_caller: FUNCTION STARTED");  
+    DoDebug("unarmed_caller: CALL_UNARMED_FEATS = " + IntToString(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FEATS)));  
+    DoDebug("unarmed_caller: CALL_UNARMED_FISTS = " + IntToString(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FISTS)));
+	
+    int bCont = FALSE;  
+    if(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FEATS))  
+    {  
+        DoDebug("unarmed_caller: CALLING UnarmedFeats");  
+        UnarmedFeats(OBJECT_SELF);  
+        bCont = TRUE;  
+    }  
+    if(GetLocalInt(OBJECT_SELF, CALL_UNARMED_FISTS))  
+    {  
+        DoDebug("unarmed_caller: CALLING UnarmedFists");  
+        UnarmedFists(OBJECT_SELF);  
+        bCont = TRUE;  
     }
     
     if(bCont)

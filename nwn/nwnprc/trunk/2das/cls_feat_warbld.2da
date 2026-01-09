@@ -144,7 +144,7 @@
 140  WEAP_SPEC_ELVEN_LIGHTBLADE                     24699     0    -1             0      
 141  WEAP_SPEC_ELVEN_THINBLADE                      24707     0    -1             0      
 142  WEAP_SPEC_ELVEN_COURTBLADE                     24715     0    -1             0      
-143  FEAT_WEAPON_SPECIALIZATION_WHIP                994       1    -1             0      
+143  FEAT_WEAPON_SPECIALIZATION_WHIP                994       0    -1             0      
 144  VitalRecovery                                  3636      1    -1             0      
 145  StonePower                                     5294      0    -1             1      
 146  RisingPhoenix_FullAttack                       5204      0    99             1      

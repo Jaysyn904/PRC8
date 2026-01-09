@@ -17,8 +17,9 @@ void main()
     if (GetIsObjectValid(oMeldshaper) && PRCGetIsAliveCreature(OBJECT_SELF))
     {
     	int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_NECROCARNUM_SHROUD);
-    	float fDist = MetersToFeet(GetDistanceBetween(oMeldshaper, OBJECT_SELF));
-    	float nCheck = 5.0 + nEssentia * 5.0;
+		float fDist = GetDistanceBetween(oMeldshaper, OBJECT_SELF);
+    	//float fDist = MetersToFeet(GetDistanceBetween(oMeldshaper, OBJECT_SELF));
+    	float nCheck = FeetToMeters(5.0 + nEssentia * 5.0);
     	if (nCheck >= fDist && GetHasSpellEffect(MELD_NECROCARNUM_SHROUD, oMeldshaper))
     	{
     		if(PRCGetIsAliveCreature(OBJECT_SELF))

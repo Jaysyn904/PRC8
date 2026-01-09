@@ -18,7 +18,7 @@
 //:: modified by mr_bumpkin Dec 4, 2003
 //:: modified by Ornedan Dec 22, 2004 to PnP rules
 #include "prc_inc_spells"
-
+#include "prcsp_archmaginc" 
 #include "prc_add_spell_dc"
 
 
@@ -59,7 +59,12 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 
     if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
-        //Fire cast spell at event for the specified target
+		// Check for Mastery of Shaping protection  
+		if(CheckMasteryOfShapes(aoeCreator, oTarget))  
+		{  
+			return; // Target is protected, exit  
+		}          
+		//Fire cast spell at event for the specified target
         SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_CLOUDKILL));
 
         //Concealement by fog happens no matter what

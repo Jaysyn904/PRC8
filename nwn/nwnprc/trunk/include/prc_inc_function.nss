@@ -187,6 +187,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_MASTER_OF_SHADOW:      sScript = "shd_mastershadow";                break;
                 case CLASS_TYPE_MIGHTY_CONTENDER_KORD: sScript = "prc_contendkord";                 break;
                 case CLASS_TYPE_MORNINGLORD:           sScript = "prc_morninglord";                 break;
+				case CLASS_TYPE_MONK:				   sScript = "prc_monk";						break;
                 case CLASS_TYPE_NIGHTSHADE:            sScript = "prc_nightshade";                  break;
                 case CLASS_TYPE_NINJA:                 sScript = "prc_ninjca";                      break;
                 case CLASS_TYPE_OLLAM:                 sScript = "prc_ollam";                       break;

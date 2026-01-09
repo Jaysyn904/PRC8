@@ -1324,7 +1324,7 @@ int DoTrip(object oPC, object oTarget, int nExtraBonus, int nGenerateAoO = TRUE,
         }
 		else // If you fail, enemy gets a counter trip attempt, using Strength  
 		{  
-			if(!nCounterTrip)   
+			if(nCounterTrip)   
 			{  
 				nTargetStat = GetAbilityModifier(ABILITY_STRENGTH, oTarget) + GetCombatMoveCheckBonus(oTarget, COMBAT_MOVE_TRIP, FALSE, TRUE);  
 				FloatingTextStringOnCreature("You have failed on your Trip attempt",oPC, FALSE);  

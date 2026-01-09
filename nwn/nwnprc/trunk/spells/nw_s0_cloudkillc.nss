@@ -19,6 +19,7 @@
 //:: modified by Ornedan Dec 22, 2004 to PnP rules
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
+#include "prcsp_archmaginc" 
 
 
 
@@ -71,7 +72,14 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
         fDelay = PRCGetRandomDelay();
         if(spellsIsTarget(oTarget,SPELL_TARGET_STANDARDHOSTILE , aoeCreator) )
         {
-            //Fire cast spell at event for the specified target
+			if(CheckMasteryOfShapes(aoeCreator, oTarget))  
+			{  
+				// Target is protected by Mastery of Shaping, skip damage  
+				oTarget = GetNextInPersistentObject();  
+				continue;  
+			} 
+			
+			//Fire cast spell at event for the specified target
             SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_CLOUDKILL));
 
             nHD = GetHitDice(oTarget);

@@ -781,15 +781,25 @@ void main()
                 IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
                 AddEventScript(oItem, EVENT_ITEM_ONHIT, "tob_feats", TRUE, FALSE);                    
             }        
-        }   
-        if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))
+        } 
+		if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))  
+		{  
+			int nBase = GetBaseItemType(oItem);  
+			if (nBase == BASE_ITEM_SMALLSHIELD || nBase == BASE_ITEM_LARGESHIELD || nBase == BASE_ITEM_TOWERSHIELD)          
+			{  
+				itemproperty ip = PRCItemPropertyBonusFeat(IP_CONST_IMP_CC);  
+				ip = TagItemProperty(ip, "ShieldedCasting");  
+				IPSafeAddItemProperty(oSkin, ip, 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);  
+			}          
+		}
+/*         if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))
         {
     		int nBase = GetBaseItemType(oItem);
     		if (nBase == BASE_ITEM_SMALLSHIELD || nBase == BASE_ITEM_LARGESHIELD || nBase == BASE_ITEM_TOWERSHIELD)        
             {
 				IPSafeAddItemProperty(oSkin, PRCItemPropertyBonusFeat(IP_CONST_IMP_CC), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
             }        
-        }
+        } */
         if (GetRacialType(oInitiator) == RACIAL_TYPE_RETH_DEKALA && GetIsWeapon(oItem))
         {
        		IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(4), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	
@@ -882,8 +892,26 @@ void main()
                 // Remove the temporary OnHitCastSpell: Unique
                 RemoveSpecificProperty(oItem, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, 1, "", 1, DURATION_TYPE_TEMPORARY);                                    
             }        
-        }   
-        if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))
+        }
+		if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))  
+		{  
+			// If you don't have a shield in your left hand, no benefit  
+			int nBase = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oInitiator));  
+			if (nBase != BASE_ITEM_SMALLSHIELD && nBase != BASE_ITEM_LARGESHIELD && nBase != BASE_ITEM_TOWERSHIELD)          
+			{  
+				// Only remove the tagged property, not the actual feat  
+				itemproperty ipCheck = GetFirstItemProperty(oSkin);  
+				while (GetIsItemPropertyValid(ipCheck))  
+				{  
+					if (GetItemPropertyTag(ipCheck) == "ShieldedCasting")  
+					{  
+						RemoveItemProperty(oSkin, ipCheck);  
+					}  
+					ipCheck = GetNextItemProperty(oSkin);  
+				}  
+			}          
+		}		
+/*      if (GetHasFeat(FEAT_SHIELDED_CASTING, oInitiator))
         {
         	// If you don't have a shield in your left hand, no benefit
     		int nBase = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oInitiator));
@@ -891,7 +919,7 @@ void main()
             {
 				RemoveSpecificProperty(oSkin, ITEM_PROPERTY_BONUS_FEAT, IP_CONST_IMP_CC);
             }        
-        }         
+        }     */     
         if (GetRacialType(oInitiator) == RACIAL_TYPE_RETH_DEKALA && GetIsWeapon(oItem))
         {
             // Remove the attack bonus

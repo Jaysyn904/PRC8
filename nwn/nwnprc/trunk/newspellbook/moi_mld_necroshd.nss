@@ -10,17 +10,13 @@ Saving Throw: See text
 
 A deadening field of necrocarnum radiates from you, filling the air around you with faint, shadowy tendrils.
 
-You gain a +1 profane bonus on attack rolls and damage rolls any time a living creature takes damage while adjacent to you. This bonus lasts for 1 round. If a living creature dies while adjacent to you, the
-bonus instead lasts for a number of rounds equal to the creature’s Hit Dice.
+You gain a +1 profane bonus on attack rolls and damage rolls any time a living creature takes damage while adjacent to you. This bonus lasts for 1 round. If a living creature dies while adjacent to you, the bonus instead lasts for a number of rounds equal to the creature’s Hit Dice.
 
-Essentia: If you invest essentia in the necrocarnum shroud, the area encompassed by the life-draining field expands. Any living creature who takes damage (or dies) within 5 feet plus 5 feet per point of 
-essentia invested triggers the bonus.
+Essentia: If you invest essentia in the necrocarnum shroud, the area encompassed by the life-draining field expands. Any living creature who takes damage (or dies) within 5 feet plus 5 feet per point of essentia invested triggers the bonus.
 
 Chakra Bind (Soul)
 
-While you have necrocarnum shroud bound to your soul chakra, you can take a standard action to strike a living foe with the raw evil of necrocarnum. When you use this ability, you must make a 
-successful melee touch attack against the intended victim. If successful, your touch bestows 1d4 negative levels on the target (Fortitude half). For each negative level bestowed, you gain 1 temporary point of essentia
-and 5 temporary hit points. The temporary essentia lasts until the end of your next turn. The temporary hit points fade after 1 hour.
+While you have necrocarnum shroud bound to your soul chakra, you can take a standard action to strike a living foe with the raw evil of necrocarnum. When you use this ability, you must make a successful melee touch attack against the intended victim. If successful, your touch bestows 1d4 negative levels on the target (Fortitude half). For each negative level bestowed, you gain 1 temporary point of essentia and 5 temporary hit points. The temporary essentia lasts until the end of your next turn. The temporary hit points fade after 1 hour.
 
 Chakra Bind (Waist)
 
