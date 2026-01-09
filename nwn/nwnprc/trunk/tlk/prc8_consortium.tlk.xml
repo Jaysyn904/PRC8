@@ -75544,12 +75544,53 @@ Torch
 Studded Leather Armor
 Halberd
 Shortbow
-(2) Quivers of Arrowsw
+(2) Quivers of Arrows
 (3) Healing Kits</entry>
   <entry id="211427" lang="en" sex="m">Duskblade 4</entry>
   <entry id="211428" lang="en" sex="m">Duskblade 4</entry>
   <entry id="211429" lang="en" sex="m">Duskblade 5</entry>
   <entry id="211430" lang="en" sex="m">Duskblade 5</entry>
+  <entry id="211431" lang="en" sex="m">Knight (Cavalier)</entry>
+  <entry id="211432" lang="en" sex="m">(STARTING PACKAGE)
+
+The cavalier on commanding the battlefield through presence and discipline, leading from the front with mounted or charging tactics while using challenges and positioning to control enemy attention.
+
+Equipment:
+Torch
+Chain Shirt
+Light Lance
+Longsword
+Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211433" lang="en" sex="m">Knight (Defender)</entry>
+  <entry id="211434" lang="en" sex="m">(STARTING PACKAGE)
+
+The Defender focuses on locking down enemies and protecting allies, using challenges, positioning, and heavy armor to draw attacks, hold the line, and prevent foes from reaching vulnerable party members.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Dwarven Waraxe
+Warhammer
+Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211435" lang="en" sex="m">Knight (Destroyer)</entry>
+  <entry id="211436" lang="en" sex="m">(STARTING PACKAGE)
+
+The Destroyer focuses on aggressive melee pressure, using martial prowess and decisive strikes to break enemy lines and eliminate threats rather than simply holding ground.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Battleaxe
+Throwing Axes
+(3) Healing Kits</entry>
+  <entry id="211437" lang="en" sex="m">Knight 4</entry>
+  <entry id="211438" lang="en" sex="m">Knight 4</entry>
+  <entry id="211439" lang="en" sex="m">Knight 5</entry>
+  <entry id="211440" lang="en" sex="m">Knight 5</entry>
   <entry id="211493" lang="en" sex="m">Healer (Default)</entry>
   <entry id="211494" lang="en" sex="m">(STARTING PACKAGE)
 
