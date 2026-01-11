@@ -66,6 +66,7 @@ void main()
         effect eAttacks = SupernaturalEffect(EffectModifyAttacks(nAttacks));
         effect ePenalty = SupernaturalEffect(EffectAttackDecrease(nPenalty));
         effect eLink = EffectLinkEffects(eAttacks, ePenalty);
+		eLink = UnyieldingEffect(eLink); 
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
 
         if(nAttacks == 1)

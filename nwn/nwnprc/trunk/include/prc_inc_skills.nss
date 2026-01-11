@@ -112,13 +112,13 @@ int PerformJump(object oPC, location lLoc, int bDoKnockDown = TRUE)
         if (Ninja_AbilitiesEnabled(oPC))
         {
             bIsRunningJump = TRUE;
-            iBonus = 4;
+            iBonus += 4;
         }
      }
      if (GetHasSpellEffect(MOVE_TC_LEAPING_DRAGON, oPC))
      {
             bIsRunningJump = TRUE;
-            //iBonus = 10; //:: This is granted in the stance.
+            //iBonus += 10; //:: This is handled in the stance now.
      }    
      // PnP rules are height * 6 for run and height * 2 for jump.
      // I can't get height so that is assumed to be 6.

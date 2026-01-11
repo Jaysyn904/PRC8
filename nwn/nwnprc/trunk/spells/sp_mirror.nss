@@ -301,14 +301,16 @@ void main2()
 	CleanCopy(oImage);
     
 	// images will have only 1 HP
-    int iHP = GetCurrentHitPoints(oImage);
-    --iHP;
-    effect eDamage = PRCEffectDamage(oImage, iHP); // reduces image to 1 hp	
+    //int iHP = GetCurrentHitPoints(oImage);
+    //--iHP;
+    //effect eDamage = PRCEffectDamage(oImage, iHP); // reduces image to 1 hp	
+	
+	SetCurrentHitPoints(oImage, 1);
 
     // these need to be applied to every image
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eImage, oImage);
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eNoSpell, oImage);
-    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDamage, oImage);   
+    //ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDamage, oImage);   
 	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSpeed, oImage);	
 	
 	SetMirrorImageScripts(oImage);

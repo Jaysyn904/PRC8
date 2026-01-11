@@ -9355,12 +9355,12 @@ Level 4: Divine Power, Holy Sword</entry>
 Prerequisite: Vassal of Bahamut level 1.
 Specifics: Good dragons are naturally well-disposed towards a Vassal of Bahamut, while evil dragons are cowed by his presence. The Vassal of Bahamut gains a bonus equal to his class level on all Appraise, Persuade, Intimidate, Taunt and Perform checks.
 Use: Automatic.</entry>
-  <entry id="46006" lang="en" sex="m">Platinum Armor +4</entry>
-  <entry id="46007" lang="en" sex="m">Platinum Armor +6</entry>
-  <entry id="46008" lang="en" sex="m">Platinum Armor +8</entry>
+  <entry id="46006" lang="en" sex="m">****</entry>
+  <entry id="46007" lang="en" sex="m">****</entry>
+  <entry id="46008" lang="en" sex="m">Platinum Armor</entry>
   <entry id="46009" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Vassal of Bahamut Level 1 and higher.
-Specifics: The Vassal gains a Platinum armor made from transmuted scales of a red dragon. He only can only use his Vassal abilities while wearing it. This armor will start out with +4 at level 1, and enhance to +6 at level 5 and +8 at level 10.
+Prerequisite: Vassal of Bahamut Level 1.
+Specifics: The Vassal is granted a platinum armor made from transmuted scales of a red dragon. The masterwork suit of armor weighs 25 pounds and confers a +8 armor bonus. Its other properties are as a masterwork chain shirt (+4 max Dex bonus, —2 armor check penalty, 20% arcane spell failure chance)
 Use: Automatic.</entry>
   <entry id="46010" lang="en" sex="m">Dragon Senses</entry>
   <entry id="46011" lang="en" sex="m">Type of Feat: Class Specific
@@ -73996,10 +73996,10 @@ Skill Points at Each Additional Level: 2 + Int Modifier
 Bonus Feats: The epic Forsaker gains a bonus feat every four levels.
 
 Special:
-Ability Bonus: The epic forsaker continues to increase in physcial and mental power at each level.
+Ability Bonus: The epic forsaker continues to increase in physcial or mental power at each level.
 Fast Healing: The epic forsaker's healing ability continues to increase in power every three levels.
 Spell Resistance: The epic forsaker's spell resistance continues to increase in power every 3 levels.
-Damage Reduction: THe epic forsaker's damage resistence increases every 3 levels.
+Damage Reduction: The epic forsaker's damage resistence increases every 3 levels.
 
 Epic Forsaker Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Self Concealment, Epic Skill Focus, Epic Superior Initiative, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Perfect Health, Two-Weapon Rend.</entry>
@@ -75510,12 +75510,44 @@ Light Crossbow
   <entry id="211418" lang="en" sex="m">Beguiler 4</entry>
   <entry id="211419" lang="en" sex="m">Beguiler 5</entry>
   <entry id="211420" lang="en" sex="m">Beguiler 5</entry>
-  <entry id="211421" lang="en" sex="m">Binder1</entry>
-  <entry id="211422" lang="en" sex="m">Binder1</entry>
-  <entry id="211423" lang="en" sex="m">Binder2</entry>
-  <entry id="211424" lang="en" sex="m">Binder2</entry>
-  <entry id="211425" lang="en" sex="m">Binder3</entry>
-  <entry id="211426" lang="en" sex="m">Binder3</entry>
+  <entry id="211421" lang="en" sex="m">Binder (Controller)</entry>
+  <entry id="211422" lang="en" sex="m">(STARTING PACKAGE)
+
+The Controller focuses on shaping the battlefield through fear, debuffs, and denial effects, using vestige-granted abilities to disrupt enemy actions, limit movement, and weaken opponents rather than dealing direct damage.
+
+Equipment:
+Torch
+Studded Leather Armor
+Morningstar
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits</entry>
+  <entry id="211423" lang="en" sex="m">Binder (Trickster)</entry>
+  <entry id="211424" lang="en" sex="m">(STARTING PACKAGE)
+
+The Trickster focuses on deception and misdirection, leveraging supernatural abilities for stealth, mobility, and social manipulation to bypass encounters or turn enemies against each other.
+
+Equipment:
+Torch
+Leather Armor
+Dagger
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits
+(1) Softfoot
+(1) Blend Cream</entry>
+  <entry id="211425" lang="en" sex="m">Binder (Second-Rank Warrior)</entry>
+  <entry id="211426" lang="en" sex="m">(STARTING PACKAGE)
+
+The Second-Rank Warrior focuses on supporting melee from just behind the front line, using vestige-granted defenses and reliable supernatural attacks to reinforce allies and exploit openings without drawing sustained enemy focus.
+
+Equipment:
+Torch
+Scale Mail
+Spear
+Light Crossbow
+(2) quivers of bolts.
+(2) Healing Kits</entry>
   <entry id="211427" lang="en" sex="m">Binder4</entry>
   <entry id="211428" lang="en" sex="m">Binder4</entry>
   <entry id="211429" lang="en" sex="m">Binder5</entry>

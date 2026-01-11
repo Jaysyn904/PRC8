@@ -13,7 +13,7 @@
     Level: Crafted Tool 3
     Range: 30 feet
     Target: One Weapon with an Energy Special
-    Duration: 5 Round
+    Duration: 5 Rounds
     Spell Resistance: Yes
     Metautterances: Extend
 
@@ -52,7 +52,7 @@ void main()
     {
         // This is done so Speak Unto the Masses can read it out of the structure
         utter.nPen       = GetTrueSpeakPenetration(oTrueSpeaker);
-        utter.fDur       = RoundsToSeconds(1);
+        utter.fDur       = RoundsToSeconds(5);
         if(utter.bExtend) utter.fDur *= 2;
 
 	int nSRCheck = PRCDoResistSpell(oTrueSpeaker, oTarget, utter.nPen);
@@ -83,6 +83,8 @@ void main()
                			  	DelayCommand(utter.fDur, AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageBonus(iDamageType, iTemp), oTarget));
                		         }
 	                }
+					
+					ip = GetNextItemProperty(oTarget);
 
                 }
     	}

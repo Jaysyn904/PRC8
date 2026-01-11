@@ -13,7 +13,32 @@
 #include "prc_feat_const"
 #include "prc_class_const"
 
-void CleanExtraArmors(object oPC)
+void CleanExtraArmors(object oPC)  
+{  
+    // Cleanup routine variables  
+    object oChk;  
+    int nArmor8 = 0;  
+  
+    // Clean up any extra +8 armors  
+    oChk = GetFirstItemInInventory(oPC);  
+    while (GetIsObjectValid(oChk))  
+    {  
+        if (GetTag(oChk) == "PlatinumArmor8")  
+        {  
+            nArmor8++;  
+            if (nArmor8 > 1) DestroyObject(oChk, 0.0);  
+        }  
+        else if (GetTag(oChk) == "PlatinumArmor4" || GetTag(oChk) == "PlatinumArmor6")  
+        {  
+            // Destroy any remaining +4 or +6 armors  
+            DestroyObject(oChk, 0.0);  
+        }  
+          
+        oChk = GetNextItemInInventory(oPC);  
+    }  
+}
+
+/* void CleanExtraArmors(object oPC)
 {
     // Cleanup routine variables
     object oChk;
@@ -66,6 +91,7 @@ void CleanExtraArmors(object oPC)
         }
     }
 }
+ */
 
 void AddArmorOnhit(object oPC,int iEquip)
 {
@@ -243,6 +269,7 @@ void DWLeftWeap(object oPC, int iEquip)
   }
   }
  */
+
 void ImperiousAura(object oPC, object oSkin, int iLevel)
 {
     if(GetLocalInt(oSkin, "ImperiousAura") == iLevel) return;
