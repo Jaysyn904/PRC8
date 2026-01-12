@@ -166,23 +166,36 @@ void main()
                 string sFeatID;
 				int added = 0;
 
-				for(i = 14001; i < 14260 ; i++)
+				for(i = 14001; i < 14351 ; i++)
 				{
+					// Skip blank IDs between 14266 and 14329  
+					if(i >= 14266 && i < 14330)  
+						continue;  
+	
 					nPowerLevel = StringToInt(Get2DACache("spells", "Innate", i));
 					if(nPowerLevel > nMaxLevel)
-						break;
+						continue;
 
 					string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i)));
-
-					if(sName != "")
-					{
-						if (GetHasPower(i, oMeldshaper)) 
-						{
-							if(SORT) AddToTempList(oMeldshaper, sName, i);
-							else     AddChoice(sName, i, oMeldshaper);
-							added++;
-						}
-					}
+					
+					// Check if it's a regular power or a subradial  
+					int bHasPower = GetHasPower(i, oMeldshaper);  
+					if (!bHasPower && GetIsSubradialSpell(i))  
+					{  
+						// For subradials, check if they know the master spell  
+						int nMasterSpell = GetMasterSpellFromSubradial(i);  
+						if (nMasterSpell != -1)  
+						{  
+							bHasPower = GetHasPower(nMasterSpell, oMeldshaper);  
+						}  
+					}  
+					  
+					if (bHasPower)  
+					{  
+						if(SORT) AddToTempList(oMeldshaper, sName, i);  
+						else     AddChoice(sName, i, oMeldshaper);  
+						added++;  
+					}					
 				}
 
 				if(SORT)

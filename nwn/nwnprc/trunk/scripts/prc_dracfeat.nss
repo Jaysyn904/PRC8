@@ -287,16 +287,44 @@ void main()
         }
 ///////////////////////////Draconic Senses//////////////////////////
         if(GetHasFeat(FEAT_DRACONIC_SENSES, oPC))
-        {  
+        {
+			effect eLow		= EffectBonusFeat(FEAT_DARKVISION);
+			effect eDark 	= EffectBonusFeat(FEAT_LOWLIGHTVISION);
+			//effect eUltra 	= EffectUltravision();
+			effect eUltra		= EffectBonusFeat(FEAT_ULTRAVISION);
+			effect eLink;
+				
+			if(DEBUG) DoDebug("Entering Draconic Senses Branch.  nPower is: "+IntToString(nPower)+".");
             switch(nPower)
             {
-                case 1:  IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); break;
-                case 2:  IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); break;
-                case 3:  IPSafeAddItemProperty(oSkin, ItemPropertyDarkvision(), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); break;
-                         //Using Ultravision as the ability is Blindsense, not Blindsight
-                default: IPSafeAddItemProperty(oSkin, ItemPropertyDarkvision(), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-                         ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectUltravision()), oPC); break;
+				case 1:							
+                case 2:	
+				{
+					if(DEBUG) DoDebug("Draconic Senses Branch Case 1 & 2: Lowlight vision");
+					//IPSafeAddItemProperty(oSkin, ItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); break;
+					SPApplyEffectToObject(DURATION_TYPE_PERMANENT, UnyieldingEffect(eLow), oPC); 
+					break;
+				}				
+                case 3:
+				{				
+					if(DEBUG) DoDebug("Draconic Senses Branch Case 3: Lowlight vision + Darkvision");
+					//IPSafeAddItemProperty(oSkin, ItemPropertyDarkvision(), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); break;
+					eLink = EffectLinkEffects(eLow, eDark);						
+					SPApplyEffectToObject(DURATION_TYPE_PERMANENT, UnyieldingEffect(eLink), oPC); 
+					break;
+				}                         
+				//;: Using Ultravision as the ability is Blindsense, not Blindsight						 
+                default:	
+				{
+					if(DEBUG) DoDebug("Draconic Senses Branch Default: Lowlight vision + Darkvision + Ultravsion");
+					//IPSafeAddItemProperty(oSkin, ItemPropertyDarkvision(), 0.0f, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);							
+					eLink = EffectLinkEffects(eLow, eDark);	
+					eLink = EffectLinkEffects(eUltra, eLink);
+					SPApplyEffectToObject(DURATION_TYPE_PERMANENT, UnyieldingEffect(eLink), oPC); 
+					break;
+				}
             }
+			if(DEBUG) DoDebug("Draconic Senses: Adding skill bonuses.");
             SetCompositeBonus(oSkin, "DS_Spot", nPower, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
             SetCompositeBonus(oSkin, "DS_Search", nPower, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
             SetCompositeBonus(oSkin, "DS_Listen", nPower, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);

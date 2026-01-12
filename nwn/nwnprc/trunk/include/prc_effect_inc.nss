@@ -498,6 +498,7 @@ effect EffectFatigue(){
     effect eReturn = EffectAbilityDecrease(ABILITY_STRENGTH, 2);
            eReturn = EffectLinkEffects(eReturn, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
            eReturn = EffectLinkEffects(eReturn, EffectMovementSpeedDecrease(25));
+		   eReturn = EffectLinkEffects(eReturn, EffectIcon(EFFECT_ICON_FATIGUE));
            eReturn = TagEffect(eReturn, "PRCFatigue");
     return eReturn;
 }

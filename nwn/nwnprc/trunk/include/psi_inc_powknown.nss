@@ -29,7 +29,7 @@
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-
+#include "prc_inc_spells"
 //////////////////////////////////////////////////
 /*                 Constants                    */
 //////////////////////////////////////////////////
@@ -572,32 +572,49 @@ int GetMaxPowerCount(object oCreature, int nList)
 
 int GetHasPower(int nPower, object oCreature = OBJECT_SELF)
 {
-		// Check MISC list first (for Hidden Talent and similar feats)  
-		if(GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_INVALID), oCreature))  
-        return TRUE;
+    // Debug output  
+    if (DEBUG) DoDebug("GetHasPower: Checking power " + IntToString(nPower));  
+      
+    // Check if it's a subradial spell first  
+    if (GetIsSubradialSpell(nPower))  
+    {  
+        if(DEBUG) DoDebug("GetHasPower: " + IntToString(nPower) + " is a subradial");  
+        int nMasterSpell = GetMasterSpellFromSubradial(nPower);  
+        if (nMasterSpell != -1)  
+        {  
+            if(DEBUG) DoDebug("GetHasPower: Master spell is " + IntToString(nMasterSpell));  
+            nPower = nMasterSpell;  
+        }  
+    }  
+      
+	
+	// Check MISC list first (for Hidden Talent and similar feats)  
+	if(GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_INVALID), oCreature))  
+		return TRUE;
 
-		if((GetLevelByClass(CLASS_TYPE_PSION, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSION), oCreature)
-        ) ||
-       (GetLevelByClass(CLASS_TYPE_PSYWAR, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSYWAR), oCreature)
-        ) ||
-       (GetLevelByClass(CLASS_TYPE_PSYCHIC_ROGUE, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSYCHIC_ROGUE), oCreature)
-        ) ||        
-       (GetLevelByClass(CLASS_TYPE_WILDER, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_WILDER), oCreature)
-        ) ||
-       (GetLevelByClass(CLASS_TYPE_FIST_OF_ZUOKEN, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_FIST_OF_ZUOKEN), oCreature)
-        ) ||
-       (GetLevelByClass(CLASS_TYPE_WARMIND, oCreature)
-        && GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_WARMIND), oCreature)
-        )
-        // add new psionic classes here
-       )
-        return TRUE;
-    return FALSE;
+	if((GetLevelByClass(CLASS_TYPE_PSION, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSION), oCreature)
+	) ||
+	(GetLevelByClass(CLASS_TYPE_PSYWAR, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSYWAR), oCreature)
+	) ||
+	(GetLevelByClass(CLASS_TYPE_PSYCHIC_ROGUE, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_PSYCHIC_ROGUE), oCreature)
+	) ||        
+	(GetLevelByClass(CLASS_TYPE_WILDER, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_WILDER), oCreature)
+	) ||
+	(GetLevelByClass(CLASS_TYPE_FIST_OF_ZUOKEN, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_FIST_OF_ZUOKEN), oCreature)
+	) ||
+	(GetLevelByClass(CLASS_TYPE_WARMIND, oCreature)
+	&& GetHasFeat(GetClassFeatFromPower(nPower, CLASS_TYPE_WARMIND), oCreature)
+	)
+	// add new psionic classes here
+	)
+		return TRUE;
+		
+	return FALSE;
 }
 
 string DebugListKnownPowers(object oCreature)
