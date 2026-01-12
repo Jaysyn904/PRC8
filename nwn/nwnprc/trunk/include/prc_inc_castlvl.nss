@@ -797,6 +797,7 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 
     if (nCastingClass == CLASS_TYPE_BARD || GetLevelByClass(CLASS_TYPE_BARD, oCaster))
     {    
+	
 	//:: Includes RHD as bard.  If they started with bard levels, then it
 	//:: counts as a prestige class, otherwise RHD is used instead of bard levels.		
 		if(nRace == RACIAL_TYPE_GLOURA)
@@ -904,8 +905,12 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		if(GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oCaster);	
 
-		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BARD, oCaster))
-			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		// if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BARD, oCaster))
+			// nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);	
+		if(GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BARD, oCaster)  
+		&& !(GetRacialType(oCaster) == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster)))  
+			nArcane += GetLevelByClass(CLASS_TYPE_VIRTUOSO, oCaster);
+	
 		
 		if(GetHasFeat(FEAT_WWOC_SPELLCASTING_BARD, oCaster))
 			nArcane += GetLevelByClass(CLASS_TYPE_WAR_WIZARD_OF_CORMYR, oCaster);
@@ -960,7 +965,8 @@ int GetArcanePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 	}
 //:: End Bard Arcane PrC casting calculations
  
-	if(nCastingClass == CLASS_TYPE_BARD || nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
+	//if(nCastingClass == CLASS_TYPE_BARD || nCastingClass == CLASS_TYPE_BARD && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
+	if((nCastingClass == CLASS_TYPE_FEY || nCastingClass == CLASS_TYPE_BARD) && nRace == RACIAL_TYPE_GLOURA && !GetLevelByClass(CLASS_TYPE_BARD, oCaster))
 	{    
 		if(DEBUG) DoDebug("prc_inc_castlvl >> Found Fey RHD caster (not bard)");
 		
