@@ -400,7 +400,16 @@ void main()
 
     if(GetHasFeat(FEAT_SPELLFIRE_WIELDER, oPC))
         SpawnNewThread("PRC_Spellfire", "prc_spellfire_hb", 6.0f, oPC);
-
+	
+	// Handle Hidden Talent 
+	if(GetHasFeat(FEAT_HIDDEN_TALENT, oPC) && !GetPersistantLocalInt(oPC, "HiddenTalentChosen"))  
+	{  
+		if(DEBUG) DoDebug("prc_onenter: Entering Hidden Talent Branch");
+		// Trigger Hidden Talent power selection conversation  
+		//DelayCommand(0.5, ExecuteScript("psi_hidntalent", oPC));
+		DelayCommand(1.0f, StartDynamicConversation("ft_hidntalent_ft", oPC, DYNCONV_EXIT_ALLOWED_SHOW_CHOICE, TRUE, FALSE, oPC));
+	}   	
+	
     //if the player logged off while being registered as a cohort
     if(GetPersistantLocalInt(oPC, "RegisteringAsCohort"))
         AssignCommand(GetModule(), CheckHB(oPC));

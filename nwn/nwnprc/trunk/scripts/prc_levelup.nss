@@ -64,8 +64,10 @@ void main()
 	// Handle Hidden Talent 
 	if(GetHasFeat(FEAT_HIDDEN_TALENT, oPC) && !GetPersistantLocalInt(oPC, "HiddenTalentChosen"))  
 	{  
+		if(DEBUG) DoDebug("prc_levelup: Entering Hidden Talent Branch");
 		// Trigger Hidden Talent power selection conversation  
-		AssignCommand(oPC, ActionStartConversation(oPC, "hidden_talent_cv", TRUE, FALSE));  
+		//DelayCommand(0.5, ExecuteScript("psi_hidntalent", oPC));
+		DelayCommand(1.0f, StartDynamicConversation("ft_hidntalent_ft", oPC, DYNCONV_EXIT_ALLOWED_SHOW_CHOICE, TRUE, FALSE, oPC));
 	}   
 	
     // Execute scripts hooked to this event for the player triggering it

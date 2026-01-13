@@ -40,7 +40,7 @@ void ActivateBreath(int nSpellLevel, object oPC = OBJECT_SELF)
     //if none left, exit
     if(!bCanUse) return;    
 	
-	int nDamageType;
+	int nDamageType = DAMAGE_TYPE_FIRE;
         struct breath DracBreath;
 	
 	        //Acid

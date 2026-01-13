@@ -2161,10 +2161,35 @@ int PRCSpellEffects(object oCaster, object oTarget, int nSpellID, int nSpellLeve
 {
     // Pnp Tensers Transformation
     if(GetPRCSwitch(PRC_PNP_TENSERS_TRANSFORMATION))
-    {
+	{
+        if(GetHasSpellEffect(SPELL_TENSERS_TRANSFORMATION, oCaster))  
+        {  
+            // Allow potions - they are not spell trigger/completion items  
+            object oSpellCastItem = PRCGetSpellCastItem();  
+            if(GetIsObjectValid(oSpellCastItem))  
+            {  
+                int nItemType = GetBaseItemType(oSpellCastItem);  
+                if(nItemType == BASE_ITEM_ENCHANTED_POTION  
+                || nItemType == BASE_ITEM_POTIONS)  
+                {  
+                    // Continue with other checks  
+                }  
+                else  
+                {  
+                    return FALSE; // Block other magic items  
+                }  
+            }  
+            else  
+            {  
+                return FALSE; // Block regular spellcasting  
+            }  
+        }
+	}  		
+/*     {
         if(GetHasSpellEffect(SPELL_TENSERS_TRANSFORMATION, oCaster))
             return FALSE;
-    }
+    } */
+	
     
     // Gaseous Form check
     if(GetHasSpellEffect(SPELL_GASEOUS_FORM, oCaster))
@@ -3757,4 +3782,4 @@ int X2PreSpellCastCode2()
 
 
 // Test main
-//::void main(){}
+//:: void main(){}

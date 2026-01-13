@@ -1724,7 +1724,7 @@ int IsHiddenTalent(object oPC = OBJECT_SELF)
 		GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC)   ||
 		GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC)   ||
 		GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC)   ||
-		//GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC)   ||
+		GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC)   ||
 		GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC)   ||
 		GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC)   ||
 		GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC)   ||
@@ -1836,7 +1836,7 @@ int GetHiddenTalentCount(object oPC = OBJECT_SELF)
     if (GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC))           nCount++;
     if (GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC))            nCount++;
     if (GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC))          nCount++;
-    //if (GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))        nCount++;
+    if (GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))        nCount++;
     if (GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC))           nCount++;
     if (GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC))          nCount++;
     if (GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC))            nCount++;
@@ -1889,7 +1889,10 @@ int GetIsHiddenTalentPower(object oPC, int nPower)
     if(nPower == POWER_ELFSIGHT              && GetHasFeat(FEAT_HIDDEN_TALENT_ELFSIGHT, oPC))              return TRUE;
     if(nPower == POWER_EMPATHY               && GetHasFeat(FEAT_HIDDEN_TALENT_EMPATHY, oPC))               return TRUE;
     if(nPower == POWER_EMPTYMIND             && GetHasFeat(FEAT_HIDDEN_TALENT_EMPTYMIND, oPC))             return TRUE;
-    //if(nPower == POWER_ENERGYRAY           && GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;
+    if(nPower == POWER_ENERGYRAY_FIRE		&& GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;
+	if(nPower == POWER_ENERGYRAY_COLD		&& GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;
+	if(nPower == POWER_ENERGYRAY_ELEC		&& GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;
+    if(nPower == POWER_ENERGYRAY_SONIC		&& GetHasFeat(FEAT_HIDDEN_TALENT_ENERGYRAY, oPC))             return TRUE;				
     if(nPower == POWER_ENTANGLE              && GetHasFeat(FEAT_HIDDEN_TALENT_ENTANGLE, oPC))              return TRUE;
     if(nPower == POWER_EXPANSION             && GetHasFeat(FEAT_HIDDEN_TALENT_EXPANSION, oPC))             return TRUE;
     if(nPower == POWER_FARHAND               && GetHasFeat(FEAT_HIDDEN_TALENT_FARHAND, oPC))               return TRUE;
