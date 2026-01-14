@@ -10021,7 +10021,8 @@ Combining the dynamic powers of martial prowess and arcane might, the Hexblade p
 
 - Alignment Restrictions: non-good only
 - Hit Die: d10
-- Proficiencies: A Hexblade gains proficiency with Simple and Martial Weapons, Light and Medium Armour and with Shields.
+- Proficiencies: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.  
+
 - Skill Points: 2+ Int Modifier.
 
 CLASS FEATURES:
@@ -20878,7 +20879,7 @@ Sharess is a paradoxical deity. Originally, she was a war goddess of the Mulhora
 REQUIREMENTS: 
 
 Alignment: Chaotic good
-Skills: Diplomacy 7 ranks , Perform 7 ranks 
+Skills: Persuade 7 ranks , Perform 7 ranks 
 Feats: Sacred Vow, Vow of Purity
 
 CLASS FEATURES:
@@ -26873,9 +26874,9 @@ Note: if you take this feat and are not a Kalashtar, you will have to reselect y
 Use: Selected.</entry>
   <entry id="50961" lang="en" sex="m">Soulblade Warrior</entry>
   <entry id="50962" lang="en" sex="m">Type of Feat: Racial
-Prerequisite: Kalashtar, ability to manifest a mindblade
+Prerequisite: Kalashtar, Soulknife 6
 You can manifest a mindblade(using this feat) as a swift action.  Your effective level for determining the mind blade enhancement class feature is 2 higher than normal, but you still do not get access to it until level 6 soulknife.
-Note: if you take this feat and are not a Kalashtar, you will have to reselect your feats.  if you take this feat at level 1 and are not Kalashtar, you will be unable to level.
+Note: if you take this feat and are not a Kalashtar, you will have to reselect your feats.
 Use: Selected.</entry>
   <entry id="50963" lang="en" sex="m">Spiritual Force</entry>
   <entry id="50964" lang="en" sex="m">Type of Feat: Racial
@@ -73732,13 +73733,13 @@ Use: Selected</entry>
   <entry id="200103" lang="en" sex="m">Type of Feat: Exalted
 You have taken a sacred vow to forswear material possessions.
   
-You gain bonuses to your Armor Class, ability scores, and saving throws, as well as bonus exalted feats, all depending on your character level.
+You gain bonuses to your Armor Class, ability scores, and saving throws, as well as bonus exalted feats, all depending on your character's ascetic level.
   
 To fulfill your vow, you must not own or use any material possessions, with the following exceptions: You may carry and use ordinary (neither magic nor masterwork) simple weapons, usually just a quarterstaff that serves as a walking stick. You may wear simple clothes (usually just a homespun robe, possibly also including a hat and sandals) with no magical properties. You may carry and use a spell component pouch. You may not use any magic item of any sort, though you can benefit from magic items used on your behalf-you can drink a potion of cure serious wounds a friend gives you, receive a spell cast from a wand, scroll, or staff, or ride on your companion's ebony fly. You may not, however, "borrow" a cloak of resistance or any other magic item from a companion for even a single round, nor may you yourself cast a spell from a scroll, wand, or staff.
 
 FEAT FEATURES:
 
-Level 
+Ascetic Level 
 1:  AC Armor +4
 2:  Exalted Feat
 3:  AC Armor +5

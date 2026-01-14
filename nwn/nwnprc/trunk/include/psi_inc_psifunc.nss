@@ -557,6 +557,9 @@ void _ManifestationHB(object oManifester, location lManifester, object oMfToken)
         {
             if(DEBUG) DoDebug("_ManifestationHB(): Manifester moved or lost concentration, destroying token");
             _DestroyManifestationToken(oManifester, oMfToken);
+			
+			//:: Clean up variables
+			_CleanManifestationVariables(oManifester);
 
             // Inform manifester
             FloatingTextStrRefOnCreature(16828435, oManifester, FALSE); // "You have lost concentration on the power you were attempting to manifest!"
@@ -810,6 +813,25 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
                     manif.bCanManifest = FALSE;
                 }
 
+				// Check defensive manifestation BEFORE PP deduction  
+				if(GetLocalInt(oManifester, "PRC_DefensiveManifestActive"))    
+				{    
+					int nPowerLevel = GetPowerLevel(oManifester);    
+					int nDC = 15 + nPowerLevel;    
+						
+					if(!GetPRCIsSkillSuccessful(oManifester, SKILL_CONCENTRATION, nDC))    
+					{    
+						// Failed - deduct PP and prevent manifestation    
+						LosePowerPoints(oManifester, manif.nPPCost, TRUE);  
+						PayMetapsionicsFocuses(manif);  
+						manif.bCanManifest = FALSE;    
+						SendMessageToPC(oManifester, "Defensive manifestation concentration check failed.");  
+						return manif;    
+					}    
+						
+					manif.bDefensive = TRUE;    
+				} 
+
                 // Psi-like abilities ignore PP costs and metapsi
                 if(!bIsPsiLike)
                 {
@@ -820,7 +842,7 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
                     PayMetapsionicsFocuses(manif);
                 }
 				
-				if(GetLocalInt(oManifester, "PRC_DefensiveManifestActive"))  
+/* 				if(GetLocalInt(oManifester, "PRC_DefensiveManifestActive"))  
 				{  
 					// Concentration check (DC 15 + power level)  
 					int nPowerLevel = GetPowerLevel(oManifester);  
@@ -837,7 +859,7 @@ struct manifestation EvaluateManifestation(object oManifester, object oTarget, s
 					// Set defensive flag for any other systems that need it  
 					SendMessageToPC(oManifester, "Defensive manifestion concentration check successful.");
 					manif.bDefensive = TRUE;  
-				}			
+				}	 */		
 
                 //* APPLY SIDE-EFFECTS THAT RESULT FROM SUCCESSFULL MANIFESTATION HERE *//
                 // Psicraft for all those who can see
@@ -1118,4 +1140,4 @@ struct manifestation EvaluateDiaDragChannel(object oManifester, object oTarget, 
 }
 
 // Test main
-//void main(){}
+//:: void main(){}

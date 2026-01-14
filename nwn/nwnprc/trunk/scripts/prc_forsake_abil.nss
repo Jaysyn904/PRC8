@@ -78,7 +78,34 @@ void main()
         // should be handled transparently by the system
         if(DEBUG) DoDebug("prc_forsake_abil: ERROR: Conversation abort section run");
     }
-    // Handle PC response
+// Handle PC response  
+else  
+{  
+    int nChoice = GetChoice(oPC);  
+    if(DEBUG) DoDebug("prc_forsake_abil: Handling PC response, stage = " + IntToString(nStage) + "; nChoice = " +   
+	  IntToString(nChoice) + "; choice text = '" + GetChoiceText(oPC) +  "'");  
+    if(nStage == STAGE_SELECT_ABIL)  
+    {  
+            if(DEBUG) DoDebug("prc_forsake_abil: nChoice: " + IntToString(nChoice));    
+              
+            effect eAbility = EffectAbilityIncrease(nChoice, 1);  
+            eAbility = UnyieldingEffect(eAbility);  
+            eAbility = TagEffect(eAbility, "ForsakerAbilityBoost");  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC); //Give the boost  
+              
+            SetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nClass), nChoice+1); //Register the boost has been given  
+            DeletePersistantLocalInt(oPC,"ForsakerBoostCheck");  
+              
+            // And we're all done  
+            AllowExit(DYNCONV_EXIT_FORCE_EXIT);   
+    }  
+  
+    if(DEBUG) DoDebug("prc_forsake_abil: New stage: " + IntToString(nStage));  
+  
+    // Store the stage value. If it has been changed, this clears out the choices  
+    SetStage(nStage, oPC);  
+}	
+/*     // Handle PC response
     else
     {
         int nChoice = GetChoice(oPC);
@@ -100,5 +127,5 @@ void main()
 
         // Store the stage value. If it has been changed, this clears out the choices
         SetStage(nStage, oPC);
-    }
+    } */
 }

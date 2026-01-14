@@ -39,8 +39,10 @@ int InvocationASFCheck(object oInvoker, int nClass)
             case 1: nASF -=  5; break;//light
             case 2: nASF -= 10; break;//light
             case 3: nASF -= 20; break;//light
-            case 4: nASF -= GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 20 : 0; break;//medium;
-            case 5: nASF -= GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 30 : 0; break;//medium
+            //case 4: nASF -= GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 20 : 0; break;	//medium;
+            //case 5: nASF -= GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 30 : 0; break;	//medium
+			case 4: nASF = GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 0 : nASF; break;	//medium
+			case 5: nASF = GetHasFeat(FEAT_BATTLE_CASTER, oInvoker) ? 0 : nASF; break; 	//medium;
             default: break;
         }
     }

@@ -120,6 +120,10 @@ const int PRC_GEM_PERLEVEL         = 6;
 // Craft Skull Talisman constants
 const int PRC_SKULL_BASECOST       = 7;
 
+int GetWeaponType(int nBaseItem);
+
+void RemoveMasterworkProperties(object oItem); 
+
 // *  Returns TRUE if an item is a Craft Base Item
 // *  to be used in spellscript that can be cast on items - i.e light
 int   CIGetIsCraftFeatBaseItem( object oItem );
@@ -214,6 +218,78 @@ int CICraftCheckCreateInfusion(object oSpellTarget, object oCaster, int nID = 0)
 /* Function definitions                         */
 //////////////////////////////////////////////////
 
+void RemoveMasterworkProperties(object oItem)      
+{      
+    if(DEBUG) DoDebug("RemoveMasterworkProperties() called on: " + DebugObject2Str(oItem));    
+	  
+    int nBase = GetBaseItemType(oItem);    
+    if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Item base type: " + IntToString(nBase));    
+        
+    int nRemoved = 0;    
+          
+    // For armor/shields: remove only the Quality property, keep skill bonuses      
+    if((nBase == BASE_ITEM_ARMOR) ||      
+       (nBase == BASE_ITEM_SMALLSHIELD) ||      
+       (nBase == BASE_ITEM_LARGESHIELD) ||      
+       (nBase == BASE_ITEM_TOWERSHIELD))      
+    {      
+        if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Processing armor/shield");    
+            
+        itemproperty ip = GetFirstItemProperty(oItem);      
+        while(GetIsItemPropertyValid(ip))      
+        {      
+            string sTag = GetItemPropertyTag(ip);    
+            int nType = GetItemPropertyType(ip);    
+                
+            if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Found property - Type: " + IntToString(nType) +     
+                            ", Tag: " + sTag +     
+                            ", String: " + DebugIProp2Str(ip));    
+                
+            if(sTag == "Quality_Masterwork" && nType == ITEM_PROPERTY_QUALITY)      
+            {      
+                if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Removing Quality property");    
+                RemoveItemProperty(oItem, ip);      
+                nRemoved++;    
+                ip = GetFirstItemProperty(oItem); // Restart iteration    
+                continue;      
+            }      
+            ip = GetNextItemProperty(oItem);      
+        }      
+    }      
+          
+    // For weapons/ammo: remove both Quality and Attack Bonus properties      
+    if(GetWeaponType(nBase) ||      
+       StringToInt(Get2DACache("prc_craft_gen_it", "Type", nBase)) == 4)      
+    {      
+        if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Processing weapon/ammo");    
+            
+        itemproperty ip = GetFirstItemProperty(oItem);      
+        while(GetIsItemPropertyValid(ip))      
+        {      
+            string sTag = GetItemPropertyTag(ip);    
+            int nType = GetItemPropertyType(ip);    
+                
+            if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Found property - Type: " + IntToString(nType) +     
+                            ", Tag: " + sTag +     
+                            ", String: " + DebugIProp2Str(ip));    
+                
+            // Check for both Quality and Attack Bonus with Quality_Masterwork tag  
+            if(sTag == "Quality_Masterwork" &&   
+               (nType == ITEM_PROPERTY_QUALITY || nType == ITEM_PROPERTY_ATTACK_BONUS))      
+            {      
+                if(DEBUG) DoDebug("prc_x2_craft >> RemoveMasterworkProperties(): Removing property type " + IntToString(nType));    
+                RemoveItemProperty(oItem, ip);      
+                nRemoved++;    
+                ip = GetFirstItemProperty(oItem); // Restart iteration    
+                continue;      
+            }      
+            ip = GetNextItemProperty(oItem);      
+        }      
+    }    
+        
+    if(DEBUG) DoDebug("prc_x2_craft: RemoveMasterworkProperties() completed. Removed " +     
+                     IntToString(nRemoved) + " properties.");    
+}
 
 // *  Returns the innate level of a spell. If bDefaultZeroToOne is given
 // *  Level 0 spell will be returned as level 1 spells
@@ -2416,8 +2492,8 @@ int CIDoCraftItemFromConversation(int nNumber)
 
     DeleteLocalObject(oPC,"X2_CI_CRAFT_MAJOR");
     DeleteLocalObject(oPC,"X2_CI_CRAFT_MINOR");
-
-    if (!GetIsObjectValid(oMajor))
+	
+	if (!GetIsObjectValid(oMajor))
     {
           FloatingTextStrRefOnCreature(83374,oPC);    //"Invalid target"
           DeleteLocalInt(oPC,"X2_CRAFT_SUCCESS");
@@ -2472,7 +2548,7 @@ int CIDoCraftItemFromConversation(int nNumber)
   {
         oContainer = GetItemPossessedBy(oPC,"x2_it_craftcont");
   }
-
+  
   // Do the crafting...
   object oRet = CIUseCraftItemSkill( oPC, nSkill, stItem.sResRef, stItem.nDC, oContainer) ;
 
@@ -2481,7 +2557,9 @@ int CIDoCraftItemFromConversation(int nNumber)
 
   if (GetIsObjectValid(oRet))
   {
-      // -----------------------------------------------------------------------
+      RemoveMasterworkProperties(oMajor); 
+	  
+	  // -----------------------------------------------------------------------
       // Copy all item properties from the major object on the resulting item
       // Through we problably won't use this, its a neat thing to have for the
       // community
@@ -2499,7 +2577,8 @@ int CIDoCraftItemFromConversation(int nNumber)
        {
           //TakeGoldFromCreature(stItem.nCost, oPC,TRUE);
           SpendGP(oPC, stItem.nCost);
-          IPCopyItemProperties(oMajor,oRet);
+			RemoveMasterworkProperties(oMajor); 	  
+		  IPCopyItemProperties(oMajor,oRet);		  
         }
       // set success variable for conversation
       SetLocalInt(oPC,"X2_CRAFT_SUCCESS",TRUE);

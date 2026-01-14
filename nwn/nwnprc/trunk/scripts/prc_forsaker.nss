@@ -121,8 +121,94 @@ void main()
 				// Item is a creature weapon, allow it  
 				return;  
 			}  
+			// Check if the item being equipped is magical  
+			// Only check the item being equipped, not entire inventory  
+			int bIsMagical = FALSE;  
+			int nPropertyCount = 0;  
+			itemproperty ipCheck = GetFirstItemProperty(oItem);  
+
+			while (GetIsItemPropertyValid(ipCheck))  
+			{  
+				string sTag = GetItemPropertyTag(ipCheck);  
+				int nType = GetItemPropertyType(ipCheck);  
+				  
+				// Check for protected properties  
+				if(sTag == "Tag_PRC_OnHitKeeper" ||   
+				   sTag == "Quality_Masterwork" ||  
+				   sTag == "Material_Mithral" ||  
+				   sTag == "Material_Adamantine" ||  
+				   sTag == "Material_Darkwood" ||  
+				   sTag == "Material_ColdIron" ||  
+				   sTag == "Material_MundaneCrystal" ||  
+				   sTag == "Material_DeepCrystal" ||  
+				   nType == ITEM_PROPERTY_MATERIAL)  // All material properties  
+				{  
+					// Protected property - skip, don't set bIsMagical  
+				}  
+				else  
+				{  
+					// Check for helmet carveout: +1 Concentration only  
+					if(GetBaseItemType(oItem) == BASE_ITEM_HELMET &&     
+					   GetItemPropertyType(ipCheck) == ITEM_PROPERTY_SKILL_BONUS &&    
+					   GetItemPropertySubType(ipCheck) == SKILL_CONCENTRATION &&    
+					   GetItemPropertyCostTableValue(ipCheck) == 1)  
+					{  
+						// This is a +1 Concentration helmet with no other properties, allow it  
+						bIsMagical = FALSE;  
+						break;  
+					}  
+					else  
+					{  
+						bIsMagical = TRUE;  
+						break;  
+					}  
+				}  
+				ipCheck = GetNextItemProperty(oItem);  
+			}
+
 			  
-			// Check if the item being equipped is magical    
+/* 			while (GetIsItemPropertyValid(ipCheck))  
+			{  
+				// Skip protected properties  
+				if(GetItemPropertyTag(ipCheck) != "Tag_PRC_OnHitKeeper")  
+				{  
+					nPropertyCount++;  
+					  
+					// Check for helmet carveout: +1 Concentration only  
+					if(GetBaseItemType(oItem) == BASE_ITEM_HELMET &&   
+					   nPropertyCount == 1 &&  
+					   GetItemPropertyType(ipCheck) == ITEM_PROPERTY_SKILL_BONUS &&  
+					   GetItemPropertySubType(ipCheck) == SKILL_CONCENTRATION &&  
+					   GetItemPropertyCostTableValue(ipCheck) == 1)  
+					{  
+						// This is a +1 Concentration helmet with no other properties, allow it  
+						bIsMagical = FALSE;  
+						break;  
+					}  
+					else  
+					{  
+						bIsMagical = TRUE;  
+						break;  
+					}  
+				}  
+				ipCheck = GetNextItemProperty(oItem);  
+			}   */
+			  
+			// Apply torch exclusion here (after magical item determination)  
+			if(bIsMagical && GetResRef(oItem) == "nw_it_torch001")  
+			{  
+				bIsMagical = FALSE;  
+			}  
+			  
+			// If item is magical, unequip it  
+			if(bIsMagical)  
+			{  
+				AssignCommand(oPC, ClearAllActions(TRUE));  
+				AssignCommand(oPC, ActionUnequipItem(oItem));  
+				FloatingTextStringOnCreature(GetName(oItem)+" is a magical item!", oPC, FALSE);  
+			}
+			  
+/* 			// Check if the item being equipped is magical    
 			// Only check the item being equipped, not entire inventory    
 			int bIsMagical = FALSE;    
 			itemproperty ipCheck = GetFirstItemProperty(oItem);    
@@ -144,7 +230,7 @@ void main()
 				AssignCommand(oPC, ActionUnequipItem(oItem));      
 				FloatingTextStringOnCreature(GetName(oItem)+" is a magical item!", oPC, FALSE);      
 			}    
-			// If non-magical weapon and Forsaker has DR bypass, add bonuses    
+ */			// If non-magical weapon and Forsaker has DR bypass, add bonuses    
 			else if(!bIsMagical && (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (nForsakerLvl >= 3))    
 			{    
 				// Add DR bypass bonuses to non-magical weapons    
@@ -167,7 +253,8 @@ void main()
 			}    
 		}    
 	}		    
-    // We are called from the OnPlayerUnEquipItem eventhook. Clean up Forsaker properties    
+    
+	// We are called from the OnPlayerUnEquipItem eventhook. Clean up Forsaker properties    
     else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)    
     {    
         oPC   = GetItemLastUnequippedBy();    

@@ -10,22 +10,32 @@
 #include "prc_inc_template"
 #include "prc_inc_factotum" 
 
-void RestoreForsakerAbilities(object oPC)
-{
-    int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);
-    int i;
-	
-    for(i = 1; i <= nForsakerLevel; i++)
-    {
-        int nAbility = GetPersistantLocalInt(oPC, "ForsakerBoost" + IntToString(i));
-        
-        if(nAbility > 0 && nAbility <= 6)
-        {
-            effect eAbility = EffectAbilityIncrease(nAbility - 1, 1);
-            eAbility = SupernaturalEffect(eAbility);
-            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC);
-        }
-    }
+void RestoreForsakerAbilities(object oPC)  
+{  
+    int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
+    int i;  
+      
+    // Remove existing Forsaker ability effects first  
+    effect eLoop = GetFirstEffect(oPC);  
+    while(GetIsEffectValid(eLoop))  
+    {  
+        if(GetEffectTag(eLoop) == "ForsakerAbilityBoost")   
+            RemoveEffect(oPC, eLoop);  
+        eLoop = GetNextEffect(oPC);  
+    }  
+      
+    for(i = 1; i <= nForsakerLevel; i++)  
+    {  
+        int nAbility = GetPersistantLocalInt(oPC, "ForsakerBoost" + IntToString(i));  
+          
+        if(nAbility > 0 && nAbility <= 6)  
+        {  
+            effect eAbility = EffectAbilityIncrease(nAbility - 1, 1);  
+            eAbility = SupernaturalEffect(eAbility);  
+            eAbility = TagEffect(eAbility, "ForsakerAbilityBoost"); // Add tag for removal  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC);  
+        }  
+    }  
 }
 
 /**

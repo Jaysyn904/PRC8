@@ -327,8 +327,25 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
             default: break;
         }
     }
-    // Hexblade can cast in light/medium armour and while using small shield.
-    else if(nCastingClass == CLASS_TYPE_HEXBLADE)
+	
+	// Hexblade can cast in light armour only.  
+	else if(nCastingClass == CLASS_TYPE_HEXBLADE)  
+	{  
+		//armors  
+		switch(nAC)  
+		{  
+			case 1: nASF -=  5; break; //light  
+			case 2: nASF -= 10; break; //light  
+			case 3: nASF -= 20; break; //light  
+			case 4: nASF = bBattleCaster ? 0 : nASF; break; //medium with Battlecaster  
+			case 5: nASF = bBattleCaster ? 0 : nASF; break; //medium with Battlecaster  
+			default: break;  
+		}  
+	}
+	
+    // WRONG: Hexblade can cast in light/medium armour and while using small shield.
+	//:: RIGHT: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.
+/*     else if(nCastingClass == CLASS_TYPE_HEXBLADE)
     {
         //shields
         if(GetBaseItemType(oShield) == BASE_ITEM_SMALLSHIELD) nASF -= 5;
@@ -345,7 +362,7 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
             case 8: nASF -= bBattleCaster ? 45 : 0; break;
             default: break;
         }
-    }
+    } */
     // Bards cannot cast in light armour and while using small shield in 3e
 /*     else if(nCastingClass == CLASS_TYPE_BARD)
     {

@@ -806,7 +806,14 @@ void CraftingHB(object oPC, object oItem, itemproperty ip, int nCost, int nXP, s
         FloatingTextStringOnCreature("Crafting Complete!", oPC);
         DeleteLocalInt(oPC, PRC_CRAFT_HB);
         //if(GetIsItemPropertyValid(ip))
-            ApplyProperties(oPC, oItem, ip, nCost, nXP, sFile, nLine);
+		ApplyProperties(oPC, oItem, ip, nCost, nXP, sFile, nLine);
+	
+		if(GetLocalInt(oPC, "PRC_CRAFT_REMOVE_MASTERWORK"))  
+		{  
+			RemoveMasterworkProperties(oItem);  
+			DeleteLocalInt(oPC, "PRC_CRAFT_REMOVE_MASTERWORK");  
+		}
+		
         if(sFile == "craft_golem")
         {
         }
@@ -1874,12 +1881,18 @@ void main()
                     int bCheck = FALSE;
                     TakeGoldFromCreature(GetLocalInt(oPC, PRC_CRAFT_COST), oPC, TRUE);
                     if(GetCraftingFeat(oNewItem) != FEAT_CRAFT_ARMS_ARMOR)
-                        CopyItem(oNewItem, oPC, TRUE);
+					{
+						SetLocalInt(oPC, "PRC_CRAFT_REMOVE_MASTERWORK", TRUE);
+						CopyItem(oNewItem, oPC, TRUE);
+					}
                     else if(GetIsSkillSuccessful(oPC, nSkill, GetCraftingDC(oNewItem)))
                     {
                         bCheck = (nMaterial & PRC_CRAFT_FLAG_MASTERWORK) ? GetIsSkillSuccessful(oPC, nSkill, 20) : TRUE;
                         if(bCheck)
-                            CopyItem(oNewItem, oPC, TRUE);
+						{
+							SetLocalInt(oPC, "PRC_CRAFT_REMOVE_MASTERWORK", TRUE);
+							CopyItem(oNewItem, oPC, TRUE);
+						}
                     }
                     AllowExit(DYNCONV_EXIT_FORCE_EXIT);
                 }
@@ -2146,8 +2159,6 @@ void main()
                 }
                 break;
             }
-
-
 
             /*
             case <CONSTANT>:

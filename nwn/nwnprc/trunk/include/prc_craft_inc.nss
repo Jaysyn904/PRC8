@@ -1808,6 +1808,11 @@ int GetCraftingDC(object oItem)
 void MakeMasterwork(object oItem)
 {
     if(GetPlotFlag(oItem)) return;  //sanity check
+	
+	itemproperty ip = ItemPropertyQuality(IP_CONST_QUALITY_MASTERWORK);  
+	ip = TagItemProperty(ip, "Quality_Masterwork");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);	
+	
     int nBase = GetBaseItemType(oItem);
     if((nBase == BASE_ITEM_ARMOR) ||
         (nBase == BASE_ITEM_SMALLSHIELD) ||
@@ -1817,6 +1822,70 @@ void MakeMasterwork(object oItem)
     {
         //no armour check penalty here
         if(GetItemArmourCheckPenalty(oItem) == 0) return;
+
+		ip = ItemPropertySkillBonus(SKILL_BALANCE, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_CLIMB, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_HIDE, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_MOVE_SILENTLY, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_PICK_POCKET, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_SET_TRAP, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_TUMBLE, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_JUMP, 1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);		
+
+    }
+    else if(GetWeaponType(nBase))
+    {
+        ip = ItemPropertyAttackBonus(1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+    }
+    else if(StringToInt(Get2DACache("prc_craft_gen_it", "Type", nBase)) == PRC_CRAFT_ITEM_TYPE_AMMO)
+    {
+        ip = ItemPropertyAttackBonus(1);  
+		ip = TagItemProperty(ip, "Quality_Masterwork");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);		
+    }
+    else
+        return;
+}
+
+/* void MakeMasterwork(object oItem)
+{
+    if(GetPlotFlag(oItem)) return;  //sanity check
+	
+    int nBase = GetBaseItemType(oItem);
+    if((nBase == BASE_ITEM_ARMOR) ||
+        (nBase == BASE_ITEM_SMALLSHIELD) ||
+        (nBase == BASE_ITEM_LARGESHIELD) ||
+        (nBase == BASE_ITEM_TOWERSHIELD)
+        )
+    {
+        //no armour check penalty here
+        if(GetItemArmourCheckPenalty(oItem) == 0) return;
+		
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_HIDE, 1)         , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_MOVE_SILENTLY, 1), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         IPSafeAddItemProperty(oItem, ItemPropertySkillBonus(SKILL_PICK_POCKET, 1)  , 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
@@ -1830,17 +1899,226 @@ void MakeMasterwork(object oItem)
     }
     else if(StringToInt(Get2DACache("prc_craft_gen_it", "Type", nBase)) == PRC_CRAFT_ITEM_TYPE_AMMO)
     {
-        /*
-        int nDamageType = (nBase == BASE_ITEM_BULLET) ? DAMAGE_TYPE_BLUDGEONING : DAMAGE_TYPE_PIERCING;
-        itemproperty ip1 = ItemPropertyDamageBonus(nDamageType, IP_CONST_DAMAGEBONUS_1);
-        */
+        
+        //int nDamageType = (nBase == BASE_ITEM_BULLET) ? DAMAGE_TYPE_BLUDGEONING : DAMAGE_TYPE_PIERCING;
+        //itemproperty ip1 = ItemPropertyDamageBonus(nDamageType, IP_CONST_DAMAGEBONUS_1);
+        
         IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(1), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     }
     else
         return;
 }
+ */
 
-void MakeAdamantine(object oItem)
+void MakeAdamantine(object oItem)  
+{  
+    if(GetPlotFlag(oItem)) return;  //sanity check  
+    if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)  
+    {  
+        int nBonus = 0;  
+        switch(GetItemBaseAC(oItem))  
+        {  
+            case 1:  
+            case 2:  
+            case 3: nBonus = IP_CONST_DAMAGERESIST_1; break;  
+            case 4:  
+            case 5: nBonus = IP_CONST_DAMAGERESIST_2; break;  
+            case 6:  
+            case 7:  
+            case 8: nBonus = IP_CONST_DAMAGERESIST_3; break;  
+        }  
+        if(nBonus)  
+        {  
+            itemproperty ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_BLUDGEONING, nBonus);  
+            ip = TagItemProperty(ip, "Material_Adamantine");  
+            IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
+              
+            ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_PIERCING, nBonus);  
+            ip = TagItemProperty(ip, "Material_Adamantine");  
+            IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
+              
+            ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_SLASHING, nBonus);  
+            ip = TagItemProperty(ip, "Material_Adamantine");  
+            IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
+              
+            ip = ItemPropertyMaterial(IP_MATERIAL_ADAMANTINE);  
+            ip = TagItemProperty(ip, "Material_Adamantine");  
+            IPSafeAddItemProperty(oItem, ip, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
+        }  
+    }  
+}
+
+void MakeDarkwood(object oItem)
+{
+    if(GetPlotFlag(oItem)) return;  //sanity check
+  
+	itemproperty ip = ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_50_PERCENT);  
+	ip = TagItemProperty(ip, "Material_Darkwood");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);	
+
+    int nBase = GetBaseItemType(oItem);
+    if(((nBase == BASE_ITEM_SMALLSHIELD) ||
+        (nBase == BASE_ITEM_LARGESHIELD) ||
+        (nBase == BASE_ITEM_TOWERSHIELD))
+        )
+    {
+        int nBonus = 2;
+        if(nBase == BASE_ITEM_SMALLSHIELD) nBonus = 1;
+
+		ip = ItemPropertySkillBonus(SKILL_BALANCE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_CLIMB, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);		
+		
+		ip = ItemPropertySkillBonus(SKILL_HIDE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_MOVE_SILENTLY, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);	
+
+		ip = ItemPropertySkillBonus(SKILL_PICK_POCKET, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_SET_TRAP, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_TUMBLE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_JUMP, nBonus);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertyMaterial(IP_MATERIAL_WOOD_DARKWOOD_ZALANTAR);  
+		ip = TagItemProperty(ip, "Material_Darkwood");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+    }
+}
+
+void MakeDragonhide(object oItem)
+{
+    //Does nothing so far
+}
+
+void MakeMithral(object oItem)
+{
+    if(GetPlotFlag(oItem)) return;  //sanity check
+	
+	itemproperty ip = ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_50_PERCENT);  
+	ip = TagItemProperty(ip, "Material_Mithral");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);	
+	
+    int nBase = GetBaseItemType(oItem);
+	
+	if(GetWeaponType(nBase))
+    {
+		ip = ItemPropertyMaterial(IP_MATERIAL_MITHRAL);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+    }	
+    else if(((nBase == BASE_ITEM_ARMOR) ||
+        (nBase == BASE_ITEM_SMALLSHIELD) ||
+        (nBase == BASE_ITEM_LARGESHIELD) ||
+        (nBase == BASE_ITEM_TOWERSHIELD))
+        )
+    {
+        int nBonus = 3;
+        int nPenalty = GetItemArmourCheckPenalty(oItem);
+        if(nBonus > nPenalty) nBonus = nPenalty;
+
+		ip = ItemPropertySkillBonus(SKILL_BALANCE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_CLIMB, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_HIDE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertySkillBonus(SKILL_MOVE_SILENTLY, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);	
+
+		ip = ItemPropertySkillBonus(SKILL_PICK_POCKET, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_SET_TRAP, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_TUMBLE, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+
+		ip = ItemPropertySkillBonus(SKILL_JUMP, nBonus);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+		ip = ItemPropertyMaterial(IP_MATERIAL_MITHRAL);  
+		ip = TagItemProperty(ip, "Material_Mithral");  
+		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
+        if(GetItemBaseAC(oItem) == 1)
+		{
+			ip = ItemPropertyArcaneSpellFailure(IP_CONST_ARCANE_SPELL_FAILURE_MINUS_5_PERCENT);  
+			ip = TagItemProperty(ip, "Material_Mithral");  
+			IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		}
+		else
+		{
+			ip = ItemPropertyArcaneSpellFailure(IP_CONST_ARCANE_SPELL_FAILURE_MINUS_10_PERCENT);  
+			ip = TagItemProperty(ip, "Material_Mithral");  
+			IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		}
+		
+    }
+}
+
+void MakeColdIron(object oItem)
+{
+	//Does nothing so far
+	itemproperty ip = ItemPropertyMaterial(IP_MATERIAL_COLD_IRON);  
+	ip = TagItemProperty(ip, "Material_ColdIron");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+}
+
+void MakeSilver(object oItem)
+{
+	//Does nothing so far
+	itemproperty ip = ItemPropertyMaterial(IP_MATERIAL_SILVER);  
+	ip = TagItemProperty(ip, "Material_ColdIron");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);    
+}
+
+void MakeMundaneCrystal(object oItem)
+{
+	//Does nothing so far
+	itemproperty ip = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_MUNDANE);  
+	ip = TagItemProperty(ip, "Material_MundaneCrystal");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
+}
+
+void MakeDeepCrystal(object oItem)
+{
+	//Does nothing so far
+	itemproperty ip = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_DEEP);  
+	ip = TagItemProperty(ip, "Material_DeepCrystal");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+}
+
+/* void MakeAdamantine(object oItem)
 {
     if(GetPlotFlag(oItem)) return;  //sanity check
     if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
@@ -1867,9 +2145,9 @@ void MakeAdamantine(object oItem)
 			IPSafeAddItemProperty(oItem, ipAdamantine, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
         }
     }
-}
+} */
 
-void MakeDarkwood(object oItem)
+/* void MakeDarkwood(object oItem)
 {
     if(GetPlotFlag(oItem)) return;  //sanity check
     IPSafeAddItemProperty(oItem, ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_50_PERCENT), 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
@@ -1892,8 +2170,9 @@ void MakeDarkwood(object oItem)
 		IPSafeAddItemProperty(oItem, ipDarkwood, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
     }
 }
+ */
 
-void MakeDragonhide(object oItem)
+/* void MakeDragonhide(object oItem)
 {
     //Does nothing so far
 }
@@ -1929,35 +2208,40 @@ void MakeMithral(object oItem)
 		IPSafeAddItemProperty(oItem, ipMithral, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);		
     }
 }
+ */
 
-void MakeColdIron(object oItem)
+/* void MakeColdIron(object oItem)
 {
 	//Does nothing so far
 	itemproperty ipColdIron = ItemPropertyMaterial(IP_MATERIAL_COLD_IRON); 
 	IPSafeAddItemProperty(oItem, ipColdIron, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
+ */
 
-void MakeSilver(object oItem)
+/* void MakeSilver(object oItem)
 {
 	//Does nothing so far
 	itemproperty ipSilver = ItemPropertyMaterial(IP_MATERIAL_SILVER); 
 	IPSafeAddItemProperty(oItem, ipSilver, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);    
 }
-
-void MakeMundaneCrystal(object oItem)
+ */
+ 
+/* void MakeMundaneCrystal(object oItem)
 {
 	//Does nothing so far
 	itemproperty ipCrystal = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_MUNDANE); 
 	IPSafeAddItemProperty(oItem, ipCrystal, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
+ */
 
-void MakeDeepCrystal(object oItem)
+/* void MakeDeepCrystal(object oItem)
 {
 	//Does nothing so far
 	itemproperty ipDeepCrystal = ItemPropertyMaterial(IP_MATERIAL_GEM_CRYSTAL_DEEP); 
 	IPSafeAddItemProperty(oItem, ipDeepCrystal, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING); 
 }
-
+ */
+ 
 //Creates an item on oOwner, from the baseitemtype and base AC (for armour)
 object CreateStandardItem(object oOwner, int nBaseItemType, int nBaseAC = -1)
 {
@@ -2985,4 +3269,4 @@ int ITEM_APPR_WEAPON_COLOR_MIDDLE       = 1;
 int ITEM_APPR_WEAPON_COLOR_TOP          = 2;
 */
 
-// void main () {}
+//:: void main () {}
