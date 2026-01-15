@@ -1572,7 +1572,7 @@ void BarbarianRage(object oPC)
 	if (nLevel > 0)
 	{
 		// Spell Rage: starts at 1st level, +1 use every 5 Rage Mage levels
-		int nUses = 1 + ((nLevel - 1) / 5);
+		int nUses = 1 + (nLevel / 5);
 
 		FeatUsePerDay(oPC, FEAT_SPELL_RAGE, -1, nUses);
 	}
