@@ -14077,7 +14077,7 @@
 14073 EnergyStun_Elec                                           ****            1        1      1        2     0           
 14074 EnergyStun_Fire                                           ****            1        1      1        2     0           
 14075 EnergyStun_Sonic                                          ****            1        1      1        2     0           
-14076 Identify                                                  ****            1        1      1        2     0           
+14076 Identify                                                  ****            1        1      1        2     1           
 14077 IdInsinuation                                             ****            1        1      1        2     0           
 14078 InflictPain                                               ****            1        1      1        2     0           
 14079 Knock                                                     ****            1        1      1        2     0           

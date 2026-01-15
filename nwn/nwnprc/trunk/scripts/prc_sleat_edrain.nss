@@ -243,18 +243,67 @@ void DoDeathDependent(object oEater, object oTarget, string sResRef, string sNam
 
                 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eSummon, lSpawn);
 
-                object oSlave = CreateObject(OBJECT_TYPE_CREATURE, "soul_wight_test", lSpawn);
-                if(GetIsObjectValid(oSlave))
-                {
-                    SetMaxHenchmen(PRCMax(nMaxHenchmen, i)); // Temporarily set the number of max henchmen high enough that we can add another
-                    AddHenchman(oEater, oSlave);
-                    SetMaxHenchmen(nMaxHenchmen);
-
-                    // Level up the wight a bit to make it usefull. Needs to be delayed a bit to let the object creation routines happen first
-                    DelayCommand(3.0f, LevelUpWight(GetHitDice(oEater) - 3, oSlave));
-                }
-                else if(DEBUG)
-                    DoDebug("prc_sleat_edrain: ERROR: Failed to create wight at location " + DebugLocation2Str(lSpawn));
+			object oSlave = CreateObject(OBJECT_TYPE_CREATURE, "soul_wight_test", lSpawn);  
+			if(GetIsObjectValid(oSlave))  
+			{  
+				// Copy feats using EffectBonusFeat
+				effect eFeatLink;  
+				int bHasEffect = FALSE;  
+				int nFeat;  
+				  
+				// Iterate through feat range  
+				for(nFeat = 1; nFeat < 3000; nFeat++)  
+				{  
+					if(GetHasFeat(nFeat, oTarget))  
+					{  
+						// Skip certain combat feats that may not work on NPCs  
+						if(nFeat == FEAT_POWER_ATTACK || nFeat == FEAT_IMPROVED_POWER_ATTACK ||  
+						   nFeat == FEAT_EXPERTISE || nFeat == FEAT_IMPROVED_EXPERTISE)  
+							continue;  
+							  
+						// Create bonus feat effect and link it  
+						if(!bHasEffect)  
+						{  
+							eFeatLink = EffectBonusFeat(nFeat);  
+							bHasEffect = TRUE;  
+						}  
+						else  
+						{  
+							eFeatLink = EffectLinkEffects(eFeatLink, EffectBonusFeat(nFeat));  
+						}  
+					}  
+				}  
+				  
+				// Apply the linked feat effects if any were found  
+				if(bHasEffect)  
+				{  
+					eFeatLink = TagEffect(eFeatLink, "SOUL_SLAVE_COPIED_FEATS");  
+					eFeatLink = UnyieldingEffect(eFeatLink);  
+					ApplyEffectToObject(DURATION_TYPE_PERMANENT, eFeatLink, oSlave);  
+				}  
+				
+				// Copy appearance and portrait (existing code)  
+				SetCreatureAppearanceType(oSlave, GetAppearanceType(oTarget));  
+				SetPhenoType(GetPhenoType(oTarget), oSlave);  
+				  
+				// Copy portrait (existing code)  
+				int nPortraitID = GetPortraitId(oTarget);  
+				if(nPortraitID != PORTRAIT_INVALID)  
+				{  
+					string sPortraitResRef = Get2DACache("portraits", "BaseResRef", nPortraitID);  
+					sPortraitResRef = GetStringLeft(sPortraitResRef, GetStringLength(sPortraitResRef)-1);  
+					SetPortraitResRef(oSlave, sPortraitResRef);  
+					SetPortraitId(oSlave, nPortraitID);  
+				}  				
+				  
+				// Rest of existing code...  
+				SetMaxHenchmen(PRCMax(nMaxHenchmen, i));  
+				AddHenchman(oEater, oSlave);  
+				SetMaxHenchmen(nMaxHenchmen);  
+				DelayCommand(3.0f, LevelUpWight(GetHitDice(oEater) - 3, oSlave));  
+			}
+			else if(DEBUG)
+				DoDebug("prc_sleat_edrain: ERROR: Failed to create wight at location " + DebugLocation2Str(lSpawn));
             }
         }
     }

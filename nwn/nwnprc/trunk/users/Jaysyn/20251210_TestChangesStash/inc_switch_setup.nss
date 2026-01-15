@@ -1083,9 +1083,10 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_CASTER_LEVEL);
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_OPTIONAL_HERBS);
-
+		
 //spells
-
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_SHOW_SR_CHECK_DETAILS);
+	
 //shifter
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE);
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_WILDSHAPE_ALLOWS_ARMS_SLOT);

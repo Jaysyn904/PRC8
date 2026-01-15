@@ -304,10 +304,31 @@ int PRCDoResistSpell(object oCaster, object oTarget, int nEffCasterLvl=0, float 
                     }
             }
 
+			//:: A tie favors the caster.  
+			int nSRValue = PRCGetSpellResistance(oTarget, oCaster);  
+			int nD20Roll = d20(1);  
+			int nCasterTotal = nEffCasterLvl + nD20Roll + iWeav;  
+			  
+			if (nCasterTotal < nSRValue)  
+				nResist = SPELL_RESIST_PASS;  
+			  
+			//:: Optional Detailed SR check to caster 
+			if (GetIsPC(oCaster) && nResist != SPELL_RESIST_MANTLE && nResist != SPELL_RESIST_GLOBE && nSRValue > 0 && GetPRCSwitch(PRC_SHOW_SR_CHECK_DETAILS))  
+			{  
+				string message = nResist == SPELL_RESIST_FAIL ?  
+					"Target affected. Roll: " + IntToString(nCasterTotal) + " vs SR: " + IntToString(nSRValue) :  
+					"Target resisted. Roll: " + IntToString(nCasterTotal) + " vs SR: " + IntToString(nSRValue) +   
+					" (missed by " + IntToString(nSRValue - nCasterTotal) + ")";  
+				SendMessageToPC(oCaster, message);  
+			}  
+			  
+			//:: Basic pass/fail messages  
+			PRCShowSpellResist(oCaster, oTarget, nResist, fDelay);
 
-            // A tie favors the caster.
+
+/*             // A tie favors the caster.
             if ((nEffCasterLvl + d20(1)+iWeav) < PRCGetSpellResistance(oTarget, oCaster))
-                nResist = SPELL_RESIST_PASS;
+                nResist = SPELL_RESIST_PASS; */
         }
     }
 
@@ -399,3 +420,5 @@ int CheckSpellfire(object oCaster, object oTarget, int bFriendly = FALSE)
     //absorbed
     return 1;
 }
+
+//:; void main(){}

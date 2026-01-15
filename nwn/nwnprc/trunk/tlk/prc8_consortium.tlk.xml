@@ -75436,7 +75436,7 @@ Studded Leather Armor
 Dagger
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (2) Blank Scrolls</entry>
   <entry id="211403" lang="en" sex="m">Archivist (Healer)</entry>
   <entry id="211404" lang="en" sex="m">(STARTING PACKAGE) 
@@ -75449,7 +75449,7 @@ Scale Mail
 Quarterstaff
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (2) Antitoxin</entry>
   <entry id="211405" lang="en" sex="m">Archivist (Occult Hunter)</entry>
   <entry id="211406" lang="en" sex="m">(STARTING PACKAGE) 
@@ -75462,7 +75462,7 @@ Scale Mail
 Heavy Mace
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (2) Holy Water</entry>
   <entry id="211407" lang="en" sex="m">Archvist 4</entry>
   <entry id="211408" lang="en" sex="m">Archvist 4</entry>
@@ -75479,7 +75479,7 @@ Studded Leather
 Short sword
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (1) Thieves' Tools</entry>
   <entry id="211413" lang="en" sex="m">Beguiler (Investigator)</entry>
   <entry id="211414" lang="en" sex="m">(STARTING PACKAGE)
@@ -75492,7 +75492,7 @@ Studded Leather
 Rapier
 Shortbow
 (2) quivers of arrows
-(2) Healing Kits
+(2) Healer's Kits
 (1) Thieves' Tools</entry>
   <entry id="211415" lang="en" sex="m">Beguiler (Trickster)</entry>
   <entry id="211416" lang="en" sex="m">(STARTING PACKAGE)
@@ -75505,7 +75505,7 @@ Studded Leather
 Morningstar
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (1) Thieves' Tools</entry>
   <entry id="211417" lang="en" sex="m">Beguiler 4</entry>
   <entry id="211418" lang="en" sex="m">Beguiler 4</entry>
@@ -75522,7 +75522,7 @@ Studded Leather Armor
 Morningstar
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits</entry>
+(2) Healer's Kits</entry>
   <entry id="211423" lang="en" sex="m">Binder (Trickster)</entry>
   <entry id="211424" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75534,7 +75534,7 @@ Leather Armor
 Dagger
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits
+(2) Healer's Kits
 (1) Softfoot
 (1) Blend Cream</entry>
   <entry id="211425" lang="en" sex="m">Binder (Second-Rank Warrior)</entry>
@@ -75548,17 +75548,48 @@ Scale Mail
 Spear
 Light Crossbow
 (2) quivers of bolts.
-(2) Healing Kits</entry>
+(2) Healer's Kits</entry>
   <entry id="211427" lang="en" sex="m">Binder4</entry>
   <entry id="211428" lang="en" sex="m">Binder4</entry>
   <entry id="211429" lang="en" sex="m">Binder5</entry>
   <entry id="211430" lang="en" sex="m">Binder5</entry>
-  <entry id="211431" lang="en" sex="m">Crusader1</entry>
-  <entry id="211432" lang="en" sex="m">Crusader1</entry>
-  <entry id="211433" lang="en" sex="m">Crusader2</entry>
-  <entry id="211434" lang="en" sex="m">Crusader2</entry>
-  <entry id="211435" lang="en" sex="m">Crusader3</entry>
-  <entry id="211436" lang="en" sex="m">Crusader3</entry>
+  <entry id="211431" lang="en" sex="m">Crusader (Default)</entry>
+  <entry id="211432" lang="en" sex="m">(STARTING PACKAGE)
+
+The default Crusader package represents a balanced martial initiate, trained to hold the line while remaining adaptable to changing battlefield conditions.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Longsword
+Shortbow
+(2) Quivers of arrows
+(2) Healer's Kits</entry>
+  <entry id="211433" lang="en" sex="m">Crusader (Defender)</entry>
+  <entry id="211434" lang="en" sex="m">(STARTING PACKAGE)
+
+The Defender package is a dedicated line-holder and damage sponge, optimized to remain in the thick of combat and protect allies rather than pursue aggressive kills.
+
+Equipment:
+Torch
+Scale Mail
+Large Shield
+Heavy Mace
+Sling
+(2) Pouches of bullets
+(2) Healer's Kits</entry>
+  <entry id="211435" lang="en" sex="m">Crusader (Striker)</entry>
+  <entry id="211436" lang="en" sex="m">(STARTING PACKAGE)
+
+The striker package focuses on aggressive, mobile strikes, relying on charging, pressure, and punishment, not static defense.
+
+Equipment:
+Torch
+Scale Mail
+Greatsword
+(1) brace of throwing axes
+(2) Healer's Kits</entry>
   <entry id="211437" lang="en" sex="m">Crusader4</entry>
   <entry id="211438" lang="en" sex="m">Crusader4</entry>
   <entry id="211439" lang="en" sex="m">Crusader5</entry>
@@ -75585,7 +75616,7 @@ Scale Mail
 Morningstar
 Sling
 (2) pouches of bullets
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211453" lang="en" sex="m">Dragon Shaman (Destroyer)</entry>
   <entry id="211454" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75597,7 +75628,7 @@ Scale Mail
 Large Shield
 Morningstar
 50 Throwing Axes
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211455" lang="en" sex="m">Dragon Shaman (Second-Rank Warrior)</entry>
   <entry id="211456" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75609,7 +75640,7 @@ Studded Leather
 Spear
 Light Crossbow
 (2) quivers of bolts.
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211457" lang="en" sex="m">DragonShamanReserve4</entry>
   <entry id="211458" lang="en" sex="m">DragonShamanReserve4</entry>
   <entry id="211459" lang="en" sex="m">DragonShamanReserve5</entry>
@@ -75634,7 +75665,7 @@ Torch
 Scale Mail
 Greataxe
 50 Throwing Axes
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211473" lang="en" sex="m">Duskblade (Defender)</entry>
   <entry id="211474" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75647,7 +75678,7 @@ Small Shield
 Dwarven Waraxe
 Sling
 (2) Pouches of Bullets
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211475" lang="en" sex="m">Duskblade (Skirmisher)</entry>
   <entry id="211476" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75659,7 +75690,7 @@ Studded Leather Armor
 Halberd
 Shortbow
 (2) Quivers of Arrows
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211477" lang="en" sex="m">Factotum1</entry>
   <entry id="211478" lang="en" sex="m">Factotum1</entry>
   <entry id="211479" lang="en" sex="m">Factotum2</entry>
@@ -75733,7 +75764,7 @@ Chain Shirt
 Light Lance
 Longsword
 Throwing Axes
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211529" lang="en" sex="m">Knight (Defender)</entry>
   <entry id="211530" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75746,7 +75777,7 @@ Large Shield
 Dwarven Waraxe
 Warhammer
 Throwing Axes
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211531" lang="en" sex="m">Knight (Destroyer)</entry>
   <entry id="211532" lang="en" sex="m">(STARTING PACKAGE)
 
@@ -75963,7 +75994,7 @@ Studded Leather Armor
 Morningstar
 Light Crossbow
 (2) quivers of bolts.
-(3) Healing Kits</entry>
+(3) Healer's Kits</entry>
   <entry id="211729" lang="en" sex="m">Warlock_RESERVE2</entry>
   <entry id="211730" lang="en" sex="m">Warlock_RESERVE2</entry>
   <entry id="211731" lang="en" sex="m">Warlock_RESERVE3</entry>

@@ -58,9 +58,11 @@ void main()
     if(manif.bCanManifest)
     {
         effect eVis = EffectVisualEffect(VFX_IMP_MAGICAL_VISION);
-		
-		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oManifester, 4.0f, FALSE);
 
-        SetIdentified(oTarget, TRUE);        
+        SetIdentified(oTarget, TRUE);
+		
+		AssignCommand(oManifester, ActionExamine(oTarget));
+
+        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oTarget, 4.5f, FALSE);
     }
 }

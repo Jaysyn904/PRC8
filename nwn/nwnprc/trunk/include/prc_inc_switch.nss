@@ -86,6 +86,13 @@
 *                                  Spell switches                              *
 \******************************************************************************/
 
+/**  
+ * Show detailed spell resistance check information to the caster  
+ * When enabled, displays the roll vs SR values when checking spell resistance  
+ */  
+const string PRC_SHOW_SR_CHECK_DETAILS = "PRC_SHOW_SR_CHECK_DETAILS";
+
+
 /** Material Components
  * Set switch to 1 to activate this
  * This allows material components in NWN through the materialcomp.2da
