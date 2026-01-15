@@ -488,7 +488,7 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
     if(array_exists(oPC, ARRAY_NAT_SEC_WEAP_RESREF)
         && !GetIsPolyMorphedOrShifted(oPC))
     {
-        DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: creature has natural secondary weapons");
+        if(DEBUG) DoDebug("prc_inc_nat_hb >> DoNaturalWeaponHB: creature has natural secondary weapons");
         UpdateSecondaryWeaponSizes(oPC);
         int i;
         while(i < array_get_size(oPC, ARRAY_NAT_SEC_WEAP_RESREF))

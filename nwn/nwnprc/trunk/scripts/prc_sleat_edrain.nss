@@ -69,12 +69,12 @@ void main()
     effect eImpact = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE);
     int nDrain     = GetLevelByClass(CLASS_TYPE_SOUL_EATER, oEater) < 7 ? 1 : 2;
 
-    // Sanity check - can't affect self or dead stuff. Also, check PvP limits
-    if(oTarget == oEater  ||
-       GetIsDead(oTarget) ||
-       !spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oEater)
-       )
-        return;
+	// Sanity check - can't affect self or dead stuff. Also, check PvP limits  
+	if(oTarget == oEater  ||  
+	   GetIsDead(oTarget) ||  
+	   !spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oEater) ||  
+	   GetObjectType(oTarget) != OBJECT_TYPE_CREATURE)  // NEW: Only affect creatures  
+		return;
 
     // Let the target's AI know about hostile action
     SignalEvent(oTarget, EventSpellCastAt(oEater, PRCGetSpellId(), TRUE));
