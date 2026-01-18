@@ -686,3 +686,16 @@ string SQLocalsPlayer_GetLastUpdated_UTC(object oPlayer, string sVarName, int nT
     else
         return "";
 }
+
+
+// Returns the current Unix timestamp (seconds since 1970-01-01)
+int GetCurrentUnixTimestamp()
+{
+    sqlquery sql = SqlPrepareQueryObject(GetModule(),
+        "SELECT strftime('%s','now');");
+    
+    if (SqlStep(sql))
+        return SqlGetInt(sql, 0);
+    else
+        return 0;
+}

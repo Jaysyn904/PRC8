@@ -102,11 +102,40 @@ void main()
         case 7: nBaseDamage = IP_CONST_MONSTERDAMAGE_6d6; break;
     }
 
-    //Check for existing claws, if so, nBaseDamage +=2
+	// Get creature size  
+	int iSize = PRCGetCreatureSize(oTarget);  
+	if(GetIsPolyMorphedOrShifted(oTarget) || GetPRCSwitch(PRC_APPEARANCE_SIZE))  
+	{  
+		iSize = PRCGetCreatureSize(oTarget) - CREATURE_SIZE_MEDIUM + 5;  
+	}  
+	else  
+	{  
+		iSize = 5; // medium  
+		if (GetHasFeat(FEAT_TINY, oTarget)) iSize = 3;  
+		if (GetHasFeat(FEAT_SMALL, oTarget)) iSize = 4;  
+		if (GetHasFeat(FEAT_LARGE, oTarget)) iSize = 6;  
+		if (GetHasFeat(FEAT_HUGE, oTarget)) iSize = 7;  
+		iSize += PRCGetCreatureSize(oTarget) - PRCGetCreatureSize(oTarget, PRC_SIZEMASK_NONE);  
+		if (iSize < 1) iSize = 1;  
+		if (iSize > 9) iSize = 9;  
+	}  
+	  
+	// Calculate target size (2 size categories larger)  
+	int iTargetSize = iSize + 2;  
+	if (iTargetSize > 9) iTargetSize = 9;  
+	  
+	// Map current claw damage to unarmed_dmg.2da row  
+	// 1d6 = row 3 (monk level 1 progression)  
+	int nDamageRow = 3;  
+	  
+	// Look up damage from unarmed_dmg.2da for target size  
+	nBaseDamage = StringToInt(Get2DACache("unarmed_dmg", "size" + IntToString(iTargetSize), nDamageRow));
+
+/*     //Check for existing claws, if so, nBaseDamage +=2
     if(GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oTarget)))
     {
         nBaseDamage += nBonus;
-    }
+    } */
 
     // Get the creature weapon
     oLClaw = GetClawWeapon(oPC, "PRC_UNARMED_SP", INVENTORY_SLOT_CWEAPON_L, fDuration);

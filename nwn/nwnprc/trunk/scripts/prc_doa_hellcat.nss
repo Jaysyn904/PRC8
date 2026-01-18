@@ -21,6 +21,11 @@ void main()
     effect eVis = EffectVisualEffect(VFX_FNF_SUMMON_GATE);
     float fDuration = HoursToSeconds(24);
     int nDuration = PRCGetCasterLevel(oPC);
+	if (nDuration == 0)
+	{
+		nDuration = 2 * GetLevelByClass(CLASS_TYPE_DISCIPLE_OF_ASMODEUS, oPC);
+	}
+	
     if(GetPRCSwitch(PRC_SUMMON_ROUND_PER_LEVEL))
         fDuration = RoundsToSeconds(nDuration*GetPRCSwitch(PRC_SUMMON_ROUND_PER_LEVEL));    
 

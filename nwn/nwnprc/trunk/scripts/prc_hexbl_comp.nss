@@ -7,6 +7,12 @@
  * Specifics: The Hexblade gains a dark companion. It is an illusionary creature that does not engage in combat, but all monsters near it take a -2 penalty to AC and Saves.
  * Use: Selected.
  */
+ 
+ //::
+ //:: Updated by: Jaysyn
+ //;; Updated on: 2026-01-16 00:11:27
+ //:: 
+ 
 #include "prc_inc_assoc"
 
 void main()
@@ -28,7 +34,7 @@ void main()
            eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_GLOW_GREY));//VFX_DUR_PROT_PRC_SHADOW_ARMOR
            eLink = EffectLinkEffects(eLink, EffectCutsceneGhost());
            eLink = EffectLinkEffects(eLink, EffectEthereal());
-           eLink = SupernaturalEffect(eLink);
+           eLink = UnyieldingEffect(eLink);
 
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oCompanion);
 }

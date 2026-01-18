@@ -158,60 +158,7 @@ void main()
         {
             if(DEBUG) DoDebug("moi_midnightcnv: Stage was not set up already");
 
-			if(nStage == STAGE_SELECT_POWER)
-            {
-            	if(DEBUG) DoDebug("moi_midnightcnv: Building power selection");
-                int i, nPowerLevel;
-                int nMaxLevel = GetMaxEssentiaCapacityFeat(oMeldshaper);
-                string sFeatID;
-				int added = 0;
-
-				for(i = 14001; i < 14351 ; i++)
-				{
-					// Skip blank IDs between 14266 and 14329  
-					if(i >= 14266 && i < 14330)  
-						continue;  
-	
-					nPowerLevel = StringToInt(Get2DACache("spells", "Innate", i));
-					if(nPowerLevel > nMaxLevel)
-						continue;
-
-					string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i)));
-					
-					// Check if it's a regular power or a subradial  
-					int bHasPower = GetHasPower(i, oMeldshaper);  
-					if (!bHasPower && GetIsSubradialSpell(i))  
-					{  
-						// For subradials, check if they know the master spell  
-						int nMasterSpell = GetMasterSpellFromSubradial(i);  
-						if (nMasterSpell != -1)  
-						{  
-							bHasPower = GetHasPower(nMasterSpell, oMeldshaper);  
-						}  
-					}  
-					  
-					if (bHasPower)  
-					{  
-						if(SORT) AddToTempList(oMeldshaper, sName, i);  
-						else     AddChoice(sName, i, oMeldshaper);  
-						added++;  
-					}					
-				}
-
-				if(SORT)
-				{
-					if(added == 0)
-					{
-						AddChoice("No valid powers found.", 0, oMeldshaper);
-					}
-					else
-					{
-						TransferTempList(oMeldshaper);
-					}
-				}
-            } 
-
-/* 			if(nStage == STAGE_SELECT_POWER)
+ 			if(nStage == STAGE_SELECT_POWER)
             {
             	if(DEBUG) DoDebug("moi_midnightcnv: Building power selection");
                 int i, nPowerLevel;
@@ -235,7 +182,7 @@ void main()
                         else     AddChoice(GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", i))), i, oMeldshaper);   
                     }
                 } 
-            }  */			
+            }  			
 			else if(nStage == STAGE_SELECT_ESSENTIA_POWER)
             {
                 if(DEBUG) DoDebug("moi_midnightcnv: Building essentia selection");

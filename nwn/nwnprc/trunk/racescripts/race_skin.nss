@@ -43,13 +43,13 @@ void main()
 //:: Immunity to Petrification (has to be done per spell, thanks Bioware!)
     if(GetHasFeat(FEAT_IMMUNE_PETRIFICATION))
     {
-		ipIP = ItemPropertySpellImmunitySpecific(402);  //:: Flesh to Stone		
+		ipIP = ItemPropertySpellImmunitySpecific(398);  //:: Flesh to Stone		
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(795);  //:: Breath, Petrify		
+		ipIP = ItemPropertySpellImmunitySpecific(791);  //:: Breath, Petrify		
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
-		ipIP = ItemPropertySpellImmunitySpecific(797);  //:: Touch, Petrify		
+		ipIP = ItemPropertySpellImmunitySpecific(793);  //:: Touch, Petrify		
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
-		ipIP = ItemPropertySpellImmunitySpecific(796);  //:: Gaze, Petrify		
+		ipIP = ItemPropertySpellImmunitySpecific(792);  //:: Gaze, Petrify		
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);	
 		ipIP = ItemPropertySpellImmunitySpecific(482);  //:: Stonehold		
 		IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);			
@@ -88,9 +88,9 @@ void main()
     //only immunity to wierd and phatasmal killer
     if(GetHasFeat(FEAT_IMM_PHANT))
     {
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_WEIRD);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_WEIRD);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_PHANTASMAL_KILLER);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_PHANTASMAL_KILLER);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
@@ -208,31 +208,33 @@ void main()
     //immunity to breathing-targeted spells
     if(GetHasFeat(FEAT_BREATHLESS))
     {
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_DROWN);
+        ipIP = ItemPropertySpellImmunitySpecific(368); //:: Drown
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_MASS_DROWN);
+        ipIP = ItemPropertySpellImmunitySpecific(1117);  //:: Drown, Mass
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_CLOUDKILL);
+        ipIP = ItemPropertySpellImmunitySpecific(830);  //:: Pulse, Drown
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);		
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_CLOUDKILL);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_STINKING_CLOUD);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_STINKING_CLOUD);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
     //immunity to charm
     if(GetHasFeat(FEAT_IMMUNE_CHARM) || GetRacialType(OBJECT_SELF) == RACIAL_TYPE_DOPPELGANGER)
     {
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_CHARM_PERSON);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_CHARM_PERSON);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_CHARM_MONSTER);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_CHARM_MONSTER);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);        
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_CHARM_PERSON_OR_ANIMAL);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_CHARM_PERSON_OR_ANIMAL);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);        
     }
 
     //immunity to confusion
     if(GetHasFeat(FEAT_IMMUNE_CONFUSION))
     {
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_CONFUSION);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_CONFUSION);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
@@ -240,9 +242,11 @@ void main()
     //water gensasi and aquatic elves can breath water, so can some Spirit Folk
     if(GetHasFeat(FEAT_WATER_BREATHING) || GetHasFeat(FEAT_BONUS_RIVER) || GetHasFeat(FEAT_BONUS_SEA))
     {
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_DROWN);
+        ipIP = ItemPropertySpellImmunitySpecific(368); //:: Drown
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-        ipIP = ItemPropertySpellImmunitySpecific(SPELL_MASS_DROWN  );
+        ipIP = ItemPropertySpellImmunitySpecific(1117);  //:: Drown, Mass
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+        ipIP = ItemPropertySpellImmunitySpecific(830);  //:: Pulse, Drown
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
@@ -501,7 +505,7 @@ void main()
     //damage invulnerability fire
     if(GetHasFeat(FEAT_DRAGON_IMMUNE_FIRE))
     {
-        ipIP = ItemPropertyDamageImmunity(DAMAGE_TYPE_FIRE, IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
+        ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGEIMMUNITY_100_PERCENT);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 	
@@ -822,21 +826,21 @@ void main()
     //damage vulnerability cold 50%
     if(GetHasFeat(FEAT_VULN_COLD))
     {
-        ipIP = ItemPropertyDamageVulnerability(DAMAGE_TYPE_COLD, IP_CONST_DAMAGEVULNERABILITY_50_PERCENT);
+        ipIP = ItemPropertyDamageVulnerability(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGEVULNERABILITY_50_PERCENT);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
     //damage vulnerability fire 50%
     if(GetHasFeat(FEAT_VULN_FIRE))
     {
-        ipIP = ItemPropertyDamageVulnerability(DAMAGE_TYPE_FIRE, IP_CONST_DAMAGEVULNERABILITY_50_PERCENT);
+        ipIP = ItemPropertyDamageVulnerability(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGEVULNERABILITY_50_PERCENT);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
     //damage immunity 50% Piercing
     if(GetHasFeat(FEAT_PARTIAL_PIERCE_IMMUNE))
     {
-        ipIP = ItemPropertyDamageImmunity(DAMAGE_TYPE_PIERCING, IP_CONST_DAMAGEIMMUNITY_50_PERCENT);
+        ipIP = ItemPropertyDamageImmunity(IP_CONST_DAMAGETYPE_PIERCING, IP_CONST_DAMAGEIMMUNITY_50_PERCENT);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 

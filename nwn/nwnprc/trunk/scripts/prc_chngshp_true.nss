@@ -56,8 +56,10 @@ void main()
     PRCRemoveSpellEffects(2285, oPC, oPC);
     PRCRemoveSpellEffects(2286, oPC, oPC);
     PRCRemoveSpellEffects(2287, oPC, oPC);
-    PRCRemoveSpellEffects(2288, oPC, oPC);   
+    PRCRemoveSpellEffects(2288, oPC, oPC);  
 
+	DeleteLocalInt(oPC, "PRC_ShiftingOverride_Race");
+	
     if(GetLocalInt(oPC, "AraneaHumanoidForm") == TRUE || GetLocalInt(oPC, "AraneaHybridForm") == TRUE || GetPersistantLocalInt(oPC, "nPCShifted") == TRUE || GetLocalInt(oPC, "shifting") == TRUE)
     {
         SetLocalInt(oPC, "AraneaBiteEquip", TRUE);

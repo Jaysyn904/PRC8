@@ -13,10 +13,10 @@ void main()
     object oPC = PRCGetSpellTargetObject();
     object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
 
-    effect eDam = EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE);
+    effect eAC = EffectACIncrease(2, AC_DODGE_BONUS);
     effect eAtk = EffectAttackIncrease(2);
     effect eSave = EffectSavingThrowIncrease(SAVING_THROW_ALL, 2);
-    effect eLink = EffectLinkEffects(eDam, eAtk);
+    effect eLink = EffectLinkEffects(eAC, eAtk);
     eLink = EffectLinkEffects(eLink, eSave);
     eLink = ExtraordinaryEffect(eLink);
 
