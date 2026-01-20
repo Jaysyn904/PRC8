@@ -795,11 +795,11 @@ int ArtificerPrereqCheck(object oPC, string sFile, int nLine, int nCost)
 // Save crafting state during crafting 
 void SaveCraftingState(object oPC)      
 {      
-    if(DEBUG) DoDebug("DEBUG: SaveCraftingState called for " + GetName(oPC));    
+    if(DEBUG) DoDebug("prc_craft_cv_inc >> SaveCraftingState called for " + GetName(oPC));    
         
     if(GetLocalInt(oPC, PRC_CRAFT_HB))      
     {      
-        if(DEBUG) DoDebug("DEBUG: Player is crafting, saving state...");    
+        if(DEBUG) DoDebug("prc_craft_cv_inc >> SaveCraftingState: Player is crafting, saving state...");    
             
         // Get the crafting item  
         object oItem = GetLocalObject(oPC, PRC_CRAFT_ITEM);  
@@ -815,7 +815,7 @@ void SaveCraftingState(object oPC)
         {    
             sItemUUID = GetObjectUUID(oItem);    
             SQLocalsPlayer_SetString(oPC, "crafting_item_uuid", sItemUUID);    
-            if(DEBUG) DoDebug("DEBUG: Generated and saved new UUID: " + sItemUUID);    
+            if(DEBUG) DoDebug("prc_craft_cv_inc >> SaveCraftingState: Generated and saved new UUID: " + sItemUUID);    
         }    
           
         // Get crafting cost values  
@@ -903,7 +903,7 @@ void SaveCraftingState(object oPC)
 
 object GetItemByUUID(object oPC, string sUUID)  
 {  
-    if(DEBUG) DoDebug("DEBUG: Searching for item with UUID: " + sUUID);  
+    if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Searching for item with UUID: " + sUUID);  
       
     // Check player's inventory  
     object oItem = GetFirstItemInInventory(oPC);  
@@ -911,7 +911,7 @@ object GetItemByUUID(object oPC, string sUUID)
     {  
         if(GetObjectUUID(oItem) == sUUID)  
         {  
-            if(DEBUG) DoDebug("DEBUG: Found item in player inventory: " + GetName(oItem));  
+            if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Found item in player inventory: " + GetName(oItem));  
             return oItem;  
         }  
         oItem = GetNextItemInInventory(oPC);  
@@ -924,7 +924,7 @@ object GetItemByUUID(object oPC, string sUUID)
         oItem = GetItemInSlot(i, oPC);  
         if(GetIsObjectValid(oItem) && GetObjectUUID(oItem) == sUUID)  
         {  
-            if(DEBUG) DoDebug("DEBUG: Found equipped item: " + GetName(oItem));  
+            if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Found equipped item: " + GetName(oItem));  
             return oItem;  
         }  
     }  
@@ -938,7 +938,7 @@ object GetItemByUUID(object oPC, string sUUID)
         {
             if(GetObjectUUID(oItem) == sUUID)
             {
-                if(DEBUG) DoDebug("DEBUG: Found item in craft chest: " + GetName(oItem));
+                if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Found item in craft chest: " + GetName(oItem));
                 return oItem;
             }
             oItem = GetNextItemInInventory(oChest);
@@ -954,14 +954,14 @@ object GetItemByUUID(object oPC, string sUUID)
         {
             if(GetObjectUUID(oItem) == sUUID)
             {
-                if(DEBUG) DoDebug("DEBUG: Found item in temp craft chest: " + GetName(oItem));
+                if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Found item in temp craft chest: " + GetName(oItem));
                 return oItem;
             }
             oItem = GetNextItemInInventory(oTempChest);
         }
     }
       
-    if(DEBUG) DoDebug("DEBUG: Item not found with UUID: " + sUUID);  
+    if(DEBUG) DoDebug("prc_craft_cv_inc >> GetItemByUUID | Item not found with UUID: " + sUUID);  
     return OBJECT_INVALID;  
 }
 
@@ -1017,7 +1017,7 @@ void CraftingHB(object oPC, object oItem, itemproperty ip, int nCost, int nXP, s
       
     if(nRounds == 0 || GetPCPublicCDKey(oPC) == "") //default to zero time if single player    
     {    
-        if(DEBUG) DoDebug("DEBUG: Crafting completion - nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
+        if(DEBUG) DoDebug("prc_craft_cv_inc >> CraftHB() | Crafting completion - nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
 		  
 		RemoveEventScript(oPC, EVENT_VIRTUAL_ONDAMAGED, "prc_od_conc");    
         if(GetLevelByClass(CLASS_TYPE_ARTIFICER, oPC))    
@@ -1033,7 +1033,7 @@ void CraftingHB(object oPC, object oItem, itemproperty ip, int nCost, int nXP, s
             }    
         }    
         FloatingTextStringOnCreature("Crafting Complete!", oPC);           
-		if(DEBUG) DoDebug("DEBUG: Entering ApplyProperties() >> nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
+		if(DEBUG) DoDebug("prc_craft_cv_inc >> CraftHB() | Entering ApplyProperties() - nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
         ApplyProperties(oPC, oItem, ip, nCost, nXP, sFile, nLine);    
 		DeleteLocalInt(oPC, PRC_CRAFT_HB);   
 	    
@@ -1048,7 +1048,7 @@ void CraftingHB(object oPC, object oItem, itemproperty ip, int nCost, int nXP, s
     }    
     else    
     {    
-        if(DEBUG) DoDebug("DEBUG: Continuing CraftingHB() >> nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
+        if(DEBUG) DoDebug("prc_craft_cv_inc >> CraftHB() | Continuing CraftingHB() - nCost: " + IntToString(nCost) + ", nLine: " + IntToString(nLine));  
 		FloatingTextStringOnCreature("Crafting: " + IntToString(nRounds) + " round(s) remaining", oPC);    
         DelayCommand(6.0, CraftingHB(oPC, oItem, ip, nCost, nXP, sFile, nLine, nRounds - 1));    
     }    

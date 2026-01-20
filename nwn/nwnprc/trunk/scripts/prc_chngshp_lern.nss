@@ -26,10 +26,13 @@ void main()
     
     switch(nSpellID)
     {
-        case SPELL_IRDA_CHANGE_SHAPE_LEARN:       
+        case SPELL_IRDA_CHANGE_SHAPE_LEARN:   
+		case SPELL_WISPLING_CHANGE_SHAPE_LEARN: 		
         case SPELL_FEYRI_CHANGE_SHAPE_LEARN:      
         case SPELL_RAKSHASA_CHANGE_SHAPE_LEARN:   nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		
         case SPELL_ALTER_SELF_LEARN:              nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+		
         case SPELL_DISGUISE_SELF_LEARN:           
         case SPELL_CHANGLING_CHANGE_SHAPE_LEARN:
         case SPELL_QUICK_CHANGE_SHAPE_LEARN:      nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
@@ -50,10 +53,17 @@ void main()
             // In case of shifting failure, refund the shifting use
             if(nSpellID == SPELL_IRDA_CHANGE_SHAPE_LEARN)
                 IncrementRemainingFeatUses(oPC, FEAT_IRDA_CHANGE_SHAPE);
+			
+            if(nSpellID == SPELL_WISPLING_CHANGE_SHAPE_LEARN)
+                IncrementRemainingFeatUses(oPC, FEAT_WISPLING_CHANGE_SHAPE);			
+			
         }
     }
     // Couldn't shift, refund the feat use
     else
         if(nSpellID == SPELL_IRDA_CHANGE_SHAPE_LEARN)
             IncrementRemainingFeatUses(oPC, FEAT_IRDA_CHANGE_SHAPE);
+		
+		if(nSpellID == SPELL_WISPLING_CHANGE_SHAPE_LEARN)
+            IncrementRemainingFeatUses(oPC, FEAT_WISPLING_CHANGE_SHAPE);
 }

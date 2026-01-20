@@ -9,14 +9,14 @@
 // Save logout time when actually logging out    
 void SaveCraftingLogoutTime(object oPC)        
 {        
-    if(DEBUG) DoDebug("SaveCraftingLogoutTime: Called for " + GetName(oPC));      
+    if(DEBUG) DoDebug("prc_onleave >> SaveCraftingLogoutTime | Called for " + GetName(oPC));      
           
     // Check database first, then local int      
     int bCrafting = SQLocalsPlayer_GetInt(oPC, "crafting_active");      
     if(!bCrafting)      
     {      
         bCrafting = GetLocalInt(oPC, "PRC_CRAFT_HB");      
-        if(DEBUG) DoDebug("SaveCraftingLogoutTime: DB crafting_active = " + IntToString(bCrafting) +       
+        if(DEBUG) DoDebug("prc_onleave >> SaveCraftingLogoutTime | DB crafting_active = " + IntToString(bCrafting) +       
                          ", Local PRC_CRAFT_HB = " + IntToString(GetLocalInt(oPC, "PRC_CRAFT_HB")));      
     }      
           
@@ -32,7 +32,7 @@ void SaveCraftingLogoutTime(object oPC)
 			int nLastLogout = SQLocalsPlayer_GetInt(oPC, "crafting_last_timestamp");    
 			nLogoutTimestamp = nLastLogout + 1;    
 			SQLocalsPlayer_SetInt(oPC, "crafting_last_timestamp", nLogoutTimestamp);    
-			if(DEBUG) DoDebug("SaveCraftingLogoutTime: Using fallback counter: " + IntToString(nLogoutTimestamp));  
+			if(DEBUG) DoDebug("prc_onleave >> SaveCraftingLogoutTime | Using fallback counter: " + IntToString(nLogoutTimestamp));  
 		}     
           
         // Save the timestamp  
@@ -51,7 +51,7 @@ void SaveCraftingLogoutTime(object oPC)
             SQLocalsPlayer_SetInt(oPC, "crafting_rounds", nRounds);      
         }      
               
-        if(DEBUG) DoDebug("SaveCraftingLogoutTime: Saved logout timestamp " + IntToString(nLogoutTimestamp) + ", rounds remaining: " + IntToString(nRounds));      
+        if(DEBUG) DoDebug("prc_onleave >> SaveCraftingLogoutTime | Saved logout timestamp " + IntToString(nLogoutTimestamp) + ", rounds remaining: " + IntToString(nRounds));      
 		      
 		SQLocalsPlayer_SetString(oPC, "crafting_file", GetLocalString(oPC, "PRC_CRAFT_FILE"));        
 		SQLocalsPlayer_SetInt(oPC, "crafting_line", GetLocalInt(oPC, "PRC_CRAFT_LINE"));      
@@ -62,7 +62,7 @@ void SaveCraftingLogoutTime(object oPC)
     }        
     else      
     {      
-        if(DEBUG) DoDebug("SaveCraftingLogoutTime: Player not crafting, skipping");      
+        if(DEBUG) DoDebug("prc_onleave >> SaveCraftingLogoutTime | Player not crafting, skipping");      
     }      
 }
 void main()

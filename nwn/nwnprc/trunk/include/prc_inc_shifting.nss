@@ -2459,6 +2459,7 @@ int GetCanShiftIntoCreature(object oShifter, int nShifterType, object oTemplate)
                    nRacialType == RACIAL_TYPE_HALFELF            ||
                    nRacialType == RACIAL_TYPE_HALFLING           ||
                    nRacialType == RACIAL_TYPE_HUMANOID_ORC       ||
+				   nRacialType == RACIAL_TYPE_HUMANOID_GOBLINOID ||
                    nRacialType == RACIAL_TYPE_HUMANOID_REPTILIAN
                    ))
                 {
@@ -2488,6 +2489,7 @@ int GetCanShiftIntoCreature(object oShifter, int nShifterType, object oTemplate)
                    nRacialType == RACIAL_TYPE_HALFELF            ||
                    nRacialType == RACIAL_TYPE_HALFLING           ||
                    nRacialType == RACIAL_TYPE_HUMANOID_ORC       ||
+				   nRacialType == RACIAL_TYPE_HUMANOID_GOBLINOID ||
                    nRacialType == RACIAL_TYPE_HUMANOID_REPTILIAN
                    ))
                 {
@@ -2523,6 +2525,7 @@ int GetCanShiftIntoCreature(object oShifter, int nShifterType, object oTemplate)
                    nTargetRacialType == RACIAL_TYPE_HALFORC            ||
                    nTargetRacialType == RACIAL_TYPE_HALFELF            ||
                    nTargetRacialType == RACIAL_TYPE_HALFLING           ||
+				   nTargetRacialType == RACIAL_TYPE_HUMANOID_GOBLINOID ||
                    nTargetRacialType == RACIAL_TYPE_HUMANOID_ORC       ||
                    nTargetRacialType == RACIAL_TYPE_HUMANOID_REPTILIAN
                    ) &&
@@ -2533,6 +2536,7 @@ int GetCanShiftIntoCreature(object oShifter, int nShifterType, object oTemplate)
                    nShifterRacialType == RACIAL_TYPE_HALFORC            ||
                    nShifterRacialType == RACIAL_TYPE_HALFELF            ||
                    nShifterRacialType == RACIAL_TYPE_HALFLING           ||
+				   nShifterRacialType == RACIAL_TYPE_HUMANOID_GOBLINOID ||
                    nShifterRacialType == RACIAL_TYPE_HUMANOID_ORC       ||
                    nShifterRacialType == RACIAL_TYPE_HUMANOID_REPTILIAN
                    ))

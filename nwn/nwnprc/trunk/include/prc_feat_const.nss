@@ -341,6 +341,9 @@ const int FEAT_FOG_CLOUD_BREATH			= 5434;	//:: Spiretop Dragon
 const int FEAT_LTSENSE 					= 4700;
 const int FEAT_LTBLIND 					= 4701;
 
+const int FEAT_WISPLING_CHANGE_SHAPE	= 4433;	//:: Wispling
+
+
 const int FEAT_SPELL5  = 4702;
 const int FEAT_SPELL10 = 4420;
 const int FEAT_SPELL11 = 4703;

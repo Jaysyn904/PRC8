@@ -5182,6 +5182,7 @@ Feats Required: Exotic</entry>
   <entry id="16516" lang="en" sex="m">Weapon Proficiency: Quarterstaff</entry>
   <entry id="16517" lang="en" sex="m">Weapon Proficiency: Dagger</entry>
   <entry id="16518" lang="en" sex="m">Weapon Proficiency: Club</entry>
+  <entry id="16519" lang="en" sex="m">****</entry>
   <entry id="16520" lang="en" sex="m">Forest Master</entry>
   <entry id="16521" lang="en" sex="m">Forest Masters</entry>
   <entry id="16522" lang="en" sex="m">forest master</entry>
@@ -44895,8 +44896,8 @@ Specifics: A male kapak can lick his weapon, coating it with a poison that does 
 A female kapak does not secrete poison but a healing agent.  She can lick the wounds of any creature, healing it for 2d6.  She can do this to any given creature once every 4 hours, and cannot use it on herself.
 Use: Selected.</entry>
   <entry id="55901" lang="en" sex="m">Racial Flare</entry>
-  <entry id="55902" lang="en" sex="m">Shapeshifter</entry>
-  <entry id="55903" lang="en" sex="m">Creature is a member of the Shapeshifter race.</entry>
+  <entry id="55902" lang="en" sex="m">Shapechanger</entry>
+  <entry id="55903" lang="en" sex="m">Creature is a member of the Shapechanger race.</entry>
   <entry id="55904" lang="en" sex="m">Skill Affinity (Intimidate)</entry>
   <entry id="55905" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
@@ -46962,38 +46963,38 @@ Use: Selected.</entry>
 Prerequisite: Acolye of the Ego 7
 Specifics:  At 7th level, you can alter your own truename slightly - just enough to make it difficult or impossible for others to utter it correctly. Any creature other than you that attempts to speak your truename takes a -4 penalty on the Truespeak check. At 9th level, this penalty increases to -8. 
 Use: Selected.</entry>
-  <entry id="57295" lang="en" sex="m">(PRESTIGE CLASS) 
-Necromancy is usually a poor choice for arcane spellcasters. Those who really want to master the deathless arts almost always pursue divine means. However, an alternative exists for those who desire power over undead, without losing too much of their arcane power. Enter the pale master, who draws on a font of special lore that provides a macabre power all its own. 
+  <entry id="57295" lang="en" sex="m">(PRESTIGE CLASS)
+Necromancy is usually a poor choice for arcane spellcasters. Those who really want to master the deathless arts almost always pursue divine means. However, an alternative exists for those who desire power over undead, without losing too much of their arcane power. Enter the pale master, who draws on a font of special lore that provides a macabre power all its own.
 
-- Hit Die: d6. 
-- Proficiencies: A pale master does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier. 
+- Hit Die: d6.
+- Proficiencies: A pale master does not gain any additional weapon or armor proficiencies.
+- Skill Points: 2 + Int Modifier.
 
-REQUIREMENTS: 
+REQUIREMENTS:
 
-Arcane Spellcasting: Level 3 or higher. 
-Alignment: Any non good 
-Skill: Lore 8
-Feat: Skill Focus (Lore)
+Alignment: Any nongood.
+Lore:  8 ranks.
+Feat: Skill Focus: Lore
+Spells: Ability to cast arcane spells of 3rd level or higher.
 
-CLASS FEATURES: 
+ABILITIES:
 
-Level 
-1: Bone Skin I - Add +2 to AC. This increases by another +2 for every four levels of Pale Master. 
-2: Animate Dead - Once per day spell-like ability. 
-3: Darkvision - Gain Darkvision ability. 
-4: Summon Undead - Twice per day spell-like ability summons an undead creature. 
-5: Deathless Vigor - +3 Hit Points per level 
-6: Undead Graft I - Gains undead arm that twice per day can paralyze. 
-7: Tough as Bone - Immune to hold, paralyze, and stunning. 
-8: Undead Graft II - Paralyze touch can be used three times a day. 
-9: Summon Greater Undead - Once per day spell-like ability summons a powerful undead. 
-10: Deathless Mastery - Immune to critical hits. 
-Deathless Master Touch - Touch of the undead arm instantly kills (DC 17). 
+Level
+1: Bone Skin I - Add +2 to AC. This increases by another +2 for every four levels of Pale Master.
+2: Animate Dead - Once per day spell-like ability.
+3: Darkvision - Gain Darkvision ability.
+4: Summon Undead - Twice per day spell-like ability summons an undead creature.
+5: Deathless Vigor - +3 Hit Points per level
+6: Undead Graft I - Gains undead arm that twice per day can paralyze.
+7: Tough as Bone - Immune to hold, paralyze, and stunning.
+8: Undead Graft II - Paralyze touch can be used three times a day.
+9: Summon Greater Undead - Once per day spell-like ability summons a powerful undead.
+10: Deathless Mastery - Immune to critical hits.
+  Deathless Master Touch - Touch of the undead arm instantly kills (DC 17).
 
-BONUS SPELLS 
+BONUS SPELLS
 
-Upon reaching level 1, 3, 5, 7, and 9 the character gains new spells per day as if he had also gained a level in his highest caster class (bard, sorcerer or wizard). He does not learn any new spells through this ability, however. </entry>
+At every odd level gained in the pale master class, the character gains new spells per day as if he had also gained a level in a spellcasting class he belonged to before adding the prestige class.  He does not, however, gain any other benefit a character of that class would have gained, except for an increased effected level of spellcasting.</entry>
   <entry id="57296" lang="en" sex="m">Frostrager</entry>
   <entry id="57297" lang="en" sex="m">Frostragers</entry>
   <entry id="57298" lang="en" sex="m">frostrager</entry>
@@ -47728,10 +47729,9 @@ Use: Selected</entry>
   <entry id="57580" lang="en" sex="m">Flame of the Shadow Sun - Touch</entry>
   <entry id="57581" lang="en" sex="m">Void of the Shadow Sun - Blast</entry>
   <entry id="57582" lang="en" sex="m">Balance of Light and Dark - Drain</entry>
-  <entry id="57583" lang="en" sex="m">Default Samurai</entry>
-  <entry id="57584" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57585" lang="en" sex="m">Default Marshal</entry>
+  <entry id="57583" lang="en" sex="m">****</entry>
+  <entry id="57584" lang="en" sex="m">****</entry>
+  <entry id="57585" lang="en" sex="m">****</entry>
   <entry id="57586" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
   <entry id="57587" lang="en" sex="m">Default Swashbuckler</entry>
@@ -75356,6 +75356,41 @@ Specifics: Immune to the Shadowlands Taint: Nezumi can never acquire a Taint sco
 Prerequisites: Wisdom 11, Nezumi Race
 Specifics: You gain Keen Senses and +4 bonus to Spot, Listen, and Search.
 Use: Automatic</entry>
+  <entry id="209000" lang="en" sex="m">### PRC8 Race Expansion ###</entry>
+  <entry id="209001" lang="en" sex="m">Wispling</entry>
+  <entry id="209002" lang="en" sex="m">Wispling</entry>
+  <entry id="209003" lang="en" sex="m">wispling</entry>
+  <entry id="209004" lang="en" sex="m">wisplings</entry>
+  <entry id="209005" lang="en" sex="m">Wisplings are planetouched descended from halflings and demons.
+
+With a heritage touched by demonic fire and chaos, this offshoot of the halfling race embodies everything that is small, quick, and deceptive. Wisplings rarely sit still, and their pranks and jokes range from cruel to murderous.  A wispling’s light brown skin, bright red hair, and angular features set it apart from other Small humanoids. Although their demonic heritage grants them abilities of stealth beyond those of many other races, wisplings have a taste for bright clothing that marks them in any crowd.
+
+Wispling Ability Adjustments: -2 Str, +4 Dex, +2 Int
+
+Favored Class (Rogue): A multiclass wispling's rogue class does not count when determining whether they suffer an XP penalty for multiclassing.
+
+Racial Traits:
+- An wispling's base land speed is 20 feet.
+- Darkvision:  Wisplings are able to see in the dark as well as daylight.
+- Proficiencies: Wisplings are proficient with all simple and martial weapons, light armor &amp; shields.
+- Change Self (Su): Wisplings can use alter self once per day, as the spell cast by a 2nd-level sorcerer, they make take take the form of any humaniod within one size category of their own.
+- Fearless: Wisplings have a +2 bonus on saving throws against fear spells and effects.
+- Lucky: Wisplings have a +1 racial bonus to all saving throws.
+- Good Aim: Wisplings recieve a +1 attack bonus on attacks made with throwing weapons. 
+- Skills: Wisplings have a +2 racial bonus on Climb, Jump, Listen, and Move Silently checks.
+- Outsider: Wisplings are outsiders for the purposes of spells and prerequisites.
+
+Level Adjustment: +1</entry>
+  <entry id="209006" lang="en" sex="m">Wispling biography.</entry>
+  <entry id="209007" lang="en" sex="m">****</entry>
+  <entry id="209008" lang="en" sex="m">Wispling Change Shape
+</entry>
+  <entry id="209009" lang="en" sex="m">Learn Form</entry>
+  <entry id="209010" lang="en" sex="m">Change Shape Options</entry>
+  <entry id="209011" lang="en" sex="m">Return to True Form</entry>
+  <entry id="209012" lang="en" sex="m">Change Shape Quickslot 1</entry>
+  <entry id="209013" lang="en" sex="m">Change Shape Quickslot 2</entry>
+  <entry id="209014" lang="en" sex="m">Wisplings can use alter form once per day, as per the spell cast by a 2nd-level sorcerer.  A wispling is not limited to outsider forms and can take the form of any humaniod within one size category.</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">&lt;cÿÿÿ&gt;Special Attack&lt;/c&gt;</entry>
   <entry id="210001" lang="en" sex="m"> At 2nd level, 5th level, 8th level and every three levels afterwards, your sneak attack or skirmish ability deals an extra 1d6 points of damage. If you have more than one of these abilities, you can improve any one ability of your choice, each time you gain this benefit.</entry>

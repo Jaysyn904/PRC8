@@ -15,21 +15,21 @@
 //:: Restore crafting state on login with offline time calculation    
 void RestoreCraftingStateOnLogin(object oPC)        
 {        
-    if(DEBUG) DoDebug("DEBUG: RestoreCraftingStateOnLogin called for " + GetName(oPC));        
+    if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | RestoreCraftingStateOnLogin called for " + GetName(oPC));        
             
     // Check switch conditions        
     if(!(!GetPRCSwitch(PRC_DISABLE_CRAFT) &&        
          GetPRCSwitch(PRC_CRAFTING_TIME_SCALE) > 1))        
     {        
-        if(DEBUG) DoDebug("DEBUG: Switch conditions not met for crafting restore");        
+        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Switch conditions not met for crafting restore");        
         return;        
     }        
             
-    if(DEBUG) DoDebug("DEBUG: Switch conditions met, checking for saved crafting state");        
+    if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Switch conditions met, checking for saved crafting state");        
             
     if(SQLocalsPlayer_GetInt(oPC, "crafting_active"))        
     {        
-        if(DEBUG) DoDebug("DEBUG: Found active crafting state, restoring...");        
+        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Found active crafting state, restoring...");        
                 
         // Get basic crafting state        
         string sUUID = SQLocalsPlayer_GetString(oPC, "crafting_item_uuid");        
@@ -43,42 +43,42 @@ void RestoreCraftingStateOnLogin(object oPC)
         int nIPCostTable = SQLocalsPlayer_GetInt(oPC, "crafting_ip_costtable");        
         int nIPParam1 = SQLocalsPlayer_GetInt(oPC, "crafting_ip_param1");        
                 
-        if(DEBUG) DoDebug("DEBUG: Initial data - UUID: " + sUUID + ", rounds: " + IntToString(nRounds) +        
+        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Initial data - UUID: " + sUUID + ", rounds: " + IntToString(nRounds) +        
                          ", cost: " + IntToString(nCost) + ", xp: " + IntToString(nXP));        
                 
         // Calculate offline progress        
         int nLogoutTime = SQLocalsPlayer_GetInt(oPC, "crafting_last_timestamp");        
         int nCurrentTime = GetCurrentUnixTimestamp();        
-        if(DEBUG) DoDebug("prc_onenter >> : RestoreCraftingStateOnLogin() | GetCurrentUnixTimestamp is:" + IntToString(nCurrentTime) +".");
+        if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | GetCurrentUnixTimestamp is:" + IntToString(nCurrentTime) +".");
         
         if(nLogoutTime > 0 && nCurrentTime > nLogoutTime)        
         {        
             // Calculate real time elapsed in seconds        
             int nSecondsOffline = nCurrentTime - nLogoutTime; 
-			if(DEBUG) DoDebug("prc_onenter >> : RestoreCraftingStateOnLogin() | nSecondsOffline is:" + IntToString(nSecondsOffline) +".");			
+			if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | nSecondsOffline is:" + IntToString(nSecondsOffline) +".");			
                 
             // Each round is always 6 seconds real time        
             int nRoundsOffline = nSecondsOffline / 6;
-			if(DEBUG) DoDebug("prc_onenter >> : RestoreCraftingStateOnLogin() | nRoundsOffline is:" + IntToString(nRoundsOffline) +".");				
+			if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | nRoundsOffline is:" + IntToString(nRoundsOffline) +".");				
                 
             // Subtract offline progress from remaining rounds        
             nRounds -= nRoundsOffline;        
             if(nRounds < 1) nRounds = 1; // Minimum 1 round to finish        
                 
-            if(DEBUG) DoDebug("DEBUG: Offline progress - time diff: " + IntToString(nSecondsOffline) +        
+            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Offline progress - time diff: " + IntToString(nSecondsOffline) +        
                              "s, rounds progress: " + IntToString(nRoundsOffline) +        
                              ", new rounds: " + IntToString(nRounds));        
         }        
         else        
         {        
-            if(DEBUG) DoDebug("DEBUG: No valid logout time found, using saved rounds: " + IntToString(nRounds));        
+            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | No valid logout time found, using saved rounds: " + IntToString(nRounds));        
         }        
                 
         // Find the crafting item        
         object oItem = GetItemByUUID(oPC, sUUID);        
         if(GetIsObjectValid(oItem))        
         {        
-            if(DEBUG) DoDebug("DEBUG: Found item, restoring crafting session");        
+            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Found item, restoring crafting session");        
                     
             // Reconstruct the itemproperty        
             itemproperty ip;        
@@ -87,7 +87,7 @@ void RestoreCraftingStateOnLogin(object oPC)
                 ip = ConstructIP(nIPType, nIPSubtype, nIPCostTable, nIPParam1);        
             }        
                     
-            if(DEBUG) DoDebug("DEBUG: About to call CraftingHB with " + IntToString(nRounds) + " rounds, cost: " + IntToString(nCost) + ", xp: " + IntToString(nXP));        
+            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | About to call CraftingHB with " + IntToString(nRounds) + " rounds, cost: " + IntToString(nCost) + ", xp: " + IntToString(nXP));        
                     
             // Notify player        
             FloatingTextStringOnCreature("Resuming crafting session: " + IntToString(nRounds) + " round(s) remaining", oPC);        
@@ -99,7 +99,7 @@ void RestoreCraftingStateOnLogin(object oPC)
         }        
         else        
         {        
-            if(DEBUG) DoDebug("DEBUG: Failed to find item with UUID: " + sUUID);        
+            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Failed to find item with UUID: " + sUUID);        
             FloatingTextStringOnCreature("Crafting session could not be restored - item not found", oPC);        
             // Clear the invalid crafting state        
             SQLocalsPlayer_SetInt(oPC, "crafting_active", 0);        
@@ -107,7 +107,7 @@ void RestoreCraftingStateOnLogin(object oPC)
     }        
     else        
     {        
-        if(DEBUG) DoDebug("DEBUG: No saved crafting state found");        
+        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | No saved crafting state found");        
     }        
 }
 

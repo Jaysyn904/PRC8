@@ -31,6 +31,9 @@ void main()
     if(GetSpellId() == SPELL_IRDA_CHANGE_SHAPE_TRUE)
          IncrementRemainingFeatUses(oPC, FEAT_IRDA_CHANGE_SHAPE);
 
+    if(GetSpellId() == SPELL_WISPLING_CHANGE_SHAPE_TRUE)
+         IncrementRemainingFeatUses(oPC, FEAT_WISPLING_CHANGE_SHAPE);	 
+
     //End treeshape
     if(GetHasSpellEffect(SPELL_TREESHAPE, oPC))
     {
@@ -44,6 +47,9 @@ void main()
         PRCRemoveSpellEffects(SPELL_TREESHAPE, oPC, oPC);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
     }
+
+	//;: Wispling Change Shape
+	PRCRemoveSpellEffects(17980, oPC, oPC);
 
 	// Aranea Alternate Form 
 	PRCRemoveSpellEffects(1489, oPC, oPC);

@@ -74,17 +74,23 @@ void main()
     object oItem   = GetSpellCastItem();
     object oPC     = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
-
-
+	
     // Make sure the target is an item
     if (oTarget == OBJECT_INVALID || GetObjectType(oTarget) != OBJECT_TYPE_ITEM)
     {
-        SendMessageToPCByStrRef(oPC, 83359);         //"Invalid target "
+        //SendMessageToPCByStrRef(oPC, 83359);         //"Invalid target "
+		SendMessageToPC(oPC, "Failure: You may only apply poisons to food & weapons.");
         return;
     }
-
+	
     // Make sure it's a weapon
     int nType = GetBaseItemType(oTarget);
+	if (DEBUG) DoDebug("x2_s2_poisonwp is running.");
+	if (DEBUG) DoDebug("Base Item Type: " + IntToString(nType));
+	if (DEBUG) DoDebug("Is Melee Weapon: " + IntToString(IPGetIsMeleeWeapon(oTarget)));  
+	if (DEBUG) DoDebug("Sharp Weapons Switch: " + IntToString(GetPRCSwitch(PRC_ALLOW_ONLY_SHARP_WEAPONS)));  
+	if (DEBUG) DoDebug("Is Bludgeoning: " + IntToString(IPGetIsBludgeoningWeapon(oTarget)));
+	
     if (!IPGetIsMeleeWeapon(oTarget) &&
         !IPGetIsProjectile(oTarget)  &&
         nType != BASE_ITEM_SHURIKEN  &&
@@ -94,7 +100,7 @@ void main()
         SendMessageToPCByStrRef(oPC, 83359);         //"Invalid target "
         return;
     }
-
+	
     // Make sure the weapon can be applied poison to
     if(GetPRCSwitch(PRC_ALLOW_ONLY_SHARP_WEAPONS) &&
        IPGetIsBludgeoningWeapon(oTarget))

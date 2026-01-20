@@ -754,7 +754,6 @@ if(nItem == BASE_ITEM_BASTARDSWORD
 
 // ----------------------------------------------------------------------------
 // Returns TRUE if weapon is a blugeoning weapon
-// Uses Get2DAString!
 // ----------------------------------------------------------------------------
 int IPGetIsBludgeoningWeapon(object oItem)
 {

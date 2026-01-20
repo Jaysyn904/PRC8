@@ -443,14 +443,15 @@ const int SPELL_PHANTOM_STEED                       = 2347;
 const int SPELL_GASEOUS_FORM                        = 2348;
 
 //:: Racial spell additions
-const int SPIRETOP_FOG_CLOUD_BREATH					= 1487; //:: Spiretop Dragon
-const int MEPHLING_BREATH_WEAPON					= 1488; //:: Mephlings
-const int SPELL_ARANEA_ALTER						= 1489;	//:: Aranea
+const int SPELL_WISPLING_CHANGE_SHAPE				= 17980;	//;; Wispling
+const int SPIRETOP_FOG_CLOUD_BREATH					= 1487; 	//:: Spiretop Dragon
+const int MEPHLING_BREATH_WEAPON					= 1488; 	//:: Mephlings
+const int SPELL_ARANEA_ALTER						= 1489;		//:: Aranea
 const int SPELL_ARANEA_ALTER_HUMANOID				= 1490;
 const int SPELL_ARANEA_ALTER_HYBRID					= 1491;
 const int SPELL_ARANEA_ALTER_SPIDER					= 1492;
 const int SPELL_ARANEA_WEB							= 1493;
-const int SPELL_MUCK_SQUIRT							= 1494;	//:: Muckdweller
+const int SPELL_MUCK_SQUIRT							= 1494;		//:: Muckdweller
 const int SPELL_RAKSHASA_DISGUISE                   = 1951;
 const int SPELL_FEYRI_ALTER                         = 1955;
 const int SPELL_NIXIE_WATERBREATHING                = 1956;
@@ -546,6 +547,12 @@ const int SPELL_LASHEMOI_STRENGTH                   = 19012;
 const int SPELL_TURLEMOI_STRENGTH                   = 19013;
 const int SPELL_HADRIMOI_STRENGTH                   = 19014;
 const int SPELL_GLOURA_GRACE                        = 19015;
+
+const int SPELL_WISPLING_CHANGE_SHAPE_LEARN			= 17980;
+const int SPELL_WISPLING_CHANGE_SHAPE_OPTIONS		= 17981;
+const int SPELL_WISPLING_CHANGE_SHAPE_TRUE			= 17982;
+const int SPELL_WISPLING_CHANGE_SHAPE_QS1			= 17983;
+const int SPELL_WISPLING_CHANGE_SHAPE_QS2			= 17984;
 
 // Poison system spells
 const int SPELL_POISONED_WEAPON                     = 2880;

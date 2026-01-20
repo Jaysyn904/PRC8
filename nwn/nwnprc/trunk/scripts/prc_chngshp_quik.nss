@@ -30,22 +30,33 @@ void main()
     // Determine which quickslot was used
     switch(nSpellID)
     {
-        case SPELL_IRDA_CHANGE_SHAPE_QS1:       nSlot = 1; sSource = "Irda_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+        case SPELL_WISPLING_CHANGE_SHAPE_QS1:	nSlot = 1; sSource = "Wispling_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		case SPELL_WISPLING_CHANGE_SHAPE_QS2:	nSlot = 2; sSource = "Wispling_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		
         case SPELL_FEYRI_CHANGE_SHAPE_QS1:      nSlot = 1; sSource = "Feyri_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		case SPELL_FEYRI_CHANGE_SHAPE_QS2:      nSlot = 2; sSource = "Feyri_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		
         case SPELL_RAKSHASA_CHANGE_SHAPE_QS1:   nSlot = 1; sSource = "Rakshasa_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		case SPELL_RAKSHASA_CHANGE_SHAPE_QS2:   nSlot = 2; sSource = "Rakshasa_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+		
         case SPELL_DISGUISE_SELF_QS1:           nSlot = 1; sSource = "Disguise_Self_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
-        case SPELL_ALTER_SELF_QS1:              nSlot = 1; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+		case SPELL_DISGUISE_SELF_QS2:           nSlot = 2; sSource = "Disguise_Self_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
+		case SPELL_DISGUISE_SELF_QS3:           nSlot = 3; sSource = "Disguise_Self_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
+        
         case SPELL_CHANGLING_CHANGE_SHAPE_QS1:
         case SPELL_QUICK_CHANGE_SHAPE_QS1:      nSlot = 1; sSource = "Changeling_Shape_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
-        case SPELL_IRDA_CHANGE_SHAPE_QS2:       nSlot = 2; sSource = "Irda_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
-        case SPELL_CHANGLING_CHANGE_SHAPE_QS2:
-        case SPELL_QUICK_CHANGE_SHAPE_QS2:      nSlot = 2; sSource = "Changeling_Shape_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
-        case SPELL_FEYRI_CHANGE_SHAPE_QS2:      nSlot = 2; sSource = "Feyri_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
-        case SPELL_RAKSHASA_CHANGE_SHAPE_QS2:   nSlot = 2; sSource = "Rakshasa_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
-        case SPELL_DISGUISE_SELF_QS2:           nSlot = 2; sSource = "Disguise_Self_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
-        case SPELL_ALTER_SELF_QS2:              nSlot = 2; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
-        case SPELL_DISGUISE_SELF_QS3:           nSlot = 3; sSource = "Disguise_Self_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break;
-        case SPELL_ALTER_SELF_QS3:              nSlot = 3; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+		
+		case SPELL_CHANGLING_CHANGE_SHAPE_QS2:
+        case SPELL_QUICK_CHANGE_SHAPE_QS2:      nSlot = 2; sSource = "Changeling_Shape_Quick_"; nShiftType = SHIFTER_TYPE_DISGUISE_SELF; break; 
+		
+		case SPELL_IRDA_CHANGE_SHAPE_QS1:       nSlot = 1; sSource = "Irda_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;
+        case SPELL_IRDA_CHANGE_SHAPE_QS2:       nSlot = 2; sSource = "Irda_Shape_Quick_"; nShiftType = SHIFTER_TYPE_HUMANOIDSHAPE; break;       
+		
+        case SPELL_ALTER_SELF_QS1:              nSlot = 1; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+		case SPELL_ALTER_SELF_QS2:              nSlot = 2; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+		case SPELL_ALTER_SELF_QS3:              nSlot = 3; sSource = "Alter_Self_Quick_"; nShiftType = SHIFTER_TYPE_ALTER_SELF; break;
+        
+        
 
         default:
             if(DEBUG) DoDebug("prc_chngshp_quik: ERROR: Unknown nSpellID value: " + IntToString(nSpellID));
@@ -61,7 +72,11 @@ void main()
         FloatingTextStrRefOnCreature(16828382, oPC, FALSE); // "This Quick Shift Slot is empty!"
         if(nSpellID == SPELL_IRDA_CHANGE_SHAPE_QS1 || nSpellID == SPELL_IRDA_CHANGE_SHAPE_QS2)
              IncrementRemainingFeatUses(oPC, FEAT_IRDA_CHANGE_SHAPE);
-        return;
+		 
+		FloatingTextStrRefOnCreature(16828382, oPC, FALSE); // "This Quick Shift Slot is empty!"
+        if(nSpellID == SPELL_WISPLING_CHANGE_SHAPE_QS1 || nSpellID == SPELL_WISPLING_CHANGE_SHAPE_QS2)
+             IncrementRemainingFeatUses(oPC, FEAT_WISPLING_CHANGE_SHAPE);
+			return;
     }
 
     // See if the shifting starts successfully
@@ -70,6 +85,9 @@ void main()
         // In case of shifting failure, refund the shifting use
         if(nSpellID == SPELL_IRDA_CHANGE_SHAPE_QS1 || nSpellID == SPELL_IRDA_CHANGE_SHAPE_QS2)
             IncrementRemainingFeatUses(oPC, FEAT_IRDA_CHANGE_SHAPE);
+		
+        if(nSpellID == SPELL_WISPLING_CHANGE_SHAPE_QS1 || nSpellID == SPELL_WISPLING_CHANGE_SHAPE_QS2)
+            IncrementRemainingFeatUses(oPC, FEAT_WISPLING_CHANGE_SHAPE);		
     }
     
 }
