@@ -40,8 +40,8 @@ void main()
         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR))
         {
             //Apply the VFX impact and effects
-            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration));
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration));
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
         }
     }
 }

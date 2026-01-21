@@ -7214,7 +7214,7 @@ Use: Selected.</entry>
   <entry id="45424" lang="en" sex="m">Summon Major Devil</entry>
   <entry id="45425" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Disciple of Asmodeus level 8.
-Specifics: Once per day, you may summon a Cornugon, Gelugon, Glabrezu, Hamatula, or Osyluth.
+Specifics: Once per day, you may summon a Cornugon, Gelugon, Pit Fiend, Hamatula, or Osyluth.
 Use: Selected.</entry>
   <entry id="45426" lang="en" sex="m">Dread Might</entry>
   <entry id="45427" lang="en" sex="m">Type of Feat: Class Specific
@@ -23107,7 +23107,7 @@ Level Adjustment: +4
 Racial Hit Dice/Class: NA</entry>
   <entry id="49750" lang="en" sex="m">Summon Cornugon</entry>
   <entry id="49751" lang="en" sex="m">Summon Gelugon</entry>
-  <entry id="49752" lang="en" sex="m">Summon Glabrezu</entry>
+  <entry id="49752" lang="en" sex="m">Summon Pit Fiend</entry>
   <entry id="49753" lang="en" sex="m">Summon Hamatula</entry>
   <entry id="49754" lang="en" sex="m">Summon Osyluth</entry>
   <entry id="49755" lang="en" sex="m">Conjuration (Creation or Calling)
@@ -75391,6 +75391,87 @@ Level Adjustment: +1</entry>
   <entry id="209012" lang="en" sex="m">Change Shape Quickslot 1</entry>
   <entry id="209013" lang="en" sex="m">Change Shape Quickslot 2</entry>
   <entry id="209014" lang="en" sex="m">Wisplings can use alter form once per day, as per the spell cast by a 2nd-level sorcerer.  A wispling is not limited to outsider forms and can take the form of any humaniod within one size category.</entry>
+  <entry id="209015" lang="en" sex="m">****</entry>
+  <entry id="209016" lang="en" sex="m">Maeluth</entry>
+  <entry id="209017" lang="en" sex="m">Maeluth</entry>
+  <entry id="209018" lang="en" sex="m">maeluth</entry>
+  <entry id="209019" lang="en" sex="m">maeluths</entry>
+  <entry id="209020" lang="en" sex="m">Maeluths are planetouched descended from dwarves and devils.
+
+Maeluths look like sturdy dwarves with fiendish features that hint at their devil-tainted ancestry. Common maeluth features include red eyes, weirdly elongated fingers, and nearly hairless bodies. Maeluths favor dark colors and often wear spiked armor.
+Although similar in many ways to their dwarf ancestors, maeluths are more adept at social interaction because of their fiendish blood. They often use their innate social skills to attain powerful positions within dwarf society.
+
+Maeluth Ability Adjustments: -2 Dex, +4 Con
+
+Favored Class (Fighter): A multiclass maeluth's fighter class does not count when determining whether they suffer an XP penalty for multiclassing.
+
+Racial Traits:
+- An maeluth's base land speed is 20 feet.
+- Darkvision:  Maeluths are able to see in the dark as well as daylight.
+- Proficiencies: Maeluths are proficient with all simple and martial weapons, light armor &amp; shields.
+- Stonecunning: +2 racial bonus on Search checks made in subterranean areas.
+- Hardiness vs. Poisons: +2 racial bonus on saving throws against poisons.
+- Hardiness vs. Spells: +2 racial bonus on saving throws against spells.
+- Offensive Training vs. Orcs: +1 racial bonus on attack rolls against orcs.
+- Offensive Training vs. Goblinoids: +1 racial bonus on attack rolls against goblinoids (goblins, hobgoblins, and bugbears).
+- Defensive Training vs. Giants: +4 dodge bonus to AC against giants.
+- Skill Affinity (Craft Armor): +2 racial bonus to Craft Armor checks.
+- Skill Affinity (Craft Weapon): +2 racial bonus to Craft Weapon checks.
+- Skill Affinity (Appraise): +2 racial bonus to Appraise checks.
+- Outsider: Maeluths are outsiders for the purposes of spells and prerequisites.
+
+Level Adjustment: +1.</entry>
+  <entry id="209021" lang="en" sex="m">Maeluth biography.</entry>
+  <entry id="209022" lang="en" sex="m">****</entry>
+  <entry id="209023" lang="en" sex="m">Fiend Hammer</entry>
+  <entry id="209024" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Maeluth
+
+Once per day, a maeluth can grant a melee weapon the unholy special ability. This effect lasts for 1 minute.
+
+Use: Selected
+
+
+</entry>
+  <entry id="209025" lang="en" sex="m">&lt;CUSTOM0&gt; uses Fiend Hammer.</entry>
+  <entry id="209026" lang="en" sex="m">****</entry>
+  <entry id="209027" lang="en" sex="m">Mechanatrix</entry>
+  <entry id="209028" lang="en" sex="m">Mechanatrix</entry>
+  <entry id="209029" lang="en" sex="m">mechanatrix</entry>
+  <entry id="209030" lang="en" sex="m">mechanatrixes</entry>
+  <entry id="209031" lang="en" sex="m">Mechanatrixes are planetouched who can trace their ancestry to one of the bizarre clockwork beings that reside on the plane of Mechanus.
+
+Mechanatrixes are mostly human in appearance, but they have one or more mechanical or inorganic features. Most mechanatrixes have smooth skin with a faint metallic sheen.  They behave with cold rationality and have a no-nonsense attitude toward life.  As befitting their nature, mechanatrixes have an affinity for mechanical objects of all kinds. They have an innate understanding of engineering and all sorts of crafts. The more martial-minded mechanatrixes become excellent siege engineers.  Like other planetouched beings, mechanatrixes never quite fit into any society. Most human societies shun them, while those from the plane of Mechanus believe them to be tainted and impure. As a result, they are often loners, but they are rarely bothered by this lack of social contact.
+
+Most mechanatrixes are firm believers in law and do whatever they can to fight chaos and bring order to tumultuous areas.
+
+Mechanatrix Ability Adjustments: -2 Dex, +2 Con, +2 Int
+
+Favored Class (Fighter): A multiclass mechanatrix's fighter class does not count when determining whether they suffer an XP penalty for multiclassing.
+
+Racial Traits:
+- An mechanatrix's base land speed is 30 feet.
+- Darkvision:  Mechanatrixes are able to see in the dark as well as daylight.
+- Proficiencies: Mechanatrixes are proficient with all simple and martial weapons, light armor, medium armor &amp; shields.
+- Shocking Grasp (Sp): A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix’s character level, whichever is higher.
+- Electricity Healing (Ex): Because of a mechanatrix's electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.
+- Fire &amp; Cold Resistance 5: Due to their body composition, Mechanatrixes are less susceptible to extremes of heat &amp; cold.
+- Skills: Mechanatrixes have a +2 racial bonus on Spot checks and a +4 racial bonus on Lore checks.
+- Outsider: Mechanatrixes are outsiders for the purposes of spells and prerequisites.
+
+Level Adjustment: +1</entry>
+  <entry id="209032" lang="en" sex="m">Mechanatrix biography.</entry>
+  <entry id="209033" lang="en" sex="m">****</entry>
+  <entry id="209034" lang="en" sex="m">Electricity Healing (Ex)</entry>
+  <entry id="209035" lang="en" sex="m">Because of a mechanatrix’s electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.</entry>
+  <entry id="209036" lang="en" sex="m">Shocking Grasp (Sp)</entry>
+  <entry id="209037" lang="en" sex="m">A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix’s character level, whichever is higher.</entry>
+  <entry id="209038" lang="en" sex="m">Resist Cold 5</entry>
+  <entry id="209039" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Race-Specific.
+Specifics: The creature has an innate cold resistance of 5.
+Use: Automatic.</entry>
+  <entry id="209040" lang="en" sex="m">****</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">&lt;cÿÿÿ&gt;Special Attack&lt;/c&gt;</entry>
   <entry id="210001" lang="en" sex="m"> At 2nd level, 5th level, 8th level and every three levels afterwards, your sneak attack or skirmish ability deals an extra 1d6 points of damage. If you have more than one of these abilities, you can improve any one ability of your choice, each time you gain this benefit.</entry>

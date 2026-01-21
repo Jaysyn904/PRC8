@@ -341,7 +341,12 @@ const int FEAT_FOG_CLOUD_BREATH			= 5434;	//:: Spiretop Dragon
 const int FEAT_LTSENSE 					= 4700;
 const int FEAT_LTBLIND 					= 4701;
 
+const int FEAT_MECHA_ELECTRICY_HEALING	= 4431;	//:: Mechanatrix
+const int FEAT_MECHA_SHOCKING_GRASP		= 4432;
+
 const int FEAT_WISPLING_CHANGE_SHAPE	= 4433;	//:: Wispling
+
+const int FEAT_MAELUTH_FIEND_HAMMER		= 4434; //:: Maeluth
 
 
 const int FEAT_SPELL5  = 4702;
@@ -407,6 +412,8 @@ const int FEAT_CONSTRICT          = 4740;
 const int FEAT_REGEN5             = 4741;
 const int FEAT_REND               = 4742;
 const int FEAT_RESIST_FIRE5       = 4743;
+const int FEAT_RESIST_COLD5 	  = 4430;
+
 const int FEAT_SUFFOCATION        = 4744;
 const int FEAT_VERYHEROIC         = 4745;
 const int FEAT_VULN_COLD          = 4746;

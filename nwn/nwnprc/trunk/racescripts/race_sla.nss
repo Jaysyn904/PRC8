@@ -20,7 +20,14 @@ void main()
     int nHD = GetHitDice(OBJECT_SELF);
     int nCasterLvl = nHD, nDC, nSpell;
 
-    switch(GetSpellId()){
+    switch(GetSpellId())
+	{
+        case SPELL_MECHA_SHOCKING_GRASP:
+        {
+            nCasterLvl = nHD;
+            nSpell = SPELL_SHOCKING_GRASP;
+            break;
+        }
         case SPELL_URDINNIR_STONESKIN:
         {
             nCasterLvl = 4;

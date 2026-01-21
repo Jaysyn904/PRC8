@@ -1,0 +1,14 @@
+2DA V2.0
+
+           FeatLabel                      FeatIndex 
+0          darkvision                     228       
+1          FEAT_MECHA_ELECTRICITY_HEALING 4431      
+2          FEAT_MECHA_SHOCKING_GRASP      4432      
+3          FEAT_RESIST_COLD5              4430      
+4          Resist_Fire_5                  4743      
+5          ArmorProf_Light                3         
+6          ArmorProf_Medium               4         
+7          ShieldProf                     32        
+8          SimpleWeaponProf               46        
+9          MartialWeaponProf              45        
+10         Outsider                       4716      

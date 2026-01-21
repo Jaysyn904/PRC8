@@ -30,7 +30,7 @@ void main()
     effect eAOE = EffectAreaOfEffect(AOE_MOB_PROTECTION);
 
     object oTarget = PRCGetSpellTargetObject();
-    int nDuration = GetCasterLevel(OBJECT_SELF) / 2;
+    int nDuration = PRCGetCasterLevel(OBJECT_SELF) / 2;
     int nMetaMagic = PRCGetMetaMagicFeat();
     //Make sure duration does no equal 0
     if (nDuration < 1)
@@ -38,5 +38,5 @@ void main()
         nDuration = 1;
     }
     //Create an instance of the AOE Object using the Apply Effect function
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, oTarget, TurnsToSeconds(nDuration));
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, oTarget, TurnsToSeconds(nDuration));
 }

@@ -2791,6 +2791,19 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
         effect eEffect;
         return eEffect; //Doesn't hurt him
     } 
+	
+    // Mechanatrix heals from electrical damage.  +1 HP for every 3 electrical damage.
+    if (GetRacialType(oTarget) == RACIAL_TYPE_MECHANATRIX && nDamageType == DAMAGE_TYPE_ELECTRICAL)
+    {
+        nDamageAmount /= 3;
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nDamageAmount), oTarget); 
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HEAD_ELECTRICITY), oTarget);
+        
+        FloatingTextStringOnCreature("Electricty Healing restored " + IntToString(nDamageAmount) +" HP.", oTarget, FALSE);
+        effect eEffect;
+        return eEffect; //Doesn't hurt him
+    } 
+	
     // Phoenix Belt gains fast healing when hit by fire damage
     if (GetHasSpellEffect(MELD_PHOENIX_BELT, oTarget) && nDamageType == DAMAGE_TYPE_FIRE)
     {

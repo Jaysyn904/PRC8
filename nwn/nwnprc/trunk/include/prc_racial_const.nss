@@ -111,17 +111,19 @@ const int RACIAL_TYPE_NAZTHARUNE_RAKSHASA  = 96;
 const int RACIAL_TYPE_RETH_DEKALA          = 67;
 
 //Planetouched Races
-const int RACIAL_TYPE_WISPLING             = 195;
-const int RACIAL_TYPE_AASIMAR              = 198;
-const int RACIAL_TYPE_AIR_GEN              = 199;
-const int RACIAL_TYPE_EARTH_GEN            = 200;
-const int RACIAL_TYPE_FEYRI                = 201;
-const int RACIAL_TYPE_FIRE_GEN             = 202;
-const int RACIAL_TYPE_MORTIF               = 132;
-const int RACIAL_TYPE_TANARUKK             = 203;
-const int RACIAL_TYPE_TIEFLING             = 204;
-const int RACIAL_TYPE_WATER_GEN            = 205;
-const int RACIAL_TYPE_SHADOWSWYFT          = 236;
+const int RACIAL_TYPE_WISPLING				= 195;
+const int RACIAL_TYPE_MECHANATRIX			= 197;
+const int RACIAL_TYPE_AASIMAR				= 198;
+const int RACIAL_TYPE_AIR_GEN				= 199;
+const int RACIAL_TYPE_EARTH_GEN				= 200;
+const int RACIAL_TYPE_FEYRI					= 201;
+const int RACIAL_TYPE_FIRE_GEN				= 202;
+const int RACIAL_TYPE_MAELUTH				= 206;
+const int RACIAL_TYPE_MORTIF				= 132;
+const int RACIAL_TYPE_TANARUKK				= 203;
+const int RACIAL_TYPE_TIEFLING				= 204;
+const int RACIAL_TYPE_WATER_GEN				= 205;
+const int RACIAL_TYPE_SHADOWSWYFT			= 236;
 
 //Serpent Kingdom and Reptillian Races
 const int RACIAL_TYPE_ABOM_YUAN            = 228;

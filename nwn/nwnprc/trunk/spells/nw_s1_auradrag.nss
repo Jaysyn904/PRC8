@@ -31,7 +31,7 @@ void main()
     }
 
     effect eAOE = EffectAreaOfEffect(36);
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, OBJECT_SELF, HoursToSeconds(100));
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, OBJECT_SELF, HoursToSeconds(100));
 
 
 }

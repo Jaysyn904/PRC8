@@ -29,7 +29,7 @@ void Drown(object oTarget)
      &&(GetRacialType(oTarget) != RACIAL_TYPE_ELEMENTAL))
     {
         //Make a fortitude save
-        if(MySavingThrow(SAVING_THROW_FORT, oTarget, 20) == FALSE)
+        if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 20) == FALSE)
         {
             //Apply the VFX impact and damage effect
             ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
@@ -49,7 +49,7 @@ void main ()
     int nIdx;
 
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_WATER);
-    ApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
     oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
     while(GetIsObjectValid(oTarget) == TRUE)
     {

@@ -443,7 +443,6 @@ const int SPELL_PHANTOM_STEED                       = 2347;
 const int SPELL_GASEOUS_FORM                        = 2348;
 
 //:: Racial spell additions
-const int SPELL_WISPLING_CHANGE_SHAPE				= 17980;	//;; Wispling
 const int SPIRETOP_FOG_CLOUD_BREATH					= 1487; 	//:: Spiretop Dragon
 const int MEPHLING_BREATH_WEAPON					= 1488; 	//:: Mephlings
 const int SPELL_ARANEA_ALTER						= 1489;		//:: Aranea
@@ -548,11 +547,16 @@ const int SPELL_TURLEMOI_STRENGTH                   = 19013;
 const int SPELL_HADRIMOI_STRENGTH                   = 19014;
 const int SPELL_GLOURA_GRACE                        = 19015;
 
-const int SPELL_WISPLING_CHANGE_SHAPE_LEARN			= 17980;
+const int SPELL_MECHA_SHOCKING_GRASP				= 17978;	//:: Mechanatrix
+
+const int SPELL_MAELUTH_FIEND_HAMMER				= 17979;	//: Maeloth
+
+const int SPELL_WISPLING_CHANGE_SHAPE_LEARN			= 17980;	//:: Wispling
 const int SPELL_WISPLING_CHANGE_SHAPE_OPTIONS		= 17981;
 const int SPELL_WISPLING_CHANGE_SHAPE_TRUE			= 17982;
 const int SPELL_WISPLING_CHANGE_SHAPE_QS1			= 17983;
 const int SPELL_WISPLING_CHANGE_SHAPE_QS2			= 17984;
+
 
 // Poison system spells
 const int SPELL_POISONED_WEAPON                     = 2880;

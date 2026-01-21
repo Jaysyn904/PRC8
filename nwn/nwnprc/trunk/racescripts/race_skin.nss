@@ -328,6 +328,11 @@ void main()
 		SetCompositeBonus(oSkin, "Aranea_Spot", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
 		SetCompositeBonus(oSkin, "Aranea_Listen", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);
     }  	
+    if(GetRacialType(oPC) == RACIAL_TYPE_MECHANATRIX)  //:: Mechanatrix
+    {
+        SetCompositeBonus(oSkin, "Mechanatrix_Lore", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE);
+		SetCompositeBonus(oSkin, "Mechanatrix_Spot", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
+    } 	
 	if(GetRacialType(oPC) == RACIAL_TYPE_DROW_MALE || GetRacialType(oPC) == RACIAL_TYPE_DROW_FEMALE)
     {
         SetCompositeBonus(oSkin, "DrowWillSave", 2, ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC, SAVING_THROW_WILL);
@@ -515,6 +520,12 @@ void main()
         ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_FIRE, IP_CONST_DAMAGERESIST_5);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     }
+    //cold resistance 5
+    if(GetHasFeat(FEAT_RESIST_COLD5))
+    {
+        ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGERESIST_5);
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+    }	
     if(GetRacialType(oPC) == RACIAL_TYPE_UNDERFOLK)
     {
         SetCompositeBonus(oSkin, "Under_S", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);

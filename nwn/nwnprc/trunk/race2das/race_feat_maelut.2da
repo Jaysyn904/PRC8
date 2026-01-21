@@ -1,0 +1,20 @@
+2DA V2.0
+
+           FeatLabel         FeatIndex 
+0          darkvision        228       
+1          stonecunning      227       
+2          hardinesspoisons  229       
+3          hardinessspells   230       
+4          orctrain          231       
+5          gobtrain          232       
+6          gianttrain        233       
+7          SkillAff_CrftArm  4757      
+8          SkillAff_CrftWeap 4758      
+9          SkillAff_Appraise 4792      
+10         Race_Dwarven      4710      
+11         ArmorProf_Light   3         
+12         ShieldProf        32        
+13         SimpleWeaponProf  46        
+14         MartialWeaponProf 45        
+15         Outsider          4716      
+16         FiendHammer       4434      

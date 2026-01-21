@@ -14,6 +14,7 @@
 10 Urdunnir    RACE    155            ****      
 11 WildDwarf   RACE    156            ****      
 12 Korobokuru  RACE    245            ****      
-13 ScriptVar   VAR     PRC_AllowOllam 0         
-14 Lore        SKILL   7              10        
-15 Perform     SKILL   11             5         
+13 Maeluth     RACE    206            ****      
+14 ScriptVar   VAR     PRC_AllowOllam 0         
+15 Lore        SKILL   7              10        
+16 Perform     SKILL   11             5         

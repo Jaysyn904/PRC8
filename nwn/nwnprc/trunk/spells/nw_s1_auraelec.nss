@@ -27,5 +27,5 @@ void main()
 
     //Set and apply AOE object
     effect eAOE = EffectAreaOfEffect(AOE_MOB_ELECTRICAL);
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, OBJECT_SELF, HoursToSeconds(100));
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, OBJECT_SELF, HoursToSeconds(100));
 }
