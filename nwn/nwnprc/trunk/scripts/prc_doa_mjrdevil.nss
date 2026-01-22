@@ -28,7 +28,7 @@ void main()
         
     if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_CORN) sSummon = "prc_sum_cornugon";
     else if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_GEL) sSummon = "prc_sum_gelugon";
-    else if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_GLAB) sSummon = "twin_fiend";  //:; This was a Glabrezu for some stupid reason.  Glabrezu are Demons, not Devils.
+    else if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_GLAB) sSummon = "twinfiend_demon";  //:; This was a Glabrezu for some stupid reason.  Glabrezu are Demons, not Devils.
     else if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_HAM) sSummon = "prc_sum_hamatula";
     else if (PRCGetSpellId() == SPELL_DISCIPLE_ASMODEUS_DEVIL_OSY) sSummon = "prc_sum_osyluth";
         

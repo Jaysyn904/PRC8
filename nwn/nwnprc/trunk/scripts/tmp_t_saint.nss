@@ -73,6 +73,7 @@ void main()
 
 	if((nRace == RACIAL_TYPE_CONSTRUCT &&
 	   nExactRace != RACIAL_TYPE_WARFORGED && 
+	   nExactRace != RACIAL_TYPE_WARFORGED_SCOUT &&
 	   nExactRace != RACIAL_TYPE_WARFORGED_CHARGER) ||
 	   nRace == RACIAL_TYPE_ELEMENTAL ||
 	   nRace == RACIAL_TYPE_OUTSIDER ||

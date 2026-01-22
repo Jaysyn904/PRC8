@@ -2,20 +2,17 @@
 
    LABEL       ReqType ReqParam1        ReqParam2 
 0  Dwarf       RACE    0                ****      
-1  DSDwarf     RACE    33               ****      
-2  Mul         RACE    38               ****      
-3  DarkDwarf   RACE    47               ****      
-4  GullyDwarf  RACE    48               ****      
-5  FirebldDwrf RACE    106              ****      
-6  ArcticDwarf RACE    151              ****      
-7  GoldDwarf   RACE    152              ****      
-8  GreyDwarf   RACE    153              ****      
-9  GlacrDwarf  RACE    154              ****      
-10 Urdunnir    RACE    155              ****      
-11 WildDwarf   RACE    156              ****      
-12 Korobokuru  RACE    245              ****      
-13 PowerAtk    FEATOR  28               ****      
-14 Base_Attack BAB     10               ****      
-15 ScriptVar   VAR     PRC_AllowDeepSt  0         
-16 ScriptVar   VAR     PRC_PrereqDeepSt 0         
-17 Balance     SKILL   32               13        
+1  FirebldDwrf RACE    106              ****      
+2  ArcticDwarf RACE    151              ****      
+3  GoldDwarf   RACE    152              ****      
+4  GreyDwarf   RACE    153              ****      
+5  GlacrDwarf  RACE    154              ****      
+6  Urdunnir    RACE    155              ****      
+7  WildDwarf   RACE    156              ****      
+8  Korobokuru  RACE    245              ****      
+9  Maeluth     RACE    206              ****      
+10 PowerAtk    FEATOR  28               ****      
+11 Base_Attack BAB     10               ****      
+12 ScriptVar   VAR     PRC_AllowDeepSt  0         
+13 ScriptVar   VAR     PRC_PrereqDeepSt 0         
+14 Balance     SKILL   32               13        

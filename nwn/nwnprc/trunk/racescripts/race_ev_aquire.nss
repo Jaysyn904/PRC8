@@ -28,6 +28,7 @@ void AddRacialRestrictions(object oItem)
     if(array_get_string(oItem, ARRAY_NAME, RACIAL_TYPE_CONSTRUCT) != "")
     {
         AddRaceIP(oItem, RACIAL_TYPE_WARFORGED);
+		AddRaceIP(oItem, RACIAL_TYPE_WARFORGED_SCOUT);
         AddRaceIP(oItem, RACIAL_TYPE_WARFORGED_CHARGER);
     }
     if(array_get_string(oItem, ARRAY_NAME, RACIAL_TYPE_DRAGON) != "")

@@ -97,7 +97,9 @@ int GetIsWarforged(object oCreature)
 {
 	int nRace = GetRacialType(oCreature);
 	
-	if (nRace == RACIAL_TYPE_WARFORGED || nRace == RACIAL_TYPE_WARFORGED_CHARGER) return TRUE;
+	if (nRace == RACIAL_TYPE_WARFORGED || 
+		nRace == RACIAL_TYPE_WARFORGED_CHARGER || 
+		nRace == RACIAL_TYPE_WARFORGED_SCOUT) return TRUE;
 	
 	return FALSE;
 }

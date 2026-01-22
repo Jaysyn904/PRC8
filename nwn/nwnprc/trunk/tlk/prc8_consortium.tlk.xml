@@ -75507,6 +75507,30 @@ Prerequisite: Shyft
 Specifics: Once per day, a shyft can make an ethereal jaunt as if by a cleric of 9th level or its character level, whichever is higher.
 Use: Selected</entry>
   <entry id="209052" lang="en" sex="m">****</entry>
+  <entry id="209053" lang="en" sex="m">Warforged Scout</entry>
+  <entry id="209054" lang="en" sex="m">Warforged Scout</entry>
+  <entry id="209055" lang="en" sex="m">warforged scout</entry>
+  <entry id="209056" lang="en" sex="m">warforged scouts</entry>
+  <entry id="209057" lang="en" sex="m">Warforged were originally built as mindless war machines, an army of constructs able to fight without food and water.  The smallest of the warforged, the halfling-sized scouts were built to serve as spies, light infantry, and reconnaissance troops. They are far less common than the larger varieties, since they offer little advantage over humanoid scouts in warfare. As a side-effect of the processes used to create them, however, they gained sentience.  At first this was a boon, as now there was no need for a living general to travel with them, but eventually the war came to an end, as all wars do.  As they couldn't destroy the now-sentient race of living constructs, they were instead freed and left to find their own way in the world.  Physically they look similar to golems, with plating made of metal and mineral covering a living wooden frame.  They were created without gender, though a few with a more typically feminine mindset have modified their design and plating to mimic a humanoid female's shape.  Warforged cannot reproduce, but can only be made at special Creation Forges built using uncovered ancient plans.  They do not age either, and their mindset sometimes leaves the activities of the humanoid races a puzzle to them.
+
+Warforged Scout Ability Adjustments: -2 Str, +2 Dex, -2 Wis, -2 Cha.
+Favored Class (Rogue): A multiclass warforged scout's rogue class does not count when determining whether he suffers an XP penalty for multiclassing.
+
+Special Abilities:
+
+- 20' base speed
+- Small Stature:
+ +1 size bonus to attack rolls.
+ +1 size bonus to AC.
+ +4 size bonus to Hide checks. 
+- Composite Plating: +2 to AC, cannot wear armor, and have a 5% arcane spell failure chance.
+- Living Construct subtype:
+  Immune to sleep, paralyze, poison, energy drain, and disease
+- Light Fortification (Ex): When a critical hit or sneak attack is scored on a warforged scout, there is a 25% chance that the critical hit or sneak attack is negated and damage is instead rolled normally.  
+  Does not heal naturally, healing spells only heal half the normal amount.
+- Construct: Warforged scouts count as Constructs for the purpose of spells.</entry>
+  <entry id="209058" lang="en" sex="m">Warforged Scout Biography.</entry>
+  <entry id="209059" lang="en" sex="m">****</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">&lt;cÿÿÿ&gt;Special Attack&lt;/c&gt;</entry>
   <entry id="210001" lang="en" sex="m"> At 2nd level, 5th level, 8th level and every three levels afterwards, your sneak attack or skirmish ability deals an extra 1d6 points of damage. If you have more than one of these abilities, you can improve any one ability of your choice, each time you gain this benefit.</entry>

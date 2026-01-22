@@ -208,7 +208,7 @@ void main()
 		
 		}
 	}
-	if (GetRacialType(oPC) == RACIAL_TYPE_WARFORGED && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
+	if (GetRacialType(oPC) == RACIAL_TYPE_WARFORGED || GetRacialType(oPC) == RACIAL_TYPE_WARFORGED_SCOUT && !GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC) && !GetHasFeat(FEAT_UNARMORED_BODY, oPC))
 	{
  		int bFortification = GetLocalInt(oPC, "LIGHT_FORTIFCATION_ACTIVE");
 		
@@ -241,7 +241,10 @@ void main()
 			if(DEBUG) DoDebug("race_hb >> DoFortification() activated.");			
 		}
 	}	
-	if (GetRacialType(oPC) == RACIAL_TYPE_WARFORGED || GetRacialType(oPC) == RACIAL_TYPE_WARFORGED_CHARGER && GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC))	
+	if (GetRacialType(oPC) == RACIAL_TYPE_WARFORGED || 
+		GetRacialType(oPC) == RACIAL_TYPE_WARFORGED_SCOUT || 
+		GetRacialType(oPC) == RACIAL_TYPE_WARFORGED_CHARGER && 
+		GetHasFeat(FEAT_IMPROVED_FORTIFICATION, oPC))	
 	{
  		int bFortification = GetLocalInt(oPC, "HEAVY_FORTIFCATION_ACTIVE");
 		
