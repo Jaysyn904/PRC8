@@ -547,16 +547,17 @@ const int SPELL_TURLEMOI_STRENGTH                   = 19013;
 const int SPELL_HADRIMOI_STRENGTH                   = 19014;
 const int SPELL_GLOURA_GRACE                        = 19015;
 
+const int SPELL_SHYFT_ETHEREAL_JAUNT				= 17977;	//:: Shyft
+
 const int SPELL_MECHA_SHOCKING_GRASP				= 17978;	//:: Mechanatrix
 
-const int SPELL_MAELUTH_FIEND_HAMMER				= 17979;	//: Maeloth
+const int SPELL_MAELUTH_FIEND_HAMMER				= 17979;	//:: Maeloth
 
 const int SPELL_WISPLING_CHANGE_SHAPE_LEARN			= 17980;	//:: Wispling
 const int SPELL_WISPLING_CHANGE_SHAPE_OPTIONS		= 17981;
 const int SPELL_WISPLING_CHANGE_SHAPE_TRUE			= 17982;
 const int SPELL_WISPLING_CHANGE_SHAPE_QS1			= 17983;
 const int SPELL_WISPLING_CHANGE_SHAPE_QS2			= 17984;
-
 
 // Poison system spells
 const int SPELL_POISONED_WEAPON                     = 2880;
@@ -565,7 +566,6 @@ const int SPELL_POISON_WEAPON                       = 2882;
 const int SPELL_POISON_ITEM                         = 2883;
 const int SPELL_POISON_FOOD                         = 2884;
 const int SPELL_CLEAN_POISON_OFF                    = 2885;
-
 
 // Psionic feat spells
 const int SPELL_FEAT_SPEED_OF_THOUGHT_BONUS         = 2820;

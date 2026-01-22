@@ -22,7 +22,13 @@ void main()
 
     switch(GetSpellId())
 	{
-        case SPELL_MECHA_SHOCKING_GRASP:
+		case SPELL_SHYFT_ETHEREAL_JAUNT:
+        {
+            nCasterLvl = PRCMax(9, nHD);
+            nSpell = SPELL_ETHEREALNESS;
+            break;
+        }
+		case SPELL_MECHA_SHOCKING_GRASP:
         {
             nCasterLvl = nHD;
             nSpell = SPELL_SHOCKING_GRASP;

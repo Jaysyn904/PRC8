@@ -112,6 +112,7 @@ const int RACIAL_TYPE_RETH_DEKALA          = 67;
 
 //Planetouched Races
 const int RACIAL_TYPE_WISPLING				= 195;
+const int RACIAL_TYPE_SHYFT					= 196;
 const int RACIAL_TYPE_MECHANATRIX			= 197;
 const int RACIAL_TYPE_AASIMAR				= 198;
 const int RACIAL_TYPE_AIR_GEN				= 199;

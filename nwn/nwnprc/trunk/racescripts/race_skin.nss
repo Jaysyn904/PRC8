@@ -526,6 +526,17 @@ void main()
         ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_COLD, IP_CONST_DAMAGERESIST_5);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
     }	
+    //sonic resistance 5
+    if(GetHasFeat(FEAT_RESIST_SONIC5))
+    {
+        ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_SONIC, IP_CONST_DAMAGERESIST_5);
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+    }
+    if(GetRacialType(oPC) == RACIAL_TYPE_SHYFT)
+    {
+        SetCompositeBonus(oSkin, "Shyft_Hide_4", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_HIDE);
+		SetCompositeBonus(oSkin, "Shyft_MoveSilently_4", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_MOVE_SILENTLY);
+    } 	
     if(GetRacialType(oPC) == RACIAL_TYPE_UNDERFOLK)
     {
         SetCompositeBonus(oSkin, "Under_S", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_LISTEN);

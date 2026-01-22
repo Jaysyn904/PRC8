@@ -75464,7 +75464,7 @@ Level Adjustment: +1</entry>
   <entry id="209033" lang="en" sex="m">****</entry>
   <entry id="209034" lang="en" sex="m">Electricity Healing (Ex)</entry>
   <entry id="209035" lang="en" sex="m">Because of a mechanatrix’s electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.</entry>
-  <entry id="209036" lang="en" sex="m">Shocking Grasp (Sp)</entry>
+  <entry id="209036" lang="en" sex="m">Shocking Grasp</entry>
   <entry id="209037" lang="en" sex="m">A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix’s character level, whichever is higher.</entry>
   <entry id="209038" lang="en" sex="m">Resist Cold 5</entry>
   <entry id="209039" lang="en" sex="m">Type of Feat: Racial
@@ -75472,6 +75472,41 @@ Prerequisite: Race-Specific.
 Specifics: The creature has an innate cold resistance of 5.
 Use: Automatic.</entry>
   <entry id="209040" lang="en" sex="m">****</entry>
+  <entry id="209041" lang="en" sex="m">Shyft</entry>
+  <entry id="209042" lang="en" sex="m">Shyft</entry>
+  <entry id="209043" lang="en" sex="m">shyft</entry>
+  <entry id="209044" lang="en" sex="m">shyfts</entry>
+  <entry id="209045" lang="en" sex="m">Shyfts are planetouched beings descended from one of the native races of the Ethereal Plane. Belonging fully to neither the Ethereal Plane nor the Material Plane, they have the ability to move back and forth between both planes.  Shyfts appear as regular, unassuming humans. In fact, almost everything about them is forgettable and easy to overlook. They prefer to wear dark, simple clothing that does not draw any attention. Shyfts do not seem to mind that they are so inconspicuous and use it to their advantage.  They are excellent spies, since they can listen in on conversations from the safety of the Ethereal Plane and sell any information they hear to the highest bidder. Shyfts are also
+known to specialize in assassination, thievery, and other criminal pursuits.
+
+Shyft Ability Adjustments: -2 Str, +2 Dex, +2 Wis, 
+
+Favored Class (Rogue): A multiclass shyft's rogue class does not count when determining whether they suffer an XP penalty for multiclassing.
+
+Racial Traits:
+- An shyft's base land speed is 30 feet.
+- Darkvision:  Shyfts are able to see in the dark as well as daylight.
+- Low-light Vision: Shyfts can see twice as far in dark conditions.
+- Proficiencies: Shyfts are proficient with all simple and martial weapons and light armor.
+- Sonic Resistance 5: The shyft's unassuming aura acts as a supressor to muffle sounds around them.
+- Fire &amp; Cold Resistance 5: Due to their connection with the Etheral, shyfts are less susceptible to extremes of heat &amp; cold.
+- Skills: Shyfts have a +4 racial bonus on Hide and Move Slently checks.
+- Outsider: Shyfts are outsiders for the purposes of spells and prerequisites.
+
+Level Adjustment: +1</entry>
+  <entry id="209046" lang="en" sex="m">Shyft biography.</entry>
+  <entry id="209047" lang="en" sex="m">****</entry>
+  <entry id="209048" lang="en" sex="m">Resist Sonic 5</entry>
+  <entry id="209049" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Race-Specific.
+Specifics: The creature has an innate sonic resistance of 5.
+Use: Automatic.</entry>
+  <entry id="209050" lang="en" sex="m">Ethereal Jaunt</entry>
+  <entry id="209051" lang="en" sex="m">Type of Feat: Racial
+Prerequisite: Shyft
+Specifics: Once per day, a shyft can make an ethereal jaunt as if by a cleric of 9th level or its character level, whichever is higher.
+Use: Selected</entry>
+  <entry id="209052" lang="en" sex="m">****</entry>
   <entry id="209999" lang="en" sex="m">### Start PRC8 Prestige Class Epic Expansion ###</entry>
   <entry id="210000" lang="en" sex="m">&lt;cÿÿÿ&gt;Special Attack&lt;/c&gt;</entry>
   <entry id="210001" lang="en" sex="m"> At 2nd level, 5th level, 8th level and every three levels afterwards, your sneak attack or skirmish ability deals an extra 1d6 points of damage. If you have more than one of these abilities, you can improve any one ability of your choice, each time you gain this benefit.</entry>

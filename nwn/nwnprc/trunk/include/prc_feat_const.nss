@@ -341,13 +341,15 @@ const int FEAT_FOG_CLOUD_BREATH			= 5434;	//:: Spiretop Dragon
 const int FEAT_LTSENSE 					= 4700;
 const int FEAT_LTBLIND 					= 4701;
 
+const int FEAT_RESIST_SONIC5			= 26398; //:: Shyft
+const int FEAT_SHYFT_ETHEREAL_JAUNT		= 26399;
+
 const int FEAT_MECHA_ELECTRICY_HEALING	= 4431;	//:: Mechanatrix
 const int FEAT_MECHA_SHOCKING_GRASP		= 4432;
 
 const int FEAT_WISPLING_CHANGE_SHAPE	= 4433;	//:: Wispling
 
 const int FEAT_MAELUTH_FIEND_HAMMER		= 4434; //:: Maeluth
-
 
 const int FEAT_SPELL5  = 4702;
 const int FEAT_SPELL10 = 4420;
