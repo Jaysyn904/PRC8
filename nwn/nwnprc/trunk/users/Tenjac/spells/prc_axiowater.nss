@@ -33,15 +33,16 @@ Material Component: 5 pounds of powdered iron and silver (worth 25 gp).
 //:: Created On: 6/10/2022
 //:://////////////////////////////////////////////
 
-#include "prc_sp_func"
+#include "prc_inc_spells"
 #include "prc_add_spell_dc"
 #include "prc_inc_sp_tch"
 
 void main()
 {
-	location lTarget = GetSpellTargetLocation();
-	float fRadius = FeetToMeters(5);
+	location lTarget = PRCGetSpellTargetLocation();
+	float fRadius = FeetToMeters(5.0);
 	int nTouch;
+	int nDam;
 	effect eVis = EffectVisualEffect(VFX_IMP_HEAD_HOLY);
 	object oTarget = PRCGetSpellTargetObject();
 	
@@ -63,7 +64,7 @@ void main()
 	        nDam += nDam;
         }
         
-        effect eDam = EffectDamage(nDam, DAMAGE_TYPE_DIVINE);
+        effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE);
         object oDoNotDam = oTarget;
 	
 	//Outsider
@@ -77,7 +78,7 @@ void main()
 		}
 	}
 	
-	oTarget = MyGetFirstObjectInShape(SHAPE_SPHERE, fRadius, lTarget);
+	oTarget = MyFirstObjectInShape(SHAPE_SPHERE, fRadius, lTarget);
 	while(GetIsObjectValid(oTarget))
 	{
 		if(oTarget != oDoNotDam)
@@ -93,7 +94,7 @@ void main()
 				}
 			}
 		}
-		MyGetNextObjectInShape(SHAPE_SPHERE, fRadius, lTarget);
+		GetNextObjectInShape(SHAPE_SPHERE, fRadius, lTarget);
 	}
 }	
 		

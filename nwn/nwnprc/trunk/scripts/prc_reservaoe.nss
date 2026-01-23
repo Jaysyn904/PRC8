@@ -54,7 +54,7 @@ void DoAOE(effect eVis, effect eExplode, int nSaveType, int nDamage, int nDamage
 
     //Apply explosion visual if needed
     if (nShape == SHAPE_SPHERE) ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eExplode, lTarget, 1.0);
-    else if (nShape == SHAPE_SPELLCYLINDER) ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eExplode, oBeamTarget, 1.0);
+    else if (nShape == SHAPE_SPELLCYLINDER) SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eExplode, oBeamTarget, 1.0);
 
     //Remove the created beam target object if it exists
     if (GetResRef(oBeamTarget) == "prc_invisobj") DestroyObject(oBeamTarget, 3.0);

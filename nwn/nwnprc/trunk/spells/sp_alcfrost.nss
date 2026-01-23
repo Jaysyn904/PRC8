@@ -76,7 +76,7 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
         }
 
         //Set damage effect
-        effect eDam = EffectDamage(nDam, nDamageType);
+        effect eDam = PRCEffectDamage(oTarget, nDam, nDamageType);
         //Apply the MIRV and damage effect
 
         // * only damage enemies
@@ -85,14 +85,14 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
         // * must be the correct racial type (only used with Holy Water)
             if ((nRacialType != RACIAL_TYPE_ALL) && (nRacialType == MyPRCGetRacialType(oTarget)))
             {
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
                 //ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oTarget); VISUALS outrace the grenade, looks bad
             }
             else
             if ((nRacialType == RACIAL_TYPE_ALL) )
             {
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
                 //ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oTarget); VISUALS outrace the grenade, looks bad
             }
@@ -193,8 +193,8 @@ void main()
                                         // haaaack: store caster level on item for the on hit spell to work properly
 
                                         SetLocalInt(oMyWeapon,"X2_SPELL_CLEVEL_FLAMING_WEAPON",nCasterLvl);
-                                        ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oMyWeapon));
-                                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDur, GetItemPossessor(oMyWeapon), RoundsToSeconds(nDuration));
+                                        SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oMyWeapon));
+                                        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDur, GetItemPossessor(oMyWeapon), RoundsToSeconds(nDuration));
                                         AddFrostEffectToWeapon(oMyWeapon, RoundsToSeconds(nDuration));
                                 }
                                 return;

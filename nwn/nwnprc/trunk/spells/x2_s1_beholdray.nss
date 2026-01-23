@@ -130,7 +130,7 @@ void main()
                                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY,e1,oTarget,RoundsToSeconds(6));
                                    break;
 
-          case 783:                e1 = EffectDamage(d8(2)+10);
+          case 783:                e1 = PRCEffectDamage(oTarget, d8(2)+10);
                                    eVis = EffectVisualEffect(VFX_COM_BLOOD_REG_RED);
                                    SPApplyEffectToObject(DURATION_TYPE_INSTANT,eVis,oTarget);
                                    SPApplyEffectToObject(DURATION_TYPE_INSTANT,e1,oTarget);
@@ -154,7 +154,7 @@ void main()
     {
          switch (nSpell)
          {
-               case 776:         e1 = EffectDamage(d6(3)+13);
+               case 776:         e1 = PRCEffectDamage(oTarget, d6(3)+13);
                                  eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
                                  eLink = EffectLinkEffects(e1,eVis);
                                  SPApplyEffectToObject(DURATION_TYPE_INSTANT,eLink,oTarget);

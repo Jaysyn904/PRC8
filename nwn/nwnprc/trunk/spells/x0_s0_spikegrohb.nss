@@ -43,12 +43,12 @@ void PRCDoSpikeGrowthEffect(object oTarget,int nPenetr)
             int nDam = PRCMaximizeOrEmpower(4, 1, nMetaMagic);
             //nDam += ApplySpellBetrayalStrikeDamage(oTarget, OBJECT_SELF);
 
-            effect eDam = EffectDamage(nDam, DAMAGE_TYPE_PIERCING);
+            effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_PIERCING);
             effect eVis = EffectVisualEffect(VFX_IMP_ACID_S);
             //effect eLink = eDam;
             //Apply damage and visuals
-            DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-            DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam/*eLink*/, oTarget));
+            DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+            DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam/*eLink*/, oTarget));
 
            // * only apply a slow effect from this spell once
            if (GetHasSpellEffect(453, oTarget) == FALSE)
@@ -57,7 +57,7 @@ void PRCDoSpikeGrowthEffect(object oTarget,int nPenetr)
                 if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, PRCGetSaveDC(oTarget,GetAreaOfEffectCreator()), SAVING_THROW_ALL, GetAreaOfEffectCreator(), fDelay))
                 {
                     effect eSpeed = EffectMovementSpeedDecrease(30);
-                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSpeed, oTarget, HoursToSeconds(24));
+                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSpeed, oTarget, HoursToSeconds(24));
                 }
            }
         }

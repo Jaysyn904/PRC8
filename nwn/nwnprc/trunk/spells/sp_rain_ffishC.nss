@@ -15,7 +15,7 @@ void main()
         
         while(GetIsObjectValid(oTarget))
         {
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d3(1), DAMAGE_TYPE_BLUDGEONING), oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, d3(1), DAMAGE_TYPE_BLUDGEONING), oTarget);
                 
                 oTarget = MyNextObjectInShape(SHAPE_SPHERE, 500.0f, lLoc, FALSE, OBJECT_TYPE_CREATURE);
         }

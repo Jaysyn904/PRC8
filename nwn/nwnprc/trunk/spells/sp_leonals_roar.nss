@@ -87,7 +87,7 @@ void main()
                 if (!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_SONIC, oCaster, fDelay))
                 {
                     int nDmg = d6(2);
-                    effect eSonicDmg = EffectDamage(nDmg, DAMAGE_TYPE_SONIC);
+                    effect eSonicDmg = PRCEffectDamage(oTarget, nDmg, DAMAGE_TYPE_SONIC);
                     effect eSonicLink = EffectLinkEffects(eSonicVFX, eSonicDmg);
                     DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eSonicLink, oTarget));
                 }

@@ -32,9 +32,9 @@ void Drown(object oTarget)
         if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 20) == FALSE)
         {
             //Apply the VFX impact and damage effect
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
             //Set damage effect to kill the target
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDeath(), oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDeath(), oTarget);
 
          }
     }
@@ -42,7 +42,7 @@ void Drown(object oTarget)
 void main ()
 {
     int nDamage = GetCurrentHitPoints() / 2;
-    ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamage(nDamage), OBJECT_SELF);
+    SPApplyEffectToObject(DURATION_TYPE_PERMANENT, PRCEffectDamage(OBJECT_SELF, nDamage), OBJECT_SELF);
     //Declare major variables
     object oTarget;
     int bSave = FALSE;

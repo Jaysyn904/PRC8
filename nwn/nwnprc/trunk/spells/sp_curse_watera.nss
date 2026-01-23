@@ -52,7 +52,7 @@ void PRCDoGrenade(int nDirectDam, int nSplashDam, int nVisVFX, int nAOEVFX, int 
             nDam *= 2;
         }
         // Set damage effect
-        eDam = EffectDamage(nDam, nDamageType);
+        eDam = PRCEffectDamage(oTarget, nDam, nDamageType);
 
         // Check reaction type
         if(!GetIsReactionTypeFriendly(oTarget))
@@ -67,8 +67,8 @@ void PRCDoGrenade(int nDirectDam, int nSplashDam, int nVisVFX, int nAOEVFX, int 
                 GetAlignmentGoodEvil(oTarget) == nAlignment))
             {
                 // Apply damage and VFX
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 // Signal event spell cast at
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, nSpellId));
             }
@@ -87,13 +87,14 @@ void PRCDoGrenade(int nDirectDam, int nSplashDam, int nVisVFX, int nAOEVFX, int 
     // Apply AOE VFX
     ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eAOE, lTarget);
 
-    //Set the damage effect
-    eDam = EffectDamage(nSplashDam, nDamageType);
+
 
     // Cycle through the targets within the spell shape until an invalid object is captured.
     oTarget = GetFirstObjectInShape(SHAPE_SPHERE, fExplosionRadius, lTarget, TRUE, nObjectFilter);
     while(GetIsObjectValid(oTarget))
     {
+		    //Set the damage effect
+			eDam = PRCEffectDamage(oTarget, nSplashDam, nDamageType);
         // Check PvP and make sure it isn't the target
         if(!GetIsReactionTypeFriendly(oTarget) &&
             oDoNotDam != oTarget)
@@ -112,8 +113,8 @@ void PRCDoGrenade(int nDirectDam, int nSplashDam, int nVisVFX, int nAOEVFX, int 
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, nSpellId));
 
                 // Delay the damage and visual effects
-                DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
-                DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
+                DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
             }
         }
         // Get the next target within the spell shape.

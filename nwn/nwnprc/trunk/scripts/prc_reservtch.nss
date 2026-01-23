@@ -32,7 +32,7 @@ void main()
             
             eEffect = EffectDeaf();
             eEffect = SupernaturalEffect(eEffect);
-            eVis = EffectVisualEffect(VFX_IMP_ACID_S);
+            eVis = EffectVisualEffect(VFX_IMP_SONIC);
 	        eVisFail = EffectVisualEffect(VFX_IMP_STUN);
 
             if (!GetLocalInt(oPC, "ClapOfThunderBonus")) 

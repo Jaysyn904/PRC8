@@ -168,8 +168,8 @@ void ExhaleImmunity(object oDragon, int nDamageType, location lTargetArea)
              effect eLink = EffectLinkEffects(eImmune, eVis2);
              
              //apply effects
-             DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-             DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eImmune, oTarget, fDuration));
+             DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+             DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eImmune, oTarget, fDuration));
         }
 }
 
@@ -603,15 +603,15 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_NONE))
                 {
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_L), oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectSickened(), oTarget, 12.0));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_L), oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectSickened(), oTarget, 12.0));
                 }
                 //1 round otherwise
                 else
                 {
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_L), oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectSickened(), oTarget, 6.0));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_L), oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectSickened(), oTarget, 6.0));
                 }
             }
             
@@ -659,16 +659,16 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_NONE))
                 {
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nSlowDuration)));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nSlowDuration)));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                 }
                 //Adept breath effect still lasts for one round if save is made
                 else if(IsAdeptBreath())
                 {
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(1)));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(1)));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                 }
             }
@@ -685,10 +685,10 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                     //Set Damage and VFX - Bioware Gold used VFX_IMP_REDUCE_ABILITY_SCORE originally
                     eVis = EffectVisualEffect(VFX_IMP_POISON_L);
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
                     //adept breath penalty only last 4 rounds on failure, gold breath has no duration
                     if(IsAdeptBreath())
-                        DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityDecrease(ABILITY_STRENGTH, BreathUsed.nDiceNumber), oTarget, 24.0));
+                        DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityDecrease(ABILITY_STRENGTH, BreathUsed.nDiceNumber), oTarget, 24.0));
                     else
                         DelayCommand(fDelay, ApplyAbilityDamage(oTarget, ABILITY_STRENGTH, BreathUsed.nDiceNumber, DURATION_TYPE_PERMANENT, TRUE));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
@@ -699,8 +699,8 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                     //Set Damage and VFX - Bioware Gold used VFX_IMP_REDUCE_ABILITY_SCORE originally
                     eVis = EffectVisualEffect(VFX_IMP_POISON_L);
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityDecrease(ABILITY_STRENGTH, BreathUsed.nDiceNumber), oTarget, 12.0));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectAbilityDecrease(ABILITY_STRENGTH, BreathUsed.nDiceNumber), oTarget, 12.0));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                 }
                 bCanCling = TRUE;
@@ -729,7 +729,7 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_NONE))
                 {
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nParalDuration)));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nParalDuration)));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                 }
             }
@@ -749,8 +749,8 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                     eBreath = EffectNegativeLevel(nLevelDrain);
                     eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
                     //Apply the VFX impact and effects
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                 }
             }
@@ -769,11 +769,11 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	                if (nAdjustedDamage > 0)
 	                {
 	                    //Set Damage and VFX
-	                    eBreath = EffectDamage(nAdjustedDamage, BreathUsed.nDamageType);
+	                    eBreath = PRCEffectDamage(oTarget, nAdjustedDamage, BreathUsed.nDamageType);
 		 	            eVis = EffectVisualEffect(VFX_IMP_SUNSTRIKE);
 	                    //Apply the VFX impact and effects
-	                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-	                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
+	                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+	                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
                         SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                         bCanCling = TRUE;
 	                }
@@ -830,8 +830,8 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                 		if(GetLocalInt(oTarget, "DragonWard"))
                             nAdjustedDamage -= 40;
         		    
-                        effect eBreath1 = EffectDamage(nAdjustedDamage/2, DAMAGE_TYPE_FIRE);
-            		    effect eBreath2 = EffectDamage(nAdjustedDamage/2, DAMAGE_TYPE_SONIC);
+                        effect eBreath1 = PRCEffectDamage(oTarget, nAdjustedDamage/2, DAMAGE_TYPE_FIRE);
+            		    effect eBreath2 = PRCEffectDamage(oTarget, nAdjustedDamage/2, DAMAGE_TYPE_SONIC);
             		    eBreath = EffectLinkEffects(eBreath1, eBreath2);
             		    eVis = EffectVisualEffect(chVisual);
                     }
@@ -839,12 +839,12 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                     {
                         if(GetLocalInt(oTarget, "DragonWard"))
                             nAdjustedDamage -= 20;
-            		    eBreath = EffectDamage(nAdjustedDamage, BreathUsed.nDamageType);
+            		    eBreath = PRCEffectDamage(oTarget, nAdjustedDamage, BreathUsed.nDamageType);
             		    eVis = EffectVisualEffect(nVisualType);
 		            }
             		//Apply the VFX impact and effects
-            		DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
-            		DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
+            		DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+            		DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
                     SetLocalInt(oTarget, "AffectedByBreath", TRUE);
                     bCanCling = TRUE;
 	             }  
@@ -859,7 +859,7 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	        	     if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nKnockdownDC, SAVING_THROW_TYPE_NONE))
                     {
                      	 effect eWindblown = EffectKnockdown();
-                      	 DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eWindblown, oTarget, 6.0));
+                      	 DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eWindblown, oTarget, 6.0));
                     }
                 }     
 	        }
@@ -879,10 +879,10 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                 //Warforged are only healed for half
                 if(GetIsWarforged(oTarget)) nHeal /= 2;
                 
-                eBreath = EffectHeal(nHeal);
+                eBreath = PRCEffectHeal(nHeal, oTarget);
                 effect eHealVis = EffectVisualEffect(VFX_IMP_HEALING_S);
-                DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
-                DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eHealVis, oTarget));
+                DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBreath, oTarget));
+                DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eHealVis, oTarget));
 	        }
 	
 	        //Entangling Exhalation
@@ -896,22 +896,22 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	            //only does damage if the original breath did damage
 	            if(BreathUsed.nDamageType > 0)
 	            {
-	                effect eDamage = EffectDamage(d6(), BreathUsed.nDamageType);
+	                effect eDamage = PRCEffectDamage(oTarget, d6(), BreathUsed.nDamageType);
 	                switch(nEntangleRounds)
 	                {
 	            	    case 4:
-	            	        DelayCommand(fDelay + RoundsToSeconds(4), ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
+	            	        DelayCommand(fDelay + RoundsToSeconds(4), SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
 	            	    case 3:
-	            	        DelayCommand(fDelay + RoundsToSeconds(3), ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
+	            	        DelayCommand(fDelay + RoundsToSeconds(3), SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
 	            	    case 2:
-	            	        DelayCommand(fDelay + RoundsToSeconds(2), ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
+	            	        DelayCommand(fDelay + RoundsToSeconds(2), SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget));
 	            	    case 1:
-	            	        DelayCommand(fDelay + RoundsToSeconds(1), ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget)); break;
+	            	        DelayCommand(fDelay + RoundsToSeconds(1), SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oTarget)); break;
 	                }
 	            }
 	    
 	            //but always entangles if the breath affects the target
-	            DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEntangled, oTarget, RoundsToSeconds(nEntangleRounds)));
+	            DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEntangled, oTarget, RoundsToSeconds(nEntangleRounds)));
 	        }
 	
 	        DeleteLocalInt(oTarget, "AffectedByBreath");
@@ -937,18 +937,18 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
 	                {
 	                    if(nAdjustedDamage < 3) nCount = BreathUsed.nClinging;
 	    
-                        effect eBreath1 = EffectDamage(nAdjustedDamage/2, DAMAGE_TYPE_FIRE);
-	            	    effect eBreath2 = EffectDamage(nAdjustedDamage/2, DAMAGE_TYPE_SONIC);
+                        effect eBreath1 = PRCEffectDamage(oTarget, nAdjustedDamage/2, DAMAGE_TYPE_FIRE);
+	            	    effect eBreath2 = PRCEffectDamage(oTarget, nAdjustedDamage/2, DAMAGE_TYPE_SONIC);
 	            	    effect eAfterBreath = EffectLinkEffects(eBreath1, eBreath2);
-	                    DelayCommand(fNewDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eAfterBreath, oTarget));
+	                    DelayCommand(fNewDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eAfterBreath, oTarget));
 	                }
 	                else
 	                {
 	                    if(nAdjustedDamage < 2) nCount = BreathUsed.nClinging;
-	                    effect eAfterBreath = EffectDamage(nAdjustedDamage, BreathUsed.nDamageType);
-	                    DelayCommand(fNewDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eAfterBreath, oTarget));
+	                    effect eAfterBreath = PRCEffectDamage(oTarget, nAdjustedDamage, BreathUsed.nDamageType);
+	                    DelayCommand(fNewDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eAfterBreath, oTarget));
 	                }
-	                DelayCommand(fNewDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+	                DelayCommand(fNewDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
 	            }
 	        }   
         }    
@@ -988,3 +988,5 @@ void PRCPlayDragonBattleCry()
         PlayVoiceChat(VOICE_CHAT_BATTLECRY2);
     }
 }
+
+//:: void main() {}

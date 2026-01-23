@@ -177,7 +177,7 @@ void main()
     		nTargetRace = MyPRCGetRacialType(oTest);
     	    if(nTargetRace == RACIAL_TYPE_UNDEAD && nTurningMaxHD >= GetHitDiceForTurning(oTest, nTurnType, nTargetRace))
     	    {
-    	        ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d8(GetEssentiaInvestedFeat(OBJECT_SELF, FEAT_AZURE_TURNING)), DAMAGE_TYPE_DIVINE), oTest);
+    	        SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTest, d8(GetEssentiaInvestedFeat(OBJECT_SELF, FEAT_AZURE_TURNING)), DAMAGE_TYPE_DIVINE), oTest);
     	    }
 	
     	    //move to next test
@@ -287,7 +287,7 @@ void main()
                 && nTargetRace == RACIAL_TYPE_UNDEAD
                 && (GetHasFeat(FEAT_EXALTED_TURNING)) || GetPersistantLocalInt(OBJECT_SELF, "VoPFeat"+IntToString(FEAT_EXALTED_TURNING)))
                 {
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(3), DAMAGE_TYPE_DIVINE), oTest);
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTest, d6(3), DAMAGE_TYPE_DIVINE), oTest);
                 }
                 
                 //Check for Holy Fire
@@ -295,7 +295,7 @@ void main()
                 {
                 	int nFire = nTurningMaxHD / 2;
                 	int nHoly = nTurningMaxHD - nFire;
-                	effect eDam = EffectLinkEffects(EffectDamage(DAMAGE_TYPE_DIVINE, nHoly), EffectDamage(DAMAGE_TYPE_FIRE, nFire));
+                	effect eDam = EffectLinkEffects(PRCEffectDamage(oTest, DAMAGE_TYPE_DIVINE, nHoly), PRCEffectDamage(oTest, DAMAGE_TYPE_FIRE, nFire));
                 	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTest);
                 }
             }

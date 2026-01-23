@@ -1072,6 +1072,10 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
             nDC -= 1 + (GetHitDice(oTarget) / 5);
         else if(GetHasFeat(FEAT_HARD_ELEC, oTarget))
             nDC -= 2;
+		
+		//:: Mechanatrix always fail saves vs electricity.
+		if(GetRacialType(oTarget) == RACIAL_TYPE_MECHANATRIX)
+				return 0;
     }
     else if(nSaveType == SAVING_THROW_TYPE_SONIC)
     {

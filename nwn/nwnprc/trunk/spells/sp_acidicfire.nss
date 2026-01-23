@@ -81,23 +81,23 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
         }
 
         //Set damage effect
-        effect eDam = EffectDamage(nDam, nDamageType);
+        effect eDam = PRCEffectDamage(oTarget, nDam, nDamageType);
         //Apply the MIRV and damage effect
 
         // * only damage enemies
-        if(spellsIsTarget(oTarget,SPELL_TARGET_STANDARDHOSTILE,OBJECT_SELF) )
+        if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, OBJECT_SELF) )
         {
         // * must be the correct racial type (only used with Holy Water)
             if ((nRacialType != RACIAL_TYPE_ALL) && (nRacialType == MyPRCGetRacialType(oTarget)))
             {
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
                 //ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oTarget); VISUALS outrace the grenade, looks bad
             }
             else
             if ((nRacialType == RACIAL_TYPE_ALL) )
             {
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
                 //ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eVis, oTarget); VISUALS outrace the grenade, looks bad
             }
@@ -122,7 +122,7 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
        lTarget = Location(oArea, vPos, fFace);
        missing code looks bad because it does not jive with visual
 */
-       ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eExplode, lTarget);
+	ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eExplode, lTarget);
     object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, fExplosionRadius, lTarget, TRUE, nObjectFilter);
     //Cycle through the targets within the spell shape until an invalid object is captured.
     while (GetIsObjectValid(oTarget))
@@ -134,7 +134,7 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
             nDamage = nSplashDamage;
 
             //Set the damage effect
-            effect eDam = EffectDamage(nDamage, nDamageType);
+            effect eDam = PRCEffectDamage(oTarget, nDamage, nDamageType);
             if(nDamage > 0)
             {
         // * must be the correct racial type (only used with Holy Water)
@@ -142,17 +142,17 @@ void PRCDoGrenade(int nDirectDamage, int nSplashDamage, int vSmallHit, int vRing
                 {
                     // Apply effects to the currently selected target.
                     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
                     //This visual effect is applied to the target object not the location as above.  This visual effect
                     //represents the flame that erupts on the target not on the ground.
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
                 }
                 else
                 if ((nRacialType == RACIAL_TYPE_ALL) )
                 {
                     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
-                    DelayCommand(fDelay, ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
+                    DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));
                 }
 
             }
@@ -196,8 +196,8 @@ void main()
                 {
                     // haaaack: store caster level on item for the on hit spell to work properly
                     SetLocalInt(oMyWeapon,"X2_SPELL_CLEVEL_FLAMING_WEAPON",nCasterLvl);
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oMyWeapon));
-                    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDur, GetItemPossessor(oMyWeapon), RoundsToSeconds(nDuration));
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, GetItemPossessor(oMyWeapon));
+                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDur, GetItemPossessor(oMyWeapon), RoundsToSeconds(nDuration));
                     AddFlamingEffectToWeapon(oMyWeapon, RoundsToSeconds(nDuration));
                 }
                     return;

@@ -47,9 +47,9 @@ void main()
                 nDam = PRCGetReflexAdjustedDamage(nDam, oTarget, nDC, nSaveType);
                 if(nDam > 0)
                 {
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, nDamType), oTarget);
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, nDamType), oTarget);
                     // vfx on object
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
                 }
             }
             oTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), lLoc, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);

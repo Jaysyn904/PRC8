@@ -25,11 +25,11 @@ void main()
         while(GetIsObjectValid(oTarget))
         {
                 nDam = d8(1);
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_SONIC), oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_SONIC), oTarget);
                 
                 if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 15, SAVING_THROW_TYPE_SONIC))
                 {
-                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDeaf, oTarget, TurnsToSeconds(1));
+                        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDeaf, oTarget, TurnsToSeconds(1));
                 }
                 
                 oTarget = MyNextObjectInShape(SHAPE_SPELLCONE, 11.0, lLoc, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);

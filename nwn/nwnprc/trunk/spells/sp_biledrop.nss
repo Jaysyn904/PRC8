@@ -54,9 +54,9 @@ void main()
                 	nDam += 1;                  
 
                 //Set damage effect
-                effect eDam = EffectDamage(nDam, DAMAGE_TYPE_ACID);
+                effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_ACID);
 
-                ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, PRCGetSpellId()));
 
                 //Apply second round
@@ -64,7 +64,7 @@ void main()
 
                 if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 17, SAVING_THROW_TYPE_ACID))
                 {
-                        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSick, oTarget, RoundsToSeconds(1));
+                        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSick, oTarget, RoundsToSeconds(1));
                 }
         }
 
@@ -80,7 +80,7 @@ void main()
                 {
                         if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, 13, SAVING_THROW_TYPE_ACID))
                         {
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSick, oSplashTarget, RoundsToSeconds(1));
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSick, oSplashTarget, RoundsToSeconds(1));
                         }
                 }
                 oSplashTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
