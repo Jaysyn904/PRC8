@@ -9,6 +9,101 @@
 #include "prc_inc_combat"  
 #include "inc_dynconv"  
 #include "prc_alterations"  
+
+int PRCStackSpellResistance(object oPC)  
+{  
+    int nTotalSR = 0;  
+      
+    // Racial Spell Resistance  
+    int nRacialSR = 0;  
+    if(GetHasFeat(FEAT_SPELL27, oPC)) nRacialSR = 27;  
+    else if(GetHasFeat(FEAT_SPELL25, oPC)) nRacialSR = 25;  
+    else if(GetHasFeat(FEAT_SPELL23, oPC)) nRacialSR = 23;  
+    else if(GetHasFeat(FEAT_SPELL22, oPC)) nRacialSR = 22;  
+    else if(GetHasFeat(FEAT_SPELL21, oPC)) nRacialSR = 21;  
+    else if(GetHasFeat(FEAT_SPELL20, oPC)) nRacialSR = 20;  
+    else if(GetHasFeat(FEAT_SPELL19, oPC)) nRacialSR = 19;  
+    else if(GetHasFeat(FEAT_SPELL18, oPC)) nRacialSR = 18;  
+    else if(GetHasFeat(FEAT_SPELL17, oPC)) nRacialSR = 17;  
+    else if(GetHasFeat(FEAT_SPELL16, oPC)) nRacialSR = 16;  
+    else if(GetHasFeat(FEAT_SPELL15, oPC)) nRacialSR = 15;  
+    else if(GetHasFeat(FEAT_SPELL14, oPC)) nRacialSR = 14;  
+    else if(GetHasFeat(FEAT_SPELL13, oPC)) nRacialSR = 13;  
+    else if(GetHasFeat(FEAT_SPELL11, oPC)) nRacialSR = 11;  
+    else if(GetHasFeat(FEAT_SPELL10, oPC)) nRacialSR = 10;  
+    else if(GetHasFeat(FEAT_SPELL8, oPC)) nRacialSR = 8;  
+    else if(GetHasFeat(FEAT_SPELL5, oPC)) nRacialSR = 5;  
+      
+    if(nRacialSR > 0)  
+    {  
+        nTotalSR += nRacialSR + GetHitDice(oPC); // Base SR + 1 per level  
+    }  
+      
+    // Improved Spell Resistance feats (epic feats, +2 SR each, stackable)  
+    int nImprovedSR = 0;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_1, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_2, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_3, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_4, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_5, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_6, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_7, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_8, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_9, oPC)) nImprovedSR += 2;  
+    if(GetHasFeat(FEAT_EPIC_IMPROVED_SPELL_RESISTANCE_10, oPC)) nImprovedSR += 2;  
+      
+    nTotalSR += nImprovedSR;  
+      
+    // Class-based Spell Resistance  
+    int nMonkLvl = GetLevelByClass(CLASS_TYPE_MONK, oPC);  
+    int nForsakerLvl = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
+    int nEnlightenedFistLvl = GetLevelByClass(CLASS_TYPE_ENLIGHTENEDFIST, oPC);  
+    int nDraconicMysteriesLvl = GetLevelByClass(CLASS_TYPE_INITIATE_DRACONIC, oPC);  
+    int nSanctifiedMindLvl = GetLevelByClass(CLASS_TYPE_SANCTIFIED_MIND, oPC);  
+    int nUrPriestLvl = GetLevelByClass(CLASS_TYPE_UR_PRIEST, oPC);  
+      
+    // Monk Diamond Soul (level 13+)  
+    if(nMonkLvl >= 13)  
+    {  
+        nTotalSR += (nMonkLvl + 10);  
+    }  
+      
+    // Forsaker SR  
+    if(nForsakerLvl > 0)  
+    {  
+        nTotalSR += (10 + nForsakerLvl);  
+    }  
+      
+    // Enlightened Fist Diamond Soul (level 9+)  
+    if(nEnlightenedFistLvl >= 9)  
+    {  
+        nTotalSR += (10 + nMonkLvl + nEnlightenedFistLvl);  
+    }  
+      
+    // Initiate of Draconic Mysteries (level 7+)  
+    if(nDraconicMysteriesLvl >= 7)  
+    {  
+        nTotalSR += (15 + nDraconicMysteriesLvl);  
+    }  
+      
+    // Sanctified Mind Power Resistance (level 6+)  
+    if(nSanctifiedMindLvl >= 6)  
+    {  
+        nTotalSR += (5 + GetHitDice(oPC));  
+    }  
+      
+    // Ur-Priest Divine Spell Resistance  
+    if(nUrPriestLvl >= 8)  
+    {  
+        nTotalSR += 20; // SR 20 at level 8+  
+    }  
+    else if(nUrPriestLvl >= 4)  
+    {  
+        nTotalSR += 15; // SR 15 at level 4-7  
+    }  
+      
+    return nTotalSR;  
+}
   
 void main()    
 {    
@@ -37,7 +132,13 @@ void main()
 	int nForsakerLvlCheck;    
     int nBonus 				= nForsakerLvl/2;    
 	int nRegen 				= 1 + nForsakerLvl/4;	    
-	int nSR    				= 10 + nForsakerLvl;    
+	int nSR    				= 10 + nForsakerLvl;   
+
+	// Calculate stacked spell resistance for Forsaker special case  
+	int nTotalSR = PRCStackSpellResistance(oPC);  
+	  
+	// Apply combined SR as single property  
+	IPSafeAddItemProperty(oSkin, ItemPropertyBonusSpellResistance(GetSRByValue(nTotalSR)), 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);	
 		    
     if(nEvent == FALSE)    
     {	    

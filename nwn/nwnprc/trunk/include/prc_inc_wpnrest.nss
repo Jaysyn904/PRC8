@@ -1090,7 +1090,8 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
     {
         nSize++;   
         // If you try and use the big weapons
-        if (nWeaponSize > nRealSize)
+        //if (nWeaponSize > nRealSize)
+		if (nWeaponSize > nRealSize && GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC) != OBJECT_INVALID)
         {
             SetCompositeAttackBonus(oPC, "MonkeyGripL", -2, ATTACK_BONUS_OFFHAND);
             SetCompositeAttackBonus(oPC, "MonkeyGripR", -2, ATTACK_BONUS_ONHAND);

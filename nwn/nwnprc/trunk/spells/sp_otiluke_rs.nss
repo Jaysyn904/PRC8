@@ -49,8 +49,8 @@ void main()
         //Make SR check
 	if (!PRCDoResistSpell(OBJECT_SELF, oTarget,nCasterLvl))
 	{
-		//Make Forttude save
-		if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, (PRCGetSaveDC(oTarget,OBJECT_SELF)), SAVING_THROW_TYPE_NONE))
+		//Make Reflex save
+		if (!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, (PRCGetSaveDC(oTarget,OBJECT_SELF)), SAVING_THROW_TYPE_NONE))
         	{
         		//Set local to signify the target
         		SetLocalInt(oTarget, "PRC_OTILUKES_RS_TARGET", 1);

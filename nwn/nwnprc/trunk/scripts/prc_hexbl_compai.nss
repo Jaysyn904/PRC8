@@ -10,31 +10,75 @@
  * This just tells it to follow the master and do nothing else.
  */
 
-#include "inc_debug"
-
-void main()
-{
-    object oMaster = GetMaster();
-
-    if(!GetIsObjectValid(oMaster))
-    {
-        SetIsDestroyable(TRUE, FALSE, FALSE);
-        DestroyObject(OBJECT_SELF, 0.2);
-    }
-
-    // Forces it to move to the master's attack target so it take the penalty.
-    if(GetIsInCombat(oMaster))
-    {
-        object oMove = GetAttackTarget(oMaster);
-        if(GetIsObjectValid(oMove))
-        {
-            ClearAllActions(TRUE);
-            ActionForceFollowObject(GetAttackTarget(oMaster), 1.0f);
-        }
-    }
-    else
-    {
-        ClearAllActions(TRUE);
-        ActionForceFollowObject(oMaster, 4.0f);
-    }
+#include "inc_debug"  
+#include "prc_misc_const"  
+  
+void main()  
+{  
+    object oMaster = GetMaster();  
+  
+    if(!GetIsObjectValid(oMaster))  
+    {  
+        SetIsDestroyable(TRUE, FALSE, FALSE);  
+        DestroyObject(OBJECT_SELF, 0.2);  
+        return;  
+    }  
+  
+    // Check for missing DARK_COMPANION effects and reapply if needed  
+    int bHasAOE = FALSE;  
+    int bHasGhost = FALSE;  
+    int bHasEthereal = FALSE;  
+      
+    effect eCheck = GetFirstEffect(OBJECT_SELF);  
+    while(GetIsEffectValid(eCheck))  
+    {  
+        if(GetEffectTag(eCheck) == "DARK_COMPANION")  
+        {  
+            int nType = GetEffectType(eCheck);  
+            if(nType == EFFECT_TYPE_AREA_OF_EFFECT) bHasAOE = TRUE;  
+            if(nType == EFFECT_TYPE_CUTSCENEGHOST) bHasGhost = TRUE;  
+            if(nType == EFFECT_TYPE_ETHEREAL) bHasEthereal = TRUE;  
+        }  
+        eCheck = GetNextEffect(OBJECT_SELF);  
+    }  
+      
+    // Reapply all effects if any are missing  
+    if(!bHasAOE || !bHasGhost || !bHasEthereal)  
+    {  
+        // Remove any existing DARK_COMPANION effects first  
+        eCheck = GetFirstEffect(OBJECT_SELF);  
+        while(GetIsEffectValid(eCheck))  
+        {  
+            if(GetEffectTag(eCheck) == "DARK_COMPANION")  
+            {  
+                RemoveEffect(OBJECT_SELF, eCheck);  
+            }  
+            eCheck = GetNextEffect(OBJECT_SELF);  
+        }  
+          
+        // Reapply the complete effect package  
+        effect eLink = EffectAreaOfEffect(VFX_PER_10_FT_INVIS, "prc_hexbl_comp_a", "prc_hexbl_comp_c", "");  
+               eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_GLOW_GREY));  
+               eLink = EffectLinkEffects(eLink, EffectCutsceneGhost());  
+               eLink = EffectLinkEffects(eLink, EffectEthereal());  
+               eLink = TagEffect(eLink, "DARK_COMPANION");  
+               eLink = SupernaturalEffect(eLink);  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, OBJECT_SELF);  
+    }  
+  
+    // Movement logic  
+    if(GetIsInCombat(oMaster))  
+    {  
+        object oMove = GetAttackTarget(oMaster);  
+        if(GetIsObjectValid(oMove))  
+        {  
+            ClearAllActions(TRUE);  
+            ActionForceFollowObject(GetAttackTarget(oMaster), 1.0f);  
+        }  
+    }  
+    else  
+    {  
+        ClearAllActions(TRUE);  
+        ActionForceFollowObject(oMaster, 4.0f);  
+    }  
 }

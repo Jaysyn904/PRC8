@@ -34,7 +34,9 @@ void main()
            eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_GLOW_GREY));//VFX_DUR_PROT_PRC_SHADOW_ARMOR
            eLink = EffectLinkEffects(eLink, EffectCutsceneGhost());
            eLink = EffectLinkEffects(eLink, EffectEthereal());
+		   eLink = TagEffect(eLink, "DARK_COMPANION");
            eLink = UnyieldingEffect(eLink);
+		   
 
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oCompanion);
 }
