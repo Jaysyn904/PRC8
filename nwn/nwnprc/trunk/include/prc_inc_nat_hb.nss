@@ -507,7 +507,7 @@ void DoNaturalWeaponHB(object oPC = OBJECT_SELF)
                     if(!GetIsObjectValid(oLimbo))
                         lLimbo = GetStartingLocation();
                     oWeapon = CreateObject(OBJECT_TYPE_ITEM, sResRef, lLimbo);
-					DoDebug(PRC_TEXT_WHITE + "prc_inc_nat_hb >> DoNaturalWeaponHB: creature weapon object found!!!");
+					if(DEBUG) DoDebug(PRC_TEXT_WHITE + "prc_inc_nat_hb >> DoNaturalWeaponHB: creature weapon object found!!!");
                 }
 				
 				// Check for enhancements after creating the weapon object 

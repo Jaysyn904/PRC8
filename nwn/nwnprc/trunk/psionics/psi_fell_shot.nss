@@ -34,5 +34,6 @@ void main()
         return;
     }
 
-    PerformAttackRound(oTarget, oPC, eDummy, 0.0, 0, 0, 0, FALSE, "Fell Shot Hit", "Fell Shot Miss", FALSE, TRUE);
+    //PerformAttackRound(oTarget, oPC, eDummy, 0.0, 0, 0, 0, FALSE, "Fell Shot Hit", "Fell Shot Miss", FALSE, TRUE);
+	PerformAttackRound(oTarget, oPC, eDummy, 0.0, 0, 0, 0, FALSE,  "Fell Shot Hit", "Fell Shot Miss", FALSE, TOUCH_ATTACK_RANGED);
 }

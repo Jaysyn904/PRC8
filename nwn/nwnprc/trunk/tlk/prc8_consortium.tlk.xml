@@ -10022,7 +10022,8 @@ Combining the dynamic powers of martial prowess and arcane might, the Hexblade p
 
 - Alignment Restrictions: non-good only
 - Hit Die: d10
-- Proficiencies: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.
+- Proficiencies: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.  
+
 - Skill Points: 2+ Int Modifier.
 
 CLASS FEATURES:
@@ -47004,7 +47005,7 @@ All frostragers are barbarians to some degree, although many are multiclass barb
 
 - Hit Die: d12 
 - Proficiencies: A frostrager does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -47062,7 +47063,7 @@ Most sacred purifiers are clerics (often of Pelor), but paladins have also been 
 
 - Hit Die: d8 
 - Proficiencies: A sacred purifier does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -47108,7 +47109,7 @@ If you have a disciplined worldview and a certain level of combat prowess, and y
 
 - Hit Die: d8 
 - Proficiencies: A serene guardian does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48297,7 +48298,7 @@ Fighters and paladins are well served by becoming battlesmiths. Spellcasters are
 
 - Hit Die: d10
 - Proficiencies: A battlesmith gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48348,7 +48349,7 @@ Some believe that the ultimate expression of the warforged experiment is the jug
 
 - Hit Die: d12
 - Proficiencies: A Warforged Juggernaut gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48414,7 +48415,7 @@ As members of this prestige class must have the ability to cast arcane spells, f
 
 - Hit Die: d4
 - Proficiencies: A Frost Mage gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48462,7 +48463,7 @@ Most wayfarer guides are wizards or sorcerers, though a few clerics with access 
 
 - Hit Die: d6
 - Proficiencies: A Wayfarer Guide gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48613,7 +48614,7 @@ Over a dozen deities have worshipers who are paladins, promoting law and good ac
 
 - Hit Die: d8
 - Proficiencies: Knights of the Weave gain no proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -48653,7 +48654,7 @@ Spelldancers are an energetic sort of spellcaster who draw on the quasi-primal e
 
 - Hit Die: d6
 - Proficiencies: Spelldancers gain no proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -50361,7 +50362,7 @@ Ur-priests despise gods. However, a small number of them have learned to tap int
 
 - Hit Die: d8 
 - Proficiencies: An ur-priest does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -51816,7 +51817,7 @@ and her companions. The wild mage accepts this as the price of her convictions.
 
 - Hit Die: d4
 - Proficiencies: A Wild Mage gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -51862,7 +51863,7 @@ Other spellcasters don't understand the force missile mages' dedication to only 
 
 - Hit Die: d4
 - Proficiencies: A Force Missile gains no additional proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -51957,7 +51958,7 @@ Benefit: When using the Rapid Shot feat, you may ignore the -2 penalty on all yo
 Use: Automatic</entry>
   <entry id="59236" lang="en" sex="m">Ranged Recall</entry>
   <entry id="59237" lang="en" sex="m">Type of Feat: General
-Prerequisite: Point Blank Shot, Weapon Focus (Ray), Spellcraft 4
+Prerequisite: Point Blank Shot, Weapon Focus (ray), Spellcraft 4
 Benefit: When you miss with a spell or spell-like ability ranged attack against a target within 30 feet, you can spend a swift action to reroll the attack with a -5 penalty. You can use this ability three times per day.
 Use: Automatic</entry>
   <entry id="59238" lang="en" sex="m">Somatic Weaponry</entry>
@@ -68726,7 +68727,7 @@ Magic is evil. Magic tempts. Magic perverts. Magic corrupts. Anyone who cannot e
 
 - Hit Die: d12
 - Proficiencies: Forsakers gain no proficiencies
-- Skill Points: 2+ Int Modifier.
+- Skill Points: 2+ Int Modifier. 
 
 REQUIREMENTS: 
 
@@ -76492,6 +76493,21 @@ Benefit: You turn (but not destroy) plants as a good cleric turns undead. Treat 
 Prerequisites: Plant Defiance, ability to cast speak with plants.
 
 Benefit: You rebuke or command plants as an evil cleric rebukes undead. To command a plant, you must be able to speak with it via a speak with plants effect, though you may issue your commands mentally if desired. The number of times per day that you can use this ability is equal to 3 + your Charisma modifier. Your highest divine caster level is the level at which you rebuke plants.</entry>
+  <entry id="213106" lang="en" sex="m">Improved Critical (touch attack)</entry>
+  <entry id="213107" lang="en" sex="m">****</entry>
+  <entry id="213108" lang="en" sex="m">Improved Critical (ray)</entry>
+  <entry id="213109" lang="en" sex="m">****</entry>
+  <entry id="213110" lang="en" sex="m">Weapon Focus (touch attack)</entry>
+  <entry id="213111" lang="en" sex="m">Type of Feat: General
+Prerequisite: Base attack bonus +1 or higher
+Specifics: The character gains a +1 bonus to all attack rolls with touch attack spells.
+Use: Automatic</entry>
+  <entry id="213112" lang="en" sex="m">Epic Weapon Focus (touch attack)</entry>
+  <entry id="213113" lang="en" sex="m">Type of Feat: Epic, Combat
+Prerequisite: 21st level, Weapon Focus: Touch Attack.
+Specifics: The character gains a +2 bonus to all attack rolls with touch attack spells.
+Use: Automatic
+</entry>
   <entry id="213198" lang="en" sex="m">Investigator</entry>
   <entry id="213199" lang="en" sex="m">Type of Feat: General
 Benefit: You get a +2 bonus on all Sense Motive and Search checks.

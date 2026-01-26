@@ -265,7 +265,8 @@ struct WeaponFeat GetAllFeatsOfWeaponType(int iWeaponType);
 
 // Returns the low end of oWeap's critical threat range
 // Accounts for Keen and Improved Critical bonuses
-int GetWeaponCriticalRange(object oPC, object oWeap);
+//int GetWeaponCriticalRange(object oPC, object oWeap);
+int GetWeaponCriticalRange(object oPC, object oWeap, int iTouchAttackType = FALSE);
 
 // returns the critical multiplier of the weapons base type
 int GetCriticalMultiplierOfWeaponType(int iWeaponType);
@@ -1999,11 +2000,37 @@ object GetAmmunitionFromWeapon(object oWeapon, object oAttacker)
     return GetAmmunitionFromWeaponType(GetBaseItemType(oWeapon), oAttacker);
 }
 
-int GetWeaponCriticalRange(object oPC, object oWeap)
+//int GetWeaponCriticalRange(object oPC, object oWeap)
 // for a ranged weapon we should call this *after* we have ammo equipped, because it checks the ammo for keen
 // if we (re)equip the ammo later, we don't get the right keen property
+int GetWeaponCriticalRange(object oPC, object oWeap, int iTouchAttackType = FALSE)
 {
-    //no weapon, touch attacks mainly
+	// Check for spell-based touch attacks
+    if(iTouchAttackType == TOUCH_ATTACK_MELEE_SPELL)  
+    {
+		if (DEBUG) DoDebug("prc_inc_combat >> GetWeaponCriticalRange() | TOUCH_ATTACK_MELEE_SPELL detected.");		
+        // Spell-based melee touch attacks  
+        if(GetHasFeat(FEAT_IMPROVED_CRITICAL_TOUCH, oPC))  
+		{
+			if (DEBUG) DoDebug("prc_inc_combat >> GetWeaponCriticalRange() | Improved Critical: Touch detected.");        
+			return 19; // Doubles threat range from 20 to 19-20  
+		}		
+        else  
+            return 20;  
+    }  
+    else if(iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL)  
+    {
+		if (DEBUG) DoDebug("prc_inc_combat >> GetWeaponCriticalRange() | TOUCH_ATTACK_RANGED_SPELL detected."); 		
+        // Ray attacks  
+        if(GetHasFeat(FEAT_IMPROVED_CRITICAL_RAY, oPC)) 
+		{			
+			if (DEBUG) DoDebug("prc_inc_combat >> GetWeaponCriticalRange() | Improved Critical: Ray detected."); 
+			return 19; // Doubles threat range from 20 to 19-20			
+		}
+        else  
+            return 20;  
+    } 
+	//no weapon, touch attacks mainly
     if(!GetIsObjectValid(oWeap))
         return 20;
 
@@ -3306,7 +3333,33 @@ int GetAttackBonus(object oDefender, object oAttacker, object oWeap, int iOffhan
     // weapon specific feats
     sWeaponFeat = GetAllFeatsOfWeaponType(iWeaponType);
 
-    int bFocus = 0;
+	int bFocus = 0;  
+	int bEpicFocus = 0;  
+	int bIsRangedTouchAttack = iTouchAttackType == TOUCH_ATTACK_RANGED || iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL;  
+	int bIsMeleeTouchAttack = iTouchAttackType == TOUCH_ATTACK_MELEE_SPELL;  
+	  
+	if(bIsRangedTouchAttack)  
+	{  
+		// Weapon Focus(Ray) applies to ranged touch attacks  
+		bFocus = GetHasFeat(FEAT_WEAPON_FOCUS_RAY, oAttacker);  
+		if (bFocus) // no need to look for epic focus, if we don't have focus  
+			bEpicFocus = GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_RAY, oAttacker);  
+	}  
+	else if(bIsMeleeTouchAttack)  
+	{  
+		// Weapon Focus(Touch Attack) applies to melee touch attacks  
+		bFocus = GetHasFeat(FEAT_WEAPON_FOCUS_TOUCH, oAttacker);  
+		if (bFocus) // no need to look for epic focus, if we don't have focus  
+			bEpicFocus = GetHasFeat(FEAT_EPIC_WEAPON_FOCUS_TOUCH, oAttacker);  
+	}  
+	else  
+	{   // no touch attack, normal weapon focus feats  
+		bFocus = GetHasFeat(sWeaponFeat.Focus, oAttacker);  
+		if (bFocus) // no need to look for epic focus, if we don't have focus  
+			bEpicFocus   = GetHasFeat(sWeaponFeat.EpicFocus, oAttacker);  
+	}
+
+/*     int bFocus = 0;
     int bEpicFocus = 0;
     int bIsRangedTouchAttack = iTouchAttackType == TOUCH_ATTACK_RANGED || iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL;
 
@@ -3322,7 +3375,7 @@ int GetAttackBonus(object oDefender, object oAttacker, object oWeap, int iOffhan
         bFocus = GetHasFeat(sWeaponFeat.Focus, oAttacker);
         if (bFocus) // no need to look for epic focus, if we don't have focus
             bEpicFocus   = GetHasFeat(sWeaponFeat.EpicFocus, oAttacker);
-    }
+    } */
 
     int bEpicProwess = GetHasFeat(FEAT_EPIC_PROWESS, oAttacker);
 
@@ -3937,7 +3990,7 @@ int GetAttackRoll(object oDefender, object oAttacker, object oWeapon, int iOffha
     //if (bDebug) sDebugFeedback = COLOR_WHITE + "Attack Roll = " + IntToString(iAttackBonus + iDiceRoll) + ": " + sDebugFeedback;
     //if (DEBUG) DoDebug("GetAttackRoll: End Section #1");
     int iWeaponType = GetBaseItemType(oWeapon);
-    int iCritThreat = GetWeaponCriticalRange(oAttacker, oWeapon);
+    int iCritThreat = GetWeaponCriticalRange(oAttacker, oWeapon, iTouchAttackType);
 
     //If using Killing Shot, ciritical range improves by 2;
     if(GetLocalInt(oAttacker, "KillingShotCritical") )

@@ -47,7 +47,7 @@ int PRCDoRangedTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object o
              {
                 SetLocalInt(oCaster, "RangedRecall", nRecall+1);
                 // Reroll with a -5 penalty
-                nResult = GetAttackRoll(oTarget,oCaster,OBJECT_INVALID,0,nAttackBonus-5,0,nDisplayFeedback,0.0,TOUCH_ATTACK_MELEE_SPELL);
+                nResult = GetAttackRoll(oTarget,oCaster,OBJECT_INVALID,0,nAttackBonus-5,0,nDisplayFeedback,0.0,TOUCH_ATTACK_RANGED_SPELL);
              }
         }
     }    

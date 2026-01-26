@@ -1494,9 +1494,13 @@ const int FEAT_VILE_MARTIAL_MINDBLADE     = 3624;
 const int FEAT_VILE_MARTIAL_WHIP          = 3598;
 const int FEAT_VILE_MARTIAL_TRIDENT       = 3599;
 
-// Weapon Focus (Ray)
-const int FEAT_WEAPON_FOCUS_RAY           = 4819;
-const int FEAT_EPIC_WEAPON_FOCUS_RAY      = 4820;
+//:: Spell-like Weapons
+const int FEAT_WEAPON_FOCUS_RAY           	= 4819;
+const int FEAT_EPIC_WEAPON_FOCUS_RAY      	= 4820;
+const int FEAT_IMPROVED_CRITICAL_TOUCH		= 26009;
+const int FEAT_IMPROVED_CRITICAL_RAY		= 26010;
+const int FEAT_WEAPON_FOCUS_TOUCH			= 26011;
+const int FEAT_EPIC_WEAPON_FOCUS_TOUCH		= 26012;
 
 // Battleguard Tempus
 const int TEMPUS_ABILITY_ENHANC1   = 1;
