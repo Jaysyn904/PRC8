@@ -689,3 +689,9 @@
 685        Bane_Magic_Shapechanger                        23577     0    -1             0      
 686        Bane_Magic_Undead                              23578     0    -1             0      
 687        Bane_Magic_Vermin                              23579     0    -1             0      
+688        FEAT_WEAPON_FOCUS_RAY                          4819      1    -1             0      
+689        FEAT_EPIC_WEAPON_FOCUS_RAY                     4820      1    -1             0      
+690        FEAT_IMPROVED_CRITICAL_TOUCH                   26009     1    -1             0      
+691        FEAT_IMPROVED_CRITICAL_RAY                     26010     1    -1             0      
+692        FEAT_WEAPON_FOCUS_TOUCH                        26011     1    -1             0      
+693        FEAT_EPIC_WEAPON_FOCUS_TOUCH                   26012     1    -1             0      
