@@ -244,6 +244,7 @@ void EvilBrand(object oPC, object oSkin, int iEquip)
         BrandApply(oPC, oSkin, 0);
 }
 */
+
 void main()
 {
     object oPC = OBJECT_SELF;
@@ -275,13 +276,19 @@ void main()
 	}
 
     // Feats are checked here
-    //if(GetHasFeat(FEAT_SAC_VOW, oPC))                         ExecuteScript("prc_vows", oPC);
-    //if(GetHasFeat(FEAT_LICHLOVED, oPC))                       ExecuteScript("prc_lichloved", oPC);
+	if (GetHasFeat(FEAT_RAVAGEGOLDENICE, oPC))		ExecuteScript("ft_tch_gold_ice", oPC);	
+
     if(GetHasFeat(FEAT_EB_HAND, oPC)  ||
        GetHasFeat(FEAT_EB_HEAD, oPC)  ||
        GetHasFeat(FEAT_EB_CHEST, oPC) ||
        GetHasFeat(FEAT_EB_ARM, oPC)   ||
-       GetHasFeat(FEAT_EB_NECK, oPC)    )                        ExecuteScript("prc_evilbrand", oPC);
+       GetHasFeat(FEAT_EB_NECK, oPC)    )			ExecuteScript("prc_evilbrand", oPC);
+
+	if(GetHasFeat(FEAT_ETERNAL_FREEDOM, oPC))		ExecuteScript("etern_free", oPC);
+	
+    //if(GetHasFeat(FEAT_SAC_VOW, oPC))				ExecuteScript("prc_vows", oPC);
+    //if(GetHasFeat(FEAT_LICHLOVED, oPC))			ExecuteScript("prc_lichloved", oPC);
+
     //if(GetHasFeat(FEAT_VILE_WILL_DEFORM, oPC) ||
     //   GetHasFeat(FEAT_VILE_DEFORM_GAUNT, oPC)||
     //   GetHasFeat(FEAT_VILE_DEFORM_OBESE, oPC)  )                ExecuteScript("prc_vilefeats", oPC);
@@ -316,7 +323,7 @@ void main()
 
     //if(GetHasFeat(FEAT_LINGERING_DAMAGE, oPC))                ExecuteScript("ft_lingdmg", oPC);
     //if(GetHasFeat(FEAT_MAGICAL_APTITUDE, oPC))                   ExecuteScript("prc_magaptitude", oPC);
-    if(GetHasFeat(FEAT_ETERNAL_FREEDOM, oPC))                    ExecuteScript("etern_free", oPC);
+
 	
     if(GetHasFeat(FEAT_INTUITIVE_ATTACK, oPC) || GetLocalInt(oPC, "VoPFeat"+IntToString(FEAT_INTUITIVE_ATTACK)))	ExecuteScript("prc_intuiatk", oPC);
     //if(GetPersistantLocalInt(oPC, "EpicSpell_TransVital"))       ExecuteScript("trans_vital", oPC);

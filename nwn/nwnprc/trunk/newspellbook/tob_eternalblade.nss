@@ -102,8 +102,9 @@ void BladeGuide(object oInitiator, object oItem)
         if(DEBUG) DoDebug("EVENT_DAMAGED: damage dealt: " + IntToString(nDamageTaken));
         if(DEBUG) DoDebug("EVENT_DAMAGED: PC MAX hitpoints: " + IntToString(nHitPoints));
 
-        // since player can have armor, dr, various immunities, etc., apply reasonable damage multiplyer for blage guide
-         nDamageTaken *= 2;
+        // since player can have armor, dr, various immunities, etc., apply reasonable damage multiplyer for blade guide
+         //nDamageTaken *= 2;
+		 nDamageTaken = (nDamageTaken * 5) / 4;
 
         // Blade guide alive, but no HP int.
         // This would be the first hit after he respawns or the player rests or after load

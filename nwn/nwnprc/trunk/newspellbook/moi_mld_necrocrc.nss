@@ -23,11 +23,32 @@ damage equal to the necrocarnum zombie’s Hit Dice, which may not be healed as lo
 */
 
 #include "moi_inc_moifunc"
-
-void NecroDetect(object oMeldshaper);
+#include "prc_inc_s_det"  
+void NecroDetect(object oMeldshaper, int bFirstRun = FALSE);
 void CircTurnRes(object oMeldshaper);
 
-void NecroDetect(object oMeldshaper)
+void NecroDetect(object oMeldshaper, int bFirstRun = FALSE)  
+{  
+    if (!GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))  
+        return;  
+          
+    if (bFirstRun)  
+    {  
+        // First activation: show detection cone VFX briefly  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oMeldshaper, 3.0f);  
+    }  
+      
+    // Always apply ioun stone VFX for continuous effect  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IOUN_STONE_RED), oMeldshaper, 6.0);  
+      
+    // Run the actual detection logic  
+    DetectRaceAura(0, RACIAL_TYPE_UNDEAD, GetLocation(oMeldshaper), VFX_BEAM_ODD, FeetToMeters(60.0));  
+      
+    // Schedule next run with bFirstRun = FALSE  
+    DelayCommand(6.0, NecroDetect(oMeldshaper, FALSE));  
+}
+
+/* void NecroDetect(object oMeldshaper)
 {
 	if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))
 	{
@@ -35,7 +56,7 @@ void NecroDetect(object oMeldshaper)
 		DelayCommand(6.0, NecroDetect(oMeldshaper));
 	}	
 }
-
+ */
 void CircTurnRes(object oMeldshaper)
 {
 	if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))

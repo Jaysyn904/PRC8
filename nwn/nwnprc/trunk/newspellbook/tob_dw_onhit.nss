@@ -34,7 +34,9 @@ void main()
 		DoDebug("Warning: DW OnHit is attempting to apply damage to self. Skipped.");
 	}	
 	
-	int nLevel     = GetInitiatorLevel(oPC, CLASS_TYPE_SWORDSAGE);
+	//int nLevel     = GetInitiatorLevel(oPC, CLASS_TYPE_SWORDSAGE);
+	int nClass = GetPrimaryBladeMagicClass(oPC);  
+	int nLevel = GetInitiatorLevel(oPC, nClass);
 	int nSpellId   = GetLocalInt(oPC, "DesertWindBoost");
 	if(DEBUG) DoDebug("tob_dw_onhit: nSpellId " + IntToString(nSpellId));
 	effect eDam;

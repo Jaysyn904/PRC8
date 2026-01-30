@@ -38279,7 +38279,7 @@ Area of Effect / Target: Single
 Duration: 10 minutes / level
 Additional Counter Spells:
 
-You bestow upon a character a scintillating aura around his head, imbuing him with great power. The target receives a +4 deflection bonus to AC and a +4 luck bonus to attack rolls, saving throws, and all ability scores.</entry>
+You bestow upon a character a scintillating aura around his head, imbuing him with great power. The target receives a +4 luck (dodge) bonus to AC and a +4 luck bonus to attack rolls, saving throws, and all ability scores.</entry>
   <entry id="53026" lang="en" sex="m">Energy Immunity</entry>
   <entry id="53027" lang="en" sex="m">Caster Level(s): Cleric 6, Druid 6, Wizard / Sorcerer 7
 Innate Level: 6
@@ -75040,7 +75040,7 @@ Special:
 Manifesting: At each class level the epic Thrallherd continues to increase in manifester level (and powers known, if applicable).
 
 Epic Thrallherd Bonus Feat List:
-Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Leadership, Epic Skill Focus, Great Intelligence, Epic Psionic Feats, Legendary Commander.</entry>
+Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Skill Focus, Great Intelligence, Psionic Feats.</entry>
   <entry id="205190" lang="en" sex="m">Epic Fist of Zouken</entry>
   <entry id="205191" lang="en" sex="m">Epic Fists of Zuoken are masters of both body and mind, walking paths few dare to tread. Their strikes carry the weight of perfect training, and their thoughts cut as sharply as their fists. These monks have unlocked the deep synergy between psionics and martial discipline, weaving them into a single, flawless form. They are guardians of the awakened, defenders of mental freedom, and relentless opponents of oppression.
 

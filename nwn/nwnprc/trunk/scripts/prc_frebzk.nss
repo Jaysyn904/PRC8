@@ -41,12 +41,23 @@ void CheckSupremePowerAttack(object oPC, int iEquip)
       }
 }
 
-void ApplyAutoFrenzy(object oPC, object oArmor)
+void ApplyAutoFrenzy(object oPC, object oArmor)  
+{  
+     // Create the OnHitCastSpell property  
+     itemproperty ipFrenzy = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);  
+     // Tag it as protected to bypass Vow of Poverty restrictions  
+     ipFrenzy = TagItemProperty(ipFrenzy, "Tag_PRC_OnHitKeeper");  
+     // Apply the tagged property  
+     IPSafeAddItemProperty(oArmor, ipFrenzy, 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);  
+     SetLocalInt(oPC, "AFrenzy", 2);  
+}
+
+/* void ApplyAutoFrenzy(object oPC, object oArmor)
 {
      IPSafeAddItemProperty(oArmor, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
      SetLocalInt(oPC, "AFrenzy", 2);
 }
-
+ */
 void RemoveAutoFrenzy(object oPC, object oArmor)
 {
      RemoveSpecificProperty(oArmor, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, 1, "", -1, DURATION_TYPE_TEMPORARY);

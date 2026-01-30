@@ -40,7 +40,8 @@ void main()
     int nDiceNumber = GetLocalInt(oDragon, "BarrierDiceNumber");
     int nSaveDC = 10 + GetHitDice(oDragon) / 2 + PRCMax(GetAbilityModifier(ABILITY_CONSTITUTION, oDragon), 0);
     //Declare and assign personal impact visual effect.
-    switch (nDamageType)
+	
+	switch (nDamageType)
     {
     	case DAMAGE_TYPE_ACID:
     	     nSaveDamageType = SAVING_THROW_TYPE_ACID;
@@ -98,7 +99,7 @@ void main()
             if(nDamage > 0)
             {
                 // Apply effects to the currently selected target.
-                eDam = EffectDamage(nDamage, nDamageType);
+                eDam = PRCEffectDamage(oTarget, nDamage, nDamageType);
                 ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
                 ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
             }

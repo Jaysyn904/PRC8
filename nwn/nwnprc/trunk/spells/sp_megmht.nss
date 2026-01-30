@@ -30,7 +30,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
         eList = EffectLinkEffects(eList, EffectAbilityIncrease(ABILITY_INTELLIGENCE, 4));
         eList = EffectLinkEffects(eList, EffectAbilityIncrease(ABILITY_WISDOM, 4));
         eList = EffectLinkEffects(eList, EffectAbilityIncrease(ABILITY_CHARISMA, 4));
-        eList = EffectLinkEffects(eList, EffectACIncrease(4, AC_DEFLECTION_BONUS));
+        eList = EffectLinkEffects(eList, EffectACIncrease(4, AC_DODGE_BONUS));
         eList = EffectLinkEffects(eList, EffectAttackIncrease(4));
         eList = EffectLinkEffects(eList, EffectSavingThrowIncrease(SAVING_THROW_ALL, 4));
         eList = EffectLinkEffects(eList, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));

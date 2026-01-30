@@ -305,15 +305,15 @@ void main2()
     //--iHP;
     //effect eDamage = PRCEffectDamage(oImage, iHP); // reduces image to 1 hp	
 	
-	SetCurrentHitPoints(oImage, 1);
-
-    // these need to be applied to every image
+	// these need to be applied to every image
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eImage, oImage);
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eNoSpell, oImage);
     //ApplyEffectToObject(DURATION_TYPE_PERMANENT, eDamage, oImage);   
 	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSpeed, oImage);	
 	
 	SetMirrorImageScripts(oImage);
+	
+	SetCurrentHitPoints(oImage, 1);
 	
 	DelayCommand(0.0, SetLocalObject(oImage, "oMaster", oCaster));
 
