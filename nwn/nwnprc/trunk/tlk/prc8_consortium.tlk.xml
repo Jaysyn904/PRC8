@@ -5751,7 +5751,13 @@ Use: Selected.</entry>
   <entry id="45087" lang="en" sex="m">Unseen Seers</entry>
   <entry id="45088" lang="en" sex="m">unseen seer</entry>
   <entry id="45089" lang="en" sex="m">(PRESTIGE CLASS)
-Mysterious and elusive, the unseen seer trades in secrets. Subterfuge is her business in the same way that death is the assassin's business, and she uses her magic to help her gather other people's secrets while keeping her own.
+Mysterious and elusive, the 
+
+
+
+
+
+ seer trades in secrets. Subterfuge is her business in the same way that death is the assassin's business, and she uses her magic to help her gather other people's secrets while keeping her own.
 
 - Hit Die: d4.
 - Proficiencies: Unseen Seer grants no additional weapon proficiencies.
@@ -73901,7 +73907,7 @@ Vestige Metamagic: Continues increasing at a rate of 1 use per 2 epic Anima Mage
 Caster/ Binder Level: Increases as if gaining a level in both your arcane spellcasting class and your soul binding class at each level.
 
 Epic Anima Mage Bonus Feat List:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not l
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not l
 isted here.</entry>
   <entry id="205008" lang="en" sex="m">Epic Serene Guardian</entry>
   <entry id="205009" lang="en" sex="m">You are a transcendent guardian of the Luminous Order, channeling disciplined meditation into devastating resonance with every strike.
@@ -73933,7 +73939,7 @@ Spells: The epic virtuoso increases caster level by one per level gained above 1
 Bard Song: The epic virtuoso's bard song continues into epic levels.
 
 Epic Virtuoso Bonus Feat List:
-Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spellcasting, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic</entry>
+Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spellcasting, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205014" lang="en" sex="m">Epic Spellsword</entry>
   <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells—each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
 
@@ -73967,7 +73973,7 @@ Electricity Resistant (Ex): At 18th level, the fiendish skin grants electricity 
 Telepathy (Su): A 19th-level acolyte of the skin can communicate telepathically with any creature within 100 feet that has a language. 
 
 Epic Acolyte of the Skin Bonus Feat List:
-Arcane Defense, Armor Skin, Blinding Speed, Combat Casting, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Greater Spell Focus, Improved Combat Casting, Spell Focus, Spell Penetration, Toughness.</entry>
+Arcane Defense, Armor Skin, Blinding Speed, Combat Casting, Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Greater Spell Focus, Improved Combat Casting, Spell Focus, Spell Penetration, Toughness, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205018" lang="en" sex="m">Epic Unseen Seer</entry>
   <entry id="205019" lang="en" sex="m">At epic levels, you have become the ultimate master of secrets and shadows. Your uncanny ability to blend devastating sneak attacks with potent divinatory insight grows ever sharper.
 
@@ -73980,7 +73986,7 @@ Spellcasting: The epic unseen seer continues to increase in caster level (and sp
 Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 every 3 levels.
 
 Epic Unseen Seer Bonus Feat List:
-Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative</entry>
+Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
   <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
 
@@ -74136,7 +74142,7 @@ Random Deflector: Continues increasing at a rate of 1 use per 3 epic Wild Mage l
 Caster Level: Increases as if gaining a level in your arcane spellcasting class.
 
 Epic Wild Mage Bonus Feat List:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.  In addition to the feats on this list, the wild mage may select any item creation feat or metamagic feat not listed here.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Great Charisma, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the wild mage may select any item creation feat or metamagic feat not listed here.</entry>
   <entry id="205044" lang="en" sex="m">Epic Shadowsmith</entry>
   <entry id="205045" lang="en" sex="m">A master of shaping darkness, the epic shadowsmith refines their control over shadowstuff to near-divine levels. Their creations become nearly indestructible, their armor of shadow rivals the strongest magical defenses, and their presence warps the battlefield with darkness itself.
 
@@ -74645,7 +74651,7 @@ Homunculus: the epic Blood Magus' Homunculus continues to scale in power with th
 Spellcasting: At every even level, the epic Blood Magus continues to increase in arcane caster level (and spells known, if applicable).
 
 Epic Blood Magus Bonus Feat List:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205122" lang="en" sex="m">Epic Diabolist</entry>
   <entry id="205123" lang="en" sex="m">At the epic scale, the Diabolist no longer imitates the damned, they command them. Every whispered invocation sears the Weave with the echoes of Hell's will, and each spell drips with the essence of infernal corruption. They walk among mortals cloaked in fire and dread, their ambition smoldering like embers beneath skin. Devils no longer tempt the Diabolist, they envy them. For what greater blasphemy than a mortal who dares not serve, but instead seeks to ascend?
 
@@ -74972,7 +74978,7 @@ Spellcasting: At each class level the epic Enlightened Fist continues to increas
 Monk Abilities: The epic Enlightened Fist continues to add their class level to determine Stunning Attacks, Unarmed Damage and Monk movement speed increase.
 
 Epic Enlightened Fist Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Dodge, Epic Energy Resistance, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Focused Spell Penetration, Great Wisdom, Improved Combat Casting, Improved Ki Strike, Improved Spell Resistance, Improved Stunning Fist, Legendary Wrestler, Self-Concealment, Superior Initiative, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205178" lang="en" sex="m">Epic Morninglord of Lathander</entry>
   <entry id="205179" lang="en" sex="m">At epic levels, the Morninglord becomes a living vessel of Lathander's divine light. Their presence alone is a balm to the wounded and a bane to the undead. Their power to turn, heal, and sanctify grows radiant and awe-inspiring, suffused with the hope and renewal of dawn itself. Wherever they walk, darkness falters, and the sun seems to shine a little brighter.
 
@@ -75152,7 +75158,7 @@ Learn Secret: The epic Disciple of Asmodeus continues to gain a use of Learn Sec
 Spellcasting: Every other level the epic Disciple of Asmodeus continues to increase in arcane caster level (and spells known, if applicable).
 
 Epic Disciple of Asmodeus Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Constitution, Great Intelligence, Ignore Material Components, Improved Combat Casting, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205206" lang="en" sex="m">Epic Suel Archanamach</entry>
   <entry id="205207" lang="en" sex="m">An epic Suel Archanamach is a living relic of an empire that once challenged the gods themselves. Blade and spell move as one in their hands ,  seamless, relentless, unstoppable. They slip through magical wards as if they were cobwebs, unraveling spells and spellcasters alike with practiced ease. Masters of dispelling, cloaked in illusions, and steeped in ancient arcane warfare, these elusive warriors are nightmares whispered among archmages ,  for when a Suel Archanamach comes, even the most powerful wizard may find no sanctuary.
 
@@ -75230,7 +75236,7 @@ Voice of the Dragon: the epic Talon of Tiamat continues to gain a +2 bonus to In
 Spellcasting: At each odd class level the epic Talon of Tiamat continues to increase in arcane caster level (and spells known, if applicable).
 
 Epic Talon of Tiamat Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Constitution, Ignore Material Components, Improved Combat Casting, Improved Whirlwind Attack, Superior Initiative.</entry>
+Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Leadership, Epic Prowess, Epic Spell Focus, Epic Spell Penetration, Epic Reputation, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Forge Epic Ring, Great Charisma, Great Intelligence, Great Constitution, Ignore Material Components, Improved Combat Casting, Improved Whirlwind Attack, Superior Initiative, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205220" lang="en" sex="m">Epic Frost Mage</entry>
   <entry id="205221" lang="en" sex="m">Epic Frost Mages are winter incarnate, beings of arcane chill whose mere presence numbs the soul. Having transcended the mortal limits of frost magic, they wield glacial power with terrifying precision. Their spells freeze blood in veins and shatter stone with creeping ice. The frost itself answers their call, howling through the world as an extension of their will. 
 
