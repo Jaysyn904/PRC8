@@ -78,9 +78,17 @@ void main()
 {
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
+	
+	SendMessageToPC(oPC,
+    "NWNxEE=" + IntToString(GetPRCSwitch(PRC_NWNXEE_ENABLED)) +
+    " PRCx="  + IntToString(GetPRCSwitch(PRC_PRCX_ENABLED)));
+	
     int nHD = GetHitDice(oPC);
     itemproperty ipIP;
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
 
     //darkvision
     ipIP = ItemPropertyDarkvision();

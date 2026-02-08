@@ -205,6 +205,8 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         itemproperty ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_ELECTRICAL, IP_CONST_DAMAGERESIST_5);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
+
+	
     if (GetHasFeat(FEAT_WAR_DOMAIN_POWER, oPC))
     {
         int nWarFocus = GetPersistantLocalInt(oPC, "WarDomainWeaponPersistent");
@@ -239,7 +241,8 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         }
 
     }
-    if (GetHasFeat(FEAT_DOMAIN_POWER_METAL, oPC))
+    
+	if (GetHasFeat(FEAT_DOMAIN_POWER_METAL, oPC))
     {
         int nWFocus = GetPersistantLocalInt(oPC, "MetalDomainWeaponPersistent");
         // If they've already chosen a weapon, reapply the feats if they dont have it
@@ -297,8 +300,17 @@ void main()
 
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
-    if(DEBUG) DoDebug("PRC Domain Skin is running");
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
+	
+    if(DEBUG) DoDebug("prc_domain_skin: Starting");
+	
+	if (bFuncs)
+	{
+		if(DEBUG) DoDebug("prc_domain_skin: NWNxEE detected.");
+	}
 
     // This is above the check to stop because AddDomainFeat needs this to run beforehand.
     // Puts the domain power feats on the skin for the appropriate domains.

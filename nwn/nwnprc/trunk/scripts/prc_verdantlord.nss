@@ -5,6 +5,14 @@
 //::///////////////////////////////////////////////
 #include "prc_inc_spells"
 
+void AddVerdantHealing(object oSkin,int iFH)
+{
+     if(GetLocalInt(oSkin, "VerdantLord_FastHealing") == iFH) return;
+
+     SetCompositeBonus(oSkin,"VerdantLord_FastHealing",iFH,ITEM_PROPERTY_REGENERATION);
+
+}
+
 void main()
 {
 //:: Declare major variables
@@ -16,6 +24,10 @@ void main()
 	effect eEffect;
 	
 	itemproperty ipIP;
+	
+    int iFH = GetHasFeat(FEAT_SOL_FAST_HEALING_1,oPC);
+
+    if (iFH) AddVerdantHealing(oSkin,iFH);	
 
 //:: Setup Gaea’s Embrace ///////////////////////////////////////////////////////////////
 	/* Gaea’s Embrace: At 10th level, the verdant lord permanently becomes a plant 

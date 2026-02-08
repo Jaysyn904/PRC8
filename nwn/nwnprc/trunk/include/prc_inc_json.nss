@@ -582,8 +582,6 @@ effect CelestialTemplateEffects(int nHD)
     return eEffects;
 }
 
-
-
 void ReallyEquipItemInSlot(object oNPC, object oItem, int nSlot)
 {
   if (GetItemInSlot(nSlot) != oItem)
@@ -687,6 +685,148 @@ void ApplyPseudonaturalEffects(object oCreature)
 //::---------------------------------------------|
 //:: JSON functions                              |
 //::---------------------------------------------|
+
+//:: Get the first spell ID that a creature knows (not memorized, but known)  
+//:: Returns -1 if no spells are found  
+int json_GetFirstKnownSpell(json jCreature)  
+{  
+    // Store the creature JSON for later use by GetNext  
+    SetLocalJson(GetModule(), "JSON_SPELL_CREATURE", jCreature);  
+    SetLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX", 0);  
+    SetLocalInt(GetModule(), "JSON_SPELL_LEVEL", 0);  
+    SetLocalInt(GetModule(), "JSON_SPELL_INDEX", 0);  
+      
+    // Get the ClassList  
+    json jClassList = GffGetList(jCreature, "ClassList");  
+    if (jClassList == JsonNull())  
+    {  
+        if(DEBUG) DoDebug("json_GetFirstKnownSpell: No ClassList found");  
+        return -1;  
+    }  
+      
+    int nClassCount = JsonGetLength(jClassList);  
+    int iClass, iSpellLevel, iSpell;  
+      
+    // Iterate through all classes  
+    for (iClass = 0; iClass < nClassCount; iClass++)  
+    {  
+        json jClass = JsonArrayGet(jClassList, iClass);  
+        if (jClass == JsonNull()) continue;  
+          
+        // Check all spell levels (0-9)  
+        for (iSpellLevel = 0; iSpellLevel <= 9; iSpellLevel++)  
+        {  
+            string sKnownList = "KnownList" + IntToString(iSpellLevel);  
+            json jKnownList = GffGetList(jClass, sKnownList);  
+            if (jKnownList == JsonNull()) continue;  
+              
+            int nSpellCount = JsonGetLength(jKnownList);  
+              
+            // Look for the first spell  
+            for (iSpell = 0; iSpell < nSpellCount; iSpell++)  
+            {  
+                json jSpell = JsonArrayGet(jKnownList, iSpell);  
+                if (jSpell == JsonNull()) continue;  
+                  
+                json jSpellID = GffGetWord(jSpell, "Spell");  
+                if (jSpellID != JsonNull())  
+                {  
+                    int nSpellID = JsonGetInt(jSpellID);  
+                      
+                    // Update tracking variables for next call  
+                    SetLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX", iClass);  
+                    SetLocalInt(GetModule(), "JSON_SPELL_LEVEL", iSpellLevel);  
+                    SetLocalInt(GetModule(), "JSON_SPELL_INDEX", iSpell + 1);  
+                      
+                    return nSpellID;  
+                }  
+            }  
+        }  
+    }  
+      
+    // Clean up when done  
+    DeleteLocalJson(GetModule(), "JSON_SPELL_CREATURE");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_LEVEL");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_INDEX");  
+      
+    return -1; // No more spells found  
+}  
+  
+//:: Get the next spell ID from the creature's known spells  
+//:: Returns -1 if no more spells are found  
+int json_GetNextKnownSpell()  
+{  
+    json jCreature = GetLocalJson(GetModule(), "JSON_SPELL_CREATURE");  
+    if (jCreature == JsonNull())  
+        return -1;  
+          
+    int nClassIndex = GetLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX");  
+    int nSpellLevel = GetLocalInt(GetModule(), "JSON_SPELL_LEVEL");  
+    int nSpellIndex = GetLocalInt(GetModule(), "JSON_SPELL_INDEX");  
+      
+    // Get the ClassList  
+    json jClassList = GffGetList(jCreature, "ClassList");  
+    if (jClassList == JsonNull())  
+        return -1;  
+      
+    int nClassCount = JsonGetLength(jClassList);  
+    int iClass, iSpellLevel, iSpell;  
+      
+    // Continue from where we left off  
+    for (iClass = nClassIndex; iClass < nClassCount; iClass++)  
+    {  
+        json jClass = JsonArrayGet(jClassList, iClass);  
+        if (jClass == JsonNull()) continue;  
+          
+        // Check all spell levels (0-9)  
+        for (iSpellLevel = nSpellLevel; iSpellLevel <= 9; iSpellLevel++)  
+        {  
+            string sKnownList = "KnownList" + IntToString(iSpellLevel);  
+            json jKnownList = GffGetList(jClass, sKnownList);  
+            if (jKnownList == JsonNull()) continue;  
+              
+            int nSpellCount = JsonGetLength(jKnownList);  
+              
+            // Start from saved index if same class and level, otherwise start from 0  
+            int nStartIndex = (iClass == nClassIndex && iSpellLevel == nSpellLevel) ? nSpellIndex : 0;  
+              
+            for (iSpell = nStartIndex; iSpell < nSpellCount; iSpell++)  
+            {  
+                json jSpell = JsonArrayGet(jKnownList, iSpell);  
+                if (jSpell == JsonNull()) continue;  
+                  
+                json jSpellID = GffGetWord(jSpell, "Spell");  
+                if (jSpellID != JsonNull())  
+                {  
+                    int nSpellID = JsonGetInt(jSpellID);  
+                      
+                    // Update tracking variables for next call  
+                    SetLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX", iClass);  
+                    SetLocalInt(GetModule(), "JSON_SPELL_LEVEL", iSpellLevel);  
+                    SetLocalInt(GetModule(), "JSON_SPELL_INDEX", iSpell + 1);  
+                      
+                    return nSpellID;  
+                }  
+            }  
+              
+            // Reset spell index for next spell level  
+            nSpellIndex = 0;  
+        }  
+          
+        // Reset spell level for next class  
+        nSpellLevel = 0;  
+    }  
+      
+    // Clean up when done  
+    DeleteLocalJson(GetModule(), "JSON_SPELL_CREATURE");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_CLASS_INDEX");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_LEVEL");  
+    DeleteLocalInt(GetModule(), "JSON_SPELL_INDEX");  
+      
+    return -1; // No more spells found  
+}  
+  
 
 //:: Returns the Constitution value from a GFF creature UTC
 int json_GetCONValue(json jCreature)

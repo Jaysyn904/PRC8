@@ -480,7 +480,7 @@ int Debug_ProcessChatCommand(object oPC, string sCommand)
             HelpText(oPC, "=== INT: " + IntToString(GetAbilityScore(oTarget, ABILITY_INTELLIGENCE, TRUE)) + " / " + IntToString(GetAbilityScore(oTarget, ABILITY_INTELLIGENCE, FALSE)));
             HelpText(oPC, "=== WIS: " + IntToString(GetAbilityScore(oTarget, ABILITY_WISDOM, TRUE)) + " / " + IntToString(GetAbilityScore(oTarget, ABILITY_WISDOM, FALSE)));
             HelpText(oPC, "=== CHA: " + IntToString(GetAbilityScore(oTarget, ABILITY_CHARISMA, TRUE)) + " / " + IntToString(GetAbilityScore(oTarget, ABILITY_CHARISMA, FALSE)));
-            if (GetPersistantLocalInt(oTarget, SHIFTER_ISSHIFTED_MARKER) && GetPRCSwitch(PRC_NWNX_FUNCS))
+            if (GetPersistantLocalInt(oTarget, SHIFTER_ISSHIFTED_MARKER) && GetPRCSwitch(PRC_NWNXEE_ENABLED))
             {
                 int iSTR = GetPersistantLocalInt(oTarget, "Shifting_NWNXSTRAdjust");
                 int iDEX = GetPersistantLocalInt(oTarget, "Shifting_NWNXDEXAdjust");
@@ -664,7 +664,7 @@ int Debug_ProcessChatCommand(object oPC, string sCommand)
             }
 /*            else if (GetStringMatchesAbbreviation(sChangeWhat, CMD_ABILITY))
             {
-                if (!GetPRCSwitch(PRC_NWNX_FUNCS))
+                if (!GetPRCSwitch(PRC_NWNXEE_ENABLED))
                     HelpText(oPC, "This command only works if NWNX funcs is installed");
                 else
                 {

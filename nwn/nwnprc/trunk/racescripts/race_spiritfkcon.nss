@@ -49,9 +49,13 @@ void main()
 {
     object oPC = GetPCSpeaker();
     object oSkin = GetPCSkin(oPC);
+	
     int nValue = GetLocalInt(oPC, DYNCONV_VARIABLE);
     int nStage = GetStage(oPC);
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
 
     // Check which of the conversation scripts called the scripts
     if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort

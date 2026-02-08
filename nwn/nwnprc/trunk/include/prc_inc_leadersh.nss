@@ -249,7 +249,7 @@ void CancelGreatFeats(object oSpawn)
     else if(GetHasFeat(FEAT_EPIC_GREAT_CHARISMA_1, oSpawn)) nGreatCha = 1;
 
     //apply penalties to counter the GreatX feats
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
     {
         if(nGreatStr) PRC_Funcs_ModAbilityScore(oSpawn, ABILITY_STRENGTH, -nGreatStr);
         if(nGreatDex) PRC_Funcs_ModAbilityScore(oSpawn, ABILITY_DEXTERITY, -nGreatDex);

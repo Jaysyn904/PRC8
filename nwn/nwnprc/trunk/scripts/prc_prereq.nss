@@ -436,6 +436,19 @@ void DemiLich(object oPC)
     }
 }
 
+void CoCDodgePrereq(object oPC)
+{
+    //Champion of Corellon
+    SetLocalInt(oPC, "PRC_PrereqCoC", 1);
+    if(GetHasFeat(FEAT_DODGE, oPC) || 
+		GetHasFeat(FEAT_EXPEDITIOUS_DODGE, oPC) || 
+		GetHasFeat(FEAT_DESERT_WIND_DODGE, oPC) || 
+		GetHasFeat(FEAT_MIDNIGHT_DODGE, oPC))
+	{
+        DeleteLocalInt(oPC, "PRC_PrereqCoC");
+	}		
+}
+
 void reqDomains()
 {
     //Black Flame Zealot
@@ -1986,6 +1999,7 @@ void main()
     AOTSPreReqs(oPC);
     AbChamp(oPC);
     AnimaMageReq(oPC);
+	CoCDodgePrereq(oPC);
     Cultist(oPC);
     DalQuor(oPC);
     DemiLich(oPC);

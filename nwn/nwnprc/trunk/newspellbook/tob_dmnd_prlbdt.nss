@@ -27,21 +27,16 @@
 #include "tob_movehook"
 ////#include "prc_alterations"
 
-int GetApproximateAPR(object oCreature)
+int GetAPR(object oCreature)
 {
-    int nBAB = GetBaseAttackBonus(oCreature);
-    int nAttacks = 1;
-
-    if (nBAB >= 6)  nAttacks++;
-    if (nBAB >= 11) nAttacks++;
-    if (nBAB >= 16) nAttacks++;
+	int nAPR = GetAttacksPerRound(oCreature, TRUE);
 
     if (PRCGetHasEffect(EFFECT_TYPE_HASTE, oCreature))
     {
-        nAttacks++;
+        nAPR++;
     }
 
-    return nAttacks;
+    return nAPR;
 }
 
 void main()
@@ -109,7 +104,7 @@ void main()
 				GetCurrentAction(oEnemy) == ACTION_ATTACKOBJECT &&  // Must be attacking
 				GetAttackTarget(oEnemy) == oTarget)  // Must be attacking this PC
 			{
-				int nAPR = GetApproximateAPR(oEnemy);
+				int nAPR = GetAPR(oEnemy);
 				nBonus += 2 * nAPR;
 
 				string s = "Enemy: " + GetName(oEnemy) + " APR: " + IntToString(nAPR);
@@ -119,23 +114,25 @@ void main()
 			oEnemy = GetNextObjectInShape(SHAPE_SPHERE, 5.0, lLoc);
 		}
 
-		if (nBonus > 0)
-		{
-			if(GetLocalInt(oTarget, "PearlOfBlackDoubt_JustHit"))
-			{
-				DeleteLocalInt(oTarget, "PearlOfBlackDoubt_JustHit");
-				// Skip this heartbeat's bonus calculation
-				return;
-			}
-
-			if(DEBUG) DoDebug("Applying AC Bonus: " + IntToString(nBonus));
-			
-			effect eAC 	= EffectACIncrease(nBonus);
-			eAC 		= ExtraordinaryEffect(eAC);
-			eAC 		= TagEffect(eAC, "PEARL_OF_BLACK_DOUBT_BONUS");			
-			
-			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAC, oTarget, 5.9);
-			SetLocalInt(oTarget, "PearlOfBlackDoubtBonus", nBonus);
+		if (nBonus > 0)  
+		{  
+			if(GetLocalInt(oTarget, "PearlOfBlackDoubt_JustHit"))  
+			{  
+				DeleteLocalInt(oTarget, "PearlOfBlackDoubt_JustHit");  
+				return;  
+			}  
+		  
+			// Cap bonus at +20  
+			if(nBonus > 20) nBonus = 20;  
+		  
+			if(DEBUG) DoDebug("Applying AC Bonus: " + IntToString(nBonus));  
+			  
+			effect eAC 	= EffectACIncrease(nBonus);  
+			eAC 		= ExtraordinaryEffect(eAC);  
+			eAC 		= TagEffect(eAC, "PEARL_OF_BLACK_DOUBT_BONUS");			  
+			  
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAC, oTarget, 5.9);  
+			SetLocalInt(oTarget, "PearlOfBlackDoubtBonus", nBonus);  
 		}
 		else
 		{

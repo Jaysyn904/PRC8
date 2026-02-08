@@ -2393,7 +2393,15 @@ const string PRC_XP_MAX_LEVEL_DIFF                   = "PRC_XP_MAX_LEVEL_DIFF";
  */
 const string PRC_XP_GIVE_XP_TO_NON_PC_FACTIONS       = "PRC_XP_GIVE_XP_TO_NON_PC_FACTIONS";
 
+/******************************************************************************\
+*                      		NWNxEE switches									   *
+\******************************************************************************/
 
+//:: This switch enables the PRC8 -> NWNxEE shims.  Don't use without NWNxEE
+const string PRC_PRCX_ENABLED							= "PRC_PRCX_ENABLED";
+
+//:: This switch is set automatically after prc_onmodload detects NWNxEE.
+const string PRC_NWNXEE_ENABLED                         = "PRC_NWNXEE_ENABLED";
 
 
 /******************************************************************************\
@@ -2516,10 +2524,6 @@ const string PRC_LETOSCRIPT_PORTAL_PASSWORD          = "PRC_LETOSCRIPT_PORTAL_PA
  * multiple characters have the same name)
  */
 const string PRC_LETOSCRIPT_GETNEWESTBIC             = "PRC_LETOSCRIPT_GETNEWESTBIC";
-
-//This switch is set automatically after prc_onmodload detects NWNX_Funcs plugin
-const string PRC_NWNX_FUNCS                          = "PRC_NWNX_FUNCS";
-
 
 /******************************************************************************\
 *                          ConvoCC switches  [DEFUNCT]                         *

@@ -514,7 +514,7 @@ void SummonCelestialCompanion(object oPC, string sResRef, int nHD, int nHealerLv
         nStat   += nEpicBonus / 2;
 
     eBonus = EffectACIncrease(nArmour);
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
     {
         PRC_Funcs_ModAbilityScore(oComp, ABILITY_STRENGTH,     nStat);
         PRC_Funcs_ModAbilityScore(oComp, ABILITY_DEXTERITY,    nStat);

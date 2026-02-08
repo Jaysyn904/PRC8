@@ -6,12 +6,6 @@
 2  CraftArmor        SKILL   25                   4         
 3  CraftWeapon       SKILL   26                   4         
 4  ExtTurn           FEAT    13                   ****      
-5  Sun_Domain        FEATOR  322                  ****      
-6  Strength_Domain   FEATOR  307                  ****      
-7  Protection_Domain FEATOR  308                  ****      
-8  Good_Domain       FEATOR  317                  ****      
-9  Nobility_Domain   FEATOR  4055                 ****      
-10 Renewal_Domain    FEATOR  4060                 ****      
-11 ScriptVar         VAR     PRC_DivSpell3        0         
-12 ScriptVar         VAR     PRC_PrereqMornLord   0         
-13 ScriptVar         VAR     PRC_AllowMorninglord 0         
+5  ScriptVar         VAR     PRC_DivSpell3        0         
+6  ScriptVar         VAR     PRC_PrereqMornLord   0         
+7  ScriptVar         VAR     PRC_AllowMorninglord 0         

@@ -867,6 +867,7 @@ void CreateSwitchNameArray()
     //if you add more switches, add them to this list
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DEBUG);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_COMBAT_DEBUG);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_PRCX_ENABLED);
 	
 //craft
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_CRAFT);
@@ -1116,7 +1117,8 @@ void CreateSwitchNameArray()
 //general
 
 //PW
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_ENABLE);
+// ConvoCC is unneeded now.
+/*     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_ENABLE);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_AVARIEL_WINGS);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_FEYRI_WINGS);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_AASIMAR_WINGS);
@@ -1146,7 +1148,7 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_MAX_STAT);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_SKILL_MULTIPLIER);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_SKILL_BONUS);
-    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_CUSTOM_EXIT_SCRIPT);
+    array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CONVOCC_CUSTOM_EXIT_SCRIPT); */
 
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_TRUENAME_CR_MULTIPLIER);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_TRUENAME_LEVEL_BONUS);

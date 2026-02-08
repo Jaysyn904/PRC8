@@ -13,6 +13,22 @@
 #include "prc_x2_itemprop"
 #include "inc_item_props"
 
+void ApplyDiamondDragonEE(object oPC, int nAbility, int nNewBonus, string sLocal)
+{
+    int nOldBonus = GetPersistantLocalInt(oPC, sLocal);
+
+    if (DEBUG)
+        DoDebug("DiaDrag EE: ability=" + IntToString(nAbility)
+              + " old=" + IntToString(nOldBonus)
+              + " new=" + IntToString(nNewBonus));
+
+    if (nOldBonus == nNewBonus)
+        return;
+
+    SetPersistantLocalInt(oPC, sLocal + "_NEW", nNewBonus);
+    ExecuteScript("prcx_diadra_stat", oPC);
+}
+
 //removes channeled wings after relogging or server restart
 void WingCorrection(object oPC, int nEvent)
 {
@@ -43,7 +59,10 @@ void TailCorrection(object oPC, int nEvent)
 void main()
 {
 
-    int nEvent = GetRunningEvent();
+    int bNWNxEE  	= GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int bPRCx		= GetPRCSwitch(PRC_PRCX_ENABLED);
+	
+	int nEvent = GetRunningEvent();
     if(DEBUG) DoDebug("psi_diadra running, event: " + IntToString(nEvent));
 
     object oPC = OBJECT_SELF;
@@ -71,9 +90,22 @@ void main()
 		nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_STR_9, oPC) ? 9 : nBonus;
 
         nDiff = nBonus - iTest;
+		
+		if (nDiff != 0)
+		{
+			if (bNWNxEE && bPRCx)
+			{
+				ApplyDiamondDragonEE(oPC, ABILITY_STRENGTH, nBonus, "NWNX_DiaDragStr");
+			}
+			else
+			{
+				SetCompositeBonus(oSkin, "DrAug_STR", nBonus,
+					ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_STR);
+			}
+		}		
 
-        if(nDiff != 0)
-             SetCompositeBonus(oSkin, "DrAug_STR", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_STR);
+/*         if(nDiff != 0)
+             SetCompositeBonus(oSkin, "DrAug_STR", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_STR); */
 
         //Dex Augmentation feats
         iTest = GetPersistantLocalInt(oPC, "NWNX_DiaDragDex");
@@ -88,9 +120,22 @@ void main()
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_DEX_9, oPC) ? 9 : nBonus;
 		
         nDiff = nBonus - iTest;
+		
+		if (nDiff != 0)
+		{
+			if (bNWNxEE && bPRCx)
+			{
+				ApplyDiamondDragonEE(oPC, ABILITY_DEXTERITY, nBonus, "NWNX_DiaDragDex");
+			}
+			else
+			{
+				SetCompositeBonus(oSkin, "DrAug_DEX", nBonus,
+					ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_DEX);
+			}
+		}			
 
-        if(nDiff != 0)
-             SetCompositeBonus(oSkin, "DrAug_DEX", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_DEX);
+/*         if(nDiff != 0)
+             SetCompositeBonus(oSkin, "DrAug_DEX", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_DEX); */
 
         //Con Augmentation feats
         iTest = GetPersistantLocalInt(oPC, "NWNX_DiaDragCon");
@@ -105,9 +150,22 @@ void main()
         nBonus = GetHasFeat(FEAT_DRAGON_AUGMENT_CON_9, oPC) ? 9 : nBonus;
 		
         nDiff = nBonus - iTest;
+		
+		if (nDiff != 0)
+		{
+			if (bNWNxEE && bPRCx)
+			{
+				ApplyDiamondDragonEE(oPC, ABILITY_CONSTITUTION, nBonus, "NWNX_DiaDragCon");
+			}
+			else
+			{
+				SetCompositeBonus(oSkin, "DrAug_CON", nBonus,
+					ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+			}
+		}			
 
-        if(nDiff != 0)
-             SetCompositeBonus(oSkin, "DrAug_CON", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
+/*         if(nDiff != 0)
+             SetCompositeBonus(oSkin, "DrAug_CON", nBonus, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON); */
     }
 
     //Every heartbeat, perform wing and tail status checks to see if they expired

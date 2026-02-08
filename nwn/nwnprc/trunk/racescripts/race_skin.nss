@@ -12,8 +12,12 @@ void main()
 {
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
-    itemproperty ipIP;
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
+    
+	itemproperty ipIP;
 	
 	if(DEBUG) DoDebug("race_skin >> Entering main function");
     
@@ -171,9 +175,45 @@ void main()
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
     }
 
-    //natural armor 1-10
-    // Note: This bonus will be Dodge bonus no matter what IP_CONST you specify.
-    int nAC;
+	//:: Natural Armor feats 1–19
+	int nAC = 0;
+	
+	if (GetHasFeat(FEAT_NATARM_19))      nAC = 19;
+	else if (GetHasFeat(FEAT_NATARM_18)) nAC = 18;
+	else if (GetHasFeat(FEAT_NATARM_17)) nAC = 17;
+	else if (GetHasFeat(FEAT_NATARM_16)) nAC = 16;
+	else if (GetHasFeat(FEAT_NATARM_15)) nAC = 15;
+	else if (GetHasFeat(FEAT_NATARM_14)) nAC = 14;
+	else if (GetHasFeat(FEAT_NATARM_13)) nAC = 13;
+	else if (GetHasFeat(FEAT_NATARM_12)) nAC = 12;
+	else if (GetHasFeat(FEAT_NATARM_11)) nAC = 11;
+	else if (GetHasFeat(FEAT_NATARM_10)) nAC = 10;
+	else if (GetHasFeat(FEAT_NATARM_9))  nAC = 9;
+	else if (GetHasFeat(FEAT_NATARM_8))  nAC = 8;
+	else if (GetHasFeat(FEAT_NATARM_7))  nAC = 7;
+	else if (GetHasFeat(FEAT_NATARM_6))  nAC = 6;
+	else if (GetHasFeat(FEAT_NATARM_5))  nAC = 5;
+	else if (GetHasFeat(FEAT_NATARM_4))  nAC = 4;
+	else if (GetHasFeat(FEAT_NATARM_3))  nAC = 3;
+	else if (GetHasFeat(FEAT_NATARM_2))  nAC = 2;
+	else if (GetHasFeat(FEAT_NATARM_1))  nAC = 1;
+
+	if (nAC > 0)
+	{
+		if (bFuncs)
+		{
+			//:: Fire NWNxEE shim to set base AC
+			SetLocalInt(oPC, "PRC_EE_BASEAC", nAC);
+			ExecuteScript("prcx_set_ac", oPC);
+		}
+		else
+		{
+			//:: Vanilla fallback
+			SetCompositeBonus(oSkin, "RacialNaturalArmor", nAC, ITEM_PROPERTY_AC_BONUS);
+		}
+	}
+		
+/*     int nAC;
     if(GetHasFeat(FEAT_NATARM_19))      nAC = 19;
     else if(GetHasFeat(FEAT_NATARM_18)) nAC = 18;
     else if(GetHasFeat(FEAT_NATARM_17)) nAC = 17;
@@ -194,7 +234,7 @@ void main()
     else if(GetHasFeat(FEAT_NATARM_2))  nAC = 2;
     else if(GetHasFeat(FEAT_NATARM_1))  nAC = 1;
 
-    if(nAC) SetCompositeBonus(oSkin, "RacialNaturalArmor", nAC, ITEM_PROPERTY_AC_BONUS);
+    if(nAC) SetCompositeBonus(oSkin, "RacialNaturalArmor", nAC, ITEM_PROPERTY_AC_BONUS); */
 
 
     if (GetHasFeat(FEAT_ABERRANT_DEEPSPAWN, oPC))

@@ -19607,9 +19607,11 @@ Use: Selected.
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48696" lang="en" sex="m">Nimbus of Light</entry>
   <entry id="48697" lang="en" sex="m">Type of Feat: Exalted
-Prerequisite: Cha 15, Nimbus of Light, Good Alignment*.
-Specifics: You can increase the intensity of the light surrounding you to damage undead creatures. At will, as a free action, you can empower the radiance surrounding you into a blazing glow that sheds bright light in a 10-foot radius. Undead within 10 feet of you take 1d4 damage per round they remain within your halo.
-Use: Selected.
+Prerequisite: Good alignment
+You are cloaked in a radiant light that marks you as a servant of the purest ideals. All who look upon you know without a doubt that you are a champion of good and are favored by the powers of the Upper Planes. The nimbus may take the form of a cloud surrounding your entire body, or it may appear as beams of light around your head.
+Good creatures automatically recognize the radiance surrounding you as a sign of your purity and devotion to the powers of good. You gain a +2 circumstance bonus on all Diplomacy and Sense Motive checks made when interacting with good creatures.
+Your radiance sheds light as a common lamp: bright light to a radius of 5 feet and shadowy illumination to 10 feet. You can extinguish this radiance at will and reactivate it again as a free action.
+Use: Automatic.
 
 (*Note: You can select this feat even when evil or neutral, but it will not give you any benefits, so be smart and don't choose it if you can't use it.)</entry>
   <entry id="48698" lang="en" sex="m">Intuitive Attack</entry>
@@ -23006,6 +23008,9 @@ Favored Class (Rogue): A multiclass shadowswyft's rogue class does not count whe
 Special Abilities:
 
 - Darkvision: Shadowswyfts can see in the dark.
+- Weapon Proficiency (Simple): All shadowswift are proficient with Simple Weapons.
+- Weapon Proficiency (Martial): All shadowswift are proficient with Martial Weapons.
+- Armor Proficiency (Lightl): All shadowswift are proficient with Light armor.
 - Base movement of 40.
 - Skill Affinity (Hide): +4 racial bonus to Hide checks.
 - Skill Affinity (Move Silently): +4 racial bonus to Move Silently checks.
@@ -27512,7 +27517,7 @@ REQUIREMENTS:
 
 Race: Any elven or half-elven.
 Alignment: Any non-evil.
-Feats: All Martial Weapon Proficiencies, Heavy Armor Proficiency, Dodge, Expertise, Weapon Focus with Longsword or Weapon Proficiency with Thinblade or Courtblade.
+Feats: All Martial Weapon Proficiencies, Mounted Combat, Heavy Armor Proficiency, Dodge, Expertise, Weapon Focus with Longsword or Weapon Proficiency with Thinblade or Courtblade.
 Skills: Lore 2, Persuade 4.
 Base Attack Bonus: +7.
 Special: Must worship Corellon Larethian. (Clerics taking this class must have two of the following domains: Chaos, Good, Magic, Protection, War)
@@ -47005,7 +47010,7 @@ All frostragers are barbarians to some degree, although many are multiclass barb
 
 - Hit Die: d12 
 - Proficiencies: A frostrager does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -47063,7 +47068,7 @@ Most sacred purifiers are clerics (often of Pelor), but paladins have also been 
 
 - Hit Die: d8 
 - Proficiencies: A sacred purifier does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -47109,7 +47114,7 @@ If you have a disciplined worldview and a certain level of combat prowess, and y
 
 - Hit Die: d8 
 - Proficiencies: A serene guardian does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48298,7 +48303,7 @@ Fighters and paladins are well served by becoming battlesmiths. Spellcasters are
 
 - Hit Die: d10
 - Proficiencies: A battlesmith gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48349,7 +48354,7 @@ Some believe that the ultimate expression of the warforged experiment is the jug
 
 - Hit Die: d12
 - Proficiencies: A Warforged Juggernaut gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48415,7 +48420,7 @@ As members of this prestige class must have the ability to cast arcane spells, f
 
 - Hit Die: d4
 - Proficiencies: A Frost Mage gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48463,7 +48468,7 @@ Most wayfarer guides are wizards or sorcerers, though a few clerics with access 
 
 - Hit Die: d6
 - Proficiencies: A Wayfarer Guide gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48614,7 +48619,7 @@ Over a dozen deities have worshipers who are paladins, promoting law and good ac
 
 - Hit Die: d8
 - Proficiencies: Knights of the Weave gain no proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -48654,7 +48659,7 @@ Spelldancers are an energetic sort of spellcaster who draw on the quasi-primal e
 
 - Hit Die: d6
 - Proficiencies: Spelldancers gain no proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -50362,7 +50367,7 @@ Ur-priests despise gods. However, a small number of them have learned to tap int
 
 - Hit Die: d8 
 - Proficiencies: An ur-priest does not gain any additional weapon or armor proficiencies. 
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -51817,7 +51822,7 @@ and her companions. The wild mage accepts this as the price of her convictions.
 
 - Hit Die: d4
 - Proficiencies: A Wild Mage gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -51863,7 +51868,7 @@ Other spellcasters don't understand the force missile mages' dedication to only 
 
 - Hit Die: d4
 - Proficiencies: A Force Missile gains no additional proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -68727,7 +68732,7 @@ Magic is evil. Magic tempts. Magic perverts. Magic corrupts. Anyone who cannot e
 
 - Hit Die: d12
 - Proficiencies: Forsakers gain no proficiencies
-- Skill Points: 2+ Int Modifier. 
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS: 
 
@@ -75544,6 +75549,159 @@ Special Abilities:
   <entry id="210012" lang="en" sex="m">Special Skirmish +d6</entry>
   <entry id="210013" lang="en" sex="m">Special Skirmish +9d6</entry>
   <entry id="210014" lang="en" sex="m">Special Skirmish +10d6</entry>
+  <entry id="210020" lang="en" sex="m">Dragon Augmentation: Strength +4</entry>
+  <entry id="210021" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 15
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +4 to Strength</entry>
+  <entry id="210022" lang="en" sex="m">Dragon Augmentation: Strength +5</entry>
+  <entry id="210023" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 20
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +5 to Strength</entry>
+  <entry id="210024" lang="en" sex="m">Dragon Augmentation: Strength +6</entry>
+  <entry id="210025" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 25
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +6 to Strength</entry>
+  <entry id="210026" lang="en" sex="m">Dragon Augmentation: Strength +7</entry>
+  <entry id="210027" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 30
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +7 to Strength</entry>
+  <entry id="210028" lang="en" sex="m">Dragon Augmentation: Strength +8</entry>
+  <entry id="210029" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 35
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +8 to Strength</entry>
+  <entry id="210030" lang="en" sex="m">Dragon Augmentation: Strength +9</entry>
+  <entry id="210031" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 40
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +9 to Strength</entry>
+  <entry id="210032" lang="en" sex="m">Dragon Augmentation: Strength +10</entry>
+  <entry id="210033" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 45
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +10 to Strength</entry>
+  <entry id="210034" lang="en" sex="m">****</entry>
+  <entry id="210035" lang="en" sex="m">****</entry>
+  <entry id="210036" lang="en" sex="m">Dragon Augmentation: Dexterity +4</entry>
+  <entry id="210037" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 15
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +4 to Dexterity</entry>
+  <entry id="210038" lang="en" sex="m">Dragon Augmentation: Dexterity +5</entry>
+  <entry id="210039" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 20
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +5 to Dexterity</entry>
+  <entry id="210040" lang="en" sex="m">Dragon Augmentation: Dexterity +6</entry>
+  <entry id="210041" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 25
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +6 to Dexterity</entry>
+  <entry id="210042" lang="en" sex="m">Dragon Augmentation: Dexterity +7</entry>
+  <entry id="210043" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 30
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +7 to Dexterity</entry>
+  <entry id="210044" lang="en" sex="m">Dragon Augmentation: Dexterity +8</entry>
+  <entry id="210045" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 35
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +8 to Dexterity</entry>
+  <entry id="210046" lang="en" sex="m">Dragon Augmentation: Dexterity +9</entry>
+  <entry id="210047" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 40
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +9 to Dexterity</entry>
+  <entry id="210048" lang="en" sex="m">Dragon Augmentation: Dexterity +10</entry>
+  <entry id="210049" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 45
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +10 to Dexterity</entry>
+  <entry id="210050" lang="en" sex="m">****</entry>
+  <entry id="210051" lang="en" sex="m">****</entry>
+  <entry id="210052" lang="en" sex="m">Dragon Augmentation: Constitution +4</entry>
+  <entry id="210053" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 15
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +4 to Constitution</entry>
+  <entry id="210054" lang="en" sex="m">Dragon Augmentation: Constitution +5</entry>
+  <entry id="210055" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 20
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +5 to Constitution</entry>
+  <entry id="210056" lang="en" sex="m">Dragon Augmentation: Constitution +6</entry>
+  <entry id="210057" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 25
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +6 to Constitution</entry>
+  <entry id="210058" lang="en" sex="m">Dragon Augmentation: Constitution +7</entry>
+  <entry id="210059" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 30
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +7 to Constitution</entry>
+  <entry id="210060" lang="en" sex="m">Dragon Augmentation: Constitution +8</entry>
+  <entry id="210061" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 35
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +8 to Constitution</entry>
+  <entry id="210062" lang="en" sex="m">Dragon Augmentation: Constitution +9</entry>
+  <entry id="210063" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 40
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +9 to Constitution</entry>
+  <entry id="210064" lang="en" sex="m">Dragon Augmentation: Constitution +10</entry>
+  <entry id="210065" lang="en" sex="m">Type of Feat: Class
+Prerequisite: Diamond Dragon Level 45
+
+Learning to think the way dragons think is more than a matter of mental training. Dragons are extremely fit creatures, and a psionic character must begin to match that fitness as part of learning their mental habits.
+
+Effect: +10 to Constitution</entry>
+  <entry id="210066" lang="en" sex="m">****</entry>
+  <entry id="210067" lang="en" sex="m">****</entry>
   <entry id="210999" lang="en" sex="m">## Vile Martial Strike Expansion ##</entry>
   <entry id="211000" lang="en" sex="m">Vile Martial Strike (Eagle Claw)</entry>
   <entry id="211001" lang="en" sex="m">Vile Martial Strike (Light Lance)</entry>

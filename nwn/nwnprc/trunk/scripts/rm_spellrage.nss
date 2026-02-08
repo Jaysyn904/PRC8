@@ -18,7 +18,8 @@ void main()
 
     if(GetHasSpellEffect(SPELL_SPELL_RAGE, oPC))
     {
-        IncrementRemainingFeatUses(oPC, FEAT_SPELL_RAGE);
+		PRCRemoveSpellEffects(SPELL_SPELL_RAGE, oPC, oPC);  
+		IncrementRemainingFeatUses(oPC, FEAT_SPELL_RAGE); 
         return;
     }
     if(GetHasSpellEffect(SPELLABILITY_BARBARIAN_RAGE, oPC))

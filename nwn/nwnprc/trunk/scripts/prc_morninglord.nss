@@ -35,7 +35,7 @@ void main()
     SetCompositeBonus(oSkin, "SkillMLPer", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_PERFORM);
     SetCompositeBonus(oSkin, "SkillMLCW", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_CRAFT_WEAPON);
     SetCompositeBonus(oSkin, "SkillMLCG", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_CRAFT_GENERAL);
-    SetCompositeBonus(oSkin, "SkillMLCA", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_CRAFT_ALCHEMY);
+    SetCompositeBonus(oSkin, "SkillMLCAL", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_CRAFT_ALCHEMY);
     SetCompositeBonus(oSkin, "SkillMLPoi", nMorninglordLevel, ITEM_PROPERTY_SKILL_BONUS,SKILL_CRAFT_POISON);
     
     if (nMorninglordLevel >= 6)

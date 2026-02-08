@@ -12,106 +12,157 @@
 #include "inc_persistsql"
 #include "prc_craft_cv_inc"
 
-//:: Restore crafting state on login with offline time calculation    
-void RestoreCraftingStateOnLogin(object oPC)        
-{        
-    if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | RestoreCraftingStateOnLogin called for " + GetName(oPC));        
-            
-    // Check switch conditions        
-    if(!(!GetPRCSwitch(PRC_DISABLE_CRAFT) &&        
-         GetPRCSwitch(PRC_CRAFTING_TIME_SCALE) > 1))        
-    {        
-        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Switch conditions not met for crafting restore");        
-        return;        
-    }        
-            
-    if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Switch conditions met, checking for saved crafting state");        
-            
-    if(SQLocalsPlayer_GetInt(oPC, "crafting_active"))        
-    {        
-        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Found active crafting state, restoring...");        
-                
-        // Get basic crafting state        
-        string sUUID = SQLocalsPlayer_GetString(oPC, "crafting_item_uuid");        
-        int nRounds = SQLocalsPlayer_GetInt(oPC, "crafting_rounds");        
-        int nCost = SQLocalsPlayer_GetInt(oPC, "crafting_cost");        
-        int nXP = SQLocalsPlayer_GetInt(oPC, "crafting_xp");        
-        string sFile = SQLocalsPlayer_GetString(oPC, "crafting_file");        
-        int nLine = SQLocalsPlayer_GetInt(oPC, "crafting_line");        
-        int nIPType = SQLocalsPlayer_GetInt(oPC, "crafting_ip_type");        
-        int nIPSubtype = SQLocalsPlayer_GetInt(oPC, "crafting_ip_subtype");        
-        int nIPCostTable = SQLocalsPlayer_GetInt(oPC, "crafting_ip_costtable");        
-        int nIPParam1 = SQLocalsPlayer_GetInt(oPC, "crafting_ip_param1");        
-                
-        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Initial data - UUID: " + sUUID + ", rounds: " + IntToString(nRounds) +        
-                         ", cost: " + IntToString(nCost) + ", xp: " + IntToString(nXP));        
-                
-        // Calculate offline progress        
-        int nLogoutTime = SQLocalsPlayer_GetInt(oPC, "crafting_last_timestamp");        
-        int nCurrentTime = GetCurrentUnixTimestamp();        
-        if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | GetCurrentUnixTimestamp is:" + IntToString(nCurrentTime) +".");
-        
-        if(nLogoutTime > 0 && nCurrentTime > nLogoutTime)        
-        {        
-            // Calculate real time elapsed in seconds        
-            int nSecondsOffline = nCurrentTime - nLogoutTime; 
-			if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | nSecondsOffline is:" + IntToString(nSecondsOffline) +".");			
-                
-            // Each round is always 6 seconds real time        
-            int nRoundsOffline = nSecondsOffline / 6;
-			if(DEBUG) DoDebug("prc_onenter >>  RestoreCraftingStateOnLogin() | nRoundsOffline is:" + IntToString(nRoundsOffline) +".");				
-                
-            // Subtract offline progress from remaining rounds        
-            nRounds -= nRoundsOffline;        
-            if(nRounds < 1) nRounds = 1; // Minimum 1 round to finish        
-                
-            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Offline progress - time diff: " + IntToString(nSecondsOffline) +        
-                             "s, rounds progress: " + IntToString(nRoundsOffline) +        
-                             ", new rounds: " + IntToString(nRounds));        
-        }        
-        else        
-        {        
-            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | No valid logout time found, using saved rounds: " + IntToString(nRounds));        
-        }        
-                
-        // Find the crafting item        
-        object oItem = GetItemByUUID(oPC, sUUID);        
-        if(GetIsObjectValid(oItem))        
-        {        
-            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Found item, restoring crafting session");        
-                    
-            // Reconstruct the itemproperty        
-            itemproperty ip;        
-            if(nIPType > 0)        
-            {        
-                ip = ConstructIP(nIPType, nIPSubtype, nIPCostTable, nIPParam1);        
-            }        
-                    
-            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | About to call CraftingHB with " + IntToString(nRounds) + " rounds, cost: " + IntToString(nCost) + ", xp: " + IntToString(nXP));        
-                    
-            // Notify player        
-            FloatingTextStringOnCreature("Resuming crafting session: " + IntToString(nRounds) + " round(s) remaining", oPC);        
-                    
-            // Restart the crafting heartbeat with all correct parameters     
-			AssignCommand(oPC, ClearAllActions(TRUE)); 				  
-			SetLocalInt(oPC, "PRC_CRAFT_RESTORED", 1); 			  
-            DelayCommand(3.0, CraftingHB(oPC, oItem, ip, nCost, nXP, sFile, nLine, nRounds));        
-        }        
-        else        
-        {        
-            if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | Failed to find item with UUID: " + sUUID);        
-            FloatingTextStringOnCreature("Crafting session could not be restored - item not found", oPC);        
-            // Clear the invalid crafting state        
-            SQLocalsPlayer_SetInt(oPC, "crafting_active", 0);        
-        }        
-    }        
-    else        
-    {        
-        if(DEBUG) DoDebug("prc_oneter >> RestoreCraftingStateOnLogin | No saved crafting state found");        
-    }        
+// Restore crafting state on login with offline time calculation  
+void RestoreCraftingStateOnLogin(object oPC)  
+{  
+    if(DEBUG) DoDebug("DEBUG: RestoreCraftingStateOnLogin called");
+
+    // Check switch conditions  
+	if(GetPRCSwitch(PRC_PW_LOCATION_TRACKING) &&  
+	   !GetPRCSwitch(PRC_DISABLE_CRAFT) &&  
+	   GetPRCSwitch(PRC_CRAFTING_TIME_SCALE) > 1)  
+    {  
+        if(DEBUG) DoDebug("DEBUG: Switch conditions not met for crafting restore");  
+        return;  
+    }  
+      
+    if(DEBUG) DoDebug("DEBUG: Switch conditions met, checking for saved  crafting state");
+	
+	// Check if player has saved crafting state  
+    if(SQLocalsPlayer_GetInt(oPC, "crafting_active"))  
+    {  
+        // Get logout time  
+        struct time tLogoutTime = GetPersistantLocalTime(oPC, "crafting_logout_time");  
+          
+        // Get current login time  
+        struct time tLoginTime = GetTimeAndDate();  
+          
+        // Calculate offline time difference  
+        struct time tOfflineTime = TimeSubtract(tLoginTime, tLogoutTime);		
+          
+        // Convert offline time to rounds (6 seconds per round)  
+        int nOfflineRounds = tOfflineTime.nSecond / 6;  
+        nOfflineRounds += tOfflineTime.nMinute * 10;  // 10 rounds per minute  
+        nOfflineRounds += tOfflineTime.nHour * 600;   // 600 rounds per hour  
+        nOfflineRounds += tOfflineTime.nDay * 14400;  // 14400 rounds per day  
+          
+        // Load saved crafting parameters  
+        object oItem = SQLocalsPlayer_GetObject(oPC, "crafting_item");  
+        int nCost = SQLocalsPlayer_GetInt(oPC, "crafting_cost");  
+        int nXP = SQLocalsPlayer_GetInt(oPC, "crafting_xp");  
+        int nRounds = SQLocalsPlayer_GetInt(oPC, "crafting_rounds");  
+        string sFile = SQLocalsPlayer_GetString(oPC, "crafting_file");  
+        int nLine = SQLocalsPlayer_GetInt(oPC, "crafting_line");  
+          
+        // Calculate remaining rounds after offline time  
+        nRounds = nRounds - nOfflineRounds;  
+          
+        // Check if crafting is complete  
+        if(nRounds <= 0)  
+        {  
+            // Set to 1 round so it completes normally  
+            nRounds = 1;  
+            FloatingTextStringOnCreature("Your item is almost finished crafting!", oPC);  
+        }  
+          
+        // Restore local variables needed for crafting  
+        SetLocalObject(oPC, "PRC_CRAFT_ITEM", oItem);  
+        SetLocalInt(oPC, "PRC_CRAFT_COST", nCost);  
+        SetLocalInt(oPC, "PRC_CRAFT_XP", nXP);  
+        SetLocalInt(oPC, "PRC_CRAFT_ROUNDS", nRounds);  
+        SetLocalString(oPC, "PRC_CRAFT_FILE", sFile);  
+        SetLocalInt(oPC, "PRC_CRAFT_LINE", nLine);  
+          
+        // Restart the crafting heartbeat  
+        SetLocalInt(oPC, "PRC_CRAFT_HB", 1);  
+          
+        // Re-attach concentration monitoring  
+        AddEventScript(oPC, EVENT_VIRTUAL_ONDAMAGED, "prc_od_conc", FALSE, FALSE);  
+          
+        // Resume crafting with remaining rounds  
+        itemproperty ip = GetFirstItemProperty(oItem);  
+        DelayCommand(6.0, CraftingHB(oPC, oItem, ip, nCost, nXP, sFile, nLine, nRounds));  
+          
+        // Clear the saved state  
+        SQLocalsPlayer_SetInt(oPC, "crafting_active", 0);  
+          
+        FloatingTextStringOnCreature("Crafting resumed with " + IntToString(nRounds) + " rounds remaining", oPC);  
+    }
+	else
+	{
+		if(DEBUG) DoDebug("DEBUG: No saved crafting state found");
+	}	
+}
+
+void ConvertForsakerToNWNxEE(object oPC)  
+{  
+    // Run only once per PC  
+    if (GetPersistantLocalInt(oPC, "Forsaker_NWNxEE_Converted")) return;  
+  
+    int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
+    if (!nForsakerLevel) return;  
+  
+    // Remove any lingering ForsakerAbilityBoost effects  
+    effect eLoop = GetFirstEffect(oPC);  
+    while (GetIsEffectValid(eLoop))  
+    {  
+        if (GetEffectTag(eLoop) == "ForsakerAbilityBoost")  
+            RemoveEffect(oPC, eLoop);  
+        eLoop = GetNextEffect(oPC);  
+    }  
+  
+    // Apply intrinsic bonuses for each stored level  
+    int i;  
+    for (i = 1; i <= nForsakerLevel; i++)  
+    {  
+        int nAbility = GetPersistantLocalInt(oPC, "ForsakerBoost" + IntToString(i));  
+        if (nAbility > 0 && nAbility <= 6)  
+        {  
+            PRC_Funcs_ModAbilityScore(oPC, nAbility - 1, 1);  
+        }  
+    }  
+  
+    // Mark as converted  
+    SetPersistantLocalInt(oPC, "Forsaker_NWNxEE_Converted", TRUE);  
 }
 
 void RestoreForsakerAbilities(object oPC)  
+{  
+    // If using NWNxEE intrinsic bonuses, convert once and skip restoration  
+    if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+    {  
+        ConvertForsakerToNWNxEE(oPC);  
+        return;  
+    }  
+  
+    // Existing effect-based restoration logic follows...  
+    int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
+    int i;  
+  
+    // Remove existing Forsaker ability effects first  
+    effect eLoop = GetFirstEffect(oPC);  
+    while(GetIsEffectValid(eLoop))  
+    {  
+        if(GetEffectTag(eLoop) == "ForsakerAbilityBoost")  
+            RemoveEffect(oPC, eLoop);  
+        eLoop = GetNextEffect(oPC);  
+    }  
+  
+    for(i = 1; i <= nForsakerLevel; i++)  
+    {  
+        int nAbility = GetPersistantLocalInt(oPC, "ForsakerBoost" + IntToString(i));  
+  
+        if(nAbility > 0 && nAbility <= 6)  
+        {  
+            effect eAbility = EffectAbilityIncrease(nAbility - 1, 1);  
+            eAbility = SupernaturalEffect(eAbility);  
+            eAbility = TagEffect(eAbility, "ForsakerAbilityBoost");  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC);  
+        }  
+    }  
+}
+
+/* void RestoreForsakerAbilities(object oPC)  
 {  
     int nForsakerLevel = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
     int i;  
@@ -137,7 +188,7 @@ void RestoreForsakerAbilities(object oPC)
             ApplyEffectToObject(DURATION_TYPE_PERMANENT, eAbility, oPC);  
         }  
     }  
-}
+} */
 
 /**
  * Reads the 2da file onenter_locals.2da and sets local variables

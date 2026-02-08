@@ -349,7 +349,11 @@ void main()
     object oSkin = GetPCSkin(oPC);
     int nHD = GetHitDice(oPC);
     itemproperty ipIP;
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
+	
     int iTestLich = GetPersistantLocalInt(oPC, "NWNX_Template_lich");
     int iTestDemi = GetPersistantLocalInt(oPC, "NWNX_Template_demilich");
 

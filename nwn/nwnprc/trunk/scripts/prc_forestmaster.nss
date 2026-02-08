@@ -6,6 +6,14 @@
 
 #include "prc_inc_combat"
 
+void AddVerdantHealing(object oSkin,int iFH)
+{
+     if(GetLocalInt(oSkin, "ForestMaster_FastHealing") == iFH) return;
+
+     SetCompositeBonus(oSkin,"ForestMaster_FastHealing",iFH,ITEM_PROPERTY_REGENERATION);
+
+}
+
 void main()
 {
 //:: Declare major variables
@@ -19,6 +27,10 @@ void main()
 	effect eEffect;
 	
 	itemproperty ipIP;
+	
+	int iFH = GetHasFeat(FEAT_SOL_FAST_HEALING_1,oPC);
+
+    if (iFH) AddVerdantHealing(oSkin,iFH);
 	
 	
 //:: We aren't being called from onPlayerUnequipItem event, instead from the PRCEvalFeats

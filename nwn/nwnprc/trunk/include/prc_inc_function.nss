@@ -367,7 +367,7 @@ void EvalPRCFeats(object oPC)
     SetLocalInt(oPC, PRC_EvalPRCFeats_Generation, nGeneration);
 
     //permanent ability changes
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
         ExecuteScript("prc_nwnx_funcs", oPC);
 
     //Add IP Feats to the hide

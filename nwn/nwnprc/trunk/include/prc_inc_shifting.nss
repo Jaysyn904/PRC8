@@ -3098,7 +3098,7 @@ void HandleApplyShiftTemplate(object oPC)
 
 int PnPShifterFeats()
 {
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
     {
         //If any stats have been changed by NWNX, this could qualify the PC for feats they should
         //not actually qualify for, so force unshifting before levelling up.

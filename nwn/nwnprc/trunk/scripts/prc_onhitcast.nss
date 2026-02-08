@@ -414,8 +414,72 @@ void main()
         ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HEALING_L_LAW), oHealTarget);
     }
 
-	// Blood in the Water
-	if (GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR)
+	// Blood in the Water	
+	if (GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR)  
+	{  
+		// Fake critical hit check  
+		if (d20() >= GetWeaponCriticalRange(oSpellOrigin, oItem))  
+		{  
+			string sBlood = GetCreatureBloodColor(oSpellTarget);  
+			int bGhost = GetIsIncorporeal(oSpellTarget);  
+			int nRace  = MyPRCGetRacialType(oSpellTarget);  
+	  
+			effect eVFX;  
+			if (sBlood == "R") eVFX = EffectVisualEffect(VFX_COM_CHUNK_RED_SMALL);  
+			else if (sBlood == "Y") eVFX = EffectVisualEffect(VFX_COM_CHUNK_YELLOW_SMALL);  
+			else if (sBlood == "W") eVFX = EffectVisualEffect(VFX_COM_BLOOD_SPARK_SMALL);  
+			else if (sBlood == "G") eVFX = EffectVisualEffect(VFX_COM_CHUNK_GREEN_SMALL);  
+			else if (sBlood == "N")  
+			{  
+				if (nRace == RACIAL_TYPE_UNDEAD)  
+				{  
+					if (bGhost) eVFX = EffectVisualEffect(VFX_COM_HIT_DIVINE);  
+					else eVFX = EffectVisualEffect(VFX_COM_CHUNK_BONE_MEDIUM);  
+				}  
+				else eVFX = EffectVisualEffect(VFX_COM_CHUNK_STONE_SMALL);  
+			}  
+			else  
+			{  
+				eVFX = EffectVisualEffect(VFX_COM_CHUNK_RED_SMALL); // fallback VFX  
+			}  
+	  
+			// Increase total bonus stack count  
+			int nStacks = GetLocalInt(oSpellOrigin, "BITW_STACKS") + 1;  
+			SetLocalInt(oSpellOrigin, "BITW_STACKS", nStacks);  
+	  
+			// Cap stacks at 20  
+			if(nStacks > 20) nStacks = 20;  
+	  
+			// Store time of last crit as integer seconds  
+			SetLocalInt(oSpellOrigin, "BITW_LASTCRIT", (GetTimeHour() * 3600) + (GetTimeMinute() * 60) + GetTimeSecond());  
+	  
+			// Remove old BITW_BUFF effect before applying updated buff  
+			effect eOld = GetFirstEffect(oSpellOrigin);  
+			while (GetIsEffectValid(eOld))  
+			{  
+				if (GetEffectTag(eOld) == "BITW_BUFF")  
+				{  
+					RemoveEffect(oSpellOrigin, eOld);  
+				}  
+				eOld = GetNextEffect(oSpellOrigin);  
+			}  
+	  
+			// Apply new combined attack and damage bonus with total stacks  
+			effect eBuff = EffectLinkEffects(  
+				EffectAttackIncrease(nStacks),  
+				EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nStacks), DAMAGE_TYPE_SLASHING)  
+			);  
+			eBuff = TagEffect(eBuff, "BITW_BUFF");  
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBuff, oSpellOrigin);  
+	  
+			// Schedule decay check in 60 seconds (will only reset if no new crit since last)  
+			DelayCommand(60.0, CheckBloodInTheWaterDecay(oSpellOrigin));  
+	  
+			ApplyEffectToObject(DURATION_TYPE_INSTANT, eVFX, oSpellTarget);  
+		}  
+	}
+	
+/* 	if (GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR)
 	{
 		// Fake critical hit check
 		if (d20() >= GetWeaponCriticalRange(oSpellOrigin, oItem))
@@ -475,61 +539,7 @@ void main()
 			ApplyEffectToObject(DURATION_TYPE_INSTANT, eVFX, oSpellTarget);
 		}
 }
-
-/* 	if (GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) &&	GetBaseItemType(oItem) != BASE_ITEM_ARMOR)
-	{
-		// Fake critical hit check
-		if (d20() >= GetWeaponCriticalRange(oSpellOrigin, oItem))
-		{
-			string sBlood = GetCreatureBloodColor(oSpellTarget);
-			int bGhost = GetIsIncorporeal(oSpellTarget);
-			int nRace  = MyPRCGetRacialType(oSpellTarget);
-
-			effect eVFX;
-			if (sBlood == "R") eVFX = EffectVisualEffect(VFX_COM_CHUNK_RED_SMALL);
-			if (sBlood == "Y") eVFX = EffectVisualEffect(VFX_COM_CHUNK_YELLOW_SMALL);
-			if (sBlood == "W") eVFX = EffectVisualEffect(VFX_COM_BLOOD_SPARK_SMALL);
-			if (sBlood == "G") eVFX = EffectVisualEffect(VFX_COM_CHUNK_GREEN_SMALL);
-			if (sBlood == "N") 
-			{
-				if (nRace == RACIAL_TYPE_UNDEAD)
-				{
-					if (bGhost) eVFX = EffectVisualEffect(VFX_COM_HIT_DIVINE);
-					else eVFX = EffectVisualEffect(VFX_COM_CHUNK_BONE_MEDIUM);
-				}
-				else eVFX = EffectVisualEffect(VFX_COM_CHUNK_STONE_SMALL);
-			}
-
-			// --- STACKING LOGIC ---
-			int nStacks = GetLocalInt(oSpellOrigin, "BITW_STACKS");
-			nStacks += 1;
-			SetLocalInt(oSpellOrigin, "BITW_STACKS", nStacks);
-
-			// Remove any old bonus effect
-			effect eOld = GetFirstEffect(oSpellOrigin);
-			while (GetIsEffectValid(eOld))
-			{
-				if (GetEffectTag(eOld) == "BITW_BUFF")
-				{
-					RemoveEffect(oSpellOrigin, eOld);
-				}
-				eOld = GetNextEffect(oSpellOrigin);
-			}
-
-			// Apply new combined attack/damage bonus
-			effect eBuff = EffectLinkEffects(
-				EffectAttackIncrease(nStacks),
-				EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nStacks), DAMAGE_TYPE_SLASHING));
-			
-			eBuff = TagEffect(eBuff, "BITW_BUFF");
-
-			DelayCommand(0.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eBuff, oSpellOrigin, TurnsToSeconds(1)));
-
-			ApplyEffectToObject(DURATION_TYPE_INSTANT, eVFX, oSpellTarget);
-		}
-	}
  */
-
 
 /* 	if(GetHasSpellEffect(MOVE_TC_BLOOD_WATER, oSpellOrigin) && GetBaseItemType(oItem) != BASE_ITEM_ARMOR && !GetIsImmune(oSpellTarget, IMMUNITY_TYPE_CRITICAL_HIT) )
     {

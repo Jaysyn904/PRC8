@@ -51,7 +51,11 @@ void main()
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
     itemproperty ipIP;
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+	
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
+	
     int iTest = GetPersistantLocalInt(oPC, "NWNX_Template_necropolitan");
 
     //NOTE: this maintains the Necropolitan template

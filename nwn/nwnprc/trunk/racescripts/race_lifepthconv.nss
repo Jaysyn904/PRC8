@@ -51,7 +51,7 @@ const int STRREF_NO                      = 4753;     // "No"
     object oSkin = GetPCSkin(oPC);
     int nValue = GetLocalInt(oPC, DYNCONV_VARIABLE);
     int nStage = GetStage(oPC);
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+    int bFuncs = GetPRCSwitch(PRC_NWNXEE_ENABLED);
 
     // Check which of the conversation scripts called the scripts
     if(nValue == 0) // All of them set the DynConv_Var to non-zero value, so something is wrong -> abort

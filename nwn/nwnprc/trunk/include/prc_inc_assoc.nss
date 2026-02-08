@@ -244,7 +244,7 @@ void ApplyPseudonatural(object oFamiliar, object oFamSkin)
 void ApplyIllmaster(object oCompanion, object oCompSkin)
 {
     //Give the companion permanent Str +4, Con +2, Wis -2, and Cha -2
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
     {
         PRC_Funcs_ModAbilityScore(oCompanion, ABILITY_STRENGTH,     4);
         PRC_Funcs_ModAbilityScore(oCompanion, ABILITY_CONSTITUTION, 2);
@@ -305,7 +305,7 @@ void WinterWolfProperties(object oCompanion, int nLevel)
 
     object oCreR = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B, oCompanion);
 
-    if(GetPRCSwitch(PRC_NWNX_FUNCS))
+    if(GetPRCSwitch(PRC_NWNXEE_ENABLED))
     {
         if(iStr > 0)
             PRC_Funcs_ModAbilityScore(oCompanion, ABILITY_STRENGTH, iStr);
@@ -358,7 +358,10 @@ void WinterWolfProperties(object oCompanion, int nLevel)
 
 void ApplyPnPFamiliarProperties(object oPC, object oFam)
 {
-    int bFuncs = GetPRCSwitch(PRC_NWNX_FUNCS);
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    int bFuncs = (nNWNxEE && nPRCx);
+	
     effect eBonus;
 
     //get familiar level

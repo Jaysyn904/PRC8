@@ -14,6 +14,7 @@
 #include "NW_I0_GENERIC"
 #include "nw_i0_spells"
 #include "inc_persist_loca"
+#include "inc_nwnx_funcs"
 
 effect VoPDamage(int nTotalEnhancement) 
 {
@@ -35,6 +36,68 @@ effect VoPDamage(int nTotalEnhancement)
 	else if (nTotalEnhancement>=1) eDamage = EffectDamageIncrease(DAMAGE_BONUS_1,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
 	
 	return eDamage;
+}
+
+void ConvertVoPFeatsToNWNxEE(object oPC)  
+{  
+    if (GetPersistantLocalInt(oPC, "VoP_NWNxEE_Feats_Converted")) return;  
+    if (!GetHasFeat(FEAT_VOWOFPOVERTY, oPC)) return;  
+  
+    // Remove any lingering VoP feat effects  
+    effect eLoop = GetFirstEffect(oPC);  
+    while (GetIsEffectValid(eLoop))  
+    {  
+        string sTag = GetEffectTag(eLoop);  
+        if (GetStringLeft(sTag, 7) == "VoPFeat")  
+            RemoveEffect(oPC, eLoop);  
+        eLoop = GetNextEffect(oPC);  
+    }  
+  
+    // Reapply intrinsic feats for each stored VoPFeatID entry  
+    int i = 1;  
+    string sKey;  
+    while (GetPersistantLocalInt(oPC, "VoPFeatID" + IntToString(i)))  
+    {  
+        int nFeatID = StringToInt(Get2DAString("prc_vop_feats", "FeatIndex", i - 1));  
+        if (nFeatID > 0)  
+        {  
+            PRC_Funcs_AddFeat(oPC, nFeatID);  
+        }  
+        i++;  
+    }  
+  
+    SetPersistantLocalInt(oPC, "VoP_NWNxEE_Feats_Converted", TRUE);  
+}
+
+	
+void ConvertVoPToNWNxEE(object oPC)  
+{  
+    if (GetPersistantLocalInt(oPC, "VoP_NWNxEE_Converted")) return;  
+    if (!GetHasFeat(FEAT_VOWOFPOVERTY, oPC)) return;  
+  
+    int nLevel = GetCharacterLevel(oPC) - GetPersistantLocalInt(oPC, "VoPLevel1") + 1;  
+    object oSkin = GetPCSkin(oPC);  
+    int i;  
+  
+    // Remove existing VoP ability item properties  
+    for (i = 0; i < 6; i++)  
+    {  
+        RemoveSpecificProperty(oSkin, ITEM_PROPERTY_ABILITY_BONUS, i, -1, 1, "VoPBoostStat"+IntToString(i), -1, DURATION_TYPE_PERMANENT);  
+    }  
+  
+    // Reapply intrinsic bonuses for each stored VoPBoost  
+    for (i = 1; i <= nLevel; i++)  
+    {  
+        int nStored = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(i));  
+        if (nStored >= 10)  
+        {  
+            int stat = nStored - 10;  
+            int value = 2 * (1 + (nLevel - i) / 4);  
+            PRC_Funcs_ModAbilityScore(oPC, stat, value);  
+        }  
+    }  
+  
+    SetPersistantLocalInt(oPC, "VoP_NWNxEE_Converted", TRUE);  
 }
 
 void main()
@@ -83,7 +146,13 @@ void main()
 	
     if(nEvent == FALSE)
 	{	
-		//Check if level up bonus has already been chosen and given for any of past VoP levels
+		if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+        ConvertVoPToNWNxEE(oPC); 
+	
+	    if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+        ConvertVoPFeatsToNWNxEE(oPC);  
+	
+	//Check if level up bonus has already been chosen and given for any of past VoP levels
 		for(nLevelCheck=1; nLevelCheck <= nLevel; nLevelCheck++)
 		{	
 			//Call stat boost dialogue for level 7 and each 4 levels after that
@@ -93,14 +162,37 @@ void main()
 				SetPersistantLocalInt(oPC,"VoPBoostCheck",nLevelCheck);
 				StartDynamicConversation("ft_vowpoverty_ab", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);	
 			}
-
-			//Applying stat boosts
+			//Applying stat boosts  
+			if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)  
+			{  
+				int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;  
+				int value = 2 * (1 + (nLevel - nLevelCheck) / 4);  
+			  
+				if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+				{  
+					// Track last applied intrinsic bonus per ability to avoid stacking  
+					string sKey = "VoP_EE_Boost_" + IntToString(stat);  
+					int nLastApplied = GetPersistantLocalInt(oPC, sKey);  
+					int nDelta = value - nLastApplied;  
+					if (nDelta > 0)  
+					{  
+						PRC_Funcs_ModAbilityScore(oPC, stat, nDelta);  
+						SetPersistantLocalInt(oPC, sKey, value);  
+					}  
+				}  
+				else  
+				{  
+					// Fallback to item property on skin (overwrites, so safe to run each level)  
+					SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);  
+				}  
+			}
+/* 			//Applying stat boosts
 			if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)
 			{
 				int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;
 				int value = 2 * (1 + (nLevel - nLevelCheck) / 4);
 				SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);
-			}
+			} */
 		
 			//Call exalted feat for each even level
 			if (!GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevelCheck)) && (nLevelCheck-(nLevelCheck/2)*2 == 0)) 

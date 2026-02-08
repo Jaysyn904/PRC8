@@ -1,15 +1,16 @@
 2DA V2.0
 
-           LABEL               ReqType  ReqParam1             ReqParam2 
-0          FEAT_PLANT_DEFIANCE FEAT     25992                 ****      
-1          FEAT_PLANT_CONTROL  FEAT     25993                 ****      
-2          Cleric              CLASSOR  2                     ****      
-2          Archivist           CLASSOR  190                   ****      
-3          Shaman              CLASSOR  207                   ****      
-4          Ranger              CLASSOR  7                     ****      
-5          Druid               CLASSOR  3                     ****      
-6          Blighter            CLASSNOT 247                   ****      
-7          Ur-Priest           CLASSNOT 42                    ****      
-8          Heal                SKILL    4                     8         
-9          Lore                SKILL    7                     8         
-10         ScriptVar           VAR      PRC_PrereqVerdantLord 0         
+     LABEL               ReqType  ReqParam1             ReqParam2 
+0    FEAT_PLANT_DEFIANCE FEAT     25992                 ****      
+1    FEAT_PLANT_CONTROL  FEAT     25993                 ****      
+2    Cleric              CLASSOR  2                     ****      
+2    Archivist           CLASSOR  190                   ****      
+3    Shaman              CLASSOR  207                   ****      
+4    Ranger              CLASSOR  7                     ****      
+5    Druid               CLASSOR  3                     ****      
+6    Blighter            CLASSNOT 247                   ****      
+7    Ur-Priest           CLASSNOT 42                    ****      
+8    Heal                SKILL    4                     8         
+9    Lore                SKILL    7                     8         
+10   ScriptVar           VAR      PRC_PrereqVerdantLord 0         
+12   BaseAttackBonus4    BAB      4                     ****      

@@ -165,7 +165,16 @@ void main()
         OnLoad_Fresh(oModule);
     }
 
-    //NWNX_Funcs plugin test:
+    //:: NWNxEE Detection
+	int bNWNxEE	= NWNXGetIsAvailable();
+
+	if (bNWNxEE)
+	{
+		SetPRCSwitch(PRC_NWNXEE_ENABLED, TRUE);
+		if(DEBUG) DoDebug("NWNxEE detected.");
+	}		
+	
+	//NWNX_Funcs plugin test:
     //PRC_Funcs_Init(oModule);
 }
 
@@ -199,7 +208,7 @@ void OnLoad_Fresh(object oModule)
     SetModuleSwitch(MODULE_SWITCH_ENABLE_TAGBASED_SCRIPTS, TRUE); /// @todo This is somewhat intrusive, make it unnecessary and remove
 
     // Run a script to determine if the PRC Companion is present
-    ExecuteScript("hakmarker", OBJECT_SELF);
+    //ExecuteScript("hakmarker", OBJECT_SELF);  //:: script no longer present in project - Jaysyn
 
     //delay this to avoid TMIs
     DelayCommand(0.01, CreateSwitchNameArray());
