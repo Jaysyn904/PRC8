@@ -81,6 +81,7 @@ const int STAGE_WIELDING		                =  52;
 const int STAGE_WIELDING_ONE	                =  53;
 const int STAGE_WIELDING_TWO	                =  54;
 const int STAGE_WIELDING_POLEARM	            =  55;
+const int STAGE_HATHRAN_COHORT 					=  56;
 
 // Confirmation stage for registering cohort
 const int STAGE_REGISTER_CONFIRM 				= 200; 
@@ -485,6 +486,7 @@ void main()
                 AddChoice("Miscellaneous options.", 11);
                 if(DEBUG)//TO DO: add separate switch
                     AddChoice("Wipe PRC Spellbooks", 12);
+				AddChoice("Hathran Cohort Selection", 56);
 				if((!bRanged && oWeaponR != OBJECT_INVALID) && (PRCGetCreatureSize(oPC) > 1 && PRCGetCreatureSize(oPC) < 5))
 				{
 					AddChoice("Set weapon wielding.", 52);
@@ -1642,7 +1644,17 @@ void main()
 		
 				AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
                 MarkStageSetUp(nStage, oPC);				
-			}	
+			}
+			else if(nStage == STAGE_HATHRAN_COHORT)  
+			{  
+				SetHeader("Select your Hathran cohort type:");  
+				AddChoice("Barbarian", 0);  
+				AddChoice("Ethran", 1);  
+				AddChoice("Back", STAGE_ENTRY);  
+				  
+				MarkStageSetUp(nStage, oPC);  
+				SetDefaultTokens();  
+			}
 			
         }
 
@@ -1736,6 +1748,8 @@ void main()
                 DelayCommand(1.0, ExecuteScript("prc_wipeNSB", oPC));
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT);
             }
+			else if(nChoice == 56) 
+                nStage = STAGE_HATHRAN_COHORT;			
 
             // Mark the target stage to need building if it was changed (ie, selection was other than ID all)
             if(nStage != STAGE_ENTRY)
@@ -2431,14 +2445,28 @@ void main()
                 MyDestroyObject(GetItemPossessedBy(oPC, "prc_pnp_familiar"));
             }
        }
-       else if (nStage == STAGE_CDKEY_ADD)
-       {
+		else if (nStage == STAGE_CDKEY_ADD)
+		{
             if(nChoice == 1)
                 AddNewCDKey(oPC);
 
             nStage = STAGE_ENTRY;
             MarkStageNotSetUp(nStage, oPC);
        }
+		else if (nStage == STAGE_HATHRAN_COHORT)  
+		{  
+			if(nChoice == STAGE_ENTRY)  
+			{  
+                nStage = STAGE_ENTRY;  
+				MarkStageNotSetUp(nStage, oPC);  
+			}  
+			else  
+			{  
+				SetPersistantLocalInt(oPC, "PRC_HATHRAN_COHORT_TYPE", nChoice);  
+				nStage = STAGE_ENTRY;  
+				MarkStageNotSetUp(nStage, oPC);  
+			}  
+		}		
 		else if (nStage == STAGE_WIELDING)
 		{
 			if(nChoice == CHOICE_RETURN_TO_PREVIOUS)
@@ -2556,7 +2584,7 @@ void main()
 		
 				//AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);
                 MarkStageSetUp(nStage, oPC);	
-			}			
+			}	
 		}
         // Store the stage value. If it has been changed, this clears out the choices
         SetStage(nStage, oPC);

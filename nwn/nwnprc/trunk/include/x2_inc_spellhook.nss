@@ -536,7 +536,34 @@ int SilenceDeafnessFailure(object oCaster, int nSpellLevel, int nMetamagic, stri
     return FALSE;
 }
 
-int Forsaker(object oCaster, object oTarget)
+int Forsaker(object oCaster, object oTarget)  
+{  
+    // Friendly spells autofail on Forsakers  
+    if (GetLevelByClass(CLASS_TYPE_FORSAKER, oTarget) && GetIsFriend(oTarget, oCaster))  
+    {  
+        FloatingTextStringOnCreature("Target is a Forsaker, spell failed!", oCaster, FALSE);  
+        return FALSE;  
+    }  
+      
+    // Forsakers can't use magic
+    if (GetLevelByClass(CLASS_TYPE_FORSAKER, oCaster))  
+    {  
+        object oSpellCastItem = PRCGetSpellCastItem();  
+          
+        // Allow alchemical items  
+        if(GetIsObjectValid(oSpellCastItem) && GetIsAlchemical(oSpellCastItem))  
+        {  
+            return TRUE;  
+        }  
+          
+        FloatingTextStringOnCreature("Forsakers cannot cast spells!", oCaster, FALSE);  
+        return FALSE;  
+    }      
+          
+    return TRUE;      
+}
+
+/* int Forsaker(object oCaster, object oTarget)
 {
 	// Friendly spells autofail on Forsakers
 	if (GetLevelByClass(CLASS_TYPE_FORSAKER, oTarget) && GetIsFriend(oTarget, oCaster))
@@ -553,7 +580,7 @@ int Forsaker(object oCaster, object oTarget)
 	}	
 		
 	return TRUE;	
-}
+} */
 
 int NSB_SpellCast(object oCaster, int nSpellID, int nCastingClass, int nMetamagic, int nSpellbookType, string sComponent, object oSpellCastItem)
 {
@@ -3326,7 +3353,80 @@ int X2PreSpellCastCode2()
     int bSpellIsHostile = Get2DACache("spells", "HostileSetting", nOrigSpellID) == "1";
     int nSpellbookType = GetSpellbookTypeForClass(nCastingClass);
     int nCasterAlignment = GetAlignmentGoodEvil(oCaster);
-    string sComponent = GetStringUpperCase(Get2DACache("spells", "VS", nSpellID));
+    string sComponent = GetStringUpperCase(Get2DACache("spells", "VS", nSpellID));	
+	
+	//---------------------------------------------------------------------------  
+    // Check for Circle Magic participant sacrifices.  
+    //---------------------------------------------------------------------------  
+    if (GetLocalInt(oCaster, "CircleMagicSacrifice"))  
+    {  
+        object oLeader = GetLocalObject(oCaster, "CircleMagicLeader");  
+        string sCircleClass = GetLocalString(oLeader, "CircleMagicClass");  
+          
+        // Validate class compatibility  
+        if (sCircleClass == "RED_WIZARD" && GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster) == 0)  
+        {  
+            FloatingTextStringOnCreature("Only Red Wizards may join this circle.", oCaster);  
+            DeleteLocalInt(oCaster, "CircleMagicSacrifice");  
+            DeleteLocalObject(oCaster, "CircleMagicLeader");  
+            return FALSE;  
+        }  
+        if (sCircleClass == "HATHRAN" && GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) == 0)  
+        {  
+            FloatingTextStringOnCreature("Only Hathrans may join this circle.", oCaster);  
+            DeleteLocalInt(oCaster, "CircleMagicSacrifice");  
+            DeleteLocalObject(oCaster, "CircleMagicLeader");  
+            return FALSE;  
+        }  
+          
+        // Valid case: record contribution and suppress spell  
+        if (oTarget == oLeader && GetLocalInt(oLeader, "CircleMagicActive"))  
+        {  
+            int nLevel = PRCGetSpellLevelForClass(nSpellID, nCastingClass);  
+            int nTotal = GetLocalInt(oLeader, "CircleMagicTotal") + nLevel;  
+            int nParticipants = GetLocalInt(oLeader, "CircleMagicParticipants") + 1;  
+            SetLocalInt(oLeader, "CircleMagicTotal", nTotal);  
+            SetLocalInt(oLeader, "CircleMagicParticipants", nParticipants);  
+              
+            // Suppress the spell  
+            DeleteLocalInt(oCaster, "CircleMagicSacrifice");  
+            DeleteLocalObject(oCaster, "CircleMagicLeader");  
+            PRCSetUserSpecificSpellScriptFinished();  
+            return FALSE; // Prevents spell effects  
+        }  
+        else  
+        {  
+            FloatingTextStringOnCreature("Invalid target or circle not active.", oCaster);  
+            DeleteLocalInt(oCaster, "CircleMagicSacrifice");  
+            DeleteLocalObject(oCaster, "CircleMagicLeader");  
+            return FALSE;  
+        }  
+    }  
+  
+    //---------------------------------------------------------------------------  
+    // Check for Circle Leader finalization.  
+    //---------------------------------------------------------------------------  
+    if (GetLocalInt(oCaster, "CircleMagicActive"))  
+    {  
+        int nTotal = GetLocalInt(oCaster, "CircleMagicTotal");  
+        int nParticipants = GetLocalInt(oCaster, "CircleMagicParticipants");  
+        if (nParticipants >= 2 && nTotal > 0)  
+        {  
+            // Apply augmentation via caster level adjustment variable  
+            SetLocalInt(oCaster, PRC_CASTERLEVEL_ADJUSTMENT, nTotal / 2);  
+            FloatingTextStringOnCreature("Circle Magic augmentation applied (" + IntToString(nTotal) + " levels).", oCaster);  
+        }  
+        else  
+        {  
+            FloatingTextStringOnCreature("Circle Magic requires at least two participants to apply a bonus.", oCaster);  
+        }  
+        // Clear circle state  
+        DeleteLocalInt(oCaster, "CircleMagicActive");  
+        DeleteLocalInt(oCaster, "CircleMagicTotal");  
+        DeleteLocalString(oCaster, "CircleMagicClass");  
+        DeleteLocalInt(oCaster, "CircleMagicMaxParticipants");  
+        DeleteLocalInt(oCaster, "CircleMagicParticipants");  
+    }	
 
     //---------------------------------------------------------------------------
     // This small addition will check to see if the target is mounted and the
@@ -3408,11 +3508,11 @@ int X2PreSpellCastCode2()
 			ApplyInfusionPoison(oCaster, nItemCL);	
 			nContinue = FALSE;			
 		}
-	}	
+	}
 	
 	//---------------------------------------------------------------------------
-    // No casting while using expertise
-    //---------------------------------------------------------------------------    
+    // No casting while using expertise    
+	//---------------------------------------------------------------------------    
     if(nContinue)
     	if (GetActionMode(oCaster, ACTION_MODE_EXPERTISE) || GetActionMode(oCaster, ACTION_MODE_IMPROVED_EXPERTISE))
 		{
@@ -3481,8 +3581,7 @@ int X2PreSpellCastCode2()
     	nContinue = Nondetection(oTarget, oCaster, nSchool, nCasterLevel);
         
     //---------------------------------------------------------------------------
-    // Mystery Effects
-    //---------------------------------------------------------------------------    
+    // Mystery Effects    //---------------------------------------------------------------------------    
     if (nContinue)
         nContinue = WarpSpell(oCaster, nSpellID);
 
@@ -3493,8 +3592,7 @@ int X2PreSpellCastCode2()
         nContinue = FloodShadow(oCaster, nSpellID);
 
     //---------------------------------------------------------------------------
-    // Incarnum Effects
-    //---------------------------------------------------------------------------        
+    // Incarnum Effects    //---------------------------------------------------------------------------        
     if (nContinue)
         nContinue = MageShackles(oCaster, nSpellID);
         
@@ -3502,8 +3600,7 @@ int X2PreSpellCastCode2()
         nContinue = Abrogation(oCaster, nCasterLevel, nSpellID);
     
     //---------------------------------------------------------------------------
-    // Binding Effects
-    //---------------------------------------------------------------------------        
+    // Binding Effects    //---------------------------------------------------------------------------        
     if (nContinue)
         nContinue = AmonInfluence(oTarget, oCaster, nSpellID, nSpellLevel, bSpellIsHostile);
 	

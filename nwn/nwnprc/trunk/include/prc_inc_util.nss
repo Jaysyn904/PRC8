@@ -16,6 +16,9 @@ const string PRC_ForcedRestDetector_Generation = "PRC_ForcedRestDetector_Generat
 //  FUNCTION DECLARATIONS
 ///////////////////////////////////////////////////////////////////////////////
 
+//:: Returns TRUE is the item is on the Alchemy crafting 2DA.
+int GetIsAlchemical(object oItem);
+
 // Returns the number of henchmen a player has.
 int GetNumHenchmen(object oPC);
 
@@ -34,6 +37,36 @@ void PRCForceRested(object oPC);
 ///////////////////////////////////////////////////////////////////////////////
 //  FUNCTION DEFINITIONS
 ///////////////////////////////////////////////////////////////////////////////
+
+/**  
+ * Returns a perpendicular vector to the input vector  
+ * Rotates the vector 90 degrees in the XY plane while preserving Z  
+ *   
+ * @param vInput The input vector  
+ * @return A perpendicular vector  
+ */  
+vector VectorToPerpendicular(vector vInput)  
+{  
+    return Vector(-vInput.y, vInput.x, vInput.z);  
+}
+
+int GetIsAlchemical(object oItem)  
+{  
+    if(!GetIsObjectValid(oItem)) return FALSE;  
+      
+    string sResRef = GetResRef(oItem);  
+    int nRows = StringToInt(Get2DACache("prc_craft_alchem", "ResRef", -1));  
+      
+    // Check if item's ResRef exists in alchemical crafting 2DA
+	int i;	
+    for(i = 0; i < nRows; i++)  
+    {  
+        if(sResRef == Get2DACache("prc_craft_alchem", "ResRef", i))  
+            return TRUE;  
+    }  
+      
+    return FALSE;  
+}
 
 int GetNumHenchmen(object oPC)
 {
@@ -226,3 +259,5 @@ void PRCForceRested(object oPC)
     SetLocalInt(oPC, "PRC_ForceRested", 1);
     ExecuteScript("prc_rest", oPC);
 }
+
+//:: void main (){}

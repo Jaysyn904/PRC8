@@ -159,9 +159,6 @@ void main()
     //Living Construct type immunities - sleep, paralysis, poison, disease, energy drain
     if(GetHasFeat(FEAT_LIVING_CONSTRUCT))
     {
-        //effect eSleepImmune = ExtraordinaryEffect(EffectImmunity(IMMUNITY_TYPE_SLEEP));
-        //AssignCommand(oPC, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSleepImmune, oPC));
-
         ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_PARALYSIS);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 
@@ -171,8 +168,19 @@ void main()
         ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_DISEASE);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
 
-        ipIP =ItemPropertyImmunityMisc(IP_CONST_IMMUNITYMISC_LEVEL_ABIL_DRAIN);
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_ENERGY_DRAIN);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+		
+        ipIP = ItemPropertySpellImmunitySpecific(IP_CONST_IMMUNITYSPELL_ENERVATION);
+        IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
+
+		effect eLevelImmune = ExtraordinaryEffect(EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));
+		eLevelImmune  = UnyieldingEffect(eLevelImmune);
+		AssignCommand(oPC, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLevelImmune, oPC));	
+
+        effect eSleepImmune = ExtraordinaryEffect(EffectImmunity(IMMUNITY_TYPE_SLEEP));
+		eSleepImmune  = UnyieldingEffect(eSleepImmune);
+        AssignCommand(oPC, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSleepImmune, oPC));		
     }
 
 	//:: Natural Armor feats 1–19

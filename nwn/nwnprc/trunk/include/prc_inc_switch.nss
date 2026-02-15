@@ -76,7 +76,7 @@
 
  /* This variable MUST be updated with every new version of the PRC!!! */
 
- const string PRC_VERSION                           = "PRC8 4.83";
+ const string PRC_VERSION                           = "PRC8 4.84";
 
  /* This variable MUST be updated every time 'assemble_spellbooks.bat' is run!!! */
 

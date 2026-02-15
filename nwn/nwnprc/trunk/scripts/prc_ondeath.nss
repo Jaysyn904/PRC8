@@ -63,6 +63,14 @@ void main()
 
     // Clear a damage tracking variable. Oni's stuff uses this
     SetLocalInt(oDead, "PC_Damage", 0);
+	
+	// Clear Circle Magic state on death  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicActive");  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicTotal");  
+	DeleteLocalString(OBJECT_SELF, "CircleMagicClass");  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicMaxParticipants");  
+	DeleteLocalInt(OBJECT_SELF, PRC_CASTERLEVEL_ADJUSTMENT);
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicAnimating"); 	
 
 // Do Lolth's Meat for the killer
 	if(GetAbilityScore(oDead, ABILITY_INTELLIGENCE) >= 4 

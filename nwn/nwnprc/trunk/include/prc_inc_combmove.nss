@@ -715,6 +715,34 @@ void _DoReapingMauler(object oPC, object oTarget, int nRounds)
         }    
     }  
 }
+ 
+void _DoChokeHold(object oPC, object oTarget)  
+{  
+    // Size immunity: more than one size larger blocks effect  
+    int nAttackerSize = GetCreatureSize(oPC);  
+    int nTargetSize   = GetCreatureSize(oTarget);  
+    if (nTargetSize > nAttackerSize + 1) return;  
+  
+    // Stunning immunity blocks Choke Hold  
+    if (GetIsImmune(oTarget, IMMUNITY_TYPE_CRITICAL_HIT)) return;  
+  
+    int nDC = 10 + (GetHitDice(oPC) / 2) + GetAbilityModifier(ABILITY_WISDOM, oPC);  
+    if (!FortitudeSave(oTarget, nDC, SAVING_THROW_TYPE_NONE, oPC))  
+    {  
+        SetLocalInt(oTarget, "UnconsciousGrapple", TRUE);  
+		effect eUncon = EffectLinkEffects(EffectSleep(), EffectVisualEffect(VFX_IMP_SLEEP)); 
+		eUncon = EffectLinkEffects(eUncon, EffectKnockdown());
+        float fDur = RoundsToSeconds(d3());  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eUncon), oTarget, fDur);  
+        FloatingTextStringOnCreature("Choke Hold Success", oPC, FALSE);  
+        DelayCommand(fDur, DeleteLocalInt(oTarget, "UnconsciousGrapple"));  
+  
+        // End the grapple after knocking the target out  
+        EndGrapple(oPC, oTarget);  
+        if (GetLocalInt(oPC, "GrappleOriginator"))  
+            RemoveEventScript(oPC, EVENT_ONHEARTBEAT, "prc_grapple", TRUE, FALSE);  
+    }  
+}
 
 void _PostCharge(object oPC, object oTarget) 
 {
@@ -1822,7 +1850,51 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
         else
             FloatingTextStringOnCreature("You have failed your Crushing Weight Attempt",oPC, FALSE);
     }
-    else if (nSwitch == GRAPPLE_PIN)
+    else if (nSwitch == GRAPPLE_PIN)  
+    {  
+        // Pins the target  
+        if (nSuccess)  
+        {  
+            FloatingTextStringOnCreature("You have pinned your target", oPC, FALSE);  
+            SetIsPinned(oTarget);  
+            int nRounds = _CountPinRounds(oTarget); // always increment  
+            int nClass = GetLevelByClass(CLASS_TYPE_REAPING_MAULER, oPC);  
+            if (nClass)  
+            {  
+                _DoReapingMauler(oPC, oTarget, nRounds);  
+            }  
+            else if (GetHasFeat(FEAT_CHOKE_HOLD, oPC))  
+            {  
+                DelayCommand(6.0, _DoChokeHold(oPC, oTarget));  
+            }  
+            if (GetHasFeat(FEAT_EARTHS_EMBRACE, oPC))  
+            {  
+                // Add in unarmed damage  
+                int nDamageSize = FindUnarmedDamage(oPC);  
+  
+                int nDie = StringToInt(Get2DACache("iprp_monstcost", "Die", nDamageSize));  
+                int nNum  = StringToInt(Get2DACache("iprp_monstcost", "NumDice", nDamageSize));  
+                int nRoll;  
+  
+                //Potential die options  
+                if(nDie == 4) nRoll = d4(nNum);  
+                else if(nDie == 6) nRoll = d6(nNum);  
+                else if(nDie == 8) nRoll = d8(nNum);  
+                else if(nDie == 10) nRoll = d10(nNum);  
+                else if(nDie == 12) nRoll = d12(nNum);  
+                else if(nDie == 20) nRoll = d20(nNum);  
+  
+                FloatingTextStringOnCreature("Earth's Embrace chokes the life from your foe", oPC, FALSE);  
+  
+                int nDam = d12() + nRoll;  
+                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_BLUDGEONING), oTarget);  
+                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectACDecrease(4)), oPC, 6.0);  
+            }  
+        }  
+        else  
+            FloatingTextStringOnCreature("You have failed your Grapple Pin Attempt",oPC, FALSE);  
+    }
+/*     else if (nSwitch == GRAPPLE_PIN)
     {
         // Pins the target
         if (nSuccess)
@@ -1835,6 +1907,24 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
                 int nRounds = _CountPinRounds(oTarget);
                 _DoReapingMauler(oPC, oTarget, nRounds);
             }
+			if (GetHasFeat(FEAT_CHOKE_HOLD, oPC))  
+			{  
+				int nRounds = GetLocalInt(oTarget, "PinnedRounds");  
+				if (nRounds >= 1)  
+				{  
+					int nDC = 10 + (GetHitDice(oPC) / 2) + GetAbilityModifier(ABILITY_WISDOM, oPC);  
+					if(!FortitudeSave(oTarget, nDC, SAVING_THROW_TYPE_NONE, oPC))  
+					{  
+						SetLocalInt(oTarget, "UnconsciousGrapple", TRUE);  
+						effect eUncon = EffectLinkEffects(EffectStunned(), EffectVisualEffect(VFX_DUR_MIND_AFFECTING_DISABLED));  
+						eUncon = EffectLinkEffects(eUncon, EffectKnockdown());  
+						float fDur = RoundsToSeconds(d3());  
+						ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eUncon), oTarget, fDur);  
+						FloatingTextStringOnCreature("Choke Hold Success", oPC, FALSE);  
+						DelayCommand(fDur, DeleteLocalInt(oTarget, "UnconsciousGrapple"));  
+					}  
+				}  
+			}			
             if (GetHasFeat(FEAT_EARTHS_EMBRACE, oPC))
             {
             	// Add in unarmed damage
@@ -1862,7 +1952,7 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
         else
             FloatingTextStringOnCreature("You have failed your Grapple Pin Attempt",oPC, FALSE);
     }  
-    else
+   */  else
     {
         FloatingTextStringOnCreature("DoGrappleOptions: Error, invalid option "+IntToString(nSwitch)+" passed to function by "+GetName(oPC),oPC, FALSE);
         FloatingTextStringOnCreature("DoGrappleOptions: Error, GetGrapple(oPC) "+IntToString(GetGrapple(oPC))+" GetGrapple(oTarget) "+IntToString(GetGrapple(oTarget)),oPC, FALSE);

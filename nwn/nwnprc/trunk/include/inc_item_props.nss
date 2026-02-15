@@ -1233,6 +1233,12 @@ void DeletePRCLocalIntsT(object oPC, object oItem = OBJECT_INVALID)
         DeleteLocalInt(oItem,"DispIronPowerD");
         // Dragonwrack
         DeleteLocalInt(oItem,"DWright");
+		// Circle Magic
+		DeleteLocalInt(OBJECT_SELF, "CircleMagicActive");  
+		DeleteLocalInt(OBJECT_SELF, "CircleMagicTotal");  
+		DeleteLocalString(OBJECT_SELF, "CircleMagicClass");  
+		DeleteLocalInt(OBJECT_SELF, "CircleMagicMaxParticipants");  
+		DeleteLocalInt(OBJECT_SELF, PRC_CASTERLEVEL_ADJUSTMENT);
     }
 
     // LEFT HAND

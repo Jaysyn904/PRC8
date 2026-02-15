@@ -24,6 +24,15 @@ const int SPELL_BCM_RENDING_CLAWS			= 17997;
 
 //:: Complete Warrior
 const int SPELL_RANGED_DISARM				= 3493;
+const int SPELL_FT_FREEZING_LIFEBLOOD		= 17968;
+const int SPELL_FT_PAIN_TOUCH				= 17970;
+
+//:: Oriental Adventures
+const int SPELL_FT_CHOKE_HOLD				= 17966;
+const int SPELL_FT_FALLING_STAR_STRIKE		= 17967;
+const int SPELL_FT_KI_SHOUT					= 17969;
+const int SPELL_FT_UNBALANCING_STRIKE		= 17971;
+
 
 //:: Tome of Battle
 const int SPELL_TOB_SNAP_KICK				= 3794;

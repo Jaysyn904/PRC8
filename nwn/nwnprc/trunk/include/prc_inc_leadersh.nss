@@ -7,7 +7,7 @@
 const string COHORT_DATABASE     = "PRCCOHORTS";
 const string COHORT_TAG          = "prc_cohort";
 
-//in the database there is the folloxing data structures:
+//in the database there is the following data structures:
 /*
     int    CohortCount      (total number of cohorts)
     object Cohort_X_obj     (cohort itself)
@@ -287,7 +287,254 @@ void CancelGreatFeats(object oSpawn)
     }
 }
 
+// Generates a random name for a creature based on their race and gender  
+string GenerateRandomName(object oCreature)  
+{  
+    string sName;  
+    int nRace = MyPRCGetRacialType(oCreature);  
+    int nGender = GetGender(oCreature);  
+      
+    // First name based on race and gender  
+    switch(nRace)  
+    {  
+        case RACIAL_TYPE_DWARF:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_DWARF_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_DWARF_MALE);  
+            break;  
+        case RACIAL_TYPE_ELF:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_ELF_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_ELF_MALE);  
+            break;  
+        case RACIAL_TYPE_GNOME:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_GNOME_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_GNOME_MALE);  
+            break;  
+        case RACIAL_TYPE_HUMAN:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_HUMAN_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_HUMAN_MALE);  
+            break;  
+        case RACIAL_TYPE_HALFELF:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_HALFELF_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_HALFELF_MALE);  
+            break;  
+        case RACIAL_TYPE_HALFORC:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_HALFORC_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_HALFORC_MALE);  
+            break;  
+        case RACIAL_TYPE_HALFLING:  
+            if(nGender == GENDER_FEMALE)  
+                sName += RandomName(NAME_FIRST_HALFLING_FEMALE);  
+            else  
+                sName += RandomName(NAME_FIRST_HALFLING_MALE);  
+            break;  
+    }  
+      
+    sName += " ";  
+      
+    // Surname based on race  
+    switch(nRace)  
+    {  
+        case RACIAL_TYPE_DWARF:  
+            sName += RandomName(NAME_LAST_DWARF);  
+            break;  
+        case RACIAL_TYPE_ELF:  
+            sName += RandomName(NAME_LAST_ELF);  
+            break;  
+        case RACIAL_TYPE_GNOME:  
+            sName += RandomName(NAME_LAST_GNOME);  
+            break;  
+        case RACIAL_TYPE_HUMAN:  
+            sName += RandomName(NAME_LAST_HUMAN);  
+            break;  
+        case RACIAL_TYPE_HALFELF:  
+            sName += RandomName(NAME_LAST_HALFELF);  
+            break;  
+        case RACIAL_TYPE_HALFORC:  
+            sName += RandomName(NAME_LAST_HALFORC);  
+            break;  
+        case RACIAL_TYPE_HALFLING:  
+            sName += RandomName(NAME_LAST_HALFLING);  
+            break;  
+    }  
+      
+    // Sanity check  
+    if(sName == " ")  
+        sName = "";  
+      
+    return sName;  
+}
+
 void AddCohortToPlayerByObject(object oCohort, object oPC, int bDoSetup = TRUE)
+{
+    //add it to the pc
+    int nMaxHenchmen = GetMaxHenchmen();
+    SetMaxHenchmen(99);
+    AddHenchman(oPC, oCohort);
+    SetMaxHenchmen(nMaxHenchmen);
+    object oSkin  = GetPCSkin(oCohort);
+
+    if(bDoSetup)
+    {
+        //if it was a premade one, give it a random name
+        //randomize its appearance using DoRandomAppearance
+		if(GetResRef(oCohort) != "")  
+        {  
+            // Generate and assign random name  
+            string sName = GenerateRandomName(oCohort);  
+            AssignCommand(oCohort, SetName(oCohort, sName));  
+  
+            //use disguise code to alter head etc  
+            DoRandomAppearance(MyPRCGetRacialType(oCohort), oCohort);  
+  
+            //DoRandomAppearance removed wings/tails need to re-add  
+            if(GetRacialType(oCohort) == RACIAL_TYPE_FEYRI)  
+                SetCreatureWingType(CREATURE_WING_TYPE_DEMON, oCohort);  
+            else if(GetRacialType(oCohort) == RACIAL_TYPE_AVARIEL)  
+                SetCreatureWingType(CREATURE_WING_TYPE_BIRD, oCohort);  
+			else if(GetRacialType(oCohort) == RACIAL_TYPE_GLOURA)  
+                SetCreatureWingType(CREATURE_WING_TYPE_BUTTERFLY, oCohort);  
+        }
+        //if its a custom made cohort, need to cancel GreatX feats
+        else
+            CancelGreatFeats(oCohort);
+
+        //set it to the pcs level
+        int nLevel = GetCohortMaxLevel(GetLeadershipScore(oPC), oPC);
+        SetXP(oCohort, nLevel*(nLevel-1)*500);
+        SetLocalInt(oCohort, "MastersXP", GetXP(oPC));
+        DelayCommand(1.0, AssignCommand(oCohort, SetIsDestroyable(FALSE, TRUE, TRUE)));
+        DelayCommand(1.0, AssignCommand(oCohort, SetLootable(oCohort, TRUE)));
+        //set its maximum level lag
+        if(GetCurrentCohortCount(oPC) <= GetPRCSwitch(PRC_BONUS_COHORTS))
+        {
+            //bonus cohort, no cap
+        }
+        else if(GetPRCSwitch(PRC_THRALLHERD_LEADERSHIP)
+            && GetLevelByClass(CLASS_TYPE_THRALLHERD, oPC)
+            && GetCurrentCohortCount(oPC) <= GetPRCSwitch(PRC_BONUS_COHORTS)+1)
+        {
+            //thrallherd with switch, 1 level lag
+            SetLocalInt(oCohort, "CohortLevelLag", 1);
+        }
+        else if(GetPRCSwitch(PRC_THRALLHERD_LEADERSHIP)
+            && GetLevelByClass(CLASS_TYPE_THRALLHERD, oPC) >= 10
+            && GetCurrentCohortCount(oPC) <= GetPRCSwitch(PRC_BONUS_COHORTS)+2)
+        {
+            //twofold master with switch, 2 level lag
+            SetLocalInt(oCohort, "CohortLevelLag", 2);
+        }
+        else
+        {
+            //other cohort have a 2 level lag
+            SetLocalInt(oCohort, "CohortLevelLag", 2);
+        }
+
+        //strip its equipment & inventory
+        object oTest  = GetFirstItemInInventory(oCohort);
+        object oToken = GetHideToken(oCohort);
+        while(GetIsObjectValid(oTest))
+        {
+            if(GetHasInventory(oTest))
+            {
+                object oTest2 = GetFirstItemInInventory(oTest);
+                while(GetIsObjectValid(oTest2))
+                {
+                    // Avoid blowing up the hide and token that just had the eventscripts stored on them
+                    if(oTest2 != oSkin && oTest2 != oToken)
+                        DestroyObject(oTest2);
+                    oTest2 = GetNextItemInInventory(oTest);
+                }
+            }
+            // Avoid blowing up the hide and token that just had the eventscripts stored on them
+            if(oTest != oSkin && oTest != oToken)
+                DestroyObject(oTest);
+            oTest = GetNextItemInInventory(oCohort);
+        }
+        int nSlot;
+        for(nSlot = 0;nSlot<14;nSlot++)
+        {
+            oTest = GetItemInSlot(nSlot, oCohort);
+            DestroyObject(oTest);
+        }
+        //get rid of any gold it has
+        TakeGoldFromCreature(GetGold(oCohort), oCohort, TRUE);
+    }
+    //clean up any leftovers on the skin
+    ScrubPCSkin(oCohort, oSkin);
+    DeletePRCLocalInts(oSkin);
+
+    //turn on its scripts
+    //normal MoB set
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONPHYSICALATTACKED,   "prc_ai_mob_attck", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONBLOCKED,            "prc_ai_mob_block", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONCOMBATROUNDEND,     "prc_ai_mob_combt", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONDAMAGED,            "prc_ai_mob_damag", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONDISTURBED,          "prc_ai_mob_distb", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONPERCEPTION,         "prc_ai_mob_percp", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONSPAWNED,            "prc_ai_mob_spawn", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONSPELLCASTAT,        "prc_ai_mob_spell", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONDEATH,              "prc_ai_mob_death", TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONRESTED,             "prc_ai_mob_rest",  TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONUSERDEFINED,        "prc_ai_mob_userd", TRUE, FALSE);
+    //dont run this, cohort-specific script replaces it
+    //AddEventScript(oCohort, EVENT_VIRTUAL_ONCONVERSATION,       "prc_ai_mob_conv",  TRUE, TRUE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONHEARTBEAT,          "prc_ai_mob_heart", TRUE, FALSE);
+    //cohort specific ones
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONCONVERSATION,       "prc_ai_coh_conv",  TRUE, FALSE);
+    AddEventScript(oCohort, EVENT_VIRTUAL_ONHEARTBEAT,          "prc_ai_coh_hb",    TRUE, FALSE);
+
+    //mark the master on the cohort
+    SetLocalObject(oCohort, "MasterObject", oPC);
+
+    //DEBUG
+    //various tests
+    if (DEBUG) DoDebug("Cohort Name="+GetName(oCohort));
+    if (DEBUG) DoDebug("Cohort HD="+IntToString(GetHitDice(oCohort)));
+    if (DEBUG) DoDebug("Cohort XP="+IntToString(GetXP(oCohort)));
+    if (DEBUG) DoDebug("Cohort GetIsPC="+IntToString(GetIsPC(oCohort)));
+    
+    // And now gear it up
+    if (!GetPRCSwitch(PRC_DISABLE_COHORT_STARTING_GEAR))
+    {
+        int i;
+        int nHD = GetHitDice(oCohort);
+        for(i = 0;i<nHD;i++)
+        {
+            GenerateBossTreasure(oCohort);
+        }        
+        object oGear = GetFirstItemInInventory(oCohort);
+        while(GetIsObjectValid(oGear))
+        {
+            SetIdentified(oGear, TRUE);
+            SetDroppableFlag(oGear, FALSE);
+            SetItemCursedFlag(oGear, TRUE);        
+            SetStolenFlag(oGear, TRUE);
+            SetPlotFlag(oGear, TRUE);
+            AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_10_PERCENT), oGear);
+            
+            oGear = GetNextItemInInventory(oCohort);
+        }    
+        
+        AssignCommand(oCohort, ClearAllActions());
+        AssignCommand(oCohort, ActionEquipMostDamagingMelee());
+        AssignCommand(oCohort, ActionEquipMostEffectiveArmor());
+    }
+}
+
+
+/* void AddCohortToPlayerByObject(object oCohort, object oPC, int bDoSetup = TRUE)
 {
     //add it to the pc
     int nMaxHenchmen = GetMaxHenchmen();
@@ -518,6 +765,7 @@ void AddCohortToPlayerByObject(object oCohort, object oPC, int bDoSetup = TRUE)
         AssignCommand(oCohort, ActionEquipMostEffectiveArmor());
     }
 }
+ */
 
 void RemoveCohortFromPlayer(object oCohort, object oPC)
 {

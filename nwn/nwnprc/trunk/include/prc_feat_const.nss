@@ -1335,9 +1335,15 @@ const int FEAT_CLOUDY_CONJURATION                      = 3001;
 const int FEAT_RANGED_RECALL                           = 5187;
 const int FEAT_SOMATIC_WEAPONRY                        = 5186;
 
-// Forgotten Realms Campaign Setting
-const int FEAT_INSCRIBE_RUNE                           = 2462;
-const int EPIC_FEAT_INSCRIBE_EPIC_RUNES                = 2549;
+//:: Forgotten Realms Campaign Setting
+const int FEAT_INSCRIBE_RUNE						= 2462;
+const int EPIC_FEAT_INSCRIBE_EPIC_RUNES				= 2549;
+const int FEAT_CIRCLE_MAGIC							= 4350;
+const int FEAT_CIRCLE_LEADER_RASHEMAN				= 4351;
+const int FEAT_CIRCLE_LEADER_THAYAN					= 4352;
+const int FEAT_GREAT_CIRCLE_LEADER_THAYAN			= 4353;
+const int FEAT_GREAT_CIRCLE_LEADER_RASHEMAN			= 4435;
+
 
 // Miniature Handbook
 const int FEAT_SHIELDMATE                              = 3258;
@@ -3524,7 +3530,6 @@ const int FEAT_WARLOCK_SHADOWMASTER_SHADES        = 4485;
 const int FEAT_VERMINLORD                         = 5323;
 
 //Master Alchemist and various crafting
-
 const int FEAT_SKILL_FOCUS_ALCHEMY                = 24000;
 const int FEAT_EPIC_SKILL_FOCUS_ALCHEMY           = 24001;
 const int FEAT_MAGICAL_ARTISAN_CRAFT_MAGIC_ARMS   = 24002;
@@ -3937,22 +3942,24 @@ const int FEAT_BRUTAL_THROW					= 2689;
 const int FEAT_MARTIAL_STALKER				= 25998;
 
 // Complete Warrior Feats
-const int FEAT_EXTRA_RAGE                     = 2690;
-const int FEAT_FLYING_KICK                    = 2802;
-const int FEAT_ANVIL_OF_THUNDER               = 5290;
-const int FEAT_HAMMERS_EDGE                   = 5289;
-const int FEAT_HIGH_SWORD_LOW_AXE             = 5288;
-const int FEAT_SPINNING_HALBERD               = 5287;
-const int FEAT_THREE_MOUNTAINS                = 5286;
-const int FEAT_MONKEY_GRIP                    = 5197;
-const int FEAT_CRESCENT_MOON                  = 5194;
-const int FEAT_QUICK_STAFF                    = 5190;
-const int FEAT_RANGED_DISARM				  =	5192;
-const int FEAT_BEAR_FANG                      = 5189;
-const int FEAT_IMPROVED_RAPID_SHOT            = 5188;
-const int FEAT_EARTHS_EMBRACE                 = 5177;
-const int FEAT_SHIELD_CHARGE                  = 3256;
-const int FEAT_SHIELD_SLAM                    = 3257;
+const int FEAT_EXTRA_RAGE				= 2690;
+const int FEAT_FLYING_KICK				= 2802;
+const int FEAT_ANVIL_OF_THUNDER			= 5290;
+const int FEAT_HAMMERS_EDGE				= 5289;
+const int FEAT_HIGH_SWORD_LOW_AXE		= 5288;
+const int FEAT_SPINNING_HALBERD			= 5287;
+const int FEAT_THREE_MOUNTAINS			= 5286;
+const int FEAT_MONKEY_GRIP				= 5197;
+const int FEAT_CRESCENT_MOON			= 5194;
+const int FEAT_QUICK_STAFF				= 5190;
+const int FEAT_RANGED_DISARM			=	5192;
+const int FEAT_BEAR_FANG				= 5189;
+const int FEAT_IMPROVED_RAPID_SHOT		= 5188;
+const int FEAT_EARTHS_EMBRACE			= 5177;
+const int FEAT_SHIELD_CHARGE			= 3256;
+const int FEAT_SHIELD_SLAM				= 3257;
+const int FEAT_FREEZING_THE_LIFEBLOOD	= 26016;
+const int FEAT_CW_PAIN_TOUCH			= 26018;
 
 // CityScape Feats
 const int FEAT_EFFICIENT_DEFENDER             = 5293;
@@ -3977,7 +3984,12 @@ const int FEAT_WAND_MASTERY                   = 5314;
 const int FEAT_MOUNTAIN_STANCE                = 5193;
 
 // Oriental Adventures Feats
-const int FEAT_GREAT_DIPLOMAT                 = 5274;
+const int FEAT_GREAT_DIPLOMAT			= 5274;
+const int FEAT_CHOKE_HOLD				= 26013;
+const int FEAT_FALLING_STAR_STRIKE		= 26014;
+const int FEAT_GREAT_KI_SHOUT			= 26016;
+const int FEAT_KI_SHOUT					= 26017;
+const int FEAT_UNBALANCING_STRIKE		= 26019;
 
 // DungeonScape Feats
 const int FEAT_TRAP_ENGINEER                  = 5292;

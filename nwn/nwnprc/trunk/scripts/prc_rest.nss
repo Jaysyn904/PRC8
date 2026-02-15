@@ -78,7 +78,8 @@ void PrcFeats(object oPC)
     DelayCommand(0.3, DeletePRCLocalIntsT(oPC));
     DelayCommand(0.4, EvalPRCFeats(oPC));
     DelayCommand(0.4, DoWeaponsEquip(oPC));
-    DelayCommand(1.0, DeleteLocalInt(oPC,"ONREST"));
+	DelayCommand(0.5, DeleteLocalInt(oPC, "CircleMagicAnimating")); 
+    DelayCommand(1.0, DeleteLocalInt(oPC,"ONREST"));     
 }
 
 void RestCancelled(object oPC)

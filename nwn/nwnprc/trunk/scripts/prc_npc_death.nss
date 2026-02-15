@@ -9,6 +9,14 @@ void main()
 {
 	object oDead = OBJECT_SELF;
     ExecuteScript("prc_ondeath", oDead);
+
+	// Clear Circle Magic state on death  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicActive");  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicTotal");  
+	DeleteLocalString(OBJECT_SELF, "CircleMagicClass");  
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicMaxParticipants");  
+	DeleteLocalInt(OBJECT_SELF, PRC_CASTERLEVEL_ADJUSTMENT);
+	DeleteLocalInt(OBJECT_SELF, "CircleMagicAnimating"); 	
     
     if (GetIsObjectValid(GetLocalObject(GetModule(), "Necrocarnate")))
     {

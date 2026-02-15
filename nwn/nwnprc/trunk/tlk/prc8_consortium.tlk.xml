@@ -5751,13 +5751,7 @@ Use: Selected.</entry>
   <entry id="45087" lang="en" sex="m">Unseen Seers</entry>
   <entry id="45088" lang="en" sex="m">unseen seer</entry>
   <entry id="45089" lang="en" sex="m">(PRESTIGE CLASS)
-Mysterious and elusive, the 
-
-
-
-
-
- seer trades in secrets. Subterfuge is her business in the same way that death is the assassin's business, and she uses her magic to help her gather other people's secrets while keeping her own.
+Mysterious and elusive, the unseen seer trades in secrets. Subterfuge is her business in the same way that death is the assassin's business, and she uses her magic to help her gather other people's secrets while keeping her own.
 
 - Hit Die: d4.
 - Proficiencies: Unseen Seer grants no additional weapon proficiencies.
@@ -7507,16 +7501,24 @@ Prerequisite: Duelist Level 1, Iaijutsu Master Level 1
 Specifics: The duelst may add their intelligence bonus to AC, this is capped by class level and does not function while wearing armor.  The iaijutsu master may also add their intelligence bonus to AC, but is not capped by class level.  The iaijutsu master must be wielding a katana and wearing no armor for this ability to function.
 Use: Automatic. </entry>
   <entry id="45506" lang="en" sex="m">Precise Strike</entry>
+  <entry id="45507" lang="en" sex="m">****</entry>
   <entry id="45508" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Duelist Level 5
 Specifics: The Duelist adds +1d6 bonus damage per 5 class levels to any light piercing weapon wielded in the main hand. This damage only applies against enemies vulnerable to critical hits, and the left hand must be empty.
 Use: Automatic.</entry>
   <entry id="45509" lang="en" sex="m">Grace</entry>
+  <entry id="45510" lang="en" sex="m">****</entry>
+  <entry id="45511" lang="en" sex="m">****</entry>
+  <entry id="45512" lang="en" sex="m">****</entry>
+  <entry id="45513" lang="en" sex="m">****</entry>
   <entry id="45514" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Duelist Level 4
 Specifics: The Duelist gains a +2 bonus to reflex saving throws. This ability does not function while wearing armor.
 Use: Automatic.</entry>
   <entry id="45515" lang="en" sex="m">Acrobatic Charge</entry>
+  <entry id="45516" lang="en" sex="m">****</entry>
+  <entry id="45517" lang="en" sex="m">****</entry>
+  <entry id="45518" lang="en" sex="m">****</entry>
   <entry id="45519" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Duelist Level 6
 Specifics: You may make a charge attack with freedom of movement against enemies at least 10 feet away from you.
@@ -7561,6 +7563,13 @@ Precise Strike: Your attack with light piercing weapons continues to become more
 
 Epic Duelist Bonus Feats List:
 Blinding Speed, Epic Prowess, Epic Reputation, Epic Skill Focus, Epic Weapon Focus, Epic Reflexes, Improved Whirlwind, Superior Initiative, Greater Two-Weapon Fighting, Great Dexterity</entry>
+  <entry id="45524" lang="en" sex="m">****</entry>
+  <entry id="45525" lang="en" sex="m">Great Circle Leader - Rasheman</entry>
+  <entry id="45526" lang="en" sex="m">Type of Feat: Class Specific
+Prerequisite: Hathran level 10.
+Specifics: Allows caster to initiate Hathran Circle Magic. Two to nine participants can sacrifice spells to augment the Circle Leader's spell casting abilities for one rest cycle.
+Use: Activate Feat.</entry>
+  <entry id="45527" lang="en" sex="m">****</entry>
   <entry id="45528" lang="en" sex="m">Hierophant</entry>
   <entry id="45529" lang="en" sex="m">Hierophants</entry>
   <entry id="45530" lang="en" sex="m">hierophant</entry>
@@ -7786,89 +7795,28 @@ Use: Selected.</entry>
 Prerequisite: Knight of the Chalice Level 10
 Specifics: The Knight of the Chalice may create Holy Aura against demons. This functions just like the spell, but the effects only apply to outsiders. This ability may be used at will.
 Use: Selected.</entry>
+  <entry id="45590" lang="en" sex="m">****</entry>
   <entry id="45591" lang="en" sex="m">Type: Class
 Prerequisite: Scout level 3
 Starting at 3rd level, a Scout gains a +10 feet enhancement bonus to her base land speed. At 11th level, this bonus increases to +20 feet. A Scout loses this benefit when wearing medium or heavy armor or when carrying a medium or heavy load.</entry>
-  <entry id="45592" lang="en" sex="m">Hunter of the Dead</entry>
-  <entry id="45593" lang="en" sex="m">Hunters of the Dead</entry>
-  <entry id="45594" lang="en" sex="m">hunter of the dead</entry>
-  <entry id="45595" lang="en" sex="m">(PRESTIGE CLASS)
-The Hunter of the Dead is the hated enemy of all undead. She spends each restless night tracking undead to their lairs and cleansing the land of their foul presence forever.
-
-- Hit Die: d10
-- Proficiencies: The Hunter of the Dead is proficient will all simple and martial weapons, armor and shields.
-- Skill Points: 2+ Int Modifier.
-
-REQUIREMENTS:
-
-Alignment: Any non-evil
-Base Attack Bonus: +5
-Skills: Lore 5 ranks
-Special: Turn Undead Ability
-
-CLASS FEATURES:
-
-Level
-1: Detect Undead - May sense undead at will
-2: Smite Undead - Can use holy power to smite undead once a day. Adds wisdom bonus to attack roll and uses level as damage bonus.
-  Cure Light Wounds - As the spell, once a day.
-3: Spurn Death's Touch - Add wisdom bonus to save versus level/ability drain
-4: Lesser Restoration - As the spell, once a day.
-5: True Death - Attacks against undead have the "Slay Undead" property
-6: Extra Turning
-  Smite Undead - Twice per day.
-  Searing Light - As the spell, once per day.
-7: Cure Light Wounds - As the spell, once per day.
-8: Positive Energy Burst - Use 2 turn attempts to damage nearby undead
-  Restoration - As the spell, twice per day.
-9: Lesser Restoration - As the spell, twice per day
-10: Sealed Life - Immune to level/ability drain
-  Smite Undead - Three times per day.
-  Searing Light - As the spell, twice per day.</entry>
-  <entry id="45596" lang="en" sex="m">Detect Undead</entry>
-  <entry id="45597" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 1
-Specifics: The Hunter of the Dead may sense the direction and distance of the nearest undead creature at will.
-Use: Selected.</entry>
-  <entry id="45598" lang="en" sex="m">Smite Undead</entry>
-  <entry id="45599" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 2
-Specifics: The Hunter of the Dead may channel holy power into a single standard attack. She may add her wisdom bonus (if positive) to the attack roll, and does bonus damage equal to her class level.
-Use: Selected.</entry>
-  <entry id="45600" lang="en" sex="m">Spurn Death's Touch</entry>
-  <entry id="45601" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 3
-Specifics: The Hunter of the Dead may add her wisdom bonus (if positive) to all saving throws against level/ability drain and death magic.
-Use: Selected.</entry>
-  <entry id="45602" lang="en" sex="m">True Death</entry>
-  <entry id="45603" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 5
-Specifics: Any weapon wielded by the Hunter of the Dead is treated as having the "Slay Racial Type: Undead" property. Any undead creature struck by the Hunter must make a fortitude save (DC 14) or be destroyed.
-Use: Automatic.</entry>
-  <entry id="45604" lang="en" sex="m">Positive Energy Burst</entry>
-  <entry id="45605" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 8
-Specifics: The Hunter of the Dead may spend two Turn Undead attempts to unleash a burst of holy energy. This burst deals 1d6 damage per class level to every undead creature within 20 feet.
-Use: Selected.</entry>
-  <entry id="45606" lang="en" sex="m">Sealed Life</entry>
-  <entry id="45607" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Hunter of the Dead Level 10
-Specifics: The Hunter of the Dead is immune to level/ability drain and death magic.
-Use: Automatic.</entry>
-  <entry id="45608" lang="en" sex="m">Epic Hunter of the Dead</entry>
-  <entry id="45609" lang="en" sex="m">You are the bane of all unlife. Lesser undead crumble at your barest touch, and even the mightiest of the dead fear your wrath.
-
-Hit Die: d10
-Skill Points at Each Additional Level: 2+ Int Modifier
-Bonus Feats: The epic Hunter of the Dead gains a bonus feat every four levels.
-Special:
- Smite Undead - Gains an additional use per day every four levels.
- Spells - Gain additional uses per day every five levels.
- Positive Energy Burst - Gains an additional 1d6 damage every other level
- True Death - DC increases by 2 every five levels.
-
-Epic Hunter of the Dead Bonus Feats List:
-Armor Skin, Epic Toughness, Great Wisdom, Epic Energy Resistance, Great Smiting, Perfect Health</entry>
+  <entry id="45592" lang="en" sex="m">****</entry>
+  <entry id="45593" lang="en" sex="m">&lt;CUSTOM0&gt; attempts to join a Circle Magic ritual.</entry>
+  <entry id="45594" lang="en" sex="m">&lt;CUSTOM0&gt; initiates a Circle Magic ritual.</entry>
+  <entry id="45595" lang="en" sex="m">****</entry>
+  <entry id="45596" lang="en" sex="m">****</entry>
+  <entry id="45597" lang="en" sex="m">****</entry>
+  <entry id="45598" lang="en" sex="m">****</entry>
+  <entry id="45599" lang="en" sex="m">****</entry>
+  <entry id="45600" lang="en" sex="m">****</entry>
+  <entry id="45601" lang="en" sex="m">****</entry>
+  <entry id="45602" lang="en" sex="m">****</entry>
+  <entry id="45603" lang="en" sex="m">****</entry>
+  <entry id="45604" lang="en" sex="m">****</entry>
+  <entry id="45605" lang="en" sex="m">****</entry>
+  <entry id="45606" lang="en" sex="m">****</entry>
+  <entry id="45607" lang="en" sex="m">****</entry>
+  <entry id="45608" lang="en" sex="m">****</entry>
+  <entry id="45609" lang="en" sex="m">****</entry>
   <entry id="45610" lang="en" sex="m">Blindsense (Ex)</entry>
   <entry id="45611" lang="en" sex="m">Type: Class
 Prerequisite: Scout level 10
@@ -73907,8 +73855,7 @@ Vestige Metamagic: Continues increasing at a rate of 1 use per 2 epic Anima Mage
 Caster/ Binder Level: Increases as if gaining a level in both your arcane spellcasting class and your soul binding class at each level.
 
 Epic Anima Mage Bonus Feat List:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not l
-isted here.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not listed here.</entry>
   <entry id="205008" lang="en" sex="m">Epic Serene Guardian</entry>
   <entry id="205009" lang="en" sex="m">You are a transcendent guardian of the Luminous Order, channeling disciplined meditation into devastating resonance with every strike.
 
@@ -76616,12 +76563,71 @@ Feats Required: Simple, Druid, or Wizard</entry>
   <entry id="212238" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
 One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.</entry>
+  <entry id="213076" lang="en" sex="m">&lt;CUSTOM0&gt; unleashes a ki shout!</entry>
+  <entry id="213077" lang="en" sex="m">&lt;CUSTOM0&gt; attempts a Freezing the Lifeblood attack.</entry>
+  <entry id="213078" lang="en" sex="m">Choke Hold</entry>
+  <entry id="213079" lang="en" sex="m">Type of Feat: General
+
+You have learned the correct way to apply pressure to render an opponent unconscious.
+
+Prerequisite: Improved Unarmed Strike, Improved Grapple,  Stunning Fist.
+Specifics: If you pin your opponent while grappling and maintain the pin for 1 full round, at the end of the round your opponent must make a Fortitude saving throw (DC 10 + 1/2 your level + your Wisdom modifier). If the saving throw fails, your opponent falls unconscious for 1d3 rounds.
+Use: Automatic.</entry>
+  <entry id="213080" lang="en" sex="m">Falling Star Strike</entry>
+  <entry id="213081" lang="en" sex="m">Type of Feat: General
+
+You have mastered the art of striking a nerve that blinds a humanoid opponent.
+
+Prerequisite: Improved Unarmed Strike, Stunning Fist (or monk's stunning attack), Base attack bonus +4, WIS 17.
+Specifics: Against a humanoid opponent, you can make an unarmed attack that 	has a chance of blinding your target. If your attack is successful, your target must attempt a Fortitude saving throw (DC 10 + 1/2 your level + your Wisdom modifier). If the target fails this saving throw, he is blinded for 1 round per level you possess.  Using this feat uses up one of your stunning attacks for the day (either a monk stunning attack or a use of the Stunning Fist feat).
+Use: Automatic.</entry>
+  <entry id="213082" lang="en" sex="m">Freezing the Lifeblood</entry>
+  <entry id="213083" lang="en" sex="m">Type of Feat: Fighter Bonus Feat, General
+
+You can paralyze a humanoid opponent with an unarmed attack.
+
+Prerequisite: Improved Unarmed Strike, Stunning Fist, WIS 17, base attack bonus +10,
+Specifics: Against a humanoid opponent, you can make an unarmed attack that deals no damage but has a chance of paralyzing your target. If your attack is successful, your target must attempt a Fortitude saving throw (DC 10 + 1/2 your character level + your Wis modifier). If the target fails this saving throw, it is paralyzed for 1d4+1 rounds.  Each attempt to paralyze an opponent counts as one of your uses of the Stunning Fist feat for the day. Creatures immune to stunning cannot be paralyzed in this manner.
+Use: Automatic.
+Special: A fighter may select Freezing the Lifeblood as one of his fighter bonus feats.</entry>
+  <entry id="213084" lang="en" sex="m">Great Ki Shout</entry>
+  <entry id="213085" lang="en" sex="m">Type of Feat: General
+
+Your ki shout can panic your opponents.
+
+Prerequisite: Ki Shout, CHA 13, Base attack bonus +9
+Specifics:When you make a ki shout, your opponents are panicked for 2d6 rounds unless they succeed at their Will saves (DC 10 + 1/2 your character level + your Charisma modifier). Panicked characters suffer a —2 morale penalty on attack rolls, saves, and checks, they have a 50% chance to drop what they are holding, and they run away from you as quickly as they can. The effects of being panicked supersede the effects of being shaken.
+Use: Automatic.</entry>
+  <entry id="213086" lang="en" sex="m">Ki Shout</entry>
+  <entry id="213087" lang="en" sex="m">Type of Feat: General
+
+You can bellow forth a ki-empowered shout that strikes terror into your enemies.
+
+Prerequisite: Base attack bonus +1, CHA 13
+Specifics:Making a ki shout is a standard action. Opponents who can hear your shout and who are within 30 feet of you may become shaken for 1d6 rounds. The ki shout affects only opponents with fewer Hit Dice or levels than you have. An affected opponent can resist the effects with a successful Will save against a DC of 10 + 1/2 your character level + your Charisma modifier. You can use Ki Shout once per day.
+Use: Selected.</entry>
+  <entry id="213088" lang="en" sex="m">Pain Touch</entry>
+  <entry id="213089" lang="en" sex="m">Type of Feat: General
+
+You cause intense pain in an opponent with a successful stunning attack.
+
+Prerequisite:Stunning Fist (or monk's stunning attack) , WIS 15, base attack bonus +2
+Specifics:Victims of a successful stunning attack are subject to such debilitating pain that they are nauseated for 1 round following the round they are stunned. Creatures that are immune to stunning attacks are also immune to the effect of this feat, as are any creatures that are more than one size category larger than the feat user.
+Use: Automatic.</entry>
+  <entry id="213090" lang="en" sex="m">Unbalancing Strike</entry>
+  <entry id="213091" lang="en" sex="m">Type of Feat: General
+
+You can strike a humanoid opponent's joints to knock your target off balance.
+
+Prerequisite: Improved Unarmed Strike, Stunning Fist (or monk's stunning attack) , WIS 15
+Specifics:Against a humanoid opponent, you can make an unarmed attack that has a chance of unbalancing your target. If your attack is successful, you deal normal damage and your target must attempt a Reflex saving throw (DC 10 + 1/2 your level + your Wisdom modifier). If the target fails this saving throw, he is thrown off balance for 1 round, losing any Dexterity bonus to AC and giving attackers a +2 bonus on their attack rolls.
+Use: Selected.</entry>
   <entry id="213092" lang="en" sex="m">Swarm of Arrows</entry>
-  <entry id="213093" lang="en" sex="m">	Prerequisites
-	Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).
-	
-	Benefit
-	As a full-round action, you may fire an arrow at your full base attack bonus at each opponent within 30 feet.</entry>
+  <entry id="213093" lang="en" sex="m">Type of Feat: Epic
+Prerequisite: Dex 23, Point Blank Shot, Rapid Shot, Weapon Focus (type of bow used).
+Specifics: As a full-round action, you may fire an arrow at your full base attack bonus at each opponent within 30 feet.
+Use: Selected.
+Special: A fighter can select Swarm of Arrows as one of his fighter bonus feats.</entry>
   <entry id="213094" lang="en" sex="m">Daring Warrior</entry>
   <entry id="213095" lang="en" sex="m">Type of Feat: General
 Prerequisite: Weapon Specialization, Grace +1
