@@ -127,7 +127,7 @@ void main()
 
     jRoot = NuiCol(jRoot);
 
-    string title = "PRC Spellbook";
+    string title = "PRC8 Spellbook";
 
     if (selectedClassId != CLASS_TYPE_BARBARIAN)
         title = title + ": " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", selectedClassId)));

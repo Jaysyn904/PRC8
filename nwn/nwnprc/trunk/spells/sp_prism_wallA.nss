@@ -24,7 +24,7 @@ less than 8 HD that is within 20 feet of the wall
 is blinded for 2d4 rounds by the colors if it
 looks at the wall.
 
-The wall�s maximum proportions are 4 feet wide per
+The wall’s maximum proportions are 4 feet wide per
 caster level and 2 feet high per caster level. A
 prismatic wall spell cast to materialize in a
 space occupied by a creature is disrupted, and
@@ -41,7 +41,7 @@ The wall can be destroyed, color by color, in
 consecutive order, by various magical effects;
 however, the first color must be brought down
 before the second can be affected, and so on.
-A rod of cancellation or a mage�s disjunction
+A rod of cancellation or a mage’s disjunction
 spell destroys a prismatic wall, but an
 antimagic field fails to penetrate it. Dispel
 magic and greater dispel magic cannot dispel

@@ -5016,7 +5016,7 @@ Use: Selected.</entry>
   <entry id="16444" lang="en" sex="m">grey elves</entry>
   <entry id="16445" lang="en" sex="m">Gray elves are the most noble and regal of all elves. Taller and grander in physical appearance than others of their race, gray elves have a reputation for being aloof and arrogant (even by elven standards). They certainly are more reclusive than high elves, living in isolated mountain citadels and allowing entry only to a select few outsiders. They have either silver hair and amber eyes or pale golden hair and violet eyes. They prefer clothing of white, silver, yellow, or gold, with cloaks of deep blue or purple.
 
-    +2 Dexterity, +2 Intelligence, -–2 Strength, -–2 Constitution.
+    +2 Dexterity, +2 Intelligence, --2 Strength, --2 Constitution.
 
      Medium: As Medium creatures, gray elves have no special bonuses or penalties due to their size.
 
@@ -5187,7 +5187,7 @@ Feats Required: Exotic</entry>
   <entry id="16521" lang="en" sex="m">Forest Masters</entry>
   <entry id="16522" lang="en" sex="m">forest master</entry>
   <entry id="16523" lang="en" sex="m">(PRESTIGE CLASS)
-Guardians of the pristine wilderness and defenders of the ancient trees, forest masters are the living embodiments of sentient nature. They walk the shadows under the woods and destroy those who would lay waste to the wild lands. Where druids hold all aspects of nature; wind and weather, animal and plant, meadows and mountains— the forest masters consider the forests more ancient than the coming of animals or humans the most sacred spots of the world.  Druids most often become forest masters, but it is not unheard of for rangers or clerics of nature deities to leave their kinships behind and follow this path.
+Guardians of the pristine wilderness and defenders of the ancient trees, forest masters are the living embodiments of sentient nature. They walk the shadows under the woods and destroy those who would lay waste to the wild lands. Where druids hold all aspects of nature; wind and weather, animal and plant, meadows and mountains- the forest masters consider the forests more ancient than the coming of animals or humans the most sacred spots of the world.  Druids most often become forest masters, but it is not unheard of for rangers or clerics of nature deities to leave their kinships behind and follow this path.
 
 A few multiclassed barbarians become forest masters, although they rarely have the dedication to the plant aspect of nature to embrace this worldview. Forest masters often work alone, but are more than capable of working as part of a group. Many times adventurers have spoken with what they thought was a young, small treant, when they were actually speaking with a very powerful forest master. There are no rivalries between groups of forest masters, although individuals may disagree on methods of enacting the will of the Treefather.
 
@@ -9315,7 +9315,7 @@ Use: Automatic.</entry>
   <entry id="46008" lang="en" sex="m">Platinum Armor</entry>
   <entry id="46009" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Vassal of Bahamut Level 1.
-Specifics: The Vassal is granted a platinum armor made from transmuted scales of a red dragon. The masterwork suit of armor weighs 25 pounds and confers a +8 armor bonus. Its other properties are as a masterwork chain shirt (+4 max Dex bonus, —2 armor check penalty, 20% arcane spell failure chance)
+Specifics: The Vassal is granted a platinum armor made from transmuted scales of a red dragon. The masterwork suit of armor weighs 25 pounds and confers a +8 armor bonus. Its other properties are as a masterwork chain shirt (+4 max Dex bonus, -2 armor check penalty, 20% arcane spell failure chance)
 Use: Automatic.</entry>
   <entry id="46010" lang="en" sex="m">Dragon Senses</entry>
   <entry id="46011" lang="en" sex="m">Type of Feat: Class Specific
@@ -46927,7 +46927,7 @@ Necromancy is usually a poor choice for arcane spellcasters. Those who really wa
 
 - Hit Die: d6.
 - Proficiencies: A pale master does not gain any additional weapon or armor proficiencies.
-- Skill Points: 2 + Int Modifier.
+- Skill Points: 2+ Int Modifier.
 
 REQUIREMENTS:
 
@@ -47787,7 +47787,7 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57654" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
   <entry id="57655" lang="en" sex="m">Defensive Manifestation</entry>
-  <entry id="57656" lang="en" sex="m">If you want to manifest a power without provoking attacks of opportunity, you need to dodge and weave. You must make a Concentration check (DC 15 + the level of the power you’re manifesting) to succeed. You lose the power points without successful manifestation if you fail. </entry>
+  <entry id="57656" lang="en" sex="m">If you want to manifest a power without provoking attacks of opportunity, you need to dodge and weave. You must make a Concentration check (DC 15 + the level of the power you're manifesting) to succeed. You lose the power points without successful manifestation if you fail. </entry>
   <entry id="57657" lang="en" sex="m">Two Weapon Pounce</entry>
   <entry id="57658" lang="en" sex="m">Type of Feat: General
 Prerequisite: Two-Weapon Fighting, Dex 15, Base Attack Bonus +6 
@@ -72665,7 +72665,7 @@ Use: Automatic, checked for in DoDisarm()</entry>
   <entry id="78002" lang="en" sex="m">Lions of Talisid</entry>
   <entry id="78003" lang="en" sex="m">lion of Talisid</entry>
   <entry id="78004" lang="en" sex="m">(PRESTIGE CLASS)
-The undisputed ruler of the guardinals, Talisid the Celestial Lion is an enormously powerful force for good— and good alone, undiluted by concerns of law or chaos. He is also a mighty druid, and his mortal and guardinal champions are druids and rangers who share both his fierce hatred of evil and his passionate love of the natural world and its creatures. Called the lions of Talisid, these protectors of nature and champions of good emulate their celestial patron in more concrete ways: adopting feline animal companions, assuming great cat forms with their wild shape ability, and eventually roaring like a leonal. Druids and rangers most commonly become lions of Talisid, and only a character with an animal companion can enter the class. Multiclass druid/rangers also commonly adopt the class, and less commonly, fighter/druids or cleric/rangers.
+The undisputed ruler of the guardinals, Talisid the Celestial Lion is an enormously powerful force for good- and good alone, undiluted by concerns of law or chaos. He is also a mighty druid, and his mortal and guardinal champions are druids and rangers who share both his fierce hatred of evil and his passionate love of the natural world and its creatures. Called the lions of Talisid, these protectors of nature and champions of good emulate their celestial patron in more concrete ways: adopting feline animal companions, assuming great cat forms with their wild shape ability, and eventually roaring like a leonal. Druids and rangers most commonly become lions of Talisid, and only a character with an animal companion can enter the class. Multiclass druid/rangers also commonly adopt the class, and less commonly, fighter/druids or cleric/rangers.
 
 Like their guardinal patron, lions of Talisid usually work alone or in small groups of close companions, rarely with other lions. NPC lions of Talisid can be found wandering the wilderness, fighting any who would defile the natural world with evil.  They are particularly concerned with areas where some evil presence corrupts nature itself, manifesting evil weather and vile corrupted creatures.
 
@@ -72701,7 +72701,7 @@ Level
 
 * Not implemented</entry>
   <entry id="78005" lang="en" sex="m">Epic Lion of Talisid</entry>
-  <entry id="78006" lang="en" sex="m">Chosen by the celestial lion himself, these guardians of nature blend divine power with the ferocity of great cats. Noble and wild-hearted, they fight evil wherever it taints the natural world—roaming protectors guided by instinct, courage, and compassion. With animal companions at their side and the strength of a leonal in their soul, they embody both the serenity and savagery of the wild in service of pure good.
+  <entry id="78006" lang="en" sex="m">Chosen by the celestial lion himself, these guardians of nature blend divine power with the ferocity of great cats. Noble and wild-hearted, they fight evil wherever it taints the natural world-roaming protectors guided by instinct, courage, and compassion. With animal companions at their side and the strength of a leonal in their soul, they embody both the serenity and savagery of the wild in service of pure good.
 
 Hit Die: d8.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -72754,7 +72754,7 @@ Use: Selected.</entry>
   <entry id="78034" lang="en" sex="m">(PRESTIGE CLASS)
 Saying the verdant lord has a green thumb is like calling a red dragon a creature with a slight affinity for fire. The verdant lord is the final defender of the Forest. He has left behind the druid's search for global understanding of nature's secrets to focus all his energies on the world's plant life.  Elven and half-elven druids are the most likely characters to embrace the role of the verdant lord. Druids of other races, rangers, and the occasional priest of Obad Hai or Ehlonna have also been known to adopt this prestige class. It's almost impossible for characters without such ties to become verdant lords because they have neither the interest in nor the required understanding of seeds, saplings, and trees.  Since most verdant lords have little use for civilization, they tend to be loners, watching the years pass by from their groves. 
 
-Adventuring verdant lords are rare, but those who do exist are marvelous to behold. They tend to take their gardens with them, often bringing several plant creatures, such as animated trees and treants, along on adventures. Verdant lords tend to be soft-spoken, easygoing individuals, —right up until someone lights a torch and threatens living plants.
+Adventuring verdant lords are rare, but those who do exist are marvelous to behold. They tend to take their gardens with them, often bringing several plant creatures, such as animated trees and treants, along on adventures. Verdant lords tend to be soft-spoken, easygoing individuals, -right up until someone lights a torch and threatens living plants.
  
  - Hit Die: d8
  - Proficiencies: A verdant lord does not gain any additional weapon or armor proficiencies.
@@ -72919,7 +72919,7 @@ At 10th level, the verdant lord permanently becomes a plant creature, though all
   <entry id="80113" lang="en" sex="m">Epic Harness of Armor +14</entry>
   <entry id="80114" lang="en" sex="m">Epic Harness of Armor +15</entry>
   <entry id="80115" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers. 
-Moderate conjuration; CL 7th; Craft Wondrous Item, mage armor, creator’s caster level must be at least two times the bonus placed in the harness; 
+Moderate conjuration; CL 7th; Craft Wondrous Item, mage armor, creator's caster level must be at least two times the bonus placed in the harness; 
 Price 1,500 gp (+1), 6,000 gp (+2), 12,500 gp (+3), 24,000 gp (+4), 37,500 gp (+5), 54,000(+6), 73,500 gp (+7), 96,000 gp (+8); 
 Weight 1 lb.</entry>
   <entry id="80116" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers. </entry>
@@ -72927,7 +72927,7 @@ Weight 1 lb.</entry>
   <entry id="80118" lang="en" sex="m">Aroma of Curdled Death</entry>
   <entry id="80119" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
-One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
 Constitution damage (Fort DC 17 half) per round of exposure.
 
 Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.
@@ -72935,7 +72935,7 @@ Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.
 Cost to Create: 2,250 gp, 180 XP, 5 days</entry>
   <entry id="80120" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
-One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
 Constitution damage (Fort DC 17 half) per round of exposure.</entry>
   <entry id="80121" lang="en" sex="m">****</entry>
   <entry id="80122" lang="en" sex="m">Beetle Elixir</entry>
@@ -73267,7 +73267,7 @@ Spell Resistance: Yes
 
 This spell functions like creeping cold, causing intense cold to accumulate inside the target's body, but with extended duration and increased damage.
 
-You turn the subject's sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on—dealing 3d6 on the third round and 4d6 on the fourth.
+You turn the subject's sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on-dealing 3d6 on the third round and 4d6 on the fourth.
 
 If the caster is at least 15th level, the spell continues for a fifth round, dealing 5d6 cold damage. At 20th level or higher, a sixth round is added, dealing 6d6 cold damage. The spell never deals more than 6d6 damage in any round, and it ends early if the target dies.
 
@@ -73685,7 +73685,7 @@ Transmuting energy spreads out around the targets, dealing 4d8 points of damage 
   <entry id="200100" lang="en" sex="m">Giant Bearing</entry>
   <entry id="200101" lang="en" sex="m">Type of Feat: Legacy
 Prerequisite: Lesser Legacy Ritual
-Benefit: Beginning at 13th level, you can multiply your weight by 8, gaining a +2 size bonus to Strength, a —2 size penalty to Dexterity (to a minimum of 1), a —1 penalty on attack rolls, and a +4 bonus on grapple checks. You can grapple Huge creatures. You do not physically become larger and do not gain a longer reach, nor do you take size penalties on attacks, AC, and Hide checks. This ability can be used at will and lasts 10 minutes each time it is activated. 
+Benefit: Beginning at 13th level, you can multiply your weight by 8, gaining a +2 size bonus to Strength, a -2 size penalty to Dexterity (to a minimum of 1), a -1 penalty on attack rolls, and a +4 bonus on grapple checks. You can grapple Huge creatures. You do not physically become larger and do not gain a longer reach, nor do you take size penalties on attacks, AC, and Hide checks. This ability can be used at will and lasts 10 minutes each time it is activated. 
 
 Use: Selected</entry>
   <entry id="200102" lang="en" sex="m">Vow of Poverty</entry>
@@ -73888,7 +73888,7 @@ Bard Song: The epic virtuoso's bard song continues into epic levels.
 Epic Virtuoso Bonus Feat List:
 Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spellcasting, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205014" lang="en" sex="m">Epic Spellsword</entry>
-  <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells—each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
+  <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells-each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Intelligence modifier
@@ -73935,7 +73935,7 @@ Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 e
 Epic Unseen Seer Bonus Feat List:
 Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
-  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature—a mesmerizing blend of irresistible charm and fierce martial prowess. 
+  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature-a mesmerizing blend of irresistible charm and fierce martial prowess. 
 
 Hit Die: d6
 Skill Points at Each Additional Level: 6 + Int Modifier
@@ -73975,7 +73975,7 @@ Fiendslaying:  The epic Knight of the Chalice becomes a righteous engine of dest
 Epic Knight of the Chalice Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Energy Resistance, Epic Prowess, Epic Reflexes, Epic Reputation, Epic Toughness, Epic Weapon Focus, Epic Will, Overwhelming Critical, Epic Fortitude, Great Smiting, Improved Combat Casting, Improved Initiative, Superior Initiative, Epic Leadership, Improved Manyshot, Improved Whirlwind Attack, Legendary Commander, Legendary Wrestler, Planar Turning, Perfect Two-Weapon Fighting, Superior Initiative, Two-Weapon Rend.</entry>
   <entry id="205026" lang="en" sex="m">Epic Hathran</entry>
-  <entry id="205027" lang="en" sex="m">At epic levels, your mastery of both arcane and divine magic crowns you as an exalted Hathran —a beacon of healing and leadership in Rashemen. You embody the sacred legacy of the learned sisters, extending your nurturing miracles and commanding spells that both protect your people and instill awe in your foes.
+  <entry id="205027" lang="en" sex="m">At epic levels, your mastery of both arcane and divine magic crowns you as an exalted Hathran -a beacon of healing and leadership in Rashemen. You embody the sacred legacy of the learned sisters, extending your nurturing miracles and commanding spells that both protect your people and instill awe in your foes.
 
 Hit Die: d4
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74439,7 +74439,7 @@ Visage of Terror - At 10th level you gain Visage of Terror and that increases by
 Epic Ravager Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.</entry>
   <entry id="205098" lang="en" sex="m">Epic Runescarred Berserker</entry>
-  <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power—each scar a rune, each scream a spell, each rage an unstoppable storm.
+  <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power-each scar a rune, each scream a spell, each rage an unstoppable storm.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -74453,7 +74453,7 @@ Ritual Scarring : The epic Runescarred Berzerker continues to gain +1 Natural AC
 Epic Runescarred Berserkers Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage</entry>
   <entry id="205100" lang="en" sex="m">Epic Talontar Blightlord</entry>
-  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona's rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion—, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
+  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona's rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion-, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74466,7 +74466,7 @@ Spellcasting: The epic Talontar Blightlord continues to increase in divine caste
 Epic Talontar Blightlords Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Planar Turning.</entry>
   <entry id="205102" lang="en" sex="m">Epic Child of Night</entry>
-  <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form—walking veils between this world and the shadow that lies beyond.
+  <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form-walking veils between this world and the shadow that lies beyond.
 
 Hit Die: d6
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74479,7 +74479,7 @@ Mysteries: The epic Child of Night continues to increase in mystery caster level
 Epic Child of Night Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Self-Concealment, Epic Skill Focus, Favored Mystery, Great Charisma, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. </entry>
   <entry id="205104" lang="en" sex="m">Epic Master of Shadow</entry>
-  <entry id="205105" lang="en" sex="m">Epic Masters of Shadow are no longer mere commanders of darkness—they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
+  <entry id="205105" lang="en" sex="m">Epic Masters of Shadow are no longer mere commanders of darkness-they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74505,7 +74505,7 @@ Spellcasting: The epic Noctumancer continues to increase in caster level (and sp
 Epic Noctumancer Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Favored Mystery, Focused Spell Penetration, Great Charisma, Great Intelligence, Greater Path Focus, Ignore Material Components, Improved Combat Casting, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, Tenacious Magic, and any metashadow feat. </entry>
   <entry id="205108" lang="en" sex="m">Epic Totem Rager</entry>
-  <entry id="205109" lang="en" sex="m">An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces—they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
+  <entry id="205109" lang="en" sex="m">An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces-they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -74517,7 +74517,7 @@ Meldshaping: Meldshaper level increases as if gaining a level in your meldshaper
 Epic Totem Rager Bonus Feat List:
 Armor Skin, Blinding Speed, Bonus Soulmeld, Devastating Critical, Epic Damage Reduction, Epic Energy Resistance, Epic Essentia, Epic Prowess, Epic Toughness, Epic Weapon Focus, Extra Chakra Bind, Fast Healing, Legendary Wrestler, Mighty Rage, Open Heart Chakra, Open Soul Chakra, Overwhelming Critical, Rapid Meldshaping, Rebind Soulmeld, Terrifying Rage, Thundering Rage.</entry>
   <entry id="205110" lang="en" sex="m">Epic Shadowblade</entry>
-  <entry id="205111" lang="en" sex="m">At epic levels, the shadowblade becomes a phantom of war—an untouchable presence whose strikes come from impossible angles and vanish without trace. Their unseen weapon evolves beyond mortal reach, letting them slip through defenses, extend their reach through shadow, and pierce even the strongest wards. As their bond with darkness deepens, so too does their lethality—each step silent, each blow fatal.
+  <entry id="205111" lang="en" sex="m">At epic levels, the shadowblade becomes a phantom of war-an untouchable presence whose strikes come from impossible angles and vanish without trace. Their unseen weapon evolves beyond mortal reach, letting them slip through defenses, extend their reach through shadow, and pierce even the strongest wards. As their bond with darkness deepens, so too does their lethality-each step silent, each blow fatal.
 
 Hit Die: d8.
 Skill Points at Each Additional Level: 2 + Intelligence modifier.
@@ -74571,7 +74571,7 @@ Spellcasting: The epic Red Wizard continues to increase in caster level (and spe
 Epic Red Wizard Bonus Feat List:
 Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Craft Epic Magic Arms and Armor, Craft Epic Staff, Craft Epic Wondrous Item, Epic Leadership, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Focused Spell Penetration, Forge Epic Ring, Great Intelligence Ignore Material Components, Improved Combat Casting, Tenacious Magic.</entry>
   <entry id="205118" lang="en" sex="m">Epic True Necromancer</entry>
-  <entry id="205119" lang="en" sex="m">At epic levels, the True Necromancer transcends the boundaries between life and death, becoming a living conduit of necrotic power. No longer merely a manipulator of the dead, they embody death itself—an enduring presence whose will animates entire graveyards. Feared by the living and revered by the dead, their passage darkens the land, and even other necromancers whisper their name with dread. 
+  <entry id="205119" lang="en" sex="m">At epic levels, the True Necromancer transcends the boundaries between life and death, becoming a living conduit of necrotic power. No longer merely a manipulator of the dead, they embody death itself-an enduring presence whose will animates entire graveyards. Feared by the living and revered by the dead, their passage darkens the land, and even other necromancers whisper their name with dread. 
 
 Hit Die: d4
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74688,7 +74688,7 @@ Spellcasting: At each even level the epic Black Flame Zealot continues to increa
 Epic Black Flame Zealot Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Toughness, Epic Weapon Focus, Focused Spell Penetration, Great Wisdom, Great Charisma, Ignore Material Components, Improved Combat Casting, Improved Sneak Attack, Lingering Damage, Planar Turning.</entry>
   <entry id="205136" lang="en" sex="m">Epic Knight of Middle Circle</entry>
-  <entry id="205137" lang="en" sex="m">You are a sworn protector of celestial wisdom and earthly honor. As a Knight of the Middle Circle, your blade defends the Stargazers' sacred charge while your presence extends their reach. You are both herald and guardian—trusted with secrets, tasked with missions few can know, and bound by duty to serve the light of knowledge and the cause of good.
+  <entry id="205137" lang="en" sex="m">You are a sworn protector of celestial wisdom and earthly honor. As a Knight of the Middle Circle, your blade defends the Stargazers' sacred charge while your presence extends their reach. You are both herald and guardian-trusted with secrets, tasked with missions few can know, and bound by duty to serve the light of knowledge and the cause of good.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -75321,7 +75321,7 @@ Use: Automatic</entry>
   <entry id="209004" lang="en" sex="m">wisplings</entry>
   <entry id="209005" lang="en" sex="m">Wisplings are planetouched descended from halflings and demons.
 
-With a heritage touched by demonic fire and chaos, this offshoot of the halfling race embodies everything that is small, quick, and deceptive. Wisplings rarely sit still, and their pranks and jokes range from cruel to murderous.  A wispling’s light brown skin, bright red hair, and angular features set it apart from other Small humanoids. Although their demonic heritage grants them abilities of stealth beyond those of many other races, wisplings have a taste for bright clothing that marks them in any crowd.
+With a heritage touched by demonic fire and chaos, this offshoot of the halfling race embodies everything that is small, quick, and deceptive. Wisplings rarely sit still, and their pranks and jokes range from cruel to murderous.  A wispling's light brown skin, bright red hair, and angular features set it apart from other Small humanoids. Although their demonic heritage grants them abilities of stealth beyond those of many other races, wisplings have a taste for bright clothing that marks them in any crowd.
 
 Wispling Ability Adjustments: -2 Str, +4 Dex, +2 Int
 
@@ -75341,8 +75341,7 @@ Racial Traits:
 Level Adjustment: +1</entry>
   <entry id="209006" lang="en" sex="m">Wispling biography.</entry>
   <entry id="209007" lang="en" sex="m">****</entry>
-  <entry id="209008" lang="en" sex="m">Wispling Change Shape
-</entry>
+  <entry id="209008" lang="en" sex="m">Wispling Change Shape</entry>
   <entry id="209009" lang="en" sex="m">Learn Form</entry>
   <entry id="209010" lang="en" sex="m">Change Shape Options</entry>
   <entry id="209011" lang="en" sex="m">Return to True Form</entry>
@@ -75411,7 +75410,7 @@ Racial Traits:
 - An mechanatrix's base land speed is 30 feet.
 - Darkvision:  Mechanatrixes are able to see in the dark as well as daylight.
 - Proficiencies: Mechanatrixes are proficient with all simple and martial weapons, light armor, medium armor &amp; shields.
-- Shocking Grasp (Sp): A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix’s character level, whichever is higher.
+- Shocking Grasp (Sp): A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix's character level, whichever is higher.
 - Electricity Healing (Ex): Because of a mechanatrix's electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.
 - Fire &amp; Cold Resistance 5: Due to their body composition, Mechanatrixes are less susceptible to extremes of heat &amp; cold.
 - Skills: Mechanatrixes have a +2 racial bonus on Spot checks and a +4 racial bonus on Lore checks.
@@ -75421,9 +75420,9 @@ Level Adjustment: +1</entry>
   <entry id="209032" lang="en" sex="m">Mechanatrix biography.</entry>
   <entry id="209033" lang="en" sex="m">****</entry>
   <entry id="209034" lang="en" sex="m">Electricity Healing (Ex)</entry>
-  <entry id="209035" lang="en" sex="m">Because of a mechanatrix’s electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.</entry>
+  <entry id="209035" lang="en" sex="m">Because of a mechanatrix's electricity affinity, any electricity attack directed at it cures 1 point of damage for each 3 points of damage it would otherwise deal. The mechanatrix gets no saving throw against electricity effects.</entry>
   <entry id="209036" lang="en" sex="m">Shocking Grasp</entry>
-  <entry id="209037" lang="en" sex="m">A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix’s character level, whichever is higher.</entry>
+  <entry id="209037" lang="en" sex="m">A mechanatrix can use shocking grasp once per day as cast by a sorcerer of 1st level or the mechanatrix's character level, whichever is higher.</entry>
   <entry id="209038" lang="en" sex="m">Resist Cold 5</entry>
   <entry id="209039" lang="en" sex="m">Type of Feat: Racial
 Prerequisite: Race-Specific.
@@ -76512,57 +76511,118 @@ Feats Required: Simple, Druid, or Wizard</entry>
   <entry id="212187" lang="en" sex="m">Vials like these are used in the crafting of consumable wonderous items.</entry>
   <entry id="212188" lang="en" sex="m">****</entry>
   <entry id="212189" lang="en" sex="m">###CWI Descriptions###</entry>
-  <entry id="212190" lang="en" sex="m">This amulet fortifies the wearer’s physical resilience, magically enhancing their Constitution while it is worn. The benefit is continuous and requires no activation as long as the amulet is worn.</entry>
-  <entry id="212191" lang="en" sex="m">This amulet causes the wearer’s skin to harden and toughen through magic, granting a constant enhancement to natural armor while it is worn.</entry>
-  <entry id="212192" lang="en" sex="m">This broad, heavy belt is imbued with magic that greatly increases the wearer’s physical power, providing a continuous enhancement to Strength for as long as it is worn.</entry>
-  <entry id="212193" lang="en" sex="m">These soft, flexible boots are enchanted to mute the wearer’s footsteps, granting a significant magical bonus to Move Silently checks while they are worn.</entry>
+  <entry id="212190" lang="en" sex="m">This amulet fortifies the wearer's physical resilience, magically enhancing their Constitution while it is worn. The benefit is continuous and requires no activation as long as the amulet is worn.</entry>
+  <entry id="212191" lang="en" sex="m">This amulet causes the wearer's skin to harden and toughen through magic, granting a constant enhancement to natural armor while it is worn.</entry>
+  <entry id="212192" lang="en" sex="m">This broad, heavy belt is imbued with magic that greatly increases the wearer's physical power, providing a continuous enhancement to Strength for as long as it is worn.</entry>
+  <entry id="212193" lang="en" sex="m">These soft, flexible boots are enchanted to mute the wearer's footsteps, granting a significant magical bonus to Move Silently checks while they are worn.</entry>
   <entry id="212194" lang="en" sex="m">These boots can be activated to fill the wearer with magical swiftness, granting the effects of extraordinary speed for short periods each day, allowing them to move and act far faster than normal.</entry>
-  <entry id="212195" lang="en" sex="m">These enchanted boots lighten the wearer’s step, granting a constant increase to movement speed and allowing them to cover ground more quickly and effortlessly while the boots are worn.</entry>
+  <entry id="212195" lang="en" sex="m">These enchanted boots lighten the wearer's step, granting a constant increase to movement speed and allowing them to cover ground more quickly and effortlessly while the boots are worn.</entry>
   <entry id="212196" lang="en" sex="m">These boots allow the wearer to instantly transport themselves across great distances, casting teleportation when activated and enabling instant travel to a chosen destination.</entry>
   <entry id="212197" lang="en" sex="m">These sturdy boots keep the wearer warm and protected in bitterly cold environments, allowing them to move unhindered across snow and ice while resisting the effects of extreme cold.</entry>
   <entry id="212198" lang="en" sex="m">These magical bracers surround the wearer with an invisible protective field, providing a continuous enhancement to their armor class without the need to wear actual armor.</entry>
-  <entry id="212199" lang="en" sex="m">These bracers magically bolster the wearer’s vitality, granting a permanent enhancement to Constitution while worn and significantly improving their overall health and endurance.</entry>
-  <entry id="212200" lang="en" sex="m">These bracers magically strengthen the wearer’s physical power, providing a continuous bonus to Strength while worn and enhancing their ability to exert force and perform feats of might.</entry>
+  <entry id="212199" lang="en" sex="m">These bracers magically bolster the wearer's vitality, granting a permanent enhancement to Constitution while worn and significantly improving their overall health and endurance.</entry>
+  <entry id="212200" lang="en" sex="m">These bracers magically strengthen the wearer's physical power, providing a continuous bonus to Strength while worn and enhancing their ability to exert force and perform feats of might.</entry>
   <entry id="212201" lang="en" sex="m">This brooch surrounds the wearer with a protective magical barrier, increasing shield AC and immunity to magic missiles while it is worn.</entry>
   <entry id="212202" lang="en" sex="m">This circlet is enchanted to unleash powerful energy blasts with a thought, allowing them to project a magical ray of fire when activated.</entry>
-  <entry id="212203" lang="en" sex="m">This circlet subtly enhances the wearer’s charisma, granting a continuous magical bonus to Charisma-based checks, making them more charming and persuasive in social interactions.</entry>
-  <entry id="212204" lang="en" sex="m">This black garment, embroidered with a weblike pattern in silk, gives the wearer the ability to climb as if a spider climb spell had been placed upon her. In addition, the cloak grants her immunity to entrapment by web spells or webs of any sort—she can actually move in webs at half her normal speed.  Once per day, the wearer of this cloak can cast web.  She also gains a +2 luck bonus on all Fortitude saves against poison from spiders.</entry>
-  <entry id="212205" lang="en" sex="m">This cloak magically enhances the wearer’s personal presence, granting a continuous bonus to Charisma as long as it is worn, making them more compelling and influential.</entry>
+  <entry id="212203" lang="en" sex="m">This circlet subtly enhances the wearer's charisma, granting a continuous magical bonus to Charisma-based checks, making them more charming and persuasive in social interactions.</entry>
+  <entry id="212204" lang="en" sex="m">This black garment, embroidered with a weblike pattern in silk, gives the wearer the ability to climb as if a spider climb spell had been placed upon her. In addition, the cloak grants her immunity to entrapment by web spells or webs of any sort-she can actually move in webs at half her normal speed.  Once per day, the wearer of this cloak can cast web.  She also gains a +2 luck bonus on all Fortitude saves against poison from spiders.</entry>
+  <entry id="212205" lang="en" sex="m">This cloak magically enhances the wearer's personal presence, granting a continuous bonus to Charisma as long as it is worn, making them more compelling and influential.</entry>
   <entry id="212206" lang="en" sex="m">This cloak creates a magical illusion that makes the wearer appear slightly out of position, making them harder to strike and granting a constant bonus to avoid attacks while it is worn.</entry>
   <entry id="212207" lang="en" sex="m">This cloak subtly blends the wearer with their surroundings, providing a constant magical bonus to Hide checks and making them more difficult to detect while it is worn.</entry>
   <entry id="212208" lang="en" sex="m">This cloak allows the wearer to shift into the ethereal plane when activated, enabling them to move through solid objects and travel in ways impossible on the material plane.</entry>
-  <entry id="212209" lang="en" sex="m">This cloak bolsters the wearer’s defenses against harmful magic, granting a constant enhancement to all saving throws while it is worn.</entry>
+  <entry id="212209" lang="en" sex="m">This cloak bolsters the wearer's defenses against harmful magic, granting a constant enhancement to all saving throws while it is worn.</entry>
   <entry id="212210" lang="en" sex="m">These enchanted lenses allow the wearer to magically influence the feelings of others, giving them the ability to charm creatures as if casting a charm spell.</entry>
   <entry id="212211" lang="en" sex="m">These eyes radiate malevolent energy, enabling the wearer to strike fear or cause harm through magical effects when activated.</entry>
-  <entry id="212212" lang="en" sex="m">These magical eyes sharpen the wearer’s vision, granting enhanced perception, extended visual range, and improved accuracy for seeing distant or fine details.</entry>
+  <entry id="212212" lang="en" sex="m">These magical eyes sharpen the wearer's vision, granting enhanced perception, extended visual range, and improved accuracy for seeing distant or fine details.</entry>
   <entry id="212213" lang="en" sex="m">These magical eyes allow the wearer to turn others to stone, enabling them to petrify a creature with a gaze when activated.</entry>
-  <entry id="212214" lang="en" sex="m">These gauntlets magically increase the wearer’s physical strength, granting a constant enhancement to Strength and enabling them to perform feats of great power while worn.</entry>
-  <entry id="212215" lang="en" sex="m">These gloves magically enhance the wearer’s agility, providing a continuous bonus to Dexterity and improving their precision, reflexes, and overall nimbleness while worn.</entry>
-  <entry id="212216" lang="en" sex="m">These goggles magically sharpen the wearer’s vision, allowing them to perceive extremely fine details and small objects with exceptional clarity.</entry>
+  <entry id="212214" lang="en" sex="m">These gauntlets magically increase the wearer's physical strength, granting a constant enhancement to Strength and enabling them to perform feats of great power while worn.</entry>
+  <entry id="212215" lang="en" sex="m">These gloves magically enhance the wearer's agility, providing a continuous bonus to Dexterity and improving their precision, reflexes, and overall nimbleness while worn.</entry>
+  <entry id="212216" lang="en" sex="m">These goggles magically sharpen the wearer's vision, allowing them to perceive extremely fine details and small objects with exceptional clarity.</entry>
   <entry id="212217" lang="en" sex="m">These goggles grant the wearer the ability to see in complete darkness, providing darkvision as long as they are worn.</entry>
   <entry id="212218" lang="en" sex="m">This magical item enhances allows the wearer to use the Mage Hand spell at will.</entry>
-  <entry id="212219" lang="en" sex="m">This headband magically sharpens the wearer’s mind, granting a constant bonus to Intelligence and enhancing their reasoning, memory, and problem-solving abilities while worn.</entry>
+  <entry id="212219" lang="en" sex="m">This headband magically sharpens the wearer's mind, granting a constant bonus to Intelligence and enhancing their reasoning, memory, and problem-solving abilities while worn.</entry>
   <entry id="212220" lang="en" sex="m">This helm is imbued with powerful magic that can emit dazzling beams of light, protecting the wearer and allowing them to unleash radiant energy against foes when activated.</entry>
   <entry id="212221" lang="en" sex="m">This helm allows the wearer to instantly transport themselves to a chosen location, functioning as a teleportation device when activated.</entry>
   <entry id="212222" lang="en" sex="m">This cloak surrounds the wearer with a magical barrier that makes it harder for spells to affect them, granting constant spell resistance while it is worn.</entry>
-  <entry id="212223" lang="en" sex="m">This cloak enhances the wearer’s ability to move unseen, granting a continuous magical bonus to Hide checks and making them significantly harder to detect while it is worn.</entry>
+  <entry id="212223" lang="en" sex="m">This cloak enhances the wearer's ability to move unseen, granting a continuous magical bonus to Hide checks and making them significantly harder to detect while it is worn.</entry>
   <entry id="212224" lang="en" sex="m">This skull-shaped mask grants the wearer the power to unleash a Finger of Death spell once per day.</entry>
   <entry id="212225" lang="en" sex="m">This necklace holds a number of magical beads, each of which can be detached and thrown to explode like a fireball spell, allowing the wearer to unleash powerful bursts of fire at a chosen target.</entry>
   <entry id="212226" lang="en" sex="m">This pendant protects the wearer from disease, granting continuous immunity to all natural and magical illnesses while it is worn.</entry>
   <entry id="212227" lang="en" sex="m">This pendant shields the wearer from toxins, granting complete immunity to all forms of poison while it is worn.</entry>
-  <entry id="212228" lang="en" sex="m">This pendant magically enhances the wearer’s mental clarity, granting a constant bonus to Wisdom and improving their perception, insight, and willpower while worn.</entry>
-  <entry id="212229" lang="en" sex="m">This pendant accelerates the wearer’s natural healing, allowing wounds to close more quickly and improving recovery from injuries while it is worn.</entry>
+  <entry id="212228" lang="en" sex="m">This pendant magically enhances the wearer's mental clarity, granting a constant bonus to Wisdom and improving their perception, insight, and willpower while worn.</entry>
+  <entry id="212229" lang="en" sex="m">This pendant accelerates the wearer's natural healing, allowing wounds to close more quickly and improving recovery from injuries while it is worn.</entry>
   <entry id="212230" lang="en" sex="m">This robe is a powerful magical garment that protects the wearer, enhances their spellcasting, and provides resistance to various forms of attack, granting both defensive and arcane benefits while worn.</entry>
   <entry id="212231" lang="en" sex="m">This robe is covered with magical eyes that grant the wearer constant, all-around vision, the ability to see invisible creatures, and protection against surprise attacks.</entry>
   <entry id="212232" lang="en" sex="m">This robe dazzles onlookers with constantly shifting, brilliant colors, creating a mesmerizing visual display that can confuse and distract observers while it is worn.</entry>
   <entry id="212233" lang="en" sex="m">This magical scarab protects the wearer by granting a constant deflection bonus to Armor Class, providing immunity to certain death effects, and offering resistance to some spell effects while it is worn.</entry>
   <entry id="212234" lang="en" sex="m">This vest allows the wearer to slip free from restraints and evade danger, granting the ability to escape bonds and move quickly out of hazardous situations.</entry>
-  <entry id="212235" lang="en" sex="m">This amulet improves the wearer’s mastery of Truespeech, granting a magical bonus to the Truespeak skill checks and making their mystical words more precise and effective while it is worn.</entry>
+  <entry id="212235" lang="en" sex="m">This amulet improves the wearer's mastery of Truespeech, granting a magical bonus to the Truespeak skill checks and making their mystical words more precise and effective while it is worn.</entry>
   <entry id="212236" lang="en" sex="m">This phylactery empowers the wearer to turn or rebuke undead more effectively, granting a substantial enhancement to their turning ability while it is worn.</entry>
   <entry id="212237" lang="en" sex="m">Created by wizards from the sweltering desert land of Calimshan, these simple crossed baldrics of leather provide all the benefits of wearing armor with none of the problems that a metal shell can cause in the scorching sun. A harness of armor functions like bracers of armor but occupies the same space on the body as a vest, thus freeing the wearer to use other types of magic bracers.</entry>
   <entry id="212238" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
-One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud’s effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4–6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.</entry>
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.</entry>
+  <entry id="213057" lang="en" sex="m">****</entry>
+  <entry id="213058" lang="en" sex="m">Combat Form Feats</entry>
+  <entry id="213059" lang="en" sex="m">While most warriors draw on their strength, agility, and toughness in battle, a few learn to tap into the true potential of their minds. Somewhat like a monk, such a warrior supplements his physical practice with rigorous mentaltraining to hone his fighting abilities. His mind and body become one as he fights, allowing him to achieve unparalleled levels of combat mastery. Being in this state of perfect mental and physical harmony is known as maintaining a combat focus. (Taking the feat called Combat Focus is how a character learns to achieve this state; all other combat form feats have Combat Focus as a prerequisite.) The task of maintaining a combat focus is both difficult and  straining. Thus, a warrior cannot remain in this state for long.  While he does, however, he can use any combat form feats he possesses.</entry>
+  <entry id="213060" lang="en" sex="m">Combat Focus</entry>
+  <entry id="213061" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+The way of the warrior requires more than simple, brute strength. Some warriors bring their minds to such keen focus during the heat of battle that they can attain superhuman levels of endurance, perception, and mental toughness. Through intense mental exercise and training, you learn to enter a state of perfect martial clarity.
+
+Prerequisite: WIS 13
+Specifics: In battle, you push aside the chaos of the fight and attain a focused state that grants you a keen, clear picture of the battle. Fear and pain ebb away as you focus solely on defeating your enemy. The first time you make a successful attack during an encounter, you gain your combat focus. In this state, your mind and body become one, allowing you to overcome mundane physical limits. You can maintain your combat focus for 10 rounds after entering it, +1 additional round per combat form feat you possess aside from this one. You can only gain your combat focus once per encounter. While you are maintaining your combat focus, you gain a +2 bonus on Will saves. If you have three or more combat form feats, this bonus increases to +4.
+Use: Automatic.
+Special: A fighter can select Combat Focus as one of his fighter bonus feats.</entry>
+  <entry id="213062" lang="en" sex="m">Combat Awareness</entry>
+  <entry id="213063" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+When you maintain your combat focus, you have an uncanny ability to sense the ebb and flow of your opponents' vitality. As you attain greater mastery of this fighting style, you learn to sense a foe's presence even with your eyes closed.
+
+Prerequisite: Blind-Fight, Combat Focus, WIS 13, base attack bonus +12
+Specifics: While maintaining your combat focus, you learn the current hit point total of each adjacent opponent and ally. If you have three or more combat form feats, you gain blindsight out to 5 feet.
+Use: Automatic.
+Special: A fighter can select Combat Awareness as one of his fighter bonus feats.</entry>
+  <entry id="213064" lang="en" sex="m">Combat Defense</entry>
+  <entry id="213065" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+The state of keen focus and mental discipline you attain in combat allows you to shift the focus of your defense from one opponent to another with careful, precise maneuvers.
+
+Prerequisite: Combat Focus, Dodge, DEX 13, WIS 13, base attack bonus +6
+Specifics: While you maintain your combat focus, you gain a +1 dodge bonus to your AC. If you have three or more combat form feats, you gain an additional +1 dodge bonus to AC.
+Use: Automatic.
+Special: A fighter can select Combat Defense as one of his fighter bonus feats.</entry>
+  <entry id="213066" lang="en" sex="m">Combat Stability</entry>
+  <entry id="213067" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+When you maintain your combat focus, you become difficult to dislodge. Your muscles lock into an unyielding position, granting you superior ability to resist trip attacks, bull rushes, disarms, and similar effects.
+
+Prerequisite: Combat Focus, WIS 13, base attack bonus +3 
+Specifics: You gain a +4 bonus on checks or rolls to resist bull rush, disarm, grapple, overrun, and trip attempts made against you. If you have three or more combat form feats, the bonus granted by this feat increases to +8.
+Use: Automatic.
+Special: A fighter can select Combat Stability as one of his fighter bonus feats.</entry>
+  <entry id="213068" lang="en" sex="m">Combat Strike</entry>
+  <entry id="213069" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+Your intense, focused state allows you to see the one critical moment in a battle when you hang suspended between victory and defeat. By pouring the energy required to maintain your focus into your assault, you batter through your foe's defenses.
+
+Prerequisite: Combat Focus, WIS 13, any two other combat form feats, base attack bonus +15
+Specifics: If you choose to end your combat focus as a swift action, you gain a bonus on attack rolls and damage rolls equal to your total number of combat form feats for the rest of your current turn. You immediately lose all BENEFITS: of combat form feats that affect you only while you are maintaining your combat focus.
+Use: Selected.
+Special: A fighter can select Combat Strike as one of his fighter bonus feats.</entry>
+  <entry id="213070" lang="en" sex="m">Combat Vigor</entry>
+  <entry id="213071" lang="en" sex="m">Type of Feat: Combat Form, Fighter Bonus Feat.
+
+When you maintain your combat focus, your clarity of purpose and relentless drive allow you to overcome your body's frailties. Minor wounds heal in a matter of seconds, and you quickly recover from even a grievous blow.
+
+Prerequisite: Combat Focus, WIS 13, base attack bonus +9,
+Specifics: While you maintain your combat focus, you gain fast healing 2. You lose this benefit when your combat focus ends. If you have three or more combat form feats, the benefit of this feat improves to fast healing 4.
+Use: Selected.
+Special: A fighter can select Combat Vigor as one of his fighter bonus feats.</entry>
+  <entry id="213072" lang="en" sex="m">&lt;CUSTOM0&gt; readies a Combat Strike!</entry>
+  <entry id="213073" lang="en" sex="m">****</entry>
+  <entry id="213074" lang="en" sex="m">****</entry>
+  <entry id="213075" lang="en" sex="m">&lt;CUSTOM0&gt; attempts a choke hold!</entry>
   <entry id="213076" lang="en" sex="m">&lt;CUSTOM0&gt; unleashes a ki shout!</entry>
   <entry id="213077" lang="en" sex="m">&lt;CUSTOM0&gt; attempts a Freezing the Lifeblood attack.</entry>
   <entry id="213078" lang="en" sex="m">Choke Hold</entry>
@@ -76596,7 +76656,7 @@ Special: A fighter may select Freezing the Lifeblood as one of his fighter bonus
 Your ki shout can panic your opponents.
 
 Prerequisite: Ki Shout, CHA 13, Base attack bonus +9
-Specifics:When you make a ki shout, your opponents are panicked for 2d6 rounds unless they succeed at their Will saves (DC 10 + 1/2 your character level + your Charisma modifier). Panicked characters suffer a —2 morale penalty on attack rolls, saves, and checks, they have a 50% chance to drop what they are holding, and they run away from you as quickly as they can. The effects of being panicked supersede the effects of being shaken.
+Specifics:When you make a ki shout, your opponents are panicked for 2d6 rounds unless they succeed at their Will saves (DC 10 + 1/2 your character level + your Charisma modifier). Panicked characters suffer a -2 morale penalty on attack rolls, saves, and checks, they have a 50% chance to drop what they are holding, and they run away from you as quickly as they can. The effects of being panicked supersede the effects of being shaken.
 Use: Automatic.</entry>
   <entry id="213086" lang="en" sex="m">Ki Shout</entry>
   <entry id="213087" lang="en" sex="m">Type of Feat: General

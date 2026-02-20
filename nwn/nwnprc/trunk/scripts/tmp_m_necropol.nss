@@ -7,10 +7,10 @@
 Necropolitan is an acquired template that can be added to
 any humanoid or monstrous humanoid (referred to here after as the base creature).
 A necropolitan speaks any languages it knew in life, and it
-has all the base creature�s statistics and special abilities except
+has all the base creature's statistics and special abilities except
 as noted here.
 
-Size and Type: The creature�s type changes to undead, and
+Size and Type: The creature's type changes to undead, and
 it gains the augmented subtype. Do not recalculate base attack
 bonus, saves, or skill points. Size is unchanged.
 

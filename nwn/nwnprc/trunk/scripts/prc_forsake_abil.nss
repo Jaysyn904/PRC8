@@ -67,10 +67,37 @@ void main()
         // Do token setup
         SetupTokens();
     }
-    else if(nValue == DYNCONV_EXITED)
-    {
-        if(DEBUG) DoDebug("prc_forsake_abil: Running exit handler");        
-    }
+	else if(nValue == DYNCONV_EXITED)  
+	{  
+		if(DEBUG) DoDebug("prc_forsake_abil: Running exit handler");  
+		if(GetLocalInt(oPC, "PRC_Forsaker_Exit_Ran_VoP_Check")) return;  
+		SetLocalInt(oPC, "PRC_Forsaker_Exit_Ran_VoP_Check", TRUE);  
+		DelayCommand(3.0f, DeleteLocalInt(oPC, "PRC_Forsaker_Exit_Ran_VoP_Check"));  
+	  
+		if (GetHasFeat(FEAT_VOWOFPOVERTY, oPC))  
+		{  
+			int nLevel = GetHitDice(oPC) - GetPersistantLocalInt(oPC, "VoPLevel1") + 1;  
+			int nLevelCheck;  
+			for (nLevelCheck = 1; nLevelCheck <= nLevel; nLevelCheck++)  
+			{  
+				if (!GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck))  
+					&& (nLevelCheck-(nLevelCheck/4)*4 == 3) && (nLevelCheck >= 7) && (nLevelCheck <= 27))  
+				{  
+					AssignCommand(oPC, ClearAllActions(TRUE));  
+					SetPersistantLocalInt(oPC, "VoPBoostCheck", nLevelCheck);  
+					DelayCommand(3.5f, StartDynamicConversation("ft_vowpoverty_ab", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC));  
+					break;  
+				}  
+				if (!GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevelCheck)) && (nLevelCheck-(nLevelCheck/2)*2 == 0))  
+				{  
+					AssignCommand(oPC, ClearAllActions(TRUE));  
+					SetPersistantLocalInt(oPC, "VoPFeatCheck", nLevelCheck);  
+					DelayCommand(3.5f, StartDynamicConversation("ft_vowpoverty_ft", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC));  
+					break;  
+				}  
+			}  
+		}  
+	}
     else if(nValue == DYNCONV_ABORTED)
     {
         // This section should never be run, since aborting this conversation should

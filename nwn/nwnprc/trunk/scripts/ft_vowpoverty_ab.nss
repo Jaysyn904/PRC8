@@ -81,10 +81,30 @@ void main()
         // Do token setup
         SetupTokens();
     }
-    else if(nValue == DYNCONV_EXITED)
-    {
-        if(DEBUG) DoDebug("ft_vowpoverty_ab: Running exit handler");        
-    }
+	else if(nValue == DYNCONV_EXITED)  
+	{  
+		if(DEBUG) DoDebug("ft_vowpoverty_ab/ft: Running exit handler");  
+		if(GetLocalInt(oPC, "PRC_VoP_Exit_Ran_Forsaker_Check")) return;  
+		SetLocalInt(oPC, "PRC_VoP_Exit_Ran_Forsaker_Check", TRUE);  
+		DelayCommand(3.0f, DeleteLocalInt(oPC, "PRC_VoP_Exit_Ran_Forsaker_Check"));  
+	  
+		if (GetLevelByClass(CLASS_TYPE_FORSAKER, oPC) > 0)  
+		{  
+			int nForsakerLvl = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC);  
+			int nLvlCheck;  
+			for (nLvlCheck = 1; nLvlCheck <= nForsakerLvl; nLvlCheck++)  
+			{  
+				if (!GetPersistantLocalInt(oPC, "ForsakerBoost"+IntToString(nLvlCheck)))  
+				{  
+					AssignCommand(oPC, ClearAllActions(TRUE));  
+					SetPersistantLocalInt(oPC, "ForsakerBoostCheck", nLvlCheck);  
+					DelayCommand(3.5f, StartDynamicConversation("prc_forsake_abil", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC));  
+					break;  
+				}  
+			}  
+		}  
+	}
+
     else if(nValue == DYNCONV_ABORTED)
     {
         // This section should never be run, since aborting this conversation should

@@ -99,7 +99,7 @@ void CheckIfDeleveled(object oPC)
                 if (nClass == CLASS_TYPE_INVALID
                     || (nClass == storedClass && storedLevel != currentClassLevels))
                 {
-                    DoDebug("Class " + IntToString(storedClass) + " lost levels!");
+                    if (DEBUG) DoDebug("Class " + IntToString(storedClass) + " lost levels!");
                     changedClassList = JsonArrayInsert(changedClassList, JsonInt(storedClass));
                 }
 

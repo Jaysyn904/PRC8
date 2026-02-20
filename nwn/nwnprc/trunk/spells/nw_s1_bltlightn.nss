@@ -51,6 +51,6 @@ void main()
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBolt, oTarget);
         }
     }
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLightning, oTarget, 1.8);
+    //SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+    //SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLightning, oTarget, 1.8);
 }

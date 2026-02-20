@@ -14,14 +14,14 @@
     "Half-celestial" is an inherited template that can be added to any living, corporeal creature with an 
     Intelligence score of 4 or higher and nonevil alignment (referred to hereafter as the base creature).
 
-    A half-celestial uses all the base creature�s statistics and special abilities except as noted here.
+    A half-celestial uses all the base creature's statistics and special abilities except as noted here.
 
     Size and Type
-    The creature�s type changes to outsider. Do not recalculate the creature�s Hit Dice, base attack bonus, 
+    The creature's type changes to outsider. Do not recalculate the creature's Hit Dice, base attack bonus, 
     or saves. Size is unchanged. Half-celestials are normally native outsiders.
 
     Speed
-    A half-celestial has feathered wings and can fly at twice the base creature�s base land speed 
+    A half-celestial has feathered wings and can fly at twice the base creature's base land speed 
     (good maneuverability). If the base creature has a fly speed, use that instead.
 
     Armor Class
@@ -54,7 +54,7 @@
     A half-celestial with an Intelligence or Wisdom score of 8 or higher has two or more spell-like abilities, 
     depending on its Hit Dice, as indicated on the table below. The abilities are cumulative
 
-    Unless otherwise noted, an ability is usable once per day. Caster level equals the creature�s HD, and the 
+    Unless otherwise noted, an ability is usable once per day. Caster level equals the creature's HD, and the 
     save DC is Charisma-based.
 
     Special Qualities
@@ -64,16 +64,16 @@
         * Immunity to disease.
         * Resistance to acid 10, cold 10, and electricity 10.
         * Damage reduction: 5/magic (if HD 11 or less) or 10/magic (if HD 12 or more).
-        * A half-celestial�s natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
-        * Spell resistance equal to creature�s HD + 10 (maximum 35).
+        * A half-celestial's natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+        * Spell resistance equal to creature's HD + 10 (maximum 35).
         * +4 racial bonus on Fortitude saves against poison.
 
     Abilities
     Increase from the base creature as follows: Str +4, Dex +2, Con +4, Int +2, Wis +4, Cha +4.
 
     Skills
-    A half-celestial gains skill points as an outsider and has skill points equal to (8 + Int modifier) � (HD +3). 
-    Do not include Hit Dice from class levels in this calculation�the half-celestial gains outsider skill points only for its racial Hit Dice, and gains the normal amount of skill points for its class levels. Treat skills from the base creature�s list as class skills, and other skills as cross-class.
+    A half-celestial gains skill points as an outsider and has skill points equal to (8 + Int modifier) ' (HD +3). 
+    Do not include Hit Dice from class levels in this calculation'the half-celestial gains outsider skill points only for its racial Hit Dice, and gains the normal amount of skill points for its class levels. Treat skills from the base creature's list as class skills, and other skills as cross-class.
 
     Challenge Rating
     HD 5 or less, as base creature +1; HD 6 to 10, as base creature +2; HD 11 or more, as base creature +3.

@@ -812,4 +812,4 @@ void DelayedSetVisualTransform(int nExpectedGeneration, object oTarget, int nTra
 void DelaySetVisualTransform(float fDelay, object oTarget, string sGenerationName, int nTransform, float fValue);
 
 //:: Test void
-//::void main() {}
+//::void main(){}

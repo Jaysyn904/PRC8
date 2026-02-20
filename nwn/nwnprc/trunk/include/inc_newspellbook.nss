@@ -1621,3 +1621,6 @@ void DoCleanUp(int nMetamagic)
     DeleteLocalInt(OBJECT_SELF, "NSB_SpellLevel");
     DeleteLocalInt(OBJECT_SELF, "NSB_SpellbookID");
 }
+
+//:: Test Void
+//:: void main (){}

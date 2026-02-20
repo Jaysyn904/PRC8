@@ -15,11 +15,11 @@ multicolored light that surrounds you and protects
 you from all forms of attack. The sphere flashes in
 all colors of the visible spectrum.
 
-The sphere�s blindness effect on creatures with less
+The sphere’s blindness effect on creatures with less
 than 8 HD lasts 2d4x10 minutes.
 
 You can pass into and out of the prismatic sphere and
-remain near it without harm. However, when you�re
+remain near it without harm. However, when you’re
 inside it, the sphere blocks any attempt to project
 something through the sphere (including spells). Other
 creatures that attempt to attack you or pass through
@@ -145,11 +145,11 @@ void main()
                         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
                         {
                                 // makes the target invisible
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
                                 // allows pathfinding through the target
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
                                 // paralyzes the target, ignores immunity
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
                                 // save the target location for later visual effect
                                 location lLoc = GetLocation(oTarget);
 
@@ -208,7 +208,7 @@ void main()
                                         // Target is not a player
                                         // To simplify against NPCs and also reward xp, applies same death as Green color
                                         DeathlessFrenzyCheck(oTarget);
-                                        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
+                                        SPApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
                                 }
                                 // a visual effect for banishment
                                 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), lLoc);

@@ -576,6 +576,7 @@ const int SPELL_POISON_ITEM                         = 2883;
 const int SPELL_POISON_FOOD                         = 2884;
 const int SPELL_CLEAN_POISON_OFF                    = 2885;
 
+
 // Psionic feat spells
 const int SPELL_FEAT_SPEED_OF_THOUGHT_BONUS         = 2820;
 

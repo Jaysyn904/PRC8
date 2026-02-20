@@ -17,8 +17,8 @@
     humanoid, magical beast, monstrous humanoid, plant, or vermin of good or neutral alignment (referred to 
     hereafter as the base creature).
 
-    A celestial creature uses all the base creature�s statistics and abilities except as noted here. Do not 
-    recalculate the creature�s Hit Dice, base attack bonus, saves, or skill points if its type changes.
+    A celestial creature uses all the base creature's statistics and abilities except as noted here. Do not 
+    recalculate the creature's Hit Dice, base attack bonus, saves, or skill points if its type changes.
     Size and Type
 
     Animals or vermin with this template become magical beasts, but otherwise the creature type is unchanged. 

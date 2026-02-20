@@ -1022,8 +1022,6 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
             nDC -= 4;
         else if(GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oTarget) > 3)
             nDC -= 2;
-		
-		
     }
     else if(nSaveType == SAVING_THROW_TYPE_POISON)
     {

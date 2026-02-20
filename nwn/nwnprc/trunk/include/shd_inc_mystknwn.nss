@@ -520,7 +520,7 @@ int GetMaxMysteryLevelLearnable(object oShadow, int nClass, int nType)
     if(DEBUG) DoDebug("GetMaxMysteryLevelLearnable nType: " + IntToString(nType));
 
     // Rules Quote:
-    // Within a category�Apprentice, Initiate, Master�you must have at least two mysteries of any given level 
+    // Within a category -Apprentice, Initiate, Master- you must have at least two mysteries of any given level 
     // before you can take any mysteries of the next higher level. For instance, you must have two 1st-level 
     // mysteries before you can take any 2nds, and at least two 2nds before you can take any 3rds.
     int nMaxLrn, i, nMystLevel, nCount1, nCount2;

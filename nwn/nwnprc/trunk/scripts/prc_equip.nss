@@ -1,7 +1,7 @@
 //::///////////////////////////////////////////////
-//:: Example XP2 OnItemEquipped
-//:: x2_mod_def_equ
-//:: (c) 2003 Bioware Corp.
+//:: PRC8 OnItemEquipped
+//:: prc_equip
+//::
 //:://////////////////////////////////////////////
 /*
     Put into: OnEquip Event

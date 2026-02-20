@@ -17,12 +17,12 @@
     A half-fiend uses all the base creature's statistics and special abilities except as noted here.
 
     Size and Type
-    The creature�s type changes to outsider. Do not recalculate Hit Dice, base attack bonus, or saves. 
+    The creature's type changes to outsider. Do not recalculate Hit Dice, base attack bonus, or saves. 
     Size is unchanged. Half-fiends are normally native outsiders.
     Speed
 
     A half-fiend has bat wings. Unless the base creature has a better fly speed, the creature can fly 
-    at the base creature�s base land speed (average maneuverability).
+    at the base creature's base land speed (average maneuverability).
 
     Armor Class
     Natural armor improves by +1 (this stacks with any natural armor bonus the base creature has).
@@ -38,11 +38,11 @@
 
     Damage
     Half-fiends have bite and claw attacks. If the base creature does not have these attack forms, use 
-    the damage values in the table. Otherwise, use the values in the table or the base creature�s damage 
+    the damage values in the table. Otherwise, use the values in the table or the base creature's damage 
     values, whichever are greater.
 
     Size    Bite Damage  Claw Damage
-    Fine        1       �
+    Fine        1       '
     Diminutive  1d2     1
     Tiny        1d3     1d2
     Small       1d4     1d3
@@ -62,7 +62,7 @@
     Spell-Like Abilities
     A half-fiend with an Intelligence or Wisdom score of 8 or higher has spell-like abilities depending 
     on its Hit Dice, as indicated on the table. The abilities are cumulative. Unless otherwise noted, 
-    an ability is usable once per day. Caster level equals the creature�s HD, and the save DC is Charisma-based.
+    an ability is usable once per day. Caster level equals the creature's HD, and the save DC is Charisma-based.
 
     HD      Abilities
     1-2     Darkness 3/day
@@ -83,17 +83,17 @@
         * Immunity to poison.
         * Resistance to acid 10, cold 10, electricity 10, and fire 10.
         * Damage reduction: 5/magic (if HD 11 or less) or 10/magic (if HD 12 or more).
-        * A half-fiend�s natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
-        * Spell resistance equal to creature�s HD + 10 (maximum 35).
+        * A half-fiend's natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+        * Spell resistance equal to creature's HD + 10 (maximum 35).
 
     Abilities
     Increase from the base creature as follows: Str +4, Dex +4, Con +2, Int +4, Cha +2.
 
     Skills
-    A half-fiend gains skill points as an outsider and has skill points equal to (8 + Int modifier) � (HD + 3). 
+    A half-fiend gains skill points as an outsider and has skill points equal to (8 + Int modifier) ' (HD + 3). 
     Do not include Hit Dice from class levels in this calculation the half-fiend gains outsider skill points 
     only for its racial Hit Dice, and gains the normal amount of skill points for its class levels. Treat skills 
-    from the base creature�s list as class skills, and other skills as cross-class.
+    from the base creature's list as class skills, and other skills as cross-class.
 
     Challenge Rating
     HD 4 or less, as base creature +1; HD 5 to 10, as base creature +2; HD 11 or more, as base creature +3.

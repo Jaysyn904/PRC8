@@ -5,8 +5,7 @@
 //:://////////////////////////////////////////////
 /*
     Creature must make a ranged touch attack to hit
-    the intended target.  Reflex or Will save is
-    needed to halve damage or avoid effect.
+    the intended target.
 */
 //:://////////////////////////////////////////////
 //:: Created By: Preston Watamaniuk
@@ -37,8 +36,10 @@ void main()
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {
-       //Apply the VFX impact and effects
-       SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nCount));
-       SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+	
+       	//Apply the VFX impact and effects
+       	SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nCount));
+       	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+    	
     }
 }

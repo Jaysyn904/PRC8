@@ -5,8 +5,7 @@
 //:://////////////////////////////////////////////
 /*
     Creature must make a ranged touch attack to hit
-    the intended target.  Reflex or Will save is
-    needed to halve damage or avoid effect.
+    the intended target.
 */
 //:://////////////////////////////////////////////
 //:: Created By: Preston Watamaniuk

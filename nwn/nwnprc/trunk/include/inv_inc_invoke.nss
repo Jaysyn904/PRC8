@@ -478,7 +478,8 @@ void UseInvocation(int nInvocation, int nClass, int nLevelOverride = 0, int bIns
     ActionDoCommand(_SetInvocationVariables(oInvoker, nClass, StringToInt(lookup_spell_innate(nInvocation))));
 
     // Cast the actual invocation
-    ActionCastSpell(nInvocation, nLevelOverride, 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, 0, 0, OBJECT_INVALID, bInstant);
+    //ActionCastSpell(nInvocation, nLevelOverride, 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, 0, 0, OBJECT_INVALID, bInstant);
+	ActionCastSpell(nInvocation, nLevelOverride, 0, 0, METAMAGIC_NONE, nClass, 0, 0, OBJECT_INVALID, bInstant);
 
     // Initiate invocation-related variable CleanUp
     ActionDoCommand(_CleanInvocationVariables(oInvoker));

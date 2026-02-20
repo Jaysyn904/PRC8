@@ -9,11 +9,11 @@
     "Lich" is an acquired template that can be added to any humanoid creature (referred to hereafter as the base 
     creature), provided it can create the required phylactery.
     
-    A lich has all the base creature�s statistics and special abilities except as noted here.
+    A lich has all the base creature's statistics and special abilities except as noted here.
     
     Size and Type
     
-    The creature�s type changes to undead. Do not recalculate base attack bonus, saves, or skill points. 
+    The creature's type changes to undead. Do not recalculate base attack bonus, saves, or skill points. 
     Size is unchanged.
     
     Hit Dice
@@ -22,7 +22,7 @@
     
     Armor Class
     
-    A lich has a +5 natural armor bonus or the base creature�s natural armor bonus, whichever is better.
+    A lich has a +5 natural armor bonus or the base creature's natural armor bonus, whichever is better.
     
     Attack
     
@@ -41,20 +41,20 @@
     Damage
     
     A lich without natural weapons has a touch attack that uses negative energy to deal 1d8+5 points of damage 
-    to living creatures; a Will save (DC 10 + � lich�s HD + lich�s Cha modifier) halves the damage. A lich with 
+    to living creatures; a Will save (DC 10 + ' lich's HD + lich's Cha modifier) halves the damage. A lich with 
     natural weapons can use its touch attack or its natural weaponry, as it prefers. If it chooses the latter, 
     it deals 1d8+5 points of extra damage on one natural weapon attack.
     
     Special Attacks
     
-    A lich retains all the base creature�s special attacks and gains those described below. Save DCs are equal 
-    to 10 + � lich�s HD + lich�s Cha modifier unless otherwise noted.
+    A lich retains all the base creature's special attacks and gains those described below. Save DCs are equal 
+    to 10 + ' lich's HD + lich's Cha modifier unless otherwise noted.
     
     Fear Aura (Su)
     
     Liches are shrouded in a dreadful aura of death and evil. Creatures of less than 5 HD in a 60-foot radius 
     that look at the lich must succeed on a Will save or be affected as though by a fear spell from a sorcerer 
-    of the lich�s level. A creature that successfully saves cannot be affected again by the same lich�s aura 
+    of the lich's level. A creature that successfully saves cannot be affected again by the same lich's aura 
     for 24 hours.
     
     Paralyzing Touch (Su)
@@ -72,7 +72,7 @@
     
     Special Qualities
     
-    A lich retains all the base creature�s special qualities and gains those described below.
+    A lich retains all the base creature's special qualities and gains those described below.
     
     Turn Resistance (Ex)
     
@@ -80,7 +80,7 @@
     
     Damage Reduction (Su)
     
-    A lich�s undead body is tough, giving the creature damage reduction 15/bludgeoning and magic. 
+    A lich's undead body is tough, giving the creature damage reduction 15/bludgeoning and magic. 
     Its natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
     
     Immunities (Ex)
@@ -127,7 +127,7 @@
     The process of becoming a lich is unspeakably evil and can be undertaken only by a willing character. 
     A lich retains all class abilities it had in life.
     
-    The Lich�s Phylactery
+    The Lich's Phylactery
     
     An integral part of becoming a lich is creating a magic phylactery in which the character stores its 
     life force. As a rule, the only way to get rid of a lich for sure is to destroy its phylactery. 
@@ -146,8 +146,8 @@
     
     Creating A Demilich
     
-    "Demilich" is a template that can be added to any lich. It uses all the lich�s statistics and 
-    special abilities except as noted here. A demilich�s form is concentrated into a single portion 
+    "Demilich" is a template that can be added to any lich. It uses all the lich's statistics and 
+    special abilities except as noted here. A demilich's form is concentrated into a single portion 
     of its original body, usually its skull. Part of the process of becoming a demilich includes the 
     incorporation of costly gems into the retained body part; see Creating Soul Gems, below.
     
@@ -162,11 +162,11 @@
     
     Speed
     
-    Change to fly 180 ft. (perfect). The lich�s supernatural fly speed, if any, is also retained.
+    Change to fly 180 ft. (perfect). The lich's supernatural fly speed, if any, is also retained.
     
     AC
     
-    The demilich retains the lich�s +5 natural armor bonus and gains an insight bonus to AC equal to its Hit Dice, 
+    The demilich retains the lich's +5 natural armor bonus and gains an insight bonus to AC equal to its Hit Dice, 
     as well as a probable size adjustment to AC.
     
     Attack
@@ -176,21 +176,21 @@
     Damage
     
     The demilich gains an enhanced touch attack over that of its previous lich form (it now uses its entire 
-    flying skull to make the touch attack), including paralyzing touch. The demilich�s touch attack uses 
+    flying skull to make the touch attack), including paralyzing touch. The demilich's touch attack uses 
     negative energy to deal 10d6+20 points of damage to living creatures (no saving throw). Liches with 
     other natural attacks lose them.
     
     Special Attacks
     
-    The demilich retains all the lich�s special attacks and also gains those described below.
+    The demilich retains all the lich's special attacks and also gains those described below.
     
     Trap the Soul (Su)
     
     A demilich can trap the souls of up to eight living creatures per day. To use this power, it selects 
-    any target it can see within 300 feet. The target is allowed a Fort saving throw (DC 10 + demilich�s 
-    HD + demilich�s Cha modifier). If the target makes its saving throw, it gains four negative levels 
+    any target it can see within 300 feet. The target is allowed a Fort saving throw (DC 10 + demilich's 
+    HD + demilich's Cha modifier). If the target makes its saving throw, it gains four negative levels 
     (this does not count as a use of trap the soul). If the target fails its save, the soul of the target 
-    is instantly drawn from its body and trapped within one of the gems incorporated into the demilich�s form. 
+    is instantly drawn from its body and trapped within one of the gems incorporated into the demilich's form. 
     The gem gleams wickedly for 24 hours, indicating the captive soul within. The soulless body collapses 
     in a mass of corruption and molders in a single round, reduced to dust. If left to its own devices, 
     the demilich slowly devours the soul over 24 hours; at the end of that time the soul is completely absorbed, 
@@ -203,12 +203,12 @@
     Fear Aura (Su)
     
     Demiliches are shrouded in a dreadful aura of death and evil. Creatures of less than 5 HD in a 60-foot 
-    radius that look at the demilich must succeed at a Will save (DC 14 + demilich�s Cha modifier) or be 
+    radius that look at the demilich must succeed at a Will save (DC 14 + demilich's Cha modifier) or be 
     affected as though by fear as cast by a 21st-level caster.
     
     Paralyzing Touch (Su)
     
-    Any living creature a demilich touches must succeed at a Fortitude save (DC 10 + demilich�s HD + demilich�s 
+    Any living creature a demilich touches must succeed at a Fortitude save (DC 10 + demilich's HD + demilich's 
     Cha modifier) or be permanently paralyzed. Remove paralysis or any spell that can remove a curse can free 
     the victim. The effect cannot be dispelled. Anyone paralyzed by a demilich seems dead, though a successful 
     Spot check (DC 20) or Heal check (DC 15) reveals that the victim is still alive.
@@ -226,11 +226,11 @@
     At will:alter self, astral projection, create greater undead, create undead, death knell, enervation, 
     greater dispel magic, harm (usually used to heal itself), summon monster I-IX, telekinesis, and weird; 
     2/day: greater planar ally. Demiliches use these abilities as casters of a level equal to their spellcaster 
-    level, but the save DCs are equal to 10 + the demilich�s HD + the demilich�s Charisma modifier.
+    level, but the save DCs are equal to 10 + the demilich's HD + the demilich's Charisma modifier.
     
     Special Qualities
     
-    The demilich retains all the lich�s special qualities and also has those described below.
+    The demilich retains all the lich's special qualities and also has those described below.
     
     Magic Immunity (Ex)
     
@@ -240,7 +240,7 @@
     
     Phylactery Transference (Su)
     
-    Headbands, belts, rings, cloaks, and other wearable items kept in close association with the demilich�s 
+    Headbands, belts, rings, cloaks, and other wearable items kept in close association with the demilich's 
     phylactery transfer all their benefits to the demilich no matter how far apart the demilich and the 
     phylactery are located. The standard limits on types of items utilized simultaneously still apply.
     
@@ -325,7 +325,7 @@
     
     Liches have phylacteries that allow them to reappear 1d10 days after their apparent death, as do demiliches. 
     Demiliches also have eight soul gems, each of which acts like a phylactery in its own right. If all the soul 
-    gems, as well as the demilich�s phylactery, are not destroyed after a demilich is downed, the demilich 
+    gems, as well as the demilich's phylactery, are not destroyed after a demilich is downed, the demilich 
     reappears 1d10 days after its apparent death. The soul gems also allow the demilich to use its most 
     devastating ability, trap the soul (see above). Each demilich must make its own soul gems, which requires 
     the Craft Wondrous Item feat. The lich must be a sorcerer, wizard, or cleric of at least 21st level. 

@@ -217,11 +217,11 @@ void DoRay(object oTarget, int nSaveDC, int nRoll, int nCasterLvl, object oPC)
                         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nSaveDC, SAVING_THROW_TYPE_SPELL))
                         {
                                 // makes the target invisible
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oTarget, 6.0);
                                 // allows pathfinding through the target
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneGhost(), oTarget, 6.0);
                                 // paralyzes the target, ignores immunity
-                                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
+                                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectCutsceneParalyze(), oTarget, 6.0);
                                 // save the target location for later visual effect
                                 location lLoc = GetLocation(oTarget);
 
@@ -280,7 +280,7 @@ void DoRay(object oTarget, int nSaveDC, int nRoll, int nCasterLvl, object oPC)
                                         // Target is not a player
                                         // To simplify against NPCs and also reward xp, applies same death as Green color
                                         DeathlessFrenzyCheck(oTarget);
-                                        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
+                                        SPApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);
                                 }
                                 // a visual effect for banishment
                                 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_UNSUMMON), lLoc);

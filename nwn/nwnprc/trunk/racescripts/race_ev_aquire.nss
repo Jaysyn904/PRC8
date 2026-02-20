@@ -47,6 +47,7 @@ void AddRacialRestrictions(object oItem)
         AddRaceIP(oItem, RACIAL_TYPE_GOLD_DWARF);
         AddRaceIP(oItem, RACIAL_TYPE_GULLY_DWARF);
         AddRaceIP(oItem, RACIAL_TYPE_KOROBKURU);
+        AddRaceIP(oItem, RACIAL_TYPE_MAELUTH);
         AddRaceIP(oItem, RACIAL_TYPE_MUL);
         AddRaceIP(oItem, RACIAL_TYPE_URDINNIR);
         AddRaceIP(oItem, RACIAL_TYPE_WILD_DWARF);
@@ -120,6 +121,7 @@ void AddRacialRestrictions(object oItem)
         AddRaceIP(oItem, RACIAL_TYPE_KENDER);
         AddRaceIP(oItem, RACIAL_TYPE_STRONGHEART_HALFLING);
         AddRaceIP(oItem, RACIAL_TYPE_TALLFELLOW_HALFLING);
+        AddRaceIP(oItem, RACIAL_TYPE_WISPLING);
         AddRaceIP(oItem, RACIAL_TYPE_TUNDRA_HALFLING);
     }
     if(array_get_string(oItem, ARRAY_NAME, RACIAL_TYPE_HUMAN) != "")
@@ -188,6 +190,8 @@ void AddRacialRestrictions(object oItem)
         AddRaceIP(oItem, RACIAL_TYPE_GITHZERAI);
         AddRaceIP(oItem, RACIAL_TYPE_HOUND_ARCHON);
         AddRaceIP(oItem, RACIAL_TYPE_KHAASTA);
+        AddRaceIP(oItem, RACIAL_TYPE_SHYFT);
+        AddRaceIP(oItem, RACIAL_TYPE_MECHANATRIX);
         AddRaceIP(oItem, RACIAL_TYPE_NATHRI);
         AddRaceIP(oItem, RACIAL_TYPE_NAZTHARUNE_RAKSHASA);
         AddRaceIP(oItem, RACIAL_TYPE_NERAPHIM);

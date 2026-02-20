@@ -3952,7 +3952,7 @@ const int FEAT_THREE_MOUNTAINS			= 5286;
 const int FEAT_MONKEY_GRIP				= 5197;
 const int FEAT_CRESCENT_MOON			= 5194;
 const int FEAT_QUICK_STAFF				= 5190;
-const int FEAT_RANGED_DISARM			=	5192;
+const int FEAT_RANGED_DISARM			= 5192;
 const int FEAT_BEAR_FANG				= 5189;
 const int FEAT_IMPROVED_RAPID_SHOT		= 5188;
 const int FEAT_EARTHS_EMBRACE			= 5177;
@@ -4047,12 +4047,18 @@ const int FEAT_IMPROVED_SHIELD_BASH           = 3250;
 const int FEAT_INVESTIGATOR					  = 25998;
 
 // Player's Handbook II Feats
-const int FEAT_STEADFAST_DETERMINATION		  = 3267;
-const int FEAT_CROSSBOW_SNIPER                = 5311;
-const int FEAT_SHIELD_SPECIALIZATION_LIGHT    = 3251;
-const int FEAT_SHIELD_SPECIALIZATION_HEAVY    = 3252;
-const int FEAT_SHIELD_WARD                    = 3253;
-const int FEAT_AGILE_SHIELD_FIGHTER           = 3254;
+const int FEAT_STEADFAST_DETERMINATION		  	= 3267;
+const int FEAT_CROSSBOW_SNIPER                	= 5311;
+const int FEAT_SHIELD_SPECIALIZATION_LIGHT		= 3251;
+const int FEAT_SHIELD_SPECIALIZATION_HEAVY		= 3252;
+const int FEAT_SHIELD_WARD                    	= 3253;
+const int FEAT_AGILE_SHIELD_FIGHTER           	= 3254;
+const int FEAT_COMBAT_FOCUS 					= 26020;
+const int FEAT_COMBAT_AWARENESS 				= 26021;
+const int FEAT_COMBAT_DEFENSE					= 26022;
+const int FEAT_COMBAT_STABILITY					= 26023;
+const int FEAT_COMBAT_STRIKE					= 26024;
+const int FEAT_COMBAT_VIGOR						= 26025;
 
 // Weapons of Legacy Feats
 const int FEAT_LEAST_LEGACY                   = 5300;
@@ -6366,14 +6372,6 @@ const int FEAT_HIDDEN_TALENT_TELEMPATHICPRO = 25943;
 const int FEAT_HIDDEN_TALENT_THICKSKIN = 25944;
 const int FEAT_HIDDEN_TALENT_VIGOR = 25945;
 const int FEAT_HIDDEN_TALENT_GRIP_IRON = 25946;
-
-//:: Player's Handbook II feats
-const int FEAT_COMBAT_FOCUS 	= -9999;
-const int FEAT_COMBAT_STABILITY	= -9998;
-const int FEAT_COMBAT_DEFENSE	= -9997;
-const int FEAT_COMBAT_VIGOR		= -9996;
-const int FEAT_COMBAT_AWARENESS = -9995;
-const int FEAT_COMBAT_STRIKE	= -9994;
 
 
 

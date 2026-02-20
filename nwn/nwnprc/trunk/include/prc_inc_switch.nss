@@ -615,7 +615,7 @@ const string PRC_PSIONIC_SLAYER_REQUIRE_KILL_TOKEN       = "PRC_PSIONIC_SLAYER_R
  * Hybrid Form Shapchange.
  *
  * This switch allows the Werewolf class to be toggled to use the PRC Shifter
- * Shapchange code instead.
+ * Shapechange code instead.
  *
  * Type: Int
  * Values: 0 [Default] (Werewolf Hybrid Shapchange uses Bioware Polymorph)
@@ -1581,7 +1581,7 @@ const string PRC_PSI_ASTRAL_SEED_RESPAWN_DELAY_X1000        = "PRC_PSI_ASTRAL_SE
  * If this flag is set, the XP loss is completely eliminated. The standard PRC event hook script
  * of "prc_pw_astralseed" may be used to script any additional effects to occure upon Astral Seed
  * respawning, including scripting specific XP loss amount.
- * Type: Int
+ * Type: Int 
  * Values: 0 [Default] (Not set: lose 1 level worth of XP upon Astral Seed respawn)
  *         1           (Any potitive value: Remove all XP loss from Astral Seed respawn)
  */

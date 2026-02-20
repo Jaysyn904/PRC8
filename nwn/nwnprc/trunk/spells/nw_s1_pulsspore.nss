@@ -16,28 +16,33 @@
 void main()
 {
     //Declare major variables
+	object oNPC = oNPC;
+	object oTarget;
+	
     float fDelay;
     effect eDisease;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NATURE);
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
-    //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    
+	ApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+    
+	//Get first target in spell area
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != OBJECT_SELF)
+    	if(oTarget != oNPC)
     	{
         	if(!GetIsReactionTypeFriendly(oTarget))
         	{
                 //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_DISEASE));
+                SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_DISEASE));
                 //Determine effect delay
-                fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+                fDelay = GetDistanceBetween(oNPC, oTarget)/20;
                 eDisease = EffectDisease(DISEASE_SOLDIER_SHAKES);
                 //Apply the VFX impact and effects
                 DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDisease, oTarget));
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }

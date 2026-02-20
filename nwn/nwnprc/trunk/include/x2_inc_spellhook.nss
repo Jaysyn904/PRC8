@@ -1629,11 +1629,7 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_BEGUILER)) return TRUE;
 		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_BEGUILER)) return TRUE;
 		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_BEGUILER)) return TRUE;
-		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_BEGUILER)) return TRUE;
-
-
-
-	
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_BEGUILER)) return TRUE;	
 	}
 	if (bDuskblade)
 	{
@@ -1680,9 +1676,7 @@ int CheckSecondaryPrC(object oPC = OBJECT_SELF)
 		if (GetHasFeat(FEAT_UNSEEN_SPELLCASTING_DUSKBLADE)) return TRUE;
 		if (GetHasFeat(FEAT_VIRTUOSO_SPELLCASTING_DUSKBLADE)) return TRUE;
 		if (GetHasFeat(FEAT_WILDMAGE_SPELLCASTING_DUSKBLADE)) return TRUE;
-		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_DUSKBLADE)) return TRUE;
-	
-		
+		if (GetHasFeat(FEAT_WWOC_SPELLCASTING_DUSKBLADE)) return TRUE;		
 	}
 	if (bSorcerer)
 	{
@@ -3581,7 +3575,8 @@ int X2PreSpellCastCode2()
     	nContinue = Nondetection(oTarget, oCaster, nSchool, nCasterLevel);
         
     //---------------------------------------------------------------------------
-    // Mystery Effects    //---------------------------------------------------------------------------    
+    // Mystery Effects
+    //---------------------------------------------------------------------------    
     if (nContinue)
         nContinue = WarpSpell(oCaster, nSpellID);
 
@@ -3592,7 +3587,8 @@ int X2PreSpellCastCode2()
         nContinue = FloodShadow(oCaster, nSpellID);
 
     //---------------------------------------------------------------------------
-    // Incarnum Effects    //---------------------------------------------------------------------------        
+    // Incarnum Effects
+    //---------------------------------------------------------------------------        
     if (nContinue)
         nContinue = MageShackles(oCaster, nSpellID);
         
@@ -3600,7 +3596,8 @@ int X2PreSpellCastCode2()
         nContinue = Abrogation(oCaster, nCasterLevel, nSpellID);
     
     //---------------------------------------------------------------------------
-    // Binding Effects    //---------------------------------------------------------------------------        
+    // Binding Effects
+    //---------------------------------------------------------------------------        
     if (nContinue)
         nContinue = AmonInfluence(oTarget, oCaster, nSpellID, nSpellLevel, bSpellIsHostile);
 	

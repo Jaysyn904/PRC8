@@ -135,7 +135,7 @@ void GenerateNewShapePackageList(object oPC, string sFilter)
     }
 }
 
-int AddNewShape(string sShapeList, object oPC, int nShape, int nShifterLevel, int nCharacterLevel, string sShapeResRefFilter, int bUseCR, int nExactMatchSL, int bShowAllShapes,int bUseCR)
+int AddNewShape(string sShapeList, object oPC, int nShape, int nShifterLevel, int nCharacterLevel, string sShapeResRefFilter, int bUseCR, int nExactMatchSL, int bShowAllShapes, int bUseCR)
 {
     string sShapeResRef = Get2DACache(sShapeList, "ResRef", nShape);
     if (DEBUG_NEW_SHAPE_LIST) DoDebug("AddNewShape, ShapeList:" + sShapeList + ", Shape: " + IntToString(nShape) + "='" + sShapeResRef + "', ShifterLevel: " + IntToString(nShifterLevel) + ", CharacterLevel: " + IntToString(nCharacterLevel) + ", UseCR: " + IntToString(bUseCR));

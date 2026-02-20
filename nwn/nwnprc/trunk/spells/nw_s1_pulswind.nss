@@ -38,7 +38,7 @@ void main()
                 //Apply the VFX impact and effects
 
                 SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDown, oTarget, RoundsToSeconds(2));
-                DelayCommand(0.01, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam,oTarget));
+                DelayCommand(0.01, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam,oTarget));
             }
             //Get next target in spell area
         }

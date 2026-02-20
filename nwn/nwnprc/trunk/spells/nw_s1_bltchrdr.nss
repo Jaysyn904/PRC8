@@ -5,8 +5,7 @@
 //:://////////////////////////////////////////////
 /*
     Creature must make a ranged touch attack to hit
-    the intended target.  Fortitude  save is
-    needed to avoid effect.
+    the intended target.  
 */
 //:://////////////////////////////////////////////
 //:: Created By: Preston Watamaniuk

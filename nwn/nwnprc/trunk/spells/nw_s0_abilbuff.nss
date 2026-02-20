@@ -104,7 +104,55 @@ int DoSpell(object oCaster, object oTarget, int nSpellID, int nCasterLevel, int 
     float fDuration = HoursToSeconds(nCasterLevel);
     if(nMetaMagic & METAMAGIC_EXTEND) fDuration *= 2;
     location lTarget;
-    if(bMass)
+	
+	if(bMass)  
+    {  
+        location lTarget = PRCGetSpellTargetLocation();  
+        object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        while(GetIsObjectValid(oTarget))  
+        {  
+            if(spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))  
+            {  
+                PRCSignalSpellEvent(oTarget, FALSE);  
+                int nStatMod = d4() + 1;  
+                if(nMetaMagic & METAMAGIC_MAXIMIZE) nStatMod = 5;  
+                if(nMetaMagic & METAMAGIC_EMPOWER) nStatMod += (nStatMod / 2);  
+                if(bVision)  
+                {  
+                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectLinkEffects(EffectUltravision(), eDur), oTarget, fDuration,TRUE,-1,nCasterLevel);  
+                }  
+                else  
+                {  
+                    StripBuff(oTarget, nSpellID, nAltSpellID);  
+                    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectLinkEffects(EffectAbilityIncrease(nAbility, nStatMod), eDur), oTarget, fDuration,TRUE,-1,nCasterLevel);  
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);  
+                }  
+            }  
+            oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        }  
+    }  
+    else  
+    {  
+        // Single-target path  
+        if(spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))  
+        {  
+            PRCSignalSpellEvent(oTarget, FALSE);  
+            int nStatMod = d4() + 1;  
+            if(nMetaMagic & METAMAGIC_MAXIMIZE) nStatMod = 5;  
+            if(nMetaMagic & METAMAGIC_EMPOWER) nStatMod += (nStatMod / 2);  
+            if(bVision)  
+            {  
+                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectLinkEffects(EffectUltravision(), eDur), oTarget, fDuration,TRUE,-1,nCasterLevel);  
+            }  
+            else  
+            {  
+                StripBuff(oTarget, nSpellID, nAltSpellID);  
+                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectLinkEffects(EffectAbilityIncrease(nAbility, nStatMod), eDur), oTarget, fDuration,TRUE,-1,nCasterLevel);  
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);  
+            }  
+        }  
+    }	
+/*     if(bMass)
     {
         lTarget = PRCGetSpellTargetLocation();
         object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lTarget, TRUE, OBJECT_TYPE_CREATURE);
@@ -130,7 +178,7 @@ int DoSpell(object oCaster, object oTarget, int nSpellID, int nCasterLevel, int 
         }
         if(!bMass) break;
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lTarget, TRUE, OBJECT_TYPE_CREATURE);
-    }
+    } */
 
     return TRUE;    //return TRUE if spell charges should be decremented
 }
