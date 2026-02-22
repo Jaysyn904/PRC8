@@ -32,10 +32,60 @@ The dragon head becomes a solid blue mask, forming a hollow shape that completel
 
 You can emanate an aura of frightful presence once per round as a swift action. All creatures within 10 feet with fewer Hit Dice than you become shaken for 1 round. A successful Will save negates the effect and renders the creature immune to the frightful presence of this soulmeld for 24 hours. For every point of essentia you have invested in your dragonfire mask, the radius of the frightful presence increases by 10 feet, and its duration increases by 1 round. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 00:13:35
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+      
+    effect eLink = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SPOT, 2 * nEssentia));  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_LOWLIGHT_VISION), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Brow bind (darkvision) — check regular or double Brow  
+    int nBoundToBrow = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)  
+        nBoundToBrow = TRUE;  
+  
+    if (nBoundToBrow) eLink = EffectLinkEffects(eLink, EffectUltravision());  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Totem bind (frightful presence) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Throat bind (breath weapon) — check regular or double Throat  
+    int nBoundToThroat = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_THROAT)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_THROAT)) == nMeldId)  
+        nBoundToThroat = TRUE;  
+  
+    if (nBoundToThroat)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper);
@@ -48,4 +98,4 @@ void main()
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_THROAT) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGONFIRE_MASK_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

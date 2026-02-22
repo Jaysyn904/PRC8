@@ -26,7 +26,14 @@ Your frost helm fuses to your head and seems to spread downward, changing the ap
 
 As a standard action, you can create a momentary ring of fire that surrounds you. Creatures adjacent to you take 1d6 points of fire damage per point of essentia you invest in your phoenix belt. A successful Reflex save reduces this damage by half. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:25:19
+//::
+//:: Double Totem Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -40,5 +47,7 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_HEAT_ENDURANCE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+	
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 }

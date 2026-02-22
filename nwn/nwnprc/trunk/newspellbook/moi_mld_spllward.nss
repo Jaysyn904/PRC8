@@ -20,10 +20,40 @@ The soul energy of your spellward shirt is bound into your flesh, its cerulean c
 
 You become immune to the first 24 levels of spell that affect you each day of 6th level and lower spells.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 18:29:06
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+      
+    // Heart bind (spell level absorption) — check regular or double Heart  
+    int nBoundToHeart = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+        nBoundToHeart = TRUE;  
+  
+    if (nBoundToHeart)  
+    {  
+        effect eWard = EffectSpellLevelAbsorption(6, 24);  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eWard), oMeldshaper, 9999.0);  
+    }  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SPELLWARD_SHIRT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -37,4 +67,4 @@ void main()
     	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eWard), oMeldshaper, 9999.0);
     }	
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SPELLWARD_SHIRT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-}
+} */

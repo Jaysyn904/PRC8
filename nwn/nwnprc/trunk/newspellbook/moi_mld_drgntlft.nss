@@ -31,10 +31,72 @@ The tail takes on the appearance of flesh and bone and becomes more agile and an
 
 As a standard action, you can make a tail sweep. All creatures adjacent to you automatically take damage as if they had been struck by your dragon tail (Reflex half). 
 */
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 09:57:55
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "prc_inc_combat"
 #include "moi_inc_moifunc"
+  
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    object oTarget     = PRCGetSpellTargetObject();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper, MELD_DRAGON_TAIL);  
+    int nClass         = GetMeldShapedClass(oMeldshaper, MELD_DRAGON_TAIL);		  
+    int nDC            = GetMeldshaperDC(oMeldshaper, nClass, MELD_DRAGON_TAIL);    
+    int nDamage;  
+  
+    // Helper to check if bound to Waist (regular or double)  
+    int nBoundToWaist = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_WAIST)) == MELD_DRAGON_TAIL ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_WAIST)) == MELD_DRAGON_TAIL)  
+        nBoundToWaist = TRUE;  
+  
+    if (GetSpellId() == MELD_DRAGON_TAIL_SWEEP)  
+    {  
+        location lTarget = GetLocation(oMeldshaper);  
+        // Use the function to get the closest creature as a target  
+        object oAreaTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        while(GetIsObjectValid(oAreaTarget))  
+        {  
+            if(oAreaTarget != oMeldshaper && // Not you  
+               GetIsInMeleeRange(oMeldshaper, oAreaTarget) && // They must be in melee range  
+               GetIsEnemy(oAreaTarget, oMeldshaper)) // Only enemies  
+            {  
+                nDamage = d8() + GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper) + nEssentia;  
+                if (nBoundToWaist) nDamage = d6(2) + FloatToInt(GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper)*1.5) + nEssentia;   		  
+                nDamage = PRCGetReflexAdjustedDamage(nDamage, oAreaTarget, nDC, SAVING_THROW_TYPE_NONE);  
+                ApplyEffectToObject(DURATION_TYPE_INSTANT, ExtraordinaryEffect(EffectDamage(nDamage, DAMAGE_TYPE_BLUDGEONING)), oAreaTarget);  
+            }  
+            //Select the next target within the spell shape.  
+            oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        }     
+    }  
+    else // SLAM  
+    {  
+        int nAttack = GetAttackRoll(oTarget, oMeldshaper, OBJECT_INVALID, 0, nEssentia);  
+        if(nAttack)  
+        {	  
+            nDamage = d8()+GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper)+nEssentia;  
+            if (nBoundToWaist) nDamage = d6(2)+ FloatToInt(GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper)*1.5) + nEssentia;    	  
+            // Critical hit  
+            if (nAttack == 2)   
+            {  
+                nDamage += d8()+GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper)+nEssentia;  
+                if (nBoundToWaist) nDamage += d6(2)+ FloatToInt(GetAbilityModifier(ABILITY_STRENGTH, oMeldshaper)*1.5) + nEssentia;   		  
+            }  
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, ExtraordinaryEffect(EffectDamage(nDamage, DAMAGE_TYPE_BLUDGEONING)), oTarget);  
+        }     
+    }	  
+}
 
-void main()
+/* void main()
 {
     object oMeldshaper = OBJECT_SELF;
     object oTarget     = PRCGetSpellTargetObject();
@@ -79,4 +141,4 @@ void main()
     		ApplyEffectToObject(DURATION_TYPE_INSTANT, ExtraordinaryEffect(EffectDamage(nDamage, DAMAGE_TYPE_BLUDGEONING)), oTarget);
     	}   
     }	
-}
+} */

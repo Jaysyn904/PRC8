@@ -26,10 +26,43 @@ Your bloodwar gauntlets bind themselves to your hands, shrinking to better fit t
 
 Any weapon you equip gains the keen property
 */
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 21:23:36
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
+#include "moi_inc_moifunc"  
+  
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectAttackIncrease(1);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nEssentia), DAMAGE_TYPE_BASE_WEAPON));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Arms bind (blast) — check regular or double Arms  
+    int nBoundToArms = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_ARMS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)  
+        nBoundToArms = TRUE;  
+  
+    if (nBoundToArms)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }   
+}
 
-#include "moi_inc_moifunc"
 
-void main()
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -40,4 +73,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODWAR_GAUNTLETS_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

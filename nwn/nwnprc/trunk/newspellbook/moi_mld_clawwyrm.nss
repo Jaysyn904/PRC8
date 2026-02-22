@@ -8,7 +8,7 @@ Classes: Soulborn, totemist
 Chakra: Arms, hands (totem)
 Saving Throw: None
 
-A pair of dragonlike units, wreathed in blue fire, hover above your own arms and mimic your actions. The arms have long, sharp talons of cerulean light.
+A pair of dragonlike arms, wreathed in blue fire, hover above your own arms and mimic your actions. The arms have long, sharp talons of cerulean light.
 
 This soulmeld draws on the most basic of draconic attack forms, granting you claws that deal damage of 1d6 points if you are Medium. 1d4 if you are Small, or 1d8 if you are Large.
 
@@ -32,10 +32,70 @@ The dragon arms become more fleshlike and animated, growing up toward your buck 
 
 You gain a +8 bonus to Climb checks.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 12:15:04
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+      
+    string sResRef = "prc_claw_1d6m_";  
+    int nSize = PRCGetCreatureSize(oMeldshaper);  
+      
+    // Hands bind (damage step up) — check regular or double Hands  
+    int nBoundToHands = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == nMeldId)  
+        nBoundToHands = TRUE;  
+  
+    if (nBoundToHands) nSize += 1;  
+    sResRef += GetAffixForSize(nSize);  
+    AddNaturalPrimaryWeapon(oMeldshaper, sResRef, 2);   
+    SetLocalString(oMeldshaper, "IncarnumPrimaryAttackL", sResRef);  
+      
+    effect eLink = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+      
+    // All natural attacks end up here  
+    if (nEssentia)  
+    {  
+    	DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyEnhancementBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+    	DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper), ItemPropertyEnhancementBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+    }	  
+       
+    // Arms bind (keen) — check regular or double Arms  
+    int nBoundToArms = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_ARMS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)  
+        nBoundToArms = TRUE;  
+  
+    if (nBoundToArms)  
+    {  
+    	DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyKeen(), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+    	DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper), ItemPropertyKeen(), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+    }      
+	// Totem bind (Climb bonus) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem) eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_CLIMB, 8));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CLAW_OF_THE_WYRM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper);
@@ -65,4 +125,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CLAW_OF_THE_WYRM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

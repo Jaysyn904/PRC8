@@ -20,7 +20,14 @@ Instead of a torc around your neck, the writhing shape of a twoheaded dragon arc
 
 When you use your ability to spit acid at an opponent, you also roll again for damage 1 round later. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 19:24:41
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_sp_tch"
 
@@ -30,7 +37,41 @@ void DissolvingSpittleDelay(object oMeldshaper, object oTarget, int nAttack, int
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_ACID_L), oTarget); 
 }
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_DISSOLVING_SPITTLE;  
+  
+    // Check if bound to Throat chakra (regular or double)  
+    int nBoundToThroat = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_THROAT)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_THROAT)) == nMeldId)  
+        nBoundToThroat = TRUE;  
+  
+    object oTarget = PRCGetSpellTargetObject();   
+    int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_DISSOLVING_SPITTLE);     
+    int nDice = 1 + nEssentia;  
+    effect eArrow = EffectVisualEffect(VFX_IMP_MIRV_DN_LAWNGREEN);  
+      
+    int nAttack = PRCDoRangedTouchAttack(oTarget);  
+    if (nAttack > 0)  
+    {  
+        if(spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, oMeldshaper))  
+        {  
+            int nDamage = d6(nDice);  
+            ApplyTouchAttackDamage(oMeldshaper, oTarget, nAttack, nDamage, DAMAGE_TYPE_ACID);  
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_ACID_L), oTarget);  
+              
+            if (nBoundToThroat)   
+            {  
+                nDamage = d6(nDice);  
+                DelayCommand(6.0, DissolvingSpittleDelay(oMeldshaper, oTarget, nAttack, nDamage, DAMAGE_TYPE_ACID));         
+            }  
+        }  
+    }  
+}
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject(); 
@@ -55,4 +96,4 @@ void main()
             }
         }
     }
-}
+} */

@@ -26,10 +26,57 @@ Your hair grows into a bushy mane beneath your crown. If you are male, your bear
 
 You gain the ability to make a trample attack. As a full-round action, you can move up to twice your speed and literally run over any creature equal to your own size or smaller. Your trample attack deals 1d8 points of bludgeoning damage (or 1d6 points if you are Small) plus 1-1/2 times your Strength modifier. Opponents have a Reflex save for half damage.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 10:25:22
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//:; Added missing essentia based will save bonus
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+      
+    // Apply essentia-based mind-affecting save bonus  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, nEssentia, SAVING_THROW_TYPE_MIND_SPELLS));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHEDU_CROWN), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Heart bind (ethereal) — check regular or double Heart  
+    int nBoundToHeart = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+        nBoundToHeart = TRUE;  
+  
+    if (nBoundToHeart)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHEDU_CROWN_HEART), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+      
+    // Totem bind (trample) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        // Reuses Gorgon Mask's trample feat; no dedicated constant exists  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_GORGON_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -42,4 +89,4 @@ void main()
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHEDU_CROWN_HEART), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
     // This is correct, it's identical to the Shedu Crown ability for trample
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_GORGON_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-}
+} */

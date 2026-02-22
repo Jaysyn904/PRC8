@@ -26,10 +26,54 @@ Your frost helm fuses to your head and seems to spread downward, changing the ap
 
 As a standard action, you can produce a trilling sound that stuns opponents within 20 feet. You can target one creature plus one additional creature per point of essentia you invest in your frost helm. Targets must succeed on a Will save or be stunned for 1d4 rounds.  
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 10:13:58
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper, MELD_FROST_HELM);  
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, nEssentia * 5));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_COLD_ENDURANCE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Crown bind (cold ray) — check regular or double Crown  
+    int nBoundToCrown = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == nMeldId)  
+        nBoundToCrown = TRUE;  
+  
+    if (nBoundToCrown)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_CROWN), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+  
+    // Totem bind (stun) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_FROST_HELM);
@@ -42,4 +86,4 @@ void main()
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper, MELD_FROST_HELM) == CHAKRA_CROWN) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_CROWN), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper, MELD_FROST_HELM) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

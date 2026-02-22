@@ -26,10 +26,46 @@ Your shadow mantle literally draws shadows to itself, and it changes color to ma
 
 You gain a competence bonus on Hide checks equal to the bonus the soulmeld grants on Listen checks (+4 plus an additional +2 per point of invested essentia). 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 23:20:37
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 4 + (nEssentia * 2);  
+    effect eLink       = EffectSkillIncrease(SKILL_LISTEN, nBonus);  
+  
+    // Totem bind (Hide bonus) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem) eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_HIDE, nBonus));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHADOW_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Shoulders bind (darkness + ultravision) — check regular or double Shoulders  
+    int nBoundToShoulders = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == nMeldId)  
+        nBoundToShoulders = TRUE;  
+  
+    if (nBoundToShoulders) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHADOW_MANTLE_SHOULDERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -41,4 +77,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHADOW_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_SHOULDERS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SHADOW_MANTLE_SHOULDERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-}
+} */

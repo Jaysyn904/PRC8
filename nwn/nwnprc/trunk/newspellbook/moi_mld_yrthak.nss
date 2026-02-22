@@ -26,7 +26,15 @@ Your yrthak mask becomes your actual face, and your jaws lengthen into the croco
 
 Once every 2 rounds, you can focus sonic energy into a ray up to 60 feet long. This is a ranged touch attack that deals 1d6 points of sonic damage to a single target for every point of invested essentia.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:29:28
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -36,7 +44,7 @@ void main()
 	int nBonus         = 4+(nEssentia*2);
     effect eLink       = EffectSkillIncrease(SKILL_LISTEN, nBonus);
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_BROW) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_BROW || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_BROW) 
     {
     	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_YRTHAK_MASK_BROW), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);     
     	eLink = EffectLinkEffects(eLink, EffectSkillDecrease(SKILL_SPOT, 4));
@@ -44,6 +52,8 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_YRTHAK_MASK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_YRTHAK_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
+	
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_YRTHAK_MASK_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
 
 }

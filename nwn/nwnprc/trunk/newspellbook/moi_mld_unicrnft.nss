@@ -26,13 +26,38 @@ A tuft of white hair hangs down from your forehead around your unicorn horn, whi
 
 You can gore with the unicorn horn as a natural weapon that deals 1d6 points of damage. You gain an enhancement bonus on attack rolls and damage rolls with your horn equal to the number of points of essentia you invest in it. If you hit an undead creature with your horn attack, you deal an extra 1d6 points of damage. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 20:46:10
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_UNICORN_HORN;  
+  
+    // Check if bound to Brow chakra (regular or double)  
+    int nBoundToBrow = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)  
+        nBoundToBrow = TRUE;  
+  
+    if (!nBoundToBrow) return; // Exit if not bound to Brow  
+  
+    ActionDoCommand(SetLocalInt(oMeldshaper, "SpellIsSLA", TRUE));  
+    ActionCastSpell(SPELL_DETECT_EVIL, GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_UNICORN_HORN), 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, FALSE, OBJECT_INVALID, FALSE);  
+    ActionDoCommand(DeleteLocalInt(oMeldshaper, "SpellIsSLA"));  
+}
+
+/* void main()
 {
     object oMeldshaper = OBJECT_SELF;
     ActionDoCommand(SetLocalInt(oMeldshaper, "SpellIsSLA", TRUE));
     ActionCastSpell(SPELL_DETECT_EVIL, GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_UNICORN_HORN), 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, FALSE, OBJECT_INVALID, FALSE);
     ActionDoCommand(DeleteLocalInt(oMeldshaper, "SpellIsSLA")); 
-}
+} */

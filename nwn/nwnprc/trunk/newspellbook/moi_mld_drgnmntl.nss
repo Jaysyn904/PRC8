@@ -32,10 +32,17 @@ Long, draconic wings sprout from the shoulders of your blue dragonhide plate arm
 
 You gain +4 on Jump checks for every point of essentia invested in your dragon mantle.
 
-	Fixed by: Jaysyn
-	Fixed on: 2025-05-20 15:27:50
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 09:00:01
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//:: Fixed Dragon Mantle fast healing
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void DragonMantleHeal(object oMeldshaper);
@@ -60,7 +67,79 @@ void DragonMantleHeal(object oMeldshaper)
 		//DelayCommand(6.0, DragonMantleHeal(oMeldshaper));
 }
 
-void main()
+void main()  
+{  
+    //Declare main variables.  
+    int nEvent = GetRunningEvent();  
+    int flag = 0;  
+    object oMeldshaper;  
+    switch(nEvent)  
+    {  
+        case EVENT_ONHEARTBEAT:     oMeldshaper = OBJECT_SELF;    break;  
+  
+        default:  
+            oMeldshaper = PRCGetSpellTargetObject(); //flag = 1;  
+    }  
+      
+    int nMeldId = PRCGetSpellId();  
+    int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_DRAGON_MANTLE);  
+    int nBonus    = 3 * nEssentia;  
+  
+    //if(flag == 1)  
+    if(nEvent == FALSE)  
+    {      
+        effect eLink = EffectSavingThrowIncrease(SAVING_THROW_FORT, 2);  
+        if (nEssentia)  
+        {  
+            eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ACID, nBonus));      
+            eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, nBonus));      
+            eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nBonus));      
+            eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nBonus));      
+        }  
+          
+        // Check for binds   
+        int nBoundToShoulders = FALSE;  
+        if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == nMeldId ||  
+            GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == nMeldId)  
+            nBoundToShoulders = TRUE;  
+  
+        if (nBoundToShoulders && nEssentia)   
+        {  
+            eLink = EffectLinkEffects(eLink, EffectDamageReduction(nEssentia, DAMAGE_POWER_PLUS_ONE));  
+        }  
+  
+        // Check for binds   
+        int nBoundToTotem = FALSE;  
+        if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+            GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+            nBoundToTotem = TRUE;  
+  
+        if (nBoundToTotem && nEssentia)  
+        {  
+            eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_JUMP, nEssentia * 4));  
+        }  
+  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+          
+        AddEventScript(oMeldshaper, EVENT_ONHEARTBEAT, "moi_mld_drgnmntl", TRUE, FALSE);  
+    }      
+    else if(nEvent == EVENT_ONHEARTBEAT)  
+    {  
+        // Check for binds  
+        int nBoundToHeart = FALSE;  
+        if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+            GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+            nBoundToHeart = TRUE;  
+  
+        if (GetHasSpellEffect(MELD_DRAGON_MANTLE, oMeldshaper) && nBoundToHeart)  
+        {  
+            DragonMantleHeal(oMeldshaper);  
+        }  
+    }  
+}
+
+/* void main()
 {
     //Declare main variables.
     int nEvent = GetRunningEvent();
@@ -110,4 +189,4 @@ void main()
 			DragonMantleHeal(oMeldshaper);
 		}
 	}
-}
+} */

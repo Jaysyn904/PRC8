@@ -12,7 +12,15 @@ Your face lengthens and shapes into the mask you wear, and the dangling tongue o
 
 You can use the long tongue of your disenchanter mask to make a melee touch attack as a standard action. If it hits, you suppress the opponent's primary weapon, if any, for ten rounds.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 11:56:39
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_sp_tch"
 
@@ -126,7 +134,29 @@ void SuppressItem(object oTrueSpeaker, object oTarget, int nBeats)
 	DelayCommand(6.0, SuppressItem(oTrueSpeaker, oTarget, nBeats - 1));
 }
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_DISENCHANTER_MASK;  
+  
+    // Check if bound to Totem chakra (regular or double)  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (!nBoundToTotem) return; // Exit if not bound to Totem  
+  
+    object oTarget = PRCGetSpellTargetObject();  
+    if(PRCDoMeleeTouchAttack(oTarget))  
+    {  
+        object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);  
+        if (GetIsObjectValid(oItem))  
+            SuppressItem(oMeldshaper, oItem, 10);  
+    }  
+}
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
 	object oTarget = PRCGetSpellTargetObject();
@@ -136,5 +166,5 @@ void main()
     	if (GetIsObjectValid(oItem))
     		SuppressItem(oMeldshaper, oItem, 10);
     }
-}
+} */
 

@@ -20,7 +20,14 @@ Bands of steel form around your forearms. When you hold your incarnate weapon, a
 
 As a move action, you can charge the incarnate weapon with the stunning power of pure conviction. If the next melee attack that you make is successful, the target (as long as at least one component of its alignment is opposed to your devoted alignment) must succeed on a Fortitude saving throw or be stunned for one round. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:17:05
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -49,5 +56,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_INCARNATE_WEAPON), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SOUL) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_INCARNATE_WEAPON_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+	
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SOUL || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_SOUL) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_INCARNATE_WEAPON_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 }

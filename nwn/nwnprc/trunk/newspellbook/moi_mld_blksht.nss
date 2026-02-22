@@ -28,10 +28,49 @@ Your posture becomes slightly hunched, giving you the merest hint of a canine ap
 
 You can use the dimension door ability of this soulmeld as a move action.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 20:55:58
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);   
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Heart bind (blink) — check regular or double Heart  
+    int nBoundToHeart = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+        nBoundToHeart = TRUE;  
+  
+    if (nBoundToHeart)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT_HEART), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Totem bind (move-action dimension door) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT_DOOR_MV), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    else  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT_DOOR_ST), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper); 
@@ -48,4 +87,4 @@ void main()
     	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT_DOOR_MV), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     else
     	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLINK_SHIRT_DOOR_ST), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

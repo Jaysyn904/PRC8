@@ -30,10 +30,64 @@ Sharp teeth fill your mouth, allowing you to bite your foes savagely in combat. 
 
 You gain a bite attack that deals 1d8 points of damage. You can use this bite as a primary attack. Every point of essentia invested in this soulmeld adds 1d4 points of electricity damage to your bite damage.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 01:12:00
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+  
+    effect eLink = EffectVisualEffect(VFX_DUR_PROTECTION_ENERGY_ELECT);  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, 5 * nEssentia));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BEHIR_GORGET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Throat bind (lightning line) — check regular or double Throat  
+    int nBoundToThroat = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_THROAT)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_THROAT)) == nMeldId)  
+        nBoundToThroat = TRUE;  
+  
+    if (nBoundToThroat)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BEHIR_GORGET_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Totem bind (bite + electricity damage) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        string sResRef = "prc_hdarc_bite_";  
+        int nSize = PRCGetCreatureSize(oMeldshaper);  
+        sResRef += GetAffixForSize(nSize);  
+        AddNaturalPrimaryWeapon(oMeldshaper, sResRef);   
+        SetLocalString(oMeldshaper, "IncarnumPrimaryAttackB", sResRef);  
+  
+        int nDamage = EssentiaToD4(nEssentia);  
+  
+        // All natural attacks end up here  
+        if (nEssentia)  
+        {  
+            DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL, nDamage), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+        }  
+    }  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper); 
@@ -61,4 +115,4 @@ void main()
 	        DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_ELECTRICAL, nDamage), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));
 	    }    
     }
-}
+} */

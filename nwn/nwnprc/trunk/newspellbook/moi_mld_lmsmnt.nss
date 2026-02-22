@@ -32,10 +32,41 @@ The golden-brown fur around your shoulders extends upward into an impressive man
 
 You can breathe a 15-foot cone of fire as a standard action. Creatures within the area take 1d4 points of fire damage, plus 1d4 points of fire damage per point of invested essentia (Reflex half). 
 */
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 21:30:51
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added in moi_events
+//::
+//::////////////////////////////////////////////////////////
 
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectACIncrease(2, AC_DEFLECTION_BONUS);  
+      
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, nEssentia));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(VersusAlignmentEffect(eLink, ALIGNMENT_ALL, ALIGNMENT_EVIL)), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_LAMMASU_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
+  
+    // Totem bind (fire cone) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_LAMMASU_MANTLE_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -47,4 +78,4 @@ void main()
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_LAMMASU_MANTLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
          
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_LAMMASU_MANTLE_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

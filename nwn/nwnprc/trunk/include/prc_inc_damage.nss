@@ -102,7 +102,7 @@ void ApplyAbilityDamage(object oTarget, int nAbility, int nAmount, int nDuration
     if (GetLocalInt(oTarget, "IncarnumDefenseCE") && nAbility == ABILITY_STRENGTH)
 		return;  
 		
-    if (GetIsMeldBound(oTarget, MELD_VITALITY_BELT) == CHAKRA_WAIST && nAbility == ABILITY_CONSTITUTION)
+    if (GetIsMeldBound(oTarget, MELD_VITALITY_BELT) == CHAKRA_WAIST || GetIsMeldBound(oTarget, MELD_VITALITY_BELT) == CHAKRA_DOUBLE_WAIST && nAbility == ABILITY_CONSTITUTION)
 		return; 	
 		
     if (GetHasSpellEffect(VESTIGE_DAHLVERNAR, oTarget) && nAbility == ABILITY_WISDOM && GetLocalInt(oTarget, "ExploitVestige") != VESTIGE_DAHLVERNAR_MAD_SOUL)
@@ -116,7 +116,7 @@ void ApplyAbilityDamage(object oTarget, int nAbility, int nAmount, int nDuration
     	// If there's no damage, jump out.
     	if (0 >= nAmount) return;   	
     } 
-    else if (GetIsMeldBound(oTarget, MELD_STRONGHEART_VEST) == CHAKRA_WAIST && !bHealable)
+    else if (GetIsMeldBound(oTarget, MELD_STRONGHEART_VEST) == CHAKRA_WAIST || GetIsMeldBound(oTarget, MELD_STRONGHEART_VEST) == CHAKRA_DOUBLE_WAIST && !bHealable)
     {   
 	    int nEssentia = GetEssentiaInvested(oTarget, MELD_STRONGHEART_VEST);
 	    nAmount = nAmount - (nEssentia + 1);

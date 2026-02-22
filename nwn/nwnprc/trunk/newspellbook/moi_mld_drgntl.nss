@@ -32,10 +32,54 @@ The tail takes on the appearance of flesh and bone and becomes more agile and an
 
 As a standard action, you can make a tail sweep. All creatures adjacent to you automatically take damage as if they had been struck by your dragon tail (Reflex half). 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 09:57:55
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+      
+    effect eLink = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+      
+    // Feet bind (Balance/Jump) — check regular or double Feet  
+    int nBoundToFeet = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_FEET)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_FEET)) == nMeldId)  
+        nBoundToFeet = TRUE;  
+  
+    if (nBoundToFeet)  
+    {  
+        int nBonus = 2 + (nEssentia * 2);  
+        eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_BALANCE, nBonus));  
+        eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_JUMP, nBonus));  
+    }  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL_SLAM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Totem bind (sweep) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL_SWEEP), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+}
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper);
@@ -52,4 +96,4 @@ void main()
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL_SLAM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DRAGON_TAIL_SWEEP), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

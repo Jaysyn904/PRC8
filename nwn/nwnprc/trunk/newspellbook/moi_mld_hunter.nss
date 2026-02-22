@@ -26,10 +26,52 @@ There is no change to your own appearance or that of the circlet, but from your 
 
 You gain the benefit of the Scent feature.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 09:53:28
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 2 + (nEssentia * 2);  
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_HEAL, nBonus), EffectSkillIncrease(SKILL_SEARCH, nBonus));  
+  
+    // Totem bind (Spot/Listen bonuses) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SPOT, 4));  
+        eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_LISTEN, 4));  
+    }  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_HUNTERS_CIRCLET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Crown bind (Track feat) — check regular or double Crown  
+    int nBoundToCrown = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == nMeldId)  
+        nBoundToCrown = TRUE;  
+  
+    if (nBoundToCrown)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_TRACK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -45,4 +87,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_HUNTERS_CIRCLET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_TRACK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

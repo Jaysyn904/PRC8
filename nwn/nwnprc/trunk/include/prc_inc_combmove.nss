@@ -797,8 +797,27 @@ void _PostCharge(object oPC, object oTarget)
     {
         ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectStunned()), oTarget, 6.0);   
     }
-    // Applies to all charges, Thunderstep Boots meld
-    if (GetHasSpellEffect(MELD_THUNDERSTEP_BOOTS, oPC) && nSucceed)
+	
+    // Applies to all charges, Thunderstep Boots meld  
+    if (GetHasSpellEffect(MELD_THUNDERSTEP_BOOTS, oPC) && nSucceed)  
+    {  
+    	int nDice = GetEssentiaInvested(oPC, MELD_THUNDERSTEP_BOOTS) + 1;  
+        ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage(d4(nDice), DAMAGE_TYPE_SONIC)), oTarget);     
+    	// Check Feet bind (regular or double)  
+    	int nBoundToFeet = FALSE;  
+    	if (GetIsMeldBound(oTarget, MELD_THUNDERSTEP_BOOTS) == CHAKRA_FEET ||  
+    	    GetIsMeldBound(oTarget, MELD_THUNDERSTEP_BOOTS) == CHAKRA_DOUBLE_FEET)  
+    	    nBoundToFeet = TRUE;  
+    	  
+    	if (nBoundToFeet)  
+    	{  
+    		int nDC = GetMeldshaperDC(oPC, CLASS_TYPE_SOULBORN, MELD_THUNDERSTEP_BOOTS);  
+			if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))  
+				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectStunned(), oTarget, 6.0);  
+    	}          
+    }
+	
+/*   if (GetHasSpellEffect(MELD_THUNDERSTEP_BOOTS, oPC) && nSucceed)
     {
     	int nDice = GetEssentiaInvested(oPC, MELD_STRONGHEART_VEST) + 1;
         ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage(d4(nDice), DAMAGE_TYPE_SONIC)), oTarget);   
@@ -808,12 +827,12 @@ void _PostCharge(object oPC, object oTarget)
 			if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NONE))
 				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectStunned(), oTarget, 6.0);
     	}        
-    } 
+    }  */
     // Applies to all charges, Urskan Greaves meld
     if (GetHasSpellEffect(MELD_URSKAN_GREAVES, oPC) && nSucceed)
     {
     	int nDice = GetEssentiaInvested(oPC, MELD_URSKAN_GREAVES);  
-    	if (GetIsMeldBound(oTarget, MELD_URSKAN_GREAVES) == CHAKRA_FEET)
+    	if (GetIsMeldBound(oTarget, MELD_URSKAN_GREAVES) == CHAKRA_FEET || GetIsMeldBound(oTarget, MELD_URSKAN_GREAVES) == CHAKRA_DOUBLE_FEET)
         	ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage(d4(nDice), DAMAGE_TYPE_BLUDGEONING)), oTarget);        
     }     
 } 
@@ -840,7 +859,7 @@ void _DoTrampleDamage(object oPC, object oTarget)
 
 void _HeartOfFireGrapple(object oPC, object oTarget)
 {  
-    if (GetIsMeldBound(oTarget, MELD_HEART_OF_FIRE) == CHAKRA_WAIST)
+    if (GetIsMeldBound(oTarget, MELD_HEART_OF_FIRE) == CHAKRA_WAIST || GetIsMeldBound(oTarget, MELD_HEART_OF_FIRE) == CHAKRA_DOUBLE_WAIST)
     {
     	int nEssentia = GetEssentiaInvested(oPC, MELD_HEART_OF_FIRE);
     	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(nEssentia), DAMAGE_TYPE_FIRE), oTarget);
@@ -851,7 +870,7 @@ int _TotemAvatar(object oPC, int nCombatMove)
 {
 	int nReturn;
       	
-    if (GetIsMeldBound(oPC, MELD_HEART_OF_FIRE) == CHAKRA_FEET && nCombatMove != COMBAT_MOVE_GRAPPLE)
+    if (GetIsMeldBound(oPC, MELD_HEART_OF_FIRE) == CHAKRA_FEET || GetIsMeldBound(oPC, MELD_HEART_OF_FIRE) == CHAKRA_DOUBLE_FEET && nCombatMove != COMBAT_MOVE_GRAPPLE)
 		nReturn = 4;
     
     if (nCombatMove == COMBAT_MOVE_GRAPPLE ||
@@ -867,7 +886,7 @@ int _UrskanGreaves(object oPC)
 {
 	int nReturn;
 	
-    if (GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_TOTEM)
+    if (GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_TOTEM || GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_DOUBLE_TOTEM)
 		nReturn = 2 + GetEssentiaInvested(oPC, MELD_URSKAN_GREAVES);
     
     return nReturn;
@@ -1129,7 +1148,7 @@ void DoCharge(object oPC, object oTarget, int nDoAttack = TRUE, int nGenerateAoO
 		    // Dread Carapace Totem Bind
 		    if(GetIsIncarnumUser(oPC))
 		    {
-				if (GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_TOTEM) // CHAKRA_TOTEM
+				if (GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_TOTEM || GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_DOUBLE_TOTEM) // CHAKRA_TOTEM
 		    	{
 			     	location lTargetLocation = GetLocation(oPC);
 			     	int nSaveDC = GetMeldshaperDC(oPC, CLASS_TYPE_TOTEMIST, MELD_DREAD_CARAPACE); // MELD_DREAD_CARAPACE
@@ -1148,7 +1167,8 @@ void DoCharge(object oPC, object oTarget, int nDoAttack = TRUE, int nGenerateAoO
 			        } 
 		        }
 				   
-		    	if (GetIsMeldBound(oPC, MELD_SPHINX_CLAWS) == CHAKRA_HANDS && !GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))) // CHAKRA_HANDS, empty hand
+		    	if (GetIsMeldBound(oPC, MELD_SPHINX_CLAWS) == CHAKRA_HANDS || GetIsMeldBound(oPC, MELD_SPHINX_CLAWS) == CHAKRA_DOUBLE_HANDS && 
+					!GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))) // CHAKRA_HANDS, empty hand
 		    		nPounce = TRUE;		        
 		    }         	
         
@@ -1981,7 +2001,7 @@ void DoOverrun(object oPC, object oTarget, location lTarget, int nGenerateAoO = 
     float fLength = GetDistanceBetweenLocations(GetLocation(oPC), lTarget);
     vector vOrigin = GetPosition(oPC);
        
-    if (GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_TOTEM) 
+    if (GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_TOTEM || GetIsMeldBound(oPC, MELD_URSKAN_GREAVES) == CHAKRA_DOUBLE_TOTEM) 
 		nAvoid = FALSE; 
 	if (GetHasFeat(FEAT_CENTAUR_TRAMPLE, oPC))	
 		nAvoid = FALSE; 
@@ -2435,7 +2455,7 @@ void DoShieldCharge(object oPC, object oTarget, int nSlam = FALSE)
 		// Dread Carapace Totem Bind
 		if(GetIsIncarnumUser(oPC))
 		{
-			if (GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_TOTEM) // CHAKRA_TOTEM
+			if (GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_TOTEM || GetIsMeldBound(oPC, MELD_DREAD_CARAPACE) == CHAKRA_DOUBLE_TOTEM) // CHAKRA_TOTEM
 			{
 		     	location lTargetLocation = GetLocation(oPC);
 		     	int nSaveDC = GetMeldshaperDC(oPC, CLASS_TYPE_TOTEMIST, MELD_DREAD_CARAPACE); // MELD_DREAD_CARAPACE

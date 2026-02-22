@@ -16,8 +16,7 @@ void main()
         default:
             oMeldshaper = OBJECT_SELF;
     }
-    int nClass = GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper);
-    object oSkin = GetPCSkin(oMeldshaper);
+    int nClass = GetLevelByClass(CLASS_TYPE_TOTEMIST, oMeldshaper);    
 
 	if (!GetLocalInt(oMeldshaper, "TotemistDelay"))
 	{
@@ -26,7 +25,9 @@ void main()
 	    // We aren't being called from any event, instead from EvalPRCFeats
 	    if(nEvent == FALSE)
 	    {
-	        // Add eventhook to OnRestFinished to reset the used marker
+	        object oSkin = GetPCSkin(oMeldshaper);
+			
+			// Add eventhook to OnRestFinished to reset the used marker
 	        AddEventScript(oMeldshaper, EVENT_ONPLAYERREST_FINISHED, "moi_totemist", TRUE, FALSE); 
 	        AddEventScript(oMeldshaper, EVENT_ONPLAYEREQUIPITEM,     "moi_totemist", TRUE, FALSE);
 	    }
@@ -37,10 +38,11 @@ void main()
 	        SetLocalInt(oMeldshaper, "MeldshapeClass", CLASS_TYPE_TOTEMIST);
 	        StartDynamicConversation("moi_meldshapecnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
 	    }    
-	    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
-	    {
-	        oMeldshaper   = GetItemLastEquippedBy();
-	        ChakraBindUnequip(oMeldshaper, GetItemLastEquipped());
-	    }    
+		else if(nEvent == EVENT_ONPLAYEREQUIPITEM)  
+		{  
+			oMeldshaper = GetItemLastEquippedBy();  
+			if (!GetIsObjectValid(oMeldshaper) || GetObjectType(oMeldshaper) != OBJECT_TYPE_CREATURE) return;  
+			ChakraBindUnequip(oMeldshaper, GetItemLastEquipped());  
+		} 
 	}    
 }

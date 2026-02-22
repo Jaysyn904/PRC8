@@ -20,6 +20,14 @@ Your bluesteel bracers affix themselves to your arms, extending swirling pattern
 
 All allies within 30 feet gain the +2 bonus on initiative granted by this soulmeld. 
 */
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 08:43:46
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 
 void BluesteelBracersHB(object oMeldshaper);
 
@@ -46,7 +54,32 @@ void BluesteelBracersHB(object oMeldshaper)
     if(GetHasSpellEffect(MELD_BLUESTEEL_BRACERS, oMeldshaper)) DelayCommand(6.0, BluesteelBracersHB(oMeldshaper));
 }
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectSkillDecrease(SKILL_SPOT, 2);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nEssentia), DAMAGE_TYPE_BASE_WEAPON));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLUESTEEL_BRACERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLOODED), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Check if bound to Arms chakra (regular or double)  
+    int nBoundToArms = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_ARMS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)  
+        nBoundToArms = TRUE;  
+      
+    if (nBoundToArms)  
+    {  
+        BluesteelBracersHB(oMeldshaper);  
+    }  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -59,4 +92,5 @@ void main()
 	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLUESTEEL_BRACERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLOODED), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS) BluesteelBracersHB(oMeldshaper);
-}
+	GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)
+} */

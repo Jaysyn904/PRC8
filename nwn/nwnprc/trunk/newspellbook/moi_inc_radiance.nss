@@ -47,6 +47,7 @@ void main()
     int nLevel = GetLevelByClass(CLASS_TYPE_INCARNATE, oMeldshaper);
 	int nDur = 3 + GetAbilityModifier(ABILITY_CONSTITUTION, oMeldshaper);
 	int nBonus = 1 + nLevel/5;
+	if (GetLocalInt(oMeldshaper, "PlanarChasuble_BrowBind")) nBonus += 1;
 	float fDur = RoundsToSeconds(nDur);
 	effect eLink;
 	if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_LAWFUL) eLink = EffectAttackIncrease(nBonus);

@@ -21,7 +21,36 @@
 /*             Content Functions                */
 //////////////////////////////////////////////////
 
-void BloodwarGauntlets(object oMeldshaper, object oItem, int nEvent)
+void BloodwarGauntlets(object oMeldshaper, object oItem, int nEvent)  
+{  
+    // Check if bound to Hands chakra (regular or double)  
+    int nBoundToHands = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == MELD_BLOODWAR_GAUNTLETS ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == MELD_BLOODWAR_GAUNTLETS)  
+        nBoundToHands = TRUE;  
+  
+    if (!nBoundToHands) return;  
+  
+    if(nEvent == EVENT_ONPLAYEREQUIPITEM)  
+    {  
+        itemproperty ip = ItemPropertyKeen();  
+        ip = TagItemProperty(ip, "moi_BloodwarGauntletsKeen");  
+        IPSafeAddItemProperty(oItem, ip, 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+    else if(nEvent == EVENT_ONPLAYERUNEQUIPITEM)  
+    {  
+        // Remove only the tagged keen property  
+        itemproperty ipCheck = GetFirstItemProperty(oItem);  
+        while (GetIsItemPropertyValid(ipCheck))  
+        {  
+            if (GetItemPropertyTag(ipCheck) == "moi_BloodwarGauntletsKeen")  
+                RemoveItemProperty(oItem, ipCheck);  
+            ipCheck = GetNextItemProperty(oItem);  
+        }  
+    }  
+}
+
+/* void BloodwarGauntlets(object oMeldshaper, object oItem, int nEvent)
 {
 	if (GetIsMeldBound(oMeldshaper, MELD_BLOODWAR_GAUNTLETS) != CHAKRA_HANDS) return;
 	
@@ -34,7 +63,7 @@ void BloodwarGauntlets(object oMeldshaper, object oItem, int nEvent)
     {
     	RemoveSpecificProperty(oItem, ITEM_PROPERTY_KEEN, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);  
     }	
-}
+} */
 
 void Bloodtalons(object oMeldshaper, object oItem, object oTarget)
 {
@@ -74,7 +103,7 @@ void DreadCarapace(object oMeldshaper)
     	IPSafeAddItemProperty(oBite, ItemPropertyDamageBonus(DAMAGE_TYPE_SLASHING, IPDamageConstant((nEssentia+1)*2)), 6.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
     }
 	
-    if (GetIsMeldBound(oMeldshaper, MELD_DREAD_CARAPACE) == CHAKRA_ARMS)
+    if (GetIsMeldBound(oMeldshaper, MELD_DREAD_CARAPACE) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_DREAD_CARAPACE) == CHAKRA_DOUBLE_ARMS)
     {
     	if (GetIsObjectValid(oLeft)) IPSafeAddItemProperty(oLeft, ItemPropertyKeen(), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     	if (GetIsObjectValid(oRight)) IPSafeAddItemProperty(oRight, ItemPropertyKeen(), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
@@ -243,7 +272,44 @@ void MantleOfFlameOnHit(object oMeldshaper, object oTarget)
 	}	
 }
 
-void PhaseCloak(object oMeldshaper)
+void PhaseCloak(object oMeldshaper)  
+{  
+    // Check if bound to Shoulders chakra (regular or double)  
+    int nBoundToShoulders = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == MELD_PHASE_CLOAK ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == MELD_PHASE_CLOAK)  
+        nBoundToShoulders = TRUE;  
+  
+    if (!nBoundToShoulders) return;  
+  
+    // Check to see if the WP is valid  
+    string sWPTag = "PhaseCloakWP_" + GetName(oMeldshaper);  
+    object oTestWP = GetWaypointByTag(sWPTag);  
+    if (!GetIsObjectValid(oTestWP))  
+    {  
+        // Create waypoint for the movement  
+        CreateObject(OBJECT_TYPE_WAYPOINT, "nw_waypoint001", GetLocation(oMeldshaper), FALSE, sWPTag);  
+    }  
+    else // We have a test waypoint, now to check the distance  
+    {  
+        // Distance moved in the last round  
+        float fDist = GetDistanceBetween(oMeldshaper, oTestWP);  
+        // Distance needed to move  
+        float fCheck = FeetToMeters(5.0);  
+  
+        // Now clean up the WP and create a new one for next round's check  
+        DestroyObject(oTestWP);  
+        CreateObject(OBJECT_TYPE_WAYPOINT, "nw_waypoint001", GetLocation(oMeldshaper), FALSE, sWPTag);  
+  
+        // Moved the distance  
+        if (fDist >= fCheck)  
+        {  
+            SetIncorporeal(oMeldshaper, 3.0, 1);  
+        }  
+    }  
+}
+
+/* void PhaseCloak(object oMeldshaper)
 {
     // Check to see if the WP is valid
     string sWPTag = "PhaseCloakWP_" + GetName(oMeldshaper);
@@ -270,7 +336,7 @@ void PhaseCloak(object oMeldshaper)
 			SetIncorporeal(oMeldshaper, 3.0, 1);
         }
     }
-}
+} */
 
 void PlanarWard(object oMeldshaper, object oTarget)
 {
@@ -297,10 +363,10 @@ void RidingBracers(object oMeldshaper)
 {
     if (PRCHorseGetIsMounted(oMeldshaper))
     {	
-		if(GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS)
+		if(GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_DOUBLE_ARMS)
 			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectLinkEffects(EffectACIncrease(2, AC_DODGE_BONUS), EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_BASE_WEAPON))), oMeldshaper, 6.0);
 		
-		if(GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM)
+		if(GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_DOUBLE_TOTEM)
 			IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_EVASION), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 	}	
 }
@@ -430,7 +496,33 @@ void IncandescentAura(object oMeldshaper)
     }  
 }   
 
-void NecroVestmentsAura(object oMeldshaper)
+void NecroVestmentsAura(object oMeldshaper)  
+{  
+    // Validate bind state (regular or double Waist)  
+    if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) != CHAKRA_WAIST &&  
+        GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) != CHAKRA_DOUBLE_WAIST)  
+        return;  
+  
+    int nClass = GetMeldShapedClass(oMeldshaper, MELD_NECROCARNUM_VESTMENTS);  
+    int nDC = GetMeldshaperDC(oMeldshaper, nClass, MELD_NECROCARNUM_VESTMENTS);   
+    location lTarget = GetLocation(oMeldshaper);  
+    object oAreaTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    while(GetIsObjectValid(oAreaTarget))  
+    {  
+        if(oAreaTarget != oMeldshaper && // Not you  
+           GetIsInMeleeRange(oMeldshaper, oAreaTarget) && // They must be in melee range  
+           GetIsEnemy(oAreaTarget, oMeldshaper)) // Only enemies  
+        {  
+            int nDamage = d6();  
+            if(!PRCMySavingThrow(SAVING_THROW_FORT, oAreaTarget, nDC, SAVING_THROW_TYPE_COLD))  
+                ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage(nDamage, DAMAGE_TYPE_COLD)), oAreaTarget);  
+        }  
+        //Select the next target within the spell shape.  
+        oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    }	  
+}
+
+/* void NecroVestmentsAura(object oMeldshaper)
 {
    	int nClass = GetMeldShapedClass(oMeldshaper, MELD_NECROCARNUM_VESTMENTS);
 	int nDC = GetMeldshaperDC(oMeldshaper, nClass, MELD_NECROCARNUM_VESTMENTS); 
@@ -450,7 +542,7 @@ void NecroVestmentsAura(object oMeldshaper)
     	//Select the next target within the spell shape.
     	oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
     	}	
-} 
+}  */
 
 void NecrocarnumWeaponHands(object oMeldshaper, object oTarget, object oItem)
 {
@@ -537,25 +629,39 @@ void main()
         // Only applies to armours
         if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
         {
-            if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST)    
+            if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST || GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_DOUBLE_WAIST)    
                 HeartOfFireOnHit(oMeldshaper, oTarget); 
             if (GetHasSpellEffect(MELD_MANTLE_OF_FLAME, oMeldshaper))
 				MantleOfFlameOnHit(oMeldshaper, oTarget);
-            if (GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_THROAT)    
+            if (GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_THROAT || GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_DOUBLE_THROAT)    
                 PlanarWard(oMeldshaper, oTarget); 
         }
         // Melee weapon checks
         if(IPGetIsMeleeWeapon(oItem))
         {         
-        	if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS) NecrocarnumWeaponHands(oMeldshaper, oTarget, oItem);
+        	if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS ||
+				GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_DOUBLE_HANDS) 
+					NecrocarnumWeaponHands(oMeldshaper, oTarget, oItem);
 		}   
 		WorgPeltOnHit(oMeldshaper, oItem, oTarget);
 		JaebrinOnHit(oMeldshaper, oItem, oTarget);
     }// end if - Running OnHit event
     else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
     {
-        oMeldshaper   = GetItemLastEquippedBy();
-        oItem = GetItemLastEquipped();
+        oMeldshaper		= GetItemLastEquippedBy();
+        oItem 			= GetItemLastEquipped();
+		
+		if (!GetHasSpellEffect(MELD_HEART_OF_FIRE, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_MANTLE_OF_FLAME, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_PLANAR_WARD, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_BLOODWAR_GAUNTLETS, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_INCARNATE_AVATAR, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_NECROCARNUM_WEAPON, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_MAULING_GAUNTLETS, oMeldshaper) &&  
+			!GetHasSpellEffect(MELD_SIGHTING_GLOVES, oMeldshaper) &&  
+			!GetIsMeldBound(oMeldshaper, MELD_LANDSHARK_BOOTS))  
+			return; 		
+		
         if(DEBUG) DoDebug("moi_events - OnEquip\n"
                         + "oMeldshaper = " + DebugObject2Str(oMeldshaper) + "\n"
                         + "oItem = " + DebugObject2Str(oItem) + "\n"
@@ -563,9 +669,9 @@ void main()
         // Armor checks
         if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)
         {
-            if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST ||
+            if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST || GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_DOUBLE_WAIST ||
                 GetHasSpellEffect(MELD_MANTLE_OF_FLAME, oMeldshaper) ||
-                GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_THROAT )
+                GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_THROAT || GetIsMeldBound(oMeldshaper, MELD_PLANAR_WARD) == CHAKRA_DOUBLE_THROAT)
             {       
                 // Add eventhook to the armor
                 IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
@@ -594,14 +700,14 @@ void main()
         	{
        			IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(3), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	
        			IPSafeAddItemProperty(oItem, ItemPropertyAttackPenalty(3), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	
-       			if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS)
+       			if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS || GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_DOUBLE_HANDS)
        			{
                 	// Add eventhook to the armor
                 	IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
                 	AddEventScript(oItem, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);       			
        			}
        		}	
-    		if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_ARMS)
+    		if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_DOUBLE_ARMS)
 				IPSafeAddItemProperty(oItem, ItemPropertyKeen(), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);        	
         }
         // Ranged weapon checks
@@ -624,7 +730,7 @@ void main()
         // Shields only
         if(GetIsShield(oItem))
         {
-        	if (GetIsMeldBound(oMeldshaper, MELD_LANDSHARK_BOOTS) == CHAKRA_TOTEM)
+        	if (GetIsMeldBound(oMeldshaper, MELD_LANDSHARK_BOOTS) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper, MELD_LANDSHARK_BOOTS) == CHAKRA_DOUBLE_TOTEM)
         		ForceUnequip(oMeldshaper, oItem, INVENTORY_SLOT_LEFTHAND);
         }
         // Ammo checks
@@ -693,8 +799,16 @@ void main()
     else if(nEvent == EVENT_ONHEARTBEAT)
     {
 		if (GetIsMeldShaped(oMeldshaper, MELD_DREAD_CARAPACE, CLASS_TYPE_TOTEMIST)) DreadCarapace(oMeldshaper);
-		if (GetIsMeldBound(oMeldshaper, MELD_FEARSOME_MASK) == CHAKRA_BROW) FearsomeMask(oMeldshaper);
+
+		//if (GetIsMeldBound(oMeldshaper, MELD_FEARSOME_MASK) == CHAKRA_BROW) FearsomeMask(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_FEARSOME_MASK) == CHAKRA_BROW ||  
+			GetIsMeldBound(oMeldshaper, MELD_FEARSOME_MASK) == CHAKRA_DOUBLE_BROW) 
+		{
+			FearsomeMask(oMeldshaper);
+		}
+		
 		//if (GetIsMeldBound(oMeldshaper, MELD_GIRALLON_ARMS) == CHAKRA_TOTEM) GirallonArms(oMeldshaper);
+		
 		if (GetHasSpellEffect(MELD_HEART_OF_FIRE, oMeldshaper)) HeartOfFire(oMeldshaper);
         /*if (GetHasSpellEffect(MELD_INCARNATE_AVATAR, oMeldshaper))
         {
@@ -702,25 +816,95 @@ void main()
         	if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_GOOD)
         		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectACIncrease(nEssentia), oMeldshaper, 6.0);     				
         }*/		
-        // If you have the meld bound to the correct Chakra and there's nothing in your weapon hand
-        if (GetIsMeldBound(oMeldshaper, MELD_KRUTHIK_CLAWS) == CHAKRA_HANDS && !GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper))) 
-        	IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_FINESSE), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-        if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_SHOULDERS) LammasuRepulsion(oMeldshaper);	
-        if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_ARMS) LammasuAllies(oMeldshaper);
-        if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_HANDS && !GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper)))
-        	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(GetEssentiaInvested(oMeldshaper, MELD_MAULING_GAUNTLETS)*2), DAMAGE_TYPE_BASE_WEAPON), oMeldshaper, 6.0);
-        if (GetIsMeldBound(oMeldshaper, MELD_PHASE_CLOAK) == CHAKRA_SHOULDERS) PhaseCloak(oMeldshaper);
-        if (GetIsMeldBound(oMeldshaper, MELD_RAGECLAWS) == CHAKRA_HANDS) RageClaws(oMeldshaper);
-        if (GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM) RidingBracers(oMeldshaper);
-        if (GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_SHOULDERS || GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_TOTEM) TotemAvatar(oMeldshaper);
-        if (GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) == CHAKRA_HANDS) WorgPeltHB(oMeldshaper);
+        
+		// If you have the meld bound to the correct Chakra and there's nothing in your weapon hand
+        //if (GetIsMeldBound(oMeldshaper, MELD_KRUTHIK_CLAWS) == CHAKRA_HANDS && !GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper))) 
+        	//IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_FINESSE), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+		if (GetIsMeldBound(oMeldshaper, MELD_KRUTHIK_CLAWS) == CHAKRA_HANDS ||  
+			GetIsMeldBound(oMeldshaper, MELD_KRUTHIK_CLAWS) == CHAKRA_DOUBLE_HANDS &&
+			!GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper))) 
+		{
+			IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_WEAPON_FINESSE), 6.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+		}		
+		
+        //if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_SHOULDERS) LammasuRepulsion(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_SHOULDERS ||  
+			GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_DOUBLE_SHOULDERS) 
+		{
+			LammasuRepulsion(oMeldshaper);
+		}		
+        
+		//if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_ARMS) LammasuAllies(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_ARMS ||  
+			GetIsMeldBound(oMeldshaper, MELD_LAMMASU_MANTLE) == CHAKRA_DOUBLE_ARMS) 
+		{
+			LammasuAllies(oMeldshaper);
+		}        
+
+		//if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_HANDS && !GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper)))
+        	//ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(GetEssentiaInvested(oMeldshaper, MELD_MAULING_GAUNTLETS)*2), DAMAGE_TYPE_BASE_WEAPON), oMeldshaper, 6.0);
+
+		// If you have the meld bound to the correct Chakra and there's nothing in your weapon hand
+		if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_HANDS ||  
+			GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_DOUBLE_HANDS && 
+			!GetIsObjectValid(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper))) 
+		{
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(GetEssentiaInvested(oMeldshaper, MELD_MAULING_GAUNTLETS)*2), DAMAGE_TYPE_BASE_WEAPON), oMeldshaper, 6.0);
+		} 
+        
+		//if (GetIsMeldBound(oMeldshaper, MELD_PHASE_CLOAK) == CHAKRA_SHOULDERS) PhaseCloak(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_PHASE_CLOAK) == CHAKRA_SHOULDERS ||  
+			GetIsMeldBound(oMeldshaper, MELD_PHASE_CLOAK) == CHAKRA_DOUBLE_SHOULDERS) 
+		{
+			PhaseCloak(oMeldshaper);
+		}
+		
+        //if (GetIsMeldBound(oMeldshaper, MELD_RAGECLAWS) == CHAKRA_HANDS) RageClaws(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_RAGECLAWS) == CHAKRA_HANDS ||  
+			GetIsMeldBound(oMeldshaper, MELD_RAGECLAWS) == CHAKRA_DOUBLE_HANDS) 
+		{
+			RageClaws(oMeldshaper);
+		}
+		
+        //if (GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM) RidingBracers(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_ARMS ||  
+			GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_DOUBLE_ARMS ||
+			GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_TOTEM ||  
+			GetIsMeldBound(oMeldshaper, MELD_RIDING_BRACERS) == CHAKRA_DOUBLE_TOTEM) 
+		{
+			RidingBracers(oMeldshaper);
+		}
+		
+        //if (GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_SHOULDERS || GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_TOTEM) TotemAvatar(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_SHOULDERS ||  
+			GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_DOUBLE_SHOULDERS ||
+			GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_TOTEM ||  
+			GetIsMeldBound(oMeldshaper, MELD_TOTEM_AVATAR) == CHAKRA_DOUBLE_TOTEM) 
+		{
+			TotemAvatar(oMeldshaper);
+		}		
+        
+		//if (GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) == CHAKRA_HANDS) WorgPeltHB(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) == CHAKRA_HANDS ||  
+			GetIsMeldBound(oMeldshaper, MELD_WORG_PELT) == CHAKRA_DOUBLE_HANDS) 
+		{
+			WorgPeltHB(oMeldshaper);
+		}
+			
         if (GetRacialType(oMeldshaper) == RACIAL_TYPE_JAEBRIN) JaebrinHB(oMeldshaper);
         if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_COBALT_EXPERTISE)) CobaltExpertise(oMeldshaper);
         //if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_COBALT_POWER)) CobaltPower(oMeldshaper); Commented out so it doesn't work with Bioware PA any more.
         if (GetEssentiaInvestedFeat(oMeldshaper, FEAT_MIDNIGHT_DODGE)) MidnightDodge(oMeldshaper);
     	if (GetEssentiaInvested(oMeldshaper, MELD_INCANDESCENT_AURA)) IncandescentAura(oMeldshaper);
-    	if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) == CHAKRA_WAIST) NecroVestmentsAura(oMeldshaper);
-    	if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper)) ActionCastSpellOnSelf(SPELL_DETECT_UNDEAD);
+    	
+		//if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) == CHAKRA_WAIST) NecroVestmentsAura(oMeldshaper);
+		if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) == CHAKRA_WAIST ||  
+			GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_VESTMENTS) == CHAKRA_DOUBLE_WAIST) 
+			{
+				NecroVestmentsAura(oMeldshaper);
+			}
+    	
+		if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper)) ActionCastSpellOnSelf(SPELL_DETECT_UNDEAD);
     	if (GetLevelByClass(CLASS_TYPE_NECROCARNATE, oMeldshaper)) // This tells the PRC whether to check for a necrocarnate on NPC death or not. Only allows 1 necrocarnate at a time
     	{
     		SetLocalObject(GetModule(), "Necrocarnate", oMeldshaper);

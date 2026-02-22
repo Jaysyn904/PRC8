@@ -20,10 +20,38 @@ Your truthseeker goggles rest firmly before your eyes, granting you sight even i
 
 You gain darkvision.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 00:53:56
+//::
+//:: Added missing Sense Motive skill bonus
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 2 + (nEssentia * 2);  
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_SEARCH, nBonus), EffectSkillIncrease(SKILL_SENSE_MOTIVE, nBonus));  
+  
+    // Brow bind (darkvision) — check regular or double Brow  
+    int nBoundToBrow = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)  
+        nBoundToBrow = TRUE;  
+  
+    if (nBoundToBrow) eLink = EffectLinkEffects(eLink, EffectUltravision());  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_TRUTHSEEKER_GOGGLES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -34,4 +62,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_TRUTHSEEKER_GOGGLES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

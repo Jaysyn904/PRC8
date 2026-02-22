@@ -20,10 +20,42 @@ Your mantle of flame burns particularly brightly around your shoulders, forming 
 
 As a standard action, you can briefly expand the mantle of flame to encompass all adjacent squares. Any creatures in those squares take damage as if they had attacked you with a handheld weapon (Reflex half). 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 14:48:04
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+     
+    effect eLink = EffectVisualEffect(VFX_DUR_ELEMENTAL_SHIELD);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_MANTLE_OF_FLAME), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    // Add eventhook to the armor  
+    object oItem = GetItemInSlot(INVENTORY_SLOT_CHEST, oMeldshaper);  
+    IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    AddEventScript(oItem, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);      
+      
+    // Shoulders bind (fire burst) — check regular or double Shoulders  
+    int nBoundToShoulders = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == nMeldId)  
+        nBoundToShoulders = TRUE;  
+  
+    if (nBoundToShoulders)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_MANTLE_OF_FLAME_SHOULDERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -38,4 +70,4 @@ void main()
     AddEventScript(oItem, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);    
     
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_SHOULDERS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_MANTLE_OF_FLAME_SHOULDERS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
-}
+} */

@@ -19,7 +19,14 @@ Your psion-killer mask binds to your forehead, and your eyes replace the red glo
 
 When using this soulmeld's detect psionics ability, you can instantly determine the number, strength, and location of each psionic aura present as if you had been concentrating for 3 rounds. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 08:43:46
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "prc_inc_s_det"
 #include "moi_inc_moifunc"
 
@@ -30,7 +37,14 @@ void main()
     int nRound = 0;
     float fRange = 10 + (10.0 * GetEssentiaInvested(oMeldshaper, MELD_PSIONKILLER_MASK));
     
-    if (GetIsMeldBound(oMeldshaper, MELD_PSIONKILLER_MASK) == CHAKRA_BROW) nRound = 3;
+    //if (GetIsMeldBound(oMeldshaper, MELD_PSIONKILLER_MASK) == CHAKRA_BROW) nRound = 3;
+	
+	int nBoundToBrow = FALSE;  
+	if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == MELD_PSIONKILLER_MASK ||  
+		GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == MELD_PSIONKILLER_MASK)  
+		nBoundToBrow = TRUE;  
+	  
+	if (nBoundToBrow) nRound = 3;
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oMeldshaper, fDuration);
 

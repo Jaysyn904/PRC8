@@ -33,7 +33,14 @@ Chakra Bind (Throat)
 Your soulspark burns with a fierce blue-white light.
 If you bind soulspark familiar to your throat chakra, you create a greater soulspark.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:53:41
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void AugmentSoulspark(object oMeldshaper, string sSummon, int nEssentia)
@@ -79,9 +86,9 @@ void main()
     int nEssentia      = GetEssentiaInvested(oMeldshaper);
     string sSummon     = "moi_slspk_least";
 
-	if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) 	   sSummon = "moi_slspk_lesser";
-	else if (GetIsMeldBound(oMeldshaper) == CHAKRA_BROW)   sSummon = "moi_slspk_medium";
-	else if (GetIsMeldBound(oMeldshaper) == CHAKRA_THROAT) sSummon = "moi_slspk_greatr";
+	if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_CROWN) 	   		sSummon = "moi_slspk_lesser";
+	else if (GetIsMeldBound(oMeldshaper) == CHAKRA_BROW || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_BROW)   	sSummon = "moi_slspk_medium";
+	else if (GetIsMeldBound(oMeldshaper) == CHAKRA_THROAT || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_THROAT)	sSummon = "moi_slspk_greatr";
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectSummonCreature(sSummon)), oMeldshaper, 9999.0);  
     DelayCommand(0.5, AugmentSoulspark(oMeldshaper, sSummon, nEssentia));

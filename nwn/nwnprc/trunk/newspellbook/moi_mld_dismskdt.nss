@@ -23,7 +23,14 @@ When using this soulmeld’s detect magic ability, you can instantly determine the
 
 #include "prc_inc_s_det"
 #include "moi_inc_moifunc"
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 13:18:03
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 void main()
 {
     object oMeldshaper = OBJECT_SELF;
@@ -31,7 +38,7 @@ void main()
     int nRound = 0;
     float fRange = 10 + (10.0 * GetEssentiaInvested(oMeldshaper, MELD_DISENCHANTER_MASK));
     
-    if (GetIsMeldBound(oMeldshaper, MELD_DISENCHANTER_MASK) == CHAKRA_BROW) nRound = 3;
+    if (GetIsMeldBound(oMeldshaper, MELD_DISENCHANTER_MASK) == CHAKRA_BROW || GetIsMeldBound(oMeldshaper, MELD_DISENCHANTER_MASK) == CHAKRA_DOUBLE_BROW) nRound = 3;
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oMeldshaper, fDuration);
 

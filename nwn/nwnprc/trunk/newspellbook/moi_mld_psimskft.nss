@@ -15,7 +15,15 @@ You can emit a crimson ray from the mouth of your psion-killer mask to make a ra
 
 If you hit with the ray, you deal no damage but temporarily suppress the opponent's primary weapon, if any, for ten rounds.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 20:53:41
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_sp_tch"
 
@@ -112,7 +120,26 @@ void RestoreAllProperties(object oItem, object oPC, int nSlot = -1)
     }
 }
 
-void SuppressItem(object oTrueSpeaker, object oTarget, int nBeats)
+
+void SuppressItem(object oTrueSpeaker, object oTarget, int nBeats)  
+{  
+    int nMeldId = MELD_PSIONKILLER_MASK;  
+    int nBoundToTotem = (GetLocalInt(oTrueSpeaker, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+                        GetLocalInt(oTrueSpeaker, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId);  
+    if (!nBoundToTotem || GetBreakConcentrationCheck(oTrueSpeaker) || nBeats == 0) return;  
+  
+    // Remove and restore the properties  
+    RemoveAllProperties(oTarget, GetItemPossessor(oTarget));  
+    DelayCommand(5.8, RestoreAllProperties(oTarget, GetItemPossessor(oTarget)));  
+  
+    // Apply VFX  
+    effect eImp = EffectVisualEffect(VFX_IMP_PULSE_BOMB);  
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImp, GetItemPossessor(oTarget));  
+  
+    DelayCommand(6.0, SuppressItem(oTrueSpeaker, oTarget, nBeats - 1));  
+}
+
+/* void SuppressItem(object oTrueSpeaker, object oTarget, int nBeats)
 {
 	// Break if they fail concentration or it runs out
 	if (GetBreakConcentrationCheck(oTrueSpeaker) || nBeats == 0) return;
@@ -127,9 +154,31 @@ void SuppressItem(object oTrueSpeaker, object oTarget, int nBeats)
 	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImp, GetItemPossessor(oTarget));
 	
 	DelayCommand(6.0, SuppressItem(oTrueSpeaker, oTarget, nBeats - 1));
-}
+} */
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_PSIONKILLER_MASK;  
+  
+    // Check if bound to Totem chakra (regular or double)  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (!nBoundToTotem) return;  
+  
+    object oTarget = PRCGetSpellTargetObject();  
+    if(PRCDoRangedTouchAttack(oTarget))  
+    {  
+        object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);  
+        if (GetIsObjectValid(oItem))  
+            SuppressItem(oMeldshaper, oItem, 10);  
+    }  
+} 
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
 	object oTarget = PRCGetSpellTargetObject();
@@ -139,5 +188,5 @@ void main()
     	if (GetIsObjectValid(oItem))
     		SuppressItem(oMeldshaper, oItem, 10);
     }
-}
+} */
 

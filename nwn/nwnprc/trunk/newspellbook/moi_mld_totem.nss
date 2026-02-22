@@ -43,7 +43,15 @@ Chakra Bind (Totem) When you bind your totem avatar to your totem chakra, you be
 Your totem avatar grants you a morale bonus on damage rolls made with natural weapons (whether from soulmelds or other natural sources) equal to the number of points of essentia you invest in it.
  
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 01:12:00
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -53,9 +61,13 @@ void main()
 	int nMeldshaperLvl = GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_TOTEM_AVATAR);
     effect eLink       = EffectTemporaryHitpoints(nMeldshaperLvl);
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART) eLink = EffectLinkEffects(eLink, EffectDamageReduction(5 + nEssentia, DAMAGE_POWER_PLUS_ONE));
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HEART) 
+		eLink = EffectLinkEffects(eLink, EffectDamageReduction(5 + nEssentia, DAMAGE_POWER_PLUS_ONE));
+	
 	PRCRemoveSpellEffects(MELD_TOTEM_AVATAR, oMeldshaper, oMeldshaper);
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_TOTEM_AVATAR), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_IMPROVED_GRAPPLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
+	
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_ARMS) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_IMPROVED_GRAPPLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
 }

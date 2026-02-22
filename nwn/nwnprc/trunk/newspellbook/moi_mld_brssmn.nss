@@ -26,7 +26,14 @@ Your face blends into the mask, your jaws growing long and sprouting huge fangs.
 
 You gain a bite attack that deals 1d8 points of damage. You can use this bite as a primary attack. Every point of essentia invested in this soulmeld grants a +1 enhancement bonus on attack rolls and damage rolls made with the bite attack.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:18:04
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -40,8 +47,10 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BRASS_MANE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_THROAT) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BRASS_MANE_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_THROAT || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_THROAT) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BRASS_MANE_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+	
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM) 
     {
         string sResRef = "prc_hdarc_bite_";
         int nSize = PRCGetCreatureSize(oMeldshaper);

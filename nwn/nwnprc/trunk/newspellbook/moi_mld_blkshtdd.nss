@@ -9,7 +9,14 @@ You gain the ability to teleport yourself (as dimension door) up to 10 feet at w
 
 Essentia: For every point of essentia invested, you can teleport an additional 10 feet.  
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:56:13
+//::
+//:: Double Totem Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "spinc_dimdoor"
 #include "moi_inc_moifunc"
 
@@ -21,7 +28,7 @@ void main()
     float fDist = GetDistanceBetweenLocations(lTarget, GetLocation(oMeldshaper));
     
     // It's a move action if done this way
-    if (GetIsMeldBound(oMeldshaper, MELD_ACROBAT_BOOTS) == CHAKRA_TOTEM)
+    if (GetIsMeldBound(oMeldshaper, MELD_ACROBAT_BOOTS) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper, MELD_ACROBAT_BOOTS) == CHAKRA_DOUBLE_TOTEM)
     	if(!TakeMoveAction(oMeldshaper)) return;
     
     // If it's within range

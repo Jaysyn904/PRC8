@@ -26,7 +26,15 @@ Your hands become one with the claws that surround them, overlarge for your size
 
 You can use your sphinx claws as natural weapons that deal 1d8 points of damage plus your Strength modifier. For every point of essentia you invest in your sphinx claws, you gain a +1 enhancement bonus on your attack rolls and damage rolls with the claws. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:18:04
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -38,7 +46,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SPHINX_CLAWS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM) 
     {
         string sResRef = "prc_claw_1d8m_";
         int nSize = PRCGetCreatureSize(oMeldshaper);

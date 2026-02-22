@@ -20,10 +20,44 @@ Barely visible wisps of incarnum writhe from your arcane focus, tendrils of soul
 
 Whenever you cast a spell that deals damage to a single living creature, that creature must succeed on a Fortitude save (using the soulmeld’s save DC, not the spell’s) or be dazed for 1 round. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 16:15:04
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectVisualEffect(VFX_DUR_BAELN_EYES)), oMeldshaper, 9999.0);   
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ARCANE_FOCUS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Throat bind (daze on single-target arcane damage) — check regular or double Throat  
+    int nBoundToThroat = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_THROAT)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_THROAT)) == nMeldId)  
+        nBoundToThroat = TRUE;  
+  
+    if (nBoundToThroat)  
+    {  
+        int nClass = GetMeldShapedClass(oMeldshaper, MELD_ARCANE_FOCUS);  
+        int nDC = GetMeldshaperDC(oMeldshaper, nClass, MELD_ARCANE_FOCUS);  
+        SetLocalInt(oMeldshaper, "ArcaneFocusBound", nDC);  
+    }  
+    else  
+    {  
+        DeleteLocalInt(oMeldshaper, "ArcaneFocusBound");  
+    }  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 
@@ -38,4 +72,4 @@ void main()
     		    	
     	SetLocalInt(oMeldshaper, "ArcaneFocusBound", nDC);
     }	
-}
+} */

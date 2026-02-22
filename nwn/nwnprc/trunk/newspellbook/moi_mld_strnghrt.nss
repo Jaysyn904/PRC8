@@ -26,7 +26,14 @@ The energy of the vest extends down into your legs, becoming more solid as it sp
 
 Your strongheart vest also reduces ability drain
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 13:25:42
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -35,7 +42,7 @@ void main()
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
     effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HEART) 
     {
     	EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_DEATH));
     	EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));

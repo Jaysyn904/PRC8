@@ -26,7 +26,14 @@ Neither your appearance nor that of your keeneye lenses changes at all, but the 
 
 You see all things as they truly are, as if you were constantly under the effect of a true seeing spell.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 20:09:46
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()

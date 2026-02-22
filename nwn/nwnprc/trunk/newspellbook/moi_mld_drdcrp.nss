@@ -42,10 +42,40 @@ When you charge, your visage suggests something utterly inhuman, striking fear i
 
 When you charge, all enemies within 60 feet who can see you become shaken for 1 round (Will negates).
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 00:30:44
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added here and in
+//:: moi_events, prcsp_engine & prc_inc_combmove
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DREAD_CARAPACE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+  
+    // Feet bind (speed boost) — check regular or double Feet  
+    int nBoundToFeet = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_FEET)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_FEET)) == nMeldId)  
+        nBoundToFeet = TRUE;  
+  
+    if (nBoundToFeet)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DREAD_CARAPACE_FEET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    }  
+}
 
-void main()
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -54,4 +84,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DREAD_CARAPACE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_FEET) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DREAD_CARAPACE_FEET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

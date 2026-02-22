@@ -37,9 +37,9 @@ You can use your two claws as natural weapons that deal 1d6 points of damage plu
 //:: Updated by: Jaysyn
 //:: Updated on: 2025-12-02 15:04:22
 //::
-//:: Hands / Weapon finesse added
+//:: Hands / Weapon finesse fixed
 //:: ItemPropertyTag() support added
-//:: Double Chakra support added
+//:: Double Chakra Bind support added
 //::
 //::////////////////////////////////////////////////////////
 

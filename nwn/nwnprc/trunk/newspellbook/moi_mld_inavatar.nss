@@ -28,7 +28,15 @@ Evil: You gain an enhancement bonus of +30 feet to your base land speed.
 Good: You gain an enhancement bonus of +30 feet to your base land speed. 
 Law: You gain immunity to daze, paralysis, and stun, as well as to any magical effect that would slow you. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:21:51
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_combmove"
 
@@ -69,7 +77,7 @@ void main()
 	if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_GOOD)
 		eLink = EffectLinkEffects(eLink, EffectACIncrease(nEssentia));
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SOUL) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_SOUL || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_SOUL) 
     {
     	if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_LAWFUL)
     	{

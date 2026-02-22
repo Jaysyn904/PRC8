@@ -24,19 +24,33 @@ Like the invisible power of magical force, your attacks slice through the bounda
 
 Your melee attacks gain the force descriptor, making them useful against incorporeal foes. [Turn this into Blind-Fight]
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:33:07
+//::
+//:: Double Chakra Bind support added
+//:; Fixed broken Brow bind
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia      = GetEssentiaInvested(oMeldshaper); 
+	int nMeldId        = PRCGetSpellId(); 
 
     effect eLink = EffectSavingThrowIncrease(SAVING_THROW_WILL, 2, SAVING_THROW_TYPE_MIND_SPELLS);
 
     if (nEssentia) eLink = EffectLinkEffects(eLink, EffectACIncrease(nEssentia, AC_DEFLECTION_BONUS));
     
-    if (GetIsMeldBound(oMeldshaper)) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLINDFIGHT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+    //if (GetIsMeldBound(oMeldshaper)) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLINDFIGHT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+	
+	if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||  
+		GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_BLINDFIGHT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+	
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0); 
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CRYSTAL_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);

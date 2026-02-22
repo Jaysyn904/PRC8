@@ -20,12 +20,63 @@ The light from the headband becomes steady and constant, amplifying the contrast
 
 The diadem of purelight negates any concealment within a 20 ft radius.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 00:58:50
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 void DiademHB(object oMeldshaper);
 
 #include "moi_inc_moifunc"
 
-void DiademHB(object oMeldshaper)
+void DiademHB(object oMeldshaper)  
+{  
+    // Validate Crown bind (regular or double) before processing  
+    int nBoundToCrown = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == MELD_DIADEM_OF_PURELIGHT ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == MELD_DIADEM_OF_PURELIGHT)  
+        nBoundToCrown = TRUE;  
+  
+    if (!nBoundToCrown) return;  
+  
+    location lTarget = GetLocation(oMeldshaper);  
+    object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(20.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    while (GetIsObjectValid(oTarget))  
+    {  
+        PRCRemoveSpecificEffect(EFFECT_TYPE_CONCEALMENT, oTarget);  
+        oTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(20.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    }  
+  
+    if (GetHasSpellEffect(MELD_DIADEM_OF_PURELIGHT, oMeldshaper)) DelayCommand(1.0, DiademHB(oMeldshaper));  
+}  
+
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();  
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink = EffectSkillIncrease(SKILL_SPOT, 2 + (nEssentia * 2));  
+  
+    SetLocalInt(oMeldshaper, "PRCInLight", GetLocalInt(oMeldshaper, "PRCInLight") + 1);  
+    SetLocalInt(oMeldshaper, "DiademPurelight", TRUE);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DIADEM_OF_PURELIGHT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Crown bind (negate concealment in 20 ft) — check regular or double Crown  
+    int nBoundToCrown = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == nMeldId)  
+        nBoundToCrown = TRUE;  
+  
+    if (nBoundToCrown) DiademHB(oMeldshaper);  
+}
+
+
+/* void DiademHB(object oMeldshaper)
 {
 	location lTarget = GetLocation(oMeldshaper);
     object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(20.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
@@ -38,9 +89,9 @@ void DiademHB(object oMeldshaper)
     }
     
     if (GetHasSpellEffect(MELD_DIADEM_OF_PURELIGHT, oMeldshaper)) DelayCommand(1.0, DiademHB(oMeldshaper));
-}    
+}   */  
 
-void main()
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -52,4 +103,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DIADEM_OF_PURELIGHT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) DiademHB(oMeldshaper);
-}
+} */

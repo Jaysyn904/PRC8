@@ -21,34 +21,20 @@ A matching coil of necrocarnum forms around the head of a corpse. Filled with th
 When you shape this soulmeld and bind it to your crown chakra, you can animate an undead creature. This requires a full-round action and provokes attacks of opportunity; in addition, you take 
 damage equal to the necrocarnum zombie’s Hit Dice, which may not be healed as long as the zombie remains animated. You may only have one zombie.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 13:54:11
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
-#include "prc_inc_s_det"  
-void NecroDetect(object oMeldshaper, int bFirstRun = FALSE);
+
+void NecroDetect(object oMeldshaper);
 void CircTurnRes(object oMeldshaper);
 
-void NecroDetect(object oMeldshaper, int bFirstRun = FALSE)  
-{  
-    if (!GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))  
-        return;  
-          
-    if (bFirstRun)  
-    {  
-        // First activation: show detection cone VFX briefly  
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_DETECT), oMeldshaper, 3.0f);  
-    }  
-      
-    // Always apply ioun stone VFX for continuous effect  
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IOUN_STONE_RED), oMeldshaper, 6.0);  
-      
-    // Run the actual detection logic  
-    DetectRaceAura(0, RACIAL_TYPE_UNDEAD, GetLocation(oMeldshaper), VFX_BEAM_ODD, FeetToMeters(60.0));  
-      
-    // Schedule next run with bFirstRun = FALSE  
-    DelayCommand(6.0, NecroDetect(oMeldshaper, FALSE));  
-}
-
-/* void NecroDetect(object oMeldshaper)
+void NecroDetect(object oMeldshaper)
 {
 	if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))
 	{
@@ -56,7 +42,7 @@ void NecroDetect(object oMeldshaper, int bFirstRun = FALSE)
 		DelayCommand(6.0, NecroDetect(oMeldshaper));
 	}	
 }
- */
+
 void CircTurnRes(object oMeldshaper)
 {
 	if (GetHasSpellEffect(MELD_NECROCARNUM_CIRCLET, oMeldshaper))
@@ -81,7 +67,31 @@ void CircTurnRes(object oMeldshaper)
     }	
 }        
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+  
+    effect eLink = EffectVisualEffect(VFX_DUR_GR_AURA_UNDEAD);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+      
+    if (nEssentia) CircTurnRes(oMeldshaper);  
+      
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECROCARNUM_CIRCLET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+      
+    // Crown bind (zombie animation) — check regular or double Crown  
+    int nBoundToCrown = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == nMeldId)  
+        nBoundToCrown = TRUE;  
+  
+    if (nBoundToCrown)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECRO_CIRCLET_BROW), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -94,4 +104,4 @@ void main()
     
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECROCARNUM_CIRCLET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECRO_CIRCLET_BROW), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

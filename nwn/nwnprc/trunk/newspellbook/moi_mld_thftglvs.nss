@@ -20,10 +20,39 @@ Instead of physical gloves, your theft gloves manifest as a dusky blue color ove
 
 You gain the trapfinding ability.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 23:13:51
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 2 + (nEssentia * 2);  
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_OPEN_LOCK, nBonus), EffectSkillIncrease(SKILL_DISABLE_TRAP, nBonus));  
+           eLink       = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_PICK_POCKET, nBonus));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_THEFT_GLOVES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Hands bind (trapfinding) — check regular or double Hands  
+    int nBoundToHands = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == nMeldId)  
+        nBoundToHands = TRUE;  
+  
+    if (nBoundToHands)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_TRAPFINDING), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -34,4 +63,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_THEFT_GLOVES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_TRAPFINDING), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
-}
+} */

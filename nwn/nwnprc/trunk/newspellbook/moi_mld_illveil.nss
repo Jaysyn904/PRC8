@@ -20,7 +20,14 @@ A dim blue glow emanates from your eyes. A brief flash, visible only to you, sca
 
 When your illusion veil is bound to your brow chakra, you can more easily perceive false reality. You can see invisibility, as the spell. You also gain an insight bonus on saves against illusion spells equal to the number of points of essentia invested in your illusion veil. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:26:09
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -29,7 +36,8 @@ void main()
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
     effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
     
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN) eLink = EffectLinkEffects(eLink, EffectSeeInvisible());
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_CROWN || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_CROWN) 
+		eLink = EffectLinkEffects(eLink, EffectSeeInvisible());
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ILLUSION_VEIL), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);

@@ -894,7 +894,7 @@ int GetTargetSpecificChangesToDamage(object oTarget, object oManifester, int nDa
     // Reasonable return values only
     if(nDamage < 0) nDamage = 0;
     
-    if (GetIsMeldBound(oManifester, MELD_PSYCHIC_FOCUS) == CHAKRA_THROAT && nDamage > 0 && !GetLocalInt(oManifester, "PsychicFocusMeld") && bIsHitPointDamage)
+    if (GetIsMeldBound(oManifester, MELD_PSYCHIC_FOCUS) == CHAKRA_THROAT || GetIsMeldBound(oManifester, MELD_PSYCHIC_FOCUS) == CHAKRA_DOUBLE_THROAT && nDamage > 0 && !GetLocalInt(oManifester, "PsychicFocusMeld") && bIsHitPointDamage)
     {
     	SetLocalInt(oManifester, "PsychicFocusMeld", TRUE);
     	DelayCommand(6.0, DeleteLocalInt(oManifester, "PsychicFocusMeld"));

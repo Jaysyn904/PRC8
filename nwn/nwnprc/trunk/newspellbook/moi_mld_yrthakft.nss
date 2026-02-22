@@ -9,11 +9,54 @@ Your yrthak mask becomes your actual face, and your jaws lengthen into the croco
 
 Once every 2 rounds, you can focus sonic energy into a ray up to 60 feet long. This is a ranged touch attack that deals 1d6 points of sonic damage to a single target for every point of invested essentia.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 21:12:02
+//::
+//:: Double Totem Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_sp_tch"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_YRTHAK_MASK;  
+  
+    // Check if bound to Totem chakra (regular or double)  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (!nBoundToTotem) return;  
+  
+    object oTarget = PRCGetSpellTargetObject();  
+    int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_YRTHAK_MASK);  
+  
+    if (!GetLocalInt(oMeldshaper, "YrthakMaskTimer"))  
+    {  
+        int nAttack = PRCDoRangedTouchAttack(oTarget);  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectBeam(VFX_BEAM_ODD, oMeldshaper, BODY_NODE_CHEST, !nAttack), oTarget, 1.0f);  
+        if (nAttack > 0)  
+        {  
+            // Only creatures, and PvP check.  
+            if(spellsIsTarget(oTarget, SPELL_TARGET_SELECTIVEHOSTILE, oMeldshaper))  
+            {  
+                int nDamage = d6(nEssentia);  
+                ApplyTouchAttackDamage(oMeldshaper, oTarget, nAttack, nDamage, DAMAGE_TYPE_SONIC);  
+                SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_SONIC), oTarget);  
+            }  
+        }  
+        DelayCommand(6.0, DeleteLocalInt(oMeldshaper, "YrthakMaskTimer"));  
+        DelayCommand(6.0, FloatingTextStringOnCreature("You may use your Yrthak Mask Totem Bind again.", oMeldshaper, FALSE));  
+    }  
+}
+
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject(); 
@@ -36,4 +79,4 @@ void main()
     	DelayCommand(6.0, DeleteLocalInt(oMeldshaper, "YrthakMaskTimer"));
     	DelayCommand(6.0, FloatingTextStringOnCreature("You may use your Yrthak Mask Totem Bind again.", oMeldshaper, FALSE));
     }	
-}
+} */

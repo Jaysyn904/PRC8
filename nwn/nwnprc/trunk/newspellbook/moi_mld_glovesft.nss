@@ -22,7 +22,14 @@ The gloves merge with your hands, giving your hands a green cast. Your fingertip
 
 When gloves of the poisoned soul are bound to your hands chakra, the poison also deals Strength damage equal to the amount of Wisdom damage dealt (one save resists both effects).
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 00:17:52
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 #include "prc_inc_sp_tch"
 
@@ -51,7 +58,8 @@ void main()
                 	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_S), oTarget);
                 	DelayCommand(60.0, ApplyAbilityDamage(oTarget, ABILITY_WISDOM, nDamage, DURATION_TYPE_TEMPORARY, TRUE, -1.0));
                 	DelayCommand(60.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_POISON_S), oTarget));
-                	if (GetIsMeldBound(oMeldshaper, MELD_GLOVES_OF_THE_POISONED_SOUL) == CHAKRA_HANDS)
+                	if (GetIsMeldBound(oMeldshaper, MELD_GLOVES_OF_THE_POISONED_SOUL) == CHAKRA_HANDS || 
+						GetIsMeldBound(oMeldshaper, MELD_GLOVES_OF_THE_POISONED_SOUL) == CHAKRA_DOUBLE_HANDS)
                 	{
 						ApplyAbilityDamage(oTarget, ABILITY_STRENGTH, nDamage, DURATION_TYPE_TEMPORARY, TRUE, -1.0);
                 		ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DISENTIGRATION_SMP), oTarget);

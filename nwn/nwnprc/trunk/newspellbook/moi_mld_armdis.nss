@@ -20,10 +20,44 @@ Incarnum flows from the bracers to envelop you and then fades into invisibility.
 
 You gain an insight bonus to your AC and on your saving throws equal to the number of points of essentia invested in your armguards of disruption. These bonuses apply only against attacks made by undead creatures. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 16:02:34
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink;  
+  
+    // Arms bind (AC/save vs undead) — check regular or double Arms  
+    int nBoundToArms = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_ARMS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)  
+        nBoundToArms = TRUE;  
+  
+    if (nBoundToArms)  
+        eLink = EffectLinkEffects(  
+            VersusRacialTypeEffect(EffectACIncrease(nEssentia), RACIAL_TYPE_UNDEAD),  
+            VersusRacialTypeEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, nEssentia), RACIAL_TYPE_UNDEAD)  
+        );  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ARMGUARDS_OF_DISRUPTION), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    if (nBoundToArms)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ARMGUARDS_OF_DISRUPTION_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -34,4 +68,4 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ARMGUARDS_OF_DISRUPTION), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ARMGUARDS_OF_DISRUPTION_ARMS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

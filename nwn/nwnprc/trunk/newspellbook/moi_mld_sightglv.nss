@@ -20,7 +20,14 @@ Your grip on your ranged weapon is as light as can be, requiring only the slight
 
 When you bind sighting gloves to your hands chakra, you gain the Point Blank Shot feat.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:43:25
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -31,5 +38,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_SIGHTING_GLOVES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_POINTBLANK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
+    
+	if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HANDS) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_POINTBLANK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
 }

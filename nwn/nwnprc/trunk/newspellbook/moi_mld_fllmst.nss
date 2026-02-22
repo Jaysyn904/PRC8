@@ -20,10 +20,39 @@ Your fellmist robe draws closer to your body, at the same time growing denser an
 
 Your fellmist robe provides its concealment against melee and ranged attackers. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 19:24:41
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nConceal = 10 + (nEssentia * 5);  
+    if (nConceal > 50) nConceal = 50;  
+    int nType = MISS_CHANCE_TYPE_VS_RANGED;  
+    // Soul bind (normal concealment) — check regular or double Soul  
+    int nBoundToSoul = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SOUL)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SOUL)) == nMeldId)  
+        nBoundToSoul = TRUE;  
+  
+    if (nBoundToSoul) nType = MISS_CHANCE_TYPE_NORMAL;   
+  
+    effect eLink = EffectConcealment(nConceal, nType);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FELLMIST_ROBE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper);
@@ -36,4 +65,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FELLMIST_ROBE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

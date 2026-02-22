@@ -26,10 +26,53 @@ A terrible spidery head extends like a hood from your phase cloak, covering your
 
 You gain a bite attack that deals 1d4 points of damage and injects a mild poison (Fortitude negates, damage 1d2 Con). Every point of essentia invested in this soulmeld grants a +1 enhancement bonus on attack rolls made with the bite attack. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 21:15:45
+//::
+//:: Double Totem Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 4 + nEssentia;  
+  
+    effect eLink = EffectSkillIncrease(SKILL_CLIMB, nBonus);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHASE_CLOAK), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
+  
+    // Totem bind (bite attack) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        string sResRef = "prc_lizf_bite_";  
+        int nSize = PRCGetCreatureSize(oMeldshaper);  
+        sResRef += GetAffixForSize(nSize);  
+        AddNaturalPrimaryWeapon(oMeldshaper, sResRef);   
+        SetLocalString(oMeldshaper, "IncarnumPrimaryAttackB", sResRef);  
+          
+        int nDC = GetMeldshaperDC(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_PHASE_CLOAK);  
+        DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyOnHitProps(IP_CONST_ONHIT_ITEMPOISON, IPOnHitSaveDC(nDC), IP_CONST_POISON_1D2_CONDAMAGE), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+        if (nEssentia)  
+        {          
+            DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+        }      
+    }  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper);
@@ -55,4 +98,4 @@ void main()
 	        DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));
 	    }    
     }
-}
+} */

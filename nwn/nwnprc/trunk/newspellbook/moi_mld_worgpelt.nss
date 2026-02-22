@@ -32,10 +32,59 @@ The head of your worg pelt becomes one with your own head. Your eyes begin to gl
 
 You gain a bite attack that deals 1d6 points of damage. You gain an enhancement bonus on attack rolls and damage rolls with your bite equal to the number of points of essentia you invest in it.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 19:12:16
+//::
+//:: Double Totem Bind support added
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 2 + (nEssentia * 2);  
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_HIDE, nBonus), EffectSkillIncrease(SKILL_MOVE_SILENTLY, nBonus));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORG_PELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    // Feet bind (speed) — check regular or double Feet  
+    int nBoundToFeet = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_FEET)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_FEET)) == nMeldId)  
+        nBoundToFeet = TRUE;  
+  
+    if (nBoundToFeet)  
+        SetLocalInt(oMeldshaper, "WorgPeltSpeed", 5 + (nEssentia * 5));  
+  
+    // Totem bind (bite attack + enhancement) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        string sResRef = "prc_rdd_bite_";  
+        int nSize = PRCGetCreatureSize(oMeldshaper);  
+        sResRef += GetAffixForSize(nSize);  
+        AddNaturalPrimaryWeapon(oMeldshaper, sResRef);   
+        SetLocalString(oMeldshaper, "IncarnumPrimaryAttackB", sResRef);  
+          
+        if (nEssentia)  
+        {  
+            DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyEnhancementBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));  
+        }  
+    }  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -60,4 +109,4 @@ void main()
         	DelayCommand(3.0, IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyEnhancementBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE));
         }	
     }
-}
+} */

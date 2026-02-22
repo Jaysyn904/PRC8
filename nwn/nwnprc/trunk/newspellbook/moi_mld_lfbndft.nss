@@ -28,7 +28,14 @@ Additional embroidered designs, formed not of thread but of incarnum, appear dow
 
 You can bestow healing at will on any given creature. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:48:43
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -39,7 +46,7 @@ void main()
 	int nMeldshaperLevel = GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_INCARNATE, MELD_LIFEBOND_VESTMENTS);
 	int nHeal            = nMeldshaperLevel + (nEssentia * 5);
 	
-	if (!GetLocalInt(oMeldshaper, "LifebondVestmentsTimer") || GetIsMeldBound(oMeldshaper, MELD_LIFEBOND_VESTMENTS) == CHAKRA_HEART)
+	if (!GetLocalInt(oMeldshaper, "LifebondVestmentsTimer") || GetIsMeldBound(oMeldshaper, MELD_LIFEBOND_VESTMENTS) == CHAKRA_HEART || GetIsMeldBound(oMeldshaper, MELD_LIFEBOND_VESTMENTS) == CHAKRA_DOUBLE_HEART)
 	{
 		ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(nHeal), oTarget);
 		ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nHeal/2, DAMAGE_TYPE_POSITIVE), oTarget);

@@ -38,7 +38,14 @@ The vambraces extend down and cover your hands in ectoplasm.
 You gain two slam attacks, which act as primary natural weapons. The slam attacks deal 1d4 points of damage if you are Small, 
 1d6 points of damage if you are Medium, or 1d8 points of damage if you are Large, plus your Strength bonus. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:44:37
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -48,7 +55,7 @@ void main()
     int nBonus         = (1 + nEssentia) * 2;
 
     effect eLink = EffectDamageReduction(nBonus, DAMAGE_POWER_PLUS_ONE);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_ARMS) 
     {
     	int nChoice = GetLocalInt(oMeldshaper, "AstralVambraces");
     	//FloatingTextStringOnCreature("Astral Vambrace Arms Chakra nChoice "+IntToString(nChoice), oMeldshaper, FALSE);
@@ -68,7 +75,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ASTRAL_VAMBRACES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS) 
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HANDS) 
     {
         string sResRef = "prc_hdarc_slam_";
         int nSize = PRCGetCreatureSize(oMeldshaper);

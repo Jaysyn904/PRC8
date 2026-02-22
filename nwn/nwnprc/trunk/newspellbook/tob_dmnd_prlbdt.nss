@@ -74,6 +74,8 @@ void main()
 		{
 			object oItem = GetItemInSlot(INVENTORY_SLOT_CHEST, oInitiator);
 
+			itemproperty ip = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);  
+			ip = TagItemProperty(ip, "Tag_PRC_OnHitKeeper");
 			IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1),
 								  9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
 						

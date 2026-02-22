@@ -22,10 +22,42 @@ When you have necrocarnum vestments bound to your heart chakra, you are immune t
 Chakra Bind (Waist)
 When you have necrocarnum vestments bound to your waist chakra, any living creature adjacent to you at the end of your turn takes 1d6 points of cold damage (Fortitude negates).
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 13:54:11
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper, MELD_NECROCARNUM_VESTMENTS);  
+    effect eLink       = EffectDamageResistance(DAMAGE_TYPE_COLD, 5);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectTemporaryHitpoints(nEssentia * 3));  
+      
+    // Heart bind (stun/death immunity) — check regular or double Heart  
+    int nBoundToHeart = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+        nBoundToHeart = TRUE;  
+  
+    if (nBoundToHeart)  
+    {  
+        eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_STUN));  
+        eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_DEATH));  
+    }  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);    
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECROCARNUM_VESTMENTS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia = GetEssentiaInvested(oMeldshaper, MELD_NECROCARNUM_VESTMENTS);
@@ -41,4 +73,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECROCARNUM_VESTMENTS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

@@ -26,7 +26,14 @@ The heat of the blazing stone at your waist spreads through your body, lashing o
 
 Your natural weapons or unarmed strikes deal an additional 1d4 points of fire damage per point of essentia you invest in your heart of fire.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 13:21:09
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -38,47 +45,10 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_HEART_OF_FIRE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST) 
+    if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_WAIST || GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_DOUBLE_WAIST) 
     {       
         // Add eventhook to the armor
         IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CHEST, oMeldshaper), ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
         AddEventScript(GetItemInSlot(INVENTORY_SLOT_CHEST, oMeldshaper), EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);
-    } 
-	else if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_TOTEM) 
-	{       
-		// Add fire damage to natural weapons/unarmed strikes
-		object oTarget = GetItemInSlot(INVENTORY_SLOT_ARMS, oMeldshaper);
-		
-		// If no gloves, apply to PC skin as fallback
-		if (!GetIsObjectValid(oTarget))
-		{
-			oTarget = GetPCSkin(oMeldshaper);
-		}
-		
-		// Apply fire damage based on essentia invested
-		int nDamageBonus = EssentiaToD4(nEssentia);
-		if (nDamageBonus != -1)
-		{
-			IPSafeAddItemProperty(oTarget, 
-								ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_FIRE, nDamageBonus), 
-								9999.0, 
-								X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-		}
-	}	
-/* 	else if (GetIsMeldBound(oMeldshaper, MELD_HEART_OF_FIRE) == CHAKRA_TOTEM) 
-    {       
-        // Add fire damage to natural weapons based on essentia invested
-        int nDamageDice = nEssentia;
-        if (nDamageDice > 0)
-        {
-            effect eDamage = EffectDamageIncrease(DAMAGE_BONUS_1d4, DAMAGE_TYPE_FIRE);
-            // Stack the effect for each point of essentia
-			int i;
-            for (i = 1; i < nDamageDice; i++)
-            {
-                eDamage = EffectLinkEffects(eDamage, EffectDamageIncrease(DAMAGE_BONUS_1d4, DAMAGE_TYPE_FIRE));
-            }
-            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eDamage), oMeldshaper, 9999.0);
-        }
-    } */
+    }     
 }

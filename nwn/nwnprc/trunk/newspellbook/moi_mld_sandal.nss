@@ -20,7 +20,14 @@ Your feet and lower legs are encased in a sheath of blue-gray energy. This subst
 
 You can use dimension door as the spell, up to a total distance of 10 feet per meldshaper level. You can use this ability (in increments of 10 feet) any number of times, until the total distance has been traversed, at which point the soulmeld unshapes. This requires a standard action to activate.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 15:28:00
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
 void main()
@@ -31,5 +38,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CERULEAN_SANDALS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-    if (GetIsMeldBound(oMeldshaper) == CHAKRA_FEET) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CERULEAN_SANDALS_FEET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+    
+	if (GetIsMeldBound(oMeldshaper) == CHAKRA_FEET || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_FEET) 
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CERULEAN_SANDALS_FEET), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 }

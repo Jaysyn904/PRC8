@@ -171,7 +171,7 @@ int PRCGetSpellResistance(object oTarget, object oCaster)
     // Dread Carapace Heart Bind
     if(GetIsIncarnumUser(oTarget))
     {
-    	if (GetIsMeldBound(oTarget, MELD_DREAD_CARAPACE) == CHAKRA_CROWN)
+    	if (GetIsMeldBound(oTarget, MELD_DREAD_CARAPACE) == CHAKRA_CROWN || GetIsMeldBound(oTarget, MELD_DREAD_CARAPACE) == CHAKRA_DOUBLE_CROWN)
     	{
     		int nCont = 5 + (4 * GetEssentiaInvested(oTarget, MELD_DREAD_CARAPACE));
         	if(nCont > iSpellRes)

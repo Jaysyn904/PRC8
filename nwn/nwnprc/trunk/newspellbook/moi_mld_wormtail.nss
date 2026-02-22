@@ -26,10 +26,52 @@ A thick, purple-scaled tail emerges from the back of your wormtail belt. It is l
 
 You can use your wormtail belt’s stinger to make natural attacks. You cannot use the stinger as a natural secondary weapon—using the stinger is the only attack you can make in a given round. You use your full base attack bonus for the attack roll, and the stinger deals 1d6 points of damage. In addition, the stinger delivers a weakening poison that deals initial damage of 1d4 Strength (no secondary damage). A successful Fortitude save negates the poison damage. Every point of essentia you invest in your wormtail belt gives you a +1 enhancement bonus on your attack rolls with the stinger, as well as increasing the poison’s save DC
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 09:24:52
+//::
+//:: Double Chakra Bind support added
+//:: Double Totem bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 2 + nEssentia;  
+    effect eLink       = EffectACIncrease(nBonus, AC_NATURAL_BONUS);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);   
+      
+    // Waist bind (Awesome Blow) — check regular or double Waist  
+    int nBoundToWaist = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_WAIST)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_WAIST)) == nMeldId)  
+        nBoundToWaist = TRUE;  
+  
+    if (nBoundToWaist)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_AWESOME_BLOW), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);   
+    }  
+  
+    // Totem bind (stinger) — check regular or double Totem  
+    int nBoundToTotem = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)  
+        nBoundToTotem = TRUE;  
+  
+    if (nBoundToTotem)  
+    {  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);   
+    }  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -41,4 +83,4 @@ void main()
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_WAIST) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_AWESOME_BLOW), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM) IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
 
-}
+} */

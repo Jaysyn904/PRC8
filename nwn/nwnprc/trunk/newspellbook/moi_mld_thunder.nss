@@ -20,7 +20,6 @@ Your thunderstep boots bind themselves to your feet.
 
 Any creature taking damage from your thunderstep boots is also stunned for 1 round. A successful Fortitude save negates this effect. 
 */
-
 #include "moi_inc_moifunc"
 
 void main()

@@ -6474,9 +6474,12 @@ int TherapeuticMantle(object oCaster, int nSpellID)
 {
 	int nReturn;
     // Boosts Caster level with healing spells
-    if (GetIsMeldBound(oCaster, MELD_THERAPEUTIC_MANTLE) == CHAKRA_SHOULDERS && GetIsOfSubschool(nSpellID, SUBSCHOOL_HEALING))
+    if (GetIsMeldBound(oCaster, MELD_THERAPEUTIC_MANTLE) == CHAKRA_SHOULDERS || 
+		GetIsMeldBound(oCaster, MELD_THERAPEUTIC_MANTLE) == CHAKRA_DOUBLE_SHOULDERS && 
+		GetIsOfSubschool(nSpellID, SUBSCHOOL_HEALING))
+	{
 		nReturn = GetEssentiaInvested(oCaster, MELD_THERAPEUTIC_MANTLE);
-	
+	}
 	return nReturn;
 }
 

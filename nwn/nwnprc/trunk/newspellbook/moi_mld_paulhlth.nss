@@ -20,10 +20,38 @@ Settled directly on your shoulders, your incarnate pauldrons glow with a faint b
 
 You gain immunity to energy drain. 
 */
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 23:13:51
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 
 #include "moi_inc_moifunc"
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectImmunity(IMMUNITY_TYPE_DISEASE);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_FORT, nEssentia));  
+  
+    // Shoulders bind (energy drain immunity) — check regular or double Shoulders  
+    int nBoundToShoulders = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == nMeldId)  
+        nBoundToShoulders = TRUE;  
+  
+    if (nBoundToShoulders) eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PAULDRONS_OF_HEALTH), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
 
-void main()
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -34,4 +62,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PAULDRONS_OF_HEALTH), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

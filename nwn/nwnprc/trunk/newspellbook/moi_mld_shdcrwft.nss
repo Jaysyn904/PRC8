@@ -26,11 +26,35 @@ Your hair grows into a bushy mane beneath your crown. If you are male, your bear
 
 You gain the ability to make a trample attack. As a full-round action, you can move up to twice your speed and literally run over any creature equal to your own size or smaller. Your trample attack deals 1d8 points of bludgeoning damage (or 1d6 points if you are Small) plus 1-1/2 times your Strength modifier. Opponents have a Reflex save for half damage.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 10:25:22
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nMeldId = MELD_SHEDU_CROWN;  
+  
+    // Check if bound to Heart chakra (regular or double)  
+    int nBoundToHeart = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HEART)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HEART)) == nMeldId)  
+        nBoundToHeart = TRUE;  
+  
+    if (nBoundToHeart)  
+    {  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectEthereal()), oMeldshaper, RoundsToSeconds(GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_SHEDU_CROWN)));  
+    }  
+}
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
 	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectEthereal()), oMeldshaper, RoundsToSeconds(GetMeldshaperLevel(oMeldshaper, CLASS_TYPE_TOTEMIST, MELD_SHEDU_CROWN)));
-}
+} */

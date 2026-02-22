@@ -32,7 +32,7 @@ You gain four claws that you can use as natural weapons, dealing 1d4 points of d
 //:: Updated on: 2025-12-02 15:04:22
 //::
 //:: ItemPropertyTag() support added
-//:: Double Chakra support added
+//:: Double Chakra Bind support added
 //::
 //::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"

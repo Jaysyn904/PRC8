@@ -23,10 +23,39 @@ Their power to deflect blows away from vital areas is increased.
 
 While binding adamant pauldrons, you gain immunity to critical hits. 
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-20 22:34:54
+//::
+//:: Double Chakra Bind support added
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
 
-void main()
+
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+  
+    effect eLink = EffectImmunity(IMMUNITY_TYPE_SNEAK_ATTACK);  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageReduction(nEssentia, DAMAGE_POWER_PLUS_TWO));  
+  
+    // Shoulders bind (critical hit immunity) — check regular or double Shoulders  
+    int nBoundToShoulders = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SHOULDERS)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SHOULDERS)) == nMeldId)  
+        nBoundToShoulders = TRUE;  
+  
+    if (nBoundToShoulders) eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_CRITICAL_HIT));  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ADAMANT_PAULDRONS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
     int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -37,4 +66,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ADAMANT_PAULDRONS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

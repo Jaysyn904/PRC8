@@ -26,10 +26,56 @@ The embroidered patterns formed by raw incarnum in the front of your planar chas
 
 Once per week you can cast gate.
 */
-
+//::////////////////////////////////////////////////////////
+//::
+//:: Updated by: Jaysyn
+//:: Updated on: 2026-02-21 12:59:00
+//::
+//:: Double Chakra Bind support added
+//:: Fixed broken Brow bind.
+//::
+//::////////////////////////////////////////////////////////
 #include "moi_inc_moifunc"
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nMeldId        = PRCGetSpellId();  
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = 10 + (5 * nEssentia);  
+    int nType;  
+      
+    if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_CHAOTIC)  
+        nType = DAMAGE_TYPE_ELECTRICAL;  
+    else if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_EVIL)  
+        nType = DAMAGE_TYPE_ACID;  
+    else if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_GOOD)  
+        nType = DAMAGE_TYPE_COLD;  
+    else if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_LAWFUL)  
+        nType = DAMAGE_TYPE_FIRE;      
+      
+    effect eLink = EffectDamageResistance(nType, nBonus);  
+ 
+	if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||  
+		GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)  
+		SetLocalInt(oMeldshaper, "PlanarChasuble_BrowBind", TRUE);  
+	else  
+		DeleteLocalInt(oMeldshaper, "PlanarChasuble_BrowBind");
 
-void main()
+    // Soul bind (gate) — check regular or double Soul  
+    int nBoundToSoul = FALSE;  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_SOUL)) == nMeldId ||  
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_SOUL)) == nMeldId)  
+        nBoundToSoul = TRUE;  
+  
+    if (nBoundToSoul)  
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PLANAR_CHASUBLE_SOUL), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+  
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PLANAR_CHASUBLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+/* void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
 	int nEssentia      = GetEssentiaInvested(oMeldshaper);
@@ -51,4 +97,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PLANAR_CHASUBLE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
-}
+} */
