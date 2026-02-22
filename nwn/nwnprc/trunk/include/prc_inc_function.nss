@@ -362,6 +362,8 @@ void EvalPRCFeats(object oPC)
     if(oPC == GetLocalObject(GetModule(), "ccc_active_pc"))
         return;
 
+	if(GetHasFeat(FEAT_COMBAT_FOCUS, oPC)) ExecuteScript("prc_combatfocus", oPC);
+
     int nGeneration = PRC_NextGeneration(GetLocalInt(oPC, PRC_EvalPRCFeats_Generation));
     if (DEBUG > 1) DoDebug("EvalPRCFeats Generation: " + IntToString(nGeneration));
     SetLocalInt(oPC, PRC_EvalPRCFeats_Generation, nGeneration);

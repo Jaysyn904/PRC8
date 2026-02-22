@@ -1024,7 +1024,11 @@ int GetCombatMoveCheckBonus(object oPC, int nCombatMove, int nDefender = FALSE, 
     }    
     else if (nDefender)
     {
-        if(GetHasFeat(FEAT_MOUNTAIN_STANCE, oPC)) nBonus += 2;
+		if(GetHasFeat(FEAT_MOUNTAIN_STANCE, oPC)) nBonus += 2;
+		
+		int nStabBonus = GetLocalInt(oPC, "CombatStability_Bonus");  
+        if (nStabBonus > 0) nBonus += nStabBonus;  
+		
         if(GetHasSpellEffect(SPELL_UNMOVABLE, oPC)) nBonus += 20;
         if(GetHasFeat(FEAT_SHIELD_WARD, oPC)) 
         {

@@ -535,3 +535,10 @@
 531        ImprovedTrip                                   2807      1    -1             0      
 532        ImprovedRapidShot                              5188      1    -1             0      
 533        DireFlailSmash                                 5184      1    -1             0      
+534        FEAT_COMBAT_FOCUS                              26020     1    -1             0      
+535        FEAT_COMBAT_AWARENESS                          26021     1    -1             0      
+536        FEAT_COMBAT_DEFENSE                            26022     1    -1             0      
+537        FEAT_COMBAT_STABILITY                          26023     1    -1             0      
+538        FEAT_COMBAT_STRIKE                             26024     1    -1             1      
+539        FEAT_COMBAT_VIGOR                              26025     1    -1             0      
+540        FEAT_FREEZING_THE_LIFEBLOOD                    26015     1    -1             1      

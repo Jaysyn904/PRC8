@@ -1,7 +1,7 @@
 2DA V2.0
 
            FeatLabel                                      FeatIndex List GrantedOnLevel OnMenu 
-0          FEAT_FREEZING_THE_LIFEBLOOD                    26015     1    -1             0      
+0          FEAT_FREEZING_THE_LIFEBLOOD                    26015     1    -1             1      
 1          Ambidex                                        1         0    -1             0      
 2          CShot                                          5         1    -1             0      
 3          Cleave                                         6         1    -1             0      
@@ -472,3 +472,9 @@
 468        FEAT_EPIC_WEAPON_FOCUS_TOUCH                   26012     1    -1             0      
 469        FEAT_EPIC_SWARM_OF_ARROWS                      25995     1    -1             1      
 470        FEAT_IMP_MANYSHOT                              3350      1    -1             1      
+471        FEAT_COMBAT_FOCUS                              26020     1    -1             0      
+472        FEAT_COMBAT_AWARENESS                          26021     1    -1             0      
+473        FEAT_COMBAT_DEFENSE                            26022     1    -1             0      
+474        FEAT_COMBAT_STABILITY                          26023     1    -1             0      
+475        FEAT_COMBAT_STRIKE                             26024     1    -1             1      
+476        FEAT_COMBAT_VIGOR                              26025     1    -1             0      
