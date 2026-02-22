@@ -98,7 +98,17 @@ void main()
                     if(nBAB>0 && GetBaseAttackBonus(oPC) < nBAB)                        nAllPreReq = 0;  
                     if(nLaw>0 && !(GetAlignmentLawChaos(oPC) == ALIGNMENT_LAWFUL))       nAllPreReq = 0;  
   
-                    if (!GetHasFeat(nFeat, oPC) && !GetLocalInt(oPC, "VoPFeat"+IntToString(nFeat)) && nAllPreReq == 1) AddChoice(sName, nFeat, oPC);  
+                    if (!GetHasFeat(nFeat, oPC) && !GetLocalInt(oPC, "VoPFeat"+IntToString(nFeat)) && nAllPreReq == 1)  
+                    {  
+                        // Enforce mutual exclusivity: Favored of the Companions vs Servant of the Heavens  
+                        if ((nFeat == FEAT_FAV_COMPANIONS && GetHasFeat(FEAT_SERVHEAVEN, oPC)) ||  
+                            (nFeat == FEAT_SERVHEAVEN    && GetHasFeat(FEAT_FAV_COMPANIONS, oPC)))  
+                        {  
+                            // Skip adding this choice; the mutually exclusive feat is already possessed  
+                            continue;  
+                        }  
+                        AddChoice(sName, nFeat, oPC);  
+                    }  
                 }  
   
                 AddChoice("Cancel (you will get no Exalted Feats this level)", 0, oPC);  
@@ -120,7 +130,7 @@ void main()
   
         // Do token setup  
         SetupTokens();  
-    }  
+    } 
 	else if(nValue == DYNCONV_EXITED)  
 	{  
 		if(DEBUG) DoDebug("ft_vowpoverty_ab/ft: Running exit handler");  
@@ -156,6 +166,16 @@ void main()
     else  
     {  
         int nChoice = GetChoice(oPC);  
+		
+        // Favored of the Companions vs Servant of the Heavens: Choose one  
+        if ((nChoice == FEAT_FAV_COMPANIONS && GetHasFeat(FEAT_SERVHEAVEN, oPC)) ||  
+            (nChoice == FEAT_SERVHEAVEN    && GetHasFeat(FEAT_FAV_COMPANIONS, oPC)))  
+        {  
+            FloatingTextStringOnCreature("You cannot select both Favored of the Companions and Servant of the Heavens.", oPC, FALSE);  
+            AllowExit(DYNCONV_EXIT_FORCE_EXIT);  
+            return;  
+        }  
+		
         if(nStage == STAGE_SELECT_ABIL)  
         {  
             if (nChoice == 0)  
