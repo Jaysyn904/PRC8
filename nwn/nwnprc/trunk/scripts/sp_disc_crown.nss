@@ -11,7 +11,7 @@ void main()
     object oHelm = GetItemInSlot(INVENTORY_SLOT_HEAD, oPC);
     string sResRef = GetResRef(oHelm);
 
-    if(sResRef == "prc_crown_mght")
+    if(sResRef == "prc_crown_might")
     {
         //+8 STR 1 round
         effect eLink = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_POSITIVE);

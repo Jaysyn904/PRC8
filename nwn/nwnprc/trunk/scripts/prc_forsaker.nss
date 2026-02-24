@@ -185,10 +185,6 @@ void main()
     
 		if(!GetHasFeat(FEAT_VOWOFPOVERTY,oPC))    
 		{    
-			// REMOVED: Aggressive inventory scanning that was removing all magical items    
-			// This was causing permanent property loss for players    
-			// The Forsaker class should still prevent magical item usage through equip events    
-			    
 			if(GetIsUnarmed(oPC) && (nForsakerLvl >= 3)) //If it is unarmed, give DR bypass    
 			{    
 				ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAttackIncrease(nBonus),oPC);    

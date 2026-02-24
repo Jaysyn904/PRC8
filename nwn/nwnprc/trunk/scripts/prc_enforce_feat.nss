@@ -20,6 +20,9 @@
 #include "inc_epicspells"
 #include "prc_inc_shifting"
 
+// Returns TRUE if oCreature has any smite feature (ignores remaining uses)  
+int GetCanSmite(object oCreature); 
+
 int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF);
 
 //  Prevents a Man at Arms from taking improved critical
@@ -96,6 +99,40 @@ int _GetSizeForPrereq(object oPC)
 // ---------------
 // BEGIN FUNCTIONS
 // ---------------
+
+int GetCanSmite(object oPC = OBJECT_SELF)  
+{  
+    return (GetLevelByClass(CLASS_TYPE_SANCTIFIED_MIND, oPC) > 1)
+		|| GetHasFeat(FEAT_SMITE_GOOD_ALIGN, oPC, TRUE)  
+		|| GetHasFeat(FEAT_SMITE_GOOD, oPC, TRUE) 	
+        || GetHasFeat(FEAT_SMITE_UNDEAD, oPC, TRUE)                
+        || GetHasFeat(FEAT_TEMPLATE_CELESTIAL_SMITE_EVIL, oPC, TRUE)  
+        || GetHasFeat(FEAT_TEMPLATE_FIENDISH_SMITE_GOOD, oPC, TRUE)    
+        || GetHasFeat(FEAT_TEMPLATE_HALF_CELESTIAL_HOLY_SMITE, oPC, TRUE)
+        || GetHasFeat(FEAT_TEMPLATE_HALF_FIENDISH_SMITE_GOOD, oPC, TRUE)
+        || GetHasFeat(FEAT_SAPPHIRE_SMITE, oPC, TRUE)             
+        || GetHasFeat(FEAT_CRUSADER_SMITE, oPC, TRUE)  
+        || GetHasFeat(FEAT_SMITE_OPPOSITION, oPC, TRUE)  
+        || GetHasFeat(FEAT_KIAI_SMITE, oPC, TRUE)  
+        || GetHasFeat(FEAT_CULTIST_SMITE_MAGE, oPC, TRUE)  
+        || GetHasFeat(FEAT_SMITE_CHAOS, oPC, TRUE)  
+        || GetHasFeat(FEAT_SHADOWBANE_SMITE, oPC, TRUE)  
+        || GetHasFeat(FEAT_SMITE_EVIL, oPC, TRUE) 		
+        || GetHasFeat(FEAT_KILLOREN_ASPECT_D, oPC, TRUE);  
+}
+
+int InvokeDivineWrath(object oPC = OBJECT_SELF)
+{
+	if(GetHasFeat(FEAT_INVOKE_DIVINE_WRATH))
+	{
+		if(!GetCanSmite(oPC))
+		{
+			SendMessageToPC(oPC, "You must have Smite as a class ability to take Invoke Divine Wrath.  Please reslect your feats.");
+			return TRUE;
+		}	
+	}		
+	return FALSE;	
+}
 
 //:: Eldritch Disciple gets one of these abilities at  1st level, 
 //:: and another ability every three levels thereafter (4th, 7th, 
@@ -3006,6 +3043,7 @@ void main()
 	|| CheckDivineGifts()
 	|| DragonHeartFeats()
 	|| DiamondDragonFeats()
+	|| InvokeDivineWrath()	
   //|| Blightbringer()
   //|| Shaman()
        )

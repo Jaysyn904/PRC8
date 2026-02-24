@@ -100,7 +100,256 @@ void ConvertVoPToNWNxEE(object oPC)
     SetPersistantLocalInt(oPC, "VoP_NWNxEE_Converted", TRUE);  
 }
 
-void main()
+#include "prc_feat_const"  
+#include "prc_inc_function"  
+  
+const string VOP_TAG = "VoP";  
+  
+// Helper: add a VoP-tagged property to the skin  
+void AddVoPProperty(object oSkin, itemproperty ip)  
+{  
+    ip = TagItemProperty(ip, VOP_TAG);  
+    IPSafeAddItemProperty(oSkin, ip, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);  
+}  
+  
+// Remove all VoP-tagged properties from an item  
+void RemoveVoPProperties(object oItem)  
+{  
+    itemproperty ip = GetFirstItemProperty(oItem);  
+    while (GetIsItemPropertyValid(ip))  
+    {  
+        if (GetItemPropertyTag(ip) == VOP_TAG)  
+            RemoveItemProperty(oItem, ip);  
+        ip = GetNextItemProperty(oItem);  
+    }  
+}  
+  
+void main()  
+{  
+    int nEvent = GetRunningEvent();  
+    if (DEBUG) DoDebug("ft_vowofpoverty running, event: " + IntToString(nEvent));  
+  
+    object oPC;  
+    switch (nEvent)  
+    {  
+        case EVENT_ITEM_ONHIT:          oPC = OBJECT_SELF;               break;  
+        case EVENT_ONPLAYEREQUIPITEM:   oPC = GetItemLastEquippedBy();   break;  
+        case EVENT_ONPLAYERUNEQUIPITEM: oPC = GetItemLastUnequippedBy(); break;  
+        case EVENT_ONHEARTBEAT:         oPC = OBJECT_SELF;               break;  
+        default:                        oPC = OBJECT_SELF;  
+    }  
+  
+    object oItem;  
+    object oSkin = GetPCSkin(oPC);  
+    int nLevel = GetCharacterLevel(oPC) - GetPersistantLocalInt(oPC, "VoPLevel1") + 1;  
+    int nACArmor = 4 + nLevel / 3;  
+    int nACDeflection = nLevel / 6;  
+    int nACNatural = nLevel / 8;  
+    int nRegen = 1 + (nLevel - 17) / 7;  
+    int nDR = 5 * (1 + (nLevel - 10) / 9);  
+    int nER = (10 * (1 + (nLevel - 13) / 7)) - 5;  
+    int nResist = 0;  
+    if (nLevel >= 17) nResist = 1 + (nLevel - 7) / 5;  
+    else if (nLevel >= 13) nResist = 2;  
+    else if (nLevel >= 7) nResist = 1;  
+  
+    int nForsakerBonus = GetLevelByClass(CLASS_TYPE_FORSAKER, oPC) / 2;  
+    int nSlot, nLevelCheck, nExaltedStrike, nTotalEnhancement;  
+  
+    if (nLevel >= 10) nExaltedStrike = 1 + (nLevel - 7) / 3;  
+    else if (nLevel >= 4) nExaltedStrike = 1;  
+    if (nForsakerBonus >= nExaltedStrike) nTotalEnhancement = nForsakerBonus;  
+    else nTotalEnhancement = nExaltedStrike;  
+  
+    // EvalPRCFeats pass  
+    if (nEvent == FALSE)  
+    {  
+        if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+            ConvertVoPToNWNxEE(oPC);  
+        if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+            ConvertVoPFeatsToNWNxEE(oPC);  
+  
+        for (nLevelCheck = 1; nLevelCheck <= nLevel; nLevelCheck++)  
+        {  
+            if (!GetPersistantLocalInt(oPC, "VoPBoost" + IntToString(nLevelCheck)) && (nLevelCheck - (nLevelCheck / 4) * 4 == 3) && (nLevelCheck >= 7) && (nLevelCheck <= 27))  
+            {  
+                AssignCommand(oPC, ClearAllActions(TRUE));  
+                SetPersistantLocalInt(oPC, "VoPBoostCheck", nLevelCheck);  
+                StartDynamicConversation("ft_vowpoverty_ab", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);  
+            }  
+            if (GetPersistantLocalInt(oPC, "VoPBoost" + IntToString(nLevelCheck)) >= 10)  
+            {  
+                int stat = GetPersistantLocalInt(oPC, "VoPBoost" + IntToString(nLevelCheck)) - 10;  
+                int value = 2 * (1 + (nLevel - nLevelCheck) / 4);  
+                if (GetPRCSwitch("PRC_NWNXEE_ENABLED") && GetPRCSwitch("PRC_PRCX_ENABLED"))  
+                {  
+                    string sKey = "VoP_EE_Boost_" + IntToString(stat);  
+                    int nLastApplied = GetPersistantLocalInt(oPC, sKey);  
+                    int nDelta = value - nLastApplied;  
+                    if (nDelta > 0)  
+                    {  
+                        PRC_Funcs_ModAbilityScore(oPC, stat, nDelta);  
+                        SetPersistantLocalInt(oPC, sKey, value);  
+                    }  
+                }  
+                else  
+                {  
+                    // Fallback: add tagged ability bonus to skin  
+                    itemproperty ip = ItemPropertyAbilityBonus(stat, value);  
+                    AddVoPProperty(oSkin, ip);  
+                }  
+            }  
+            if (!GetPersistantLocalInt(oPC, "VoPFeat" + IntToString(nLevelCheck)) && (nLevelCheck - (nLevelCheck / 2) * 2 == 0))  
+            {  
+                AssignCommand(oPC, ClearAllActions(TRUE));  
+                SetPersistantLocalInt(oPC, "VoPFeatCheck", nLevelCheck);  
+                StartDynamicConversation("ft_vowpoverty_ft", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);  
+            }  
+        }  
+  
+        // AC Armor (effect)  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectACIncrease(nACArmor, AC_ARMOUR_ENCHANTMENT_BONUS)), oPC);  
+        // Deflection (effect)  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectACIncrease(nACDeflection, AC_DEFLECTION_BONUS)), oPC);  
+        // Resistance (itemproperty, tagged)  
+        if (nLevel >= 7)  
+        {  
+            itemproperty ip = ItemPropertyBonusSavingThrow(SAVING_THROW_ALL, nResist);  
+            AddVoPProperty(oSkin, ip);  
+        }  
+        // Natural Armor (effect)  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, ExtraordinaryEffect(EffectACIncrease(nACNatural, AC_NATURAL_BONUS)), oPC);  
+        // DR (effect)  
+        if (nLevel >= 10) ApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(EffectDamageReduction(nDR, nTotalEnhancement)), oPC);  
+        // Energy resistances (effects)  
+        if (nLevel >= 13)  
+        {  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamageResistance(DAMAGE_TYPE_ACID, nER, 0, FALSE), oPC);  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamageResistance(DAMAGE_TYPE_COLD, nER, 0, FALSE), oPC);  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, nER, 0, FALSE), oPC);  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamageResistance(DAMAGE_TYPE_FIRE, nER, 0, FALSE), oPC);  
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectDamageResistance(DAMAGE_TYPE_SONIC, nER, 0, FALSE), oPC);  
+        }  
+        // Freedom of Movement (tagged)  
+        if (nLevel >= 14)  
+        {  
+            itemproperty ip = ItemPropertyFreeAction();  
+            AddVoPProperty(oSkin, ip);  
+        }  
+        // Regeneration (tagged)  
+        if (nLevel >= 17)  
+        {  
+            itemproperty ip = ItemPropertyRegeneration(nRegen);  
+            AddVoPProperty(oSkin, ip);  
+        }  
+        // True Seeing (tagged)  
+        if (nLevel >= 18)  
+        {  
+            itemproperty ip = ItemPropertyTrueSeeing();  
+            AddVoPProperty(oSkin, ip);  
+        }  
+        // Exalted Strike (effect, already tagged)  
+        effect eEffect1 = EffectAttackIncrease(nTotalEnhancement);  
+        effect eEffect2 = VoPDamage(nTotalEnhancement);  
+        effect eLink = EffectLinkEffects(eEffect1, eEffect2);  
+        eLink = SupernaturalEffect(eLink);  
+        eLink = TagEffect(eLink, "EffectExaltedStrike");  
+        effect eCheckEffect = GetFirstEffect(oPC);  
+        while (GetIsEffectValid(eCheckEffect))  
+        {  
+            if (GetEffectTag(eCheckEffect) == "EffectExaltedStrike") RemoveEffect(oPC, eCheckEffect);  
+            eCheckEffect = GetNextEffect(oPC);  
+        }  
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);  
+  
+        // Enforce vow: unequip prohibited items  
+        for (nSlot = 0; nSlot < 13; nSlot++)  
+        {  
+            oItem = GetItemInSlot(nSlot, oPC);  
+            if (!(GetTag(oItem) == "xp1_mystrashand")  
+                && !(GetTag(oItem) == "H2_SenseiAmulet")  
+                && !(GetResRef(oItem) == "prc_sk_mblade_bs")  
+                && !(GetResRef(oItem) == "prc_sk_mblade_th")  
+                && !(GetResRef(oItem) == "prc_sk_mblade_ss")  
+                && !(GetResRef(oItem) == "prc_sk_mblade_ls"))  
+            {  
+                if ((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")  
+                    && !(nSlot == 4 || nSlot == 5))  
+                    || (nSlot == 1 && GetBaseAC(oItem) >= 1)  
+                    || (nSlot == 5 && (GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD  
+                        || GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD  
+                        || GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD)))  
+                {  
+                    AssignCommand(oPC, ClearAllActions(TRUE));  
+                    AssignCommand(oPC, ActionUnequipItem(oItem));  
+                    FloatingTextStringOnCreature(GetName(oItem) + " would break your vow!", oPC, FALSE);  
+                }  
+            }  
+        }  
+  
+        // Register unequip hook  
+        AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);  
+    }  
+    // OnEquip: enforce vow for equipped weapons  
+    else if (nEvent == EVENT_ONPLAYEREQUIPITEM)  
+    {  
+        oItem = GetPCItemLastEquipped();  
+        int iWeaponAllowed = (GetBaseItemType(oItem) == BASE_ITEM_CLUB  
+            || GetBaseItemType(oItem) == BASE_ITEM_DAGGER  
+            || GetBaseItemType(oItem) == BASE_ITEM_DART  
+            || GetBaseItemType(oItem) == BASE_ITEM_HEAVYCROSSBOW  
+            || GetBaseItemType(oItem) == BASE_ITEM_LIGHTCROSSBOW  
+            || GetBaseItemType(oItem) == BASE_ITEM_LIGHTMACE  
+            || GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR  
+            || GetBaseItemType(oItem) == BASE_ITEM_QUARTERSTAFF  
+            || GetBaseItemType(oItem) == BASE_ITEM_SICKLE  
+            || GetBaseItemType(oItem) == BASE_ITEM_SLING  
+            || GetBaseItemType(oItem) == BASE_ITEM_SHORTSPEAR  
+            || GetBaseItemType(oItem) == BASE_ITEM_BOLT  
+            || GetBaseItemType(oItem) == BASE_ITEM_GOAD  
+            || GetBaseItemType(oItem) == BASE_ITEM_KATAR  
+            || GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE  
+            || GetBaseItemType(oItem) == BASE_ITEM_BULLET);  
+  
+        int iMagic = 0;  
+        itemproperty eCheckIP = GetFirstItemProperty(oItem);  
+        while (GetIsItemPropertyValid(eCheckIP))  
+        {  
+            if (!(GetItemPropertyTag(eCheckIP) == "Sanctify1")  
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify2")  
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")  
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))  
+                iMagic = 1;  
+            eCheckIP = GetNextItemProperty(oItem);  
+        }  
+        if (!(GetTag(oItem) == "xp1_mystrashand")  
+            && !(GetTag(oItem) == "H2_SenseiAmulet")  
+            && !(GetResRef(oItem) == "prc_sk_mblade_bs")  
+            && !(GetResRef(oItem) == "prc_sk_mblade_th")  
+            && !(GetResRef(oItem) == "prc_sk_mblade_ss")  
+            && !(GetResRef(oItem) == "prc_sk_mblade_ls"))  
+        {  
+            if ((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed))  
+            {  
+                if (!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY))  
+                {  
+                    AssignCommand(oPC, ClearAllActions(TRUE));  
+                    AssignCommand(oPC, ActionUnequipItem(oItem));  
+                    FloatingTextStringOnCreature(GetName(oItem) + " would break your vow!", oPC, FALSE);  
+                }  
+            }  
+        }  
+    }  
+    // OnUnequip: remove VoP-tagged properties from the unequipped item  
+    else if (nEvent == EVENT_ONPLAYERUNEQUIPITEM)  
+    {  
+        oItem = GetPCItemLastUnequipped();  
+        if (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))  
+            RemoveVoPProperties(oItem);  
+    }  
+}
+
+/* void main()
 {
     int nEvent = GetRunningEvent();
     if(DEBUG) DoDebug("prc_forsaker running, event: " + IntToString(nEvent));
@@ -186,13 +435,13 @@ void main()
 					SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);  
 				}  
 			}
-/* 			//Applying stat boosts
-			if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)
-			{
-				int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;
-				int value = 2 * (1 + (nLevel - nLevelCheck) / 4);
-				SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);
-			} */
+			//:: Applying stat boosts
+			// if(GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) >= 10)
+			// {
+				// int stat = GetPersistantLocalInt(oPC, "VoPBoost"+IntToString(nLevelCheck)) - 10;
+				// int value = 2 * (1 + (nLevel - nLevelCheck) / 4);
+				// SetCompositeBonus(oSkin, "VoPBoostStat"+IntToString(stat), value, ITEM_PROPERTY_ABILITY_BONUS, stat);
+			// }
 		
 			//Call exalted feat for each even level
 			if (!GetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevelCheck)) && (nLevelCheck-(nLevelCheck/2)*2 == 0)) 
@@ -285,7 +534,7 @@ void main()
 		
 		//Remove bonus from unequiped weapons
 		oItem = GetPCItemLastUnequipped();
-		if(IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))   IPRemoveAllItemProperties(oItem, DURATION_TYPE_PERMANENT); 
+		if(IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))   IPRemoveAllItemProperties(oItem, DURATION_TYPE_TEMPORARY); 
 		
         AddEventScript(oPC, EVENT_SCRIPT_MODULE_ON_EQUIP_ITEM, "ft_vowofpoverty", TRUE, FALSE);
     }
@@ -338,5 +587,5 @@ void main()
 			}
 		}
 	}
-}
+} */
 

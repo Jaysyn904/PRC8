@@ -29,6 +29,8 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+int IsUnagumentablePower(int nPower); 
+
 /**
  * Determines if the power that is currently being attempted to be manifested
  * can in fact be manifested. Calculates PP cost and pays it. Determines
@@ -142,6 +144,131 @@ struct manifestation EvaluateDiaDragChannel(object oManifester, object oTarget, 
 //////////////////////////////////////////////////
 /*             Internal functions               */
 //////////////////////////////////////////////////
+
+//:: Returns TRUE if nPower is a power that can't
+//:: normally be augmented.
+int IsUnagumentablePower(int nPower)  
+{  
+    switch (nPower)  
+    {  
+        case POWER_ANIMAL_AFFINITY:  
+        case POWER_ASSIMILATE:  
+        case POWER_ASTRALSEED:  
+        case POWER_BITE_WOLF:  
+        case POWER_BODY_EQUILIBRIUM:  
+        case POWER_BODYPURIFICATION:  
+        case POWER_BURST:  
+        case POWER_CATAPSI:  
+        case POWER_CHAMELEON:  
+        case POWER_CLAIRTANGENT_HAND:  
+        case POWER_CLAIRVOYANT_SENSE:  
+        case POWER_CLAW_ENERGY_COLD:  
+        case POWER_CLAW_ENERGY_ELEC:  
+        case POWER_CLAW_ENERGY_FIRE:  
+        case POWER_CLAW_OF_THE_VAMPIRE:  
+        case POWER_CLOUD_MIND:  
+        case POWER_CLOUD_MIND_MASS:  
+        case POWER_CONCEALTHOUGHT:  
+        case POWER_CONCEALAMORPHA:  
+        case POWER_GREATAMORPHA:  
+        case POWER_CONTROLAIR:  
+        case POWER_CONTROL_OBJECT:  
+        case POWER_CONTROLSOUND:  
+        case POWER_CREATESOUND:  
+        case POWER_CRYSTALLIZE:  
+        case POWER_DARKVISION:  
+        case POWER_DECEREBRATE:  
+        case POWER_DESTINYDISSONANCE:  
+        case POWER_DETECT_REMOTE_VIEWING:  
+        case POWER_DIMENSIONDOOR:  
+        case POWER_DIMENSION_SLIDE:  
+        case POWER_DIMENSIONALANCHOR:  
+        case POWER_DISMISSAL:  
+        case POWER_DISPELLING_BUFFER:  
+        case POWER_DISTRACT:  
+        case POWER_DUODIMENSIONAL_CLAW:  
+        case POWER_ECTOPLASMICFORM:  
+        case POWER_ECTOSHAMBLER:  
+        case POWER_GREASE:  
+        case POWER_ELFSIGHT:  
+        case POWER_EMPATHY:  
+        case POWER_ENERGYADAPTION:  
+        case POWER_ENERGYADAPTACID:  
+        case POWER_ENERGYADAPTCOLD:  
+        case POWER_ENERGYADAPTELEC:  
+        case POWER_ENERGYADAPTFIRE:  
+        case POWER_ENERGYADAPTSONIC:  
+        case POWER_ENERGYWALL_COLD:  
+        case POWER_ENERGYWALL_ELEC:  
+        case POWER_ENERGYWALL_FIRE:  
+        case POWER_ENERGYWALL_SONIC:  
+        case POWER_ESCAPE_DETECTION:  
+        case POWER_ETHEREALJAUNT:  
+        case POWER_ETHEREALNESS:  
+        case POWER_FREEDOM:  
+        case POWER_GENESIS:  
+        case POWER_HUSTLE:  
+        case POWER_IDENTIFY:  
+        case POWER_IMMOVABILITY:  
+        case POWER_INERTBARRIER:  
+        case POWER_IRONBODY:  
+        case POWER_KEENEDGE:  
+        case POWER_KNOCK:  
+        case POWER_MATTERAGITATION:  
+        case POWER_MINDBLANKPERSONAL:  
+        case POWER_PSIMINDBLANK:  
+        case POWER_MOMENTOFPRESCIENCEATTACK:  
+        case POWER_MOMENTOFPRESCIENCEARMOUR:  
+        case POWER_MOMENTOFPRESCIENCESAVES:  
+        case POWER_MOMENTOFPRESCIENCESKILLS:  
+        case POWER_MYLIGHT:  
+        case POWER_NULL_PSIONICS_FIELD:  
+        case POWER_PAINFUL_STRIKE:  
+        case POWER_POWERLEECH:  
+        case POWER_POWERRESISTANCE:  
+        case POWER_PRECOGNITION_MAIN:  
+        case POWER_GREATERPRECOGNITION_MAIN:  
+        case POWER_LOCK:  
+        case POWER_PSIONICREVIVIFY:  
+        case POWER_PSYCHICCHIR_REPAIR:  
+        case POWER_PSYCHICCHIR_TRANSFER:  
+        case POWER_PSYCHICVAMPIRE:  
+        case POWER_PSYCHOFEEDBACK:  
+        case POWER_RECALLDEATH:  
+        case POWER_REDDOPSI:  
+        case POWER_REMOTE_VIEW_TRAP:  
+        case POWER_REMOTE_VIEWING:  
+        case POWER_PSIONICRESTORATION:  
+        case POWER_SECONDCHANCE:  
+        case POWER_SEQUESTER:  
+        case POWER_SHADOWBODY:  
+        case POWER_SHAREPAIN:  
+        case POWER_SHATTERMINDBLANK:  
+        case POWER_SKATE:  
+        case POWER_STEADFASTPERCEP:  
+        case POWER_SYNESTHETE:  
+        case POWER_TELEMPATHICPRO:  
+        case POWER_TELEPORT_SELFONLY:  
+        case POWER_TELEPORT_PARTY:  
+        case POWER_GREATER_TELEPORT_SELFONLY:  
+        case POWER_GREATER_TELEPORT_PARTY:  
+        case POWER_TELEPORTATIONCIRCLE_VISIBLE:  
+        case POWER_TELEPORTATIONCIRCLE_HIDDEN:  
+        case POWER_TIMELESSBODY:  
+        case POWER_TOUCHSIGHT:  
+        case POWER_TRUEMETABOLISM:  
+        case POWER_TRUESEEING:  
+        case POWER_TRUEVENOM:  
+        case POWER_TRUEVENOM_WEAPON:  
+        case POWER_UBIQVISION:  
+        case POWER_VAMPIRIC_WEAPON:  
+        case POWER_WEAPON_ENERGY_COLD:  
+        case POWER_WEAPON_ENERGY_ELEC:  
+        case POWER_WEAPON_ENERGY_FIRE:  
+            return TRUE;  
+    }  
+    return FALSE;  
+}
 
 /** Internal function.
  * Calculates PP cost reduction from various factors. Currently accounts for:

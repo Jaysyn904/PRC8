@@ -5016,7 +5016,7 @@ Use: Selected.</entry>
   <entry id="16444" lang="en" sex="m">grey elves</entry>
   <entry id="16445" lang="en" sex="m">Gray elves are the most noble and regal of all elves. Taller and grander in physical appearance than others of their race, gray elves have a reputation for being aloof and arrogant (even by elven standards). They certainly are more reclusive than high elves, living in isolated mountain citadels and allowing entry only to a select few outsiders. They have either silver hair and amber eyes or pale golden hair and violet eyes. They prefer clothing of white, silver, yellow, or gold, with cloaks of deep blue or purple.
 
-    +2 Dexterity, +2 Intelligence, --2 Strength, --2 Constitution.
+    +2 Dexterity, +2 Intelligence, -2 Strength, -2 Constitution.
 
      Medium: As Medium creatures, gray elves have no special bonuses or penalties due to their size.
 
@@ -46936,7 +46936,7 @@ Lore:  8 ranks.
 Feat: Skill Focus: Lore
 Spells: Ability to cast arcane spells of 3rd level or higher.
 
-ABILITIES:
+CLASS FEATURES: 
 
 Level
 1: Bone Skin I - Add +2 to AC. This increases by another +2 for every four levels of Pale Master.
