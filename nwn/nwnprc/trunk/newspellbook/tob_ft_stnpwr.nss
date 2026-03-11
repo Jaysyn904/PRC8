@@ -24,6 +24,8 @@ Created:   11.11.2018
 void main()
 {
     int nEvent = GetRunningEvent();
+	int nSpellId = PRCGetSpellId();
+
     if(DEBUG) DoDebug("tob_ft_stnpwr running, event: " + IntToString(nEvent));
     object oInitiator = OBJECT_SELF;
     
@@ -50,7 +52,7 @@ void main()
     else if(nEvent == EVENT_ONHEARTBEAT)
     {    
         // No Stacking
-        PRCRemoveSpellEffects(GetSpellId(), oInitiator, oInitiator);
+        PRCRemoveSpellEffects(nSpellId, oInitiator, oInitiator);
         // Skip applying effects if nothing to apply
         int nSwitch = GetLocalInt(oInitiator, "StonePowerSwitch");
         if (nSwitch == 0) return;

@@ -2073,6 +2073,14 @@ const string PRC_CRAFTING_MUNDANE_COST_SCALE        = "PRC_CRAFTING_MUNDANE_COST
  */
 const string PRC_CRAFTING_TIME_SCALE                 = "PRC_CRAFTING_TIME_SCALE";
 
+/**  
+ * Caps the enhancement bonus for crafted items to this value  
+ * Set to 0 or negative to disable the cap  
+ * Type: Int  
+ * Values: any integer (0 or negative = no cap)  
+ */  
+const string PRC_CRAFT_ENHANCEMENT_CAP 				= "PRC_CRAFT_ENHANCEMENT_CAP";
+
 /**
  * TO DISABLE SPECIFIC PROPERTIES:
  *

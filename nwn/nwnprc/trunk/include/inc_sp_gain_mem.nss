@@ -103,8 +103,69 @@ string GetClassString(int nClass)
     return sClass;
 }
 
+int GetMaxSpellLevelForCasterLevel_NewSB(int nClass, int nCasterLevel, object oPC)  
+{  
+    // Use the existing GetSpellslotLevel which properly handles new spellbook  
+    int nEffectiveLevel = GetSpellslotLevel(nClass, oPC);  
+      
+    // Get the spell known table for this class  
+    string sFile = Get2DACache("classes", "SpellKnownTable", nClass);  
+      
+    // Find the highest spell level available at this effective caster level  
+    int nSpellLevel;  
+    for(nSpellLevel = 9; nSpellLevel >= 0; nSpellLevel--)  
+    {  
+        string sTemp = Get2DACache(sFile, "SpellLevel" + IntToString(nSpellLevel), nEffectiveLevel - 1);  
+        if(sTemp != "" && StringToInt(sTemp) > 0)  
+        {  
+            break;  
+        }  
+    }  
+      
+    return nSpellLevel;  
+}
+
 // gets the maximum spell level that nClass can cast at nCasterLevel
-int GetMaxSpellLevelForCasterLevel(int nClass, int nCasterLevel)
+int GetMaxSpellLevelForCasterLevel(int nClass, int nCasterLevel)  
+{  
+    // Check if this character is using the new spellbook system  
+    object oPC = OBJECT_SELF; // You may need to pass oPC as a parameter  
+    if(GetLocalInt(oPC, "NSB_Class") == nClass)  
+    {  
+        // Use new spellbook calculation  
+        return GetMaxSpellLevelForCasterLevel_NewSB(nClass, nCasterLevel, oPC);  
+    }  
+      
+    // Original Bioware calculation  
+    string sFile = Get2DACache("classes", "SpellGainTable", nClass);  
+    nCasterLevel--;  
+    int nSpellLevel;  
+  
+    if (Get2DACache(sFile, "NumSpellLevels", 9) != "")  
+    {  
+        string sTemp = Get2DACache(sFile, "NumSpellLevels", nCasterLevel);  
+        if (sTemp != "")  
+        {  
+            nSpellLevel = StringToInt(sTemp)-1;  
+            if (nSpellLevel <= 0) nSpellLevel = 0;  
+        }  
+    }  
+    else  
+    {  
+        for (nSpellLevel=9; nSpellLevel >= 0; nSpellLevel--)  
+        {  
+            string sTemp = Get2DACache(sFile, "SpellLevel" + IntToString(nSpellLevel), nCasterLevel);  
+            if (sTemp != "")  
+            {  
+                break;  
+            }  
+        }  
+    }  
+    return nSpellLevel;  
+}
+
+
+/* int GetMaxSpellLevelForCasterLevel(int nClass, int nCasterLevel)
 {
     string sFile;
     // Bioware casters use their classes.2da-specified tables
@@ -143,7 +204,8 @@ int GetMaxSpellLevelForCasterLevel(int nClass, int nCasterLevel)
     }
     return nSpellLevel;
 }
-
+ */
+ 
 // gets the minimum spell level that nClass can cast at nCasterLevel
 int GetMinSpellLevelForCasterLevel(int nClass, int nCasterLevel)
 {

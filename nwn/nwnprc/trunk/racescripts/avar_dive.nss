@@ -42,7 +42,7 @@ void main()
              int iNumDice = StringToInt(Get2DACache("baseitems", "NumDice", iWeaponType));
              int iCritMult = GetWeaponCritcalMultiplier(oPC, oWeap);
              // deal double the damage
-             if(GetWeaponDamageType(oWeap) == DAMAGE_TYPE_PIERCING)
+             if(GetWeaponDamageType(oWeap) & DAMAGE_TYPE_PIERCING)
                   iNumDice *= 2;
 
              struct BonusDamage sWeaponBonusDamage = GetWeaponBonusDamage(oWeap, oTarget);
