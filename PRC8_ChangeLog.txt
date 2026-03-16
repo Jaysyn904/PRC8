@@ -1,0 +1,4328 @@
+----
+Date: 2026-03-16 08:52:22 -0400
+2026/03/16 Update
+
+Tweaked Bane & Dread iprops
+Fixed Bane & Dread doubling any existing Enhancement vs. Racialtype iprops.
+Fixed issue where material iprop wasn't showing up for some crafted items.
+
+----
+Date: 2026-03-14 13:05:42 -0400
+Update prc_inc_switch.nss
+
+Update PRC8 version number.
+
+----
+Date: 2026-03-14 12:35:07 -0400
+Update feat.2da
+
+Fixed crash with Ironmind 1.
+
+----
+Date: 2026-03-11 11:23:55 -0400
+2026/03/11 Update
+
+Fixed Expeditious Retreat's duration.
+Fixed Avariel's dive with weapons that have multiple damage types.
+Hybsil's description now points to the right TLK entry.
+Fixed Dragon Cloud's creature weapons & stats.
+Stone Power shouldn't delete all of you spell effects.
+Stone Power should be a prereq for Deepstone Sentinel.
+GetMaxSpellLevelForCasterLevel() should work with newspellbook spells.
+Barbarian Rage should be an instant feat.
+Added BAB 2 req to several PrCs to prevent a Bioware bug where they are available in chargen.
+
+----
+Date: 2026-02-24 00:12:48 -0500
+2026/02/24 Hotfix Update
+
+Hotfix for Vow Poverty item unequip bug.
+Invoke Divine Wrath now accepts all Smites as a prereq.
+Added IsUnagumentablePower().
+Added GetCanSmite().
+Fixed Crown of Might Discharge Crown.
+
+----
+Date: 2026-02-22 14:10:05 -0500
+2026/02/22 Update 3
+
+Updated manual.
+Updated PRC8 version number.
+
+----
+Date: 2026-02-22 13:30:08 -0500
+2026/02/22 Update 2
+
+Fixed broken Vow of Poverty 2da
+Can no longer take both Favored of the Companions & Servant of the Heavens via Vow of Poverty bonus feats.
+
+----
+Date: 2026-02-22 13:06:52 -0500
+2026/02/22 Update
+
+Added scripting for Combat Form feats: Combat Focus, Combat Awareness, Combat Stability, Combat Defense, Combat Vitality & Combat Strike.
+Updated fighter bonus feat lists for Champion of Torm, Dragon Devotee, Eldritch Knight, Fighter, Hospitaler, Psychic Warrior, Serene Guardian, Spellsword and Warblade.
+
+----
+Date: 2026-02-21 19:25:00 -0500
+2026/02/21 Update
+
+Updated all soulmelds to allow double chakra binds.
+Updated Totemist soulmelds to allow double totem binds.
+Pearl of Black Doubt should play nice with Vow of Poverty.
+
+----
+Date: 2026-02-19 21:10:22 -0500
+2026/02/19 Update
+
+Eldritch Disciple should have Verminlord as an epic bonus feat.
+Only spellcasters can use Craft (Alchemy).
+Added Great Charisma and removed Great Wisdom as Force Missile Mage epic bonus feats.
+Frenzied Berserker was missing Great STR 10 as an epic bonus feat.
+Oozemaster had several epic bonus feats only grantable at 10th lvl.
+Pyromancer's Great Charisma bonus feats were pointing at wrong or non-existent feats.
+Corrected Frenzied Berserker's skill list.
+Corrected Legendary Dreadnought's skill list.
+Added placeholders for Combat Form feats.
+Added Combat Forms masterfeats.
+Fixed ASF issue with Eldritch Sculptor's 2nd blast.
+Gated debug in CheckIfDeleveled().
+Updated AddRacialRestrictions() for latest races.
+Vow of Poverty & Forsaker work better together at level up.
+Maybe fixed the mass ability buffs not hitting all targets issue.  Needs mulitplayer testing.
+Updated some creature abilities to use PRC functions.
+
+----
+Date: 2026-02-14 21:22:58 -0500
+2026/02/14 Update 2
+
+Added ethran cohort utcs for the Hathran class.
+
+----
+Date: 2026-02-14 19:53:55 -0500
+2026/02/14 Updates
+
+Updated PRC8 version.
+Hathran can now select an ethran as a cohort.
+Preliminary Circle Magic work done.
+Added Choke Hold, Pain Touch, Ki Shout, Great Ki Shout, Freezing the Lifeblood, Falling Star Strikea nd Unbalancing Strike feats.
+Warforged get Immunity Energy Drain, not Immunity: Ability Drain.
+Forsakers can use alchemical items.
+Added VectorToPerpendicular().
+Added GetIsAlchemical().
+Added GenerateRandomName().
+Added _DoChokeHold().
+Updated Shaman bonus feat list.
+Updated fighter bonus feat lists.
+Added Favored of the Companions to the Vow of Poverty bonus feat list.
+Ur-Priest can't enter RKV, BFZ or Thrall of Orcus.
+
+----
+Date: 2026-02-08 16:23:13 -0500
+2026/02/08 Update
+
+Updated warlock supporting PrCs to have epic warlock bonus feats. (@Shalvan)
+
+----
+Date: 2026-02-08 00:44:28 -0500
+2026/02/08 Update
+
+Archived Spellman's Project content.
+Added missing Diamond Dragon stat feats.
+Hospitaler's should be able to take Extra Turning.
+Dodge proxies should allow entry into Champion of Corellon.
+Mounted Combat is a prereq for Champion of Corellon.
+Only Clerics have Domain reqs to enter Morninglord.
+Verdant Lord was missing BAB 4 entry requirement.
+Diamond Dragons don't get spellcraft.
+Re-added Korobokuru race.
+Added .ltr tables for Korobokuru.
+Capped Blood in the Water at +20.
+Capped Pearl of Black Doubt at +20.
+Added json_GetFirstKnownSpell() and json_GetNextKnownSpell().
+Updated all old NWNx functions to work with NWNxEE.
+Added new switch to enable optional PRCX / NWNxEE shims.
+Commented out ConvoCC switches on inc_switch_setup.nss
+Diamond Dragon's stat increases are intrinsic when using NWNxEE.
+Forsaker's stat increases are intrinsic when using NWNxEE.
+Vow of Poverty's stat increases are intrinsic when using NWNxEE.
+Cloud Dragon summon should be Neutral Good.
+Fixed Verdant Lord's regen.
+Fixed Forest Master's regen.
+Morninglord's Creative Fire should affect Alchemy.
+Added yes/no dialog when choosing Vow of Poverty bonus Exalted Feats.
+Racial natural AC should be intrinsic when NWNxEE is enabled.
+Transcendent Vitality's CON bonus is intrinsic when NWNxEE is enabled.
+
+----
+Date: 2026-01-30 18:11:38 -0500
+2026/01/30 Update
+
+Updated version number.
+Fixed Touch of Golden Ice.
+Removed Leadership related feats from Thrallherds feat list.
+Necrocarnum Circlet should only fire the Detect Undead cone VFX once.
+Desert Wind maneuvers should to the right amount of damage.
+Blade Guide now takes less damage during combat.
+FEAT_HOSPITALER_SPELLCASTING_PALADIN was missing from HospitalerMarkerFeats()
+Frenzied Berzerker should now work with Vow of Poverty and Forsaker.
+prc_wallbreathc now uses PRCEffectDamage().
+Changed Mantle of Egregious Might back to Dodge AC.
+Tweaked Mirror Image.
+
+----
+Date: 2026-01-26 18:44:54 -0500
+2026/01/26 Update 2
+
+Updated bonus feat lists for Spellsword, Hospitaler, Fighter, Eldritch Knight, Dragon Devotee & Champion of Torm.
+
+----
+Date: 2026-01-26 12:36:54 -0500
+2026/01/26 Update
+
+Added Improved Critical (touch attack).
+Added Improved Critical (ray).
+Added Weapon Focus (touch attack).
+Added Epic Weapon Focus (touch attack).
+Fell Shot was resolving as a melee touch attack instead of a ranged weapon touch attack.
+Cleaned up ungated debug in prc_inc_nat_hb.
+
+----
+Date: 2026-01-25 10:00:51 -0500
+2026/01/2 Update
+
+Sun Domain power actually destroys undead.
+Fixed BCM's Pouncing Strike.
+Monkey Grip only applies penalty when appropriate.
+Forsaker should stack all sources of Spell Resistance.
+Hexblade's Dark Companion retains the sanctuary effect across game saves.
+Ottiluke's Resilient Sphere is a Reflex save, not a WIll save.
+
+----
+Date: 2026-01-23 00:03:47 -0500
+2026/01/22 Update 2
+
+Mechanatrixes always fail saves vs elecricity.
+Incorporated most creature ability scripts into the PRC8 & updated them to use PRCEffect(), SPApplyEffectToObject(), etc.
+Updated prc_inc_breath to use PRCEffectDamage()
+Updated several spell scripts to use PRCEffectDamage().
+
+----
+Date: 2026-01-22 18:54:36 -0500
+2026/01/22 Update
+
+Added Warforged Scout race.
+Hidden Talent was setup wrong in all the base class 2DAs.
+Fixed typo in DoA's Summon Major Devil.
+Updated PRC8 version number.
+Updated PRC8 manual.
+
+----
+Date: 2026-01-21 20:42:26 -0500
+2026/01/21 Update 2
+
+Added the Shyft planetouched race.
+
+----
+Date: 2026-01-21 16:35:43 -0500
+2026/01/21 Update
+
+Swapped Disciple of Asmodeus' Summon Glabrezu for Summon Pit Fiend.  Glabrezu aren't devils.
+Wisplings can qualify for Warsling Sniper.
+Added Maeluth planetouched racialtype.
+Maeluth can qualify for Dwarven Defender. Ollam and Ironsoul Forgemaster.
+Added Mechanatrix planetouched racialtype.
+Updated creature aura scripts to use PRCEffectDamage(), SPApplyEffectToObject() & PRCMySavingThrow().
+
+----
+Date: 2026-01-20 09:11:57 -0500
+2026/01/26 Update
+
+Added Wispling race.
+Wispling qualifies for Shifter (PnP).
+Bioware poisons now work with "new" PRC8 weapons.
+Updated PRC8 Tester mod store to have Bioware venoms.
+Updated PRC8 version.
+Added Alchemy expansion notes.
+Updated Starting package TLK notes.
+
+----
+Date: 2026-01-17 22:50:31 -0500
+2026/01/17 Update
+
+Removed a lot of old backup files.
+Fixed Eye of Gruumsh's epic bonus feats.
+Add Epic marker feat for Eye of Gruumsh.
+Added Channeled Pyroburst to prc_desc_fire.2da
+Added GetCurrentUnixTimestamp() function.
+Moved crafting conversation functions to prc_craft_cv_inc.nss.
+Made Midnight Augment work slightly better, still not quite per PnP yet.
+Disciple of Asmodeus' Summoned Devils are supposed to be Lawful Evil.
+Every instance of ItemPropertySpellImmunitySpecific() in race_skin.nss was misconfigured.
+Several instances of ItemPropertyDamageImmunity() in race_skin.nss were misconfigured.
+Fixed issue where Blighters were still considered undead after leaving undead wildshape.
+PRC8 now supports offline PnP magical crafting.
+Disciple of Asmodeus' Dread Night now increases AC instead of Damage, per PnP.
+Non-spellcaster Disciples of Asmodeus have a Hellcat duration based on DoA class level.
+Hexblade's Dark Companion shouldn't lose Sacntuary when loading from a save.
+Claws of the Savage should increase size properly if caster already has claws at time of casting.
+
+----
+Date: 2026-01-14 23:34:26 -0500
+2026/01/14 Later update
+
+Rage Mage wasn't getting the correct number of uses of Spell Rage at 5th lvl.
+
+----
+Date: 2026-01-14 23:27:19 -0500
+2026/01/14 Late update
+
+Soul Eater abilities should only work on creatures.
+Gated errant Debug statement in prc_inc_nat_hb.nss
+
+----
+Date: 2026-01-14 22:49:37 -0500
+2026/01/14 Update
+
+Added 3 starting packages for Crusaders.
+Fixed Identify, Psionic.
+Added PRC switch to show SR roll info in the combat log.
+Soul Eater's wights keep their original appearance and portrait.
+
+----
+Date: 2026-01-14 00:12:38 -0500
+2026/01/12 Late Update
+
+Hexblade doesn't get Shield proficency.
+Forsaker gets Craft (Alchemy) and Craft (Poison) as class skills.
+Forsaker can use default helms now.
+Forsaker can use arms & armor made from special materials.
+Fixed Dread Necromancer Spirit Worm TLK error.
+Disabled AI Talent for Awesome Blow.
+Fixed Warlock + Battlecaster ASF w/ Chain Shirt.
+Add Material and Quality itemprops to special material crafting.
+Fixed bug where breaking concentration can screw up next manifestation due to variables not being cleared.
+Tweaked Defensive Manifestation.
+Hexblades can't cast in heavy armor.
++1 Attack Bonus from Masterwork is removed after enchantment to +1.
+Fixed issue where Forsaker's Ability Boost would stack with each login.
+Tweaked Celebrant of Sharess TLK entry.
+Tweaked Soulblade Warrior TLK entry.
+Tweaked Vow of Poverty's TLK entry.
+
+----
+Date: 2026-01-12 20:12:40 -0500
+2026/01/12 Update 2
+
+Fixed Hidden Talent.
+Potions are usable w/ Tenser's Transformation.
+Defaulted to Fire damage for Dragon breath.
+Corrected Dragonfire Channeling TLK entry.
+
+----
+Date: 2026-01-12 12:09:37 -0500
+2026/01/12 Update
+
+Gated DEBUG text in unarmed_caller.nss
+Added feat constants for the Combat Focus line of feats.
+Fixed & tested Fey + PrC spellcasting durations and the caster level returned for templates.
+
+----
+Date: 2026-01-11 20:41:16 -0500
+2026/01/11 Update
+
+Updated PRC8 version.
+Added EffectIcon for EFFECT_ICON_FATIGUE to PRCEffectFatigue.
+Fixed Midnight Augmentation to display all known powers as well as display radial powers.
+Draconic Senses now grants all of the abilities that it should. (Lowlight Vision, Darkvision, Ultravision).
+
+----
+Date: 2026-01-10 21:27:52 -0500
+2026/01/10 Update
+
+Added three starting packages for the Binder class.
+Updated any PrCs that can advance invokers to allow invocation feats during level up.
+Updated invoker feats to require Eldritch Blast & DFA Breath where appropriate.
+Fixed bad constant on Rising Phoenix.
+Fixed Oozemaster Oozy Touch/Glob bonus feat bug.
+Vassal of Bahamut's Platinum Armor is now much closer to PnP.
+Craft (Alchemy) is a class skill for Binders.
+Moved packages into \Craft2das\ so the PRC8 would continue to build.
+Updated personal_switch.2da to not stack Power Attack by default.
+Fixed creature size related screw-up that happened when I was trying to fix unarmed damage for large creatures.
++10 Jump bonus for Leaping Dragon Stance was being improperly gated by Blood Claw Master.
+Fixed duration bug w/ Supress Weapon.
+Fixed broken loop bug w/ Supress Weapon.
+Restoration shouldn't be able to remove Crack of Doom user's AB penalty.
+Epic Vassal's of Bahamut now get their proper allowance.
+Mirror Images might not spawning in dead anymore.  YMMV, Harrowport.
+Added package TLK worksheet to notes.
+
+----
+Date: 2026-01-09 13:39:53 -0500
+2025/01/09 Update
+
+Fixed Displacer Mantle's shoulder bind.
+Maybe fixed Essesnce of Lifespark.
+Fixed Blackguard's Aura from effecting non-hostile creatures.
+Fixed name bug w/ Holy Water.
+Added 3 starting packages for the Archivist.
+Updated PRC8 version number.
+Reorganized packages.2da
+Added Package worksheet to notes.
+
+----
+Date: 2026-01-09 07:58:09 -0500
+2025/01/09 Morning Update
+
+Added missing Dragonfire Strike to all baseclass feat lists.
+Removed duplicate feats from all class feat 2DAs.
+
+----
+Date: 2026-01-08 20:31:11 -0500
+2026/01/08 Update
+
+Hexblade shouldn't get Medium Armor prof.
+Weapon Specialization Whip isn't a Warblade bonus feat.
+Reorganized packages.2da.
+Fixed potential issue with SetCompositeBonusT().
+Added materials iprops to material based crafting.
+Fixed bug w/ DoTrip().
+Added heartbeat script to Monk to properly handle monk sizes.
+Cleaned up PRCGetCreatureSize().
+Set Shielded Casting to use TagItemProperty().
+Archivist now has a Lore check to learn spells from scrolls.
+Set Dragonfire Strike to use TagItemProperty().
+Setup Forsaker to use TagItemProperty().
+Fixed distance mismatch with Necrocarnum Shroud.
+Added too much debugging for the unarmed stuff.
+Cloudkill now obeys Mastery of Shapes.
+
+----
+Date: 2026-01-07 10:40:24 -0500
+2026/01/07 Morning Update.
+
+Eldritch Knight was using the wrong bonus feat progression.
+
+----
+Date: 2026-01-07 00:32:56 -0500
+2026/01/07 Early Update
+
+Added 3 starting packages for the Knight from the Player's Handbook II.
+Added light lance base item.
+Updated PRC8 version number.
+
+----
+Date: 2026-01-06 18:28:19 -0500
+2026/01/06
+
+race_skin now respects "AppearanceStoredWing".
+Soul Eater's Soul X buffs no longer stack during combat maneuvers.
+
+----
+Date: 2026-01-01 10:23:41 -0500
+2026/01/01
+
+Fixed bug w/ Forest Master's Great Mallet ability.
+
+----
+Date: 2025-12-31 22:09:21 -0500
+2025/12/31 Update
+
+Happy New Year!
+Added Defensive Manifestation for psionics users.
+Removed Talent from Grapple Combat Ability so AI wouldn't use it.
+Charnel Touch is unlimited uses & shouldn't cause an AoO.
+Switched Rain of Fire to use PRCEffectDamage().
+Fixed issue where initiator couldn't take a maneuver in a 2nd sword magic class when having the prereq manuevers from a previous sword magic class.
+Set Archetypal Form on Sphere of Ultimate Destruction.
+Set Archetypal Form on Black Blade of Disaster.
+Added missing immunities to Blighter's Undead WIldshape.
+Removed incorrect prereq from Claw at the Moon's TLK entry.
+Fixed pluralized Undead Wildshapes.
+NPC death always cleans up a grapple.
+
+----
+Date: 2025-12-28 21:56:04 -0500
+2025/12/28 Update
+
+Added 3 Duskblade starting packages from the PHBII.
+Oozemaster wasn't getting their CHA penalty.
+Removed old Bowman class 2DAs.
+Shield Charge will now show up on the radial for the fighter class.
+Shield Slam will now show up on the radial for the fighter class.
+Re-enabled the Recommended button on levelup.
+Updated PRC8 version.
+Fixed bug with damage shields & grapple.
+
+----
+Date: 2025-12-28 00:28:56 -0500
+2025/12/28 Early update
+
+Wemics have 5 RHD.
+Fixed Whirling Blade.
+Factotum now regenerates Inspiration after logging off and back on in he same server session.
+Spellfire Wielder can't get extra spell levels from overcharging items.
+Only one Chilling Fog at a time, casting a new one destroys the old one.
+Heart of Fire now has a Chakra totem.
+Pearl of Black doubt should be a bit more accurate.
+Tweaked and tested psionic Keen Edge.
+Fixed reversed sign for Echoblade validity in prc_equip.
+Havoc Mage's Battlecast should clean up properly.
+Updated readme.
+
+----
+Date: 2025-12-18 22:26:17 -0500
+2025/12/18 I left the gem update out on accident
+
+Attune Gem now works with CNR gems (cnrgem)
+
+----
+Date: 2025-12-18 22:17:35 -0500
+2025/12/18 Hotfix
+
+Fixed typo in TLK
+Attune Gem now works with CNR gems (cnrgem)
+
+----
+Date: 2025-12-18 22:13:33 -0500
+2025/12/18 Update
+
+Added the missing Vigor line of spells to the Healer.
+Dragon Shaman now uses a stat 2DA for Natural Armor increases.
+Added 3 starting packages from the Player's Handbook II for Dragon Shaman.
+Changed VFX for Detect Undead.
+
+----
+Date: 2025-12-18 07:48:28 -0500
+2025/12/1 Early Update
+
+Added three starting packages for the Beguiler.
+Updated PRC8 version.
+
+----
+Date: 2025-12-17 19:54:27 -0500
+2025/12/17 Update
+
+Changed Shield Specialization to stop the Shield AC message spam.
+Forsakers now keep their bonus abilities through server resets.
+Added Warblade recovery notification.
+Fixed Inscribe Runes CL cap.
+Added Inscribe Runes to Runecaster's feat list.
+Eagle Claw's icon should only be 1x2.
+Blank wands should be equippable.
+
+----
+Date: 2025-12-15 10:29:51 -0500
+2025/12/15 PRC8 manual update
+
+Updated PRC8 manual to v4.75
+
+----
+Date: 2025-12-14 22:31:30 -0500
+2025/12/14 Late Update
+
+Moved Hidden Talent a from a masterfeat to a dynamic conversation.
+Updated PRC8 version number.
+
+----
+Date: 2025-12-14 16:50:21 -0500
+2025/12/14 Update
+
+Spellfire Channeler was missing Improved Healing at 2nd level.
+Added "Crafted Vial" CWI crafting baseitem type.
+Added Craft Scepter crafting feat.
+Added Magical Artisan: Craft Scepter.
+Adjusted Hemp Rope label in iprp_material.2da & iprp_matcost.2da
+Added Aroma of Death CWI crafting item and spell to support it.
+Added Beetle Elixir CWI crafting item and spells to support it.
+Added Harness of Armor CWI crafting item.
+Swarm Tactics was missing a heartbeat script.
+Added crafted descriptions for all CWI items in craft_wondrous.2da
+Updated fileends for updated crafting options.
+Scepters count as clubs for feats.
+Gated errant DEBUG in prc_inc_nat_hb.
+Added new switches for scepter crafitng.
+Updated PRC Options magic supplies store for new crafting bastitems.
+
+----
+Date: 2025-12-11 19:50:43 -0500
+2025/12/11 Update
+
+Inscribe Rune should be Craft Armor 1 not Craft General 1.
+
+----
+Date: 2025-12-11 16:36:26 -0500
+Merge pull request 'make repo compilable under nsc' (#91) from tinygiant/PRC8:main into main
+
+Reviewed-on: https://gitea.raptio.us/Jaysyn/PRC8/pulls/91
+
+----
+Date: 2025-12-11 16:31:49 -0500
+make repo compilable under nsc
+
+----
+Date: 2025-12-10 22:48:43 -0500
+2025/12/10 Update
+
+Fixed some corrupt spell components UTIs
+Updated several scripts fixing not-quite bugs that choke nwn_script_comp.
+Updated PRC8 version.
+Re-enabled erroneously disabled Pale Master marker feat.
+Updated Tester module.
+
+----
+Date: 2025-12-09 23:59:28 -0500
+2025/12/09 Update
+
+Celebrant of Sharess is an Arcane class.
+Fixed Acolyte of the Ego bonus feat bug.
+Disabled Hidden Talent to change it to a conversation.
+Fixed Force Missiles iprp name error.
+Added default package for the healer class.
+Fixed description for the Retrieve power.
+Updated Healer's Celestial Companion class ability.
+Added GetHealerCompanionBonus(), CelestialTemplateEffects(), json_UpdateCelestialCR(), MakeCelestialCompanionFromTemplate() and MakeCelestialCreatureFromTemplate()
+Fixed Nezumi's Hardiness vs. Disease ability.
+Fixed Avalanche of Blades.
+Stopped War Domain from constantly running on NPCs.
+Sorcerous RHD casters can enter Dragon Disciple.
+Added some reference material to notes.
+
+----
+Date: 2025-12-06 22:55:23 -0500
+2025/12/06 Update
+
+Added Inscribe Epic Runes.
+Added Great Intelligence and Inscribe Epic Runes as Runecaster epic bons feats.
+Changed Runecaster epic bonus feat progression to 1 every 4 levels past 10th.
+Bardic PrCs should be able to take Lingering Song & Extra Music as general feats.
+Forsakers can't use psionics, invocations, spellfire, shadowcasting, truenaming, binding, soulmelds or Supernatural Martial Maneuvers.
+Fixed elven courtblade / ambidexterity bug.
+Added more guardrails to prevent self-damage from onHit spells during PerformAttack().
+Updated GetProperTarget()
+Removed ableist slur.
+RHD casters should work with JPM now.
+Reworked Blood in the Water's effect icon.
+Fixed Seize Item's VFX.
+RHD casters should be able to enter Dragon Disciple.
+Sharp Note doesn't step on Dragonfire Inspiration anymore.
+
+----
+Date: 2025-12-04 21:07:10 -0500
+Update prc_magiccraft.utm
+
+Added Fine Herbs to the PRC crafting material store.
+
+----
+Date: 2025-12-04 19:50:51 -0500
+2025/12/04 Update
+
+Spiritual Force and Soulblade Warrior should be selectable now.
+
+----
+Date: 2025-12-04 18:44:36 -0500
+2025/12/04 Update
+
+Added Intrinsic Armor builder's feat to prevent any Disarming.
+Added Intrinsic Weapon builder's feat to prevent Ruin Armor.
+GetEpicSorcerer() should allow racial hit dice casters.
+Enlarge / Reduce Person now stores object's original scale.
+Added prc_inc_size for the above changes.
+Updated PRC8 version.
+Reverted Vow of Poverty to use PRC event system.
+Reverted Forsaker to use PRC event system.
+Updated Spell Cancel NUI to not show "system" spells @Rakiov)
+Added notes on instanced Maze system.
+Organized notes.
+
+----
+Date: 2025-12-03 15:33:47 -0500
+2025/12/03 Update
+
+Finished Hidden Talent.
+Tweaked Factotum abilities to hopefully not run out of uses.
+Tweaked Twinfiends skill function.
+Hopefully fixed the Factotum's Inspiration not generating issues.
+Hopefullly fixed Double Chakra bind.
+Hopefully fixed Totemist's Double Totem Bind.
+Hopefully fixed Girallon Arms.
+Fixed Kuthrik Claws not granting Weapon Finesse.
+Added missing medium centaur hoof slam uti.
+Added new tentacle slam creature weapon (works the same, looks better).
+Updated Spell Effect NUI to ignore system spells (@Rakiov).
+Fixed typo in Guided Strike.
+
+----
+Date: 2025-12-01 23:21:13 -0500
+2025/12/01 Late Update
+
+Added Monk's Abundant Step class ability.
+Moved Diamond Soul to Monk 13 per PnP.
+Traded Werewolf's Knockdown for Improved Trip.
+
+----
+Date: 2025-12-01 16:03:00 -0500
+2025/12/01 Afternoon Update
+
+Hotfix for broken chat issue (@Rakiov)
+Ollam's Lore skill should allow entry into Fochlucan Lyrist.
+Removed unneeded spells gained 2DA from Assassin.
+
+----
+Date: 2025-11-30 21:53:24 -0500
+2025/11/30 Update
+
+Moved PRC8 notes into DevNotes.
+Updated Eternal Blade TLK to explain abilities better.
+Updated Werewolf to use "monk" gloves when they exist.
+Added PRC switch to allow Wildshapes to always merge the arms slot.
+Clicking on a spell effect now opens the spell effect NUI. (@Rakiov))
+Added prc_onplayergui event script for spell effect handling. (@Rakiov)
+Added prc_nui_sd_event and prc_nui_dur_view to handle displaying spell durations. (@Rakiov)
+Corrected typo in switch name for PRC_CRAFT_POISON_USE_INGREDIENTS
+Allowed mindblade to work with Vow of Poverty.
+Eternal Blade - Island in TIme now has a VFX, looks slightly better.
+Eternal Blade - Guided Strike now functions.
+Time Stands Still now has an impact VFX.
+Added optional PRC_ALLOWED_TO_REMOVE_FRIENDLY_SPELLS and PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS switches for the spell effect view window.
+
+----
+Date: 2025-11-27 19:07:53 -0500
+2025/11/27 Update
+
+Updated tester module.
+Updated PRC8 version.
+
+----
+Date: 2025-11-27 19:01:49 -0500
+2025/11/27 Update
+
+Werewolf merges monk gloves if equipped.
+Added more switches to the Switch conversation.
+Increased summoned Huge Beholder eye ray uses to 99.
+
+----
+Date: 2025-11-25 09:00:22 -0500
+2025/11/25
+
+Added Spell Cancelation tool to end spells early.
+Made several Exalted feats available generally.
+Fixed prereqs for several Exalted feats.
+Fixed typo in Chasing Perfection related itemprops.
+Grouped Exalted feats under a masterfeat.
+Moved PRC8 Packages far down the packages.2da so as to not conflict with modules.
+Updated PRC8 Tester module.
+Epic Spell: Summon Aberration no longer sucks.  Creatures were updated to match PnP and now level with caster.
+Twinfiend summon now receives the correct number of skill points for their bonus HD.
+Added LevelUpSummon() function for handling creatures w/ class levels.
+Further tweaking for the prc_2da_cache creature to prevent NPCs from attacking it.
+Add paragon & psuedonatural template related json functions.
+Gated errant debug message in prc_amagsys_gain.nss.
+Add DM Tool for viewing PC's current character sheet, templates & spell effects.
+Arrow of Bone shouldn't provide free mundane arrows anymore.  Needs testing.
+Fixed a bunch of minor TLK typos.
+
+----
+Date: 2025-11-20 21:36:52 -0500
+2025/11/20 Update
+
+Updated epic swashbucker tlk.
+Added notes on Martial Study.
+Updated Shadow Servant to scale with Shadow Master level, per PnP.
+Made Disciple of Baalzebul's CHA boost intrinsic.
+Swarm of Arrows is an Eldritch Knight epic bonus feat.
+Epic eldritch theurge is 11th level, not 21st level.
+Updated Shadowdancer weapon proficiencies.
+WP: Scythe was a usable feat for Warblade.
+Gaseous Form added to iprp_spells.
+Set Favoured Soul's Regen X Wounds spells to the correct spell level.
+Updated Twinfiend to not suck.
+Tweaked GetMaxPossibleHP for Undead & Constructs.
+Updated PRCIsFlying() for newer CEP2 wings.
+More fixes and updated for NUI levelup menu. (@Rakiov)
+Added support for de-leveling AMS classes (@Rakiov)
+Zakya Rakshasa have a claw & bite attack.
+Added check to end grapples after target death.
+Removed debug message in GetHighestSpellAvailableByDescriptor()
+Monsters won't summon uncontrolled undead.
+Added Signal Event to Luminous Armor.
+Corrected Signal Event on Shield of Faith.
+
+----
+Date: 2025-11-12 19:16:17 -0500
+Add Shadow Servant and unarmed system updates
+
+Fixed a bunch of TLK typos.
+Updated Master of Shadow's Shadow Servant.
+Added Maul to the Metal Domain feat choice.
+Drider is a large creature.
+Added missing Eagle Claw base weapon.
+Tentatively fixed NUI spell selector hang issue.
+Fixed Monk / Shou / IoDM die increasing bug.
+Added StepDie() function to progressively increase Monster damage constants.
+Clamped Skill increases to 128 in json_AdjustCreatureSkillByID
+Updated PRC8 Tester module to have new weapon types.
+Added all spell focus feats to Wizard's bonus feat list.
+Updated PRC8 manual.
+Added notes.
+
+----
+Date: 2025-11-07 12:27:33 -0500
+Updated PRC8 Manual
+
+Removed much outdated material.
+
+----
+Date: 2025-11-07 09:48:46 -0500
+2025/11/06 Update
+
+Animal, Beast, Magical Beast, Vermin & Ooze have no reason to be set to PlayerClass.
+Added default (Blaster) gear, levelup and skill package for Warlock.
+Added missing Weapon Specialization for "new" weapons to Warblade's class feat 2DA.
+Fixed Light Lance duped name in feat.2da.
+Tweaked defaults on personal_switch.2da
+Updated PRC8 version in prc_inc_switch.
+Fixed token error in Create Tattoo dialogue.
+Updated IoDM's Dragon Fear Aura to give immunity to target for 24 hours if they pass the will save.
+Fixed issue with classes not being able to cast spells in their spellbook from scrolls.
+Updated nwn_erf & nwn_gff.
+
+----
+Date: 2025-10-30 19:04:58 -0400
+2025/10/30 Update
+
+Improved Trip / Disarm should be Champion of Corellon bonus feats.
+Crinti Shadow Marauders don't get weapon proficiencies.
+Epic Dragon Shaman is 21st level.
+JPM was missing epic arcane bonus feats.
+Karsites & Silverbrows can enter Crinti Shadow Maarauder.
+Drunken Rage can allow entry into Frostrager.
+Knight of the Sacred Seal was missing FEATOR prereq for Weapon Focus: Shortsword.
+Two-Weapon Defense is a general feat.
+Tweaked Echoblade enchantment cost.
+Added base class equpiment packages more inline with PnP & the actual package descriptions (@Cypher).
+Added a modified packages.2da to support the above.
+Updated Dynamic Conversation tokens as to greatly lessen the chance of conflicting with module dialogues.
+Added weapon proficiencies to FeatToIprop().
+Added pnp essentia scaling support for meldshaper levels over 40.
+Added GetProficiencyFeatOfWeaponType().
+Added GetHasSwashbucklerWeapon().
+Added GetHasCorellonWeapon().
+Fixed spelling for IP_CONST_FEAT_WEAPON_PROFICIENCY_NUNCHAKU.
+Fixed PsyRogue's Enhanced Sneak Attack scaling.
+Eldrtich Doom shouldn't target non-hostiles.
+Fixed Hellfire Warlock fire resistance to work with other sources of fire resistance.
+Fixed text feedback for Island in Time.
+Added some DEBUG for Shadow Blade.
+prc_2da_cache creature should no longer be accidently targetable, causing faction issues.
+Added a PnP cat creature, for the hell of it.  Tibitz is Dragon Magizine, unfortunately.
+Updated text tokens for Astral Construct convos.
+Updated text tokens for soulknife's mindblade convos.
+If you save vs certain fear effects, they fail to work on you for 24 hours, from that source.  (Form of Doom, Dragon Fear)
+Fixed Prismatic Sphere VFX bug (@Syrophir)
+Fixed Banishment bug on all Prismatic spells.
+Bralani Eldarin were missing Low-Light Vision.
+Fixed Lips of Rapture bug.
+Prelimiary work to making Favoured Soul's Deity's Weapon closer to PnP.
+Fixed Firey Burst bug.  I think.
+
+Updated notes.
+Updated PRC8 Manual.
+
+----
+Date: 2025-09-21 16:09:09 -0400
+2025/09/21
+
+Tweaked Cerebremancer's featlist.
+Epic DFA is 21st lvl not 11th.
+Added EffectPetrificationImmune().
+Fixed Large monk damage. @nShaken
+Fixed expanded monk damage. @nShaken
+Fixed Phantom Steed, oops.
+Bahamut breath is a Fort save.
+Xaniqos school works with Skirmish now..
+Gave Drider a female racial appearance.
+Tweaked oozemaster Light Fortification TLK entry.
+
+----
+Date: 2025-09-13 15:19:27 -0400
+2025/09/06 Update
+
+Fixed VFX for Prismatic Sphere.
+Fixed Bonded Summoner's familiar past 10th class lvl.
+Removed old goad item.
+Capped Inscribe Rune CL at 20th.
+Updated Psychic Rogue's power list.
+Fixed goad's icon size in baseitems.2da
+Added WotC Mind's Eye Web Enhancement PDFs to notes.
+Added PnP Animal Companion notes.
+
+----
+Date: 2025-08-30 09:52:10 -0400
+2025/08/30 Morning Update
+
+Spellfire Wielder had the wrong USESPERDAY settings.
+
+----
+Date: 2025-08-29 19:03:23 -0400
+Update nw_s2_familiar.nss
+
+Bonded Summoner's familiar should continue to spawn into epic levels.
+
+----
+Date: 2025-08-29 16:23:15 -0400
+2025/08/30 Update
+
+Added the Repair Damage line of spells.
+Stigmata is an activatable general feat.
+Cleaned up old prepared caster lines in feat.2da & spells.2da.
+Master Wand is an epic feat.
+Updated Favoured Soul spell list.
+Updated Sorcerer spell list.
+Updated Dread Necromancer Advanced Learning list.
+Updated fileends to support above changes.
+
+----
+Date: 2025-08-24 12:47:34 -0400
+2025/08/24 Afternoon Update
+
+Blood in the Water now has proper duration for non-Bloodclaw Masters.
+GetIsOnHitCastSpell() now tracks if something is a weapon better.
+Fixed bad line breaks in TLK.
+
+----
+Date: 2025-08-23 00:55:04 -0400
+2025/08/23 Early update.
+
+A few more tweaks for Create Infusion.
+Ooze isn't a player race.
+
+----
+Date: 2025-08-22 20:04:46 -0400
+2025/08/22 Evening Update
+
+Tweaked shadowcasting debug.
+Aberration shouldn't see gibberish in spellbook anymore.
+
+----
+Date: 2025-08-22 17:54:55 -0400
+2025/08/22 Update
+
+Reverted to 4.56 to track down a bug that started in 4.57.  Bugfixed back to 4.61.
+It's amazing the damage that one skipped case statement can do.
+
+----
+Date: 2025-08-21 07:40:32 -0400
+b6ec45deb273ca4dde48e7335653eda655b741b6
+
+----
+Date: 2025-08-15 13:42:37 -0400
+2025/08/15 Update
+
+Added Verdant Lord PrC.
+Added Create Infusion feat & crafting system.
+Added Magical Artisan: Create Infusion feat.
+Added Plant Defiance feat.
+Added Plant Control feat.
+Added Control Plants spell.
+Added Forestfold spell.
+Added Immunity from Elements spell.
+Added Creeping Cold & Greater Creeping Cold spells.
+Added Adrenaline Surge spell.
+Added Mundane & Infused Herb baseitem types.
+Added Mundane & Enchanted Scepter baseitem types.
+Added EffectGazeImmunity() effect.
+Added Botanical material type.
+Created json library for summoning support.
+Updated Plant Domain spells.
+Fixed bug w/ Regen Circle.
+Fixed weapon size bug with Enlarge & Reduce Person.
+Fixed TMI bug in Swarm of Arrows (hopefully)
+Fixed Blood in the Water.
+Fixed Iron Soul / Master of Nine prereq bug.
+Fixed Happo Zanshin to work more like PnP.
+Fixed targeting bug w/ Ultrablast.
+Fixed Ubiquitous Vision.
+Fixed Magic Staves for small creatures.
+Gave the summoned "treant" from Treebrother a Barkskin vfx.
+Radial spells can now be scribed w/ Scribe Scroll.
+Fixed Martial Stances not counting bug w/ levelup NUI (@Rakiov)
+
+----
+Date: 2025-08-05 18:58:54 -0400
+2025/08/05 Update
+
+Added Regenerate Ring spell.
+Added Regenerate Circle spell.
+Added Leonal's Roar spell.
+Added Summon Nature's Ally I-IX spells.
+Added Lion of Talisid PrC.
+Added Favored of the Companions Feat.
+Corrected Regenerate Serious Wounds level.
+Corrected Regenerate Critical Wounds level.
+Removed Baelnorn class and added Baelnorn template.
+
+----
+Date: 2025-07-31 17:41:59 -0400
+2025/07/31 Afternoon Update
+
+Added Baelnorn template.
+
+----
+Date: 2025-07-31 10:12:11 -0400
+2025/07/31 Brunch Update
+
+Battleragers now have the correct prerequisites.
+
+----
+Date: 2025-07-31 07:35:50 -0400
+2025/07/31 Update
+
+Reverted Luminous Armor.
+Updated NUI spellcast menu (@Alhooness).
+Fixed Inlindl School.
+Tweaked prc_2da_cache creature.
+Fixed Celebrant of Sharess spellcasting.
+Found a few more functions to remove Assassin from.
+Added GetTotalShieldACBonus().
+Made magic staves medium weapons again, so that small creatures can use them.
+Added feat constants for Charge & Grapple.
+Devil's Eye should be Extendable.
+Setup talents for Combat maneuvers.
+Updated PRC8 manual.
+
+----
+Date: 2025-07-22 21:35:53 -0400
+2025/07/22 Update
+
+Updated ruleset.2da.
+Drug Resistance should be able to target the caster.
+Changed crafting constants for better compatibility with nwn_script_comp.
+Made Mirror Image work better.
+
+----
+Date: 2025-07-19 13:52:48 -0400
+2025/07/19 Too hot to protest update
+
+Fixed Ranged Disarm usage text.
+Fixed Justice of Weald and Woe's bonus feat list.
+
+----
+Date: 2025-07-18 17:54:18 -0400
+2025/07/19 Update
+
+Battlerager: Replaced Knockdown & Improved Knockdown with Improved Trip & Reckless Offense.
+Ninja: Replaced racial HiPS with normal HiPS.
+Placed Epic Skill Focus Alchemy under the correct masterfeat.
+Fixed icon for Dousing the Flames.
+Added Monkey Grip to iprp_feats.2da, for testing.
+Added Double Scimitar to GetIsDoubleSidedWeeaponType()
+Fixed Leaping Dragon.
+Added club & dagger to correct proficiencies in IsProficient()
+Updated Vow of Poverty for persistence. (@Anufis).
+Added weapon wield changing option in PRC Options Radial.
+Fixed targetting on Fleetness of Foot.
+
+----
+Date: 2025-07-08 12:34:31 -0400
+2025/07/08 Afternoon update
+
+Added WotC source for the werewolf class to Notes folder.
+Eldritch Blast should be unlimited uses per day.
+Avariel & Feyri should get wings after CharGen.
+Added Avariel & Feyri to PRCIsFlying().
+Maybe fixed Whirling Blade.
+Updated Superb Dispelling TLK.
+
+----
+Date: 2025-07-03 07:24:20 -0400
+Update prc_feats.nss
+
+Transcendent Vitality was applying Immunity to Level / Ability drain on login, instead of Immunity to Disease.
+
+----
+Date: 2025-07-02 10:44:42 -0400
+Updated base class feat 2DAs for Ranged Disarm
+
+Updated base class feat 2DAs for an activatable Ranged Disarm.
+
+----
+Date: 2025-07-01 22:53:59 -0400
+Updated assassin spellbook.
+
+Added a few more existing spells that are in the assassin class's spellbook to their column in spells.2da
+
+----
+Date: 2025-07-01 16:08:55 -0400
+2025/07/01 Afternoon Update
+
+Tweaked ninja TLK entry.
+War Domain weapon focus now uses EffectBonusFeat().
+Vow of Poverty reapplies chosen stat bonuses and saves on new module (@Anufis)
+Created spell constant for Snap Kick.
+Tweaked Baleful Utterance.
+IPDamageConstant() had a cap that it shouldn't have had.
+Completely moved Assassin over to be a prepared caster ala 3e D&D.
+Tweaked a few feat.2da entries for minor stuff.
+Set torch as a monk weapon in baseitems.2da, so it doesns't screw up Flurry of Blows.
+
+----
+Date: 2025-06-25 09:06:34 -0400
+2025/06/24 Early Update
+
+Updated Abjurant Champion bonus feat list.
+Updated all base class feat 2DAs to get Hammer's Edge & Anvil of Thunder working.
+Fixed issue where a ToB PrC would lock you into maneuver choices after taking a base class with different maneuvers (@Rakiov)
+Pale Masters don't need spellcasting marker feats.
+
+----
+Date: 2025-06-22 19:41:02 -0400
+Merge branch 'main' of https://gitea.raptio.us/Jaysyn/PRC8
+
+----
+Date: 2025-06-22 19:40:24 -0400
+2025/06/22 Update
+
+Fixed Vow of Poverty.
+Fixed Vow of Poverty bonus feats not being restored onClientEnter.
+Added PRC option for spontaneous casters unlearning spells (@Rakiov)
+Gloura was double dipping caster level.
+Added NUI levelup spellpicker for most AMS classes (@Rakiov)
+Tweaked Tactical Insight.
+Updated ToB maneuver TLK entries to display correct prerequisites.
+
+----
+Date: 2025-06-22 01:35:13 -0400
+Expanded Eternal Blade for epic progression
+
+Expanded Eternal Blade for epic progression.
+
+----
+Date: 2025-06-21 23:27:50 -0400
+2025/06/21 Late Update
+
+Fixed Eternal Blade not getting maneuvers at level up.
+Gated RKV debug messages.
+Fixed RHD sorcerers from being able to use extra slots from bioware spellbooks.
+
+----
+Date: 2025-06-20 19:05:00 -0400
+Shifters can't copy Spiritual Weapon
+
+Shifters can't copy Spiritual Weapon.
+
+----
+Date: 2025-06-20 18:52:50 -0400
+2025/06/21 Update
+
+Update NUI spellbook notes.
+Magic staves are quarterstaves.
+Champion of Torm & Eldritch Knight were missing a fighter bonus feat.
+Added an entry for Risen Reunited in epicspells.2da.
+Fixed icon for ImpCrit Goad.
+Unseen Seen & Ult. Magus's spellcasting marker feats names were swapped.
+Added more sanity checking to Luminous Armor.
+Updated Warforged & Warforged Chargers descriptions.
+Enlightened Fist requires Arcane CL 2 not 2nd Circle spells.
+No such thing as Luck AC in NWN.
+Added sanity check for Blackguard's Aura.
+Updated NUI spellcasting menu.
+
+----
+Date: 2025-06-13 16:53:35 -0400
+Fixed Major Zone of Desecration
+
+Fixed Major Zone of Desecration.
+
+----
+Date: 2025-06-10 17:38:59 -0400
+2025/06/10 afternoon update
+
+Fixed incorrect action for Sublime Chord songs.
+Hopefully fixed Factotum Inspiration not accumulating after logging back in.
+Hopefully fixed Archmage SLA ability from grabbing wrong spell level for spell radials.
+Bluesteel Bracer script now add itself and not Bloodwar Bracers.
+Fixed Pearl of Black Doubt as good as NWN will allow.
+Fixed Diamond Dragon level up blocker.
+
+----
+Date: 2025-06-08 00:39:56 -0400
+Double-checked & updated ToB Maneuver prereqs
+
+Double-checked & updated ToB Maneuver prereqs
+
+----
+Date: 2025-06-07 23:44:42 -0400
+Expanded Diamond Dragon for epic progression
+
+Expanded Diamond Dragon for epic progression.
+
+----
+Date: 2025-06-07 21:53:45 -0400
+Expanded Swift Wing for epic progression
+
+Expanded Swift Wing for epic progression.
+Added Sudden Metamagic feats to the Factotum feat list.
+
+----
+Date: 2025-06-07 20:48:29 -0400
+2025/06/07 Evening Update
+
+Fixed Opportunistic Piety & Turning.
+Fixed Midnight Augmentation.
+
+----
+Date: 2025-06-06 23:14:25 -0400
+Expanded Dragonheart Mage for epic progression
+
+Expanded Dragonheart Mage for epic progression.
+
+----
+Date: 2025-06-06 14:45:38 -0400
+Expanded Rage Mage for epic progression
+
+Expanded Rage Mage for epic progression.
+
+----
+Date: 2025-06-06 10:41:08 -0400
+Expanded Blighter for epic progression
+
+Expanded Blighter for epic progression.
+
+----
+Date: 2025-06-06 09:57:43 -0400
+Expanded Frost Mage for epic progression
+
+Expanded Frost Mage for epic progression.
+MoS summons should be affected by Augment Summon.
+
+----
+Date: 2025-06-06 07:57:57 -0400
+2025/06/06 Early Update
+
+Expanded Talon of Taimat for epic progression.
+Added PrC Expansion notes.
+
+----
+Date: 2025-06-05 23:35:34 -0400
+2025/06/05 Late Update
+
+Expanded Hand of the Winged Masters for epic progression.
+Expanded Crusader for epic progression.
+Expanded Swordsage for epic progression.
+Tweaked Warblade's epic bonus feat list.
+Updated iprp_casterlvl.2da to allow higher DC for Runecrafting.
+Updated Aligned Aura, Soldiers of Sanctity, Divine Protection, Tortiseshell & Mantle of Egregious Might to give correct AC type.
+
+----
+Date: 2025-06-05 12:13:00 -0400
+2025/06/05 Afternoon Update
+
+Expanded Brimstone Speaker for epic progression.
+Expanded Master Alchemist for epic progression.
+Fixed Stone Vise's TLK entry.
+Fixed Stone Vise's saving throw.
+Added PC creature weapon check to prc_unequip.
+Bugfixing Midnight Augmentation (WIP)
+
+----
+Date: 2025-06-04 20:31:42 -0400
+2025/6/04 Evening Update
+
+Expanded Skullclan Hunter for epic progression.
+Fixed a lot of bad cone targeting types in spells.2da.
+Dragon Disciples have to pick a Draconic Heritage at first level.
+
+----
+Date: 2025-06-04 09:36:25 -0400
+Expanded Suel Archanamach for epic progression
+
+Expanded Suel Archanamach for epic progression.
+
+----
+Date: 2025-06-04 08:00:11 -0400
+Expanded Disciple of Asmodeus for epic progression
+
+Expanded Disciple of Asmodeus for epic progression.
+
+----
+Date: 2025-06-03 23:13:56 -0400
+2025/06/03 Update
+
+Updated NUI spellcast menu (@Rakiov)
+Updated Tornado Throw.
+Updated Midnight Augmentation.
+Updated Lucky Dice's tlk entries.
+Fixed Heartwarder's marker feat.
+
+----
+Date: 2025-06-01 10:30:29 -0400
+Piercing Cold now inflicts untyped damage
+
+Piercing Cold now inflicts untyped damage.
+Cleaned up Midnight Augmentation.
+Dread Necromancer is an Arcane class.
+Expanded  Iron Mind for epic progression.
+Expanded  War Mind for epic progression.
+Fixed Gloura / Bard / Sublime Chord issues.
+Restored Nezumi race.
+Reverted Bard Armored spellcasting (change originally made due to incorrect SRD).
+Fixed Aura of Despair to only affect hostiles.
+Fixed damage cap on Disintegrate.
+Fixed bug where you could still wear armor under the effects of Luminous Armor.
+Fixed PsyWar bug with NUI Spellcast menu (@rakiov).
+
+----
+Date: 2025-06-01 00:31:46 -0400
+Updated Runecaster's epic progression.
+
+Updated Runecaster's tlk & bonus feats for epic progression.
+Tweaked Contemplative's epic feat list.
+
+----
+Date: 2025-05-31 22:52:03 -0400
+Update prc_duelist.nss
+
+Duelist script wasn't using a damage constant for damage amounts, was rolling over to dice roll constants.
+
+----
+Date: 2025-05-31 22:35:27 -0400
+Expanded  Contemplative for epic progression
+
+Expanded  Contemplative for epic progression.
+Tweaked Fist of Zouken's bonus feat list.
+
+----
+Date: 2025-05-31 22:05:18 -0400
+Expanded Fist of Zouken for epic progression.
+
+Expanded Fist of Zouken for epic progression.
+
+----
+Date: 2025-05-31 11:58:11 -0400
+2025/05/31 Morning Update
+
+Added all appropriate new weapons to Swashbuckler Insightful strike.
+FIxed RWoT missing marker feat.
+
+----
+Date: 2025-05-30 23:36:35 -0400
+Update PRC8_Tester.mod
+
+Updated Tester module for NUI script hooks.
+
+----
+Date: 2025-05-30 23:23:08 -0400
+20250530 Late Update
+
+Added @Rakiov's brilliant NUI spellcast system & power attack GUI.
+Fixed incorrect constants for Charming the Arrow and Investigator.
+Updated loadhints.2da.
+
+----
+Date: 2025-05-30 15:40:58 -0400
+Update cls_feat_sol.2da
+
+Tweaked Soldier of Light's feat list.
+
+----
+Date: 2025-05-30 13:26:12 -0400
+2025/05/30 Afternoon Update
+
+Fixed copy/paste bug with EWS & new weapons.
+Added documentation for DoCharge and DoGrapple.
+Bloodwar Gauntlets should provide keen now.
+Strength of Stone should provide Immunity from Critical Hits now.
+Shadowbane Stalker should be enterable now.
+
+----
+Date: 2025-05-29 23:09:33 -0400
+Expanded Thrallherd for epic progression
+
+Expanded Thrallherd for epic progression.
+Cleaned up effect link for Strength of Stone.
+
+----
+Date: 2025-05-29 22:21:01 -0400
+Update cls_feat_wilder.2da
+
+Removed Bane of Enemies from Wilder's epic bonus feats.
+
+----
+Date: 2025-05-29 20:40:24 -0400
+Updated Cerebremancer's epic progression.
+
+Updated Cerebremancer's tlk & bonus feats for epic progression.
+Tweaked Psychic Theurge' bonus feat progression.
+
+----
+Date: 2025-05-29 20:04:55 -0400
+Updated Psychic Theurge's epic progression.
+
+Updated Psychic Theurge's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-29 19:41:57 -0400
+Fixed Warblade's missing EWS.
+
+Fixed Warblade's missing Epic Weapon Specialization
+
+----
+Date: 2025-05-29 19:09:29 -0400
+Fixed Iaijutsu Master's pre-eic bonus feats
+
+Fixed Iaijutsu Master's pre-epic bonus feats.
+Celestial Blood spell should be extendable.
+
+----
+Date: 2025-05-29 18:09:03 -0400
+Expanded Shadowmind for epic progression.
+
+Expanded Shadowmind for epic progression.
+Fixed feat emulation for elven blades.
+
+----
+Date: 2025-05-29 10:17:07 -0400
+Fixed Morninglord's bonus feat progression
+
+Fixed Morninglord's bonus feat progression.
+Set ToB Recovery feats to unlimited uses per day.
+
+----
+Date: 2025-05-28 23:51:14 -0400
+Update prc_enforce_mark.nss
+
+Fixed Warpriest marker feat bug.
+
+----
+Date: 2025-05-28 22:12:20 -0400
+Expanded Pyrokineticist for epic progression
+
+Expanded Pyrokineticist for epic progression.
+
+----
+Date: 2025-05-28 21:12:51 -0400
+Expanded Enlightened Fist for epic progression.
+
+Expanded Enlightened Fist for epic progression.
+Updated Morninglord's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-28 19:58:28 -0400
+Expanded Drunken Master for epic progression.
+
+Expanded Drunken Master for epic progression.
+Tweaked Henshin Mystic's epic bonus feats.
+
+----
+Date: 2025-05-28 18:32:58 -0400
+Expanded Henshin Mystic for epic progression.
+
+Expanded Henshin Mystic for epic progression.
+
+----
+Date: 2025-05-28 08:49:57 -0400
+Update prc_inc_spells.nss
+
+Added once per target, per spell check to Thrall of Grazzt's Spell Betrayal & Spellstrike.
+
+----
+Date: 2025-05-28 07:17:03 -0400
+Update tob_jpm_spellcon.nss
+
+JPM's Arcane Wrath should allow RHD caster to use it now.
+
+----
+Date: 2025-05-27 22:29:19 -0400
+20025/05/27 Late Update
+
+Expanded Disciple of Mephistopheles for epic progression.
+Expanded Disciple of Soul Eater for epic progression.
+Crusader's Aura of Triumph has a range of Touch.
+Swordsage's Pearl of Black Doubt may actually increase AC now.
+Crusader's Steely Resolve should start back up after logging back into MP.
+Hopefully Desert Wind strikes will no longer burn the wielder when using Flame Weapon.
+Keen Senses should go away when leaving Hunter's Senses stance.
+Moment of Prescience should be calculating bonuses correctly.
+
+----
+Date: 2025-05-27 08:16:58 -0400
+2025/05/27 Early Update
+
+Fixed errant domains showing up as epic bonus feats in several class lists.
+Allow Lasher's Improved Trip to allow FEATOR entry Vae School.
+Updated filends.
+Add ProcessPreparedSpellLevel() by TiredByFirelight.
+Endure Exposure should allow multiple castings.
+Updated Bloodclaw Master's Scent ability.
+Avalanche of Blades should stop after the first miss now.
+
+----
+Date: 2025-05-25 16:16:36 -0400
+2025/05/25 Update
+
+Updated all ToB maneuvers with saves to respect Blade Meditation.
+Added HasBladeMeditationForDiscipline()
+Expanded Witchborn Binder for epic progression.
+Fixed a few bugs around Vile Martial strike.
+Echo Spell shouldn't target self or items.
+Muckdweller should have a -6 STR.
+Added new Vile Martial feats to GetVileFeats().
+Grappling something now removes invisibility.
+Started on Power Attack NUI.
+Starmantle shouldn't stack.
+Factotum & Shadow Thief of Amn require UMD checks for scroll casting.
+
+----
+Date: 2025-05-24 01:01:09 -0400
+20250524 Early Morning Update
+
+Expanded Shadow Sun Ninja for epic progression.
+Updated monk's epic bonus feats.
+Added glassteel to the materials system.
+Power Attack / NUI notes.
+
+----
+Date: 2025-05-23 14:19:45 -0400
+2025/05/23 Update
+
+Removed Ambidexterity from Bladesinger Bonus feats.
+Added loadhints.2da.
+Set Lasher debug messages to DEBUG.
+Enlarge & Reduce person applies a  Visual Transform to the target now.
+Added HP Power Attack chat script to user notes.
+
+----
+Date: 2025-05-22 21:06:53 -0400
+Expanded Ruby Knight Vindicator for epic progression.
+
+Expanded Ruby Knight Vindicator for epic progression.
+Added EvalPRCFeats() to prc_onrespawn to see if we could auto reapply class abilities to weapons (GTWF) after death.
+
+----
+Date: 2025-05-22 19:53:27 -0400
+Lashing Whip works better.
+
+Lashing Whip works better.
+Added documentation for RemoveSpecificProperty().
+Power Attack NUI work in progress.
+
+----
+Date: 2025-05-21 22:39:47 -0400
+Fixed missing Stonechild Magic Stone SLA
+
+Fixed missing Stonechild Magic Stone SLA
+
+----
+Date: 2025-05-21 22:30:02 -0400
+2025/05/21 Update
+
+Fix for Dragon Mantle (thanks Anufis).
+Updated Forest Master's tlk & bonus feats for epic progression.
+Expanded Jade Phoenix Mage for epic progression.
+Updated Dragon Shaman's Skill Focus bonus feats.
+
+----
+Date: 2025-05-20 23:46:42 -0400
+Updated Dread Necromancer's epic progression.
+
+Updated Dread Necromancer's  tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-20 22:58:14 -0400
+Updated Ghost-Faced Killer's epic progression.
+
+Updated Ghost-Faced Killer's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-20 22:30:58 -0400
+2025/05/20 Update
+
+Fixed Samurai CW's TWF blocker, again.
+Dragon Mantle should have regen.
+Got Gloura working with Bard at 1st lvl.
+Got the other RHD casters working with Sorcerer at 1st lvl.
+Sublime Chord advances bard (or other classes) *caster level* not spell slots.
+
+----
+Date: 2025-05-19 22:47:21 -0400
+2025/05/19 Update
+
+Updated baseclass feat 2das for Hobgoblin Warsoul.
+Added baseclass marker feats for Sublime Chord.
+Updated RHD caster races with informational spellcasting marker feat.
+Updated inc_utility for Fochlucan Lyrist's Bardic Knowledge.
+Added Spellblast debug text.
+Made more progress on prc_getbest_inc
+MultisummonPresummon fix by TiredByFirelight
+
+----
+Date: 2025-05-18 21:57:02 -0400
+Expanded Eldritch Disciple for epic progression.
+
+Expanded Eldritch Disciple for epic progression.
+Tweaked Wild Mage bonus feat list.
+Started updating prc_getbest_inc
+
+----
+Date: 2025-05-17 23:32:54 -0400
+Updated Thrall of Grazzt' epic progression.
+
+Updated Thrall of Grazzt' tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-17 23:16:49 -0400
+Expanded Foe Hunter for epic progression
+
+Expanded Foe Hunter for epic progression.
+
+----
+Date: 2025-05-17 22:47:41 -0400
+Updated Tempest's epic progression.
+
+Updated Tempest's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-17 22:31:00 -0400
+Expanded Arcane Master Harper for epic progression.
+
+Updated Frenzied Berserker's tlk & bonus feats for epic progression.
+Expanded Arcane Master Harper for epic progression.
+
+----
+Date: 2025-05-17 21:59:48 -0400
+Updated Master of Shroud's epic progression.
+
+Updated Master of Shroud's tlk & bonus feats for epic progression.
+Tweaked Hospitaler's bonus feat list.
+
+----
+Date: 2025-05-17 21:16:03 -0400
+Updated Hospitaler's epic progression.
+
+Updated Hospitaler's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-17 20:37:06 -0400
+Update feat.2da
+
+Expanded Soulmeld Capacity had a level restriction that it shouldn't have had.
+
+----
+Date: 2025-05-17 19:30:04 -0400
+2025/05/17 Update
+
+Moved Oozemaster over to DoFortification()
+Tweaked Master of Shrouds bonus feat list.
+Remain Conscious is not a General feat.
+Fixed Alienist's Phobia ability.
+
+----
+Date: 2025-05-16 16:40:51 -0400
+2025/05/16 Update
+
+Expanded Warblade for epic progression.
+Warblade's Aptitude Focus now works with all new weapons.
+Expanded Knight of the Middle Circle for epic progression.
+Added Swarm of Arrows to fighter bonus feat list.
+Added Vile Martial Strike feats for all new weapons.
+Added Sanctified Martial Strike feats for all new weapons.
+Added missing iprp feats for Eagle Claw & Trident.
+Bestow Power shouldn't work on the caster.
+Spell Betrayal should only affect a target once per spell casting.
+Sap is a Martial weapon.
+Arcane Duelist's False Keenness now works with all new weapons.
+Disciple of Dispater's Rusting Grasp now works on the appropriate new weapons.
+Animate Object now works with all the new weapon types.
+
+----
+Date: 2025-05-15 20:28:32 -0400
+2025/05/15 Update
+
+Fist of Raziel now gains Sanctified Martial Strike via dialog.
+Tweaked Fist of Raziel's bonus feat progression.
+Tweaked Fist of Raziel's bonus feat list.
+Updated FeatToIprop() for Sanctified Martial Strike.
+Added GetSanctifedMartialFeat()
+Added IsMeleeWeapon()
+Updated GetOverwhelmingCriticalFeatOfWeaponType(), GetDevastatingCriticalFeatOfWeaponType() & GetWeaponOfChoiceFeatOfWeaponType() for Elven blades.
+Made sure race_sla.nss was clearing variables.
+
+----
+Date: 2025-05-14 22:49:24 -0400
+2025/05/14 Update part #2
+
+Expanded Thrall of Orcus for epic progression.
+Expanded Black Flame Zealot for epic progression.
+
+----
+Date: 2025-05-14 18:41:46 -0400
+2025/05/14 Update
+
+Expanded Peerless Archer for epic progression.
+Tweaked Acolyte of the Ego bonus feat progression.
+Tweaked onLevelUp prereq script.
+Brownies are Tiny creatures.
+
+----
+Date: 2025-05-14 07:55:59 -0400
+Expanded Acolyte of the Ego for epic progression
+
+Expanded Acolyte of the Ego for epic progression.
+Added CheckInvokerAbilityFocus() to prc_enforce_feat.nss.
+
+----
+Date: 2025-05-13 23:36:44 -0400
+Finished Invocations for Ability focus
+
+Finished the rest of the Invocations for Ability focus.
+
+----
+Date: 2025-05-13 23:05:31 -0400
+2025/05/13 Update
+
+Updated TF Shadowlord's prereq 2da.
+Fixed CW Samurai's TWF levelup issue.
+Added CW Samurai's skill 2DA back in.
+Cleaned up ECL 2DA.
+Fixed prereq bug with Imp Crit Eagle Claw.
+Added Ability Focus feats for all Shapes, Essences & Invocations with DCs.
+Fixed bug with 6th slot of crafting spells prereqs.
+Added Reth Dekala HD to Initiator total.
+Removed Dark Sun race files.
+Updated all racial outsiders, monstrous humanoids, aberrations, giants, humanoids and fey to have the correct weapon & armor profs.
+
+----
+Date: 2025-05-11 23:03:04 -0400
+2025/05/11 Update
+
+Added confirmation to Cohort creation conversation.
+Fixed Hound Archon's Aura of Menace.
+Added Swarm of Arrows epic feat.
+Fixed HiPS on Brownie & Naz Rakshasa.
+Fixed 2DA Name error for Epic Weapon Focus: Maul.
+Clarified human only feats in TLK.
+Added new web enhancement Adventure Locale.
+
+----
+Date: 2025-05-11 01:20:36 -0400
+Expanded Justice of Weald & Woe for epic progression
+
+Expanded Justice of Weald & Woe for epic progression.
+Updated DoFortification()
+Moved Dread Necro over to use DoFortification().
+
+----
+Date: 2025-05-10 22:29:31 -0400
+Fixed unproficient TWF bug.
+
+Fixed unproficient TWF bug.
+Tried giving Bloodclaw Rending an on/off switch.
+
+----
+Date: 2025-05-10 15:32:33 -0400
+2025/05/10 Update
+
+Fixed Haunting Melody.
+Fixed Attune Gem.
+
+----
+Date: 2025-05-09 23:57:03 -0400
+Expanded Inc.Champion for epic progression.
+
+Expanded Incandescent Champion for epic progression.
+Tweaked Red Wizard bonus feat list.
+
+----
+Date: 2025-05-09 22:57:09 -0400
+Updated Diabolist's epic progression.
+
+Updated Diabolist's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-09 22:39:05 -0400
+Updated Blood Magus' epic progression.
+
+Updated Blood Magus' tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-09 22:24:13 -0400
+Updated True Necromancer's epic progression.
+
+Updated True Necromancer's bonus feats for epic progression.
+
+----
+Date: 2025-05-09 21:22:06 -0400
+Updated Red Wizard's epic progression.
+
+Updated Red Wizard's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-09 17:54:20 -0400
+2025/05/10 Update
+
+Fixed Vile Death
+Added ApplyFiendishTemplate()
+Fixed Risen Reunited.
+
+----
+Date: 2025-05-08 23:30:03 -0400
+New WF_IpropToFeat for NWNxEE related functions
+
+New WF_IpropToFeat for NWNxEE related functions.
+Updated Dragonfire Adept's tlk & bonus feats for epic progression.
+Removed Bane of Enemies from Soulknife bonus feats.
+
+----
+Date: 2025-05-07 22:39:56 -0400
+Army Unfallen should affect the caster.
+
+Army Unfallen should affect the caster.
+Removed old backup files.
+
+----
+Date: 2025-05-07 21:41:42 -0400
+Tweaked TLK
+
+Tweaked TLK
+
+----
+Date: 2025-05-07 20:55:29 -0400
+Updated Dragon Shaman's epic progression
+
+Updated Dragon Shaman's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-07 20:24:50 -0400
+Expanded Shadowblade for epic progression
+
+Expanded Shadowblade for epic progression.
+
+----
+Date: 2025-05-07 20:03:18 -0400
+Expanded Noctumancer for epic progression
+
+Expanded Noctumancer for epic progression.
+
+----
+Date: 2025-05-07 19:05:07 -0400
+Expanded Master of Shadow for epic progression
+
+Expanded Master of Shadow for epic progression.
+
+----
+Date: 2025-05-07 18:21:41 -0400
+Expanded Child of Night for epic progression
+
+Expanded Child of Night for epic progression.
+Tweaked Arcane Duelist's epic progression.
+Set MetaUtterance feats to unlimited uses per day.
+
+----
+Date: 2025-05-06 23:13:11 -0400
+Expanded Talontar Blightlord for epic progression
+
+Expanded Talontar Blightlord for epic progression.
+
+----
+Date: 2025-05-06 22:26:58 -0400
+Expanded Runecarved Berzerker for epic progression
+
+Expanded Runecarved Berzerker for epic progression.
+Added Ride to Swordsage's class skills.
+
+----
+Date: 2025-05-06 20:10:55 -0400
+Updated Ravager's epic progression.
+
+Updated Ravager's tlk & bonus feats for epic progression.
+Added Ride to Crusader class skills.
+
+----
+Date: 2025-05-06 18:30:47 -0400
+Expanded Disciple of Dispater for epic progression
+
+Expanded Disciple of Dispater for epic progression, for real this time.
+
+----
+Date: 2025-05-06 18:05:32 -0400
+Expanded Disciple of Dispater for epic progression
+
+Expanded Disciple of Dispater for epic progression.
+
+----
+Date: 2025-05-06 17:03:23 -0400
+Updated Iaijutsu Master's epic progression.
+
+Updated Iaijutsu Master's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-06 16:28:23 -0400
+Expanded MCoK for epic progression
+
+Expanded Mighty Contender of Kord for epic progression.
+Tweaked Sacred Fist's bonus feat list.
+
+----
+Date: 2025-05-06 15:51:43 -0400
+2025/05/06 Update
+
+Aura of Triumph is a Touch spell.
+Torch & Shuriken are monk weapons.
+Expansion, Compression, etc should affect unarmed damage.
+Swordsage gets no AC bonus in robes. (Stupid but RAW).
+Treewalk now uses the point & click dimension door.
+
+----
+Date: 2025-05-05 19:52:23 -0400
+Updated various functions for Trident
+
+Updated various functions for Trident
+Katar is a simple weapon.
+
+----
+Date: 2025-05-05 18:01:48 -0400
+Setup masterfeat for psionic disciplines
+
+Setup masterfeat for psionic disciplines.
+
+----
+Date: 2025-05-04 20:26:57 -0400
+Expanded Disciple of Baalzebul for epic progression
+
+Expanded Disciple of Baalzebul for epic progression.
+
+----
+Date: 2025-05-04 19:13:44 -0400
+Updated Legendary Dreadnought's epic progression
+
+Updated Legendary Dreadnought's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-04 17:59:24 -0400
+Updated Sacred Fist's epic progression.
+
+Updated Sacred Fist's tlk, class abilities & bonus feats for epic progression.
+
+----
+Date: 2025-05-04 16:14:30 -0400
+Expanded Soulcaster for epic progression
+
+Expanded Soulcaster for epic progression.
+Tweaked Fist of Raziel's bonus feats.
+
+----
+Date: 2025-05-04 14:22:26 -0400
+Updated Bladesinger for epic progression.
+
+Updated Bladesinger's tlk, class abilities & bonus feats for epic progression.
+
+----
+Date: 2025-05-04 12:40:26 -0400
+Expanded Totem Rager for epic progression
+
+Expanded Totem Rager for epic progression.
+Sublime Chord now effects Curse Song.
+
+----
+Date: 2025-05-04 10:05:54 -0400
+Added Divine Intercession ot base class feat lists
+
+Added missing Divine Intercession to base class feat lists.
+
+----
+Date: 2025-05-04 09:35:48 -0400
+Fixed Disease DC for Blightspawned
+
+Fixed Disease DC for Blightspawned
+Expanded IP_CONST_ONHIT_SAVEDC out to 70
+Updated IPOnHitSaveDC() & IPDamageConstant() to handle expanded 2DAs
+
+----
+Date: 2025-05-04 00:29:17 -0400
+Expanded Battleguard for epic progression
+
+Expanded Battleguard of Tempus for epic progression.
+
+----
+Date: 2025-05-03 22:34:01 -0400
+Epic IoDM Update
+
+Updated Initiate of Draconic Mysteries' tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-03 22:04:30 -0400
+Expanded Bonded Summoner for epic progression
+
+Expanded Bonded Summoner for epic progression.
+Allow Swordsages to use Chain Shirts.
+
+----
+Date: 2025-05-03 17:52:52 -0400
+Fixed issue with Bards getting spells
+
+Fixed issue with Bards getting spells from Prestige Classes.
+Fixed Fochlucan Lyrist short name.
+Updated PRC8 Tester module to have non-destroyable placeables.
+
+----
+Date: 2025-05-03 12:54:27 -0400
+2025/05/03 Bugfixes
+
+Added Exotic weapon profs to fighter bonus feats.
+Fixed possession bug in inc_persist_loc.nss.
+Added Fochlucan Lyrist to divine classes in prc_inc_castlvl.nss
+Cleaned up Owl's Insight.
+
+----
+Date: 2025-05-02 20:11:37 -0400
+Update prc8_consortium.tlk
+
+----
+Date: 2025-05-02 19:43:20 -0400
+Updated Sapphire Hierarch
+
+Updated Sapphire Hierarch's tlk, class abilities & bonus feats for epic progression.
+
+----
+Date: 2025-05-02 18:53:25 -0400
+"Fixed" Song of Arcane Power
+
+"Fixed" Song of Arcane Power.  2DA was missing the impact script.  Also made Song of Arcane Power respect the Deaf effect.
+
+----
+Date: 2025-05-02 14:38:26 -0400
+2025/05/02 Update
+
+Updated Foresight to use EffectBonusFeat.
+Updated PRCRemoveProtections to not dispel extraordinary & supernatural effects.
+Expanded DAMAGE_BONUS cap to 50.
+Expanded various functions to use new DAMAGE_BONUS cap.
+
+----
+Date: 2025-05-02 08:39:43 -0400
+More Epic PrC updates
+
+Updated Soldier of Light's tlk & bonus feats for epic progression.
+Updated Shadow Adept's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-05-01 19:49:23 -0400
+Expanded Warchief for epic progression.
+
+Expanded Warchief for epic progression.
+
+----
+Date: 2025-05-01 18:57:20 -0400
+Expanded Nightshade for epic progression
+
+Expanded Nightshade for epic progression.
+
+----
+Date: 2025-05-01 16:56:53 -0400
+Expanded Spinemeld Warrior for epic progression
+
+Expanded Spinemeld Warrior for epic progression.
+
+----
+Date: 2025-04-30 12:19:22 -0400
+Expanded Fochlucan Lyrist for epic progression
+
+Expanded Fochlucan Lyrist for epic progression.
+
+----
+Date: 2025-04-30 07:48:31 -0400
+Expanded Blac Blood Cultist for epic progression
+
+Expanded Blac Blood Cultist for epic progression.
+
+----
+Date: 2025-04-28 23:16:53 -0400
+2025/04/08 Update
+
+Tweaked Abjurant Champion bonus feat list.
+Tweaked Acolyte of the Sin bonus feat list.
+Tweaked Elemental Savant bonus feat list.
+Set up spellcasting marer feats under a Masterfeat.
+Fixed Warmind & Sanctified mind prereqs, for real this time.
+
+----
+Date: 2025-04-28 21:22:43 -0400
+Expanded Alienist for epic progression
+
+Expanded Alienist for epic progression.
+Tweaed beholder ray to respect petrification immunity.
+
+----
+Date: 2025-04-28 15:27:53 -0400
+Expanded Umbral Disciple for epic progression
+
+Expanded Umbral Disciple for epic progression.
+Maybe fixed Eternal Blade not getting a maneuver @ 5th.
+
+----
+Date: 2025-04-28 09:55:12 -0400
+Expanded Shadowbane classes for epic progression
+
+Expanded Shadowbane Inquisitor for epic progression.
+Updated Shadowbane Inquisitor's Smite uses per day for epic progression.
+Expanded Shadowbane Stalker for epic progression.
+Updated Shadowbane Stalker's Discover Subterfuge for epic progression.
+Fixed Shadowbane Stalker's spellcasting marker feats.
+
+----
+Date: 2025-04-27 21:24:49 -0400
+Expanded Drow Judicator for epic progression
+
+Expanded Drow Judicator for epic progression.
+Updated Drow Judicator's Selvetarm's Wrath uses per day for epic progression.
+
+----
+Date: 2025-04-27 20:20:18 -0400
+Expanded Knight of the Weave for epic progression
+
+Expanded Knight of the Weave for epic progression.
+
+----
+Date: 2025-04-27 15:33:00 -0400
+Expanded Oozemaster for epic progression
+
+Expanded Oozemaster for epic progression.
+Updated Oozemaster'a Oozy Glob uses per day for epic progression.
+
+----
+Date: 2025-04-27 13:58:40 -0400
+Expanded Shadowsmith for epic progression
+
+Expanded Shadowsmith for epic progression.
+Updated Shadowsmith's Shadow Armor for epic progression.
+
+----
+Date: 2025-04-27 12:56:24 -0400
+Expanded Wild Mage for epic progression
+
+Expanded Wild Mage for epic progression.
+Updated Wild Mage's Random Deflector for epic progression.
+
+----
+Date: 2025-04-27 11:48:20 -0400
+Expanded Arcane Duelist for epic progression
+
+Expanded Arcane Duelist for epic progression.
+
+----
+Date: 2025-04-27 00:42:03 -0400
+Expanded Sublime Chord for epic progression.
+
+Expanded Sublime Chord for epic progression.
+
+----
+Date: 2025-04-26 22:20:27 -0400
+Champion of Corellon epic update
+
+Expanded Champion of Corellon for epic progression.
+
+----
+Date: 2025-04-26 21:28:42 -0400
+Expanded Vassal of Bahamut for epic progression
+
+Expanded Vassal of Bahamut for epic progression.
+
+----
+Date: 2025-04-26 19:19:05 -0400
+Updated Fist of Raziel
+
+Updated Fist of Raziel's tlk & bonus feats for epic progression.
+
+----
+Date: 2025-04-26 17:39:43 -0400
+Heartwarder & Stormlord update.
+
+Updated Heartwarder's tlk & bonus feats for epic progression.
+Updated Stormlord's tlk & bonus feats for epic progression.
+Added Epic Divine Shield to Cleric's bonus feat list.
+
+----
+Date: 2025-04-26 12:13:43 -0400
+Expanded Ironsoul Forgemaster for epic progression
+
+Expanded Ironsoul Forgemaster for epic progression.
+
+----
+Date: 2025-04-26 01:23:35 -0400
+Added missing resistances to demilich template
+
+Added missing resistances to demilich template.
+
+----
+Date: 2025-04-26 01:02:29 -0400
+Hathran Update
+
+Expanded Hathran for epic progression.
+Expanded Hathran Fear SLA for epic progression.
+Fixed Hathran's clerical domain requirements.
+
+----
+Date: 2025-04-25 12:54:22 -0400
+2025/04/25 Update
+
+Undead Templates now set the PC's subrace to undead.
+Fixed PP prereqs for War Mind & Sanctified Mind.
+Added new Epic Skill Focus feats to Rogue's bonus feat list.
+Updated Unseen Seer's tlk & bonus feats for epic progression.
+Updated Forsaker's tlk & bonus feats for epic progression.
+Updated Acolyte of the Skin's tlk & bonus feats for epic progression.
+Updated Spellsword's tlk & bonus feats for epic progression.
+Expanded Celebrant of Sharess for epic progression.
+Expanded Knight of the Chalice for epic progression.
+Expanded Knight of the Chalice's Fiendslaying for epic progression.
+
+----
+Date: 2025-04-22 20:28:23 -0400
+Fixed Dread crafting enchantment
+
+Fixed Dread crafting enchantment.
+
+----
+Date: 2025-04-21 23:46:05 -0400
+Updated Swashbuckler & Duelist for new weapons.
+
+Updated Swashbuckler & Duelist for new weapons.
+
+----
+Date: 2025-04-21 18:49:12 -0400
+Updated Spellsword for epic progression
+
+Updated Spellsword for epic bonus feat list.  Corrected spellsword epic bonus feat progression
+
+----
+Date: 2025-04-19 17:12:34 -0400
+Added icons for Sacred Vengeance & Sacred Vitality
+
+Added icons for Sacred Vengeance & Sacred Vitality
+
+----
+Date: 2025-04-19 15:27:11 -0400
+2025/04/19 Update
+
+Updated global ability bonus limit to match 2da.  Fixed Toughening Transmutation.  Updated Dazzling Illusion.  Updated feat constants for PrC epic expansion.  Added epic marker feats & icons.  Updated Virtuoso, Ur-Priest, Spellfire Channeler, Serene Guardian, Forsaker, Acolyte of the Skin & Anima Mage with epic progression.
+
+----
+Date: 2025-04-15 18:28:16 -0400
+Update .gitignore
+
+----
+Date: 2025-04-15 18:10:14 -0400
+2025-04-15 Update
+
+Added Elven blades to Weaponmaster prereqs
+Fixed Beckon the Frozen
+Fixed bug with Fire Brand
+Fixed duration bug with Improved Invisibility
+Added Soul Eater to Shifter prereqs
+Fixed ability based class prereqs in prc_prereq.nss
+Update Eye of Gruumsh for epic levels
+Update Ur-Priest for epic levels
+Update Forsaker for epic levels
+Update Anima Mage for epic levels
+Update Serene Guardian for epic levels
+Bladesinger abilities can use chain shirts
+Fixed Elemental Abjuration
+Fixed bug with prc cache creature.
+Forsakers can use non-magic items (heal kits, alchemy, etc)
+Updated ruleset.2da for NWNEE update
+Updated AotS bonus feats
+
+-Notes
+Added 3.5e Template index
+Added 3.5e update booklet
+
+Removed release archive
+
+----
+Date: 2025-02-25 12:07:53 -0500
+Fixed Tenebrous Apostate not getting marker feat selection @ 1st level
+
+Fixed Tenebrous Apostate not getting marker feat selection @ 1st level.  Fixed Hobgoblin Warsoul RHD issue.  Updated release archive.
+
+----
+Date: 2025-02-24 17:01:31 -0500
+Fixed issue with Force Missile Mage that made it unavailable
+
+Fixed issue with Force Missile Mage that made it unavailable.  Fixed Grey Elf issue taking Arcane Archer.  HiPS shouldn't be a useable feat.  Knight of the Weave should be able to take Dragon Disciple.
+Added bat polymorph type for future crap & builders.  JoWaW is a 3/4 AB class.  Updated release archive.
+
+----
+Date: 2025-02-09 16:50:23 -0500
+Fixed old henchman bug in HotU
+
+Fixed old henchman bug in HotU.  Updated tester module.  Updated Campaign files.  Updated release files.
+
+----
+Date: 2025-02-07 19:11:46 -0500
+Disabled Hidden Talent until it's actually finished
+
+Disabled Hidden Talent until it's actually finished.  Fixed a few typos & some formatting.
+
+----
+Date: 2025-02-06 11:07:04 -0500
+Added the Investigator feat
+
+Added the Investigator feat.
+
+----
+Date: 2025-02-05 13:14:36 -0500
+Updated class feats 2DAs to support very high level play
+
+Updated class feats 2DAs to support very high level play.  Updated release archive.
+
+----
+Date: 2025-02-05 12:16:04 -0500
+Fixed ruleset.2da
+
+Fixed ruleset.2da.  Updated release archive.
+
+----
+Date: 2025-01-29 22:46:38 -0500
+Exalted update
+
+Updated Vow of Poverty. Added Sanctify Ki Strike, Holy Strike, Fist of Heavens, Vow of Abstinence, Vow of Chastity & Gift of Faith.  (@fenac).  Turned off the Taunt & Parry skills.  Re-disabled AC & save bonuses from Tumble & Spellcraft.   Updated min() & max() to PRCmin() & PRCmax() to not conflict with similarly named NUI adjacent functions.  Set Point Blank Shot to 30' per PnP.  Added icon for Chosen of Evil.  Started work on Hidden Talent.  Created Psionics function cheatsheet.  Updated release archive.
+
+----
+Date: 2025-01-29 07:33:10 -0500
+Merge pull request 'Fixed Practiced Spellcaster for Cultist of the Shattered Peaks' (#101) from Breadsecutioner/PRC8_fork:prac-spell-cult-fix into main
+
+Reviewed-on: https://gitea.raptio.us/Jaysyn/PRC8/pulls/101
+
+----
+Date: 2025-01-28 15:27:36 -0600
+Fixed Practiced Spellcaster for Cultist of the Shattered Peaks
+
+----
+Date: 2025-01-21 11:24:00 -0500
+Updated NWN campaign modules
+
+Updated NWN campaign modules
+
+----
+Date: 2025-01-21 07:40:49 -0500
+Marrusalts are large creatures
+
+Marrusalts are large creatures.  Updated Vow of Poverty to function more like Pen & Paper.  (@fencas) Updated release archive.
+
+----
+Date: 2025-01-18 13:11:20 -0500
+Updated War Mind & Sanctified Mind prereq variables
+
+Updated War Mind & Sanctified Mind prereq variables.  Added PRC_Allow constants for RHD classes.
+
+----
+Date: 2025-01-17 13:58:32 -0500
+Added the Charming the Arrow feat
+
+Added the Charming the Arrow feat.  Updated Release archive.
+
+----
+Date: 2025-01-17 11:28:55 -0500
+Added Martial Stalker feat
+
+Added Martial Stalker feat.  Fixed Ninja not getting level based AC.  Updated Release archive.
+
+----
+Date: 2025-01-16 21:33:10 -0500
+Diehard had incorrect prereqs
+
+Diehard had incorrect prereqs.  Non-Dex TWF ranger was being blocked from taking ITWF.
+
+----
+Date: 2025-01-10 10:39:53 -0500
+Touch of Healing shouldn't be a Hostile action
+
+Touch of Healing shouldn't be a Hostile action
+
+----
+Date: 2025-01-08 08:50:11 -0500
+Psywar had proficiencies that it shouldn't have had
+
+Psywar had proficiencies that it shouldn't have had.  Updated release archive.
+
+----
+Date: 2025-01-07 17:38:41 -0500
+Forsaker / Barbarian Rage tweak
+
+Forsaker / Barbarian Rage tweak.  Removed duplicate class feats from Abjurant Champion, Eldritch Knight & Rage Mage.  Fixed Maul icon typo in feat.2da.  Fixed extra space typo in prc_material.2da.  Fixed typos in TLK.  Updated release archive.
+
+----
+Date: 2025-01-04 23:33:07 -0500
+Forsaker / Saint / Vow of Poverty interaction fixes
+
+Forsaker / Saint / Vow of Poverty interaction fixes.  Renamed Pyro Conflagration constant.  Removed depreciated PRC4 archive.  Updated release archive.
+
+----
+Date: 2025-01-03 19:58:23 -0500
+Fixed Despana school feat
+
+Fixed Despana school feat.  Gave Dragonblood feat to appropriate races so they can qualify for feats.  Dread Necromancer can advance past 30th lvl  Updated release archive.
+
+----
+Date: 2025-01-03 16:15:31 -0500
+Fixed Inlindl School TLK error
+
+Fixed Inlindl School TLK error.  Updated release archive.
+
+----
+Date: 2025-01-03 14:35:06 -0500
+Added missing 2da content for Inlindl School
+
+Added missing 2da content for Inlindl School.  Updated release archive.
+
+----
+Date: 2024-12-31 17:07:09 -0500
+Vow of Poverty long filename fix
+
+Vow of Poverty long filename fix.  Fixed some Saint abilities only working after equipping gear.  Updated release archive.
+
+----
+Date: 2024-12-28 22:43:13 -0500
+Fixed Sigmata radials
+
+Fixed Sigmata radials.  Added spiritual weapon sanity checks.  Forsaker & Vow of Poverty fixes by @Fencas.  Updated Saint template.  Fixed minor TLK updates.  Updated release archive.
+
+----
+Date: 2024-12-27 22:25:07 -0500
+Update inc_spirit_weapn.nss
+
+Added sanity checks to inc_spirit_weapn.
+
+----
+Date: 2024-12-27 09:33:31 -0500
+Update PRC8_20241226.7z
+
+I forgot to update the TLK in the release archive.
+
+----
+Date: 2024-12-27 00:05:42 -0500
+PRC maxlevel should be 30, not 40.
+
+PrC maxlevel should be 30, not 40.
+
+----
+Date: 2024-12-26 17:37:36 -0500
+Added Vow of Poverty
+
+Added Vow of Poverty, Jaebrin, Hobgoblin Warsoul & Forsaker fixes (thanks PRC5 & @Fencas).  Added iprp_matcost.2da for new materials.  Updated PRC8 Tester module.  Cohorts updated to support 8 classes. Fixed ranged disarm w/ Fighter. Updated release archive.
+
+----
+Date: 2024-12-21 21:52:44 -0500
+No more disarming yourself.
+
+No more disarming yourself.  Fixed Reckless Rage typo.  Updated release archive.
+
+----
+Date: 2024-12-21 01:44:24 -0500
+Revamped Bullybasher's Gauntlets
+
+Revamped Bullybasher's Gauntlets to be closer to pen and paper: Enhancement instead of AC bonus, Giant Bearing is now an at-will activatable ability, Stone Gathering doesn't work unless Giant Bearing is active.  Stone Gathering is usable more than once a day.  Fixed Ghoul Touch to register w/ placeables.  Updated release archive.
+
+----
+Date: 2024-12-13 11:33:43 -0500
+Changed UserType for ToB Maneuvers
+
+Changed UserType for ToB Maneuvers.  Removed free Imp Combat Casting from ToB base classes.  Fixed typo in Arcane Trickster skill list. Fixed bad value in damagehitvisual.2da.  Fixed typos in ecl.2da. Fixed targeting bug with Profane Lifeleech. Started working on updated materials system.  Fixed overlong filenames in materialcomp.2da and prc_spells.2da.  Fixed typo in prc_effect_inc.nss.  Added Daylight Adaptation as iprp_feat.  Fixed issue where Karsite's couldn't use spell cast from magical items.  Added missing Reth Dekala entangling blade.  Added Light Fortification for Warforged.  Added Fortification for Reth Dekala.  Added moderate fortification for Warforged Charger.  Removed Imp. Fortification from races that shouldn't have it.  Fixed missing Monstrous marker feat on Yuan-Ti Pureblood.  Updated TLK.  Updated release archive.
+
+----
+Date: 2024-11-16 20:02:48 -0500
+Updated PRC8 Tester module
+
+Updated PRC8 Tester module.  Tweaked Beholder Ray for Petrification Immunity.  Updated Saint for Petrification Immunity.  Fixed Master Alchemist not getting marker feat.  Started working on Materials system.  Updated release archive.
+
+----
+Date: 2024-11-09 01:09:23 -0500
+Update prc_reservinvndl.nss
+
+Invisible Needle should get sneak attack damage.
+
+----
+Date: 2024-11-08 19:02:23 -0500
+Really fixed Evard's on wands this time
+
+Really fixed Evard's on wands this time.  Fixed Acidic Spatter in regards to Acid Fog being spell #0.
+
+----
+Date: 2024-11-07 21:41:03 -0500
+Fixed Asherati's Body Lamp Dazzle
+
+Fixed Asherati's Body Lamp Dazzle.  Made Evard's Black Tentacles wand craftable.  Updated tester module to make default area a PvP zone.  Updated Release Archive.
+
+----
+Date: 2024-11-06 22:50:15 -0500
+Fixed Dragonsong Lyrist marker feat issue
+
+Fixed Dragonsong Lyrist marker feat issue.  Updated release archive.
+
+----
+Date: 2024-11-05 07:58:51 -0500
+Fixed Storm Bolt's targeting silhouette (again)
+
+Fixed Storm Bolt's targeting silhouette (again).  Fixed ranges on Fiery Blast, Storm Bolt & Winter's Breath.  Fixed Asherati's Body Lamp & Dazzle.
+
+----
+Date: 2024-11-03 13:22:41 -0500
+Fixed Warpriest marker feat issue
+
+Fixed Warpriest marker feat issue.  Added Monstrous Humanoid spell list.  Fixed Storm Bolt targeting silhouette.  Extra Readied Maneuver & Extra Granted Maneuver should be General Feats.  TLK cleanup.  Updated release archive.
+
+----
+Date: 2024-10-25 09:36:43 -0400
+Update prc8_consortium.tlk.xml
+
+More TLK cleanup.
+
+----
+Date: 2024-10-25 08:16:13 -0400
+Fixed Eldritch Theurge bug with Bard & Sorcerer
+
+Fixed Eldritch Theurge bug with Bard & Sorcerer.  (Thanks @啃饼兔!)
+
+Updated release archive.
+
+----
+Date: 2024-10-22 10:09:54 -0400
+Fixed Thrall of Grazzt not getting a marker feat
+
+Fixed Thrall of Grazzt not getting a marker feat.  Fixed TLK error with Elemental Savant marker feat.  Added grey elf to Racial IP list for Elves.  Updated release archive.
+
+All @Barmlot: Added Empty Vessel race.  Fixed Necropolitian name/tlk.  Fixed Incarnum Blade meldshaping.  Fixed Hybsil's Pass Without Trace.  Fixed Kalashtar's Skill Affinity: Persuade.  Fixed missing Marrutact Howl.  Added Immunity to Sleep to Mongrelfolk & removed Charm Animal.  (thanks @barmlot!)
+
+----
+Date: 2024-10-17 14:59:05 -0400
+Fixed Incandescent Champion not getting Essentia
+
+Fixed Incandescent Champion not getting Essentia & Thrallherd getting the wrong bonus powers. (thanks @barmlot)
+
+----
+Date: 2024-10-17 13:32:35 -0400
+TLK Cleanup
+
+TLK Cleanup (thanks @barmlot).  Added grapple check to catch dead grappler.  Made plot items immune to PnP Disarm.  Fixed minor script typos.  Fixed missing Totemist soulmeld (thanks @barmlot). Fixed Grasping Shadows tlk pointer (thanks @barmlot).  Added Duskblade notes.
+
+----
+Date: 2024-10-14 11:11:54 -0400
+Fixed Spot spellcaster issues with Bioware spellbooks.
+
+Fixed PRC spontaneous spellcaster issues with Bioware spellbooks (thanks @rafhot).  Updated release archive.
+
+----
+Date: 2024-10-13 14:13:25 -0400
+Fixed Shaman Bonus Domain issue
+
+Fixed bug where a Shaman could still take bonus domains early, which would break the PC when they hit 11th level.  Updated Abjurant Champion description.  Updated weapon size checks for maul & falchion (thanks @barmlot).  Updated release archive.
+
+----
+Date: 2024-10-11 11:37:32 -0400
+Update Master of Shrouds to support any divine class that meets reqs
+
+Update Master of Shrouds to support any divine class that meets reqs.  Fixed Saint template to allow Warforged & Oozes.  Updated release archive.
+
+----
+Date: 2024-10-07 16:00:14 -0400
+Updated Release Archive
+
+Updated Release Archive
+
+----
+Date: 2024-10-06 17:07:51 -0400
+Gave Dragon RHD a skill 2DA
+
+Gave Dragon RHD a skill 2DA that better reflects PnP dragon skills.
+
+----
+Date: 2024-10-06 00:21:54 -0400
+Baleful Utterance affects detected traps
+
+Baleful Utterance affects detected traps.  Tempest offhand attack fix.  Minified feat.2da.  Started reviewing @Tenjac's incomplete spell scripts.  Updated release archive.
+
+----
+Date: 2024-09-26 11:18:42 -0400
+Update feat.2da
+
+Keen Senses description was pointing at the wrong TLK entry.
+
+----
+Date: 2024-09-25 14:04:14 -0400
+Fixed issue that was preventing certain character builds from replenishing epic spell slots.
+
+Fixed issue that was preventing certain character builds from replenishing epic spell slots.  Updated release archive.
+
+----
+Date: 2024-09-25 09:16:43 -0400
+Reverted recent change in prc_enforce_feat
+
+Reverted recent change in prc_enforce_feat.  Updated release archive.
+
+----
+Date: 2024-09-25 08:46:28 -0400
+Updated release archive
+
+Updated release archive
+
+----
+Date: 2024-09-24 22:28:04 -0400
+Shaman wasn't getting domain bonus feats
+
+Shaman wasn't getting domain bonus feats.  Fixed epic && bug in feat enforcement script.
+
+----
+Date: 2024-09-21 09:47:07 -0400
+Dodge update
+
+Added Grey Elf as possible RACE prereq for Arcane Archer, Baelnorn, Bladesinger, Champion of Corellon, Eternal Blade & Nightshade.
+
+Added Expeditious Dodge, Midnight Dodge & Desert Wind Dodge as FEATOR prereqs for Mobility, Spring Attack, Sidestep Charge & Quick Staff.
+
+Added Expeditious Dodge, Midnight Dodge & Desert Wind Dodge as FEATOR prereqs for Combat Medic, Duelist, Dwarven Defender, Drunken Master, Master of Nine, Ninja Spy, Sacred Fist, Shou Disciple, Telflammar Shadowlord, Shadowdancer and Spelldancer.
+
+Fixed PnP Shifter prereqs for Shaman class.
+
+Fixed Invisible Needle reserve feat to work per PnP.
+
+Fixed Song of Fury & other Bladesinger abilities to work with one-handed elven blades.
+
+Updated release archive.
+
+----
+Date: 2024-09-19 12:16:50 -0400
+Updated Dodge-proxy prereqs
+
+Updated Dodge-proxy prereqs for Mobility, Spring Attack, Quick Staff & Sidestep Charge.  Updated Piercing Cold to ignore Reserve Feats.  Updated elven blades to use Weapon Finesse properly (NWNEE change).  Updated release archive.
+
+----
+Date: 2024-09-19 07:51:47 -0400
+Update feat.2da
+
+Added Expeditious Dodge as a FEATOR prereq for: Mobility, Spring Attack, Quick Staff & Sidestep Charge as per the d20 SRD.
+
+----
+Date: 2024-09-17 20:34:14 -0400
+Added Grey elf race
+
+Added Grey elf race.  Updated release archive.
+
+----
+Date: 2024-09-15 13:58:43 -0400
+Minified spells.2da & feat.2da
+
+Minified spells.2da & feat.2da.  Updated release archive.
+
+----
+Date: 2024-09-14 23:56:04 -0400
+Psionic shot should work with Eldritch Blast
+
+Psionic shot should work with Eldritch Blast.  Ranger / TW Rend & OSTWF tweak  Fixed PTWF access in Tempest feat list.  Updated release archive.
+
+----
+Date: 2024-09-11 16:00:22 -0500
+rename templates file to match URL
+
+----
+Date: 2024-09-09 20:24:56 -0400
+Fixed Lolth's meat affecting undead & constructs
+
+Fixed Lolth's meat affecting undead & constructs.  Fixed Frightful Prescence triggering on dead creatures.  Fixed shadowdancer weapon feats.  Added missing simple weapon feats.
+
+----
+Date: 2024-09-09 16:20:46 -0400
+Tempest & Frenzied Berserker were missing epic levels
+
+Tempest & Frenzied Berserker were missing epic levels.
+
+----
+Date: 2024-09-08 13:33:11 -0400
+Updated acp_auto.nss
+
+Updated acp_auto.nss.  Fixed another tlk typo.
+
+----
+Date: 2024-09-08 11:46:29 -0400
+Updated acp_auto.nss
+
+Updated acp_auto.nss to handle more classes & combat styles.  Fixed minor tlk error.
+
+----
+Date: 2024-09-04 14:07:02 -0400
+Forgot to put updated TLK in release archive
+
+Forgot to put updated TLK in release archive
+
+----
+Date: 2024-09-04 11:07:41 -0400
+Updated PRC8 to support ACP 4.1
+
+Updated PRC8 to support ACP 4.1.  Updated release archive.
+
+----
+Date: 2024-08-31 22:29:15 -0400
+Update spells.2da
+
+Added spell targeting silhouettes for Dragonfire Adept.
+
+----
+Date: 2024-08-31 14:03:44 -0400
+Update cls_bfeat_duskbl.2da
+
+Fix epic duskblade bonus feats.
+
+----
+Date: 2024-08-30 19:49:40 -0400
+Fixed all content filenames over 16 characters
+
+Fixed all content filenames over 16 characters
+
+----
+Date: 2024-08-30 13:37:25 -0400
+Merge branch 'main' of https://gitea.raptio.us/Jaysyn/PRC8
+
+----
+Date: 2024-08-30 13:36:45 -0400
+Fixed Dragon Shaman breath weapon
+
+Fixed Dragon Shaman breath weapon.  Script name was inexplicably too long.
+
+----
+Date: 2024-08-29 16:50:27 -0400
+Update README.md
+
+----
+Date: 2024-08-29 16:40:13 -0400
+Spell update
+
+Added the following spells: Regenerate Light Wounds, Regenerate Moderate Wounds, Regenerate Serious Wounds, Regenerate Critical Wounds, Spirit Worm, Tortoise Shell, Speed of the Wind & Spiritual Weapon.  Updated Force Missiles & Chasing Perfection.  Updated Acid Fog to be more like pen & paper.  Updated release archive.
+
+----
+Date: 2024-08-19 13:00:24 -0400
+Removed Outsider check from Saint's maint. script
+
+Removed Outsider check from Saint's maint. script.  Minor spell comment fixes.
+
+----
+Date: 2024-08-10 09:01:49 -0400
+Delete sp_forcemissiles.nss
+
+Removed Force Missiles spell script from user folder.
+
+----
+Date: 2024-08-10 08:57:45 -0400
+Added missing Force Missiles spell script
+
+Added missing Force Missiles spell script.  Fixed a few minor typos.
+
+----
+Date: 2024-08-07 23:09:09 -0400
+Added Chasing Perfection spell
+
+Added Chasing Perfection spell.  Moved katar to simple weapons for crafting.  Updated release archive.
+
+----
+Date: 2024-08-06 21:39:51 -0400
+Update PRC8_20240806.7z
+
+Forgot to add new tlk to release archive.
+
+----
+Date: 2024-08-06 20:30:02 -0400
+Bugfix
+
+Fixed bug in GetLevelByTypeArcane & GetLevelByTypeDivine.
+
+----
+Date: 2024-08-06 14:18:04 -0400
+Added Alhoon template
+
+Added Alhoon template & alter-self support changes by Thomas!#2605.  Updated release archive.
+
+----
+Date: 2024-08-05 19:55:29 -0400
+Minor script tweaks
+
+Minor script tweaks
+
+----
+Date: 2024-08-01 16:02:44 -0400
+Updated release archive
+
+Updated release archive
+
+----
+Date: 2024-08-01 12:17:21 -0400
+Fixed Mystic Theurge marker feat bug
+
+Fixed Mystic Theurge marker feat bug.  Fixed Thrall of Orcus marker feat bug.
+
+----
+Date: 2024-07-24 18:17:19 -0400
+Added PW hook for alcohol & onUserDefined.  Removed ability score check for Psilike [PRC_IsPsiLike] creatures.  Updated scripted Favored Enemy for Plant & Ooze.  Removed extra scythe entry from CheckCraftingMaterial().  Added missing morningstar entry in GetBaseResRef().  Increased Template limit to 250.  Changed Lich templates to count Practiced Spellcaster in calculation.
+
+----
+Date: 2024-07-15 12:48:11 -0400
+Moved Weapon Prof: Katar to the Simple Weapon group Masterfeat.
+
+----
+Date: 2024-07-08 23:11:21 -0400
+Updated manual "main" information.
+
+----
+Date: 2024-06-23 22:07:50 -0500
+readme cleanup
+
+----
+Date: 2024-06-23 21:55:37 -0500
+working with base 2das separate from prc 2das
+
+----
+Date: 2024-06-22 20:32:54 -0400
+Added Daylight Adaptation to ipfeats
+
+Added Daylight Adaptation to ipfeats.  Updated release archive.
+
+----
+Date: 2024-06-21 23:24:11 -0400
+Minified spells.2da.
+
+----
+Date: 2024-06-21 23:18:46 -0400
+More fixes from previous commit.
+
+----
+Date: 2024-06-21 22:40:56 -0400
+Merge remote-tracking branch 'remotes/origin/docgen_fix'
+
+----
+Date: 2024-06-21 22:21:40 -0400
+Fixed the following errors:
+
+Error: Icon not defined for feat 2265: School opposition: Abjuration
+Error: Icon not defined for feat 2266: School opposition: Conjuration
+Error: Icon not defined for feat 2267: School opposition: Divination
+Error: Icon not defined for feat 2268: School opposition: Enchantment
+Error: Icon not defined for feat 2269: School opposition: Evocation
+Error: Icon not defined for feat 2270: School opposition: Illusion
+Error: Icon not defined for feat 2271: School opposition: Necromancy
+Error: Icon not defined for feat 2272: School opposition: Transmutation
+Error: Icon not defined for feat 2273: School specialization: none
+Error: Icon not defined for feat 2274: School specialization: Abjuration
+Error: Icon not defined for feat 2275: School specialization: Conjuration
+Error: Icon not defined for feat 2276: School specialization: Divination
+Error: Icon not defined for feat 2277: School specialization: Enchantment
+Error: Icon not defined for feat 2278: School specialization: Evocation
+Error: Icon not defined for feat 2279: School specialization: Illusion
+Error: Icon not defined for feat 2280: School specialization: Necromancy
+Error: Icon not defined for feat 2281: School specialization: Transmutation
+Error: Icon not defined for feat 2287: Size Decrease -1
+Error: Icon not defined for feat 2288: Size Decrease -2
+Error: Icon not defined for feat 2289: Size Decrease -3
+Error: Icon not defined for feat 2290: Size Decrease -4
+Error: Icon not defined for feat 2291: Size Decrease -5
+Error: Icon not defined for feat 2292: Size Decrease -6
+Error: Icon not defined for feat 2293: Size Increase +1
+Error: Icon not defined for feat 2294: Size Increase +2
+Error: Icon not defined for feat 2295: Size Increase +3
+Error: Icon not defined for feat 2296: Size Increase +4
+Error: Icon not defined for feat 2297: Size Increase +5
+Error: Icon not defined for feat 2298: Size Increase +6
+Error: Icon not defined for feat 3642: Effortless Healing (Ex)
+Error: Icon not defined for feat 4065: Artisan Bonus
+Error: Icon not defined for feat 4066: Item Creation
+Error: Icon not defined for feat 4067: Craft Homunculus
+Error: Icon not defined for feat 4068: Retain Essence
+Error: Icon not defined for feat 4069: Metamagic Spell Trigger
+Error: Icon not defined for feat 4070: Metamagic Spell Completion
+Error: Icon not defined for feat 4071: Skill Mastery
+Error: Icon not defined for feat 4072: Epic Artificer
+Error: Icon not defined for feat 4166: Incorporeal
+Error: Icon not defined for feat 4167: Ethereal
+Error: Invalid Name entry for spell 1940
+Error: Invalid Name entry for spell 1941
+Error: Icon not defined for feat 15956: Witch Eternal Charm Person
+Error: Icon not defined for feat 15989: Witch Eternal Charm Monster
+Error: Icon not defined for feat 22602: Template: Celestial
+Error: Icon not defined for feat 22604: Template: Fiendish
+Error: Icon not defined for feat 22622: Template: Half-Celestial
+Error: Icon not defined for feat 22636: Template: Half-Fiend
+Error: Icon not defined for feat 23544: Secular Aptitude (Ex)
+Error: Icon not defined for feat 23545: Secular Authority
+Error: Icon not defined for spell 18597: Deadly Shade - Absorb
+Error: Icon not defined for spell 18598: Deadly Shade - Damage
+Error: Invalid description for feat 24081: Jade Phoenix Master
+Error: Invalid description for feat 24152: Epic Dread Necromancer
+Error: Feat 4432: Shadow Thieves of Amn SUCCESSOR points to a nonexistent feat entry
+Error: Feat 4434: Factotums PREREQFEAT1 points to a nonexistent feat entry
+Error: FeatIndex line 7 of RACE_FEAT_HYBSIL points to non-existent feat: 5381
+prc.autodoc.PageGenerationException: Failed to read RACE_FEAT_*.2da for race 143: Blue:
+prc.autodoc.TwoDAReadException: File not found
+RACE_FEAT_BGOBL
+Error: FeatIndex entry in CLS_FEAT_FIGHT on row 99 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_FIGHT on row 292 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_FIGHT on row 294 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_PAL on row 130 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_PAL on row 132 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_MONHUM on row 45 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_MONHUM on row 116 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_FEY on row 45 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_FEY on row 116 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_DRAG on row 63 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_DRAG on row 74 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_GIAN on row 48 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_GIAN on row 59 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_OUTS on row 45 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_OUTS on row 116 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SHCHNG on row 45 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SHCHNG on row 116 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_DIVCHA on row 60 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_DIVCHA on row 172 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_DIVCHA on row 174 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_DWDEF on row 117 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_DWDEF on row 119 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SERGRD on row 107 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SERGRD on row 237 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SERGRD on row 239 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SAMUR on row 118 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SAMUR on row 256 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SAMUR on row 258 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_MARSH on row 119 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_MARSH on row 121 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SWASH on row 99 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SWASH on row 173 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SWASH on row 246 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SWASH on row 248 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_DUSKBL on row 252 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_DUSKBL on row 254 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SCOUT on row 267 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SCOUT on row 269 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SPELLS on row 215 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SPELLS on row 367 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SPELLS on row 369 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_ELDKNI on row 144 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_ELDKNI on row 163 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_ELDKNI on row 204 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_ELDKNI on row 206 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_FORSAK on row 219 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_FORSAK on row 221 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 181 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 183 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 362 points to non-existent feat: 8737
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 382 points to non-existent feat: 8757
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 389 points to non-existent feat: 8764
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 395 points to non-existent feat: 8770
+Error: FeatIndex entry in CLS_FEAT_INCARN on row 401 points to non-existent feat: 8776
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 202 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 204 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 383 points to non-existent feat: 8737
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 403 points to non-existent feat: 8757
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 410 points to non-existent feat: 8764
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 416 points to non-existent feat: 8770
+Error: FeatIndex entry in CLS_FEAT_SOULBN on row 422 points to non-existent feat: 8776
+Error: FeatIndex entry in CLS_FEAT_TOTEM on row 303 points to non-existent feat: 8737
+Error: FeatIndex entry in CLS_FEAT_TOTEM on row 323 points to non-existent feat: 8757
+Error: FeatIndex entry in CLS_FEAT_TOTEM on row 330 points to non-existent feat: 8764
+Error: FeatIndex entry in CLS_FEAT_TOTEM on row 336 points to non-existent feat: 8770
+Error: FeatIndex entry in CLS_FEAT_TOTEM on row 342 points to non-existent feat: 8776
+Error: FeatIndex entry in CLS_FEAT_FISTRA on row 244 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_FISTRA on row 246 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_VASSAL on row 212 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_VASSAL on row 214 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_DRSLYR on row 77 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_DRSLYR on row 88 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_SPNMLD on row 42 points to non-existent feat: 8737
+Error: FeatIndex entry in CLS_FEAT_SPNMLD on row 62 points to non-existent feat: 8757
+Error: FeatIndex entry in CLS_FEAT_SPNMLD on row 69 points to non-existent feat: 8764
+Error: FeatIndex entry in CLS_FEAT_SPNMLD on row 75 points to non-existent feat: 8770
+Error: FeatIndex entry in CLS_FEAT_SPNMLD on row 81 points to non-existent feat: 8776
+Error: FeatIndex entry in CLS_FEAT_LGDR on row 77 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_LGDR on row 79 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_IAIJ on row 72 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_IAIJ on row 74 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_CWSM on row 118 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CWSM on row 422 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_CWSM on row 424 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_RAVA on row 117 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_RAVA on row 119 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_PSION on row 211 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_PSION on row 213 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_PSYWAR on row 228 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_PSYWAR on row 299 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SOULKN on row 37 points to non-existent feat: 24413
+Error: FeatIndex entry in CLS_FEAT_THAYKT on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_THAYKT on row 114 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_HEXTOR on row 142 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_HEXTOR on row 144 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_CREA on row 44 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_CREA on row 115 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SBHEIR on row 111 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SBHEIR on row 113 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_HOSP on row 101 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_HOSP on row 103 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_HOSP on row 262 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_HOSP on row 317 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_MHARP on row 79 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_MHARP on row 150 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_TEMPST on row 46 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_TEMPST on row 48 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_PYRO on row 201 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_PYRO on row 273 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_WARCHF on row 47 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_WARCHF on row 119 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_WARCHF on row 187 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_WARCHF on row 189 points to non-existent feat: 16834142
+Error: FeatIndex entry in CLS_FEAT_WARMND on row 195 points to non-existent feat: 16834122
+Error: FeatIndex entry in CLS_FEAT_WARMND on row 268 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_FAVSOL on row 116 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SOHEI on row 100 points to non-existent feat: 16834154
+Error: FeatIndex entry in CLS_FEAT_SOHEI on row 152 points to non-existent feat: 16834124
+Error: FeatIndex entry in CLS_FEAT_SOHEI on row 154 points to non-existent feat: 16834142
+
+----
+Date: 2024-06-21 19:37:17 -0500
+build working
+
+----
+Date: 2024-06-21 12:40:15 -0500
+Merge remote-tracking branch 'origin/main'
+
+# Conflicts:
+#	.gitignore
+
+----
+Date: 2024-06-21 12:38:27 -0500
+add some build/run instructions, fix makefile code, and ignore some files
+
+----
+Date: 2024-06-20 23:24:08 -0400
+Fixed Profane Agony
+
+----
+Date: 2024-06-09 23:04:18 -0400
+Removed Iron Will from Drow
+
+Removed Iron Will from Drow & replaced it with an intrinsic bonus.  Racial constants cleanup. Lowercased "others" folder contents.
+
+----
+Date: 2024-05-29 07:24:42 -0400
+Disabled debug on prc_coc
+
+Disabled debug on prc_coc
+
+----
+Date: 2024-05-28 20:51:55 -0400
+Minified spells.2da
+
+Minified spells.2da.  More Superior Defense tweaks.  Updated release archive.
+
+----
+Date: 2024-05-27 22:04:18 -0400
+Fixed Mithral armor Max DEX Penalty
+
+Fixed Mithral armor Max DEX Penalty.  Tweaked Superior Defense.
+
+----
+Date: 2024-05-26 21:42:12 -0400
+Fixed Superior Defense
+
+Fixed Superior Defense
+
+----
+Date: 2024-05-24 18:04:27 -0400
+Update fxpa_spellturn_r.tga
+
+Fixed ugly grapple texture.
+
+----
+Date: 2024-05-24 12:57:06 -0400
+Daylight is a light spell
+
+Daylight is a light descriptor spell.
+
+----
+Date: 2024-05-23 07:45:01 -0400
+Added Force Missiles spell
+
+Added Force Missiles spell. Fixed Shadowcaster Marker feat check. Updated Witchwwod step to grant immunity to Vine Mine & Spike Growth.  Updated release archive.
+
+----
+Date: 2024-05-11 22:27:07 -0400
+Updated release
+
+Updated release
+
+----
+Date: 2024-05-11 18:11:56 -0400
+Updated release.  Removed defunct ConvoCC includes.
+
+----
+Date: 2024-05-10 07:16:44 -0400
+Update cls_bfeat_mystic.2da
+
+Added missing 1st lvl bonus feat.
+
+----
+Date: 2024-05-01 21:46:55 -0400
+Update feat.2da
+
+Fixed bad Talent choice on vanilla Horse feats.
+
+----
+Date: 2024-04-29 11:20:30 -0400
+Pale Master was missing bonus / marker feat
+
+Pale Master was missing bonus / marker feat
+
+----
+Date: 2024-04-22 18:19:28 -0400
+Disabled some Practiced Spellcaster feats
+
+Disabled some Practiced Spellcaster feats for classes that don't exist anymore that were showing up as general feats for the wrong class.
+
+----
+Date: 2024-04-22 17:14:09 -0400
+Fixed Master of Shadow bonus / marker feat issue
+
+Fixed Master of Shadow bonus / marker feat issue.  Tweaked maul icons.  Removed old maul item.
+
+----
+Date: 2024-04-21 00:37:51 -0400
+Update cls_bfeat_bonded.2da
+
+Due to marker feats, Bonded Summoner needed 2 bonus feats at first class level.
+
+----
+Date: 2024-04-20 08:31:40 -0400
+Updated Vanilla Campaigns
+
+Updated Vanilla Campaigns
+
+----
+Date: 2024-04-13 19:13:05 -0400
+Fixed Master of Shrouds not getting marker feat pick
+
+Fixed Master of Shrouds not getting marker feat pick
+
+----
+Date: 2024-04-09 23:13:26 -0400
+Updated Outsider skill 2da
+
+Updated Outsider skill 2da.  Updated outsider skill 2da with skills common to humanoid shaped outsiders.
+
+----
+Date: 2024-04-07 14:22:02 -0400
+Update prc_add_spell_dc.nss
+
+----
+Date: 2024-04-07 00:41:54 -0400
+Updated nimtools
+
+Updated nimtools.  Updated release archive.
+
+----
+Date: 2024-04-07 00:04:06 -0400
+Updated Darkness spell w/ EffectTag
+
+Updated Darkness spell to use EffectTag.  Removed old crafting baseitems.  Removed defunct spellbook from Knight of the Weave.
+
+----
+Date: 2024-03-30 18:25:12 -0400
+Fix shadow dept marker feats
+
+Fix shadow dept marker feats
+
+----
+Date: 2024-03-29 23:46:34 -0400
+Added DC cap switch to prevent roll-over.
+
+Added DC cap switch to prevent roll-over.
+
+----
+Date: 2024-03-28 20:14:53 -0400
+Spell Focus feats should be general feats
+
+Spell Focus feats should be general feats
+
+----
+Date: 2024-03-28 10:19:28 -0400
+Shortspear should be usable with a shield
+
+Shortspear should be usable with a shield.
+
+----
+Date: 2024-03-27 21:49:42 -0400
+Update PRC8_20240327.7z
+
+Forgot to update tlk file
+
+----
+Date: 2024-03-27 21:37:18 -0400
+Re-added arcane & divine marker feats.
+
+Re-added arcane & divine marker feats.  Fixed broken hamatula summon.  Removed old culled content.
+
+----
+Date: 2024-03-24 16:25:48 -0400
+Fixed Debug for Efficient Defender
+
+Fixed Debug for Efficient Defender
+
+----
+Date: 2024-03-24 14:05:52 -0400
+Fixed Efficient Defender
+
+Fixed Efficient Defender
+
+----
+Date: 2024-03-23 16:02:02 -0400
+Hopeful Bard / Sorcerer spell selection fix
+
+Hopeful Bard / Sorcerer spell selection fix
+
+----
+Date: 2024-03-16 09:36:41 -0400
+Minified spells.2da
+
+Minified spells.2da.  Added shaman notes.
+
+----
+Date: 2024-03-15 09:33:09 -0400
+Fixed Abjurant Champion marker feat issue
+
+Fixed Abjurant Champion marker feat issue.  Fixed icons for Necropolitan & Corrupt Spell Focus.  Updated Saint's ability to only allow living saints.  Tweaked Heavy Pick & Falchion icon sizes.  Updated release archive.
+
+----
+Date: 2024-03-14 08:11:00 -0400
+Rapid Pact Making requires Expel Vestige
+
+Rapid Pact Making requires Expel Vestige.
+
+----
+Date: 2024-03-14 07:48:43 -0400
+Update cls_feat_sbheir.2da
+
+Removed 2 errant Improved Critical feats.
+
+----
+Date: 2024-03-14 07:37:50 -0400
+Update cls_feat_swash.2da
+
+Removed eagle claw from Swashbuckler.
+
+----
+Date: 2024-03-13 17:18:53 -0400
+Fixed feat.2da
+
+Fixed feat.2da.  Updated release archive.
+
+----
+Date: 2024-03-12 19:44:29 -0400
+Update prc_prereq.nss
+
+Ooze & plant can now enter the Soul Eater PrC.
+
+----
+Date: 2024-03-11 20:42:26 -0400
+Forgot to add TLK to release archive
+
+Forgot to add TLK to release archive. Updated release archive.
+
+----
+Date: 2024-03-09 20:27:22 -0500
+Added Wild Shape: Plant as a builder's option
+
+Added Wild Shape: Plant as a builder's option.  Updated release archive.
+
+----
+Date: 2024-03-08 18:05:43 -0500
+Update classes.2da
+
+----
+Date: 2024-03-05 22:54:40 -0500
+Updated dialog.tlk
+
+Updated dialog.tlk.
+
+----
+Date: 2024-03-03 18:06:25 -0500
+Renamed inc_array to stop nwnx include collisions
+
+Renamed inc_array to stop nwnx include collisions  Added missing bonus feat 2da for Forest Master. Changed prc_newspellbook.hak to prc_nsb.hak to prevent issues with nwserver.  Updated tester module.  Updated release archive.
+
+----
+Date: 2024-02-29 16:25:59 -0500
+Update prc_feat_const.nss
+
+Removed dupe constant.
+
+----
+Date: 2024-02-29 10:00:02 -0500
+Added missing epic marker feat for Dread Necromancer
+
+Renumbered feat list.
+
+----
+Date: 2024-02-29 09:57:43 -0500
+Added missing epic marker feat for Dread Necromancer
+
+Added missing epic marker feat for Dread Necromancer.  Added missing epic marker feat constants.
+
+----
+Date: 2024-02-29 07:47:29 -0500
+Re-enabled epic level for Duskblade
+
+Re-enabled epic level for Duskblade
+
+----
+Date: 2024-02-28 22:22:17 -0500
+Update prc_onleveldown.nss
+
+Fixed prc_onleveldown.nss
+
+----
+Date: 2024-02-28 19:26:12 -0500
+Update prc_onleveldown.nss
+
+Expanded prc_onleveldown.nss for 8 class slots ((@-=rafhot=-)
+
+----
+Date: 2024-02-25 23:27:42 -0500
+Update prc_classes for class re-order
+
+Update prc_classes.2da for class re-order.
+
+----
+Date: 2024-02-25 15:58:16 -0500
+Class.2da cleanup
+
+Class.2da cleanup.  Move Eye of Grumish to 39, Shou Disciple to 40 & Plant to 164.  Freed up class slot 180.  Updated release archive.
+
+----
+Date: 2024-02-25 14:33:23 -0500
+Update prc8_consortium.tlk.xml
+
+Cleaned up TLK.
+
+----
+Date: 2024-02-20 14:03:04 -0500
+Added PRC8 Tester module to CompiledResources
+
+Added PRC8 Tester module to CompiledResources. Minor TLK edit.
+
+----
+Date: 2024-02-14 20:57:11 -0500
+Minor TLK & 2DA fixes
+
+Minor TLK & 2DA fixes
+
+----
+Date: 2024-02-14 10:00:34 -0500
+Katar is a simple weapon
+
+Katar is a simple weapon.  Minor TLK cleanup.
+
+----
+Date: 2024-02-11 22:23:31 -0500
+Updated racialappear.2da
+
+Updated racialappear.2da, Updated TLK.  Add old PRC4 release archive back for legacy use.
+
+----
+Date: 2024-02-11 14:01:05 -0500
+Updated AMS marker feats
+
+Updated AMS marker feats.  Removed arcane & divine marker feats.  Updated Dread Necromancer for epic progression. Updated weapon baseitem models.  Updated new weapons for crafting & npc equip.
+ Updated prefix.  Updated release archive.
+
+----
+Date: 2024-02-11 13:04:14 -0500
+Clear out experimental .35 files
+
+Clear out experimental .35 files
+
+----
+Date: 2024-01-16 15:50:42 -0500
+Update prc_inc_combmove.nss
+
+Fixed Grappling / Freedom of Movement bug
+
+----
+Date: 2024-01-12 07:35:37 -0500
+Fixed a few TLK entries
+
+Fixed a few TLK entries.  Added potential future spell scripts to notes.
+
+----
+Date: 2024-01-03 22:39:02 -0500
+Updated new damage types
+
+Updated new damage types.  Updated release archive.
+
+----
+Date: 2024-01-03 18:10:56 -0500
+Damagetype work
+
+Brought new PRC & CEP3 damage types to parity.  Removed junk file for Fochlucan Lyrist.  Updated release archive.
+
+----
+Date: 2024-01-02 20:40:06 -0500
+Update PRC[34]_4110alpha13.7z
+
+Updated release archive.  New Negotiator feat wasn't showing up.
+
+----
+Date: 2024-01-02 20:03:30 -0500
+Bringing PRC Alpha up to pairty with PRC35
+
+Bringing PRC alpha up to parity with PRC35 with the exception of the marker feats, which need to be reworked.  Updated PRC alpha release.
+
+----
+Date: 2024-01-01 22:21:08 -0500
+Found more spots for "new" weapon types
+
+Added "new" weapon types to crafting & random NPC gear includes
+
+----
+Date: 2023-11-29 12:44:02 -0500
+Update prc_inc_itmrstr.nss
+
+Added test void main()
+
+----
+Date: 2023-11-18 22:02:50 -0500
+Update prc_unequip.nss
+
+Fixed typo in comment.
+
+----
+Date: 2023-11-15 23:34:00 -0500
+Unlocked all spells for Rod & Staff crafting
+
+Unlocked all spells for Rod & Staff crafting
+
+----
+Date: 2023-11-14 12:12:07 -0500
+Create nwnsc.exe
+
+----
+Date: 2023-11-11 11:59:39 -0500
+Moved beholder script to correct folder
+
+----
+Date: 2023-11-11 11:26:47 -0500
+Create x2_s1_beholdray.nss
+
+Fixed vanilla beholder ray attack to work with PRC's petrification immunity.
+
+----
+Date: 2023-11-04 22:21:26 -0400
+Update prc_consortium.tlk.xml
+
+----
+Date: 2023-10-30 22:45:18 -0400
+Update feat.2da
+
+Fixed bug with Practiced Spellcaster :CotSP.
+
+----
+Date: 2023-10-30 22:02:09 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-10-29 17:50:58 -0400
+Update cls_feat_foclyr.2da
+
+----
+Date: 2023-10-27 20:54:26 -0400
+Update cls_feat_redwiz.2da
+
+Fixed missing marker feat / CL
+
+----
+Date: 2023-10-23 20:36:21 -0400
+Update tlk file
+
+----
+Date: 2023-10-23 18:38:24 -0400
+Update 35_ocfix.hif
+
+Updated OC HIF so injector starts correctly.
+
+----
+Date: 2023-10-23 17:51:58 -0400
+Update cls_bfeat_runec.2da
+
+Runecaster was missing bonus feat @ 1st lvl to allow marker feat to be picked.
+
+----
+Date: 2023-10-22 21:55:14 -0400
+Update cls_bfeat_formas.2da
+
+Forest Master had too many bonus feats @ 1st level.
+
+----
+Date: 2023-10-21 10:32:45 -0400
+Update cls_feat_anima.2da
+
+Archmage marker feat was showing up for Anima Mage.
+
+----
+Date: 2023-10-20 18:12:53 -0400
+Update prc_consortium.tlk.xml
+
+----
+Date: 2023-10-20 16:21:26 -0400
+Finished Shadowcaster marker feats
+
+Finished Shadowcaster marker feats.  Fixed Fochulan Lyrist not adding usages of Bard Song.  Fixed issue with classes that advance spellcasting, but don't require spellcasting.  Fixed Mystic Theurge & Force Missile Mage prereq functions.
+
+----
+Date: 2023-10-18 23:30:18 -0400
+Shadowcasting marker feat work
+
+Shadowcasting constants, 2da & tlk work for marker feats.  Added Fochulan Lyrist marker feat for Ur-Priest.
+
+----
+Date: 2023-10-17 22:41:02 -0400
+Fixed PrCs not counting in some calculations
+
+Fixed PrCs not counting in some calculations.  Updated release archive.
+
+----
+Date: 2023-10-17 16:02:33 -0400
+Added WotC 3e Web Archive
+
+Added WotC 3e Web Archive
+
+----
+Date: 2023-10-17 08:43:05 -0400
+Fixed hospitaler marker feat bug
+
+Fixed hospitaler marker feat bug.
+
+----
+Date: 2023-10-13 17:56:40 -0400
+Fixed Oozemaster levelup bug
+
+Fixed Oozemaster levelup bug.  Updated release.
+
+----
+Date: 2023-10-08 17:19:52 -0400
+Update cls_bfeat_mos.2da
+
+----
+Date: 2023-10-05 18:08:44 -0400
+Built & updated new release
+
+Built & updated new release
+
+----
+Date: 2023-10-03 23:06:49 -0400
+Update prc_enforce_mark.nss
+
+Fixed bugs in Spell Dancer & Morninglord sections.
+
+----
+Date: 2023-10-02 14:20:41 -0400
+Added D&D errata to Notes
+
+Added D&D errata to Notes.  Fixed Red Wizard Marker Feat bug.  Fixed Forest Master 2da naming bug.
+
+----
+Date: 2023-09-22 19:01:01 -0400
+Update iprp_spells.2da
+
+Added Detect Magic to iprp_spells.2da
+
+----
+Date: 2023-09-21 19:55:49 -0400
+Update prc_enforce_mark.nss
+
+Fixed variable name
+
+----
+Date: 2023-09-20 17:08:23 -0400
+Update prc_enforce_mark.nss
+
+Fixed: Fist of Raziel marker feat check was checking the wrong class.
+
+----
+Date: 2023-09-20 07:17:19 -0400
+Update cls_bfeat_sacfis.2da
+
+Sacred Fist was missing a bonus feat @ 1st level.
+
+----
+Date: 2023-09-18 07:39:41 -0400
+Update cls_feat_spells.2da
+
+Fixed spellcasting marker feats now showing up at 1st lvl spellsword.
+
+----
+Date: 2023-09-16 11:35:10 -0400
+Update prc_enforce_mark.nss
+
+3e True Necro doesn't get Divine advancement.
+
+----
+Date: 2023-09-10 12:22:00 -0400
+Update prc_consortium.tlk.xml
+
+Added version counter to tlk-xml.
+
+----
+Date: 2023-09-08 20:02:00 -0400
+Create PrCs That Need Expanding.txt
+
+----
+Date: 2023-09-06 16:06:27 -0400
+Fixed a few typos
+
+Fixed a few typos
+
+----
+Date: 2023-09-05 20:20:35 -0400
+Soulreaving Aura targeting fix
+
+Soulreaving Aura targeting fix.  Frost mage marker feat enforcement fix.
+
+----
+Date: 2023-09-02 22:44:49 -0400
+Update 35.hif
+
+----
+Date: 2023-09-02 18:40:13 -0400
+Invoker marker feats
+
+Setup Invoker marker feats in 2DA, tlk, constants & scripts.  Removed left over Frost Mage class abilities from FMM & Wild Mage.
+
+----
+Date: 2023-09-01 13:33:59 -0400
+The goad is a simple weapon
+
+The goad is a simple weapon.  Added Warlock PrC notes.
+
+----
+Date: 2023-08-30 23:01:16 -0400
+Fixed True Necro 3e spellcasting
+
+Fixed True Necro 3e spellcasting
+
+----
+Date: 2023-08-31 01:23:58 +0000
+Update 'README.md'
+
+----
+Date: 2023-08-27 22:26:12 -0400
+Extra Invocation levelup fix
+
+Prevents Extra Invocation from showing up @ 1st lvl, so that it cannot brick your character in the levelup process.
+
+----
+Date: 2023-08-27 21:14:42 -0400
+Fixed Maester & Enlighted Fist prereqs
+
+Fixed Maester & Enlighted Fist prereqs.
+
+----
+Date: 2023-08-27 19:42:12 -0400
+TLK cleanup
+
+TLK cleanup
+
+----
+Date: 2023-08-27 18:56:24 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-08-27 18:50:52 -0400
+Bugfixes & a new release.
+
+Fixed: Paladins not getting Scythe Prof, Elves not getting Elven blade prof when they had martial group prof, Missing Practiced Spellcaster (KotW) feat, bugs in prc_inc_spells, spell targeting bugs (found more), FMM / Warmage marker feat error, JoWaW spellcasting, KotW tlk error in 1st lvl spell list.  New release.
+
+----
+Date: 2023-08-26 10:38:29 -0400
+Update prc_snowflake.nss
+
+Added whip & eagle claw to Snowflake Wardance.
+
+----
+Date: 2023-08-26 10:08:22 -0400
+Minor spell fixes
+
+Fixed Persistent Blade's metamagic & Rage's tlk entry.
+
+----
+Date: 2023-08-24 21:52:21 -0400
+Update cls_feat_fight.2da
+
+Fixed missing Scythe prof
+
+----
+Date: 2023-08-24 09:45:00 -0400
+baseitems.2da fix for new weapon models
+
+baseitems.2da fix for new weapon models
+
+----
+Date: 2023-08-23 22:26:40 -0400
+Removing old nwn beta files
+
+Removing old nwn beta files
+
+----
+Date: 2023-08-23 22:11:00 -0400
+Further file organization
+
+Further file organization
+
+----
+Date: 2023-08-23 19:55:56 -0400
+Added Fochlucan Lyrist PrC, updated release archive
+
+Added Fochlucan Lyrist PrC, tweaked Fey class skills, fixed new weapon models & icons not showing up.  Updated .hif for installer.  Updated release archive.
+
+----
+Date: 2023-08-22 19:53:49 -0400
+Fixed Sanctified Mind prereqs
+
+Fixed Sanctified Mind prereqs
+
+----
+Date: 2023-08-22 18:36:18 -0400
+Fixed War Mind prereqs
+
+Fixed War Mind prereqs.
+
+----
+Date: 2023-08-22 10:00:21 -0400
+Updated Release Archive
+
+Updated Release Archive.  Fixed Mage-killer prereqs.  Removed old LETO & ConvoCC related files.  Added organized spell scroll store.  Fixed Gloura spellbook. Various TLK fixes.  Reorganized Repo.  Removed invalid user folders. Added DocGen back in.
+
+----
+Date: 2023-08-20 11:08:29 -0400
+Battle Blessing fix
+
+Paladins can now take Battle Blessing, a general feat, on non-Paladin levels.
+
+----
+Date: 2023-08-19 21:44:19 -0400
+Fixed Jade Phoenix Mage missing Martial Lore as a class skill
+
+Fixed Jade Phoenix Mage missing Martial Lore as a class skill.  Updated release.
+
+----
+Date: 2023-08-19 21:36:29 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-08-19 21:11:53 -0400
+Update ruleset.2da
+
+----
+Date: 2023-08-19 16:33:27 -0400
+Shillelagh fix, Eldritch Knight fix
+
+Shillelagh fix, Eldritch Knight fix
+
+----
+Date: 2023-08-19 12:20:13 -0400
+Update inc_item_props.nss
+
+Added Divinity, Echoblade & Wizardry to GetIsMagicalItem().
+
+----
+Date: 2023-08-16 10:07:13 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-08-15 15:53:50 -0400
+Update releases
+
+Update releases
+
+----
+Date: 2023-08-15 14:22:19 -0400
+Updated .34 release
+
+Updated .34 release.  Fixed flaming item crafting.  Added missing EE functions from x2_inc_itemprop to prc_x2_itemprop.
+
+----
+Date: 2023-08-10 13:40:17 -0400
+Archivist double spell fix
+
+Archivist double spell fix -nanothief
+
+----
+Date: 2023-08-09 10:30:12 -0400
+Update cls_pres_kss.2da
+
+Fixed Knight of the Sacred Seal Weapon Focus prereqs
+
+----
+Date: 2023-08-09 08:24:42 -0400
+Update prc_levelup.nss
+
+Out of order bug fixed by nanothief
+
+----
+Date: 2023-08-08 16:28:07 -0400
+Update cls_stat_formast.2da
+
+Forest Master's natural AC was advancing incorrectly.
+
+----
+Date: 2023-08-03 18:47:42 -0400
+8 class slot support for arcane & divine casters
+
+8 class slot support for arcane & divine casters.  Added Marker feat enforcement script.  Expanded LA buyoff to 60 HD.  Marker feat constant bug fixes.
+
+----
+Date: 2023-07-23 22:08:02 -0400
+Create 35_consortium.tlk.xml
+
+----
+Date: 2023-07-23 20:57:37 -0400
+Spellcasting Level marker feat update
+
+Spellcasting Level marker feat update.  Added new effect icons.  Removed some old NWNx messages.
+
+----
+Date: 2023-07-05 11:49:34 -0400
+Fixed Canny Defense description / Issue #22
+
+Fixed Canny Defense description / Issue #22
+
+----
+Date: 2023-07-05 11:06:09 -0400
+Fixed Trapfinding / PsyRogue / Issue #15
+
+Fixed Trapfinding / PsyRogue / Issue #15
+
+----
+Date: 2023-07-05 00:03:39 -0400
+Fix for 4 class blues?
+
+Fix for 4 class blues?
+
+----
+Date: 2023-07-03 10:53:43 -0400
+Update for new nwscript.nss
+
+Update for new nwscript.nss.  Added & updated notes.  Continuing with spellcasting marker feats.
+
+----
+Date: 2023-06-27 17:41:21 -0400
+Fixed Astral Vambraces not binding to the hand chakras
+
+Fixed Astral Vambraces not binding to the hand chakras.
+
+----
+Date: 2023-06-25 10:25:10 -0400
+Alpha updates
+
+Alpha updates
+
+----
+Date: 2023-06-22 11:29:35 -0400
+Update cls_feat_tempst.2da
+
+----
+Date: 2023-06-15 07:55:37 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-06-07 10:41:49 -0400
+Fixed Stormlord dual wielding
+
+Fixed Stormlord dual wielding.  Added constant list for marker feats.
+
+----
+Date: 2023-06-03 22:46:46 -0400
+2DA data validation
+
+2DA data validation.
+
+----
+Date: 2023-05-30 10:27:07 -0400
+Update race_hb.nss
+
+----
+Date: 2023-05-10 10:56:54 -0400
+Fixed Blighter Undead Wildshape
+
+Fixed Blighter Undead Wildshape.
+
+----
+Date: 2023-05-01 18:33:52 -0400
+Updated hak files for latest updates
+
+Updated hak files for latest updates.
+
+----
+Date: 2023-05-01 17:56:37 -0400
+Fixed Ranger feat 2DA
+
+Fixed Ranger feat 2DA.  Added a few missing updates from .34.
+
+----
+Date: 2023-05-01 16:40:26 -0400
+Updated .34 haks
+
+Updated .34 haks
+
+----
+Date: 2023-05-01 14:05:11 -0400
+Fixed Poison Crafting
+
+Fixed Poison Crafting.  Added missing Med. Viper Venom UTI.  Added missing Owl Animal Companion UTC for lvl 35.  Fixed typo in Animated Dire Tiger Summon UTC.
+
+----
+Date: 2023-04-30 18:16:55 -0400
+Added .34 Alpha
+
+Added .34 Alpha for ease of distribution.
+
+----
+Date: 2023-04-30 18:06:25 -0400
+Update PRC4_NWN35.7z
+
+----
+Date: 2023-04-30 12:17:09 -0400
+Create race_feat_spdrag.2da
+
+Added missing Spiretop Dragon feat 2DA
+
+----
+Date: 2023-04-23 09:36:33 -0400
+Update cls_feat_hexbl.2da
+
+Hexblade was missing the Martial Weapon group feat.
+
+----
+Date: 2023-04-11 19:52:00 -0400
+Fixed Expanded Soulmeld Capacity
+
+Fixed Expanded Soulmeld Capacity
+
+----
+Date: 2023-03-30 20:28:12 -0400
+Forgot the TLK file
+
+Forgot the TLK file
+
+----
+Date: 2023-03-30 20:00:09 -0400
+Deduplicated Class feats
+
+Deduplicated Class feats.
+
+----
+Date: 2023-03-22 00:11:02 -0400
+Updated baseitems.2da for weapon finesse
+
+Updated baseitems.2da for weapon finesse.  Fixed typo in include.  Added testing scripts for CL increase.
+
+----
+Date: 2023-03-19 16:31:25 -0400
+Update psi_inc_core.nss
+
+----
+Date: 2023-03-18 13:26:50 -0400
+Created "Notes" folder
+
+Created "Notes" folder.  File cleanup.
+
+----
+Date: 2023-03-18 12:40:26 -0400
+Update classes.2da
+
+Fixed Shaman not getting animal companion.
+
+----
+Date: 2023-03-15 16:53:39 -0400
+Updated TLK to fix off by one error.
+
+Updated TLK to fix off by one error.  Removed old module updater.
+
+----
+Date: 2023-03-14 20:48:30 -0400
+Update for .35-35
+
+Update for .35-35.  Added Steadfast Determination.
+
+----
+Date: 2023-03-14 10:30:03 -0400
+Updated for .35-35
+
+Updated for .35-35
+
+----
+Date: 2023-03-13 20:50:53 -0400
+Updated games files to 87.8193.35-35
+
+Updated games files to 87.8193.35-35.  Deleted bad textures.
+
+----
+Date: 2023-03-11 15:28:50 -0500
+Recompressed nwn35
+
+Recompressed nwn35
+
+----
+Date: 2023-03-11 14:46:46 -0500
+Create nwn35.rar
+
+Added Client Files for NWN .35 for non-Steam installs.
+
+----
+Date: 2023-03-11 12:04:30 -0500
+Major script update for 8 class support
+
+Major script update for 8 class support.
+
+prc_wipeNSB.nss
+
+PRC_S_spellb.nss
+
+prc_amagsys_gain.nss	- AMSCompatibilityCheck()
+
+prc_prereq.nss			- Dragonheart(), KnightWeave()
+
+prc_onenter.nss			- OnEnter_AMSCompatibilityCheck()
+
+prc_metamagic.nss		- GetHasSpontaneousNSBClass()
+
+prc_feats.nss
+
+prc_dracactive.nss
+
+prc_debug_hfeatm.nss
+
+prc_cbtmed_spnhl.nss
+
+psi_powconv.nss
+
+psi_pow_bstpwr.nss
+
+x2_pc_umdcheck.nss
+
+----
+Date: 2023-03-11 01:13:46 -0500
+Major include update for 8 class support
+
+Major include update for 8 class support
+
+inv_inc_invfunc.nss		- GetHighestInvokerLevel(), GetFirstInvocationClassPosition(), GetPrimaryInvocationClass()
+
+inc_epicspellfnc.nss	- GetCanLearnSeed()
+
+inc_newspellbook.nss 	- CheckNewSpellbooks(), GetSpellslotLevel()
+
+moi_inc_moifunc.nss		- GetHighestMeldshaperLevel(), GetPrimaryIncarnumClass(), GetFirstIncarnumClassPosition()
+
+nw_o2_coninclude.nss	- nDetermineClassToUse()
+
+prc_inc_castlvl.nss		- GetArcanePRCLevels(), GetDivinePRCLevels(), GetFirstArcaneClassPosition(), GetFirstDivineClassPosition(), GetPrimaryArcaneClass(), GetPrimaryDivineClass(), GetPrimarySpellcastingClass(), UrPriestCL(), GetLevelByTypeArcane(), GetLevelByTypeDivine(), [Needs marker feats]
+
+prc_inc_clsfunc.nss		- [Needs marker feats]
+
+prc_inc_core.nss		- PRCGetSpellLevel(), UseNewSpellBook(), PRCGetHasSpell(), PRCGetIsRealSpellKnown()
+
+prc_inc_domain.nss		- CastDomainSpell()
+
+prc_inc_function.nss	- SetupCharacterData(), [Needs marker feats]
+
+prc_inc_itmrstr.nss		- _prc_inc_itmrstr_ApplyWizardry()
+
+prc_inc_leadersh.nss	- StoreCohort()
+
+prc_inc_spells.nss		- GetPrCAdjustedCasterLevelByType(), GetLevelByTypeArcaneFeats(), GetLevelByTypeDivineFeats(), PRCDecrementRemainingSpellUses(), PRCGetSpellUsesLeft()
+
+prc_shifter_info.nss	- _prc_inc_PrintDebugItem(), _prc_inc_PrintShape()
+
+psi_inc_core.nss		- GetHighestManifesterLevel(), GetPrimaryPsionicClass(), GetFirstPsionicClassPosition()
+
+shd_inc_shdfunc.nss		- GetHighestShadowcasterLevel(), GetPrimaryShadowMagicClass(), GetFirstShadowMagicClassPosition()
+
+tob_inc_recovery.nss	- RecoverPrCAbilities()
+
+tob_inc_tobfunc.nss		- GetHighestInitiatorLevel(), GetPrimaryBladeMagicClass(), GetFirstBladeMagicClassPosition()
+
+true_inc_trufunc.nss	- GetHighestTrueSpeakerLevel()
+
+----
+Date: 2023-03-11 01:12:18 -0500
+Removed changed includes
+
+Removed changed includes.  Screwed up previous commit.
+
+----
+Date: 2023-03-11 01:08:00 -0500
+Revert "Revert "Major update""
+
+This reverts commit 5de4086e8e5831b9b8f4b40a382ddfad1b1d84d8.
+
+----
+Date: 2023-03-11 01:06:21 -0500
+Revert "Major update"
+
+This reverts commit d37dc3e68d6bee1148075a51acecba34a4f2dadf.
+
+----
+Date: 2023-03-11 01:04:56 -0500
+Major update
+
+inv_inc_invfunc.nss		- GetHighestInvokerLevel(), GetFirstInvocationClassPosition(), GetPrimaryInvocationClass()
+
+inc_epicspellfnc.nss	- GetCanLearnSeed()
+
+inc_newspellbook.nss 	- CheckNewSpellbooks(), GetSpellslotLevel()
+
+moi_inc_moifunc.nss		- GetHighestMeldshaperLevel(), GetPrimaryIncarnumClass(), GetFirstIncarnumClassPosition()
+
+nw_o2_coninclude.nss	- nDetermineClassToUse()
+
+prc_inc_castlvl.nss		- GetArcanePRCLevels(), GetDivinePRCLevels(), GetFirstArcaneClassPosition(), GetFirstDivineClassPosition(), GetPrimaryArcaneClass(), GetPrimaryDivineClass(), GetPrimarySpellcastingClass(), UrPriestCL(), GetLevelByTypeArcane(), GetLevelByTypeDivine(), [Needs marker feats]
+
+prc_inc_clsfunc.nss		- [Needs marker feats]
+
+prc_inc_core.nss		- PRCGetSpellLevel(), UseNewSpellBook(), PRCGetHasSpell(), PRCGetIsRealSpellKnown()
+
+prc_inc_domain.nss		- CastDomainSpell()
+
+prc_inc_function.nss	- SetupCharacterData(), [Needs marker feats]
+
+prc_inc_itmrstr.nss		- _prc_inc_itmrstr_ApplyWizardry()
+
+prc_inc_leadersh.nss	- StoreCohort()
+
+prc_inc_spells.nss		- GetPrCAdjustedCasterLevelByType(), GetLevelByTypeArcaneFeats(), GetLevelByTypeDivineFeats(), PRCDecrementRemainingSpellUses(), PRCGetSpellUsesLeft()
+
+prc_shifter_info.nss	- _prc_inc_PrintDebugItem(), _prc_inc_PrintShape()
+
+psi_inc_core.nss		- GetHighestManifesterLevel(), GetPrimaryPsionicClass(), GetFirstPsionicClassPosition()
+
+shd_inc_shdfunc.nss		- GetHighestShadowcasterLevel(), GetPrimaryShadowMagicClass(), GetFirstShadowMagicClassPosition()
+
+tob_inc_recovery.nss	- RecoverPrCAbilities()
+
+tob_inc_tobfunc.nss		- GetHighestInitiatorLevel(), GetPrimaryBladeMagicClass(), GetFirstBladeMagicClassPosition()
+
+true_inc_trufunc.nss	- GetHighestTrueSpeakerLevel()
+
+----
+Date: 2023-03-10 19:04:21 -0500
+Updated Invoking include to allow invoking past 3rd class
+
+Updated Invoking include to allow invoking past 3rd class.  Updated epic spell include to allow epic spellcasting past 3rd class.  Updated nwscript compiler for .35.  Added .35 change log / notes.
+
+----
+Date: 2023-03-10 10:12:48 -0500
+Updated Disciple of Dispater's Iron Power for new weapon types
+
+Updated Disciple of Dispater's Iron Power for new weapon types. Added note about adding new weapons.
+
+----
+Date: 2023-03-09 14:06:10 -0500
+@hbwhipshot fixed template stacking
+
+@hbwhipshot fixed template stacking
+
+----
+Date: 2023-03-07 17:52:00 -0500
+Create prc_kngtw_sp_gen.nss
+
+Reenable spellcasting for Knight of the Weave.
+
+----
+Date: 2023-03-06 17:49:23 -0500
+Create nwsyc commands.txt
+
+----
+Date: 2023-03-03 19:14:10 -0500
+Updated TLK
+
+Updated TLK & release archive.
+
+----
+Date: 2023-03-03 18:00:07 -0500
+Updated Foe Hunter for new Favored Enemies
+
+Updated Foe Hunter for new Favored Enemies
+
+----
+Date: 2023-03-03 16:13:58 -0500
+Update feat.2da
+
+Disabled Craft Rod & related feats.
+
+----
+Date: 2023-03-03 14:52:44 -0500
+Fixed Eagle Claw being a martial weapon
+
+Fixed Eagle Claw being a martial weapon.  Set Duskblade to have Scythe prof @ 1st level.
+
+----
+Date: 2023-02-27 22:07:09 -0500
+Update Archmage check.
+
+Update Archmage check.
+
+----
+Date: 2023-02-27 21:28:21 -0500
+Bugfix for Favored Enemy & Archmage
+
+Bugfix for Favored Enemy & Archmage
+
+----
+Date: 2023-02-26 23:47:43 -0500
+Updated batch files
+
+Updated batch files
+
+----
+Date: 2023-02-26 23:33:15 -0500
+Update .gitignore
+
+----
+Date: 2023-02-26 22:18:45 -0500
+Updated Archmage for PrC Class selection.
+
+Updated Archmage for PrC Class selection. First release.
+
+----
+Date: 2023-02-25 23:04:24 -0500
+Setup up damage types.
+
+Setup up damage types.
+
+----
+Date: 2023-02-25 11:50:22 -0500
+Added rest of new .35-33 2DAs
+
+Added rest of new .35-33 2DAs
+
+----
+Date: 2023-02-25 11:42:38 -0500
+Added Clean NWN .35-33 2DAs
+
+Added Clean NWN .35-33 2DAs
+
+----
+Date: 2023-02-25 11:16:30 -0500
+Updated racialtype.2da for new FavoredEnemyFeat column
+
+Updated racialtype.2da for new FavoredEnemyFeat column.  Added Favored Enemy: Plants & Favored Enemy: Oozes.  Updated feat constants.
+
+----
+Date: 2023-02-25 00:35:21 -0500
+Update racialtypes.2da
+
+Added new "icon" & "FavoredEnemyFeat" columns.
+
+Actual feats still need to be assigned.
+
+----
+Date: 2023-02-25 00:27:26 -0500
+Update skills.2da
+
+Added new HideFromLevelUp row
+
+----
+Date: 2023-02-25 00:23:50 -0500
+Update classes.2da
+
+Classes.2da was off by a row.  Remerged from base 2das.
+
+----
+Date: 2023-02-24 23:52:12 -0500
+Update ruleset.2da
+
+----
+Date: 2023-02-24 23:38:36 -0500
+Updated spells & psionics in spells.2da for spell targeting
+
+Updated spells & psionics in spells.2da for spell targeting
+
+----
+Date: 2023-02-24 17:51:11 -0500
+Create Spell Targeting Flags.png
+
+----
+Date: 2023-02-23 13:53:46 -0500
+Update ruleset.2da for 4+ classes
+
+Update ruleset.2da for 4+ classes
+
+----
+Date: 2023-02-23 11:48:01 -0500
+Updated classes.2da & TLK for class abbreviations & Forest Master
+
+Updated classes.2da & TLK for class abbreviations & Forest Master
+
+----
+Date: 2023-02-22 17:25:20 -0500
+Added Epic Tempest feat
+
+Added Epic Tempest feat.
+
+----
+Date: 2023-02-21 09:49:13 -0500
+Updated Tempest & Frenzied Berzerker for Epic levels
+
+Updated Tempest & Frenzied Berzerker for Epic levels
+
+----
+Date: 2023-02-20 19:23:13 -0500
+Update for PRC 4.1.10a 2023/02/20
+
+Update for PRC 4.1.10a 2023/02/20
+
++ Jaysyn's latest PnP changes.
+
+----
+Date: 2022-12-09 19:08:32 -0500
+Update to PRC 4.1.10a
+
+Update to PRC 4.1.10a
+
+----
+Date: 2022-10-18 14:51:39 -0400
+Updated for PRC 4.19a
+
+Updated for PRC 4.19a.  Added sai & nunchaku as Monk weapons.  Updated prc_inc_switch.nss to show defunct switches.
+
+----
+Date: 2022-10-13 12:55:13 +0000
+Update 'README.md'
+
+----
+Date: 2022-10-07 13:51:24 -0400
+Initial upload.
+
+Adding base PRC 4.19a files to repository.
+
+----
+Date: 2022-10-07 17:31:22 +0000
+Initial commit
