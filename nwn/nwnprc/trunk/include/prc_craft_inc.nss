@@ -1912,7 +1912,10 @@ void MakeMasterwork(object oItem)
 
 void MakeAdamantine(object oItem)  
 {  
-    if(GetPlotFlag(oItem)) return;  //sanity check  
+    if(GetPlotFlag(oItem)) return;  //sanity check
+
+	itemproperty ip;
+ 
     if(GetBaseItemType(oItem) == BASE_ITEM_ARMOR)  
     {  
         int nBonus = 0;  
@@ -1929,7 +1932,7 @@ void MakeAdamantine(object oItem)
         }  
         if(nBonus)  
         {  
-            itemproperty ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_BLUDGEONING, nBonus);  
+            ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_BLUDGEONING, nBonus);  
             ip = TagItemProperty(ip, "Material_Adamantine");  
             IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
               
@@ -1939,21 +1942,21 @@ void MakeAdamantine(object oItem)
               
             ip = ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_SLASHING, nBonus);  
             ip = TagItemProperty(ip, "Material_Adamantine");  
-            IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
-              
-            ip = ItemPropertyMaterial(IP_MATERIAL_ADAMANTINE);  
-            ip = TagItemProperty(ip, "Material_Adamantine");  
-            IPSafeAddItemProperty(oItem, ip, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);  
+            IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);    
         }  
-    }  
+    } 
+
+	ip = ItemPropertyMaterial(IP_MATERIAL_ADAMANTINE);  
+	ip = TagItemProperty(ip, "Material_Adamantine");  
+	IPSafeAddItemProperty(oItem, ip, 0.0f, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);	
 }
 
 void MakeDarkwood(object oItem)
 {
     if(GetPlotFlag(oItem)) return;  //sanity check
   
-	itemproperty ip = ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_50_PERCENT);  
-	ip = TagItemProperty(ip, "Material_Darkwood");  
+	itemproperty ip = ItemPropertyWeightReduction(IP_CONST_REDUCEDWEIGHT_50_PERCENT);
+	ip = TagItemProperty(ip, "Material_Darkwood");	
 	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);	
 
     int nBase = GetBaseItemType(oItem);
@@ -1996,11 +1999,11 @@ void MakeDarkwood(object oItem)
 		ip = ItemPropertySkillBonus(SKILL_JUMP, nBonus);  
 		ip = TagItemProperty(ip, "Material_Darkwood");  
 		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
-		
-		ip = ItemPropertyMaterial(IP_MATERIAL_WOOD_DARKWOOD_ZALANTAR);  
-		ip = TagItemProperty(ip, "Material_Darkwood");  
-		IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
     }
+	
+	ip = ItemPropertyMaterial(IP_MATERIAL_WOOD_DARKWOOD_ZALANTAR);  
+	ip = TagItemProperty(ip, "Material_Darkwood");  
+	IPSafeAddItemProperty(oItem, ip, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);	
 }
 
 void MakeDragonhide(object oItem)

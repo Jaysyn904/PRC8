@@ -2,38 +2,105 @@
 
 #include "prc_craft_inc"
 
-//:: Assumes only one bane/dread can be applied
-void BaneCheck(object oItem)
-{
-    if(!GetIsObjectValid(oItem))
-        return;
-
-    itemproperty ipDread, ipBane;
-    int bDread = FALSE, bBane = FALSE;
-    ipBane = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_2d6);
-    bBane = GetIsItemPropertyValid(ipBane);
-    if(!bBane)
-    {   //don't want to search through itemprops again
-        ipDread = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_4d6);
-        bDread = GetIsItemPropertyValid(ipDread);
-    }
-    if(bBane || bDread)
-    {
-        int nRace, nBonus;
-        int nEnhance = IPGetWeaponEnhancementBonus(oItem);
-        if(bBane)
-        {
-            nRace = GetItemPropertySubType(ipBane);
-        }
-        else
-        {
-            nRace = GetItemPropertySubType(ipDread);
-        }
-        //Refresh enhancement bonuses in case of item upgrade
-        SetCompositeBonusT(oItem, "BaseEnhancementRace", nEnhance, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);
-        SetCompositeBonusT(oItem, "BaneEnhancement", (bDread) ? 4 : 2, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);
-    }
+//:: Assumes only one bane/dread can be applied  
+//:: Assumes only one bane/dread can be applied  
+void BaneCheck(object oItem)  
+{  
+    if(!GetIsObjectValid(oItem))  
+        return;  
+  
+    itemproperty ipDread, ipBane;  
+    int bDread = FALSE, bBane = FALSE;  
+    ipBane = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_2d6);  
+    bBane = GetIsItemPropertyValid(ipBane);  
+    if(!bBane)  
+    {  
+        ipDread = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_4d6);  
+        bDread = GetIsItemPropertyValid(ipDread);  
+    }  
+    if(bBane || bDread)  
+    {  
+        int nRace;  
+        if(bBane)  
+        {  
+            nRace = GetItemPropertySubType(ipBane);  
+        }  
+        else  
+        {  
+            nRace = GetItemPropertySubType(ipDread);  
+        }  
+          
+        // Check if weapon already has permanent enhancement vs this race  
+        itemproperty ip = GetFirstItemProperty(oItem);  
+        int bHasExistingRacialEnhance = FALSE;  
+        while(GetIsItemPropertyValid(ip))  
+        {  
+            if(GetItemPropertyType(ip) == ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP &&  
+               GetItemPropertySubType(ip) == nRace &&  
+               GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)  
+            {  
+                bHasExistingRacialEnhance = TRUE;  
+                break;  
+            }  
+            ip = GetNextItemProperty(oItem);  
+        }  
+          
+        // Skip BaneCheck if weapon already has permanent racial enhancement  
+        if(bHasExistingRacialEnhance)  
+            return;  
+          
+        // Get only base enhancement bonus  
+        int nEnhance = 0;  
+        ip = GetFirstItemProperty(oItem);  
+        while(GetIsItemPropertyValid(ip))  
+        {  
+            if(GetItemPropertyType(ip) == ITEM_PROPERTY_ENHANCEMENT_BONUS &&  
+               GetItemPropertyDurationType(ip) == DURATION_TYPE_PERMANENT)  
+            {  
+                nEnhance = GetItemPropertyCostTableValue(ip);  
+                break;  
+            }  
+            ip = GetNextItemProperty(oItem);  
+        }  
+          
+        //Refresh enhancement bonuses in case of item upgrade  
+        SetCompositeBonusT(oItem, "BaseEnhancementRace", nEnhance, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);  
+        SetCompositeBonusT(oItem, "BaneEnhancement", (bDread) ? 4 : 2, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);  
+    }  
 }
+/* void BaneCheck(object oItem)  
+{  
+    if(!GetIsObjectValid(oItem))  
+        return;  
+  
+    itemproperty ipDread, ipBane;  
+    int bDread = FALSE, bBane = FALSE;  
+    ipBane = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_2d6);  
+    bBane = GetIsItemPropertyValid(ipBane);  
+    if(!bBane)  
+    {   //don't want to search through itemprops again  
+        ipDread = GetSpecificProperty(oItem, ITEM_PROPERTY_DAMAGE_BONUS_VS_RACIAL_GROUP, -1, IP_CONST_DAMAGEBONUS_4d6);  
+        bDread = GetIsItemPropertyValid(ipDread);  
+    }  
+    if(bBane || bDread)  
+    {  
+        int nRace, nBonus; 
+		//int nEnhance = IPGetWeaponEnhancementBonus(oItem);		
+		int nEnhance = IPGetWeaponEnhancementBonus(oItem, ITEM_PROPERTY_ENHANCEMENT_BONUS, TRUE);
+
+		if(bBane)  
+		{  
+			nRace = GetItemPropertySubType(ipBane);  
+		}  
+		else  
+		{  
+			nRace = GetItemPropertySubType(ipDread);  
+		}  
+		//Refresh enhancement bonuses in case of item upgrade  
+		SetCompositeBonusT(oItem, "BaseEnhancementRace", nEnhance, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);  
+		SetCompositeBonusT(oItem, "BaneEnhancement", (bDread) ? 4 : 2, ITEM_PROPERTY_ENHANCEMENT_BONUS_VS_RACIAL_GROUP, nRace);  
+    }  
+} */
 
 void main()
 {
