@@ -1,25 +1,33 @@
 //::///////////////////////////////////////////////
-//:: Desecrate
+//:: Desecrate onExit script
 //:: prc_tn_des_b
 //:://////////////////////////////////////////////
 /*
     You create an aura that boosts the undead
     around you.
 */
-#include "prc_alterations"
+#include "prc_alterations"  
+  
+void main()  
+{  
+    object oTarget = GetExitingObject();  
+      
+    // Search through the valid effects on the target  
+    effect eAOE = GetFirstEffect(oTarget);  
+    while (GetIsEffectValid(eAOE))  
+    {  
+        // If the effect was created by the AoE then remove it  
+        if (GetEffectCreator(eAOE) == GetAreaOfEffectCreator())  
+        {  
+            string sTag = GetEffectTag(eAOE);  
+            if(sTag == "EFFECT_DESECRATE_AURA" || sTag == "EFFECT_DESECRATE_HP")  
+                RemoveEffect(oTarget, eAOE);  
+        }  
+        // Get next effect on the target  
+        eAOE = GetNextEffect(oTarget);  
+    }  
+}
 
-void main()
-{
-	object oTarget = GetExitingObject();
-	
-	effect eAOE = GetFirstEffect(oTarget);
-	if(GetEffectCreator(eAOE) == GetAreaOfEffectCreator())
-	{
-		string sTag = GetEffectTag(eAOE);
-		if(sTag == "EFFECT_DESECRATE_AURA" || sTag == "EFFECT_DESECRATE_HP")
-			RemoveEffect(oTarget, eAOE);
-	}
-	
 /*     object oTarget = GetExitingObject();
 
     if(GetHasSpellEffect(SPELL_DES_20, oTarget) || GetHasSpellEffect(SPELL_DES_100, oTarget) || GetHasSpellEffect(SPELL_DESECRATE, oTarget))
@@ -37,4 +45,3 @@ void main()
             eAOE = GetNextEffect(oTarget);
         }
     } */
-}

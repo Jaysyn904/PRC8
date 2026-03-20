@@ -74,6 +74,8 @@ void main()
                eLink = EffectLinkEffects(eLink, EffectAttackIncrease(1));
                eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, 1));
                eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+			   eLink = EffectLinkEffects(eLink, EffectTurnResistanceIncrease(3));
+			   
         effect eHP = EffectTemporaryHitpoints(GetHitDice(oTarget));
         effect eVis = EffectVisualEffect(VFX_IMP_HOLY_AID);
 
@@ -82,13 +84,27 @@ void main()
         eHP   = TagEffect(eHP,   "EFFECT_DESECRATE_HP");
 
         if(!GetPRCSwitch(PRC_TRUE_NECROMANCER_ALTERNATE_VISUAL))
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
         else
             eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_PROTECTION_EVIL_MINOR));
 
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, eHP, oTarget);
+        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget, 0.0f, SPELL_DESECRATE);
+        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eHP, oTarget, 0.0f, SPELL_DESECRATE);
     }
+	else  
+	{  
+		// Apply visual indicator for non-undead
+		effect eIcon = EffectIcon(EFFECT_ICON_FRIGHTENED);
+		effect eVis	= EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+		//effect eLink = EffectLinkEffects(eIcon, eVis);
+		effect eLink = EffectLinkEffects(eLink, eVis);
+		eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, 1));
+		eLink = EffectLinkEffects(eLink, EffectSavingThrowDecrease(SAVING_THROW_ALL, 1));
+
+				eLink = TagEffect(eLink, "EFFECT_DESECRATE_AURA");
+		
+		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget, 0.0f, SPELL_DESECRATE);  
+	}
 }
 
 

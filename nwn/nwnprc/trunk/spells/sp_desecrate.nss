@@ -1,5 +1,5 @@
 //::///////////////////////////////////////////////
-//:: Desecrate
+//:: Desecrate onEnter script
 //:: sp_desecrate.nss
 //:: //////////////////////////////////////////////
 /*
@@ -41,7 +41,7 @@ void main()
     float fDuration = HoursToSeconds(2 * nCastLvl);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDesecrate;
-    string sTag = Get2DACache("vfx_persistent", "LABEL", AOE_PER_CONSECRATE);
+    string sTag = Get2DACache("vfx_persistent", "LABEL", AOE_PER_DESECRATE);
 
     //Make sure duration does no equal 0
     if(fDuration < 2.0)
@@ -76,7 +76,7 @@ void main()
         ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eVis, lLoc, fDuration);        
 
         oAoE = GetAreaOfEffectObject(lLoc, "VFX_AOE_DESECRATE_20");
-        SetAllAoEInts(SPELL_CONSECRATE, oAoE, 20, 0, nCastLvl);
+        SetAllAoEInts(SPELL_DESECRATE, oAoE, 20, 0, nCastLvl);
     }
 
     PRCSetSchool();

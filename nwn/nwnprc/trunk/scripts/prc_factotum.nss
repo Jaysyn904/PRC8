@@ -61,7 +61,7 @@ void main()
     if(nEvent == FALSE)
     {
         // Add eventhook to OnRestFinished to reset the used marker
-        AddEventScript(oPC, EVENT_ONPLAYERREST_FINISHED, "prc_factotum", FALSE, FALSE);
+        AddEventScript(oPC, EVENT_ONPLAYERREST_FINISHED, "prc_factotum", TRUE, FALSE);
         if (!GetLocalInt(oPC, "InspirationHBRunning")) DeleteLocalInt(oPC, "InspirationHB");
         if (!GetLocalInt(oPC, "InspirationHB") && !GetLocalInt(oPC, "InspirationHBRunning")) 
         {
@@ -69,7 +69,7 @@ void main()
             SetLocalInt(oPC, "InspirationHB", TRUE);
         }         	
     }
-    else if(EVENT_ONCLIENTENTER)
+    else if(nEvent == EVENT_ONCLIENTENTER)
 	{
 		if(GetLevelByClass(CLASS_TYPE_FACTOTUM, oPC) > 0)
 		{
@@ -84,6 +84,6 @@ void main()
         AssignCommand(oPC, ClearAllActions(TRUE));
         ClearFactotumSlots(oPC);
         SetLocalInt(oPC, "FactotumArcDil", GetMaxArcDilSpellLevel(oPC));
-        StartDynamicConversation("prc_fact_splconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+        DelayCommand(0.1f, StartDynamicConversation("prc_fact_splconv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC));
     }    
 }

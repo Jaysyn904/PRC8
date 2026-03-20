@@ -64,7 +64,7 @@ void main()
     if(GetPRCSwitch(PRC_PNP_ANIMATE_DEAD))
     {
         int nMaxHD = GetLevelByClass(CLASS_TYPE_DREAD_NECROMANCER, oCaster) >= 8 ?
-                     nCasterLevel * (4 + GetAbilityModifier(ABILITY_CHARISMA, oCaster)) : nCasterLevel * 4;
+                     nCasterLevel * (4 + GetAbilityModifier(ABILITY_CHARISMA, oCaster)) : nCasterLevel * 2;
                      
         if(GetHasSpellEffect(SPELL_DES_20) || GetHasSpellEffect(SPELL_DES_100) || GetHasSpellEffect(SPELL_DESECRATE))
         	nMaxHD *= 2;
