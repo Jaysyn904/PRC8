@@ -75709,6 +75709,15 @@ Effect: +10 to Constitution</entry>
   <entry id="211217" lang="en" sex="m">78</entry>
   <entry id="211218" lang="en" sex="m">79</entry>
   <entry id="211219" lang="en" sex="m">80</entry>
+  <entry id="211229" lang="en" sex="m">## iprp_resistcost Expansion ##</entry>
+  <entry id="211230" lang="en" sex="m">Resist 11 / -</entry>
+  <entry id="211231" lang="en" sex="m">Resist 12 / -</entry>
+  <entry id="211232" lang="en" sex="m">Resist 13 / -</entry>
+  <entry id="211233" lang="en" sex="m">Resist 14 / -</entry>
+  <entry id="211234" lang="en" sex="m">Resist 16 / -</entry>
+  <entry id="211235" lang="en" sex="m">Resist 17 / -</entry>
+  <entry id="211236" lang="en" sex="m">Resist 18 / -</entry>
+  <entry id="211237" lang="en" sex="m">Resist 19 / -</entry>
   <entry id="211400" lang="en" sex="m">###_PRC8_CLASS_PACKAGES_RESERVES_###</entry>
   <entry id="211401" lang="en" sex="m">Archivist (Cloistered Scholar)</entry>
   <entry id="211402" lang="en" sex="m">(STARTING PACKAGE) 
