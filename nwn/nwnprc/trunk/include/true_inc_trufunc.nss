@@ -781,6 +781,8 @@ int CheckTrueSpeechSkill(object oTrueSpeaker)
     else if (GetLevelByClass(CLASS_TYPE_BEREFT, oTrueSpeaker) > 0) return FALSE;
     // And this one
     else if (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oTrueSpeaker) > 0) return FALSE;
+	// Factotums have every skill as a class skill.
+	else if (GetLevelByClass(CLASS_TYPE_FACTOTUM, oTrueSpeaker) > 0) return FALSE;
     // If they have the feat, no relevel
     else if(GetHasFeat(FEAT_TRUENAME_TRAINING, oTrueSpeaker)) return FALSE;
     // Now we check the values. If they have too many ranks, relevel.
@@ -838,3 +840,6 @@ int GetCadenceCount(object oTrueSpeaker)
     // Return total
     return nCount;
 }
+
+//
+void main (){}
