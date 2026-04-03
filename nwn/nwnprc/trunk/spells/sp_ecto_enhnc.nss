@@ -48,7 +48,38 @@ void main()
         object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lLoc, FALSE, OBJECT_TYPE_CREATURE);
                 
         //loop
-        while(GetIsObjectValid(oTarget))
+		while(GetIsObjectValid(oTarget))  
+		{  
+			nRace = MyPRCGetRacialType(oTarget);  
+			//Check for incorporeal undead  
+			if(nRace == RACIAL_TYPE_UNDEAD)  
+			{                          
+				if(GetIsIncorporeal(oTarget))  
+				{                         
+					// Apply effects to valid target  
+					effect eLink = EffectACIncrease(nBonus, AC_DEFLECTION_BONUS);  
+					eLink = EffectLinkEffects(eLink, EffectTurnResistanceIncrease(nBonus + 1));  
+					eLink = EffectLinkEffects(eLink, EffectTemporaryHitpoints(d8(1) + nBonus - 1));  
+					eLink = EffectLinkEffects(eLink, EffectAttackIncrease(nBonus));  
+					eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_PARALYZED));  
+					  
+					//Apply for 1 day  
+					SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, HoursToSeconds(24));  
+				}  
+				else  
+				{  
+					SendMessageToPC(oPC, "Target creature is not incorporeal.");  
+				}  
+			}                  
+			else  
+			{  
+				SendMessageToPC(oPC, "Target creature is not undead.");  
+			}  
+			  
+			// Always advance to next target  
+			oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lLoc, FALSE, OBJECT_TYPE_CREATURE);          
+		}		
+        /* while(GetIsObjectValid(oTarget))
         {
                 nRace = MyPRCGetRacialType(oTarget);
                 //Check for incorporeal undead
@@ -74,10 +105,10 @@ void main()
                 else
                 {
                         SendMessageToPC(oPC, "Target creature is not undead.");
-                        return;
+                        continue;
                 }
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_HUGE, lLoc, FALSE, OBJECT_TYPE_CREATURE);        
-        }        
+        } */        
         //SPEvilShift(oPC);
         PRCSetSchool();
 }      

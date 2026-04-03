@@ -22,7 +22,7 @@ void main()
 
     //Declare major variables
     object oCaster = OBJECT_SELF;
-    int nSpellID = GetSpellId();
+    int nSpellID = PRCGetSpellId();
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nFNF_Effect;
     string sSummon;

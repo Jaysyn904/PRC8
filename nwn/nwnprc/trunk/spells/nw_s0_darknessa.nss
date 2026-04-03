@@ -12,12 +12,8 @@
 //:: Created On: Feb 28, 2002
 //:://////////////////////////////////////////////
 
-
 //:: modified by mr_bumpkin Dec 4, 2003
 #include "prc_inc_spells"
-
-
-
 
 void main()
 {

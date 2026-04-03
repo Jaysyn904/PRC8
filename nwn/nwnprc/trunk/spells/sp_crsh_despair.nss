@@ -52,7 +52,7 @@ void main()
 	       
 	while(GetIsObjectValid(oTarget))
 	{		
-		if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
+		if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr())&& !GetIsImmune(oTarget, IMMUNITY_TYPE_MIND_SPELLS))
 		{
 			//Save
 			if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))

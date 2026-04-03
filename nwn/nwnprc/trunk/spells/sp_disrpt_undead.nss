@@ -45,13 +45,121 @@ Created:   7/6/07
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
 
-#include "prc_inc_sp_tch"
+#include "prc_inc_sp_tch"  
+#include "prc_sp_func"  
+  
+int DoSpell(object oCaster, object oTarget, int nCasterLevel)  
+{  
+    int nSpell = GetSpellId();  
+    int nBeam;  
+    int nDam;  
+    int nMetaMagic = PRCGetMetaMagicFeat();  
+    int nTouch = PRCDoRangedTouchAttack(oTarget);  
+    int nType = MyPRCGetRacialType(oTarget);  
+  
+    if(nSpell == SPELL_DISRUPT_UNDEAD)  
+    {  
+        nBeam = VFX_BEAM_HOLY;  
+        nDam = d6(1);  
+        nDam += SpellDamagePerDice(oCaster, 1);  
+        if(nMetaMagic & METAMAGIC_MAXIMIZE) nDam = 6;  
+    }  
+      
+    if(nSpell == SPELL_GREATER_DISRUPT_UNDEAD)  
+    {  
+        nBeam = VFX_BEAM_BLACK;  
+        nDam = d6(3);  
+        nDam += SpellDamagePerDice(oCaster, 3);  
+        if(nMetaMagic & METAMAGIC_MAXIMIZE) nDam = 18;  
+    }  
+      
+    if(nMetaMagic & METAMAGIC_EMPOWER) nDam += (nDam/2);  
+      
+    //Beam that acts accordingly  
+    effect eVis = EffectBeam(nBeam, oCaster, BODY_NODE_HAND, !nTouch);  
+      
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);  
+      
+    if(nTouch)  
+    {  
+        if(nType == RACIAL_TYPE_UNDEAD  
+        || (GetHasFeat(FEAT_TOMB_TAINTED_SOUL, oTarget) && GetAlignmentGoodEvil(oTarget) != ALIGNMENT_GOOD))  
+        {  
+            if(!PRCDoResistSpell(oCaster, oTarget, nCasterLevel + SPGetPenetr()))  
+            {  
+                if(nSpell == SPELL_GREATER_DISRUPT_UNDEAD)  
+                {  
+                    //Get hp before damage  
+                    int nHP = GetCurrentHitPoints(oTarget);  
+                      
+                    //Apply Damage  
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_POSITIVE), oTarget);  
+                      
+                    //if enough to kill target, bounce  
+                    if(nDam >= nHP)  
+                    {  
+                        location lLoc = GetLocation(oTarget);  
+                        object oTarget2 = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(15.0), lLoc, TRUE);  
+                          
+                        while(GetIsObjectValid(oTarget2))  
+                        {  
+                            //Undead, enemy, and not the original target  
+                            if((GetRacialType(oTarget2) == RACIAL_TYPE_UNDEAD || (GetHasFeat(FEAT_TOMB_TAINTED_SOUL, oTarget2) && GetAlignmentGoodEvil(oTarget2) != ALIGNMENT_GOOD)  
+                            && GetIsEnemy(oTarget2, oCaster) && (oTarget != oTarget2)))  
+                            {  
+                                //Black beam, origin chest of previous target  
+                                ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectBeam(VFX_BEAM_BLACK, oTarget, BODY_NODE_CHEST), oTarget2);  
+                                SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam/2, DAMAGE_TYPE_POSITIVE), oTarget2);  
+                                break;  
+                            }  
+                              
+                            oTarget2 = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(15.0), lLoc, TRUE);  
+                        }  
+                    }  
+                }  
+                else SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_POSITIVE), oTarget);  
+            }  
+        }  
+    }  
+      
+    return nTouch; // return TRUE if spell charges should be decremented  
+}  
+  
+void main()  
+{  
+    if (!X2PreSpellCastCode()) return;  
+    PRCSetSchool(SPELL_SCHOOL_NECROMANCY);  
+    object oCaster = OBJECT_SELF;  
+    object oTarget = PRCGetSpellTargetObject();  
+    int nCasterLevel = PRCGetCasterLevel(oCaster);  
+    int nEvent = GetLocalInt(oCaster, PRC_SPELL_EVENT); //use bitwise & to extract flags  
+    if(!nEvent) //normal cast  
+    {  
+        if(GetLocalInt(oCaster, PRC_SPELL_HOLD) && oCaster == oTarget)  
+        {   //holding the charge, casting spell on self  
+            SetLocalSpellVariables(oCaster, 1);   //change 1 to number of charges  
+            return;  
+        }  
+        DoSpell(oCaster, oTarget, nCasterLevel);  
+    }  
+    else  
+    {  
+        if(nEvent & PRC_SPELL_EVENT_ATTACK)  
+        {  
+            if(DoSpell(oCaster, oTarget, nCasterLevel))  
+                DecrementSpellCharges(oCaster);  
+        }  
+    }  
+    PRCSetSchool();  
+}
+
+/* #include "prc_inc_sp_tch"
 
 void main()
 {
     object oPC = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
-    int nSpell = GetSpellId();
+    int nSpell = PRCGetSpellId();
     int nCasterLvl = PRCGetCasterLevel(oPC);
     int nBeam;
     int nDam;
@@ -124,4 +232,4 @@ void main()
         }
     }
     PRCSetSchool();
-}
+} */

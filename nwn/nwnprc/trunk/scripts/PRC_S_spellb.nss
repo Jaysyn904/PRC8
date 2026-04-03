@@ -258,8 +258,8 @@ void main()
             int nAbilityScore = GetAbilityScoreForClass(nClass, oPC);
             int nClassLevel = GetLevelByPosition(i, oPC);
             if(nClassLevel
-              && (GetSlotCount(nClassLevel, 0, nAbilityScore, nClass)
-               || GetSlotCount(nClassLevel, 1, nAbilityScore, nClass)))
+              && (GetSlotCount(nClassLevel, 0, nAbilityScore, nClass, oPC)
+               || GetSlotCount(nClassLevel, 1, nAbilityScore, nClass, oPC)))
             {
               string sClassName = GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", nClass)));
               GenerateSpellsMemorizedCache(nClass, oPC);
@@ -291,7 +291,7 @@ void main()
           {
             // for every spell level, determine the slot count, and if it is non-zero add a choice
             // we do not break out of the loop on an empty slot count, because of bonus slot counts from items there might be gaps
-            if(GetSlotCount(nCasterLevel, nSpellSlotLevel, nAbilityScore, nClass))
+            if(GetSlotCount(nCasterLevel, nSpellSlotLevel, nAbilityScore, nClass, oPC))
             {
               AddChoice(sChoiceSpellLevel +IntToString(nSpellSlotLevel), nSpellSlotLevel, oPC);
               nChoiceAdded = TRUE;

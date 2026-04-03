@@ -840,6 +840,3 @@ int GetCadenceCount(object oTrueSpeaker)
     // Return total
     return nCount;
 }
-
-//
-void main (){}
