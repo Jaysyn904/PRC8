@@ -434,7 +434,7 @@ void main()
 		if (nStatus != ALIVE)
 			AddEventScript(oPC, EVENT_ONHEARTBEAT, "prc_timer_dying", TRUE, FALSE);
 		// Make us fall over if we should be on the floor.
-		if (nStatus == BLEEDING || STABLE || DEAD)
+		if (nStatus == BLEEDING || nStatus == STABLE || nStatus == DEAD)
 			AssignCommand(oPC, DelayCommand(0.03, PlayAnimation(ANIMATION_LOOPING_DEAD_BACK, 1.0, 4.0)));
 		// If PRC Death is enabled we require HP tracking too
 		SetPRCSwitch(PRC_PW_HP_TRACKING, TRUE);
