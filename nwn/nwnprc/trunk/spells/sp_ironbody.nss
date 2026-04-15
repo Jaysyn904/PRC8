@@ -51,7 +51,7 @@ void main()
            eLink    = EffectLinkEffects(eLink, EffectDamageImmunityIncrease(DAMAGE_TYPE_FIRE, 50));
            eLink    = EffectLinkEffects(eLink, EffectAbilityIncrease(ABILITY_STRENGTH, 6));
            eLink    = EffectLinkEffects(eLink, EffectMovementSpeedDecrease(50));
-           eLink    = EffectLinkEffects(eLink, EffectSpellFailure(50, SPELL_SCHOOL_GENERAL));
+           eLink    = EffectLinkEffects(eLink, EffectSpellFailure(50, SPELL_SCHOOL_GENERAL, SPELL_FAILURE_TYPE_ARCANE));
            eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_BLUR));
            eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_GLOBE_INVULNERABILITY));
            eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_PROT_SHADOW_ARMOR));
