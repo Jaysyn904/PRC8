@@ -10,8 +10,9 @@ int PRCGetSaveDC(object oTarget, object oCaster, int nSpellID = -1);
 
 //called just from above and from inc_epicspells
 int GetChangesToSaveDC(object oTarget, object oCaster, int nSpellID, int nSchool);
-
+#include "prc_inc_factotum"
 #include "prc_add_spl_pen"
+
 // #include "prc_inc_spells"
 // #include "prc_class_const"
 // #include "prc_feat_const"
@@ -444,7 +445,32 @@ int AngrySpell(int spell_id, int nSchool, object oCaster)
     return nDC;
 }
 
-int CloakedCastingDC(int spell_id, object oTarget, object oCaster)
+int CloakedCastingDC(int spell_id, object oTarget, object oCaster)  
+{  
+    int nDC;  
+    int iBeguiler = GetLevelByClass(CLASS_TYPE_BEGUILER, oCaster);  
+    int iFactotum = GetLevelByClass(CLASS_TYPE_FACTOTUM, oCaster);  
+    int iEffectiveLevel = 0;  
+  
+    // Check if character has Beguiler levels OR has learned Cloaked Casting via Cunning Brilliance  
+    if(iBeguiler || (iFactotum && GetIsAbilitySaved(oCaster, FEAT_CLOAKED_CASTING)))  
+    {  
+        if(GetIsDeniedDexBonusToAC(oTarget, oCaster, TRUE))  
+        {  
+            // Use Beguiler level if available, otherwise use Factotum level  
+            iEffectiveLevel = iBeguiler ? iBeguiler : iFactotum;  
+              
+            if(iEffectiveLevel >= 14)  
+                nDC = 2;  
+            else if(iEffectiveLevel >= 2)  
+                nDC = 1;  
+        }  
+    }  
+  
+    return nDC;  
+}
+
+/* int CloakedCastingDC(int spell_id, object oTarget, object oCaster)
 {
     int nDC;
     int iBeguiler = GetLevelByClass(CLASS_TYPE_BEGUILER, oCaster);
@@ -461,7 +487,7 @@ int CloakedCastingDC(int spell_id, object oTarget, object oCaster)
     }
 
     return nDC;
-}
+} */
 
  // Wyrmbane Helm
 int WyrmbaneHelmDC(object oTarget, object oCaster)

@@ -240,7 +240,171 @@ int GetIsAbilitySaved(object oPC, int nAbil)
     return nCount;
 }
 
-void FactotumTriggerAbil(object oPC, int nAbil)
+void FactotumTriggerAbil(object oPC, int nAbil)    
+{    
+    object oSkin = GetPCSkin(oPC);    
+    effect eEffect;    
+        
+    if (nAbil == FEAT_BARBARIAN_RAGE)    
+        ExecuteScript("NW_S1_BarbRage", oPC);    
+    else if (nAbil == FEAT_BARBARIAN_ENDURANCE)    
+        eEffect = EffectBonusFeat(IP_CONST_FEAT_BarbEndurance);    
+    else if (nAbil == FEAT_SNEAK_ATTACK)    
+    {    
+        SetLocalInt(oPC, "FactotumSneak", TRUE);    
+        DelayCommand(0.1, ExecuteScript("prc_sneak_att", oPC));       
+        DelayCommand(59.9, DeleteLocalInt(oPC, "FactotumSneak"));    
+        DelayCommand(60.0, ExecuteScript("prc_sneak_att", oPC));            
+    }    
+    else if (nAbil == FEAT_METTLE) // Mettle    
+    {    
+        eEffect = EffectBonusFeat(FEAT_METTLE);
+		/* SetLocalInt(oPC, "FactotumMettle", TRUE);    
+        DelayCommand(60.0, DeleteLocalInt(oPC, "FactotumMettle")); */    
+    }    
+    else if (nAbil == FEAT_CRUSADER_SMITE)   
+    {          
+        eEffect = EffectBonusFeat(FEAT_CRUSADER_SMITE);  
+    }          
+    else if (nAbil == FEAT_CLOAKED_CASTING)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_CLOAKED_CASTING);   
+    }    
+    else if (nAbil == FEAT_DRAGONSHAMAN_RESOLVE)      
+    {      
+        // Draconic Resolve - immunity to sleep, paralysis, fear      
+        eEffect = EffectImmunity(IMMUNITY_TYPE_PARALYSIS);    
+        eEffect = EffectLinkEffects(eEffect, EffectImmunity(IMMUNITY_TYPE_SLEEP));    
+        eEffect = EffectLinkEffects(eEffect, EffectImmunity(IMMUNITY_TYPE_FEAR));            
+    }   
+    // Favored Enemy feats  
+    else if (nAbil == FEAT_FAVORED_ENEMY_ABERRATION)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_ABERRATION);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_ANIMAL)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_ANIMAL);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_BEAST)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_BEAST);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_CONSTRUCT)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_CONSTRUCT);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_DRAGON)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_DRAGON);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_DWARF)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_DWARF);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_ELEMENTAL)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_ELEMENTAL);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_ELF)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_ELF);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_FEY)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_FEY);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_GIANT)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_GIANT);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_GNOME)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_GNOME);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_GOBLINOID)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_GOBLINOID);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_HALFELF)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_HALFELF);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_HALFLING)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_HALFLING);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_HALFORC)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_HALFORC);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_HUMAN)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_HUMAN);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_MAGICAL_BEAST)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_MAGICAL_BEAST);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_MONSTROUS)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_MONSTROUS);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_ORC)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_ORC);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_OOZE)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_OOZE);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_OUTSIDER)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_OUTSIDER);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_PLANT)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_PLANT);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_REPTILIAN)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_REPTILIAN);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_SHAPECHANGER)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_SHAPECHANGER);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_UNDEAD)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_UNDEAD);  
+    else if (nAbil == FEAT_FAVORED_ENEMY_VERMIN)  
+        eEffect = EffectBonusFeat(FEAT_FAVORED_ENEMY_VERMIN);  
+    // Other existing abilities  
+    else if (nAbil == FEAT_NATURE_SENSE)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_NATURE_SENSE);    
+    }  
+    else if (nAbil == FEAT_WOODLAND_STRIDE)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_WOODLAND_STRIDE);   
+    }          
+    else if (nAbil == FEAT_TRACKLESS_STEP)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_TRACKLESS_STEP);    
+    }  
+    else if (nAbil == FEAT_RESIST_NATURES_LURE)   
+    {          
+        eEffect = EffectBonusFeat(FEAT_RESIST_NATURES_LURE);    
+    }  
+    else if (nAbil == FEAT_VENOM_IMMUNITY)    
+    {    
+        effect eImmunity = EffectImmunity(IMMUNITY_TYPE_POISON);    
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eImmunity, oPC, 60.0);    
+    }    
+    else if (nAbil == FEAT_EVASION)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_EVASION);   
+    }    
+    else if (nAbil == FEAT_STILL_MIND)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_STILL_MIND);   
+    }          
+    else if (nAbil == FEAT_PURITY_OF_BODY)    
+    {    
+        // Purity of Body - disease immunity    
+        effect eImmunity = EffectImmunity(IMMUNITY_TYPE_DISEASE);    
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eImmunity, oPC, 60.0);    
+    }    
+    else if (nAbil == FEAT_IMPROVED_EVASION)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_IMPROVED_EVASION);     
+    }    
+    else if (nAbil == FEAT_USE_POISON)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_USE_POISON);    
+    }  
+    else if (nAbil == FEAT_DIVINE_HEALTH)    
+    {    
+        // Divine Health - disease immunity    
+        effect eImmunity = EffectImmunity(IMMUNITY_TYPE_DISEASE);    
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eImmunity, oPC, 60.0);    
+    }    
+    else if (nAbil == FEAT_CRIPPLING_STRIKE)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_CRIPPLING_STRIKE);    
+    }    
+    else if (nAbil == FEAT_DEFENSIVE_ROLL)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_DEFENSIVE_ROLL);   
+    }    
+    else if (nAbil == FEAT_OPPORTUNIST)    
+    {    
+        eEffect = EffectBonusFeat(FEAT_OPPORTUNIST);     
+    }    
+    else if (nAbil == FEAT_SLIPPERY_MIND)    
+    {  
+        eEffect = EffectBonusFeat(FEAT_SLIPPERY_MIND);   
+    }
+	
+	eEffect = TagEffect(eEffect, "FactotumCunningBrilliance");  
+	eEffect = ExtraordinaryEffect(eEffect);  
+	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEffect, oPC, 60.0);
+	
+}  
+
+
+/* void FactotumTriggerAbil(object oPC, int nAbil)
 {
 	object oSkin = GetPCSkin(oPC);
 	itemproperty ipIP;
@@ -264,7 +428,7 @@ void FactotumTriggerAbil(object oPC, int nAbil)
     	ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_CRUSADER_SMITE);
     	
     IPSafeAddItemProperty(oSkin, ipIP, 60.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE); 	
-}
+} */
 
 void TriggerInspiration(object oPC, int nCombat)
 {

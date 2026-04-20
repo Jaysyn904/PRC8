@@ -203,6 +203,10 @@ const int FEAT_CHARMING_THE_ARROW		= 25998;
 //:: Skill Based Feats
 const int FEAT_JUMP = 2884;
 
+//:: Beguiler
+const int FEAT_CLOAKED_CASTING				= 23592;
+const int FEAT_SURPRISE_CASTING				= 23593;
+
 //:: Lion of Talisid
 const int FEAT_LOT_LIONS_COURAGE 			= 25614;
 const int FEAT_LOT_LIONS_POUNCE 			= 25615;
@@ -3241,9 +3245,10 @@ const int FEAT_CWSM_FRIGHTFUL_PRESENCE        = 2359;
  const int FEAT_VIRTUOSO_REVEALING_MELODY      = 4176;
  const int FEAT_VIRTUOSO_PERFORMANCE           = 4177;
  
-// hexblade feats
-const int FEAT_HEXCURSE   = 3664;
-const int FEAT_SWIFT_CAST = 3827;
+//:: Hexblade feats
+const int FEAT_HEXCURSE   	= 3664;
+const int FEAT_METTLE		= 3665;
+const int FEAT_SWIFT_CAST 	= 3827;
 
 // Status markers
 const int FEAT_INCORPOREAL                    = 4166;

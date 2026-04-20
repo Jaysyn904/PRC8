@@ -110,7 +110,7 @@ const int TYPE_WILD_SHAPE		=  1;	//0x01
 const int TYPE_ELEMENTAL_SHAPE	=  2;	//0x02
 const int TYPE_DRAGON_SHAPE		=  4;	//0x04
 const int TYPE_POLYMORPH_SELF	=  8;	//0x08
-const int TYPE_ABERRANT_SHAPE	= 16;	//0x16
+const int TYPE_ABERRANT_SHAPE	= 16;	//0x10
 const int TYPE_PLANT_SHAPE		= 32;	//0x20
 
 //////////////////////////////////////////////////

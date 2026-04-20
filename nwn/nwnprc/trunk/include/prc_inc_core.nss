@@ -532,7 +532,8 @@ int GetIsBioSpellCastClass(int nClass)
         || nClass == CLASS_TYPE_SHAMAN
         || nClass == CLASS_TYPE_DRUID
         || nClass == CLASS_TYPE_PALADIN
-        || nClass == CLASS_TYPE_RANGER;
+        || nClass == CLASS_TYPE_RANGER
+		|| nClass == CLASS_TYPE_ASSASSIN;
 }
 
 int GetIsNSBClass(int nClass)
@@ -675,8 +676,19 @@ int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJ
     string sSpellLevel  = Get2DACache(sFile, "Level", nSpellbookSpell);
     if (sSpellLevel != "")
         nSpellLevel = StringToInt(sSpellLevel);
-    if ((GetLevelByClass(nClass) < nSpellLevel) || nSpellLevel == -1)
-        return FALSE; // not high enough level
+	if (nClass == CLASS_TYPE_SUBLIME_CHORD)  
+	{  
+		// Sublime Chord gets access to 4th level spells at level 1  
+		// Skip level requirement check for this class  
+	}  
+	else  
+	{  
+		// Original level check for other classes  
+		if ((GetLevelByClass(nClass) < nSpellLevel) || nSpellLevel == -1)  
+			return FALSE; // not high enough level  
+	}		
+/*  if ((GetLevelByClass(nClass) < nSpellLevel) || nSpellLevel == -1)
+        return FALSE; // not high enough level */
     // at this stage, prepared casters know the spell and only spontaneous classes need checking
     // there are exceptions and these need hardcoding:
 
