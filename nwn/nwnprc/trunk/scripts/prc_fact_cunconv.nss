@@ -185,7 +185,7 @@ void main()
 				if (!GetIsAbilitySaved(oPC, FEAT_USE_POISON)) AddChoice("Ninja: Poison Use", FEAT_USE_POISON);				
 				if (!GetIsAbilitySaved(oPC, FEAT_DIVINE_HEALTH)) AddChoice("Paladin: Divine Health", FEAT_DIVINE_HEALTH);
 				if (!GetIsAbilitySaved(oPC, FEAT_CRIPPLING_STRIKE)) AddChoice("Rogue: Crippling Strike", FEAT_CRIPPLING_STRIKE); 
-				if (!GetIsAbilitySaved(oPC, FEAT_DEFENSIVE_ROLL)) AddChoice("Rogue: Defensive Strike", FEAT_DEFENSIVE_ROLL);
+				if (!GetIsAbilitySaved(oPC, FEAT_DEFENSIVE_ROLL)) AddChoice("Rogue: Defensive Roll", FEAT_DEFENSIVE_ROLL);
 				if (!GetIsAbilitySaved(oPC, FEAT_OPPORTUNIST)) AddChoice("Rogue: Opportunist", FEAT_OPPORTUNIST); 
 				if (!GetIsAbilitySaved(oPC, FEAT_SLIPPERY_MIND)) AddChoice("Rogue: Slippery Mind", FEAT_SLIPPERY_MIND);   				
                 if (!GetIsAbilitySaved(oPC, FEAT_SNEAK_ATTACK)) AddChoice("Rogue: Sneak Attack", FEAT_SNEAK_ATTACK);  

@@ -19,13 +19,13 @@
 #include "prc_inc_sp_tch"
 #include "prc_add_spell_dc"
 
-void DoPnPAttack(object oSummon)
+void DoPnPAttack(object oSummon, int nAttackBonus)
 {
     object oTarget = GetAttackTarget(oSummon);
     if(GetIsObjectValid(oTarget)
         && GetDistanceBetween(oTarget, oSummon) < 5.0)
     {
-        int nAttackResult = PRCDoMeleeTouchAttack(oTarget);;
+		int nAttackResult = PRCDoMeleeTouchAttack(oTarget, TRUE, OBJECT_SELF, nAttackBonus);
         if(nAttackResult)
         {
             //hit or critical hit
@@ -65,7 +65,11 @@ void DoPnPAttack(object oSummon)
                 // be used instead.
                 // Test done. Result: It does kill them.
                 int nDamage = 9999;
-                if (PRCMySavingThrow(SAVING_THROW_FORT, oTarget, PRCGetSaveDC(oTarget,OBJECT_SELF), SAVING_THROW_TYPE_SPELL))
+                //if (PRCMySavingThrow(SAVING_THROW_FORT, oTarget, PRCGetSaveDC(oTarget,OBJECT_SELF), SAVING_THROW_TYPE_SPELL))
+				object oCaster = GetLocalObject(oSummon, "BBoD_Caster");  
+				int nDC = PRCGetSaveDC(oTarget, oCaster);  
+  
+				if (PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
                 {
                      nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_MAGICAL, 1 == nAttackResult ? 5 : 10, 6);
                      nDamage += SpellDamagePerDice(OBJECT_SELF, 5);
@@ -92,98 +96,132 @@ void DoPnPAttack(object oSummon)
         }
     }
     if(GetIsObjectValid(oSummon))
-        DelayCommand(6.0, DoPnPAttack(oSummon));
+        DelayCommand(6.0, DoPnPAttack(oSummon, nAttackBonus));
 }
 
-//Creates the weapon that the creature will be using.
-void spellsCreateItemForSummoned()
-{
-    //Declare major variables
-    int nStat;
+//Creates the weapon that the creature will be using.    
+void spellsCreateItemForSummoned()    
+{    
+    //Declare major variables    
+    int nStat;  
+	    
+    // cast from scroll, we just assume +5 ability modifier    
+    if (GetSpellCastItem() != OBJECT_INVALID)    
+    {    
+        nStat = 5;    
+    }    
+     else    
+    {    
+        int nClass = PRCGetLastSpellCastClass();    
+        int nLevel = GetLevelByClass(nClass); 
+		    
+        int nCha =  GetAbilityModifier(ABILITY_CHARISMA,OBJECT_SELF);    
+        int nInt =  GetAbilityModifier(ABILITY_INTELLIGENCE,OBJECT_SELF);    
+    
+        if (nClass == CLASS_TYPE_WIZARD)    
+        {    
+            nStat = nInt;    
+        }    
+        else    
+        {    
+            nStat = nCha;    
+        }    
+    
+        if (nStat >20)    
+        {    
+            nStat =20;    
+        }    
+    
+        if (nStat <1)    
+        {    
+           nStat = 0;    
+        }    
+    }    
+      
+    // Find the correct summon based on PnP switch    
+    string sTargetTag = GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER) ? "prc_bbod001" : "x2_s_bblade";    
+    if(DEBUG) DoDebug("BBoD: Looking for summon with tag: " + sTargetTag);    
+      
+    int i = 1;    
+    object oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);    
+    while(GetIsObjectValid(oSummon))    
+    {    
+        string sTag = GetTag(oSummon);    
+        if(DEBUG) DoDebug("BBoD: Found associate " + IntToString(i) + " with tag: " + sTag);    
+          
+        // Use case-insensitive comparison    
+        if(GetStringLowerCase(sTag) == GetStringLowerCase(sTargetTag))    
+        {    
+            if(DEBUG) DoDebug("BBoD: Found matching summon");    
+            break;    
+        }    
+        i++;    
+        oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);    
+    }    
+      
+    if(!GetIsObjectValid(oSummon))    
+    {    
+        if(DEBUG) DoDebug("BBoD: ERROR - No valid summon found with tag " + sTargetTag);    
+        return;    
+    }    
 
-    // cast from scroll, we just assume +5 ability modifier
-    if (GetSpellCastItem() != OBJECT_INVALID)
-    {
-        nStat = 5;
-    }
-     else
-    {
-        int nClass = PRCGetLastSpellCastClass();
-        int nLevel = GetLevelByClass(nClass);
+	SetLocalInt(oSummon, "BBoD_Level", GetLocalInt(OBJECT_SELF, "BBoD_Level"));  
+	SetLocalObject(oSummon, "BBoD_Caster", OBJECT_SELF); 
+	DeleteLocalInt(OBJECT_SELF, "BBoD_Level");
+      
+    // Make the blade require concentration    
+    SetLocalInt(oSummon,"X2_L_CREATURE_NEEDS_CONCENTRATION",TRUE);    
+    object oWeapon;    
+    //Create item on the creature, equip it and add properties.    
+    oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oSummon);    
+      
+    if(DEBUG) DoDebug("BBoD: Weapon valid: " + IntToString(GetIsObjectValid(oWeapon)));    
+      
+    if (nStat > 0 && !GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))    
+    {    
+        IPSetWeaponEnhancementBonus(oWeapon, nStat);    
+    }    
+    SetDroppableFlag(oWeapon, FALSE);    
+    SetPlotFlag (oSummon,TRUE);    
+    
+    if(GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))    
+    {    
+        if(DEBUG) DoDebug("BBoD: Processing PnP version");
 
-        int nStat;
-
-        int nCha =  GetAbilityModifier(ABILITY_CHARISMA,OBJECT_SELF);
-        int nInt =  GetAbilityModifier(ABILITY_INTELLIGENCE,OBJECT_SELF);
-
-        if (nClass == CLASS_TYPE_WIZARD)
-        {
-            nStat = nInt;
-        }
-        else
-        {
-            nStat = nCha;
-        }
-
-        if (nStat >20)
-        {
-            nStat =20;
-        }
-
-        if (nStat <1)
-        {
-           nStat = 0;
-        }
-    }
-    int i = 1;
-    object oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);
-    while(GetIsObjectValid(oSummon))
-    {
-        oSummon = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);
-        i++;
-    }
-    // Make the blade require concentration
-    SetLocalInt(oSummon,"X2_L_CREATURE_NEEDS_CONCENTRATION",TRUE);
-    object oWeapon;
-    //Create item on the creature, epuip it and add properties.
-    oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oSummon);
-    if (nStat > 0 && !GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))
-    {
-        IPSetWeaponEnhancementBonus(oWeapon, nStat);
-    }
-    SetDroppableFlag(oWeapon, FALSE);
-    SetPlotFlag (oSummon,TRUE);
-
-    if(GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))
-    {
-        itemproperty ipTest = GetFirstItemProperty(oWeapon);
-        while(GetIsItemPropertyValid(ipTest))
-        {
-            ipTest = GetNextItemProperty(oWeapon);
-        }
-        itemproperty ipNoDam = ItemPropertyNoDamage();
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipNoDam, oWeapon);
-        itemproperty ipVFX = ItemPropertyVisualEffect(ITEM_VISUAL_ELECTRICAL);
-        AddItemProperty(DURATION_TYPE_PERMANENT, ipVFX, oWeapon);
-        //store the level on the summon
-        SetLocalInt(oSummon, "BBoD_Level", GetLocalInt(OBJECT_SELF, "BBoD_Level"));
-        DeleteLocalInt(OBJECT_SELF, "BBoD_Level");
-        //attacks are handled through a pseudoHB
-        DoPnPAttack(oSummon);
-    }
+        // Remove all existing properties    
+        itemproperty ipTest = GetFirstItemProperty(oWeapon);    
+        int nCount = 0;    
+        while(GetIsItemPropertyValid(ipTest))    
+        {    
+            nCount++;    
+            if(DEBUG) DoDebug("BBoD: Removing property " + IntToString(nCount));    
+            RemoveItemProperty(oWeapon, ipTest);    
+            ipTest = GetNextItemProperty(oWeapon);    
+        }    
+        if(DEBUG) DoDebug("BBoD: Removed " + IntToString(nCount) + " properties");    
+          
+        itemproperty ipNoDam = ItemPropertyNoDamage();    
+        AddItemProperty(DURATION_TYPE_PERMANENT, ipNoDam, oWeapon);    
+        if(DEBUG) DoDebug("BBoD: Added NoDamage property");    
+          
+        itemproperty ipVFX = ItemPropertyVisualEffect(ITEM_VISUAL_ELECTRICAL);    
+        AddItemProperty(DURATION_TYPE_PERMANENT, ipVFX, oWeapon);    
+        if(DEBUG) DoDebug("BBoD: Added VFX property");    
+          
+        //store the level and DC on the summon    
+		SetLocalInt(oSummon, "BBoD_Level", GetLocalInt(OBJECT_SELF, "BBoD_Level"));  
+		SetLocalObject(oSummon, "BBoD_Caster", OBJECT_SELF); 
+		DeleteLocalInt(OBJECT_SELF, "BBoD_Level");    
+        //attacks are handled through a pseudoHB    
+        DoPnPAttack(oSummon, nStat);    
+    }    
 }
+
 
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
-/*
-  Spellcast Hook Code
-  Added 2003-07-07 by Georg Zoeller
-  If you want to make changes to all spells,
-  check x2_inc_spellhook.nss to find out more
-
-*/
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 
     if (!X2PreSpellCastCode())
     {
@@ -191,13 +229,17 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
         return;
     }
 
-// End of Spell Cast Hook
-
-
     //Declare major variables
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDuration = PRCGetCasterLevel(OBJECT_SELF);
-    effect eSummon = EffectSummonCreature("x2_s_bblade");
+    effect eSummon;
+	if(GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))
+	{
+		eSummon = EffectSummonCreature("prc_bbod001");
+	}
+	else
+		eSummon = EffectSummonCreature("x2_s_bblade");
+	
     effect eVis = EffectVisualEffect(VFX_FNF_SUMMON_MONSTER_3);
     //Make metamagic check for extend
     if ((nMetaMagic & METAMAGIC_EXTEND))

@@ -29,7 +29,7 @@
 #include "x0_i0_anims"
 // #include "x0_i0_walkway" - in x0_i0_anims
 #include "x0_i0_treasure"
-
+#include "prc_inc_spells"
 #include "x2_inc_switches"
 
 void main()
@@ -297,7 +297,12 @@ void main()
     // ***** ADD ANY SPECIAL ON-SPAWN CODE HERE ***** //
 
     // * If Incorporeal, apply changes
-    if (GetCreatureFlag(OBJECT_SELF, CREATURE_VAR_IS_INCORPOREAL) == TRUE)
+	    if (GetCreatureFlag(OBJECT_SELF, CREATURE_VAR_IS_INCORPOREAL) == TRUE)
+    {
+        SetIncorporeal(OBJECT_SELF, 0.0f, 2, TRUE);
+    }
+	
+/*     if (GetCreatureFlag(OBJECT_SELF, CREATURE_VAR_IS_INCORPOREAL) == TRUE)
     {
         effect eConceal = EffectConcealment(50, MISS_CHANCE_TYPE_NORMAL);
         eConceal = ExtraordinaryEffect(eConceal);
@@ -306,7 +311,7 @@ void main()
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, eConceal, OBJECT_SELF);
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, eGhost, OBJECT_SELF);
 
-    }
+    } */
 
     // * Give the create a random name.
     // * If you create a script named x3_name_gen in your module, you can
