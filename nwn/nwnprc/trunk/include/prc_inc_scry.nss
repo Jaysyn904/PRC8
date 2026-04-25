@@ -159,17 +159,17 @@ void ScryMain(object oPC, object oTarget)
             FloatingTextStringOnCreature(GetName(oTarget) + " has been Obscured.", oPC, FALSE);
             return;
         }
-        if(GetHasSpellEffect(SPELL_NONDETECTION, oTarget) || GetLevelByClass(CLASS_TYPE_WILD_MAGE, oTarget) >= 6 || GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oTarget) >= 5 || GetHasSpellEffect(MELD_ENIGMA_HELM, oTarget) || GetRacialType(oTarget) == RACIAL_TYPE_SKULK) 
-        {
-            // Caster level check or the Divination fails.
-            int nTarget = PRCGetCasterLevel(oTarget) + 11;
-        	if (GetRacialType(oTarget) == RACIAL_TYPE_SKULK && 20 > nTarget) nTarget = 20;
-            if(nTarget > nCasterLevel + d20())
-            {
-                FloatingTextStringOnCreature(GetName(oTarget) + " has Nondetection active.", oPC, FALSE);
-                return;
-            }
-        }
+		if(GetHasSpellEffect(SPELL_NONDETECTION, oTarget) || GetLevelByClass(CLASS_TYPE_WILD_MAGE, oTarget) >= 6 || GetLevelByClass(CLASS_TYPE_UNSEEN_SEER, oTarget) >= 5 || GetHasSpellEffect(MELD_ENIGMA_HELM, oTarget) || GetRacialType(oTarget) == RACIAL_TYPE_SKULK)   
+		{  
+			// Caster level check or the Divination fails.  
+			int nTarget = PRCGetCasterLevel(oTarget) + 11;  
+			if (GetRacialType(oTarget) == RACIAL_TYPE_SKULK) nTarget = 20;  
+			if(nTarget > nCasterLevel + d20())  
+			{  
+				FloatingTextStringOnCreature(GetName(oTarget) + " has Nondetection active.", oPC, FALSE);  
+				return;  
+			}  
+		}
         if(GetHasSpellEffect(POWER_ESCAPE_DETECTION, oTarget))
         {
             // Caster level check or the Divination fails.
@@ -335,7 +335,7 @@ void DoScryEnd(object oPC, object oCopy)
                       );
 
     //effect eGlow     = EffectVisualEffect(VFX_DUR_ETHEREAL_VISAGE, FALSE);
-    effect eLight = EffectVisualEffect(VFX_IMP_HEALING_X , FALSE);
+    effect eLight; // = EffectVisualEffect(VFX_IMP_HEALING_X , FALSE);
     
     // Remove Immortality from the PC if necessary
     if(!GetLocalInt(oPC, ALREADY_IMMORTAL_LOCAL_NAME))
@@ -356,6 +356,7 @@ void DoScryEnd(object oPC, object oCopy)
     PRCRemoveSpellEffects(SPELL_SEQUESTER        , oPC, oPC);
     PRCRemoveSpellEffects(SPELL_PNP_SCRY_FAMILIAR, oPC, oPC);
     PRCRemoveSpellEffects(SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE, oPC, oPC);
+	PRCRemoveSpellEffects(POWER_CLAIRTANGENT_HAND, oPC, oPC);
 
     // Remove the local signifying that the PC is a projection
     DeleteLocalInt(oPC, "Scry_Active");
@@ -594,3 +595,5 @@ void CleanCopy(object oImage)
     }
     TakeGoldFromCreature(GetGold(oImage), oImage, TRUE);
 }
+
+//void main (){}

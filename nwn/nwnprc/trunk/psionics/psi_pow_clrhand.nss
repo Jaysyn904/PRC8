@@ -120,16 +120,9 @@ void ApplyScryEffects(object oManifester)
     }}
 }
 
+
 void main()
 {
-/*
-  Spellcast Hook Code
-  Added 2004-11-02 by Stratovarius
-  If you want to make changes to all powers,
-  check psi_spellhook to find out more
-
-*/
-
     if (!PsiPrePowerCastCode())
     {
     // If code within the PrePowerCastHook (i.e. UMD) reports FALSE, do not run this spell
@@ -153,7 +146,8 @@ void main()
 
         SetLocalInt(oManifester, "ScryCasterLevel", manif.nManifesterLevel);
         SetLocalInt(oManifester, "ScrySpellId", manif.nSpellID);
-        SetLocalFloat(oManifester, "ScryDuration", fDur);       
+        SetLocalFloat(oManifester, "ScryDuration", fDur); 
+		SetLocalInt(oManifester, "ScrySpellDC", GetManifesterDC(oManifester));		
         
         StartDynamicConversation("prc_scry_conv", oManifester, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oManifester);
         

@@ -27,32 +27,37 @@ void main()
     {
         if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, OBJECT_SELF))
         {
-            PRCSignalSpellEvent(oTarget);
+			// Mastery of shapes check  
+			if(!CheckMasteryOfShapes(OBJECT_SELF, oTarget))  
+			{  
+				PRCSignalSpellEvent(oTarget);
 
-            // Apply impact vfx.
-            DelayCommand(0.5, ApplyEffectToObject(DURATION_TYPE_INSTANT,
-                EffectVisualEffect(VFX_IMP_SPARKS), oTarget));
+				// Apply impact vfx.
+				DelayCommand(0.5, ApplyEffectToObject(DURATION_TYPE_INSTANT,
+				EffectVisualEffect(VFX_IMP_SPARKS), oTarget));
 
-            // Creatures take the hide penalty whether they save or not.
-            SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eHidePenalty, oTarget, fDuration,TRUE,-1,nCasterLvl);
+				// Creatures take the hide penalty whether they save or not.
+				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eHidePenalty, oTarget, fDuration,TRUE,-1,nCasterLvl);
 
-            // Creatures that are invisible become visible whether they save or not.  We do
-            // this by looping through all the creature's effects looking for invisibility
-            // effects and removing them.
-            effect eTarget = GetFirstEffect(oTarget);
-            while (GetIsEffectValid(eTarget))
-            {
-                int nType = GetEffectType(eTarget);
-                if (EFFECT_TYPE_INVISIBILITY == nType || EFFECT_TYPE_IMPROVEDINVISIBILITY == nType)
-                    RemoveEffect (oTarget, eTarget);
+				// Creatures that are invisible become visible whether they save or not.  We do
+				// this by looping through all the creature's effects looking for invisibility
+				// effects and removing them.
+				effect eTarget = GetFirstEffect(oTarget);
+				while (GetIsEffectValid(eTarget))
+				{
+					int nType = GetEffectType(eTarget);
+					if (EFFECT_TYPE_INVISIBILITY == nType || EFFECT_TYPE_IMPROVEDINVISIBILITY == nType)
+						RemoveEffect (oTarget, eTarget);
 
-                eTarget = GetNextEffect(oTarget);
-            }
+					eTarget = GetNextEffect(oTarget);
+				}
 
-            // Let the creature make a will save, if it fails it's blinded.
-            if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, PRCGetSaveDC(oTarget,OBJECT_SELF)))
-                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eBlindness, oTarget, fDuration,TRUE,-1,nCasterLvl);
-        }
+				// Let the creature make a will save, if it fails it's blinded.
+				if (!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, PRCGetSaveDC(oTarget,OBJECT_SELF)))
+					SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eBlindness, oTarget, fDuration,TRUE,-1,nCasterLvl);
+			}
+			
+		}
 
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, lTarget);
     }

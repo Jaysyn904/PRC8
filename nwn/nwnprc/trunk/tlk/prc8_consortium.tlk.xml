@@ -38480,17 +38480,17 @@ This spell imbues the caster with the might of his deity, giving him a +8 Streng
   <entry id="53070" lang="en" sex="m">Recitation</entry>
   <entry id="53071" lang="en" sex="m">Caster Level(s): Cleric 4
 Innate Level: 4
-School: Conjuration
+School: Conjuration (Creation) 
 Descriptor(s):
 Component(s): Verbal, Somatic
 Range: Personal
-Area of Effect / Target: Colossal, centered on you
+Area of Effect / Target: 60 ft., centered on you
 Duration: 1 Round / Level
 Additional Counter Spells:
 Save: None
-Spell Resistance: Yes (for detrimental effects)
+Spell Resistance: Yes
 
-You recite holy scriptures of your deity. All allies (including you) in the area receive a +2 bonus to attack rolls, saving throws, and skill checks. All enemies receive a -2 penalty to attack rolls, saving throws, and skill checks. Creatures who are neither friendly or hostile are unaffected..</entry>
+You recite holy scriptures of your deity. The spell affects all allies (including you) within the spell's area at the moment you cast it. Your allies gain a +2 luck bonus to AC, on attack rolls, and on saving throws, or a +3 luck bonus if they worship the same deity as you. </entry>
   <entry id="53072" lang="en" sex="m">Forceblast</entry>
   <entry id="53073" lang="en" sex="m">Caster Level(s): Wizard / Sorcerer 3
 Innate Level: 3
@@ -76270,7 +76270,7 @@ Throwing Axes</entry>
   <entry id="211717" lang="en" sex="m">Warblade (Default)</entry>
   <entry id="211718" lang="en" sex="m">(STARTING PACKAGE)
 
-The default package focuses on improving strength and proficiency with the longsword..
+The default package focuses on improving strength and proficiency with the longsword.
 
 Equipment:
 Torch

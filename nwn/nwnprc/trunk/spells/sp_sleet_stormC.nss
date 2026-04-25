@@ -1,4 +1,4 @@
-//::///////////////////////////////////////////////
+﻿//::///////////////////////////////////////////////
 //:: Name      Sleet Storm Heartbeat
 //:: FileName  sp_sleet_stormC.nss
 //:://////////////////////////////////////////////
@@ -18,7 +18,7 @@ Driving sleet blocks all sight (even darkvision)
 within it and causes the ground in the area to be
 icy. A creature can walk within or through the 
 area of sleet at half normal speed with a DC 10 
-Balance check. Failure means it can�t move in that
+Balance check. Failure means it can’t move in that
 round, while failure by 5 or more means it falls 
 (see the Balance skill for details).
 
@@ -46,6 +46,13 @@ void main()
 
     while(GetIsObjectValid(oTarget))
     {
+        if(CheckMasteryOfShapes(GetAreaOfEffectCreator(), oTarget))
+        {
+            // Target is protected by Mastery of Shaping.
+            oTarget = GetNextInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE);
+            continue;
+        }
+
         int nFail = BalanceCheckFailure(oTarget);
 
         //Can't move
@@ -60,23 +67,23 @@ void main()
     PRCSetSchool();
 }
 
-int BalanceCheckFailure(object oTarget)
-{
-    int nResult = 0;
-    int nRoll = GetAbilityModifier(ABILITY_DEXTERITY, oTarget) + d20(1);
-    int nTumble = GetSkillRank(SKILL_TUMBLE, oTarget);
-
-    //if 5 or more ranks of Tumble, +2 bonus
-    if(nTumble > 4) nRoll += 2;
-
-    //All fails
-    if(nRoll < 10)
-    {
-        //if failed by 5 or more
-        if((10 - nRoll) < 6) nResult = 2;
-
-        //otherwise it failed by less than 5
-        else nResult = 1;
-    }
-    return nResult;
+int BalanceCheckFailure(object oTarget)  
+{  
+    int nResult = 0;  
+    int nRoll = GetSkillRank(SKILL_BALANCE, oTarget) + d20(1);  
+    int nTumble = GetSkillRank(SKILL_TUMBLE, oTarget);  
+  
+    //if 5 or more ranks of Tumble, +2 bonus  
+    if(nTumble > 4) nRoll += 2;  
+  
+    //All fails  
+    if(nRoll < 10)  
+    {  
+        //if failed by 5 or more  
+        if((10 - nRoll) < 6) nResult = 2;  
+  
+        //otherwise it failed by less than 5  
+        else nResult = 1;  
+    }  
+    return nResult;  
 }

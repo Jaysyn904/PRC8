@@ -1,6 +1,90 @@
-#include "prc_inc_spells"
+/*  
+    Recitation Impact Script  
+      
+    Spell Compendium version:  
+    - Conjuration (Creation)  
+    - Level: Cleric 4, Purification 3  
+    - Target: All allies within 60-ft. radius burst  
+    - Duration: 1 round/level  
+    - Allies gain +2 luck bonus to AC, attack rolls, saving throws  
+    - +3 luck bonus if they worship same deity as caster  
+*/  
+#include "prc_inc_spells" 
+#include "prc_sp_func"  
+#include "prc_inc_combat"  
+  
+//Implements the spell impact
+int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)  
+{  
+    int nMetaMagic = PRCGetMetaMagicFeat();  
+    float fDuration = RoundsToSeconds(nCasterLevel);  
+      
+    // Apply metamagic  
+    if(nMetaMagic & METAMAGIC_EXTEND)  
+        fDuration *= 2.0;  
+      
+    // Get caster's deity for comparison  
+    string sCasterDeity = GetDeity(oCaster);  
+      
+    // Check if target is an ally  
+    if(spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))  
+    {  
+        // Determine bonus amount based on deity  
+        int nBonus = 2;  
+        if(GetDeity(oTarget) == sCasterDeity && sCasterDeity != "")  
+            nBonus = 3;  
+          
+        // Create luck bonus effects 
+        effect eAC = EffectACIncrease(nBonus, AC_DODGE_BONUS, AC_VS_DAMAGE_TYPE_ALL);  
+        eAC = EffectLinkEffects(eAC, EffectVisualEffect(VFX_DUR_PROTECTION_GOOD_MINOR));  
+          
+        effect eAttack = EffectAttackIncrease(nBonus);  
+        effect eSave = EffectSavingThrowIncrease(SAVING_THROW_ALL, nBonus);  
+          
+        // Link all effects together  
+        effect eLink = EffectLinkEffects(eAC, eAttack);  
+        eLink = EffectLinkEffects(eLink, eSave);  
+          
+        // Apply the effects  
+        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration, TRUE);  
+          
+        // Apply visual effect  
+        SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_HEAD_HOLY), oTarget);  
+    }  
+      
+    return TRUE; // Return TRUE for area spells  
+}  
+  
+void main()  
+{  
+    object oCaster = OBJECT_SELF;  
+    int nCasterLevel = PRCGetCasterLevel(oCaster);  
+    int nSpellID = PRCGetSpellId();  
+      
+    PRCSetSchool(GetSpellSchool(nSpellID));  
+    if (!X2PreSpellCastCode()) return;  
+      
+    // Get spell target location for area effect  
+    location lTarget = GetSpellTargetLocation();  
+      
+    // Apply area of effect - 60ft radius (RADIUS_SIZE_COLOSSAL)  
+    effect eImpact = EffectVisualEffect(VFX_FNF_LOS_HOLY_30);  
+    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, lTarget);  
+      
+    // Get all creatures in 60ft radius  
+    object oTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+      
+    while(GetIsObjectValid(oTarget))  
+    {  
+        DoSpell(oCaster, oTarget, nCasterLevel, 0);  
+        oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    }  
+      
+    PRCSetSchool();  
+}
 
-void main()
+
+/* void main()
 {
 	// If code within the PreSpellCastHook (i.e. UMD) reports FALSE, do not run this spell
 	if (!X2PreSpellCastCode()) return;
@@ -70,3 +154,4 @@ void main()
 	
 	PRCSetSchool();
 }
+ */
