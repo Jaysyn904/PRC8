@@ -205,11 +205,11 @@ void main()
         //Affects damage, saving throw, and impact visual.
         switch(Random(5))
         {
-            case 0: DBREED = DAMAGE_TYPE_COLD;
-            case 1: DBREED = DAMAGE_TYPE_ACID;
-            case 2: DBREED = DAMAGE_TYPE_FIRE;
-            case 3: DBREED = DAMAGE_TYPE_SONIC;
-            case 4: DBREED = DAMAGE_TYPE_ELECTRICAL;
+            case 0: DBREED = DAMAGE_TYPE_COLD; break;
+            case 1: DBREED = DAMAGE_TYPE_ACID; break;
+            case 2: DBREED = DAMAGE_TYPE_FIRE; break;
+            case 3: DBREED = DAMAGE_TYPE_SONIC; break;
+            case 4: DBREED = DAMAGE_TYPE_ELECTRICAL; break;
         }
     }
 
