@@ -114,41 +114,48 @@ void ApplyScryEffects(object oPC)
 
 void main()
 {
-        object oPC = OBJECT_SELF;
+	object oPC = OBJECT_SELF;
         
-DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_DIVINATION);
+	DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_DIVINATION);
 
     if (!X2PreSpellCastCode())
     {
     // If code within the PreSpellCastHook (i.e. UMD) reports FALSE, do not run this spell
         return;
     }
+	
+	// Check if current area blocks scrying  
+	if(GetLocalInt(GetArea(oPC), "SCRY_FROM_AREA_BLOCKED"))  
+	{  
+		FloatingTextStringOnCreature("This area prevents scrying.", oPC, FALSE);  
+		return;  
+	} 	
 
-        //Declare major variables
-        object oTarget;
-        int nCasterLvl = PRCGetCasterLevel(oPC);
-        int nSpell = PRCGetSpellId();
-        int nDC = PRCGetSaveDC(oTarget, oPC);
-        float fDur = HoursToSeconds(nCasterLvl);
-        int nMetaMagic = PRCGetMetaMagicFeat();
-    	//Make Metamagic check for extend
-    	if ((nMetaMagic & METAMAGIC_EXTEND))
-    	{
-        	fDur = fDur * 2;
-    	}                
-        
-        SetLocalInt(oPC, "ScryCasterLevel", nCasterLvl);
-        SetLocalInt(oPC, "ScrySpellId", nSpell);
-        SetLocalInt(oPC, "ScrySpellDC", nDC);
-        SetLocalFloat(oPC, "ScryDuration", fDur);      
-        
-        //AssignCommand(oPC, ClearAllActions(TRUE));
-        StartDynamicConversation("prc_scry_conv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
-        
-        // Apply the immunity effects
-        ApplyScryEffects(oPC);
+	//Declare major variables
+	object oTarget;
+	int nCasterLvl = PRCGetCasterLevel(oPC);
+	int nSpell = PRCGetSpellId();
+	int nDC = PRCGetSaveDC(oTarget, oPC);
+	float fDur = HoursToSeconds(nCasterLvl);
+	int nMetaMagic = PRCGetMetaMagicFeat();
+	//Make Metamagic check for extend
+	if ((nMetaMagic & METAMAGIC_EXTEND))
+	{
+		fDur = fDur * 2;
+	}                
+	
+	SetLocalInt(oPC, "ScryCasterLevel", nCasterLvl);
+	SetLocalInt(oPC, "ScrySpellId", nSpell);
+	SetLocalInt(oPC, "ScrySpellDC", nDC);
+	SetLocalFloat(oPC, "ScryDuration", fDur);      
+	
+	//AssignCommand(oPC, ClearAllActions(TRUE));
+	StartDynamicConversation("prc_scry_conv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
+	
+	// Apply the immunity effects
+	ApplyScryEffects(oPC);
 
-DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Getting rid of the integer used to hold the spells spell school
+	DeleteLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Getting rid of the integer used to hold the spells spell school
 }

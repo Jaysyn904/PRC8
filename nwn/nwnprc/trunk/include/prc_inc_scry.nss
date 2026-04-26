@@ -232,11 +232,13 @@ void ScryMain(object oPC, object oTarget)
     // Create the copy
     oCopy = CopyObject(oPC, lTarget, OBJECT_INVALID, GetName(oPC) + "_" + COPY_LOCAL_NAME);
     CleanCopy(oCopy);
-    // Attempted Fix to the Copy get's murdered problem.
-    int nMaxHenchmen = GetMaxHenchmen();
-    SetMaxHenchmen(99);
-    AddHenchman(oPC, oCopy);
-    SetMaxHenchmen(nMaxHenchmen);
+    
+	// Attempted Fix to the Copy get's murdered problem.   
+	//int nMaxHenchmen = GetMaxHenchmen();    
+	//SetMaxHenchmen(99);    
+	//AddHenchman(oPC, oCopy);    
+	//SetMaxHenchmen(nMaxHenchmen);    
+	
     SetIsTemporaryFriend(oPC, oCopy, FALSE);
     // Set the copy to be undestroyable, so that it won't vanish to the ether
     // along with the PC's items.
@@ -357,7 +359,7 @@ void DoScryEnd(object oPC, object oCopy)
     PRCRemoveSpellEffects(SPELL_PNP_SCRY_FAMILIAR, oPC, oPC);
     PRCRemoveSpellEffects(SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE, oPC, oPC);
 	PRCRemoveSpellEffects(POWER_CLAIRTANGENT_HAND, oPC, oPC);
-
+	
     // Remove the local signifying that the PC is a projection
     DeleteLocalInt(oPC, "Scry_Active");
 
@@ -400,7 +402,7 @@ void DoScryEnd(object oPC, object oCopy)
 
     // VFX
     ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eLight, lCopy, 3.0);
-    DestroyObject(oCopy);
+    //DestroyObject(oCopy);
     
     //Remove duration marker
     DeleteLocalInt(oPC, "SCRY_EXPIRED");
@@ -409,12 +411,94 @@ void DoScryEnd(object oPC, object oCopy)
 //Runs tests to see if the projection effect can still continue.
 //If the PC has reached 1 HP, end projection normally.
 //If the copy is dead, end projection and kill the PC.
-void ScryMonitor(object oPC, object oCopy)
+void ScryMonitor(object oPC, object oCopy)  
+{  
+    if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor():\n"  
+                    + "oPC = '" + GetName(oPC) + "'\n"  
+                    + "oCopy = '" + GetName(oCopy) + "'"  
+                      );  
+                        
+    // Abort if the projection is no longer marked as being active  
+    if(!GetLocalInt(oPC, "Scry_Active"))  
+        return;  
+  
+    // Some paranoia in case something interfered and either PC or copy has been destroyed  
+    if(!(GetIsObjectValid(oPC) && GetIsObjectValid(oCopy))){  
+        WriteTimestampedLogEntry("Baelnorn Projection hearbeat aborting due to an invalid object. Object status:" +  
+                                 "\nPC - " + (GetIsObjectValid(oPC) ? "valid":"invalid") +  
+                                 "\nCopy - " + (GetIsObjectValid(oCopy) ? "valid":"invalid"));  
+        return;  
+    }  
+  
+    // Start the actual work by checking the copy's status. The death thing should take priority  
+    if(GetIsDead(oCopy))  
+    {  
+        if (DEBUG) DoDebug("prc_inc_scry: Copy is dead, killing PC");  
+        DoScryEnd(oPC, oCopy);  
+        effect eKill = EffectDamage(9999, DAMAGE_TYPE_MAGICAL, DAMAGE_POWER_ENERGY);  
+        DelayCommand(3.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eKill, oPC));  
+    }  
+    else  
+    {  
+        // Check if the "projection" has been destroyed or if some other event has caused the projection to end  
+        if(GetLocalInt(oPC, "Scry_Abort"))  
+        {  
+            if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor(): The Projection has been terminated, ending projection");  
+            DoScryEnd(oPC, oCopy);  
+        }  
+        else  
+        {  
+            // This makes sure you are invisible.  
+            //AssignCommand(oPC, ClearAllActions(TRUE));  
+            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectEthereal()), oPC, SCRY_HB_DELAY + 0.3);  
+            DelayCommand(SCRY_HB_DELAY, ScryMonitor(oPC, oCopy));  
+        }  
+          
+        // Skip destructive cleanup triggers for Clairtangent Hand  
+        if(GetLocalInt(oPC, "ScrySpellId") != POWER_CLAIRTANGENT_HAND)  
+        {  
+            //If duration expired, end effect  
+            if(GetLocalInt(oPC, "SCRY_EXPIRED"))  
+            {  
+                DoScryEnd(oPC, oCopy);  
+            }  
+            // End due to being in combat, except for ephemeral image  
+            if(GetIsInCombat(oPC) && GetLocalInt(oPC, "ScrySpellId") != MYST_EPHEMERAL_IMAGE)  
+            {  
+                DoScryEnd(oPC, oCopy);  
+                if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor(): Scryer in combat, ending projection");  
+                AssignCommand(oPC, ClearAllActions(TRUE));  
+            }  
+            // In PnP, once you lose line of effect, the spell ends  
+            float fDistance = FeetToMeters(100.0 + GetLocalInt(oPC, "ScryCasterLevel") * 10.0);  
+            if (GetLocalInt(oPC, "ScrySpellId") == MYST_EPHEMERAL_IMAGE && GetDistanceBetween(oPC, oCopy) > fDistance)  
+            {  
+                DoScryEnd(oPC, oCopy);  
+                if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor(): Ephemeral Image distance exceeded, ending projection");  
+                AssignCommand(oPC, ClearAllActions(TRUE));              
+            }  
+        }  
+    }  
+}
+
+
+/* void ScryMonitor(object oPC, object oCopy)
 {
-    if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor():\n"
+
+	if(DEBUG) DoDebug("prc_inc_scry: ScryMonitor():\n"
                     + "oPC = '" + GetName(oPC) + "'\n"
                     + "oCopy = '" + GetName(oCopy) + "'"
                       );
+					  
+	// Skip automatic cleanup for Clairtangent Hand  
+	if(GetLocalInt(oPC, "ScrySpellId") == POWER_CLAIRTANGENT_HAND)  
+	{  
+		// Only apply ethereal effect and reschedule  
+		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectEthereal()), oPC, SCRY_HB_DELAY + 0.3);  
+		DelayCommand(SCRY_HB_DELAY, ScryMonitor(oPC, oCopy));  
+		return;  
+	}
+					  
     // Abort if the projection is no longer marked as being active
     if(!GetLocalInt(oPC, "Scry_Active"))
         return;
@@ -473,6 +557,7 @@ void ScryMonitor(object oPC, object oCopy)
         }
     }
 }
+ */
 
 //Undoes changes made in ApplyScryEffects().
 void RemoveScryEffects(object oPC)
@@ -498,6 +583,14 @@ void RemoveScryEffects(object oPC)
         IPRemoveMatchingItemProperties(oWeapon, ITEM_PROPERTY_NO_DAMAGE, DURATION_TYPE_PERMANENT);
     }
 
+	effect eEffect = GetFirstEffect(oPC);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SCRYING_TAG")
+            RemoveEffect(oPC, eEffect);
+        eEffect = GetNextEffect(oPC);
+    }
+	
     array_delete(oPC, "Scry_Nerfed");
 }
 

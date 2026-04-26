@@ -26,8 +26,6 @@ const int STAGE_CONFIRMATION      = 1;
 //////////////////////////////////////////////////
 /* Aid functions                                */
 //////////////////////////////////////////////////
-
-
 void StorePCForRecovery(object oPC, object oChoice, int nChoice)
 {
     SetLocalObject(oPC, "ScryTarget" + IntToString(nChoice), oChoice);
@@ -38,7 +36,188 @@ object RetrievePC(object oPC, int nChoice)
     return GetLocalObject(oPC, "ScryTarget" + IntToString(nChoice));
 }
 
-void AddLegalTargets(object oPC)
+void AddLegalTargets(object oPC)    
+{    
+    // This reads all of the legal choices    
+    int nSpellId = GetLocalInt(oPC, "ScrySpellId");    
+    int nChoice = 1;    
+    int nDebugCounter = 0; // Add debug counter for frequency limiting    
+        
+    if (nSpellId == SPELL_LOCATE_OBJECT)    
+    {    
+        // First, get all objects in the area you're in    
+        object oObject = GetFirstObjectInArea(GetArea(oPC));    
+        while (GetIsObjectValid(oObject) == TRUE)    
+        {    
+            if(DEBUG && (++nDebugCounter % 10 == 0))    
+                DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " objects");    
+            // Don't target PCs using this    
+            if (GetObjectType(oObject) == OBJECT_TYPE_PLACEABLE || GetObjectType(oObject) ==  OBJECT_TYPE_ITEM)    
+            {    
+                // Check if object's area blocks scrying  
+                if(!GetLocalInt(GetArea(oObject), "SCRY_AREA_BLOCKED"))  
+                {  
+                    // If its a legal object, target it for locating    
+                    AddChoice(GetName(oObject), nChoice, oPC);    
+                    StorePCForRecovery(oPC, oObject, nChoice);    
+                }  
+            }    
+            nChoice += 1;    
+            oObject = GetNextObjectInArea(GetArea(oPC));    
+        }    
+    }    
+    else    
+    {    
+        // First, get all creatures in the area you're in    
+        object oCreature = GetFirstObjectInArea(GetArea(oPC));    
+        while (GetIsObjectValid(oCreature) == TRUE)    
+        {    
+            if(DEBUG && (++nDebugCounter % 10 == 0))    
+                DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " creatures");    
+            // Don't target PCs using this    
+            if (GetObjectType(oCreature) == OBJECT_TYPE_CREATURE)    
+            {    
+                // Check if creature's area blocks scrying  
+                if(!GetLocalInt(GetArea(oCreature), "SCRY_AREA_BLOCKED"))  
+                {  
+                    // This can target PCs in the area, but not in other areas    
+                    if ((nSpellId == SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE ||    
+                         nSpellId == SPELL_LOCATE_CREATURE ||    
+                         nSpellId == MYST_TRAIL_OF_HAZE ||    
+                         nSpellId == POWER_CLAIRVOYANT_SENSE) &&    
+                         oPC != oCreature &&    
+                         !GetIsDM(oCreature))    
+                    {    
+                        AddChoice(GetName(oCreature), nChoice, oPC);    
+                        StorePCForRecovery(oPC, oCreature, nChoice);    
+                    }    
+                    // Normally, the second part takes care of all PCs    
+                    else if ((!GetIsPC(oCreature) && !GetIsDM(oCreature)))    
+                    {    
+                        AddChoice(GetName(oCreature), nChoice, oPC);    
+                        StorePCForRecovery(oPC, oCreature, nChoice);    
+                    }    
+                }  
+            }    
+            nChoice += 1;    
+            oCreature = GetNextObjectInArea(GetArea(oPC));    
+        }    
+        // These only target in their own areas    
+        if (nSpellId != SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE &&    
+            nSpellId != SPELL_LOCATE_CREATURE &&    
+            nSpellId != MYST_TRAIL_OF_HAZE &&    
+            nSpellId != POWER_CLAIRVOYANT_SENSE)    
+        {    
+            // Now, loop through all of the PCs    
+            object oPCTarget = GetFirstPC();    
+            // Don't target yourself    
+            while (GetIsObjectValid(oPCTarget))    
+            {    
+                if(oPCTarget != oPC && !GetIsDM(oPCTarget))    
+                {    
+                    if(DEBUG && (++nDebugCounter % 10 == 0))    
+                        DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " PC targets");    
+                      
+                    // Check if PC's area blocks scrying  
+                    if(!GetLocalInt(GetArea(oPCTarget), "SCRY_AREA_BLOCKED"))  
+                    {  
+                        AddChoice(GetName(oPCTarget), nChoice, oPC);    
+                        StorePCForRecovery(oPC, oPCTarget, nChoice);    
+                    }  
+    
+                    nChoice += 1;    
+                }    
+                oPCTarget = GetNextPC();    
+            }    
+        }    
+    }    
+}
+
+/* void AddLegalTargets(object oPC)  
+{  
+    // This reads all of the legal choices  
+    int nSpellId = GetLocalInt(oPC, "ScrySpellId");  
+    int nChoice = 1;  
+    int nDebugCounter = 0; // Add debug counter for frequency limiting  
+      
+    if (nSpellId == SPELL_LOCATE_OBJECT)  
+    {  
+        // First, get all objects in the area you're in  
+        object oObject = GetFirstObjectInArea(GetArea(oPC));  
+        while (GetIsObjectValid(oObject) == TRUE)  
+        {  
+            if(DEBUG && (++nDebugCounter % 10 == 0))  
+                DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " objects");  
+            // Don't target PCs using this  
+            if (GetObjectType(oObject) == OBJECT_TYPE_PLACEABLE || GetObjectType(oObject) ==  OBJECT_TYPE_ITEM)  
+            {  
+                // If its a legal object, target it for locating  
+                AddChoice(GetName(oObject), nChoice, oPC);  
+                StorePCForRecovery(oPC, oObject, nChoice);  
+            }  
+            nChoice += 1;  
+            oObject = GetNextObjectInArea(GetArea(oPC));  
+        }  
+    }  
+    else  
+    {  
+        // First, get all creatures in the area you're in  
+        object oCreature = GetFirstObjectInArea(GetArea(oPC));  
+        while (GetIsObjectValid(oCreature) == TRUE)  
+        {  
+            if(DEBUG && (++nDebugCounter % 10 == 0))  
+                DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " creatures");  
+            // Don't target PCs using this  
+            if (GetObjectType(oCreature) == OBJECT_TYPE_CREATURE)  
+            {  
+                // This can target PCs in the area, but not in other areas  
+                if ((nSpellId == SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE ||  
+                     nSpellId == SPELL_LOCATE_CREATURE ||  
+                     nSpellId == MYST_TRAIL_OF_HAZE ||  
+                     nSpellId == POWER_CLAIRVOYANT_SENSE) &&  
+                     oPC != oCreature &&  
+                     !GetIsDM(oCreature))  
+                {  
+                    AddChoice(GetName(oCreature), nChoice, oPC);  
+                    StorePCForRecovery(oPC, oCreature, nChoice);  
+                }  
+                // Normally, the second part takes care of all PCs  
+                else if ((!GetIsPC(oCreature) && !GetIsDM(oCreature)))  
+                {  
+                    AddChoice(GetName(oCreature), nChoice, oPC);  
+                    StorePCForRecovery(oPC, oCreature, nChoice);  
+                }  
+            }  
+            nChoice += 1;  
+            oCreature = GetNextObjectInArea(GetArea(oPC));  
+        }  
+        // These only target in their own areas  
+        if (nSpellId != SPELL_CLAIRAUDIENCE_AND_CLAIRVOYANCE &&  
+            nSpellId != SPELL_LOCATE_CREATURE &&  
+            nSpellId != MYST_TRAIL_OF_HAZE &&  
+            nSpellId != POWER_CLAIRVOYANT_SENSE)  
+        {  
+            // Now, loop through all of the PCs  
+            object oPCTarget = GetFirstPC();  
+            // Don't target yourself  
+            while (GetIsObjectValid(oPCTarget))  
+            {  
+                if(oPCTarget != oPC && !GetIsDM(oPCTarget))  
+                {  
+                    if(DEBUG && (++nDebugCounter % 10 == 0))  
+                        DoDebug("prc_scry_conv: Processed " + IntToString(nDebugCounter) + " PC targets");  
+                    AddChoice(GetName(oPCTarget), nChoice, oPC);  
+                    StorePCForRecovery(oPC, oPCTarget, nChoice);  
+  
+                    nChoice += 1;  
+                }  
+                oPCTarget = GetNextPC();  
+            }  
+        }  
+    }  
+}
+ */
+/* void AddLegalTargets(object oPC)
 {
     // This reads all of the legal choices
     int nSpellId = GetLocalInt(oPC, "ScrySpellId");
@@ -116,7 +295,7 @@ void AddLegalTargets(object oPC)
         }
     }
 }
-
+ */
 //////////////////////////////////////////////////
 /* Main function                                */
 //////////////////////////////////////////////////
@@ -220,6 +399,7 @@ void main()
                 	if (GetIsSkillSuccessful(oPC, SKILL_TRUESPEAK, nDC))
                 	{	// The function will take it from here
                 		ScryMain(oPC, oChoice);
+
                 	}
                 	else // Clean up effects
                 	{
@@ -230,6 +410,7 @@ void main()
                 {
                 	// The function will take it from here
                 	ScryMain(oPC, oChoice);
+
                 }
 
                 // And we're all done

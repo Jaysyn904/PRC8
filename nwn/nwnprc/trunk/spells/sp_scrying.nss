@@ -130,7 +130,14 @@ void main()
     if(nMetaMagic & METAMAGIC_EXTEND)
         fDur *= 2;
 
-    SetLocalInt(oPC, "ScryCasterLevel", nCasterLvl);
+	// Check if current area blocks scrying  
+	if(GetLocalInt(GetArea(oPC), "SCRY_FROM_AREA_BLOCKED"))  
+	{  
+		FloatingTextStringOnCreature("This area prevents scrying.", oPC, FALSE);  
+		return;  
+	} 
+		
+	SetLocalInt(oPC, "ScryCasterLevel", nCasterLvl);
     SetLocalInt(oPC, "ScrySpellId", nSpell);
     SetLocalInt(oPC, "ScrySpellDC", nDC);
     SetLocalFloat(oPC, "ScryDuration", fDur);

@@ -151,7 +151,14 @@ void main()
 
     if(manif.bCanManifest)
     {
-        float fDur = 60.0 * manif.nManifesterLevel;
+		// Check if current area blocks scrying  
+        if(GetLocalInt(GetArea(oManifester), "SCRY_FROM_AREA_BLOCKED"))  
+        {  
+            FloatingTextStringOnCreature("This area prevents scrying.", oManifester, FALSE);  
+            return;  
+        } 
+		
+		float fDur = 60.0 * manif.nManifesterLevel;
         if(manif.bExtend) fDur *= 2;
 
         SetLocalInt(oManifester, "ScryCasterLevel", manif.nManifesterLevel);

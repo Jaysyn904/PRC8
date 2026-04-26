@@ -28,6 +28,13 @@ SetLocalInt(oPC, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_DIVINATION);
         return;
     }
 
+	// Check if current area blocks scrying  
+	if(GetLocalInt(GetArea(oPC), "SCRY_FROM_AREA_BLOCKED"))  
+	{  
+		FloatingTextStringOnCreature("This area prevents scrying.", oPC, FALSE);  
+		return;  
+	} 
+	
         //Declare major variables
         object oTarget;
         int nCasterLvl = PRCGetCasterLevel(oPC);

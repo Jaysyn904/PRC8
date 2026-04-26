@@ -5,19 +5,20 @@ void main()
 {
 DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
 SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_ILLUSION);
-/*
-  Spellcast Hook Code
-  Added 2003-06-23 by GeorgZ
-  If you want to make changes to all spells,
-  check x2_inc_spellhook.nss to find out more
 
-*/
     if (!X2PreSpellCastCode())
     {
         // If code within the PreSpellCastHook (i.e. UMD) reports FALSE, do not run this spell
         return;
     }
 
+	// Check if current area blocks scrying  
+	if(GetLocalInt(GetArea(OBJECT_SELF), "SCRY_FROM_AREA_BLOCKED"))  
+	{  
+		FloatingTextStringOnCreature("This area prevents scrying.", OBJECT_SELF, FALSE);  
+		return;  
+	}
+	
     int nDuration = GetLevelByTypeArcane();
 
     SetLocalInt(OBJECT_SELF, "ScryCasterLevel", nDuration);

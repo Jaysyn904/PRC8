@@ -141,6 +141,13 @@ void main()
     object oShadow      = OBJECT_SELF;
     object oTarget      = PRCGetSpellTargetObject();
     struct mystery myst = EvaluateMystery(oShadow, oTarget, METASHADOW_EXTEND);
+	
+	// Check if current area blocks scrying  
+	if(GetLocalInt(GetArea(oShadow), "SCRY_FROM_AREA_BLOCKED"))  
+	{  
+		FloatingTextStringOnCreature("This area prevents scrying.", oShadow, FALSE);  
+		return;  
+	}
 
     if(myst.bCanMyst)
     {

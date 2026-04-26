@@ -130,7 +130,14 @@ void main()
 
     if(myst.bCanMyst)
     {
-        //Declare major variables
+		
+		// Check if current area blocks scrying  
+		if(GetLocalInt(GetArea(oShadow), "SCRY_FROM_AREA_BLOCKED"))  
+		{  
+			FloatingTextStringOnCreature("This area prevents scrying.", oShadow, FALSE);  
+			return;  
+		}        
+		//Declare major variables
         myst.fDur = RoundsToSeconds(myst.nShadowcasterLevel);
         if(myst.bExtend) myst.fDur *= 2;
         

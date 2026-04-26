@@ -29,7 +29,14 @@ void main()
 
     if(myst.bCanMyst)
     {
-        myst.fDur = TurnsToSeconds(myst.nShadowcasterLevel);
+		// Check if current area blocks scrying  
+		if(GetLocalInt(GetArea(oShadow), "SCRY_FROM_AREA_BLOCKED"))  
+		{  
+			FloatingTextStringOnCreature("This area prevents scrying.", oShadow, FALSE);  
+			return;  
+		} 
+		
+		myst.fDur = TurnsToSeconds(myst.nShadowcasterLevel);
         if(myst.bExtend) myst.fDur *= 2;      
         SetLocalInt(oShadow, "ScryCasterLevel", myst.nShadowcasterLevel);
         SetLocalInt(oShadow, "ScrySpellId", myst.nMystId);
