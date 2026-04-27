@@ -18,14 +18,17 @@
 
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    effect ePoison;
-    int nPoison;
-    int nRacial = MyPRCGetRacialType(OBJECT_SELF);
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nRacial 	= MyPRCGetRacialType(OBJECT_SELF);
+	int nPoison;
+	effect ePoison;
+
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_POISON));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_POISON));
 
     //Determine the poison type based on the Racial Type and HD
     // June 3/04: Bugfix for some screwy if statements.

@@ -16,23 +16,29 @@
 
 void main()
 {
-    //Declare major variables
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
     int nDamage;
+	
+    float fDelay;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
     effect eHowl;
-    float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nDC = 10 + nHD;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_FIRE);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
     //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != OBJECT_SELF)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
+        if(oTarget != OBJECT_SELF)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
                 //Fire cast spell at event for the specified target
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_FIRE));
                 //Roll the damage

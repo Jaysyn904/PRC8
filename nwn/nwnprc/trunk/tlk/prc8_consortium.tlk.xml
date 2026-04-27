@@ -77057,15 +77057,15 @@ Tortoise shell slows a creature's movement as if it were wearing heavy armor. An
   <entry id="213318" lang="en" sex="m">Tortoise Shell (18)</entry>
   <entry id="213319" lang="en" sex="m">Sanctify Ki Strike</entry>
   <entry id="213320" lang="en" sex="m">Type of Feat: Exalted
-Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike
+Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike, Good alignment.
 Specifics: A Your unarmed strikes deal 1 extra point of damage to evil creatures, or 1d4 points to evil outsiders and evil undead. In addition, they are considered good-aligned for purposes of overcoming damage reduction.</entry>
   <entry id="213321" lang="en" sex="m">Holy Ki Strike</entry>
   <entry id="213322" lang="en" sex="m">Type of Feat: Exalted
-Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike, Sanctify Ki Strike
+Prerequisite: Improved Unarmed Strike, CHA 15, Ki strike, Sanctify Ki Strike, good alignment
 Specifics: Your unarmed strike deals 2d6 points of extra holy damage to evil creatures. In addition, it is considered holy, which means that it can bypass the damage reduction of some evil outsiders. This does not stack with the extra damage from the Sanctify Ki Strike feat.</entry>
   <entry id="213323" lang="en" sex="m">Fist of the Heavens</entry>
   <entry id="213324" lang="en" sex="m">Type of Feat: Exalted
-Prerequisite: Improved Unarmed Strike, WIS 15, Sanctify Ki Strike
+Prerequisite: Improved Unarmed Strike, WIS 15, Sanctify Ki Strike, good alignment
 Specifics: The saving throw DC of your Stunning Fist increases by 2 when you use it against an evil creature. If the stunning attack succeeds, the creature is staggered for 1 round following the round it is stunned.</entry>
   <entry id="213325" lang="en" sex="m">Vow of Abstinence</entry>
   <entry id="213326" lang="en" sex="m">Type of Feat: Exalted

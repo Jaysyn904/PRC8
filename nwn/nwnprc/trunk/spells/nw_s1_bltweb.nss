@@ -19,17 +19,21 @@
 
 void main()
 {
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCONMod		= GetAbilityModifier(ABILITY_CONSTITUTION, oNPC);
+    int nDC			= 10 +nCONMod+ (nHD/2);
+	int nCount 		= 1 + (nHD /2);
+    if (nCount == 0) { nCount = 1; }
     effect eVis = EffectVisualEffect(VFX_DUR_WEB);
     effect eStick = EffectEntangle();
     effect eLink = EffectLinkEffects(eVis, eStick);
 
-    int nDC = 10 + (nHD/2);
-    int nCount = (nHD + 1) / 2;
-
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_WEB));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_WEB));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

@@ -13,19 +13,23 @@
 //:: Updated On: July 15, 2003 Georg Zoeller - Removed saving throws
 //:://////////////////////////////////////////////
 #include "prc_inc_spells"  
-#include "prc_inc_sp_tch"  
+#include "prc_inc_sp_tch"
 #include "NW_I0_SPELLS" 
    
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
     effect eVis = EffectVisualEffect(VFX_IMP_DEATH);
     effect eBolt = EffectDeath();
-    int nDC = 10 + (nHD/2);
+
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_DEATH));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_DEATH));
     //Make a saving throw check
     if(PRCDoRangedTouchAttack(oTarget))
     {

@@ -16,14 +16,21 @@
 
 void main()
 {
-    //Declare major variables
-    int nDamage = d6(GetHitDice(OBJECT_SELF));
-    int nRacial = GetRacialType(OBJECT_SELF);
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+	int nHD 		= GetHitDice(oNPC);
+	int nCONMod		= GetAbilityModifier(ABILITY_CONSTITUTION, oNPC);
+    int nDC			= 10 +nCONMod+ (nHD/2);
+    int nRacial 	= MyPRCGetRacialType(oNPC);
     int nPoison;
+	
     float fDelay;
+	
     effect ePoison;
-
+	effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NATURE);
+	
     //Determine the poison type based on the Racial Type and HD
     switch (nRacial)
     {
@@ -102,27 +109,28 @@ void main()
             }
         break;
     }
-    effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NATURE);
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
-    //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+    
+	//Get first target in spell area
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-        if(oTarget != OBJECT_SELF)
+        if(oTarget != oNPC)
         {
             if(!GetIsReactionTypeFriendly(oTarget))
             {
                 //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_POISON));
+                SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_POISON));
                 //Determine effect delay
-                fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+                fDelay = GetDistanceBetween(oNPC, oTarget)/20;
                 ePoison = EffectPoison(nPoison);
                 //Apply the VFX impact and effects
                 DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ePoison, oTarget));
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 

@@ -17,21 +17,30 @@
 
 void main()
 {
-    //Declare major variables
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
     int nDamage;
-    int nDice = nHD / 3;
-    int nDC = 10 + (nHD/2);
+	int nLoop 		= nHD / 3;
+	
     float fDelay;
 
-    if(nDice == 0)
+    if(nLoop == 0)
     {
-        nDice = 1;
+        nLoop = 1;
     }
-    nDice *= 2;
-
-    location lTargetLocation = PRCGetSpellTargetLocation();
-    object oTarget;
+    
+	//Calculate the damage
+    for (nLoop; nLoop > 0; nLoop--)
+    {
+        nDamage = nDamage + d6(2);
+    }
+    location lTargetLocation = GetSpellTargetLocation();
+	
     effect eCone;
     effect eVis = EffectVisualEffect(VFX_IMP_FROST_S);
 
@@ -39,14 +48,13 @@ void main()
     //Get first target in spell area
     while(GetIsObjectValid(oTarget))
     {
-        if(!GetIsReactionTypeFriendly(oTarget) && oTarget != OBJECT_SELF)
+        if(!GetIsReactionTypeFriendly(oTarget) && oTarget != oNPC)
         {
             //Fire cast spell at event for the specified target
-            SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_CONE_COLD));
+            SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_CONE_COLD));
             //Determine effect delay
-            fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+            fDelay = GetDistanceBetween(oNPC, oTarget)/20;
             //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
-            nDamage = d6(nDice);
             nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, SAVING_THROW_TYPE_COLD);
             //Set damage effect
             eCone = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_COLD);

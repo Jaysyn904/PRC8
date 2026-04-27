@@ -18,17 +18,22 @@
  
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
-    effect eVis2 = EffectVisualEffect(VFX_IMP_CONFUSION_S);
-    effect eVis = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_DISABLED);
-    effect eBolt = EffectConfused();
-    effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
-    effect eLink = EffectLinkEffects(eBolt, eDur);
-    eLink = EffectLinkEffects(eLink, eVis);
-    int nDC = 10 + (nHD/2);
-    int nCount = (nHD + 1) / 2;
+//:: Declare major variables
+	object oNPC 	= OBJECT_SELF;
+    object oTarget 	= PRCGetSpellTargetObject();
+	
+	int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
+	int nCount 		= (nHD + 1) / 2;
+    nCount 			= GetScaledDuration(nCount, oTarget);
+	
+    effect eVis2 	= EffectVisualEffect(VFX_IMP_CONFUSION_S);
+    effect eVis 	= EffectVisualEffect(VFX_DUR_MIND_AFFECTING_DISABLED);
+    effect eBolt 	= EffectConfused();
+    effect eDur 	= EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+    effect eLink 	= EffectLinkEffects(eBolt, eDur);
+    eLink 			= EffectLinkEffects(eLink, eVis);
 
     //Fire cast spell at event for the specified target
     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_CONFUSE));

@@ -15,10 +15,12 @@
 
 void main()
 {
-    //Declare major variables
-    int nHD = GetHitDice(GetAreaOfEffectCreator());
-    nHD = nHD/3+1;
-    int nDC = 10 + nHD/3;
+//:: Declare major variables
+	object oNPC	= GetAreaOfEffectCreator();
+    int nHD		= GetHitDice(oNPC);
+	int nZap	= 1 + (nHD / 3);
+	int nCHAMod	= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC		= 10 + nCHAMod + (nHD/2);
     int nDamage;
     effect eDam;
     effect eVis = EffectVisualEffect(VFX_IMP_LIGHTNING_S);
@@ -28,7 +30,7 @@ void main()
     {
     	if(GetIsEnemy(oTarget, GetAreaOfEffectCreator()))
     	{
-            nDamage = d4(nHD);
+            nDamage = d4(nZap);
             //Fire cast spell at event for the specified target
             SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_AURA_ELECTRICITY));
             //Make a saving throw check
@@ -38,8 +40,8 @@ void main()
             }
             eDam = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_ELECTRICAL);
             //Apply the VFX impact and effects
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
         }
         //Get next target in spell area
         oTarget = GetNextInPersistentObject();

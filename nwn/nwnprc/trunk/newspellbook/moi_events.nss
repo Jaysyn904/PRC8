@@ -696,7 +696,28 @@ void main()
         		if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_EVIL)
         			IPSafeAddItemProperty(oItem, ItemPropertyDamageBonus(DamageTypeToIPConst(GetWeaponDamageType(oItem)), IPDamageConstant((nEssentia*2) + nBonus)), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        				
         	}
-        	if (GetHasSpellEffect(MELD_NECROCARNUM_WEAPON, oMeldshaper))
+			if (GetHasSpellEffect(MELD_NECROCARNUM_WEAPON, oMeldshaper))  
+			{  
+				// Get current enhancement bonus  
+				int nCurrentEnh = IPGetWeaponEnhancementBonus(oItem, FALSE);  
+				  
+				// Calculate needed enhancement to reach +3 total  
+				int nNeededEnh = 3 - nCurrentEnh;  
+				if (nNeededEnh > 0)  
+				{  
+					IPSafeAddItemProperty(oItem, ItemPropertyEnhancementBonus(nNeededEnh), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
+					// Add matching penalty to keep attack bonus unchanged  
+					IPSafeAddItemProperty(oItem, ItemPropertyEnhancementPenalty(nNeededEnh), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
+				}  
+				  
+				if (GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_HANDS || GetIsMeldBound(oMeldshaper, MELD_NECROCARNUM_WEAPON) == CHAKRA_DOUBLE_HANDS)  
+				{  
+					IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+					AddEventScript(oItem, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);       			  
+				}  
+			}
+			
+/*         	if (GetHasSpellEffect(MELD_NECROCARNUM_WEAPON, oMeldshaper))
         	{
        			IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(3), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	
        			IPSafeAddItemProperty(oItem, ItemPropertyAttackPenalty(3), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	
@@ -706,7 +727,7 @@ void main()
                 	IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
                 	AddEventScript(oItem, EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);       			
        			}
-       		}	
+       		} */	
     		if (GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper, MELD_MAULING_GAUNTLETS) == CHAKRA_DOUBLE_ARMS)
 				IPSafeAddItemProperty(oItem, ItemPropertyKeen(), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);        	
         }

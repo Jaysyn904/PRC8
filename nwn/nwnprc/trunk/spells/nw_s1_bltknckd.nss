@@ -18,15 +18,23 @@
    
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
-    effect eVis = EffectVisualEffect(VFX_IMP_SONIC);
-    effect eBolt = EffectKnockdown();
-    int nDC = 10 + (nHD/2);
-    effect eDam = PRCEffectDamage(oTarget, d6(), DAMAGE_TYPE_BLUDGEONING);
-    //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_KNOCKDOWN));
+
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	int nCount 		= nHD/2;
+    if (nCount == 0) { nCount = 1; }
+	
+    effect eVis 	= EffectVisualEffect(VFX_IMP_SONIC);
+    effect eBolt 	= EffectKnockdown();
+    effect eDam 	= EffectDamage(d6(), DAMAGE_TYPE_BLUDGEONING);
+    
+	//Fire cast spell at event for the specified target
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_KNOCKDOWN));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

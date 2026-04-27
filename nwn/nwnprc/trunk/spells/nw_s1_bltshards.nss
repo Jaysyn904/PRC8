@@ -18,20 +18,22 @@
   
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	int nCount 		= (nHD + 1) / 2;
+    if (nCount == 0) { nCount = 1; }
+	int nDamage 	= d6(nCount);
+	
     effect eBolt;
-    int nDC = 10 + (nHD/2);
-    int nCount = nHD /2;
-    if (nCount == 0)
-    {
-        nCount = 1;
-    }
 
-    int nDamage = d6(nCount);
     //Fire cast spell at event for the specified target
     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_SHARDS));
+	
     //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
     //nDamage = GetReflexAdjustedDamage(nDamage, oTarget, nDC);
     //Make a ranged touch attack

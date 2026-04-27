@@ -16,13 +16,21 @@
  
 void main()
 {
-    //Declare major variables
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nRacial 	= MyPRCGetRacialType(oNPC);
+	int nDisease;
+	
     location lTargetLocation = PRCGetSpellTargetLocation();
-    object oTarget;
+	
     float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nRacial = MyPRCGetRacialType(OBJECT_SELF);
-    int nDisease;
+	
+	effect eCone 	= EffectDisease(nDisease);
+    effect eVis 	= EffectVisualEffect(VFX_IMP_DISEASE_S);
+
     //Determine the disease type based on the Racial Type and HD
     switch (nRacial)
     {
@@ -62,9 +70,7 @@ void main()
 
         break;
     }
-    //Set disease effect
-    effect eCone = EffectDisease(nDisease);
-    effect eVis = EffectVisualEffect(VFX_IMP_DISEASE_S);
+
     oTarget = GetFirstObjectInShape(SHAPE_SPELLCONE, 10.0, lTargetLocation, TRUE);
     //Get first target in spell area
     while(GetIsObjectValid(oTarget))

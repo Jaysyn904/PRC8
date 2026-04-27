@@ -1,4 +1,7 @@
-/*
+/* 
+
+moi_mld_necrowpn
+
 20/1/20 by Stratovarius
 
 Necrocarnum Weapon
@@ -58,7 +61,7 @@ void main()
     effect eLink = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
 
     if (nEssentia) eLink = EffectLinkEffects(eLink, NecrocarnumWeapon(nEssentia));
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);      
+    DelayCommand(0.1f, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0));      
     
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_NECROCARNUM_WEAPON), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 }

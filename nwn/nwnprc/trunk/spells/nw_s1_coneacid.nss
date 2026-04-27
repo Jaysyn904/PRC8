@@ -17,11 +17,15 @@
 
 void main()
 {
-    //Declare major variables
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
     int nDamage;
-    int nLoop = nHD / 3;
-    int nDC = 10 + (nHD/2);
+	int nLoop 		= nHD / 3;
     float fDelay;
     if(nLoop == 0)
     {
@@ -33,7 +37,6 @@ void main()
         nDamage = nDamage + d6(2);
     }
     location lTargetLocation = PRCGetSpellTargetLocation();
-    object oTarget;
     effect eCone;
     effect eVis = EffectVisualEffect(VFX_IMP_ACID_S);
 
@@ -41,14 +44,14 @@ void main()
     //Get first target in spell area
     while(GetIsObjectValid(oTarget))
     {
-        if(!GetIsReactionTypeFriendly(oTarget) && oTarget != OBJECT_SELF)
+        if(!GetIsReactionTypeFriendly(oTarget) && oTarget != oNPC)
         {
             //Fire cast spell at event for the specified target
-            SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_CONE_ACID));
+            SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_CONE_ACID));
             //Determine effect delay
-            fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+            fDelay = GetDistanceBetween(oNPC, oTarget)/20;
             //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
-            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, GetSpellSaveDC(),SAVING_THROW_TYPE_ACID);
+            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, SAVING_THROW_TYPE_ACID);
             //Set damage effect
             eCone = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_ACID);
             if(nDamage > 0)

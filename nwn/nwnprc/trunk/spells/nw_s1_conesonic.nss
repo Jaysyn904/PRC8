@@ -18,11 +18,16 @@
 
 void main()
 {
-    //Declare major variables
-    int nHD = GetHitDice(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
     int nDamage;
-    int nLoop = nHD / 3;
-    int nDC = 10 + (nHD/2);
+	int nLoop = nHD / 3;
+	
     float fDelay;
     if(nLoop == 0)
     {
@@ -34,7 +39,6 @@ void main()
         nDamage = nDamage + d6(2);
     }
     location lTargetLocation = PRCGetSpellTargetLocation();
-    object oTarget;
     effect eCone;
     effect eVis = EffectVisualEffect(VFX_IMP_SONIC);
 
@@ -49,7 +53,7 @@ void main()
             //Determine effect delay
             fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
             //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
-            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, PRCGetSpellSaveDC(), DAMAGE_TYPE_SONIC);
+            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC,DAMAGE_TYPE_SONIC);
             //Set damage effect
             eCone = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_SONIC);
                 DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget));

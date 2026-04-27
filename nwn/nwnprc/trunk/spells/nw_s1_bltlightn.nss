@@ -17,20 +17,21 @@
 
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
-    effect eLightning = EffectBeam(VFX_BEAM_LIGHTNING, OBJECT_SELF,BODY_NODE_HAND);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	int nCount 		= nHD/2;
+    if (nCount == 0) { nCount = 1; }
+	int nDamage 	= d6(nCount);
+	
+	effect eLightning = EffectBeam(VFX_BEAM_LIGHTNING, OBJECT_SELF,BODY_NODE_HAND);
     effect eVis  = EffectVisualEffect(VFX_IMP_LIGHTNING_S);
     effect eBolt;
-    int nDC = 10 + (nHD/2);
-    int nCount = nHD /2;
-    if (nCount == 0)
-    {
-        nCount = 1;
-    }
 
-    int nDamage = d6(nCount);
     //Fire cast spell at event for the specified target
     SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_LIGHTNING));
     //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
@@ -51,6 +52,4 @@ void main()
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, eBolt, oTarget);
         }
     }
-    //SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-    //SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLightning, oTarget, 1.8);
 }

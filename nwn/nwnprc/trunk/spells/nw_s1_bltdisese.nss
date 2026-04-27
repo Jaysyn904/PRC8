@@ -20,12 +20,15 @@
   
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nRacial = GetRacialType(OBJECT_SELF);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nRacial 	= MyPRCGetRacialType(oNPC);
     int nDisease;
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_DISEASE));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_DISEASE));
 
     //Here we use the racial type of the attacker to select an
     //appropriate disease.
@@ -38,7 +41,7 @@ void main()
             nDisease = DISEASE_FILTH_FEVER;
         break;
         case RACIAL_TYPE_OUTSIDER:
-            if(GetTag(OBJECT_SELF) == "NW_SLAADRED")
+            if(GetTag(oNPC) == "NW_SLAADRED")
             {
                 nDisease = DISEASE_RED_SLAAD_EGGS;
             }

@@ -17,25 +17,34 @@
 
 void main()
 {
-    //Declare major variables
+//:: Declare major variables
+	object oNPC		= GetAreaOfEffectCreator();
+	object oTarget 	= GetEnteringObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	
+	float fDelay;
+		
     effect eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
     effect eHowl;
-    float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nDC = 10 + nHD;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE);
-    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, GetLocation(OBJECT_SELF));
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
-    //Get first target in spell area
+	
+    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, GetLocation(oNPC));
+	
+	//Get first target in spell area
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
+
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != OBJECT_SELF)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
-                fDelay = GetSpellEffectDelay(GetLocation(OBJECT_SELF), oTarget)/20;
+        if(oTarget != oNPC)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
+                fDelay = GetSpellEffectDelay(GetLocation(oNPC), oTarget)/20;
                 //Make a saving throw check
-                if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NEGATIVE, OBJECT_SELF, fDelay))
+                if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NEGATIVE, oNPC, fDelay))
                 {
                     //Apply the VFX impact and effects
                     eHowl = EffectNegativeLevel(1);
@@ -45,7 +54,7 @@ void main()
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 

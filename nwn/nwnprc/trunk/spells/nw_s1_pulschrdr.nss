@@ -16,32 +16,37 @@
 
 void main()
 {
-    //Declare major variables
-    int nDamage = GetHitDice(OBJECT_SELF)/5;
-    if (nDamage == 0)
-    {
-        nDamage = 1;
-    }
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	
+    int nDamage 	= nHD/5;
+	
+    if (nDamage == 0) {nDamage = 1;}
+	
     float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nDC = 10 + nHD;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
     effect eHowl;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
     //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-     	if(oTarget != OBJECT_SELF)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
+        if(oTarget != oNPC)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
 
                //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_ABILITY_DRAIN_CHARISMA));
+                SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_ABILITY_DRAIN_CHARISMA));
                 //Determine effect delay
-                fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+                fDelay = GetDistanceBetween(oNPC, oTarget)/20;
                 //Make a saving throw check
                 if(!/*FortSave*/PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_NEGATIVE, OBJECT_SELF, fDelay))
                 {
@@ -55,7 +60,7 @@ void main()
             }
         }
         //Get first target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 

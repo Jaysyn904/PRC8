@@ -16,31 +16,38 @@
 
 void main()
 {
-    //Declare major variables
-    int nDamage;
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);	
+	int nDamage 	= d6(nHD);
+	
+    float fDelay;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_FROST_S);
     effect eHowl;
-    float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nDC = 10 + nHD;
-    effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_COLD);
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
+	effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_COLD);
+	
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+	
     //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != OBJECT_SELF)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
+        if(oTarget != oNPC)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
                 //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_COLD));
-                //Roll the damage
-                nDamage = d6(GetHitDice(OBJECT_SELF));
+                SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_COLD));
+
                 //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
                 nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, SAVING_THROW_TYPE_COLD);
                 //Determine effect delay
-                fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
+                fDelay = GetDistanceBetween(oNPC, oTarget)/20;
                 eHowl = PRCEffectDamage(oTarget, nDamage, DAMAGE_TYPE_COLD);
                 if(nDamage > 0)
                 {
@@ -51,7 +58,7 @@ void main()
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 

@@ -14,15 +14,23 @@
 //:: Created By: Preston Watamaniuk
 //:: Created On: Jan 8, 2002
 //::///////////////////////////////////////////////
+#include "NW_I0_SPELLS"
 #include "prc_inc_spells"
 
 void main()
 {
-    //Declare major variables
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+	int nHD 		= GetHitDice(oNPC);
+	int nSTRMod		= GetAbilityModifier(ABILITY_STRENGTH, oNPC);
+    int nDC			= 10 +nSTRMod+ (nHD/2);
+	
     effect eDown = EffectKnockdown();
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_WIND);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
     int nDamage = GetHitDice(OBJECT_SELF) /2;
     effect eDam;
     //Get first target in spell area
@@ -33,7 +41,7 @@ void main()
 		if(!GetIsReactionTypeFriendly(oTarget) && oTarget != OBJECT_SELF)
         {
             //Make a saving throw check
-            if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, 14))
+            if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC))
             {
                 //Apply the VFX impact and effects
 
@@ -42,6 +50,6 @@ void main()
             }
             //Get next target in spell area
         }
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }

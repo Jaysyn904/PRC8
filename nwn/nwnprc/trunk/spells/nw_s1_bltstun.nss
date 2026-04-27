@@ -18,19 +18,25 @@
    
 void main()
 {
-    //Declare major variables
-    object oTarget = PRCGetSpellTargetObject();
-    int nHD = GetHitDice(OBJECT_SELF);
-    effect eVis = EffectVisualEffect(VFX_IMP_STUN);
-    effect eBolt = EffectStunned();
-    eBolt = GetScaledEffect(eBolt, oTarget);
-    effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
-    effect eLink = EffectLinkEffects(eBolt, eDur);
-    int nDC = 10 + (nHD/2);
-    int nCount = (nHD + 1) / 2;
-    nCount = PRCGetScaledDuration(nCount, oTarget);
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget 	= PRCGetSpellTargetObject();
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	int nCount 		= (nHD + 1) / 2;
+    if (nCount == 0) { nCount = 1; }
+	nCount 			= GetScaledDuration(nCount, oTarget);
+	int nDamage 	= d6(nCount);
+	
+    effect eVis 	= EffectVisualEffect(VFX_IMP_STUN);
+    effect eBolt 	= EffectStunned();
+    eBolt 			= GetScaledEffect(eBolt, oTarget);
+    effect eDur 	= EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+    effect eLink 	= EffectLinkEffects(eBolt, eDur);
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_STUN));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_STUN));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

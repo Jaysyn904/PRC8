@@ -1,6 +1,16 @@
 #include "moi_inc_moifunc" 
 #include "inc_dynconv"
 
+// Add this function to handle delayed processing  
+void DelayedChakraBindUnequip(object oMeldshaper, object oItem)  
+{  
+    // Check if we're still in a valid state  
+    if(GetIsObjectValid(oMeldshaper) && GetIsObjectValid(oItem))  
+    {  
+        ChakraBindUnequip(oMeldshaper, oItem);  
+    }  
+}
+
 void main()
 {
     int nEvent = GetRunningEvent();
@@ -12,6 +22,7 @@ void main()
     {
         case EVENT_ONPLAYERREST_FINISHED:   oMeldshaper = GetLastBeingRested();      break;
         case EVENT_ONCLIENTENTER:           oMeldshaper = GetEnteringObject();       break;
+		case EVENT_ONPLAYEREQUIPITEM:		oMeldshaper = GetItemLastEquippedBy();   break;
 
         default:
             oMeldshaper = OBJECT_SELF;
@@ -38,7 +49,7 @@ void main()
     	    AssignCommand(oMeldshaper, ClearAllActions(TRUE));
     	    SetLocalInt(oMeldshaper, "MeldshapeClass", CLASS_TYPE_INCARNATE);
     	    StartDynamicConversation("moi_meldshapecnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
-    	}    
+    	}	
     	else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
     	{
     	    oMeldshaper   = GetItemLastEquippedBy();

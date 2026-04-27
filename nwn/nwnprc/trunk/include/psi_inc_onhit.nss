@@ -21,8 +21,42 @@ void MindStab(object oPC, object oTarget);
 // ---------------
 // BEGIN FUNCTIONS
 // ---------------
+void SweepingStrike(object oCaster, object oTarget)  
+{  
+    // Prevent multiple sweeping strikes from the same primary target in the same attack sequence  
+    string sAttackKey = "SweepingStrike_" + ObjectToString(oCaster) + "_" + ObjectToString(oTarget);  
+    if(GetLocalInt(oCaster, sAttackKey))  
+        return;  
+          
+    // Mark this attack sequence as processed  
+    SetLocalInt(oCaster, sAttackKey, TRUE);  
+    DelayCommand(0.5, DeleteLocalInt(oCaster, sAttackKey));  
+      
+    // Find valid secondary target  
+    location lTarget = GetLocation(oTarget);  
+    object oAreaTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+      
+    while(GetIsObjectValid(oAreaTarget))  
+    {  
+        // Must be different from primary target and within melee range of both  
+        if(oAreaTarget != oTarget &&  
+           oAreaTarget != oCaster &&  
+           GetIsInMeleeRange(oAreaTarget, oCaster) &&  
+           GetIsInMeleeRange(oAreaTarget, oTarget) &&  
+           GetIsReactionTypeHostile(oAreaTarget, oCaster))  
+        {  
+            // Perform the sweeping strike attack  
+            effect eVis = EffectVisualEffect(VFX_IMP_STUN);  
+            object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oCaster);  
+            PerformAttack(oAreaTarget, oCaster, eVis, 0.0, 0, 0, GetWeaponDamageType(oWeap), "Sweeping Strike Hit", "Sweeping Strike Miss");  
+            break; // Only one sweeping strike per primary attack  
+        }  
+        oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    }  
+}
 
-void SweepingStrike(object oCaster, object oTarget)
+
+/* void SweepingStrike(object oCaster, object oTarget)
 {
     int nValidTarget = FALSE;
     int nRandom = Random(9999);
@@ -61,7 +95,7 @@ void SweepingStrike(object oCaster, object oTarget)
         }// end while - Target loop
         DelayCommand(1.0, DeleteLocalInt(oCaster, sKillSwitch));
 }
-
+ */
 void MindStab(object oPC, object oTarget)
 {
     SetLocalInt(oPC, "ShadowCloudMind", TRUE);
@@ -77,3 +111,5 @@ void MindStab(object oPC, object oTarget)
     DeleteLocalInt(oPC, "MindStabDur");
     //DelayCommand(0.33, AssignCommand(oPC, ActionAttack(oTarget)));
 }
+
+//void main (){}

@@ -15,8 +15,10 @@
 
 void main()
 {
-    //Declare major variables
-	object oNPC = oNPC;
+    //if (WildMagicOverride()) { return; }
+	
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
 	object oTarget;
 	
     float fDelay;
@@ -29,10 +31,10 @@ void main()
     oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != oNPC)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
+        if(oTarget != oNPC)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
                 //Fire cast spell at event for the specified target
                 SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_DISEASE));
                 //Determine effect delay
@@ -43,6 +45,6 @@ void main()
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, GetLocation(oNPC));
     }
 }

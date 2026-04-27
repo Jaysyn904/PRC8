@@ -15,14 +15,22 @@
 
 void main()
 {
-    //Declare major variables
-    int nDamage = d6(GetHitDice(OBJECT_SELF));
-    int nRacial = MyPRCGetRacialType(OBJECT_SELF);
-    int nDisease;
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nRacial 	= MyPRCGetRacialType(oNPC);
+	int nHD			= GetHitDice(oNPC);
+    int nDamage 	= d6(nHD);
+	int nDisease;
+	
     float fDelay;
+	
     effect eDisease;
-    effect ePulse = EffectVisualEffect(266);
-    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, ePulse, GetLocation(OBJECT_SELF));
+    effect ePulse 	= EffectVisualEffect(266);
+	effect eImpact 	= EffectVisualEffect(VFX_IMP_PULSE_NATURE);
+	
+    ApplyEffectAtLocation(DURATION_TYPE_INSTANT, ePulse, GetLocation(oNPC));
 
     //Determine the disease type based on the Racial Type
     switch (nRacial)
@@ -46,16 +54,17 @@ void main()
             nDisease = DISEASE_MINDFIRE;
         break;
     }
-    effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NATURE);
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
-    //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+    
+	//Get first target in spell area
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-    	if(oTarget != OBJECT_SELF)
-    	{
-        	if(!GetIsReactionTypeFriendly(oTarget))
-        	{
+        if(oTarget != oNPC)
+        {
+            if(!GetIsReactionTypeFriendly(oTarget))
+            {
                 //Fire cast spell at event for the specified target
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_DISEASE));
                 //Determine effect delay
@@ -66,7 +75,7 @@ void main()
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 

@@ -17,27 +17,40 @@
 
 void main()
 {
-    //Declare major variables
+//:: Declare major variables
+	object oNPC		= OBJECT_SELF;
+	object oTarget;
+	
+    int nHD 		= GetHitDice(oNPC);
+	int nCHAMod		= GetAbilityModifier(ABILITY_CHARISMA, oNPC);
+    int nDC			= 10 +nCHAMod+ (nHD/2);
+	
+    int nDamage 	= nHD/5;
+	
+    if (nDamage == 0) {nDamage = 1;}
+	
+    float fDelay;
+	
     effect eVis = EffectVisualEffect(VFX_IMP_DEATH);
     effect eHowl = EffectDeath();
-    float fDelay;
-    int nHD = GetHitDice(OBJECT_SELF);
-    int nDC = 10 + nHD;
+
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE);
-    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, OBJECT_SELF);
-    //Get first target in spell area
-    object oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+    
+	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+    
+	//Get first target in spell area
+    oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     while(GetIsObjectValid(oTarget))
     {
-    	if(!GetIsReactionTypeFriendly(oTarget))
-    	{
-        	if(oTarget != OBJECT_SELF)
-        	{
+        if(!GetIsReactionTypeFriendly(oTarget))
+        {
+            if(oTarget != OBJECT_SELF)
+            {
                 //Fire cast spell at event for the specified target
-                SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_PULSE_DEATH));
+                SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_PULSE_DEATH));
                 //Determine effect delay
-                fDelay = GetDistanceBetween(OBJECT_SELF, oTarget)/20;
-                if(!/*FortSave*/PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_DEATH, OBJECT_SELF, fDelay))
+                fDelay = GetDistanceBetween(oNPC, oTarget)/20;
+                if(!/*FortSave*/PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nDC, SAVING_THROW_TYPE_DEATH, oNPC, fDelay))
                 {
                     //Apply the VFX impact and effects
                     DelayCommand(fDelay, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eHowl, oTarget));
@@ -46,7 +59,7 @@ void main()
             }
         }
         //Get next target in spell area
-        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF));
+        oTarget = GetNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));
     }
 }
 
