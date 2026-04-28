@@ -835,8 +835,8 @@ void SetDefaultFileEnds()
     //isnt read in here yet. may be later though
     if(GetPRCSwitch(FILE_END_MANUAL))
         return;
-    SetPRCSwitch(FILE_END_CLASSES,         PRCGetFileEnd("classes"));
-    SetPRCSwitch(FILE_END_RACIALTYPES,     PRCGetFileEnd("racialtypes"));
+    SetPRCSwitch(FILE_END_CLASSES,         	PRCGetFileEnd("classes"));
+    SetPRCSwitch(FILE_END_RACIALTYPES,     	PRCGetFileEnd("racialtypes"));
     SetPRCSwitch(FILE_END_GENDER,          1);//overriden to 1 for convoCC m/f only choice
     SetPRCSwitch(FILE_END_PORTRAITS,       PRCGetFileEnd("portraits"));
     SetPRCSwitch(FILE_END_SKILLS,          PRCGetFileEnd("skills"));
@@ -851,6 +851,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch(FILE_END_SPELLS,          PRCGetFileEnd("spells"));
     //SetPRCSwitch(FILE_END_SPELLSCHOOL,     PRCGetFileEnd("spellschools"));
     SetPRCSwitch(FILE_END_APPEARANCE,      PRCGetFileEnd("appearance"));
+	SetPRCSwitch(FILE_END_RACIALAPPEAR,		PRCGetFileEnd("racialappear"));
     SetPRCSwitch(FILE_END_WINGS,           PRCGetFileEnd("wingmodel"));
     SetPRCSwitch(FILE_END_TAILS,           PRCGetFileEnd("tailmodel"));
     SetPRCSwitch(FILE_END_BASEITEMS,       PRCGetFileEnd("baseitems"));

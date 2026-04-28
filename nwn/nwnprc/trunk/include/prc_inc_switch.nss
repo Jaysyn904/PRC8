@@ -1397,6 +1397,10 @@ const string FILE_END_SPELLS                         = "FILE_END_SPELLS";
  * This will be set automatically to a default unless FILE_END_MANUAL is turned on */
 const string FILE_END_APPEARANCE                     = "FILE_END_APPEARANCE";
 
+/** Last line of racalappear.2da
+ * This will be set automatically to a default unless FILE_END_MANUAL is turned on */
+const string FILE_END_RACIALAPPEAR                     = "FILE_END_RACIALAPPEAR";
+
 /** Last line of wingmodel.2da
  * This will be set automatically to a default unless FILE_END_MANUAL is turned on */
 const string FILE_END_WINGS                          = "FILE_END_WINGS";

@@ -226,7 +226,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_SOLDIER_OF_LIGHT:      sScript = "prc_soldoflight";                 break;
                 case CLASS_TYPE_SORCERER:                                            iData |= 0x03; break;
                 case CLASS_TYPE_SOULBORN:              sScript = "moi_soulborn";                    break;
-                case CLASS_TYPE_SOUL_EATER:                                       iShifting = TRUE; break;
+                case CLASS_TYPE_SOUL_EATER:            sScript = "prc_souleater"; iShifting = TRUE; break;
                 case CLASS_TYPE_SOULKNIFE:             sScript = "psi_sk_clseval";                  break;
                 case CLASS_TYPE_SPELLSWORD:            sScript = "prc_spellswd";     iData |= 0x04; break;
                 case CLASS_TYPE_SPINEMELD_WARRIOR:     sScript = "moi_spinemeld";                   break;

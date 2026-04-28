@@ -480,8 +480,8 @@ void main()
                     AddChoice("LA Buyoff.", 41); 
                 if(!GetPRCSwitch(PRC_DISABLE_ENCOUNTERS))
                     AddChoice("Visit an encounter area", 42);                     
-                if(DEBUG) //this doesn't work at all
-                //if(!GetPRCSwitch(PRC_APPEARNCE_CHANGE_DISABLE))
+                //if(DEBUG) //this doesn't work at all
+                if(!GetPRCSwitch(PRC_APPEARNCE_CHANGE_DISABLE))
                     AddChoice("Change appearance.", 10);
                 AddChoice("Miscellaneous options.", 11);
                 if(DEBUG)//TO DO: add separate switch
@@ -1195,7 +1195,64 @@ void main()
 
                 MarkStageSetUp(nStage, oPC);
             }
-            else if (nStage == STAGE_WILDSHAPE_SLOTS)
+			else if(nStage == STAGE_APPEARANCE)  
+			{  
+				SetHeader("Select an appearance for your race:");  
+				  
+				int nRace = GetRacialType(oPC);  
+				int nGender = GetGender(oPC);  
+				  
+				// Debug: Check what race we're dealing with  
+				string sRaceName = Get2DACache("racialtypes", "Label", nRace);  
+				FloatingTextStringOnCreature("Race: " + sRaceName + " (" + IntToString(nRace) + ")", oPC, FALSE);  
+				  
+				if(nGender == GENDER_MALE)  
+				{  
+					int i;  
+					for(i = 1; i <= 5; i++)  
+					{  
+						string sColumn = "Male" + IntToString(i);  
+						string sAppearance = Get2DACache("racialappear", sColumn, nRace);  
+						  
+						// Debug: Show what we're getting  
+						FloatingTextStringOnCreature("Column " + sColumn + ": '" + sAppearance + "'", oPC, FALSE);  
+						  
+						if(sAppearance != "" && sAppearance != "****")  
+						{  
+							int nAppearance = StringToInt(sAppearance);  
+							string sName = Get2DACache("appearance", "LABEL", nAppearance);  
+							if(sName == "")  
+								sName = "Appearance " + sAppearance;  
+							AddChoice(sName, nAppearance, oPC);  
+						}  
+					}  
+				}  
+				else // Female  
+				{  
+					int i;  
+					for(i = 1; i <= 5; i++)  
+					{  
+						string sColumn = "Female" + IntToString(i);  
+						string sAppearance = Get2DACache("racialappear", sColumn, nRace);  
+						  
+						// Debug: Show what we're getting  
+						FloatingTextStringOnCreature("Column " + sColumn + ": '" + sAppearance + "'", oPC, FALSE);  
+						  
+						if(sAppearance != "" && sAppearance != "****")  
+						{  
+							int nAppearance = StringToInt(sAppearance);  
+							string sName = Get2DACache("appearance", "LABEL", nAppearance);  
+							if(sName == "")  
+								sName = "Appearance " + sAppearance;  
+							AddChoice(sName, nAppearance, oPC);  
+						}  
+					}  
+				}  
+				  
+				AddChoice("Back", CHOICE_RETURN_TO_PREVIOUS);  
+				MarkStageSetUp(nStage, oPC);  
+			}			
+			else if (nStage == STAGE_WILDSHAPE_SLOTS)
             {
                 SetHeader("You attune yourself to nature, recallling animal forms.");
                 AddChoice(GetStringByStrRef(8178), 401);//Brown Bear
@@ -1740,7 +1797,9 @@ void main()
             else if(nChoice == 52)
                 nStage = STAGE_WIELDING;  			
             else if(nChoice == 10)
-                nStage = STAGE_APPEARANCE;
+			{
+                nStage = STAGE_APPEARANCE; 
+			}
             else if(nChoice == 11)
                 nStage = STAGE_MISC_OPTIONS;
             else if(nChoice == 12)
@@ -2586,7 +2645,22 @@ void main()
                 MarkStageSetUp(nStage, oPC);	
 			}	
 		}
-        // Store the stage value. If it has been changed, this clears out the choices
+        else if(nStage == STAGE_APPEARANCE)  
+		{  
+			if(nChoice == CHOICE_RETURN_TO_PREVIOUS)  
+			{  
+				nStage = STAGE_ENTRY;  
+			}  
+			else  
+			{  
+				// Apply the selected appearance  
+				SetCreatureAppearanceType(oPC, nChoice);  
+				FloatingTextStringOnCreature("Appearance changed", oPC, FALSE);  
+				nStage = STAGE_ENTRY;  
+			}  
+			MarkStageNotSetUp(nStage, oPC);  
+		}
+		// Store the stage value. If it has been changed, this clears out the choices
         SetStage(nStage, oPC);
     }
 }

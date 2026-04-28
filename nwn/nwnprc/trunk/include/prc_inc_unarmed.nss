@@ -86,6 +86,7 @@ float DamageAvg(int iDamage);
 //#include "prc_spell_const"
 //#include "inc_utility"
 #include "prc_inc_natweap"
+#include "prc_inc_onhit"
 
 //////////////////////////////////////////////////
 /* Function defintions                          */
@@ -546,6 +547,12 @@ void UnarmedFists(object oCreature)
                 AssignCommand(oCreature,ActionEquipItem(oWeapL, INVENTORY_SLOT_CWEAPON_L));
             }
         }
+		
+		// Add Soul Eater onHit property if applicable  
+		if (GetLevelByClass(CLASS_TYPE_SOUL_EATER, oCreature) > 0)  
+		{  
+			Add_OnHitUniquePower(oWeapL, "prc_uni_shift");  
+		}		
 
         int iKi = (iMonkEq > 9)  ? 1 : 0;
             iKi = (iMonkEq > 12) ? 2 : iKi;

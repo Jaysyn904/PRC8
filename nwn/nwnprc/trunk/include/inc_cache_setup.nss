@@ -355,8 +355,38 @@ void Cache_Appearance(int nRow = 0)
         DelayCommand(1.0, Cache_Soundset());
 }
 
+void Cache_RacialAppear(int nRow = 0)  
+{  
+    if(nRow < GetPRCSwitch(FILE_END_RACIALAPPEAR))  
+    {  
+        Get2DACache("racialappear", "Label", nRow);  
+        Get2DACache("racialappear", "Male1", nRow);  
+        Get2DACache("racialappear", "Male2", nRow);  
+        Get2DACache("racialappear", "Male3", nRow);  
+        Get2DACache("racialappear", "Male4", nRow);  
+        Get2DACache("racialappear", "Male5", nRow);  
+        Get2DACache("racialappear", "Female1", nRow);  
+        Get2DACache("racialappear", "Female2", nRow);  
+        Get2DACache("racialappear", "Female3", nRow);  
+        Get2DACache("racialappear", "Female4", nRow);  
+        Get2DACache("racialappear", "Female5", nRow);  
+        Get2DACache("racialappear", "Wing1", nRow);  
+        Get2DACache("racialappear", "Wing2", nRow);  
+        Get2DACache("racialappear", "Wing3", nRow);  
+        Get2DACache("racialappear", "Tail1", nRow);  
+        Get2DACache("racialappear", "Tail2", nRow);  
+        Get2DACache("racialappear", "Tail3", nRow);  
+          
+        nRow++;  
+        DelayCommand(0.1, Cache_RacialAppear(nRow));  
+    }  
+    else  
+        DelayCommand(1.0, Cache_Appearance());  
+}
+
 void Cache_2da_data()
 {
     Cache_Appearance();
+	Cache_RacialAppear();
 }
 

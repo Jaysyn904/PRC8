@@ -142,7 +142,6 @@ string GetBiowareDBName()
     if(GetPRCSwitch(MARKER_Q))
         sReturn += "q";
     return sReturn;
-
 }
 
 /**
