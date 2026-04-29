@@ -70,7 +70,7 @@ void main()
             // variable named nStage determines the current conversation node
             // Function SetHeader to set the text displayed to the PC
             // Function AddChoice to add a response option for the PC. The responses are show in order added
-	    if(nStage == STAGE_CHOOSE_TARGET)
+			if(nStage == STAGE_CHOOSE_TARGET)
             {
                	// Set the header
                	string sAmount = "Which ally would you like to resurrect?";
@@ -79,20 +79,49 @@ void main()
                 // This reads all of the legal choices 
                 object oChoice = GetFirstFactionMember(oPC);
                 int nChoice = 1;
-		while (GetIsObjectValid(oChoice)) // People in party
-		{
-			// If the selection is a PC
-			if (GetIsPC(oChoice) && oChoice != oPC && GetIsDead(oChoice))
-			{
-				AddChoice(GetName(oChoice), nChoice, oPC);
-				StorePCForRecovery(oPC, oChoice, nChoice);
-			}
-			nChoice += 1;
-			oChoice = GetNextFactionMember(oPC);
-                }
-
-                MarkStageSetUp(STAGE_CHOOSE_TARGET, oPC); // This prevents the setup being run for this stage again until MarkStageNotSetUp is called for it
-                SetDefaultTokens(); // Set the next, previous, exit and wait tokens to default values
+				
+		/*		while (GetIsObjectValid(oChoice)) // People in party
+				{
+					// If the selection is a PC
+					if (GetIsPC(oChoice) && oChoice != oPC && GetIsDead(oChoice))
+					{
+						AddChoice(GetName(oChoice), nChoice, oPC);
+						StorePCForRecovery(oPC, oChoice, nChoice);
+					}
+					nChoice += 1;
+					oChoice = GetNextFactionMember(oPC);
+				} */
+		
+				// First, add all dead PCs (except caster)  
+				object oTargetPC = GetFirstPC();  
+				nChoice = 1;  
+				while (GetIsObjectValid(oTargetPC))  
+				{  
+					if (oTargetPC != oPC && GetIsDead(oTargetPC))  
+					{  
+						AddChoice(GetName(oTargetPC), nChoice, oPC);  
+						StorePCForRecovery(oPC, oTargetPC, nChoice);  
+					}  
+					nChoice++;  
+					oTargetPC = GetNextPC();  
+				}  
+				  
+				// Then, add dead NPCs in caster's party (cohorts, henchmen, etc.)  
+				oChoice = GetFirstFactionMember(oPC);  
+				while (GetIsObjectValid(oChoice))  
+				{  
+					// Skip PCs (already added) and caster, add dead NPCs only  
+					if (!GetIsPC(oChoice) && oChoice != oPC && GetIsDead(oChoice))  
+					{  
+						AddChoice(GetName(oChoice), nChoice, oPC);  
+						StorePCForRecovery(oPC, oChoice, nChoice);  
+					}  
+					nChoice++;  
+					oChoice = GetNextFactionMember(oPC);  
+				}
+			
+				MarkStageSetUp(STAGE_CHOOSE_TARGET, oPC); // This prevents the setup being run for this stage again until MarkStageNotSetUp is called for it
+				SetDefaultTokens(); // Set the next, previous, exit and wait tokens to default values
             }
             else if(nStage == STAGE_CONFIRMATION)//confirmation
             {

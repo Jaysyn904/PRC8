@@ -729,14 +729,17 @@ if(nItem == BASE_ITEM_BASTARDSWORD
     || nItem == BASE_ITEM_CRAFTED_STAFF
     || nItem == BASE_ITEM_CRAFTED_SCEPTER
     || nItem == 300 //CEP Trident
+	|| nItem == 301 //CEP Heavy Pick
+	|| nItem == 302 //CEP Light PIck
     || nItem == 303 //CEP Sai
     || nItem == 304 //CEP nunchaku
     || nItem == 305 //CEP falchion
+	|| nItem == 308 //CEP Sap
     || nItem == 309 //CEP assassin dager
     || nItem == 310 //CEP katar
     || nItem == 312 //CEP light mace 2
     || nItem == 313 //CEP kukri2
-    || nItem == 316 //CEP falchion
+    || nItem == 316 //CEP falchion 2
     || nItem == 317 //CEP heavymace
     || nItem == 318 //CEP maul
     || nItem == 319 //CEP sh_x1_mercuryls
@@ -745,6 +748,7 @@ if(nItem == BASE_ITEM_BASTARDSWORD
     || nItem == 322 //CEP goad
     || nItem == 323 //CEP windfirewheel
     || nItem == 324 //CEP maugdoublesword
+	|| nItem == 330 //CEP Longsword 2
       )
    {
         return TRUE;

@@ -47,7 +47,7 @@ void main()
     {
         AssignCommand(oMeldshaper, ClearAllActions(TRUE));
         effect eJump = EffectDisappearAppear(GetLocation(oMeldshaper));
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eJump, oMeldshaper, 3.1);
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eJump, oMeldshaper, 2.0);
             
         DelayCommand(0.0, SharkAttack(oTarget, oMeldshaper));
     }

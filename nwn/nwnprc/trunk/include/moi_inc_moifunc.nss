@@ -1425,10 +1425,25 @@ int GetTotalEssentia(object oMeldshaper)
 	return nEssentia;
 }
 
-int GetTotalUsableEssentia(object oMeldshaper)
+int GetTotalUsableEssentia(object oMeldshaper)  
+{  
+    int nBase = GetTotalEssentia(oMeldshaper) - GetFeatLockedEssentia(oMeldshaper);  
+      
+    // Add Incarnum Overload bonus if active  
+    if(GetLocalInt(oMeldshaper, "IncandescentOverload"))  
+    {  
+        int nChaBonus = GetAbilityModifier(ABILITY_CHARISMA, oMeldshaper);  
+        if(nChaBonus < 1) nChaBonus = 1;  
+        nBase += nChaBonus;  
+    }  
+      
+    return nBase;  
+}
+
+/* int GetTotalUsableEssentia(object oMeldshaper)
 {
 	return GetTotalEssentia(oMeldshaper) - GetFeatLockedEssentia(oMeldshaper);
-}
+} */
 
 int GetIncarnumFeats(object oMeldshaper)
 {
