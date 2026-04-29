@@ -310,7 +310,7 @@ void DoDeathDependent(object oEater, object oTarget, string sResRef, string sNam
 				AddHenchman(oEater, oSlave);  
 				SetMaxHenchmen(nMaxHenchmen);  
 				//DelayCommand(3.0f, LevelUpWight(GetHitDice(oEater) - 3, oSlave));
-				DelayCommand(3.0f, LevelUpWight(PRCMax(GetHitDice(oTarget), GetLevelByClass(CLASS_TYPE_SOUL_EATER, oEater) - 1), oSlave));				
+				DelayCommand(0.0f, LevelUpWight(PRCMax(GetHitDice(oTarget), GetLevelByClass(CLASS_TYPE_SOUL_EATER, oEater) - 1), oSlave));				
 			}
 			else if(DEBUG)
 				DoDebug("prc_sleat_edrain: ERROR: Failed to create wight at location " + DebugLocation2Str(lSpawn));
