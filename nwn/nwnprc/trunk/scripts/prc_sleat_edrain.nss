@@ -234,6 +234,16 @@ void DoDeathDependent(object oEater, object oTarget, string sResRef, string sNam
                 if(GetResRef(oHench) == "soul_wight_test")
                     nNumSlaves++;
             } while(GetIsObjectValid(oHench));
+			// Check if target is a valid creature type for wight creation  
+			int nRacialType = MyPRCGetRacialType(oTarget);  
+			if(nRacialType == RACIAL_TYPE_VERMIN ||  
+			   nRacialType == RACIAL_TYPE_OOZE ||  
+			   nRacialType == RACIAL_TYPE_CONSTRUCT ||  
+			   nRacialType == RACIAL_TYPE_UNDEAD)  
+			{  
+				// Cannot create wights from these creature types  
+				return;  
+			}  			
 
             // If we can add more wights, do so. Spawn the wight with some VFX at the corpse's location
             if(nNumSlaves < nMaxSlaves)
