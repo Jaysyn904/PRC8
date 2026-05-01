@@ -594,9 +594,13 @@ object CICraftScribeScroll(object oCreator, int nSpellID)
             return OBJECT_INVALID;
         }
         else
-        {
-            DestroyObject(oMat);
-        }
+		{			
+			int nStack = GetNumStackedItems(oMat);  
+			if (nStack > 1)  
+				SetItemStackSize(oMat, nStack - 1);  
+			else  
+				DestroyObject(oMat);
+		}
     }
 
     // Resolve class and scroll template
