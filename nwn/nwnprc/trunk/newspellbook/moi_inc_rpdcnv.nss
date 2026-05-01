@@ -313,12 +313,20 @@ void main()
         }        
         else if(nStage == STAGE_CONFIRM_UNSHAPE_SELECTION)
         {     
-        	if (nChoice)
-        	{
-        		PRCRemoveSpellEffects(GetIsChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nChakra"), nClass), oMeldshaper, oMeldshaper);
+/*         	if (nChoice)
+        	{ 
+				PRCRemoveSpellEffects(GetIsChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nChakra"), nClass), oMeldshaper, oMeldshaper);
         		DeleteLocalInt(oMeldshaper, "nChakra");
         		nStage = STAGE_SELECT_CHAKRA; 
-        	}		
+        	} */
+			if (nChoice)  
+			{  
+				int nMeldId = GetIsChakraUsed(oMeldshaper, GetLocalInt(oMeldshaper, "nChakra"), nClass);  
+				RemoveSpecificSoulmeldFeats(oMeldshaper, GetSoulmeldTag(nMeldId));  
+				PRCRemoveSpellEffects(nMeldId, oMeldshaper, oMeldshaper);  
+				DeleteLocalInt(oMeldshaper, "nChakra");  
+				nStage = STAGE_SELECT_CHAKRA;   
+			}			
             else
             {
 				nStage = STAGE_SELECT_UNSHAPE_MELD; 

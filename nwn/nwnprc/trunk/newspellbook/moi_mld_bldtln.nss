@@ -34,8 +34,78 @@ You can make two claw attacks that each deal 1d4 points of damage plus your Stre
 //:: Double Chakra Bind support added
 //:: Double Totem bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void BloodtalonsTotem(object oMeldshaper, int nEssentia)  
+{  
+	IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyAttackBonus(nEssentia), 99999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
+	IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+	AddEventScript(GetItemInSlot(INVENTORY_SLOT_CWEAPON_L, oMeldshaper), EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);  
+	IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper), ItemPropertyAttackBonus(nEssentia), 99999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
+	IPSafeAddItemProperty(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper), ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+	AddEventScript(GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oMeldshaper), EVENT_ITEM_ONHIT, "moi_events", TRUE, FALSE);  
+}  
+  
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);    
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);    
+    
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_SPOT, nEssentia*2));    
+    
+    // Add Diehard as effect  
+    eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_DIEHARD));  
+        
+    // Hands bind (Weapon Finesse) — check regular or double Hands    
+    int nBoundToHands = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == nMeldId)    
+        nBoundToHands = TRUE;    
+    
+    if (nBoundToHands)    
+    {    
+        // Add Weapon Finesse as effect  
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_WEAPON_FINESSE));  
+    }    
+    
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_BLOODTALONS_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_BLOODTALONS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+        
+    // Totem bind (claws) — check regular or double Totem    
+    int nBoundToTotem = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)    
+        nBoundToTotem = TRUE;    
+    
+    if (nBoundToTotem)    
+    {    
+        string sResRef = "prc_claw_1d6l_";    
+        int nSize = PRCGetCreatureSize(oMeldshaper);    
+        sResRef += GetAffixForSize(nSize);    
+        AddNaturalPrimaryWeapon(oMeldshaper, sResRef, 2);     
+        SetLocalString(oMeldshaper, "IncarnumPrimaryAttackL", sResRef);    
+        SetLocalInt(oMeldshaper, "ClearEventTotem", TRUE);    
+            
+        // All natural attacks end up here    
+        DelayCommand(3.0, BloodtalonsTotem(oMeldshaper, nEssentia));    
+    }    
+}
+
+/* #include "moi_inc_moifunc"
 
 void BloodtalonsTotem(object oMeldshaper, int nEssentia)
 {
@@ -87,7 +157,7 @@ void main()
         // All natural attacks end up here  
         DelayCommand(3.0, BloodtalonsTotem(oMeldshaper, nEssentia));  
     }  
-}
+} */
 
 /* void main()
 {

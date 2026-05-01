@@ -33,8 +33,68 @@ You gain a morale bonus on unarmed strike damage equal to the morale bonus on St
 //::
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"  
+#include "moi_inc_moifunc"    
+    
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);    
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);    
+    
+    // Check for Hands bind and add Improved Unarmed Strike if bound  
+    int nBoundToHands = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == nMeldId)    
+        nBoundToHands = TRUE;    
+    
+    if (nBoundToHands)    
+    {     
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_IMPROVED_UNARMED_STRIKE));  
+    }    
+    
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_MAULING_GAUNTLETS_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_MAULING_GAUNTLETS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+    
+    // Arms bind (keen) — check regular or double Arms    
+    int nBoundToArms = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_ARMS)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_ARMS)) == nMeldId)    
+        nBoundToArms = TRUE;    
+    
+    if (nBoundToArms)    
+    {    
+        // Apply keen to equipped melee weapons with a tag for future use    
+        object oWeapR = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oMeldshaper);    
+        if (GetIsObjectValid(oWeapR) && IPGetIsMeleeWeapon(oWeapR))    
+        {    
+            itemproperty ipKeen = ItemPropertyKeen();    
+            ipKeen = TagItemProperty(ipKeen, "moi_MaulingGauntletsKeen");    
+            IPSafeAddItemProperty(oWeapR, ipKeen, 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);    
+        }    
+        object oWeapL = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oMeldshaper);    
+        if (GetIsObjectValid(oWeapL) && IPGetIsMeleeWeapon(oWeapL))    
+        {    
+            itemproperty ipKeen = ItemPropertyKeen();    
+            ipKeen = TagItemProperty(ipKeen, "moi_MaulingGauntletsKeen");    
+            IPSafeAddItemProperty(oWeapL, ipKeen, 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);    
+        }    
+    }    
+}
+
+
+/* #include "moi_inc_moifunc"  
   
 void main()  
 {  
@@ -79,7 +139,7 @@ void main()
             IPSafeAddItemProperty(oWeapL, ipKeen, 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);  
         }  
     }  
-}
+} */
 
 /* void main()
 {

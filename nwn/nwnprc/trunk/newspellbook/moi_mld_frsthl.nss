@@ -34,8 +34,60 @@ As a standard action, you can produce a trilling sound that stuns opponents with
 //:: Double Chakra Bind support added
 //:: Double Totem bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper, MELD_FROST_HELM);    
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);    
+    
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, nEssentia * 5));    
+    
+    // Add Cold Endurance as tagged effect  
+    eLink = EffectLinkEffects(eLink, EffectBonusFeat(IP_CONST_FEAT_COLD_ENDURANCE));  
+    
+    // Tag the entire effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_FROST_HELM_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+    
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);      
+      
+    // Keep meld identification as item properties  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+        
+    // Crown bind (cold ray)  
+    int nBoundToCrown = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_CROWN)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_CROWN)) == nMeldId)    
+        nBoundToCrown = TRUE;    
+    
+    if (nBoundToCrown)    
+    {    
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_CROWN), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+    }    
+    
+    // Totem bind (stun)  
+    int nBoundToTotem = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)    
+        nBoundToTotem = TRUE;    
+    
+    if (nBoundToTotem)    
+    {    
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+    }    
+}
+
+
+/* #include "moi_inc_moifunc"
 
 void main()  
 {  
@@ -71,7 +123,7 @@ void main()
     {  
         IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_FROST_HELM_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
     }  
-}
+} */
 
 /* void main()
 {

@@ -15,10 +15,118 @@
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-
+#include "moi_meld_const" 
 //////////////////////////////////////////////////
 /*             Function prototypes              */
 //////////////////////////////////////////////////
+/**
+ * @brief Retrieves the effect tag associated with a specific soulmeld.
+ *
+ * Maps a soulmeld identifier to its corresponding effect tag string used
+ * for applying or removing feat-granting effects tied to that soulmeld.
+ *
+ * @param nMeldId The integer identifier of the soulmeld (e.g., MELD_FROST_HELM).
+ *
+ * @return A string representing the effect tag associated with the given
+ *         soulmeld, or an empty string ("") if the soulmeld ID is not recognized.
+ *
+ * @note The returned tag is intended for use with effect tagging systems,
+ *       such as applying or removing effects via GetEffectTag().
+ *
+ * @warning If a new soulmeld is added and not included in this switch,
+ *          this function will return an empty string, which may cause
+ *          dependent systems to fail silently.
+ */
+string GetSoulmeldTag(int nMeldId)  
+{  
+    if (nMeldId == MELD_FROST_HELM)          		return "SOULMELD_FROST_HELM_FEATS";  
+    else if (nMeldId == MELD_IMPULSE_BOOTS)       return "SOULMELD_IMPULSE_BOOTS_FEATS";  
+    else if (nMeldId == MELD_PHOENIX_BELT)        return "SOULMELD_PHOENIX_BELT_FEATS";  
+    else if (nMeldId == MELD_WORMTAIL_BELT)       return "SOULMELD_WORMTAIL_BELT_FEATS";  
+    else if (nMeldId == MELD_APPARITION_RIBBON)   return "SOULMELD_APPARITION_RIBBON_FEATS";  
+    else if (nMeldId == MELD_MANTICORE_BELT)      return "SOULMELD_MANTICORE_BELT_FEATS";  
+    else if (nMeldId == MELD_THEFT_GLOVES)        return "SOULMELD_THEFT_GLOVES_FEATS";  
+    else if (nMeldId == MELD_BLOODTALONS)         return "SOULMELD_BLOODTALONS_FEATS";  
+    else if (nMeldId == MELD_LAMIA_BELT)          return "SOULMELD_LAMIA_BELT_FEATS";  
+    else if (nMeldId == MELD_CRYSTAL_HELM)        return "SOULMELD_CRYSTAL_HELM_FEATS";  
+    else if (nMeldId == MELD_BASILISK_MASK)       return "SOULMELD_BASILISK_MASK_FEATS";  
+    else if (nMeldId == MELD_ASTRAL_VAMBRACES)    return "SOULMELD_ASTRAL_VAMBRACES_FEATS";  
+    else if (nMeldId == MELD_MAULING_GAUNTLETS)   return "SOULMELD_MAULING_GAUNTLETS_FEATS";  
+    else if (nMeldId == MELD_DRAGONFIRE_MASK)     return "SOULMELD_DRAGONFIRE_MASK_FEATS";  
+    else return "";  
+}
+
+/**
+ * @brief Removes all effects from a creature that match a specific soulmeld tag.
+ *
+ * Iterates through all active effects on the specified object and removes any
+ * effect whose tag matches the provided soulmeld tag. This is typically used
+ * to strip feat-granting effects associated with a single soulmeld.
+ *
+ * @param oPC The creature (typically a player character) from which effects
+ *            will be removed.
+ * @param sMeldTag The effect tag identifying the soulmeld-related feat effects
+ *                 to remove.
+ *
+ * @note This function performs an exact string comparison using GetEffectTag().
+ *
+ * @warning Passing an empty string ("") as sMeldTag may result in unintended
+ *          behavior if any effects are tagged with an empty string.
+ */
+void RemoveSpecificSoulmeldFeats(object oPC, string sMeldTag)  
+{  
+    effect eEffect = GetFirstEffect(oPC);  
+    while(GetIsEffectValid(eEffect))  
+    {  
+        if(GetEffectTag(eEffect) == sMeldTag)  
+            RemoveEffect(oPC, eEffect);  
+          
+        eEffect = GetNextEffect(oPC);  
+    }  
+}  
+
+/**
+ * @brief Removes all soulmeld-related feat effects from a creature.
+ *
+ * Iterates through all active effects on the specified object and removes any
+ * effects that match known soulmeld feat tags. These effects are assumed to
+ * have been applied to grant feats associated with specific soulmelds.
+ *
+ * @param oPC The creature (typically a player character) from which soulmeld
+ *            feat effects will be removed.
+ *
+ * @note This function relies on effect tags to identify soulmeld feat effects.
+ *       Only effects with explicitly listed tags will be removed.
+ *
+ * @warning Any soulmeld feat effect not included in the tag list will remain
+ *          active. Ensure new soulmelds are added here if they apply feat effects.
+ */
+void RemoveSoulmeldFeatEffects(object oPC)  
+{  
+    effect eEffect = GetFirstEffect(oPC);  
+    while(GetIsEffectValid(eEffect))  
+    {  
+        string sTag = GetEffectTag(eEffect);  
+        if(sTag == "SOULMELD_FROST_HELM_FEATS" 			||  
+           sTag == "SOULMELD_IMPULSE_BOOTS_FEATS" 		||  
+           sTag == "SOULMELD_PHOENIX_BELT_FEATS" 		||  
+           sTag == "SOULMELD_WORMTAIL_BELT_FEATS" 		||  
+           sTag == "SOULMELD_APPARITION_RIBBON_FEATS" 	||  
+           sTag == "SOULMELD_MANTICORE_BELT_FEATS" 		||  
+           sTag == "SOULMELD_THEFT_GLOVES_FEATS" 		||  
+           sTag == "SOULMELD_BLOODTALONS_FEATS" 		||  
+           sTag == "SOULMELD_LAMIA_BELT_FEATS" 			||  
+           sTag == "SOULMELD_CRYSTAL_HELM_FEATS" 		||  
+           sTag == "SOULMELD_BASILISK_MASK_FEATS" 		||  
+           sTag == "SOULMELD_ASTRAL_VAMBRACES_FEATS" 	||  
+           sTag == "SOULMELD_MAULING_GAUNTLETS_FEATS" 	||  
+           sTag == "SOULMELD_DRAGONFIRE_MASK_FEATS")  
+        {  
+            RemoveEffect(oPC, eEffect);  
+        }  
+        eEffect = GetNextEffect(oPC);  
+    }  
+}
 
 /**
  * Determines the given creature's Meldshaper level. 

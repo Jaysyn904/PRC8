@@ -33,8 +33,36 @@ As a standard action, you can create a momentary ring of fire that surrounds you
 //::
 //:: Double Totem Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nEssentia = GetEssentiaInvested(oMeldshaper);  
+    effect eLink = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, nEssentia * 5));  
+    
+    eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_HEAT_ENDURANCE));  
+      
+    eLink = TagEffect(eLink, "SOULMELD_PHOENIX_BELT_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+	  
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM)   
+		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+/* #include "moi_inc_moifunc"
 
 void main()
 {
@@ -50,4 +78,4 @@ void main()
 	
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_TOTEM || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_TOTEM) 
 		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_PHOENIX_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

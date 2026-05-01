@@ -27,8 +27,45 @@ You gain the trapfinding ability.
 //::
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);    
+    int nBonus         = 2 + (nEssentia * 2);    
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_OPEN_LOCK, nBonus), EffectSkillIncrease(SKILL_DISABLE_TRAP, nBonus));    
+           eLink       = EffectLinkEffects(eLink, EffectSkillIncrease(SKILL_PICK_POCKET, nBonus));    
+    
+    // Check for Hands bind and add Trapfinding if bound  
+    int nBoundToHands = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_HANDS)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_HANDS)) == nMeldId)    
+        nBoundToHands = TRUE;    
+    
+    if (nBoundToHands)    
+    {      
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_TRAPFINDING));  
+    }    
+    
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_THEFT_GLOVES_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_THEFT_GLOVES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+}
+
+/* #include "moi_inc_moifunc"
 
 void main()  
 {  
@@ -50,7 +87,7 @@ void main()
   
     if (nBoundToHands)  
         IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_TRAPFINDING), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
-}
+} */
 
 /* void main()
 {

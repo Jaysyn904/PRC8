@@ -27,8 +27,41 @@ You gain the evasion ability.
 //::
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);  
+      
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_REFLEX, nEssentia));  
+  
+    // Add Uncanny Dodge as effect  
+    eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_UNCANNY_DODGE_1));  
+      
+    // Check for Feet bind and add Evasion if bound  
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_FEET || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_FEET)   
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_EVASION));  
+      
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_IMPULSE_BOOTS_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);  
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_IMPULSE_BOOTS), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+/* #include "moi_inc_moifunc"
 
 void main()
 {
@@ -44,4 +77,4 @@ void main()
 	
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_FEET || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_FEET) 
 		IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_FEAT_EVASION), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

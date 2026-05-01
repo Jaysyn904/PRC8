@@ -34,8 +34,57 @@ You can use your wormtail belt’s stinger to make natural attacks. You cannot use
 //:: Double Chakra Bind support added
 //:: Double Totem bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);    
+    int nBonus         = 2 + nEssentia;    
+    effect eLink       = EffectACIncrease(nBonus, AC_NATURAL_BONUS);    
+    
+    // Check for Waist bind and add Awesome Blow if bound  
+    int nBoundToWaist = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_WAIST)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_WAIST)) == nMeldId)    
+        nBoundToWaist = TRUE;    
+    
+    if (nBoundToWaist)    
+    {    
+        // Add Awesome Blow as effect
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_AWESOME_BLOW));  
+    }    
+    
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_WORMTAIL_BELT_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    // Keep meld identification as item properties  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);     
+        
+    // Totem bind (stinger) — check regular or double Totem    
+    int nBoundToTotem = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)    
+        nBoundToTotem = TRUE;    
+    
+    if (nBoundToTotem)    
+    {    
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);     
+    }    
+}
+
+
+/* #include "moi_inc_moifunc"
 
 void main()  
 {  
@@ -69,7 +118,7 @@ void main()
     {  
         IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_WORMTAIL_BELT_TOTEM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);   
     }  
-}
+} */
 
 /* void main()
 {

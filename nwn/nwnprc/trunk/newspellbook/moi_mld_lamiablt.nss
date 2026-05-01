@@ -34,8 +34,62 @@ The lower part of your body below your lamia belt takes on the shape of a lion, 
 //:: Double Totem Bind support added
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);    
+    int nBonus         = 4 + (nEssentia * 2);    
+    effect eLink       = EffectLinkEffects(EffectSkillIncrease(SKILL_HIDE, nBonus), EffectSkillIncrease(SKILL_BLUFF, nBonus));    
+    
+    // Waist bind (speed + Spring Attack) — check regular or double Waist    
+    int nBoundToWaist = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_WAIST)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_WAIST)) == nMeldId)    
+        nBoundToWaist = TRUE;    
+    
+    if (nBoundToWaist)    
+    {    
+        // Add Spring Attack as effect using FEAT_* constant  
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_SPRING_ATTACK));  
+        SetLocalInt(oMeldshaper, "LamiaBeltSpeed", TRUE);    
+    }    
+    
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_LAMIA_BELT_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);    
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_LAMIA_BELT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+    
+    // Totem bind (claws) — check regular or double Totem    
+    int nBoundToTotem = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_TOTEM)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_TOTEM)) == nMeldId)    
+        nBoundToTotem = TRUE;    
+    
+    if (nBoundToTotem)    
+    {    
+        string sResRef = "prc_claw_1d6l_";    
+        int nSize = PRCGetCreatureSize(oMeldshaper);    
+        sResRef += GetAffixForSize(nSize);    
+        AddNaturalSecondaryWeapon(oMeldshaper, sResRef, 2);     
+        SetLocalString(oMeldshaper, "IncarnumSecondaryAttackL", sResRef);    
+    }    
+}
+
+
+/* #include "moi_inc_moifunc"
 
 void main()  
 {  
@@ -74,7 +128,7 @@ void main()
         AddNaturalSecondaryWeapon(oMeldshaper, sResRef, 2);   
         SetLocalString(oMeldshaper, "IncarnumSecondaryAttackL", sResRef);  
     }  
-}
+} */
 
 
 /* void main()

@@ -29,8 +29,49 @@ it was activated. Each day, you can spend a total number of rounds incorporeal e
 //::
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"  
+#include "moi_inc_moifunc"    
+    
+void main()    
+{    
+    object oMeldshaper = PRCGetSpellTargetObject();     
+    int nMeldId        = PRCGetSpellId();    
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);     
+    
+    effect eLink;    
+      
+    // Add Blind-Fight as effect  
+    eLink = EffectBonusFeat(FEAT_BLIND_FIGHT);  
+    
+    if (nEssentia) eLink = EffectLinkEffects(eLink, VersusRacialTypeEffect(EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nEssentia)), RACIAL_TYPE_UNDEAD));    
+        
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_APPARITION_RIBBON_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);     
+        
+    // Throat bind (incorporeal) — check regular or double Throat    
+    int nBoundToThroat = FALSE;    
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_THROAT)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_THROAT)) == nMeldId)    
+        nBoundToThroat = TRUE;    
+    
+    if (nBoundToThroat)    
+    {    
+        IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_APPARITION_RIBBON_THROAT), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+    }    
+    
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_APPARITION_RIBBON), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);    
+}
+
+/* #include "moi_inc_moifunc"  
   
 void main()  
 {  
@@ -56,7 +97,7 @@ void main()
   
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);   
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_APPARITION_RIBBON), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
-}
+} */
 
 /* void main()
 {

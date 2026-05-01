@@ -32,8 +32,43 @@ Your melee attacks gain the force descriptor, making them useful against incorpo
 //:: Double Chakra Bind support added
 //:; Fixed broken Brow bind
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);   
+    int nMeldId        = PRCGetSpellId();   
+  
+    effect eLink = EffectSavingThrowIncrease(SAVING_THROW_WILL, 2, SAVING_THROW_TYPE_MIND_SPELLS);  
+  
+    if (nEssentia) eLink = EffectLinkEffects(eLink, EffectACIncrease(nEssentia, AC_DEFLECTION_BONUS));  
+      
+    // Check for Brow bind and add Blind-Fight if bound  
+    if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_BROW)) == nMeldId ||    
+        GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_DOUBLE_BROW)) == nMeldId)  
+    {   
+        eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_BLIND_FIGHT));  
+    }  
+      
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_CRYSTAL_HELM_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);   
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CRYSTAL_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+}
+
+
+/* #include "moi_inc_moifunc"
 
 void main()
 {
@@ -54,4 +89,4 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0); 
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_CRYSTAL_HELM), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-}
+} */

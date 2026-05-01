@@ -45,8 +45,59 @@ You gain two slam attacks, which act as primary natural weapons. The slam attack
 //::
 //:: Double Chakra Bind support added
 //::
+//:: Updated on: 2026-05-01 12:04:32
+//::
+//:: Fixed Bonus feats hanging stay around after 
+//:: reshaping soulmelds.
+//::
 //::////////////////////////////////////////////////////////
-#include "moi_inc_moifunc"
+#include "moi_inc_moifunc"  
+  
+void main()  
+{  
+    object oMeldshaper = PRCGetSpellTargetObject();   
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);  
+    int nBonus         = (1 + nEssentia) * 2;  
+  
+    effect eLink = EffectDamageReduction(nBonus, DAMAGE_POWER_PLUS_ONE);  
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_ARMS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_ARMS)   
+    {  
+    	int nChoice = GetLocalInt(oMeldshaper, "AstralVambraces");  
+    	//FloatingTextStringOnCreature("Astral Vambrace Arms Chakra nChoice "+IntToString(nChoice), oMeldshaper, FALSE);  
+    	if (nChoice == 1) eLink = EffectLinkEffects(eLink, EffectTemporaryHitpoints(5));  
+    	//else if (nChoice == 2)  Handled in prc_speed  
+    	else if (nChoice == 3) eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_CLEAVE));  
+    	else if (nChoice == 4) eLink = EffectLinkEffects(eLink, EffectACIncrease(1, AC_DEFLECTION_BONUS));  
+    	else if (nChoice == 5) eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_IMPROVED_BULLRUSH));  
+    	else if (nChoice == 6) eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_MOBILITY));  
+    	else if (nChoice == 7) eLink = EffectLinkEffects(eLink, EffectBonusFeat(FEAT_POWER_ATTACK));  
+    	else if (nChoice == 8) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ACID, 5));  
+    	else if (nChoice == 9) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_COLD, 5));  
+    	else if (nChoice == 10) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, 5));  
+    	else if (nChoice == 11) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_FIRE, 5));  
+    	else if (nChoice == 12) eLink = EffectLinkEffects(eLink, EffectDamageResistance(DAMAGE_TYPE_SONIC, 5));  
+    }	  
+  
+    // Tag the effect link for easy removal  
+    eLink = TagEffect(eLink, "SOULMELD_ASTRAL_VAMBRACES_FEATS");  
+    eLink = SupernaturalEffect(eLink);  
+      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oMeldshaper, 9999.0);  
+      
+    // Keep meld identification as item property  
+    IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_ASTRAL_VAMBRACES), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);  
+    if (GetIsMeldBound(oMeldshaper) == CHAKRA_HANDS || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HANDS)   
+    {  
+        string sResRef = "prc_hdarc_slam_";  
+        int nSize = PRCGetCreatureSize(oMeldshaper);  
+        // This is correct to get the right damage profile  
+        sResRef += GetAffixForSize(nSize+1);  
+        AddNaturalPrimaryWeapon(oMeldshaper, sResRef, 2);   
+        SetLocalString(oMeldshaper, "IncarnumPrimaryAttackL", sResRef);  
+    }      
+}
+
+/* #include "moi_inc_moifunc"
 
 void main()
 {
@@ -84,4 +135,4 @@ void main()
         AddNaturalPrimaryWeapon(oMeldshaper, sResRef, 2); 
         SetLocalString(oMeldshaper, "IncarnumPrimaryAttackL", sResRef);
     }    
-}
+} */

@@ -4,7 +4,7 @@
 int RebindFeatToChakra(int nSpellId)
 {
 	int nReturn = -1;
-	if (nSpellId == 18977) nReturn = CHAKRA_CROWN;
+	if (nSpellId == 18977) 		nReturn = CHAKRA_CROWN;
 	else if (nSpellId == 18978) nReturn = CHAKRA_FEET     ;
 	else if (nSpellId == 18979) nReturn = CHAKRA_HANDS    ;
 	else if (nSpellId == 18980) nReturn = CHAKRA_ARMS     ;
@@ -19,7 +19,33 @@ int RebindFeatToChakra(int nSpellId)
 	return nReturn;
 }
 
-void main()
+void main()  
+{  
+    object oMeldshaper = OBJECT_SELF;  
+    int nClass = GetPrimaryIncarnumClass(oMeldshaper);  
+    int nChakra = RebindFeatToChakra(GetSpellId());  
+    int nMeld = GetIsChakraBound(oMeldshaper, nChakra);  
+      
+    // Get the swap target  
+    int nTest = GetIsChakraUsed(oMeldshaper, nChakra, nClass);  
+    int nTest2 = GetIsChakraUsed(oMeldshaper, nChakra+11, nClass);  
+    int nSwap = nTest2;  
+    if (nMeld == nTest2) nSwap = nTest;  
+      
+    // Clean only the specific soulmelds being reconfigured  
+    RemoveSpecificSoulmeldFeats(oMeldshaper, GetSoulmeldTag(nMeld));  
+    RemoveSpecificSoulmeldFeats(oMeldshaper, GetSoulmeldTag(nSwap));  
+      
+    // Unbind the meld, then bind it  
+    DeleteLocalInt(oMeldshaper, "BoundMeld"+IntToString(nChakra));  
+    BindMeldToChakra(oMeldshaper, nSwap, nChakra, nClass);  
+      
+    // Shape them both  
+    ShapeSoulmeld(oMeldshaper, nMeld);  
+    ShapeSoulmeld(oMeldshaper, nSwap);  
+}
+
+/* void main()
 {
 	object oMeldshaper = OBJECT_SELF;
 	int nClass = GetPrimaryIncarnumClass(oMeldshaper);
@@ -40,10 +66,10 @@ void main()
 	
 	// Shape them both
 	ShapeSoulmeld(oMeldshaper, nMeld);
-	ShapeSoulmeld(oMeldshaper, nSwap);
+	ShapeSoulmeld(oMeldshaper, nSwap); */
 	
 /*	if (GetLocalInt(oMeldshaper, "PerfectMeldshaper")) return;
     AssignCommand(oMeldshaper, ClearAllActions(TRUE));
     SetLocalInt(oMeldshaper, "RebindSoulmeldCnv", GetSpellId());
-    StartDynamicConversation("moi_rebindcnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper); */  
-}
+    StartDynamicConversation("moi_rebindcnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper); 
+}*/
