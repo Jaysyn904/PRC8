@@ -17680,9 +17680,9 @@
 17676 Warblade_AuraOfChaos                                      ****            1        1      1        ****  ****        
 17677 Warblade_AuraOfPerfectOrder                               ****            1        1      1        ****  ****        
 17678 Warblade_AuraOfTriumph                                    ****            1        1      1        ****  ****        
-17679 Warblade_AuraOfTyranny                                    ****            1        1      1        ****  ****        
-17680 Warblade_CastigatingStrike                                ****            1        1      1        ****  ****        
-17681 Warblade_CrusadersStrike                                  ****            1        1      1        ****  ****        
+17679 ####END_OF_TOB_SPELLBOOK_RESERVE                          ****            1        1      1        ****  ****        
+17680 SPELL_DOMAIN_POWER_MADNESS                                ****            1        1      1        1     ****        
+17681 SPELL_DOMAIN_POWER_MOON                                   ****            1        1      1        1     ****        
 17682 Warblade_DauntingStrike                                   ****            1        1      1        ****  ****        
 17683 Warblade_DefensiveRebuke                                  ****            1        1      1        ****  ****        
 17684 Warblade_DivineSurge                                      ****            1        1      1        ****  ****        

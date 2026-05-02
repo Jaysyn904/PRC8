@@ -160,6 +160,7 @@ int GetIsBioDivineClass(int nClass)
 		|| nClass == CLASS_TYPE_PALADIN
 		|| nClass == CLASS_TYPE_SHAMAN
 		|| nClass == CLASS_TYPE_UR_PRIEST
+		|| nClass == CLASS_TYPE_OCULAR
 		|| nClass == CLASS_TYPE_RANGER;
 }
 
@@ -447,6 +448,13 @@ void CheckBonusDomains(object oPC)
     if (GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON,        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_DRAGON);
     if (GetHasFeat(FEAT_BONUS_DOMAIN_COLD,          oPC)) AddBonusDomain(oPC, PRC_DOMAIN_COLD);
     if (GetHasFeat(FEAT_BONUS_DOMAIN_WINTER,        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_WINTER);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_CHAOS,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_CHAOS);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_LAW,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_LAW);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_LUCK,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_LUCK);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_GLORY,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_GLORY);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_MADNESS,		oPC)) AddBonusDomain(oPC, PRC_DOMAIN_MADNESS);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_MIND,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_MIND);
+	if (GetHasFeat(FEAT_BONUS_DOMAIN_MOON,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_MOON);	
 																			  
     //if (DEBUG) FloatingTextStringOnCreature("Check Bonus Domains is running", oPC, FALSE);
 }
@@ -529,15 +537,17 @@ int GetTurningDomain(int nSpell)
 {
     switch(nSpell)
     {
-        case SPELL_TURN_REPTILE:       return PRC_DOMAIN_SCALEYKIND;
-        case SPELL_TURN_OOZE:          return PRC_DOMAIN_SLIME;
-        case SPELL_TURN_SPIDER:        return PRC_DOMAIN_SPIDER;
-        case SPELL_TURN_PLANT:         return PRC_DOMAIN_PLANT;
-        case SPELL_TURN_AIR:           return PRC_DOMAIN_AIR;
-        case SPELL_TURN_EARTH:         return PRC_DOMAIN_EARTH;
-        case SPELL_TURN_FIRE:          return PRC_DOMAIN_FIRE;
-        case SPELL_TURN_WATER:         return PRC_DOMAIN_WATER;
-        case SPELL_TURN_BLIGHTSPAWNED: return PRC_DOMAIN_BLIGHTBRINGER;
+        case SPELL_TURN_REPTILE:       		return PRC_DOMAIN_SCALEYKIND;
+        case SPELL_TURN_OOZE:          		return PRC_DOMAIN_SLIME;
+        case SPELL_TURN_SPIDER:        		return PRC_DOMAIN_SPIDER;
+        case SPELL_TURN_PLANT:         		return PRC_DOMAIN_PLANT;
+        case SPELL_TURN_AIR:           		return PRC_DOMAIN_AIR;
+        case SPELL_TURN_EARTH:         		return PRC_DOMAIN_EARTH;
+        case SPELL_TURN_FIRE:          		return PRC_DOMAIN_FIRE;
+        case SPELL_TURN_WATER:         		return PRC_DOMAIN_WATER;
+        case SPELL_TURN_BLIGHTSPAWNED: 		return PRC_DOMAIN_BLIGHTBRINGER;
+		case SPELL_DOMAIN_POWER_MADNESS:	return PRC_DOMAIN_MADNESS;
+		case SPELL_DOMAIN_POWER_MOON:		return PRC_DOMAIN_MOON;
     }
 
     return -1;
@@ -584,3 +594,5 @@ int GetDomainCasterLevel(object oPC)
           + GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oPC)
           + GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oPC);
 }
+
+//:: void main (){}

@@ -6463,8 +6463,12 @@ int DomainPower(object oCaster, int nSpellID, int nSpellSchool = -1)
     if (GetHasDescriptor(nSpellID, DESCRIPTOR_EVIL) && GetHasFeat(FEAT_EVIL_DOMAIN_POWER, oCaster))
         nBonus += 1;
 
-    // Boosts Caster level with good spells by 1
-    if (GetHasDescriptor(nSpellID, DESCRIPTOR_GOOD) && GetHasFeat(FEAT_GOOD_DOMAIN_POWER, oCaster))
+    // Boosts Caster level with chaos spells by 1
+    if (GetHasDescriptor(nSpellID, DESCRIPTOR_CHAOTIC) && GetHasFeat(FEAT_DOMAIN_POWER_CHAOS, oCaster))
+        nBonus += 1;
+	
+	// Boosts Caster level with law spells
+    if (GetHasDescriptor(nSpellID, DESCRIPTOR_LAWFUL) && GetHasFeat(FEAT_DOMAIN_POWER_LAW, oCaster))
         nBonus += 1;
 
     return nBonus;

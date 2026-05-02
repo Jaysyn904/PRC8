@@ -836,12 +836,12 @@ Special: Prior contact with an alienist or a pseudonatural creature.
 CLASS FEATURES:
 
 Level
-1: Summon Alien - when casting any summon monster spell, Alienist summons "pseudonatural" version of a creature.
+1: Summon Alien - when casting any summon creature spell, Alienist summons "pseudonatural" version of a creature.
 2: Alien blessing - +1 insight bonus on all saving throws, but permanently loses 2 points of Wisdom.
 3: Metamagic secret - bonus metamagic feat.
 4: Mad certainty - -2 penalty to saving throws, attack rolls, and Charisma based skill and ability checks against specified kind of creatures.
 5: Pseudonatural familiar - Alienists familiar gains the pseudonatural template.
-6: Extra summoning - once pre day Alienist can cast summon monster spell at her highest spell level.
+6: Extra summoning - once pre day Alienist can cast summon creature spell at her highest spell level.
 7: Metamagic secret - bonus metamagic feat.
 8: Insane certainty - penalties increase to -6.
 9: Timeless secret - The Alienist learns the secret of perpetual youth. She no longer suffers ability penalties for aging and cannot be magically aged.
@@ -7199,7 +7199,7 @@ Use: Selected.</entry>
   <entry id="45418" lang="en" sex="m">Summon Hellcat</entry>
   <entry id="45419" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Disciple of Asmodeus level 4.
-Specifics: A 4th-level disciple of Asmodeus can summon 1 hellcat once per day. This functions as a summon monster spell cast by a spellcaster of his effective caster level. A 9th-level disciple of Asmodeus gains the ability to summon 1d4 hellcats once per day.  If the Disciple has no effective caster level, the duration will be 2 rounds per Disciple of Asmodeus class level.
+Specifics: A 4th-level disciple of Asmodeus can summon 1 hellcat once per day. This functions as a summon creature spell cast by a spellcaster of his effective caster level. A 9th-level disciple of Asmodeus gains the ability to summon 1d4 hellcats once per day.  If the Disciple has no effective caster level, the duration will be 2 rounds per Disciple of Asmodeus class level.
 Use: Selected.</entry>
   <entry id="45420" lang="en" sex="m">Evil Authority</entry>
   <entry id="45421" lang="en" sex="m">Type of Feat: Class Specific
@@ -8593,7 +8593,7 @@ Use: Selected.</entry>
   <entry id="45814" lang="en" sex="m">Summon Hamatula</entry>
   <entry id="45815" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Disciple of Mephistopheles Level 5
-Specifics: Disciple of Mephistopheles can summon 1 hamatula once per day. This functions as a summon monster spell cast by a 15th-level caster.
+Specifics: Disciple of Mephistopheles can summon 1 hamatula once per day. This functions as a summon creature spell cast by a 15th-level caster.
 Use: Selected.</entry>
   <entry id="45816" lang="en" sex="m">Hellfire</entry>
   <entry id="45817" lang="en" sex="m">Type of Feat: Class Specific
@@ -15025,7 +15025,7 @@ This bonus starts at +1 at 3rd level, and increases by one at level 3, 5, 7, 11,
   <entry id="47312" lang="en" sex="m">Summon Demon</entry>
   <entry id="47313" lang="en" sex="m">Type of Feat: Class
 Prerequisite: Thrall of Graz'zt
-At 4th level, a Thrall of Graz'zt can summon a demon of 5 HD or less once per day.  This spell functions as a summon monster spell.
+At 4th level, a Thrall of Graz'zt can summon a demon of 5 HD or less once per day.  This spell functions as a summon creature spell.
 
 The HD of the demon summoned increases to 10 HD at level 9, 15 HD at level 15, 20 HD at level 20, 25 HD at level 25, and 30 HD at level 30.</entry>
   <entry id="47314" lang="en" sex="m">Your mindblade enhancements have been reset and your mindblades destroyed due to level loss.</entry>
@@ -17253,7 +17253,7 @@ Area of Effect / Target: Single
 Duration: 1 Hour / Level
 Target receives a +2 deflection bonus to Armor Class, +2 to all saving throws, and immunity to any mind-affecting spells and spell-like abilities used by creatures of the chosen alignment.
 
-Summon Monster I
+Summon Creature I
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -17283,7 +17283,7 @@ Duration: 2 Hours / Level
 Spell Resistance: Yes
 This spell imbues an area with negative energy, Charisma check make to turn undead within suffers -3. Undead gains +1 to attack, damage and save. Undead create within this area gains +1 HP per HD.
 
-Summon Monster II
+Summon Creature II
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -17324,7 +17324,7 @@ Spell Resistance: No
 
 When this spell is cast, the caster chooses to be protected from good. The spell target and all allies within 10 feet receive a +2 deflection bonus to Armor Class, +2 to all saving throws, and immunity to any mind-affecting spells and spell-like abilities used by creatures of the chosen alignment.
 
-Summon Monster III
+Summon Creature III
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -17398,7 +17398,7 @@ Area of Effect / Target: Single
 Duration: 1 Hour / Level
 Target receives a +2 deflection bonus to Armor Class, +2 to all saving throws, and immunity to any mind-affecting spells and spell-like abilities used by creatures of the chosen alignment.
 
-Summon Monster I
+Summon Creature I
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -17428,7 +17428,7 @@ Duration: 2 Hours / Level
 Spell Resistance: Yes
 This spell imbues an area with negative energy, Charisma check make to turn undead within suffers -3. Undead gains +1 to attack, damage and save. Undead create within this area gains +1 HP per HD.
 
-Summon Monster II
+Summon Creature II
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -17469,7 +17469,7 @@ Spell Resistance: No
 
 When this spell is cast, the caster chooses to be protected from good. The spell target and all allies within 10 feet receive a +2 deflection bonus to Armor Class, +2 to all saving throws, and immunity to any mind-affecting spells and spell-like abilities used by creatures of the chosen alignment.
 
-Summon Monster III
+Summon Creature III
 Range: Short
 Area of Effect / Target: Point
 Duration: 24 Hours
@@ -18343,9 +18343,9 @@ Level
 20: Smite Good 5/day
 
 SPELL LIST:
-Level 1: Bane, Inflict Light Wounds, Protection from Good, Summon Monster 1.
-Level 2: Bull's Strength, Darkness, Desecrate, Summon Monster 2.
-Level 3: Blindness/Deafness, Greater Magic Weapon, Inflict Moderate Wounds, Magic Circle against Good, Summon Monster 3.
+Level 1: Bane, Inflict Light Wounds, Protection from Good, Summon Creature 1.
+Level 2: Bull's Strength, Darkness, Desecrate, Summon Creature 2.
+Level 3: Blindness/Deafness, Greater Magic Weapon, Inflict Moderate Wounds, Magic Circle against Good, Summon Creature 3.
 Level 4: Death Ward, Fear, Inflict Serious Wounds, Poison, Unholy Sword.</entry>
   <entry id="48332" lang="en" sex="m">Darkness Domain Powers</entry>
   <entry id="48333" lang="en" sex="m">Corrupter</entry>
@@ -23692,7 +23692,7 @@ Use: Selected</entry>
 Prerequisite: Artificer level 5
 Specifics: At 5th level, an artificer gains the ability to salvage the XP from a magic item and use those points to create another magic item. The artificer must spend a day with the item, and he must also have the appropriate item creation feat for the item he is salvaging. After one day, the item is destroyed and the artificer adds the XP it took to create the item to his craft reserve. These points are lost if the artificer does not use them before gaining his next level.
 
-For example, an artificer wants to retain the essence of a wand of summon monster IV that has 20 charges. Originally created (like all wands) with 50 charges, it required 840 XP when initially made, or 16.8 XP (840 - 50) per charge. The artificer is able to recover the XP from the remaining charges. He puts 336 XP (16.8 X 20) into his craft reserve.
+For example, an artificer wants to retain the essence of a wand of summon creature IV that has 20 charges. Originally created (like all wands) with 50 charges, it required 840 XP when initially made, or 16.8 XP (840 - 50) per charge. The artificer is able to recover the XP from the remaining charges. He puts 336 XP (16.8 X 20) into his craft reserve.
 
 Use: Selected</entry>
   <entry id="49897" lang="en" sex="m">Metamagic Spell Trigger</entry>
@@ -50151,7 +50151,7 @@ Alien Mind: Your mind is alien and does not work like that of a normal mortal. Y
 
 Bolts of Madness: You can fire a ray that dazes an opponent for 1d3 rounds. You must succeed on a ranged touch attack with a range of 100 ft. + 10 ft./binder level. A successful Will save negates the effect. Once you have used this ability, you cannot do so again for 5 rounds.
 
-Summon Alien: You can summon any creature from the summon monster list that a sorcerer of your level could summon. Any creature you summon with this ability gains the pseudonatural template. Thus, at 10th level you could summon any creature from the summon monster I-V list. When you reach 14th level, you can summon any creature from the summon monster I-VII list.Once you have used this ability, you cannot do so again for 5 rounds.</entry>
+Summon Alien: You can summon any creature from the summon creature list that a sorcerer of your level could summon. Any creature you summon with this ability gains the pseudonatural template. Thus, at 10th level you could summon any creature from the summon creature I-V list. When you reach 14th level, you can summon any creature from the summon creature I-VII list.Once you have used this ability, you cannot do so again for 5 rounds.</entry>
   <entry id="58362" lang="en" sex="m">Zceryll, the Star Spawn Bolts of Madness</entry>
   <entry id="58363" lang="en" sex="m">Zceryll, the Star Spawn Summon Alien</entry>
   <entry id="58364" lang="en" sex="m">Eligor, Dragon's Slayer</entry>
@@ -51191,7 +51191,7 @@ Duration: 1 round/level
 
 You summon a creature of shadow to serve you, calling it through the barriers between worlds.
 
-This mystery functions like the spell summon monster I, except as noted here. You can summon one Huge shadow elemental.</entry>
+This mystery functions like the spell summon creature I, except as noted here. You can summon one Huge shadow elemental.</entry>
   <entry id="58957" lang="en" sex="m">Far Sight</entry>
   <entry id="58958" lang="en" sex="m">Master, Eyes of the Night Sky
 Level/School: 8th/Divination (Scrying) 
@@ -51266,7 +51266,7 @@ Duration: 1 minute/ level
 
 Reality seems to tear open, revealing a dark rift. From the blackness, a shadow elemental emerges. 
 
-This mystery functions like the spell summon monster I, except as noted here. You can summon one Elder shadow elemental.</entry>
+This mystery functions like the spell summon creature I, except as noted here. You can summon one Elder shadow elemental.</entry>
   <entry id="58974" lang="en" sex="m">Consume Essence</entry>
   <entry id="58975" lang="en" sex="m">Master, Ebon Walls 
 Level/School: 9th/Necromancy [Death] 
@@ -69124,7 +69124,7 @@ The demilich can cast all the spells it knows without gestures.
 
 Spell-like Abilities
 
-At will:alter self, astral projection, create greater undead, create undead, death knell, enervation, greater dispel magic, harm (usually used to heal itself), summon monster I-IX, telekinesis, and weird; 2/day: greater planar ally. Demiliches use these abilities as casters of a level equal to their spellcaster level, but the save DCs are equal to 10 + the demilich's HD + the demilich's Charisma modifier.
+At will:alter self, astral projection, create greater undead, create undead, death knell, enervation, greater dispel magic, harm (usually used to heal itself), summon creature I-IX, telekinesis, and weird; 2/day: greater planar ally. Demiliches use these abilities as casters of a level equal to their spellcaster level, but the save DCs are equal to 10 + the demilich's HD + the demilich's Charisma modifier.
 
 Special Qualities
 
@@ -70878,7 +70878,7 @@ Use: Activated</entry>
   <entry id="75044" lang="en" sex="m">Summon Elemental</entry>
   <entry id="75045" lang="en" sex="m">Type of Feat: Reserve
 Prerequisite: Ability to cast 4th-level spells
-Benefit: As long as you have a summoning spell of 4th level or higher available to cast, you can summon a Small elemental (air, earth, fire, or water; your choice) within a range of 30 feet. The elemental acts as if summoned by a summon monster spell (PH 285). The duration of the summoning is equal to 1 round per level of the highest-level conjuration (summoning) spell you have available to cast. You can have only one summoned elemental from this feat at a time; if you use the ability a second time, the first elemental disappears. Also, you must remain close to the elemental you summon. If at the end of your turn you are more than 30 feet from the elemental, it disappears. If you have a conjuration (summoning) spell of 6th level or higher available to cast, you can summon a Medium elemental instead. If you have a conjuration (summoning) spell of 8th level or higher available to cast, you can summon a Large elemental instead. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting conjuration (summoning) I spells.
+Benefit: As long as you have a summoning spell of 4th level or higher available to cast, you can summon a Small elemental (air, earth, fire, or water; your choice) within a range of 30 feet. The elemental acts as if summoned by a summon creature spell (PH 285). The duration of the summoning is equal to 1 round per level of the highest-level conjuration (summoning) spell you have available to cast. You can have only one summoned elemental from this feat at a time; if you use the ability a second time, the first elemental disappears. Also, you must remain close to the elemental you summon. If at the end of your turn you are more than 30 feet from the elemental, it disappears. If you have a conjuration (summoning) spell of 6th level or higher available to cast, you can summon a Medium elemental instead. If you have a conjuration (summoning) spell of 8th level or higher available to cast, you can summon a Large elemental instead. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting conjuration (summoning) I spells.
 Use: Activated</entry>
   <entry id="75046" lang="en" sex="m">Dimensional Reach</entry>
   <entry id="75047" lang="en" sex="m">Type of Feat: Reserve
@@ -76328,6 +76328,80 @@ Light Crossbow
   <entry id="211754" lang="en" sex="m">Wilder4</entry>
   <entry id="211755" lang="en" sex="m">Wilder5</entry>
   <entry id="211756" lang="en" sex="m">Wilder5</entry>
+  <entry id="211799" lang="en" sex="m">## PRC8 Clerical Domain Expansion ##
+</entry>
+  <entry id="211800" lang="en" sex="m">Chaos</entry>
+  <entry id="211801" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to Chaos domain.
+Specifics: 
+You cast chaos spells at +1 caster level.
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Protection From Law (1), Color Spray (2), Magic Circle vs. Law (3), Confusion (4), Sphere of Chaos (5), Animate Objects (6), Word of Chaos (7), Cloak of Chaos (8), Summon Creature IX (9)
+
+Use: Automatic</entry>
+  <entry id="211802" lang="en" sex="m">Law</entry>
+  <entry id="211803" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to Law domain.
+Specifics: 
+You cast law spells at +1 caster level. 
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Protection from Chaos (1), Calm Emotions (2), Magic Circle against Chaos (3), Divine Hammer (4), Planar Ally (5), Hold Monster (6), Dictum (7), Shield of Law (8), Summon Creature IX (9)
+
+Use: Automatic</entry>
+  <entry id="211804" lang="en" sex="m">Luck</entry>
+  <entry id="211805" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to Luck domain.
+Specifics:
+Lucky: You gain the Luck of Heroes feat as a bonus feat.
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Entropic Shield (1), Bestow Curse (2), Protection from Elements (3), Freedom of Movement (4), Break Enchantment (5), Mislead (6), Spell Turning (7), Moment of Prescience (8), Premonition (9)
+
+Use: Automatic.</entry>
+  <entry id="211806" lang="en" sex="m">Glory</entry>
+  <entry id="211807" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to the Glory domain.
+Specifics: 
+Powerful Turning: Turn undead with a +2 bonus on the turning check and +1d6 to the turning damage roll. 
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Disrupt Undead (1), Bless Weapon (2), Searing Light (3), Hammer of the Gods (4), Holy Sword (5), Bolt of Glory (6), Sunbeam (7), Aura of Glory (8), Gate (9)
+
+Use: Automatic.</entry>
+  <entry id="211808" lang="en" sex="m">Madness</entry>
+  <entry id="211809" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to the Madness domain.
+Specifics: 
+Aberrant Turning: Able to turn aberrations as if they were undead.
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Color Spray (1), Daze Monster (2), Rage (3), Confusion (4), Mind Fog (5), Phantasmal Killer (6), Insanity (7), Symbol of Insanity (8), Weird (9)
+
+Use: Automatic.</entry>
+  <entry id="211810" lang="en" sex="m">Mind</entry>
+  <entry id="211811" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to the Mind domain.
+Specifics: 
+Granted Power: Gain a +2 bonus on Bluff, Diplomacy, and Sense Motive checks. Gain a +2 bonus on Will saves against enchantment spells and effects. 
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Nybor's Gentle Reminder (1), Blindness / Deafness (2), Crushing Despair (3), Lesser Mind Blank (4), Feeblemind (5), Mind Fog (6), Nybor's Stern Reproof (7), Mind Blank (8), Weird (9)
+
+Use: Automatic.</entry>
+  <entry id="211812" lang="en" sex="m">Moon</entry>
+  <entry id="211813" lang="en" sex="m">Type of Feat: Domain
+Prerequisite: Access to the Moon domain.
+Specifics: 
+Lycanthrope Turning: Able to turn or destroy lycanthropes as if they were undead.
+Bonus Spells: 
+The cleric gains access to the following spells at the specified spell level: Faerie Fire (1), Moonbeam* (2), Moonblade* (3), Good Hope* (4), Moon Path* (5), Countermoon* (6), Insanity (7), Animal Shapes* (8), Moonfire* (9)
+
+Use: Automatic.
+
+*Not implemented</entry>
+  <entry id="211814" lang="en" sex="m">Chaos Domain Powers</entry>
+  <entry id="211815" lang="en" sex="m">Law Domain Powers</entry>
+  <entry id="211816" lang="en" sex="m">Luck Domain Powers</entry>
+  <entry id="211817" lang="en" sex="m">Glory Domain Powers</entry>
+  <entry id="211818" lang="en" sex="m">Madness Domain Powers</entry>
+  <entry id="211819" lang="en" sex="m">Mind Domain Powers</entry>
+  <entry id="211820" lang="en" sex="m">Moon Domain Powers</entry>
   <entry id="211999" lang="en" sex="m">### CRAFT INFUSION RESERVE###</entry>
   <entry id="212000" lang="en" sex="m">Create Infusion</entry>
   <entry id="212001" lang="en" sex="m">Type of Feat: Item Creation

@@ -981,6 +981,8 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
         // +2 bonus on saves against mind affecting, done here
         if(GetLevelByClass(CLASS_TYPE_FIST_DAL_QUOR, oTarget) > 1)
             nDC -= 2;
+		if(GetHasFeat(FEAT_DOMAIN_POWER_MIND, oTarget) || GetHasFeat(FEAT_BONUS_DOMAIN_MIND, oTarget))
+            nDC -= 2;		
         // Scorpion's Resolve gives a +4 bonus on mind affecting saves
         if(GetHasFeat(FEAT_SCORPIONS_RESOLVE, oTarget))
             nDC -= 4;

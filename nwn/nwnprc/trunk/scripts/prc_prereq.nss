@@ -521,7 +521,7 @@ void reqDomains()
     //Champion of Corellon
     SetLocalInt(OBJECT_SELF, "PRC_PrereqCoC", 1);
     if(GetHasFeat(FEAT_DOMAIN_POWER_ELF)
-    //+ GetHasFeat(FEAT_DOMAIN_POWER_CHAOS)    //chaos domain not yet implemented
+     + GetHasFeat(FEAT_DOMAIN_POWER_CHAOS)
      + GetHasFeat(FEAT_GOOD_DOMAIN_POWER)
      + GetHasFeat(FEAT_MAGIC_DOMAIN_POWER)
      + GetHasFeat(FEAT_PROTECTION_DOMAIN_POWER)
@@ -577,7 +577,7 @@ void reqDomains()
     SetLocalInt(OBJECT_SELF, "PRC_PrereqSOL", 1);
     if(GetHasFeat(FEAT_GOOD_DOMAIN_POWER)
      + GetHasFeat(FEAT_HEALING_DOMAIN_POWER)
-     + GetHasFeat(FEAT_LUCK_DOMAIN_POWER)
+     + GetHasFeat(FEAT_DOMAIN_POWER_LUCK)
      + GetHasFeat(FEAT_PROTECTION_DOMAIN_POWER)
      + GetHasFeat(FEAT_SUN_DOMAIN_POWER)
      + GetHasFeat(FEAT_KNOWLEDGE_DOMAIN_POWER) >= 2)
@@ -1119,7 +1119,7 @@ void TomeOfBattle(object oPC = OBJECT_SELF)
     {
         nDomain = GetHasFeat(FEAT_DEATH_DOMAIN_POWER, oPC)
                 + GetHasFeat(FEAT_MAGIC_DOMAIN_POWER, oPC)
-                //+ GetHasFeat(FEAT_LAW_DOMAIN_POWER, oPC)
+                + GetHasFeat(FEAT_DOMAIN_POWER_LAW, oPC)
                 + GetHasFeat(FEAT_DOMAIN_POWER_PORTAL, oPC)
                 + GetHasFeat(FEAT_DOMAIN_POWER_DOMINATION, oPC)
                 > 1;
@@ -1664,7 +1664,7 @@ void Spinemeld(object oPC)
 void SapphireHierarch(object oPC)
 {
     SetLocalInt(oPC, "PRC_PrereqSapphire", 1);
-    if(GetTotalEssentia(oPC) >= 3 &&/* GetHasFeat(FEAT_LAW_DOMAIN_POWER, oPC) &&*/ GetTotalSoulmeldCount(oPC) >= 3)
+    if(GetTotalEssentia(oPC) >= 3 && GetHasFeat(FEAT_DOMAIN_POWER_LAW, oPC) && GetTotalSoulmeldCount(oPC) >= 3)
         SetLocalInt(oPC, "PRC_PrereqSapphire", 0);    
 }
 

@@ -1605,7 +1605,13 @@ int BonusDomains()
         + GetHasFeat(FEAT_BONUS_DOMAIN_SCALEYKIND)
         + GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON)
         + GetHasFeat(FEAT_BONUS_DOMAIN_COLD)
-        + GetHasFeat(FEAT_BONUS_DOMAIN_WINTER);
+        + GetHasFeat(FEAT_BONUS_DOMAIN_CHAOS)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_LAW)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_LUCK)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_GLORY)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_MADNESS)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_MIND)
+		+ GetHasFeat(FEAT_BONUS_DOMAIN_MOON);
 
     int nMax = nMin;
     //Determine maximum number of bonus domains (domains added automatically)
@@ -1639,7 +1645,14 @@ int Shaman()
             + GetHasFeat(FEAT_MOBILITY)
             + GetHasFeat(FEAT_SPRING_ATTACK)
             + GetHasFeat(FEAT_BLIND_FIGHT)
-            + GetHasFeat(FEAT_DEFLECT_ARROWS);
+            + GetHasFeat(FEAT_DEFLECT_ARROWS)
+			+ GetHasFeat(FEAT_FALLING_STAR_STRIKE)
+			+ GetHasFeat(FEAT_FREEZING_THE_LIFEBLOOD)
+			+ GetHasFeat(FEAT_KI_SHOUT)
+			+ GetHasFeat(FEAT_GREAT_KI_SHOUT)
+			+ GetHasFeat(FEAT_PAIN_TOUCH)
+			+ GetHasFeat(FEAT_CHOKE_HOLD)
+			+ GetHasFeat(FEAT_UNBALANCING_STRIKE);
         
         int requiredFeats = nClass / 4;  // Shaman gets a bonus feat every 4 levels
         
@@ -1775,6 +1788,7 @@ int Shaman()
      return FALSE;
 }
  */
+
 int RacialFeats()
 {
     int nRace = GetRacialType(OBJECT_SELF);

@@ -59,7 +59,13 @@ void AddDomainPower(object oPC, object oSkin, int bFuncs)
         if (GetHasFeat(FEAT_BONUS_DOMAIN_SPELLS, oPC)       && !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_SPELLS))        PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_SPELLS);
         if (GetHasFeat(FEAT_BONUS_DOMAIN_SCALEYKIND, oPC)   && !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_SCALEYKIND))    PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_SCALEYKIND);
         if (GetHasFeat(FEAT_BONUS_DOMAIN_BLIGHTBRINGER, oPC)&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_BLIGHTBRINGER)) PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_BLIGHTBRINGER);
-        if (GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON, oPC)       && !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_DRAGON))        PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_DRAGON);
+        if (GetHasFeat(FEAT_BONUS_DOMAIN_CHAOS, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_CHAOS))        	PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_CHAOS);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_LAW, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_LAW))        		PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_LAW);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_LUCK, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_LUCK))        	PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_LUCK);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_GLORY, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_GLORY))        	PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_GLORY);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MADNESS, oPC)		&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MADNESS))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MADNESS);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MIND, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MIND))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MIND);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MOON, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MOON))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MOON);
     }
     else
     {
@@ -111,7 +117,14 @@ void AddDomainPower(object oPC, object oSkin, int bFuncs)
         if (GetHasFeat(FEAT_BONUS_DOMAIN_SPELLS, oPC))        AddSkinFeat(FEAT_DOMAIN_POWER_SPELLS, IP_CONST_FEAT_SPELLS_DOMAIN, oSkin, oPC);
         if (GetHasFeat(FEAT_BONUS_DOMAIN_SCALEYKIND, oPC))    AddSkinFeat(FEAT_DOMAIN_POWER_SCALEYKIND, IP_CONST_FEAT_SCALEYKIND_DOMAIN, oSkin, oPC);
         if (GetHasFeat(FEAT_BONUS_DOMAIN_BLIGHTBRINGER, oPC)) AddSkinFeat(FEAT_DOMAIN_POWER_BLIGHTBRINGER, IP_CONST_FEAT_BLIGHTBRINGER, oSkin, oPC);
-        if (GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON, oPC))        AddSkinFeat(FEAT_DOMAIN_POWER_DRAGON, IP_CONST_FEAT_DRAGON_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON, oPC))        AddSkinFeat(FEAT_DOMAIN_POWER_DRAGON, IP_CONST_FEAT_DRAGON_DOMAIN, oSkin, oPC);
+        if (GetHasFeat(FEAT_BONUS_DOMAIN_CHAOS, oPC))			AddSkinFeat(FEAT_DOMAIN_POWER_CHAOS, IP_CONST_FEAT_CHAOS_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_LAW, oPC))        		AddSkinFeat(FEAT_DOMAIN_POWER_LAW, IP_CONST_FEAT_LAW_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_LUCK, oPC))        	AddSkinFeat(FEAT_DOMAIN_POWER_LUCK, IP_CONST_FEAT_LUCK_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_GLORY, oPC))			AddSkinFeat(FEAT_DOMAIN_POWER_GLORY, IP_CONST_FEAT_GLORY_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MADNESS, oPC))			AddSkinFeat(FEAT_DOMAIN_POWER_MADNESS, IP_CONST_FEAT_MADNESS_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MIND, oPC))        	AddSkinFeat(FEAT_DOMAIN_POWER_MIND, IP_CONST_FEAT_MIND_DOMAIN, oSkin, oPC);
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_MOON, oPC))        	AddSkinFeat(FEAT_DOMAIN_POWER_MOON, IP_CONST_FEAT_MOON_DOMAIN, oSkin, oPC);
     }
 }
 
@@ -180,7 +193,13 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
 			eBonusFeat = EffectBonusFeat(FEAT_SPELL_FOCUS_ENCHANTMENT); 		
 			eBonusFeat = SupernaturalEffect(eBonusFeat);
 			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
-		}		
+		}	
+		if (GetHasFeat(FEAT_DOMAIN_POWER_LUCK, oPC)) 
+		{
+			eBonusFeat = EffectBonusFeat(FEAT_LUCK_OF_HEROES); 		
+			eBonusFeat = SupernaturalEffect(eBonusFeat);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, eBonusFeat, oPC);
+		}
 	}
 /*     {
         if (GetHasFeat(FEAT_DOMAIN_POWER_DARKNESS, oPC))      AddSkinFeat(FEAT_BLIND_FIGHT, IP_CONST_FEAT_BLINDFIGHT, oSkin, oPC);
@@ -198,15 +217,19 @@ void AddDomainFeat(object oPC, object oSkin, int bFuncs)
         SetCompositeBonus(oSkin, "SpellDomainPowerConc", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_CONCENTRATION);
         SetCompositeBonus(oSkin, "SpellDomainPowerSpell", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPELLCRAFT);
     }
-
+    // +2 Bluff, Persuasion and Sense Motive
+    if (GetHasFeat(FEAT_DOMAIN_POWER_MIND, oPC))
+    {
+        SetCompositeBonus(oSkin, "MindDomainPowerBluff", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_BLUFF);
+        SetCompositeBonus(oSkin, "MindDomainPowerPersuasion", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERFORM);
+		SetCompositeBonus(oSkin, "MindDomainPowerSenseMotive", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+    }
     // Electrical resist 5
     if (GetHasFeat(FEAT_DOMAIN_POWER_STORM, oPC))
     {
         itemproperty ipIP =ItemPropertyDamageResistance(IP_CONST_DAMAGETYPE_ELECTRICAL, IP_CONST_DAMAGERESIST_5);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);
-    }
-
-	
+    }	
     if (GetHasFeat(FEAT_WAR_DOMAIN_POWER, oPC))
     {
         int nWarFocus = GetPersistantLocalInt(oPC, "WarDomainWeaponPersistent");

@@ -274,7 +274,34 @@ int GetIsTurnOrRebuke(object oTarget, int nTurnType, int nTargetRace)
                 nReturn = ACTION_REBUKE;
 
             break;
-        }        
+        }
+        case FEAT_DOMAIN_POWER_MADNESS:
+        {
+            // Madness domain rebukes or commands oozes
+            if(nTargetRace == RACIAL_TYPE_ABERRATION)
+                nReturn = ACTION_TURN;
+
+            break;
+        }
+		case FEAT_DOMAIN_POWER_MOON:  
+		{  
+			// Moon domain rebukes lycanthropes  
+			if(nTargetRace == RACIAL_TYPE_SHAPECHANGER)  
+			{  
+				string sName = GetName(oTarget);  
+				int nAppearance = GetAppearanceType(oTarget);  
+				  
+				// Check if name starts with "were" OR has lycanthrope appearance  
+				if((GetStringLeft(GetStringLowerCase(sName), 4) == "were") ||  
+				   nAppearance == APPEARANCE_TYPE_WEREWOLF ||  
+				   nAppearance == APPEARANCE_TYPE_WERECAT ||  
+				   nAppearance == APPEARANCE_TYPE_WERERAT)  
+				{  
+					nReturn = ACTION_TURN;  
+				}  
+			}  
+			break;  
+		}        
     }
 
     //always turn baelnorns & archliches

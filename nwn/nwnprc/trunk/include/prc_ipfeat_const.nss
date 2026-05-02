@@ -1013,7 +1013,7 @@ const int IP_CONST_FEAT_CHECK_DOMAIN_SLOTS      	= 151;
 const int IP_CONST_FEAT_WAR_DOMAIN              =  152;
 const int IP_CONST_FEAT_STRENGTH_DOMAIN         =  153;
 const int IP_CONST_FEAT_PROTECTION_DOMAIN       =  154;
-const int IP_CONST_FEAT_LUCK_DOMAIN             =  155;
+//const int IP_CONST_FEAT_LUCK_DOMAIN             =  155;
 const int IP_CONST_FEAT_DEATH_DOMAIN            =  156;
 const int IP_CONST_FEAT_AIR_DOMAIN              =  157;
 const int IP_CONST_FEAT_ANIMAL_DOMAIN           =  158;
@@ -1062,6 +1062,13 @@ const int IP_CONST_FEAT_BLIGHTBRINGER           =  200;
 const int IP_CONST_FEAT_DRAGON_DOMAIN           =  397;
 const int IP_CONST_FEAT_COLD_DOMAIN             =  230;
 const int IP_CONST_FEAT_WINTER_DOMAIN           =  232;
+const int IP_CONST_FEAT_CHAOS_DOMAIN		=  24900;
+const int IP_CONST_FEAT_LAW_DOMAIN			=  24901;
+const int IP_CONST_FEAT_LUCK_DOMAIN			=  24902;
+const int IP_CONST_FEAT_GLORY_DOMAIN		=  24903;
+const int IP_CONST_FEAT_MADNESS_DOMAIN		=  24904;
+const int IP_CONST_FEAT_MIND_DOMAIN			=  24905;
+const int IP_CONST_FEAT_MOON_DOMAIN			=  24906;
 
 // Lasher
 const int IP_CONST_FEAT_IMPROVED_KNOCKDOWN      = 264;

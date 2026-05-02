@@ -1727,3 +1727,7 @@ const int SPELL_FACECHANGER_QS3                         = 19396;
 
 //:: Saint Template
 const int SAINT_PROTECTIVE_AURA		=	16386;
+
+//:: Domain Powers
+const int SPELL_DOMAIN_POWER_MADNESS	= 17680;
+const int SPELL_DOMAIN_POWER_MOON		= 17681;

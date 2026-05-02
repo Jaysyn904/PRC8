@@ -79,9 +79,17 @@ void main()
     //casters charisma modifier
     int nChaMod = GetTurningCharismaMod(nTurnType);
 
-    //key values for turning
-    int nTurningTotalHD = d6(2) + nLevel + nChaMod;
-    int nTurningCheck = d20() + nChaMod;
+    int nGloryCheck		= 0;
+	int nGloryDamage	= 0;
+	
+	if(GetHasFeat(FEAT_DOMAIN_POWER_GLORY) || GetHasFeat(FEAT_BONUS_DOMAIN_GLORY))
+	{
+		nGloryCheck = 2;
+		nGloryDamage = d6(1);
+	}
+	//key values for turning
+    int nTurningTotalHD = d6(2) + nGloryDamage + nLevel + nChaMod;
+    int nTurningCheck = d20() + nGloryCheck + nChaMod;
     
     if(nTurnType == SPELL_TURN_UNDEAD) // Hallow spell, +4 for turning, -4 for commanding undead
     {

@@ -1418,6 +1418,13 @@ const int FEAT_BONUS_DOMAIN_SPELLS               = 2046;
 const int FEAT_BONUS_DOMAIN_SCALEYKIND           = 2047;
 const int FEAT_BONUS_DOMAIN_BLIGHTBRINGER        = 2048;
 const int FEAT_BONUS_DOMAIN_DRAGON               = 2122;
+const int FEAT_BONUS_DOMAIN_CHAOS				= 25130;
+const int FEAT_BONUS_DOMAIN_LAW					= 25131;
+const int FEAT_BONUS_DOMAIN_LUCK				= 25132;
+const int FEAT_BONUS_DOMAIN_GLORY				= 25133;
+const int FEAT_BONUS_DOMAIN_MADNESS				= 25134;
+const int FEAT_BONUS_DOMAIN_MIND				= 25135;
+const int FEAT_BONUS_DOMAIN_MOON				= 25136;
 
 // Domain Power Feats
 const int FEAT_DOMAIN_POWER_DARKNESS             = 3458;
@@ -1450,6 +1457,13 @@ const int FEAT_DOMAIN_POWER_SPELLS               = 4046;
 const int FEAT_DOMAIN_POWER_SCALEYKIND           = 4057;
 const int FEAT_DOMAIN_POWER_BLIGHTBRINGER        = 2250;
 const int FEAT_DOMAIN_POWER_DRAGON               = 4064;
+const int FEAT_DOMAIN_POWER_CHAOS				= 25138;
+const int FEAT_DOMAIN_POWER_LAW					= 25139;
+const int FEAT_DOMAIN_POWER_LUCK				= 25140;
+const int FEAT_DOMAIN_POWER_GLORY				= 25141;
+const int FEAT_DOMAIN_POWER_MADNESS				= 25142;
+const int FEAT_DOMAIN_POWER_MIND				= 25143;
+const int FEAT_DOMAIN_POWER_MOON				= 25144;
 
 // Cast Bonus Domain
 const int FEAT_CAST_DOMAIN_LEVEL_ONE	= 2049;
