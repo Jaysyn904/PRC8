@@ -1066,7 +1066,7 @@ void spellsDispelAoE(object oTargetAoE, object oCaster, int nCasterLevel)
     }
 
 
-    nChance += ((nCasterLevel + (GetAbilityScoreForClass(nClassCaster, oCaster)-10)/2) - (GetCasterLevel(oCreator))); // yes this is a sucky stupid hack
+    nChance += ((nCasterLevel + (GetAbilityScoreForClass(nClassCaster, oCaster)-10)/2) - (PRCGetCasterLevel(oCreator))); // yes this is a sucky stupid hack
 
     //--------------------------------------------------------------------------
     // the AI does cheat here, because it can not react as well as a player to

@@ -7,7 +7,7 @@ void main()
 
 	// Get the caster of the potential dispel
 	object oCaster = GetLastSpellCaster();
-	int nCasterLevel = GetCasterLevel(oCaster);
+	int nCasterLevel = PRCGetCasterLevel(oCaster);
 	
 	if(DEBUG) DoDebug("mirror_image_sa: EVENT_NPC_ONSPELLCASTAT triggered.");
 
@@ -33,10 +33,10 @@ void main()
 			// Ensure oOriginalCaster is valid
 			if (GetIsObjectValid(oOriginalCaster))
 			{
-				if(DEBUG) DoDebug("mirror_image_sa: Original caster found. Caster level: " + IntToString(GetCasterLevel(oOriginalCaster)));
+				if(DEBUG) DoDebug("mirror_image_sa: Original caster found. Caster level: " + IntToString(PRCGetCasterLevel(oOriginalCaster)));
 
 				// Determine the DC for the dispel check
-				int nDispelDC = 11 + GetCasterLevel(oOriginalCaster);
+				int nDispelDC = 11 + PRCGetCasterLevel(oOriginalCaster);
 				if(DEBUG) DoDebug("mirror_image_sa: Dispel DC: " + IntToString(nDispelDC));
 
 				// Determine the maximum cap for the dispel check

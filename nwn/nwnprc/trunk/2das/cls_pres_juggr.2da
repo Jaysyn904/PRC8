@@ -3,8 +3,9 @@
   LABEL                    ReqType ReqParam1           ReqParam2 
 0 Warforged                RACE    149                 ****      
 1 WarforgedCharger         RACE    145                 ****      
-2 ScriptVar                VAR     PRC_AllowJuggernaut 0         
-3 Base_Attack              BAB     5                   ****      
-4 AdamantineBody_WarForged FEAT    4781                ****      
-5 PowerAtk                 FEAT    28                  ****      
-6 ImprovedBullrush         FEAT    2806                ****      
+2 WarforgedScout           RACE    144                 ****      
+3 ScriptVar                VAR     PRC_AllowJuggernaut 0         
+4 Base_Attack              BAB     5                   ****      
+5 AdamantineBody_WarForged FEAT    4781                ****      
+6 PowerAtk                 FEAT    28                  ****      
+7 ImprovedBullrush         FEAT    2806                ****      

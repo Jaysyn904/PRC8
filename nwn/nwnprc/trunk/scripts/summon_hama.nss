@@ -17,7 +17,7 @@ void main()
 {
     //Declare major variables
     int nMetaMagic = PRCGetMetaMagicFeat();
-    int nDuration = GetCasterLevel(OBJECT_SELF);
+    int nDuration = PRCGetCasterLevel(OBJECT_SELF);
     object oPC = OBJECT_SELF;
     effect eSummon = EffectSummonCreature("NW_DMVROCK");
     if(GetPRCSwitch(MARKER_PRC_COMPANION))

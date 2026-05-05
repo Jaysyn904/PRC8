@@ -83,6 +83,12 @@ int DoSpell(object oCaster, object oTarget, int nSpellID)
     {
         if(bMass) fDelay = PRCGetRandomDelay();
         int iTombTainted = GetHasFeat(FEAT_TOMB_TAINTED_SOUL, oTarget) && GetAlignmentGoodEvil(oTarget) != ALIGNMENT_GOOD;
+		
+		// Signal placeables even if they're not creatures  
+		if(GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE)  
+		{  
+			SignalEvent(oTarget, EventSpellCastAt(oCaster, nSpellID, FALSE));  
+		}
         
         iHeal = GetObjectType(oTarget) == OBJECT_TYPE_CREATURE &&
                 ((!bIsHeal && (MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD || iTombTainted)) ||

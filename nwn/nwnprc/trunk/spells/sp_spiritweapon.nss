@@ -83,7 +83,7 @@ void main()
 	{
 		// Get the caster of the spell
 		object oCaster = GetLastSpellCaster();
-		int nCasterLevel = GetCasterLevel(oCaster);
+		int nCasterLevel = PRCGetCasterLevel(oCaster);
 
 		if(DEBUG) DoDebug("sp_spiritweapon: EVENT_NPC_ONSPELLCASTAT triggered.");
 

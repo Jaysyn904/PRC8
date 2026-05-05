@@ -1,0 +1,161 @@
+CLASSES / PRESTIGE CLASSES
+Fochlucan Lyrist
+Verdant Lord
+Lion of Talisid
+
+RACIAL TYPES
+Nezumi (OA)
+Korobokuru (OA)
+Warforged Scout (Eberron)
+Shyft (Planescape)
+Maeluth (Planescape)
+Mechanatrix (Planescape)
+Wispling (Planescape)
+
+TEMPLATES
+Baelnorn template
+
+DOMAINS
+Chaos
+Glory
+Law
+Luck
+Madness
+Mind
+Moon
+
+FEATS
+Combat Focus
+Combat Awareness
+Combat Stability
+Combat Defense
+Combat Vitality
+Combat Strike
+Choke Hold
+Pain Touch
+Ki Shout
+Great Ki Shout
+Freezing the Lifeblood
+Falling Star Strike
+Unbalancing Strike
+Plant Defiance
+Plant Control
+Favored of the Companions
+Create Infusion
+Magical Artisan: Create Infusion
+Craft Scepter
+Magical Artisan: Craft Scepter
+Improved Critical (touch attack)
+Improved Critical (ray)
+Weapon Focus (touch attack)
+Epic Weapon Focus (touch attack)
+
+Builder / System Feats
+Intrinsic Armor
+Intrinsic Weapon
+
+SPELLS
+Control Plants
+Forestfold
+Creeping Cold
+Greater Creeping Cold
+Immunity from Elements
+Adrenaline Surge
+Regeneration Line
+Regenerate Ring
+Regenerate Circle
+Summoning
+Summon Nature’s Ally I–IX
+Leonal’s Roar
+Repair Damage (spell line)
+
+PSIONICS
+Defensive Manifestation
+
+INFUSIONS
+Armor Enhancement (Lesser / Standard / Greater)
+Resistance Item
+Weapon Augmentation (Lesser / Standard / Personal)
+
+CRAFTING SYSTEMS / ECONOMY
+Create Infusion crafting system
+Scepter crafting system
+Offline PnP magical crafting system
+
+Craftable Items
+Aroma of Death
+Beetle Elixir
+Harness of Armor
+
+New Base Item Types
+Crafted Vial
+Mundane Herb
+Infused Herb
+Mundane Scepter
+Enchanted Scepter
+
+Materials
+Botanical material
+Glassteel
+
+SYSTEMS / GAMEPLAY MECHANICS
+Scrying System Overhaul
+Area-blocked scrying variables
+Source-blocked scrying variables
+Unified handling across spells/powers
+Player Appearance System
+Runtime player model swapping via racialappear.2da
+
+Spell Systems
+Spell Cancellation system
+Spell Effect Viewer system
+Spell Duration tracking UI
+
+Summoning / Scaling
+LevelUpSummon() system
+Summon scaling framework (HD/class scaling)
+
+Combat / Mechanics
+Grapple removes invisibility rule enforcement
+Double chakra bind system (Incarnum expansion)
+Double totem bind system
+
+UI / NUI SYSTEMS
+NUI Spellcasting system
+NUI Spell Effect Viewer
+NUI Spell Duration Viewer
+NUI Level-up spell selector
+Power Attack GUI system
+prc_onplayergui event system
+NUI event dispatch framework
+
+FRAMEWORKS / BACKEND SYSTEMS
+JSON / Data Systems
+JSON summoning support library
+JSON spell/creature handling utilities
+NWNx / PRCX Integration
+Optional PRCX shim system / NWNxEE compatibility layer
+
+SCRIPTING / ENGINE UTILITIES (NEW FUNCTIONS)
+GenerateRandomName()
+GetIsAlchemical()
+VectorToPerpendicular()
+GetCurrentUnixTimestamp()
+LevelUpSummon()
+json_GetFirstKnownSpell()
+json_GetNextKnownSpell()
+GetHealerCompanionBonus()
+CelestialTemplateEffects()
+MakeCelestialCreatureFromTemplate()
+
+Item Properties
+Expanded Damage Resistance tiers
+Material-based crafting properties
+Quality-based item properties
+
+OTHER SYSTEMS / FEATURES
+DM character inspection tool (view templates/effects)
+Spell effect click-to-inspect system
+PRC options system expansions (player toggles)
+Dynamic conversation system expansions
+Summon AI/stat scaling improvements

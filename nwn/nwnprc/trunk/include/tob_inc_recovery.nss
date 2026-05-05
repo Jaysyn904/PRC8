@@ -251,7 +251,7 @@ int GetMaxReadiedCount(object oPC, int nList)
     int nMaxReadied = StringToInt(Get2DACache(GetAMSKnownFileName(nList), "ManeuversReadied", nLevel-1));
     // Add in the custom modifier
     nMaxReadied += GetReadiedManeuversModifier(oPC, nList);
-    if(nList == MANEUVER_LIST_SWORDSAGE)
+    if(nList == MANEUVER_LIST_CRUSADER)
         nMaxReadied += GetHasFeat(FEAT_EXTRA_GRANTED_MANEUVER, oPC);
 
     if(DEBUG) DoDebug("tob_inc_recovery: MaxManeuvers Readied: " +IntToString(nMaxReadied));
@@ -398,16 +398,30 @@ void GrantRandomManeuver(object oPC, int nList = MANEUVER_LIST_CRUSADER)
     SetLocalInt(oPC, "ManeuverGranted" + IntToString(i), nMoveId);
 }
 
-void ListGrantedManeuvers(object oPC)
+void ListGrantedManeuvers(object oPC)  
+{  
+    int i;  
+    int nMaxGranted = StringToInt(Get2DACache(GetAMSKnownFileName(MANEUVER_LIST_CRUSADER), "ManeuversGranted", GetLevelByClass(CLASS_TYPE_CRUSADER, oPC)-1));  
+    nMaxGranted += GetHasFeat(FEAT_EXTRA_GRANTED_MANEUVER, oPC);  
+      
+    for(i = 1; i <= nMaxGranted; i++)  
+    {  
+        int nMoveId = GetLocalInt(oPC, "ManeuverGranted" + IntToString(i));  
+        int nExpended = GetIsManeuverExpended(oPC, MANEUVER_LIST_CRUSADER, nMoveId);  
+        if (nMoveId > 0 && !nExpended) FloatingTextStringOnCreature(GetManeuverName(nMoveId) + " is granted", oPC, FALSE);  
+    }  
+}
+
+/* void ListGrantedManeuvers(object oPC)
 {
     int i;
-    for(i = 1; i <= 4; i++)
+    for(i = 1; i <= 5; i++)
     {
         int nMoveId = GetLocalInt(oPC, "ManeuverGranted" + IntToString(i));
         int nExpended = GetIsManeuverExpended(oPC, MANEUVER_LIST_CRUSADER, nMoveId);
         if (nMoveId > 0 && !nExpended) FloatingTextStringOnCreature(GetManeuverName(nMoveId) + " is granted", oPC, FALSE);
     }
-}
+} */
 
 void GrantManeuvers(object oPC, int nList = MANEUVER_LIST_CRUSADER)
 {
