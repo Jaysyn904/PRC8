@@ -29,7 +29,7 @@
 //:: Created On:
 //:://////////////////////////////////////////////
 
-void PRCDoSpikeGrowthEffect(object oTarget,int nPenetr)
+void PRCDoSpikeGrowthEffect(object oTarget, int nPenetr)
 {
     float fDelay = PRCGetRandomDelay(1.0, 2.2);
     if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, GetAreaOfEffectCreator()))
@@ -66,16 +66,32 @@ void PRCDoSpikeGrowthEffect(object oTarget,int nPenetr)
 
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
+	
+	object aoeCreator = GetAreaOfEffectCreator();
+	object oTarget = GetEnteringObject();
 
-    int nPenetr = SPGetPenetrAOE(GetAreaOfEffectCreator());
+    int nPenetr = SPGetPenetrAOE(oTarget);
 
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_SPIKE_GROWTH)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
+	
+    PRCDoSpikeGrowthEffect(oTarget, nPenetr);
 
-    PRCDoSpikeGrowthEffect(GetEnteringObject(),nPenetr);
-
-
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Erasing the variable used to store the spell's spell school
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Erasing the variable used to store the spell's spell school
 
 }

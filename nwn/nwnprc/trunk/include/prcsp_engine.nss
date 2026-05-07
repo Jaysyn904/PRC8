@@ -21,7 +21,6 @@ int CheckSpellfire(object oCaster, object oTarget, int bFriendly = FALSE);
 //#include "prc_add_spell_dc"
 #include "prc_add_spl_pen"
 
-
 //
 //  This function is a wrapper should someone wish to rewrite the Bioware
 //  version. This is where it should be done.

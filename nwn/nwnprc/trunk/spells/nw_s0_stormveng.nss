@@ -36,6 +36,7 @@ void main()
     //Setup Area Of Effect object
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_STORM");
     SetAllAoEInts(SPELL_STORM_OF_VENGEANCE, oAoE, PRCGetSpellSaveDC(SPELL_STORM_OF_VENGEANCE, SPELL_SCHOOL_CONJURATION), 0, PRCGetCasterLevel(oCaster));
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

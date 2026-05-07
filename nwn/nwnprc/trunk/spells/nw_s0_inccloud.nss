@@ -46,6 +46,7 @@ void main()
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_FOGFIRE");
     SetAllAoEInts(SPELL_INCENDIARY_CLOUD, oAoE, PRCGetSpellSaveDC(SPELL_INCENDIARY_CLOUD, SPELL_SCHOOL_EVOCATION), 0, CasterLvl);
     SetLocalInt(oAoE, "IC_Damage", ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_FIRE));
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

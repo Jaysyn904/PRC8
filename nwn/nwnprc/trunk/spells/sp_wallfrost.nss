@@ -1,7 +1,7 @@
 //::///////////////////////////////////////////////
 //:: Wall of Frost
 //:: SP_WallFrost.nss
-//:: Copyright (c) 2001 Bioware Corp.
+//:: 
 //:://////////////////////////////////////////////
 /*
     Creates a wall of ice that chills any creature
@@ -45,7 +45,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     }
     int nMetaMagic = PRCGetMetaMagicFeat();
 
-        //Check fort metamagic
+        //Check for metamagic
         if (CheckMetaMagic(nMetaMagic, METAMAGIC_EXTEND))
         {
             nDuration = nDuration *2;   //Duration is +100%
@@ -55,7 +55,8 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_WALLFROST");
     SetAllAoEInts(GetSpellId(), oAoE, PRCGetSpellSaveDC(GetSpellId(), SPELL_SCHOOL_EVOCATION), 0, nCasterLevel);
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Getting rid of the integer used to hold the spells spell school
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Getting rid of the integer used to hold the spells spell school
 }

@@ -88,6 +88,8 @@ void main()
 
     object oAoE = GetAreaOfEffectObject(lLoc, "VFX_PER_PRISMATIC_WALL");
     SetAllAoEInts(SPELL_PRISMATIC_WALL, oAoE, PRCGetSpellSaveDC(SPELL_PRISMATIC_WALL, SPELL_SCHOOL_ABJURATION), 0, nCasterLvl);
+	
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", oPC);
 
     PRCSetSchool();
 }

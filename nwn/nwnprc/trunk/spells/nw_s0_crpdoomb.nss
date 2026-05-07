@@ -40,7 +40,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
             {
                 if(GetEffectType(eAOE) == EFFECT_TYPE_MOVEMENT_SPEED_DECREASE)
                 {
-                    //If the effect was created by the Acid_Fog then remove it
+                    //If the effect was created by the Creeping Doom then remove it
                     if(GetEffectSpellId(eAOE) == SPELL_CREEPING_DOOM)
                     {
                         RemoveEffect(oTarget, eAOE);

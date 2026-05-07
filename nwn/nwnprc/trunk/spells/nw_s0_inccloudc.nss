@@ -13,17 +13,14 @@
 //:://////////////////////////////////////////////
 //:: Updated By: GeorgZ 2003-08-21: Now affects doors and placeables as well
 
-
 //:: modified by mr_bumpkin Dec 4, 2003 for PRC stuff
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
 
-
-
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     //Declare major variables
     int nMetaMagic = PRCGetMetaMagicFeat();
@@ -59,7 +56,25 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     //Declare the spell shape, size and the location.
     while(GetIsObjectValid(oTarget))
     {
-        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_INCENDIARY_CLOUD)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);  
+                        continue;  
+                    }  
+                }  
+            }  
+        }
+		if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
         {
             fDelay = PRCGetRandomDelay(0.5, 2.0);
             //Make SR check, and appropriate saving throw(s).

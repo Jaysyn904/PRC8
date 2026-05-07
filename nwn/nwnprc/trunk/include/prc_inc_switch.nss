@@ -638,6 +638,17 @@ const string PRC_PNP_SHIFTER_BONUS                            = "PRC_PNP_SHIFTER
 const string PRC_CHICKEN_INFESTED                 = "PRC_CHICKEN_INFESTED";
 
 /******************************************************************************\
+  *                    		  Racial switches                 				  *
+\******************************************************************************/
+
+/**  
+ * When enabled, Reth Dekala's vilefire aura only affects hostile creatures  
+ * instead of all creatures in melee range.  
+ */  
+const string PRC_RETH_DEKALA_AURA_HOSTILE_ONLY = "PRC_RETH_DEKALA_AURA_HOSTILE_ONLY";
+
+
+/******************************************************************************\
   *                     Template and Weapon of Legacy switches                 *
 \******************************************************************************/
 

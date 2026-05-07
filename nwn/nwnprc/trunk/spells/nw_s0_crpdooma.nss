@@ -13,17 +13,13 @@
 //:: Created On: May 17, 2001
 //:://////////////////////////////////////////////
 
-
 //:: modified by mr_bumpkin Dec 4, 2003
 #include "prc_inc_spells"
 
-
-
-
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 
     //Declare major variables
     int nDamage;
@@ -39,7 +35,22 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
    int CasterLvl = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level");
 
     int nPenetr = SPGetPenetrAOE(aoeCreator,CasterLvl);
- 
+
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_CREEPING_DOOM)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
+	
     if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
         //Fire cast spell at event for the target

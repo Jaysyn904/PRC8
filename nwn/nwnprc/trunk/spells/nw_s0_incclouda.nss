@@ -17,12 +17,10 @@
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
 
-
-
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     //Declare major variables
     int nMetaMagic = PRCGetMetaMagicFeat();
@@ -36,18 +34,33 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     effect eLink = eVis2; //EffectLinkEffects(eSpeed, eVis2);
     float fDelay;
     //Capture the first target object in the shape.
+	object aoeCreator = GetAreaOfEffectCreator();
     oTarget = GetEnteringObject();
     
-    int nPenetr = SPGetPenetrAOE(GetAreaOfEffectCreator());
-
-
+    int nPenetr = SPGetPenetrAOE(aoeCreator);
+	
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_INCENDIARY_CLOUD)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
+	
     //Declare the spell shape, size and the location.
-    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, GetAreaOfEffectCreator()))
+    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
         //Fire cast spell at event for the specified target
         SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_INCENDIARY_CLOUD));
         //Make SR check, and appropriate saving throw(s).
-        if(!PRCDoResistSpell(GetAreaOfEffectCreator(), oTarget,nPenetr, fDelay))
+        if(!PRCDoResistSpell(aoeCreator, oTarget,nPenetr, fDelay))
         {
             fDelay = PRCGetRandomDelay(0.5, 2.0);
             //Roll damage.
@@ -61,9 +74,9 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
                 {
                      nDamage = nDamage + (nDamage/2); //Damage/Healing is +50%
                 }
-            nDamage += SpellDamagePerDice(GetAreaOfEffectCreator(), 4);
+            nDamage += SpellDamagePerDice(aoeCreator, 4);
             //Adjust damage for Reflex Save, Evasion and Improved Evasion
-            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, PRCGetSaveDC(oTarget, GetAreaOfEffectCreator(), SPELL_INCENDIARY_CLOUD), SAVING_THROW_TYPE_FIRE, GetAreaOfEffectCreator());
+            nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, PRCGetSaveDC(oTarget, aoeCreator, SPELL_INCENDIARY_CLOUD), SAVING_THROW_TYPE_FIRE, aoeCreator);
             // Apply effects to the currently selected target.
             eDam = PRCEffectDamage(oTarget, nDamage, GetLocalInt(OBJECT_SELF, "IC_Damage"));
             if(nDamage > 0)

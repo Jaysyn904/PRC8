@@ -25,11 +25,11 @@
 void main()
 {
     PRCSetSchool(SPELL_SCHOOL_CONJURATION);
-
+	
     // When the caster is no longer there, all functions calling
     // GetAreaOfEffectCreator will fail. Its better to remove the barrier then
-    object oCaster = GetAreaOfEffectCreator();
-    if(!GetIsObjectValid(oCaster))
+    object aoeCreator = GetAreaOfEffectCreator();
+    if(!GetIsObjectValid(aoeCreator))
     {
         DestroyObject(OBJECT_SELF);
         return;
@@ -46,26 +46,45 @@ void main()
     if ((nMetaMagic & METAMAGIC_EMPOWER))
         nDamage = nDamage + (nDamage/2);
                 // Acid Sheath adds +1 damage per die to acid descriptor spells
-                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, oCaster))
+                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, aoeCreator))
                 	nDamage += 2;         
-	nDamage += SpellDamagePerDice(oCaster, 2);
-    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(oCaster);
+	nDamage += SpellDamagePerDice(aoeCreator, 2);
+    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(aoeCreator);
 
     //Start cycling through the AOE Object for viable targets including doors and placable objects.
     object oTarget = GetFirstInPersistentObject(OBJECT_SELF);
     while(GetIsObjectValid(oTarget))
     {
-        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_ACID_FOG)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = GetNextInPersistentObject(); 
+                        continue;  
+                    }  
+                }  
+            }  
+        }
+		
+		if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
         {
-            int nDC = PRCGetSaveDC(oTarget, oCaster);
+            int nDC = PRCGetSaveDC(oTarget, aoeCreator);
             int nDamageType = GetLocalInt(OBJECT_SELF, "Acid_Fog_Damage");
             int nSaveType = ChangedSaveType(nDamageType);
             float fDelay = PRCGetRandomDelay(0.4, 1.2);
 
             //Fire cast spell at event for the affected target
-            SignalEvent(oTarget, EventSpellCastAt(oCaster, SPELL_ACID_FOG));
+            SignalEvent(oTarget, EventSpellCastAt(aoeCreator, SPELL_ACID_FOG));
             //Spell resistance check
-            if(!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
+            if(!PRCDoResistSpell(aoeCreator, oTarget, nPenetr, fDelay))
             {
                 //Set the damage effect
                 effect eDam = PRCEffectDamage(oTarget, nDamage, nDamageType);

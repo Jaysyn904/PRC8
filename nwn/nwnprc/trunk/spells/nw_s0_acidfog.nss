@@ -61,6 +61,7 @@ void main()
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_FOGACID");
     SetAllAoEInts(SPELL_ACID_FOG, oAoE, PRCGetSpellSaveDC(SPELL_ACID_FOG, SPELL_SCHOOL_CONJURATION), 0, CasterLvl);
     SetLocalInt(oAoE, "Acid_Fog_Damage", ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_ACID));
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

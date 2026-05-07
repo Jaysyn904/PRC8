@@ -14,23 +14,20 @@
 //:: Created On: July 20, 2001
 //:://////////////////////////////////////////////
 
-
 //:: modified by mr_bumpkin Dec 4, 2003
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
 
-
-
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     //Declare major variables
     object oTarget;
     effect eDam;
     effect eVis = EffectVisualEffect(VFX_COM_BLOOD_LRG_RED);
-     object aoeCreator = GetAreaOfEffectCreator();
+	object aoeCreator = GetAreaOfEffectCreator();
     int nMetaMagic = PRCGetMetaMagicFeat();
     int CasterLvl = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level");
     int nLevel = CasterLvl;
@@ -62,14 +59,32 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     while(GetIsObjectValid(oTarget))
     {
-        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_BLADE_BARRIER)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = GetNextInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE);  
+                        continue;  
+                    }  
+                }  
+            }  
+        }		
+		if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
         {
             //Fire spell cast at event
             SignalEvent(oTarget, EventSpellCastAt(aoeCreator, SPELL_BLADE_BARRIER));
             //Make SR Check
-            if (!PRCDoResistSpell(aoeCreator, oTarget,CasterLvl) )
+            if (!PRCDoResistSpell(aoeCreator, oTarget, CasterLvl) )
             {
-                int nDC = PRCGetSaveDC(oTarget,aoeCreator);
+                int nDC = PRCGetSaveDC(oTarget, aoeCreator);
                 //Roll Damage
                 int nDamage = d6(nLevel);
                 //Enter Metamagic conditions

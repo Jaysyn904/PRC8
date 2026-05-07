@@ -74708,13 +74708,13 @@ Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Pr
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Hospitaler gains a bonus feat every three levels
+Bonus Feats: The epic Hospitaler gains a bonus feat every other level.
 
 Special:
 Spellcasting: At each level the epic Hospitaler continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Hospitaler Bonus Feats List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Devastating Critical, Epic Divine Might, Epic Divine Resistance, Epic Divine Shield, Epic Divine Vigor, Epic Prowess, Epic Reputation, Epic Spellcasting, Epic Spell Focus, Epic Spell Penetration,Epc Spellcasting, Epic Toughness, Epic Weapon Focus, Epic Weapon Specialization, Great Charisma, Great Smiting, Great Wisdom, Improved Combat Casting, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
+Armor Skin, Devastating Critical, Epic Prowess, Epic Reputation, Epic Leadership, Epic Toughness, Epic Weapon Focus, Improved Combat Casting, Overwhelming Critical, Perfect Health, Planar Turning.</entry>
   <entry id="205142" lang="en" sex="m">Epic Master of Shrouds</entry>
   <entry id="205143" lang="en" sex="m">At epic levels, the Master of Shrouds commands the dread powers of the grave with terrifying authority. Her ability to summon incorporeal undead grows to include even greater horrors, and her dominion over death magic becomes absolute.
 
@@ -75029,7 +75029,7 @@ Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spe
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
-Bonus Feats: The epic Runecaster gains a bonus feat every four levels.
+Bonus Feats: The epic Runecaster gains a bonus feat every three levels.
 
 Special:
 Rune Craft: The epic Runecaster continues to gain a +1 on Runecarving checks at every odd level.
@@ -75037,7 +75037,7 @@ Rune Power: The epic Runecaster's Rune Power ability continues to gain +1 to DC 
 Spellcasting: The epic Runecaster continues to increase in divine caster level (and spells known, if applicable).
 
 Epic Runecaster Bonus Feat List:
-Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Fortitude, Epic Spell Focus, Epic Spell Penetration, Epic Prowess, Epic Toughness, Epic Spellcasting, Epic Weapon Focus, Fast Healing, Focused Spell Penetration, Improved Combat Casting, Inscribe Epic Runes, Great Charisma, Great Intelligence, Great Wisdom, Perfect Health, Planar Turning, Tenacious Magic.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Bonus Domain, Epic Skill Focus (Craft [any]), Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Epic Toughness, Ignore Material Components, Improved Combat Casting, Inscribe Epic Rune, Tenacious Magic.</entry>
   <entry id="205196" lang="en" sex="m">Epic Warchief</entry>
   <entry id="205197" lang="en" sex="m">The epic Warchief becomes the stuff of legend, feared and revered by entire nations. His warcries shake enemy lines, and his presence alone can rally tribes to conquer cities and kingdoms. As he grows in power, his influence spreads like wildfire, turning even the most fractured clans into an unstoppable force. Epic Warchiefs inspire absolute loyalty and demand unquestioning obedience, forging empires from chaos and blood.
 

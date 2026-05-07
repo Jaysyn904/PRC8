@@ -2664,8 +2664,10 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
         }
     }
 	
-	// None of the stuff here works when items are involved
-	if (!GetIsObjectValid(PRCGetSpellCastItem()))
+	object oSpellCastItem = PRCGetSpellCastItem(); 
+	
+	//if (!GetIsObjectValid(PRCGetSpellCastItem()))
+	if (!GetIsObjectValid(oSpellCastItem) || GetBaseItemType(oSpellCastItem) == BASE_ITEM_MAGICSTAFF)
 	{
     	if(PRCGetLastSpellCastClass(oCaster) == CLASS_TYPE_WARMAGE && !GetLocalInt(oTarget, "WarmageEdgeDelay"))
     	{

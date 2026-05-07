@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: Wall of Fire: Heartbeat
-//:: NW_S0_WallFireA.nss
+//:: NW_S0_WallFireC.nss
 //:: Copyright (c) 2001 Bioware Corp.
 //:://////////////////////////////////////////////
 /*
@@ -28,6 +28,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDamage;
     effect eDam;
+	object oCaster = GetAreaOfEffectCreator();
     object oTarget;
     //Declare and assign personal impact visual effect.
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
@@ -38,27 +39,46 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     // When the caster is no longer there, all functions calling
     // GetAreaOfEffectCreator will fail. Its better to remove the barrier then
     //--------------------------------------------------------------------------
-    if (!GetIsObjectValid(GetAreaOfEffectCreator()))
+    if (!GetIsObjectValid(oCaster))
     {
         DestroyObject(OBJECT_SELF);
         return;
     }
 
-    int CasterLvl = PRCGetCasterLevel(GetAreaOfEffectCreator());
+    int CasterLvl = PRCGetCasterLevel(oCaster);
     
-    int nPenetr = SPGetPenetrAOE(GetAreaOfEffectCreator(),CasterLvl);
+    int nPenetr = SPGetPenetrAOE(oCaster, CasterLvl);
     int EleDmg = GetLocalInt(OBJECT_SELF, "Wall_Fire_Damage");
 
     oTarget = GetFirstInPersistentObject(OBJECT_SELF,OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
     //Declare the spell shape, size and the location.
     while(GetIsObjectValid(oTarget))
     {
-        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, GetAreaOfEffectCreator()))
+        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
         {
+			// Check Extraordinary Spell Aim for persistent AOEs  
+            if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, oCaster))  
+            {  
+                string sTargetID = ObjectToString(oTarget);  
+                if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+                {  
+                    if(!GetIsEnemy(oTarget, oCaster))  
+                    {  
+                        if(GetIsSkillSuccessful(oCaster, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(oCaster, SPELL_WALL_OF_FIRE)))  
+                        {  
+                            SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                            // Target is excluded, skip to next  
+                            oTarget = GetNextInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);  
+                            continue;  
+                        }  
+                    }  
+                }  
+            }  
+			
             //Fire cast spell at event for the specified target
             SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_WALL_OF_FIRE));
             //Make SR check, and appropriate saving throw(s).
-            if(!PRCDoResistSpell(GetAreaOfEffectCreator(), oTarget,nPenetr))
+            if(!PRCDoResistSpell(oCaster, oTarget,nPenetr))
             {
                 //Roll damage.
                 nDamage = d6(4);
@@ -72,9 +92,9 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
                      nDamage = nDamage + (nDamage/2); //Damage/Healing is +50%
                 }
                 
-                nDamage += SpellDamagePerDice(GetAreaOfEffectCreator(), 4);
+                nDamage += SpellDamagePerDice(oCaster, 4);
                 
-                int nDC = PRCGetSaveDC(oTarget,GetAreaOfEffectCreator());
+                int nDC = PRCGetSaveDC(oTarget, oCaster);
 
                 nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, (nDC), SAVING_THROW_TYPE_FIRE);
                 if(nDamage > 0)

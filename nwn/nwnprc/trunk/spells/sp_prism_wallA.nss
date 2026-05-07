@@ -68,6 +68,7 @@ Created:   7/6/07
 
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
+#include "prcsp_archmaginc"
 
 void main()
 {
@@ -80,7 +81,13 @@ void main()
 
         if(!GetIsReactionTypeFriendly(oTarget, oPC) && (oTarget != oPC))
         {
-                //Red
+			if(ExtraordinarySpellAim(oPC, oTarget))  
+			{  
+				// Target is excluded from AOE effects  
+				return;  
+			}  
+
+				//Red
                 if(!PRCDoResistSpell(oPC, oTarget,nPenetr))
                 {
                         nDam = 20;

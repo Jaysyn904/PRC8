@@ -39,19 +39,40 @@ int BalanceCheckFailure(object oTarget);
 
 void main()
 {
-    PRCSetSchool(SPELL_SCHOOL_CONJURATION);
-    int nCasterLvl = PRCGetCasterLevel(GetAreaOfEffectCreator());
+    PRCSetSchool(SPELL_SCHOOL_CONJURATION);    
 
+	object aoeCreator = GetAreaOfEffectCreator();
     object oTarget = GetFirstInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE);
+	
+	int nCasterLvl = PRCGetCasterLevel(aoeCreator);
 
     while(GetIsObjectValid(oTarget))
     {
-        if(CheckMasteryOfShapes(GetAreaOfEffectCreator(), oTarget))
+        if(CheckMasteryOfShapes(aoeCreator, oTarget))
         {
             // Target is protected by Mastery of Shaping.
             oTarget = GetNextInPersistentObject(OBJECT_SELF, OBJECT_TYPE_CREATURE);
             continue;
         }
+		
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_SLEET_STORM)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = GetNextInPersistentObject(); 
+                        continue;  
+                    }  
+                }  
+            }  
+        }		
 
         int nFail = BalanceCheckFailure(oTarget);
 

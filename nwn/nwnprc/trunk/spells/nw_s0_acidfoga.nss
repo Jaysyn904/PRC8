@@ -28,21 +28,36 @@ void main()
     PRCSetSchool(SPELL_SCHOOL_CONJURATION);
 
     //Declare major variables
-    object oCaster = GetAreaOfEffectCreator();
+    object aoeCreator = GetAreaOfEffectCreator();
     object oTarget = GetEnteringObject();
 
     int nMetaMagic = PRCGetMetaMagicFeat();
     effect eVis = EffectVisualEffect(VFX_IMP_ACID_S);
     effect eSlow = EffectMovementSpeedDecrease(50);
     float fDelay = PRCGetRandomDelay(1.0, 2.2);
-    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(oCaster);
+    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(aoeCreator);
+
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_ACID_FOG)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
     
-    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
+    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
         //Fire cast spell at event for the target
-        SignalEvent(oTarget, EventSpellCastAt(oCaster, SPELL_ACID_FOG));
+        SignalEvent(oTarget, EventSpellCastAt(aoeCreator, SPELL_ACID_FOG));
         //Spell resistance check
-        if(!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
+        if(!PRCDoResistSpell(aoeCreator, oTarget, nPenetr, fDelay))
         {
             //Roll Damage
             //Enter Metamagic conditions
@@ -52,9 +67,9 @@ void main()
             if (nMetaMagic & METAMAGIC_EMPOWER)
                 nDamage = nDamage + (nDamage/2); //Damage/Healing is +50%
                 // Acid Sheath adds +1 damage per die to acid descriptor spells
-                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, oCaster))
+                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, aoeCreator))
                 	nDamage += 2;                 
-			nDamage += SpellDamagePerDice(oCaster, 2);
+			nDamage += SpellDamagePerDice(aoeCreator, 2);
 
 			//slowing effect
 			SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eSlow, oTarget,0.0f,FALSE);
@@ -97,21 +112,21 @@ void main()
     PRCSetSchool(SPELL_SCHOOL_CONJURATION);
 
     //Declare major variables
-    object oCaster = GetAreaOfEffectCreator();
+    object aoeCreator = GetAreaOfEffectCreator();
     object oTarget = GetEnteringObject();
 
     int nMetaMagic = PRCGetMetaMagicFeat();
     effect eVis = EffectVisualEffect(VFX_IMP_ACID_S);
     effect eSlow = EffectMovementSpeedDecrease(50);
     float fDelay = PRCGetRandomDelay(1.0, 2.2);
-    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(oCaster);
+    int nPenetr = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level") + SPGetPenetr(aoeCreator);
     
-    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
+    if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
         //Fire cast spell at event for the target
-        SignalEvent(oTarget, EventSpellCastAt(oCaster, SPELL_ACID_FOG));
+        SignalEvent(oTarget, EventSpellCastAt(aoeCreator, SPELL_ACID_FOG));
         //Spell resistance check
-        if(!PRCDoResistSpell(oCaster, oTarget, nPenetr, fDelay))
+        if(!PRCDoResistSpell(aoeCreator, oTarget, nPenetr, fDelay))
         {
             //Roll Damage
             //Enter Metamagic conditions
@@ -121,11 +136,11 @@ void main()
             if (nMetaMagic & METAMAGIC_EMPOWER)
                 nDamage = nDamage + (nDamage/2); //Damage/Healing is +50%
                 // Acid Sheath adds +1 damage per die to acid descriptor spells
-                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, oCaster))
+                if (GetHasDescriptor(SPELL_ACID_FOG, DESCRIPTOR_ACID) && GetHasSpellEffect(SPELL_MESTILS_ACID_SHEATH, aoeCreator))
                 	nDamage += 2;                 
-			nDamage += SpellDamagePerDice(oCaster, 2);
+			nDamage += SpellDamagePerDice(aoeCreator, 2);
             //Make a Fortitude Save to avoid the effects of the movement hit.
-            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (PRCGetSaveDC(oTarget,oCaster)), SAVING_THROW_TYPE_ACID, oCaster, fDelay))
+            if(!PRCMySavingThrow(SAVING_THROW_FORT, oTarget, (PRCGetSaveDC(oTarget,aoeCreator)), SAVING_THROW_TYPE_ACID, aoeCreator, fDelay))
             {
                 //slowing effect
                 SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eSlow, oTarget,0.0f,FALSE);

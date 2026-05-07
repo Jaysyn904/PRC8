@@ -23,6 +23,7 @@ void main()
     SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 
     //Declare major variables
+	object aoeCreator = GetAreaOfEffectCreator();
     object oTarget;
     effect eFall = EffectKnockdown();
     float fDelay;
@@ -31,11 +32,30 @@ void main()
     oTarget = GetFirstInPersistentObject();
     while(GetIsObjectValid(oTarget))
     {
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_GREASE)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = GetNextInPersistentObject(); 
+                        continue;  
+                    }  
+                }  
+            }  
+        }
+		
         if(!GetHasFeat(FEAT_WOODLAND_STRIDE, oTarget) &&(GetCreatureFlag(OBJECT_SELF, CREATURE_VAR_IS_INCORPOREAL) != TRUE) )
         {
-            if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, GetAreaOfEffectCreator()))
+            if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
             {
-                int nDC = PRCGetSaveDC(oTarget,GetAreaOfEffectCreator());
+                int nDC = PRCGetSaveDC(oTarget, aoeCreator);
                 if(DEBUG) DoDebug("nw_s0_greasec running, SpellId: " + IntToString(PRCGetSpellId()));
 
                 fDelay = PRCGetRandomDelay(0.0, 2.0);
@@ -49,7 +69,7 @@ void main()
         oTarget = GetNextInPersistentObject();
     }
 
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Getting rid of the local integer storing the spellschool name
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Getting rid of the local integer storing the spellschool name
 }
 

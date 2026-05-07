@@ -52,6 +52,7 @@ void main()
 
     object oAoE = GetAreaOfEffectObject(lLoc, "VFX_PER_SLEET_STORM");
     SetAllAoEInts(SPELL_SLEET_STORM, oAoE, 20, 0, nCasterLevel);
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

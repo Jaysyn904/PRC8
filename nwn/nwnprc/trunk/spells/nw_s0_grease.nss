@@ -41,6 +41,7 @@ void main()
 
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_GREASE");
     SetAllAoEInts(SPELL_GREASE, oAoE, PRCGetSpellSaveDC(SPELL_GREASE, SPELL_SCHOOL_CONJURATION), 0, CasterLvl);
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

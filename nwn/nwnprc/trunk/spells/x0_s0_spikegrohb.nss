@@ -66,23 +66,44 @@ void PRCDoSpikeGrowthEffect(object oTarget,int nPenetr)
 
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
 
     int nPenetr = SPGetPenetrAOE(GetAreaOfEffectCreator());
 
 
     object oTarget;
+	object aoeCreator = GetAreaOfEffectCreator();
+	
     //Start cycling through the AOE Object for viable targets including doors and placable objects.
     oTarget = GetFirstInPersistentObject(OBJECT_SELF);
     while(GetIsObjectValid(oTarget))
     {
-     PRCDoSpikeGrowthEffect(oTarget,nPenetr);
+		// Check Extraordinary Spell Aim  
+        if(GetIsObjectValid(aoeCreator) && GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator))  
+        {  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsFriend(oTarget, aoeCreator))  
+                {  
+                    if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_SPIKE_GROWTH)))  
+                    {  
+                        SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                        // Target is excluded, skip to next  
+                        oTarget = GetNextInPersistentObject(); 
+                        continue;  
+                    }  
+                }  
+            }  
+        }
+		
+		PRCDoSpikeGrowthEffect(oTarget, nPenetr);
         //Get next target.
-    oTarget = GetNextInPersistentObject(OBJECT_SELF);
+		oTarget = GetNextInPersistentObject(OBJECT_SELF);
     }
 
 
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Erasing the variable used to store the spell's spell school
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Erasing the variable used to store the spell's spell school
 }

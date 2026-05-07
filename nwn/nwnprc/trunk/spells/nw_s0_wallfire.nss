@@ -46,6 +46,7 @@ void main()
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_WALLFIRE");
     SetAllAoEInts(SPELL_WALL_OF_FIRE, oAoE, PRCGetSpellSaveDC(SPELL_WALL_OF_FIRE, SPELL_SCHOOL_EVOCATION), 0, CasterLvl);
     SetLocalInt(oAoE, "Wall_Fire_Damage", ChangedElementalDamage(OBJECT_SELF, DAMAGE_TYPE_FIRE));
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
     PRCSetSchool();
 }

@@ -39,16 +39,31 @@ void main()
 {
     PRCSetSchool(SPELL_SCHOOL_CONJURATION);
 
-    object oPC = GetAreaOfEffectCreator();
+    object aoeCreator = GetAreaOfEffectCreator();
     object oTarget = GetEnteringObject();
-    int nCasterLvl = PRCGetCasterLevel(oPC);
+    int nCasterLvl = PRCGetCasterLevel(aoeCreator);
 
-    if(CheckMasteryOfShapes(oPC, oTarget))
+    if(CheckMasteryOfShapes(aoeCreator, oTarget))
     {
         PRCSetSchool();
         return;
     }
 
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_SLEET_STORM)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
+	
     effect eLink = EffectLinkEffects(EffectBlindness(), EffectMovementSpeedDecrease(50));
 
     SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget, 0.0f, TRUE, SPELL_SLEET_STORM, nCasterLvl);

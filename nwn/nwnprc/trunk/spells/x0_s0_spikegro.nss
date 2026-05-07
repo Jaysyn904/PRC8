@@ -22,15 +22,8 @@
 
 void main()
 {
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
-/*
-  Spellcast Hook Code
-  Added 2003-06-20 by Georg
-  If you want to make changes to all spells,
-  check x2_inc_spellhook.nss to find out more
-
-*/
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION);
 
     if (!X2PreSpellCastCode())
     {
@@ -38,12 +31,9 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION
         return;
     }
 
-// End of Spell Cast Hook
-
-
     //Declare major variables including Area of Effect Object
     // * passing dirge script for exit because it is an empty script (i.e., there is no special exit effects)
-    effect eAOE = EffectAreaOfEffect(AOE_PER_ENTANGLE, "x0_s0_spikegroEN", "x0_s0_spikegroHB", "x0_s0_dirgeEX");
+    effect eAOE = EffectAreaOfEffect(AOE_PER_ENTANGLE, "x0_s0_spikegroen", "x0_s0_spikegrohb", "x0_s0_dirgeex");
     location lTarget = PRCGetSpellTargetLocation();
     int nCasterLevel = PRCGetCasterLevel(OBJECT_SELF);
     int nDuration = nCasterLevel;
@@ -65,10 +55,8 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_TRANSMUTATION
 
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_ENTANGLE");
     SetAllAoEInts(SPELL_SPIKE_GROWTH, oAoE, PRCGetSpellSaveDC(SPELL_SPIKE_GROWTH, SPELL_SCHOOL_TRANSMUTATION), 0, nCasterLevel);
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Erasing the variable used to store the spell's spell school
-
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Erasing the variable used to store the spell's spell school
 }
-
-

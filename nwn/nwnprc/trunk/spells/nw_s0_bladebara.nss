@@ -14,12 +14,9 @@
 //:: Created On: July 20, 2001
 //:://////////////////////////////////////////////
 
-
 //:: modified by mr_bumpkin Dec 4, 2003
 #include "prc_inc_spells"
 #include "prc_add_spell_dc"
-
-
 
 void main()
 {
@@ -31,7 +28,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     object oTarget = GetEnteringObject();
     effect eDam;
     effect eVis = EffectVisualEffect(VFX_COM_BLOOD_LRG_RED);
-     object aoeCreator = GetAreaOfEffectCreator();
+	object aoeCreator = GetAreaOfEffectCreator();
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nLevel = GetLocalInt(OBJECT_SELF, "X2_AoE_Caster_Level");
     int CasterLvl = nLevel;
@@ -43,6 +40,22 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     {
         nLevel = 20;
     }
+	
+	// Check Extraordinary Spell Aim  
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, aoeCreator)  
+    && GetIsFriend(oTarget, aoeCreator))  
+    {  
+        string sTargetID = ObjectToString(oTarget);  
+        if(!GetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID))  
+        {  
+            if(GetIsSkillSuccessful(aoeCreator, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(aoeCreator, SPELL_BLADE_BARRIER)))  
+            {  
+                SetLocalInt(OBJECT_SELF, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                return; // Target excluded  
+            }  
+        }  
+    }
+	
     if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, aoeCreator))
     {
         //Fire spell cast at event

@@ -75,6 +75,8 @@ void main()
         ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAoE, lTarget, fDurAoE);
         object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_PRISMATIC_SPHERE");
         SetAllAoEInts(SPELL_PRISMATIC_SPHERE, oAoE, PRCGetSpellSaveDC(SPELL_PRISMATIC_SPHERE, SPELL_SCHOOL_ABJURATION), 0, nCasterLvl);
+		
+		SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", oPC);
 
         //SendMessageToPC(oPC, "Casting a modified Prismatic Sphere with dur: " + FloatToString(fDurAoE));
 

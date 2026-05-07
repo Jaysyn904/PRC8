@@ -51,7 +51,13 @@ void DoCone (int nDieSize, int nBonusDam, int nDieCap, int nConeEffect /* unused
      {  
           if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, OBJECT_SELF))  
           {  
-               //Fire cast spell at event for the specified target  
+			if(CheckMasteryOfShapes(OBJECT_SELF, oTarget))  
+			{  
+				// Target is protected by Mastery of Shaping, skip damage  
+				oTarget = MyNextObjectInShape(SHAPE_SPELLCONE, 11.0, lTargetLocation, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);  
+				continue;  
+			}  
+				//Fire cast spell at event for the specified target  
                PRCSignalSpellEvent(oTarget, TRUE, nSpellID);  
   
                //Get the distance between the target and caster to delay the application of effects  

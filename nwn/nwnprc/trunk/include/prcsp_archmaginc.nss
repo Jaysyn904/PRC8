@@ -67,14 +67,17 @@ void ToggleMasteryOfShapes(object oCaster);
 
 void SetMasteryOfElements();
 
+object GetAreaOfEffectObject(location lTarget, string sTag, object oCaster = OBJECT_SELF);
+
 //////////////////////////////////////////////////
 /*                  Includes                    */
 //////////////////////////////////////////////////
-
+#include "prc_feat_const"
+//#include "prc_inc_spells"
 //#include "lookup_2da_spell"
 #include "prcsp_reputation"
 #include "prc_inc_core"
-//#include "prc_inc_spells"
+
 
 
 //////////////////////////////////////////////////
@@ -95,7 +98,46 @@ int CheckMasteryOfShapes(object oCaster, object oTarget)
     return bRetVal;
 }
 
-int ExtraordinarySpellAim(object oCaster, object oTarget)
+int ExtraordinarySpellAim(object oCaster, object oTarget)  
+{  
+    int bRetVal = FALSE;  
+      
+    if(GetHasFeat(FEAT_EXTRAORDINARY_SPELL_AIM, oCaster)  
+    && GetIsFriend(oTarget, oCaster))  
+    {  
+        // Check if this is an AOE spell  
+        object oAoE = GetAreaOfEffectObject(GetLocation(oTarget), "", oCaster);  
+          
+        if(GetIsObjectValid(oAoE))  
+        {  
+            // For persistent AOEs, store exclusion on the AOE object  
+            string sTargetID = ObjectToString(oTarget);  
+            if(!GetLocalInt(oAoE, "ExtraordinarySpellAim_" + sTargetID))  
+            {  
+                if(GetIsSkillSuccessful(oCaster, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(oCaster, PRCGetSpellId())))  
+                {  
+                    SetLocalInt(oAoE, "ExtraordinarySpellAim_" + sTargetID, TRUE);  
+                    bRetVal = TRUE;  
+                }  
+            }  
+        }  
+        else  
+        {  
+            // For instant spells, use original logic  
+            if(!GetLocalInt(oCaster, "ExtraordinarySpellAim"))  
+            {  
+                SetLocalInt(oCaster, "ExtraordinarySpellAim", TRUE);  
+                DelayCommand(1.0, DeleteLocalInt(oCaster, "ExtraordinarySpellAim"));  
+                  
+                if(GetIsSkillSuccessful(oCaster, SKILL_SPELLCRAFT, 25 + PRCGetSpellLevel(oCaster, PRCGetSpellId())))  
+                    bRetVal = TRUE;  
+            }  
+        }  
+    }  
+    return bRetVal;  
+}
+
+/* int ExtraordinarySpellAim(object oCaster, object oTarget)
 {
     int bRetVal = FALSE;
 
@@ -114,7 +156,7 @@ int ExtraordinarySpellAim(object oCaster, object oTarget)
 
     return bRetVal;
 }
-
+ */
 //
 //  Help with Visual Effects when setting feats
 //

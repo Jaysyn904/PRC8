@@ -58,9 +58,10 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 
     object oAoE = GetAreaOfEffectObject(lTarget, "VFX_PER_WALLBLADE");
     SetAllAoEInts(SPELL_BLADE_BARRIER, oAoE, PRCGetSpellSaveDC(SPELL_BLADE_BARRIER, SPELL_SCHOOL_EVOCATION), 0, CasterLvl);
+	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", OBJECT_SELF);
 
-DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
-// Getting rid of the local integer storing the spellschool name
+	DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
+	// Getting rid of the local integer storing the spellschool name
 
 }
 

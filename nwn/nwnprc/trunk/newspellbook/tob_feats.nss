@@ -596,7 +596,45 @@ void Shieldmate(object oInitiator)
     }
 }
 
-void RethDekalaAura(object oInitiator)
+void RethDekalaAura(object oInitiator)  
+{  
+    location lTarget = GetLocation(oInitiator);  
+    object oAreaTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+      
+    // Check if we should only target hostiles  
+    int bHostileOnly = GetPRCSwitch(PRC_RETH_DEKALA_AURA_HOSTILE_ONLY);  
+      
+    while(GetIsObjectValid(oAreaTarget))  
+    {  
+        if(oAreaTarget != oInitiator && // Not you  
+           GetIsInMeleeRange(oInitiator, oAreaTarget)) // They must be in melee range  
+        {  
+            // If switch is enabled, only affect hostile creatures  
+            if(bHostileOnly && !GetIsEnemy(oAreaTarget, oInitiator))  
+            {  
+                oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+                continue;  
+            }  
+              
+        	int nDamage = d6();  
+        	int nDC = 10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_CONSTITUTION, oInitiator);  
+        	if(!PRCMySavingThrow(SAVING_THROW_FORT, oAreaTarget, nDC, SAVING_THROW_TYPE_NONE))  
+        	{  
+        		// Half fire, half acid  
+            	ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage(nDamage/2, DAMAGE_TYPE_FIRE)), oAreaTarget);  
+            	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_FLAME_M), oAreaTarget);  
+            	// The +1 makes acid round up instead of round down, so you don't miss out on odd numbers  
+            	ApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDamage((nDamage+1)/2, DAMAGE_TYPE_ACID)), oAreaTarget);  
+            	ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_ACID_L), oAreaTarget);  
+            	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(EffectSickened()), oAreaTarget, 6.0);  
+            }  
+        }  
+        //Select the next target within the spell shape.  
+        oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+    }	  
+}
+
+/* void RethDekalaAura(object oInitiator)
 {
     location lTarget = GetLocation(oInitiator);
     // Use the function to get the closest creature as a target
@@ -622,7 +660,7 @@ void RethDekalaAura(object oInitiator)
     //Select the next target within the spell shape.
     oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, lTarget, TRUE, OBJECT_TYPE_CREATURE);
     }	
-} 
+}  */
 
 void HadrimoiPerfectSymmetry(object oInitiator)
 {
