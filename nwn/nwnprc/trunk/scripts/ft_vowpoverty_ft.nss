@@ -181,7 +181,8 @@ void main()
             if (nChoice == 0)  
             {  
                 // Cancel chosen  
-                DeletePersistantLocalInt(oPC,"VoPFeatCheck");  
+                DeletePersistantLocalInt(oPC,"VoPFeatCheck"); 
+				SetPersistantLocalInt(oPC, "VoPFeat"+IntToString(nLevel), 1);				
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT);  
                 return;  
             }  

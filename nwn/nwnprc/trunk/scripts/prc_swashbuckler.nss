@@ -11,36 +11,51 @@
 
 //Need to add in Weakening and Wounding criticals (on crit, deal 2 STR and 2 Con, respectively).
 
-//Applies Reflex Save bonus is the character is in light armor or less.
-//Still need to remove bonus when they are encumbered.
-void Grace(object oPC, object oSkin)
-{
-   object oArmor=GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
-   int iBase = GetBaseAC(oArmor);
-   int iMax = 3;
-   int nGrace;
-   
-   int nClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER, oPC);
-   
-   if (GetHasFeat(FEAT_DARING_OUTLAW, oPC))
-        nClass += GetLevelByClass(CLASS_TYPE_ROGUE, oPC);
-   
-   if (nClass > 37) nGrace = 5;
-   else if (nClass > 28) nGrace = 4;
-   else if (nClass > 19) nGrace = 3;
-   else if (nClass > 10) nGrace = 2;
-   else nGrace = 1; // Default
-
-   if  (GetBaseAC(oArmor)>iMax )
-     SetCompositeBonus(oSkin,"SwashGrace",0,ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC,IP_CONST_SAVEBASETYPE_REFLEX);
-   else
-     SetCompositeBonus(oSkin,"SwashGrace",nGrace,ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC,IP_CONST_SAVEBASETYPE_REFLEX);
-
+//Applies Reflex Save bonus is the character is in light armor or less.  
+//Still need to remove bonus when they are encumbered.  
+void Grace(object oPC, object oSkin)  
+{  
+   object oArmor=GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);  
+   int iBase = GetBaseAC(oArmor);  
+   int iMax = 3;  
+   int nGrace;  
+     
+   // Calculate based on feats first (for levels 2-38)  
+   nGrace = GetHasFeat(FEAT_SWASH_GRACE1, oPC) ? 1 : 0;  
+   nGrace = GetHasFeat(FEAT_SWASH_GRACE2, oPC) ? 2 : nGrace;  
+   nGrace = GetHasFeat(FEAT_SWASH_GRACE3, oPC) ? 3 : nGrace;  
+   nGrace = GetHasFeat(FEAT_SWASH_GRACE4, oPC) ? 4 : nGrace;  
+   nGrace = GetHasFeat(FEAT_SWASH_GRACE5, oPC) ? 5 : nGrace;  
+     
+   // For levels beyond 38 (where feats don't exist), calculate based on class level  
+   int nClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER, oPC);  
+   if (nClass >= 56) nGrace = 7;  
+   else if (nClass >= 47) nGrace = 6;  
+     
+   // If Daring Outlaw is present, recalculate based on combined levels  
+   if (GetHasFeat(FEAT_DARING_OUTLAW, oPC))  
+   {  
+        nClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER, oPC) + GetLevelByClass(CLASS_TYPE_ROGUE, oPC);  
+          
+        if (nClass >= 56) nGrace = 7;  
+        else if (nClass >= 47) nGrace = 6;  
+        else if (nClass >= 38) nGrace = 5;  
+        else if (nClass >= 29) nGrace = 4;  
+        else if (nClass >= 20) nGrace = 3;  
+        else if (nClass >= 11) nGrace = 2;  
+        else if (nClass >= 2) nGrace = 1;  
+        else nGrace = 0;  
+   }  
+  
+   if  (GetBaseAC(oArmor)>iMax )  
+     SetCompositeBonus(oSkin,"SwashGrace",0,ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC,IP_CONST_SAVEBASETYPE_REFLEX);  
+   else  
+     SetCompositeBonus(oSkin,"SwashGrace",nGrace,ITEM_PROPERTY_SAVING_THROW_BONUS_SPECIFIC,IP_CONST_SAVEBASETYPE_REFLEX);  
 }
 
 //Applies a Dodge AC boost when they are wearing light armor or less.
 //Still need to remove bonus when they are encumbered.
-void Dodge(object oPC, object oSkin,int sDodge)
+void Dodge(object oPC, object oSkin, int sDodge)
 {
    object oArmor=GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
    int iBase = GetBaseAC(oArmor);
@@ -190,20 +205,47 @@ void CritSTR(object oPC, object oSkin,int iStrike, int iEquip)
 
 void main()
 {
-  //Declare main variables.
+	//Declare main variables.
     object oPC = OBJECT_SELF;
     object oSkin = GetPCSkin(oPC);
 
-    int iClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER,oPC);
+    int nClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER,oPC);
 
-    int sDodge = GetHasFeat(SWASH_DODGE_1, oPC) ? 1 : 0;
-        sDodge = GetHasFeat(SWASH_DODGE_2, oPC) ? 2 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_3, oPC) ? 3 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_4, oPC) ? 4 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_5, oPC) ? 5 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_6, oPC) ? 6 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_7, oPC) ? 7 : sDodge;
-        sDodge = GetHasFeat(SWASH_DODGE_8, oPC) ? 8 : sDodge;
+	int sDodge = GetHasFeat(SWASH_DODGE_1, oPC) ? 1 : 0;  
+		sDodge = GetHasFeat(SWASH_DODGE_2, oPC) ? 2 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_3, oPC) ? 3 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_4, oPC) ? 4 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_5, oPC) ? 5 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_6, oPC) ? 6 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_7, oPC) ? 7 : sDodge;  
+		sDodge = GetHasFeat(SWASH_DODGE_8, oPC) ? 8 : sDodge;  
+	  
+	// For levels beyond 40 (where feats don't exist), calculate based on class level  
+	if (nClass >= 45) sDodge = 9;  
+	else if (nClass >= 50) sDodge = 10;  
+	else if (nClass >= 55) sDodge = 11;  
+	else if (nClass >= 60) sDodge = 12;  
+	  
+	// If Daring Outlaw is present, recalculate based on combined levels  
+	if (GetHasFeat(FEAT_DARING_OUTLAW, oPC))  
+	{  
+		nClass = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER, oPC) + GetLevelByClass(CLASS_TYPE_ROGUE, oPC);  
+		  
+		if (nClass >= 60) sDodge = 12;  
+		else if (nClass >= 55) sDodge = 11;  
+		else if (nClass >= 50) sDodge = 10;  
+		else if (nClass >= 45) sDodge = 9;  
+		else if (nClass >= 40) sDodge = 8;  
+		else if (nClass >= 35) sDodge = 7;  
+		else if (nClass >= 30) sDodge = 6;  
+		else if (nClass >= 25) sDodge = 5;  
+		else if (nClass >= 20) sDodge = 4;  
+		else if (nClass >= 15) sDodge = 3;  
+		else if (nClass >= 10) sDodge = 2;  
+		else if (nClass >= 5) sDodge = 1;  
+		else sDodge = 0;  
+	}
+		
 
     int iStrike = GetHasFeat(INSIGHTFUL_STRIKE, oPC);
     int iEquip= GetLocalInt(oPC,"ONEQUIP");
@@ -211,7 +253,7 @@ void main()
     int WeakCrit = GetHasFeat(WEAKENING_CRITICAL, oPC);
     int WoundCrit = GetHasFeat(WOUNDING_CRITICAL, oPC);
 
-    if (iClass>1) Grace(oPC, oSkin);
+    if (nClass>1) Grace(oPC, oSkin);
     if (sDodge>0) Dodge(oPC, oSkin, sDodge);
     if (iStrike>0) SmartWound(oPC, oSkin, iStrike, iEquip);
     if (iStrike>0) CritSTR(oPC, oSkin, iStrike, iEquip);

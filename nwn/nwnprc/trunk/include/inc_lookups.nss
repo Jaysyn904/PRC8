@@ -116,12 +116,22 @@ object _inc_lookups_GetCacheObject(string sTag)
             //has to be an object, placeables cant go through the DB
             oChest = CreateObject(OBJECT_TYPE_CREATURE, "prc_2da_cache",
                                   GetLocation(GetObjectByTag("HEARTOFCHAOS")), FALSE, "Bioware2DACache");
+			SetPlotFlag(oChest, TRUE);
+			SetCreatureAppearanceType(oChest, APPEARANCE_TYPE_INVISIBLE_HUMAN_MALE);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oChest);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oChest);
+			AssignCommand(oWP, ActionUseSkill(SKILL_HIDE, oChest));								  
         }
         if(!GetIsObjectValid(oChest))
         {
             //has to be an object, placeables cant go through the DB
             oChest = CreateObject(OBJECT_TYPE_CREATURE, "prc_2da_cache",
                                   GetStartingLocation(), FALSE, "Bioware2DACache");
+			SetPlotFlag(oChest, TRUE);
+			SetCreatureAppearanceType(oChest, APPEARANCE_TYPE_INVISIBLE_HUMAN_MALE);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY), oChest);
+			ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectCutsceneGhost(), oChest);
+			AssignCommand(oWP, ActionUseSkill(SKILL_HIDE, oChest));								  
         }
 
         int nContainer = 0;

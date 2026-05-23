@@ -34664,7 +34664,7 @@ Material Component: An amber sphere worth at least 500 gp.</entry>
   <entry id="52434" lang="en" sex="m">Blinding Glory</entry>
   <entry id="52435" lang="en" sex="m">Blinding Glory
 Conjuration (Creation) [Good]
-Level: Glory 9, Sor/Wiz 9
+Level: Sor/Wiz 9
 Components: V, S, M/DF
 Casting Time: 1 hour
 Range: Close (25 ft. + 5 ft./2 levels)
@@ -47693,9 +47693,8 @@ Use: Selected</entry>
   <entry id="57585" lang="en" sex="m">****</entry>
   <entry id="57586" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57587" lang="en" sex="m">Default Swashbuckler</entry>
-  <entry id="57588" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57587" lang="en" sex="m">****</entry>
+  <entry id="57588" lang="en" sex="m">****</entry>
   <entry id="57589" lang="en" sex="m">Default Hexblade</entry>
   <entry id="57590" lang="en" sex="m">
 These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
@@ -76050,7 +76049,7 @@ Scroll of Cure Light Wounds
   <entry id="211527" lang="en" sex="m">Knight (Cavalier)</entry>
   <entry id="211528" lang="en" sex="m">(STARTING PACKAGE)
 
-The cavalier on commanding the battlefield through presence and discipline, leading from the front with mounted or charging tactics while using challenges and positioning to control enemy attention.
+The cavalier focuses on commanding the battlefield through presence and discipline, leading from the front with mounted or charging tactics while using challenges and positioning to control enemy attention.
 
 Equipment:
 Torch
@@ -76167,8 +76166,18 @@ Throwing Axes</entry>
   <entry id="211614" lang="en" sex="m">SamuraiCW4</entry>
   <entry id="211615" lang="en" sex="m">SamuraiCW5</entry>
   <entry id="211616" lang="en" sex="m">SamuraiCW5</entry>
-  <entry id="211617" lang="en" sex="m">Scout1</entry>
-  <entry id="211618" lang="en" sex="m">Scout1</entry>
+  <entry id="211617" lang="en" sex="m">Scout (Sniper)</entry>
+  <entry id="211618" lang="en" sex="m">(STARTING PACKAGE)
+
+The Sniper package focuses on making the Scout as deadly as possible with a light crossbow, with a hand axe as a fall back.
+
+Equipment:
+Torch
+Studded Leather Armor
+Hand Axe
+Light Crossbow
+2 Quarrels of Bolts
+(3) Healer's Kits</entry>
   <entry id="211619" lang="en" sex="m">Scout2</entry>
   <entry id="211620" lang="en" sex="m">Scout2</entry>
   <entry id="211621" lang="en" sex="m">Scout3</entry>
@@ -76227,8 +76236,21 @@ Throwing Axes</entry>
   <entry id="211674" lang="en" sex="m">Soulknife4</entry>
   <entry id="211675" lang="en" sex="m">Soulknife5</entry>
   <entry id="211676" lang="en" sex="m">Soulknife5</entry>
-  <entry id="211677" lang="en" sex="m">Swashbuckler1</entry>
-  <entry id="211678" lang="en" sex="m">Swashbuckler1</entry>
+  <entry id="211677" lang="en" sex="m">Swashbuckler (Daring Outlaw)</entry>
+  <entry id="211678" lang="en" sex="m">(STARTING PACKAGE)
+
+The Daring Outlaw package focuses on taking the Daring Outlaw(*) feat as soon as possible while improving two weapon fighting to increase offensive ability.
+
+* Daring Outlaw requires a +2d6 Sneak Attack before it can be taken.
+
+Equipment:
+Torch
+Studded Leather Armor
+Rapier
+Dagger
+Shortbow
+2 Quivers of Arrows
+(3) Healer's Kits</entry>
   <entry id="211679" lang="en" sex="m">Swashbuckler2</entry>
   <entry id="211680" lang="en" sex="m">Swashbuckler2</entry>
   <entry id="211681" lang="en" sex="m">Swashbuckler3</entry>

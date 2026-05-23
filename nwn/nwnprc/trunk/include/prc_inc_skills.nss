@@ -363,7 +363,8 @@ int PRCIsFlying(object oCreature)
         bFlying = TRUE;
     }
     if(!bFlying
-        && ((nWings > 0 && nWings < 79) 
+        && ((nWings > 0 && nWings < 79)
+		|| (nWings > 442 && nWings < 448)		
 		|| (nWings > 1959 && nWings < 1962) 
 		|| (nWings > 1962 && nWings < 1966) 
 		|| nWings == 90))//CEP and Project Q wing models

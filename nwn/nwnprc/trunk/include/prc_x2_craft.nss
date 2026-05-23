@@ -2726,6 +2726,7 @@ int CIGetIsSpellRestrictedFromCraftFeat(int nSpellID, int nFeatID)
         case X2_CI_SCRIBESCROLL_FEAT_ID: sCol = "NoScroll"; break;
         case X2_CI_CRAFTWAND_FEAT_ID:
         case X2_CI_CRAFTROD_FEAT_ID:
+		case X2_CI_CRAFTSCEPTER_FEAT_ID:
         case X2_CI_CRAFTSTAFF_FEAT_ID: sCol = "NoWand"; break;
     }
     return !(!StringToInt(Get2DACache(X2_CI_CRAFTING_SP_2DA,sCol,nSpellID)));

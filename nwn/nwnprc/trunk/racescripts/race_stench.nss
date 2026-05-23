@@ -23,7 +23,7 @@ void main()
         return;
     }
 
-    effect eStench = EffectAreaOfEffect(AOE_MOB_TROGLODYTE_STENCH, "prc_TrogStenchA", "", "");
+    effect eStench = EffectAreaOfEffect(AOE_MOB_TROGLODYTE_STENCH, "race_stencha", "", "");
     eStench = ExtraordinaryEffect(eStench);
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eStench, oCaster);
 }

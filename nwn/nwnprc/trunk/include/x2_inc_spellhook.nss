@@ -485,7 +485,7 @@ int ArcaneSpellFailure(object oCaster, int nCastingClass, int nSpellLevel, int n
         //shields
         switch(nShield)
         {
-            case BASE_ITEM_SMALLSHIELD: nASF -=  5; break;
+            case BASE_ITEM_SMALLSHIELD: nASF -=  10; break;
         }
     }    
 
