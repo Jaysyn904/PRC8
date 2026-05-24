@@ -176,7 +176,7 @@ int CheckDivineGifts(object oPC = OBJECT_SELF)
 	
 int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF)
 {
-    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_ELDRITCH_BLAST, oPC) && !GetHasFeat(FEAT_ELDRITCH_BLAST)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CHAIN, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_CHAIN, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_CONE, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_CONE, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_ELDRITCH_DOOM, oPC) && !GetHasInvocation(INVOKE_ELDRITCH_DOOM, oPC)) return TRUE;

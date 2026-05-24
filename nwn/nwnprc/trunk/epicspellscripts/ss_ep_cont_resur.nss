@@ -71,9 +71,12 @@ void main()
 
 void ContingencyResurrect(object oTarget, int nCount, object oCaster)
 {
-    // If the contingency has been turned off, terminate HB
-    if(!GetLocalInt(oCaster, "nContingentRez"))
-        return;
+    // If the contingency has been turned off, terminate HB and restore spellslot
+	if(!GetLocalInt(oCaster, "nContingentRez"))  
+	{  
+		RestoreSpellSlotForCaster(oCaster);  
+		return;  
+	}
     
     // If the target isn't dead, just toss out a notice that the heartbeat is running
     if(!GetIsDead(oTarget))

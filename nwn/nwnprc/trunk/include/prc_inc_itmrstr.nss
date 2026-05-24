@@ -490,14 +490,10 @@ int CheckPRCLimitations(object oItem, object oPC = OBJECT_INVALID)
             if(bEquip || bUnequip)
             {
                 int nSubType  = GetItemPropertySubType(ipTest);
-                int nCost     = GetItemPropertyCostTable(ipTest);
-                SetLocalInt(oPC,
-                            "PRC_IPRPBonSpellSlots_" + IntToString(nSubType) + "_" + IntToString(nCost),
-                            GetLocalInt(oPC,
-                                        "PRC_IPRPBonSpellSlots_" + IntToString(nSubType) + "_" + IntToString(nCost)
-                                        )
-                             + (bEquip ? 1 : -1)
-                            );
+                int nCost     = GetItemPropertyCostTableValue(ipTest);
+                string sVar   = "PRC_IPRPBonSpellSlots_" + IntToString(nSubType) + "_" + IntToString(nCost);
+
+                SetLocalInt(oPC, sVar, GetLocalInt(oPC, sVar) + (bEquip ? 1 : -1));
             }
         }
         else if(ipType == ITEM_PROPERTY_WIZARDRY)
