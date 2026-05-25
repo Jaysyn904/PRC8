@@ -702,38 +702,46 @@ int PRCGetCasterLevel(object oCaster = OBJECT_SELF)
     return iReturnLevel;
 }
 
-int PRCGetLastSpellCastClass(object oCaster = OBJECT_SELF)  
-{  
+int PRCGetLastSpellCastClass(object oCaster = OBJECT_SELF)    
+{    
 	// note that a barbarian has a class type constant of zero. So nClass == 0 could in principle mean
     // that a barbarian cast the spell, However, barbarians cannot cast spells, so it doesn't really matter
     // beware of Barbarians with UMD, though. Also watch out for spell like abilities
     // might have to provide a fix for these (for instance: if(nClass == -1) nClass = 0;
 	
-	int nClass = GetLocalInt(oCaster, PRC_CASTERCLASS_OVERRIDE);  
-    if(nClass)
-	{
-        if(DEBUG) DoDebug("PRCGetLastSpellCastClass: found override caster class = "+IntToString(nClass)+", original class = "+IntToString(GetLastSpellCastClass()));
-        return nClass;
-    }	
-  
-    nClass = GetLastSpellCastClass();  
-    int NSB_Class = GetLocalInt(oCaster, "NSB_Class");  
-    if(nClass == CLASS_TYPE_INVALID && GetSpellCastItem() == OBJECT_INVALID && NSB_Class)  
-        nClass = NSB_Class;  
-  
-    // If caster has Sublime Chord levels, check if the spell  
-    // is outside the base class's native range.  
+	int nClass = GetLocalInt(oCaster, PRC_CASTERCLASS_OVERRIDE);    
+    if(nClass)  
+	{  
+        if(DEBUG) DoDebug("PRCGetLastSpellCastClass: found override caster class = "+IntToString(nClass)+", original class = "+IntToString(GetLastSpellCastClass()));  
+        return nClass;  
+    }	  
+    
+    nClass = GetLastSpellCastClass();    
+    int NSB_Class = GetLocalInt(oCaster, "NSB_Class");    
+    if(nClass == CLASS_TYPE_INVALID && GetSpellCastItem() == OBJECT_INVALID && NSB_Class)    
+        nClass = NSB_Class;    
+    
+    // If caster has Sublime Chord levels and is casting an epic spell, always use Sublime Chord  
     if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0 && nClass != CLASS_TYPE_INVALID)  
     {  
         int nSpellID = PRCGetSpellId(oCaster);  
-        // If the spell is NOT found in the base class's spell list (returns -1),  
-        // it must be a Sublime Chord spell (Level 4-9 or Epic).  
-        if(PRCGetSpellLevelForClass(nSpellID, nClass) == -1 && nSpellID != -1)  
+        // Epic spells are rows 4000-4172 in spells.2da  
+        if(nSpellID >= 4000 && nSpellID <= 4172)  
         {  
             nClass = CLASS_TYPE_SUBLIME_CHORD;  
         }  
-    }  
-    return nClass;  
+    }    
+    // If caster has Sublime Chord levels, check if the spell    
+    // is outside the base class's native range.    
+    if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0 && nClass != CLASS_TYPE_INVALID)    
+    {    
+        int nSpellID = PRCGetSpellId(oCaster);    
+        if(PRCGetSpellLevelForClass(nSpellID, nClass) == -1 && nSpellID != -1)    
+        {    
+            nClass = CLASS_TYPE_SUBLIME_CHORD;    
+        }    
+    }    
+    return nClass;    
 }
 
 /* int PRCGetLastSpellCastClass(object oCaster = OBJECT_SELF)

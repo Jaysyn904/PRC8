@@ -823,41 +823,54 @@ int GetDCSchoolFocusAdjustment(object oPC, string sChool)
     return nNewDC;
 }
 
-int GetEpicSpellSaveDC(object oCaster = OBJECT_SELF, object oTarget = OBJECT_INVALID, int nSpellID = -1)
-{
-    int iDiv = GetPrCAdjustedCasterLevelByType(TYPE_DIVINE,   oCaster); // ie. wisdom determines DC
-    int iWiz = GetPrCAdjustedCasterLevel(CLASS_TYPE_WIZARD,   oCaster); // int determines DC
-    int iWMa = GetPrCAdjustedCasterLevel(CLASS_TYPE_WARMAGE,  oCaster); // cha determines DC
-    int iDNc = GetPrCAdjustedCasterLevel(CLASS_TYPE_DREAD_NECROMANCER, oCaster); // cha determines DC
-    int iSor = GetPrCAdjustedCasterLevel(CLASS_TYPE_SORCERER, oCaster); // cha determines DC
-    int iWit = GetPrCAdjustedCasterLevel(CLASS_TYPE_WITCH,    oCaster); // wis determines DC
-    int iArc = GetPrCAdjustedCasterLevel(CLASS_TYPE_ARCHIVIST, oCaster); // int determines DC
-    int iBeg = GetPrCAdjustedCasterLevel(CLASS_TYPE_BEGUILER, oCaster); // int determines DC
-    int iTpl = GetPrCAdjustedCasterLevel(CLASS_TYPE_TEMPLAR,  oCaster); // cha determines DC
-
-    int iBest = 0;
-    int iAbility;
-    if(nSpellID == -1)
-        nSpellID = PRCGetSpellId();
-
-    if (iArc > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iWit; }
-    if (iTpl > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iTpl; }
-    if (iWiz > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iWiz; }
-    if (iWMa > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iWMa; }
-    if (iDNc > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iDNc; }
-    if (iSor > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iSor; }
-    if (iWit > iBest) { iAbility = ABILITY_WISDOM;       iBest = iWit; }
-    if (iBeg > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iBeg; }
-    if (iDiv > iBest) { iAbility = ABILITY_WISDOM;       iBest = iDiv; }
-
-    int nDC;
-    if (iBest)   nDC =  20 + GetAbilityModifier(iAbility, oCaster);
-    else         nDC =  20; // DC = 20 if the epic spell is cast some other way.
-
-    nDC += GetDCSchoolFocusAdjustment(oCaster, Get2DACache("spells", "school", nSpellID));
-    nDC += GetChangesToSaveDC(oTarget, oCaster, nSpellID, GetSpellSchool(nSpellID));
-
-    return nDC;
+int GetEpicSpellSaveDC(object oCaster = OBJECT_SELF, object oTarget = OBJECT_INVALID, int nSpellID = -1)  
+{  
+    int iDiv = GetPrCAdjustedCasterLevelByType(TYPE_DIVINE,   oCaster); // ie. wisdom determines DC  
+    int iWiz = GetPrCAdjustedCasterLevel(CLASS_TYPE_WIZARD,   oCaster); // int determines DC  
+    int iWMa = GetPrCAdjustedCasterLevel(CLASS_TYPE_WARMAGE,  oCaster); // cha determines DC  
+    int iDNc = GetPrCAdjustedCasterLevel(CLASS_TYPE_DREAD_NECROMANCER, oCaster); // cha determines DC  
+    int iSor = GetPrCAdjustedCasterLevel(CLASS_TYPE_SORCERER, oCaster); // cha determines DC  
+    int iWit = GetPrCAdjustedCasterLevel(CLASS_TYPE_WITCH,    oCaster); // wis determines DC  
+    int iArc = GetPrCAdjustedCasterLevel(CLASS_TYPE_ARCHIVIST, oCaster); // int determines DC  
+    int iBeg = GetPrCAdjustedCasterLevel(CLASS_TYPE_BEGUILER, oCaster); // int determines DC  
+    int iTpl = GetPrCAdjustedCasterLevel(CLASS_TYPE_TEMPLAR,  oCaster); // cha determines DC  
+      
+    // Sublime Chord uses the primary arcane class for caster level calculation  
+    int iSCh;  
+    if(GetLevelByClass(CLASS_TYPE_SUBLIME_CHORD, oCaster) > 0)  
+    {  
+        int nPrimaryArcane = GetPrimaryArcaneClass(oCaster);  
+        iSCh = GetPrCAdjustedCasterLevel(nPrimaryArcane, oCaster);  
+    }  
+    else  
+    {  
+        iSCh = 0;  
+    }  
+  
+    int iBest = 0;  
+    int iAbility;  
+    if(nSpellID == -1)  
+        nSpellID = PRCGetSpellId();  
+  
+    if (iArc > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iArc; }  
+    if (iTpl > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iTpl; }  
+    if (iWiz > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iWiz; }  
+    if (iWMa > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iWMa; }  
+    if (iDNc > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iDNc; }  
+    if (iSor > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iSor; }  
+    if (iWit > iBest) { iAbility = ABILITY_WISDOM;       iBest = iWit; }  
+    if (iBeg > iBest) { iAbility = ABILITY_INTELLIGENCE; iBest = iBeg; }  
+    if (iDiv > iBest) { iAbility = ABILITY_WISDOM;       iBest = iDiv; }  
+    if (iSCh > iBest) { iAbility = ABILITY_CHARISMA;     iBest = iSCh; }  
+  
+    int nDC;  
+    if (iBest)   nDC =  20 + GetAbilityModifier(iAbility, oCaster);  
+    else         nDC =  20; // DC = 20 if the epic spell is cast some other way.  
+  
+    nDC += GetDCSchoolFocusAdjustment(oCaster, Get2DACache("spells", "school", nSpellID));  
+    nDC += GetChangesToSaveDC(oTarget, oCaster, nSpellID, GetSpellSchool(nSpellID));  
+  
+    return nDC;  
 }
 
 // Test main
