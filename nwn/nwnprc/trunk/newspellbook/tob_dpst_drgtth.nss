@@ -6,6 +6,10 @@
     ----------------
 
     27/01/08 by Stratovarius
+	
+	Fixed by: Jaysyn
+	On: 2026-05-25 19:11:53
+	
 */ /** @file
 
     Dragon's Tooth
@@ -23,7 +27,7 @@ void main()
 {
 	object oInitiator = OBJECT_SELF;
 	object oCreature = CreateObject(OBJECT_TYPE_PLACEABLE, "tob_dpst_pillar", PRCGetSpellTargetLocation());
-	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
+	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), PRCGetSpellTargetLocation());
 	while(GetIsObjectValid(oProneTarget))
 	{
 		int nDC = 10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
@@ -34,11 +38,11 @@ void main()
 			nDC += 1;
 		}      
 	// Save check
-		if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, nDC))
+		if (!PRCMySavingThrow(SAVING_THROW_REFLEX, oProneTarget, nDC))
 		{
 			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
 		}
 
-    	oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
+    	oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), PRCGetSpellTargetLocation());
 	}  	
 }

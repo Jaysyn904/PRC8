@@ -1968,16 +1968,24 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         return TRUE; // tried item creation but do not know how to do it
     }
 
-        // No point scribing Gems from items, and its not allowed.
-        if (oItem != OBJECT_INVALID)
-        {
-            FloatingTextStringOnCreature("You cannot attune a Gem from an item.", oCaster, FALSE);
-            return TRUE;
-        }
+	// Only allow arcane spellcasters  
+	int nClass = PRCGetLastSpellCastClass();  
+	if (!GetIsArcaneClass(nClass, oCaster))  
+	{  
+		FloatingTextStringOnCreature("Only arcane casters can attune gems.", oCaster, FALSE);  
+		return TRUE;  
+	}
+
+	// No point scribing Gems from items, and its not allowed.
+	if (oItem != OBJECT_INVALID)
+	{
+		FloatingTextStringOnCreature("You cannot attune a Gem from an item.", oCaster, FALSE);
+		return TRUE;
+	}
     // oTarget here should be the gem. If it's not, fail.
     if(!GetIsObjectValid(oTarget)) oTarget = PRCGetSpellTargetObject();
     // Only accepts bioware gems & Craftable Natural Resources gems, but not gem dust.
-	int bIsBioGem = (GetStringLeft(GetResRef(oTarget), 5) == "it_gem");
+	int bIsBioGem = (GetStringLeft(GetResRef(oTarget), 9) == "nw_it_gem");
 	int bIsCNRGem = (GetStringLeft(GetResRef(oTarget), 6) == "cnrgem");
 	int bIsDust   = (GetStringLeft(GetResRef(oTarget), 10) == "cnrgemdust");
 
@@ -1987,21 +1995,12 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
 		return TRUE;
 	}
 	
-/*     if ((GetStringLeft(GetResRef(oTarget), 5) == "it_gem") || (GetStringLeft(GetResRef(oTarget), 6) == "cnrgem") && (GetStringLeft(GetResRef(oTarget), 10) != "cnrgemdust"))
-    {
-        FloatingTextStringOnCreature("Spell target is not a valid gem.", oCaster, FALSE);
-        // And out we go
-        return TRUE;
-    } */
-
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
     int nDC = PRCGetSaveDC(oTarget, oCaster);
     if(!nSpell) nSpell = PRCGetSpellId();
     int nSpellLevel;
 
-    if (PRCGetLastSpellCastClass() == CLASS_TYPE_CLERIC || PRCGetLastSpellCastClass() == CLASS_TYPE_UR_PRIEST) nSpellLevel = StringToInt(lookup_spell_cleric_level(nSpell));
-    else if (PRCGetLastSpellCastClass() == CLASS_TYPE_DRUID) nSpellLevel = StringToInt(lookup_spell_druid_level(nSpell));
-    else if (PRCGetLastSpellCastClass() == CLASS_TYPE_WIZARD || PRCGetLastSpellCastClass() == CLASS_TYPE_SORCERER) nSpellLevel = StringToInt(lookup_spell_level(nSpell));
+	if (PRCGetLastSpellCastClass() == CLASS_TYPE_WIZARD || PRCGetLastSpellCastClass() == CLASS_TYPE_SORCERER) nSpellLevel = StringToInt(lookup_spell_level(nSpell));
     // If none of these work, check the innate level of the spell
     if (nSpellLevel == 0) nSpellLevel = StringToInt(lookup_spell_innate(nSpell));
     // Minimum level.
@@ -2034,13 +2033,13 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
 
     if (!GetHasGPToSpend(oCaster, costs.nGoldCost))
     {
-        FloatingTextStringOnCreature("You do not have enough gold to scribe this Gem.", oCaster, FALSE);
+        FloatingTextStringOnCreature("You do not have enough gold to attue this Gem.", oCaster, FALSE);
         // Since they don't have enough, the spell casts normally
         return TRUE;
     }
     if (!GetHasXPToSpend(oCaster, costs.nXPCost) )
     {
-        FloatingTextStringOnCreature("You do not have enough experience to scribe this Gem.", oCaster, FALSE);
+        FloatingTextStringOnCreature("You do not have enough experience to attune this Gem.", oCaster, FALSE);
         // Since they don't have enough, the spell casts normally
         return TRUE;
     }
@@ -2057,7 +2056,24 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
     }
 
     // Steal all the code from craft wand.
-    int nPropID = IPGetIPConstCastSpellFromSpellID(nSpell);
+    //int nPropID = IPGetIPConstCastSpellFromSpellID(nSpell);
+	
+	// Handle subradial spells - keep original for radial menu  
+	int nSpellOriginal = nSpell;  
+	int nSpellMaster = nSpellOriginal;  
+	if (GetIsSubradialSpell(nSpellOriginal))  
+	{  
+		nSpellMaster = GetMasterSpellFromSubradial(nSpellOriginal);  
+	}  
+	  
+	// Prefer iprp mapping for original subradial, fallback to master  
+	int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellOriginal);  
+	int nSpellUsedForIP = nSpellOriginal;  
+	if (nPropID < 0)  
+	{  
+		nPropID = IPGetIPConstCastSpellFromSpellID(nSpellMaster);  
+		nSpellUsedForIP = nSpellMaster;  
+	}
 
     // * GZ 2003-09-11: If the current spell cast is not acid fog, and
     // *                returned property ID is 0, bail out to prevent
@@ -2075,22 +2091,71 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         return TRUE;
     }
 
-    if (nPropID != -1)
+    if (nPropID != -1)  
+    {  
+        // Handle stack - reduce original stack by 1  
+        int nOriginalStack = GetItemStackSize(oTarget);  
+        if (nOriginalStack > 1)  
+            SetItemStackSize(oTarget, nOriginalStack - 1);  
+          
+        // Create a NEW single gem in a work container to prevent auto-stacking  
+        string sResRef = GetResRef(oTarget);  
+        object oWorkContainer = IPGetIPWorkContainer(oCaster);  
+        object oWorkGem = CreateItemOnObject(sResRef, oWorkContainer, 1);  
+          
+        // Add properties to the NEW gem only  
+        itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpellUsedForIP, PRCGetCasterLevel());  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel, oWorkGem);  
+        itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpellUsedForIP, PRCGetMetaMagicFeat());  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta, oWorkGem);  
+        itemproperty ipDC = ItemPropertyCastSpellDC(nSpellUsedForIP, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF));  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC, oWorkGem);  
+          
+        int nUseType = IP_CONST_CASTSPELL_NUMUSES_1_CHARGE_PER_USE;  
+        if (nCharges == 1)  
+        {  
+            nUseType = IP_CONST_CASTSPELL_NUMUSES_2_CHARGES_PER_USE;  
+            nCharges = 3;  
+        }  
+        itemproperty ipProp = ItemPropertyCastSpell(nPropID, nUseType);  
+        AddItemProperty(DURATION_TYPE_PERMANENT, ipProp, oWorkGem);  
+          
+        SetItemCharges(oWorkGem, nCharges);  
+        SetXP(oCaster, nNewXP);  
+        TakeGoldFromCreature(costs.nGoldCost, oCaster, TRUE);  
+  
+        string sName;  
+        sName = Get2DACache("spells", "Name", nSpellUsedForIP);  
+        sName = "Gem of "+GetStringByStrRef(StringToInt(sName));  
+        SetName(oWorkGem, sName);  
+  
+        // Copy the work gem to create the final attuned gem in caster's inventory  
+        object oNewGem = CopyObject(oWorkGem, GetLocation(oCaster), oCaster, "prc_attunegem");  
+          
+        // Destroy the work gem  
+        DestroyObject(oWorkGem, 0.1);  
+          
+        // If original stack was 1, destroy it too  
+        if (nOriginalStack == 1)  
+            DestroyObject(oTarget, 0.1);  
+    }
+	
+/*     if (nPropID != -1)
     {
-        itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, PRCGetCasterLevel());
+		// Handle stack splitting - reduce original stack and create single gem to work with  
+        int nOriginalStack = GetItemStackSize(oTarget);  
+        if (nOriginalStack > 1)  
+        {  
+            SetItemStackSize(oTarget, nOriginalStack - 1);  
+            oTarget = CreateItemOnObject(GetResRef(oTarget), oCaster, 1);  
+        }  
+		
+		itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, PRCGetCasterLevel());
         AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel, oTarget);
         itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpell, PRCGetMetaMagicFeat());
         AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta, oTarget);
         itemproperty ipDC = ItemPropertyCastSpellDC(nSpell, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF));
         AddItemProperty(DURATION_TYPE_PERMANENT,ipDC, oTarget);
-
-/*         if (nCharges == 1) // This is to handle one use Gems so the spellhooking works
-        {
-            itemproperty ipProp = ItemPropertyCastSpell(nPropID,IP_CONST_CASTSPELL_NUMUSES_2_CHARGES_PER_USE);
-            AddItemProperty(DURATION_TYPE_PERMANENT,ipProp, oTarget);
-            // This is done so the item exists when it is used for the game to read data off of
-            nCharges = 3;
-        } */
 		
 		int nUseType = IP_CONST_CASTSPELL_NUMUSES_1_CHARGE_PER_USE;
 		if (nCharges == 1)
@@ -2139,7 +2204,7 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
         object oNewGem = CopyObject(oTarget, GetLocation(oCaster), oCaster, "prc_attunegem");
         DestroyObject(oTarget, 0.1);
     }
-
+ */
     // If we have made it this far, they have crafted the Gem and the spell has been used up, so it returns false.
     return FALSE;
 }

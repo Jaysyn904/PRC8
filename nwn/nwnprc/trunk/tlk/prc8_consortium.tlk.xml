@@ -7347,7 +7347,7 @@ You make yourself - including clothing, armor, weapons and equipment - look diff
   <entry id="45448" lang="en" sex="m">Disguise Self, Normal Form</entry>
   <entry id="45449" lang="en" sex="m">Attune Gem</entry>
   <entry id="45450" lang="en" sex="m">Type of Feat: Item Creation
-Prerequisite: Intelligence 13, Arcane Spells level 2.
+Prerequisite: Intelligence 13, Arcane Spells level 3.
 Specifics: You can cast any arcane spell you have prepared as a gem. The caster must have the spell memorized to be able to create the gem. Crafting a gem costs Spell level * Caster level * 50 in gold pieces for a normal caster (half base cost). It also takes XP equal to 1/25th of the base cost. If you cannot pay the casting cost or the XP loss would drop you a level, the crafting will fail, and the spell will be lost. Crafting the gem requires a gem with a value of 50gp * spell level. A gem is permanent until used. Gems target those who activate them.
 Use: Selected.</entry>
   <entry id="45451" lang="en" sex="m">Epic Scout</entry>

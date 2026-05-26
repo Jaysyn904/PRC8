@@ -76,7 +76,6 @@ void main()
     	}
 
         // Impact Effects
-        //ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_DUR_FLOATING_DISK), GetLocation(oTarget));
-		ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_FLOATING_DISK), GetLocation(oTarget), 3.0f);
+        ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_BIGBYS_FORCEFUL_HAND), GetLocation(oTarget));
     }// end if - Successful utterance
 }

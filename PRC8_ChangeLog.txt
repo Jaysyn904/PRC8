@@ -1,4 +1,48 @@
 Commit: Jaysyn904
+Date: Sun May 24
+
+Warforged Scouts can take Warforged Juggernaut.
+FEAT_EXTRA_GRANTED_MANEUVER is for Crusaders, not Swordsages.
+FEAT_EXTRA_GRANTED_MANEUVER now shows all 5 granted maneuvers after 19th lvl.
+Mirror Image onCastAt script now uses PRCGetCasterLevel()
+Summon Hamatula now uses PRCGetCasterLevel()
+Spiritual Weapon now uses PRCGetCasterLevel()
+Heal & Harm now SignalEvent on placeables.  DEITY$ only knows how many modules this broke.
+Hospitaler had incorrect epic bonus feat progression
+Hospitaler had incorrect bonus feat list.
+Hospitaler was missing Ride from its skill list.
+Runecaster had incorrect epic bonus feat progression
+Runecaster had incorrect bonus feat list.
+Warmage Edge should work with magic staves.
+Added PRC_RETH_DEKALA_AURA_HOSTILE_ONLY switch and modified Vilefire aura to use it.
+Spells that use DoCone() should now respect Mastery of Shaping.
+Removed Hospitaler from list of classes that use the Fighter Bonus Feat list.
+ExtraordinarySpellAim() now handles persistent AoEs
+Acid Fog, Blade Barrier, Creeping Doom, Grease, Incindiary Cloud, Wall of Fire, Wall of Frost, Prismatic Wall, Prismatic Sphere, Sleet Storm and Spike Growth now respect Extraordinary Spell Aim.
+Archivist wasn't specifically set as a divine class in classes.2da.
+Added Create Infusion & Craft Scepter to the Archvist's feat 2da.
+The Lich class is now getting the correct level based stat updates.
+Fixed Create Infusion and Craft Scepter to use character level instead of caster level in feat.2da.
+Added default level up package for Scout.
+Added default level up package for Swashbuckler.
+Fixed the prc cache creature to be cutscene invisible, regardless of which function is creating it.
+Added special handling in PRCGetLastSpellCastClass() for Bard/Sublime Chord to fix the DC issue.
+Added more CEP2 wings to PRCIsFlying()
+Added X2_CI_CRAFTSCEPTER_FEAT_ID to CIGetIsSpellRestrictedFromCraftFeat()
+Fixed Small Shield handling in ArcaneSpellFailure()
+Fixed Troglodyte's racial Stench ability.
+Vow of Poverty dialog no longer shows up when you rest & chose to skil the feat for the previous level.
+Swashbuckler Grace now supports 60 levels.
+Swashbuckler Dodge now respects Daring Outlaw and supports 60 levels.
+Blinding Glory isn't a Glory Domain spell in the PRC8.
+Fixed TLK typo in Knight (Cavalier) package description.
+Fixed Contingent Resurrection from stealing epic spell slots.
+Fixed bonus spell slot itemprops for newspellbook casters. (@lightbeard)
+Fixed taking Ability Focus: Eldritch Blast from bricking a first level character.
+Archivist should use INT for epic spell DCs, not WIS.
+Fixed Sublime Chord epic spell DCs.
+
+Commit: Jaysyn904
 Date: Sat May 2 12:46:30 2026
 
 2026/04/02 Updated PRC8 Manual

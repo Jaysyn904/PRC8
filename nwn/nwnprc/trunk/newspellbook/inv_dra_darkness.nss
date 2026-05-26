@@ -39,14 +39,14 @@ void main()
         if(iAttackRoll > 0)
         {
             oItemTarget = GetItemInSlot(INVENTORY_SLOT_CHEST, oTarget);
-            if(!GetIsObjectValid(oTarget))
+            if(!GetIsObjectValid(oItemTarget))
             {
                 //no armor, check other slots
                 int i;
                 for(i=0;i<14;i++)
                 {
                     oItemTarget = GetItemInSlot(i, oTarget);
-                    if(GetIsObjectValid(oTarget))
+                    if(GetIsObjectValid(oItemTarget))
                         break;//end for loop
                 }
             }

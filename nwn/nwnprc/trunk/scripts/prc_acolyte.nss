@@ -26,8 +26,10 @@ void AcolyteSymbiosis(object oPC, object oSkin, int iLevel)
 {
     if(GetLocalInt(oSkin, "AcolyteSymbBonus") == iLevel) return;
 
-    RemoveSpecificProperty(oSkin, ITEM_PROPERTY_DAMAGE_REDUCTION, GetLocalInt(oSkin, "AcolyteSymbBonus"), IP_CONST_DAMAGESOAK_20_HP, 1, "AcolyteSymbBonus");
-    AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(iLevel, IP_CONST_DAMAGESOAK_20_HP), oSkin);
+    //RemoveSpecificProperty(oSkin, ITEM_PROPERTY_DAMAGE_REDUCTION, GetLocalInt(oSkin, "AcolyteSymbBonus"), IP_CONST_DAMAGESOAK_20_HP, 1, "AcolyteSymbBonus");
+	RemoveSpecificProperty(oSkin, ITEM_PROPERTY_DAMAGE_REDUCTION, IP_CONST_DAMAGESOAK_20_HP, GetLocalInt(oSkin, "AcolyteSymbBonus"), 1, "AcolyteSymbBonus");
+    //AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(iLevel, IP_CONST_DAMAGESOAK_20_HP), oSkin);
+	AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(IP_CONST_DAMAGESOAK_20_HP, iLevel), oSkin);
     SetLocalInt(oSkin, "AcolyteSymbBonus", iLevel);
 }
 

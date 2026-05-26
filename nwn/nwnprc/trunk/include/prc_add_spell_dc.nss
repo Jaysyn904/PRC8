@@ -690,7 +690,7 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
 
 int PRCGetSaveDC(object oTarget, object oCaster, int nSpellID = -1)
 {
-    object oItem = GetSpellCastItem();
+    object oItem = PRCGetSpellCastItem();
     if(nSpellID == -1)
         nSpellID = PRCGetSpellId();
     int nSchool = GetSpellSchool(nSpellID);        

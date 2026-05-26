@@ -3503,6 +3503,21 @@ int X2PreSpellCastCode2()
 			nContinue = FALSE;			
 		}
 	}
+
+	//---------------------------------------------------------------------------  
+    // Attuned Gem Use check  
+    //---------------------------------------------------------------------------	  
+	if(nContinue && (GetBaseItemType(oSpellCastItem) == BASE_ITEM_GEM) && (GetTag(oSpellCastItem) == "prc_attunegem"))  
+	{  
+		int bIsSubradial = GetIsSubradialSpell(nSpellID);  
+	  
+		if(bIsSubradial)  
+		{  
+			nSpellID = GetMasterSpellFromSubradial(nSpellID);  
+		}  
+		int nItemCL = GetCastSpellCasterLevelFromItem(oSpellCastItem, nSpellID);  
+		if(DEBUG) DoDebug("x2_inc_spellhook >> X2PreSpellCastCode2: Attuned Gem Found");		  
+	}
 	
 	//---------------------------------------------------------------------------
     // No casting while using expertise    
