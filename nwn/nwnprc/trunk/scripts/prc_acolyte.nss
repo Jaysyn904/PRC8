@@ -10,6 +10,7 @@
 //:://////////////////////////////////////////////
 #include "prc_feat_const"
 #include "inc_item_props"
+#include "prc_x2_itemprop"
 
 // * Applies the Acolyte's AC bonuses as CompositeBonuses on object's skin.
 // * iLevel = integer AC Bonus
@@ -22,15 +23,12 @@ void AcolyteFiendSkin(object oPC, object oSkin, int iLevel)
 
 // * Applies the Acolyte's damage reduction bonuses as CompositeBonuses on object's skin.
 // * iLevel = IP_CONST_DAMAGEREDUCTION_*
-void AcolyteSymbiosis(object oPC, object oSkin, int iLevel)
-{
-    if(GetLocalInt(oSkin, "AcolyteSymbBonus") == iLevel) return;
-
-    //RemoveSpecificProperty(oSkin, ITEM_PROPERTY_DAMAGE_REDUCTION, GetLocalInt(oSkin, "AcolyteSymbBonus"), IP_CONST_DAMAGESOAK_20_HP, 1, "AcolyteSymbBonus");
-	RemoveSpecificProperty(oSkin, ITEM_PROPERTY_DAMAGE_REDUCTION, IP_CONST_DAMAGESOAK_20_HP, GetLocalInt(oSkin, "AcolyteSymbBonus"), 1, "AcolyteSymbBonus");
-    //AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(iLevel, IP_CONST_DAMAGESOAK_20_HP), oSkin);
-	AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageReduction(IP_CONST_DAMAGESOAK_20_HP, iLevel), oSkin);
-    SetLocalInt(oSkin, "AcolyteSymbBonus", iLevel);
+void AcolyteSymbiosis(object oPC, object oSkin, int iLevel)  
+{  
+    itemproperty ipIP = ItemPropertyDamageReduction(iLevel, IP_CONST_DAMAGESOAK_20_HP);  
+    IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, FALSE);  
+      
+    SetLocalInt(oSkin, "AcolyteSymbBonus", iLevel);  
 }
 
 // * Applies the Acolyte's stat bonuses as CompositeBonuses on object's skin.

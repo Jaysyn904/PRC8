@@ -1,3 +1,6 @@
+//
+// prc_sneak_att.nss
+//
 // Written by WodahsEht.
 // Calculates the total sneak attack damage die given by all classes,
 // and applies the resulting bonuses to the skin.  KNOWN ISSUE:
@@ -114,6 +117,13 @@ void main()
    int iRogueSneakDice = GetRogueSneak(oPC);
    int iBlackguardSneakDice = GetBlackguardSneak(oPC);
 
+   // Daring Outlaw: Add half of Swashbuckler levels to Rogue sneak attack  
+   if (GetHasFeat(FEAT_DARING_OUTLAW, oPC))  
+   {  
+       int nSwashbucklerLevel = GetLevelByClass(CLASS_TYPE_SWASHBUCKLER, oPC);  
+       iRogueSneakDice += (nSwashbucklerLevel / 2);  
+   }
+   
    // Special case in case someone multiclasses Telflammar Shadowlord and Assassin -- These are the only
    // two classes that use Assassin Death Attack, and normally they would not stack.
    if((GetLevelByClass(CLASS_TYPE_SHADOWLORD) >= 6) && (GetLevelByClass(CLASS_TYPE_ASSASSIN)))

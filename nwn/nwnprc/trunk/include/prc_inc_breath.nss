@@ -795,9 +795,13 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
                      {
                         //Mettle is Evasion for Fort saves
 		                if (GetHasMettle(oTarget, SAVING_THROW_FORT))
+						{
 		    		        nAdjustedDamage = 0;                              
-                            
-                        nAdjustedDamage /= 2;
+						}
+						else
+						{
+							nAdjustedDamage /= 2;
+						}
                      }
                  }
 	        	 else

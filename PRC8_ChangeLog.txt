@@ -1,5 +1,15 @@
 Commit: Jaysyn904
-Date: Sun May 25
+Date: Tues May 26
+
+Added SoundImpact to Damning Darkness in vfx_persistent.2da.
+Updated CheckPRCLimitations() to make Darkness, Deeper Darkness & Damning Darkness work better.
+Fixed PnP Darkness & PnP Damning Darkness.
+Fixed Oversized Two-Weapon Fighting.
+Updated TLK for Attune Gem.
+Fixed typo in Calm Emotions description.
+
+Commit: Jaysyn904
+Date: Mon May 25
 
 Attune Gem was using the wrong prereqs.
 Attune Gem didn't handle radial spells properly.

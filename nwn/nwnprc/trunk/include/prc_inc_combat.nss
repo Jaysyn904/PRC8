@@ -3759,9 +3759,20 @@ int GetAttackBonus(object oDefender, object oAttacker, object oWeap, int iOffhan
         && GetHasFeat(FEAT_INTUITIVE_ATTACK, oAttacker) )
             iAbilityBonus = iWis;
 
-    //touch attacks always use dex, no matter what. Therefore override any calculations we have done so far
+	//touch attacks always use dex, no matter what. Therefore override any calculations we have done so far  
+	//unless it's a ranged touch attack and the attacker has Zen Archery with higher WIS  
+	if(iTouchAttackType)  
+	{  
+		if((iTouchAttackType == TOUCH_ATTACK_RANGED || iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL)  
+			&& iWis > iDex && GetHasFeat(FEAT_ZEN_ARCHERY, oAttacker))  
+			iAbilityBonus = iWis;  
+		else  
+			iAbilityBonus = iDex;  
+	}
+
+/*     //touch attacks always use dex, no matter what. Therefore override any calculations we have done so far
     if(iTouchAttackType)
-        iAbilityBonus = iDex;
+        iAbilityBonus = iDex; */
 
      // Expertise penalties apply to all attack rolls
      if     (iCombatMode == COMBAT_MODE_EXPERTISE)          iCombatModeBonus -= 5;

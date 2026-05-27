@@ -1726,6 +1726,24 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
 
     if(!GetIsObjectValid(oTarget)) oTarget = PRCGetSpellTargetObject();
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
+
+	// Get the spell and class  
+	if(!nSpell) nSpell = PRCGetSpellId();  
+	int nLastClass = PRCGetLastSpellCastClass();  
+	  
+	// Check if the casting class is divine  
+	if (!GetIsDivineClass(nLastClass))  
+	{  
+		FloatingTextStringOnCreature("Inscribe Rune can only be used with divine spells.", oCaster, FALSE);  
+		return TRUE;  
+	}  
+	  
+	// Check if the spell is on the caster's divine spell list  
+	if (!GetHasSpellOnClassList(oCaster, nSpell))  
+	{  
+		FloatingTextStringOnCreature("You must have this spell on your divine spell list to inscribe it.", oCaster, FALSE);  
+		return TRUE;  
+	}
 	
 //:: Check for Inscribe Epic Runes and cap CL at 20 if it doesn't exist.
 	int bEpicRunes = GetHasFeat(EPIC_FEAT_INSCRIBE_EPIC_RUNES, oCaster);
@@ -1744,7 +1762,6 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
     // Runecraft local int that counts uses/charges
     int nCount = GetLocalInt(oCaster, "RuneCounter");
 
-    int nLastClass = PRCGetLastSpellCastClass();
     if (nLastClass == CLASS_TYPE_CLERIC || nLastClass == CLASS_TYPE_UR_PRIEST) nSpellLevel = StringToInt(lookup_spell_cleric_level(nSpell));
     else if (nLastClass == CLASS_TYPE_DRUID) nSpellLevel = StringToInt(lookup_spell_druid_level(nSpell));
     else if (nLastClass == CLASS_TYPE_WIZARD || nLastClass == CLASS_TYPE_SORCERER) nSpellLevel = StringToInt(lookup_spell_level(nSpell));
@@ -3623,31 +3640,6 @@ int CICraftCheckCreateInfusion(object oSpellTarget, object oCaster, int nID = 0)
 		FloatingTextStrRefOnCreature(76417, oCaster); // Item creation failed
 		return TRUE;
 	}
-
-/*     // -------------------------------------------------------------------------
-    // Create the infused herb item
-    // -------------------------------------------------------------------------
-    object oInfusion = CICreateInfusion(oCaster, nID);
-
-    if (GetIsObjectValid(oInfusion))
-    {
-        SetIdentified(oInfusion, TRUE);
-        ActionPlayAnimation(ANIMATION_FIREFORGET_READ, 1.0);
-        SpendXP(oCaster, costs.nXPCost);
-        SpendGP(oCaster, costs.nGoldCost);
-        DestroyObject(oSpellTarget);
-        FloatingTextStrRefOnCreature(8502, oCaster); // Item creation successful
-
-        if (!costs.nTimeCost) costs.nTimeCost = 1;
-        AdvanceTimeForPlayer(oCaster, RoundsToSeconds(costs.nTimeCost));
-        return TRUE;
-    }
-    else
-    {
-        FloatingTextStringOnCreature("Infusion creation failed", oCaster); // Item creation failed
-		FloatingTextStrRefOnCreature(76417, oCaster); // Item creation failed
-        return TRUE;
-    } */
 
     return FALSE;
 }

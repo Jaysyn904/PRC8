@@ -947,7 +947,72 @@ int SpellAlignmentRestrictions(object oCaster, int nSpellID, int nCastingClass)
     return TRUE;
 }
 
-int RedWizRestrictedSchool(object oCaster, int nSchool, int nCastingClass, object oSpellCastItem)
+int RedWizRestrictedSchool(object oCaster, int nSchool, int nCastingClass, object oSpellCastItem)  
+{  
+    // No need for wasting CPU on non-Red Wizards  
+    if(GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster))  
+    {  
+        //can't cast prohibited spells from scrolls, wands, infused herbs, scepters, runes, gems, or skull talismans  
+        if(GetIsObjectValid(oSpellCastItem))  
+        {  
+            int nType = GetBaseItemType(oSpellCastItem);  
+            string sTag = GetTag(oSpellCastItem);  
+              
+            // Check base item types for standard items  
+            if(nType != BASE_ITEM_MAGICWAND  
+            && nType != BASE_ITEM_ENCHANTED_WAND  
+            && nType != BASE_ITEM_SCROLL  
+            && nType != BASE_ITEM_SPELLSCROLL  
+            && nType != BASE_ITEM_ENCHANTED_SCROLL  
+            && nType != BASE_ITEM_INFUSED_HERB  
+            && nType != BASE_ITEM_CRAFTED_SCEPTER)  // ADD THIS LINE  
+            {  
+                // Check tags for custom crafted items  
+                if(sTag != "prc_rune_1"  
+                && sTag != "prc_attunegem"  
+                && sTag != "prc_skulltalis")  
+                    return TRUE;  
+            }  
+        }  
+        else  
+        {  
+            // Direct casting: skip restriction for divine classes  
+            if(GetIsDivineClass(nCastingClass))  
+                return TRUE;  
+        }  
+  
+        // Determine forbidden schools  
+        int iRWRes;  
+        switch(nSchool)  
+        {  
+            case SPELL_SCHOOL_ABJURATION:    iRWRes = FEAT_RW_RES_ABJ; break;  
+            case SPELL_SCHOOL_CONJURATION:   iRWRes = FEAT_RW_RES_CON; break;  
+            case SPELL_SCHOOL_DIVINATION:    iRWRes = FEAT_RW_RES_DIV; break;  
+            case SPELL_SCHOOL_ENCHANTMENT:   iRWRes = FEAT_RW_RES_ENC; break;  
+            case SPELL_SCHOOL_EVOCATION:     iRWRes = FEAT_RW_RES_EVO; break;  
+            case SPELL_SCHOOL_ILLUSION:      iRWRes = FEAT_RW_RES_ILL; break;  
+            case SPELL_SCHOOL_NECROMANCY:    iRWRes = FEAT_RW_RES_NEC; break;  
+            case SPELL_SCHOOL_TRANSMUTATION: iRWRes = FEAT_RW_RES_TRS; break;  
+        }  
+  
+        // Compare the spell's school versus the restricted schools  
+        if(iRWRes && GetHasFeat(iRWRes, oCaster))  
+        {  
+            FloatingTextStrRefOnCreature(16822359, oCaster, FALSE); // "You cannot cast spells of your prohibited schools. Spell terminated."  
+            return FALSE;  
+        }  
+        // Other arcane casters cannot benefit from red wizard bonuses  
+        if(GetIsArcaneClass(nCastingClass) && nCastingClass != CLASS_TYPE_WIZARD)  
+        {  
+            FloatingTextStringOnCreature("You have attempted to illegaly merge another arcane caster with a Red Wizard. All spellcasting will now fail.", oCaster, FALSE);  
+            return FALSE;  
+        }  
+    }  
+  
+    return TRUE;  
+}
+
+/* int RedWizRestrictedSchool(object oCaster, int nSchool, int nCastingClass, object oSpellCastItem)
 {
     // No need for wasting CPU on non-Red Wizards
     if(GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster))
@@ -994,7 +1059,7 @@ int RedWizRestrictedSchool(object oCaster, int nSchool, int nCastingClass, objec
 
     return TRUE;
 }
-
+ */
 int PnPSpellSchools(object oCaster, int nCastingClass, int nSchool, object oSpellCastItem)
 {
     if(GetPRCSwitch(PRC_PNP_SPELL_SCHOOLS)
