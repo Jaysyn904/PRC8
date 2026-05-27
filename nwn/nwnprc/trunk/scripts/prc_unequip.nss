@@ -225,6 +225,10 @@ void DoWeaponUnequip(object oPC, object oItem)
         }    
     }         
 
+    // Clear OTWF bonuses  
+    SetCompositeAttackBonus(oPC, "OTWFL", 0, ATTACK_BONUS_OFFHAND);  
+    SetCompositeAttackBonus(oPC, "OTWFR", 0, ATTACK_BONUS_ONHAND);
+	
     // if(DEBUG) DoDebug("prc_restwpnsize - OnUnEquip");  // <-script no longer exists
 
     // remove any TWF penalties

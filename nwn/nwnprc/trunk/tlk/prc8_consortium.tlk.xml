@@ -7347,7 +7347,7 @@ You make yourself - including clothing, armor, weapons and equipment - look diff
   <entry id="45448" lang="en" sex="m">Disguise Self, Normal Form</entry>
   <entry id="45449" lang="en" sex="m">Attune Gem</entry>
   <entry id="45450" lang="en" sex="m">Type of Feat: Item Creation
-Prerequisite: Intelligence 13, Arcane Spells level 3.
+Prerequisite: Intelligence 13, Craft (General) 1, Arcane Spells level 3.
 Specifics: You can cast any arcane spell you have prepared as a gem. The caster must have the spell memorized to be able to create the gem. Crafting a gem costs Spell level * Caster level * 50 in gold pieces for a normal caster (half base cost). It also takes XP equal to 1/25th of the base cost. If you cannot pay the casting cost or the XP loss would drop you a level, the crafting will fail, and the spell will be lost. Crafting the gem requires a gem with a value of 50gp * spell level. A gem is permanent until used. Gems target those who activate them.
 Use: Selected.</entry>
   <entry id="45451" lang="en" sex="m">Epic Scout</entry>
@@ -27344,7 +27344,7 @@ Save: Will negates
 Spell Resistance: Yes
 
 This spell calms agitated creatures. You have no control over the affected creatures, but Calm Emotions can stop raging creatures from fighting or joyous ones from reveling. Creatures so affected cannot take violent actions (although they can defend themselves) or do anything destructive. Any aggressive action against or damage dealt to a calmed creature immediately breaks the spell on all calmed creatures.
-This spell automatically suppresses any morale bonuses granted by spells such as Bless, Good Hope and Rage, as well as negating a Bard's ability to inspire courage or a Barbarian's rage ability. It also suppresses any feat effects and removes the Confused condition from all targets.</entry>
+This spell automatically suppresses any morale bonuses granted by spells such as Bless, Good Hope and Rage, as well as negating a Bard's ability to inspire courage or a Barbarian's rage ability. It also suppresses any fear effects and removes the Confused condition from all targets.</entry>
   <entry id="51124" lang="en" sex="m">Repulsion</entry>
   <entry id="51125" lang="en" sex="m">School: Abjuration
 Level: Cleric/Healer 7, Sorcerer/Wizard 6

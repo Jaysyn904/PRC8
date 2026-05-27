@@ -1,4 +1,23 @@
 Commit: Jaysyn904
+Date: Sun May 25
+
+Attune Gem was using the wrong prereqs.
+Attune Gem didn't handle radial spells properly.
+Attune Gem incorrectly allowed divine spells.
+Attune Gem was checking the wrong resref for vanilla gems.
+Attune Gem didn't handle stacks of gems properly.
+Updated Attune Gem's TLK entry.
+PRCGetSaveDC() wasn't using PRCGetSpellCastItem().
+Damning Darkness' vfx_persistent.2da entry was typoed.
+Damning Darkness was checking the wrong object for inventory item for validity.
+Darkness invocation was checking the wrong object for inventory item for validity.
+Deeper Darkness was checking the wrong object for inventory item for validity.
+Darkness was checking the wrong object for inventory item for validity.
+Fixed Dragon's Tooth range & save.
+Hopefully fixed Seize Items' VFX.
+Fixed Acolyte of the Skin's DR.
+
+Commit: Jaysyn904
 Date: Sun May 24
 
 Warforged Scouts can take Warforged Juggernaut.
@@ -41,6 +60,7 @@ Fixed bonus spell slot itemprops for newspellbook casters. (@lightbeard)
 Fixed taking Ability Focus: Eldritch Blast from bricking a first level character.
 Archivist should use INT for epic spell DCs, not WIS.
 Fixed Sublime Chord epic spell DCs.
+
 
 Commit: Jaysyn904
 Date: Sat May 2 12:46:30 2026

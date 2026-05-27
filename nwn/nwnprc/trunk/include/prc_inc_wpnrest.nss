@@ -1142,7 +1142,16 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
 	//:: Proceed with OSTWF bonuses if the restrictions are not met
 	if (!bIsRestricted)
 	{
-		if (GetHasFeat(FEAT_OTWF, oPC))
+		if (GetHasFeat(FEAT_OTWF, oPC))  
+		{   
+			// When wielding a one-handed weapon in your off hand, you take penalties for fighting with two weapons as if you were wielding a light weapon in your off hand  
+			if (nWeaponSize == nRealSize && nHand == ATTACK_BONUS_OFFHAND)  
+			{  
+				SetCompositeAttackBonus(oPC, "OTWFL", 2, ATTACK_BONUS_OFFHAND);  
+				SetCompositeAttackBonus(oPC, "OTWFR", 2, ATTACK_BONUS_ONHAND);  
+			}  
+		}
+/* 		if (GetHasFeat(FEAT_OTWF, oPC))
 		{ 
 			// When wielding a one-handed weapon in your off hand, you take penalties for fighting with two weapons as if you were wielding a light weapon in your off hand
 			if (nWeaponSize == nRealSize && nHand == ATTACK_BONUS_OFFHAND)
@@ -1156,7 +1165,7 @@ void DoWeaponEquip(object oPC, object oItem, int nHand)
 				SetCompositeAttackBonus(oPC, "OTWFR", 0, ATTACK_BONUS_ONHAND);				
 			}
 			
-		}
+		} */
 	}
 
     //check for proficiency

@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
 //:: Name      Damning Darkness
-//:: FileName  sp_damng_dark.nss
+//:: FileName  sp_damng_darka.nss
 //:://////////////////////////////////////////////
 /**@file Damning Darkness
 Evocation [Darkness, Evil]
@@ -31,55 +31,116 @@ tiny needle hidden inside it.
 
 Author:    Tenjac
 Created:   6/12/06
+
+Fixed by: Jaysyn
+Date: 2026-05-26 19:53:19
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-void DarkLoop(object oTarget, object oPC);
-
-
 #include "prc_alterations"
 #include "prc_inc_spells"
 
-void main()
-{
-    PRCSetSchool(SPELL_SCHOOL_EVOCATION);
-    
-    object oTarget = GetEnteringObject();
-    object oPC = GetAreaOfEffectCreator();
-    int nMetaMagic = PRCGetMetaMagicFeat(); 
-    int nCasterLvl = PRCGetCasterLevel(oPC);
-    effect eDark = EffectDarkness();
-    effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
-    effect eLink = EffectLinkEffects(eDark, eDur);
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, (600.0f * nCasterLvl));
+void DarkLoop(object oTarget, object oPC, int nMetaMagic); 
+  
+  
+void main()  
+{  
+    PRCSetSchool(SPELL_SCHOOL_EVOCATION);  
+      
+    int nMetaMagic = PRCGetMetaMagicFeat();  
+    effect eInvis = EffectInvisibility(INVISIBILITY_TYPE_DARKNESS);  
+    effect eDark = EffectDarkness();  
+    effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);  
+	  
+    effect eLink = EffectLinkEffects(eDark, eDur);  
+	eLink = TagEffect(eLink, "BIO_DARKNESS");  
+	  
+    effect eLink2 =  EffectLinkEffects(eInvis, eDur);  
+	eLink2 = TagEffect(eLink2, "PNP_DARKNESS");  
+  
+    effect ePnP = EffectLinkEffects(eDur, EffectDarkness());  
+    if(GetPRCSwitch(PRC_PNP_DARKNESS_35ED))  
+    {  
+		ePnP = EffectLinkEffects(eDur, EffectConcealment(20));  
+		ePnP = TagEffect(ePnP, "PNP35_DARKNESS");  
+	}	  
+  
+    object oTarget = GetEnteringObject();  
+    object oPC = GetAreaOfEffectCreator();  
+    int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD,oTarget);  
+  
+    if (iShadow)  
+        SPApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectUltravision(), oTarget,0.0f,FALSE);  
+    if (iShadow>1)  
+      SPApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectConcealment(20), oTarget,0.0f,FALSE);  
+  
+    int nDuration = PRCGetCasterLevel(oPC);  
+    if ((nMetaMagic & METAMAGIC_EXTEND))  
+    {  
+        nDuration = nDuration *2;  
+    }  
+      
+    if(GetIsObjectValid(oTarget) && oTarget != oPC)  
+    {  
+        if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oPC))  
+        {  
+            SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_DAMNING_DARKNESS));  
+        }  
+        else  
+        {  
+            SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_DAMNING_DARKNESS, FALSE));  
+        }  
+          
+        if (iShadow)  
+          SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink2, oTarget,0.0f,FALSE);  
+        else    
+        {  
+            if(GetPRCSwitch(PRC_PNP_DARKNESS))  
+                SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ePnP, oTarget,0.0f,FALSE);  
+            else  
+                SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget,0.0f,FALSE);  
+        }    
+    }  
+    else if (oTarget == oPC)  
+    {  
+        SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_DAMNING_DARKNESS, FALSE));  
+        if(GetPRCSwitch(PRC_PNP_DARKNESS))  
+            SPApplyEffectToObject(DURATION_TYPE_PERMANENT, ePnP, oTarget,0.0f,FALSE);  
+        else  
+            SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink2, oTarget,0.0f,FALSE);  
+    }  
+  
+    // Set local variable to mark target as in AOE for damage tracking  
+    SetLocalInt(oTarget, "PRC_DamningDarkness_InAOE", TRUE);  
+      
+    // Start damage loop  
+    DarkLoop(oTarget, oPC, nMetaMagic);   
+      
+    PRCSetSchool();  
+}  
+  
+void DarkLoop(object oTarget, object oPC, int nMetaMagic)    
+{       
+    // Check if target is still marked as being in the AOE    
+    if(GetIsObjectValid(oTarget) && GetLocalInt(oTarget, "PRC_DamningDarkness_InAOE"))    
+    {           
+        if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_GOOD)    
+        {    
+        	int nDam = PRCMaximizeOrEmpower(6, 2, nMetaMagic) + SpellDamagePerDice(oPC, 2);    
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);    
+        }    
             
-    DarkLoop(oTarget, oPC);
-    
-    PRCSetSchool();
-}
-        
-void DarkLoop(object oTarget, object oPC)
-{   
-    if(GetIsObjectValid(oTarget))
-    {       
-        if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_GOOD)
-        {
-        	int nDam = SpellDamagePerDice(oPC, 2) + d6(2);
-            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);
-        }
-        
-        else if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_NEUTRAL)
-        {
-        	int nDam = SpellDamagePerDice(oPC, 2) + d6(2);
-            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);
-        }
-        
-        else
-        {
-            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE), oTarget, 1.0f);
-        }
+        else if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_NEUTRAL)    
+        {    
+        	int nDam = PRCMaximizeOrEmpower(6, 1, nMetaMagic) + SpellDamagePerDice(oPC, 1);    
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);    
+        }    
             
-    }
-    DelayCommand(6.0f, DarkLoop(oTarget, oPC));
-    
+        else    
+        {    
+            // Evil creatures take no damage    
+        }    
+                
+    }    
+    DelayCommand(6.0f, DarkLoop(oTarget, oPC, nMetaMagic));    
 }

@@ -9,6 +9,10 @@
     Modified: June 12, 2006
 
     Flaming_Sword: Added touch attack roll
+	
+	Fixed by: Jaysyn
+	Date: 2026-05-26 19:53:19
+
 */
 
 #include "prc_sp_func"
@@ -53,54 +57,75 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel)
         object oAoE = GetAreaOfEffectObject(GetSpellTargetLocation(), "VFX_PER_DARKNESS");
         SetAllAoEInts(SPELL_DARKNESS, oAoE, PRCGetSpellSaveDC(SPELL_DARKNESS, SPELL_SCHOOL_EVOCATION), 0, nCasterLevel);
     }
-    else
-    {
-        object oItemTarget = oTarget;
-        if(GetObjectType(oTarget) == OBJECT_TYPE_CREATURE)
-        {   //touch attack roll if target creature is not an ally
-            // ally = friendly or party member
-            if(!spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))
-                iAttackRoll = PRCDoMeleeTouchAttack(oTarget);
-
-            if(iAttackRoll > 0)
-            {
-                oItemTarget = GetItemInSlot(INVENTORY_SLOT_CHEST, oTarget);
-                if(!GetIsObjectValid(oItemTarget))
-                {
-                    //no armor, check other slots
-                    int i;
-                    for(i=0;i<14;i++)
-                    {
-                        oItemTarget = GetItemInSlot(i, oTarget);
-                        if(GetIsObjectValid(oItemTarget))
-                            break;//end for loop
-                    }
-                }
-            }
-        }
-        else if(GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE)
-        {
-            SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eAOE, oTarget, fDuration, TRUE, -1, nCasterLevel);
-
-            object oAoE = GetAreaOfEffectObject(GetSpellTargetLocation(), "VFX_PER_DARKNESS");
-            SetAllAoEInts(SPELL_DARKNESS, oAoE, PRCGetSpellSaveDC(SPELL_DARKNESS, SPELL_SCHOOL_EVOCATION), 0, nCasterLevel);
-        }
-        // If nothing is valid
-        else if (!GetIsObjectValid(oItemTarget) && !GetIsObjectValid(oItemTarget))
-        {
-            ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, PRCGetSpellTargetLocation(), fDuration);
-
-            object oAoE = GetAreaOfEffectObject(GetSpellTargetLocation(), "VFX_PER_DARKNESS");
+        else      
+    {      
+        object oItemTarget = oTarget;      
+        
+        if(GetObjectType(oTarget) == OBJECT_TYPE_CREATURE)        
+        {   //touch attack roll if target creature is not an ally        
+            if(!spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))        
+                iAttackRoll = PRCDoMeleeTouchAttack(oTarget);        
+        
+            if(iAttackRoll > 0)        
+            {        
+                oItemTarget = GetItemInSlot(INVENTORY_SLOT_CHEST, oTarget);   
+				if(DEBUG) DoDebug("Darkness: Chest item = " + DebugObject2Str(oItemTarget));				  
+                if(!GetIsObjectValid(oItemTarget))        
+                {        
+                    //no armor, check other slots        
+                    int i;        
+                    for(i=0;i<14;i++)        
+                    {        
+                        oItemTarget = GetItemInSlot(i, oTarget);        
+                        if(GetIsObjectValid(oItemTarget))   
+						{  
+							if(DEBUG) DoDebug("Darkness: Found item in slot " + IntToString(i));							  
+                            break;//end for loop   
+						}							  
+                    }        
+                }  
+                  
+                // Apply item property if valid item found  
+                if(GetIsObjectValid(oItemTarget))  
+                {  
+                    if(DEBUG) DoDebug("Darkness: Applying IP to " + DebugObject2Str(oItemTarget));   
+                    itemproperty ipDarkness = ItemPropertyAreaOfEffect(IP_CONST_AOE_DARKNESS, nCasterLevel);        
+                    IPSafeAddItemProperty(oItemTarget, ipDarkness, fDuration);        
+                    if(DEBUG) DoDebug("Darkness: IP applied");  
+                    DelayCommand(0.1, VoidCheckPRCLimitations(oItemTarget, OBJECT_INVALID));  
+                }  
+                // Otherwise fall through to location-based AOE  
+            }        
+            else        
+            {        
+                // Touch attack failed - do nothing        
+                return 0;        
+            }        
+        }     
+        else if(GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE)              
+        {              
+            ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, PRCGetSpellTargetLocation(), fDuration);  
+              
+            object oAoE = GetAreaOfEffectObject(GetSpellTargetLocation(), "VFX_PER_DARKNESS");      
             SetAllAoEInts(SPELL_DARKNESS, oAoE, PRCGetSpellSaveDC(SPELL_DARKNESS, SPELL_SCHOOL_EVOCATION), 0, nCasterLevel);        
-        }
-        else
-        {
-            //otherwise items get an IP
-            itemproperty ipDarkness = ItemPropertyAreaOfEffect(IP_CONST_AOE_DARKNESS, nCasterLevel);
-            IPSafeAddItemProperty(oItemTarget, ipDarkness, fDuration);
-            //this applies the effects relating to it
-            DelayCommand(0.1, VoidCheckPRCLimitations(oItemTarget, OBJECT_INVALID));
-        }
+        }     
+        // Ground casting or creatures with no equipment - location-based AOE      
+        else if(GetObjectType(oTarget) != OBJECT_TYPE_CREATURE || !GetIsObjectValid(oItemTarget))        
+        {        
+            ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eAOE, PRCGetSpellTargetLocation(), fDuration);        
+        
+            object oAoE = GetAreaOfEffectObject(GetSpellTargetLocation(), "VFX_PER_DARKNESS");        
+            SetAllAoEInts(SPELL_DARKNESS, oAoE, PRCGetSpellSaveDC(SPELL_DARKNESS, SPELL_SCHOOL_EVOCATION), 0, nCasterLevel);        
+        }    
+        // Valid item found on creature - apply item property      
+        else      
+        {      
+            if(DEBUG) DoDebug("Darkness: Applying IP to " + DebugObject2Str(oItemTarget)); 
+			itemproperty ipDarkness = ItemPropertyAreaOfEffect(IP_CONST_AOE_DARKNESS, nCasterLevel);      
+            IPSafeAddItemProperty(oItemTarget, ipDarkness, fDuration);      
+            if(DEBUG) DoDebug("Darkness: IP applied");
+			DelayCommand(0.1, VoidCheckPRCLimitations(oItemTarget, OBJECT_INVALID));      
+        }      
     }
 
     return iAttackRoll;    //return TRUE if spell charges should be decremented

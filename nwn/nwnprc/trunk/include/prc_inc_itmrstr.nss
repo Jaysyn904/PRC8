@@ -458,7 +458,32 @@ int CheckPRCLimitations(object oItem, object oPC = OBJECT_INVALID)
                     DURATION_TYPE_TEMPORARY);
             }
         }
-        else if(ipType == ITEM_PROPERTY_AREA_OF_EFFECT)
+		else if(ipType == ITEM_PROPERTY_AREA_OF_EFFECT)  
+		{  
+			// This should happen on equip, unequip, or dynamic IP addition  
+			if(bEquip || bUnequip || !bEquip && !bUnequip)  
+			{  
+				// Remove existing AoE  
+				effect eTest = GetFirstEffect(oPC);  
+				while(GetIsEffectValid(eTest))  
+				{  
+					if(GetEffectCreator(eTest) == oItem  
+					   && GetEffectType(eTest) == EFFECT_TYPE_AREA_OF_EFFECT)  
+					{  
+						RemoveEffect(oPC, eTest);  
+						if(DEBUG) DoDebug("CheckPRCLimitations: Removing old AoE effect");  
+					}  
+					eTest = GetNextEffect(oPC);  
+				}  
+		  
+				// Create new AoE - Skip when unequipping  
+				if(!bUnequip)  
+				{  
+					AssignCommand(oItem, _prc_inc_itmrstr_ApplyAoE(oPC, oItem, GetItemPropertySubType(ipTest), GetItemPropertyCostTable(ipTest)));  
+				}  
+			}  
+		}		
+/*         else if(ipType == ITEM_PROPERTY_AREA_OF_EFFECT)
         {
 
             // This should only happen on equip or unequip
@@ -483,7 +508,7 @@ int CheckPRCLimitations(object oItem, object oPC = OBJECT_INVALID)
                     AssignCommand(oItem, _prc_inc_itmrstr_ApplyAoE(oPC, oItem, GetItemPropertySubType(ipTest), GetItemPropertyCostTable(ipTest)));
                 }// end if - Equip event
             }// end if - Equip or Unequip event
-        }// end if - AoE iprp
+        }// end if - AoE iprp */
         else if(ipType == ITEM_PROPERTY_BONUS_SPELL_SLOT_OF_LEVEL_N)
         {
             // Only equippable items can provide bonus spell slots

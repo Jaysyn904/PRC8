@@ -21,6 +21,8 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
+
+
 void ResetLionSwiftness(object oPC)
 {
     int nLevel = GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oPC);
@@ -385,6 +387,30 @@ void RestStarted(object oPC)
         SetLocalInt(oPC, "DRUNKEN_MASTER_IS_IN_DRUNKEN_RAGE", 0);
         SetLocalInt(oPC, "DRUNKEN_MASTER_IS_DRUNK_LIKE_A_DEMON", 0);
     }
+	
+    // Clean up temporary Darkness item properties from inventory  
+    object oItem = GetFirstItemInInventory(oPC);  
+    while(GetIsObjectValid(oItem))  
+    {  
+        IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DARKNESS);  
+        IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DAMNING_DARKNESS);  
+        IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DEEPER_DARKNESS);  
+        oItem = GetNextItemInInventory(oPC);  
+    }  
+      
+    // Also check equipped items  
+    int i;  
+    for(i = 0; i < NUM_INVENTORY_SLOTS; i++)  
+    {  
+        oItem = GetItemInSlot(i, oPC);  
+        if(GetIsObjectValid(oItem))  
+        {  
+            IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DARKNESS);  
+            IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DAMNING_DARKNESS);  
+            IPRemoveMatchingItemProperties(oItem, ITEM_PROPERTY_AREA_OF_EFFECT, DURATION_TYPE_TEMPORARY, IP_CONST_AOE_DEEPER_DARKNESS);  
+        }  
+    }
+	
     /* Left here in case the multisummon trick is ever broken. In that case, use this to make Astral Constructs get unsummoned properly
     if(GetHasFeat(whatever feat determines if the PC can manifest Astral Construct here)){
         int i = 1;

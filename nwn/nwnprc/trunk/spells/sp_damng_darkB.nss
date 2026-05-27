@@ -31,41 +31,47 @@ tiny needle hidden inside it.
 
 Author:    Tenjac
 Created:   
+
+Fixed by: Jaysyn
+Date: 2026-05-26 19:53:19
+
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
-
-#include "prc_alterations"
-#include "prc_inc_spells"
-
-void main()
-{
-    PRCSetSchool(SPELL_SCHOOL_EVOCATION);
-    
-    //Declare major variables
-    //Get the object that is exiting the AOE
-    object oTarget = GetExitingObject();
-    effect eAOE;
-    if(GetHasSpellEffect(SPELL_DAMNING_DARKNESS, oTarget))
-    {
-        //Search through the valid effects on the target.
-        eAOE = GetFirstEffect(oTarget);
-        while (GetIsEffectValid(eAOE))
-        {
-            if (GetEffectCreator(eAOE) == GetAreaOfEffectCreator())
-            {
-                if(GetEffectType(eAOE) == EFFECT_TYPE_DARKNESS)
-                {
-                    //If the effect was created by CotA then remove it
-                    if(GetEffectSpellId(eAOE) == SPELL_DAMNING_DARKNESS)
-                    {
-                        RemoveEffect(oTarget, eAOE);
-                    }
-                }
-            }
-            //Get next effect on the target
-            eAOE = GetNextEffect(oTarget);
-        }
-    }   
-    PRCSetSchool();
+#include "prc_alterations"  
+#include "prc_inc_spells"  
+  
+void main()  
+{  
+    PRCSetSchool(SPELL_SCHOOL_EVOCATION);  
+      
+    object oTarget = GetExitingObject();  
+    object oPC = GetAreaOfEffectCreator();  
+    effect eAOE;  
+      
+    // Clear the in-AOE marker to stop damage tracking  
+    DeleteLocalInt(oTarget, "PRC_DamningDarkness_InAOE");  
+      
+    if(GetHasSpellEffect(SPELL_DAMNING_DARKNESS, oTarget))  
+    {  
+        //Search through the valid effects on the target.  
+        eAOE = GetFirstEffect(oTarget);  
+        while (GetIsEffectValid(eAOE))  
+        {  
+            if (GetEffectCreator(eAOE) == oPC)  
+            {  
+                if(GetEffectType(eAOE) == EFFECT_TYPE_DARKNESS)  
+                {  
+                    //If the effect was created by Damning Darkness then remove it  
+                    if(GetEffectSpellId(eAOE) == SPELL_DAMNING_DARKNESS)  
+                    {  
+                        RemoveEffect(oTarget, eAOE);  
+                    }  
+                }  
+            }  
+            //Get next effect on the target  
+            eAOE = GetNextEffect(oTarget);  
+        }  
+    }     
+    PRCSetSchool();  
 }
