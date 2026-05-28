@@ -2235,6 +2235,7 @@ const int FEAT_INSECT_PLAGUE         = 2312; //CONSTANT
 const int FEAT_SUMMON_CORNUGON       = 2313; //CONSTANT
 const int FEAT_BEGUILEING_NATURE     = 2314; //CONSTANT
 
+//:: Fist of Hextor Feats
 const int FEAT_DEVICE_LORE           = 2333;
 const int FEAT_IRON_HEWS             = 2334;
 const int FEAT_RUSTING_GRASP         = 2335;
@@ -2244,6 +2245,9 @@ const int FEAT_SUMMON_ERINYES        = 2338;
 const int FEAT_GREATER_IRON_HEWS     = 2339;
 const int FEAT_IRON_SKIN             = 2340;
 const int FEAT_IRON_BODY             = 2341;
+
+//:: Telflammar Shadowlord Feats
+const int FEAT_SHADOWDISCORPO		= 3305;
 
 const int FEAT_COFFIN_SANCTUARY      = 2343;
 const int FEAT_GASEOUS_FORM          = 2344;

@@ -205,7 +205,7 @@ const string PRC_PNP_FIND_TRAPS                      = "PRC_PNP_FIND_TRAPS";
 
 /**
  * PnP Darkness
- * Is a mobile AOE based off an item
+ * Is a mobile AOE based off an item when cast on a creature.
  */
 const string PRC_PNP_DARKNESS                        = "PRC_PNP_DARKNESS";
 

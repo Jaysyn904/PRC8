@@ -35,7 +35,15 @@ void main()
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
     effect eLink = EffectLinkEffects(eDark, eDur);
     
-    struct mystery myst = GetLocalMystery(oShadow, MYST_HOLD_MYST);  
+    struct mystery myst = GetLocalMystery(oShadow, MYST_HOLD_MYST); 
+
+    int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+  
+	if (iShadow)    
+	{      
+		eLink = ShadowlordEffects(iShadow, eLink);  
+		eLink = TagEffect(eLink, "SHADOWSIGHT+BLUR"); 		
+	}  	
 
     if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oShadow) && GetCreatureFlag(oTarget, CREATURE_VAR_IS_INCORPOREAL) != TRUE)
     {

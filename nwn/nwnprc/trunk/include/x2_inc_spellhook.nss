@@ -2725,7 +2725,41 @@ int X2GetSpellCastOnSequencerItem(object oItem, object oCaster, int nSpellID, in
 // * This is our little concentration system for black blade of disaster
 // * if the mage tries to cast any kind of spell, the blade is signaled an event to die
 //------------------------------------------------------------------------------
-void X2BreakConcentrationSpells()
+void X2BreakConcentrationSpells()  
+{  
+    //end Dragonsong Lyrist songs  
+    DeleteLocalInt(OBJECT_SELF, "SpellConc");  
+  
+    if(GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER))  
+    {  
+        //this is also in summon HB  
+        //but needed here to handle quickend spells  
+        //Disintegrate is cast from the blade so doesn't end the summon  
+          
+        // Determine the correct tag based on PRC switch  
+        string sTargetTag = GetPRCSwitch(PRC_PNP_BLACK_BLADE_OF_DISASTER) ? "prc_bbod001" : "x2_s_bblade";  
+          
+        // Loop through all summoned associates  
+        int i = 1;  
+        object oAssoc = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);  
+        while(GetIsObjectValid(oAssoc))  
+        {  
+            string sTag = GetTag(oAssoc);  
+            // Use case-insensitive comparison  
+            if(GetStringLowerCase(sTag) == GetStringLowerCase(sTargetTag))  
+            {  
+                if(GetLocalInt(oAssoc, "X2_L_CREATURE_NEEDS_CONCENTRATION"))  
+                {  
+                    SignalEvent(oAssoc, EventUserDefined(X2_EVENT_CONCENTRATION_BROKEN));  
+                }  
+            }  
+            i++;  
+            oAssoc = GetAssociate(ASSOCIATE_TYPE_SUMMONED, OBJECT_SELF, i);  
+        }  
+    }  
+}
+
+/* void X2BreakConcentrationSpells()
 {
     //end Dragonsong Lyrist songs
     DeleteLocalInt(OBJECT_SELF, "SpellConc");
@@ -2747,7 +2781,7 @@ void X2BreakConcentrationSpells()
             }
         }
     }
-}
+} */
 
 //------------------------------------------------------------------------------
 // being hit by any kind of negative effect affecting the caster's ability to concentrate

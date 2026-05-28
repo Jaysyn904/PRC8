@@ -64,7 +64,7 @@ void main()
         {
             int nDamage     = 5 + manif.nTimesAugOptUsed_1;
             effect eDur     = EffectVisualEffect(VFX_DUR_MIND_AFFECTING_POSITIVE);
-            float fDuration = 60.0f * manif.nManifesterLevel;
+            float fDuration = 600.0f * manif.nManifesterLevel;
             if(manif.bExtend) fDuration *= 2;
 
             // Get the OnHitCast: Unique on the target's armor / hide

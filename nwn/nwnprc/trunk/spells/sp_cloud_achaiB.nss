@@ -40,6 +40,16 @@ void main()
 			//Get next effect on the target
 			eAOE = GetNextEffect(oTarget);
 		}
-	}	
+	}
+	effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("sp_blacklightb >> Removing SHADOWSIGHT+BLUR");
+		}
+        eEffect = GetNextEffect(oTarget);
+    }	
 	PRCSetSchool();
 }

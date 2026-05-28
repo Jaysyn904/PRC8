@@ -43,22 +43,46 @@ void main()
         
         effect eLink = EffectInvisibility(INVISIBILITY_TYPE_DARKNESS);
                eLink = EffectLinkEffects(eLink, EffectUltravision());
+				eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_ULTRAVISION));  
+				eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));  
+				eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_MAGICAL_SIGHT)); 
+				eLink = EffectLinkEffects(eLink, EffectIcon(EFFECT_ICON_ULTRAVISION));			   
         effect eDark = EffectDarkness();
                 
-                                
+		int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+	  
+		if (iShadow)    
+		{      
+			eLink = ShadowlordEffects(iShadow, eLink);  
+			eLink = TagEffect(eLink, "SHADOWSIGHT+BLUR");  
+			eDark = ShadowlordEffects(iShadow, eDark);  
+			eDark = TagEffect(eDark, "SHADOWSIGHT+BLUR"); 
+		} 
+	
         //if valid                     and not caster
-        if(GetIsObjectValid(oTarget) && oTarget != oPC)
-        {
-                if(GetAlignmentGoodEvil(oTarget) != ALIGNMENT_EVIL)
-                {
-                        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eDark, oTarget);
-                }
-                
-                else
-                {
-                        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);
-                }       
-        }
+		if(GetIsObjectValid(oTarget) && oTarget != oPC)  
+		{  
+			if(GetAlignmentGoodEvil(oTarget) != ALIGNMENT_EVIL)  
+			{  
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eDark, oTarget);  
+			}  
+			else  
+			{  
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);  
+			}         
+		}  
+		else if (oTarget == oPC)  
+		{  
+			// Caster gets effects based on alignment  
+			if(GetAlignmentGoodEvil(oTarget) != ALIGNMENT_EVIL)  
+			{  
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eDark, oTarget);  
+			}  
+			else  
+			{  
+				SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oTarget);  
+			}  
+		}
         PRCSetSchool();
 }
                         

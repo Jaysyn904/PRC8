@@ -1,4 +1,16 @@
 Commit: Jaysyn904
+Date: Weds May 27
+
+Verminlord requires Eldritch Blast as a prereq.
+Mettle branch in ApplyBreath() is fixed.
+Zen Archery now applies to Rays / Eldritch Blast.
+Runes will only support divine spells.
+School Specialization shouldn't block multiclass Red Wizards of Thay from divine spells in their opposition schools.
+Scepters, Runes, Skull Talismans & Attuned Gems are considered spell-completion items for RWoT School Specialization.
+Fixed Acolyte of the Skin's Damage Reduction.  For real this time.
+Sneak Attack now takes Daring Outlaw / Swashbuckler into consideration.
+
+Commit: Jaysyn904
 Date: Tues May 26
 
 Added SoundImpact to Damning Darkness in vfx_persistent.2da.

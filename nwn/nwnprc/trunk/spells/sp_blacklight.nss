@@ -1,3 +1,26 @@
+//::///////////////////////////////////////////////
+//:: Blacklight
+//:: sp_blacklight.nss
+//:://////////////////////////////////////////////
+/*
+    You create an area of total darkness.
+
+	The darkness is impenetrable to normal vision 
+	and darkvision, but you can see normally within 
+	the blacklit area. Creatures outside the 
+	spell's area, even you, cannot see through it. 
+	You can cast the spell on a point in space, but 
+	the effect is stationary unless you cast it cast 
+	on a mobile object. You can cast the spell on a 
+	creature, and the effect then radiates from the 
+	creature and moves as it moves. Unattended 
+	objects and points in space do not get saving 
+	throws or benefit from spell resistance.
+
+	Blacklight counters or dispels any light spell 
+	of equal or lower level, such as daylight.
+*/
+//:://////////////////////////////////////////////
 
 #include "prc_inc_spells"
 #include "prc_alterations"
@@ -46,5 +69,4 @@ void main()
     SetAllAoEInts(SPELL_BLACKLIGHT, oAoE, PRCGetSpellSaveDC(SPELL_BLACKLIGHT, SPELL_SCHOOL_EVOCATION), 0, nCastLvl);
 
     PRCSetSchool();
-
 }

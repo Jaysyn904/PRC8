@@ -102,7 +102,19 @@ void main()
         DelayCommand(6.0, ExecuteScript("prc_onhb_indiv", oPC));
     }
 
-    /* PC_damage code to support oni's scripts
+	// Check for Morality Undone expiration  
+	if(GetPersistantLocalInt(oPC, "MoralityUndone_Expire") > 0)  
+	{  
+		if(GetTimeSecond() >= GetPersistantLocalInt(oPC, "MoralityUndone_Expire"))  
+		{  
+			int nShiftAmount = GetPersistantLocalInt(oPC, "MoralityUndone_ShiftAmount");  
+			AdjustAlignment(oPC, ALIGNMENT_GOOD, nShiftAmount, FALSE);  
+			DeletePersistantLocalInt(oPC, "MoralityUndone_Expire");  
+			DeletePersistantLocalInt(oPC, "MoralityUndone_ShiftAmount");  
+		}  
+	}
+	
+	/* PC_damage code to support oni's scripts
      * If HP is over 1 apply the damage and let
      * the OnDying deal with the consequences
      */

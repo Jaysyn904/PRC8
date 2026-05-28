@@ -28,6 +28,18 @@ void main()
 
     // Loop over effects, removing the ones from this power
     effect eAOE;
+	
+	effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("sp_blacklightb >> Removing SHADOWSIGHT+BLUR");
+		}
+        eEffect = GetNextEffect(oTarget);
+    }
+	
     if(GetHasSpellEffect(MYST_GRASPING_SHADOWS, oTarget))
     {
         //Search through the valid effects on the target.

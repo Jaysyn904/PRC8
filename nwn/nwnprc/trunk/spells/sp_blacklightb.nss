@@ -16,7 +16,7 @@ void main()
     {
         int nID = GetEffectSpellId(eAOE);
 
-        if( nID== SPELL_UR_BLACKLIGHT)
+        if( nID== SPELL_BLACKLIGHT)
         {
            if (GetEffectCreator(eAOE) == oCreator)
               RemoveEffect(oTarget, eAOE);
@@ -26,6 +26,17 @@ void main()
         //Get next effect on the target
         eAOE = GetNextEffect(oTarget);
     }
+	
+	effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("sp_blacklightb >> Removing SHADOWSIGHT+BLUR");
+		}
+        eEffect = GetNextEffect(oTarget);
+    }	
     
     PRCSetSchool();
 

@@ -59,7 +59,13 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
     effect eEffect = GetFirstEffect(oTarget);
     while(GetIsEffectValid(eEffect))
     {
-        if(GetEffectTag(eEffect) == "PNP_DARKNESS")
+		if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("sp_blacklightb >> Removing SHADOWSIGHT+BLUR");
+		}
+		
+		if(GetEffectTag(eEffect) == "PNP_DARKNESS")
             RemoveEffect(oTarget, eEffect);
 		
 		if(GetEffectTag(eEffect) == "PNP35_DARKNESS")
@@ -70,6 +76,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
 		
         eEffect = GetNextEffect(oTarget);
     }
+	
 	
 DeleteLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR");
 // Getting rid of the local integer storing the spellschool name

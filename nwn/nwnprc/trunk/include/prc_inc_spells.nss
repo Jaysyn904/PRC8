@@ -20,6 +20,26 @@
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+/**
+ * Returns a linked effect bundle containing Shadowlord ultravision,
+ * visual feedback effects, and concealment for higher Shadowlord levels.
+ *
+ * @param iShadow
+ *        Shadowlord level of the target creature.
+ *
+ * @param eBaseEffect
+ *        Existing linked effect bundle to append effects to.
+ *        Typically ePnP, eLink, or eLink2.
+ *
+ * @return
+ *        Updated linked effect bundle containing:
+ *        - Ultravision
+ *        - Ultravision icon
+ *        - Magical sight visuals
+ *        - Positive effect visuals
+ *        - 20% concealment at Shadowlord level 2+
+ */
+effect ShadowlordEffects(int iShadow, effect eBaseEffect);
 
 
 //:: Calculates total Shield AC bonuses from all sources
@@ -380,6 +400,30 @@ const int  TYPE_DIVINE   = -2;
 //////////////////////////////////////////////////
 /*             Function definitions             */
 //////////////////////////////////////////////////
+
+effect ShadowlordEffects(int iShadow, effect eBaseEffect)  
+{  
+ 
+	//:: Create visual feedback effect link  
+	effect eVis = EffectVisualEffect(VFX_DUR_ULTRAVISION);  
+	eVis = EffectLinkEffects(eVis, EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));  
+	eVis = EffectLinkEffects(eVis, EffectVisualEffect(VFX_DUR_MAGICAL_SIGHT)); 
+	eVis = EffectLinkEffects(eVis, EffectIcon(EFFECT_ICON_ULTRAVISION));		
+	  
+	//:: Link Ultravision and visual feedback into base effect
+	eBaseEffect = EffectLinkEffects(eBaseEffect, EffectUltravision()); 
+	eBaseEffect = EffectLinkEffects(eBaseEffect, eVis);
+	if(DEBUG) DoDebug("ShadowlordEffects() >> Setting up Ultravision");	
+	  
+	if (iShadow > 1)  
+	{  
+		//;: Add concealment for level 2+ Shadowlords  
+		eBaseEffect = EffectLinkEffects(eBaseEffect, EffectConcealment(20)); 
+		if(DEBUG) DoDebug("ShadowlordEffects() >> Setting up Concealment");			
+	}  
+       
+    return eBaseEffect;  
+}
 
 
 // Returns TRUE if nSpellID is a subradial spell, FALSE otherwise

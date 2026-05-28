@@ -24,6 +24,17 @@ void main()
     object oTarget  = GetExitingObject();
     struct mystery myst = GetLocalMystery(oShadow, MYST_HOLD_MYST+"6");  
 
+	effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("shd_myst_dskdwnb >> Removing SHADOWSIGHT+BLUR");
+		}
+        eEffect = GetNextEffect(oTarget);
+    }
+	
     // Loop over effects, removing the ones from this power
     effect eAOE;
     if(GetHasSpellEffect(MYST_DUSK_AND_DAWN_DUSK, oTarget) || GetHasSpellEffect(FUND_BLACK_CANDLE_DARK, oTarget) || GetHasSpellEffect(MYST_DEADLY_SHADE_DR, oTarget) || GetHasSpellEffect(MYST_DEADLY_SHADE_NEG, oTarget))

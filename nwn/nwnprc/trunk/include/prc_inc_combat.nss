@@ -8803,7 +8803,9 @@ void AttackLoopMain(object oDefender, object oAttacker,
     if(DEBUG) DoDebug("Entered AttackLoopMain: bonus attacks = " + IntToString(iBonusAttacks)+", main attacks = "+IntToString(iMainAttacks)+", offhand attacks = "+IntToString(iOffHandAttacks));
 
     // ugly workaround to make this global available for other functions after a call to DelayCommand or AssignCommand
-    bUseMonkAttackMod = sAttackVars.bUseMonkAttackMod;
+    //bUseMonkAttackMod = sAttackVars.bUseMonkAttackMod;
+	
+	sAttackVars.bUseMonkAttackMod = GetHasMonkWeaponEquipped(oAttacker);
 
     // turn off touch attack if var says it only applies to first attack
     if (sAttackVars.iAttackNumber && !sAttackVars.bApplyTouchToAll) sAttackVars.iTouchAttackType == FALSE;

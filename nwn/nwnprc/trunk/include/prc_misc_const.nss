@@ -3,9 +3,26 @@
  * Include file for various constants that don't really belong in any of the other files,
  * but aren't numerous enough to warrant their own.
  */
- 
- //:://////////////////////////////////////////////
- //:: New base item types
+
+//:://////////////////////////////////////////////
+//:: New effect icons (effecticons.2da)
+//:://////////////////////////////////////////////
+const int EFFECT_ICON_DARKVISION 	= 130;
+const int EFFECT_ICON_ULTRAVISION	= 131;
+
+//:://////////////////////////////////////////////
+//:: New damage types (damagetypes.2da)
+//:://////////////////////////////////////////////
+const int DAMAGE_TYPE_POISON	= 16384;	// CUSTOM2
+const int DAMAGE_TYPE_PSYCHIC	= 32768;	// CUSTOM4
+const int DAMAGE_TYPE_RADIANT	= 65536;	// CUSTOM6
+const int DAMAGE_TYPE_FORCE		= 524288;	// CUSTOM7
+const int DAMAGE_TYPE_UNTYPED	= 1048576;	// CUSTOM8
+const int DAMAGE_TYPE_VILE		= 2097152; 	// CUSTOM9
+
+
+//:://////////////////////////////////////////////
+//:: New base item types
 //:://////////////////////////////////////////////
 
 const int BASE_ITEM_GOLEM          		= 23;	//:: not actually used for anything else 

@@ -28,6 +28,14 @@ void main()
     effect eDark = EffectDarkness();
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
     effect eLink = EffectLinkEffects(eDark, eDur);
+	
+	int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+	  
+	if (iShadow)    
+	{      
+		eLink = ShadowlordEffects(iShadow, eLink);  
+		eLink = TagEffect(eLink, "SHADOWSIGHT+BLUR");  
+	} 
     
     struct mystery myst = GetLocalMystery(oShadow, MYST_HOLD_MYST+"6");  
 

@@ -37,7 +37,17 @@ void main()
 	{
 		fDuration = fDuration *2; //Duration is +100%
 	}
-		
+	
+    int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+  
+	if (iShadow)    
+	{      
+		eLink 		= ShadowlordEffects(iShadow, eLink);  
+		eLink 		= TagEffect(eLink, "SHADOWSIGHT+BLUR");
+		eLink 		= ShadowlordEffects(iShadow, eLink);  
+		eLinkConf 	= TagEffect(eLinkConf, "SHADOWSIGHT+BLUR");		
+	} 
+	
 	// * July 2003: If has darkness then do not put it on it again
 	// Primogenitor: Yes, what about overlapping darkness effects by different casters?
 	//if (PRCGetHasEffect(EFFECT_TYPE_DARKNESS, oTarget) == TRUE)

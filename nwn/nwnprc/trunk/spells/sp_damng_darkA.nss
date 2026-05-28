@@ -65,14 +65,20 @@ void main()
 		ePnP = TagEffect(ePnP, "PNP35_DARKNESS");  
 	}	  
   
-    object oTarget = GetEnteringObject();  
     object oPC = GetAreaOfEffectCreator();  
-    int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD,oTarget);  
   
-    if (iShadow)  
-        SPApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectUltravision(), oTarget,0.0f,FALSE);  
-    if (iShadow>1)  
-      SPApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectConcealment(20), oTarget,0.0f,FALSE);  
+    object oTarget = GetEnteringObject();  
+    int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+  
+	if (iShadow)    
+	{      
+		ePnP = ShadowlordEffects(iShadow, ePnP);  
+		eLink = ShadowlordEffects(iShadow, eLink);  
+		eLink2 = ShadowlordEffects(iShadow, eLink2);
+		ePnP = TagEffect(ePnP, "SHADOWSIGHT+BLUR");  
+		eLink = TagEffect(eLink, "SHADOWSIGHT+BLUR");  
+		eLink2 = TagEffect(eLink2, "SHADOWSIGHT+BLUR");		
+	}  
   
     int nDuration = PRCGetCasterLevel(oPC);  
     if ((nMetaMagic & METAMAGIC_EXTEND))  

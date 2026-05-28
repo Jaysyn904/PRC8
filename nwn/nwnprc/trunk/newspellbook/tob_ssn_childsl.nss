@@ -66,6 +66,14 @@ void main()
             while(GetIsObjectValid(oTarget))
             {// Applies to everyone
                 SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
+				
+				int iShadow = GetLevelByClass(CLASS_TYPE_SHADOWLORD, oTarget);  
+  
+				if (iShadow)    
+				{      
+					eLink = ShadowlordEffects(iShadow, eLink);  
+					eLink = TagEffect(eLink, "SHADOWSIGHT+BLUR");  
+				}  
 
                 oTarget = GetNextObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), GetLocation(oInitiator));
             }

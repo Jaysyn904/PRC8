@@ -661,6 +661,53 @@ int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJ
     // check for whether bard and sorc are using the prc spellbooks
     if (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
     {
+        if (!UseNewSpellBook(oPC))
+            return FALSE;
+    }
+
+    // get the cls_spell_***.2da index for the real spell
+    int nSpellbookSpell = RealSpellToSpellbookID(nClass, nRealSpellID);
+    if (nSpellbookSpell == -1)
+        return FALSE;
+
+    string sFile = GetFileForClass(nClass);
+    string sSpellLevel = Get2DACache(sFile, "Level", nSpellbookSpell);
+    if (sSpellLevel == "")
+        return FALSE;
+
+    int nSpellLevel = StringToInt(sSpellLevel);
+    int nSpellbookType = GetSpellbookTypeForClass(nClass);
+
+    // Check whether the class can actually cast spells of this circle.
+    int nCasterLevel = GetSpellslotLevel(nClass, oPC);
+    int nAbility = GetAbilityScoreForClass(nClass, oPC);
+    if (GetSlotCount(nCasterLevel, nSpellLevel, nAbility, nClass, oPC) <= 0)
+        return FALSE;
+
+    // Prepared casters know their full list, except Archivist.
+    if (nSpellbookType == SPELLBOOK_TYPE_PREPARED && nClass != CLASS_TYPE_ARCHIVIST)
+        return TRUE;
+
+    // Spontaneous casters only know spells they've actually learned.
+    if (nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)
+    {
+        int nFeatID = StringToInt(Get2DACache(sFile, "FeatID", nSpellbookSpell));
+        if (GetHasFeat(nFeatID, oPC))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+
+// checks if oPC knows the specified spell
+// only works for classes that use the PRC spellbook, there is currently no way to do this for Bioware spellcasters
+// this will only check the spellbook of the class specified
+/* int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJECT_SELF)
+{
+    // check for whether bard and sorc are using the prc spellbooks
+    if (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+    {
         if(!UseNewSpellBook(oPC))
             return FALSE;
     }
@@ -692,7 +739,7 @@ int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJ
     // at this stage, prepared casters know the spell and only spontaneous classes need checking
     // there are exceptions and these need hardcoding:
 
-    if((GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_PREPARED) && nClass != CLASS_TYPE_ARCHIVIST)
+/*    if((GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_PREPARED) && nClass != CLASS_TYPE_ARCHIVIST)
         return TRUE;
 
     // spontaneous casters have all their known spells as hide feats
@@ -703,7 +750,8 @@ int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJ
 
     return FALSE;
 }
-
+ */
+ 
 //routes to action cast spell, but puts a wrapper around to tell other functions its a
 //SLA, so dont craft etc
 //also defaults th totalDC to 10+spellevel+chamod

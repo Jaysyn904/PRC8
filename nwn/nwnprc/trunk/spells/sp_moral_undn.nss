@@ -65,7 +65,17 @@ void main()
     //Spell Resist
     if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr()))
     {
-        //Saving Throw
+		if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_EVIL))  
+		{  
+			//Poor, poor paladin.  It's pathetic that you didn't make your save.  
+			AdjustAlignment(oTarget, ALIGNMENT_EVIL, (100 + nGoodEvil), FALSE);  
+		  
+			// Store expiration time and shift amount using persistent locals  
+			SetPersistantLocalInt(oTarget, "MoralityUndone_Expire", FloatToInt(GetTimeSecond() + fDur));  
+			SetPersistantLocalInt(oTarget, "MoralityUndone_ShiftAmount", (100 + nGoodEvil));  
+		}
+
+/*         //Saving Throw
         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_EVIL))
         {
             //Poor, poor paladin.  It's pathetic that you didn't make your save.
@@ -74,7 +84,7 @@ void main()
             //Schedule restoration.  This might be a problem if they were 100 before and
             //improved their alignment any while evil. They might be restored to 85 instead.
             DelayCommand(fDur, AdjustAlignment(oTarget, ALIGNMENT_GOOD, (100 + nGoodEvil), FALSE));
-        }
+        } */
     }
 
     //SPEvilShift(oPC);

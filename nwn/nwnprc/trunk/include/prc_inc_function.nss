@@ -214,6 +214,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_SHADOWSMITH:                                         iData |= 0x01; break;
                 case CLASS_TYPE_SHADOW_SUN_NINJA:      sScript = "tob_shadowsun";                   break;
                 case CLASS_TYPE_SHADOWBLADE:           sScript = "prc_sb_shdstlth";                 break;
+				case CLASS_TYPE_SHADOWLORD:			   sScript = "prc_shadowlord";					break;
                 case CLASS_TYPE_SHADOWMIND:            sScript = "psi_shadowmind";                  break;
                 case CLASS_TYPE_SHADOWBANE_STALKER:    sScript = "prc_shadstalker";                 break;
                 case CLASS_TYPE_SHADOW_THIEF_AMN:      sScript = "prc_amn";                         break;
@@ -237,7 +238,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_SWIFT_WING:            sScript = "prc_swiftwing";                   break;
                 case CLASS_TYPE_SWORDSAGE:             sScript = "tob_swordsage";    iData |= 0x01; break;
                 case CLASS_TYPE_TALON_OF_TIAMAT:       sScript = "prc_talontiamat";                 break;
-                case CLASS_TYPE_TEMPEST:               sScript = "prc_tempest";                     break;
+                case CLASS_TYPE_TEMPEST:               sScript = "prc_tempest";                 	break;
                 case CLASS_TYPE_TEMPUS:                sScript = "prc_battletempus";                break;
                 case CLASS_TYPE_TENEBROUS_APOSTATE:    sScript = "bnd_tenebrous";                   break;
                 case CLASS_TYPE_THAYAN_KNIGHT:         sScript = "prc_thayknight";                  break;

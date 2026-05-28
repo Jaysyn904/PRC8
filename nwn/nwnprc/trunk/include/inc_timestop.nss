@@ -73,6 +73,7 @@ void RemoveTSFromObject(object oTarget)
         || nSpellId == 14205 // POWER_TEMPORALACCELERATION
         || nSpellId == 17366 // MOVE_DM_MOMENT_ALACRITY
         || nSpellId == 17511 // MOVE_WR_WHITE_RAVEN_TACTICS
+		|| nSpellId == 18428 // MYST_SHADOW_TIME
         )
             RemoveEffect(oTarget, eTest);
         eTest = GetNextEffect(oTarget);
@@ -81,3 +82,5 @@ void RemoveTSFromObject(object oTarget)
         StopFade(oTarget);
     SetCommandable(TRUE, oTarget);
 }
+
+//void main(){}

@@ -47,8 +47,8 @@ void main()
       
     object oTarget = GetExitingObject();  
     object oPC = GetAreaOfEffectCreator();  
-    effect eAOE;  
-      
+    effect eAOE;
+
     // Clear the in-AOE marker to stop damage tracking  
     DeleteLocalInt(oTarget, "PRC_DamningDarkness_InAOE");  
       
@@ -72,6 +72,18 @@ void main()
             //Get next effect on the target  
             eAOE = GetNextEffect(oTarget);  
         }  
-    }     
+    }
+
+    effect eEffect = GetFirstEffect(oTarget);
+    while(GetIsEffectValid(eEffect))
+    {
+        if(GetEffectTag(eEffect) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eEffect);		
+			if(DEBUG) DoDebug("sp_damng_darkb >> Removing SHADOWSIGHT+BLUR");
+		}
+        eEffect = GetNextEffect(oTarget);
+    }	
+	
     PRCSetSchool();  
 }

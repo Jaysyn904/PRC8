@@ -54,6 +54,12 @@ void main()
 			RemoveEffect(oTarget, eAOE);
 		}
 		
+        if(GetEffectTag(eAOE) == "SHADOWSIGHT+BLUR")
+		{
+            RemoveEffect(oTarget, eAOE);		
+			if(DEBUG) DoDebug("sp_utterdarkb >> Removing SHADOWSIGHT+BLUR");
+		}		
+		
 		//Get next effect on the target
 		eAOE = GetNextEffect(oTarget);                
 	}

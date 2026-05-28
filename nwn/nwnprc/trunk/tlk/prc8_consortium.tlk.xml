@@ -8349,7 +8349,7 @@ CLASS FEATURES:
 Level
 1: Shadow Sight - Gains Darkvision and Ultravision in darkness.
   Shadow Jump - Dimension Door once per day per class level
-2: Shadow Blur - In darkness gains the benefit of Blur spell (20 % concealment in the night, underground area or Darkness spell).
+2: Shadow Blur - In darkness gains the benefit of Blur spell (20% concealment while above ground at night or in a Darkness spell).
 4: Shadow Pounce - May make a full attack after teleporting
 5: Shadow Discorporation - When any damage reduces him to 0 or less, has a chance to use teleport.
 6: Death Attack - gains a Death Attack +1d6.
@@ -18304,7 +18304,12 @@ Duration: 1 rd/lvl
 Additional Counter Spells: Daylight
 Save: Will negate or none
 Spell Resistance: Yes or No (object)
-All creatures within the area of effect are shrouded in a haze of darkness which can only be pierced by you.</entry>
+
+You create an area of total darkness.
+
+The darkness is impenetrable to normal vision and darkvision, but you can see normally within the blacklit area. Creatures outside the spell's area, even you, cannot see through it. You can cast the spell on a point in space, but the effect is stationary unless you cast it cast on a mobile object. You can cast the spell on a creature, and the effect then radiates from the creature and moves as it moves. Unattended objects and points in space do not get saving throws or benefit from spell resistance.
+
+Blacklight counters or dispels any light spell of equal or lower level, such as daylight.</entry>
   <entry id="48326" lang="en" sex="m">Dark Bolt (all Bolt)</entry>
   <entry id="48327" lang="en" sex="m">Dark Bolt (1 Bolt/rnd)</entry>
   <entry id="48328" lang="en" sex="m">Anti-Paladin</entry>
@@ -56416,7 +56421,7 @@ REQUIREMENTS:
 Race: Dwarf.
 Alignment: Any nonevil.
 Skills: Craft (armorsmithing) 8 ranks, Lore 2 ranks.
-Meldshaping: Ability to shape soulmelds
+Meldshaping: Ability to shape soulmelds (requires a minimum of an 11 Constitution)
 
 CLASS FEATURES:
 
