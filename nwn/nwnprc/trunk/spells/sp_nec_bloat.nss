@@ -85,8 +85,7 @@ void main()
     int nVile = nDam/2;
     int nNorm = (nDam - nVile);
 
-    //Vile damage is currently being applied as Positive damage
-    effect eVileDam = PRCEffectDamage(oTarget, nVile, DAMAGE_TYPE_POSITIVE);
+    effect eVileDam = PRCEffectDamage(oTarget, nVile, DAMAGE_TYPE_VILE);
     effect eNormDam = PRCEffectDamage(oTarget, nNorm, DAMAGE_TYPE_MAGICAL);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVileDam, oTarget);
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eNormDam, oTarget);

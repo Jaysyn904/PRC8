@@ -225,10 +225,10 @@ void main()
 		//:: Setup Holy Touch extra damage vs evil
 			object oItem = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
 			
-			effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
-			effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+			effect eEffect1 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_HOLY), 0, ALIGNMENT_EVIL);
+			effect eEffect2 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_HOLY), 0, ALIGNMENT_EVIL);
 				   eEffect2 = VersusRacialTypeEffect(eEffect2, RACIAL_TYPE_OUTSIDER);
-			effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_DIVINE), 0, ALIGNMENT_EVIL);
+			effect eEffect3 = VersusAlignmentEffect(EffectDamageIncrease(DAMAGE_BONUS_2, DAMAGE_TYPE_HOLY), 0, ALIGNMENT_EVIL);
 				   eEffect3 = VersusRacialTypeEffect(eEffect3, RACIAL_TYPE_UNDEAD);
 			effect eLink = EffectLinkEffects(eEffect1, eEffect2);
 				   eLink = EffectLinkEffects(eLink, eEffect3);
@@ -316,12 +316,12 @@ void main()
 				if (MyPRCGetRacialType(oTarget) == RACIAL_TYPE_OUTSIDER ||
 					MyPRCGetRacialType(oTarget) == RACIAL_TYPE_UNDEAD)
 				{
-					eDam = EffectDamage(d8(1), DAMAGE_TYPE_DIVINE);
+					eDam = EffectDamage(d8(1), DAMAGE_TYPE_HOLY);
 					ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
 				}
 				else
 				{
-					eDam = EffectDamage(d6(1), DAMAGE_TYPE_DIVINE);
+					eDam = EffectDamage(d6(1), DAMAGE_TYPE_HOLY);
 					ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
 				}
 			}

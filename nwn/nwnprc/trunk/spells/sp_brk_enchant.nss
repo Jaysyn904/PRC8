@@ -50,7 +50,19 @@ void main()
 	
 
 	ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, PRCGetSpellTargetLocation());
-	oTarget = MyFirstObjectInShape(SHAPE_SPHERE, 9.14f, lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE );
+
+    int nTargetsAffected = 0;  
+    oTarget = MyFirstObjectInShape(SHAPE_SPHERE, 9.14f, lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE);  
+      
+    while (GetIsObjectValid(oTarget) && nTargetsAffected < nCasterLevel)  
+    {  
+        SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_REMOVE_CURSE));  
+        DispelLoop(oTarget, nCasterLevel);  
+        nTargetsAffected++;  
+        oTarget = MyNextObjectInShape(SHAPE_SPHERE, 9.14f, lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE);  
+    }
+	
+/* 	oTarget = MyFirstObjectInShape(SHAPE_SPHERE, 9.14f, lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE );
 	
 	//Set up for loop
 	int i = nCasterLevel;
@@ -61,7 +73,7 @@ void main()
 		DispelLoop(oTarget, nCasterLevel);		
 		i--;
 		oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE,lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_AREA_OF_EFFECT | OBJECT_TYPE_PLACEABLE);
-	}
+	} */
 	PRCSetSchool();
 }
 	

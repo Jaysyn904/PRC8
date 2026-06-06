@@ -214,7 +214,7 @@ float GetVFXLength(location lCaster, float fLength, float fAngle)
 //:://////////////////////////////////////////////
 //:: Modified March 14 2003: Removed the option to hurt chests/doors
 //::  was potentially causing bugs when no creature targets available.
-void PRCDoMissileStorm(int nD6Dice, int nCap, int nSpell, int nMIRV = VFX_IMP_MIRV, int nVIS = VFX_IMP_MAGBLUE, int nDAMAGETYPE = DAMAGE_TYPE_MAGICAL, int nONEHIT = FALSE, int nReflexSave = FALSE)
+void PRCDoMissileStorm(int nD6Dice, int nCap, int nSpell, int nMIRV = VFX_IMP_MIRV, int nVIS = VFX_IMP_MAGBLUE, int nDAMAGETYPE = DAMAGE_TYPE_FORCE, int nONEHIT = FALSE, int nReflexSave = FALSE)
 {
     object oTarget = OBJECT_INVALID;
     int nCasterLvl = PRCGetCasterLevel(OBJECT_SELF);
@@ -312,7 +312,7 @@ void PRCDoMissileStorm(int nD6Dice, int nCap, int nSpell, int nMIRV = VFX_IMP_MI
                 int i = 0;
                 //--------------------------------------------------------------
                 // GZ: Moved SR check out of loop to have 1 check per target
-                //     not one check per missile, which would rip spell mantels
+                //     not one check per missile, which would rip spell mantles
                 //     apart
                 //--------------------------------------------------------------
                 if (!PRCDoResistSpell(OBJECT_SELF, oTarget,nCasterLvl, fDelay))

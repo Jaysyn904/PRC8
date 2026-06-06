@@ -362,6 +362,17 @@ string GetBindingClassFile(int nClass)
 
 void ApplyVestige(object oBinder, int nVestige)
 {
+	//:: Remove Astaroth's crafting feat to allow leveling up.
+	effect eOld = GetFirstEffect(oBinder);  
+    while (GetIsEffectValid(eOld))  
+    {  
+        if (GetEffectTag(eOld) == "AstarothCraftingFeat")  
+        {  
+            RemoveEffect(oBinder, eOld);  
+        }  
+        eOld = GetNextEffect(oBinder);  
+    } 
+	
 	PRCRemoveSpellEffects(nVestige, oBinder, oBinder);
 	GZPRCRemoveSpellEffects(nVestige, oBinder, FALSE);
 	ActionCastSpellOnSelf(nVestige, METAMAGIC_NONE, oBinder);
@@ -393,7 +404,18 @@ void ApplyVestige(object oBinder, int nVestige)
 
 void ExpelVestige(object oBinder, int nVestige)
 {
-    SetPersistantLocalInt(oBinder, "ExpelledVestige", TRUE);
+	//:: Remove Astaroth's crafting feat to allow leveling up.
+	effect eOld = GetFirstEffect(oBinder);  
+    while (GetIsEffectValid(eOld))  
+    {  
+        if (GetEffectTag(eOld) == "AstarothCraftingFeat")  
+        {  
+            RemoveEffect(oBinder, eOld);  
+        }  
+        eOld = GetNextEffect(oBinder);  
+    } 
+    
+	SetPersistantLocalInt(oBinder, "ExpelledVestige", TRUE);
     SetPersistantLocalInt(oBinder, "ExpelledVestige"+IntToString(nVestige), TRUE);
 	// Here, making a good pack means we can unbind it
 	if (GetLocalInt(oBinder, "PactQuality"+IntToString(nVestige)))
@@ -966,3 +988,5 @@ int GetPatronVestige(object oBinder)
 	
 	return nPatron;			
 }
+
+//:: void main(){}

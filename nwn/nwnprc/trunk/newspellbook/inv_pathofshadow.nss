@@ -108,6 +108,12 @@ void main()
         SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectHeal(9999), oCaster);
     }
 
+    // Teleport starts a forced dynamic conversation, which clears queued ActionCastSpell cleanup.
+    DeleteLocalInt(oCaster, PRC_CASTERCLASS_OVERRIDE);
+    DeleteLocalInt(oCaster, "UsingActionCastSpell");
+    DeleteLocalInt(oCaster, PRC_INVOKING_CLASS);
+    DeleteLocalInt(oCaster, PRC_INVOCATION_LEVEL);
+
     Teleport(oCaster, nCasterLvl, nSpellID == INVOKE_PATH_OF_SHADOW_PARTY, FALSE, "");
     
 

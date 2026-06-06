@@ -22,20 +22,81 @@
     You mentally push a foe, attempting to knock it prone and disarm it. The DC
     of the discipline check for the target to resist being knocked down or
     disarmed is equal to your manifester level + you ability modified in your
-    manifesting stat. The Discipline checks to avoid being knocked down and
+    manifesting stat. The opposed combat checks to avoid being knocked down and
     disarmed are rolled separately.
 
     Augment: For every 2 additional power points spent, the DC of the Discipline
              check is increased by 1.
 */
 
-#include "psi_inc_psifunc"
+#include "psi_inc_psifunc"  
+#include "psi_inc_pwresist"  
+#include "psi_spellhook"  
+#include "prc_inc_spells"  
+#include "prc_inc_combmove"  // Add this include  
+  
+void main()  
+{  
+    if (!PsiPrePowerCastCode())  
+    {  
+        return;  
+    }  
+  
+    object oManifester = OBJECT_SELF;  
+    object oTarget     = PRCGetSpellTargetObject();  
+    struct manifestation manif =  
+        EvaluateManifestation(oManifester, oTarget,  
+                              PowerAugmentationProfile(PRC_NO_GENERIC_AUGMENTS,  
+                                                       2, PRC_UNLIMITED_AUGMENTATION  
+                                                       ),  
+                              METAPSIONIC_EXTEND | METAPSIONIC_TWIN  
+                              );  
+  
+    if(manif.bCanManifest)  
+    {  
+        int nPen        = GetPsiPenetration(oManifester);  
+        int nAbi        = GetAbilityModifier(GetAbilityOfClass(GetManifestingClass(oManifester)), oManifester)  
+                         + manif.nTimesAugOptUsed_1;  
+        effect eKnock   = EffectKnockdown();  
+        object oWeapon  = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oTarget);  
+        float fDuration = 6.0f * (manif.nManifesterLevel / 2);  
+        if(manif.bExtend) fDuration *= 2;  
+  
+        // Set BAB override for combat maneuvers  
+        SetLocalInt(oManifester, "BABOverride", manif.nManifesterLevel);  
+        DelayCommand(1.0, DeleteLocalInt(oManifester, "BABOverride"));  
+  
+		// Let the AI know
+        PRCSignalSpellEvent(oTarget, TRUE, manif.nSpellID, oManifester);  
+  
+        // Handle Twin Power
+		int nRepeats = manif.bTwin ? 2 : 1;  
+        for(; nRepeats > 0; nRepeats--)  
+        {  
+            // Check for Power Resistance
+			if(PRCMyResistPower(oManifester, oTarget, nPen))  
+            {  
+                // Attempt disarm using combat maneuver system  
+                if(GetIsCreatureDisarmable(oTarget) && !GetPRCSwitch(PRC_PNP_DISARM) && GetIsObjectValid(oWeapon))  
+                {  
+                    DoDisarm(oManifester, oTarget, nAbi, FALSE, FALSE);  
+                }  
+  
+                // Attempt trip using combat maneuver system  
+                DoTrip(oManifester, oTarget, nAbi, FALSE, FALSE, FALSE, nAbi);  
+				
+            } // end if - SR check 
+        } // end for - Twin Power 
+    } // end if - Successfull manifestation 
+}
+
+/* #include "psi_inc_psifunc"
 #include "psi_inc_pwresist"
 #include "psi_spellhook"
 #include "prc_inc_spells"
 
 void main()
-{
+{ */
 /*
   Spellcast Hook Code
   Added 2004-11-02 by Stratovarius
@@ -44,7 +105,7 @@ void main()
 
 */
 
-    if (!PsiPrePowerCastCode())
+/*     if (!PsiPrePowerCastCode())
     {
     // If code within the PrePowerCastHook (i.e. UMD) reports FALSE, do not run this spell
         return;
@@ -102,4 +163,4 @@ void main()
             }// end if - SR check
         }// end for - Twin Power
     }// end if - Successfull manifestation
-}
+} */

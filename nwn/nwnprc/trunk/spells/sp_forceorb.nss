@@ -29,7 +29,7 @@ void main()
         	    PRCSignalSpellEvent(oTarget, TRUE, nSpellId);
         	    
         	    //Roll damage for each target
-        	    int nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_MAGICAL, nDice, 6);
+        	    int nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_FORCE, nDice, 6);
         	    nDamage += SpellDamagePerDice(oCaster, nDice);
         	    // Succeeded on the save
         	    if (PRCMySavingThrow(SAVING_THROW_FORT, oTarget, PRCGetSaveDC(oTarget, oCaster)))

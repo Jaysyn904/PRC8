@@ -11,7 +11,7 @@ void main()
     int nDice = nCasterLevel > 10 ? 10 : nCasterLevel;
     
 	DoBolt (nCasterLevel,4, 0, nDice, VFX_BEAM_MIND, VFX_IMP_MAGBLUE, 
-		DAMAGE_TYPE_MAGICAL, SAVING_THROW_TYPE_SPELL, 
+		DAMAGE_TYPE_FORCE, SAVING_THROW_TYPE_SPELL, 
 		SPELL_SCHOOL_EVOCATION, TRUE, GetSpellId());
 }
 

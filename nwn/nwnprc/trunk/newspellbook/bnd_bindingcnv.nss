@@ -443,7 +443,24 @@ void main()
 			ClearCurrentStage(oBinder);
             MarkStageNotSetUp(STAGE_EXPLOIT_VESTIGE, oBinder);         	
         }
-        else if(nStage == STAGE_ASTAROTH)
+		else if(nStage == STAGE_ASTAROTH)  
+		{       
+			// Grant the selected crafting feat as a tagged effect  
+			effect eFeat = EffectBonusFeat(nChoice);  
+			eFeat = TagEffect(eFeat, "AstarothCraftingFeat");  
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eFeat), oBinder, HoursToSeconds(24));  
+			  
+			int nContactTime = VESTIGE_CONTACT_TIME;		  
+			if(GetPRCSwitch(PRC_CONTACT_VESTIGE_TIMER) >= 6) nContactTime = GetPRCSwitch(PRC_CONTACT_VESTIGE_TIMER);        		  
+			ContactVestige(oBinder, nContactTime, GetLocalInt(oBinder, "nVestige"));  
+			DeleteLocalInt(oBinder, "nVestige");        		  
+			AllowExit(DYNCONV_EXIT_FORCE_EXIT);   
+			  
+			ClearCurrentStage(oBinder);  
+			MarkStageNotSetUp(STAGE_ASTAROTH, oBinder);          
+		}
+		
+/*         else if(nStage == STAGE_ASTAROTH)
         {     
         	if (nChoice == FEAT_SCRIBE_SCROLL   ) IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_FEAT_FEAT_SCRIBE_SCROLL   ), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 			if (nChoice == FEAT_BREW_POTION     ) IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_FEAT_FEAT_BREW_POTION     ), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
@@ -462,7 +479,7 @@ void main()
         	
         	ClearCurrentStage(oBinder);
             MarkStageNotSetUp(STAGE_ASTAROTH, oBinder);        
-        }         
+        }   */       
 
         if(DEBUG) DoDebug("bnd_bindingcnv: New stage: " + IntToString(nStage));
 

@@ -131,7 +131,7 @@ void DoPower(struct manifestation manif, object oMainTarget, int nDC, int nPen, 
                     nDamage = MetaPsionicsDamage(manif, nDieSize, nNumberOfDice, 0, 0, TRUE, FALSE);
                     // Target-specific stuff
                     nDamage = GetTargetSpecificChangesToDamage(oAreaTarget, manif.oManifester, nDamage, TRUE, FALSE);
-                    eDamage = EffectDamage(nDamage, DAMAGE_TYPE_MAGICAL);
+                    eDamage = EffectDamage(nDamage, DAMAGE_TYPE_FORCE);
 
                     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oAreaTarget);
                     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oAreaTarget);

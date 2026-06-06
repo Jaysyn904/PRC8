@@ -5393,6 +5393,24 @@ Base Critical Threat: x2
 Base Damage Type: Piercing
 Weapon Size: Small
 Feats Required: Simple</entry>
+  <entry id="43120" lang="en" sex="m">Sanctified</entry>
+  <entry id="43121" lang="en" sex="m">Sanctified Damage</entry>
+  <entry id="43122" lang="en" sex="m">&lt;CUSTOM0&gt; Sanctified</entry>
+  <entry id="43123" lang="en" sex="m">Holy</entry>
+  <entry id="43124" lang="en" sex="m">Holy Damage</entry>
+  <entry id="43125" lang="en" sex="m">&lt;CUSTOM0&gt; Holy</entry>
+  <entry id="43126" lang="en" sex="m">Unholy</entry>
+  <entry id="43127" lang="en" sex="m">Unholy Damage</entry>
+  <entry id="43128" lang="en" sex="m">&lt;CUSTOM0&gt; Unholy</entry>
+  <entry id="43129" lang="en" sex="m">Falling</entry>
+  <entry id="43130" lang="en" sex="m">Falling Damage</entry>
+  <entry id="43131" lang="en" sex="m">&lt;CUSTOM0&gt; Falling</entry>
+  <entry id="43132" lang="en" sex="m">Ballistic</entry>
+  <entry id="43133" lang="en" sex="m">Ballistic Damage</entry>
+  <entry id="43134" lang="en" sex="m">&lt;CUSTOM0&gt; Ballistic</entry>
+  <entry id="43135" lang="en" sex="m">Dessication</entry>
+  <entry id="43136" lang="en" sex="m">Dessication Damage</entry>
+  <entry id="43137" lang="en" sex="m">&lt;CUSTOM0&gt; Dessication</entry>
   <entry id="43138" lang="en" sex="m">Untyped</entry>
   <entry id="43139" lang="en" sex="m">Untyped Damage</entry>
   <entry id="43140" lang="en" sex="m">&lt;CUSTOM0&gt; Untyped</entry>

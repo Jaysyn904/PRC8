@@ -13,12 +13,18 @@ const int EFFECT_ICON_ULTRAVISION	= 131;
 //:://////////////////////////////////////////////
 //:: New damage types (damagetypes.2da)
 //:://////////////////////////////////////////////
-const int DAMAGE_TYPE_POISON	= 16384;	// CUSTOM2
-const int DAMAGE_TYPE_PSYCHIC	= 32768;	// CUSTOM4
-const int DAMAGE_TYPE_RADIANT	= 65536;	// CUSTOM6
-const int DAMAGE_TYPE_FORCE		= 524288;	// CUSTOM7
-const int DAMAGE_TYPE_UNTYPED	= 1048576;	// CUSTOM8
-const int DAMAGE_TYPE_VILE		= 2097152; 	// CUSTOM9
+const int DAMAGE_TYPE_POISON		= 16384;		// CUSTOM2
+const int DAMAGE_TYPE_PSYCHIC		= 32768;		// CUSTOM4
+const int DAMAGE_TYPE_RADIANT		= 65536;		// CUSTOM6
+const int DAMAGE_TYPE_FORCE			= 524288;		// CUSTOM7
+const int DAMAGE_TYPE_UNTYPED		= 1048576;		// CUSTOM8
+const int DAMAGE_TYPE_VILE			= 2097152; 		// CUSTOM9
+const int DAMAGE_TYPE_SANCTIFIED	= 4194304; 		// CUSTOM10
+const int DAMAGE_TYPE_HOLY			= 8388608; 		// CUSTOM11
+const int DAMAGE_TYPE_UNHOLY		= 16777216;		// CUSTOM12
+const int DAMAGE_TYPE_FALLING		= 33554432;		// CUSTOM13
+const int DAMAGE_TYPE_BALLISTIC		= 67108864;		// CUSTOM14
+const int DAMAGE_TYPE_DESSICATION	= 134217728;	// CUSTOM15
 
 
 //:://////////////////////////////////////////////

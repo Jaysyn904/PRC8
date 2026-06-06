@@ -23,6 +23,9 @@ Halt - The target stands in place and takes no action for one round.
 
 Author:    Stratovarius
 Created:   29/4/06
+
+Fixed by: Jaysyn
+Date: 2026-05-29 00:57:05
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
@@ -61,12 +64,15 @@ void main()
     
         if (!PRCDoResistSpell(OBJECT_SELF, oTarget, nCaster+SPGetPenetr()) && PRCGetIsAliveCreature(oTarget))
         {
-            if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
-            {
-                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration), TRUE,-1,nCaster);
-                SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-                DoCommandSpell(oCaster, oTarget, nSpellId, nDuration, nCaster);
-            }
+            if(!GetIsImmune(oTarget, IMMUNITY_TYPE_MIND_SPELLS))  
+			{  
+				if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
+				{
+					SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, RoundsToSeconds(nDuration), TRUE,-1,nCaster);
+					SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
+					DoCommandSpell(oCaster, oTarget, nSpellId, nDuration, nCaster);
+				}
+			}
         }	
 	
 	PRCSetSchool();

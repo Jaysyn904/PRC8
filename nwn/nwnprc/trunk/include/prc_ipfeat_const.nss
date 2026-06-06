@@ -900,14 +900,16 @@ const int IP_CONST_ONHIT_SAVEDC_70 = 70;
 // Creature Epic Criticals
 const int IP_CONST_FEAT_DEVCRITICAL_CREATURE    = 271;
 const int IP_CONST_FEAT_OVERCRITICAL_CREATURE   = 272;
-//const int IP_CONST_FEAT_WEAPON_PROF_CREATURE    = 38;    // provided by Bioware in 1.66
 
 // Epic DR
 const int IP_CONST_FEAT_EPIC_DR_3             = 273;
 const int IP_CONST_FEAT_EPIC_DR_6             = 274;
 const int IP_CONST_FEAT_EPIC_DR_9             = 275;
 
-//IP_CONST_DAMAGETYPE
+//:://////////////////////////////////////////////
+//:: New damage types (iprp_damagetype.2da)
+//:://////////////////////////////////////////////
+
 //const int IP_CONST_DAMAGETYPE_BLOOD		= 15;	//:: Not a 3e PnP damage type
 const int IP_CONST_DAMAGETYPE_POISON		= 16;	
 //const int IP_CONST_DAMAGETYPE_SHADOW		= 17;	//:: Not a 3e PnP damage type
@@ -917,6 +919,12 @@ const int IP_CONST_DAMAGETYPE_RADIANT		= 20;
 const int IP_CONST_DAMAGETYPE_FORCE			= 21;
 const int IP_CONST_DAMAGETYPE_UNTYPED		= 22;
 const int IP_CONST_DAMAGETYPE_VILE			= 23;
+const int IP_CONST_DAMAGETYPE_SANCTIFIED	= 24;
+const int IP_CONST_DAMAGETYPE_HOLY			= 25;
+const int IP_CONST_DAMAGETYPE_UNHOLY		= 26;
+const int IP_CONST_DAMAGETYPE_FALLING		= 27;
+const int IP_CONST_DAMAGETYPE_BALLISTIC		= 28;
+const int IP_CONST_DAMAGETYPE_DESSICATION	= 29;
 
 //IP_CONST_DAMAGESOAK
 const int IP_CONST_DAMAGESOAK_1_HP = 11;

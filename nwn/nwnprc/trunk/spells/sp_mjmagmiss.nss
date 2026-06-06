@@ -94,7 +94,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_EVOCATION);
                 fTime += fDelay2;
 
                 //Set damage effect
-                effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_MAGICAL);
+                effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_FORCE);
                 //Apply the MIRV and damage effect
                 DelayCommand(fTime, SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget));
                 

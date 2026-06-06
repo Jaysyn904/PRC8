@@ -21,7 +21,23 @@
 //////////////////////////////////////////////////
 
 // Called on Heartbeat
-void ShadowBlade(object oInitiator)
+void ShadowBlade(object oInitiator)  
+{  
+    int nDex       = GetAbilityModifier(ABILITY_DEXTERITY, oInitiator);  
+    object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);  
+    int nWeap      = GetIsDisciplineWeapon(oWeapon, DISCIPLINE_SHADOW_HAND);  
+      
+    // Must be a shadow hand weapon while a Shadow Hand stance is active  
+    if (GetHasActiveStanceOfDiscipline(oInitiator, DISCIPLINE_SHADOW_HAND) && nWeap)  
+    {     
+        int nDamageType = GetWeaponDamageType(oWeapon);  
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectDamageIncrease(IPGetDamageBonusConstantFromNumber(nDex), nDamageType)), oInitiator, 6.0);   
+        SetLocalInt(oInitiator, "ShadowBladeDam", nDex);  
+        DelayCommand(6.0, DeleteLocalInt(oInitiator, "ShadowBladeDam"));  
+    }  
+}
+
+/* void ShadowBlade(object oInitiator)
 {
     // Needs an active Shadow Hands stance
     int nStance    = GetHasActiveStance(oInitiator);
@@ -39,7 +55,7 @@ void ShadowBlade(object oInitiator)
         SetLocalInt(oInitiator, "ShadowBladeDam", nDex);
         DelayCommand(6.0, DeleteLocalInt(oInitiator, "ShadowBladeDam"));
     }
-}    
+}     */
 
 // Called on Heartbeat
 void RapidAssault(object oInitiator)
@@ -118,7 +134,26 @@ void BladeMeditation(object oInitiator)
 }
 
 // Called on Heartbeat
-void IronheartAura(object oInitiator)
+void IronheartAura(object oInitiator)  
+{  
+    if (GetHasActiveStanceOfDiscipline(oInitiator, DISCIPLINE_IRON_HEART))  
+    {      
+        location lTarget = GetLocation(oInitiator);  
+        object oAreaTarget = MyFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        while(GetIsObjectValid(oAreaTarget))  
+        {  
+            if(oAreaTarget != oInitiator &&   
+               GetIsInMeleeRange(oInitiator, oAreaTarget) &&   
+               GetIsFriend(oAreaTarget, oInitiator))  
+            {  
+                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_ALL)), oAreaTarget, 6.0);  
+            }  
+            oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+        }      
+    }      
+}
+
+/* void IronheartAura(object oInitiator)
 {
     int nDisc = GetDisciplineByManeuver(GetHasActiveStance(oInitiator));
     if (nDisc == DISCIPLINE_IRON_HEART)
@@ -138,10 +173,20 @@ void IronheartAura(object oInitiator)
         oAreaTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_SMALL, lTarget, TRUE, OBJECT_TYPE_CREATURE);
         }    
     }    
-}
+} */
 
 // Called on heartbeat
-void ShadowTrickster(object oInitiator)
+void ShadowTrickster(object oInitiator)  
+{  
+    if (GetHasActiveStanceOfDiscipline(oInitiator, DISCIPLINE_SHADOW_HAND))  
+    {  
+        SetLocalInt(oInitiator, "ShadowTrickster", TRUE);  
+    }  
+    else  
+        DeleteLocalInt(oInitiator, "ShadowTrickster");  
+}
+
+/* void ShadowTrickster(object oInitiator)
 {
     // Needs an active Shadow Hands stance
     int nStance = GetHasActiveStance(oInitiator);
@@ -152,7 +197,7 @@ void ShadowTrickster(object oInitiator)
     }
     else
         DeleteLocalInt(oInitiator, "ShadowTrickster");
-}
+} */
 
 // Called on Heartbeat
 void WhiteRavenDefense(object oInitiator)

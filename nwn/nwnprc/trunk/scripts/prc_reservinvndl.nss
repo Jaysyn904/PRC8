@@ -98,5 +98,7 @@ void main()
         return;
     }
 
+	SignalEvent(oPC, EventSpellCastAt(oTarget, PRCGetSpellId(), FALSE));
+	
     ForceNeedleAttack(oPC, oTarget, nBonus);
 }

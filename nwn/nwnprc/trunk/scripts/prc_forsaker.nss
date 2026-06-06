@@ -200,10 +200,33 @@ void main()
     else if(nEvent == EVENT_ONPLAYEREQUIPITEM)    
     {    
         oPC   = GetItemLastEquippedBy();    
-        oItem = GetItemLastEquipped();    
-        if(DEBUG) DoDebug("prc_forsaker - OnEquip\n"    
+        oItem = GetItemLastEquipped(); 
+
+		string sTag 	= GetTag(oItem);
+		string sResRef 	= GetResRef(oItem);
+		
+		int nRace = GetRacialType(oPC);
+		
+		if(DEBUG) DoDebug("prc_forsaker - OnEquip\n"    
                         + "oPC = " + DebugObject2Str(oPC) + "\n"    
-                        + "oItem = " + DebugObject2Str(oItem) + "\n");    
+                        + "oItem = " + DebugObject2Str(oItem) + "\n");
+
+		if(nRace == RACIAL_TYPE_WARFORGED 
+		|| nRace == RACIAL_TYPE_WARFORGED_SCOUT 
+		|| nRace == RACIAL_TYPE_WARFORGED_CHARGER)
+		{
+			if(sResRef == "prc_wf_admtbody" 
+			|| sResRef == "prc_wf_compbody"
+			|| sResRef == "prc_wf_woodbody"
+			|| sResRef == "prc_wf_mithbody" 
+			|| sResRef == "prc_wf_helmhead" 
+			|| sResRef == "prc_wf_helmadmt"
+			|| sResRef == "prc_wf_helmwood"
+			|| sResRef == "prc_wf_helmmith")
+			
+			return;
+			
+		}	
 						    
 		if(!GetHasFeat(FEAT_VOWOFPOVERTY,oPC))    
 		{    

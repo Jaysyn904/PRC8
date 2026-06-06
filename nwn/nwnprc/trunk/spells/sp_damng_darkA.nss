@@ -133,13 +133,13 @@ void DarkLoop(object oTarget, object oPC, int nMetaMagic)
         if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_GOOD)    
         {    
         	int nDam = PRCMaximizeOrEmpower(6, 2, nMetaMagic) + SpellDamagePerDice(oPC, 2);    
-            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);    
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_UNHOLY), oTarget);    
         }    
             
         else if(GetAlignmentGoodEvil(oTarget) == ALIGNMENT_NEUTRAL)    
         {    
         	int nDam = PRCMaximizeOrEmpower(6, 1, nMetaMagic) + SpellDamagePerDice(oPC, 1);    
-            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_DIVINE), oTarget);    
+            SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_UNHOLY), oTarget);    
         }    
             
         else    

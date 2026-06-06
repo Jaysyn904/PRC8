@@ -54,18 +54,18 @@ void main()
 	
 	nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
-    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
-    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
+    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
+    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
 
     //Set correct blast damage type
     if(nDamageType != nDamageType2)
     {
-        if(nDamageType != DAMAGE_TYPE_MAGICAL)
+        if(nDamageType != DAMAGE_TYPE_UNTYPED)
         {
-            if(nDamageType2 == DAMAGE_TYPE_MAGICAL)
+            if(nDamageType2 == DAMAGE_TYPE_UNTYPED)
                 nDamageType2 = nDamageType;
         }
-        else if(nDamageType2 != DAMAGE_TYPE_MAGICAL)
+        else if(nDamageType2 != DAMAGE_TYPE_UNTYPED)
         {
             nDamageType = nDamageType2;
         }
@@ -116,17 +116,6 @@ void main()
 		
 		LosePsionicFocus();
 	}
-
-/* 	if(GetIsPsionicallyFocused() && GetHasFeat(FEAT_GREATER_PSIONIC_SHOT))
-	{	
-		nDam += d6(4);
-		LosePsionicFocus();
-	}
-	if(GetIsPsionicallyFocused() && GetHasFeat(FEAT_PSIONIC_SHOT))
-	{	
-		nDam += d6(2);
-		LosePsionicFocus();
-	} */	
 	
     int nAtkBns = GetAttackBonus(oTarget, oPC, OBJECT_INVALID, FALSE, TOUCH_ATTACK_RANGED_SPELL);
     if(GetHasFeat(FEAT_ELDRITCH_SCULPTOR))

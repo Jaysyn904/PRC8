@@ -465,7 +465,7 @@ int GetInvokerLevel(object oInvoker = OBJECT_SELF, int nSpecificClass = CLASS_TY
     if(nLevel)
     {
         if(DEBUG) SendMessageToPC(oInvoker, "Forced-level Invoking at level " + IntToString(GetCasterLevel(oInvoker)));
-        //DelayCommand(1.0, DeleteLocalInt(oInvoker, PRC_CASTERLEVEL_OVERRIDE));
+        DelayCommand(1.0, DeleteLocalInt(oInvoker, PRC_CASTERLEVEL_OVERRIDE));
         return nLevel + nAdjust;
     }
 

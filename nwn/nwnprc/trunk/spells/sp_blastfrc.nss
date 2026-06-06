@@ -66,7 +66,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
                 SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnock, oTarget, 3.0);            
             }
             
-            effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_MAGICAL);
+            effect eDam = PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_FORCE);
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
             SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_DESTRUCTION), oTarget);            
         }

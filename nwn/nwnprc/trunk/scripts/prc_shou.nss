@@ -11,6 +11,7 @@
 
 #include "prc_alterations"
 #include "prc_inc_unarmed"
+#include "prc_inc_combat"
 
 
 /*
@@ -98,12 +99,42 @@ void main()
 
         FloatingTextStringOnCreature("*Shou Disciple Abilities Disabled Due To Equipped Shield*", oPC);
     }
-    // This checks to make sure he doesnt have a non-light weapon equipped for Martial Flurry Light
+
+	// This checks to make sure he doesnt have a non-light weapon equipped for Martial Flurry Light  
+	else if(StringToInt(Get2DACache("baseitems", "WeaponSize", iBaseL)) > 2 || StringToInt(Get2DACache("baseitems", "WeaponSize", iBaseR)) > 2)  
+	{  
+		PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_LIGHT);  
+		FloatingTextStringOnCreature("*Martial Flurry Light Disabled Due to Equipped Weapons*", oPC);  
+	}  
+	// Check for Monk weapon interaction    
+	else if(GetLevelByClass(CLASS_TYPE_MONK, oPC) && GetIsMonkWeaponTypeOrUnarmed(iBaseR))    
+	{    
+		PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_LIGHT);    
+		PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_ALL);    
+		FloatingTextStringOnCreature("*Martial Flurry Disabled Due to Monk Weapon Conflict*", oPC);    
+	}  
+	else  
+	{  
+		if(GetLevelByClass(CLASS_TYPE_SHOU, oPC) > 1 )  
+		{  
+			RemoveDodge(oPC, oSkin);  
+			DodgeBonus(oPC, oSkin);  
+		}  
+	}
+	
+/*     // This checks to make sure he doesnt have a non-light weapon equipped for Martial Flurry Light
     else if(StringToInt(Get2DACache("baseitems", "WeaponSize", iBaseL)) > 2 || StringToInt(Get2DACache("baseitems", "WeaponSize", iBaseR)) > 2)
     {
         PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_LIGHT);
         FloatingTextStringOnCreature("*Martial Flurry Light Disabled Due to Equipped Weapons*", oPC);
     }
+	// Check for Monk weapon interaction  
+	if(GetLevelByClass(CLASS_TYPE_MONK, oPC) && GetIsMonkWeaponTypeOrUnarmed(iBaseR))  
+	{  
+		PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_LIGHT);  
+		PRCRemoveEffectsFromSpell(oPC, SPELL_MARTIAL_FLURRY_ALL);  
+		FloatingTextStringOnCreature("*Martial Flurry Disabled Due to Monk Weapon Conflict*", oPC);  
+	}
     else
     {
         if(GetLevelByClass(CLASS_TYPE_SHOU, oPC) > 1 )
@@ -111,7 +142,7 @@ void main()
             RemoveDodge(oPC, oSkin);
             DodgeBonus(oPC, oSkin);
         }
-    }
+    } */
 
     //Evaluate The Unarmed Strike Feats
     //UnarmedFeats(oPC);

@@ -21,7 +21,18 @@
 #include "shd_inc_myst"
 #include "prc_inc_template"
 
-
+void ClearAstarothCraftingFeat(object oPC)  
+{  
+    effect eOld = GetFirstEffect(oPC);  
+    while (GetIsEffectValid(eOld))  
+    {  
+        if (GetEffectTag(eOld) == "AstarothCraftingFeat")  
+        {  
+            RemoveEffect(oPC, eOld);  
+        }  
+        eOld = GetNextEffect(oPC);  
+    }  
+}
 
 void ResetLionSwiftness(object oPC)
 {
@@ -347,6 +358,7 @@ void RestFinished(object oPC)
     }
 	
 	ResetLionSwiftness(oPC);
+	ClearAstarothCraftingFeat(oPC);
     
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERREST_FINISHED);

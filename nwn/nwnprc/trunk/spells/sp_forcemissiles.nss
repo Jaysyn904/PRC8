@@ -62,7 +62,7 @@ void SendMissileBomb(object oCaster, object oTarget, float fDelay=0.0, float fTi
             if (nMetaMagic == METAMAGIC_EMPOWER)
                 nDam += nDam/2;
 
-            DelayCommand(fTime, SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oLoop, nDam, DAMAGE_TYPE_MAGICAL), oLoop));
+            DelayCommand(fTime, SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oLoop, nDam, DAMAGE_TYPE_FORCE), oLoop));
             DelayCommand(fTime, SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IMP_MAGBLUE, FALSE, 4.0f), oLoop));
         }
         else if (!PRCDoResistSpell(oCaster, oLoop, nPenetr, fDelay))

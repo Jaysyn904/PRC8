@@ -1,4 +1,24 @@
 Commit: Jaysyn904
+Date: Thur May 28
+
+Updated damagtypes.2da for CEP3 reserved rows.
+Added and setup Darkvision icon.
+Added and setup Ultravision icon.
+Added spell icon for Thicket of Blades.
+Fixed Blacklight, Cloud of the Archeai, Darkness, Deeper Darkness, Damning Darkness, Utterdark, Grasping Shadows, Dawn and Dusk and Child of Shadow and Light for Telflammar Shadowlord's Shadow Blur and Shadow Sight abilities.
+Updated Blacklight's TLK entry.
+Created a constant for Shadow Discorporation.
+Fixed Shadow Time never ending on the targets.
+Updated prc_inc_combat to use monk iterative progression if warranted.
+Updated PRCGetIsRealSpellKnownByClass() to handle Sublime Chord better. (@Lightbeard)
+Added class heartbeat script for Shadowlord to handle Shadow Blur and Shadow Sight.
+Added ShadowlordEffects() to prc_inc_spells.
+Added constants for new damagetypes.
+Completely rewrote Verminlord's Vermin Domination.
+Fixed duration for Empathic Feedback.
+Fixed Morality Undone to not break characters over a server reset.
+
+Commit: Jaysyn904
 Date: Weds May 27
 
 Verminlord requires Eldritch Blast as a prereq.

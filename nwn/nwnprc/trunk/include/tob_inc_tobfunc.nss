@@ -49,6 +49,9 @@ const int MANEUVER_TYPE_MANEUVER          = 5;
 /*             Function prototypes              */
 //////////////////////////////////////////////////
 
+int GetHasActiveStanceOfDiscipline(object oInitiator, int nDiscipline);  
+
+
 /**
  * Determines from what class's maneuver list the currently being initiated
  * maneuver is initiated from.
@@ -480,6 +483,34 @@ int _AllowedDiscipline(object oInitiator, int nClass, int nDiscipline)
 //////////////////////////////////////////////////
 /*             Function definitions             */
 //////////////////////////////////////////////////
+
+int GetHasActiveStanceOfDiscipline(object oInitiator, int nDiscipline)  
+{  
+    int bHasDualStance = (GetLevelByClass(CLASS_TYPE_WARBLADE, oInitiator) >= 20) ||  
+                         (GetLevelByClass(CLASS_TYPE_MASTER_OF_NINE, oInitiator) >= 3 && GetLocalInt(oInitiator, "MoNDualStance"));  
+      
+    if (bHasDualStance)  
+    {  
+        // Check both stances for dual-stance characters  
+        int nStance1 = GetLocalInt(oInitiator, "TOBStanceOne");  
+        int nStance2 = GetLocalInt(oInitiator, "TOBStanceTwo");  
+          
+        if (nStance1 > 0 && GetDisciplineByManeuver(nStance1) == nDiscipline)  
+            return TRUE;  
+        if (nStance2 > 0 && GetDisciplineByManeuver(nStance2) == nDiscipline)  
+            return TRUE;  
+              
+        return FALSE;  
+    }  
+    else  
+    {  
+        // Single stance check for normal characters  
+        int nStance = GetHasActiveStance(oInitiator);  
+        if (nStance != -1 && GetDisciplineByManeuver(nStance) == nDiscipline)  
+            return TRUE;  
+        return FALSE;  
+    }  
+}
 
 int GetInitiatingClass(object oInitiator = OBJECT_SELF)
 {

@@ -2671,7 +2671,7 @@ void DoPiercingCold(object oCaster, object oTarget, int nDamageAmount, int nCurr
     if (nDamageAmount > nTest)
     {
         // Apply the difference to ignore resist
-        effect eDam = EffectDamage(nDamageAmount - nTest, DAMAGE_TYPE_MAGICAL, DAMAGE_POWER_ENERGY);
+        effect eDam = EffectDamage(nDamageAmount - nTest, DAMAGE_TYPE_UNTYPED, DAMAGE_POWER_ENERGY);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
         effect eVis = EffectVisualEffect(VFX_IMP_FROST_L);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
@@ -2786,13 +2786,13 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
     	    {
     	        int nDice = (iDiabolistLevel + 5) / 5;
     	        int nDamage = d6(nDice);
-    	        int nDamageType = DAMAGE_TYPE_DIVINE;
+    	        int nDamageType = DAMAGE_TYPE_UNHOLY;
 	
     	        if(GetLocalInt(oCaster, "VileDiabolism"))
     	        {
     	            //FloatingTextStringOnCreature("Vile Diabolism is active", oCaster, FALSE);
     	            nDamage /= 2;
-    	            nDamageType = DAMAGE_TYPE_POSITIVE;
+    	            nDamageType = DAMAGE_TYPE_VILE;
     	            DeleteLocalInt(oCaster, "VileDiabolism");
     	        }
 	
