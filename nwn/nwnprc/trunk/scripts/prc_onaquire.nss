@@ -90,7 +90,7 @@ void UpdateIPs(object oItem)
         if(bAddRestrictions)
         {
             int i, nClass, bAdd;
-            for(i = 0; i < 36; i++)
+            for(i = 0; i < 41; i++)
             {
                 bAdd = FALSE;
                 switch(i)

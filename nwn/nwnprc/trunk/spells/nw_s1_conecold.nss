@@ -39,8 +39,7 @@ void main()
     {
         nDamage = nDamage + d6(2);
     }
-    location lTargetLocation = GetSpellTargetLocation();
-	
+    location lTargetLocation = PRCGetSpellTargetLocation();
     effect eCone;
     effect eVis = EffectVisualEffect(VFX_IMP_FROST_S);
 

@@ -66,7 +66,7 @@ void AddDomainPower(object oPC, object oSkin, int bFuncs)
 		if (GetHasFeat(FEAT_BONUS_DOMAIN_MADNESS, oPC)		&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MADNESS))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MADNESS);
 		if (GetHasFeat(FEAT_BONUS_DOMAIN_MIND, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MIND))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MIND);
 		if (GetHasFeat(FEAT_BONUS_DOMAIN_MOON, oPC)       	&& !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_MOON))			PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_MOON);
-    }
+		if (GetHasFeat(FEAT_BONUS_DOMAIN_DRAGON, oPC)       && !PRC_Funcs_GetFeatKnown(oPC, FEAT_DOMAIN_POWER_DRAGON))        PRC_Funcs_AddFeat(oPC, FEAT_DOMAIN_POWER_DRAGON);    }
     else
     {
         if (GetHasFeat(FEAT_BONUS_DOMAIN_AIR, oPC))           AddSkinFeat(FEAT_AIR_DOMAIN_POWER, IP_CONST_FEAT_AIR_DOMAIN, oSkin, oPC);

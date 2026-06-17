@@ -42,7 +42,7 @@ void main()
         ApplyEffectAtLocation( DURATION_TYPE_INSTANT, eImpact4, lTarget );
 
         effect eAOE = EffectAreaOfEffect
-            ( AOE_PER_FOG_OF_BEWILDERMENT, "tm_s0_epkillwnda", "tm_s0_epkillwndb", "****" );
+            ( AOE_PER_FOGSTINK, "tm_s0_epkillwnda", "tm_s0_epkillwndb", "****" );
 
         //Create an instance of the AOE Object
         ApplyEffectAtLocation( DURATION_TYPE_TEMPORARY, eAOE, lTarget, RoundsToSeconds(10) );

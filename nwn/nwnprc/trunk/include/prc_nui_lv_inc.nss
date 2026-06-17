@@ -1058,11 +1058,12 @@ void CloseNUILevelUpWindow(object oPC=OBJECT_SELF, int reset=0)
     // if we are refreshing the NUI but not finished we need to clear some caching done
     // to save computation time as they will need to be reprocessed.
     DeleteLocalJson(oPC, NUI_LEVEL_UP_DISCIPLINE_INFO_VAR + IntToString(currentClass));
-    SetLocalInt(oPC, NUI_LEVEL_UP_REMAINING_CHOICES_CACHE_VAR, -20);
+	
+	SetLocalInt(oPC, NUI_LEVEL_UP_REMAINING_CHOICES_CACHE_VAR, -20);
     if (reset)
     {
         ClearLevelUpNUICaches(currentClass, oPC);
-    }
+    }	
     int nPreviousToken = NuiFindWindow(oPC, NUI_LEVEL_UP_WINDOW_ID);
     if (nPreviousToken != 0)
     {
@@ -2666,6 +2667,7 @@ int IsAllowedDiscipline(int nClass, int spellbookId, object oPC=OBJECT_SELF)
     int discipline = StringToInt(Get2DACache(sFile, "Discipline", spellbookId));
 
     int nOverride = GetPersistantLocalInt(oPC, "AllowedDisciplines");
+	if(DEBUG) DoDebug("IsAllowedDiscipline: nClass=" + IntToString(nClass) + ", nOverride=" + IntToString(nOverride));
     if(nOverride == 0)
     {
         switch(nClass)

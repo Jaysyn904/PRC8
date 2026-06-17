@@ -23,7 +23,7 @@
 19         FEAT_EKNIGHT_SPELLCASTING_WARMAGE              19002     2    1              0      
 20         FEAT_EKNIGHT_SPELLCASTING_WIZARD               19047     2    1              0      
 21         FEAT_EPIC_SWARM_OF_ARROWS                      25995     1    -1             1      
-22         FEAT_IMP_MANYSHOT                              3350      1    -1             1      
+22         FEAT_IMP_MANYSHOT                              3350      1    -1             1
 23         Ambidex                                        1         1    -1             0      
 24         CShot                                          5         1    -1             0      
 25         Cleave                                         6         1    -1             0      

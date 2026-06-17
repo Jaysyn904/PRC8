@@ -34,7 +34,7 @@ void main()
     effect eVis = EffectVisualEffect(VFX_IMP_NEGATIVE_ENERGY);
     effect eHowl;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE);
-    ApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
 
     //Get first target in spell area
     oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_LARGE, GetLocation(oNPC));

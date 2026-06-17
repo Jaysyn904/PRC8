@@ -76,7 +76,7 @@
 
  /* This variable MUST be updated with every new version of the PRC!!! */
 
- const string PRC_VERSION                           = "PRC8 4.92";
+ const string PRC_VERSION                           = "PRC8 4.93";
 
  /* This variable MUST be updated every time 'assemble_spellbooks.bat' is run!!! */
 
@@ -1886,6 +1886,11 @@ const string PRC_DISABLE_CRAFT                       = "PRC_DISABLE_CRAFT";
  * Disables epic crafting
  */
 const string PRC_DISABLE_CRAFT_EPIC                  = "PRC_DISABLE_CRAFT_EPIC";
+
+/*  
+ * Disables XP costs for crafting  
+ */  
+const string PRC_DISABLE_CRAFT_XP_COST               = "PRC_DISABLE_CRAFT_XP_COST";
 
 /*
  * Set this on an area to disable crafting within that area

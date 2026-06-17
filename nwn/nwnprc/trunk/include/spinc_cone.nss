@@ -15,7 +15,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "prc_inc_spells"
-#include "prc_add_spell_dc"'
+#include "prc_add_spell_dc"
 
 void DoCone (int nDieSize, int nBonusDam, int nDieCap, int nConeEffect /* unused */,  
      int nVictimEffect, int nDamageType, int nSaveType,  

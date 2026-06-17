@@ -35,7 +35,7 @@ void main()
     
 	//Fire cast spell at event for the specified target
     SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_KNOCKDOWN));
-    //Make a saving throw check
+
     if (PRCDoRangedTouchAttack(oTarget))
     {
        //Apply the VFX impact and effects

@@ -26,6 +26,7 @@ void main()
             SetKnownManeuversModifier(oInitiator, nClass, nMoveTotal + nMod, MANEUVER_TYPE_MANEUVER);
             SetPersistantLocalInt(oInitiator, "ToBJadePhoenixMove", nJPMBonusMove);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 3);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DESERT_WIND
+			if(DEBUG) DoDebug("JPM: Set AllowedDisciplines to 3");
         }
 
         nMod = nJPMBonusReadied - GetPersistantLocalInt(oInitiator, "ToBJadePhoenixReadied");
@@ -40,6 +41,7 @@ void main()
             SetKnownManeuversModifier(oInitiator, nClass, ++nStncTotal, MANEUVER_TYPE_STANCE);
             SetPersistantLocalInt(oInitiator, "ToBJadePhoenixStance", TRUE);
             SetPersistantLocalInt(oInitiator, "AllowedDisciplines", 3);//DISCIPLINE_DEVOTED_SPIRIT + DISCIPLINE_DESERT_WIND
+			if(DEBUG) DoDebug("JPM: Set AllowedDisciplines to 3");
         }
 
         // Hook to OnLevelDown to remove the maneuver slots granted here

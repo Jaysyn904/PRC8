@@ -37,6 +37,9 @@ of bone and an oil of magic weapon
 
 Author:    Tenjac
 Created:   6/28/07
+
+Fixed by:	Jaysyn
+Date:   	2026-06-12 07:51:09
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
@@ -56,10 +59,16 @@ void main()
         if(!PRCDoResistSpell(oSpellOrigin, oTarget, (nCasterLvl + SPGetPenetr())) && PRCGetIsAliveCreature(oTarget))
         {
                 //Save
-                if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_DEATH))
+				if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_DEATH))  
+				{  
+					int nDam = d6(3) + PRCMin(20, nCasterLvl);  
+					effect eDam = EffectDamage(nDam, DAMAGE_TYPE_MAGICAL);  
+					SPApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);  
+				}				
+/*                 if(PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_DEATH))
                 {
                         int nDam = d6(3) + PRCMin(20, nCasterLvl);
-                }
+                } */
                 
                 else
                 {

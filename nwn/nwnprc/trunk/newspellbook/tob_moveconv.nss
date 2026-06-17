@@ -432,8 +432,8 @@ void main()
             if(nCountStance >= nMaxStance && nCountMove >= nMaxMove)
             {
                 nStage = STAGE_ALL_MANEUVERS_SELECTED;
-                // Clean up all of these
-                DeletePersistantLocalInt(oInitiator, "AllowedDisciplines");
+                // Clean up all of these  << Handled elsewhere for NUI
+                //DeletePersistantLocalInt(oInitiator, "AllowedDisciplines");
                 if(DEBUG) DoDebug("tob_moveconv: AllowedDisciplines: " + IntToString(GetPersistantLocalInt(oInitiator, "AllowedDisciplines")));
             }
             else

@@ -34,8 +34,8 @@ void main()
     effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
     effect eLink = EffectLinkEffects(eBolt, eDur);
 
-	//Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_CHARM));
+    //Fire cast spell at event for the specified target
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_CHARM));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

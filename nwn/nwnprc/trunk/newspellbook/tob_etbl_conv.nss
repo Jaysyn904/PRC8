@@ -386,8 +386,8 @@ void main()
                 DeleteLocalInt(oInitiator, "ManeuverListChoiceOffset");
 
                 nStage = STAGE_ALL_MANEUVERS_SELECTED;
-                // Clean up all of these
-                DeletePersistantLocalInt(oInitiator, "AllowedDisciplines");
+                // Clean up all of these << Handled elsewhere for NUI
+                //DeletePersistantLocalInt(oInitiator, "AllowedDisciplines");
 
         }
 

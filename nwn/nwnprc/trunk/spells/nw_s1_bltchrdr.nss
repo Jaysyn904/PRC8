@@ -32,7 +32,7 @@ void main()
     effect eBolt;
 
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_ABILITY_DRAIN_CHARISMA));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_ABILITY_DRAIN_CHARISMA));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

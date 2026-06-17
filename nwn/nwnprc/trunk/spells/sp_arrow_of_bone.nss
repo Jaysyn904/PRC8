@@ -37,6 +37,9 @@ of bone and an oil of magic weapon
 
 Author:    Tenjac
 Created:   6/28/07
+
+Fixed by:	Jaysyn
+Date:   	2026-06-12 07:51:09
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
@@ -55,6 +58,12 @@ void main()
         string sBone;
         int nType = GetBaseItemType(oStack);
         int nCasterLevel = PRCGetCasterLevel(oPC);
+		
+		float fDuration = HoursToSeconds(nCasterLevel);
+		
+		int nMetaMagic = PRCGetMetaMagicFeat();  
+		if(nMetaMagic & METAMAGIC_EXTEND)  
+			fDuration *= 2;
         
         
         if(nType == BASE_ITEM_ARROW)  sBone = "PRC_AB_ARROW001";    
@@ -94,7 +103,11 @@ void main()
                        
         //Hook the onhit script
         itemproperty ipHook = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);
-        IPSafeAddItemProperty(oArrowBone, ipHook, 0.0f);
+		
+        //IPSafeAddItemProperty(oArrowBone, ipHook, 0.0f);
+	
+		IPSafeAddItemProperty(oArrowBone, ipHook, fDuration, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING);
+		
         AddEventScript(oArrowBone, EVENT_ITEM_ONHIT, "prc_evnt_arrbone", FALSE, FALSE);        
                 
         PRCSetSchool();

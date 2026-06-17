@@ -149,6 +149,8 @@ void main()
     {
         int classId = GetLocalInt(oPlayer, NUI_LEVEL_UP_SELECTED_CLASS_VAR);
         FinishLevelUp(classId, oPlayer);
+		// Clear any previous discipline restrictions before opening selection 
+		DeletePersistantLocalInt(oPlayer, "AllowedDisciplines");
         CloseNUILevelUpWindow(oPlayer);
         ExecuteScript("prc_amagsys_gain", oPlayer);
         DelayCommand(0.2f, ExecuteScript("prc_nui_sb_view", oPlayer));

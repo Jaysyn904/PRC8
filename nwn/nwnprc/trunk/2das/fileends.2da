@@ -16,9 +16,9 @@
 12 domains       70       
 13 soundset      450      
 14 spells        20000    
-15 appearance    500      
-16 wingmodel     10       
-17 tailmodel     10       
+15 appearance    15100    
+16 wingmodel     2100     
+17 tailmodel     10000    
 18 race_feat_*   70       
 19 ireq_*        50       
 20 item_to_ireq  700      

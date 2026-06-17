@@ -6508,6 +6508,10 @@ int DomainPower(object oCaster, int nSpellID, int nSpellSchool = -1)
     if (GetHasDescriptor(nSpellID, DESCRIPTOR_EVIL) && GetHasFeat(FEAT_EVIL_DOMAIN_POWER, oCaster))
         nBonus += 1;
 
+    // Boosts Caster level with good spells by 1
+    if (GetHasDescriptor(nSpellID, DESCRIPTOR_GOOD) && GetHasFeat(FEAT_GOOD_DOMAIN_POWER, oCaster))
+        nBonus += 1;
+
     // Boosts Caster level with chaos spells by 1
     if (GetHasDescriptor(nSpellID, DESCRIPTOR_CHAOTIC) && GetHasFeat(FEAT_DOMAIN_POWER_CHAOS, oCaster))
         nBonus += 1;
@@ -6557,7 +6561,52 @@ int SongOfArcanePower(object oCaster = OBJECT_SELF)
     return 0;
 }
 
-int TrueNecromancy(object oCaster, int iSpellID, string sType, int nSpellSchool = -1)
+int TrueNecromancy(object oCaster, int iSpellID, string sType, int nSpellSchool = -1)  
+{  
+    int iTNLevel 	= GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);
+
+	int iDivineLvls 	= GetLevelByTypeDivine(oCaster);
+	int iArcaneLvls 	= GetLevelByTypeArcane(oCaster);
+	int iMysticTLvls	= GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+	int iFinal;
+	
+    if (!iTNLevel)  
+        return 0;  
+    if (nSpellSchool == -1)  
+        nSpellSchool = GetSpellSchool(iSpellID);  
+    if (nSpellSchool != SPELL_SCHOOL_NECROMANCY)  
+        return 0;  
+  
+    if (sType == "ARCANE") 
+	{		
+        iFinal = iDivineLvls - iMysticTLvls;
+		
+		if (DEBUG) DoDebug("TrueNecromancy() >> Arcane Necromancy spell detected");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Arcane Levels: " + IntToString(iArcaneLvls)+".");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Divine Levels: " + IntToString(iDivineLvls)+".");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Mystic Theurge Levels: " + IntToString(iMysticTLvls)+".");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Arcane spell adjustment is: " + IntToString(iFinal)+".");
+		
+		return iFinal;  
+	}
+  
+    if (sType == "DIVINE")
+	{		
+        iFinal = iArcaneLvls - iMysticTLvls;
+		
+		if (DEBUG) DoDebug("TrueNecromancy() >> Divine Necromancy spell detected.");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Arcane Levels: " + IntToString(iArcaneLvls)+".");		
+		if (DEBUG) DoDebug("TrueNecromancy() >> Divine Levels: " + IntToString(iDivineLvls)+".");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Mystic Theurge Levels: " + IntToString(iMysticTLvls)+".");
+		if (DEBUG) DoDebug("TrueNecromancy() >> Divine spell adjustment is: " + IntToString(iFinal)+".");
+		
+		return iFinal; 
+	}		
+  
+    return 0;  
+}
+
+/* int TrueNecromancy(object oCaster, int iSpellID, string sType, int nSpellSchool = -1)
 {
     int iTNLevel = GetLevelByClass(CLASS_TYPE_TRUENECRO, oCaster);
     if (!iTNLevel)
@@ -6574,7 +6623,7 @@ int TrueNecromancy(object oCaster, int iSpellID, string sType, int nSpellSchool 
         return GetLevelByTypeArcane(oCaster);
 
     return 0;
-}
+} */
 
 int UrPriestCL(object oCaster, int nCastingClass)
 {

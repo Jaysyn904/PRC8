@@ -19,14 +19,23 @@ void main()
 {
     if(!PreInvocationCastCode()) return;
 
-    object oPC = OBJECT_SELF;
-    object oTarget = PRCGetSpellTargetObject();
-    object oWeapon = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
-    int nEssence = GetLocalInt(oPC, "BlastEssence");
-    int nEssence2 = GetLocalInt(oPC, "BlastEssence2");
-    int nEssenceData = GetLocalInt(oPC, "EssenceData");
-    int nEssenceData2 = GetLocalInt(oPC, "EssenceData2");
+    object oPC 		= OBJECT_SELF;
+    object oTarget 	= PRCGetSpellTargetObject();
+    object oWeapon 	= GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+	
+	int bIsRangedAttack	= GetWeaponRanged(oWeapon);
+    int nEssence 		= GetLocalInt(oPC, "BlastEssence");
+    int nEssence2 		= GetLocalInt(oPC, "BlastEssence2");
+    int nEssenceData 	= GetLocalInt(oPC, "EssenceData");
+    int nEssenceData2 	= GetLocalInt(oPC, "EssenceData2");
+	
     effect eEssence;
+	
+	if (bIsRangedAttack) 
+	{ 
+		SendMessageToPC(oPC, "Hideous Blow requires a melee weapon."); 
+		return; 
+	}
 
     //remove Corrupting Blast essence - it's a one-shot power
     if(nEssence == INVOKE_CORRUPTING_BLAST)
@@ -43,18 +52,18 @@ void main()
 	
 	nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
-    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
-    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
+    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
+    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
 
     //Set correct blast damage type
     if(nDamageType != nDamageType2)
     {
-        if(nDamageType != DAMAGE_TYPE_MAGICAL)
+        if(nDamageType != DAMAGE_TYPE_UNTYPED)
         {
-            if(nDamageType2 == DAMAGE_TYPE_MAGICAL)
+            if(nDamageType2 == DAMAGE_TYPE_UNTYPED)
                 nDamageType2 = nDamageType;
         }
-        else if(nDamageType2 != DAMAGE_TYPE_MAGICAL)
+        else if(nDamageType2 != DAMAGE_TYPE_UNTYPED)
         {
             nDamageType = nDamageType2;
         }

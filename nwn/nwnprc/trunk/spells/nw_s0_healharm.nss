@@ -55,6 +55,11 @@ int DoSpell(object oCaster, object oTarget, int nSpellID)
         nSwitch = PRC_BIOWARE_HARM;
         fRadius = RADIUS_SIZE_HUGE;
     }
+	
+	if((nSpellID == SPELL_MASS_HARM) || (nSpellID == SPELL_GREATER_HARM))
+	{  
+		nCap = 240; // 20d12 maximized  
+	}
     int iHeal;
     int iAttackRoll = 1;
     if((nSpellID == SPELL_MASS_HARM) || (nSpellID == SPELL_GREATER_HARM))

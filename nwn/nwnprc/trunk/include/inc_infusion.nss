@@ -19,6 +19,7 @@
 //::  
 //::////////////////////////////////////////////// 
 #include "prc_inc_spells"
+#include "prc_inc_domain"
 
 int GetMaxDivineSpellLevel(object oCaster, int nClass);
 int GetCastSpellCasterLevelFromItem(object oItem, int nSpellID);
@@ -420,6 +421,24 @@ int GetHasSpellOnClassList(object oCaster, int nSpellID)
             if(DEBUG) DoDebug("inc_infusion >> GetHasSpellOnClassList: Class spell found.");
 			return TRUE;
         }
+		// Check domain spell lists  
+		for (i = 1; i <= 5; i++)  
+		{  
+			int nDomain = GetBonusDomain(oCaster, i);  
+			if (nDomain == 0) continue; // Empty slot  
+			  
+			// Check all spell levels (1-9) for this domain  
+			int nLevel;  
+			for (nLevel = 1; nLevel <= 9; nLevel++)  
+			{  
+				int nDomainSpell = GetDomainSpell(nDomain, nLevel, oCaster);  
+				if (nDomainSpell == nSpellID)  
+				{  
+					if(DEBUG) DoDebug("inc_infusion >> GetHasSpellOnClassList: Domain spell found.");  
+					return TRUE;  
+				}  
+			}  
+		}  		
     }
 	if(DEBUG) DoDebug("inc_infusion >> GetHasSpellOnClassList: Class spell not found.");
     return FALSE;

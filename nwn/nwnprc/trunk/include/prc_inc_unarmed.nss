@@ -343,7 +343,7 @@ int FindUnarmedDamage(object oCreature)
     if (iMonk > 16 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE)) iMonk = 16;
     else if (iMonk > 20) iMonk = 20;
     
-    // Ronove replacement
+    // Ronove is in place of monk, does not stack
     if (iRonove > iMonk) iMonk = iRonove;
 	
     // Monk damage calculation
@@ -387,7 +387,8 @@ int FindUnarmedDamage(object oCreature)
     if (iBrawler > 0) iBrawlerDamage = iBrawler / 6 + 3;
     if (iBrawler >= 36) iBrawlerDamage += 2;
 
-    // Armor/shield penalties
+    // Monks and monk-like classes deal no additional damage when wearing any armor, at
+    // least in NWN.  This is to reflect that.  No shields too.
     if (iMonkDamage > 1)
     {
         object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);
@@ -400,6 +401,7 @@ int FindUnarmedDamage(object oCreature)
             iMonkDamage = 1;
     }
 
+// Shou Disciples can wear light armor
     if (iShouDamage > 1)
     {
         object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oCreature);

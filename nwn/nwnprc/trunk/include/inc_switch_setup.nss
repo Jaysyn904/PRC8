@@ -835,8 +835,8 @@ void SetDefaultFileEnds()
     //isnt read in here yet. may be later though
     if(GetPRCSwitch(FILE_END_MANUAL))
         return;
-    SetPRCSwitch(FILE_END_CLASSES,         	PRCGetFileEnd("classes"));
-    SetPRCSwitch(FILE_END_RACIALTYPES,     	PRCGetFileEnd("racialtypes"));
+    SetPRCSwitch(FILE_END_CLASSES,         PRCGetFileEnd("classes"));
+    SetPRCSwitch(FILE_END_RACIALTYPES,     PRCGetFileEnd("racialtypes"));
     SetPRCSwitch(FILE_END_GENDER,          1);//overriden to 1 for convoCC m/f only choice
     SetPRCSwitch(FILE_END_PORTRAITS,       PRCGetFileEnd("portraits"));
     SetPRCSwitch(FILE_END_SKILLS,          PRCGetFileEnd("skills"));
@@ -876,6 +876,7 @@ void CreateSwitchNameArray()
 //craft
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_CRAFT);
 	//array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_ENHANCEMENT_CAP);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_CRAFT_XP_COST);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MULTIPLIER);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MAX);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_TIMER_MIN);

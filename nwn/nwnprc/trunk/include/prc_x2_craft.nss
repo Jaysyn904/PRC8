@@ -2050,7 +2050,7 @@ int AttuneGem(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALID, 
 
     if (!GetHasGPToSpend(oCaster, costs.nGoldCost))
     {
-        FloatingTextStringOnCreature("You do not have enough gold to attue this Gem.", oCaster, FALSE);
+        FloatingTextStringOnCreature("You do not have enough gold to attune this Gem.", oCaster, FALSE);
         // Since they don't have enough, the spell casts normally
         return TRUE;
     }
@@ -3342,8 +3342,12 @@ int GetModifiedGoldCost(int nCost, object oPC, int nCraftingFeat)
 
 int GetModifiedXPCost(int nCost, object oPC, int nCraftingFeat)
 {
-    if(nCost == 0)
+	if(GetPRCSwitch(PRC_DISABLE_CRAFT_XP_COST))  
+        return 0;  // XP costs disabled  
+	
+	if(nCost == 0)
         return nCost;
+	
     float fCost = IntToFloat(nCost);
     if(GetHasFeat(FEAT_LEGENDARY_ARTISAN_I            , oPC)) fCost *= 0.75;
     if(GetHasFeat(FEAT_LEGENDARY_ARTISAN_II           , oPC)) fCost *= 0.75;

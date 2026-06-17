@@ -36,7 +36,7 @@ void main()
     eLink 			= EffectLinkEffects(eLink, eVis);
 
     //Fire cast spell at event for the specified target
-    SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELLABILITY_BOLT_CONFUSE));
+    SignalEvent(oTarget, EventSpellCastAt(oNPC, SPELLABILITY_BOLT_CONFUSE));
     //Make a saving throw check
     if (PRCDoRangedTouchAttack(oTarget))
     {

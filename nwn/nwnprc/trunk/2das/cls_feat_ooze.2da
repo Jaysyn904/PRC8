@@ -96,7 +96,7 @@
 92  GrSpllFcsNec                                     399       1    -1             0      
 93  GrSpllFcsTran                                    400       1    -1             0      
 94  GreatSpellPen                                    38        1    -1             0      
-95  FEAT_EPIC_SPELL_FOCUS_ABJURATION                 6-1       1    -1             0      
+95  FEAT_EPIC_SPELL_FOCUS_ABJURATION                 610       1    -1             0      
 96  FEAT_EPIC_SPELL_FOCUS_CONJURATION                611       1    -1             0      
 97  FEAT_EPIC_SPELL_FOCUS_DIVINATION                 612       1    -1             0      
 98  FEAT_EPIC_SPELL_FOCUS_ENCHANTMENT                613       1    -1             0      
@@ -123,7 +123,7 @@
 119 FEAT_EPIC_GREAT_CONSTITUTION_7                   780       1    -1             0      
 120 FEAT_EPIC_GREAT_CONSTITUTION_8                   781       1    -1             0      
 121 FEAT_EPIC_GREAT_CONSTITUTION_9                   782       1    -1             0      
-122 FEAT_EPIC_GREAT_CONSTITUTION_-1                  783       1    -1             0      
+122 FEAT_EPIC_GREAT_CONSTITUTION_10                  783       1    -1             0      
 123 feat_epic_spellcasting                           4073      1    -1             0      
 124 FEAT_EPIC_DAMAGE_REDUCTION_3                     492       1    -1             0      
 125 FEAT_EPIC_DAMAGE_REDUCTION_6                     493       1    -1             0      
@@ -137,7 +137,7 @@
 133 FEAT_EPIC_ENERGY_RESISTANCE_COLD_7               539       1    -1             0      
 134 FEAT_EPIC_ENERGY_RESISTANCE_COLD_8               540       1    -1             0      
 135 FEAT_EPIC_ENERGY_RESISTANCE_COLD_9               541       1    -1             0      
-136 FEAT_EPIC_ENERGY_RESISTANCE_COLD_-1              542       1    -1             0      
+136 FEAT_EPIC_ENERGY_RESISTANCE_COLD_10              542       1    -1             0      
 137 FEAT_EPIC_ENERGY_RESISTANCE_ACID_1               543       1    -1             0      
 138 FEAT_EPIC_ENERGY_RESISTANCE_ACID_2               544       1    -1             0      
 139 FEAT_EPIC_ENERGY_RESISTANCE_ACID_3               545       1    -1             0      
@@ -147,7 +147,7 @@
 143 FEAT_EPIC_ENERGY_RESISTANCE_ACID_7               549       1    -1             0      
 144 FEAT_EPIC_ENERGY_RESISTANCE_ACID_8               550       1    -1             0      
 145 FEAT_EPIC_ENERGY_RESISTANCE_ACID_9               551       1    -1             0      
-146 FEAT_EPIC_ENERGY_RESISTANCE_ACID_-1              552       1    -1             0      
+146 FEAT_EPIC_ENERGY_RESISTANCE_ACID_10              552       1    -1             0      
 147 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_1               553       1    -1             0      
 148 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_2               554       1    -1             0      
 149 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_3               555       1    -1             0      
@@ -157,7 +157,7 @@
 153 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_7               559       1    -1             0      
 154 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_8               560       1    -1             0      
 155 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_9               561       1    -1             0      
-156 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_-1              562       1    -1             0      
+156 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_10              562       1    -1             0      
 157 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_1         563       1    -1             0      
 158 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_2         564       1    -1             0      
 159 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_3         565       1    -1             0      
@@ -167,7 +167,7 @@
 163 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_7         569       1    -1             0      
 164 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_8         570       1    -1             0      
 165 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_9         571       1    -1             0      
-166 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_-1        572       1    -1             0      
+166 FEAT_EPIC_ENERGY_RESISTANCE_ELECTRICAL_10        572       1    -1             0      
 167 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_1              573       1    -1             0      
 168 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_2              574       1    -1             0      
 169 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_3              575       1    -1             0      
@@ -177,7 +177,7 @@
 173 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_7              579       1    -1             0      
 174 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_8              580       1    -1             0      
 175 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_9              581       1    -1             0      
-176 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_-1             582       1    -1             0      
+176 FEAT_EPIC_ENERGY_RESISTANCE_SONIC_10             582       1    -1             0      
 177 FEAT_EPIC_FORTITUDE                              583       1    -1             0      
 178 FEAT_EPIC_TOUGHNESS_1                            754       1    -1             0      
 179 FEAT_EPIC_TOUGHNESS_2                            755       1    -1             0      
@@ -188,7 +188,7 @@
 184 FEAT_EPIC_TOUGHNESS_7                            760       1    -1             0      
 185 FEAT_EPIC_TOUGHNESS_8                            761       1    -1             0      
 186 FEAT_EPIC_TOUGHNESS_9                            762       1    -1             0      
-187 FEAT_EPIC_TOUGHNESS_-1                           763       1    -1             0      
+187 FEAT_EPIC_TOUGHNESS_10                           763       1    -1             0      
 188 Feat_Eschew_Materials                            2596      1    -1             0      
 189 Feat_Ignore_Material_Components                  2597      1    -1             0      
 190 Bane_Magic_Aberration                            23556     0    -1             0      

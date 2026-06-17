@@ -1,4 +1,39 @@
 Commit: Jaysyn904
+Date: Fri June 05
+
+Added Sanctified damage type.
+Added Holy damage type.
+Added Unholy damage type.
+Added Falling damage type.
+Added Ballistic damage type.
+Added Desiccation damage type.
+Fixed Major Missile's LABEL in spells.2da.
+Fixed Major Missile's LABEL in des_cft_spells.2da.
+Fixed Major Missile's LABEL in des_cft_scrolls.2da.
+Disabled incomplete PnP version of Shades spell.
+Astaroth's free crafting feats should drop off onRest, when expelling a vestige & when rebinding a vestige.
+Re-enabled caster level override variable clearing in GetInvokerLevel().
+Change Piercing Cold's damagetype to Untyped.
+Constanted new damagetypes correctly for scripting (@lightbeard)
+Changed all force spells damagetype to force.
+Fixed issue with Initiators using Shadows Blade, Ironheart Aura and Shadow Trickster with dual-stances.
+Changed Eldritch Blast to Untyped damage.
+Fixed Path of Shadow screwing up caster levels.
+Changed Sanctify Martial strike to be Holy damage.
+Changed Vile Martial strike to be Vile damage.
+Updated Forsaker to work with Warforged "Armor".
+Added a SignalEvent() to Invisible Needle so it would break Invisibility when it should.
+Fixed equip exploit with Shou Disciple and monk weapons.
+Changed Saint template's Holy Touch to do Holy Damage.
+Changed Horrid Wilting to do Desiccation damage.
+Fixed Break Enchantment's targeting.
+Fixed the Command spell to obey mind immunity.
+Changed Damning Darkness to do Unholy damage.
+Change the Necrotic spells to do Vile damage.
+Made Persistent Blade more like PnP and made it dispellable.
+
+
+Commit: Jaysyn904
 Date: Thur May 28
 
 Updated damagtypes.2da for CEP3 reserved rows.

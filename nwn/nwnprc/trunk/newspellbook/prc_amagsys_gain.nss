@@ -640,11 +640,11 @@ int CheckMissingManeuvers(object oPC, int nClass)
     int nLevel = GetLevelByClass(nClass, oPC);
     if(!nLevel)
         return FALSE;
-
-    int nCurrentManeuvers = GetManeuverCount(oPC, nClass, MANEUVER_TYPE_MANEUVER);
-    int nMaxManeuvers = GetMaxManeuverCount(oPC, nClass, MANEUVER_TYPE_MANEUVER);
-    int nCurrentStances = GetManeuverCount(oPC, nClass, MANEUVER_TYPE_STANCE);
-    int nMaxStances = GetMaxManeuverCount(oPC, nClass, MANEUVER_TYPE_STANCE);
+	
+    int nCurrentManeuvers 	= GetManeuverCount(oPC, nClass, MANEUVER_TYPE_MANEUVER);
+    int nMaxManeuvers 		= GetMaxManeuverCount(oPC, nClass, MANEUVER_TYPE_MANEUVER);
+    int nCurrentStances 	= GetManeuverCount(oPC, nClass, MANEUVER_TYPE_STANCE);
+    int nMaxStances 		= GetMaxManeuverCount(oPC, nClass, MANEUVER_TYPE_STANCE);
 
     if(nCurrentManeuvers < nMaxManeuvers || nCurrentStances < nMaxStances)
     {

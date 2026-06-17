@@ -25,7 +25,7 @@ void main()
     effect eDisease;
     effect eImpact = EffectVisualEffect(VFX_IMP_PULSE_NATURE);
     
-	ApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
+	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oNPC);
     
 	//Get first target in spell area
     oTarget = GetFirstObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_MEDIUM, GetLocation(oNPC));
