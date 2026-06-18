@@ -265,26 +265,27 @@ void main()
         // Enforce vow: unequip prohibited items  
         for (nSlot = 0; nSlot < 13; nSlot++)  
         {  
-            int nRace = GetRacialType(oPC);  
-			if(nRace == RACIAL_TYPE_WARFORGED   
-			|| nRace == RACIAL_TYPE_WARFORGED_SCOUT   
-			|| nRace == RACIAL_TYPE_WARFORGED_CHARGER)  
-			{  
-				string sResRef = GetResRef(oItem);  
-				if(sResRef == "prc_wf_admtbody"   
-				|| sResRef == "prc_wf_compbody"  
-				|| sResRef == "prc_wf_woodbody"  
-				|| sResRef == "prc_wf_mithbody"   
-				|| sResRef == "prc_wf_helmhead"   
-				|| sResRef == "prc_wf_helmadmt"  
-				|| sResRef == "prc_wf_helmwood"  
-				|| sResRef == "prc_wf_helmmith")  
-				{  
-					return; // Skip VoP check for Warforged body armor  
-				}  
-			}
+			oItem = GetItemInSlot(nSlot, oPC);
+			  
+			int nRace = GetRacialType(oPC);  
+			if(nRace == RACIAL_TYPE_WARFORGED     
+			|| nRace == RACIAL_TYPE_WARFORGED_SCOUT     
+			|| nRace == RACIAL_TYPE_WARFORGED_CHARGER)    
+			{    
+				string sResRef = GetResRef(oItem);    
+				if(sResRef == "prc_wf_admtbody"     
+				|| sResRef == "prc_wf_compbody"    
+				|| sResRef == "prc_wf_woodbody"    
+				|| sResRef == "prc_wf_mithbody"     
+				|| sResRef == "prc_wf_helmhead"     
+				|| sResRef == "prc_wf_helmadmt"    
+				|| sResRef == "prc_wf_helmwood"    
+				|| sResRef == "prc_wf_helmmith")    
+				{    
+					continue; // Skip this slot 
+				}    
+			}  
 			
-			oItem = GetItemInSlot(nSlot, oPC);  
             if (!(GetTag(oItem) == "xp1_mystrashand")  
                 && !(GetTag(oItem) == "H2_SenseiAmulet")  
                 && !(GetResRef(oItem) == "prc_sk_mblade_bs")  

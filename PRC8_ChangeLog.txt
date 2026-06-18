@@ -1,4 +1,44 @@
 Commit: Jaysyn904
+Date: Wed June 17
+
+Changed the Plant class icon.
+Removed defunct spontaneous spells from cls_feat_asasin.2da.
+Fixed some find/replace typos in cls_feat_ooze.
+Updated Foe Hunter prereqs to allow Harper Scout entry.
+Updated WWoC prereqs for new martial weapon focuses.
+Speed of the Zephyr (Reverse) now points to the correct SpellID.
+Globally fixed spelling of Desiccation.
+Skill Focus and Epic Skill Focus Alchemy had a Talent Category set for no reason.
+Added comments for unused feat entries that are hardcoded to AC boosts.
+Updated fileends.2da.
+Added Spirit Worm to Necromancy school 2DA.
+Fixed targeting shader for Baleful Bolt.
+Gave Toldine's Killing Wind a larger AoE VFX.
+Updated GetHasSpellOnClassList() to handle domain spells.
+Added PRC_DISABLE_CRAFT_XP_COST switch.
+Good Domain now correctly boosts Good descriptor spells by +1 CL.
+Added debug to TrueNecromancy()
+Updated some comments in prc_inc_unarmed.
+Added debug to CloseNUILevelUpWindow().
+Fixed typo in AttuneGem().
+Fixed typo in spinc_cone.
+Hideous Blow is Untyped damage.
+Fixed Sword Magic PrCs from blocking pick when you later take a Sword Magic base class.
+Removed 'AllowedDisciplines" variable cleanup from class HB scripts it didn't belong in.
+Removed 'AllowedDisciplines" variable cleanup from tob_moveconv.
+Tried to fix VoP for Warforged (not done yet)
+Added code for missing Dragon bonus domain to AddDomainPower().
+FEAT_BONUS_DOMAIN_WINTER was missing from BonusDomains().
+RHD sorcerous casters can now enter Archmage.
+Arrow of Bone now actually applies the spell damage.
+Added code to delete "AllowedDisciplines" variable from player in prc_nui_inc_event.
+Passed correct amount of classes to UpdateIPs().
+Fixed Maximized Mass / Greater Harm.
+Cleaned up targetting & effect application in several monster abilities.
+Made itemprop for Arrow of Bone temporary instead of permanent.
+Updated Hideous Blow to not work with ranged weapons.
+
+Commit: Jaysyn904
 Date: Fri June 05
 
 Added Sanctified damage type.
