@@ -20,6 +20,9 @@ The caster can detect good at will.
 
 Author:    Tenjac
 Created:   5/17/06
+
+Fixed By: Jaysyn
+Date: 2026-06-22 16:03:57
 */
 //:://////////////////////////////////////////////
 //:://////////////////////////////////////////////
@@ -39,13 +42,19 @@ void main()
 
     PRCSetSchool(SPELL_SCHOOL_DIVINATION);
 
-    itemproperty nDarkvis = PRCItemPropertyBonusFeat(FEAT_DARKVISION);
-    effect eTrueSee = EffectTrueSeeing();
+    //itemproperty nDarkvis = PRCItemPropertyBonusFeat(FEAT_DARKVISION);
+    //effect eTrueSee = EffectTrueSeeing();
     itemproperty nDetGood = PRCItemPropertyBonusFeat(FEAT_DETECT_GOOD_AT_WILL);
+	
+	effect eDarkVision	= EffectBonusFeat(FEAT_DARKVISION);
+	effect eSeeInvis 	= EffectSeeInvisible();  
+	effect eUltra 		= EffectUltravision();  
+	effect eLink 		= EffectLinkEffects(eSeeInvis, eUltra);
+	eLink				= EffectLinkEffects(eLink, eDarkVision);
 
-    IPSafeAddItemProperty(oPC, nDarkvis, fDur);
+    //IPSafeAddItemProperty(oPC, nDarkvis, fDur);
     IPSafeAddItemProperty(oPC, nDetGood, fDur);
-    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eTrueSee, oPC, fDur);
+    SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oPC, fDur);
 
     //SPEvilShift(oPC);
     PRCSetSchool();

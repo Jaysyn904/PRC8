@@ -129,10 +129,14 @@ void _prc_inc_itmrstr_ApplyAoE(object oPC, object oItem, int nSubType, int nCost
 void _prc_inc_itmrstr_ApplyWizardry(object oPC, object oItem, int nSpellLevel, string sType)
 {
     //properties were already applied - happens when loading a saved game
-    if(GetLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel)))
-        return;
+    //if(GetLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel)))
+        //return;
+	string sItemID = GetObjectUUID(oItem);  
+	if(GetPersistantLocalInt(oPC, "PRC_Wizardry_" + sItemID + "_" + IntToString(nSpellLevel)))  
+		return;  	
 
-    SetLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel), TRUE);
+    //SetLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel), TRUE);
+	SetPersistantLocalInt(oPC, "PRC_Wizardry_" + sItemID + "_" + IntToString(nSpellLevel), TRUE); 
     int nClass, nSlots, i;
     for(i = 1; i <= 8; i++)
     {
@@ -167,7 +171,9 @@ void _prc_inc_itmrstr_ApplyWizardry(object oPC, object oItem, int nSpellLevel, s
 
 void _prc_inc_itmrstr_RemoveWizardry(object oPC, object oItem, int nSpellLevel, string sType)
 {
-    DeleteLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel));
+    //DeleteLocalInt(oItem, "PRC_Wizardry"+IntToString(nSpellLevel));
+	string sItemID = GetObjectUUID(oItem);
+	DeletePersistantLocalInt(oPC, "PRC_Wizardry_" + sItemID + "_" + IntToString(nSpellLevel));
     SetPlotFlag(oItem, FALSE);
     itemproperty ipTest = GetFirstItemProperty(oItem);
     string sVar;
