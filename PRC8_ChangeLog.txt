@@ -1,4 +1,23 @@
 Commit: Jaysyn904
+Date: Sun June 22
+
+Fiendish Clarity now works closer to PnP.
+Fixed slot stacking bug in the Wizardry & Divinity itemprops.
+Fixed variable bug with Wizardry & Divinity itemprops that kept both from working on a single PC at the same time.
+Piercing Cold and Mastery of Elements no longer affects the secondary cast for Double Wand wielder. (@lightbeard)
+
+Commit: Jaysyn904
+Date: Sat June 20
+
+Moved PRC8 base class default package rows above row 256 so they can be used in the toolset.
+
+Commit: Jaysyn904
+Date: Thurs June 18
+
+Warforged don't bug out after taking Vow of Poverty.
+Warforged "heads" are no longer unidentified.
+
+Commit: Jaysyn904
 Date: Wed June 17
 
 Changed the Plant class icon.
