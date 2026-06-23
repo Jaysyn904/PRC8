@@ -40,7 +40,8 @@ void ActionCastSpellOnSelf(int iSpell, int nMetaMagic = METAMAGIC_NONE, object o
 void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotalDC = 0,
     int nMetaMagic = METAMAGIC_NONE, int nClass = CLASS_TYPE_INVALID,
     int bUseOverrideTargetLocation=FALSE, int bUseOverrideTargetObject=FALSE,
-    object oOverrideTarget=OBJECT_INVALID, int bInstantCast=TRUE, int bUseOverrideMetaMagic=FALSE);
+    object oOverrideTarget=OBJECT_INVALID, int bInstantCast=TRUE, int bUseOverrideMetaMagic=FALSE,
+    object oSpellCastItem=OBJECT_INVALID);
 
 /**
  * Checks whether the given creature is committing an action, or
@@ -215,7 +216,8 @@ void ActionCastSpellOnSelf(int iSpell, int nMetaMagic = METAMAGIC_NONE, object o
 void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotalDC = 0,
     int nMetaMagic = METAMAGIC_NONE, int nClass = CLASS_TYPE_INVALID,
     int bUseOverrideTargetLocation=FALSE, int bUseOverrideTargetObject=FALSE,
-    object oOverrideTarget=OBJECT_INVALID, int bInstantCast=TRUE, int bUseOverrideMetaMagic=FALSE)
+    object oOverrideTarget=OBJECT_INVALID, int bInstantCast=TRUE, int bUseOverrideMetaMagic=FALSE,
+    object oSpellCastItem=OBJECT_INVALID)
 {
 
     //if its a hostile spell, clear the action queue
@@ -253,6 +255,13 @@ void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotal
         ActionDoCommand(SetLocalInt(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE, TRUE));
         ActionDoCommand(SetLocalObject(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE, oOverrideTarget));
     }
+    if (GetIsObjectValid(oSpellCastItem))
+    {
+        SetLocalObject(OBJECT_SELF, PRC_SPELLCASTITEM_OVERRIDE, oSpellCastItem);
+        SetLocalInt(OBJECT_SELF, PRC_ACTIONCASTSPELL_ITEM_CAST, TRUE);
+        ActionDoCommand(SetLocalObject(OBJECT_SELF, PRC_SPELLCASTITEM_OVERRIDE, oSpellCastItem));
+        ActionDoCommand(SetLocalInt(OBJECT_SELF, PRC_ACTIONCASTSPELL_ITEM_CAST, TRUE));
+    }
     ActionDoCommand(SetLocalInt(OBJECT_SELF, "UsingActionCastSpell", TRUE));
     
     if(DEBUG) DoDebug("ActionCastSpell SpellId: " + IntToString(iSpell));
@@ -263,6 +272,7 @@ void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotal
     if(DEBUG) DoDebug("ActionCastSpell Caster Class: " + IntToString(nClass));    
     if(DEBUG) DoDebug("ActionCastSpell Target: " + GetName(oTarget));
     if(DEBUG) DoDebug("ActionCastSpell Override Target: " + GetName(oOverrideTarget));
+    if(DEBUG) DoDebug("ActionCastSpell Item: " + GetName(oSpellCastItem));
 
     //cast the spell
     if (GetIsObjectValid(oOverrideTarget))
@@ -299,6 +309,11 @@ void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotal
             ActionDoCommand(DelayCommand(1.0, DeleteLocalInt(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE)));
             ActionDoCommand(DelayCommand(1.0, DeleteLocalObject(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE)));
         }
+        if (GetIsObjectValid(oSpellCastItem))
+        {
+            ActionDoCommand(DelayCommand(1.0, DeleteLocalObject(OBJECT_SELF, PRC_SPELLCASTITEM_OVERRIDE)));
+            ActionDoCommand(DelayCommand(1.0, DeleteLocalInt(OBJECT_SELF, PRC_ACTIONCASTSPELL_ITEM_CAST)));
+        }
     }
     else
     {
@@ -325,6 +340,11 @@ void ActionCastSpell(int iSpell, int iCasterLev = 0, int iBaseDC = 0, int iTotal
         {
             ActionDoCommand(DeleteLocalInt(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE));
             ActionDoCommand(DeleteLocalObject(OBJECT_SELF, PRC_SPELL_TARGET_OBJECT_OVERRIDE));
+        }
+        if (GetIsObjectValid(oSpellCastItem))
+        {
+            ActionDoCommand(DeleteLocalObject(OBJECT_SELF, PRC_SPELLCASTITEM_OVERRIDE));
+            ActionDoCommand(DeleteLocalInt(OBJECT_SELF, PRC_ACTIONCASTSPELL_ITEM_CAST));
         }
     }
 

@@ -3082,6 +3082,7 @@ int WandEquipped(object oCaster, object oSpellCastItem)
 
 void DoubleWandWielder(object oCaster, object oSpellCastItem, object oTarget)
 {
+    if (GetLocalInt(oCaster, PRC_ACTIONCASTSPELL_ITEM_CAST)) return; // DoubleWandWielder: synthetic ActionCastSpell already has item context.
     if (!GetHasFeat(FEAT_DOUBLE_WAND_WIELDER, oCaster)) return; // Does nothing without the feat, obviously
     if (!GetLocalInt(oCaster, "DoubleWand")) return; // Needs to be active as well
     
@@ -3130,7 +3131,15 @@ void DoubleWandWielder(object oCaster, object oSpellCastItem, object oTarget)
                     if (DEBUG) DoDebug("DoubleWandWielder: bioware item casting with caster level = "+IntToString(nCasterLevel));
                 }
             
-                ActionCastSpell(nSpell, nCasterLevel, 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, FALSE, oTarget, TRUE);
+                SetLocalObject(oCaster, PRC_SPELLCASTITEM_OVERRIDE, oOffHand); // DoubleWandWielder: direct off-hand item context.
+                SetLocalInt(oCaster, PRC_ACTIONCASTSPELL_ITEM_CAST, TRUE);
+                SetLocalInt(oCaster, "PRC_DOUBLEWAND_ITEM_SPELL_" + IntToString(nSpell), TRUE);
+                SetLocalInt(oCaster, "UsingActionCastSpell", TRUE);
+                DelayCommand(6.0, DeleteLocalObject(oCaster, PRC_SPELLCASTITEM_OVERRIDE));
+                DelayCommand(6.0, DeleteLocalInt(oCaster, PRC_ACTIONCASTSPELL_ITEM_CAST));
+                DelayCommand(6.0, DeleteLocalInt(oCaster, "PRC_DOUBLEWAND_ITEM_SPELL_" + IntToString(nSpell)));
+                DelayCommand(6.0, DeleteLocalInt(oCaster, "UsingActionCastSpell"));
+                ActionCastSpell(nSpell, nCasterLevel, 0, 0, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, FALSE, oTarget, TRUE, FALSE, oOffHand);
                 SetItemCharges(oOffHand, nCharges - 2);
             }        
         }

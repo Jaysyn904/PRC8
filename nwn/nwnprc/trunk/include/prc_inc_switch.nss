@@ -353,6 +353,7 @@ const string PRC_SPELL_AREA_SIZE_MULTIPLIER          = "PRC_SPELL_AREA_SIZE_MULT
  * Used to override PRCGetSpellCastItem();
  */
 const string PRC_SPELLCASTITEM_OVERRIDE              = "PRC_SPELLCASTITEM_OVERRIDE";
+const string PRC_ACTIONCASTSPELL_ITEM_CAST           = "PRC_ACTIONCASTSPELL_ITEM_CAST";
 
 /*
  * This is for builders. It should not be set on the module, but should be set on players/creatures.

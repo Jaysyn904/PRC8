@@ -2516,8 +2516,12 @@ int IsSpellDamageElemental(int nDamageType)
 int ChangedElementalDamage(object oCaster, int nDamageType)
 {
 
-    // None of the stuff here works when items are involved
-    if (GetIsObjectValid(PRCGetSpellCastItem())) return nDamageType;
+    // None of the stuff here works when items are involved.
+    int bDoubleWandItemCast = GetLocalInt(oCaster, "PRC_DOUBLEWAND_ITEM_SPELL_" + IntToString(PRCGetSpellId(oCaster)));
+    if (GetIsObjectValid(PRCGetSpellCastItem(oCaster))
+    ||  GetLocalInt(oCaster, PRC_ACTIONCASTSPELL_ITEM_CAST)
+    ||  bDoubleWandItemCast)
+        return nDamageType;
     
     int nNewType;
 
@@ -2708,10 +2712,12 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
         }
     }
 	
-	object oSpellCastItem = PRCGetSpellCastItem(); 
+	object oSpellCastItem = PRCGetSpellCastItem();
+	int bItemCastOverride = GetLocalInt(oCaster, PRC_ACTIONCASTSPELL_ITEM_CAST)
+	                      || GetLocalInt(oCaster, "PRC_DOUBLEWAND_ITEM_SPELL_" + IntToString(PRCGetSpellId(oCaster)));
 	
 	//if (!GetIsObjectValid(PRCGetSpellCastItem()))
-	if (!GetIsObjectValid(oSpellCastItem) || GetBaseItemType(oSpellCastItem) == BASE_ITEM_MAGICSTAFF)
+	if ((!GetIsObjectValid(oSpellCastItem) && !bItemCastOverride) || GetBaseItemType(oSpellCastItem) == BASE_ITEM_MAGICSTAFF)
 	{
     	if(PRCGetLastSpellCastClass(oCaster) == CLASS_TYPE_WARMAGE && !GetLocalInt(oTarget, "WarmageEdgeDelay"))
     	{
