@@ -1728,7 +1728,22 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
     int nCaster = GetAlternativeCasterLevel(oCaster, PRCGetCasterLevel(oCaster));
 
 	// Get the spell and class  
-	if(!nSpell) nSpell = PRCGetSpellId();  
+	if(!nSpell) nSpell = PRCGetSpellId();
+	// Handle subradial spells  
+	int nSpellOriginal = nSpell;  
+	int nSpellMaster = nSpellOriginal;  
+	if (GetIsSubradialSpell(nSpellOriginal))  
+	{  
+		nSpellMaster = GetMasterSpellFromSubradial(nSpellOriginal);  
+	}  
+	  
+	// Use master spell for the spell list check  
+	if (!GetHasSpellOnClassList(oCaster, nSpellMaster))  
+	{  
+		FloatingTextStringOnCreature("You must have this spell on your divine spell list to inscribe it.", oCaster, FALSE);  
+		return TRUE;  
+	}
+	
 	int nLastClass = PRCGetLastSpellCastClass();  
 	  
 	// Check if the casting class is divine  
@@ -1739,7 +1754,8 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
 	}  
 	  
 	// Check if the spell is on the caster's divine spell list  
-	if (!GetHasSpellOnClassList(oCaster, nSpell))  
+	//if (!GetHasSpellOnClassList(oCaster, nSpell))  
+	if (!GetHasSpellOnClassList(oCaster, nSpellMaster))
 	{  
 		FloatingTextStringOnCreature("You must have this spell on your divine spell list to inscribe it.", oCaster, FALSE);  
 		return TRUE;  
@@ -1838,7 +1854,28 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
         return TRUE;
     }
 
-    // Steal all the code from craft wand.
+    // Steal all the code from craft wand.  
+    // The reason craft wand is used is because it is possible to create runes with charges using the Runecaster class.  
+      
+    // Prefer iprp mapping for original subradial, fallback to master  
+    int nPropID = IPGetIPConstCastSpellFromSpellID(nSpellOriginal);  
+    int nSpellUsedForIP = nSpellOriginal;  
+    if (nPropID < 0)  
+    {  
+        nPropID = IPGetIPConstCastSpellFromSpellID(nSpellMaster);  
+        nSpellUsedForIP = nSpellMaster;  
+    }  
+  
+    // * GZ 2003-09-11: If the current spell cast is not acid fog, and  
+    // *                returned property ID is 0, bail out to prevent  
+    // *                creation of acid fog items.  
+    if (nPropID == 0 && nSpell != 0)  
+    {  
+        FloatingTextStrRefOnCreature(84544,oCaster);  
+        return TRUE;  
+    }
+	
+/*     // Steal all the code from craft wand.
     // The reason craft wand is used is because it is possible to create runes with charges using the Runecaster class.
     int nPropID = IPGetIPConstCastSpellFromSpellID(nSpell);
 
@@ -1849,7 +1886,7 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
     {
         FloatingTextStrRefOnCreature(84544,oCaster);
         return TRUE;
-    }
+    } */
 
     //check spell emulation
     if(!CheckAlternativeCrafting(oCaster, nSpell, costs))
@@ -1885,19 +1922,34 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
 		nCaster = PRCGetCasterLevel();
 		
 		if (!bEpicRunes) { if(nCaster > 20) nCaster = 20; }	
+
+		itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpellUsedForIP, nCaster);  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel,oRune);  
+        itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpellUsedForIP, PRCGetMetaMagicFeat());  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta,oRune);  
+        itemproperty ipDC = ItemPropertyCastSpellDC(nSpellUsedForIP, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF) + nRuneChant);  
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC,oRune);
 		
-		itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, nCaster);
+		// If Maximize Rune is turned on and we pass the check, add the Maximize IProp  
+        if (GetLocalInt(oCaster, "MaximizeRune"))  
+        {  
+            itemproperty ipMax = ItemPropertyCastSpellMetamagic(nSpellUsedForIP, METAMAGIC_MAXIMIZE);  
+            AddItemProperty(DURATION_TYPE_PERMANENT,ipMax,oRune);  
+        }
+		
+/* 		itemproperty ipLevel = ItemPropertyCastSpellCasterLevel(nSpell, nCaster);
         AddItemProperty(DURATION_TYPE_PERMANENT,ipLevel,oRune);
         itemproperty ipMeta = ItemPropertyCastSpellMetamagic(nSpell, PRCGetMetaMagicFeat());
         AddItemProperty(DURATION_TYPE_PERMANENT,ipMeta,oRune);
         itemproperty ipDC = ItemPropertyCastSpellDC(nSpell, PRCGetSaveDC(PRCGetSpellTargetObject(), OBJECT_SELF) + nRuneChant);
-        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC,oRune);
+        AddItemProperty(DURATION_TYPE_PERMANENT,ipDC,oRune); */
+		
         // If Maximize Rune is turned on and we pass the check, add the Maximize IProp
-        if (GetLocalInt(oCaster, "MaximizeRune"))
+/*         if (GetLocalInt(oCaster, "MaximizeRune"))
         {
             itemproperty ipMax = ItemPropertyCastSpellMetamagic(nSpell, METAMAGIC_MAXIMIZE);
             AddItemProperty(DURATION_TYPE_PERMANENT,ipMax,oRune);
-        }
+        } */
 
         // If its uses per day instead of charges, we do some different stuff here
         if (GetLocalInt(oCaster, "RuneUsesPerDay"))
@@ -1932,9 +1984,13 @@ int InscribeRune(object oTarget = OBJECT_INVALID, object oCaster = OBJECT_INVALI
         //advance time here
         if(!costs.nTimeCost) costs.nTimeCost = 1;
         AdvanceTimeForPlayer(oCaster, RoundsToSeconds(costs.nTimeCost));
-        string sName;
+		
+        string sName;  
+        sName = Get2DACache("spells", "Name", nSpellUsedForIP);  
+        sName = "Rune of "+GetStringByStrRef(StringToInt(sName));		
+/*         string sName;
         sName = Get2DACache("spells", "Name", nSpell);
-        sName = "Rune of "+GetStringByStrRef(StringToInt(sName));
+        sName = "Rune of "+GetStringByStrRef(StringToInt(sName)); */
         if(GetLocalInt(oCaster, "MaximizeRune"))
             sName = "Maximized "+sName;
         SetName(oRune, sName);

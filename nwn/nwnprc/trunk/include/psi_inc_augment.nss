@@ -553,15 +553,23 @@ struct manifestation EvaluateAugmentation(struct manifestation manif, struct pow
     	if(DEBUG) DoDebug("Checking Midnight Augumentation");
 		int bMidAugInvestment = GetLocalInt(manif.oManifester, "MidnightAugPowerInvestment");
 		
-		// Make sure the power is the correct one, and that you can expend your psionic focus
-    	if (manif.nSpellID == GetLocalInt(manif.oManifester, "MidnightAugPower") && UsePsionicFocus(manif.oManifester))
+		// Make sure the power is the correct one, is augmented, and that you can expend your psionic focus		
+		if (manif.nSpellID == GetLocalInt(manif.oManifester, "MidnightAugPower") &&   
+			UsePsionicFocus(manif.oManifester) &&  nAugPPCost > 0)  
+		{  
+			if(DEBUG) DoDebug("Midnight Augumentation power invested Essentia is: "+IntToString(bMidAugInvestment)+".");
+			
+			nMidnightAugReduction = bMidAugInvestment;
+			if(DEBUG) DoDebug("Final Midnight Augumentation power adjustment "+IntToString(nMidnightAugReduction)+".");			
+		}		
+/*     	if (manif.nSpellID == GetLocalInt(manif.oManifester, "MidnightAugPower") && UsePsionicFocus(manif.oManifester))
 		{
     		if(DEBUG) DoDebug("Midnight Augumentation power invested Essentia is: "+IntToString(bMidAugInvestment)+".");
 			//nAugPPCostReductions = nAugPPCostReductions + bMidAugInvestment;
 			nMidnightAugReduction = bMidAugInvestment;
 			
 			if(DEBUG) DoDebug("Final Midnight Augumentation power adjustment "+IntToString(nMidnightAugReduction)+".");
-		}
+		} */
     }		
 	
     /*/ Various effects modifying the augmentation go above /*/

@@ -431,7 +431,7 @@ void _DoOverchannelDamage(object oManifester, int bIsPsiLike)
             else if(GetCurrentHitPoints(oCaster) < nDam && GetHasFeat(FEAT_TALENTED, oCaster) && UsePsionicFocus(oCaster))
                 return;*/
         }
-        effect eDam = EffectDamage(nDam);
+        effect eDam = EffectDamage(nDam, DAMAGE_TYPE_UNTYPED);
         ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oManifester);
     }
 }

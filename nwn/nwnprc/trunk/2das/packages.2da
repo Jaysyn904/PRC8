@@ -70,7 +70,7 @@
 66         Assassin                         9007     9010        30      DEX       0    ****   ****    ****    ****      ****          PackFTAssa    PackSKAssa    ****          0        1           
 67         Blackguard                       9011     9014        31      STR       0    ****   ****    ****    ****      ****          PackFTBlck    PackSKBlck    ****          0        1           
 68         ****                             ****     ****        ****    ****      **** ****   ****    ****    ****      ****          ****          ****          ****          ****     1           
-69         ****                             ****     ****        ****    ****      **** ****   ****    ****    ****      ****          ****          ****          ****          ****     1           
+69         Plant                            16833077 16833080    164     STR       **** ****   ****    ****    ****      ****          PackFTCrea1   PackSKCrea1   ****          0        0           
 70         NPC_Sorcerer                     9085     9084        9       CHA       75   0      ****    ****    8         PackSPNPC1    PackFTSorA    PackSKWiz1    PackEQWiz1    0        0           
 71         NPC_Rogue                        9086     9087        8       DEX       100  ****   ****    ****    ****      ****          PackFTRog6    PackSKRog6    PackEQRog1    0        0           
 72         NPC_Bard                         9089     9088        1       CHA       100  8      ****    ****    ****      PackSPBar3    PackFTBard6   PackSKBard1   PackEQBard1   0        0           

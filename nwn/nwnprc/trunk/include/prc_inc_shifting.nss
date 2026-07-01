@@ -2603,7 +2603,9 @@ int ShiftIntoResRef(object oShifter, int nShifterType, string sResRef, int bGain
             else
                 DelayCommand(0.1f, _prc_inc_shifting_ShiftIntoTemplateAux(oShifter, nShifterType, oTemplate, bGainSpellLikeAbilities));
             
-            // Return that we were able to successfully start shifting
+            //:: Update creature weapon size if it should change.
+			DelayCommand(1.5, ActionCastSpellOnSelf(SPELL_SHAPE_INCREASE_DAMAGE));
+			// Return that we were able to successfully start shifting
             return TRUE;
         }
     }

@@ -92,6 +92,14 @@ void main()
         FloatingTextStrRefOnCreature(85764,OBJECT_SELF); // not useable when silenced
         return;
     }
+	
+    // Forsaker check 
+    if(GetLevelByClass(CLASS_TYPE_FORSAKER, OBJECT_SELF))  
+    {  
+        FloatingTextStringOnCreature("Forsakers cannot use bardic music!", OBJECT_SELF, FALSE);  
+        return;  
+    }  
+	
     string sTag = GetTag(OBJECT_SELF);
 
     //RemoveOldSongEffects(OBJECT_SELF,GetSpellId());

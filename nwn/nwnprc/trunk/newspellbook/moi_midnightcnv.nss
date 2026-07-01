@@ -26,7 +26,7 @@ const int STRREF_SELECTED_HEADER2   = 16824210; // "Is this correct?"
 const int STRREF_YES                = 4752;     // "Yes"
 const int STRREF_NO                 = 4753;     // "No"
 
-const int SORT       = TRUE; // If the sorting takes too much CPU, set to FALSE
+const int SORT       = FALSE; // If the sorting takes too much CPU, set to FALSE
 const int DEBUG_LIST = FALSE;
 
 //////////////////////////////////////////////////
