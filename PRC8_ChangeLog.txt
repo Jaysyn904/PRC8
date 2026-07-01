@@ -1,6 +1,25 @@
 Commit: Jaysyn904
 Date: Sun June 22
 
+Added levelup package for plant RHD.
+Maeluth can now take Battlesmith.
+Fixed icon for Racial Cold & Fire resistance.
+Fixed Archivist prereqs for Plant Control & Plant Defiance.
+Added SPELL_SHAPE_INCREASE_DAMAGE check for PNP Shifting.
+Updated PRC8 version.
+Inscribe Rune can handle radial spells properly now.
+Overchannel self damage is now Untyped.
+Fixed list TMI errors for Midnight Augmentation.
+Forsakers can't use Bard Song.
+
+Commit: Jaysyn904
+Date: Sun June 22
+
+Piercing Cold and Mastery of Elements no longer affects the secondary cast for Double Wand wielder. (@lightbeard)
+
+Commit: Jaysyn904
+Date: Sun June 22
+
 Fiendish Clarity now works closer to PnP.
 Fixed slot stacking bug in the Wizardry & Divinity itemprops.
 Fixed variable bug with Wizardry & Divinity itemprops that kept both from working on a single PC at the same time.

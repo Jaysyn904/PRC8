@@ -93,9 +93,10 @@ struct _prc_inc_ability_info_struct _prc_inc_CountItemAbilities(object oCreature
 
 struct _prc_inc_ability_info_struct _prc_inc_shifter_GetAbilityInfo(object oTemplate, object oShifter)
 {
-	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
-	int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
-    int bFuncs = (nNWNxEE && nPRCx);
+	//int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);
+	//int nPRCx	= GetPRCSwitch(PRC_PRCX_ENABLED);
+    //int bFuncs = (nNWNxEE && nPRCx);
+	int bFuncs = 0;  // <- Not using NWNxEE for Shifters
 
     //Initialize with item ability bonuses
 

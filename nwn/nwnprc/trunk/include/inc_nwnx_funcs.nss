@@ -226,7 +226,7 @@ void PRC_Funcs_ModAbilityScore(object oCreature, int nAbility, int nValue)
 	if(DEBUG) DoDebug("PRC_Funcs_ModAbiltyScore: Variables Set");
 
     //:: Fire NWNxEE shim
-	if(DEBUG) DoDebug("PRC_Funcs_ModAbiltyScore: Firing prc_mod_ability");
+	if(DEBUG) DoDebug("PRC_Funcs_ModAbiltyScore: Firing prcx_mod_ability");
     ExecuteScript("prcx_mod_ability", oCreature);
 }
 
