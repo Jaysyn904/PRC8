@@ -87,9 +87,52 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
         // If the beam hit, affect the target
         if (iAttackRoll > 0)
         {
-            // Make SR check
+			if (!PRCDoResistSpell(oCaster, oTarget, nPenetr))  
+			{  
+				// Check for placeables immunity - if immune, force save to succeed (reduced damage only)  
+				int bImmune = GetLocalInt(oTarget, "IMMUNITY_SPELL_DISINTEGRATE");  
+				  
+                // Fort save or die time, but we implement death by doing massive damage
+                // since disintegrate works on constructs, undead, etc.  At some point EffectDie()
+                // should be tested to see if it works on non-living targets, and if it does it should
+                // be used instead.
+                // Test done. Result: It does kill them. 
+				int bKills = FALSE;  
+				int bSaveSuccess = PRCMySavingThrow(SAVING_THROW_FORT, oTarget, nSaveDC, SAVING_THROW_TYPE_SPELL);  
+				  
+				// Force save to succeed if immune  
+				if (bImmune) bSaveSuccess = TRUE;  
+				  
+				if (bSaveSuccess)  
+				{  
+					if (GetHasMettle(oTarget, SAVING_THROW_FORT))  
+						return 0;  
+					  
+					int nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_UNTYPED, 1 == iAttackRoll ? 5 : 20, 6);  
+					nDamage += SpellDamagePerDice(oCaster, 5);  
+			  
+					if(nDamage >= GetCurrentHitPoints(oTarget))  
+						bKills = TRUE;  
+			  
+					ApplyTouchAttackDamage(oCaster, oTarget, iAttackRoll, nDamage, DAMAGE_TYPE_UNTYPED);  
+				}  
+				else  
+				{  
+					DeathlessFrenzyCheck(oTarget);  
+					bKills = TRUE;  
+					SPApplyEffectToObject(DURATION_TYPE_INSTANT, SupernaturalEffect(EffectDeath()), oTarget);  
+				}  
+			  
+				if(bKills)  
+					SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_SUMMON_MONSTER_2), oTarget);  
+				SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_MAGBLUE), oTarget);  
+			}			
+/*             // Make SR check
             if (!PRCDoResistSpell(oCaster, oTarget, nPenetr))
             {
+				// Check for immunity - if immune, force save to succeed (reduced damage only)  
+				int bImmune = GetLocalInt(oTarget, IMMUNITY_SPELL_DISINTEGRATE);  
+	
                 // Fort save or die time, but we implement death by doing massive damage
                 // since disintegrate works on constructs, undead, etc.  At some point EffectDie()
                 // should be tested to see if it works on non-living targets, and if it does it should
@@ -101,7 +144,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 			if (GetHasMettle(oTarget, SAVING_THROW_FORT))
 			// This script does nothing if it has Mettle, bail
 				return 0;                
-                    int nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_MAGICAL, 1 == iAttackRoll ? 5 : 20, 6);
+                    int nDamage = PRCGetMetaMagicDamage(DAMAGE_TYPE_UNTYPED, 1 == iAttackRoll ? 5 : 20, 6);
                     nDamage += SpellDamagePerDice(oCaster, 5);
 
                     // Determine if we should show the special kill VFX
@@ -109,7 +152,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
                         bKills = TRUE;
 
                     // Run the touch attack damage applicator
-                    ApplyTouchAttackDamage(oCaster, oTarget, iAttackRoll, nDamage, DAMAGE_TYPE_MAGICAL);
+                    ApplyTouchAttackDamage(oCaster, oTarget, iAttackRoll, nDamage, DAMAGE_TYPE_UNTYPED);
                 }
                 else
                 {
@@ -128,7 +171,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
                 if(bKills)
                     SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_SUMMON_MONSTER_2), oTarget);
                 SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_MAGBLUE), oTarget);
-            }
+            } */
         }
     }
 

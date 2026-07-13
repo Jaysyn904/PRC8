@@ -41,6 +41,7 @@ void main()
     object oTarget = PRCGetSpellTargetObject();
     int nCasterLvl = PRCGetCasterLevel(oPC);
     int nMetaMagic = PRCGetMetaMagicFeat();
+	int EleDmg = ChangedElementalDamage(oPC, DAMAGE_TYPE_FIRE);
     int nDC = PRCGetSaveDC(oTarget,OBJECT_SELF);
     effect eVis = EffectVisualEffect(VFX_IMP_FLAME_M);
     int nMax = nCasterLvl;
@@ -68,7 +69,7 @@ void main()
     nDam = PRCGetReflexAdjustedDamage(nDam, oTarget, nDC, SAVING_THROW_TYPE_FIRE);
 
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-    ApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, DAMAGE_TYPE_FIRE), oTarget);
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oTarget, nDam, EleDmg), oTarget);
 
     PRCSetSchool();
 }

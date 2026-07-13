@@ -31584,11 +31584,12 @@ Cost:
   <entry id="51911" lang="en" sex="m">Description:
 
 Skill Bonus: Hide +10
+Disguise Self at will.
 
 Prerequisites:
 
 Caster Level: 3
-Spell(s): Invisibility
+Spell(s): Invisibility, Disguise Self
 
 Cost:
 
@@ -32424,7 +32425,7 @@ XP Cost: 1,000 XP.</entry>
 Caster Level: Sorcerer/Wizard 6
 Components: V, S
 Range: Touch
-Target: One creature
+Target: One living humaniod creature
 Duration: Instantaneous
 Saving Throw: Fortitude negates
 Spell Resistance: Yes
@@ -34744,7 +34745,7 @@ castings return to their home plane.</entry>
   <entry id="52440" lang="en" sex="m">Celestial Blood</entry>
   <entry id="52441" lang="en" sex="m">Celestial Blood
 Abjuration [Good]
-Level: Apostle of peace 6, Clr 6, Pleasure 6
+Level: Clr 6
 Components: V, S, M
 Casting Time: 1 round
 Range: Touch
@@ -35001,7 +35002,7 @@ The spell deals only half damage against creatures that are neither good nor evi
   <entry id="52474" lang="en" sex="m">Starmantle</entry>
   <entry id="52475" lang="en" sex="m">Starmantle
 Abjuration
-Level: Joy 7, Sor/Wiz 6
+Level: Sor/Wiz 6
 Components: V, S, M
 Casting Time: 1 standard action
 Range: Touch
@@ -72972,6 +72973,82 @@ Cost to Create: 675 gp, 54 XP, 2 days</entry>
 
 You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.</entry>
   <entry id="80125" lang="en" sex="m">****</entry>
+  <entry id="80126" lang="en" sex="m">Ring of Wizardry I</entry>
+  <entry id="80127" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled. 
+
+Prerequisites: Forge Ring, limited wish.
+
+Cost to Create:10000gp, 800 XP, 20 days</entry>
+  <entry id="80128" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled.</entry>
+  <entry id="80129" lang="en" sex="m">Ring of Wizardry II</entry>
+  <entry id="80130" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled. 
+
+Prerequisites: Forge Ring, limited wish.
+
+Cost to Create:20000gp, 1600 XP, 40 days</entry>
+  <entry id="80131" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled.</entry>
+  <entry id="80132" lang="en" sex="m">Ring of Wizardry III</entry>
+  <entry id="80133" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled. 
+
+Prerequisites: Forge Ring, limited wish.
+
+Cost to Create:35000gp, 2800 XP, 70 days</entry>
+  <entry id="80134" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled.</entry>
+  <entry id="80135" lang="en" sex="m">Ring of Wizardry IV</entry>
+  <entry id="80136" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled. 
+
+Prerequisites: Forge Ring, limited wish.
+
+Cost to Create:50000gp, 4000 XP, 100 days</entry>
+  <entry id="80137" lang="en" sex="m">This special ring comes in four kinds (ring of wizardry I, ring of wizardry II, ring of wizardry III, and ring of wizardry IV), all of them useful only to arcane spellcasters. The wearer’s arcane spells per day are doubled for one specific spell level. A ring of wizardry I doubles 1st-level spells, a ring of wizardry II doubles 2nd-level spells, a ring of wizardry III doubles 3rd-level spells, and a ring of wizardry IV doubles 4th-level spells. Bonus spells from high ability scores or school specialization are not doubled.</entry>
+  <entry id="80138" lang="en" sex="m">****</entry>
+  <entry id="80139" lang="en" sex="m">Ring of Divinity I</entry>
+  <entry id="80140" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. 
+
+Prerequisites: Forge Ring, hallow.
+
+Cost to Create: 10000gp, 800 XP, 20 days</entry>
+  <entry id="80141" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. </entry>
+  <entry id="80142" lang="en" sex="m">Ring of Divinity II</entry>
+  <entry id="80143" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. 
+
+Prerequisites: Forge Ring, hallow.
+
+Cost to Create: 20000gp, 1600 XP, 40 days</entry>
+  <entry id="80144" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. </entry>
+  <entry id="80145" lang="en" sex="m">Ring of Divinity III</entry>
+  <entry id="80146" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. 
+
+Prerequisites: Forge Ring, hallow.
+
+Cost to Create: 35000gp, 2800 XP, 70 days</entry>
+  <entry id="80147" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. </entry>
+  <entry id="80148" lang="en" sex="m">Ring of Divinity IV</entry>
+  <entry id="80149" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. 
+
+Prerequisites: Forge Ring, hallow.
+
+Cost to Create: 50000gp, 4000 XP, 100 days</entry>
+  <entry id="80150" lang="en" sex="m">This special ring comes in four kinds (ring of divinity I, ring of divinity II, ring of divinity III, and ring of divinity IV), all of them useful only to divine spellcasters. The wearer’s divine spells per day are doubled for one specific spell level. A ring of divinity I doubles 1st-level spells, a ring of divinity II doubles 2nd-level spells, a ring of divinity III doubles 3rd-level spells, and a ring of divinity IV doubles 4th-level spells. Bonus spells from high ability scores are not doubled. </entry>
+  <entry id="80151" lang="en" sex="m">****</entry>
+  <entry id="80152" lang="en" sex="m">As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Hide checks. As a standard action, she can also command the ring to utilize the spell disguise self as often as she wants.</entry>
+  <entry id="80153" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt. A minor ring of energy resistance grants 10 points of resistance.</entry>
+  <entry id="80154" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt.  A major ring of energy resistance grants 20 points of resistance.</entry>
+  <entry id="80155" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring’s resistance value from the damage dealt.  A greater ring of energy resistance grants 30 points of resistance.</entry>
+  <entry id="80156" lang="en" sex="m">This band continually provides the wearer with immunity to a single type of energy: fire, cold, electricity, acid, or sonic. The wearer takes no damage from the energy of the specific type.</entry>
+  <entry id="80157" lang="en" sex="m">This ring functions as a ring of greater energy resistance for all types of energy-fire, cold, electricity, acid, and sonic. When the wearer would normally take such damage, subtract 30 points of damage per round from the amount before applying.</entry>
+  <entry id="80158" lang="en" sex="m">This ring functions as a ring of energy immunity for all types of energy- fire, cold, electricity, acid, and sonic. The wearer takes no damage from energy of any of these types.</entry>
+  <entry id="80159" lang="en" sex="m">This ring continually grants the wearer the ability to avoid damage as if she had evasion. Whenever she makes a Reflex saving throw to determine whether she takes half damage, a successful save results in no damage.</entry>
+  <entry id="80160" lang="en" sex="m">This gold ring allows the wearer to act as if continually under the effect of a freedom of movement spell.</entry>
+  <entry id="80161" lang="en" sex="m">By activating this simple silver ring, the wearer can benefit from invisibility, as the spell.</entry>
+  <entry id="80162" lang="en" sex="m">This ring grants its wearer damage reduction 15/adamantine (+5). </entry>
+  <entry id="80163" lang="en" sex="m">This ring continually allows the wearer to leap about, providing a +5 competence bonus on all his Jump checks.</entry>
+  <entry id="80164" lang="en" sex="m">This ring continually allows the wearer to leap about, providing a +10 competence bonus on all his Jump checks.</entry>
+  <entry id="80165" lang="en" sex="m">This ring offers continual magical protection in the form of the named deflection bonus to AC.</entry>
+  <entry id="80166" lang="en" sex="m">This white gold ring continually allows a living wearer to heal 1 point of damage per round.</entry>
+  <entry id="80167" lang="en" sex="m">This white gold ring continually allows a living wearer to heal 3 points of damage per round.</entry>
+  <entry id="80168" lang="en" sex="m">Up to three times per day on command, this simple platinum band automatically reflects the next nine levels of spells cast at the wearer, exactly as if spell turning had been cast upon the wearer.</entry>
+  <entry id="80169" lang="en" sex="m">****</entry>
   <entry id="199000" lang="en" sex="m">Summon Nature's Ally I</entry>
   <entry id="199001" lang="en" sex="m">Conjuration (Summoning)
 Level:  Druid 1, Shaman 1, Ranger 1
@@ -73636,12 +73713,38 @@ Transmuting energy spreads out around the targets, dealing 4d8 points of damage 
   <entry id="199264" lang="en" sex="m">Gaseous Form (10)</entry>
   <entry id="199265" lang="en" sex="m">Gaseous Form (15)</entry>
   <entry id="199266" lang="en" sex="m">****</entry>
-  <entry id="199267" lang="en" sex="m">****</entry>
-  <entry id="199268" lang="en" sex="m">****</entry>
-  <entry id="199269" lang="en" sex="m">****</entry>
-  <entry id="199270" lang="en" sex="m">****</entry>
-  <entry id="199271" lang="en" sex="m">****</entry>
-  <entry id="199272" lang="en" sex="m">****</entry>
+  <entry id="199267" lang="en" sex="m">Limited Wish</entry>
+  <entry id="199268" lang="en" sex="m">Universal
+Level:			Sor/Wiz 7
+Components:		V, S, XP
+Casting time: 		1 standard action
+Range:			See text
+Target, Effect, 
+or Area:			See text
+Duration:			See text
+Saving Throw: 		None; see text
+Spell Resistance: 	                Yes 
+A limited wish lets you create nearly any type of effect. For example, a limited wish can do any of the following things.
+
+    Duplicate any sorcerer/wizard spell of 6th level or lower, provided the spell is not of a school prohibited to you.
+
+    Duplicate any other spell of 5th level or lower, provided the spell is not of a school prohibited to you.
+
+    Duplicate any sorcerer/wizard spell of 5th level or lower, even if it’s of a prohibited school.
+
+    Duplicate any other spell of 4th level or lower, even if it’s of a prohibited school.
+
+    Undo the harmful effects of many spells, such as geas/quest or insanity.
+
+A duplicated spell allows saving throws and spell resistance as normal (but the save DC is for a 7th-level spell). When a limited wish duplicates a spell that has an XP cost, you must pay that cost or 300 XP, whichever is more. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component.
+
+XP Cost: 300 XP or more (see above)</entry>
+  <entry id="199269" lang="en" sex="m">Limited Wish (14)</entry>
+  <entry id="199270" lang="en" sex="m">Sorcerer Limited Wish</entry>
+  <entry id="199271" lang="en" sex="m">Sublime Chord Repair Critical Damage</entry>
+  <entry id="199272" lang="en" sex="m">Sublime Chord Chasing Perfection</entry>
+  <entry id="199273" lang="en" sex="m">Sublime Chord Force Missiles</entry>
+  <entry id="199274" lang="en" sex="m">Sublime Chord Limited Wish</entry>
   <entry id="199999" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200000" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200001" lang="en" sex="m">Botanical</entry>

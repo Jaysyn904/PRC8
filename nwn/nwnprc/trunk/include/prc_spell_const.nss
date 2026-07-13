@@ -450,6 +450,7 @@ const int SPELL_SUDDEN_STALAGMITE                   = 3827;
 const int SPELL_BONES_OF_THE_EARTH                  = 3828;
 const int SPELL_PHANTOM_STEED                       = 2347;
 const int SPELL_GASEOUS_FORM                        = 2348;
+const int SPELL_LIMITED_WISH						= 17236;
 
 //:: Racial spell additions
 const int SPIRETOP_FOG_CLOUD_BREATH					= 1487; 	//:: Spiretop Dragon

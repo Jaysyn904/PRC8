@@ -36,6 +36,7 @@ void main()
     location lTarget = PRCGetSpellTargetLocation();
     int nCasterLvl = PRCGetCasterLevel(oCaster);
     int EleDmg = ChangedElementalDamage(oCaster, DAMAGE_TYPE_FIRE);
+	int nSaveType = ChangedSaveType(EleDmg);
     int nMetaMagic = PRCGetMetaMagicFeat();
     int nDamage;
     float fDelay;
@@ -73,7 +74,7 @@ void main()
 
                 nDamage += SpellDamagePerDice(OBJECT_SELF, nDice);
                 //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.
-                nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, (PRCGetSaveDC(oTarget, oCaster)), SAVING_THROW_TYPE_FIRE);
+                nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, (PRCGetSaveDC(oTarget, oCaster)), nSaveType);
                 if(nDamage > 0)
                 {
                     //Set the damage effect

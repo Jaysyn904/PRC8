@@ -66,7 +66,7 @@ void DoCone (int nDieSize, int nBonusDam, int nDieCap, int nConeEffect /* unused
                //Make SR check, and appropriate saving throw(s).  
                if((bIgnoreSR || !PRCDoResistSpell(OBJECT_SELF, oTarget,nPenetr, fDelay)) && (oTarget != OBJECT_SELF))  
                {  
-                    int nSaveDC = PRCGetSaveDC(oTarget,OBJECT_SELF);  
+                    int nSaveDC = PRCGetSaveDC(oTarget, OBJECT_SELF, nSpellID);  
                     // Roll damage for each target  
                     int nDamage = PRCGetMetaMagicDamage(nDamageType, nCasterLvl, nDieSize, nBonusDam);  
                 	// Acid Sheath adds +1 damage per die to acid descriptor spells  

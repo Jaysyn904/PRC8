@@ -613,9 +613,10 @@ void main()
             else if(nStage == STAGE_SHOPS)
             {
                 SetHeader("Select what type of item you wish to purchase.");
-                if(GetHasFeat(FEAT_BREW_POTION, oPC)
-                    || GetHasFeat(FEAT_SCRIBE_SCROLL, oPC)
-                    || GetHasFeat(FEAT_CRAFT_WAND, oPC))
+                if(GetHasFeat(FEAT_BREW_POTION, oPC) || GetHasFeat(FEAT_SCRIBE_SCROLL, oPC) || 
+				GetHasFeat(FEAT_CRAFT_ROD, oPC) || GetHasFeat(FEAT_CREATE_INFUSION, oPC) || 
+				GetHasFeat(FEAT_CRAFT_SCEPTER, oPC) || GetHasFeat(FEAT_CRAFT_WONDROUS, oPC) ||
+                GetHasFeat(FEAT_CREATE_INFUSION, oPC) || GetHasFeat(FEAT_CRAFT_WAND, oPC))
                     AddChoice("Magic item raw materials", 1);
                 if(!GetPRCSwitch(PRC_DISABLE_COMPONENTS_SHOP))
                     AddChoice("Material components for spells", 2);

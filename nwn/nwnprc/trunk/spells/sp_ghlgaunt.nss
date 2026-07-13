@@ -162,8 +162,15 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
     // Gotta be a living critter
     if (!PRCGetIsAliveCreature(oTarget))
     {
-        return TRUE;
+        SendMessageToPC(oCaster, "Target must be a living creature");
+		return TRUE;
     }
+	// Gotta be a humanoid  
+	if (!PRCAmIAHumanoid(oTarget))  
+	{  
+		SendMessageToPC(oCaster, "Target must be a humanoid creature");
+		return TRUE;  
+	}
     int iAttackRoll = PRCDoMeleeTouchAttack(oTarget);
     if(iAttackRoll)
     {
