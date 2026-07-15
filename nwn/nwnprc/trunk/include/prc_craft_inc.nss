@@ -41,6 +41,7 @@ struct ipstruct GetIpStructFromString(string sIp);
 #include "prc_inc_chat"
 #include "prc_x2_craft"
 #include "prc_inc_material"
+#include "prc_inc_json"
 
 const int NUM_MAX_PROPERTIES            = 200;
 const int NUM_MAX_SUBTYPES              = 256;
@@ -1488,7 +1489,23 @@ void ApplyItemProps(object oItem, string sFile, int nLine)
     itemproperty ip;
     if(StringToInt(Get2DACache(sFile, "Special", nLine)))
     {
-        if(sFile == "craft_wondrous")
+        if(sFile == "craft_ring")
+		{
+			switch(nLine)
+            {
+				case 60:
+				{
+					object oPC = OBJECT_SELF;
+					SetTag(oItem, "PRC_ITMRNG_VGOOD");
+					AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_itmrng_vgood", TRUE, FALSE);
+					AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_vgood", TRUE, FALSE);
+					//SendMessageToPC(oPC, "Ring of Virtuous Good found.");
+				 
+					break;
+				}
+			}
+		}
+		if(sFile == "craft_wondrous")
         {
             switch(nLine)
             {
@@ -2797,6 +2814,19 @@ itemproperty ConstructIP(int nType, int nSubTypeValue = 0, int nCostTableValue =
         case ITEM_PROPERTY_QUALITY: return ItemPropertyQuality(nCostTableValue);
         case ITEM_PROPERTY_ADDITIONAL: return ItemPropertyAdditional(nCostTableValue);
 		case ITEM_PROPERTY_ECHOBLADE: return ItemPropertyEchoblade();
+		case ITEM_PROPERTY_VALUE_DECREASE_A: return ItemPropertyDecreaseValueA(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_B: return ItemPropertyDecreaseValueB(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_C: return ItemPropertyDecreaseValueC(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_D: return ItemPropertyDecreaseValueD(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_E: return ItemPropertyDecreaseValueE(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_F: return ItemPropertyDecreaseValueF(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_G: return ItemPropertyDecreaseValueG(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_DECREASE_H: return ItemPropertyDecreaseValueH(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_INCREASE_A: return ItemPropertyIncreaseValueA(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_INCREASE_B: return ItemPropertyIncreaseValueB(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_INCREASE_C: return ItemPropertyIncreaseValueC(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_INCREASE_D: return ItemPropertyIncreaseValueD(nCostTableValue);
+		case ITEM_PROPERTY_VALUE_INCREASE_E: return ItemPropertyIncreaseValueE(nCostTableValue);
 
 
         //ROOM FOR MORE - 89 so far, need increase/decrease cost

@@ -1,21 +1,34 @@
 //:: New itemproperties
-const int ITEM_PROPERTY_USE_LIMITATION_ABILITY_SCORE      = 95;
-const int ITEM_PROPERTY_USE_LIMITATION_SKILL_RANKS        = 96;
 const int ITEM_PROPERTY_USE_LIMITATION_SPELL_LEVEL        = 88;
 const int ITEM_PROPERTY_USE_LIMITATION_ARCANE_SPELL_LEVEL = 89;
 const int ITEM_PROPERTY_USE_LIMITATION_DIVINE_SPELL_LEVEL = 90;
 const int ITEM_PROPERTY_USE_LIMITATION_SNEAK_ATTACK       = 91;
-const int ITEM_PROPERTY_USE_LIMITATION_GENDER             = 150;
-const int ITEM_PROPERTY_SPEED_INCREASE                    = 133;
-const int ITEM_PROPERTY_SPEED_DECREASE                    = 134;
-const int ITEM_PROPERTY_AREA_OF_EFFECT                    = 100;
-const int ITEM_PROPERTY_CAST_SPELL_CASTER_LEVEL           = 94;
 const int ITEM_PROPERTY_CAST_SPELL_METAMAGIC              = 92;
 const int ITEM_PROPERTY_CAST_SPELL_DC                     = 93;
+const int ITEM_PROPERTY_CAST_SPELL_CASTER_LEVEL           = 94;
+const int ITEM_PROPERTY_USE_LIMITATION_ABILITY_SCORE      = 95;
+const int ITEM_PROPERTY_USE_LIMITATION_SKILL_RANKS        = 96;
+const int ITEM_PROPERTY_AREA_OF_EFFECT                    = 100;
 const int ITEM_PROPERTY_PNP_HOLY_AVENGER                  = 101;
 const int ITEM_PROPERTY_WIZARDRY                          = 102;
 const int ITEM_PROPERTY_DIVINITY                          = 103;
 const int ITEM_PROPERTY_ECHOBLADE						  = 104;
+const int ITEM_PROPERTY_VALUE_DECREASE_A				  = 120;
+const int ITEM_PROPERTY_VALUE_DECREASE_B				  = 121;
+const int ITEM_PROPERTY_VALUE_DECREASE_C				  = 122;
+const int ITEM_PROPERTY_VALUE_DECREASE_D				  = 123;
+const int ITEM_PROPERTY_VALUE_DECREASE_E				  = 124;
+const int ITEM_PROPERTY_VALUE_DECREASE_F				  = 125;
+const int ITEM_PROPERTY_VALUE_DECREASE_G				  = 126;
+const int ITEM_PROPERTY_VALUE_DECREASE_H				  = 127;
+const int ITEM_PROPERTY_VALUE_INCREASE_A				  = 128;
+const int ITEM_PROPERTY_VALUE_INCREASE_B				  = 129;
+const int ITEM_PROPERTY_VALUE_INCREASE_C				  = 130;
+const int ITEM_PROPERTY_VALUE_INCREASE_D				  = 131;
+const int ITEM_PROPERTY_VALUE_INCREASE_E				  = 132;
+const int ITEM_PROPERTY_SPEED_INCREASE                    = 133;
+const int ITEM_PROPERTY_SPEED_DECREASE                    = 134;
+const int ITEM_PROPERTY_USE_LIMITATION_GENDER             = 150;
 
 //:: AoE itemproperties
 const int IP_CONST_AOE_DARKNESS             = 0;
@@ -486,6 +499,346 @@ itemproperty ItemPropertyDivinity(int nSpellLevel)
     }
     return ipReturn;
 }
+
+itemproperty ItemPropertyDecreaseValueA(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_A);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueA is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueB(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_B);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueB is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueC(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_C);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueC is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueD(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_D);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueD is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueE(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_E);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueE is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueF(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_F);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueF is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueG(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_G);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueG is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyDecreaseValueH(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_DECREASE_H);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyDecreaseValueH is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyIncreaseValueA(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_INCREASE_A);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyIncreaseValueA is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyIncreaseValueB(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_INCREASE_B);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyIncreaseValueB is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyIncreaseValueC(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_INCREASE_C);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyIncreaseValueC is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyIncreaseValueD(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_INCREASE_D);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyIncreaseValueD is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+itemproperty ItemPropertyIncreaseValueE(int nValueTier)
+{
+    itemproperty ipReturn;
+    string sResRef = "prc_ip" + IntToString(ITEM_PROPERTY_VALUE_INCREASE_E);
+    object oChest = GetObjectByTag("HEARTOFCHAOS");//use the crafting chest
+    object oItem = CreateItemOnObject(sResRef, oChest);
+    DestroyObject(oItem);
+    ipReturn = GetFirstItemProperty(oItem);
+    int i;
+    for(i=0;i<nValueTier;i++)
+    {
+        ipReturn = GetNextItemProperty(oItem);
+    }
+    if(!GetIsItemPropertyValid(ipReturn))
+    {
+        string sMessage = "ItemPropertyIncreaseValueE is not valid";
+        if(GetIsObjectValid(oChest))
+            sMessage += "\n oChest is valid.";
+        if(GetIsObjectValid(oItem))
+            sMessage += "\n oItem is valid.";
+        sMessage += "\n sResRef is "+sResRef+".";
+        DoDebug(sMessage);
+    }
+    return ipReturn;
+}
+
+
 
 // Test main
 // void main(){}

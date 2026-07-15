@@ -17,6 +17,13 @@ void main()
     || GetResRef(oItem) == "base_prc_skin")
         return;
 
+	if (sTag == "PRC_ITMRNG_VGOOD")
+	{
+		RemoveEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_itmrng_vgood", TRUE, TRUE);
+		RemoveEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_vgood", TRUE, TRUE);
+		RemoveEventScript(oPC, EVENT_ONHIT, "prc_itmrng_vgood", TRUE, TRUE);
+	}
+	
     //if(DEBUG) DoDebug("Running OnUnaquireItem, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
     if(GetPRCSwitch(PRC_AUTO_UNIDENTIFY_ON_UNACQUIRE))

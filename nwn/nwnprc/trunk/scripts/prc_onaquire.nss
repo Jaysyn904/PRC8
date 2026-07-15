@@ -197,12 +197,21 @@ void main()
     object oCreature = GetModuleItemAcquiredBy();
     object oItem     = GetModuleItemAcquired();
     string sTag = GetTag(oItem);
+	
+	WriteTimestampedLogEntry("prc_onaquire fired for: " + sTag);
 
     // Do not run for some of the PRC special items
     if(sTag == "PRC_MANIFTOKEN"
     || sTag == "HideToken"
     || GetResRef(oItem) == "base_prc_skin")
         return;
+
+	if (sTag == "PRC_ITMRNG_VGOOD")
+	{
+		SendMessageToPC(oCreature, "Ring of Virtuous Good found.");
+		AddEventScript(oCreature, EVENT_ONPLAYEREQUIPITEM,   "prc_itmrng_vgood", TRUE, FALSE);
+		AddEventScript(oCreature, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_vgood", TRUE, FALSE);
+	}
 
     //if(DEBUG) DoDebug("Running OnAcquireItem, creature = '" + GetName(oCreature) + "' is PC: " + DebugBool2String(GetIsPC(oCreature)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
