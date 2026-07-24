@@ -189,6 +189,30 @@ const string PRC_TEXT_PURPLE       = "<cÌwþ>";    // used for spell casts, as we
 const string PRC_TEXT_RED          = "<cþ  >";    // used for fire damage.
 const string PRC_TEXT_WHITE        = "<cþþþ>";    // used for positive damage.
 const string PRC_TEXT_YELLOW       = "<cþþ >";    // used for healing, and sent messages.
+const string PRC_TEXT_BLACK        = "<c   >";    // 32,32,32
+const string PRC_TEXT_BROWN        = "<c€@ >";    // 128,64,32
+const string PRC_TEXT_CYAN         = "<c þþ>";    // 0,255,255
+const string PRC_TEXT_DARK_GRAY    = "<c€€€>";    // 128,128,128
+const string PRC_TEXT_GOLD         = "<cÿ× >";    // 255,215,0
+const string PRC_TEXT_MAGENTA      = "<cÿ ÿ>";    // 255,0,255
+const string PRC_TEXT_OLIVE        = "<c€€ >";    // 128,128,0
+const string PRC_TEXT_PINK         = "<cÿ¿¿>";    // 255,191,191
+const string PRC_TEXT_SILVER       = "<c¿¿¿>";    // 191,191,191
+const string PRC_TEXT_SKY_BLUE     = "<c@¿ÿ>";    // 64,191,255
+const string PRC_TEXT_TEAL         = "<c €€>";    // 0,128,128
+const string PRC_TEXT_VIOLET       = "<c€ ÿ>";    // 128,0,255
+const string PRC_TEXT_POISON       = "<c@ÿ6>";	// RGB 64,255,54
+const string PRC_TEXT_PSYCHIC      = "<c…‡>";	// RGB 133,14,135
+const string PRC_TEXT_RADIANT 	   = "<cã¿ >";    // RGB 227,191,32
+const string PRC_TEXT_FORCE        = "<c_ž >";	// RGB 95,158,160
+const string PRC_TEXT_UNTYPED      = "<cúúú>";	// RGB 250,250,250
+const string PRC_TEXT_VILE         = "<c¹ &>";	// RGB 185,32,38
+const string PRC_TEXT_SANCTIFIED   = "<cÿ×>";	// RGB 255,215,0
+const string PRC_TEXT_HOLY         = "<cúúÒ>";	// RGB 250,250,210
+const string PRC_TEXT_UNHOLY       = "<c€€>";	// RGB 128,0,128
+const string PRC_TEXT_FALLING      = "<cz>";	// RGB 122,0,0
+const string PRC_TEXT_BALLISTIC    = "<c€€€>";	// RGB 128,128,128
+const string PRC_TEXT_DESICCATION  = "<c‹E>";	// RGB 139,69,19
 
 // includes
 #include "inc_2dacache"

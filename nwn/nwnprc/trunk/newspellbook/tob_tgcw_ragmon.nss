@@ -27,7 +27,42 @@ direct these attacks at one foe.
 #include "tob_movehook"
 //#include "prc_alterations"
 
-void main()
+void main()  
+{  
+        if (!PreManeuverCastCode())  
+        {  
+                // If code within the PreManeuverCastCode (i.e. UMD) reports FALSE, do not run this spell  
+                return;  
+        }  
+          
+        // End of Spell Cast Hook  
+          
+        object oInitiator    = OBJECT_SELF;  
+        object oTarget       = PRCGetSpellTargetObject();  
+        struct maneuver move = EvaluateManeuver(oInitiator, oTarget);  
+        effect eNone;  
+          
+        if(move.bCanManeuver)  
+        {  
+                object oWeapR = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);  
+                if(IPGetIsMeleeWeapon(oWeapR))  
+                {  
+                        int nDamageTypeR = GetWeaponDamageType(oWeapR);  
+                        DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, nDamageTypeR, "Raging Mongoose Hit", "Raging Mongoose Miss"));  
+                        DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, nDamageTypeR, "Raging Mongoose Hit", "Raging Mongoose Miss"));  
+                }  
+                  
+                object oWeapL = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oInitiator);  
+                if(IPGetIsMeleeWeapon(oWeapL))  
+                {  
+                        int nDamageTypeL = GetWeaponDamageType(oWeapL);  
+                        DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, nDamageTypeL, "Raging Mongoose Hit", "Raging Mongoose Miss",FALSE, OBJECT_INVALID,OBJECT_INVALID, 1));  
+                        DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, nDamageTypeL, "Raging Mongoose Hit", "Raging Mongoose Miss",FALSE, OBJECT_INVALID,OBJECT_INVALID, 1));                          
+                }  
+        }  
+}
+
+/* void main()
 {
         if (!PreManeuverCastCode())
         {
@@ -56,4 +91,4 @@ void main()
                         DelayCommand(0.0, PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Raging Mongoose Hit", "Raging Mongoose Miss",FALSE, OBJECT_INVALID,OBJECT_INVALID, 1));                        
                 }
         }
-}
+} */

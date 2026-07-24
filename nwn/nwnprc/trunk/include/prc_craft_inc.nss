@@ -1503,6 +1503,16 @@ void ApplyItemProps(object oItem, string sFile, int nLine)
 				 
 					break;
 				}
+				case 61:
+				{
+					object oPC = OBJECT_SELF;
+					SetTag(oItem, "PRC_ITMRNG_IEVIL");
+					AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_itmrng_ievil", TRUE, FALSE);
+					AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_ievil", TRUE, FALSE);
+					//SendMessageToPC(oPC, "Ring of Ineffable Evil found.");
+				 
+					break;
+				}				
 			}
 		}
 		if(sFile == "craft_wondrous")

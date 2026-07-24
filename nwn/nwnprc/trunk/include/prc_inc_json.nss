@@ -686,6 +686,25 @@ void ApplyPseudonaturalEffects(object oCreature)
 //:: JSON functions                              |
 //::---------------------------------------------|
 
+//:: Gets the base natural AC from a creature's UTC template  
+//:: Returns the NaturalAC value from the template, or 0 if unavailable  
+int json_GetTemplateNaturalAC(object oCreature)  
+{  
+    string sResRef = GetResRef(oCreature);  
+    if (sResRef == "")  
+        return 0;  
+      
+    json jTemplate = TemplateToJson(sResRef, RESTYPE_UTC);  
+    if (jTemplate == JSON_NULL)  
+        return 0;  
+      
+    json jNaturalAC = GffGetByte(jTemplate, "NaturalAC");  
+    if (jNaturalAC == JsonNull())  
+        return 0;  
+      
+    return JsonGetInt(jNaturalAC);  
+}
+
 //:: Get the first spell ID that a creature knows (not memorized, but known)  
 //:: Returns -1 if no spells are found  
 int json_GetFirstKnownSpell(json jCreature)  

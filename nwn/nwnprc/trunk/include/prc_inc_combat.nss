@@ -700,12 +700,16 @@ struct BonusDamage
     int dice_Div, dice_Neg, dice_Pos;
     int dice_Mag;
     int dice_Slash, dice_Pier, dice_Blud;
+	int dice_Poi, dice_Psy, dice_Rad, dice_For, dice_Unt, dice_Vil;
+	int dice_San, dice_Hol, dice_Unh, dice_Fal, dice_Bal, dice_Des;
 
     // dam_* vars are for +/- X damage bonuses
     int dam_Acid, dam_Cold, dam_Fire, dam_Elec, dam_Son;
     int dam_Div, dam_Neg, dam_Pos;
     int dam_Mag;
     int dam_Slash, dam_Pier, dam_Blud;
+	int dam_Poi, dam_Psy, dam_Rad, dam_For, dam_Unt, dam_Vil;
+	int dam_San, dam_Hol, dam_Unh, dam_Fal, dam_Bal, dam_Des;
 };
 
 struct AttackLoopVars
@@ -832,13 +836,147 @@ int iVorpalSaveDC = 0;
 #include "prc_inc_onhit"
 #include "prc_misc_const"
 #include "prc_inc_fork"
+#include "prc_inc_json"
 
 //:://///////////////////////////////////////////////////////////////////////////
 //::  Utility functions (BAB, # Attacks) - mostly used inline, but good to have them here to copy
 //:://///////////////////////////////////////////////////////////////////////////
 
 //returns a struct describing the applicable damage reductions with the given weapon and target
-struct DamReduction OvercomeDR(object oTarget)
+//returns a struct describing the applicable damage reductions with the given weapon and target  
+struct DamReduction OvercomeDR(object oTarget, object oWeapon = OBJECT_INVALID, object oAttacker = OBJECT_INVALID)  
+{  
+    struct DamReduction nBestDamageReduction;  
+    int nBestDamageResistance = 0;  
+    int nApplicableReduction;  
+    struct DamReduction nCurrentReduction;  
+    nCurrentReduction.nRedLevel = DAMAGE_POWER_NORMAL;  
+    nCurrentReduction.nRedAmount = 0;  
+    nBestDamageReduction = nCurrentReduction;  
+  
+    //loop through spell/power effects first  
+    effect eLoop=GetFirstEffect(oTarget);  
+  
+    while (GetIsEffectValid(eLoop))  
+    {  
+        int nSpellID = GetEffectSpellId(eLoop);  
+  
+        //Stoneskin  
+        if( nSpellID == 172  
+           || nSpellID == 342  
+           || nSpellID == SPELL_URDINNIR_STONESKIN)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_FIVE;  
+             nCurrentReduction.nRedAmount = 10;  
+        }  
+        //GreaterStoneskin  
+        if( nSpellID == 74)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_FIVE;  
+             nCurrentReduction.nRedAmount = 20;  
+        }  
+        //Premonition  
+        if( nSpellID == 134)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_FIVE;  
+             nCurrentReduction.nRedAmount = 30;  
+        }  
+        //Ghostly Visage  
+        if( nSpellID == 351  
+           || nSpellID == 605  
+           || nSpellID == 120)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_ONE;  
+             nCurrentReduction.nRedAmount = 5;  
+        }  
+        //Ethereal Visage  
+        if( nSpellID == 121)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_THREE;  
+             nCurrentReduction.nRedAmount = 20;  
+        }  
+        //Shadow Shield and Shadow Evade(best case)  
+        if( nSpellID == 160  
+           || nSpellID == 477  
+           || nSpellID == SPELL_SHADOWSHIELD)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_THREE;  
+             nCurrentReduction.nRedAmount = 10;  
+        }  
+        //Iron Body  
+        if( nSpellID == POWER_IRONBODY)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_FIVE;  
+             nCurrentReduction.nRedAmount = 15;  
+        }  
+        //Shadow Body  
+        if( nSpellID == POWER_SHADOWBODY)  
+        {  
+             nCurrentReduction.nRedLevel = DAMAGE_POWER_PLUS_ONE;  
+             nCurrentReduction.nRedAmount = 10;  
+        }  
+  
+        //if it applies and prevents more damage, replace  
+        if(nCurrentReduction.nRedLevel > nApplicableReduction  
+           && nCurrentReduction.nRedAmount > nBestDamageReduction.nRedAmount)  
+               nBestDamageReduction = nCurrentReduction;  
+  
+  
+        eLoop=GetNextEffect(oTarget);  
+    }  
+  
+    //now loop through items  
+    int nSlot;  
+    object oItem;  
+    int nSubType;  
+  
+    for (nSlot=0; nSlot<NUM_INVENTORY_SLOTS; nSlot++)  
+    {  
+        //if (DEBUG) DoDebug("Checking Inventory Slot: "+IntToString(nSlot));  
+        oItem=GetItemInSlot(nSlot, oTarget);  
+  
+        //check props if valid  
+        if(GetIsObjectValid(oItem))  
+        {  
+            //if (DEBUG) DoDebug("Valid Item in Slot: "+IntToString(nSlot));  
+            itemproperty ipLoop=GetFirstItemProperty(oItem);  
+  
+            //Loop for as long as the ipLoop variable is valid  
+            while (GetIsItemPropertyValid(ipLoop))  
+            {  
+                //if (DEBUG) DoDebug("Item Property in Slot "+IntToString(nSlot)+": "+ItemPropertyToString(ipLoop));  
+                if(GetItemPropertyType(ipLoop) == ITEM_PROPERTY_DAMAGE_REDUCTION/* && GetItemPropertySubType(ipLoop) > nApplicableReduction*/)  
+                {  
+                    //if (DEBUG) DoDebug("Item Property is Damage Reduction");  
+                    int nReduce = GetItemPropertyCostTableValue(ipLoop) * 5;  
+                    if (nReduce > nBestDamageReduction.nRedAmount)  
+                        nBestDamageReduction.nRedAmount = nReduce;  
+                }  
+  
+                //Next itemproperty on the list...  
+                ipLoop=GetNextItemProperty(oItem);  
+            }  
+        }//end validity check  
+    }//end for  
+      
+    // Check if weapon enhancement is sufficient to bypass DR  
+    if(GetIsObjectValid(oWeapon) && GetIsObjectValid(oAttacker))  
+    {  
+        int nWeaponPower = GetDamagePowerConstant(oWeapon, oTarget, oAttacker);  
+        // If weapon enhancement meets or exceeds DR requirement, bypass the DR  
+        if(nWeaponPower >= nBestDamageReduction.nRedLevel)  
+        {  
+            nBestDamageReduction.nRedAmount = 0;  
+        }  
+    }  
+      
+    //if(DEBUG) DoDebug("Best Reduction: " + IntToString(nBestDamageReduction.nRedAmount));  
+  
+    return nBestDamageReduction;  
+}
+
+
+/* struct DamReduction OvercomeDR(object oTarget)
 {
     struct DamReduction nBestDamageReduction;
     int nBestDamageResistance = 0;
@@ -939,8 +1077,8 @@ struct DamReduction OvercomeDR(object oTarget)
             while (GetIsItemPropertyValid(ipLoop))
             {
                 //if (DEBUG) DoDebug("Item Property in Slot "+IntToString(nSlot)+": "+ItemPropertyToString(ipLoop));
-                if(GetItemPropertyType(ipLoop) == ITEM_PROPERTY_DAMAGE_REDUCTION/* && GetItemPropertySubType(ipLoop) > nApplicableReduction*/)
-                {
+                if(GetItemPropertyType(ipLoop) == ITEM_PROPERTY_DAMAGE_REDUCTION/* && GetItemPropertySubType(ipLoop) > nApplicableReduction*///)
+/*                 {
                     //if (DEBUG) DoDebug("Item Property is Damage Reduction");
                     int nReduce = GetItemPropertyCostTableValue(ipLoop) * 5;
                     if (nReduce > nBestDamageReduction.nRedAmount)
@@ -955,7 +1093,8 @@ struct DamReduction OvercomeDR(object oTarget)
     //if(DEBUG) DoDebug("Best Reduction: " + IntToString(nBestDamageReduction.nRedAmount));
 
     return nBestDamageReduction;
-}
+} */
+ 
 
 // calculates the BAB that a pure fighter with the Hit Dice (characer level)  would have
 int GetFighterBAB(int iHD)
@@ -1126,11 +1265,44 @@ int GetIsNaturalWeapon(object oWeap)
     return GetIsNaturalWeaponType(GetBaseItemType(oWeap));
 }
 
-int GetIsSimpleWeaponType(int iWeaponType)
+int GetIsSimpleWeaponType(int iWeaponType)  
+{  
+    switch (iWeaponType)  
+    {  
+        // Simple melee weapons (return 1)  
+        case BASE_ITEM_MORNINGSTAR:     return 1;  
+        case BASE_ITEM_CLUB:            return 1;  
+        case BASE_ITEM_QUARTERSTAFF:    return 1;  
+        case BASE_ITEM_MAGICSTAFF:      return 1;		  
+        case BASE_ITEM_SHORTSPEAR:      return 1;  
+        case BASE_ITEM_DAGGER:          return 1;  // moved from 2  
+        case BASE_ITEM_LIGHTMACE:       return 1;  // moved from 2  
+        case BASE_ITEM_SICKLE:          return 1;  // moved from 2  
+        case BASE_ITEM_INVALID:         return 1;  
+        case BASE_ITEM_CBLUDGWEAPON:    return 1;  
+        case BASE_ITEM_CPIERCWEAPON:    return 1;  
+        case BASE_ITEM_CSLASHWEAPON:    return 1;  
+        case BASE_ITEM_CSLSHPRCWEAP:    return 1;  
+        case BASE_ITEM_GLOVES:          return 1;  
+        case BASE_ITEM_BRACER:          return 1;  
+        case BASE_ITEM_CRAFTED_SCEPTER: return 1;  
+		  
+        // Simple ranged weapons (return 2)  
+        case BASE_ITEM_HEAVYCROSSBOW:   return 2;  // moved from 1  
+        case BASE_ITEM_SLING:           return 2;  
+        case BASE_ITEM_DART:            return 2;  
+        case BASE_ITEM_LIGHTCROSSBOW:   return 2;  
+    }  
+  
+    return 0;  
+}
+
+/* int GetIsSimpleWeaponType(int iWeaponType)
 {
     switch (iWeaponType)
     {
         case BASE_ITEM_MORNINGSTAR:     return 1;
+		case BASE_ITEM_CLUB:			return 1;
         case BASE_ITEM_QUARTERSTAFF:    return 1;
 		case BASE_ITEM_MAGICSTAFF:		return 1;		
         case BASE_ITEM_SHORTSPEAR:      return 1;
@@ -1153,7 +1325,7 @@ int GetIsSimpleWeaponType(int iWeaponType)
     }
 
     return 0;
-}
+} */
 
 int GetIsSimpleWeapon(object oWeap)
 {
@@ -3244,6 +3416,123 @@ int GetDefenderAC(object oDefender, object oAttacker, int bIsTouchAttack = FALSE
         iAC -= GetItemACValue( GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oDefender) );
     }
 
+    // AC rules are different for a touch attack  
+    // no shield, armor, or natural armor bonuses apply.  
+	if(bIsTouchAttack)  
+	{  
+		int nNormalAC = iAC;  
+		  
+		// Calculate touch AC by removing all item-based AC except rings/cloak  
+		int iTouchAC = GetAC(oDefender);  
+		  
+		// Subtract AC from all equipped items except rings and cloak  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CHEST, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_NECK, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_CARMOUR, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_BOOTS, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_HEAD, oDefender));  
+		iTouchAC -= GetItemACValue(GetItemInSlot(INVENTORY_SLOT_ARMS, oDefender));  
+		  
+		// Subtract UTC-based natural AC using JSON template parsing  
+		int iUTCNaturalAC = json_GetTemplateNaturalAC(oDefender);  
+		iTouchAC -= iUTCNaturalAC;  
+		  
+		iAC = iTouchAC;  
+	  
+		// Wilders get to add cha bonus to touch attacks only  
+		if(GetHasFeat(FEAT_WILDER_ELUDE_TOUCH, oDefender))  
+			iAC = PRCMin(iAC + GetAbilityModifier(ABILITY_CHARISMA, oDefender), nNormalAC);  
+	}
+    //if (DEBUG) DoDebug("GetDefenderAC: End Section #5");
+    return iAC;
+}
+
+/* int GetDefenderAC(object oDefender, object oAttacker, int bIsTouchAttack = FALSE)
+{
+    int iAC = GetAC(oDefender);
+    int iDexMod = GetAbilityModifier(ABILITY_DEXTERITY, oDefender);
+    int bIsHelpless =  GetIsHelpless(oDefender);
+    int bGetIsDeniedDexBonus = GetIsDeniedDexBonusToAC(oDefender, oAttacker);
+    int bIsStunned = PRCGetHasEffect(EFFECT_TYPE_STUNNED, oDefender);
+
+    // helpless enemies have an effective dexterity of 0 (for -5 ac)
+    if(bIsHelpless)
+    {
+        iAC -= 5;
+    }
+    //if (DEBUG) DoDebug("GetDefenderAC: End Section #1");
+    // remove the dexterity modifier to AC, based on armor limits
+    if(bGetIsDeniedDexBonus || bIsHelpless )
+    {
+        object oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST, oDefender);
+        int iArmorType = GetItemACBase(oArmor);
+        int iDexMax = 100;
+
+        // remove any bonus AC from boots (it's Dodge AC)
+        iAC -= GetItemACValue( GetItemInSlot(INVENTORY_SLOT_BOOTS, oDefender) );
+
+        // remove bonus AC from having tumble skill.
+        // this is only for ranks, not items/feats/etc
+        int iTumble = GetSkill(oDefender, SKILL_TUMBLE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
+        iTumble -= iDexMod;
+        iTumble /= 5;
+        iAC -= iTumble;
+
+        // change the max dex mod based on armor value
+        if(iArmorType == 8)       iDexMax = 1;
+        else if(iArmorType == 7)  iDexMax = 1;
+        else if(iArmorType == 5)  iDexMax = 2;
+        else if(iArmorType == 4)  iDexMax = 4;
+        else if(iArmorType == 3)  iDexMax = 4;
+        else if(iArmorType == 2)  iDexMax = 6;
+        else if(iArmorType == 1)  iDexMax = 8;
+
+        // if their dex mod exceeds the max for their current armor
+        if(iDexMod > iDexMax) iDexMod = iDexMax;
+        //if (DEBUG) DoDebug("GetDefenderAC: End Section #2");
+        // remove any dex bonus to AC
+        iAC -= iDexMod;
+
+        // remove any bonuses applied to PrC Skins
+        iAC -= GetItemACValue( GetItemInSlot(INVENTORY_SLOT_CARMOUR, oDefender) );
+
+        // if the skin AC bonus was racial "natural" AC, add it back in.
+        // but only if it is not a touch attack
+        if(!bIsTouchAttack)
+        {
+// motu99: This calculation is quite costly; has to loop through all feats of OBJECT_SELF several times (up to 22 times)
+// if performance is an issue, better make one single loop, checking for the highest of the feats and return that
+//[feats seem to be item properties on the creature / PC, so could we loop through all item properties on the characters? not sure]
+            if      ( GetHasFeat(FEAT_NATARM_19) ) iAC += 19;
+            else if( GetHasFeat(FEAT_NATARM_18) ) iAC += 18;
+            else if( GetHasFeat(FEAT_NATARM_17) ) iAC += 17;
+            else if( GetHasFeat(FEAT_NATARM_16) ) iAC += 16;
+            else if( GetHasFeat(FEAT_NATARM_15) ) iAC += 15;
+            else if( GetHasFeat(FEAT_NATARM_14) ) iAC += 14;
+            else if( GetHasFeat(FEAT_NATARM_13) ) iAC += 13;
+            else if( GetHasFeat(FEAT_NATARM_12) ) iAC += 12;
+            else if( GetHasFeat(FEAT_NATARM_11) ) iAC += 11;
+            else if( GetHasFeat(FEAT_NATARM_10) ) iAC += 10;
+            else if( GetHasFeat(FEAT_NATARM_9) )  iAC += 9;
+            else if( GetHasFeat(FEAT_NATARM_8) )  iAC += 8;
+            else if( GetHasFeat(FEAT_NATARM_7) )  iAC += 7;
+            else if( GetHasFeat(FEAT_NATARM_6) )  iAC += 6;
+            else if( GetHasFeat(FEAT_NATARM_5) )  iAC += 5;
+            else if( GetHasFeat(FEAT_NATARM_4) )  iAC += 4;
+            else if( GetHasFeat(FEAT_NATARM_3) )  iAC += 3;
+            else if( GetHasFeat(FEAT_NATARM_2) )  iAC += 2;
+            else if( GetHasFeat(FEAT_NATARM_1) )  iAC += 1;
+            //if (DEBUG) DoDebug("GetDefenderAC: End Section #3");
+        }
+    }
+
+    // if helpless or stunned, can't use shield
+    if(bIsHelpless || bIsStunned)
+    {
+        iAC -= GetItemACValue( GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oDefender) );
+    }
+
     // AC rules are different for a touch attack
     // no shield, armor, or natural armor bonuses apply.
     if(bIsTouchAttack)
@@ -3273,8 +3562,7 @@ int GetDefenderAC(object oDefender, object oAttacker, int bIsTouchAttack = FALSE
     //if (DEBUG) DoDebug("GetDefenderAC: End Section #5");
     return iAC;
 }
-
-
+ */
 // motu99: restructured code for better efficiency / readability March 16, 2007
 // note that the attack boni calculated here also depend on the defender
 // (for instance if weapon has an attack/enhancement bonus vs. specific alignments)
@@ -4986,13 +5274,130 @@ struct BonusDamage GetItemPropertyDamageConstant(int iDamageType, int iDice, str
                 if(iDice > weapBonusDam.dam_Slash) weapBonusDam.dam_Slash = iDice;
             }
             break;
+        case IP_CONST_DAMAGETYPE_POISON:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Poi) weapBonusDam.dice_Poi = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Poi) weapBonusDam.dam_Poi = iDice;
+            }
+            break;
+        case IP_CONST_DAMAGETYPE_PSYCHIC:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Psy) weapBonusDam.dice_Psy = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Psy) weapBonusDam.dam_Psy = iDice;
+            }
+            break;	
+        case IP_CONST_DAMAGETYPE_RADIANT:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Rad) weapBonusDam.dice_Rad = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Rad) weapBonusDam.dam_Rad = iDice;
+            }
+            break;	
+        case IP_CONST_DAMAGETYPE_FORCE:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_For) weapBonusDam.dice_For = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_For) weapBonusDam.dam_For = iDice;
+            }
+            break;
+        case IP_CONST_DAMAGETYPE_UNTYPED:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Unt) weapBonusDam.dice_Unt = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Unt) weapBonusDam.dam_Unt = iDice;
+            }
+            break;	
+		case IP_CONST_DAMAGETYPE_VILE:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Vil) weapBonusDam.dice_Vil = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Vil) weapBonusDam.dam_Vil = iDice;
+            }
+            break;
+		case IP_CONST_DAMAGETYPE_SANCTIFIED:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_San) weapBonusDam.dice_San = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_San) weapBonusDam.dam_San = iDice;
+            }
+            break;		
+		case IP_CONST_DAMAGETYPE_HOLY:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Hol) weapBonusDam.dice_Hol = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Hol) weapBonusDam.dam_Hol = iDice;
+            }
+            break;
+		case IP_CONST_DAMAGETYPE_UNHOLY:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Unh) weapBonusDam.dice_Unh = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Unh) weapBonusDam.dam_Unh = iDice;
+            }
+            break;	
+		case IP_CONST_DAMAGETYPE_FALLING:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Fal) weapBonusDam.dice_Fal = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Fal) weapBonusDam.dam_Fal = iDice;
+            }
+            break;
+		case IP_CONST_DAMAGETYPE_BALLISTIC:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Bal) weapBonusDam.dice_Bal = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Bal) weapBonusDam.dam_Bal = iDice;
+            }
+            break;	
+		case IP_CONST_DAMAGETYPE_DESICCATION:
+            if(GetIsDiceConstant(iDice)) // is a dice constant
+            {
+                if(iDice > weapBonusDam.dice_Des) weapBonusDam.dice_Des = iDice;
+            }
+            else // is +1 to +20
+            {
+                if(iDice > weapBonusDam.dam_Des) weapBonusDam.dam_Des = iDice;
+            }
+            break;			
     }
 
     return weapBonusDam;
 }
-
-
-
 // motu99: generally it does not make too much sense to precalculate the WeaponDamage on the beginning of the round and store the various damage types in a large struct
 // the reason is that the calculation is quite cheap on CPU time (weapons don't have many item properties to loop through)
 // so that passing the large struct back and forth between AttackLoopLogic() and AttackLoopMain() takes more time than the calculation itself
@@ -5433,6 +5838,50 @@ struct BonusDamage GetMagicalBonusDamage(object oAttacker, object oTarget)
                         case DAMAGE_TYPE_SONIC:
                         spellBonusDam.dam_Son += nDamage;
                         break;
+
+                        case DAMAGE_TYPE_POISON:
+                        spellBonusDam.dam_Poi += nDamage;
+                        break;
+ 
+						case DAMAGE_TYPE_PSYCHIC:
+                        spellBonusDam.dam_Psy += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_RADIANT:
+                        spellBonusDam.dam_Rad += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_FORCE:
+                        spellBonusDam.dam_For += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_UNTYPED:
+                        spellBonusDam.dam_Unt += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_VILE:
+                        spellBonusDam.dam_Vil += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_SANCTIFIED:
+                        spellBonusDam.dam_San += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_HOLY:
+                        spellBonusDam.dam_Hol += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_FALLING:
+                        spellBonusDam.dam_Fal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_BALLISTIC:
+                        spellBonusDam.dam_Bal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_DESICCATION:
+                        spellBonusDam.dam_Des += nDamage;
+                        break;						
                     }
                 }
             }
@@ -5497,6 +5946,50 @@ struct BonusDamage GetMagicalBonusDamage(object oAttacker, object oTarget)
                         case DAMAGE_TYPE_SONIC:
                         spellBonusDam.dam_Son += nDamage;
                         break;
+						
+                        case DAMAGE_TYPE_POISON:
+                        spellBonusDam.dam_Poi += nDamage;
+                        break;
+ 
+						case DAMAGE_TYPE_PSYCHIC:
+                        spellBonusDam.dam_Psy += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_RADIANT:
+                        spellBonusDam.dam_Rad += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_FORCE:
+                        spellBonusDam.dam_For += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_UNTYPED:
+                        spellBonusDam.dam_Unt += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_VILE:
+                        spellBonusDam.dam_Vil += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_SANCTIFIED:
+                        spellBonusDam.dam_San += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_HOLY:
+                        spellBonusDam.dam_Hol += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_FALLING:
+                        spellBonusDam.dam_Fal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_BALLISTIC:
+                        spellBonusDam.dam_Bal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_DESICCATION:
+                        spellBonusDam.dam_Des += nDamage;
+                        break;						
                     }
                 }
             }
@@ -5559,6 +6052,50 @@ struct BonusDamage GetMagicalBonusDamage(object oAttacker, object oTarget)
                     case DAMAGE_TYPE_SONIC:
                         spellBonusDam.dam_Son += nDamage;
                         break;
+						
+                        case DAMAGE_TYPE_POISON:
+                        spellBonusDam.dam_Poi += nDamage;
+                        break;
+ 
+						case DAMAGE_TYPE_PSYCHIC:
+                        spellBonusDam.dam_Psy += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_RADIANT:
+                        spellBonusDam.dam_Rad += nDamage;
+                        break;		
+
+						case DAMAGE_TYPE_FORCE:
+                        spellBonusDam.dam_For += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_UNTYPED:
+                        spellBonusDam.dam_Unt += nDamage;
+                        break;	
+
+						case DAMAGE_TYPE_VILE:
+                        spellBonusDam.dam_Vil += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_SANCTIFIED:
+                        spellBonusDam.dam_San += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_HOLY:
+                        spellBonusDam.dam_Hol += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_FALLING:
+                        spellBonusDam.dam_Fal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_BALLISTIC:
+                        spellBonusDam.dam_Bal += nDamage;
+                        break;
+
+						case DAMAGE_TYPE_DESICCATION:
+                        spellBonusDam.dam_Des += nDamage;
+                        break;						
                     }
             }
             
@@ -6487,6 +7024,9 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
         int iAcid, iCold, iFire, iElec, iSon;
         int iDiv, iNeg, iPos;
         int iMag;
+		
+		int iPoi, iPsy, iRad, iFor, iUnt, iVil;
+		int iSan, iHol, iUnh, iFal, iBal, iDes;
 
         // first only do the constant damage effects (no dice rolls) on the weapon and from spells
         iAcid  = sSpellBonusDamage.dam_Acid;
@@ -6516,7 +7056,43 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
         iMag  = sSpellBonusDamage.dam_Mag;
         iMag += GetDamageByConstant(sWeaponBonusDamage.dam_Mag, TRUE);
 
+        iPoi  = sSpellBonusDamage.dam_Poi;
+        iPoi += GetDamageByConstant(sWeaponBonusDamage.dam_Poi, TRUE);
+		
+        iPsy  = sSpellBonusDamage.dam_Psy;
+        iPsy += GetDamageByConstant(sWeaponBonusDamage.dam_Psy, TRUE);		
+		
+        iRad  = sSpellBonusDamage.dam_Rad;
+        iRad += GetDamageByConstant(sWeaponBonusDamage.dam_Rad, TRUE);
 
+        iFor  = sSpellBonusDamage.dam_For;
+        iFor += GetDamageByConstant(sWeaponBonusDamage.dam_For, TRUE);
+
+        iUnt  = sSpellBonusDamage.dam_Unt;
+        iUnt += GetDamageByConstant(sWeaponBonusDamage.dam_Unt, TRUE);
+		
+        iVil  = sSpellBonusDamage.dam_Vil;
+        iVil += GetDamageByConstant(sWeaponBonusDamage.dam_Vil, TRUE);		
+		
+        iSan  = sSpellBonusDamage.dam_San;
+        iSan += GetDamageByConstant(sWeaponBonusDamage.dam_San, TRUE);			
+
+        iHol  = sSpellBonusDamage.dam_Hol;
+        iHol += GetDamageByConstant(sWeaponBonusDamage.dam_Hol, TRUE);
+		
+        iUnh  = sSpellBonusDamage.dam_Unh;
+        iUnh += GetDamageByConstant(sWeaponBonusDamage.dam_Unh, TRUE);
+
+        iFal  = sSpellBonusDamage.dam_Fal;
+        iFal += GetDamageByConstant(sWeaponBonusDamage.dam_Fal, TRUE);
+
+        iBal  = sSpellBonusDamage.dam_Bal;
+        iBal += GetDamageByConstant(sWeaponBonusDamage.dam_Bal, TRUE);		
+		
+        iDes  = sSpellBonusDamage.dam_Des;
+        iDes += GetDamageByConstant(sWeaponBonusDamage.dam_Des, TRUE);		
+		
+		
         // now add the dice damage from the weapon and spells
         iAcid += GetDamageByConstant(sSpellBonusDamage.dice_Acid, TRUE);
         iAcid += GetDamageByConstant(sWeaponBonusDamage.dice_Acid, TRUE);
@@ -6544,7 +7120,43 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
 
         iMag += GetDamageByConstant(sSpellBonusDamage.dice_Mag, TRUE);
         iMag += GetDamageByConstant(sWeaponBonusDamage.dice_Mag, TRUE);
+		
+        iPoi += GetDamageByConstant(sSpellBonusDamage.dice_Poi, TRUE);
+        iPoi += GetDamageByConstant(sWeaponBonusDamage.dice_Poi, TRUE);
 
+		iPsy += GetDamageByConstant(sSpellBonusDamage.dice_Psy, TRUE);
+        iPsy += GetDamageByConstant(sWeaponBonusDamage.dice_Psy, TRUE);
+		
+        iRad += GetDamageByConstant(sSpellBonusDamage.dice_Rad, TRUE);
+        iRad += GetDamageByConstant(sWeaponBonusDamage.dice_Rad, TRUE);		
+		
+        iFor += GetDamageByConstant(sSpellBonusDamage.dice_For, TRUE);
+        iFor += GetDamageByConstant(sWeaponBonusDamage.dice_For, TRUE);		
+		
+        iUnt += GetDamageByConstant(sSpellBonusDamage.dice_Unt, TRUE);
+        iUnt += GetDamageByConstant(sWeaponBonusDamage.dice_Unt, TRUE);		
+		
+        iVil += GetDamageByConstant(sSpellBonusDamage.dice_Vil, TRUE);
+        iVil += GetDamageByConstant(sWeaponBonusDamage.dice_Vil, TRUE);		
+		
+        iSan += GetDamageByConstant(sSpellBonusDamage.dice_San, TRUE);
+        iSan += GetDamageByConstant(sWeaponBonusDamage.dice_San, TRUE);		
+		
+        iHol += GetDamageByConstant(sSpellBonusDamage.dice_Hol, TRUE);
+        iHol += GetDamageByConstant(sWeaponBonusDamage.dice_Hol, TRUE);		
+		
+        iUnh += GetDamageByConstant(sSpellBonusDamage.dice_Unh, TRUE);
+        iUnh += GetDamageByConstant(sWeaponBonusDamage.dice_Unh, TRUE);		
+
+        iFal += GetDamageByConstant(sSpellBonusDamage.dice_Fal, TRUE);
+        iFal += GetDamageByConstant(sWeaponBonusDamage.dice_Fal, TRUE);		
+
+        iBal += GetDamageByConstant(sSpellBonusDamage.dice_Bal, TRUE);
+        iBal += GetDamageByConstant(sWeaponBonusDamage.dice_Bal, TRUE);		
+
+        iDes += GetDamageByConstant(sSpellBonusDamage.dice_Des, TRUE);
+        iDes += GetDamageByConstant(sWeaponBonusDamage.dice_Des, TRUE);
+		
         // Magical damage is not multiplied by criticals, at least not in PnP
         // Since it is in NwN, I left it default on in a switch.
         // Can be turned off to better emulate PnP rules.
@@ -6575,10 +7187,25 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
             if (iNeg) sDebugMessage += PRC_TEXT_GRAY + " + Neg (" + IntToString(iNeg) + ")";
             if (iPos) sDebugMessage += " + Pos (" + IntToString(iPos) + ")";
             if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			
+			if (iPoi) sDebugMessage += PRC_TEXT_PURPLE + " + Poi (" + IntToString(iPoi) + ")";
+			if (iPsy) sDebugMessage += PRC_TEXT_PURPLE + " + Psy (" + IntToString(iPsy) + ")";
+			if (iRad) sDebugMessage += PRC_TEXT_PURPLE + " + Rad (" + IntToString(iRad) + ")";
+			if (iFor) sDebugMessage += PRC_TEXT_PURPLE + " + For (" + IntToString(iFor) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
+			if (iMag) sDebugMessage += PRC_TEXT_PURPLE + " + Mag (" + IntToString(iMag) + ")";
         }
 
         // sum up all magical damage, as we need it later
-        int iMagicalDamage = iAcid + iCold + iFire + iElec + iSon + iDiv + iNeg + iPos + iMag;
+        int iMagicalDamage = iAcid + iCold + iFire + iElec + iSon + iDiv + iNeg + iPos + iMag +
+							     iPoi + iPsy + iRad + iFor + iUnt + iVil + iSan + iHol + iUnh +
+							     iFal + iBal + iDes;
 
         // just in case damage is somehow less than 1
         if(iWeaponDamage < 1) iWeaponDamage = 1;
@@ -6687,10 +7314,10 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
             // This is for the Lightning Throw Maneuver.
             if (GetLocalInt(oAttacker, "LightningThrowSave")) iWeaponDamage /= 2;
             //if (DEBUG) DoDebug("Ending LightningThrowSave");
-            
+
             if (iDamagePower > 0)
             {
-                struct DamReduction nDR = OvercomeDR(oDefender);
+                struct DamReduction nDR = OvercomeDR(oDefender, oWeapon, oAttacker);
                 if (iDamagePower >= nDR.nRedLevel)
                     iWeaponDamage += nDR.nRedAmount;
                     
@@ -7734,7 +8361,7 @@ struct DamageReducers GetTotalReduction(object oPC, object oTarget, object oWeap
     struct DamReduction nBestDamageReduction;
     int nBestDamageResistance = 0;
     int nApplicableReduction;
-    int nBestImmunutyLevel;
+    int nBestImmunityLevel;
     struct DamReduction nCurrentReduction;
     nCurrentReduction.nRedLevel = DAMAGE_POWER_NORMAL;
     nCurrentReduction.nRedAmount = 0;
@@ -7893,7 +8520,7 @@ struct DamageReducers GetTotalReduction(object oPC, object oTarget, object oWeap
                                     else if(GetItemPropertyCostTableValue(ipLoop) == 7)
                                         nImmune = 100;
 
-                                    if(nImmune > nBestImmunutyLevel) nBestImmunutyLevel = nImmune;
+                                    if(nImmune > nBestImmunityLevel) nBestImmunityLevel = nImmune;
                                 }
                             }
 
@@ -7907,11 +8534,11 @@ struct DamageReducers GetTotalReduction(object oPC, object oTarget, object oWeap
         }//end for
         if(DEBUG) DoDebug("Best Resistance: " + IntToString(nBestDamageResistance));
         if(DEBUG) DoDebug("Best Reduction: " + IntToString(nBestDamageReduction.nRedAmount));
-        if(DEBUG) DoDebug("Best Percent Immune: " + IntToString(nBestImmunutyLevel));
+        if(DEBUG) DoDebug("Best Percent Immune: " + IntToString(nBestImmunityLevel));
 
     struct DamageReducers drOverallReduced;
     drOverallReduced.nStaticReductions = nBestDamageResistance + nBestDamageReduction.nRedAmount;
-    drOverallReduced.nPercentReductions = nBestImmunutyLevel;
+    drOverallReduced.nPercentReductions = nBestImmunityLevel;
 
     return drOverallReduced;
 }
@@ -9035,6 +9662,19 @@ void PerformAttackRound(object oDefender, object oAttacker,
         if(sAmmoDamage.dam_Elec > sMainWeaponDamage.dam_Elec) sMainWeaponDamage.dam_Elec = sAmmoDamage.dam_Elec;
         if(sAmmoDamage.dam_Son  > sMainWeaponDamage.dam_Son)  sMainWeaponDamage.dam_Son  = sAmmoDamage.dam_Son;
 
+        if(sAmmoDamage.dam_Poi  > sMainWeaponDamage.dam_Poi)  sMainWeaponDamage.dam_Poi  = sAmmoDamage.dam_Poi;
+		if(sAmmoDamage.dam_Psy  > sMainWeaponDamage.dam_Psy)  sMainWeaponDamage.dam_Psy  = sAmmoDamage.dam_Psy;
+		if(sAmmoDamage.dam_Rad  > sMainWeaponDamage.dam_Rad)  sMainWeaponDamage.dam_Rad  = sAmmoDamage.dam_Rad;
+		if(sAmmoDamage.dam_For  > sMainWeaponDamage.dam_For)  sMainWeaponDamage.dam_For  = sAmmoDamage.dam_For;
+		if(sAmmoDamage.dam_Unt  > sMainWeaponDamage.dam_Unt)  sMainWeaponDamage.dam_Unt  = sAmmoDamage.dam_Unt;
+		if(sAmmoDamage.dam_Vil  > sMainWeaponDamage.dam_Vil)  sMainWeaponDamage.dam_Vil  = sAmmoDamage.dam_Vil;
+		if(sAmmoDamage.dam_San  > sMainWeaponDamage.dam_San)  sMainWeaponDamage.dam_San  = sAmmoDamage.dam_San;
+		if(sAmmoDamage.dam_Hol  > sMainWeaponDamage.dam_Hol)  sMainWeaponDamage.dam_Hol  = sAmmoDamage.dam_Hol;
+		if(sAmmoDamage.dam_Unh  > sMainWeaponDamage.dam_Unh)  sMainWeaponDamage.dam_Unh  = sAmmoDamage.dam_Unh;
+		if(sAmmoDamage.dam_Fal  > sMainWeaponDamage.dam_Fal)  sMainWeaponDamage.dam_Fal  = sAmmoDamage.dam_Fal;
+		if(sAmmoDamage.dam_Bal  > sMainWeaponDamage.dam_Bal)  sMainWeaponDamage.dam_Bal  = sAmmoDamage.dam_Bal;
+		if(sAmmoDamage.dam_Des  > sMainWeaponDamage.dam_Des)  sMainWeaponDamage.dam_Des  = sAmmoDamage.dam_Des;		
+		
         if(sAmmoDamage.dam_Div > sMainWeaponDamage.dam_Div) sMainWeaponDamage.dam_Div = sAmmoDamage.dam_Div;
         if(sAmmoDamage.dam_Neg > sMainWeaponDamage.dam_Neg) sMainWeaponDamage.dam_Neg = sAmmoDamage.dam_Neg;
         if(sAmmoDamage.dam_Pos > sMainWeaponDamage.dam_Pos) sMainWeaponDamage.dam_Pos = sAmmoDamage.dam_Pos;
@@ -9050,6 +9690,19 @@ void PerformAttackRound(object oDefender, object oAttacker,
         if(sAmmoDamage.dice_Fire > sMainWeaponDamage.dice_Fire) sMainWeaponDamage.dice_Fire = sAmmoDamage.dice_Fire;
         if(sAmmoDamage.dice_Elec > sMainWeaponDamage.dice_Elec) sMainWeaponDamage.dice_Elec = sAmmoDamage.dice_Elec;
         if(sAmmoDamage.dice_Son  > sMainWeaponDamage.dice_Son)  sMainWeaponDamage.dice_Son  = sAmmoDamage.dice_Son;
+		
+		if(sAmmoDamage.dice_Poi  > sMainWeaponDamage.dice_Poi)  sMainWeaponDamage.dice_Poi  = sAmmoDamage.dice_Poi;
+		if(sAmmoDamage.dice_Psy  > sMainWeaponDamage.dice_Psy)  sMainWeaponDamage.dice_Psy  = sAmmoDamage.dice_Psy;
+		if(sAmmoDamage.dice_Rad  > sMainWeaponDamage.dice_Rad)  sMainWeaponDamage.dice_Rad  = sAmmoDamage.dice_Rad;
+		if(sAmmoDamage.dice_For  > sMainWeaponDamage.dice_For)  sMainWeaponDamage.dice_For  = sAmmoDamage.dice_For;
+		if(sAmmoDamage.dice_Unt  > sMainWeaponDamage.dice_Unt)  sMainWeaponDamage.dice_Unt  = sAmmoDamage.dice_Unt;
+		if(sAmmoDamage.dice_Vil  > sMainWeaponDamage.dice_Vil)  sMainWeaponDamage.dice_Vil  = sAmmoDamage.dice_Vil;
+		if(sAmmoDamage.dice_San  > sMainWeaponDamage.dice_San)  sMainWeaponDamage.dice_San  = sAmmoDamage.dice_San;
+		if(sAmmoDamage.dice_Hol  > sMainWeaponDamage.dice_Hol)  sMainWeaponDamage.dice_Hol  = sAmmoDamage.dice_Hol;
+		if(sAmmoDamage.dice_Unh  > sMainWeaponDamage.dice_Unh)  sMainWeaponDamage.dice_Unh  = sAmmoDamage.dice_Unh;
+		if(sAmmoDamage.dice_Fal  > sMainWeaponDamage.dice_Fal)  sMainWeaponDamage.dice_Fal  = sAmmoDamage.dice_Fal;
+		if(sAmmoDamage.dice_Bal  > sMainWeaponDamage.dice_Bal)  sMainWeaponDamage.dice_Bal  = sAmmoDamage.dice_Bal;
+		if(sAmmoDamage.dice_Des  > sMainWeaponDamage.dice_Des)  sMainWeaponDamage.dice_Des  = sAmmoDamage.dice_Des;	
 
         if(sAmmoDamage.dice_Div > sMainWeaponDamage.dice_Div) sMainWeaponDamage.dice_Div = sAmmoDamage.dice_Div;
         if(sAmmoDamage.dice_Neg > sMainWeaponDamage.dice_Neg) sMainWeaponDamage.dice_Neg = sAmmoDamage.dice_Neg;

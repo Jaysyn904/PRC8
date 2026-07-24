@@ -23,7 +23,7 @@
 19    Circle_of_Doom                                            ****             prc_scr_40       ****             ****             ****         ****             
 20    Clairaudience_and_Clairvoyance                            prc_scr_43       ****             ****             ****             ****         prc_scr_43       
 21    Clarity                                                   prc_scr_46       prc_scr_46       ****             ****             ****         prc_scr_46       
-22    Cloak_of_Chaos                                            ****             ****             ****             ****             ****         ****             
+22    Cloak_of_Chaos                                            ****             prc_scr_287      ****             ****             ****         ****             
 23    Cloudkill                                                 prc_scr_48       ****             ****             ****             ****         ****             
 24    Color_Spray                                               prc_scr_49       ****             ****             ****             ****         ****             
 25    Cone_of_Cold                                              prc_scr_50       ****             ****             ****             ****         ****             
@@ -163,7 +163,7 @@
 159   Shadow_Conjuration                                        prc_scr_245      ****             ****             ****             ****         ****             
 160   Shadow_Shield                                             prc_scr_246      ****             ****             ****             ****         ****             
 161   Shapechange                                               prc_scr_247      ****             ****             prc_scr_247      ****         ****             
-162   Shield_of_Law                                             ****             ****             ****             ****             ****         ****             
+162   Shield_of_Law                                             ****             prc_scr_287      ****             ****             ****         ****             
 163   Silence                                                   ****             prc_scr_249      ****             nw_it_spdvscr203 ****         prc_scr_249      
 164   Slay_Living                                               ****             prc_scr_250      ****             prc_scr_250      ****         ****             
 165   Sleep                                                     prc_scr_251      ****             ****             prc_scr_251      prc_scr_251  prc_scr_251      
@@ -12701,8 +12701,8 @@
 12697 Favoured_Soul_REGEN_CRITICAL_WOUNDS                       ****             ****             ****             ****             ****         ****             
 12698 Favoured_Soul_Hallow                                      ****             ****             ****             ****             ****         ****             
 12699 Favoured_Soul_SPELL_CHASING_PERFECTION                    ****             ****             ****             ****             ****         ****             
-12700 Sohei_Silent_Bless_Weapon                                 ****             ****             ****             ****             ****         ****             
-12701 Sohei_Still_Bless_Weapon                                  ****             ****             ****             ****             ****         ****             
+12700 Favoured_Soul_Cloak_of_Chaos                              ****             ****             ****             ****             ****         ****             
+12701 Favoured_Soul_Shield_of_Law                               ****             ****             ****             ****             ****         ****             
 12702 Sohei_Detect_Chaos                                        ****             ****             ****             ****             ****         ****             
 12703 Sohei_Extended_Detect_Chaos                               ****             ****             ****             ****             ****         ****             
 12704 Sohei_Silent_Detect_Chaos                                 ****             ****             ****             ****             ****         ****             

@@ -590,7 +590,7 @@
 586        16823585 FEAT_AUGMENT_PSIONICS_DIGITS_5_9                          0.01 3552      
 587        16823586 FEAT_AUGMENT_PSIONICS_TENS                                0.01 3553      
 588        16823582 FEAT_AUGMENT_QUICKSELECTS_2                               0.01 3563      
-589        ****     ReservedForISCAndESS                                      **** ****      
+589        16827644 ImmunityPetrification                                     0.01 4643      
 590        ****     ReservedForISCAndESS                                      **** ****      
 591        ****     ReservedForISCAndESS                                      **** ****      
 592        ****     ReservedForISCAndESS                                      **** ****      
@@ -18074,8 +18074,8 @@
 18070      16846333 Favoured_Soul_REGEN_CRITICAL_WOUNDS                       0    17068     
 18071      16846334 Favoured_Soul_Hallow                                      0    17069     
 18072      16846335 Favoured_Soul_SPELL_CHASING_PERFECTION                    0    17070     
-18073      16846336 Sohei_Silent_Bless_Weapon                                 0    17071     
-18074      16846337 Sohei_Still_Bless_Weapon                                  0    17072     
+18073      16846336 Favoured_Soul_Cloak_of_Chaos                              0    17071     
+18074      16846337 Favoured_Soul_Shield_of_Law                               0    17072     
 18075      16846338 Sohei_Detect_Chaos                                        0    17073     
 18076      16846339 Sohei_Exteneded_Detect_Chaos                              0    17074     
 18077      16846340 Sohei_Silent_Detect_Chaos                                 0    17075     

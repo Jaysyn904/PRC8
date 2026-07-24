@@ -66627,8 +66627,8 @@ Temples to evil deities sell cursed water at cost (making no profit).</entry>
   <entry id="69117" lang="en" sex="m">Favoured Soul Regenerate Critical Wounds</entry>
   <entry id="69118" lang="en" sex="m">Favoured Soul Hallow</entry>
   <entry id="69119" lang="en" sex="m">Favoured Soul Chasing Perfection</entry>
-  <entry id="69120" lang="en" sex="m">Sohei Silent Bless Weapon</entry>
-  <entry id="69121" lang="en" sex="m">Sohei Still Bless Weapon</entry>
+  <entry id="69120" lang="en" sex="m">Favoured Soul Cloak of Chaos</entry>
+  <entry id="69121" lang="en" sex="m">Favoured Soul Shield of Law</entry>
   <entry id="69122" lang="en" sex="m">Sohei Detect Chaos</entry>
   <entry id="69123" lang="en" sex="m">Sohei Extended Detect Chaos</entry>
   <entry id="69124" lang="en" sex="m">Sohei Silent Detect Chaos</entry>
@@ -73100,8 +73100,13 @@ Prerequisites: Forge Ring, Forge Epic Ring, miracle</entry>
   <entry id="80200" lang="en" sex="m">Ring of Virtuous Good</entry>
   <entry id="80201" lang="en" sex="m"> The wearer of this ring is constantly sheathed in a holy aura effect. It bestows one negative level on any evil creature that puts it on. The negative level remains as long as the ring is worn and disappears when the ring is removed. This negative level never results in actual level loss, but it cannot be overcome in any way (including restoration spells) while the ring is worn.
 
-Prerequisites: Forge Ring, Forge Epic Ring, miracle</entry>
+Caster Level: 15th; Prerequisites: Forge Ring, Forge Epic Ring, holy aura, creator must be good</entry>
   <entry id="80202" lang="en" sex="m"> The wearer of this ring is constantly sheathed in a holy aura effect. It bestows one negative level on any evil creature that puts it on. The negative level remains as long as the ring is worn and disappears when the ring is removed. This negative level never results in actual level loss, but it cannot be overcome in any way (including restoration spells) while the ring is worn.</entry>
+  <entry id="80203" lang="en" sex="m">Ring of Ineffable Evil</entry>
+  <entry id="80204" lang="en" sex="m">The wearer of this ring is constantly sheathed in an unholy aura effect. It bestows one negative level on any good creature that puts it on. The negative level remains as long as the ring is worn and disappears when the ring is removed. This negative level never results in actual level loss, but it cannot be overcome in any way (including restoration spells) while the ring is worn.
+
+Caster Level: 15th; Prerequisites: Forge Ring, Forge Epic Ring, unholy aura, creator must be evil</entry>
+  <entry id="80205" lang="en" sex="m">The wearer of this ring is constantly sheathed in an unholy aura effect. It bestows one negative level on any good creature that puts it on. The negative level remains as long as the ring is worn and disappears when the ring is removed. This negative level never results in actual level loss, but it cannot be overcome in any way (including restoration spells) while the ring is worn.</entry>
   <entry id="199000" lang="en" sex="m">Summon Nature's Ally I</entry>
   <entry id="199001" lang="en" sex="m">Conjuration (Summoning)
 Level:  Druid 1, Shaman 1, Ranger 1
@@ -73798,6 +73803,85 @@ XP Cost: 300 XP or more (see above)</entry>
   <entry id="199272" lang="en" sex="m">Sublime Chord Chasing Perfection</entry>
   <entry id="199273" lang="en" sex="m">Sublime Chord Force Missiles</entry>
   <entry id="199274" lang="en" sex="m">Sublime Chord Limited Wish</entry>
+  <entry id="199275" lang="en" sex="m">****</entry>
+  <entry id="199276" lang="en" sex="m">Cloak of Chaos</entry>
+  <entry id="199277" lang="en" sex="m">Abjuration [Chaotic]
+Level: 	Chaos 8, Clr 8
+Components: 	V, S, F
+Casting Time: 	1 standard action
+Range: 	20 ft.
+Targets: 	One creature/level in a 20-ft.-radius 
+			burst centered on you
+Duration: 	1 round/level (D)
+Saving Throw: 	See text
+Spell Resistance: 	Yes (harmless)
+
+A random pattern of color surrounds the subjects, protecting them from attacks, granting them resistance to spells cast by lawful creatures, and causing lawful creatures that strike the subjects to become confused. This abjuration has four effects.
+
+First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. Unlike protection from law, the benefit of this spell applies against all attacks, not just against attacks by lawful creatures.
+
+Second, each warded creature gains spell resistance 25 against lawful spells and spells cast by lawful creatures.
+
+Third, the abjuration blocks possession and mental influence, just as protection from law does.
+
+Finally, if a lawful creature succeeds on a melee attack against a warded creature, the offending attacker is confused for 1 round (Will save negates, as with the confusion spell, but against the save DC of cloak of chaos).
+
+Focus
+A tiny reliquary containing some sacred relic, such as a scrap of parchment from a chaotic text. The reliquary costs at least 500 gp. </entry>
+  <entry id="199278" lang="en" sex="m">Cloak of Chaos (15)</entry>
+  <entry id="199279" lang="en" sex="m">Cloak of Chaos (20)</entry>
+  <entry id="199280" lang="en" sex="m">****</entry>
+  <entry id="199281" lang="en" sex="m">Shield of Law</entry>
+  <entry id="199282" lang="en" sex="m">Abjuration [Lawful]
+Level: 	Clr 8, Law 8
+Components: 	V, S, F
+Casting Time: 	1 standard action
+Range: 	20 ft.
+Targets: 	One creature/level in a 20-ft.-radius 
+			burst centered on you
+Duration: 	1 round/level (D)
+Saving Throw: 	See text
+Spell Resistance: 	Yes (harmless)
+
+A dim, blue glow surrounds the subjects, protecting them from attacks, granting them resistance to spells cast by chaotic creatures, and slowing chaotic creatures when they strike the subjects. This abjuration has four effects.
+
+First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. Unlike protection from chaos, this benefit applies against all attacks, not just against attacks by chaotic creatures.
+
+Second, a warded creature gains spell resistance 25 against chaotic spells and spells cast by chaotic creatures.
+
+Third, the abjuration blocks possession and mental influence, just as protection from chaos does.
+
+Finally, if a chaotic creature succeeds on a melee attack against a warded creature, the attacker is slowed (Will save negates, as the slow spell, but against shield of law’s save DC).
+
+Focus
+A tiny reliquary containing some sacred relic, such as a scrap of parchment from a lawful text. The reliquary costs at least 500 gp.</entry>
+  <entry id="199283" lang="en" sex="m">Shield of Law (15)</entry>
+  <entry id="199284" lang="en" sex="m">Shield of Law (20)</entry>
+  <entry id="199285" lang="en" sex="m">****</entry>
+  <entry id="199286" lang="en" sex="m">Caster Level(s): Cleric 8
+Innate Level: 8
+School: Abjuration
+Descriptor(s):
+Component(s): Verbal, Somatic
+Casting Time: 1 standard action
+Range: 20 ft.
+Targets: One creature/level in a 20-ft.-radius 
+	burst centered on you
+Duration: 1 round/level (D)
+Additional Counter Spells:
+Save: Harmless
+Spell Resistance: Yes
+
+When this spell is cast, the caster chooses to be protected from chaos, good or evil. Each warded creature receives a +4 deflection bonus to Armor Class, +4 to all saves, immunity to mind-affecting spells and spell-like abilities used by creatures of the chosen alignment, and spell resistance 25 against spells cast by creatures of the chosen alignment. They also gain the following ability according to the spell's alignment:
+
+Good: if an evil creature succeeds on a melee attack against a warded creature, the offending attacker is blinded (Fortitude save negates, as blindness/deafness, but against holy aura’s save DC).
+
+Evil: if a good creature succeeds on a melee attack against a warded creature, the offending attacker takes 1d6 points of temporary Strength damage (Fortitude negates).
+
+Law: if a chaotic creature succeeds on a melee attack against a warded creature, the attacker is slowed (Will save negates, as the slow spell, but against shield of law’s save DC).
+
+Chaos: if a lawful creature succeeds on a melee attack against a warded creature, the offending attacker is confused for 1 round (Will save negates, as with the confusion spell, but against the save DC of cloak of chaos).</entry>
+  <entry id="199287" lang="en" sex="m">****</entry>
   <entry id="199999" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200000" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200001" lang="en" sex="m">Botanical</entry>

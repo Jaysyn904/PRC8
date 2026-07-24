@@ -23,8 +23,7 @@ void main()
         && !(GetLevelByClass(CLASS_TYPE_MONK, oPC) && GetIsMonkWeaponOrUnarmed(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC))))  
         {  
             effect eLinkA = EffectLinkEffects(EffectModifyAttacks(1), EffectAttackDecrease(2));  
-                   eLinkA = SupernaturalEffect(eLinkA);  
-                   eLinkA = UnyieldingEffect(eLinkA);  
+                   eLinkA = ExtraordinaryEffect(eLinkA);  
             ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLinkA, oPC);  
             nMesA = "*Martial Flurry Activated*";  
         }  

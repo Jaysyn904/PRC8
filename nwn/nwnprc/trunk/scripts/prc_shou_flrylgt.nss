@@ -63,10 +63,9 @@ void main()
             if(armorTypeL < ARMOR_TYPE_MEDIUM)  
             {  
                 if(DEBUG) DoDebug("Shou Flurry Light: Armour is light");  
-                effect addAttL = SupernaturalEffect( EffectModifyAttacks(numAddAttacksL) );  
-                effect attPenL = SupernaturalEffect( EffectAttackDecrease(attackPenaltyL) );  
-                effect eLinkL = EffectLinkEffects(addAttL, attPenL);  
-				eLinkL = UnyieldingEffect(eLinkL);  
+                effect addAttL = ExtraordinaryEffect( EffectModifyAttacks(numAddAttacksL) );  
+                effect attPenL = ExtraordinaryEffect( EffectAttackDecrease(attackPenaltyL) );  
+                effect eLinkL = EffectLinkEffects(addAttL, attPenL);						
                 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLinkL, oPC);  
                 SetLocalInt(oPC, "HasMFlurry", 2);  
                         nMesL = "*Martial Flurry Activated*";  

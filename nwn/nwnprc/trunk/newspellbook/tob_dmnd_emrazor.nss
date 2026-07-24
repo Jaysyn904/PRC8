@@ -47,6 +47,6 @@ void main()
     {
 	    int nAB = 0;
     	if (GetLocalInt(oInitiator, "SupernalAttack")) nAB += 1;    	
-		DelayCommand(0.0, PerformAttackRound(oTarget, oInitiator, EffectVisualEffect(VFX_IMP_DOMINATE_S), 0.0, nAB, 0, 0, FALSE, "Emerald Razor Hit", "Emerald Razor Miss", FALSE, TRUE));
+		DelayCommand(0.0, PerformAttack(oTarget, oInitiator, EffectVisualEffect(VFX_IMP_DOMINATE_S), 0.0, nAB, 0, 0, "Emerald Razor Hit", "Emerald Razor Miss", TRUE));
     }
 }

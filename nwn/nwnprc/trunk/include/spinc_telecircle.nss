@@ -89,6 +89,11 @@ void TeleportationCircleAux(object oCaster)
            vTarget.x += cos(fFacing) * fDistance;
            vTarget.y += sin(fFacing) * fDistance;
     lTarget = Location(GetArea(oCaster), vTarget, fFacing);
+	
+	WriteTimestampedLogEntry("Teleport Circle Cast - Caster: " + GetName(oCaster) +   
+                             " | Target Location: " + LocationToString(lCircleTarget) +  
+                             " | Caster Level: " + IntToString(nCasterLvl) +  
+                             " | Visible: " + (bVisible ? "Yes" : "No"));  
 
     // Create the actual circle, in front of the caster
     ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY,

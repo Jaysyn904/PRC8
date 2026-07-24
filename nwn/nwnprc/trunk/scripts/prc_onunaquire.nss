@@ -23,6 +23,12 @@ void main()
 		RemoveEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_vgood", TRUE, TRUE);
 		RemoveEventScript(oPC, EVENT_ONHIT, "prc_itmrng_vgood", TRUE, TRUE);
 	}
+	if (sTag == "PRC_ITMRNG_IEVIL")
+	{
+		RemoveEventScript(oPC, EVENT_ONPLAYEREQUIPITEM,   "prc_itmrng_ievil", TRUE, TRUE);
+		RemoveEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "prc_itmrng_ievil", TRUE, TRUE);
+		RemoveEventScript(oPC, EVENT_ONHIT, "prc_itmrng_ievil", TRUE, TRUE);
+	}	
 	
     //if(DEBUG) DoDebug("Running OnUnaquireItem, creature = '" + GetName(oPC) + "' is PC: " + DebugBool2String(GetIsPC(oPC)) + "; Item = '" + GetName(oItem) + "' - '" + GetTag(oItem) + "'");
 
