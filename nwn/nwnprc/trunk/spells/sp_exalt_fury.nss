@@ -53,8 +53,13 @@ void main()
 	}
 	
 	//You die, make it spectacular
-	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVisLink, oPC);
-	SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDeath(TRUE), oPC);
+	//SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVisLink, oPC);
+	//SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDeath(TRUE), oPC);
+	
+	//You die, make it spectacular  
+	SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVisLink, oPC);  
+	SPApplyEffectToObject(DURATION_TYPE_INSTANT, PRCEffectDamage(oPC, nDam, DAMAGE_TYPE_DIVINE), oPC);
+
 	
 	//Loop
 	while(GetIsObjectValid(oTarget))

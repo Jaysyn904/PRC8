@@ -121,12 +121,12 @@ void SetMirrorImageScripts(object oImage)
 	if(DEBUG) DoDebug("sp_mirror >> SetMirrorImageScripts: Setting OnSpellCastAt script on "+ sTag +".");
 	
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_BLOCKED_BY_DOOR, "");
-	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DAMAGED, "");
-	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DEATH, "");
+	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DAMAGED, "mirror_image_od");
+	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DEATH, "mirror_image_od");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DIALOGUE, "");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_DISTURBED, "");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_END_COMBATROUND, "");
-	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_HEARTBEAT, "");
+	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_HEARTBEAT, "mirror_image_hb");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_MELEE_ATTACKED, "");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_NOTICE, "");
 	SetEventScript(oImage, EVENT_SCRIPT_CREATURE_ON_RESTED, "");
@@ -283,6 +283,11 @@ void main2()
 	json jImage = ObjectToJson(oCaster);
 	
 	jImage = json_ModifyRacialType(jImage, RACIAL_TYPE_CONSTRUCT);
+	
+	// Set HP to 1 in the JSON before creating the object  
+	jImage = GffReplaceShort(jImage, "MaxHitPoints", 1);  
+	jImage = GffReplaceShort(jImage, "CurrentHitPoints", 1);  
+	jImage = GffReplaceShort(jImage, "HitPoints", 1);  	
 
 	oImage = JsonToObject(jImage, GetLocation(oCaster));
 	
@@ -313,7 +318,7 @@ void main2()
 	
 	SetMirrorImageScripts(oImage);
 	
-	SetCurrentHitPoints(oImage, 1);
+	DelayCommand(0.1, SetCurrentHitPoints(oImage, 1));
 	
 	DelayCommand(0.0, SetLocalObject(oImage, "oMaster", oCaster));
 

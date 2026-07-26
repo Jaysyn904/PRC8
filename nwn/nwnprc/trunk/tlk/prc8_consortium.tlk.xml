@@ -52214,7 +52214,7 @@ LEGACY ITEM BONUSES
 LEGACY ITEM ABILITIES
 Snake Sting (Sp): Beginning at 5th level, three times per day, you can snap Flay to use magic missile as the spell. Caster level 5th. 
 Whip Wrap (Su): At 8th level and higher, whenever you succeed on a trip attempt with Flay, you begin to constrict your opponent with the whip. Flay immediately makes a grapple check as a free action that does not provoke an attack of opportunity, using your grapple modifier + 4. If the check is successful, Flay establishes a hold and can make grapple checks on its own each round (you release the whip). On each subsequent successful grapple check, Flay constricts, dealing 1d3+5 points of damage. The grappled opponent can escape using the normal grapple rules. 
-Snake Sense (Su): Starting at 10th level, you gain darkvision. You are also granted a +5 bonus on Search checks. </entry>
+Snake Sense (Su): Starting at 10th level, you gain darkvision. You are also granted a +5 bonus on Search checks.</entry>
   <entry id="59288" lang="en" sex="m">Snake Sting</entry>
   <entry id="59289" lang="en" sex="m">Type of Feat: Legacy
 Prerequisite: Least Legacy Ritual
@@ -52253,7 +52253,7 @@ Dragon Armor (Su): At 6th level, you gain a +1 deflection bonus to Armor Class. 
 Endure Elements (Su): Beginning at 6th level, you act as if continually under the effects of an endure elements spell. Caster level 5th. - Changed for heat endurance
 Shield From Fire (Su): At 7th level, you gain resistance to fire 5. This resistance increases to 10 at 12th level and to 20 at 18th level.
 Evade Fiery Doom (Su): At 14th level and higher, you gain the benefit of evasion against any dragon's breath weapon. 
-Ray of the Frozen Fate (Sp): Starting at 19th level, two times per day on command, you can use polar ray as the spell. The ray erupts from the tip of Crimson Ruination's blade. Caster level 20th. </entry>
+Ray of the Frozen Fate (Sp): Starting at 19th level, two times per day on command, you can use polar ray as the spell. The ray erupts from the tip of Crimson Ruination's blade. Caster level 20th.</entry>
   <entry id="59294" lang="en" sex="m">Ray of the Frozen Fate</entry>
   <entry id="59295" lang="en" sex="m">Type of Feat: Legacy
 Prerequisite: Greater Legacy Ritual
@@ -52291,7 +52291,7 @@ Completed Twin (Su): Once you reach 10th level, when Devious is within 30 feet o
 VICIOUS ITEM ABILITIES
 Vicious Synergy (Su): At 5th level, you gain a +5 competence bonus on Intimidate checks. When Vicious is within 30 feet of its twin, Devious, this bonus increases to +7. 
 Vicious Intimidation (Sp): At 8th level and higher, the first time you successfully use Vicious to attack an opponent and deal damage, that opponent must save as if the target of a cause fear spell. The save DC is 11, or 11 + your Charisma modifier, whichever is higher. Caster level 5th. 
-Completed Twin (Su): Once you reach 10th level, when Vicious is within 30 feet of Devious, its effective enhancement bonus is +1 better than normal.  </entry>
+Completed Twin (Su): Once you reach 10th level, when Vicious is within 30 feet of Devious, its effective enhancement bonus is +1 better than normal.</entry>
   <entry id="59300" lang="en" sex="m">Devious Eavesdropper</entry>
   <entry id="59301" lang="en" sex="m">Type of Feat: Legacy
 Prerequisite: Least Legacy Ritual
