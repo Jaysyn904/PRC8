@@ -41,12 +41,12 @@ void InfusionSecondSave(object oUser, int nDC);
  */
 int FindSpellCastingClass(object oCaster, int nSpellID)
 {
-    int i = 0;
+    int i;
     int nClassFound = -1;
     int nClass;
 
     // Only loop through caster's classes
-    for (i = 0; i <= 8; i++)
+    for (i = 1; i <= 8; i++)
     {
         nClass = GetClassByPosition(i, oCaster);
         if (nClass == CLASS_TYPE_INVALID) continue;
@@ -411,9 +411,10 @@ int GetIsClassSpell(object oCaster, int nSpellID, int nClass)
 int GetHasSpellOnClassList(object oCaster, int nSpellID)
 {
     int i;
-    for (i = 0; i <= 8; i++)
+    for (i = 1; i <= 8; i++)
     {
-        int nClass = GetClassByPosition(i, oCaster);
+        int j;
+		int nClass = GetClassByPosition(i, oCaster);
         if (nClass == CLASS_TYPE_INVALID) continue;
 
         if (GetIsClassSpell(oCaster, nSpellID, nClass))
@@ -422,9 +423,9 @@ int GetHasSpellOnClassList(object oCaster, int nSpellID)
 			return TRUE;
         }
 		// Check domain spell lists  
-		for (i = 1; i <= 5; i++)  
+		for (j = 1; j <= 5; j++)  
 		{  
-			int nDomain = GetBonusDomain(oCaster, i);  
+			int nDomain = GetBonusDomain(oCaster, j);  
 			if (nDomain == 0) continue; // Empty slot  
 			  
 			// Check all spell levels (1-9) for this domain  

@@ -81,6 +81,41 @@ void main()
 	object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
 	int nArmour = GetItemACBase(oArmour);
 	int nClass = GetLevelByClass(CLASS_TYPE_SWORDSAGE, oPC);
+ 
+	if (GetLevelByClass(CLASS_TYPE_MONK, oPC) > 0)
+	{
+		SetCompositeBonus(oSkin, "SwordsageACBonus", 0, ITEM_PROPERTY_AC_BONUS);
+	}
+	else if (nClass >= 2)
+	{
+		int nBaseAC = GetBaseAC(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC));
+		int nWeight = GetWeight(GetItemInSlot(INVENTORY_SLOT_CHEST, oPC));
+ 
+		//:: No armor, light armor (base AC 1-3), or Chain Shirt (base AC 4, weight <= 250)
+		int bLightOrNone = (nBaseAC == 0)
+		                || (nBaseAC < 4)
+		                || (nBaseAC == 4 && nWeight <= 250);
+ 
+		if (bLightOrNone)
+			SetCompositeBonus(oSkin, "SwordsageACBonus", GetAbilityModifier(ABILITY_WISDOM, oPC), ITEM_PROPERTY_AC_BONUS);
+		else
+			SetCompositeBonus(oSkin, "SwordsageACBonus", 0, ITEM_PROPERTY_AC_BONUS);
+	}
+	else
+	{
+		SetCompositeBonus(oSkin, "SwordsageACBonus", 0, ITEM_PROPERTY_AC_BONUS);
+	}
+ 
+	SwordSageDisciplineWeaponFocus(oPC);
+}
+
+/* void main()
+{
+	object oPC = OBJECT_SELF;
+	object oSkin = GetPCSkin(oPC);
+	object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
+	int nArmour = GetItemACBase(oArmour);
+	int nClass = GetLevelByClass(CLASS_TYPE_SWORDSAGE, oPC);
 
 	if (GetLevelByClass(CLASS_TYPE_MONK, oPC) > 0)
 	{
@@ -99,4 +134,4 @@ void main()
 	}		
 	
 	SwordSageDisciplineWeaponFocus(oPC);
-}
+} */

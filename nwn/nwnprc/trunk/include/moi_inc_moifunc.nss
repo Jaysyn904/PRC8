@@ -40,19 +40,20 @@
 string GetSoulmeldTag(int nMeldId)  
 {  
     if (nMeldId == MELD_FROST_HELM)          		return "SOULMELD_FROST_HELM_FEATS";  
-    else if (nMeldId == MELD_IMPULSE_BOOTS)       return "SOULMELD_IMPULSE_BOOTS_FEATS";  
-    else if (nMeldId == MELD_PHOENIX_BELT)        return "SOULMELD_PHOENIX_BELT_FEATS";  
-    else if (nMeldId == MELD_WORMTAIL_BELT)       return "SOULMELD_WORMTAIL_BELT_FEATS";  
-    else if (nMeldId == MELD_APPARITION_RIBBON)   return "SOULMELD_APPARITION_RIBBON_FEATS";  
-    else if (nMeldId == MELD_MANTICORE_BELT)      return "SOULMELD_MANTICORE_BELT_FEATS";  
-    else if (nMeldId == MELD_THEFT_GLOVES)        return "SOULMELD_THEFT_GLOVES_FEATS";  
-    else if (nMeldId == MELD_BLOODTALONS)         return "SOULMELD_BLOODTALONS_FEATS";  
-    else if (nMeldId == MELD_LAMIA_BELT)          return "SOULMELD_LAMIA_BELT_FEATS";  
-    else if (nMeldId == MELD_CRYSTAL_HELM)        return "SOULMELD_CRYSTAL_HELM_FEATS";  
-    else if (nMeldId == MELD_BASILISK_MASK)       return "SOULMELD_BASILISK_MASK_FEATS";  
-    else if (nMeldId == MELD_ASTRAL_VAMBRACES)    return "SOULMELD_ASTRAL_VAMBRACES_FEATS";  
-    else if (nMeldId == MELD_MAULING_GAUNTLETS)   return "SOULMELD_MAULING_GAUNTLETS_FEATS";  
-    else if (nMeldId == MELD_DRAGONFIRE_MASK)     return "SOULMELD_DRAGONFIRE_MASK_FEATS";  
+    else if (nMeldId == MELD_IMPULSE_BOOTS)       	return "SOULMELD_IMPULSE_BOOTS_FEATS";  
+    else if (nMeldId == MELD_PHOENIX_BELT)			return "SOULMELD_PHOENIX_BELT_FEATS";  
+    else if (nMeldId == MELD_WORMTAIL_BELT)       	return "SOULMELD_WORMTAIL_BELT_FEATS";  
+    else if (nMeldId == MELD_APPARITION_RIBBON)   	return "SOULMELD_APPARITION_RIBBON_FEATS";  
+    else if (nMeldId == MELD_MANTICORE_BELT)      	return "SOULMELD_MANTICORE_BELT_FEATS";  
+    else if (nMeldId == MELD_THEFT_GLOVES)        	return "SOULMELD_THEFT_GLOVES_FEATS";  
+    else if (nMeldId == MELD_BLOODTALONS)         	return "SOULMELD_BLOODTALONS_FEATS";  
+    else if (nMeldId == MELD_LAMIA_BELT)          	return "SOULMELD_LAMIA_BELT_FEATS";  
+    else if (nMeldId == MELD_CRYSTAL_HELM)        	return "SOULMELD_CRYSTAL_HELM_FEATS";  
+    else if (nMeldId == MELD_BASILISK_MASK)       	return "SOULMELD_BASILISK_MASK_FEATS";  
+    else if (nMeldId == MELD_ASTRAL_VAMBRACES)    	return "SOULMELD_ASTRAL_VAMBRACES_FEATS";  
+    else if (nMeldId == MELD_MAULING_GAUNTLETS)   	return "SOULMELD_MAULING_GAUNTLETS_FEATS";  
+    else if (nMeldId == MELD_DRAGONFIRE_MASK)     	return "SOULMELD_DRAGONFIRE_MASK_FEATS";  
+	else if (nMeldId == MELD_STRONGHEART_VEST)		return "SOULMELD_STRONGHEART_VEST_FEATS"; 
     else return "";  
 }
 
@@ -120,6 +121,7 @@ void RemoveSoulmeldFeatEffects(object oPC)
            sTag == "SOULMELD_BASILISK_MASK_FEATS" 		||  
            sTag == "SOULMELD_ASTRAL_VAMBRACES_FEATS" 	||  
            sTag == "SOULMELD_MAULING_GAUNTLETS_FEATS" 	||  
+		   sTag == "SOULMELD_STRONGHEART_VEST_FEATS" 	||
            sTag == "SOULMELD_DRAGONFIRE_MASK_FEATS")  
         {  
             RemoveEffect(oPC, eEffect);  

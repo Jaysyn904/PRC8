@@ -69100,7 +69100,7 @@ Challenge Rating
 Same as the base creature + 2.
 
 Alignment
-Any good.
+Any evil.
 
 Level Adjustment
 Same as the base creature +4.
@@ -76941,6 +76941,13 @@ Feats Required: Simple, Druid, or Wizard</entry>
   <entry id="212238" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
 One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.</entry>
+  <entry id="212399" lang="en" sex="m">###PRC8 ALCHEMY RESERVE###</entry>
+  <entry id="212400" lang="en" sex="m">****</entry>
+  <entry id="212401" lang="en" sex="m">****</entry>
+  <entry id="212402" lang="en" sex="m">****</entry>
+  <entry id="212403" lang="en" sex="m">****</entry>
+  <entry id="212404" lang="en" sex="m">****</entry>
+  <entry id="212650" lang="en" sex="m">###END PRC8 ALCHEMY RESERVE###</entry>
   <entry id="213057" lang="en" sex="m">****</entry>
   <entry id="213058" lang="en" sex="m">Combat Form Feats</entry>
   <entry id="213059" lang="en" sex="m">While most warriors draw on their strength, agility, and toughness in battle, a few learn to tap into the true potential of their minds. Somewhat like a monk, such a warrior supplements his physical practice with rigorous mentaltraining to hone his fighting abilities. His mind and body become one as he fights, allowing him to achieve unparalleled levels of combat mastery. Being in this state of perfect mental and physical harmony is known as maintaining a combat focus. (Taking the feat called Combat Focus is how a character learns to achieve this state; all other combat form feats have Combat Focus as a prerequisite.) The task of maintaining a combat focus is both difficult and  straining. Thus, a warrior cannot remain in this state for long.  While he does, however, he can use any combat form feats he possesses.</entry>

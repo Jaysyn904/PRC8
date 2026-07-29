@@ -39,15 +39,16 @@ Your strongheart vest also reduces ability drain
 void main()
 {
     object oMeldshaper = PRCGetSpellTargetObject(); 
-	int nEssentia      = GetEssentiaInvested(oMeldshaper);
+    int nEssentia      = GetEssentiaInvested(oMeldshaper);
     effect eLink       = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
     
     if (GetIsMeldBound(oMeldshaper) == CHAKRA_HEART || GetIsMeldBound(oMeldshaper) == CHAKRA_DOUBLE_HEART) 
     {
-    	EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_DEATH));
-    	EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));
+        eLink = TagEffect(eLink, "SOULMELD_STRONGHEART_VEST_FEATS");
+        eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_DEATH));
+        eLink = EffectLinkEffects(eLink, EffectImmunity(IMMUNITY_TYPE_NEGATIVE_LEVEL));
     }	
-
+ 
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_STRONGHEART_VEST), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING); 
 }
