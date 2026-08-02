@@ -31,6 +31,7 @@ const int TEMPLATE_MINERAL_WARRIOR  = 27;
 const int TEMPLATE_BLOODED_ONE      = 28;
 const int TEMPLATE_HALF_TROLL		= 31;
 const int TEMPLATE_SAINT			= 32;
+const int TEMPLATE_HALF_VAMPIRE		= 33;
 
 //:: Half-dragon sub-templates
 const int TEMPLATE_HDRAGON_CHROMATIC_BLACK     = 1;

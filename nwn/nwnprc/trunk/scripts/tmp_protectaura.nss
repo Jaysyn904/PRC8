@@ -58,5 +58,6 @@ void main()
 	else
 	{ 
 		SendMessageToPC(oPC, "Saints must be good aligned");
+		return;
 	}
 }

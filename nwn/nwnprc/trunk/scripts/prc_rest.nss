@@ -271,6 +271,9 @@ void RestFinished(object oPC)
     DeleteLocalInt(oPC, "TalonBreath3");
     DeleteLocalInt(oPC, "TalonBreath4");
     DeleteLocalInt(oPC, "TalonBreath5");
+	
+	//:: Half-Vampire
+	DeleteLocalInt(oPC, "TemplateSLA_CHILDREN_OF_THE_NIGHT");  
 
     if(GetHasFeat(FEAT_WEAPON_APTITUDE, oPC))
     {

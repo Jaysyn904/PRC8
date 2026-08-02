@@ -257,7 +257,7 @@ void main()
         ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_DARKVISION);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         //draconic immunities - sleep, paralysis
-        ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_IMMUNITY_TO_SLEEP);
+        ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_TEMPLATE_IMMUNITY_TO_SLEEP);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
         ipIP = PRCItemPropertyBonusFeat(IP_CONST_FEAT_DRAGON_IMMUNE);
         IPSafeAddItemProperty(oSkin, ipIP, 0.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);

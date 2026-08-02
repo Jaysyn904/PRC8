@@ -34,7 +34,7 @@
 //////////////////////////////////////////////////
 
 const int TEMPLATE_SLA_START = 16304;
-const int TEMPLATE_SLA_END   = 16400;
+const int TEMPLATE_SLA_END   = 16460;
 
 const string PRC_ScrubPCSkin_Generation = "PRC_ScrubPCSkin_Generation";
 const string PRC_EvalPRCFeats_Generation = "PRC_EvalPRCFeats_Generation";

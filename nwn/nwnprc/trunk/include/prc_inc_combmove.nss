@@ -934,6 +934,69 @@ void _BariaurChargeDamage(object oPC, object oTarget, int nRoll, int nDamBonus)
 //////////////////////////////////////////////////
 /*             Function definitions             */
 //////////////////////////////////////////////////
+void DoBloodDrain(object oPC, object oTarget)
+{
+    // Must be alive and not undead/construct/ooze/elemental
+    int nRacial = MyPRCGetRacialType(oTarget);
+    if (nRacial == RACIAL_TYPE_UNDEAD || nRacial == RACIAL_TYPE_CONSTRUCT || nRacial == RACIAL_TYPE_PLANT
+        || nRacial == RACIAL_TYPE_OOZE || nRacial == RACIAL_TYPE_ELEMENTAL)
+        return;
+ 
+    // Check hourly cap: can't drain more CON than the half-vampire's CON score
+    int nConScore = GetAbilityScore(oPC, ABILITY_CONSTITUTION);
+    int nDrainedThisHour = GetLocalInt(oPC, "HVamp_BloodDrainHour");
+    if (nDrainedThisHour >= nConScore)
+    {
+        FloatingTextStringOnCreature("You cannot drain more blood this hour.", oPC, FALSE);
+        return;
+    }
+ 
+    // Apply 1d4 Constitution drain
+    int nDrain = d4();
+    // Cap at remaining allowance
+    if (nDrainedThisHour + nDrain > nConScore)
+        nDrain = nConScore - nDrainedThisHour;
+ 
+    // Constitution drain = permanent ability decrease (Ex)
+    effect eConDrain = EffectAbilityDecrease(ABILITY_CONSTITUTION, nDrain);
+    eConDrain = ExtraordinaryEffect(eConDrain);
+    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eConDrain, oTarget);
+ 
+    // Track drained amount
+    SetLocalInt(oPC, "HVamp_BloodDrainHour", nDrainedThisHour + nDrain);
+    // Reset hourly counter
+    if (!GetLocalInt(oPC, "HVamp_BloodDrainTimerSet"))
+    {
+        SetLocalInt(oPC, "HVamp_BloodDrainTimerSet", TRUE);
+        DelayCommand(3600.0f, DeleteLocalInt(oPC, "HVamp_BloodDrainHour"));
+        DelayCommand(3600.0f, DeleteLocalInt(oPC, "HVamp_BloodDrainTimerSet"));
+    }
+ 
+    // Grant 5 temporary HP (regardless of drain amount)
+    effect eTempHP = EffectTemporaryHitpoints(5);
+    eTempHP = ExtraordinaryEffect(eTempHP);
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eTempHP, oPC, 3600.0f);
+ 
+    // Mark that blood was drunk today (for Blood Dependency)
+    SetPersistantLocalInt(oPC, "HVamp_DrankBloodToday", TRUE);
+	
+	// Immediately clear any active Blood Dependency penalty upon feeding  
+	effect eCheck = GetFirstEffect(oPC);  
+	while (GetIsEffectValid(eCheck))  
+	{  
+		string sTag = GetEffectTag(eCheck);  
+		if (sTag == "PRCFatigue" || sTag == "PRCExhausted")  
+			RemoveEffect(oPC, eCheck);  
+		eCheck = GetNextEffect(oPC);  
+	}  
+	DeletePersistantLocalInt(oPC, "HVamp_BloodDepExhausted");
+ 
+    // Visual feedback
+    effect eBlood = EffectVisualEffect(VFX_COM_BLOOD_REG_WIMP);
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eBlood, oTarget);
+ 
+    FloatingTextStringOnCreature("Blood drained! " + IntToString(nDrain) + " Con damage.", oPC, FALSE);
+}
 
 int GetCombatMoveCheckBonus(object oPC, int nCombatMove, int nDefender = FALSE, int nAttacker = FALSE)
 {
@@ -1914,7 +1977,12 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
                 ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDam, DAMAGE_TYPE_BLUDGEONING), oTarget);  
                 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectACDecrease(4)), oPC, 6.0);  
             }  
-        }  
+			if (GetLocalInt(oPC, "HVamp_BloodDrainGrapple"))  
+			{  
+				if (DEBUG) DoDebug("DoGrappleOptions >> entering blood drain check");
+				DoBloodDrain(oPC, oTarget);  
+			}
+		}  
         else  
             FloatingTextStringOnCreature("You have failed your Grapple Pin Attempt",oPC, FALSE);  
     }

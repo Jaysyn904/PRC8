@@ -59007,6 +59007,73 @@ Feats: Low-light Vision, Knockdown, Scent, Track, Weapon Focus: Creature*</entry
 Injury DC 11
 Initial Damage: 1d6 Con
 Secondary Damage: 1d6 Con</entry>
+  <entry id="61400" lang="en" sex="m">****</entry>
+  <entry id="61401" lang="en" sex="m">Half-vampire</entry>
+  <entry id="61402" lang="en" sex="m">"Half-vampire" is an inherited template that can be added to any humanoid or monstrous humanoid (referred to hereafter as the base creature). The creature's size and type do not change.
+
+A half-vampire uses all the base creature's statistics and special abilities except as noted here.
+
+Armor Class: A half-vampire's natural armor bonus improves by 2.
+
+Attack: A half-vampire retains all the attacks of the base creature and also gains a slam attack if it didn't already have one. If the base creature can use weapons, the half-vampire retains this ability. A creature with natural weapons retains those natural weapons. A half-vampire fighting without weapons uses either its slam attack or its primary natural weapon (if it has one). A half-vampire armed with a weapon uses its slam or a weapon, as it desires. A half-vampire's natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+
+Special Attacks: A half-vampire retains all the special attacks of the base creature and gains one of those described below. Saves have a DC of to + 1/2 half-vampire's HD + half-vampire's Cha modifier unless otherwise noted.
+
+Blood Drain (Ex): Some half-vampires can suck blood from a living victim with their fangs by making a successful grapple check. If the half-vampire pins the foe, it drains blood, dealing 1d4 points of Constitution drain each round the pin is maintained. A half-vampire can't drain more points of Constitution in a single hour than its Constitution score. When a half-vampire drains a victim's Constitution, it gains 5 temporary hit points, no matter how many points it drains. Temporary hit points gained in this way last for up to 1 hour. If a half-vampire has this ability, it also gains the blood dependency special quality described below.
+
+Charm Gaze (Su): Some half-vampires can charm humanoid or monstrous humanoid opponents just by looking into their eyes. This is similar to a gaze attack, except that the half-vampire must use a standard action, and those merely looking at the half-vampire are not affected. Anyone the half-vampire targets must make a successful Will save or fall under the half-vampire's influence as though affected by a charm monster spell (caster level equal to HD). Any creature that successfully saves against a half-vampire's charm gaze cannot be affected by that half-vampire's charm gaze for 24 hours. The ability has a range of 30 feet.
+
+Children of the Night (Su): Some half-vampires can command the lesser creatures of the world. Once per day, a half-vampire that has this special attack can call forth 1d4 rat swarms, 1d3 bat swarms, or a pack of 1d6 wolves as a standard action. (If the base creature is not terrestrial, this ability might summon other creatures of equivalent power.) These creatures arrive in 2d6 rounds and serve the half-vampire for up to 1 hour.
+
+Special Qualities: A half-vampire retains all the special qualities of the base creature and also gains those described below.
+
+Blood Dependency (Ex): If a half-vampire does not use its blood drain special attack against at least one living creature each day, it must make a DC 15 Fortitude save or become fatigued. Each day after the first that the half-vampire does not drink blood directly from a living creature, the DC increases by 1 until it fails the save and becomes fatigued. After that, it must make a DC 20 Fortitude save each week (with the DC increasing by 1 each week thereafter) that it does not use its blood drain or become exhausted.
+
+The fatigue or exhaustion caused by blood dependency cannot be eliminated by rest (though magic can offset the condition until the vampire fails another save). Using its blood drain ability eliminates a half-vampire's fatigue immediately, or reduces exhaustion to fatigue.
+
+Only half-vampires with the blood drain special attack (see above) gain this special quality.
+
+Damage Reduction (Su): A half-vampire has damage reduction 5/silver or magic.
+
+Fast Healing (Ex): A half-vampire heals 1 point of damage each round so long as it has at least 1 hit point but less than half its full normal hit points. As long as the vampire has more than half its full normal hit points, its fast healing does not function (but other forms of healing still function normally).
+
+Resistances (Ex): A half-vampire has resistance to cold 5 and electricity 5.
+
+Abilities: Increase from the base creature as follows: Str +2, Dex +2, Cha +2.
+
+Skills: Half-vampires have a +2 racial bonus on Bluff, Hide, Listen, Move Silently, and Spot checks. Otherwise, same as the base creature.
+
+Feats: A half-vampire gains Improved Initiative, if the base creature doesn't already have that feat.
+
+Environment: Any, usually same as base creature.
+
+Organization: Solitary.
+
+Challenge Rating: Same as the base creature +1
+
+Level Adjustment: Same as the base creature +2</entry>
+  <entry id="61403" lang="en" sex="m">Blood Drain</entry>
+  <entry id="61404" lang="en" sex="m">Blood Drain (Ex): Some half-vampires can suck blood from a living victim with their fangs by making a successful grapple check. If the half-vampire pins the foe, it drains blood, dealing 1d4 points of Constitution drain each round the pin is maintained. A half-vampire can't drain more points of Constitution in a single hour than its Constitution score. When a half-vampire drains a victim's Constitution, it gains 5 temporary hit points, no matter how many points it drains. Temporary hit points gained in this way last for up to 1 hour. If a half-vampire has this ability, it also gains the blood dependency special quality.</entry>
+  <entry id="61405" lang="en" sex="m">&lt;CUSTOM0&gt; attempts to drain blood!</entry>
+  <entry id="61406" lang="en" sex="m">Charm Gaze</entry>
+  <entry id="61407" lang="en" sex="m">Charm Gaze (Su): Some half-vampires can charm humanoid or monstrous humanoid opponents just by looking into their eyes. This is similar to a gaze attack, except that the half-vampire must use a standard action, and those merely looking at the half-vampire are not affected. Anyone the half-vampire targets must make a successful Will save or fall under the half-vampire's influence as though affected by a charm monster spell (caster level equal to HD). Any creature that successfully saves against a half-vampire's charm gaze cannot be affected by that half-vampire's charm gaze for 24 hours. The ability has a range of 30 feet.</entry>
+  <entry id="61408" lang="en" sex="m">&lt;CUSTOM0&gt; gazes charmingly.</entry>
+  <entry id="61409" lang="en" sex="m">Children of the Night</entry>
+  <entry id="61410" lang="en" sex="m">Children of the Night (Su): Some half-vampires can command the lesser creatures of the world. Once per day, a half-vampire that has this special attack can call forth 1d4 rat swarms, 1d3 bat swarms, or a pack of 1d6 wolves as a standard action. (If the base creature is not terrestrial, this ability might summon other creatures of equivalent power.) These creatures arrive in 2d6 rounds and serve the half-vampire for up to 1 hour.</entry>
+  <entry id="61411" lang="en" sex="m">Summon Rat Swarm</entry>
+  <entry id="61412" lang="en" sex="m">Summon Bat Swarm</entry>
+  <entry id="61413" lang="en" sex="m">Summon Wolf Pack
+</entry>
+  <entry id="61414" lang="en" sex="m">&lt;CUSTOM0&gt; calls children of the night.</entry>
+  <entry id="61415" lang="en" sex="m">****</entry>
+  <entry id="61416" lang="en" sex="m">Blood Dependency</entry>
+  <entry id="61417" lang="en" sex="m">Blood Dependency (Ex): If a half-vampire does not use its blood drain special attack against at least one living creature each day, it must make a DC 15 Fortitude save or become fatigued. Each day after the first that the half-vampire does not drink blood directly from a living creature, the DC increases by 1 until it fails the save and becomes fatigued. After that, it must make a DC 20 Fortitude save each week (with the DC increasing by 1 each week thereafter) that it does not use its blood drain or become exhausted.
+
+The fatigue or exhaustion caused by blood dependency cannot be eliminated by rest (though magic can offset the condition until the vampire fails another save). Using its blood drain ability eliminates a half-vampire's fatigue immediately, or reduces exhaustion to fatigue.
+
+Only half-vampires with the blood drain special attack (see above) gain this special quality.</entry>
+  <entry id="61418" lang="en" sex="m">Fast Healing</entry>
+  <entry id="61419" lang="en" sex="m">Fast Healing (Ex): A half-vampire heals 1 point of damage each round so long as it has at least 1 hit point but less than half its full normal hit points. As long as the vampire has more than half its full normal hit points, its fast healing does not function (but other forms of healing still function normally).</entry>
   <entry id="61420" lang="en" sex="m">Half-Dragon</entry>
   <entry id="61421" lang="en" sex="m">Template: Half-Dragon</entry>
   <entry id="61422" lang="en" sex="m">A half-dragon gains a breath weapon based on the dragon variety (see table), usable once per day. A half-dragon's breath weapon deals 6d8 points of damage. A successful Reflex save (DC 10 + 1/2 half-dragon's racial HD + half-dragon's Con modifier) reduces damage by half.
@@ -73797,7 +73864,7 @@ A limited wish lets you create nearly any type of effect. For example, a limited
 A duplicated spell allows saving throws and spell resistance as normal (but the save DC is for a 7th-level spell). When a limited wish duplicates a spell that has an XP cost, you must pay that cost or 300 XP, whichever is more. When a limited wish spell duplicates a spell with a material component that costs more than 1,000 gp, you must provide that component.
 
 XP Cost: 300 XP or more (see above)</entry>
-  <entry id="199269" lang="en" sex="m">Limited Wish (14)</entry>
+  <entry id="199269" lang="en" sex="m">Limited Wish (15)</entry>
   <entry id="199270" lang="en" sex="m">Sorcerer Limited Wish</entry>
   <entry id="199271" lang="en" sex="m">Sublime Chord Repair Critical Damage</entry>
   <entry id="199272" lang="en" sex="m">Sublime Chord Chasing Perfection</entry>
@@ -73882,6 +73949,12 @@ Law: if a chaotic creature succeeds on a melee attack against a warded creature,
 
 Chaos: if a lawful creature succeeds on a melee attack against a warded creature, the offending attacker is confused for 1 round (Will save negates, as with the confusion spell, but against the save DC of cloak of chaos).</entry>
   <entry id="199287" lang="en" sex="m">****</entry>
+  <entry id="199288" lang="en" sex="m">Enthrall (4)</entry>
+  <entry id="199289" lang="en" sex="m">Enthrall (8)</entry>
+  <entry id="199290" lang="en" sex="m">Enthrall (16)</entry>
+  <entry id="199291" lang="en" sex="m">Rage (4)</entry>
+  <entry id="199292" lang="en" sex="m">Rage (8)</entry>
+  <entry id="199293" lang="en" sex="m">Rage (16)</entry>
   <entry id="199999" lang="en" sex="m">#PRC8 RESERVED#</entry>
   <entry id="200000" lang="en" sex="m">#START PRC8 MATERIAL RESERVE#</entry>
   <entry id="200001" lang="en" sex="m">Botanical</entry>

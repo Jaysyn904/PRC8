@@ -550,7 +550,7 @@ void main()
             else
             { 
                 SendMessageToPC(oPC, "Saints must be good aligned");
-                break;
+                return;
             }				
         }
 	    case SAINT_SLA_RESISTANCE:
@@ -565,7 +565,7 @@ void main()
             else
             { 
                 SendMessageToPC(oPC, "Saints must be good aligned");
-                break;
+                return;
             }
         }
 	    case SAINT_SLA_VIRTUE:
@@ -580,7 +580,7 @@ void main()
             else
             { 
                  SendMessageToPC(oPC, "Saints must be good aligned");
-                 break;
+                 return;
             }
         }
 		

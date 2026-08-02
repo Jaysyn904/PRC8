@@ -21,6 +21,14 @@ int OptimalGrapple(object oPC, object oTarget)
     int nMauler = GetLevelByClass(CLASS_TYPE_REAPING_MAULER, oPC);
     int nBBC    = GetLevelByClass(CLASS_TYPE_BLACK_BLOOD_CULTIST, oPC);
     int nDC = 10 + nMauler + GetAbilityModifier(ABILITY_WISDOM, oPC);
+	
+	// DEBUG: confirm pin state at the moment we check the Blood Drain flag  
+    DoDebug("OptimalGrapple() >> HVamp_BloodDrainGrapple=" + IntToString(GetLocalInt(oPC, "HVamp_BloodDrainGrapple"))  
+          + " GetIsPinned(oTarget)=" + IntToString(GetIsPinned(oTarget)));
+
+    // Half-Vampire Blood Drain: keep re-pinning each round while active and already pinned  
+    if (GetLocalInt(oPC, "HVamp_BloodDrainGrapple") && GetIsPinned(oTarget))  
+        return GRAPPLE_PIN;  
     
     if (GetLocalInt(oPC, "Flay_Grapple"))
         return GRAPPLE_DAMAGE;    
@@ -98,6 +106,10 @@ void main()
     object oPC = OBJECT_SELF;
     object oTarget = PRCGetSpellTargetObject();
     int nGrappled = GetGrapple(oPC);
+	
+	if(DEBUG) DoDebug("prc_grapple >> nEvent="+IntToString(nEvent)+" nGrappled="+IntToString(nGrappled)+" oTarget="+GetName(oTarget));
+	
+	
     if(nEvent == EVENT_ONHEARTBEAT && nGrappled) // We're in a grapple
     	oTarget = GetGrappleTarget(oPC);    
     

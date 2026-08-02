@@ -1,0 +1,1333 @@
+
+The Unofficial Official Errata
+
+One of the more notorious flaws of the Tome of Battle is that the
+official errata by Wizards of the Coast contains about three entries
+that are actually about the Tome of Battle. About midway through the
+third entry it looks as though someone copied and pasted over what was
+there with the Complete Mage errata. The official word is that this will
+never be fixed since Wizards ended support for 3.5 errata with the
+release of D&D 4th edition.
+
+However, fans of the Tome of Battle rallied together and compiled a
+listing of questions and answers from Wizard's Customer Service. This is
+as close as it gets to an official errata for the Tome of Battle.
+
+The link to that thread is here. <http://community.wizards.com/go/
+thread/view/75882/19525942/Tome_of_Battle_Q38;A?pg=1>
+
+I'm duplicating the questions and answers recored in that thread here,
+on the off chance that the thread is ever deleted or lost.
+
+*General Tome of Battle Questions*
+
+*Q:* Dear Sage
+Can a martial adept (Tome of Battle) initiate a maneuver or change a
+stance while grappling? While pinned?
+—Alan
+
+*A:* The grapple rules provide a list of actions available to a
+grappling character, but it’s obviously not an exhaustive list. (It
+doesn’t, for example, mention “speaking” as an option.) It’s really
+intended more as a description of how grappling alters many normal
+actions available to characters (such as attacking and moving). Thus,
+the DM must apply a bit of his own common sense when adjudicating any
+grapple situation.
+
+Any maneuver that involves an attack may be used while grappling, as
+long as it’s made with an unarmed strike, natural weapon, or light
+weapon against another character you are grappling (PHB p156).
+
+It’s easiest to rule that other maneuvers and stances can be initiated
+normally while grappling unless something intrinsic to the maneuver
+indicates otherwise. (For example, a maneuver that requires movement
+can’t normally be initiated while in a grapple because the grappling
+character can’t move freely.) Many maneuvers and stances are designed
+for use by grappling characters, and it seems counterintuitive to
+restrict those options. A grappling character is somewhat limited in his
+physical mobility, but to prevent him from initiating a maneuver or
+stance seems unreasonably limiting.
+
+The Sage strongly recommends that a pinned character not be allowed to
+initiate a maneuver or stance. The rules clearly state that “to initiate
+a maneuver or stance, you must be able to move” (ToB p38), which
+suggests that a pinned character shouldn’t be able to accomplish this.
+
+*Q:* When it comes to initiator levels, do you round down or up when you
+have half initiator levels, such as when you multiclass into other classes?
+*A:* You round down, to a minimum of initiator level 1st.
+
+*Martial Adept Questions*
+
+General Questions
+
+*Q:* How do you calculate initiator level if you have multiple martial
+adept classes (from Tome of Battle) and/or prestige classes?
+*A:* Calculating initiator level for multiclass characters or characters
+with prestige classes can be a little tricky. Basically, you calculate
+the initiator level of each martial adept class separately. Your
+initiator level for a specific martial adept class is your level in that
+class + 1/2 your levels in all other classes. A 10th-level
+swordsage/5th-level warblade would have an initiator level of 12th for
+all swordsage maneuvers and for determining the maximum maneuver level
+that this character could learn as a swordsage. The same character would
+have an initiator level of 10th for determining the same effects of his
+warblade levels.
+Prestige classes are generally treated just like multiclassing, adding
+1/2 the level unless the prestige class specifically states otherwise,
+as do most of the prestige classes found in Tome of Battle.
+
+*Q:* If you are a multiclass martial adept (from Tome of Battle), a
+swordsage/warblade for example, do you have to keep your maneuvers known
+and maneuvers readied separate for each class?
+*A:* If a character has multiple martial adept base classes, the
+maneuvers known and readied from each class are kept separate. Knowing a
+maneuver for one class does not mean you can ready it for the other, or
+vice versa.
+
+*Q:* If you have levels in two different martial adept classes (from
+Tome of Battle), such as swordsage and warblade for example, can you use
+maneuvers that you have for one class to meet the prereqs for a maneuver
+in your other class?
+*A:* If a maneuver has a prerequisite that requires you to have a
+certain number of maneuvers from a certain martial discipline, then it
+only matters if you have that many maneuvers of that discipline. It does
+not matter if the maneuvers all belong to the same class.
+For example, a swordsage 3/warblade 2 has a single Diamond Mind maneuver
+from the swordsage class. When this character takes a 3rd level of
+warblade, they gain another maneuver known and can choose Emerald Razor,
+using the Diamond Mind maneuver known from the Swordsage levels to qualify.
+
+*Q:* The maneuvers known description of the crusader, swordsage, and
+warblade (in the Tome of Battle) state that you can learn a maneuver in
+place of one that you already know. However, these descriptions are
+unclear about whether you can learn a maneuver in place of one that you
+learned through another class. Can you swap maneuvers gained through
+different classes?
+To clarify this with an example, can a crusader 4/warblade 3 who has
+taken an additional level in the warblade class and learned a maneuver
+as a result 'forget' a maneuver that he learned through his crusader
+levels and learn a warblade maneuver in place of that maneuver?
+*A:* Yes, these abilities do not care what the origin of the replaced
+maneuver is.
+
+*Q:* Can my warblade delay acquiring his stance so that he can gain a
+2nd-level stance at a later level?
+*A:* No, because you can't delay acquiring class features.
+
+Crusader Questions
+
+*Q:* Dear Sage,
+If a crusader (Tome of Battle, p.8) has damage reduction, does that
+apply before or after damage goes into my steely resolve damage pool?
+—Fetch
+*A:* Apply damage reduction or any other effect that would reduce the
+incoming damage before it goes into the damage pool.
+If your DR reduces the incoming damage to 0, no damage goes into your
+damage pool.
+
+*Q:* Dear Sage,
+If my crusader (Tome of Battle, p.8) receives more healing from an
+effect that he needs to return to maximum hit points, do I have to apply
+the remainder to my damage pool?
+—Antheric
+*A:* No.
+You can split the amount of incoming healing between your hit points and
+damage pool however you wish. You can even apply more healing than you
+actually need to either category.
+For example, imagine if you had 26 points of damage and 10 points in
+your damage pool, and the cleric cast cure critical wounds to restore 28
+hit points. Since reducing your damage pool by even a point would lessen
+your furious counterstrike bonus, you could apply all 28 points of
+healing to your hit points, even though 2 points of that healing is wasted.
+
+*Q:* Dear Sage,
+Could a crusader (Tome of Battle, p.8) choose to learn or ready fewer
+maneuvers than he or she would be entitled to?
+—Joe & Sam
+*A:* No.
+You must learn and ready the full number of maneuvers entitled to you by
+your level.
+Otherwise, you’d be able to cycle through your favorites faster, which
+defeats the purpose of the crusader’s unique recharge mechanic.
+
+*Q:* Dear Sage,
+Can a crusader (Tome of Battle, p.8) delay learning a new stance to a
+later level? If not, how can he ever learn an 8th- or 9th-level stance,
+since his last stance is gained at only 14th level?
+—Horst
+*A:* As a general rule, you can’t ever delay gaining any feature that
+comes from reaching a new level, whether that’s a feat, skill points,
+class feature, or anything else.
+The crusader’s stances are no different; at 14th level, the crusader
+must select a new stance of 7th level or less.
+However, at 15th level the crusader could select the Martial Stance feat
+(p.31) in order to choose an 8th-level stance. At 18th level, he could
+use that feat to choose a 9th-level stance.
+
+*Q:* Dear Sage,
+When a crusader's maneuver recovery mechanic (Tome of Battle, p.9)
+activates, what happens to any maneuvers he still had ready and granted?
+--Dan
+*A:* If at the end of the crusader’s turn he cannot be granted a
+maneuver because he has no withheld maneuvers remaining, the process
+starts over from scratch. All maneuvers (whether expended or not) once
+again become withheld, and two of those maneuvers are randomly granted.
+*Q:* Dear Sage,
+As part of his discipline focus class feature, the swordsage (Tome of
+Battle p16) gains the benefit of the Weapon Focus feat for a set of
+weapons. Does he also gain proficiency in the listed weapons?
+—Daniel
+*A:* According to a strict reading of the rules, no. A swordsage who
+wants to avoid the non-proficiency penalty for such weapons must gain
+proficiency in those weapons normally.
+
+*Q:* Dear Sage
+If a crusader (Tome of Battle) of a good-aligned deity were to "fall"
+and become a blackguard, would he gain blackguard powers in a manner
+analogous to a fallen paladin who becomes a blackguard?
+—Mark
+*A:* That falls squarely into the domain of "house rules."
+It certainly seems like a cool variant of that aspect of the blackguard,
+but you would need to work with your DM to come up with appropriate
+changes to the list of special blackguard features to make them match
+the crusader class.
+
+Swordsage Questions
+
+*Q:* When a swordsage (from Tome of Battle) takes a level in the master
+of nine prestige class, they can now learn a maneuver from any
+discipline. If the same character later gains a new maneuver by taking a
+level of swordsage, can it be of any discipline, or can it only be from
+the normal swordsage disciplines?
+*A:* When a character gains a new maneuver from taking a level in the
+master of nine prestige class, that character can choose a maneuver from
+any discipline. If that same character later takes a level in swordsage
+or any other martial adept class, the character could only choose a
+maneuver belonging to a discipline available to that class.
+
+*Q:* The swordsage’s Discipline Focus (from Tome of Battle, pg. 16)
+states that you gain the benefits of the Weapon Focus feat for a
+specific group of weapons. Does this mean you count as having Weapon
+Focus for any feat or prestige class that has it as a prerequisite?
+*A:* Discipline Focus gives you the benefits of the Weapon Focus feat,
+and would allow a character to qualify for a feat or prestige class as
+if he/she had Weapon Focus.
+
+*Q:* How often can you use the swordsage’s Sense Magic ability (from
+Tome of Battle, pg. 16) on a particular weapon or armor?
+*A:* A swordsage may only use Sense Magic on a particular armor or
+weapon once. You can think of this as similar to using a Spellcraft
+check to identify a spell that’s already in place, or to identify a
+potion. You can try again when you gain your next level.
+
+*Q:* Does the AC bonus of the swordsage (from Tome of Battle) stack with
+the AC bonus of the monk, even though they are both based on Wisdom
+modifier?
+*A:* No. The swordsage’s AC bonus, allowing the swordsage to apply her
+Wisdom bonus to her armor class, mimics the ability of the monk’s AC
+bonus. Since these abilities share the same name and have the same
+effect, they will not stack.
+
+*Q:* Dear Sage,
+Does the discipline focus class feature of the swordsage (Tome of Battle
+p16) apply just to maneuvers gained from that class?
+—Ann Marie
+*A:* No.
+The benefits of this class feature apply to all maneuvers of the chosen
+discipline, regardless of how you acquired the maneuver.
+
+*Q:* Dear Sage,
+Can the swordsage (Tome of Battle p16) apply the insightful strike
+benefit of his discipline focus class feature to the same discipline twice?
+—Ben
+*A:* No.
+When you gain this benefit a second time at 12th level, you must apply
+this to a second, different discipline.
+
+*Q:* Dear Sage,
+How often can a swordsage (Tome of Battle p16) use his Sense Magic class
+feature on a particular weapon or armor?
+—Sammy
+*A:* A swordsage may only use Sense Magic on a particular armor or
+weapon once.
+You can think of this as similar to using a Spellcraft check to identify
+a spell that’s already in place, or to identify a potion.
+At the DM’s discretion, you can try again after you gain a new level.
+
+*Q:* If you have one level in Swordsage (which grants you Weapon Focus
+in the weapons associated with one discipline) and take a level of
+Warblade (which grants you the Weapon Aptitude ability), can you use the
+latter to switch your Weapon Focus to other weapons outside of the
+former's weapon group?
+*A:* No. The warblade ability allows you to change “any feat you have
+that applies only to a single weapon.” The swordsage ability applies to
+several weapons.
+
+*Q:* The Swordsage's chart (ToB p.16) lists skills as "6 + Int modifier
+per level, x6 at first level". Should that be "x4 at first level", instead?
+*A:* Correct!
+
+*Q:* Alright, so the Swordsage's AC Bonus ability states "Starting at
+2nd level, you can add you Wisdom modifier as a bonus to Armor Class, so
+long as you wear light armor, are encumbered, and do not use a shield."
+Does this mean that you can't use this ability when you are unarmored,
+ONLY in light armor? By RAW it does but… is it a mistake for errata,
+should I inform my DM that it works with no armor as well?
+*A:* The intent is that you get this benefit whether you are wearing
+light armor or are unarmored. I will pass this issue along to the
+appropriate departments for potential errata treatment. Of course your
+DM is allowed to rule however he/she wishes. Thank you for bringing this
+to our attention!
+
+*Q:* Do you add any bonus to the swordsage's sense magic class feature?
+*A:* Yes, you add your swordsage level to the level check, as usual.
+
+Warblade Questions
+
+*Q:* The warblade’s Weapon Aptitude ability (from Tome of Battle, pg.
+22) states that any feat you have that applies to a single weapon can be
+applied to any other weapon as long as you spend the 1 hour practicing.
+Does this mean if you have Exotic Weapon Proficiency (bastard sword),
+you can change it to Exotic Weapon Proficiency (spiked chain) as long as
+you spend the required time in weapon practice?
+*A:* Weapon Aptitude works on any feat focus on a single weapon, such as
+Weapon Focus and Weapon Specialization. Exotic Weapon Proficiency is one
+of those feats that works for a single weapon, so a warblade would be
+able to use the Weapon Aptitude ability to switch which weapon Exotic
+Weapon Proficiency applies to.
+
+*Skills and Feats Questions*
+
+*Q:* If you take the Adaptive Style feat (Tome of Battle, pg. 28), can
+you pick new maneuvers and/or ready all maneuvers by spending a full-
+round action in the middle of combat?
+*A:* Yes, you can use Adaptive Style to pick new maneuvers in the middle
+of combat. Since you are picking new maneuvers, they would all be
+readied. This is a clear advantage for a class such as the swordsage,
+who normally has to spend a full round action to recover a single
+maneuver, and would be a great feat to pick up.
+
+*Q:* Let's say you're a level 12 character getting ready to take the
+Superior Unarmed Strike feat (ToB). If you take Superior Unarmed Strike,
+does having a single monk level amongst those 12 character levels force
+Superior Unarmed Strike to give you the UA attack dice of a monk 5, or
+do you still get the UA attack dice in the provided table according to
+character level?
+
+*A:* You're forced to use the unarmed attack dice of a 5th-level monk.
+
+*Q:* Would you be able to stack the monk bonus and the swordsage bonus
+if you altered one or the other via a feat, such as Kung-Fu Genius or
+Ascetic Mage?
+*A:* Ascetic Mage only allows you to add your Charisma bonus to AC where
+you would normally be allowed to apply your Wisdom bonus, and does not
+discriminate between the source of the bonus. Kung-Fu Genius, however,
+does apply, because it specifically states that it affects your monk
+class features, thereby not applying to your swordsage AC bonus.
+
+*Q:* Dear Sage
+Can a monk use the Snap Kick feat (Tome of Battle p32) as part of a
+flurry of blows?
+—Alexander
+*A:* Yes. Apply both penalties to all attack rolls made during the
+flurry of blows.
+
+*Q:* The Adaptive Style feat in Tome of Battle allows you to change your
+readied maneuvers as a full round action rather than spending five
+minutes to do so. Does this…
+A) Allow a martial adept to regain and change all of their maneuvers
+with a single full round action
+or
+B) Allow them to change the maneuver that is readied in their unexpended
+"slots".
+A: Adaptive Style will actually let you perform option A) from your
+list. So as a full round action, you can choose a new set of readied
+maneuvers, and in doing so, reset all of your maneuvers. I hope that
+clears things up. Have fun and good gaming!
+*A:* Yes, it refreshes all the maneuvers of all your classes. Evasive
+Reflexes [feat] - limits on 5' steps taken
+
+*Q:* The Tome of Battle includes a feat named "Evasive Reflexes". This
+feat is raising a lot of questions on the message boards. Here are the
+main questions that I hope you can shed some light on:
+1. If I have both Evasive Reflexes and Combat Reflexes, and I am
+normally entitled to four attacks of opportunity per round, what is the
+maximum number of 5-foot-steps per round that I can make using Evasive
+Reflexes?
+2. Do the 5-foot-step(s) that I make using Evasive Reflexes count
+against the total number of attacks of opportunity that I can make in a
+single round?
+Thanks in advance.
+*A:*1) 4. You can take a five foot step each time an enemy provokes.
+2) Yes they do! Essentially you are replacing the attack with the move,
+but it still uses up an attack of opportunity!
+
+*Q:* When the Snap Kick feat mentions "When you make a melee attack with
+one or more melee weapons" is unarmed strike considered a "melee weapon"
+for the purposes of activating snap kick?
+*A:* Yes indeed, unarmed strike would count.
+
+*Q:* When using the Stormguard Warrior combat rhythm ability, is it
+possible to score critical hits with the touch attacks (still dealing no
+damage however) ? This comes into play when using the Tiger Claw blood
+in the water stance which adds to your to hit and damage when you score
+a critical.
+*A:* Yes, it sure is.
+
+*Q:* Dear Sage
+If a character uses the Adaptive Style feat (Tome of Battle p28) after
+he has expended some of his readied maneuvers, does he choose new
+readied maneuvers equal to the maximum number he can ready, or equal to
+the number he hasn’t yet expended?
+—Matt
+*A:* Using the Adaptive Style feat completely resets the character’s
+readied maneuvers, making them all available for use.
+If you’re a crusader, you also reset your granted maneuvers.
+
+*Q:* The Clarion Commander tactical feat requires you make a DC 20
+intimidate and then make an attack on the next turn. The result is
+flanking for all allies for one minute, does this allow a character with
+a ranged weapon to flank?
+*A:* It just simply states the enemy counts as flanked for you and your
+allies, so while you normally wouldn't be able to flank with a bow, it
+looks like you can with this feat!
+
+*Q:* The benefit of the Shadow Blade feat as listed on Table 2-1: New
+Feats (TOB 30) wildly differs from the benefit as listed in the feat
+entry. Which is correct?
+*A:* In this case, text trumps tables; the Shadow Blade entry is
+correct. (However, the benefit as listed on the table could be a good
+feat on its own.)
+
+*Martial Maneuvers and Stances Questions*
+
+General Maneuver Questions
+
+*Q:* Can you know the same maneuvers (from Tome of Battle) more than
+once? Can you ready the same maneuver more than once at a time?
+*A:* Actually no, you cannot learn the same maneuvers more than once,
+nor can you ready the same maneuver more than once at a time.
+
+*Q:* Can a barbarian use maneuvers (from Tome of Battle) while raging?
+What about Diamond Mind maneuvers that require a Concentration check to
+use? What about to recover maneuvers in the middle of combat?
+*A:* According to the text under the Concentration heading on page 39 of
+Tome of Battle, the text states “unlike with spells or psionic powers,
+you need not concentrate to initiate a maneuver or stance.” Because
+initiating a maneuver does not require concentration, you would be able
+to perform most maneuvers while in a barbarian’s Rage, or in any other
+condition which mimics the restrictions or raging. While raging, a
+character would not be able to use any Diamond Mind maneuver that
+requires a concentration check. Using a special action to recover an
+expended maneuver would fall into the category of “any abilities that
+require patience or concentration,” so a character would not be able to
+recover maneuvers in this way while raging.
+
+*Q:* When you gain a new maneuver (from Tome of Battle), can you choose
+to learn a new stance as it counts as a maneuver for some purposes?
+*A:* No, you can only learn stances when your class table states that
+you gain a new stance known. (You can also gain new stances by taking
+the Martial Stance feat, or taking levels in a prestige class that gives
+you a new stance.) You can’t use new Maneuver Known choices to pick stances.
+
+*Q:* When you gain a new maneuver (from Tome of Battle) known from a
+prestige class, does it get grouped with maneuvers known from your base
+martial adept class, or are they kept separate? What happens if you have
+the base martial adept classes and you take a prestige class gives you
+more maneuvers known?
+*A:* This is actually covered in the rules, though with all the crunchy
+bits in the book it’s easy to miss! When you gain additional maneuvers
+known from a prestige class, you choose one of the martial adept classes
+that you have and add it to the maneuvers known of that class. When a
+prestige class gives you the ability to ready one or more maneuver, you
+treat this in a similar fashion, choosing one of your base classes that
+already has a martial maneuver progression and add the additional
+readied maneuver slot to that class. You make these choices each time
+you take a level in a prestige class that grants new maneuvers known or
+maneuvers readied, so you’re not locked into advancing a specific base
+class when you take your first level in these prestige classes. You can
+find more information concerning this on page 96 of Tome of Battle.
+
+*Q:* There are a couple maneuvers (from Tome of Battle) that state they
+have a save, but no save DC is listed: i.e., Inferno Blast (pg. 55).
+What should the save DCs be?
+*A:* In general, the save DC for a maneuver is 10 + the maneuver level +
+your key ability score modifier (which depends on the discipline).
+
+*Q:* Dear Sage,
+Can I use enter a stance or use a boost in the middle of taking another
+action? For instance, can I charge up to a foe, enter a stance (Tome of
+Battle p43), and then make the attack granted by the charge? Or can I
+activate a boost such as burning blade (ToB p52) after I’ve made the
+attack roll?
+—Taylor & Mike
+*A:* No.
+As a general rule, you can’t interrupt one of your actions with another
+action. The Player’s Handbook provides various exceptions (drawing a
+weapon while moving, the Shot on the Run feat, and so on). However, you
+can take a swift action any time you would normally be allowed to take a
+free action, and you can perform a free action in conjunction with
+actions of other types.
+You could enter the stance before beginning the charge, or after
+resolving the attack(s) granted by the charge, or in between.
+Alternatively, you could just move up to the foe, then enter the stance,
+and then make the attack, but this wouldn’t be a charge.
+You must activate a boost before you begin an attack if you want to
+apply it to that attack. Once you’ve rolled, you can’t activate the boost.
+
+*Q:* Dear Sage,
+If a martial maneuver states that it allows a save but doesn’t list the
+save DC, how do I calculate it?
+—Sammy
+*A:* If a maneuver doesn’t list a DC, it is equal to 10 + the maneuver’s
+level + an ability score modifier based on the discipline:
+
+  * Desert Wind: Wisdom
+  * Devoted Spirit: Charisma
+  * Diamond Mind: Strength
+  * Iron Heart: Strength
+  * Setting Sun: Strength
+  * Shadow Hand: Wisdom
+  * Stone Dragon: Strength
+  * Tiger Claw: Strength
+  * White Raven: Intelligence
+
+*Q:* Can you switch maneuvers that you know for ones that you don't know?
+*A:* Yes. The crusader, swordsage, and warblade can trade one maneuver
+known for another at certain levels (see their respective descriptions
+in the Tome of Battle). (Prestige classes that grant maneuvers can't
+trade maneuvers known.) However, you may only trade one maneuver known
+for another at a time.
+
+*Q:* If you are in a stance and initiate a maneuver that both add
+additional damage die, such us punishing stance and mountain hammer,
+does the additional damage stack?
+*A:* Yes, because page 40 of the Tome of Battle says that bonuses do not
+stack, and additional damage die aren't considered bonuses.
+
+*Q:* Can a Swordsage or a Warblade ready more than one "copy" of the
+same maneuver so that he can use the maneuver more than once per
+encounter without having to spend actions to regain his maneuver(s)?
+*A:* Unfortunately not. Readying a maneuver isn't like preparing a
+spell. You are either Ready to use the maneuver or you aren't! You can't
+"Double Ready" a Maneuver! You can only use a given maneuver once per
+encounter unless you Recover it during the fight!
+
+*Q:* Another multiclass question. Can a multiclassed martial adept (eg.
+Swordsage/Warblade) choose/and or ready the same maneuver for each of
+it's classes (provided you have access to the same maneuver)? And if you
+gain a maneuver in one class, can you use it as a prerequisite in
+gaining a maneuver in the other class?
+*A:* No, you can only ever learn/ready a maneuver once. If you gain a
+maneuver in one class it can indeed fulfill prerequisites in another class!
+
+*Q:* The "preferred weapons" of each discipline seem to serve very
+little function, except for a couple of feats and the Discipline Focus
+feature. Can you perform any maneuver with any weapon? Similarly, for
+"key skills," it seems like most maneuvers can be performed perfectly
+well without the relevant skill. Are these correct?
+*A:* Your assumptions are correct. The preferred weapons are just that,
+preferred, and there are some feats and other abilities that you can
+build around such weapons, but they are not required for using maneuvers
+from that discipline. The key skills are the same way. While there are
+some maneuvers that use the key skill to determine their effects, this
+is not always the case. There are plenty of maneuvers that you do not
+need the key skill for at all.
+
+*Q:* Alot of feats and maneuvers in this book refer to weapons, as in
+the case of snap-kick (which refers to a melee attack with one or two
+melee weapons) and maneuvers, as in the Tiger Claw's 1st level maneuver
+wolf fang strike. My confusion arises from the fact that unarmed strike
+is referred to as a favored weapon in the description of some of the
+schools of combat (Setting sun, tiger claw, shadow Hand). Does that mean
+that unarmed strike counts as a weapon when the word weapon is used in
+the description of a maneuver? Does it make a difference if the
+character has the improved unarmed strike feat? I'd just like to clear
+up this confusion.
+*A:* Yes your unarmed strike counts as a weapon when the word weapon is
+used in the description of the maneuver. Yes it makes a difference if
+you have improved unarmed strike feat, as you will provoke if you do not.
+
+*Q:* Just because it isn't really clear in the book: a maneuver that
+misses is still expended, correct? You can't "hold the charge" like with
+a touch spell?
+*A:* You are correct. A maneuver that misses is still expended, unless
+of course that particular maneuver states otherwise (currently I don't
+believe any maneuvers state otherwise, but if more maneuvers are created
+in the future, it is possible they could have additional rules text that
+could specify such a thing).
+
+*Q:* And finally, let's say someone is a multiclass swordsage/warblade.
+Can a maneuver from Diamond Mind picked from their swordsage maneuvers
+forfill the prerequisites for a maneuver from Diamond Mind picked by
+their warblade maneuvers? From what I seen, this looks like how it
+works, but I figured I'd ask just to be sure.
+*A:* Yes Maneuvers taken from one Adept class can fulfill prerequisites
+for maneuvers taken in another Adept Class. If you have a diamond mind
+maneuver as a sword sage maneuver, and you gain a maneuver as a
+warblade, you could Choose Emerald Razor as your Sword Sage Diamond Mind
+maneuver would fulfill the Pre-requisite.
+
+*Q:* I have a PC who is a 16th-level Fighter, and I have recently
+accrued enough experience points to advance to 17th-level. I would like
+to take a level in the new Warblade class from Tome of Battle. This
+entitles me to 3 maneuvers known, and 1 stance known. Because my
+initiator level is 9, the maximum level of the maneuvers/stances that I
+can learn is 5th. My question pertains to fulfilling the pre-requisites
+for different maneuvers and stances. Assuming that I stick to a single
+discipline when I select my 3 maneuvers known and 1 stance known, Would
+it be legal for me to acquire one maneuver that has no pre-requisites, a
+second maneuver that has one maneuver as a pre-requisite, a third
+maneuver that has two maneuvers as a pre-requisite, and a stance that
+has three maneuvers as a pre-requisite? In other words, can I use
+maneuvers/stances as pre-requisites for other maneuvers/stances, even
+though I am acquiring them all at the same time?
+*A:* Yes, you can certainly do this.
+
+*Q:* All of the new base classes from Tome of Battle offer the option of
+swapping out an old maneuver to gain a new maneuver at certain levels.
+What happens if, as a result of swapping out an old maneuver, I can no
+longer meet the pre-requisites for another stance or maneuver that I
+currently know? Suppose, for instance, that I currently only have the
+following 2 maneuvers/stances from the Iron Heart discipline: A)
+Absolute Steel, and B) Disarming Strike. Absolute Steel is a stance that
+has one Iron Heart maneuver as a pre-requisite. Disarming Strike
+currently fulfills that pre-requisite for me. Suppose I reach 4th level
+and decide to swap out Disarming Strike for another maneuver from a
+different discipline. I no longer meet the pre-requisites for the
+Absolute Steel stance. Am I still allowed to use the Absolute Steel
+stance? What if Absolute Steel were a maneuver instead of a stance;
+would I be allowed to use it?
+*A:* Going with a strict interpretation of the rules, you would only
+need to have the appropriate number of maneuvers to meet a prerequisite
+when you needed to learn the maneuver, not if you wanted to use that
+maneuver later. So the character in question would still be able to use
+the Absolute Steel stance even though you have given up your only Iron
+Heart maneuver. So again, you only have to meet the prerequisites when
+you learn the maneuver or stance, not when you want to use ready or use
+it. I hope that clears things up.
+
+*Q:* Dear Sage
+Many strikes and maneuvers in Tome of Battle grant a benefit with a
+successful attack. If a creature’s damage reduction completely negates
+the damage from the attack, does the benefit still accrue?
+—Brian
+
+*A:* As it turns out, there are four answers to this question: sort of
+yes, yes, yes, and no.
+
+If the maneuver or stance simply adds to the damage dealt by the attack,
+add that damage before applying damage reduction (which might in turn
+reduce or even negate that extra damage). For example, a character in
+the Punishing Stance adds +1d6 to damage rolls with melee attacks. If
+you hit a creature with DR 10/— with attack that deals 8 points of
+damage and an extra 3 points from Punishing Stance, that creature would
+take 1 point of damage.
+
+If the maneuver or stance adds energy damage to the attack (such as
+Lightning Throw), damage reduction doesn’t reduce that damage (see
+Damage Reduction, DMG pp291-2).
+
+If the maneuver or stance simply requires a hit (or “successful attack”
+to apply its effect, that effect occurs even if you don’t deal damage
+with the attack that triggers it. Even if your foe’s DR completely
+negates the damage from your Leading the Attack strike, your allies
+still gain the +4 morale bonus on attack rolls and your Martial Spirit
+stance still allows you to heal 2 points of damage.
+
+If the maneuver or stance requires you to deal damage to the target,
+damage reduction that completely negates the damage dealt by the attack
+prevents the special effect from occurring. This is similar to the
+Stunning Fist feat (which only functions against a foe “damaged by your
+unarmed attack” or injury-based disease or poison effects.
+
+*Q:* Can you use a wondrous martial item, such as shadow hands, to meet
+the prerequisite for a maneuver?
+*A:* No, because these maneuvers are temporary bonus maneuvers, and do
+not belong to your actual maneuvers known.
+
+*Q:* Can I take 2 rounds to initiate two maneuvers and use them both
+during the same round?
+*A:* No, each maneuver must be resolved during the round in which you
+initiated it, using the action stated in the initiation time.
+
+*Q:* When you swap maneuvers and you only just have the number of
+maneuvers and stances to meet the prerequisite for the new maneuver, can
+you replace one of that maneuver's discipline's maneuvers or do you have
+to replace one from another discipline?
+*A:* No, because a maneuver cannot be its own prerequisite. However, if
+you learn a maneuver (meeting its prerequisites) and swap out another
+maneuver of that maneuver's discipline, you do not lose the use of that
+maneuver. Prerequisites only apply to learning maneuvers, not using them.
+
+*Q:* What is meant by being 'in contact with the ground' for the purpose
+of the Stone Dragon discipline?
+*A:* There is a lot of debate about this subject, but seeing how the
+relevant text mentions the 'power of the earth and stone', it is
+reasonable to assume that the definition of being 'in contact with the
+ground' is standing on earth or stone. This means that standing on
+wooden planks (such as when in a building with a wooden floor) or being
+airborne prevents a martial adept from initiating Stone Dragon maneuvers.
+
+However, your DM may rule otherwise; the rules are vague on this ruling,
+so it is basically anyone's guess what the correct answer is of this
+particular question.
+
+*Q:* Do you need to be lawful in order to learn the law bearer maneuver?
+*A:* Yes, you need to be lawful in order to learn a maneuver with a
+prerequisite of lawful alignment. However, you do not need to be lawful
+in order to initiate that maneuver.
+
+General Stance Questions
+
+*Q:* When you use a stance from Jade Phoenix Mage or one of he other
+classes that overlays an existing stance, it isn’t clear whether or not
+you’re still considered to be using a Stance from that Discipline, or
+any discipline.
+For example if you have Shadow Blade active with Assassin's Stance and
+use Mystic Phoenix Stance over the usual bonus of Assassin’s Stance, is
+the stance still considered a Shadow Hand stance for purposes of
+receiving the benefit of the Shadow Blade feat?
+Any insight?
+*A:* Yes you are still considered being in your Assassin's Stance even
+though you are getting the benefit of the Mystic Phoenix Stance, in
+regards to being in a Shadow Hand Stance for your feat.
+
+*Q:* When can you initiate a maneuver? Can you initiate a maneuver
+outside of combat?
+*A:* Yes, because there's no mention of maneuvers (and by extension,
+stances) only being usable during an encounter.
+
+Specific Maneuver Questions
+
+*Q:* Dear Sage,
+Can my swordsage attack while using ring of fire maneuver (Tome of
+Battle p55)? What if I have the dervish dance class feature (Complete
+Warrior p26)?
+—Yuukale
+*A:* Almost certainly not.
+The ring of fire maneuver requires a full-round action, so the only
+other actions you could take in conjunction would be free actions and up
+to one swift action.
+Thus, making any kind of attack while using the ring of fire maneuver
+would be extremely difficult.
+The dervish dance also requires a full-round action (because that’s what
+a full attack action requires), so you can’t use both simultaneously.
+
+*Q:* Dear Sage,
+Does the use of the shield counter maneuver (Tome of Battle p60) incur
+penalties for two-weapon fighting? If so, do these apply to the next
+round’s attacks as well?
+—Alex Boston
+*A:* No.
+The shield bash allowed by this maneuver suffers a –2 penalty on the
+attack roll (as listed in the maneuver description), but no other
+penalties for two-weapon fighting apply.
+
+*Q:* Dear Sage,
+What exactly can or can’t iron heart surge (Tome of Battle p68) remove?
+—Franco
+*A:* Instantaneous effects can’t be removed by iron heart surge.
+However, any effect with a duration of 1 or more rounds, including
+permanent-duration spells or effects, may be removed by iron heart
+surge, nor does iron heart surge restore damage, ability burn, or
+ability drain. (Because ability burn can't be healed magically or
+psionically, it would be safe to assume that it can't be healed through
+maneuvers either.)
+Iron heart surge doesn’t replace lost levels (though it would remove any
+negative levels resulting from a single spell or effect). It would
+neutralize a single poison coursing through your system, or a single
+disease that afflicted you.
+
+*Q:* Does Leading the Charge and Bolstering Voice affect the User of the
+stance/maneuver?
+*A:* Considering that a Bard counts as his own ally, and thus gains
+benefit from his own Bardic song abilities, I'd say yes.
+
+*Q:* Does the 5-foot step granted by the tactical strike maneuver count
+against the limit of one 5-foot step per round? If it does, what happens
+when an ally has already taken a 5-foot step in that round before you
+initiated the maneuver?
+*A:* No, it does not count against it. So if they have already taken
+their 5 foot step, they can immediately make another.
+
+*Q:* I see nothing in Tome of Battle that specifies how often (if at
+all) you can use maneuvers out of combat… specifically the Shadow Blink/
+Jaunt/Stride maneuvers. How often can you use them out of battle?
+*A:* According to page 40 of the Tome of Battle: "In the case of a long,
+drawn out series of fights, or if an adept is out of combat entirely,
+assume that if a character makes no attacks of any kind, initiates no
+new maneuvers, and is not targeted by any enemy attacks for 1 full
+minute, he can recover all expended maneuvers." Thanks to Warlawk for
+pointing this error out.
+
+*Q:* Can the counters that replace Saving Throws with Concentration
+Checks (eg. Moment of Perfect Mind) be modified by miscellaneous bonuses
+to saving throws (eg. a magic item or feat that provides you with a
+bonus to your saving throws)? If not, what happens if there is a penalty
+to your saving throw, does it apply to the skill check?
+*A:* The Concentration check plus any applicable Concentration skill
+check modifiers completely replace the Will save and its modifiers.
+Bonuses and penalties to saving throws or even specifically Will saving
+throws don't apply.
+
+*Q:* If you use True Strike with the Avalanche of Blades maneuver from
+the Tome of Battle, does the +20 benefit the entire maneuver or only the
+first attack.
+*A:* Only the First Attack roll.
+
+*Q:* I read on the boards that a forum member asked you how Raging/
+Dancing Mongoose worked with Time Stand Still, and you replied that you
+get the extra attacks per full attack action, so you would get double
+the attacks from Raging/Dancing mongoose using Time Stand Still.
+Now I looked the maneuvers over in Tome of Battle, and I can't figure
+out why that is. The maneuver states that it last until end of turn and
+you get some extra attacks per weapon wielded (max of 2 or 4), nowhere
+in the maneuver is it said that the extra attacks come per full attack
+action. If you read about being hasted, it very specifically says you
+get the extra attack as part of a full attack action and therefore you
+will get an extra hasted attack from using Time Stand Still. But I can't
+see why you would get double bonus from Dancing/Raging Mongoose.
+So my question is, why did you rule it that way? Have I overlooked
+something or?
+*A:* Hmm.. Not sure who answered it that way, but they must have
+misunderstood the question! You could initiate Time Stands Still and
+Raging Mongoose, and Raging Mongoose would give you four extra attacks
+that turn, two with each weapon you wield! But only four. not Eight. You
+would be able to choose which full attack action to apply the extra
+attacks to during your turn.
+
+*Q:* When using the high level diamond mind maneuver Time stands still,
+you can make two full attack actions in a row separate from each other.
+Suppose you normally get 5 attacks, three from base attack and two more
+from two weapon and improved two weapon fighting. You use Raging
+Mongoose to gain two attacks with each weapon at your highest base
+attack, this ability lasts for one round. Does Raging mongoose let you
+make two extra attacks with each weapon for each full attack action, or
+does the limit of two attacks for each weapon apply only for the first
+full attack.
+*A:* You can make two extra attacks for each full attack action that you
+make with this combination. So you would get the extra attacks in the
+first full attack action, and get them again in the second full attack
+action.
+
+*Q:* When using Time stands still can you use a standard action instead
+of a full attack action?
+*A:* Time Stands Still specifically allows you to make two full attack
+actions, so you would not be able to use standard or move actions.
+
+*Q:* In the Tome of Battle: Book of Nine Swords, the Setting Sun
+discipline has many throw maneuvers that follow the rule: "as part of
+this maneuver, you must succeed on a melee touch attack against your
+foe. Resolve the throw as a trip attempt (PH 158)". Normal tripping can
+only be done against foes one size category larger than you. Does this
+size limitation apply to Setting Sun throws as well, or could (for
+example) a Small sized swordsage use a Mighty Throw on a Large opponent?
+*A:* You are still limited in the sizes of creatures you can trip/throw.
+
+*Q:* The maneuver Raging Mongoose allows you to make extra attacks with
+a weapon in each hand, but it mentions nothing about taking the standard
+two-weapon fighting penalties for doing so.
+Are these extra attacks penalized by the normal two-weapon fighting rules?
+*A:* You will indeed incur two weapon fighting penalties if you are
+wielding two weapons and take your extra attacks with both those weapons!
+
+*Q:* Can Iron Heart Surge remove:
+1. Poison.
+2. Disease.
+3. The spell "Bestow Curse".
+4. Ability score damage.
+5. Level drain.
+6. The influence of an antimagic field. (*)
+7. If you use Iron Heart Surge against an effect which does not solely
+target you, but also affects an area, do you end the entire effect or do
+you just dismiss it from yourself?
+*A:*
+1. Yes.
+2. Yes.
+3. Yes.
+4. Ability score damage is not an ongoing effect. It is the result of an
+attack, spell, or ability. So no - damage, even ability score damage,
+will not be removed by Iron Heart Surge.
+5. In most cases, level drain is similar to damage when determining if
+Iron Heart Surge removes it from the martial adept. If something level
+drained you, this is a permanent result, not an effect with an ongoing
+duration. You would not be able to use Iron Heart Surge to remove level
+drain.
+6. Yes, you would be able to end the antimagic field if you chose to do
+so with Iron Heart Surge.
+7. If the effect does not solely target you, such as the antimagic field
+in number 6, it will still end the entire effect.
+
+*Q:* Also I am confused by the Uncanny Dodge-flat foot paradox. I was
+under the impression that uncanny dodge allowed one to keep the
+dexterity bonus when caught flat footed - not eliminate the actual
+condition of being flat footed. I'm looking at the "strike of the broken
+shield" power on p. 74-75 and it says, "If your target cannot be caught
+flat-footed (he has uncanny dodge, for example)," which is the source of
+my confusion. Many of these maneuvers only work vs. flat footed
+opponents; must they *also* be denied their dexterity bonus?
+*A:* The Strike of the Broken Shield wording is worded improperly
+because Uncanny Dodge does not make you immune to being flat-footed. But
+the intent should be clear enough. Characters with Uncanny Dodge or
+characters that cannot caught flat-footed cannot be made flat-footed by
+this maneuver. I will pass this miswording along to the appropriate
+departments for potential errata purposes.
+In general, follow the flat-footed rules you know when determining the
+effects of maneuvers. If a maneuver can be used against a flat-footed
+person (rather than having their Dex denied to their AC), a character
+with Uncanny Dodge can still be victim to the maneuver.
+
+*Q:* Counter Charge: The victim is moved "2 squares in a direction of
+your choice away from you." Is this 2 squares from your location, or 2
+squares from where it began the charge? Also, how can it be "away from
+you" and also "in a direction of your choice?" "Away from you" is a
+direction.
+*A:* Again, this is not specifically covered in the text. Simply by
+reading, it is 2 squares away from you, which could be any two squares
+that do not pass through you. It does not say 2 squares away from the
+direction that you came from, only 2 squares away from you. But since it
+is not specifically covered in the exact terms that you asking for, it
+is going to be up to your DM to determine exactly how this would work.
+
+*Q:* Clever Positioning: Lacks the text that says that this movement is
+not subject to attacks of opportunity. Does this mean that it provokes
+attacks of opportunity normally?
+*A:* While the flavor text of the maneuver uses the word "moving into
+his space," the actual rules text of the maneuver never uses the word
+"move." The rules text of the maneuver simply states that you "swap
+positions with the target." This seems to show that it is not treated as
+normal movement and would not provoke. Of course, I see the ambiguity
+you're speaking of, so in a case like this, it is again going to be up
+to your DM to determine how he/she thinks the ability should work.
+
+*Q:* Five-Shadow Creeping Ice Enervation Strike: I don't understand this
+one at all. The box says the duration is 1 minute, but the text says
+that the special effects last for 1d6 rounds. Does that mean that the
+ability damage only lasts one minute? That's not the way abiltity damage
+usually works. Or does the "freezing" effect not kick in for one full
+minute after the initial attack? Or does it affect one body part per
+round for 1 minute? Or is this simply an error, and one or the other of
+those statements is wrong?
+*A:* In cases where the stat block and full text of an entry disagree,
+the full entry wins out, unless an errata states otherwise. So in this
+case, the 1 minute duration is incorrect, and the special effects of
+each result only last for 1d6 rounds. The ability damage is treated as
+damage is normally treated and lasts until it is healed. For the time
+being, just ignore the 1 minute duration, and when the errata file is
+created, it should have all the new/correct information.
+
+*Q:* When using the many Setting Sun Maneuvers that require you to make
+a trip attempt (Tornado throw, ballista throw e.t.c.) can a character
+with the improved trip feat make an extra melee attack if he succeeds on
+the trip attempt?
+*A:* This depends upon the maneuver. Some of the maneuvers end with your
+opponent out of reach, so this wouldn't be possible. I imagine that any
+maneuver that ended with your opponent in a threatened square would work
+just fine for this purpose. However, without a specific maneuver to
+reference it is impossible for me to give a definitive answer.
+
+*Q:* Say I have an attack which does the following damaged on a
+successful hit: 2d6 (from weapon + 5 (from Str) + 5 (from Power Attack)
++ 1d6 (Fire) (from the Flaming enhancement) + 10 (extra damage provided
+by the Stormguard Warrior Tactical feat). Which damage is multiplied if
+I hit my target using the Diamond Nightmare Blade maneuver?
+*A:* You will not get the Fire damage dice multiplied, but the integer
+modifiers to your damage from Str, Power Attack, and your Tactical Feat
+will be, along with your weapons base damage.
+
+*Q:* The Desert Wind maneuver, Firesnake, has a duration of
+Instantaneous listed in its stat block. However, the game mechanics text
+refers to how far the snake can move in a round and how damage is
+handled from round to round. Is Firesnake intended to be instantaneous
+(deal damage once and then disappear)? Or is it intended to be an
+ongoing effect (deal damage as directed for X number of rounds)? If it
+is intended to be an ongoing effect, what should its duration be?
+*A:* It seems that the description that allows the snake to move around
+round after round is incorrect. the maneuver is instantaneous, in that
+you assign a line for the snake to follow, and it does so
+instantaneously and is done. Errata has not been put up for this yet,
+and until it is, it is up to your DM to adjudicate the effect of this
+spell as he or she sees fit.
+
+*Q:* The Level 9 Maneuver for the Stone Dragon Style is listed as
+'Mountain Tombstone Strike' (p84). I note that this maneuver (unlike all
+the other L9 maneuvers) has no prerequisite maneuvers. Could you confirm
+whether this is intentional, or is an omission?
+*A:* It is indeed intended as written for the time being. I am passing
+it along to the appropriate departments for review regardless. If any
+Errata is printed it will be posted to the Errata section of the site!
+
+*Q:* Dear Sage
+If I use Mighty Throw (Tome of Battle p73) or another maneuver that
+allows me to trip a foe, does the Improved Trip feat grant me an extra
+attack against that opponent?
+—Gerald
+*A:* Yes. The Improved Trip feat applies any time you trip a foe in
+melee combat, even if that trip comes from a special power.
+
+*Q:* Dear Sage
+Does the Jump check and subsequent jump made as part of the Sudden Leap
+boost (Tome of Battle p89) count against the initiator's movement as
+described in the Jump skill?
+—Gabe
+*A:* No. Sudden Leap is its own swift action, not part of a move action,
+so the movement is in addition to any you might make using other actions.
+
+*Q:* Dear Sage
+Does the Wall of Blades maneuver (Tome of Battle p70) work against touch
+attacks? What about touch attacks from spells?
+—Dennis
+*A:* Yes — this counter works equally well against touch attacks and
+normal attacks, regardless of their source.
+
+*Q:* Dear Sage
+Can you use White Raven Tactics (Tome of Battle p94) on yourself to gain
+another turn right after your current initiative score?
+—Robert
+*A:* No. White Raven Tactics doesn’t work on the initiator himself.
+
+*Q:* The second level shadow boost Cloak of Deception is a swift action
+to activate and lasts until the end of the turn. If a swordsage used
+their recovery ability to spend a full round action to recover a
+maneuver could they remain still and invisible for as long as they went
+first in the following initiatives? If there would be some blinking time
+would using this maneuver in this way add a circumstance bonus on
+hideing instead?
+*A:* The swordsage would remain invisible if he recovered his maneuvers,
+because a full-round action takes less time than the end of the turn.
+Effectively, it doesn't matter when you take your full-round action; it
+never lasts longer than one turn. However, if that swordsage would take
+an action of 1 round (such as summoning a monster, for example). This
+answer renders the second question moot, but nonetheless, becoming
+invisible is almost instantaneous.
+
+*Q:* Can you score a critical hit with insightful strike (TOB 63)?
+*A:* Yes, the maneuver states that you don't deal any extra damage that
+you would normally deal. Additionally, the examples listed in the
+maneuver don't include critical hits.
+
+Specific Stance Questions
+
+*Q:* Dear Sage,
+If a single opponent is affected by multiple iron guard glare stances
+(Tome of Battle p59), what happens?
+—Ken
+*A:* Play it just like it’s written, remembering that the penalties
+won’t stack (since they’re all from the same effect).
+An ogre threatened by two different characters both in the iron guard’s
+glare stance would take a –4 penalty to attack any ally of either
+character. Assuming the two threatening characters are allies of each
+other, the ogre can’t avoid taking a –4 penalty on his attack roll no
+matter who he swings at (unless he moves to a place where one or the
+other no longer threatens him).
+
+*Q:* Does the shifting defense stance grant you a 5-foot step before the
+attack roll is made, making it miss because of your movement, or after
+the attack roll is made and consequently results in a failure?
+*A:* The shifting defense maneuver grants you a 5-foot step after you
+know that the attack misses, because the stance states that it is
+activated upon a failed attack.
+
+*Q:* Dance of the Spider: You need one hand free to climb, but do you
+need one hand free to remain in place while stuck to a wall?
+*A:* The rules don't mention anything anywhere about what you need just
+to cling to a wall, so this would again be up to your DM.
+
+*Q:* Giant's Stance: This stance says "to a maximum of Large." But other
+similar increases have no such text. Could you then choose to use this
+stance to gain the damage as if you were Large, then subsequently apply
+an ability (like Improved Natural Attack, Shillelagh, or Powerful Build)
+to increase your damage die further?
+*A:* The rules are unclear on how this increase would or would not stack
+with other things that increase you size. So again, it will be up to
+your DM.
+
+*Q:* Island of Blades: Does this apply only against exactly one or two
+opponents, or against any number of opponents to which both you and an
+ally are adjacent?
+*A:* It can apply to any number of opponents. It simply uses 2 opponents
+as an example. As long as you and your ally are both adjacent to an
+enemy, you get the flanking bonuses.
+
+*Q:* Martial Spirit: This stance lacks the "the foe must pose a threat
+to you and your allies" text. A literal reading would therefore say that
+you can make any "opponent," even one who poses no threat, like an ant
+at a picnic, and gain the benefit of this ability. That can't be right.
+*A:* If we take a literal reading of the text, you are correct, we would
+have to apply it to any opponent, at any time, even if they pose no
+threat to you. Hopefully the DM of your campaign can step in and point
+of what is, and isn't, a reasonable opponent for the use of this maneuver.
+
+*Q:* Blood in the Water: How does this interact with an opponent who
+aren’t subject to critical hits, but you have a Flaming Burst weapon?
+Does that count as a critical hit?
+*A:* The ability doesn't specifically state that it doesn't work on
+creatures that are immune to critical hit damage, nor is the bonus from
+the maneuver treated as critical hit damage, so it looks like this
+maneuver would work on a creature that is immune to critical hits.
+
+*Q:* If i'm the island of blades stance and using spiked chain, and an
+ally and I are fighting a foe, he is next to him and me only close
+enough for him to be threatened does island activate?
+*A:* No, you both need to be adjacent to the enemy you want to flank,
+not adjacent to each other.
+
+*Prestige Class Questions*
+
+*Q:* How do you determine if a prestige class adds 1/2 per prestige
+level to your initiator level (from Tome of Battle), or if it counts
+your full prestige class levels for your initiator level?
+*A:* A prestige class only adds 1/2 its levels to your initiator level
+unless it specifically states otherwise. Currently the bloodclaw master,
+deepstone sentinel, eternal blade, jade phoenix mage, master of nine,
+ruby knight vindicator and shadow sun ninja are the only prestige
+classes that add their full level to a character’s initiator level.
+
+*Q:* The Thunderous Throw (from Tome of Battle, pg. 101) ability states
+that you can choose to treat your ranged attack rolls with thrown
+weapons as melee attacks for the rest of the turn. Does this mean you
+could use feats that would only apply to melee attacks, such as the
+Combat Rhythm option of the Stormguard Warrior feat?
+*A:* Thunderous Throw allows you to treat your thrown ranged attacks as
+melee attacks. Because of this, you would be able to apply any feat that
+would normally only apply to melee attacks, which includes feats such as
+Stormguard Warrior and the various options that such a feat provides.
+
+Q: The eternal blade's island in time class feature says that you can
+use it as an immediate action, but can you use it in the first round of
+combat and get to go first no matter what?
+A: No. Before you take your first action in an encounter, you are
+considered to be flat-footed. The immediate action description in the
+glossary says that you cannot take an immediate action while being flat-
+footed.
+
+*Q:* Does the uncanny dodge class feature allow you to use the eternal
+blade's island in time class feature when flat-footed?
+*A:* No. Uncanny dodge allows a character to retain his or her Dexterity
+bonus to Armor Class, but is treated as flat-footed for all other
+purposes. Flat-footed characters, even if retaining Dexterity bonuses to
+AC, can't use immediate (or any other) actions; thus, it's not possible
+to activate island in time while flat-footed. The scout's class feature
+states that a scout "cannot be caught flat-footed", but refers to the
+barbarian class feature of the same name. Therefore, even the scout
+cannot use an immediate action while 'flat-footed'. (Effectively,
+uncanny dodge merely negates some of the disadvantages of being flat-
+footed, but does not negate being flat-footed in and of its own.
+
+*Q:* All three base initiator classes have a mechanism by which they can
+replace less powerful lower level maneuvers with higher level ones.
+(i.e. in the case of the Swordsage they can replace a maneuver at 4th
+level and every two levels thereafter) (Somewhat akin to a Sorcerer's or
+a Bard's spellcasting) Yet no provision is similarly given for all the
+PrCs. Is this on purpose? Are the PrCs meant to stick with all the lower
+level maneuvers, or does the same mechanism apply to them?
+*A:* At this point there is not provision for changing your lower level
+maneuvers when advancing in a Prestige Class.
+
+*Q:* I noticed "Improved Unarmed Strike" in the prerequisites for the
+Master of the Nine Prestige Class and found that unusual as there is
+absolutely no Unarmed Combat perks in the class and further, the Martial
+Adept classes are all really "weapon-focused".
+I suspect that it's in error and perhaps they meant "Weapon Focus" or at
+least something more weapon related.
+*A:* It is not an error. Not all prerequisites for a prestige class lead
+to a class ability based on that prerequisite.
+
+*Q:* 'The full prestige class level,' receives no sort of context. My
+question is thus:
+Do all prestige classes work toward this goal, or just the ones that
+specifically give maneuvers? (Meaning the Bloodstorm Blade wouldn't
+contribute.) Furthermore, what exactly is the goal? They increase
+initiator level, sure, but it seems to only indicate it does so with the
+existence of a martial adept level, which isn't concise with the way
+other classes work. So do prestige classes have no effect on your
+initiator level without a martial adept level? Or is it that they just
+have a greater effect with a martial adept level?
+*A:* Only Prestige Classes that state specifically that they count
+towards Initiator level do so. This information is given in the specific
+Prestige Class descriptions. All other prestige classes that lack this
+distinction would be counted at a 1/2 ratio as per the multiclass rules.
+
+*Q:* Furthermore, does initiator level impact your ability to swap out
+maneuvers directly? I ask this, because as you might know, sorcerers can
+still swap out spells when progressing in a prestige class, based on
+their 'hard' arcane caster level (as opposed to 'soft,' which can be
+stuff like Practiced Spellcaster or caster level buffs).
+*A:* Initiator level does have an impact on how high a level of a
+maneuver you can swap for. But it doesn't NOT effect when you would swap
+out the maneuver. That is based on class levels only.
+
+*Q:* If you are a multiclassed martial adept (Swordsage/Warblade for
+example) and you enter in a Prestige Class (say, the Master of the Nine)
+do you add the full prestige class level to one class or both when
+determining Initiator Level?
+*A:* The Prestige class levels would apply to both. When you initiate a
+maneuver for either of your given classes you would add your levels in
+that class plus your prestige class levels (So long as that class is one
+of those that specifically states it adds to initiator levels) and 1/2
+your other Martial Adept class levels.
+
+*Q:* The Eternal Blade PrC has an ability called "Armored Uncanny Dodge"
+(ToB p.110). It does not state the benefits instead refering the reader
+to the Player's Handbook. It goes on specify that "You can use Uncanny
+Dodge or Improved Uncanny Dodge even if you wear medium or heavy armor".
+However, uncanny dodge is not restricted by armor worn. Should the
+Eternal Blade's actual ability instead be Armored Evasion, since evasion
+is also a rogue ability on the page referenced, also has an improved
+version that the character could gain if she already had the basic
+version, but normally doesn't function if the character is wearing
+medium or heavy armor?
+*A:* Hmm.. interesting. For now, it reads as written, even with that
+redundant bit at the end. I have submitted this to the appropriate
+departments for review! Any changes will be posted in the Errata section
+as soon as they are made available to the public. I am including a link
+below to the Errata section of the site!
+
+*Q:* The Eternal Blade's Island in Time ability (ToB p.110-111) lets a
+10th level Eternal Blade take an entire turn as an Immediate action.
+Taking an Immediate action normally prevents a character from taking a
+Swift action in their following turn. Does the Immediate action of
+taking a whole turn use up that turn's Swift action, or, since the
+entire turn is an Immediate action, would the Swift action be lost from
+the following, normal initiative count turn?
+*A:* Yes indeed it does take up a use of a swift action for that turn.
+
+*Q:* When a Shadow Sun Monk from the Tome of Battle book reaches 10th
+level, he/she gains access to The Balance of Light and Dark Supernatural
+ability that lets him/her bestow one negative level with "each
+successful unarmed attack you make".
+My question is thus, would an unarmed touch attack qualify for the above
+mentioned unarmed attack? Such that a character could make multiple
+touch attacks that deal no damage but each inflict a negative level?
+(with the caveat of course that each negative level will deal you 1
+constitution point worth of damage when the state ends.)
+For that matter can maneuvers that require successful melee attacks,
+such as Five Shadow creeping ice enervation strike (from the shadow hand
+discipline), feral death blow (from the Tiger claw discipline) or the
+avalanche of blades (from the diamond mind discipline) be done with
+successful melee touch attacks that deal no damage?
+Thanks for your kind consideration,
+It might seem that avalanche of blades does nothing if done with touch
+attacks but try applying the subsequent number of successful touch
+attacks to the Combat rhythm ability from storm guard warrior and you
+arrive at a very potent combination. I would like also to ask if this is
+a possible combination?
+*A:* No. An unarmed strike is not a touch attack.
+You cannot use melee touch attacks in place of normal melee attacks
+unless the ability or maneuver specifically says so.
+
+*Q:* Dear Customer Service,
+Recently on the optimization boards, two of our members sent in queries
+concerning Tome of Battle and got two seemingly contradictory answers,
+which one is the correct one?
+*Q:* For the Bloodstorm Blade's Thunderous throw ability, when it says
+"you can choose to treat your ranged attack rolls with thrown weapons as
+melee attacks for the rest of your turn" does this apply to all aspects
+of the ranged attack? I.e. Does the character basically replace all his
+ranged attacks with melee attacks with respect to feats (combat rythym
+from the stormguard warrior feat, for example, could the touch attacks
+for that be made at range with this ability?), damage (do you basically
+replace the possible ranged damage with melee damage) and things you can
+do with melee attacks (i.e. tripping, disarming and suchlike, without
+requiring the ranged disarm or ranged trip feat or ability respectively)?
+*A:* If you couldn't normally do these things at range, then you
+couldn't now. All this ability does is substitute your Strength bonus
+for your Dexterity bonus, and allows you to use feats that affect your
+attack bonus for melee attacks and such. Ultimately all this changes is
+how you determine your attack bonus. You could use this in conjunction
+with Stormguard Warrior's, combat rhythm ability, but keep in mind that
+you do no damage when this occurs (until the next round of course).
+
+*Q:* Does Stormguard Warrior's Combat Rhythm damage bonus apply to
+ranged attacks made with Thunderous Throw? Furthermore, are damage rolls
+when using Thunderous Throw considered melee damage rolls?
+*A:* The answer is yes. Since your Ranged attacks are considered Melee
+attacks, the damage is Melee damage. With the Combat Rhythm tactical
+option these attacks would be Melee touch attacks. Thanks for helping to
+sort out this confusion.
+*A:* Thunderous Throw does allow you to deal melee damage with your
+ranged attacks rather than ranged damage. That is the intent.
+Both those answers state that you can use Thunderous Throw and Combat
+Rhythm in conjunction with one another. But damage is not dealt when you
+first use Combat Rhythm with your Thunderous Throws. The fact that
+Combat Rhythm's states that you don't deal damage with the melee attack
+trumps the fact that you are dealing melee damage with Thunderous Throw.
+The bonus to melee damage on the following round does apply to your
+Thunderous Throw damage, however.
+
+*Martial Item Questions*
+
+*Q:* How does the discipline focus weapon special ability work?
+*A:* The discipline focus weapon special ability grants a +1 bonus on
+attack rolls, which stacks with other enhancements on the weapon. If the
+wielder initiates a maneuver or a stance of the discipline to which the
+weapon is keyed, this bonus increases to +3. Using the example on page
+149 of the Tome of Battle, a +1 Stone Dragon Shadow Hand weapon gains a
++3 bonus on attack rolls (+1 enhancement, +1 Stone Dragon enhancement,
++1 Shadow Hand enhancement). While in a Stone Dragon stance with a
+Shadow Hand stance, this bonus increases to +7 (+1 enhancement, +3 Stone
+Dragon enhancement, +3 Shadow Hand enhancement). If the wielder were
+only using one discipline, the bonus would be +5 (+1 enhancement, +1
+from the unused discipline, +3 from the used discipline).
+
+*Q:* Can a weapon with the Aptitude Weapon property be used to execute
+special class based abilities that are keyed into a certain type of
+weapon? For example, could a Dervish with an Aptitude Light Mace execute
+a dervish dance?
+*A:* No, you must still actually wield a slashing weapon to initiate a
+dervish dance. The aptitude weapon ability only lets you gain benefits
+that you would've gained from wielding a weapon you have specific feats
+for. So while you might get the benefits of feats like Weapon Focus
+(scimitar) and Improved Critical (scimitar), you're not actually
+wielding a scimitar, but a light mace in your case.
+
+*Q:* When an item says "for which he meets the prerequisite", I'm
+assuming this includes Initiator Level as well as maneuvers known. Is
+this correct?
+*A:* Yes. So if a martial adept with an initiator level of 5th wears an
+item that grants a 3rd-level maneuver, he must still have the
+prerequisite number of maneuvers of its discipline, despite having a
+high enough level to initiate maneuvers of that maneuver level.
+
+*Q:* Regarding the crown of white ravens, what does "gains knowledge of
+that maneuver and can use it" really mean?
+*A:* It means that you can initiate that maneuver. For a martial adept
+who meets its prerequisites, this means that he or she may effectively
+add it to her list of maneuvers known. For someone who doesn't have
+martial adept levels, this means that he or she can initiate it once per
+encounter, without recovery, as per the Martial Study feat.
+
+*Q:* Can this maneuver you gain knowledge of from the item be changed?
+If so, how long does that take? Do you need to remove the crown, then
+take another 24 hours to attune?
+*A:* You can change the maneuver by removing it and then spending
+another 24 hours to attune. The maneuver must still meet all of the
+prerequisites of the item that grants it and the initiator must still
+meet all of the maneuver's prerequisites.
+
+*Q:* Can you gain knowledge of a stance through a crown of white ravens?
+*A:* The item is vague on that issue, but as maneuvers and stances are
+mentioned separately in multiple areas of the book, I would rule that
+you can't, because the item doesn't specifically mention stances.
+
+*Q:* Can a maneuver known through the crown of white ravens be used as a
+prerequisite for learning another maneuver?
+*A:* Because abilities and bonuses granted through magic items can be
+used to meet prerequisites, you can use the granted maneuver to meet
+prerequisites. You would immediately lose the ability to initiate the
+maneuver learned through this method if you remove the item, though,
+unless you have met the prerequisites in another way in the meanwhile.
+
+*Q:* Can you wear 2 Rings of the Diamond Mind, each granting a different
+maneuver?
+*A:* Yes, as long as each grants a different maneuver. This is in
+accordance to the rule that states that you cannot benefit from the same
+effect twice.
+
+*Q:* Can these items be custom-made to fill different slots? For
+example, would a Tigerskin Cloak, Headband of the Setting Sun, or Iron
+Heart Helm be reasonable?
+*A:* Yes, although you should check with your Dungeon Master to see if
+he allows it.

@@ -1727,7 +1727,16 @@ const int SPELL_FACECHANGER_QS2                         = 19395;
 const int SPELL_FACECHANGER_QS3                         = 19396;
 
 //:: Saint Template
-const int SAINT_PROTECTIVE_AURA		=	16386;
+const int SAINT_PROTECTIVE_AURA				= 16386;
+
+//;; Half-vampire Template
+const int SPELL_HALF_VAMPIRE_BLOOD_DRAIN	= 16600;
+const int SPELL_HALF_VAMPIRE_CHARM_GAZE		= 16601;
+const int SPELL_HALF_VAMPIRE_CHILDREN_NIGHT	= 16602;
+const int SPELL_HALF_VAMPIRE_CHILDREN_RAT	= 16603;
+const int SPELL_HALF_VAMPIRE_CHILDREN_BAT	= 16604;
+const int SPELL_HALF_VAMPIRE_CHILDREN_WOLF	= 16605;
+
 
 //:: Domain Powers
 const int SPELL_DOMAIN_POWER_MADNESS	= 17680;
