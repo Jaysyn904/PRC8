@@ -2175,15 +2175,25 @@ void CWSamurai(object oPC)
     int nClass = GetLevelByClass(CLASS_TYPE_CW_SAMURAI, oPC);
     if(nClass > 0)
     {
-        if (nClass >= 17)
-            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 4); 
+        if (nClass >= 37)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 9);
+        else if (nClass >= 33)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 8);
+        else if (nClass >= 29)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 7);
+        else if (nClass >= 25)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 6);
+        else if (nClass >= 21)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 5);
+        else if (nClass >= 17)
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 4);
         else if (nClass >= 12)
-            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 3);             
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 3);
         else if (nClass >= 7)
-            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 2);             
+            FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 2);
         else
             FeatUsePerDay(oPC, FEAT_KIAI_SMITE, -1, 0, 1);
-    }        
+    }
 }
 
 void CrusaderSmite(object oPC)

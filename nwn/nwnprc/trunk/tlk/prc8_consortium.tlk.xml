@@ -7891,8 +7891,15 @@ Starting at 3rd level, a Scout gains a +10 feet enhancement bonus to her base la
   <entry id="45605" lang="en" sex="m">****</entry>
   <entry id="45606" lang="en" sex="m">****</entry>
   <entry id="45607" lang="en" sex="m">****</entry>
-  <entry id="45608" lang="en" sex="m">****</entry>
-  <entry id="45609" lang="en" sex="m">****</entry>
+  <entry id="45608" lang="en" sex="m">Epic Samurai</entry>
+  <entry id="45609" lang="en" sex="m">Having become a master of the Daisho and achieved enlightenment, tales of your bravery and honour have spread far and wide.  None dare oppose you or question your will.
+
+Hit Die: d10.
+Skill Points at Each Additional Level: 2+ Int Modifier.
+Bonus Feats: The epic samurai gains a bonus feat every three levels after 20th.
+
+Epic Samurai Bonus Feats List:
+Armor Skin, Blinding Speed, Damage Reduction, Devastating Critical (katana), Devastating Critical (short sword), Epic Iaijutsu Focus, Epic Improved Stunning Fist, Epic Leadership, Epic Prowess, Epic Reputation, Epic Skill Focus: Intimidate, Epic Toughness, Epic Weapon Focus (katana), Epic Weapon Focus (short sword), Epic Weapon Specialization (katana), Epic Weapon Specialization (short sword), Improved Whirlwind Attack, Legendary Commander, Overwhelming Critical (katana), Overwhelming Critical (short sword), Perfect Two-Weapon Fighting, Superior Initiative</entry>
   <entry id="45610" lang="en" sex="m">Blindsense (Ex)</entry>
   <entry id="45611" lang="en" sex="m">Type: Class
 Prerequisite: Scout level 10

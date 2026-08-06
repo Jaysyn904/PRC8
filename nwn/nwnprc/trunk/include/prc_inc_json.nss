@@ -686,6 +686,187 @@ void ApplyPseudonaturalEffects(object oCreature)
 //:: JSON functions                              |
 //::---------------------------------------------|
 
+//:: Sets every skill's Rank in jCreature's SkillList to 0.  
+json json_ZeroAllSkillRanks(json jCreature)  
+{  
+    if (jCreature == JsonNull())  
+        return jCreature;  
+  
+    json jSkillList = GffGetList(jCreature, "SkillList");  
+    if (jSkillList == JsonNull())  
+        return jCreature;  
+  
+    int nCount = JsonGetLength(jSkillList);  
+    int i;  
+  
+    for (i = 0; i < nCount; i++)  
+    {  
+        json jSkill = JsonArrayGet(jSkillList, i);  
+        if (jSkill == JsonNull())  
+            continue;  
+  
+        jSkill = GffReplaceByte(jSkill, "Rank", 0);  
+        jSkillList = JsonArraySet(jSkillList, i, jSkill);  
+    }  
+  
+    jCreature = GffReplaceList(jCreature, "SkillList", jSkillList);  
+    return jCreature;  
+}
+
+//:: Removes all feats from jCreature's FeatList whose feat.2da TOOLSCATEGORIES  
+//:: column bitmask includes category value 4 (e.g. Magical feats).  
+json json_RemoveFeatsByToolsCategory(json jCreature, int nCategoryBit = 4)  
+{  
+    if (jCreature == JsonNull())  
+        return jCreature;  
+  
+    json jFeatList = GffGetList(jCreature, "FeatList");  
+    if (jFeatList == JsonNull())  
+        return jCreature;  
+  
+    json jNewFeatList = JsonArray();  
+    int nCount = JsonGetLength(jFeatList);  
+    int i;  
+  
+    for (i = 0; i < nCount; i++)  
+    {  
+        json jFeatStruct = JsonArrayGet(jFeatList, i);  
+        if (jFeatStruct == JsonNull())  
+            continue;  
+  
+        json jFeatValue = GffGetWord(jFeatStruct, "Feat");  
+        if (jFeatValue == JsonNull())  
+            continue;  
+  
+        int nFeatID = JsonGetInt(jFeatValue);  
+        int nToolsCat = StringToInt(Get2DAString("feat", "TOOLSCATEGORIES", nFeatID));  
+  
+        // Keep the feat only if category bit 4 is NOT set  
+        if (!(nToolsCat & nCategoryBit))  
+        {  
+            jNewFeatList = JsonArrayInsert(jNewFeatList, jFeatStruct);  
+        }  
+    }  
+  
+    jCreature = GffReplaceList(jCreature, "FeatList", jNewFeatList);  
+    return jCreature;  
+}
+
+/**  
+ * @brief Sets (or creates) a ClassList entry's Class field to a target class type.  
+ *  
+ * Converts the 1-based nClassPosition (matching the convention of the engine  
+ * function GetClassByPosition, e.g. position 1 = first class) to a 0-based  
+ * index into the ClassList JSON array. If an entry already exists at that  
+ * position, only its "Class" field is overwritten. If no entry exists yet,  
+ * a new one is appended with ClassLevel = 1.  
+ *  
+ * @param jCreature      The creature's JSON GFF representation.  
+ * @param nTargetClass   The CLASS_TYPE_* constant to assign.  
+ * @param nClassPosition 1-based class slot to modify (default = 1, i.e. the first class).  
+ *  
+ * @return The updated jCreature JSON, with ClassList modified.  
+ */  
+json json_SetClassType(json jCreature, int nTargetClass, int nClassPosition = 1)    
+{    
+    if (jCreature == JsonNull())    
+        return jCreature;    
+    
+    int nIndex = nClassPosition - 1; // 1-based position -> 0-based array index, consistently    
+    
+    json jClasses = GffGetList(jCreature, "ClassList");    
+    if (jClasses == JsonNull())    
+        jClasses = JsonArray();    
+    
+    int nCount = JsonGetLength(jClasses);    
+    
+    if (nIndex < nCount)    
+    {    
+        // Entry exists at this position - update its Class field    
+        json jClass = JsonArrayGet(jClasses, nIndex);    
+        jClass = GffReplaceInt(jClass, "Class", nTargetClass);    
+        jClasses = JsonArraySet(jClasses, nIndex, jClass);    
+    }    
+    else    
+    {    
+        // Entry doesn't exist yet - create one with ClassLevel = 1    
+        json jNewClass = JsonObject();    
+        jNewClass = GffAddInt(jNewClass, "Class", nTargetClass);    
+        jNewClass = GffAddShort(jNewClass, "ClassLevel", 1);    
+        jClasses = JsonArrayInsert(jClasses, jNewClass); // appended at nCount, matching nIndex only if contiguous    
+    }    
+    
+    jCreature = GffReplaceList(jCreature, "ClassList", jClasses);    
+    return jCreature;    
+}
+
+//:: Drops all class entries but the first. If the first isn't a racial/monster  
+//:: class type, its ClassLevel is dropped to 1   
+json json_TrimAllClassHD(json jCreature)  
+{  
+    if (jCreature == JsonNull())  
+        return jCreature;  
+  
+    json jClasses = GffGetList(jCreature, "ClassList");  
+    if (jClasses == JsonNull() || JsonGetLength(jClasses) == 0)  
+        return jCreature;  
+  
+    int nCount = JsonGetLength(jClasses);  
+    int i;  
+    json jRacialClass = JsonNull();  
+  
+    // Find the racial/monster class entry, if any  
+    for (i = 0; i < nCount; i++)  
+    {  
+        json jClass = JsonArrayGet(jClasses, i);  
+        if (jClass == JsonNull()) continue;  
+  
+        int nClassType = JsonGetInt(GffGetInt(jClass, "Class"));  
+  
+        if (nClassType == CLASS_TYPE_ABERRATION    ||  
+            nClassType == CLASS_TYPE_ANIMAL        ||  
+            nClassType == CLASS_TYPE_CONSTRUCT     ||  
+            nClassType == CLASS_TYPE_HUMANOID      ||  
+            nClassType == CLASS_TYPE_MONSTROUS     ||  
+            nClassType == CLASS_TYPE_ELEMENTAL     ||  
+            nClassType == CLASS_TYPE_FEY           ||  
+            nClassType == CLASS_TYPE_DRAGON        ||  
+            nClassType == CLASS_TYPE_UNDEAD        ||  
+            nClassType == CLASS_TYPE_BEAST         ||  
+            nClassType == CLASS_TYPE_GIANT         ||  
+            nClassType == CLASS_TYPE_MAGICAL_BEAST ||  
+            nClassType == CLASS_TYPE_OUTSIDER      ||  
+            nClassType == CLASS_TYPE_SHAPECHANGER  ||  
+            nClassType == CLASS_TYPE_VERMIN        ||  
+            nClassType == CLASS_TYPE_OOZE          ||  
+            nClassType == CLASS_TYPE_PLANT)  
+        {  
+            jRacialClass = jClass;  
+            break; // assume only one racial entry  
+        }  
+    }  
+  
+    json jNewClassList = JsonArray();  
+  
+    if (jRacialClass != JsonNull())  
+    {  
+        // Keep the racial class entry as-is (full HD preserved)  
+        jNewClassList = JsonArrayInsert(jNewClassList, jRacialClass);  
+    }  
+    else  
+    {  
+        // No racial class found - use the first class entry, forced to level 1  
+        json jFirstClass = JsonArrayGet(jClasses, 0);  
+        jFirstClass = GffReplaceShort(jFirstClass, "ClassLevel", 1);  
+        jNewClassList = JsonArrayInsert(jNewClassList, jFirstClass);  
+    }  
+  
+    jCreature = GffReplaceList(jCreature, "ClassList", jNewClassList);  
+  
+    return jCreature;  
+}
+
+
 //:: Gets the base natural AC from a creature's UTC template  
 //:: Returns the NaturalAC value from the template, or 0 if unavailable  
 int json_GetTemplateNaturalAC(object oCreature)  

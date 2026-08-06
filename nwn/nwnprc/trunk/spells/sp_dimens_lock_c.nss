@@ -39,5 +39,6 @@ void main()
     {
         SendMessageToPCByStrRef(oTarget, 16825688); // "You feel jumpy"
         AllowTeleport(oTarget);
+		DeleteLocalInt(oTarget, "PRC_Spell_DimLock_Affected");
     }
 }

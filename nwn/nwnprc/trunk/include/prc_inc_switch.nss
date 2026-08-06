@@ -76,7 +76,7 @@
 
  /* This variable MUST be updated with every new version of the PRC!!! */
 
- const string PRC_VERSION                           = "PRC8 4.942";
+ const string PRC_VERSION                           = "PRC8 4.943";
 
  /* This variable MUST be updated every time 'assemble_spellbooks.bat' is run!!! */
 
@@ -174,6 +174,12 @@ const string PRC_TIMESTOP_NO_HOSTILE                 = "PRC_TIMESTOP_NO_HOSTILE"
  * This might look to the player like their game crashed.
  */
 const string PRC_TIMESTOP_BLANK_PC                   = "PRC_TIMESTOP_BLANK_PC";
+
+/**
+ * Duration is 24 hours instead of 1 turn per caster level, and only one 
+ * creature is targeted.
+ */
+const string PRC_PNP_MINDBLANK = "PRC_PNP_MINDBLANK";
 
 /**
  * Instead of Bioware's sequential summons it creates multiple elementals.
@@ -488,7 +494,7 @@ const string PRC_SAMURAI_SACRIFICE_SCALAR_x100       = "PRC_SAMURAI_SACRIFICE_SC
 const string PRC_SAMURAI_VALUE_SCALAR_x100           = "PRC_SAMURAI_VALUE_SCALAR_x100";
 
 /*
- * Stop and Itemproperty being addeable
+ * Stop an Itemproperty from being addable
  * This is just a prefix, they should be finished as
  * PRC_SAMURAI_BAN_[type]_[subtype]_[param1]_[value]
  * If an itemproperty is missing one of those, or you wish to ban all of a
@@ -496,7 +502,7 @@ const string PRC_SAMURAI_VALUE_SCALAR_x100           = "PRC_SAMURAI_VALUE_SCALAR
  * Examples:
  * Not allowing divine damage :                         PRC_SAMURAI_BAN_16_8_*_*
  * Not allowing divine damage vs undead:                PRC_SAMURAI_BAN_18_24_8_*
- * Not allowing +20 encancement weapons                 PRC_SAMURAI_BAN_6_*_*_20
+ * Not allowing +20 enhancement weapons                 PRC_SAMURAI_BAN_6_*_*_20
  * see also DoSamuraiBanDefaults in inc_switch_setup
  *
  */

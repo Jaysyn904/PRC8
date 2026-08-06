@@ -52,18 +52,21 @@ void main()
                eLink    = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_MIND_AFFECTING_NEGATIVE));
                eLink    = ExtraordinaryEffect(eLink);
         // Determine duration. Normally 2 rounds, with Improved Staredown, 5
-        float fDuration = RoundsToSeconds(GetHasFeat(FEAT_CWSM_IMPROVED_STAREDOWN, oPC) ?
-                                           5 :
-                                           2
-                                          );
+        float fDuration = RoundsToSeconds(GetHasFeat(FEAT_CWSM_IMPROVED_STAREDOWN, oPC) ? 5 : 2);
 
         // Make the skill roll and display results
-        if(GetIsSkillSuccessful(oPC, SKILL_INTIMIDATE, nDC) && !GetIsImmune(oTarget, IMMUNITY_TYPE_FEAR, oPC))
-        {//                              "* Staredown - success! *"
-            FloatingTextStringOnCreature("* " + GetStringByStrRef(16826174) + " - " + GetStringByStrRef(5353) + "! *", oPC);
-            ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration);
-        }
-        else//                              "* Staredown - failure! *"
-            FloatingTextStringOnCreature("* " + GetStringByStrRef(16826174) + " - " + GetStringByStrRef(5354) + "! *", oPC);
+        if(!GetIsImmune(oTarget, IMMUNITY_TYPE_FEAR, oPC))
+		{
+			if(GetIsSkillSuccessful(oPC, SKILL_INTIMIDATE, nDC))
+			{//                              "* Staredown - success! *"
+				FloatingTextStringOnCreature("* " + GetStringByStrRef(16826174) + " - " + GetStringByStrRef(5352) + "! *", oPC);
+				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDuration);
+			}
+			else//                              "* Staredown - failure! *"
+			{
+				FloatingTextStringOnCreature("* " + GetStringByStrRef(16826174) + " - " + GetStringByStrRef(5353) + "! *", oPC);
+			}
+					
+		}
     }
 }
