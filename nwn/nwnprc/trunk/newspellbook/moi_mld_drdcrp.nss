@@ -62,7 +62,7 @@ void main()
   
     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oMeldshaper, 9999.0);  
     IPSafeAddItemProperty(GetPCSkin(oMeldshaper), ItemPropertyBonusFeat(IP_CONST_MELD_DREAD_CARAPACE), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
-  
+
     // Feet bind (speed boost) — check regular or double Feet  
     int nBoundToFeet = FALSE;  
     if (GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(CHAKRA_FEET)) == nMeldId ||  
