@@ -2275,7 +2275,7 @@ object MakePsuedonaturalCreatureFromTemplate(string sResref, location lSpawnLoc)
     int nCurrentHD = json_GetCreatureHD(jPsuedo);
     if (nCurrentHD <= 0)
     {
-        DoDebug("make_psuedonat >> MakePsuedonaturalCreatureFromTemplate failed — template missing HD data.");
+        DoDebug("prc_inc_json >> MakePsuedonaturalCreatureFromTemplate failed — template missing HD data.");
         return OBJECT_INVALID;
     }	
 	
@@ -2284,7 +2284,7 @@ object MakePsuedonaturalCreatureFromTemplate(string sResref, location lSpawnLoc)
     nBaseCR = json_GetCreatureHD(jPsuedo);
     if (nBaseCR <= 0)
     {
-        DoDebug("make_psuedonat >> MakePsuedonaturalCreatureFromTemplate failed — template missing CR data.");
+        DoDebug("prc_inc_json >> MakePsuedonaturalCreatureFromTemplate failed — template missing CR data.");
         return OBJECT_INVALID;
     }	
 	

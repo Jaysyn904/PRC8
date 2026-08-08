@@ -10,7 +10,6 @@
  
  */
 #include "nw_inc_gff"
-#include "npc_template_inc"
 #include "prc_inc_spells"
 #include "prc_inc_util"
 #include "prc_inc_json"
