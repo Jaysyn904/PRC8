@@ -1,3 +1,195 @@
+Jaysyn904 | 2026-08-11
+2026/08/11 Update
+
+Shaman can cast Cure / Inflict / Sanctified spell spontaneously
+Luminous and Greater Luminous Armor can be cast spontaneously.
+Exalted Raiment can be cast spontaneously.
+Phieran's Resolve can be cast spontaneously.
+Mind Blank has been added to the 8th lvl slot for the Mind Domain.
+Made FEAT_CONSTRICT actually do something in a grapple.
+PRCIsFlying now checks for bFlying INT var on creatures.
+Switched VoP Regen over to use a CompositeBonus() so it doesn't step on other sources of regeneration.
+Sap and Katar are light weapons.
+
+---
+Jaysyn904 | 2026-08-08
+Update damagetypegroups.2da
+
+Fixed iprop damagetype feedback for new damage types.
+
+---
+Jaysyn904 | 2026-08-08
+2026/08/08 Update
+
+Added DM's Template Wand.
+Added Psuedonatural Creature NPC Template.
+
+---
+Jaysyn904 | 2026-08-08
+2026/08/08 Morning Update
+
+Added Evolved Undead NPC template.
+Added Greenbound NPC template.
+Added Paragon NPC template.
+
+---
+Jaysyn904 | 2026-08-07
+2026/08/07
+
+Added Elder Eidolon  NPC template
+Added Bone Creature NPC template.
+Added Corpse Creature NPC template.
+Added Corrupt Creature NPC template.
+Added Effigy Creature NPC template.
+Added Fiendish Creature NPC template.
+Added Celestial Creature NPC template.
+Added Guardian Creature NPC template.
+Updated json_SetClassType to work properly w/ Beast RHD.
+
+---
+Jaysyn904 | 2026-08-05
+2026/08/05 Update
+
+Switched Shillellagh to use Ballistic damage so it doesn't step on the damage bonus from two-handed wielding.
+Added Epic Samurai feat.
+Updated classes.2da for Epic Samurai progression.
+Updated bonus feat progression for CW Samurai.
+Updated epic bonus feat list for CW Samurai.
+Fixed success / failure message for Staredown.
+Updated Kiai Smite for 40 levels.
+Added several json functions for editing creatures on the fly.
+Added PnP Mindblank duration switch & targeting & updated the spell to support it.
+Fixed Dimensional Lock not properly clearing it's variable onExit.
+
+---
+Jaysyn904 | 2026-08-02
+2026/08/02 Early Update
+
+Added half-vampire template.
+Updated missing des_crft_spell.2da entries for existing spells.
+Fixed TLK entry for Rage spell.
+Added DoBloodDrain() function.
+Fixed half-dragon's slepp immunity iprp.
+Fixed bug /w Saint's spelcasting if you lose good alignment.
+Added Main 3.e FQS to notes
+Added Unofficial Official Errata for Tome of Battle to notes.
+
+---
+Jaysyn904 | 2026-07-29
+2026/07/29 Update
+
+Updated PRC8 manual.
+Updated des_crft_spells to allow staff & scepter crafting with all appropriate spells.
+Updated FindSpellCastingClass() to search the correct class slots.
+Updated GetHasSpellOnClassList() to use the correct class slots & fix variable corruption.
+Fixed Strongheart Vest's binds.
+Fixed Swordsage bug that granted a 1st level swordsage their WIS bonus as AC when wearing medium or heavy armor.
+Added impactscript for Ray of Stupidity.
+Reserved TLK rows for fucture Alchemy expansion.
+
+---
+Jaysyn904 | 2026-07-26
+Update prc_inc_switch.nss
+
+Updated PRC8 version number.
+
+---
+Jaysyn904 | 2026-07-26
+2026/07/26 Update
+
+Updated targeting for Alter Self and Disguise self.
+Updated Mirror Image to prevent CON items or lowered caster HP from spawning dead images.
+Updated Exalted Fury to always kill the caster.
+
+---
+Jaysyn904 | 2026-07-24
+2026/07/24 Update
+
+Added Cloak of Chaos & Shield of Law to Aura Vs. Alignment.
+Switched Falling & Ballistic to the Physical damage group.
+Added Shield of Law as 8th lvl Law Domain spell.
+Fixed 750 instances of "Exteneded" typo in spells.2da.
+Added Immunity to Petrification to iprp_feats.2da.
+Updated description for Aura Vs. Alignment
+Added Expanded Greyhawk Deity / Domain List to notes.
+Added Ring of Ineffable Evil
+Updated filends for craft_ring.2da
+Added all new damagetypes to prc_inc_combat.
+Fixed GetIsSimpleWeaponType().
+Added json_GetTemplateNaturalAC()
+Added new text colors to prc_inc_nwscript.
+Added logging to spinc_telecircle.
+Switched Emerald Razor to PerformAttack() instead of PerformAttackRound().
+Raging Mongoose now passee the weapon damage type to PerformAttack().
+Updated Ring of Virtuous Good script.
+Added Rune, Spells & Illusion Domains to prereqs for Ruby Knight Vindicator.
+Martial Flurry AB penalty can no longer be removed via Restoration.
+Bugfixes for Holy Aura & Unholy Aura.
+Prelimiary work on updating Starmantle.
+
+---
+Jaysyn904 | 2026-07-15
+2026/07/15
+
+Fixed Archlich's description to be more informative.
+Added constants for the Value Increase / Decrease itemprops
+Hooked up the Value Increase / Decrease itemprops to the PnP Crafting system.
+Expanded Wizardry & Divinity to cover all 9 spell levels.
+Added Ring of Virtuous Good to PnP Crafting system.
+Added Ring of Epic Wizardry to PnP Crafting system. (Not craftable yet due to prereqs)
+Added Ring of Epic Divinity to PnP Crafting system.  (Not craftable yet due to prereqs)
+Expanded craft_rings.2da FILE_END.
+Fixed familiar / animal companion rest script so that animal companions weren't acting like PnP Familiars.
+Fixed Martial Flurry to work properly with all Monk weapons.
+Martial Flurry can no longer be removed via Restoration.
+Holy Aura now works per PnP.
+Added CraftedDescription column to craft_ring.2da
+Added crafted descriptions for all existing craftable magical rings.
+
+---
+Jaysyn904 | 2026-07-13
+2026/07/13 Update
+
+Added Limited Wish spell.
+Added crafting feats to RWoT's bonus feat list.
+Hospitaler should get Craft (alchemy) and Craft (trap).
+Added Repair Critical Damage, Force Missiles, Chasing Perfection & Limited Wish to Sublime Chord's spellbook.
+Added Limited Wish to Sorcerer's spellbook.
+Added Ring of Wizardry I-IV to Forge Ring
+Added Ring of Divinity I-IV to Forge Ring
+Updated Ring of Chameleon Power to work like PnP
+Updated Ring of Invisibility to work like PnP.
+DoCone() wasn't passing the spellID which was messing up DCs
+Updated prc_switchesc to make sure you can always buy crafting materials if you have the relevant feat.
+Added ChangedSaveType() to Fireball.
+Updated Blast of Flame to work w/ Elemental Mastery.
+Updated Kelgore's Fire Bolt to work w/ Elemental Mastery.
+Changed Disintegrate to Untyped Damage.
+Ghoul Gauntlet should only affect living humaniods.
+Added CraftedDescription column to craft_ring.2da.
+Added crafted descriptions for all existing forgeable rings.
+
+---
+Jaysyn904 | 2026-07-01
+2026/07/01 Update
+
+Fixed Shifter not getting any STR boost while shifting when NWNxEE is enabled in Multiplayer.
+
+---
+Jaysyn904 | 2026-07-01
+2026/07/01 Update
+
+Added levelup package for plant RHD.
+Maeluth can now take Battlesmith.
+Fixed icon for Racial Cold & Fire resistance.
+Fixed Archivist prereqs for Plant Control & Plant Defiance.
+Added SPELL_SHAPE_INCREASE_DAMAGE check for PNP Shifting.
+Updated PRC8 version.
+Inscribe Rune can handle radial spells properly now.
+Overchannel self damage is now Untyped.
+Fixed list TMI errors for Midnight Augmentation.
+Forsakers can't use Bard Song.
+
 Commit: Jaysyn904
 Date: Sun June 22
 
