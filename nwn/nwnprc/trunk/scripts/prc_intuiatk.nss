@@ -1,3 +1,9 @@
+//;:
+//:: prc_intuiatk.nss
+//::
+//:: fired from prc_feats
+//::
+
 #include "prc_alterations"
 #include "prc_inc_unarmed"
 
@@ -49,6 +55,8 @@ int isLight(object oItem)
         case BASE_ITEM_RAPIER:
         case BASE_ITEM_SHORTSWORD:
         case BASE_ITEM_WHIP:
+		case BASE_ITEM_SAP:
+		case BASE_ITEM_KATAR:
             return TRUE;
             break;
      }

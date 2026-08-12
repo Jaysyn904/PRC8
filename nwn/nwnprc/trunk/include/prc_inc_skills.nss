@@ -287,6 +287,9 @@ int PRCIsFlying(object oCreature)
     int nAppearance = GetAppearanceType(oCreature);
     int nWings = GetCreatureWingType(oCreature);
     int bFlying = FALSE;
+	
+	bFlying = GetLocalInt(oCreature, "bFlying");
+	
     switch(nAppearance)
     {
         case APPEARANCE_TYPE_PARROT:

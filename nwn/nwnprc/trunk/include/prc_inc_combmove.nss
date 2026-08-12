@@ -1846,7 +1846,14 @@ int DoGrappleOptions(object oPC, object oTarget, int nExtraBonus, int nSwitch = 
         {
             ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d3()+5), oTarget);
             FloatingTextStringOnCreature("Flay Constrict", oPC, FALSE);        
-        }   
+        }
+		else if(GetHasFeat(FEAT_CONSTRICT, oPC))
+		{
+            object oWeap = GetItemInSlot(INVENTORY_SLOT_CWEAPON_R, oPC);
+			effect eDam = GetAttackDamage(oTarget, oPC, oWeap, GetWeaponBonusDamage(oWeap, oTarget), GetMagicalBonusDamage(oPC, oTarget));
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, eDam, oTarget);
+			FloatingTextStringOnCreature("Constricting target!", oPC, FALSE);
+		} 		
         else if (GetLevelByClass(CLASS_TYPE_BLACK_BLOOD_CULTIST, oPC) >= 8)
         {
             // Now hit them with a lot of unarmed strikes

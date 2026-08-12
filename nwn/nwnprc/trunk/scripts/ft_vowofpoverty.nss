@@ -115,13 +115,18 @@ void AddVoPProperty(object oSkin, itemproperty ip)
 // Remove all VoP-tagged properties from an item  
 void RemoveVoPProperties(object oItem)  
 {  
-    itemproperty ip = GetFirstItemProperty(oItem);  
+    object oSkin = GetPCSkin(OBJECT_SELF);
+	
+	itemproperty ip = GetFirstItemProperty(oItem);  
     while (GetIsItemPropertyValid(ip))  
     {  
         if (GetItemPropertyTag(ip) == VOP_TAG)  
             RemoveItemProperty(oItem, ip);  
         ip = GetNextItemProperty(oItem);  
-    }  
+    }
+	
+	SetCompositeBonus(oSkin, "VoPFH", 0, ITEM_PROPERTY_REGENERATION);
+	
 }  
   
 void main()  
@@ -239,8 +244,12 @@ void main()
         // Regeneration (tagged)  
         if (nLevel >= 17)  
         {  
-            itemproperty ip = ItemPropertyRegeneration(nRegen);  
-            AddVoPProperty(oSkin, ip);  
+			//Regeneration 1 at 17th, +1 at each 7 levels
+			if (nLevel>=17) SetCompositeBonus(oSkin, "VoPFH", nRegen, ITEM_PROPERTY_REGENERATION);
+		
+/*             itemproperty ip = ItemPropertyRegeneration(nRegen);  
+            AddVoPProperty(oSkin, ip);  */ 
+			
         }  
         // True Seeing (tagged)  
         if (nLevel >= 18)  
