@@ -14,6 +14,7 @@ Wispling (Planescape)
 
 TEMPLATES
 Baelnorn template
+NPC Templates
 
 DOMAINS
 Chaos
@@ -55,6 +56,10 @@ Intrinsic Armor
 Intrinsic Weapon
 
 SPELLS
+Spirit Worm
+Spiritual Weapon
+Speed of the Wind
+Tortise Shell
 Control Plants
 Forestfold
 Creeping Cold
@@ -64,9 +69,9 @@ Adrenaline Surge
 Regeneration Line
 Regenerate Ring
 Regenerate Circle
-Summoning
 Summon Nature’s Ally I–IX
 Leonal’s Roar
+Limited Wish
 Repair Damage (spell line)
 
 PSIONICS
@@ -86,6 +91,10 @@ Craftable Items
 Aroma of Death
 Beetle Elixir
 Harness of Armor
+Ring of Virtuous Good
+Ring of Ineffable Evil
+Ring of Wizardry
+Ring of Divinity
 
 New Base Item Types
 Crafted Vial
@@ -99,6 +108,7 @@ Botanical material
 Glassteel
 
 SYSTEMS / GAMEPLAY MECHANICS
+New damage types
 Scrying System Overhaul
 Area-blocked scrying variables
 Source-blocked scrying variables

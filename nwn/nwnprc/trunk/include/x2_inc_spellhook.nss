@@ -2471,6 +2471,9 @@ int CorruptOrSanctified(object oCaster, int nSpellID, int nCasterAlignment, int 
     || nSpellID == SPELL_DIAMOND_SPRAY
     || nSpellID == SPELL_DRAGON_CLOUD
     || nSpellID == SPELL_EXALTED_FURY
+	|| nSpellID == SPELL_EXALTED_RAIMENT
+	|| nSpellID == SPELL_LUMINOUS_ARMOR
+	|| nSpellID == SPELL_GREATER_LUMINOUS_ARMOR	
     || nSpellID == SPELL_HAMMER_OF_RIGHTEOUSNESS
     || nSpellID == SPELL_PHIERANS_RESOLVE
     || nSpellID == SPELL_PHOENIX_FIRE
