@@ -211,6 +211,14 @@ void main()
             SetPCChatMessage();
             return;
         }
+        // Open the compact Power Point, Psionic Focus, and spontaneous-slot NUI.
+        if(firstWord == "/res" || firstWord == "/resources" || firstWord == "/pp")
+        {
+            ExecuteScript("prc_nui_res_view", oPC);
+
+            SetPCChatMessage();
+            return;
+        }
     }
 
     // Execute scripts hooked to this event for the player triggering it

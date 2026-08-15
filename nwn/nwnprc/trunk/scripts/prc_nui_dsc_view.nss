@@ -31,9 +31,26 @@ void main()
 
     // in order of accuracy for names it goes RealSpellID > SpellID > FeatID
     string spellName = GetSpellName(spellId, realSpellId, featID, nClass);
-    // Descriptions and Icons are accuratly stored on the feat
-    string spellDesc = GetStringByStrRef(StringToInt(Get2DACache("feat", "DESCRIPTION", featID)));
-    string spellIcon = Get2DACache("feat", "ICON", featID);
+    // PRC/new-spellbook abilities normally keep their accurate description and
+    // icon on feat.2da. Native and domain spells commonly have no FeatID at all,
+    // so fall back to the spell row instead of accidentally reading feat row 0.
+    int nDescriptionSpell = realSpellId > 0 ? realSpellId : spellId;
+    string sDescriptionRef;
+    string spellIcon;
+    if (featID > 0)
+    {
+        sDescriptionRef = Get2DACache("feat", "DESCRIPTION", featID);
+        spellIcon = Get2DACache("feat", "ICON", featID);
+    }
+
+    if (sDescriptionRef == "" || sDescriptionRef == "****")
+        sDescriptionRef = Get2DACache("spells", "SpellDesc", nDescriptionSpell);
+    if (spellIcon == "" || spellIcon == "****")
+        spellIcon = Get2DACache("spells", "IconResRef", nDescriptionSpell);
+
+    string spellDesc;
+    if (sDescriptionRef != "" && sDescriptionRef != "****")
+        spellDesc = GetStringByStrRef(StringToInt(sDescriptionRef));
 
     json jRoot = JsonArray();
     json jGroup = JsonArray();
@@ -87,4 +104,3 @@ void main()
 
     ClearSpellDescriptionNUI();
 }
-

@@ -54,6 +54,19 @@ void ClearEventVariables(object oPC)
     DeleteLocalString(oPC, "ONPLAYERTARGET_ACTION");
     DeleteLocalInt(oPC, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_CLASS_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_INDEX_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_SPELL_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_METAMAGIC_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_CAST_TYPE_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_CLASS_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_LEVEL_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_SPELL_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_METAMAGIC_VAR);
+    DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_DOMAIN_VAR);
 }
  
 void main()
@@ -67,11 +80,14 @@ void main()
  
     if (!GetIsObjectValid(oTarget) && vTarget == Vector())
     {
+        // A cancelled inline bonus-domain target must not influence a later
+        // radial or character-wide domain cast.
+        DeleteLocalInt(oPC, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
         ClearEventVariables(oPC);
         return;
     }
  
-    // When clicking ground, oTarget is the area object — use PC's area for location
+    // When clicking ground, oTarget is the area object - use PC's area for location
     object oArea     = GetIsObjectValid(oTarget) ? GetArea(oTarget) : GetArea(oPC);
     location lTarget = Location(oArea, vTarget, fOrientation);
  
@@ -113,7 +129,7 @@ void main()
             DelayCommand(2.0f, DeleteLocalInt(oPC, PRC_INVOKING_CLASS));
         }
  
-        // Ground click — oTarget is the area object, GetObjectType returns 0
+        // Ground click - oTarget is the area object, GetObjectType returns 0
         if (GetIsObjectValid(oTarget) && GetObjectType(oTarget))
         {
             SetLocalObject(oPC, PRC_SPELL_TARGET_OBJECT_OVERRIDE, oTarget);

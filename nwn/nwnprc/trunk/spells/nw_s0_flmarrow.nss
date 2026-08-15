@@ -46,9 +46,10 @@ void main()
     int nMissiles = nCasterLvl / 4;
     if(nMissiles == 0)
         nMissiles = 1;
-    /* Uncapped because PHB doesn't list any cap and we now got epic levels
-    else if (nMissiles > 5)
-        nMissiles = 5;*/
+    
+	//:: PnP caps at 50 arrows which do 1d6 fire damage each.  50/4 = 12.5, rounded down.
+    else if (nMissiles > 12)
+        nMissiles = 12;
 
     if(!GetIsReactionTypeFriendly(oTarget))
     {
@@ -73,7 +74,7 @@ void main()
                     if(nMetaMagic & METAMAGIC_EMPOWER)
                         nDamage = nDamage + (nDamage/2); //Damage/Healing is +50%
 					nDamage += SpellDamagePerDice(oCaster, 4);
-                    nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, nSaveType);
+                    //nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, nSaveType);  //:: This is an RTA spell, no save allowed.
 
                     // only add sneak attack damage and bonus damage to first projectile
                     if(nCnt == 1)

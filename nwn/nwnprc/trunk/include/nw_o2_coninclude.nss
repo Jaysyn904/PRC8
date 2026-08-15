@@ -4052,7 +4052,7 @@ int GetNumberOfItems(int nTreasureType)
         if ( nClass == CLASS_TYPE_FIGHTER || nClass == CLASS_TYPE_PALADIN || nSpecialRanger == 1
           || nClass == CLASS_TYPE_ANTI_PALADIN || nClass == CLASS_TYPE_BRAWLER || nClass == CLASS_TYPE_CRUSADER
           || nClass == CLASS_TYPE_DUSKBLADE || nClass == CLASS_TYPE_KNIGHT || nClass == CLASS_TYPE_MARSHAL
-          || nClass == CLASS_TYPE_PSYWAR || nClass == CLASS_TYPE_SOHEI)
+          || nClass == CLASS_TYPE_PSYWAR || nClass == CLASS_TYPE_SOHEI || nClass == CLASS_TYPE_SOULBORN)
         {
             //dbSpeak("I am fighter or paladin or heavy ranger");
             nProbMisc = 20;
@@ -4066,7 +4066,7 @@ int GetNumberOfItems(int nTreasureType)
             nProbHeavy = 20;
         }
         else
-        if (nClass == CLASS_TYPE_WIZARD || nClass == CLASS_TYPE_SORCERER)
+        if (nClass == CLASS_TYPE_WIZARD || nClass == CLASS_TYPE_SORCERER || nClass == CLASS_TYPE_SHADOWCASTER)
         {
             //dbSpeak("I am wizard or sorcerer");
             nProbMisc = 40;
@@ -4081,7 +4081,8 @@ int GetNumberOfItems(int nTreasureType)
         }
         else
         if (nClass == CLASS_TYPE_BARBARIAN || nSpecialRanger == 2 || nClass == CLASS_TYPE_BOWMAN
-         || nClass == CLASS_TYPE_HEXBLADE || nClass == CLASS_TYPE_WARBLADE)
+         || nClass == CLASS_TYPE_HEXBLADE || nClass == CLASS_TYPE_WARBLADE 
+		 || nClass == CLASS_TYPE_TOTEMIST || nClass == CLASS_TYPE_INCARNATE)
         {
             //dbSpeak("I am barbarian or light ranger");
 
@@ -4111,8 +4112,8 @@ int GetNumberOfItems(int nTreasureType)
             nProbHeavy = 6;
         }
         else
-        if (nClass == CLASS_TYPE_NOBLE || nClass == CLASS_TYPE_SWASHBUCKLER || nClass == CLASS_TYPE_SWORDSAGE
-         || nClass == CLASS_TYPE_ULTIMATE_RANGER)
+        if (nClass == CLASS_TYPE_NOBLE || nClass == CLASS_TYPE_SWASHBUCKLER || nClass == CLASS_TYPE_SWORDSAGE 
+		|| nClass == CLASS_TYPE_BINDER || nClass == CLASS_TYPE_ULTIMATE_RANGER)
         {
             //type 2
             nProbMisc = 27;
@@ -4127,8 +4128,9 @@ int GetNumberOfItems(int nTreasureType)
         }
         else
         if (nClass == CLASS_TYPE_BEGUILER || nClass == CLASS_TYPE_DREAD_NECROMANCER || nClass == CLASS_TYPE_HEALER
-         || nClass == CLASS_TYPE_SCOUT || nClass == CLASS_TYPE_SHAMAN || nClass == CLASS_TYPE_SOULKNIFE
-         || nClass == CLASS_TYPE_TRUENAMER || nClass == CLASS_TYPE_WARLOCK || nClass == CLASS_TYPE_WILDER)
+		|| nClass == CLASS_TYPE_SCOUT || nClass == CLASS_TYPE_SHAMAN || nClass == CLASS_TYPE_SOULKNIFE
+		|| nClass == CLASS_TYPE_TRUENAMER || nClass == CLASS_TYPE_WARLOCK || nClass == CLASS_TYPE_WILDER 
+		|| nClass == CLASS_TYPE_FACTOTUM)
         {
             //type 3
             nProbMisc = 45;
@@ -4620,24 +4622,22 @@ void ShoutDisturbed()
 int nGetIsBaseClass(int nClass)
 {
   return (nClass <= CLASS_TYPE_WIZARD ||
-           nClass == CLASS_TYPE_ANTI_PALADIN ||
            nClass == CLASS_TYPE_ARCHIVIST ||
            nClass == CLASS_TYPE_BEGUILER ||
-           nClass == CLASS_TYPE_BOWMAN ||
-           nClass == CLASS_TYPE_BRAWLER ||
+           nClass == CLASS_TYPE_BINDER ||		   
            nClass == CLASS_TYPE_CRUSADER ||
            nClass == CLASS_TYPE_DRAGON_SHAMAN ||
            nClass == CLASS_TYPE_DRAGONFIRE_ADEPT ||
            nClass == CLASS_TYPE_DREAD_NECROMANCER ||
            nClass == CLASS_TYPE_DUSKBLADE ||
            nClass == CLASS_TYPE_FAVOURED_SOUL ||
+		   nClass == CLASS_TYPE_FACTOTUM ||
            nClass == CLASS_TYPE_HEALER ||
            nClass == CLASS_TYPE_HEXBLADE ||
+           nClass == CLASS_TYPE_INCARNATE ||		   
            nClass == CLASS_TYPE_KNIGHT ||
            nClass == CLASS_TYPE_MARSHAL ||
-           nClass == CLASS_TYPE_MYSTIC ||
            nClass == CLASS_TYPE_NINJA ||
-           nClass == CLASS_TYPE_NOBLE ||
            nClass == CLASS_TYPE_PSION ||
            nClass == CLASS_TYPE_PSYWAR ||
            nClass == CLASS_TYPE_PSYCHIC_ROGUE ||
@@ -4645,17 +4645,18 @@ int nGetIsBaseClass(int nClass)
            nClass == CLASS_TYPE_CW_SAMURAI ||
            nClass == CLASS_TYPE_SCOUT ||
            nClass == CLASS_TYPE_SHAMAN ||
+           nClass == CLASS_TYPE_SHADOWCASTER ||		   
            nClass == CLASS_TYPE_SOHEI ||
+           nClass == CLASS_TYPE_SOULBORN ||		   
            nClass == CLASS_TYPE_SOULKNIFE ||
            nClass == CLASS_TYPE_SWASHBUCKLER ||
            nClass == CLASS_TYPE_SWORDSAGE ||
+           nClass == CLASS_TYPE_TOTEMIST ||		   
            nClass == CLASS_TYPE_TRUENAMER ||
-           nClass == CLASS_TYPE_ULTIMATE_RANGER ||
            nClass == CLASS_TYPE_WARBLADE ||
            nClass == CLASS_TYPE_WARLOCK ||
            nClass == CLASS_TYPE_WARMAGE ||
            nClass == CLASS_TYPE_WILDER ||
-           nClass == CLASS_TYPE_WITCH ||
            nClass == CLASS_TYPE_TEMPLAR);
 }
 
@@ -4761,29 +4762,48 @@ int nDetermineClassToUse(object oCharacter)
         else nState1 = 100;
     }
 
-    int nUseClass = d100();
-    //PrintString("GENERIC SCRIPT DEBUG STRING ********** " + "D100 Roll " +IntToString(nUseClass));
-
-
-    //dbSpeak("Before comparison : " + IntToString(nClass1));
-    if(nUseClass <= nState1)
-    {
-        nClass = nClass1;
-    }
-    else if(nUseClass > nState1 && nUseClass <= nState2)
-    {
-        nClass = nClass2;
-    }
-    else
-    {
-        // might be possible to end up here by accident because of a rounding error
-        // so just in case...
-        if(nClass3 == CLASS_TYPE_INVALID) nClass = nClass1;
-        else nClass = nClass3;
-    }
-
-    //dbSpeak("Class from determineClass " + IntToString(nClass));
-    return nClass;
+    int nUseClass = d100();  
+	//PrintString("GENERIC SCRIPT DEBUG STRING ********** " + "D100 Roll " +IntToString(nUseClass));
+	
+	//dbSpeak("Before comparison : " + IntToString(nClass1));
+    if(nUseClass <= nState1)  
+    {  
+        nClass = nClass1;  
+    }  
+    else if(nUseClass <= nState2)  
+    {  
+        nClass = nClass2;  
+    }  
+    else if(nUseClass <= nState3)  
+    {  
+        nClass = nClass3;  
+    }  
+    else if(nUseClass <= nState4)  
+    {  
+        nClass = nClass4;  
+    }  
+    else if(nUseClass <= nState5)  
+    {  
+        nClass = nClass5;  
+    }  
+    else if(nUseClass <= nState6)  
+    {  
+        nClass = nClass6;  
+    }  
+    else if(nUseClass <= nState7)  
+    {  
+        nClass = nClass7;  
+    }  
+    else  
+    {  
+        // might be possible to end up here by accident because of a rounding error  
+        // so just in case...  
+        if(nClass8 == CLASS_TYPE_INVALID) nClass = nClass1;  
+        else nClass = nClass8;  
+    }  
+	
+	//dbSpeak("Class from determineClass " + IntToString(nClass));
+    return nClass;  
 }
 
 //:: Test Void

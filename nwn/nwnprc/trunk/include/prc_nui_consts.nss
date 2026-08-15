@@ -37,6 +37,55 @@ const string PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID = "spellbookCircleButton_";
 // attached to it (i.e. spellbookSpellButton_6)
 const string PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID = "spellbookSpellButton_";
 
+// Native engine spellbooks use a server-side JSON button map. Prepared
+// entries aggregate identical (class, level, spell, metamagic, domain) slots;
+// spontaneous entries identify one exact known spell and class/level pool.
+const string PRC_SPELLBOOK_NUI_NATIVE_CLASS_SPELL_BUTTON_BASEID = "spellbookNativeClassSpellButton_";
+const string NUI_SPELLBOOK_NATIVE_CLASS_BUTTON_MAP_VAR = "NUI_NativeClassSpellButtonMap";
+const int NUI_SPELLBOOK_NATIVE_CAST_PREPARED = 1;
+const int NUI_SPELLBOOK_NATIVE_CAST_SPONTANEOUS = 2;
+
+// Epic spell buttons use the row number from epicspells.2da. Keeping these
+// separate from class spellbook row IDs lets the event script validate that
+// the epic spell is still readied before it is cast.
+const string PRC_SPELLBOOK_NUI_EPIC_SPELL_BUTTON_BASEID = "spellbookEpicSpellButton_";
+
+// Character-wide domain view and its two spell-button types. Bonus-domain
+// buttons cast through the existing domain feat/subradial pipeline. Native
+// prepared-domain buttons store an exact engine spell slot while targeting.
+const string PRC_SPELLBOOK_NUI_DOMAIN_MODE_BUTTON = "spellbookDomainModeButton";
+const string PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID = "spellbookDomainSpellButton_";
+const string PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID = "spellbookNativeDomainSpellButton_";
+
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR = "NUI_NativeDomainPending";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_CLASS_VAR = "NUI_NativeDomainClass";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR = "NUI_NativeDomainLevel";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_INDEX_VAR = "NUI_NativeDomainIndex";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_SPELL_VAR = "NUI_NativeDomainSpell";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_METAMAGIC_VAR = "NUI_NativeDomainMeta";
+
+const string NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR = "NUI_NativeClassPending";
+const string NUI_SPELLBOOK_NATIVE_CLASS_CAST_TYPE_VAR = "NUI_NativeClassCastType";
+const string NUI_SPELLBOOK_NATIVE_CLASS_CLASS_VAR = "NUI_NativeClassClass";
+const string NUI_SPELLBOOK_NATIVE_CLASS_LEVEL_VAR = "NUI_NativeClassLevel";
+const string NUI_SPELLBOOK_NATIVE_CLASS_SPELL_VAR = "NUI_NativeClassSpell";
+const string NUI_SPELLBOOK_NATIVE_CLASS_METAMAGIC_VAR = "NUI_NativeClassMeta";
+const string NUI_SPELLBOOK_NATIVE_CLASS_DOMAIN_VAR = "NUI_NativeClassDomain";
+
+// Inline bonus-domain buttons temporarily identify the spontaneous divine
+// spellbook tab whose slot should be spent first. CastDomainSpell consumes the
+// preference; the generation prevents an older delayed cleanup from clearing a
+// newer click.
+const string NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR = "NUI_DomainPreferredClass";
+const string NUI_SPELLBOOK_DOMAIN_PREFERRED_GENERATION_VAR = "NUI_DomainPreferredGeneration";
+
+const string PRC_SPELLBOOK_SELECTED_MODE_VAR = "prcSpellbookSelectedMode";
+const int PRC_SPELLBOOK_MODE_CLASS = 0;
+const int PRC_SPELLBOOK_MODE_DOMAIN = 1;
+
+// Epic spells appear as the circle immediately after level 9.
+const int PRC_SPELLBOOK_NUI_EPIC_CIRCLE = 10;
+
 // This is the base Id for the Meta Feat buttons in the NUI Spellbook, the ID will
 // have the FeatID attached to it (i.e. spellbookMetaButton_12345)
 const string PRC_SPELLBOOK_NUI_META_BUTTON_BASEID = "spellbookMetaButton_";
@@ -82,6 +131,7 @@ const string NUI_SPELL_DESCRIPTION_OK_BUTTON = "NUIDescriptionOKButton";
 const int NUI_SPELLBOOK_SPELL_BUTTON_LENGTH = 9;
 
 const string NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR = "NUI_Spellbook_GetBinderSpellToFeatDictionaryCache";
+const string NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR = "NUI_Spellbook_GetBinderFeatToVestigeCache";
 const string NUI_SPELLBOOK_CLASS_STANCES_CACHE_BASE_VAR = "NUI_Spellbook_GetToBStanceSpellListCache_";
 const string NUI_SPELLBOOK_CLASS_SHAPES_CACHE_BASE_VAR = "NUI_Spellbook_GetInvokerShapeSpellListCache_";
 const string NUI_SPELLBOOK_CLASS_ESSENCE_CACHE_BASE_VAR = "NUISpellbookClassEssence_";
@@ -111,6 +161,28 @@ const string NUI_PRC_PA_TEXT_BIND = "nui_prc_pa_text_bind";
 const string NUI_PRC_PA_LEFT_BUTTON_ENABLED_BIND = "leftButtonEnabled";
 // Right Button Enabled Bind for Power Attack NUI
 const string NUI_PRC_PA_RIGHT_BUTTON_ENABLED_BIND = "rightButtonEnabled";
+
+//////////////////////////////////////////////////
+//                                              //
+// NUI Character Resources                      //
+//                                              //
+//////////////////////////////////////////////////
+
+const string NUI_PRC_RESOURCE_WINDOW = "prcResourceNui";
+const string NUI_PRC_RESOURCE_GEOMETRY_VAR = "resNuiGeometryV3";
+const string NUI_PRC_RESOURCE_GENERATION_VAR = "resNuiGeneration";
+const string NUI_PRC_RESOURCE_FOCUS_BUTTON = "resourceFocusButton";
+const string NUI_PRC_RESOURCE_PP_BIND = "resourcePowerPoints";
+const string NUI_PRC_RESOURCE_FOCUS_BIND = "resourceFocusStatus";
+const string NUI_PRC_RESOURCE_FOCUS_ENABLED_BIND = "resourceFocusEnabled";
+const string NUI_PRC_RESOURCE_SLOT_BIND_BASE = "resourceSlots_";
+const string NUI_PRC_RESOURCE_EPIC_BIND = "resourceEpicSpells";
+const string NUI_PRC_RESOURCE_SB_SLOT_BIND_BASE = "resourceSpellbookSlot_";
+const string NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE = "resourceSpellbookSlotButton_";
+const string NUI_PRC_RESOURCE_FOCUS_STATUS_BUTTON = "resourceFocusStatusButton";
+const string NUI_PRC_RESOURCE_PP_BUTTON = "resourcePowerPointsButton";
+const string NUI_PRC_RESOURCE_EPIC_ICON_BUTTON = "resourceEpicIconButton";
+const string NUI_PRC_RESOURCE_EPIC_BUTTON = "resourceEpicButton";
 
 //////////////////////////////////////////////////
 //                                              //

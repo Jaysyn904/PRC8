@@ -166,6 +166,13 @@ int GetIsBioDivineClass(int nClass)
 
 void CastDomainSpell(object oPC, int nSlot, int nLevel)
 {
+    // The NUI class-tab view can request that its displayed spontaneous divine
+    // spellbook pay first. Consume this transient request immediately so radial
+    // and character-wide domain casts retain their legacy selection order.
+    // The class is stored as class + 1 so an absent local decodes to INVALID.
+    int nPreferredClass = GetLocalInt(oPC, "NUI_DomainPreferredClass") - 1;
+    DeleteLocalInt(oPC, "NUI_DomainPreferredClass");
+
     if(GetLocalInt(oPC, "DomainCastSpell" + IntToString(nLevel))) //Already cast a spell of this level?
     {
         FloatingTextStringOnCreature("You have already cast your domain spell for level " + IntToString(nLevel), oPC, FALSE);
@@ -187,8 +194,26 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
 
     int nClass, nCount, nMetamagic = METAMAGIC_NONE;
 
+    // Inline Favoured Soul / Justice of Weald and Woe domain buttons sit below
+    // the slots they trade. Prefer that selected book when it still exists and
+    // has an available slot, then preserve the original fallback behavior.
+    if(nPreferredClass >= 0
+    && GetLevelByClass(nPreferredClass, oPC) > 0
+    && !GetIsBioDivineClass(nPreferredClass)
+    && GetIsDivineClass(nPreferredClass, oPC)
+    && GetSpellbookTypeForClass(nPreferredClass) == SPELLBOOK_TYPE_SPONTANEOUS)
+    {
+        nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(nPreferredClass), nLevel);
+        if(nCount)
+        {
+            nClass = nPreferredClass;
+            SetLocalInt(oPC, "NSB_Class", nClass);
+            SetLocalInt(oPC, "NSB_SpellLevel", nLevel);
+        }
+    }
+
     // Mystic is a special case - checked first
-    if(GetLevelByClass(CLASS_TYPE_MYSTIC, oPC) || GetLevelByClass(CLASS_TYPE_NIGHTSTALKER, oPC))
+    if(!nCount && (GetLevelByClass(CLASS_TYPE_MYSTIC, oPC) || GetLevelByClass(CLASS_TYPE_NIGHTSTALKER, oPC)))
     {
         // Mystics can use metamagic with domain spells
         nClass = GetLevelByClass(CLASS_TYPE_MYSTIC, oPC) ? CLASS_TYPE_MYSTIC : CLASS_TYPE_NIGHTSTALKER;
@@ -249,7 +274,9 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
             nClass = GetClassByPosition(n, oPC);
 
             // Check to see if you can burn a spell of that slot or if the person has already
-            // cast all of their level X spells for the day
+            // cast all of their level X spells for the day. Keep the legacy
+            // all-new-spellbook fallback: some PRC bonus-domain sources are
+            // intentionally allowed to trade arcane slots.
             if(!GetIsBioDivineClass(nClass))
             {
                 int nSpellbook = GetSpellbookTypeForClass(nClass);

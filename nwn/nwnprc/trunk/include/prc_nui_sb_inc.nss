@@ -12,6 +12,7 @@
 //:://////////////////////////////////////////////
 
 #include "prc_nui_com_inc"
+#include "prc_inc_domain"
 
 //
 // GetSpellListForCircle
@@ -248,6 +249,199 @@ int JsonArrayContainsInt(json list, int item);
 //
 int IsSpellbookNUIOpen(object oPC);
 
+// Domain-mode helpers. PRC bonus domains are stored separately from native
+// prepared domain slots, but both are character-wide rather than class-tab
+// resources.
+int NUISpellbookHasBonusDomains(object oPlayer);
+int NUISpellbookHasNativeDomains(object oPlayer);
+int NUISpellbookHasNativePreparedDomainSpells(object oPlayer);
+int NUISpellbookHasDomainContent(object oPlayer);
+int NUISpellbookGetBonusDomainSpell(object oPlayer, int nSlot, int nLevel);
+int NUISpellbookIsNativePreparedClass(int nClass);
+int NUISpellbookIsNativeSpontaneousClass(int nClass);
+int NUISpellbookUsesNativeClassAdapter(object oPlayer, int nClass);
+int NUISpellbookNativeLevelHasContent(object oPlayer, int nClass, int nLevel);
+int NUISpellbookNativePreparedCount(object oPlayer, int nClass, int nLevel,
+    int nSpell, int nMetamagic, int bDomain, int bReadyOnly=FALSE);
+int NUISpellbookNativeKnownAtLevel(object oPlayer, int nClass, int nLevel, int nSpell);
+
+int NUISpellbookIsNativePreparedClass(int nClass)
+{
+    // Compare the raw strings. Blank/**** cells must not be coerced to zero
+    // and mistaken for an intentional class flag.
+    return Get2DACache("classes", "SpellCaster", nClass) == "1"
+        && Get2DACache("classes", "MemorizesSpells", nClass) == "1";
+}
+
+int NUISpellbookIsNativeSpontaneousClass(int nClass)
+{
+    // In this PRC tree, only the two stock restricted spontaneous books are
+    // engine-owned. PRC spontaneous classes use NewSpellbookMem_* and must not
+    // be temporarily hijacked before their persistent arrays initialize.
+    return (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+        && Get2DACache("classes", "SpellCaster", nClass) == "1"
+        && Get2DACache("classes", "MemorizesSpells", nClass) == "0"
+        && Get2DACache("classes", "SpellbookRestricted", nClass) == "1";
+}
+
+int NUISpellbookUsesNativeClassAdapter(object oPlayer, int nClass)
+{
+    if (GetLevelByClass(nClass, oPlayer) <= 0)
+        return FALSE;
+
+    // A PRC new-spellbook array remains authoritative whenever it exists.
+    if (persistant_array_exists(oPlayer, "NewSpellbookMem_" + IntToString(nClass)))
+        return FALSE;
+
+    return NUISpellbookIsNativePreparedClass(nClass)
+        || NUISpellbookIsNativeSpontaneousClass(nClass);
+}
+
+int NUISpellbookNativeLevelHasContent(object oPlayer, int nClass, int nLevel)
+{
+    if (nLevel < 0 || nLevel > 9
+        || !NUISpellbookUsesNativeClassAdapter(oPlayer, nClass))
+        return FALSE;
+
+    if (NUISpellbookIsNativePreparedClass(nClass))
+        return GetMemorizedSpellCountByLevel(oPlayer, nClass, nLevel) > 0;
+
+    return GetKnownSpellCount(oPlayer, nClass, nLevel) > 0;
+}
+
+int NUISpellbookNativePreparedCount(object oPlayer, int nClass, int nLevel,
+    int nSpell, int nMetamagic, int bDomain, int bReadyOnly=FALSE)
+{
+    if (!NUISpellbookUsesNativeClassAdapter(oPlayer, nClass)
+        || !NUISpellbookIsNativePreparedClass(nClass)
+        || nLevel < 0 || nLevel > 9 || nSpell < 0)
+        return 0;
+
+    int nMatches;
+    int nCount = GetMemorizedSpellCountByLevel(oPlayer, nClass, nLevel);
+    int nIndex;
+    for (nIndex = 0; nIndex < nCount; nIndex++)
+    {
+        if (GetMemorizedSpellId(oPlayer, nClass, nLevel, nIndex) == nSpell
+            && GetMemorizedSpellMetaMagic(oPlayer, nClass, nLevel, nIndex) == nMetamagic
+            && GetMemorizedSpellIsDomainSpell(oPlayer, nClass, nLevel, nIndex) == bDomain
+            && (!bReadyOnly
+                || GetMemorizedSpellReady(oPlayer, nClass, nLevel, nIndex) == TRUE))
+            nMatches++;
+    }
+
+    return nMatches;
+}
+
+int NUISpellbookNativeKnownAtLevel(object oPlayer, int nClass, int nLevel, int nSpell)
+{
+    if (!NUISpellbookUsesNativeClassAdapter(oPlayer, nClass)
+        || !NUISpellbookIsNativeSpontaneousClass(nClass)
+        || nLevel < 0 || nLevel > 9 || nSpell < 0)
+        return FALSE;
+
+    int nCount = GetKnownSpellCount(oPlayer, nClass, nLevel);
+    int nIndex;
+    for (nIndex = 0; nIndex < nCount; nIndex++)
+    {
+        if (GetKnownSpellId(oPlayer, nClass, nLevel, nIndex) == nSpell)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookHasBonusDomains(object oPlayer)
+{
+    int nSlot;
+    for (nSlot = 1; nSlot <= 5; nSlot++)
+    {
+        if (GetBonusDomain(oPlayer, nSlot) > 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookHasNativeDomains(object oPlayer)
+{
+    int nPosition = 1;
+    int nClass = GetClassByPosition(nPosition, oPlayer);
+
+    while (nClass != CLASS_TYPE_INVALID)
+    {
+        if (StringToInt(Get2DACache("classes", "PickDomains", nClass))
+            && (GetDomain(oPlayer, 1, nClass) >= 0
+                || GetDomain(oPlayer, 2, nClass) >= 0))
+            return TRUE;
+
+        nPosition++;
+        nClass = GetClassByPosition(nPosition, oPlayer);
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookHasNativePreparedDomainSpells(object oPlayer)
+{
+    int nPosition = 1;
+    int nClass = GetClassByPosition(nPosition, oPlayer);
+
+    while (nClass != CLASS_TYPE_INVALID)
+    {
+        if (StringToInt(Get2DACache("classes", "MemorizesSpells", nClass)))
+        {
+            int nLevel;
+            for (nLevel = 1; nLevel <= 9; nLevel++)
+            {
+                int nCount = GetMemorizedSpellCountByLevel(oPlayer, nClass, nLevel);
+                int nIndex;
+                for (nIndex = 0; nIndex < nCount; nIndex++)
+                {
+                    if (GetMemorizedSpellIsDomainSpell(oPlayer, nClass, nLevel, nIndex) == TRUE
+                        && GetMemorizedSpellId(oPlayer, nClass, nLevel, nIndex) >= 0)
+                        return TRUE;
+                }
+            }
+        }
+
+        nPosition++;
+        nClass = GetClassByPosition(nPosition, oPlayer);
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookHasDomainContent(object oPlayer)
+{
+    return NUISpellbookHasBonusDomains(oPlayer)
+        || NUISpellbookHasNativeDomains(oPlayer);
+}
+
+int NUISpellbookGetBonusDomainSpell(object oPlayer, int nSlot, int nLevel)
+{
+    if (nSlot < 1 || nSlot > 5 || nLevel < 1 || nLevel > 9)
+        return -1;
+
+    int nDomain = GetBonusDomain(oPlayer, nSlot);
+    if (nDomain <= 0)
+        return -1;
+
+    // Read the table directly instead of calling GetDomainSpell(). That public
+    // helper displays an error message for blank domain levels, which must not
+    // happen while merely rendering the NUI.
+    string sSpell = Get2DACache(
+        "prc_domains",
+        "Level_" + IntToString(nLevel),
+        nDomain - 1
+    );
+
+    if (sSpell == "" || sSpell == "****")
+        return -1;
+
+    return StringToInt(sSpell);
+}
+
 json GetSpellListForCircle(object oPlayer, int nClass, int circle)
 {
     json retValue = JsonArray();
@@ -357,9 +551,7 @@ int IsSpellKnown(object oPlayer, int nClass, int spellId)
     // special case for Binders since they don't have a spell book 2da.
     if (nClass == CLASS_TYPE_BINDER)
     {
-        json binderDict = GetBinderSpellToFeatDictionary(oPlayer);
-        int featID = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
-        return GetHasFeat(featID, oPlayer);
+        return IsBinderSpellActive(oPlayer, spellId);
     }
 
     int currentSpell = spellId;
@@ -380,6 +572,12 @@ int IsClassAllowedToUseNUISpellbook(object oPlayer, int nClass)
 {
     // This controls who can use the Spellbook NUI, if for some reason you don't
     // want a class to be allowed to use this you can comment out their line here
+
+    // Native prepared casters and native restricted spontaneous casters are
+    // data-driven. PRC new-spellbook arrays deliberately remain on the legacy
+    // route below.
+    if (NUISpellbookUsesNativeClassAdapter(oPlayer, nClass))
+        return TRUE;
 
     // Bard and Sorc are allowed if they took a PRC that makes them use the spellbook
     if ((nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)

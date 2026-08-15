@@ -84,6 +84,9 @@ string GetClassSpellbookFile(int nClass);
 //     and the FeatID of a vestige ability
 //
 json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF);
+json GetBinderFeatToVestigeDictionary(object oPlayer=OBJECT_SELF);
+int IsBinderFeatActive(object oPlayer, int nFeatID);
+int IsBinderSpellActive(object oPlayer, int nSpellID);
 
 //
 // GetSpellLevelIcon
@@ -397,9 +400,10 @@ string GetSpellLevelIcon(int spellLevel)
         case 4: return "ir_level4";
         case 5: return "ir_level5";
         case 6: return "ir_level6";
-        case 7: return "ir_level789";
-        case 8: return "ir_level789";
-        case 9: return "ir_level789";
+        case 7: return "ir_level7";
+        case 8: return "ir_level8";
+        case 9: return "ir_level9";
+        case 10: return "ir_level789";
     }
 
     return "";
@@ -419,6 +423,7 @@ string GetSpellLevelToolTip(int spellLevel)
         case 7: return "Level 7";
         case 8: return "Level 8";
         case 9: return "Level 9";
+        case 10: return "Readied Epic Spells";
     }
 
     return "";
@@ -433,7 +438,7 @@ json GetSpellIcon(int spellId,int featId=0,int nClass=0)
     {
         json binderDict = GetBinderSpellToFeatDictionary();
         int nFeatID = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
-        return JsonString(Get2DACache("feat", "Icon", featId));
+        return JsonString(Get2DACache("feat", "Icon", nFeatID));
     }
 
     if (featId)
@@ -528,6 +533,57 @@ json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF)
     return binderDict;
 }
 
+json GetBinderFeatToVestigeDictionary(object oPlayer=OBJECT_SELF)
+{
+    // Granted Binder ability feats outlive Expel Vestige on the character
+    // skin. Cache only the static feat -> owner-effect mapping; active state is
+    // always checked live with GetHasSpellEffect.
+    json jOwners = GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR);
+    if (jOwners != JsonNull())
+        return jOwners;
+
+    jOwners = JsonObject();
+    int nVestigeRows = Get2DARowCount("vestiges");
+    int nFeat;
+    for (nFeat = 9030; nFeat <= 9104; nFeat++)
+    {
+        string sFeatLabel = Get2DACache("feat", "LABEL", nFeat);
+        int nVestige;
+        for (nVestige = 1; nVestige < nVestigeRows; nVestige++)
+        {
+            string sVestigeLabel = Get2DACache("vestiges", "Label", nVestige);
+            if (sVestigeLabel != "" && sVestigeLabel != "****"
+                && FindSubString(sFeatLabel, sVestigeLabel) >= 0)
+            {
+                int nOwnerSpell = StringToInt(Get2DACache("vestiges", "SpellID", nVestige));
+                if (nOwnerSpell > 0)
+                    jOwners = JsonObjectSet(jOwners, IntToString(nFeat), JsonInt(nOwnerSpell));
+                break;
+            }
+        }
+    }
+
+    SetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR, jOwners);
+    return jOwners;
+}
+
+int IsBinderFeatActive(object oPlayer, int nFeatID)
+{
+    if (nFeatID < 9030 || nFeatID > 9104 || !GetHasFeat(nFeatID, oPlayer))
+        return FALSE;
+
+    json jOwners = GetBinderFeatToVestigeDictionary(oPlayer);
+    int nOwnerSpell = JsonGetInt(JsonObjectGet(jOwners, IntToString(nFeatID)));
+    return nOwnerSpell > 0 && GetHasSpellEffect(nOwnerSpell, oPlayer);
+}
+
+int IsBinderSpellActive(object oPlayer, int nSpellID)
+{
+    json jBinder = GetBinderSpellToFeatDictionary(oPlayer);
+    int nFeatID = JsonGetInt(JsonObjectGet(jBinder, IntToString(nSpellID)));
+    return IsBinderFeatActive(oPlayer, nFeatID);
+}
+
 json GreyOutButton(json jButton, float w, float h)
 {
     json retValue = jButton;
@@ -612,4 +668,3 @@ int GetTrueClassType(int nClass, object oPC=OBJECT_SELF)
 
     return nClass;
 }
-

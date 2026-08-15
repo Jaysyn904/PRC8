@@ -851,7 +851,7 @@ void AddSpellUse(object oPC, int nSpellbookID, int nClass, string sFile, string 
             if(!persistant_array_exists(oPC, sIDX))
                 persistant_array_create(oPC, sIDX);
 
-            persistant_array_set_int(oPC, sIDX, array_get_size(oPC, sIDX), nSpellbookID);
+            persistant_array_set_int(oPC, sIDX, persistant_array_get_size(oPC, sIDX), nSpellbookID);
         }
     }
     else if(nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS)

@@ -37,6 +37,8 @@ void main()
     if (sWindowId == DURATION_NUI_WINDOW_ID)
         ExecuteScript("prc_nui_sd_event");
 
+    if (sWindowId == NUI_PRC_RESOURCE_WINDOW)
+        ExecuteScript("prc_nui_rs_event");
+
     return;
 }
-
