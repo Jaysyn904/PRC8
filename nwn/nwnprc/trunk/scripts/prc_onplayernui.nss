@@ -28,6 +28,10 @@ void main()
     if(sWindowId == PRC_SPELLBOOK_NUI_WINDOW_ID)
         ExecuteScript("prc_nui_sb_event");
 
+    // Handle Archivist next-rest preparation separately from live casting.
+    if(sWindowId == PRC_ARCHIVIST_PREP_NUI_WINDOW_ID)
+        ExecuteScript("prc_nui_ap_event");
+
     if (sWindowId == NUI_SPELL_DESCRIPTION_WINDOW_ID)
         ExecuteScript("prc_nui_dsc_evnt");
 

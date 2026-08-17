@@ -186,6 +186,79 @@ int GetTrueClassIfRHD(object oPlayer, int nClass);
 int ShouldAddSpell(int nClass, int spellId, object oPlayer=OBJECT_SELF);
 
 //
+// NUISpellbookGetPreparedStorageRow
+// Resolves the persistent NewSpellbookMem_* row that owns the remaining uses
+// for a displayed PRC spellbook entry. Archivist subradial children spend the
+// prepared master entry rather than their own non-preparable child rows.
+//
+int NUISpellbookGetPreparedStorageRow(int nClass, int nSpellbookID, int nSpellID);
+
+// Updates the already-rendered Archivist spell buttons without destroying the
+// spellbook window. Each radial child is mapped to the prepared master row that
+// owns its remaining-use count. Exhausted spells stay visible, but are disabled
+// so the prepared roster and layout remain stable.
+void NUISpellbookRefreshArchivistButtons(object oPlayer, int nToken);
+
+// Returns TRUE when the currently rendered Archivist map and the rebuilt
+// prepared index contain the same unique storage rows for one spell circle.
+int NUISpellbookArchivistRosterMatchesCurrentMap(
+    object oPlayer,
+    int nCircle
+);
+
+// Refreshes only the binds of an already-open Archivist tier after the
+// new-spellbook rest rebuild has settled. It replaces the root in place only
+// when the selected circle's prepared-row membership actually changed.
+void NUISpellbookRefreshOpenArchivistAfterRest(object oPlayer);
+
+// Updates only the displayed Archivist buttons that spend one prepared
+// storage row. Radial children that share a master preparation update together.
+void NUISpellbookRefreshArchivistStorageRow(
+    object oPlayer,
+    int nToken,
+    int nStorageRow
+);
+
+// Applies a cast result only if the same Archivist tier/layout is still open.
+// A tier change therefore wins over an in-flight cast update.
+void NUISpellbookApplyArchivistCastUpdate(
+    object oPlayer,
+    int nToken,
+    int nLayoutGeneration,
+    int nCircle,
+    int nStorageRow
+);
+
+// Clears one exact cast fence. If navigation was requested while that cast was
+// unresolved, the coalesced destination is rendered once after the fence ends.
+void NUISpellbookReleaseArchivistCastFence(
+    object oPlayer,
+    int nFenceGeneration,
+    int nToken,
+    int nLayoutGeneration
+);
+
+// Applies the captured cast row to the still-live old root during the proven
+// NUI settling gap, before a requested destination is rendered.
+void NUISpellbookSettleArchivistCastResult(
+    object oPlayer,
+    int nFenceGeneration,
+    int nToken,
+    int nLayoutGeneration,
+    int nStorageRow
+);
+
+// Starts a bounded, cast-scoped watcher for one Archivist preparation. It
+// updates that row only while the player remains on the same live tier/layout.
+void NUISpellbookStartArchivistCastWatch(
+    object oPlayer,
+    int nSpell,
+    int nStorageRow,
+    int nCircle,
+    int nInitialReady
+);
+
+//
 // GetToBStanceSpellList
 // Gets the ToB Stance Spell List for the given class
 //
@@ -521,6 +594,470 @@ int ShouldAddSpell(int nClass, int spellId, object oPlayer=OBJECT_SELF)
     return TRUE;
 }
 
+int NUISpellbookGetPreparedStorageRow(int nClass, int nSpellbookID, int nSpellID)
+{
+    if (nClass != CLASS_TYPE_ARCHIVIST)
+        return nSpellbookID;
+
+    int nMasterSpell = StringToInt(Get2DACache("spells", "Master", nSpellID));
+    if (nMasterSpell > 0)
+    {
+        int nMasterRow = SpellToSpellbookID(nMasterSpell);
+        if (nMasterRow > 0)
+            return nMasterRow;
+    }
+
+    return nSpellbookID;
+}
+
+void NUISpellbookSetArchivistButtonState(
+    object oPlayer,
+    int nToken,
+    json jEntry,
+    int nReady
+)
+{
+    int nSpellbookID = JsonGetInt(JsonObjectGet(jEntry, "b"));
+    string sTooltip = JsonGetString(JsonObjectGet(jEntry, "t"));
+    string sReadyBind = NUI_SPELLBOOK_ARCHIVIST_VISIBLE_BIND_BASE
+                      + IntToString(nSpellbookID);
+
+    NuiSetBind(oPlayer, nToken, sReadyBind, JsonBool(nReady > 0));
+    sTooltip += " - Ready copies remaining: " + IntToString(nReady);
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_ARCHIVIST_TOOLTIP_BIND_BASE + IntToString(nSpellbookID),
+        JsonString(sTooltip)
+    );
+}
+
+void NUISpellbookRefreshArchivistButtons(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR);
+    if (jMap == JsonNull())
+        return;
+
+    string sMemory = "NewSpellbookMem_" + IntToString(CLASS_TYPE_ARCHIVIST);
+    int i;
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        json jEntry = JsonArrayGet(jMap, i);
+        int nStorageRow = JsonGetInt(JsonObjectGet(jEntry, "r"));
+        int nReady = nStorageRow >= 0
+                   ? persistant_array_get_int(oPlayer, sMemory, nStorageRow)
+                   : 0;
+        NUISpellbookSetArchivistButtonState(oPlayer, nToken, jEntry, nReady);
+    }
+}
+
+int NUISpellbookArchivistRosterMatchesCurrentMap(
+    object oPlayer,
+    int nCircle
+)
+{
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR);
+    if (jMap == JsonNull())
+        return FALSE;
+
+    json jMappedRows = JsonObject();
+    int nMappedUnique;
+    int i;
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        int nStorageRow = JsonGetInt(JsonObjectGet(JsonArrayGet(jMap, i), "r"));
+        string sStorageRow = IntToString(nStorageRow);
+        if (JsonObjectGet(jMappedRows, sStorageRow) == JsonNull())
+        {
+            jMappedRows = JsonObjectSet(
+                jMappedRows,
+                sStorageRow,
+                JsonBool(TRUE)
+            );
+            nMappedUnique++;
+        }
+    }
+
+    string sPreparedIndex = "SpellbookIDX" + IntToString(nCircle) + "_"
+                          + IntToString(CLASS_TYPE_ARCHIVIST);
+    json jPreparedRows = JsonObject();
+    int nPreparedUnique;
+    int nPreparedSize = persistant_array_get_size(oPlayer, sPreparedIndex);
+    for (i = 0; i < nPreparedSize; i++)
+    {
+        int nPreparedRow = persistant_array_get_int(
+            oPlayer,
+            sPreparedIndex,
+            i
+        );
+        string sPreparedRow = IntToString(nPreparedRow);
+        if (JsonObjectGet(jPreparedRows, sPreparedRow) == JsonNull())
+        {
+            jPreparedRows = JsonObjectSet(
+                jPreparedRows,
+                sPreparedRow,
+                JsonBool(TRUE)
+            );
+            nPreparedUnique++;
+        }
+    }
+
+    if (nMappedUnique != nPreparedUnique)
+        return FALSE;
+
+    // Equal unique counts plus complete membership in the prepared set proves
+    // set equality, while tolerating radial children that share one map row.
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        int nStorageRow = JsonGetInt(JsonObjectGet(JsonArrayGet(jMap, i), "r"));
+        if (JsonObjectGet(jPreparedRows, IntToString(nStorageRow)) == JsonNull())
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+void NUISpellbookRefreshOpenArchivistAfterRest(object oPlayer)
+{
+    // Resolve the live window at callback time. The player may have opened,
+    // closed, or navigated the spellbook while the rest rebuild was settling.
+    int nToken = NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    int nLayoutGeneration = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+    int nMode = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR);
+    int nClass = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
+    if (nToken <= 0
+        || nLayoutGeneration <= 0
+        || nMode != PRC_SPELLBOOK_MODE_CLASS
+        || nClass != CLASS_TYPE_ARCHIVIST)
+        return;
+
+    int nNavigationPending = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR
+    );
+    int nFenceGeneration = GetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR
+    );
+    int nCircle = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
+    if (nNavigationPending || nFenceGeneration)
+    {
+        return;
+    }
+
+    if (nCircle < 0 || nCircle > 9)
+    {
+        return;
+    }
+
+    int bRosterMatches = NUISpellbookArchivistRosterMatchesCurrentMap(
+        oPlayer,
+        nCircle
+    );
+
+    if (bRosterMatches)
+    {
+        NUISpellbookRefreshArchivistButtons(oPlayer, nToken);
+        return;
+    }
+
+    // The existing window remains alive: the view replaces only its dynamic
+    // root, preserving token, geometry, and position while exposing the new
+    // prepared roster exactly once after rest.
+    ExecuteScript("prc_nui_sb_view", oPlayer);
+}
+
+void NUISpellbookRefreshArchivistStorageRow(
+    object oPlayer,
+    int nToken,
+    int nStorageRow
+)
+{
+    if (nToken <= 0 || nStorageRow < 0)
+        return;
+
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR);
+    if (jMap == JsonNull())
+        return;
+
+    int nReady = persistant_array_get_int(
+        oPlayer,
+        "NewSpellbookMem_" + IntToString(CLASS_TYPE_ARCHIVIST),
+        nStorageRow
+    );
+    int i;
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        json jEntry = JsonArrayGet(jMap, i);
+        if (JsonGetInt(JsonObjectGet(jEntry, "r")) == nStorageRow)
+            NUISpellbookSetArchivistButtonState(oPlayer, nToken, jEntry, nReady);
+    }
+}
+
+void NUISpellbookApplyArchivistCastUpdate(
+    object oPlayer,
+    int nToken,
+    int nLayoutGeneration,
+    int nCircle,
+    int nStorageRow
+)
+{
+    if (NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR) != nLayoutGeneration
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR) != PRC_SPELLBOOK_MODE_CLASS
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR) != CLASS_TYPE_ARCHIVIST
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) != nCircle
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR))
+        return;
+
+    NUISpellbookRefreshArchivistStorageRow(oPlayer, nToken, nStorageRow);
+}
+
+void NUISpellbookReleaseArchivistCastFence(
+    object oPlayer,
+    int nFenceGeneration,
+    int nToken,
+    int nLayoutGeneration
+)
+{
+    // A newer cast owns the fence now; this delayed callback is stale.
+    if (GetLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR)
+        != nFenceGeneration)
+        return;
+
+    int bNavigationPending = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR
+    );
+    int nLiveToken = NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    int nLiveLayoutGeneration = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR);
+
+    if (!bNavigationPending)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR)
+            == nLayoutGeneration)
+            DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR);
+        return;
+    }
+
+    DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR);
+
+    // Closing or independently replacing the window invalidates the deferred
+    // navigation. Do not let this callback disturb the successor's input lock.
+    if (nLiveToken != nToken
+        || nLiveLayoutGeneration != nLayoutGeneration)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR)
+            == nLayoutGeneration)
+            DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR);
+        return;
+    }
+
+    // The selected mode/class/circle locals were updated by every navigation
+    // click while fenced, so this single render naturally uses the last one.
+    ExecuteScript("prc_nui_sb_view", oPlayer);
+}
+
+void NUISpellbookSettleArchivistCastResult(
+    object oPlayer,
+    int nFenceGeneration,
+    int nToken,
+    int nLayoutGeneration,
+    int nStorageRow
+)
+{
+    if (GetLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR)
+            != nFenceGeneration
+        || NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken
+        || GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR)
+            != nLayoutGeneration)
+        return;
+
+    // The physical root is still the captured Archivist tier even when the
+    // selected locals already name a deferred destination.
+    NUISpellbookRefreshArchivistStorageRow(oPlayer, nToken, nStorageRow);
+}
+
+void NUISpellbookPollArchivistCast(
+    object oPlayer,
+    int nToken,
+    int nLayoutGeneration,
+    int nCircle,
+    int nStorageRow,
+    int nLastReady,
+    int nWatchGeneration,
+    int nFenceGeneration,
+    int nAttemptsRemaining
+)
+{
+    string sWatchVar = NUI_SPELLBOOK_ARCHIVIST_CAST_WATCH_BASE
+                     + IntToString(nStorageRow);
+    if (GetLocalInt(oPlayer, sWatchVar) != nWatchGeneration)
+        return;
+
+    int bNavigationPending = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR
+    );
+    int bLiveLayout = NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID) == nToken
+        && GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR)
+            == nLayoutGeneration;
+    int bStillOnCastTier = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+            == PRC_SPELLBOOK_MODE_CLASS
+        && GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR)
+            == CLASS_TYPE_ARCHIVIST
+        && GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == nCircle;
+
+    // A requested destination is allowed to differ from the cast tier while
+    // the old root remains live. Otherwise, an independently replaced layout,
+    // a closed window, or the hard timeout ends this finite fence safely.
+    if (nAttemptsRemaining <= 0
+        || !bLiveLayout
+        || (!bNavigationPending && !bStillOnCastTier))
+    {
+        DelayCommand(0.10f, NUISpellbookReleaseArchivistCastFence(
+            oPlayer,
+            nFenceGeneration,
+            nToken,
+            nLayoutGeneration
+        ));
+        return;
+    }
+
+    int nReady = persistant_array_get_int(
+        oPlayer,
+        "NewSpellbookMem_" + IntToString(CLASS_TYPE_ARCHIVIST),
+        nStorageRow
+    );
+    if (nReady != nLastReady)
+    {
+        // The persistent ready-count transition is the authoritative signal
+        // that this queued ActionUseFeat has resolved. Navigation can now win;
+        // staying on the tier keeps the stable root and refreshes only its row.
+        if (GetLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR)
+            == nFenceGeneration)
+        {
+            // Preserve the old root through the same settling gap used by the
+            // stable stay-on-tier path. Apply its captured row first, then make
+            // the one deferred render (if any) after the bind has settled.
+            DelayCommand(0.40f, NUISpellbookSettleArchivistCastResult(
+                oPlayer,
+                nFenceGeneration,
+                nToken,
+                nLayoutGeneration,
+                nStorageRow
+            ));
+            DelayCommand(0.45f, NUISpellbookReleaseArchivistCastFence(
+                oPlayer,
+                nFenceGeneration,
+                nToken,
+                nLayoutGeneration
+            ));
+        }
+        else if (!bNavigationPending)
+        {
+            // A newer fence owns navigation; this older row may still update
+            // in place without releasing or unlocking the newer cast.
+            DelayCommand(0.40f, NUISpellbookApplyArchivistCastUpdate(
+                oPlayer,
+                nToken,
+                nLayoutGeneration,
+                nCircle,
+                nStorageRow
+            ));
+        }
+        return;
+    }
+
+    DelayCommand(0.25f, NUISpellbookPollArchivistCast(
+        oPlayer,
+        nToken,
+        nLayoutGeneration,
+        nCircle,
+        nStorageRow,
+        nLastReady,
+        nWatchGeneration,
+        nFenceGeneration,
+        nAttemptsRemaining - 1
+    ));
+}
+
+void NUISpellbookStartArchivistCastWatch(
+    object oPlayer,
+    int nSpell,
+    int nStorageRow,
+    int nCircle,
+    int nInitialReady
+)
+{
+    int nToken = NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    int nLayoutGeneration = GetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+    if (nToken <= 0 || nLayoutGeneration <= 0 || nStorageRow < 0)
+        return;
+
+    string sWatchVar = NUI_SPELLBOOK_ARCHIVIST_CAST_WATCH_BASE
+                     + IntToString(nStorageRow);
+    int nWatchGeneration = GetLocalInt(oPlayer, sWatchVar) + 1;
+    if (nWatchGeneration <= 0)
+        nWatchGeneration = 1;
+    SetLocalInt(oPlayer, sWatchVar, nWatchGeneration);
+
+    int nFenceGeneration = GetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_ARCHIVIST_CAST_GENERATION_VAR
+    ) + 1;
+    if (nFenceGeneration <= 0)
+        nFenceGeneration = 1;
+    SetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_ARCHIVIST_CAST_GENERATION_VAR,
+        nFenceGeneration
+    );
+    SetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR,
+        nFenceGeneration
+    );
+
+    // Permit tier/class/mode navigation, but reject another generated cast
+    // button until this ActionUseFeat has resolved or the bounded fallback fires.
+    SetLocalInt(
+        oPlayer,
+        PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR,
+        nLayoutGeneration
+    );
+
+    // This is deliberately finite rather than a permanent spellbook refresh:
+    // 48 checks at 0.25 seconds gives the queued cast up to 12 seconds to
+    // resolve. A failed/interrupted cast then releases the UI without rebuilding
+    // it unless navigation was explicitly requested.
+    DelayCommand(0.25f, NUISpellbookPollArchivistCast(
+        oPlayer,
+        nToken,
+        nLayoutGeneration,
+        nCircle,
+        nStorageRow,
+        nInitialReady,
+        nWatchGeneration,
+        nFenceGeneration,
+        48
+    ));
+}
+
 json GetSupportedNUISpellbookClasses(object oPlayer)
 {
     json retValue = JsonArray();
@@ -811,6 +1348,8 @@ json GetMetaPsionicFeatList()
     spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_TWIN_POWER));
     metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
     spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_SPLIT_PSIONIC_RAY));
+    metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
+    spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_GREATER_PSIONIC_ENDOWMENT));
     metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
 
     return metaFeats;

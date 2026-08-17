@@ -428,11 +428,12 @@ void NUIResourceRefreshLoop(object oPC, int nGeneration)
     DelayCommand(1.0f, NUIResourceRefreshLoop(oPC, nGeneration));
 }
 
-void NUIResourceRefreshSpellbookLoop(object oPC, int nToken)
+void NUIResourceRefreshSpellbookLoop(object oPC, int nToken, int nGeneration)
 {
-    if (NuiFindWindow(oPC, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken)
+    if (NuiFindWindow(oPC, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken
+        || GetLocalInt(oPC, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR) != nGeneration)
         return;
 
     NUIResourceRefreshToken(oPC, nToken);
-    DelayCommand(1.0f, NUIResourceRefreshSpellbookLoop(oPC, nToken));
+    DelayCommand(1.0f, NUIResourceRefreshSpellbookLoop(oPC, nToken, nGeneration));
 }

@@ -5603,7 +5603,7 @@
 5599       16831282 SORCERER_CHASING_PERFECTION                               0    10599     
 5600       16831283 SORCERER_FORCE_MISSILES                                   0    10600     
 5601       16831284 SORCERER_ADRENALINE_SURGE                                 0    10601     
-5602       16831290 Assassin_Cats_Grace                                       0    10602     
+5602       16976486 Sorcerer_Limited_Wish                                     0    10602     
 5603       16831291 Assassin_Darkness                                         0    10603     
 5604       16831292 Assassin_Foxs_Cunning                                     0    10604     
 5605       16831293 Assassin_IceKnife                                         0    10605     
@@ -18671,10 +18671,10 @@
 18667      ****     ****                                                      **** ****      
 18668      ****     ****                                                      **** ****      
 18669      ****     ****                                                      **** ****      
-18670      ****     ****                                                      **** ****      
-18671      ****     ****                                                      **** ****      
-18672      ****     ****                                                      **** ****      
-18673      ****     ****                                                      **** ****      
+18670      16976487 SUBLIMECHORD_REPAIR_CRITICAL_DAMAGE                       0    17670     
+18671      16976488 SUBLIMECHORD_CHASING_PERFECTION                           0    17671     
+18672      16976489 SUBLIMECHORD_FORCE_MISSILES                               0    17672     
+18673      16976490 SUBLIMECHORD_LIMITED_WISH                                 0    17673     
 18674      ****     ****                                                      **** ****      
 18675      ****     ****                                                      **** ****      
 18676      ****     ****                                                      **** ****      

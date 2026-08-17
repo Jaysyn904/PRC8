@@ -224,7 +224,7 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_cls_spcr_blkgrd", 47);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_dnecro", 138);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_duskbl", 69);
-    SetPRCSwitch("PRC_FILE_END_cls_spcr_favsol", 300);
+    SetPRCSwitch("PRC_FILE_END_cls_spcr_favsol", 375);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_harper", 35);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_healer", 77);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_hexbl", 73);
@@ -233,12 +233,12 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_cls_spcr_kotmc", 26);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_myst", 290);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_ocu", 209);
-    SetPRCSwitch("PRC_FILE_END_cls_spcr_schord", 244);
+    SetPRCSwitch("PRC_FILE_END_cls_spcr_schord", 312);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_shaman", 205);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_sod", 33);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_sohei", 57);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_sol", 38);
-    SetPRCSwitch("PRC_FILE_END_cls_spcr_sorc", 430);
+    SetPRCSwitch("PRC_FILE_END_cls_spcr_sorc", 551);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_suel", 117);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_templ", 112);
     SetPRCSwitch("PRC_FILE_END_cls_spcr_tfshad", 27);
@@ -459,11 +459,11 @@ void SetDefaultFileEnds()
     SetPRCSwitch("PRC_FILE_END_iprp_soakcost", 50);
     SetPRCSwitch("PRC_FILE_END_iprp_speed_dec", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_speed_enh", 9);
-    SetPRCSwitch("PRC_FILE_END_iprp_spellcost", 298);
+    SetPRCSwitch("PRC_FILE_END_iprp_spellcost", 312);
     SetPRCSwitch("PRC_FILE_END_iprp_spellcstr", 42);
     SetPRCSwitch("PRC_FILE_END_iprp_spelllvcost", 9);
     SetPRCSwitch("PRC_FILE_END_iprp_spelllvlimm", 9);
-    SetPRCSwitch("PRC_FILE_END_iprp_spells", 1552);
+    SetPRCSwitch("PRC_FILE_END_iprp_spells", 1553);
     SetPRCSwitch("PRC_FILE_END_iprp_spellshl", 7);
     SetPRCSwitch("PRC_FILE_END_iprp_srcost", 99);
     SetPRCSwitch("PRC_FILE_END_iprp_staminacost", -1);

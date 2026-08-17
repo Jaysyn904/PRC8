@@ -24,6 +24,18 @@ const int NUI_PAYLOAD_BUTTON_RIGHT_CLICK = 2;
 // This is the NUI Spellbook window ID
 const string PRC_SPELLBOOK_NUI_WINDOW_ID = "prcSpellbookNui";
 
+// The window shell remains stable while class, circle, and domain navigation
+// replace only this group's child layout. Unlike generated cast-button IDs,
+// this host ID must never carry the layout generation.
+const string PRC_SPELLBOOK_NUI_CONTENT_HOST_ID = "spellbookContentHost";
+const string PRC_SPELLBOOK_NUI_RESULT_HOST_ID = "spellbookResultHost";
+
+// Archivist preparation is intentionally a separate window from the live
+// casting spellbook. Its editor stages the loadout that will be applied after
+// the next completed rest.
+const string PRC_ARCHIVIST_PREP_NUI_WINDOW_ID = "prc_archivist_prep";
+const string PRC_ARCHIVIST_PREP_NUI_BUTTON = "spellbookArchivistPrepareButton";
+
 // This is the base Id for the Class buttons in the NUI Spellbook, the ID will
 // have the ClassID attached to it (i.e. spellbookClassButton_123)
 const string PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID = "spellbookClassButton_";
@@ -42,6 +54,15 @@ const string PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID = "spellbookSpellButton_";
 // spontaneous entries identify one exact known spell and class/level pool.
 const string PRC_SPELLBOOK_NUI_NATIVE_CLASS_SPELL_BUTTON_BASEID = "spellbookNativeClassSpellButton_";
 const string NUI_SPELLBOOK_NATIVE_CLASS_BUTTON_MAP_VAR = "NUI_NativeClassSpellButtonMap";
+const string NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR = "NUI_ArchivistSpellButtonMap";
+const string NUI_SPELLBOOK_ARCHIVIST_VISIBLE_BIND_BASE = "sbAv";
+const string NUI_SPELLBOOK_ARCHIVIST_TOOLTIP_BIND_BASE = "sbAt";
+const string NUI_SPELLBOOK_ARCHIVIST_CAST_WATCH_BASE = "sbArcWatch_";
+// The sequence never resets while the player object lives, so an old delayed
+// watcher cannot release a newer cast. The fence stores the sequence value of
+// the one Archivist cast currently allowed through the NUI.
+const string NUI_SPELLBOOK_ARCHIVIST_CAST_GENERATION_VAR = "sbArcCastGeneration";
+const string NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR = "sbArcCastFence";
 const int NUI_SPELLBOOK_NATIVE_CAST_PREPARED = 1;
 const int NUI_SPELLBOOK_NATIVE_CAST_SPONTANEOUS = 2;
 
@@ -101,6 +122,20 @@ const string PRC_SPELLBOOK_SELECTED_CIRCLE_VAR = "prcSpellbookSelectedCircle";
 // This is the Spellbook NUI geomeotry var, used to allow the location and sizing
 // of the NUI to be remembered if it is ever rerendered.
 const string PRC_SPELLBOOK_NUI_GEOMETRY_VAR = "sbNuiGeometry";
+
+// NUI token values may be reused immediately after a live destroy/recreate.
+// Delayed refresh loops must also match this generation so loops belonging to
+// an older incarnation of the spellbook cannot update or rebuild its successor.
+const string PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR = "sbNuiRefreshGeneration";
+
+// A short lock prevents a queued mouseup from the previous dynamic group
+// layout from resolving against the replacement button map.
+const string PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR = "sbNuiInputLock";
+const string PRC_SPELLBOOK_NUI_LAYOUT_GENERATION_MARKER = "_g";
+
+// A tier/class/domain click made while manual spell targeting is active first
+// cancels targeting, then coalesces navigation into one delayed root update.
+const string PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR = "sbNuiNavPending";
 
 // This is the Selected SpellID Var, used to tell the OnTarget script what spell
 // we are using after manual targetting

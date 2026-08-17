@@ -20,6 +20,8 @@
 #include "prc_inc_util"
 #include "shd_inc_myst"
 #include "prc_inc_template"
+#include "prc_nui_ap_inc"
+#include "prc_nui_sb_inc"
 
 void ClearAstarothCraftingFeat(object oPC)  
 {  
@@ -311,6 +313,10 @@ void RestFinished(object oPC)
 
     // New Spellbooks
     DelayCommand(0.3, CheckNewSpellbooks(oPC));
+    // CheckNewSpellbooks schedules SetupSpells at +0.10, and prepared circles
+    // settle another +0.01 later. Refresh only the existing Archivist binds;
+    // never replace the root or move the player's window after rest.
+    DelayCommand(0.60f, NUISpellbookRefreshOpenArchivistAfterRest(oPC));
     // PnP spellschools
     if(GetPRCSwitch(PRC_PNP_SPELL_SCHOOLS)
         && GetLevelByClass(CLASS_TYPE_WIZARD, oPC))
@@ -370,6 +376,16 @@ void RestFinished(object oPC)
 void RestStarted(object oPC)
 {
     if(DEBUG) DoDebug("prc_rest: Rest started for " + DebugObject2Str(oPC));
+
+    // Preparation edits are a next-rest draft. Once resting starts, close the
+    // editor and discard only its unsaved locals; the persistent saved plan is
+    // left untouched and remains valid even if this rest is later cancelled.
+    if (GetIsPC(oPC))
+    {
+        if (GetLocalInt(oPC, PRC_ARCHIVIST_PREP_ACTIVE_VAR))
+            SendMessageToPC(oPC, "Your unsaved Archivist preparation draft was closed because resting began.");
+        ArchivistPrepDiscardDraft(oPC);
+    }
 
     // Scrying cleanup
     if (GetIsScrying(oPC))

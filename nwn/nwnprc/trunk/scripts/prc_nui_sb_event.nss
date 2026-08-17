@@ -14,6 +14,7 @@
 #include "prc_nui_consts"
 #include "prc_nui_sb_inc"
 #include "prc_nui_res_inc"
+#include "prc_nui_ap_inc"
 
 //
 // SetWindowGeometry
@@ -27,6 +28,9 @@
 void SetWindowGeometry(object oPlayer, int nToken);
 void ClearPendingNativeDomainSelection(object oPlayer);
 void ClearPendingNativeClassSelection(object oPlayer);
+int CancelPendingSpellbookTarget(object oPlayer);
+void RequestSpellbookNavigationRefresh(object oPlayer, int bCancelledTarget);
+void FinishSpellbookNavigationRefresh(object oPlayer);
 void SetPreferredDomainClass(object oPlayer, int nClass);
 void ExpirePreferredDomainClass(object oPlayer, int nGeneration);
 
@@ -92,11 +96,43 @@ void main()
         return;
     }
 
-    // Live refresh destroys and recreates the window, replacing the native
-    // button-index map. Ignore a delayed mouseup from the destroyed token so
-    // its old index can never resolve to a different entry in the new map.
+    // Ignore events that do not belong to the live spellbook window.
     if (NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken)
         return;
+
+    // Cast-capable buttons are stamped with the layout generation. The window
+    // token remains stable across an in-place root swap, so this prevents a
+    // delayed click from the prior layout resolving against a new class/map.
+    int bGeneratedElement =
+           FindSubString(sElement, PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_CLASS_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_EPIC_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_META_BUTTON_BASEID) == 0;
+    if (bGeneratedElement)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR))
+            return;
+
+        int nMarker = FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_LAYOUT_GENERATION_MARKER
+        );
+        if (nMarker < 0)
+            return;
+
+        int nGenerationStart = nMarker
+            + GetStringLength(PRC_SPELLBOOK_NUI_LAYOUT_GENERATION_MARKER);
+        if (StringToInt(GetSubString(
+                sElement,
+                nGenerationStart,
+                GetStringLength(sElement) - nGenerationStart
+            )) != GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR))
+            return;
+
+        sElement = GetSubString(sElement, 0, nMarker);
+    }
 
     int spellId;
     int featId;
@@ -133,19 +169,36 @@ void main()
         return;
     }
 
+    if (sElement == PRC_ARCHIVIST_PREP_NUI_BUTTON)
+    {
+        if (GetLevelByClass(CLASS_TYPE_ARCHIVIST, oPlayer) <= 0
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR) != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR) != CLASS_TYPE_ARCHIVIST)
+            return;
+
+        // Server locals can survive a disconnect even when the client-side
+        // window no longer exists. Treat an absent window as a fresh entry so
+        // an abandoned, unsaved draft can never reappear after relogging.
+        // Internal AP refreshes call the AP view directly and retain the draft.
+        if (!NuiFindWindow(oPlayer, PRC_ARCHIVIST_PREP_NUI_WINDOW_ID))
+            ArchivistPrepDiscardDraft(oPlayer, FALSE);
+
+        ExecuteScript("prc_nui_ap_view", oPlayer);
+        return;
+    }
+
     if (sElement == PRC_SPELLBOOK_NUI_DOMAIN_MODE_BUTTON)
     {
         if (!NUISpellbookHasDomainContent(oPlayer))
             return;
 
-        ClearPendingNativeDomainSelection(oPlayer);
-        ClearPendingNativeClassSelection(oPlayer);
+        int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
         SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR, PRC_SPELLBOOK_MODE_DOMAIN);
         int nCircle = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
         if (nCircle < 1 || nCircle > 9)
             SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR, 1);
-        ExecuteScript("prc_nui_sb_view", oPlayer);
+        RequestSpellbookNavigationRefresh(oPlayer, bCancelledTarget);
         return;
     }
 
@@ -155,12 +208,11 @@ void main()
     if (FindSubString(sElement, PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID) >= 0)
     {
         int classId = StringToInt(RegExpReplace(PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID, sElement, ""));
-        ClearPendingNativeDomainSelection(oPlayer);
-        ClearPendingNativeClassSelection(oPlayer);
+        int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
         SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR, PRC_SPELLBOOK_MODE_CLASS);
         SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR, classId);
-        ExecuteScript("prc_nui_sb_view", oPlayer);
+        RequestSpellbookNavigationRefresh(oPlayer, bCancelledTarget);
         return;
     }
 
@@ -170,10 +222,9 @@ void main()
     if (FindSubString(sElement, PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID) >= 0)
     {
         int circle = StringToInt(RegExpReplace(PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID, sElement, ""));
-        ClearPendingNativeDomainSelection(oPlayer);
-        ClearPendingNativeClassSelection(oPlayer);
+        int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
         SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR, circle);
-        ExecuteScript("prc_nui_sb_view", oPlayer);
+        RequestSpellbookNavigationRefresh(oPlayer, bCancelledTarget);
         return;
     }
 
@@ -560,6 +611,12 @@ void main()
         int spellbookId = StringToInt(RegExpReplace(PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID, sElement, ""));
         int classId = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
 
+        // A rejected or cancelled radial-child click must never leak its
+        // subspell into the next ordinary spell selection. Resolve every
+        // spell button from a clean state, then set this again only when the
+        // current entry is actually a radial child.
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+
         // special case for binders, since they don't have a spell 2da of their own.
         if (classId == CLASS_TYPE_BINDER)
         {
@@ -596,8 +653,41 @@ void main()
             }
             else
                 featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+
+            if (classId == CLASS_TYPE_ARCHIVIST)
+            {
+                json jArchivistPayload = NuiGetEventPayload();
+                int nArchivistButton = JsonGetInt(JsonObjectGet(jArchivistPayload, "mouse_btn"));
+                int nStorageRow = NUISpellbookGetPreparedStorageRow(
+                    classId, spellbookId, spellId
+                );
+                int nReady = persistant_array_get_int(
+                    oPlayer,
+                    "NewSpellbookMem_" + IntToString(classId),
+                    nStorageRow
+                );
+                if (nArchivistButton == NUI_PAYLOAD_BUTTON_LEFT_CLICK && nReady <= 0)
+                {
+                    SendMessageToPC(oPlayer, "You have no remaining prepared copies of that Archivist spell.");
+                    DelayCommand(0.40f, NUISpellbookApplyArchivistCastUpdate(
+                        oPlayer,
+                        NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID),
+                        GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR),
+                        GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR),
+                        nStorageRow
+                    ));
+                    return;
+                }
+            }
         }
     }
+
+    // Mouse-up events can bubble from an actionable button to a named layout
+    // container. Only continue when one of the spell-button branches above
+    // resolved a real feat; otherwise the default zero values would be treated
+    // as spell row 0 and start an unrelated targeting action.
+    if (featId <= 0)
+        return;
 
     json jPayload = NuiGetEventPayload();
     int nButton = JsonGetInt(JsonObjectGet(jPayload, "mouse_btn"));
@@ -691,6 +781,97 @@ void ClearPendingNativeClassSelection(object oPlayer)
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
         DeleteLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR);
     }
+}
+
+int CancelPendingSpellbookTarget(object oPlayer)
+{
+    int bPending = GetLocalString(
+            oPlayer,
+            NUI_SPELLBOOK_ON_TARGET_ACTION_VAR
+        ) == "PRC_NUI_SPELLBOOK"
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR)
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR);
+
+    if (!bPending)
+        return FALSE;
+
+    // Passing no valid object types is the engine-supported way to cancel an
+    // active targeting cursor. Its OnPlayerTarget cancellation callback may
+    // arrive after this event, so clear the server-side selection here too.
+    EnterTargetingMode(oPlayer, 0);
+    ClearPendingNativeDomainSelection(oPlayer);
+    ClearPendingNativeClassSelection(oPlayer);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SPELLID_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
+    DeleteLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR);
+    DeleteLocalObject(oPlayer, "TARGETING_OBJECT");
+    DeleteLocalLocation(oPlayer, "TARGETING_POSITION");
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
+    return TRUE;
+}
+
+void RequestSpellbookNavigationRefresh(object oPlayer, int bCancelledTarget)
+{
+    // Do not replace the live NUI root in the same client cycle that cancels
+    // targeting. Archivist casts no longer hold navigation: their counts are
+    // refreshed through binds and their tier range is independent of transient
+    // NewSB cast locals.
+    int nArchivistFence = GetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR
+    );
+
+    // Recover cleanly from a fence/input lock left by an older build or an
+    // interrupted session. No new Archivist cast creates these locals.
+    if (nArchivistFence > 0)
+    {
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR);
+        DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR);
+        DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR);
+    }
+
+    if (bCancelledTarget)
+    {
+        SetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR, TRUE);
+        int nGeneration = GetLocalInt(
+            oPlayer,
+            PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+        );
+        if (nGeneration <= 0)
+            nGeneration = 1;
+        SetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR, nGeneration);
+        DelayCommand(0.20f, FinishSpellbookNavigationRefresh(oPlayer));
+        return;
+    }
+
+    if (GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR))
+        return;
+
+    ExecuteScript("prc_nui_sb_view", oPlayer);
+}
+
+void FinishSpellbookNavigationRefresh(object oPlayer)
+{
+    if (!GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR))
+        return;
+
+    // A stale fence from an older build must never hold target-cancellation
+    // navigation. Fresh casts no longer create one.
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ARCHIVIST_CAST_FENCE_VAR);
+
+    DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_NAVIGATION_PENDING_VAR);
+
+    // Respect a player closing the window during the brief cancellation gap.
+    // The next explicit /sb command can open it normally.
+    if (!NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID))
+    {
+        DeleteLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR);
+        return;
+    }
+
+    ExecuteScript("prc_nui_sb_view", oPlayer);
 }
 
 void ExpirePreferredDomainClass(object oPlayer, int nGeneration)

@@ -14,7 +14,7 @@ const int CHOICE_WIZ5_BANNED    = 3;
 const int CHOICE_OTHER4_BANNED  = 4;
 const int CHOICE_WARLOCK_INV    = 5;
 const int CHOICE_UNDO_HARM      = 6;
- 
+
 void BuildMainMenu(object oPC)
 {
     SetHeader(
@@ -30,10 +30,10 @@ void BuildMainMenu(object oPC)
               CHOICE_WIZ5_BANNED, oPC);
     AddChoice("Duplicate any other spell of 4th level or lower (even prohibited school).",
               CHOICE_OTHER4_BANNED, oPC);
-    AddChoice("Duplicate a warlock invocation of Greater grade or lower.",
+/*     AddChoice("Duplicate a warlock invocation of Greater grade or lower.",
               CHOICE_WARLOCK_INV, oPC);
     AddChoice("Remove all harmful status effects from your person.",
-              CHOICE_UNDO_HARM, oPC);
+              CHOICE_UNDO_HARM, oPC); */
 }
  
 void main()
@@ -123,10 +123,18 @@ void main()
                 oPC);
             return;
         }
-        case CHOICE_WARLOCK_INV:
+/*         case CHOICE_WARLOCK_INV:
         {
             SetLocalInt(oPC, "LW_WishType",    CHOICE_WARLOCK_INV);
             SetLocalInt(oPC, "LW_InvMaxGrade", 3);
+			
+			int nClass = GetLocalInt(oPC, "LW_CastingClass");
+			FloatingTextStringOnCreature("nClass is: " + IntToString(nClass) +".", oPC, FALSE);			
+			if (GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS)  
+			{  
+				BurnLimitedWish(oPC);  
+			}  
+
             BranchDynamicConversation(
                 "sp_lw_invpick",
                 STAGE_MAIN,
@@ -187,11 +195,18 @@ void main()
                 oPC);
  
             FloatingTextStringOnCreature("All harmful status effects have been removed.", oPC, FALSE);
+
+			int nClass = GetLocalInt(oPC, "LW_CastingClass");
+			FloatingTextStringOnCreature("nClass is: " + IntToString(nClass) +".", oPC, FALSE);			
+			if (GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS)  
+			{  
+				FloatingTextStringOnCreature("Burning a spell!", oPC, FALSE);
+				BurnLimitedWish(oPC);  
+			}  
  
             // Close the conversation
-			SetXP(oPC, GetXP(oPC) - 300);
             AllowExit(DYNCONV_EXIT_FORCE_EXIT, FALSE, oPC);
             return;
-        }
+        } */
 	}
 }
