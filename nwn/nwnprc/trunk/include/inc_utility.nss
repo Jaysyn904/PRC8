@@ -725,7 +725,9 @@ string PRCGetRGB(int red = 15,int green = 15,int blue = 15)
 {
     object coloringBook = GetObjectByTag("ColoringBook");
     if (coloringBook == OBJECT_INVALID)
+	{
         coloringBook = CreateObject(OBJECT_TYPE_ITEM,"gen_coloringbook",GetLocation(GetObjectByTag("HEARTOFCHAOS")));
+	}
     string buffer = GetName(coloringBook);
     if(red > 15) red = 15; if(green > 15) green = 15; if(blue > 15) blue = 15;
     if(red < 1)  red = 1;  if(green < 1)  green = 1;  if(blue < 1)  blue = 1;

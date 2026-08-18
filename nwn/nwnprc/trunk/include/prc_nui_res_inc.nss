@@ -19,15 +19,31 @@ int NUIResourceUsesNewSpellbook(object oPC, int nClass)
     return persistant_array_exists(oPC, "NewSpellbookMem_" + IntToString(nClass));
 }
 
+int NUIResourceGetMaxSlotsFromState(
+    object oPC,
+    int nClass,
+    int nSpellLevel,
+    int nCasterLevel,
+    int nAbility
+)
+{
+    int nSlots = GetSlotCount(nCasterLevel, nSpellLevel, nAbility, nClass, oPC);
+    return nSlots < 0 ? 0 : nSlots;
+}
+
 int NUIResourceGetMaxSlots(object oPC, int nClass, int nSpellLevel)
 {
     // GetSpellslotLevel is authoritative for both PRC and native spellbooks;
     // it includes prestige advancement that a base class-level lookup misses.
     int nCasterLevel = GetSpellslotLevel(nClass, oPC);
-
     int nAbility = GetAbilityScoreForClass(nClass, oPC);
-    int nSlots = GetSlotCount(nCasterLevel, nSpellLevel, nAbility, nClass, oPC);
-    return nSlots < 0 ? 0 : nSlots;
+    return NUIResourceGetMaxSlotsFromState(
+        oPC,
+        nClass,
+        nSpellLevel,
+        nCasterLevel,
+        nAbility
+    );
 }
 
 int NUIResourceGetCurrentSlots(object oPC, int nClass, int nSpellLevel)
@@ -65,10 +81,20 @@ int NUIResourceClassHasSpellSlots(object oPC, int nClass)
     if (GetSpellbookTypeForClass(nClass) != SPELLBOOK_TYPE_SPONTANEOUS)
         return FALSE;
 
+    // Snapshot progression and casting ability once for this scan. Repeating
+    // GetSpellslotLevel for every circle is expensive and floods PRC_DEBUG.
+    int nCasterLevel = GetSpellslotLevel(nClass, oPC);
+    int nAbility = GetAbilityScoreForClass(nClass, oPC);
     int nLevel;
     for (nLevel = 0; nLevel <= 9; nLevel++)
     {
-        if (NUIResourceGetMaxSlots(oPC, nClass, nLevel) > 0)
+        if (NUIResourceGetMaxSlotsFromState(
+                oPC,
+                nClass,
+                nLevel,
+                nCasterLevel,
+                nAbility
+            ) > 0)
             return TRUE;
     }
 
@@ -103,11 +129,19 @@ string NUIResourceGetSlotText(object oPC, int nClass)
 {
     string sLowLevels;
     string sHighLevels;
+    int nCasterLevel = GetSpellslotLevel(nClass, oPC);
+    int nAbility = GetAbilityScoreForClass(nClass, oPC);
     int nLevel;
 
     for (nLevel = 0; nLevel <= 9; nLevel++)
     {
-        int nMaximum = NUIResourceGetMaxSlots(oPC, nClass, nLevel);
+        int nMaximum = NUIResourceGetMaxSlotsFromState(
+            oPC,
+            nClass,
+            nLevel,
+            nCasterLevel,
+            nAbility
+        );
         if (nMaximum > 0)
         {
             string sEntry = "L" + IntToString(nLevel) + " "
@@ -257,10 +291,18 @@ json NUIResourceCreateEpicRow()
 json NUIResourceCreateCompactSpellRow(int nClass)
 {
     json jRow = JsonArray();
+    int nCasterLevel = GetSpellslotLevel(nClass, OBJECT_SELF);
+    int nAbility = GetAbilityScoreForClass(nClass, OBJECT_SELF);
     int nLevel;
     for (nLevel = 0; nLevel <= 9; nLevel++)
     {
-        if (NUIResourceGetMaxSlots(OBJECT_SELF, nClass, nLevel) > 0)
+        if (NUIResourceGetMaxSlotsFromState(
+                OBJECT_SELF,
+                nClass,
+                nLevel,
+                nCasterLevel,
+                nAbility
+            ) > 0)
         {
             string sSuffix = IntToString(nClass) + "_" + IntToString(nLevel);
             json jSlot = NuiId(
@@ -370,7 +412,23 @@ float NUIResourceGetSpellbookLayoutHeight(object oPC, int nSelectedClass)
     return fHeight;
 }
 
-void NUIResourceRefreshToken(object oPC, int nToken)
+void NUIResourceSetBindIfChanged(
+    object oPC,
+    int nToken,
+    string sBind,
+    json jValue
+)
+{
+    if (JsonDump(NuiGetBind(oPC, nToken, sBind)) != JsonDump(jValue))
+        NuiSetBind(oPC, nToken, sBind, jValue);
+}
+
+void NUIResourceRefreshTokenMode(
+    object oPC,
+    int nToken,
+    int bFullSlots,
+    int bCompactSlots
+)
 {
     if (!nToken)
         return;
@@ -381,39 +439,118 @@ void NUIResourceRefreshToken(object oPC, int nToken)
         int bFocused = GetIsPsionicallyFocused(oPC);
         int nCurrentPP = GetCurrentPowerPoints(oPC);
 
-        NuiSetBind(oPC, nToken, NUI_PRC_RESOURCE_PP_BIND,
+        NUIResourceSetBindIfChanged(oPC, nToken, NUI_PRC_RESOURCE_PP_BIND,
             JsonString("PP " + IntToString(nCurrentPP) + " / " + IntToString(nMaxPP)));
-        NuiSetBind(oPC, nToken, NUI_PRC_RESOURCE_FOCUS_BIND,
+        NUIResourceSetBindIfChanged(oPC, nToken, NUI_PRC_RESOURCE_FOCUS_BIND,
             JsonString(bFocused ? "Focused" : "Not focused"));
-        NuiSetBind(oPC, nToken, NUI_PRC_RESOURCE_FOCUS_ENABLED_BIND,
+        NUIResourceSetBindIfChanged(oPC, nToken, NUI_PRC_RESOURCE_FOCUS_ENABLED_BIND,
             JsonBool(!bFocused && nCurrentPP > 0));
     }
 
-    json jClasses = NUIResourceGetSpontaneousClasses(oPC);
-    int i;
-    for (i = 0; i < JsonGetLength(jClasses); i++)
+    if (bFullSlots || bCompactSlots)
     {
-        int nClass = JsonGetInt(JsonArrayGet(jClasses, i));
-        NuiSetBind(oPC, nToken, NUI_PRC_RESOURCE_SLOT_BIND_BASE + IntToString(nClass),
-            JsonString(NUIResourceGetSlotText(oPC, nClass)));
-
-        int nLevel;
-        for (nLevel = 0; nLevel <= 9; nLevel++)
+        int nPosition = 1;
+        int nClass = GetClassByPosition(nPosition, oPC);
+        while (nClass != CLASS_TYPE_INVALID)
         {
-            if (NUIResourceGetMaxSlots(oPC, nClass, nLevel) > 0)
-                NuiSetBind(oPC, nToken, NUIResourceGetCompactSlotBind(nClass, nLevel),
-                    JsonString(NUIResourceGetCompactSlotText(oPC, nClass, nLevel)));
+            if (GetSpellbookTypeForClass(nClass) == SPELLBOOK_TYPE_SPONTANEOUS)
+            {
+                // One authoritative snapshot per class per refresh. Maxima are
+                // still recomputed every second, so progression, ability, and
+                // item-granted slot changes remain live.
+                int nCasterLevel = GetSpellslotLevel(nClass, oPC);
+                int nAbility = GetAbilityScoreForClass(nClass, oPC);
+                int bHasSlots;
+                string sLowLevels;
+                string sHighLevels;
+                int nLevel;
+
+                for (nLevel = 0; nLevel <= 9; nLevel++)
+                {
+                    int nMaximum = NUIResourceGetMaxSlotsFromState(
+                        oPC,
+                        nClass,
+                        nLevel,
+                        nCasterLevel,
+                        nAbility
+                    );
+                    if (nMaximum > 0)
+                    {
+                        bHasSlots = TRUE;
+                        int nCurrent = NUIResourceGetCurrentSlots(
+                            oPC,
+                            nClass,
+                            nLevel
+                        );
+                        string sEntry = "L" + IntToString(nLevel) + " "
+                                      + IntToString(nCurrent) + "/"
+                                      + IntToString(nMaximum);
+
+                        if (bFullSlots)
+                        {
+                            if (nLevel <= 4)
+                            {
+                                if (sLowLevels != "")
+                                    sLowLevels += "   ";
+                                sLowLevels += sEntry;
+                            }
+                            else
+                            {
+                                if (sHighLevels != "")
+                                    sHighLevels += "   ";
+                                sHighLevels += sEntry;
+                            }
+                        }
+
+                        if (bCompactSlots)
+                            NUIResourceSetBindIfChanged(
+                                oPC,
+                                nToken,
+                                NUIResourceGetCompactSlotBind(nClass, nLevel),
+                                JsonString(sEntry)
+                            );
+                    }
+                }
+
+                if (bFullSlots && bHasSlots)
+                {
+                    string sSlots = sLowLevels;
+                    if (sLowLevels != "" && sHighLevels != "")
+                        sSlots += "\n";
+                    sSlots += sHighLevels;
+
+                    NUIResourceSetBindIfChanged(
+                        oPC,
+                        nToken,
+                        NUI_PRC_RESOURCE_SLOT_BIND_BASE + IntToString(nClass),
+                        JsonString(sSlots)
+                    );
+                }
+            }
+
+            nPosition++;
+            nClass = GetClassByPosition(nPosition, oPC);
         }
     }
 
     if (NUIResourceHasEpicSpells(oPC))
-        NuiSetBind(oPC, nToken, NUI_PRC_RESOURCE_EPIC_BIND,
+        NUIResourceSetBindIfChanged(oPC, nToken, NUI_PRC_RESOURCE_EPIC_BIND,
             JsonString(NUIResourceGetEpicText(oPC)));
+}
+
+void NUIResourceRefreshToken(object oPC, int nToken)
+{
+    NUIResourceRefreshTokenMode(oPC, nToken, TRUE, TRUE);
 }
 
 void NUIResourceRefreshWindow(object oPC)
 {
-    NUIResourceRefreshToken(oPC, NuiFindWindow(oPC, NUI_PRC_RESOURCE_WINDOW));
+    NUIResourceRefreshTokenMode(
+        oPC,
+        NuiFindWindow(oPC, NUI_PRC_RESOURCE_WINDOW),
+        TRUE,
+        FALSE
+    );
 }
 
 void NUIResourceRefreshLoop(object oPC, int nGeneration)
@@ -434,6 +571,6 @@ void NUIResourceRefreshSpellbookLoop(object oPC, int nToken, int nGeneration)
         || GetLocalInt(oPC, PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR) != nGeneration)
         return;
 
-    NUIResourceRefreshToken(oPC, nToken);
+    NUIResourceRefreshTokenMode(oPC, nToken, FALSE, TRUE);
     DelayCommand(1.0f, NUIResourceRefreshSpellbookLoop(oPC, nToken, nGeneration));
 }
