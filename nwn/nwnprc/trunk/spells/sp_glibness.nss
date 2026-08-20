@@ -44,7 +44,7 @@ void main()
     object oTarget = PRCGetSpellTargetObject();
     int nCasterLevel = PRCGetCasterLevel(oCaster);
     int nMetaMagic = PRCGetMetaMagicFeat();
-    float fDuration = 60.0 * nCasterLevel; //modify if necessary
+    float fDuration = 600.0 * nCasterLevel;
     if(nMetaMagic & METAMAGIC_EXTEND)
         fDuration *= 2;
 

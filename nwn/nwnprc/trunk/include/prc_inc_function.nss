@@ -1054,6 +1054,7 @@ void ScrubPCSkin(object oPC, object oSkin)
 				&& st != 102 //:: ACP Feats
 				&& st != 586 //:: ACP Feats
 				&& st != 587 //:: ACP Feats
+				&& st != 590  //:: Epic spell Summon Elemental Paragon
                 && st != 398
                 && (st < 1000 || st > 13520)
                 //&& (st < 1000 || st > 13999)

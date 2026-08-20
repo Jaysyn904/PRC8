@@ -46147,7 +46147,26 @@ Saving Throw: None (harmless)
 Spell Resistance: No (harmless)
 
 The goddess Shar is called the Mistress of the Night, the Lady of Loss, and the Dark Goddess. She is shadow; dark and secret. It is with little surprise that a gift from her to the caster of this spell would encompass such things. Upon completion of this spell, you receive an immensely powerful whip, created by the hands of Shar herself. It holds powerful enchantments, and also blinds its targets. In addition, shadow settles upon the battlefield wherever this whip is used. When the duration ends, the whip is left as a reminder to you, though all of its enchantments are stripped from it. </entry>
-  <entry id="56314" lang="en" sex="m">##START_OF_EPIC_SPELL_AND_ISC_RESERVE</entry>
+  <entry id="56314" lang="en" sex="m">Epic Spell: Summon Elemental Paragon</entry>
+  <entry id="56315" lang="en" sex="m">Researched Epic Spell: Summon Elemental Paragon</entry>
+  <entry id="56316" lang="en" sex="m">Conjuration (Summoning)
+Spellcraft DC: 87
+Components: V, S
+Casting Time: 1 minute
+Range: 75 ft.
+Effect: One summoned paragon elder elemental
+Duration: 17 hours
+Saving Throw: Will negates
+Spell Resistance: Yes
+
+The caster summons an elder elemental of the caster's choice: aiir, earth, fire, or water. The summoned elemental has the paragon template applied to it.  The elemental appears where the caster designates and acts immediately, on the caster's turn. It attacks the caster's opponents to the best of its ability. The caster can direct the elemental's actions as normal for a summoned creature.
+
+Mitigating Factor: Burn 500 XP during casting (–5 DC).</entry>
+  <entry id="56317" lang="en" sex="m">Summon Air Paragon</entry>
+  <entry id="56318" lang="en" sex="m">Summon Earth Paragon</entry>
+  <entry id="56319" lang="en" sex="m">Summon Fire Paragon</entry>
+  <entry id="56320" lang="en" sex="m">Summon Water Paragon</entry>
+  <entry id="56321" lang="en" sex="m">##START_OF_EPIC_SPELL_AND_ISC_RESERVE</entry>
   <entry id="56865" lang="en" sex="m">Weapon Focus (elven lightblade)</entry>
   <entry id="56866" lang="en" sex="m">Epic Weapon Focus (elven lightblade)</entry>
   <entry id="56867" lang="en" sex="m">Weapon Specialization (elven lightblade)</entry>

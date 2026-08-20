@@ -591,8 +591,8 @@
 587        16823586 FEAT_AUGMENT_PSIONICS_TENS                                0.01 3553      
 588        16823582 FEAT_AUGMENT_QUICKSELECTS_2                               0.01 3563      
 589        16827644 ImmunityPetrification                                     0.01 4643      
-590        ****     ReservedForISCAndESS                                      **** ****      
-591        ****     ReservedForISCAndESS                                      **** ****      
+590        16833530 ES_SummonParagon                                          11   5473      
+591        16833531 ES_SummonParagonR                                         11   5474      
 592        ****     ReservedForISCAndESS                                      **** ****      
 593        ****     ReservedForISCAndESS                                      **** ****      
 594        ****     ReservedForISCAndESS                                      **** ****      

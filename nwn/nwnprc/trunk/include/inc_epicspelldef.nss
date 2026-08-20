@@ -119,6 +119,7 @@ const int SPELL_EPIC_UNHOLYD	= 60;//4067;
 const int SPELL_EPIC_UNIMPIN	= 61;//4068;
 const int SPELL_EPIC_UNSEENW	= 62;//4069;
 const int SPELL_EPIC_WHIP_SH	= 63;//4070;
+const int SPELL_EPIC_PARAGON	= 64;//4072;
 
 
 /*

@@ -7,6 +7,7 @@
 //::////////////////////////////////////////////////////////
 //;:
 //:: Epic Spell: Summon Elemental Paragon
+//:: ss_ep_sumparagon.nss
 //:: Author: Jaysyn
 //:: Updated on: 2026-08-15 00:58:10
 //::
@@ -41,168 +42,114 @@
 */
 //::////////////////////////////////////////////////////////
 #include "prc_inc_spells"
+#include "prc_inc_json"
+#include "inc_epicspells"
 
 void main()
 {
     if(!X2PreSpellCastCode()) return;
-
+	
     PRCSetSchool(SPELL_SCHOOL_CONJURATION);
 
     //Declare major variables
     object oCaster = OBJECT_SELF;
-    int bAnimalDomain;
-    int nMetaMagic = PRCGetMetaMagicFeat();
-    int nSwitch = GetPRCSwitch(PRC_SUMMON_ROUND_PER_LEVEL);
-    float fDuration = nSwitch == 0 ? HoursToSeconds(24) :
-                                     RoundsToSeconds(PRCGetCasterLevel(oCaster) * nSwitch);
-    if(nMetaMagic & METAMAGIC_EXTEND)
-        fDuration *= 2;
-        
-    if (GetPRCSwitch(PRC_BIOWARE_ANIMAL_DOMAIN_POWER))
-        bAnimalDomain = GetHasFeat(FEAT_ANIMAL_DOMAIN_POWER, oCaster);
+	
+	if(!GetCanCastSpell(oCaster, SPELL_EPIC_PARAGON)) return;
+	
+	int i = 1;  
+	object oExisting = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oCaster, i);  
+	while(GetIsObjectValid(oExisting))  
+	{  
+		if(GetLocalInt(oExisting, "TEMPLATE_PARAGON"))  
+		{  
+			FloatingTextStringOnCreature("You may only have one Paragon active at a time.", oCaster, FALSE);  
+			return;  
+		}  
+		i++;  
+		oExisting = GetAssociate(ASSOCIATE_TYPE_SUMMONED, oCaster, i);  
+	}
 
-    string sSummon;
+    float fDuration = HoursToSeconds(17);	
+	
+    // Target location
+    location lTarget = PRCGetSpellTargetLocation();	
+
+	int nVFX = VFX_FNF_SUMMON_MONSTER_3;
+	int nRoll = d4();
+	string sSummon = nRoll == 1 ? "airelder" :
+			nRoll == 2 ? "earthelder" :
+			nRoll == 3 ? "fireelder" : "waterelder";
+			
+    if (GetHasFeat(FEAT_SUMMON_ALIEN, oCaster) || GetHasSpellEffect(VESTIGE_ZCERYLL, oCaster)) sSummon = "pseudo"+sSummon;
+    else     sSummon = "nw_s_"+sSummon;			
+			
+	json jParagon = TemplateToJson(sSummon, RESTYPE_UTC);
+	
+	int nBaseCR = FloatToInt(json_GetChallengeRating(jParagon));	
+	int nBaseHD	=  json_GetCreatureHD(jParagon);
+			
+	jParagon 	= json_AddParagonPowers(jParagon);
+	jParagon 	= json_UpdateParagonCR(jParagon, nBaseCR, nBaseHD);
+	jParagon	= json_UpdateBaseAC(jParagon, 5);
+	jParagon 	= json_UpdateTemplateStats(jParagon, 15, 15, 15, 15, 15, 15);
+
+    MultisummonPreSummon();
+	
+/*     string sSummon;		// << -- For whenever the Epic spell radial bug gets fixed
     int nVFX;
     switch(GetSpellId())
-    {
-        case SPELL_SUMMON_CREATURE_I:
-            sSummon = bAnimalDomain ? "boardire" : "badgerdire";
-            nVFX = VFX_FNF_SUMMON_MONSTER_1;
-            break;
-        case SPELL_SUMMON_CREATURE_II:
-            sSummon = bAnimalDomain ? "wolfdire" : "boardire";
-            nVFX = VFX_FNF_SUMMON_MONSTER_1;
-            break;
-        case SPELL_SUMMON_CREATURE_III:
-            if(bAnimalDomain)
-            {
-                sSummon = "spiddire";
-                nVFX = VFX_FNF_SUMMON_MONSTER_2;
-            }
-            else
-            {
-                sSummon = "wolfdire";
-                nVFX = VFX_FNF_SUMMON_MONSTER_1;
-            }
-            break;
-        case SPELL_SUMMON_CREATURE_IV:
-            sSummon = bAnimalDomain ? "beardire" : "spiddire";
-            nVFX = VFX_FNF_SUMMON_MONSTER_2;
-            break;
-        case SPELL_SUMMON_CREATURE_V:
-            sSummon = bAnimalDomain ? "diretiger" : "beardire";
-            nVFX = VFX_FNF_SUMMON_MONSTER_2;
-            break;
-        case SPELL_SUMMON_CREATURE_VI:
-            if(bAnimalDomain)
-            {
-                nVFX = VFX_FNF_SUMMON_MONSTER_3;
-                int nRoll = d4();
-                sSummon = nRoll == 1 ? "airhuge" :
-                          nRoll == 2 ? "earthhuge" :
-                          nRoll == 3 ? "firehuge" :
-                          "waterhuge";
-            }
-            else
-            {
-                sSummon = "diretiger";
-                nVFX = VFX_FNF_SUMMON_MONSTER_2;
-            }
-            break;
-       case SPELL_SUMMON_CREATURE_VII_AIR:
-            sSummon = bAnimalDomain ? "airgreat" : "airhuge";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VII_EARTH:
-            sSummon = bAnimalDomain ? "earthgreat" : "earthhuge";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VII_FIRE:
-            sSummon = bAnimalDomain ? "firegreat" : "firehuge";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VII_WATER:
-            sSummon = bAnimalDomain ? "watergreat" : "waterhuge";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VIII_AIR:
-            sSummon = bAnimalDomain ? "airelder" : "airgreat";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VIII_EARTH:
-            sSummon = bAnimalDomain ? "earthelder" : "earthgreat";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VIII_FIRE:
-            sSummon = bAnimalDomain ? "fireelder" : "firegreat";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_VIII_WATER:
-            sSummon = bAnimalDomain ? "waterelder" : "watergreat";
-            nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-       case SPELL_SUMMON_CREATURE_IX_AIR:
+	{
+		case EPIC_SPELL_SUMMON_AIR_PARAGON:
             sSummon = "airelder";
             nVFX = VFX_FNF_SUMMON_MONSTER_3;
             break;
-       case SPELL_SUMMON_CREATURE_IX_EARTH:
+		case EPIC_SPELL_SUMMON_EARTH_PARAGON:
             sSummon = "earthelder";
             nVFX = VFX_FNF_SUMMON_MONSTER_3;
             break;
-       case SPELL_SUMMON_CREATURE_IX_FIRE:
+		case EPIC_SPELL_SUMMON_FIRE_PARAGON:
             sSummon = "fireelder";
             nVFX = VFX_FNF_SUMMON_MONSTER_3;
             break;
-       case SPELL_SUMMON_CREATURE_IX_WATER:
+		case EPIC_SPELL_SUMMON_WATER_PARAGON:
             sSummon = "waterelder";
             nVFX = VFX_FNF_SUMMON_MONSTER_3;
-            break;
-        case SPELL_SUMMON_CREATURE_VII:
-            {
-                nVFX = VFX_FNF_SUMMON_MONSTER_3;
-                int nRoll = d4();
-                sSummon = nRoll == 1 ? "airhuge" :
-                          nRoll == 2 ? "earthhuge" :
-                          nRoll == 3 ? "firehuge" :
-                          "waterhuge";
-            }
-            break; 
-        case SPELL_SUMMON_CREATURE_VIII:
-            {
-                nVFX = VFX_FNF_SUMMON_MONSTER_3;
-                int nRoll = d4();
-                sSummon = nRoll == 1 ? "airgreat" :
-                          nRoll == 2 ? "earthgreat" :
-                          nRoll == 3 ? "firegreat" :
-                          "watergreat";
-            }
-            break;   
-        case SPELL_SUMMON_CREATURE_IX:
-            {
-                nVFX = VFX_FNF_SUMMON_MONSTER_3;
-                int nRoll = d4();
-                sSummon = nRoll == 1 ? "airelder" :
-                          nRoll == 2 ? "earthelder" :
-                          nRoll == 3 ? "fireelder" :
-                          "waterelder";
-            }
-            break;             
-    }
+            break;			
+	} */
 
-    if (GetHasFeat(FEAT_SUMMON_ALIEN, oCaster) || GetHasSpellEffect(VESTIGE_ZCERYLL, oCaster)) sSummon = "pseudo"+sSummon;
-    else     sSummon = "nw_s_"+sSummon;
-    
-    if (DEBUG) DoDebug("nw_s0_summon: oCaster " +GetName(oCaster)+", GetSpellId " +IntToString(GetSpellId())+", sSummon " +sSummon);
-    
-    effect eSummon = EffectSummonCreature(sSummon, nVFX);
 
+    
+    if (DEBUG) DoDebug("ss_ep_sumparagon: oCaster " +GetName(oCaster)+", GetSpellId " +IntToString(GetSpellId())+", sSummon " +sSummon);
+    
     //Apply the VFX impact and summon effect
     MultisummonPreSummon();
+	
+	object oParagon = JsonToObject(jParagon, lTarget);
+	
+	effect eSummon = ExtraordinaryEffect(EffectSummonCreature("", nVFX, 0.0, 0, VFX_IMP_UNSUMMON, oParagon));
+	
+	//:: Apply effects
+	ApplyParagonEffects(oParagon, nBaseHD, nBaseCR); 	
+	
+//:: Adding extra 12 HP per HD as Temporary HP.
+	effect eTempHP = EffectTemporaryHitpoints(nBaseHD * 12);
+	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTempHP, oParagon);
+	
+//:: Update creature's name
+	string sBaseName = GetName(oParagon);
+	SetName(oParagon, "Paragon "+ sBaseName);
+	
+//:: Freshen Up
+	//DelayCommand(0.0f, PRCForceRest(oParagon));
+
+//:: Set variables	
+	SetLocalInt(oParagon, "TEMPLATE_PARAGON", 1);
+
+	SetCurrentHitPoints(oParagon, GetMaxPossibleHP(oParagon));
+	
     ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eSummon, PRCGetSpellTargetLocation(), fDuration);
 
     DelayCommand(0.8, AugmentSummonedCreature(sSummon));
 	
-	DelayCommand(0.5, ExecuteScript("make_paragon", GetAssociate(ASSOCIATE_TYPE_SUMMONED, oCaster)));
-
     PRCSetSchool();
 }

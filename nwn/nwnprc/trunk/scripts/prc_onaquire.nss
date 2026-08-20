@@ -198,7 +198,7 @@ void main()
     object oItem     = GetModuleItemAcquired();
     string sTag = GetTag(oItem);
 	
-	WriteTimestampedLogEntry("prc_onaquire fired for: " + sTag);
+	if(DEBUG) DoDebug("prc_onaquire fired for: " + sTag);
 
     // Do not run for some of the PRC special items
     if(sTag == "PRC_MANIFTOKEN"
