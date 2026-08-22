@@ -394,7 +394,7 @@ int GetSpellslotLevel(int nClass, object oPC)
         nLevel = GetLevelByClass(CLASS_TYPE_ULTIMATE_MAGUS, oPC) + GetLevelByClass(CLASS_TYPE_SORCERER, oPC);
     }
 
-    if(DEBUG) DoDebug("GetSpellslotLevel(" + IntToString(nClass) + ", " + GetName(oPC) + ") = " + IntToString(nLevel));
+    //if(DEBUG) DoDebug("GetSpellslotLevel(" + IntToString(nClass) + ", " + GetName(oPC) + ") = " + IntToString(nLevel));
     return nLevel;
 }
 

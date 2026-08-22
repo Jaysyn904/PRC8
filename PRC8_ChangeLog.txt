@@ -1,3 +1,10 @@
+Jaysyn904 | 2026-08-22
+2026/08/22 Evening Update 2
+Quieted DEBUG spam from GetSpellslotLevel()
+
+Jaysyn904 | 2026-08-22
+2026/08/22 Evening Update
+Fixed TWF bug with Echoblade.
 
 Jaysyn904 | 2026-08-22
 2026/08/22 Update
