@@ -307,6 +307,9 @@ int GetIsTurnOrRebuke(object oTarget, int nTurnType, int nTargetRace)
     //always turn baelnorns & archliches
     if(GetLevelByClass(CLASS_TYPE_BAELNORN, oTarget) || GetHasFeat(FEAT_TEMPLATE_ARCHLICH_MARKER, oTarget))  //:: Archlich
         nReturn = ACTION_TURN;
+		
+	if(GetResRef(oTarget) == "prc_xagya001")
+		nReturn = ACTION_TURN;
 
     //Immunity check
     if(nReturn == ACTION_TURN && GetHasFeat(FEAT_TURNING_IMMUNITY, oTarget))
@@ -422,6 +425,8 @@ int GetTurningClassLevel(object oCaster = OBJECT_SELF, int nTurnType = SPELL_TUR
 		
 		return nDivineLvl;
 	}
+	
+	if(GetResRef(oCaster) == "prc_xagya001") return GetHitDice(oCaster);
 
     //Baelnorn & Archlich adds all class levels.
     if(GetLevelByClass(CLASS_TYPE_BAELNORN, oCaster) || GetHasFeat(FEAT_TEMPLATE_ARCHLICH_MARKER, oCaster)) //:: Archlich

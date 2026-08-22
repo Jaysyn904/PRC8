@@ -39,6 +39,7 @@ json CreateSpellBookClassButtons();
 //
 json CreateSpellbookSpellButtons(int nClass, int circle);
 json CreateNativeClassSpellButtons(int nClass, int circle);
+json CreateReadiedManeuverButtons(int nClass);
 
 // Creates spell buttons for only the Epic Spells currently readied through
 // the PRC conversation menu. Readied Epic Spells are represented by their
@@ -143,6 +144,7 @@ void main()
     }
     DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_NATIVE_CLASS_BUTTON_MAP_VAR);
     DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR);
+    DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR);
 
     json jRoot = JsonArray();
     json jResultRows = JsonArray();
@@ -237,6 +239,8 @@ void main()
         int currentCircle = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
         if (currentCircle == PRC_SPELLBOOK_NUI_EPIC_CIRCLE)
             jRow = CreateReadiedEpicSpellButtons();
+        else if (currentCircle == 0 && NUISpellbookIsInitiatorClass(selectedClassId))
+            jRow = CreateReadiedManeuverButtons(selectedClassId);
         else
             jRow = CreateSpellbookSpellButtons(selectedClassId, currentCircle);
 
@@ -275,12 +279,20 @@ void main()
 
     int bArchivistClassLayout = selectedClassId == CLASS_TYPE_ARCHIVIST
                              && nSelectedMode == PRC_SPELLBOOK_MODE_CLASS;
+    int bReadiedManeuverLayout = NUISpellbookIsInitiatorClass(selectedClassId)
+                               && nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+                               && GetLocalInt(
+                                   OBJECT_SELF,
+                                   PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+                               ) == 0;
 
     // Seed the Archivist readiness binds before replacing an existing root.
     // This prevents the new tier from appearing with null/stale bind values and
     // avoids an immediate post-swap burst of per-spell updates.
     if (bExistingWindow && bArchivistClassLayout)
         NUISpellbookRefreshArchivistButtons(OBJECT_SELF, nToken);
+    if (bExistingWindow && bReadiedManeuverLayout)
+        NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
 
     // Lock only during the root-layout swap so a queued click from the prior
     // button map cannot act on the new one.
@@ -371,9 +383,15 @@ void main()
     // Archivist layouts were already seeded before their in-place root swap.
     if (!bExistingWindow && bArchivistClassLayout)
         NUISpellbookRefreshArchivistButtons(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bReadiedManeuverLayout)
+        NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
 
-    NUIResourceRefreshToken(OBJECT_SELF, nToken);
-    NUIResourceRefreshSpellbookLoop(OBJECT_SELF, nToken, nRefreshGeneration);
+    NUIResourceRefreshTokenMode(OBJECT_SELF, nToken, FALSE, TRUE);
+    DelayCommand(1.0f, NUIResourceRefreshSpellbookLoop(
+        OBJECT_SELF,
+        nToken,
+        nRefreshGeneration
+    ));
     if ((nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && bHasDomainContent)
         || (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
             && NUISpellbookHasBonusDomains(OBJECT_SELF)
@@ -390,7 +408,12 @@ void main()
     if (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
         && (NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, selectedClassId)
             || selectedClassId == CLASS_TYPE_BINDER
-            || selectedClassId == CLASS_TYPE_ARCHIVIST))
+            || selectedClassId == CLASS_TYPE_ARCHIVIST
+            || (NUISpellbookIsInitiatorClass(selectedClassId)
+                && GetLocalInt(
+                    OBJECT_SELF,
+                    PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+                ) == 0)))
         DelayCommand(1.0f, RefreshSpellbookTabLoop(
             nToken,
             nRefreshGeneration,
@@ -642,6 +665,26 @@ string GetSpellbookTabRefreshState()
         return sState;
     }
 
+    if (NUISpellbookIsInitiatorClass(nClass))
+    {
+        // Only the roster participates in structural refresh. Expended,
+        // granted/withheld, and recovery-round state are live bind data, so
+        // normal combat use never replaces the root layout.
+        if (nCircle == 0)
+        {
+            string sBase = "ManeuverReadied" + IntToString(nClass);
+            int nCount = GetLocalInt(OBJECT_SELF, sBase);
+            sState += "R=" + IntToString(nCount) + ":";
+            int i;
+            for (i = 1; i <= nCount; i++)
+                sState += IntToString(GetLocalInt(
+                    OBJECT_SELF,
+                    sBase + IntToString(i)
+                )) + ",";
+        }
+        return sState;
+    }
+
     if (!NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass))
         return sState;
 
@@ -697,7 +740,9 @@ void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState)
     int nClass = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
     if (!NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass)
         && nClass != CLASS_TYPE_BINDER
-        && nClass != CLASS_TYPE_ARCHIVIST)
+        && nClass != CLASS_TYPE_ARCHIVIST
+        && !(NUISpellbookIsInitiatorClass(nClass)
+            && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0))
         return;
 
     string sCurrentState = GetSpellbookTabRefreshState();
@@ -711,6 +756,9 @@ void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState)
     // directly keeps the live root stable while casting, including at zero.
     if (nClass == CLASS_TYPE_ARCHIVIST)
         NUISpellbookRefreshArchivistButtons(OBJECT_SELF, nToken);
+    if (NUISpellbookIsInitiatorClass(nClass)
+        && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0)
+        NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
 
     DelayCommand(1.0f, RefreshSpellbookTabLoop(nToken, nGeneration, sCurrentState));
 }
@@ -1121,6 +1169,8 @@ json CreateSpellbookCircleButtons(int nClass)
     // Get what the lowest level of a circle is for the class (some start at 1,
     // some start higher, some start at cantrips)
     int minSpellLevel = GetMinSpellLevel(nClass);
+    if (NUISpellbookIsInitiatorClass(nClass))
+        minSpellLevel = 0;
 
     if (minSpellLevel >= 0)
     {
@@ -1161,7 +1211,10 @@ json CreateSpellbookCircleButtons(int nClass)
             float height = 42.0f;
             jButton = NuiWidth(jButton, width);
             jButton = NuiHeight(jButton, height);
-            jButton = NuiTooltip(jButton, JsonString(GetSpellLevelToolTip(i)));
+            string sCircleTooltip = i == 0 && NUISpellbookIsInitiatorClass(nClass)
+                                  ? "Readied Maneuvers"
+                                  : GetSpellLevelToolTip(i);
+            jButton = NuiTooltip(jButton, JsonString(sCircleTooltip));
 
             // if the current circle is selected or if the person can't cast at
             // that circle yet then disable the button.
@@ -1201,6 +1254,126 @@ json CreateSpellbookCircleButtons(int nClass)
     jRow = NuiRow(jRow);
 
     return jRow;
+}
+
+json CreateReadiedManeuverButtons(int nClass)
+{
+    json jRows = JsonArray();
+    json jMap = JsonArray();
+    json jTempRow = JsonArray();
+
+    if (!NUISpellbookIsInitiatorClass(nClass)
+        || GetLevelByClass(nClass, OBJECT_SELF) <= 0)
+    {
+        SetLocalJson(
+            OBJECT_SELF,
+            NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR,
+            jMap
+        );
+        return jRows;
+    }
+
+    string sReadiedBase = "ManeuverReadied" + IntToString(nClass);
+    int nCount = GetLocalInt(OBJECT_SELF, sReadiedBase);
+    int nSlot;
+    for (nSlot = 1; nSlot <= nCount; nSlot++)
+    {
+        int nManeuver = GetLocalInt(
+            OBJECT_SELF,
+            sReadiedBase + IntToString(nSlot)
+        );
+        int nFeat = NUISpellbookGetManeuverFeat(nClass, nManeuver);
+        int nWrapperSpell = nFeat > 0
+                          ? StringToInt(Get2DACache("feat", "SPELLID", nFeat))
+                          : -1;
+        if (nManeuver <= 0 || nFeat <= 0 || nWrapperSpell <= 0)
+            continue;
+
+        // Greater Divine Surge is a radial master. The ordinary level browser
+        // suppresses that unusable master and exposes its direct children; do
+        // the same here while every child shares the master's readiness owner.
+        int bRadial = StringToInt(Get2DACache(
+            "spells",
+            "SubRadSpell1",
+            nWrapperSpell
+        )) > 0;
+        int nFirstOption = bRadial ? 1 : 0;
+        int nLastOption = bRadial ? 5 : 0;
+        int nOption;
+        for (nOption = nFirstOption; nOption <= nLastOption; nOption++)
+        {
+            int nCastSpell = bRadial
+                ? StringToInt(Get2DACache(
+                    "spells",
+                    "SubRadSpell" + IntToString(nOption),
+                    nWrapperSpell
+                ))
+                : nWrapperSpell;
+            if (nCastSpell <= 0)
+                continue;
+
+            int nDisplayRealSpell = bRadial
+                ? NUISpellbookGetManeuverRealSpell(nClass, nCastSpell)
+                : nManeuver;
+            if (nDisplayRealSpell <= 0)
+                nDisplayRealSpell = nManeuver;
+            int nSubSpell = bRadial ? nCastSpell : 0;
+            string sTitle = bRadial
+                ? GetStringByStrRef(StringToInt(Get2DACache(
+                    "spells",
+                    "Name",
+                    nCastSpell
+                )))
+                : GetManeuverName(nManeuver);
+
+            int nButtonIndex = JsonGetLength(jMap);
+            string sIndex = IntToString(nButtonIndex);
+            string sReadyBind = NUI_SPELLBOOK_READIED_MANEUVER_READY_BIND_BASE
+                              + sIndex;
+            string sTooltipBind = NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE
+                                + sIndex;
+            json jButton = NuiId(
+                NuiButtonImage(GetSpellIcon(nCastSpell, nFeat, nClass)),
+                SpellbookLayoutElementId(
+                    PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID + sIndex
+                )
+            );
+            jButton = NuiWidth(jButton, 38.0f);
+            jButton = NuiHeight(jButton, 38.0f);
+            jButton = NuiEnabled(jButton, NuiBind(sReadyBind));
+            jButton = NuiEncouraged(jButton, NuiBind(sReadyBind));
+            jButton = NuiTooltip(jButton, NuiBind(sTooltipBind));
+            jButton = NuiDisabledTooltip(jButton, NuiBind(sTooltipBind));
+
+            json jEntry = JsonObject();
+            jEntry = JsonObjectSet(jEntry, "c", JsonInt(nClass));
+            jEntry = JsonObjectSet(jEntry, "m", JsonInt(nManeuver));
+            jEntry = JsonObjectSet(jEntry, "f", JsonInt(nFeat));
+            jEntry = JsonObjectSet(jEntry, "p", JsonInt(nWrapperSpell));
+            jEntry = JsonObjectSet(jEntry, "s", JsonInt(nCastSpell));
+            jEntry = JsonObjectSet(jEntry, "r", JsonInt(nDisplayRealSpell));
+            jEntry = JsonObjectSet(jEntry, "u", JsonInt(nSubSpell));
+            jEntry = JsonObjectSet(jEntry, "t", JsonString(sTitle));
+            jMap = JsonArrayInsert(jMap, jEntry);
+
+            jTempRow = JsonArrayInsert(jTempRow, jButton);
+            if (JsonGetLength(jTempRow) >= NUI_SPELLBOOK_SPELL_BUTTON_LENGTH)
+            {
+                jRows = JsonArrayInsert(jRows, NuiRow(jTempRow));
+                jTempRow = JsonArray();
+            }
+        }
+    }
+
+    if (JsonGetLength(jTempRow) > 0)
+        jRows = JsonArrayInsert(jRows, NuiRow(jTempRow));
+
+    SetLocalJson(
+        OBJECT_SELF,
+        NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR,
+        jMap
+    );
+    return jRows;
 }
 
 json CreateSpellbookSpellButtons(int nClass, int circle)

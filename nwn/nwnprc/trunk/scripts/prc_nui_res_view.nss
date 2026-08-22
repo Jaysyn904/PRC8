@@ -16,7 +16,7 @@ void main()
         int nExistingGeneration = GetLocalInt(oPC, NUI_PRC_RESOURCE_GENERATION_VAR) + 1;
         SetLocalInt(oPC, NUI_PRC_RESOURCE_GENERATION_VAR, nExistingGeneration);
         NUIResourceRefreshWindow(oPC);
-        NUIResourceRefreshLoop(oPC, nExistingGeneration);
+        DelayCommand(1.0f, NUIResourceRefreshLoop(oPC, nExistingGeneration));
         return;
     }
 
@@ -59,5 +59,5 @@ void main()
 
     int nGeneration = GetLocalInt(oPC, NUI_PRC_RESOURCE_GENERATION_VAR) + 1;
     SetLocalInt(oPC, NUI_PRC_RESOURCE_GENERATION_VAR, nGeneration);
-    NUIResourceRefreshLoop(oPC, nGeneration);
+    DelayCommand(1.0f, NUIResourceRefreshLoop(oPC, nGeneration));
 }

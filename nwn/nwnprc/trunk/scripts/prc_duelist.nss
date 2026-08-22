@@ -227,6 +227,7 @@ void main()
 			GetBaseItemType(oWeapon) == BASE_ITEM_KATAR ||
 			GetBaseItemType(oWeapon) == BASE_ITEM_LIGHT_PICK ||
 			GetBaseItemType(oWeapon) == BASE_ITEM_ELVEN_LIGHTBLADE ||
+			GetBaseItemType(oWeapon) == BASE_ITEM_EAGLE_CLAW ||
 			GetBaseItemType(oWeapon) == BASE_ITEM_SHORTSWORD))
         {
         

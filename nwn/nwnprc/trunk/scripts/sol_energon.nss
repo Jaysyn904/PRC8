@@ -1,144 +1,104 @@
+//::///////////////////////////////////////////////  
+//:: Soldier of Light - Energon Companion  
+//:: sol_energon.nss  
+//:://////////////////////////////////////////////  
+/*  
+    Energon Companion: At 4th level, a soldier of light can  
+    summon a xag-ya companion (prc_xagya001). At 8th level, he  
+    may summon a second xag-ya, and both gain +2 HD (with all  
+    attendant benefits, including BAB and save increases).  
+*/  
+//:://////////////////////////////////////////////
+#include "prc_inc_json"
+#include "inc_ecl"  
 
-#include "prc_alterations"
+  
+void SpawnEnergon(object oPC, json jXagYa, location lTarget, float fDuration)  
+{  
+    MultisummonPreSummon(oPC, TRUE);  
+  
+    object oEnergon = JsonToObject(jXagYa, lTarget);  
+    if (!GetIsObjectValid(oEnergon))  
+    {  
+        SendMessageToPC(oPC, "sol_energon | SpawnEnergon() >> JsonToObject failed.");  
+        return;  
+    }  
+  
+    effect eSummon = EffectSummonCreature("", VFX_FNF_SUMMON_MONSTER_2, 0.0, 0, VFX_IMP_UNSUMMON, oEnergon);  
+  
+    ChangeFaction(oEnergon, oPC);  
+    SetLocalObject(oEnergon, "SUMMONER", oPC);  
+  
+    ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eSummon, lTarget, fDuration);  
+  
+    SetLocalNPC(oPC, oEnergon, ASSOCIATE_TYPE_SUMMONED);  
+    SetAssociateState(NW_ASC_HAVE_MASTER, TRUE, oEnergon);  
+    SetAssociateState(NW_ASC_DISTANCE_2_METERS); 
 
-void RemoveAllIP(object oItem)
-{
-   itemproperty ip = GetFirstItemProperty(oItem);
-    int total = 0;
-
-    while(GetIsItemPropertyValid(ip))
-    {
-       RemoveItemProperty(oItem, ip);
-       ip = GetNextItemProperty(oItem);
-    }
-
+	SetName(oEnergon, "Xag-Ya Companion");
+}  
+  
+void main()  
+{  
+    object oPC = OBJECT_SELF;  
+    int nSolLevel = GetLevelByClass(CLASS_TYPE_SOLDIER_OF_LIGHT, oPC);  
+  
+    if (nSolLevel < 4)  
+    {  
+        SendMessageToPC(oPC, "You must be at least 4th level Soldier of Light to summon an Energon Companion.");  
+        return;  
+    }  
+  
+    location lTarget = GetLocation(oPC);  
+    float fDuration = HoursToSeconds(24); // "companion" - long duration, not per-turn combat summon  
+  
+    //:: Despawn any existing energon companions belonging to this PC  
+    object oArea = GetArea(oPC);  
+    object oObj  = GetFirstObjectInArea(oArea);  
+    while (GetIsObjectValid(oObj))  
+    {  
+        if (GetTag(oObj) == "PRC_XAGYA001")  
+        {  
+            if (GetLocalObject(oObj, "SUMMONER") == oPC)  
+                DestroyObject(oObj);  
+        }  
+        oObj = GetNextObjectInArea(oArea);  
+    }  
+  
+    //:: Load & optionally boost the template  
+    json jXagYa = TemplateToJson("prc_xagya001", RESTYPE_UTC);  
+    if (jXagYa == JSON_NULL)  
+    {  
+        SendMessageToPC(oPC, "sol_energon >> TemplateToJson failed - bad resref or resource missing.");  
+        return;  
+    }  
+  
+    if (nSolLevel >= 8)  
+    {  
+        //:: Improved Energon Companion - +2 HD  
+        jXagYa = json_AddHitDice(jXagYa, 2);  
+        if (jXagYa == JSON_NULL)  
+        {  
+            SendMessageToPC(oPC, "sol_energon >> json_AddHitDice failed - JSON became invalid.");  
+            return;  
+        }  
+        jXagYa = json_RecalcMaxHP(jXagYa, 8);  
+        if (jXagYa == JSON_NULL)  
+        {  
+            SendMessageToPC(oPC, "sol_energon >> json_RecalcMaxHP failed - JSON became invalid.");  
+            return;  
+        }  
+    }  
+  
+    if (GetPRCSwitch(PRC_MULTISUMMON) || nSolLevel >= 8)  
+    {  
+        //:: 4th level: one companion. 8th level: a second  
+        SpawnEnergon(oPC, jXagYa, lTarget, fDuration);  
+        if (nSolLevel >= 8)  
+            SpawnEnergon(oPC, jXagYa, lTarget, fDuration);  
+    }  
+    else  
+    {  
+        SpawnEnergon(oPC, jXagYa, lTarget, fDuration);  
+    }  
 }
-
-void main()
-{
-
-   if (GetMaxHenchmen() < 4)
-   {
-      SetMaxHenchmen(4);
-   }
-   
-   if (!GetHasFeat(FEAT_ENERGON_COMPANION))
-   {
-
-     int nLoop, nCount;
-     object oHench;
-     for (nLoop=1; nLoop<=GetMaxHenchmen(); nLoop++)
-     {
-        oHench = GetHenchman(OBJECT_SELF, nLoop);
-
-        if (GetResRef(oHench)=="xagya2")
-        {
-           RemoveHenchman(OBJECT_SELF,oHench);
-           AssignCommand(oHench, SetIsDestroyable(TRUE));
-           DestroyObject(oHench);
-        }
-     }
-      return;
-   }
-
-
-   int nLoop, nCount;
-   object oHench;
-   for (nLoop=1; nLoop<=GetMaxHenchmen(); nLoop++)
-   {
-    oHench = GetHenchman(OBJECT_SELF, nLoop);
-
-      if (GetIsObjectValid(oHench))  nCount++;
-
-     if (GetResRef(oHench)=="xagya2")
-     {
-        RemoveHenchman(OBJECT_SELF,oHench);
-        AssignCommand(oHench, SetIsDestroyable(TRUE));
-        DestroyObject(oHench);
-        nCount--;
-     }
-   }
-
-    if (nCount >= GetMaxHenchmen()) return;
-
-
-    oHench = CreateObject(OBJECT_TYPE_CREATURE,"xagya2", GetSpellTargetLocation());
-    AddHenchman(OBJECT_SELF,oHench);
-
-
-    object  oArmor = GetItemInSlot(INVENTORY_SLOT_CHEST,oHench);
-    object  oAmulet = GetItemInSlot(INVENTORY_SLOT_NECK,oHench);
-    object  oRing1 = GetItemInSlot(INVENTORY_SLOT_LEFTRING,oHench);
-    object  oRing2 = GetItemInSlot(INVENTORY_SLOT_RIGHTRING,oHench);
-    object  oBelt = GetItemInSlot(INVENTORY_SLOT_BELT,oHench);
-    object  oCloak = GetItemInSlot(INVENTORY_SLOT_CLOAK,oHench);
-    object  oGauntlet = GetItemInSlot(INVENTORY_SLOT_ARMS,oHench);
-    object  oBoot = GetItemInSlot(INVENTORY_SLOT_BOOTS,oHench);
-
-    int iLvl = GetHitDice(OBJECT_SELF);
-
-    int iBonus = (iLvl/5)+1;
-
-    RemoveAllIP(oArmor);
-    SetItemCursedFlag(oArmor,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyACBonus(iBonus),oArmor);
-    RemoveAllIP(oAmulet);
-    SetItemCursedFlag(oAmulet,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyAbilityBonus(IP_CONST_ABILITY_WIS,iBonus),oAmulet);
-    RemoveAllIP(oRing1);
-    SetItemCursedFlag(oRing1,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyACBonus(iBonus),oRing1);
-    RemoveAllIP(oRing2);
-    SetItemCursedFlag(oRing2,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyBonusSavingThrow(IP_CONST_SAVEBASETYPE_FORTITUDE,iBonus),oRing2);
-    RemoveAllIP(oBelt);
-    SetItemCursedFlag(oBelt,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyAbilityBonus(IP_CONST_ABILITY_STR,iBonus),oBelt);
-    RemoveAllIP(oCloak);
-    SetItemCursedFlag(oCloak,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyAbilityBonus(IP_CONST_ABILITY_CHA,iBonus),oCloak);
-    RemoveAllIP(oGauntlet);
-    SetItemCursedFlag(oGauntlet,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyAbilityBonus(IP_CONST_ABILITY_DEX,iBonus),oGauntlet);
-    RemoveAllIP(oBoot);
-    SetItemCursedFlag(oBoot,TRUE);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyAbilityBonus(IP_CONST_ABILITY_CON,iBonus),oBoot);
-
-   AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyDamageReduction(iBonus-1,(iLvl/10)),oArmor);
-
-
-   int i;
-   for (i = 0; i < 4; i++)
-      LevelUpHenchman( oHench,CLASS_TYPE_OUTSIDER,TRUE,PACKAGE_INVALID);
-
-   int  iFeat = GetHasFeat(FEAT_POSITIVE_ENERGY_BURST);
-
-   if ( GetHitDice(OBJECT_SELF) >7)
-   {
-      int level = (GetHitDice(OBJECT_SELF)-7+iFeat*2)/2;
-
-     for (i = 0; i < level ; i++)
-      LevelUpHenchman( oHench,CLASS_TYPE_CLERIC,TRUE,PACKAGE_CLERIC_DIVINE);
-
-     if ( (GetHitDice(OBJECT_SELF)-7+iFeat*2)!= level*2) level++;
-
-     for (i = 0; i < level ; i++)
-      LevelUpHenchman( oHench,CLASS_TYPE_OUTSIDER,TRUE,PACKAGE_INVALID);
-
-   }
-
-
-    object oCreL=GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oHench);
-    object oCreR=GetItemInSlot(INVENTORY_SLOT_CWEAPON_R,oHench);
-
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_POSITIVE,IP_CONST_DAMAGEBONUS_1d6),oCreL);
-    AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_POSITIVE,IP_CONST_DAMAGEBONUS_1d6),oCreR);
-
-
-//    effect eConceal = SupernaturalEffect(EffectConcealment(50));
-//    DelayCommand(0.1f, ApplyEffectToObject(DURATION_TYPE_INSTANT, eConceal, oHench));
-
-
-
-}
-

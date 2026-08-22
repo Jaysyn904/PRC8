@@ -19475,7 +19475,7 @@ Use: Automatic.</entry>
 Prerequisite: Man At Arms level 10
 Specifics: Gains Weapon Focus in any four weapons.
 Use: Selected.</entry>
-  <entry id="48644" lang="en" sex="m">Bolt Xag-Ya</entry>
+  <entry id="48644" lang="en" sex="m">Bolt, Xag-Ya</entry>
   <entry id="48645" lang="en" sex="m">Bolt deals 1d8 positive damage.</entry>
   <entry id="48646" lang="en" sex="m">Fast Healing 3</entry>
   <entry id="48647" lang="en" sex="m">Type of Feat: Class Specific
@@ -19495,7 +19495,7 @@ Use: Automatic.</entry>
   <entry id="48652" lang="en" sex="m">Energon Companion</entry>
   <entry id="48653" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisite: Soldier of Light level 4
-You may summon a Good Outsider.
+You may summon a xag-ya, a friendly outsider from the positive energy plane.
 Use: Selected. </entry>
   <entry id="48654" lang="en" sex="m">Fist of Iron</entry>
   <entry id="48655" lang="en" sex="m">Type of Feat: General.
@@ -19531,7 +19531,7 @@ Level
 2: Divine Grace - Applies Charisma bonus to all saving throws.
   Smite Undead - May add Wisdom bonus to attack bonus against an undead target. If the strike hits, the blow deals 1 point of positive damage per point of Wisdom bonus. Usable 3/day, +1 per Charisma bonus/day.
 3: Positive Fortitude - Gains +2 to all saving throws against necromantic spells and drain effects.
-4: Energon Companion - May summon a Xag-Ya companion (Good Outsider), 1/day.
+4: Energon Companion - May summon a Xag-Ya companion (positive energy outsider), 1/day.
 5: Divine Vengeance - May spend 2 Turn Undead attempts to add +2d6 positive damage against Undead to the caster's weapon (1 round/Cha bonus, minimum 1 round).
 6: -
 7: Fast Healing 1 - Regenerate 1 HP/round.
@@ -20932,16 +20932,18 @@ CLASS FEATURES:
 Level 
 1: Cat Familiar - Gain a cat as a familiar
    Flirtation (Fascinate) - Once per day per class level, Fascinate creatures
-2: Rage - As barbarian
+2: Fury of the Tigress: Rage - As barbarian
 3: 
 4: Flirtation (Confusion) - Confuse fascinated creature
 5: Pounce of the Tigress - Gain Pounce at the end of charge
-6: Rage 2/day
+6: Fury of the Tigress 2/day
 7: Sanctuary - You and allies gain sanctuary
 8: Swiftness of the Tigress - Gain haste once a day
 9: 
-10: Rage 3/day
-    Flirtation (Dominate) - Dominate fascinated creature</entry>
+10: Fury of the Tigress 3/day
+    Flirtation (Dominate) - Dominate fascinated creature
+	
+	Spells: Beginning at 1st level, a celebrant of Sharess gains the ability to cast a number of arcane spells. To cast a spell, a celebrant must have a Charisma score of ate least 10 + the spell's level, so a celebrant with a Charisma of 10 or lower cannot cast these spells. Celebrant of Sharess bonus spells are based on Charisma, and saving throws against these spells have a DC of 10 + spell level + the celebrant's Charisma bonus (if any). When the celebrant gets 0 spells per day of a given spell level (for instance, 1st-level spells for a 1st-level celebrant), she gains only the bonus spells she would be entitled to based on her Charisma score for that spell level. The celebrant's spell list appears below. A celebrant of Sharess casts spells just as a bard does.</entry>
   <entry id="49109" lang="en" sex="m">Vow of Purity</entry>
   <entry id="49110" lang="en" sex="m">Type of Feat: General
 Prerequisite: Sacred Vow

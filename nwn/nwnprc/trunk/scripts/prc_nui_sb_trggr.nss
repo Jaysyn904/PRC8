@@ -255,8 +255,82 @@ void main()
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
+        DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
         return;
+    }
+
+    // A targeted maneuver can become expended, withheld, or recovery-locked
+    // after its button was clicked but before the player chooses a target.
+    // Re-resolve the live level-0 map and reject it here; UseManeuver remains
+    // the final authority when the queued class wrapper actually executes.
+    if (GetLocalInt(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR))
+    {
+        int nSelectedClass = GetLocalInt(
+            OBJECT_SELF,
+            PRC_SPELLBOOK_SELECTED_CLASSID_VAR
+        );
+        json jMap = GetLocalJson(
+            OBJECT_SELF,
+            NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR
+        );
+        int nManeuver = -1;
+        int i;
+        if (GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                == PRC_SPELLBOOK_MODE_CLASS
+            && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0
+            && NUISpellbookIsInitiatorClass(nSelectedClass)
+            && jMap != JsonNull())
+        {
+            for (i = 0; i < JsonGetLength(jMap); i++)
+            {
+                json jEntry = JsonArrayGet(jMap, i);
+                if (JsonGetInt(JsonObjectGet(jEntry, "c")) == nSelectedClass
+                    && JsonGetInt(JsonObjectGet(jEntry, "f")) == featId
+                    && JsonGetInt(JsonObjectGet(jEntry, "p"))
+                        == StringToInt(Get2DACache("feat", "SPELLID", featId))
+                    && JsonGetInt(JsonObjectGet(jEntry, "u"))
+                        == GetLocalInt(
+                            OBJECT_SELF,
+                            NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR
+                        ))
+                {
+                    nManeuver = JsonGetInt(JsonObjectGet(jEntry, "m"));
+                    break;
+                }
+            }
+        }
+
+        string sStatus = nManeuver > 0
+            ? NUISpellbookGetReadiedManeuverStatus(
+                OBJECT_SELF,
+                nSelectedClass,
+                nManeuver
+            )
+            : "No longer readied";
+        if (sStatus != "Ready")
+        {
+            if (nManeuver > 0)
+            {
+                SendMessageToPC(
+                    OBJECT_SELF,
+                    GetManeuverName(nManeuver)
+                        + " is not currently available (" + sStatus + ")."
+                );
+            }
+            else
+                SendMessageToPC(OBJECT_SELF, "That readied maneuver is no longer available.");
+
+            NUISpellbookRefreshReadiedManeuverButtons(
+                OBJECT_SELF,
+                NuiFindWindow(OBJECT_SELF, PRC_SPELLBOOK_NUI_WINDOW_ID)
+            );
+            DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
+            DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+            DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
+            DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
+            return;
+        }
     }
 
     // Expel Vestige removes the owner spell effect before its granted skin
@@ -268,6 +342,7 @@ void main()
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
+        DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
         return;
     }
 
@@ -303,4 +378,5 @@ void main()
 
     DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
     DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+    DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
 }

@@ -56,6 +56,9 @@ void ClearEventVariables(object oPC)
     DeleteLocalInt(oPC, NUI_SPELLBOOK_SELECTED_SPELLID_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+    // Declared by prc_nui_sb_inc; keep this target bridge's dependency surface
+    // narrow while clearing an abandoned level-0 maneuver selection.
+    DeleteLocalInt(oPC, "NUI_ReadiedManeuverPending");
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_CLASS_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR);

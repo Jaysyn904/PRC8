@@ -105,6 +105,7 @@ void main()
     // delayed click from the prior layout resolving against a new class/map.
     int bGeneratedElement =
            FindSubString(sElement, PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_CLASS_SPELL_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_EPIC_SPELL_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID) == 0
@@ -139,6 +140,8 @@ void main()
     int realSpellId;
     int bEpicSpellButton;
     int bDomainSpellButton;
+    int bReadiedManeuverButton;
+    int nReadiedManeuverSubSpell;
 
     if (FindSubString(sElement, NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE) == 0
         || sElement == NUI_PRC_RESOURCE_FOCUS_STATUS_BUTTON
@@ -582,6 +585,102 @@ void main()
         return;
     }
 
+    // Level 0 on a base initiator class is a live view of that class's
+    // selected/readied roster. Resolve the compact button map back to the
+    // class-specific wrapper feat, while retaining the real maneuver ID for
+    // readiness checks and the description window.
+    if (FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID
+        ) == 0)
+    {
+        int nButtonIndex = StringToInt(RegExpReplace(
+            PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID,
+            sElement,
+            ""
+        ));
+        json jMap = GetLocalJson(
+            oPlayer,
+            NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR
+        );
+        if (jMap == JsonNull()
+            || nButtonIndex < 0
+            || nButtonIndex >= JsonGetLength(jMap))
+        {
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        json jEntry = JsonArrayGet(jMap, nButtonIndex);
+        int nClass = JsonGetInt(JsonObjectGet(jEntry, "c"));
+        int nManeuver = JsonGetInt(JsonObjectGet(jEntry, "m"));
+        int nManeuverFeat = JsonGetInt(JsonObjectGet(jEntry, "f"));
+        int nParentSpell = JsonGetInt(JsonObjectGet(jEntry, "p"));
+        int nCastSpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+        int nDisplayRealSpell = JsonGetInt(JsonObjectGet(jEntry, "r"));
+        int nSubSpell = JsonGetInt(JsonObjectGet(jEntry, "u"));
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR) != nClass
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) != 0
+            || !NUISpellbookIsInitiatorClass(nClass)
+            || GetLevelByClass(nClass, oPlayer) <= 0
+            || NUISpellbookGetManeuverFeat(nClass, nManeuver) != nManeuverFeat
+            || StringToInt(Get2DACache("feat", "SPELLID", nManeuverFeat))
+                != nParentSpell
+            || nCastSpell <= 0
+            || (nSubSpell <= 0 && nCastSpell != nParentSpell)
+            || (nSubSpell > 0
+                && (nSubSpell != nCastSpell
+                    || StringToInt(Get2DACache("spells", "Master", nCastSpell))
+                        != nParentSpell)))
+        {
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        json jManeuverPayload = NuiGetEventPayload();
+        int nManeuverButton = JsonGetInt(JsonObjectGet(
+            jManeuverPayload,
+            "mouse_btn"
+        ));
+        if (nManeuverButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
+        {
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                nManeuverFeat,
+                nCastSpell,
+                nDisplayRealSpell,
+                nClass
+            );
+            return;
+        }
+        if (nManeuverButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+            return;
+
+        string sStatus = NUISpellbookGetReadiedManeuverStatus(
+            oPlayer,
+            nClass,
+            nManeuver
+        );
+        if (sStatus != "Ready")
+        {
+            SendMessageToPC(
+                oPlayer,
+                GetManeuverName(nManeuver)
+                    + " is not currently available (" + sStatus + ")."
+            );
+            NUISpellbookRefreshReadiedManeuverButtons(oPlayer, nToken);
+            return;
+        }
+
+        bReadiedManeuverButton = TRUE;
+        nReadiedManeuverSubSpell = nSubSpell;
+        spellId = nCastSpell;
+        realSpellId = nDisplayRealSpell;
+        featId = nManeuverFeat;
+    }
+
     // Epic spell buttons store the epicspells.2da row. Re-check the granted
     // feat at click time so a spell removed through Manage Epic Spells cannot
     // be cast from a stale, already-open NUI window.
@@ -706,6 +805,15 @@ void main()
     if (nButton == NUI_PAYLOAD_BUTTON_LEFT_CLICK)
     {
 
+        // Stances remain in the separate ToB meta row even while level 0 is
+        // selected. Only a button from the readied-maneuver map may enable the
+        // trigger's extra post-target readiness validation.
+        if (!bReadiedManeuverButton)
+            DeleteLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR
+            );
+
         if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR))
         {
             SendMessageToPC(oPlayer, "Finish or cancel the pending native domain spell target first.");
@@ -716,6 +824,26 @@ void main()
         {
             SendMessageToPC(oPlayer, "Finish or cancel the pending native spell target first.");
             return;
+        }
+
+        if (bReadiedManeuverButton)
+        {
+            if (nReadiedManeuverSubSpell > 0)
+                SetLocalInt(
+                    oPlayer,
+                    NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR,
+                    nReadiedManeuverSubSpell
+                );
+            else
+                DeleteLocalInt(
+                    oPlayer,
+                    NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR
+                );
+            SetLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR,
+                TRUE
+            );
         }
 
         // We use the spell's FeatID to do actions, and we set the OnTarget action
@@ -804,6 +932,7 @@ int CancelPendingSpellbookTarget(object oPlayer)
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SPELLID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
     DeleteLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR);
     DeleteLocalObject(oPlayer, "TARGETING_OBJECT");

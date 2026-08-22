@@ -14,6 +14,15 @@
 #include "prc_nui_com_inc"
 #include "prc_inc_domain"
 
+// The otherwise-unused level-0 tier on the three base initiator class tabs
+// presents the character's selected/readied maneuvers. The server-side map
+// keeps actionable IDs compact while readiness binds update in place.
+const string PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID = "spellbookReadiedManeuverButton_";
+const string NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR = "NUI_ReadiedManeuverButtonMap";
+const string NUI_SPELLBOOK_READIED_MANEUVER_READY_BIND_BASE = "sbMr";
+const string NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE = "sbMt";
+const string NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR = "NUI_ReadiedManeuverPending";
+
 //
 // GetSpellListForCircle
 // Gets the spell list for a specified class at the specified circle.
@@ -338,6 +347,17 @@ int NUISpellbookNativePreparedCount(object oPlayer, int nClass, int nLevel,
     int nSpell, int nMetamagic, int bDomain, int bReadyOnly=FALSE);
 int NUISpellbookNativeKnownAtLevel(object oPlayer, int nClass, int nLevel, int nSpell);
 
+// Readied-maneuver helpers deliberately inspect the same transient locals as
+// tob_inc_recovery without calling its DEBUG-bearing query functions from the
+// once-per-second NUI refresh loop.
+int NUISpellbookIsInitiatorClass(int nClass);
+int NUISpellbookGetManeuverFeat(int nClass, int nManeuver);
+int NUISpellbookGetManeuverRealSpell(int nClass, int nWrapperSpell);
+int NUISpellbookIsManeuverReadied(object oPlayer, int nClass, int nManeuver);
+int NUISpellbookIsReadiedManeuverAvailable(object oPlayer, int nClass, int nManeuver);
+string NUISpellbookGetReadiedManeuverStatus(object oPlayer, int nClass, int nManeuver);
+void NUISpellbookRefreshReadiedManeuverButtons(object oPlayer, int nToken);
+
 int NUISpellbookIsNativePreparedClass(int nClass)
 {
     // Compare the raw strings. Blank/**** cells must not be coerced to zero
@@ -422,6 +442,177 @@ int NUISpellbookNativeKnownAtLevel(object oPlayer, int nClass, int nLevel, int n
     }
 
     return FALSE;
+}
+
+int NUISpellbookIsInitiatorClass(int nClass)
+{
+    return nClass == CLASS_TYPE_CRUSADER
+        || nClass == CLASS_TYPE_SWORDSAGE
+        || nClass == CLASS_TYPE_WARBLADE;
+}
+
+int NUISpellbookGetManeuverFeat(int nClass, int nManeuver)
+{
+    if (!NUISpellbookIsInitiatorClass(nClass) || nManeuver <= 0)
+        return -1;
+
+    // The normal PRC lookup is fast once its module cache has initialized.
+    int nFeat = GetClassFeatFromPower(nManeuver, nClass);
+    if (nFeat > 0)
+        return nFeat;
+
+    // A freshly-loaded module can briefly precede the asynchronous lookup
+    // cache.  Fall back to the authoritative class definition table so the
+    // readied tier never renders empty merely because that cache is still warm.
+    string sFile = GetClassSpellbookFile(nClass);
+    int nRows = Get2DARowCount(sFile);
+    int i;
+    for (i = 1; i < nRows; i++)
+    {
+        if (StringToInt(Get2DACache(sFile, "RealSpellID", i)) == nManeuver)
+            return StringToInt(Get2DACache(sFile, "FeatID", i));
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetManeuverRealSpell(int nClass, int nWrapperSpell)
+{
+    if (!NUISpellbookIsInitiatorClass(nClass) || nWrapperSpell <= 0)
+        return -1;
+
+    int nRealSpell = GetPowerFromSpellID(nWrapperSpell);
+    if (nRealSpell > 0)
+        return nRealSpell;
+
+    string sFile = GetClassSpellbookFile(nClass);
+    int nRows = Get2DARowCount(sFile);
+    int i;
+    for (i = 1; i < nRows; i++)
+    {
+        if (StringToInt(Get2DACache(sFile, "SpellID", i)) == nWrapperSpell)
+            return StringToInt(Get2DACache(sFile, "RealSpellID", i));
+    }
+
+    return -1;
+}
+
+int NUISpellbookIsManeuverReadied(object oPlayer, int nClass, int nManeuver)
+{
+    if (!NUISpellbookIsInitiatorClass(nClass) || nManeuver <= 0)
+        return FALSE;
+
+    string sBase = "ManeuverReadied" + IntToString(nClass);
+    int nCount = GetLocalInt(oPlayer, sBase);
+    int i;
+    for (i = 1; i <= nCount; i++)
+    {
+        if (GetLocalInt(oPlayer, sBase + IntToString(i)) == nManeuver)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookIsManeuverExpendedQuiet(object oPlayer, int nClass, int nManeuver)
+{
+    string sBase = "ManeuverExpended" + IntToString(nClass);
+    int nCount = GetLocalInt(oPlayer, sBase);
+    int i;
+    for (i = 1; i <= nCount; i++)
+    {
+        if (GetLocalInt(oPlayer, sBase + IntToString(i)) == nManeuver)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookIsCrusaderManeuverGrantedQuiet(object oPlayer, int nManeuver)
+{
+    int nCount = GetLocalInt(
+        oPlayer,
+        "ManeuverReadied" + IntToString(CLASS_TYPE_CRUSADER)
+    );
+    int i;
+    for (i = 1; i <= nCount; i++)
+    {
+        if (GetLocalInt(oPlayer, "ManeuverGranted" + IntToString(i)) == nManeuver)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+string NUISpellbookGetReadiedManeuverStatus(object oPlayer, int nClass, int nManeuver)
+{
+    int nFeat = NUISpellbookGetManeuverFeat(nClass, nManeuver);
+    if (!NUISpellbookIsInitiatorClass(nClass)
+        || GetLevelByClass(nClass, oPlayer) <= 0
+        || !NUISpellbookIsManeuverReadied(oPlayer, nClass, nManeuver)
+        || nFeat <= 0
+        || !GetHasFeat(nFeat, oPlayer))
+        return "No longer readied";
+
+    if (NUISpellbookIsManeuverExpendedQuiet(oPlayer, nClass, nManeuver))
+        return "Expended";
+
+    // UseManeuver applies this recovery-round lock to every initiating class,
+    // including a Swordsage or Crusader tab on a multiclass Warblade.
+    if (GetLocalInt(oPlayer, "WarbladeRecoveryRound"))
+        return "Unavailable during Warblade recovery";
+
+    if (nClass == CLASS_TYPE_CRUSADER
+        && !NUISpellbookIsCrusaderManeuverGrantedQuiet(oPlayer, nManeuver))
+        return "Withheld - not currently granted";
+
+    return "Ready";
+}
+
+int NUISpellbookIsReadiedManeuverAvailable(object oPlayer, int nClass, int nManeuver)
+{
+    return NUISpellbookGetReadiedManeuverStatus(oPlayer, nClass, nManeuver) == "Ready";
+}
+
+void NUISpellbookRefreshReadiedManeuverButtons(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR);
+    if (jMap == JsonNull())
+        return;
+
+    int bCurrentLayout = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                       == PRC_SPELLBOOK_MODE_CLASS
+        && GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0;
+    int i;
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        json jEntry = JsonArrayGet(jMap, i);
+        int nClass = JsonGetInt(JsonObjectGet(jEntry, "c"));
+        int nManeuver = JsonGetInt(JsonObjectGet(jEntry, "m"));
+        string sTitle = JsonGetString(JsonObjectGet(jEntry, "t"));
+        string sStatus = bCurrentLayout
+            && GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR) == nClass
+            ? NUISpellbookGetReadiedManeuverStatus(oPlayer, nClass, nManeuver)
+            : "No longer readied";
+        int bReady = sStatus == "Ready";
+        string sIndex = IntToString(i);
+
+        NuiSetBind(
+            oPlayer,
+            nToken,
+            NUI_SPELLBOOK_READIED_MANEUVER_READY_BIND_BASE + sIndex,
+            JsonBool(bReady)
+        );
+        NuiSetBind(
+            oPlayer,
+            nToken,
+            NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE + sIndex,
+            JsonString(sTitle + " - " + sStatus)
+        );
+    }
 }
 
 int NUISpellbookHasBonusDomains(object oPlayer)
