@@ -537,7 +537,20 @@ void main()
     }
 	
 //:: Crystal Echoblade
-	effect eEffect = GetFirstEffect(OBJECT_SELF);
+	object oRight = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, OBJECT_SELF);
+	object oLeft  = GetItemInSlot(INVENTORY_SLOT_LEFTHAND,  OBJECT_SELF);
+	int nSonic    = IPGetDamageBonusConstantFromNumber(nLevel / 2);
+	 
+	if(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, oRight))
+	{
+		IPSafeAddItemProperty(oRight, ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_SONIC, nSonic), RoundsToSeconds(nDuration), X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+	}
+	if(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, oLeft))
+	{
+		IPSafeAddItemProperty(oLeft, ItemPropertyDamageBonus(IP_CONST_DAMAGETYPE_SONIC, nSonic), RoundsToSeconds(nDuration), X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+	}
+
+/* 	effect eEffect = GetFirstEffect(OBJECT_SELF);
 
 	//:: Prevent stacking	
 	while(GetIsEffectValid(eEffect))
@@ -547,7 +560,7 @@ void main()
         eEffect = GetNextEffect(OBJECT_SELF);
     }
 
-	if(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, OBJECT_SELF)) ||		//:: 104/*ITEM_PROPERTY_ECHOBLADE*/
+	if(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, OBJECT_SELF)) ||	
 		(IPGetHasItemPropertyByConst(ITEM_PROPERTY_ECHOBLADE, GetItemInSlot(INVENTORY_SLOT_LEFTHAND, OBJECT_SELF))))
 	{
 		int nSonic = IPGetDamageBonusConstantFromNumber(nLevel / 2);
@@ -555,5 +568,5 @@ void main()
 		eEchoblade = ExtraordinaryEffect(eEchoblade);
 		eEchoblade = TagEffect(eEchoblade, "Echoblade");
 		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEchoblade, OBJECT_SELF, RoundsToSeconds(nDuration));
-	}
+	} */
 }

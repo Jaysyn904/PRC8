@@ -1,4 +1,5 @@
 CLASSES / PRESTIGE CLASSES
+Most classes have an epic progression.
 Fochlucan Lyrist
 Verdant Lord
 Lion of Talisid
@@ -14,9 +15,10 @@ Wispling (Planescape)
 
 TEMPLATES
 Baelnorn template
+Half-Vampire template
 NPC Templates
 
-DOMAINS
+CLERIC DOMAINS
 Chaos
 Glory
 Law
@@ -26,6 +28,7 @@ Mind
 Moon
 
 FEATS
+Constrict
 Combat Focus
 Combat Awareness
 Combat Stability
@@ -74,6 +77,9 @@ Leonal’s Roar
 Limited Wish
 Repair Damage (spell line)
 
+EPIC SPELLS
+Summon Elemetnal Paragon
+
 PSIONICS
 Defensive Manifestation
 
@@ -87,7 +93,7 @@ Create Infusion crafting system
 Scepter crafting system
 Offline PnP magical crafting system
 
-Craftable Items
+CRAFTABLE ITEMS
 Aroma of Death
 Beetle Elixir
 Harness of Armor
@@ -132,12 +138,14 @@ Double totem bind system
 
 UI / NUI SYSTEMS
 NUI Spellcasting system
+NUI Spellcasting system extensions
 NUI Spell Effect Viewer
 NUI Spell Duration Viewer
 NUI Level-up spell selector
 Power Attack GUI system
 prc_onplayergui event system
 NUI event dispatch framework
+Archivist spellbook
 
 FRAMEWORKS / BACKEND SYSTEMS
 JSON / Data Systems

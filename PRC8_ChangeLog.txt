@@ -1,3 +1,64 @@
+
+Jaysyn904 | 2026-08-22
+2026/08/22 Update
+
+Weapon Focus: Eagle Claw had the wrong prereq.
+Tactics of the Wolf's base maneuver had the wrong description.  Apparent in the manual.
+Tactical Strike's base maneuver had the wrong description.  Apparent in the manual.
+Soldier of Lights's Energon Companion now works per PnP.
+Added the Soldier of Lights's Xag-Ya to prc_inc_turning.
+Martial Spirit now works with unarmed strike / gloves.
+Readied maneuvers are grouped together in the NUI spellcast wisget @Lightbeard
+Available maneuvers now glow on the NUI spellcast widget. @Lightbeard
+Duelists can use Eagle Claws with Insightful Strike.
+Updated Celebrant of Sharess' tlk entry.
+Updated Soldier of Light tlk entry.
+
+Jaysyn904 | 2026-08-20
+2026/08/20 Update
+
+Added new epic spell, Summon Elemental Paragon.
+Psycarnum Infusion should pull up the correct dialog now.
+Gated DEBUG in prc_onaquire.
+Glibness now has the proper duration.
+
+Jaysyn904 | 2026-08-18
+2026/08/18 Update
+
+Fixes & updates for new NUI spell systems (@Lightbeard)
+A few grammar fixes in the TLK
+
+Jaysyn904 | 2026-08-16
+2026/08/16 Update
+
+Updated manual
+Class versions of Limited Wish, Repair Critical Damage, Chasing Perfection & Force Missiles in spells.2da were pointing to the wrong feat in feat.2da
+Updated iprp_feats for Limited Wish, Repair Critical Damage, Chasing Perfection & Force Missiles
+Added Summon Paragon Elemental impactscript
+Updated fileends
+Updated PRC8 version number
+Added Domain spellcasting to NUI Spellcasting widget (@Lightbeard)
+Added Psionic Focus & Power Point display to NUI Spellcasting widget (@Lightbeard)
+Added Binding abilities to NUI Spellcasting widget (@Lightbeard)
+Added Soulmeld abilities to NUI Spellcasting widget (@Lightbeard)
+Added Archivist NUI spellbook (@lightbeard)
+Fixed bug with Limited Wish.
+
+Jaysyn904 | 2026-08-15
+2026/08/15 Early Update
+
+Capped Flame Arrow at 12 arrows.
+Huge update to the NUI spellcast widget by @Lightbeard.  Supports nearly all spellcasting & AMS classes, as well as handling epic spells & domain spells.
+Added separate icons for 7th, 8th & 9th circle spells.
+Updated nGetIsBaseClass() with missing base classes.
+Updated nDetermineClassToUse() with missing base classes.
+
+Jaysyn904 | 2026-08-13
+2026/08/13 Afternoon Update
+
+Added Luminous Armor, Greater Luminous Armor & Exalted Raiment to CorruptOrSanctified()
+
+
 Jaysyn904 | 2026-08-11
 2026/08/11 Update
 
