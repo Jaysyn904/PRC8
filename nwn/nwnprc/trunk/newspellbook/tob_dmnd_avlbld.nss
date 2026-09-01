@@ -74,8 +74,8 @@ void Owieowieowowow(object oInitiator, object oTarget, int nHit, int nPenalty)
         // Make sure the bonus doesn't get passed around  
         if (GetLocalInt(oInitiator, "SupernalAttack")) nPenalty -= 1;  
           
-        // Use longer delay to ensure flag is cleared before next attack  
-        DelayCommand(1.1, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));  
+        //Again! Again! 
+        DelayCommand(0.5, Owieowieowowow(oInitiator, oTarget, nHit, nPenalty));  
     }  
     // If miss, function terminates (no recursive call)  
 }

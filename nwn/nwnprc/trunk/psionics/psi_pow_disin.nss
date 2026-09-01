@@ -130,7 +130,7 @@ void DoPower(struct manifestation manif, object oTarget, int nDC, int nPen, int 
             nDamage = GetTargetSpecificChangesToDamage(oTarget, manif.oManifester, nDamage, TRUE, FALSE);
 
             // Apply the damage
-            ApplyTouchAttackDamage(manif.oManifester, oTarget, nTouchAttack, nDamage, DAMAGE_TYPE_MAGICAL);
+            ApplyTouchAttackDamage(manif.oManifester, oTarget, nTouchAttack, nDamage, DAMAGE_TYPE_UNTYPED);
         }// end if - SR check
     }// end if - Touch attack hit
 }

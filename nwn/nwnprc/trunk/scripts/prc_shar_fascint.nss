@@ -1,5 +1,34 @@
 /*
     Celebrant of Sharess Fascinate. Fascinates creatures (1/3 levels)
+	
+	Fascinate (Sp): A celebrant of Sharess can use her flirtation ability 
+	to cause one or more creatures to become fascinated with her. Each 
+	creature to be fascinated must be within 90 feet of the celebrant 
+	and be able to see, hear, and pay attention to her. The celebrant 
+	must also be able to see the creature. The distraction of a nearby 
+	combat or other danger prevents the ability from working. For every 
+	three levels a celebrant attains beyond 1st, she can target one 
+	additional creature with a single use of this ability (two at 4th 
+	levels three at 7th level, and four at 10th level).
+
+	To use this ability, the celebrant makes a Perform check. Her 
+	check result is the DC for each affected creature's Will save 
+	against the effect. If a creature's saving throw succeeds, the 
+	celebrant cannot attempt to fascinate that creature again for 24 
+	hours. If its saving throw fails, the creature sits quietly and 
+	gazes at the celebrant, taking no other actions, for as long as 
+	she continues her performance and concentration (up to a maximum 
+	of 1 round per celebrant of Sharess level). While fascinated, a 
+	target takes a -4 penalty on skill checks made as reactions, such 
+	as Listen and Spot checks. Any potential threat (such as an ally 
+	of the celebrant approaching the fascinated creature) requires 
+	the celebrant to make a new Perform check and allows the creature 
+	a new saving throw against a DC equal to the new Perform check 
+	result. Any obvious threat (such as someone drawing a weapon, 
+	casting a spell, or aiming a ranged weapon at the target) automatically 
+	breaks the effect. Fascinate is an enchantment (compulsion), 
+	mind-affecting ability.
+
 */
 
 #include "prc_inc_spells"  
@@ -39,10 +68,9 @@ void main()
     ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eImpact, lTarget);
     int nDC = GetSkillRank(SKILL_PERFORM, oPC) + d20();
     int nClass = GetLevelByClass(CLASS_TYPE_CELEBRANT_SHARESS, oPC);
-    int nTargets = 1;
-    if (nClass >= 4)  nTargets++;
-    if (nClass >= 7)  nTargets++;
-    if (nClass >= 10) nTargets++;
+	
+	int nTargets = 1 + (nClass >= 4 ? (nClass - 1) / 3 : 0);  
+	
     int nCount;
     int nSpellId = PRCGetSpellId();
 

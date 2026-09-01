@@ -20,6 +20,7 @@ void CheckForAttack(object oPC, object oTarget, object oGlaive);
 
 #include "prc_inc_combat"
 #include "inv_inc_invfunc"
+#include "inv_inc_blast"
 
 void CheckForAttack(object oPC, object oTarget, object oGlaive)
 {
@@ -37,7 +38,17 @@ void CheckForAttack(object oPC, object oTarget, object oGlaive)
     	//Fire cast spell at event for the specified target
     	DelayCommand(0.0, SignalEvent(oTarget, EventSpellCastAt(oPC, INVOKE_ELDRITCH_BLAST)));
         // Target is valid and we know it's an enemy and we're in combat
-        DelayCommand(0.25, AssignCommand(oPC, ActionAttack(oTarget)));    	
+        DelayCommand(0.25, AssignCommand(oPC, ActionAttack(oTarget)));
+
+        // We set INV_HELLFIRE for the next 6 seconds while the eldritch gaive completes
+        if(GetIsHellFireBlast(oPC))
+        {
+            if(HellFireConDamage(oPC))
+            {
+                SetLocalInt(OBJECT_SELF, "INV_HELLFIRE", TRUE);
+                DelayCommand(6.0, DeleteLocalInt(oPC, "INV_HELLFIRE"));
+            }
+        }
     }
     else
     	DelayCommand(0.1, CheckForAttack(oPC, oTarget, oGlaive));

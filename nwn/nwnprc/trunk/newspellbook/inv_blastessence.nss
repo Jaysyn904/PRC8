@@ -34,7 +34,7 @@ void main()
         return;
     }
 
-    int nLevel, nRace = -1, nDamage = DAMAGE_TYPE_MAGICAL;
+    int nLevel, nRace = -1, nDamage = DAMAGE_TYPE_UNTYPED;
     string sEssenceData, sBlastEssence, sMes;
     if(bSecondEssenceActive)
     {

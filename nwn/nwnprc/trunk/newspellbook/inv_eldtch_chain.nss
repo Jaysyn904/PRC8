@@ -43,18 +43,18 @@ void main()
 	
 	nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
-    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
-    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_MAGICAL;
+    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
+    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
 
     //Set correct blast damage type
     if(nDamageType != nDamageType2)
     {
-        if(nDamageType != DAMAGE_TYPE_MAGICAL)
+        if(nDamageType != DAMAGE_TYPE_UNTYPED)
         {
-            if(nDamageType2 == DAMAGE_TYPE_MAGICAL)
+            if(nDamageType2 == DAMAGE_TYPE_UNTYPED)
                 nDamageType2 = nDamageType;
         }
-        else if(nDamageType2 != DAMAGE_TYPE_MAGICAL)
+        else if(nDamageType2 != DAMAGE_TYPE_UNTYPED)
         {
             nDamageType = nDamageType2;
         }

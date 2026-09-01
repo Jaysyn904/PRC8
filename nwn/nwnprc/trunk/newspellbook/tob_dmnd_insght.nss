@@ -44,16 +44,16 @@ void main()
     if(move.bCanManeuver)
     {
     	effect eNone;
-	object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
-	int nAB = 0;
-    if (GetLocalInt(oInitiator, "SupernalAttack")) nAB += 1;
-	if (GetAttackRoll(oTarget, oInitiator, oWeap, 0, nAB) > 0)
-	{
-		int nDam = GetSkillRank(SKILL_CONCENTRATION, oInitiator) + d20();
-		int nDamType = GetWeaponDamageType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator));
-	
-		effect eLink = EffectLinkEffects(EffectDamage(nDam, nDamType), EffectVisualEffect(VFX_COM_HIT_POSITIVE));
-		SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
-	}
+		object oWeap = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator);
+		int nAB = 0;
+		if (GetLocalInt(oInitiator, "SupernalAttack")) nAB += 1;
+		if (GetAttackRoll(oTarget, oInitiator, oWeap, 0, nAB) > 0)
+		{
+			int nDam = GetSkillRank(SKILL_CONCENTRATION, oInitiator) + d20();
+			int nDamType = GetWeaponDamageType(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator));
+		
+			effect eLink = EffectLinkEffects(EffectDamage(nDam, nDamType), EffectVisualEffect(VFX_COM_HIT_POSITIVE));
+			SPApplyEffectToObject(DURATION_TYPE_INSTANT, eLink, oTarget);
+		}
     }
 }

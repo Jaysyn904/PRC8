@@ -582,13 +582,29 @@ void ApplyOnHitFlameWeapon(object oTarget = OBJECT_INVALID, object oItem = OBJEC
 	ApplyOnHitCastSpellSubType(IP_CONST_ONHIT_CASTSPELL_ONHIT_FIREDAMAGE, oTarget, oItem, oCaster);
 }
 
-void ApplyOnHitUniquePower(object oTarget = OBJECT_INVALID, object oItem = OBJECT_SELF, object oCaster = OBJECT_SELF)
+void ApplyOnHitUniquePower(object oTarget = OBJECT_INVALID, object oItem = OBJECT_SELF, object oCaster = OBJECT_SELF)  
+{  
+    location lInvalid;  
+  
+    // Force PRCGetSpellTargetObject() to resolve to the actual defender of this specific attack,  
+    // instead of falling back to Bioware's stale GetSpellTargetObject() (which may still be  
+    // pointing at the original maneuver-initiation target, e.g. self for AoE maneuvers).  
+    SetLocalObject(oCaster, PRC_SPELL_TARGET_OBJECT_OVERRIDE, oTarget);  
+    SetLocalInt(oCaster, PRC_SPELL_TARGET_OBJECT_OVERRIDE, TRUE);  
+  
+    ExecuteSpellScript("prc_onhitcast", lInvalid, oTarget, 0, METAMAGIC_ANY, 0, 0, 0, oItem, oCaster);  
+  
+    DeleteLocalObject(oCaster, PRC_SPELL_TARGET_OBJECT_OVERRIDE);  
+    DeleteLocalInt(oCaster, PRC_SPELL_TARGET_OBJECT_OVERRIDE);  
+}
+
+/* void ApplyOnHitUniquePower(object oTarget = OBJECT_INVALID, object oItem = OBJECT_SELF, object oCaster = OBJECT_SELF)
 {
 	location lInvalid;
 	// ApplyOnHitCastSpellSubType(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, oTarget, METAMAGIC_ANY, 0, oItem, oCaster);
 	// unique power hardwired to "prc_onhitcast". If we want to go through the 2das, we should revert to the commented out line of code above
 	ExecuteSpellScript("prc_onhitcast", lInvalid, oTarget, 0, METAMAGIC_ANY, 0, 0, 0, oItem, oCaster);
-}
+} */
 
 void ApplyAllOnHitCastSpellsOnItem(object oTarget = OBJECT_INVALID, object oItem = OBJECT_SELF, object oCaster = OBJECT_SELF)
 {

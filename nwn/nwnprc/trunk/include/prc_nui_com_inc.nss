@@ -4,6 +4,7 @@
 #include "inc_lookups"
 #include "nw_inc_nui"
 #include "tob_inc_tobfunc"
+#include "prc_nui_sb_inc"
 
 //
 // GetCurrentSpellLevel

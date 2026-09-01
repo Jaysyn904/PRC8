@@ -65,7 +65,12 @@ void main()
         // Add the OnHit  
         IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);  
         effect eDur = ExtraordinaryEffect(EffectVisualEffect(VFX_DUR_SHIELD_OF_FAITH));  
-        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eDur, oTarget);  
+        SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eDur, oTarget); 
+		
+		object oWeapL = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oInitiator);  
+		if (GetIsOffhandWeapon(oWeapL))  
+		IPSafeAddItemProperty(oWeapL, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 9999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+
     }  
 }
 
