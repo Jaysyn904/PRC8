@@ -1701,6 +1701,19 @@ void LearnSpells(int nClass, object oPC=OBJECT_SELF)
                         maneuverType = MANEUVER_TYPE_MANEUVER;
 
                     AddManeuverKnown(oPC, nClass, nSpellbookID, maneuverType, TRUE, GetHitDice(oPC));
+					
+					// Shadow Sun Ninja prereq: flag if a 2nd+ level Setting Sun or Shadow Hand maneuver is learned
+					if(!GetPersistantLocalInt(oPC, "ShadowSunNinjaLv2Req"))
+					{
+						int nDiscipline = GetDisciplineByManeuver(nSpellbookID);
+						//if(GetManeuverLevel(oPC, nSpellbookID) >= 2
+						if(StringToInt(Get2DACache(sFile, "Level", nSpellbookID)) >= 2
+							&& (nDiscipline == DISCIPLINE_SETTING_SUN || nDiscipline == DISCIPLINE_SHADOW_HAND))
+						{
+							SetPersistantLocalInt(oPC, "ShadowSunNinjaLv2Req", TRUE);
+						}
+					}
+
                 }
                 int nSpellbookType = GetSpellbookTypeForClass(nClass);
                 if (nSpellbookType == SPELLBOOK_TYPE_SPONTANEOUS
