@@ -4,6 +4,10 @@ Fochlucan Lyrist
 Verdant Lord
 Lion of Talisid
 
+VARIANTS
+Educated WIlder
+Hidden Talent Soulnife
+
 RACIAL TYPES
 Nezumi (OA)
 Korobokuru (OA)
@@ -28,54 +32,58 @@ Mind
 Moon
 
 FEATS
-Constrict
-Combat Focus
-Combat Awareness
-Combat Stability
-Combat Defense
-Combat Vitality
-Combat Strike
+Ability Focus
 Choke Hold
-Pain Touch
-Ki Shout
-Great Ki Shout
-Freezing the Lifeblood
-Falling Star Strike
-Unbalancing Strike
-Plant Defiance
-Plant Control
-Favored of the Companions
-Create Infusion
-Magical Artisan: Create Infusion
+Combat Awareness
+Combat Defense
+Combat Focus
+Combat Stability
+Combat Strike
+Combat Vitality
+Constrict
 Craft Scepter
-Magical Artisan: Craft Scepter
-Improved Critical (touch attack)
-Improved Critical (ray)
-Weapon Focus (touch attack)
+Create Infusion
 Epic Weapon Focus (touch attack)
+Falling Star Strike
+Favored of the Companions
+Freezing the Lifeblood
+Great Ki Shout
+Hidden Talent
+Improved Critical (ray)
+Improved Critical (touch attack)
+Ki Shout
+Magical Artisan: Craft Scepter
+Magical Artisan: Create Infusion
+Pain Touch
+Plant Control
+Plant Defiance
+Unbalancing Strike
+Weapon Focus (touch attack)
 
 Builder / System Feats
 Intrinsic Armor
 Intrinsic Weapon
 
 SPELLS
-Spirit Worm
-Spiritual Weapon
-Speed of the Wind
-Tortise Shell
+Adrenaline Surge
+Cloak of Chaos
 Control Plants
-Forestfold
 Creeping Cold
+Forestfold
 Greater Creeping Cold
 Immunity from Elements
-Adrenaline Surge
-Regeneration Line
-Regenerate Ring
-Regenerate Circle
-Summon Nature’s Ally I–IX
 Leonal’s Roar
 Limited Wish
+Regenerate Circle
+Regenerate Ring
+Regeneration Line
 Repair Damage (spell line)
+Shield of Law
+Speed of the Wind
+Spirit Worm
+Spiritual Weapon
+Summon Nature’s Ally I–IX
+Tortise Shell
 
 EPIC SPELLS
 Summon Elemetnal Paragon

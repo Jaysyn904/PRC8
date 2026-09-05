@@ -10498,7 +10498,7 @@ Base Attack Bonus: +3/4
 Strong Saves: Reflex and Will
 
 Level:
- 1: Mind blade, Weapon Focus(mind blade), Wild Talent
+ 1: Mind blade, Weapon Focus(mind blade), Wild Talent *or* Hidden Talent
  2: Throw mind blade
  3: Psychic strike +1d8
  4: +1 mind blade
@@ -10587,20 +10587,20 @@ Level:
 2: Elude Touch
 3: Wild Surge +2
 4: Surging Euphoria +1
-5: Volatile Mind (1 power point)
-6:
+5: Expanded Knowledge or Volatile Mind 
+6: -
 7: Wild Surge +3
-8:
-9: Volatile Mind (2 power points)
-10:
+8: -
+9: Expanded Knowledge II or Volatile Mind II depending on 5th level choice
+10: -
 11: Wild Surge +4
 12: Surging Euphoria +2
-13: Volatile Mind (3 power points)
-14:
+13: Expanded Knowledge III or Volatile Mind III depending on 5th level choice
+14: -
 15: Wild Surge +5
-16:
-17: Volatile Mind (4 power points)
-18:
+16: -
+17: Expanded Knowledge IV or Volatile Mind IV depending on 5th level choice
+18: -
 19: Wild Surge +6
 20: Surging Euphoria +3
 
@@ -10650,6 +10650,12 @@ The extra cost is not a natural part of that power's cost. It does not augment t
 At 9th level, the penalty assessed against telepathy powers manifested on a wilder is increased to 2 power points. At 13th level, the penalty increases to 3 power points, and at 17th level it increases to 4 power points.
 NWN implementation detail: This ability only affects powers manifested by a hostile manifester.
 
+Variant: Educated Wilder
+You have had formal psionic training.
+
+Level: 5th, 9th, 13th, and 17th.
+Replaces: You lose the volatile mind class ability at all levels listed above.
+Benefit: You have received some formal psionic training and as such, you have unlocked psionic powers most wilders never dream of. You gain the Expanded Knowledge feat at all of the above levels. But due to the training involved, your mind is not as untamed as most wilders and you lose the defensive ability volatile mind.
 
 EPIC
 The epic wilder's powers become even more volatile and unpredictable.
@@ -20640,6 +20646,8 @@ In addition, scribing a Runescar is painful dealing 1d6 points of damage per spe
 A Runescarred Berserker can bear no more then seven runescars at any one time: two on the chest, two on the upper arms, two on the backs of the hands, and one on the face.
 
 Runescars can only affect the Runescarred Berserker when activated</entry>
+  <entry id="48977" lang="en" sex="m">****</entry>
+  <entry id="48978" lang="en" sex="m">****</entry>
   <entry id="48979" lang="en" sex="m">Ritual Scarring</entry>
   <entry id="48980" lang="en" sex="m">Through frequent disfiguration of their own skin a runescarred berserker gains a +1 natural armor bonus to AC at 3rd level. This increases to +2 at 6th and +3 at 9th.</entry>
   <entry id="48981" lang="en" sex="m">Spawn of the Frost</entry>
@@ -23800,11 +23808,7 @@ Prerequisite: Artificer level 13
 Specifics: At 13th level, an artificer can take 10 when making a Spellcraft or Use Magic Device check, even if stress and distractions would normally prevent him from doing so. This ability circumvents the normal rule that a character may not take 10 on a Use Magic Device check.
 Use: Automatic</entry>
   <entry id="49902" lang="en" sex="m">Epic Artificer</entry>
-  <entry id="49903" lang="en" sex="m">The epic artificer remains a master of item creation, gaining
-an increasing craft reserve and plenty of bonus feats to
-learn the craft of epic item creation.
-
-Knowledge is power and the quest for knowledge never ends. There is an ever lasting supply of arcane lore for you, the epic wizard,  to discover.
+  <entry id="49903" lang="en" sex="m">The epic artificer remains a master of item creation, gaining an increasing craft reserve and plenty of bonus feats to learn the craft of epic item creation.
 
 Hit Die: d6
 Skill Points at Each Additional Level: 4+ Int Modifier
@@ -24116,12 +24120,14 @@ Use: Selected</entry>
   <entry id="49992" lang="en" sex="m">Rite of Waking (Other)</entry>
   <entry id="49993" lang="en" sex="m">Mystic Phoenix Stance (Augmented)</entry>
   <entry id="49994" lang="en" sex="m">Firebird Stance (Augmented)</entry>
+  <entry id="49995" lang="en" sex="m">****</entry>
   <entry id="49996" lang="en" sex="m">Humanoid</entry>
   <entry id="49997" lang="en" sex="m"> A humanoid usually has two arms, two legs, and one head, or a humanlike torso, arms, and a head. Humanoids have few or no supernatural or extraordinary abilities, but most can speak and usually have well-developed societies. They usually are Small or Medium. Every humanoid creature also has a subtype.
 
 - Proficient with all simple weapons, or by character class.
 -  Proficient with whatever type of armor (light, medium, or heavy) it is described as wearing, or by character class. If a humanoid does not have a class and wears armor, it is proficient with that type of armor and all lighter types. Humanoids not indicated as wearing armor are not proficient with armor. Humanoids are proficient with shields if they are proficient with any form of armor.
 -Humanoids breathe, eat, and sleep.</entry>
+  <entry id="49998" lang="en" sex="m">****</entry>
   <entry id="49999" lang="en" sex="m">**** 50,000 - 50,500 reserved for Race Pack Feats ****</entry>
   <entry id="50000" lang="en" sex="m">Light Sensitivity</entry>
   <entry id="50001" lang="en" sex="m">Type of Feat: Racial
@@ -47799,28 +47805,26 @@ Use: Selected</entry>
   <entry id="57581" lang="en" sex="m">Void of the Shadow Sun - Blast</entry>
   <entry id="57582" lang="en" sex="m">Balance of Light and Dark - Drain</entry>
   <entry id="57583" lang="en" sex="m">****</entry>
-  <entry id="57584" lang="en" sex="m">****</entry>
-  <entry id="57585" lang="en" sex="m">****</entry>
-  <entry id="57586" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57587" lang="en" sex="m">****</entry>
-  <entry id="57588" lang="en" sex="m">****</entry>
-  <entry id="57589" lang="en" sex="m">Default Hexblade</entry>
-  <entry id="57590" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57591" lang="en" sex="m">Default Duskblade</entry>
-  <entry id="57592" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57593" lang="en" sex="m">Default Scout</entry>
-  <entry id="57594" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57584" lang="en" sex="m">Volatile Mind I</entry>
+  <entry id="57585" lang="en" sex="m">Volatile Mind II</entry>
+  <entry id="57586" lang="en" sex="m">Volatile Mind III</entry>
+  <entry id="57587" lang="en" sex="m">Volatile Mind IV</entry>
+  <entry id="57588" lang="en" sex="m">Volatile Mind V</entry>
+  <entry id="57589" lang="en" sex="m">Volatile Mind VI</entry>
+  <entry id="57590" lang="en" sex="m">Volatile Mind VII</entry>
+  <entry id="57591" lang="en" sex="m">Volatile Mind VIII</entry>
+  <entry id="57592" lang="en" sex="m">Volatile Mind IX</entry>
+  <entry id="57593" lang="en" sex="m">Volatile Mind X</entry>
+  <entry id="57594" lang="en" sex="m">A wilder's temperamental mind is hard to encompass with the discipline of telepathy. When any telepathy power is manifested on a wilder of 5th level or higher, the manifester of the power must pay 1 power point more than he otherwise would have spent.
+The extra cost is not a natural part of that power's cost. It does not augment the power; it is simply a wasted power point. The wilder's volatile mind can force the manifester of the telepathy power to exceed the normal power point limit of 1 point per manifester level. If the extra cost raises the telepathy power's cost to more points than the manifester has remaining in his reserve, the power simply fails, and the manifester exhausts the rest of his power points.
+At 9th level, the penalty assessed against telepathy powers manifested on a wilder is increased to 2 power points. At 13th level, the penalty increases to 3 power points, and at 17th level it increases to 4 power points.  This pattern continues in epic levels.
+NWN implementation detail: This ability only affects powers manifested by a hostile manifester.</entry>
   <entry id="57595" lang="en" sex="m">****</entry>
   <entry id="57596" lang="en" sex="m">****</entry>
   <entry id="57597" lang="en" sex="m">****</entry>
   <entry id="57598" lang="en" sex="m">****</entry>
-  <entry id="57599" lang="en" sex="m">Default Artificer</entry>
-  <entry id="57600" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57599" lang="en" sex="m">****</entry>
+  <entry id="57600" lang="en" sex="m">****</entry>
   <entry id="57601" lang="en" sex="m">****</entry>
   <entry id="57602" lang="en" sex="m">****</entry>
   <entry id="57603" lang="en" sex="m">****</entry>
@@ -47829,72 +47833,52 @@ These packages do not give any special abilities to your character, they simply 
   <entry id="57606" lang="en" sex="m">****</entry>
   <entry id="57607" lang="en" sex="m">****</entry>
   <entry id="57608" lang="en" sex="m">****</entry>
-  <entry id="57609" lang="en" sex="m">Default Samurai</entry>
-  <entry id="57610" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57611" lang="en" sex="m">Default Ninja</entry>
-  <entry id="57612" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57609" lang="en" sex="m">****</entry>
+  <entry id="57610" lang="en" sex="m">****</entry>
+  <entry id="57611" lang="en" sex="m">****</entry>
+  <entry id="57612" lang="en" sex="m">****</entry>
   <entry id="57613" lang="en" sex="m">****</entry>
   <entry id="57614" lang="en" sex="m">****</entry>
-  <entry id="57615" lang="en" sex="m">Default Dragonfire Adept</entry>
-  <entry id="57616" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57617" lang="en" sex="m">Default Psion</entry>
-  <entry id="57618" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57619" lang="en" sex="m">Default Psychic Warrior</entry>
-  <entry id="57620" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57621" lang="en" sex="m">Default Soulknife</entry>
-  <entry id="57622" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57623" lang="en" sex="m">Default Wilder</entry>
-  <entry id="57624" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57625" lang="en" sex="m">Default Dread Necromancer</entry>
-  <entry id="57626" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57615" lang="en" sex="m">****</entry>
+  <entry id="57616" lang="en" sex="m">****</entry>
+  <entry id="57617" lang="en" sex="m">****</entry>
+  <entry id="57618" lang="en" sex="m">****</entry>
+  <entry id="57619" lang="en" sex="m">****</entry>
+  <entry id="57620" lang="en" sex="m">****</entry>
+  <entry id="57621" lang="en" sex="m">****</entry>
+  <entry id="57622" lang="en" sex="m">****</entry>
+  <entry id="57623" lang="en" sex="m">****</entry>
+  <entry id="57624" lang="en" sex="m">****</entry>
+  <entry id="57625" lang="en" sex="m">****</entry>
+  <entry id="57626" lang="en" sex="m">****</entry>
   <entry id="57627" lang="en" sex="m">****</entry>
   <entry id="57628" lang="en" sex="m">****</entry>
   <entry id="57629" lang="en" sex="m">****</entry>
   <entry id="57630" lang="en" sex="m">****</entry>
-  <entry id="57631" lang="en" sex="m">Default Archivist</entry>
-  <entry id="57632" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57633" lang="en" sex="m">Default Witch</entry>
-  <entry id="57634" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57635" lang="en" sex="m">Default Shaman</entry>
-  <entry id="57636" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57637" lang="en" sex="m">Default Favoured Soul</entry>
-  <entry id="57638" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57639" lang="en" sex="m">Default Truenamer</entry>
-  <entry id="57640" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57641" lang="en" sex="m">Default Shugenja</entry>
-  <entry id="57642" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57643" lang="en" sex="m">Default Sohei</entry>
-  <entry id="57644" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57645" lang="en" sex="m">Default Crusader</entry>
-  <entry id="57646" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57647" lang="en" sex="m">Default Swordsage</entry>
-  <entry id="57648" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57649" lang="en" sex="m">Default Warblade</entry>
-  <entry id="57650" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57651" lang="en" sex="m">Default Warmage</entry>
-  <entry id="57652" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
-  <entry id="57653" lang="en" sex="m">Default Knight</entry>
-  <entry id="57654" lang="en" sex="m">
-These packages do not give any special abilities to your character, they simply configure your skills and feats so you don't have to.</entry>
+  <entry id="57631" lang="en" sex="m">****</entry>
+  <entry id="57632" lang="en" sex="m">****</entry>
+  <entry id="57633" lang="en" sex="m">****</entry>
+  <entry id="57634" lang="en" sex="m">****</entry>
+  <entry id="57635" lang="en" sex="m">****</entry>
+  <entry id="57636" lang="en" sex="m">****</entry>
+  <entry id="57637" lang="en" sex="m">****</entry>
+  <entry id="57638" lang="en" sex="m">****</entry>
+  <entry id="57639" lang="en" sex="m">****</entry>
+  <entry id="57640" lang="en" sex="m">****</entry>
+  <entry id="57641" lang="en" sex="m">****</entry>
+  <entry id="57642" lang="en" sex="m">****</entry>
+  <entry id="57643" lang="en" sex="m">****</entry>
+  <entry id="57644" lang="en" sex="m">****</entry>
+  <entry id="57645" lang="en" sex="m">****</entry>
+  <entry id="57646" lang="en" sex="m">****</entry>
+  <entry id="57647" lang="en" sex="m">****</entry>
+  <entry id="57648" lang="en" sex="m">****</entry>
+  <entry id="57649" lang="en" sex="m">****</entry>
+  <entry id="57650" lang="en" sex="m">****</entry>
+  <entry id="57651" lang="en" sex="m">****</entry>
+  <entry id="57652" lang="en" sex="m">****</entry>
+  <entry id="57653" lang="en" sex="m">****</entry>
+  <entry id="57654" lang="en" sex="m">****.</entry>
   <entry id="57655" lang="en" sex="m">Defensive Manifestation</entry>
   <entry id="57656" lang="en" sex="m">If you want to manifest a power without provoking attacks of opportunity, you need to dodge and weave. You must make a Concentration check (DC 15 + the level of the power you're manifesting) to succeed. You lose the power points without successful manifestation if you fail. </entry>
   <entry id="57657" lang="en" sex="m">Two Weapon Pounce</entry>

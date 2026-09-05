@@ -52,6 +52,8 @@ void main()
 	{
 		int nBonus = nAttack - nAC;
 		effect eAC = EffectLinkEffects(EffectACIncrease(nBonus), EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+		eAC = EffectLinkEffects(eAC, EffectBonusFeat(FEAT_UNCANNY_REFLEX));
+		
 		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eAC), oTarget, 6.0);
 		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_AC_BONUS), oTarget);
 	}

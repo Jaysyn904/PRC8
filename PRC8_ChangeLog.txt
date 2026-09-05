@@ -1,3 +1,35 @@
+Jaysyn904 | 2026/09/05 Update
+Updated Wilder's default ability scores.
+Updated Soulknife to support the Hidden Talent Variant.
+Updated Wilder to support the Educated Wilder Variant.
+Wall of Blades will hopefully no longer leave the user flat looted.
+Added WasFeatGrantedAtClassLevel() to prc_enforce_feat.
+
+Jaysyn904 | 2026/09/04 Update
+Wildren should have a -2 DEX not a +2 DEX.
+Shadow Sun Ninja is once again possible to take if you meet the requirements.
+
+Jaysyn904 | 2026/09/01 Early Update
+Updated PRC8 Manual.
+Plant Clerics can take Plant Defiance.
+Celerbrant of Sharess' number of targets for fascination continues increasing past 10th level.
+Disintegrate, Psionic does untyped damage.
+Martial Spirit works with an offhand weapon.
+Reduced attack delay for Avalanche of Blades.
+Eldritch Glaive works with Hellfire Blast (@portly)
+Hideous Blow works with Hellfire Blast (@portly)
+Eldritch Glaive does untyped damage.
+Eldritch Chain does untyped damage.
+Updated version number.
+Update NUI spellcast widget (@lightbeard)
+Tentative fix for Mithral Tornado self targeting.  Needs testing.
+
+
+Jaysyn904 | 2026/08/24 Update
+WF: Eagle Claw should qualify for Tempest. (@Barmlot)
+Added D&D FAQs to DevNotes.
+
+
 Jaysyn904 | 2026-08-22
 2026/08/22 Evening Update 2
 Quieted DEBUG spam from GetSpellslotLevel()

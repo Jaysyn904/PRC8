@@ -1,5 +1,7 @@
 /*
 
+	prc_inc_effect
+	
 This include file details the PRC replacement for biowares effect variable type
 It is required so that we can access the components of an effect much as we can
 with itemproperties.
@@ -7,6 +9,7 @@ Also useful for storing things like metamagic, spell level, etc
 
 
 Primogenitor
+
 */
 
 struct PRCeffect{

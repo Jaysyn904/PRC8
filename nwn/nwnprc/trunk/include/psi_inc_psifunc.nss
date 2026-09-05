@@ -351,11 +351,13 @@ struct manifestation _GetPPCostReduced(struct manifestation manif)
 int _VolatileMind(object oTarget, object oManifester)
 {
     int nWilder    = GetLevelByClass(CLASS_TYPE_WILDER, oTarget);
+	int nVM			= GetHasFeat(FEAT_WILDER_VOLATILE_MIND_1, oTarget);
     int nTelepathy = GetIsTelepathyPower();
     int nCost = 0;
 
     if(nTelepathy   && // Only affects telepathy powers.
        nWilder >= 5 && // Only wilders need apply
+	   nVM			&& // Must have Volatile Mind
        // Since the "As a standard action, a wilder can choose to lower this effect for 1 round."
        // bit is not particularly doable in NWN, we implement it so that the class feature
        // only affects powers from hostile manifesters

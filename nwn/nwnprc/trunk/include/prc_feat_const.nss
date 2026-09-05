@@ -2855,13 +2855,23 @@ const int FEAT_PSY_SNEAK_ATTACK_3d6                 = 24277;
 const int FEAT_PSY_MIND_CRIPPLE                     = 24282;
 
 //Wilder
-const int FEAT_WILDER_SURGING_EUPHORIA              = 3568;
-const int FEAT_WILDER_PSYCHIC_ENERVATION            = 3569;
-const int FEAT_WILDER_VOLATILE_MIND                 = 3570;
-const int FEAT_WILDER_ELUDE_TOUCH                   = 3567;
 const int FEAT_WILDER_WILD_SURGE_1_5                = 3560;
 const int FEAT_WILDER_WILD_SURGE_6_10               = 3561;
 const int FEAT_WILDER_WILD_SURGE_11                 = 3562;
+const int FEAT_WILDER_ELUDE_TOUCH                   = 3567;
+const int FEAT_WILDER_SURGING_EUPHORIA              = 3568;
+const int FEAT_WILDER_PSYCHIC_ENERVATION            = 3569;
+const int FEAT_WILDER_VOLATILE_MIND_1               = 3570;
+const int FEAT_WILDER_VOLATILE_MIND_2               = 26050;
+const int FEAT_WILDER_VOLATILE_MIND_3               = 26051;
+const int FEAT_WILDER_VOLATILE_MIND_4               = 26052;
+const int FEAT_WILDER_VOLATILE_MIND_5               = 26053;
+const int FEAT_WILDER_VOLATILE_MIND_6               = 26054;
+const int FEAT_WILDER_VOLATILE_MIND_7               = 26055;
+const int FEAT_WILDER_VOLATILE_MIND_8               = 26056;
+const int FEAT_WILDER_VOLATILE_MIND_9               = 26057;
+const int FEAT_WILDER_VOLATILE_MIND_10              = 26058;
+
 
 // Soulknife
 const int FEAT_MINDBLADE                            = 3600;

@@ -71,7 +71,7 @@ void PRCApplyEffectAtLocation(int nDurationType, struct PRCeffect eEffect, locat
 #include "NW_I0_GENERIC"
 #include "prc_feat_const"
 #include "lookup_2da_spell"
-#include "prcsp_spell_adjs"
+//#include "prcsp_spell_adjs"  //<-- This doesn't exist
 #include "prc_alterations"
 #include "prc_inc_effect"
 
@@ -633,3 +633,6 @@ int AoECasterLevel(object oAoE = OBJECT_SELF)
    int toReturn = GetLocalInt(oAoE, "X2_AoE_Caster_Level");
    return toReturn;
 }
+
+//::
+void main(){}

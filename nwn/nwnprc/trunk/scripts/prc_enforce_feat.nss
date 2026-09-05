@@ -19,6 +19,10 @@
 #include "inc_ecl"
 #include "inc_epicspells"
 #include "prc_inc_shifting"
+#include "nw_inc_gff"
+
+//:: Returns True if nFeat was taken at nTargetClassLevel of nTargetClass
+int WasFeatGrantedAtClassLevel(object oPC, int nTargetClass, int nTargetClassLevel, int nFeat);
 
 // Returns TRUE if oCreature has any smite feature (ignores remaining uses)  
 int GetCanSmite(object oCreature); 
@@ -99,6 +103,103 @@ int _GetSizeForPrereq(object oPC)
 // ---------------
 // BEGIN FUNCTIONS
 // ---------------
+
+/**
+ * Checks whether a specific feat was granted when the specified class
+ * level was taken by the target creature.
+ *
+ * This function examines the creature's LvlStatList, which records the
+ * class taken at each character level and the feats granted at that level.
+ * The target class level is determined by counting how many times the
+ * target class appears in the character's level progression.
+ *
+ * @param oPC
+ *     The creature whose level progression and feats are being checked.
+ *
+ * @param nTargetClass
+ *     The class to check, using a CLASS_TYPE_* constant.
+ *
+ * @param nTargetClassLevel
+ *     The class level at which the feat must have been granted.
+ *     For example, 3 means the creature's third level in nTargetClass,
+ *     regardless of its overall character level.
+ *
+ * @param nFeat
+ *     The feat to check, using a FEAT_* constant.
+ *
+ * @return
+ *     TRUE if nFeat appears in the FeatList for the specified level of
+ *     nTargetClass.
+ *
+ *     FALSE if:
+ *       - oPC does not have the specified class level;
+ *       - nFeat was not granted at that class level; or
+ *       - the specified class/level cannot be found in LvlStatList.
+ */
+ int WasFeatGrantedAtClassLevel(
+    object oPC,
+    int nTargetClass,
+    int nTargetClassLevel,
+    int nFeat
+)
+{
+    json jPC = ObjectToJson(oPC);
+    json jLevels = GffGetList(jPC, "LvlStatList");
+
+    int nLevels = JsonGetLength(jLevels);
+    int nCharacterLevel = 0;
+    int nClassLevel = 0;
+    int nClass;
+    int nFeats;
+    int nFeatIndex;
+    int nCurrentFeat;
+
+    json jLevel;
+    json jFeatList;
+    json jFeat;
+
+    while(nCharacterLevel < nLevels)
+    {
+        jLevel = JsonArrayGet(jLevels, nCharacterLevel);
+
+        // Class taken at this character level.
+        nClass = JsonGetInt(GffGetWord(jLevel, "LvlStatClass"));
+
+        if(nClass == nTargetClass)
+        {
+            nClassLevel++;
+
+            // We have reached the requested class level.
+            if(nClassLevel == nTargetClassLevel)
+            {
+                jFeatList = GffGetList(jLevel, "FeatList");
+                nFeats = JsonGetLength(jFeatList);
+
+                nFeatIndex = 0;
+
+                while(nFeatIndex < nFeats)
+                {
+                    jFeat = JsonArrayGet(jFeatList, nFeatIndex);
+                    nCurrentFeat = JsonGetInt(GffGetWord(jFeat, "Feat"));
+
+                    if(nCurrentFeat == nFeat)
+                        return TRUE;
+
+                    nFeatIndex++;
+                }
+
+                // The requested class level exists, but the feat
+                // was not granted at that level.
+                return FALSE;
+            }
+        }
+
+        nCharacterLevel++;
+    }
+
+    // The target class/level does not exist.
+    return FALSE;
+}
 
 int GetCanSmite(object oPC = OBJECT_SELF)  
 {  
@@ -1669,6 +1770,63 @@ int Shaman()
     return FALSE;
 }
 
+int VolatileMindOrExpandedKnowledge()  
+{  
+    int nClass = GetLevelByClass(CLASS_TYPE_WILDER);  
+  
+    if(nClass >= 5 && nClass <= 41)  
+    {  
+        int nTier = (nClass - 5) / 4 + 1;   // 5th=1, 9th=2, 13th=3 ... 41st=10  
+        if(nTier > 10) nTier = 10;  
+  
+        int i;  
+        for(i = 1; i <= nTier; i++)  
+        {  
+            int nVM, nEK;  
+  
+            switch(i)  
+            {  
+                case 1:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_1);  break;  
+                case 2:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_2);  break;  
+                case 3:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_3);  break;  
+                case 4:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_4);  break;  
+                case 5:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_5);  break;  
+                case 6:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_6);  break;  
+                case 7:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_7);  break;  
+                case 8:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_8);  break;  
+                case 9:  nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_9);  break;  
+                case 10: nVM = GetHasFeat(FEAT_WILDER_VOLATILE_MIND_10); break;  
+            }  
+  
+            switch(i)  
+            {  
+                case 1:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_1);  break;  
+                case 2:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_2);  break;  
+                case 3:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_3);  break;  
+                case 4:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_4);  break;  
+                case 5:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_5);  break;  
+                case 6:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_6);  break;  
+                case 7:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_7);  break;  
+                case 8:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_8);  break;  
+                case 9:  nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_9);  break;  
+                case 10: nEK = GetHasFeat(FEAT_EXPANDED_KNOWLEDGE_10); break;  
+            }  
+  
+            if(!nVM && !nEK)  
+            {  
+                FloatingTextStringOnCreature(  
+                    "You do not have either the correct Volatile Mind or Expanded Knowledge feat for this level. Please reselect your feats.",  
+                    OBJECT_SELF,  
+                    FALSE  
+                );  
+                return TRUE;  
+            }  
+        }  
+    }  
+  
+    return FALSE;  
+}
+
 /* int BonusDomains()
 {
     //Determine minimum number of bonus domains (selected by player)
@@ -3027,6 +3185,7 @@ void main()
     || DraconicFeats()
     || DraDisFeats()
     || DragonShamanFeats()
+	|| VolatileMindOrExpandedKnowledge()
     //|| ElementalSavant()
     || EpicCasting()
     || Ethran()
