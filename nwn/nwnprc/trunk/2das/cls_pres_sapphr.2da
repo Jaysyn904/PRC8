@@ -2,8 +2,6 @@
 
   LABEL           ReqType ReqParam1          ReqParam2 
 0 BaseAttackBonus BAB     2                  ****      
-0 Lore            SKILL   7                  4         
-1 Spellcraft      SKILL   16                 4         
-2 ScriptVar       VAR     PRC_DivSpell2      0         
-3 ScriptVar       VAR     PRC_PrereqSapphire 0         
-4 ScriptVar       VAR     PRC_AllowSapphire  0         
+1 ScriptVar       VAR     PRC_DivSpell2      0         
+2 ScriptVar       VAR     PRC_PrereqSapphire 0         
+3 ScriptVar       VAR     PRC_AllowSapphire  0         

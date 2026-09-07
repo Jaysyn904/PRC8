@@ -36,6 +36,7 @@ int IsBlastOrEssence(int nRealSpellID)
         case INVOKE_HINDERING_BLAST:
         case INVOKE_NOXIOUS_BLAST:
         case INVOKE_PENETRATING_BLAST:
+        case INVOKE_REPELLING_BLAST:		
         case INVOKE_VITRIOLIC_BLAST:
         case INVOKE_UTTERDARK_BLAST:
             return TRUE;

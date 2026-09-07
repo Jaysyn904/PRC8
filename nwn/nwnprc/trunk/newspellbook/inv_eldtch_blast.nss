@@ -9,6 +9,7 @@
 #include "inv_invokehook"
 #include "inv_inc_blast"
 #include "psi_inc_core"
+#include "prc_inc_combmove"
 
 
 //:: Increases Blast DC if the PC has taken Ability Focus 
@@ -54,8 +55,11 @@ void main()
 	
 	nDC += InvokerAbilityFocus(oPC, nEssence, nEssence2);
 
-    int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
-    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
+/*     int nDamageType = nEssence ? (nEssenceData >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED;
+    int nDamageType2 = nEssence2 ? (nEssenceData2 >>> 4) & 0xFFF : DAMAGE_TYPE_UNTYPED; */
+	
+    int nDamageType = nEssence ? 1 << ((nEssenceData >>> 4) & 0x1F) : DAMAGE_TYPE_UNTYPED;
+    int nDamageType2 = nEssence2 ? 1 << ((nEssenceData2 >>> 4) & 0x1F) : DAMAGE_TYPE_UNTYPED;
 
     //Set correct blast damage type
     if(nDamageType != nDamageType2)
@@ -162,7 +166,18 @@ void main()
             int iSR = PRCDoResistSpell(oPC, oTarget, nPenetr);
             if(!iSR)
             {
-                 //Apply secondary effects from essence invocations
+                //Apply secondary effects from essence invocations
+				if((nEssence == INVOKE_REPELLING_BLAST || nEssence2 == INVOKE_REPELLING_BLAST)  
+					&& PRCGetIsAliveCreature(oTarget)  
+					&& PRCGetCreatureSize(oTarget) <= CREATURE_SIZE_MEDIUM)  
+				{  
+					if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_SPELL))  
+					{  
+						int nDist = d6(); // 1d6 x 5 ft  
+						_DoBullRushKnockBack(oTarget, oPC, IntToFloat(nDist) * 5.0);  
+						DelayCommand(0.1, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectKnockdown(), oTarget, 6.0));  
+					}  
+				}				 
                  if(nEssence == INVOKE_PENETRATING_BLAST || nEssence2 == INVOKE_PENETRATING_BLAST)
                  {
                      eEssence = EffectSpellResistanceDecrease(5);

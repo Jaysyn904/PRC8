@@ -1,4 +1,5 @@
 #include "inv_inc_invfunc"
+#include "prc_inc_combmove"
 
 //internal function for delayed damage
 void DoDelayedBlast(object oTarget, int nDamageType = DAMAGE_TYPE_FIRE, int nVFX = VFX_IMP_FLAME_M)
@@ -34,6 +35,17 @@ void main()
         if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_SPELL))
             ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(1));
     }
+	
+	if((nEssence == INVOKE_REPELLING_BLAST) && PRCGetIsAliveCreature(oTarget) && PRCGetCreatureSize(oTarget) <= CREATURE_SIZE_MEDIUM)  
+	{  
+		if(!PRCMySavingThrow(SAVING_THROW_REFLEX, oTarget, nDC, SAVING_THROW_TYPE_SPELL))  
+		{  
+			int nDist = d6(); // 1d6 x 5 ft  
+			_DoBullRushKnockBack(oTarget, oCaster, IntToFloat(nDist) * 5.0);  
+			DelayCommand(0.1, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectKnockdown(), oTarget, 6.0));  
+		}  
+	}
+	
     else if(nEssence == INVOKE_HINDERING_BLAST)
     {
         eEssence = EffectSlow();

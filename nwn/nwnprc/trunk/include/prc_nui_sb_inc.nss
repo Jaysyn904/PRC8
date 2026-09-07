@@ -1739,6 +1739,7 @@ json GetInvokerEssenceSpellList(int nClass, object oPlayer=OBJECT_SELF)
         essenceSpells = JsonArrayInsert(essenceSpells, JsonInt(18253)); // Penetrating Blast
         essenceSpells = JsonArrayInsert(essenceSpells, JsonInt(18267)); // Utterdark Blast
         essenceSpells = JsonArrayInsert(essenceSpells, JsonInt(18255)); // Vitriolic Blast
+		essenceSpells = JsonArrayInsert(essenceSpells, JsonInt(18330)); // Repelling Blast
     }
 
     if (nClass == CLASS_TYPE_DRAGONFIRE_ADEPT)

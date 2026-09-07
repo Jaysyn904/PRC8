@@ -801,6 +801,8 @@ const int FEAT_ABFOC_INCARNUM_SHROUD 				= 25210;
 const int FEAT_ABFOC_STEAL_SUMMONING 				= 25211;
 const int FEAT_ABFOC_ELDRITCH_BLAST 				= 25212;
 const int FEAT_ABFOC_WORD_OF_CHANGING				= 25213;
+const int FEAT_ABFOC_REPELLING_BLAST				= 25161;
+const int FEAT_ABFOC_VITRIOLIC_BLAST				= 25162;
 
 //::: Eldritch Disciple Divine Gifts
 const int FEAT_ED_CORRUPTING_BLAST					= 23521;

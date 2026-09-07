@@ -296,6 +296,8 @@ int CheckInvokerAbilityFocus(object oPC = OBJECT_SELF)
     if (GetHasFeat(FEAT_ABFOC_UTTERDARK_BLAST, oPC) && !GetHasInvocation(INVOKE_UTTERDARK_BLAST, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_INCARNUM_BLAST, oPC) && !GetHasInvocation(INVOKE_INCARNUM_BLAST, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC) && !GetHasInvocation(INVOKE_HAMMER_BLAST, oPC)) return TRUE;
+	if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC) && !GetHasInvocation(INVOKE_VITRIOLIC_BLAST, oPC)) return TRUE;
+    if (GetHasFeat(FEAT_ABFOC_REPELLING_BLAST, oPC) && !GetHasInvocation(INVOKE_REPELLING_BLAST, oPC)) return TRUE;		
     if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_ABERRATION, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_BEAST, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_BEAST, oPC)) return TRUE;
     if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_CONSTRUCT, oPC) && !GetHasInvocation(INVOKE_BANEFUL_BLAST_CONSTRUCT, oPC)) return TRUE;
@@ -2269,9 +2271,10 @@ int WarlockFeats()
           || GetHasInvocation(INVOKE_INCARNUM_BLAST)
           || GetHasInvocation(INVOKE_NOXIOUS_BLAST)
           || GetHasInvocation(INVOKE_PENETRATING_BLAST)
-          || GetHasInvocation(INVOKE_VITRIOLIC_BLAST))
+          || GetHasInvocation(INVOKE_VITRIOLIC_BLAST)
+          || GetHasInvocation(INVOKE_REPELLING_BLAST))		  
         // Lesser essences
-        || !(GetHasInvocation(INVOKE_BANEFUL_BLAST_ABERRATION)
+		  || !(GetHasInvocation(INVOKE_BANEFUL_BLAST_ABERRATION)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_BEAST)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_CONSTRUCT)
           || GetHasInvocation(INVOKE_BANEFUL_BLAST_DRAGON)

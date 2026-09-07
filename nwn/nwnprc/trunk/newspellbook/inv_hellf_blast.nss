@@ -18,6 +18,11 @@ void main()
         default: return;
     }
 
-    SetLocalInt(OBJECT_SELF, "INV_HELLFIRE", TRUE);
-    UseInvocation(nBlast, CLASS_TYPE_WARLOCK);
+	int nSculptorCount = GetHasFeat(FEAT_ELDRITCH_SCULPTOR, OBJECT_SELF) ? 2 : 1;
+	SetLocalInt(OBJECT_SELF, "INV_HELLFIRE_COUNT", nSculptorCount);
+	SetLocalInt(OBJECT_SELF, "INV_HELLFIRE", TRUE);
+	UseInvocation(nBlast, CLASS_TYPE_WARLOCK);
+
+	//SetLocalInt(OBJECT_SELF, "INV_HELLFIRE", TRUE);
+    //UseInvocation(nBlast, CLASS_TYPE_WARLOCK);
 }

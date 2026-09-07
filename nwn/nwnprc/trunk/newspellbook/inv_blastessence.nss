@@ -9,8 +9,18 @@
 //:: Created By: Fox
 //:: Created On: Feb 29, 2008
 //:://////////////////////////////////////////////
-
 #include "inv_inc_invfunc"
+
+int DamageFlagToRow(int nFlag)  
+{  
+    int i;  
+    for(i = 0; i <= 27; i++)  
+    {  
+        if(nFlag == (1 << i))  
+            return i;  
+    }  
+    return 0; // fallback, shouldn't happen  
+}
 
 void main()
 {
@@ -245,6 +255,11 @@ void main()
              nDamage = DAMAGE_TYPE_ACID;
              sMes = "*Vitriolic Blast Essence Applied*";
              break;
+			 
+        case INVOKE_REPELLING_BLAST:
+             nLevel = 6;
+             sMes = "*Repelling Blast Essence Applied*";
+             break;			 
 
         case INVOKE_BINDING_BLAST:
              nLevel = 7;
@@ -272,7 +287,8 @@ void main()
         // 12 bits: [ 4...15] : damage type (magical by default)
         //  4 bits: [ 0... 3] : essence level
         int nData = ((nRace   & 0xFF) << 16) |
-                    ((nDamage & 0xFFF) <<  4) |
+                    //((nDamage & 0xFFF) <<  4) |
+					((DamageFlagToRow(nDamage) & 0x1F) <<  4) |
                     (nLevel & 0xF);
 
         SetLocalInt(oPC, sBlastEssence, nSpellID);

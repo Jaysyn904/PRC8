@@ -148,6 +148,7 @@ const int INVOKE_NIGHTMARES_MADE_REAL        = 18131;
 const int INVOKE_NOXIOUS_BLAST               = 18132;
 const int INVOKE_PAINFUL_SLUMBER_OF_AGES     = 18133;
 const int INVOKE_PENETRATING_BLAST           = 18134;
+const int INVOKE_REPELLING_BLAST			 = 18151;
 const int INVOKE_TENACIOUS_PLAGUE            = 18135;
 const int INVOKE_VITRIOLIC_BLAST             = 18136;
 const int INVOKE_WALL_OF_PERILOUS_FLAME      = 18137;

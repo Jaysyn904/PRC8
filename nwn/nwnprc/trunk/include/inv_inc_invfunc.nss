@@ -226,9 +226,12 @@ int InvokerAbilityFocus(object oPC, int nEssence, int nEssence2 = -1)
 		case INVOKE_HAMMER_BLAST:
 			if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC)) nBonus += 2;
 			break;
-		// case INVOKE_VITRIOLIC_BLAST:
-			// if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
-			// break;
+		case INVOKE_VITRIOLIC_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_REPELLING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_REPELLING_BLAST, oPC)) nBonus += 2;
+			break;			
 		case INVOKE_BANEFUL_BLAST_ABERRATION:
 			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC)) nBonus += 2;
 			break;	
@@ -357,9 +360,12 @@ int InvokerAbilityFocus(object oPC, int nEssence, int nEssence2 = -1)
 		case INVOKE_HAMMER_BLAST:
 			if (GetHasFeat(FEAT_ABFOC_HAMMER_BLAST, oPC)) nBonus += 2;
 			break;
-		// case INVOKE_VITRIOLIC_BLAST:
-			// if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
-			// break;
+		case INVOKE_VITRIOLIC_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_VITRIOLIC_BLAST, oPC)) nBonus += 2;
+			break;
+		case INVOKE_REPELLING_BLAST:
+			if (GetHasFeat(FEAT_ABFOC_REPELLING_BLAST, oPC)) nBonus += 2;
+			break;	
 		case INVOKE_BANEFUL_BLAST_ABERRATION:
 			if (GetHasFeat(FEAT_ABFOC_BANEFUL_BLAST_ABERRATION, oPC)) nBonus += 2;
 			break;	

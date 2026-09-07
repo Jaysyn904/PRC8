@@ -156,8 +156,27 @@ int GetIsHellFireBlast(object oPC)
 {
     if(GetLocalInt(oPC, "INV_HELLFIRE"))
     {
-        DeleteLocalInt(oPC, "INV_HELLFIRE");
+        int nCount = GetLocalInt(oPC, "INV_HELLFIRE_COUNT");
+        if(nCount <= 1)
+        {
+            DeleteLocalInt(oPC, "INV_HELLFIRE");
+            DeleteLocalInt(oPC, "INV_HELLFIRE_COUNT");
+        }
+        else
+        {
+            SetLocalInt(oPC, "INV_HELLFIRE_COUNT", nCount - 1);
+        }
         return TRUE;
     }
     return FALSE;
 }
+
+/* int GetIsHellFireBlast(object oPC)
+{
+    if(GetLocalInt(oPC, "INV_HELLFIRE"))
+    {
+        DeleteLocalInt(oPC, "INV_HELLFIRE");
+        return TRUE;
+    }
+    return FALSE;
+} */
