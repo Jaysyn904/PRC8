@@ -2347,7 +2347,7 @@ int ShouldAddPower(int nClass, int spellbookId, object oPC=OBJECT_SELF)
             addPower = TRUE;
         choicesLeft = GetRemainingExpandedChoices(nClass, POWER_LIST_EPIC_EXP_KNOWLEDGE, oPC);
 		if (DEBUG) DoDebug("You still have " + IntToString(choicesLeft) + " epic expanded power choices left!");
-        if (choicesLeft && (currentCircle <= (maxLevel-1)))
+        if (choicesLeft && (currentCircle <= maxLevel))
             addPower = TRUE;
         // otherwise don't show the button.
         return addPower;

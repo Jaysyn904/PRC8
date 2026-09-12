@@ -3878,6 +3878,9 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 /* 		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_ARCHIVIST, oCaster))			
 			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster); */
+
+		if(GetHasFeat(FEAT_MORNINGLORD_SPELLCASTING_ARCHIVIST, oCaster))				
+			nDivine += GetLevelByClass(CLASS_TYPE_MORNINGLORD, oCaster);
 			
 		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_ARCHIVIST, oCaster))				
 			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);

@@ -519,14 +519,15 @@ void SetCompositeBonus(object oItem, string sBonus, int iVal, int iType, int iSu
             break;            
         case ITEM_PROPERTY_DECREASED_ABILITY_SCORE:
             iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
-            if ((iCurVal + iChange)  > 10)
+            if ((iCurVal + iChange)  > 50)
             {
                 iVal -= iCurVal + iChange - 10;
-                iCurVal = 10;
+                iCurVal = 50;
                 iChange = 0;
             }
             if(iCurVal+iChange > 0)
                 AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDecreaseAbility(iSubType, iCurVal + iChange), oItem);
+				//AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDecreaseAbility(iSubType, nTotalAmount), oItem);
             break;
         case ITEM_PROPERTY_DECREASED_AC:
             iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
@@ -889,15 +890,14 @@ void SetCompositeBonusT(object oItem, string sBonus, int iVal, int iType, int iS
                 iChange = 0;
             }
             if(iCurVal+iChange > 0)
-                //AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageBonusVsRace(iSubType,  DAMAGE_TYPE_SLASHING, iCurVal + iChange), oItem);
-				AddItemProperty(DURATION_TYPE_TEMPORARY, ItemPropertyDamageBonusVsRace(iSubType,  DAMAGE_TYPE_SLASHING, iCurVal + iChange), oItem);
+                AddItemProperty(DURATION_TYPE_TEMPORARY, ItemPropertyDamageBonusVsRace(iSubType,  DAMAGE_TYPE_SLASHING, iCurVal + iChange), oItem,9999.0);
             break;              
         case ITEM_PROPERTY_DECREASED_ABILITY_SCORE:
             iCurVal = TotalAndRemovePropertyT(oItem, iType, iSubType);
-            if ((iCurVal + iChange)  > 20)
+            if ((iCurVal + iChange)  > 50)
             {
-                iVal -= iCurVal + iChange - 20;
-                iCurVal = 20;
+                iVal -= iCurVal + iChange - 50;
+                iCurVal = 50;
                 iChange = 0;
             }
             AddItemProperty(DURATION_TYPE_TEMPORARY, ItemPropertyDecreaseAbility(iSubType, iCurVal + iChange), oItem,9999.0);

@@ -395,3 +395,5 @@ void RecoverUnHealableAbilityDamage(object oTarget, int nAbility, int nAmount)
     SetCompositeBonus(GetPCSkin(oTarget), sVarName, nNewVal, ITEM_PROPERTY_DECREASED_ABILITY_SCORE, nIPType);
     SetLocalInt(oTarget, sVarName, nNewVal);
 }
+
+

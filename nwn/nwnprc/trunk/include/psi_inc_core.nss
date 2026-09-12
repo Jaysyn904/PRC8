@@ -787,6 +787,7 @@ int GetIsPsionicCharacter(object oCreature)
               GetLevelByClass(CLASS_TYPE_FIST_OF_ZUOKEN, oCreature) ||
               GetLevelByClass(CLASS_TYPE_WARMIND,        oCreature) ||
               GetHasFeat(FEAT_WILD_TALENT,               oCreature) ||
+			  GetHasFeat(FEAT_HIDDEN_TALENT,             oCreature) ||
               GetHasFeat(FEAT_KALASHTAR_PP,              oCreature) ||
               GetHasFeat(FEAT_NATPSIONIC_1,              oCreature) ||
               GetHasFeat(FEAT_NATPSIONIC_2,              oCreature) ||

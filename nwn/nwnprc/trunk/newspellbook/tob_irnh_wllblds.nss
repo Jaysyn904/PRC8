@@ -44,18 +44,30 @@ void main()
     struct maneuver move = EvaluateManeuver(oInitiator, oTarget);
 
     if(move.bCanManeuver)
-    {
-	int nAC = GetDefenderAC(oInitiator, oTarget);
-	int nAttack = GetAttackRoll(oTarget, oInitiator, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator));
-	// Add bonus if greater
-	if (nAttack > nAC)
 	{
-		int nBonus = nAttack - nAC;
-		effect eAC = EffectLinkEffects(EffectACIncrease(nBonus), EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
-		eAC = EffectLinkEffects(eAC, EffectBonusFeat(FEAT_UNCANNY_REFLEX));
+		int nAC = GetDefenderAC(oInitiator, oTarget);
+		//SendMessageToPC(oInitiator, "Wall of Blades: oTarget's original AC = "+IntToString(nAC)+".");
 		
-		SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eAC), oTarget, 6.0);
-		SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_AC_BONUS), oTarget);
-	}
+		int nAttack = GetAttackRoll(oTarget, oInitiator, GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oInitiator));  // <- This sets up the variable below.
+		
+		nAttack = GetLocalInt(oInitiator, "PRCAttackBonus");
+		
+		//SendMessageToPC(oInitiator, "Wall of Blades: oTarget's Attack Roll = "+IntToString(nAttack)+".");
+		
+		// Add bonus if greater
+		if (nAttack > nAC)
+		{
+			int nBonus = nAttack - nAC;
+			//SendMessageToPC(oInitiator, "Wall of Blades: oTarget's AC bonus = +"+IntToString(nBonus)+".");
+			effect eAC = EffectLinkEffects(EffectACIncrease(nBonus), EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE));
+			eAC = EffectLinkEffects(eAC, EffectBonusFeat(FEAT_UNCANNY_REFLEX));
+			
+			SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(eAC), oTarget, 6.0);
+			SPApplyEffectToObject(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_IMP_AC_BONUS), oTarget);
+		}
     }
+	
+	object oEnemy = FindNearestNewEnemyWithinRange(oInitiator, oTarget);  
+	if (GetIsObjectValid(oEnemy))  
+		AssignCommand(oInitiator, ActionAttack(oEnemy));  
 }

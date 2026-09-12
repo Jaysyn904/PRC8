@@ -87,7 +87,7 @@ void main()
                 if(oTarget != oManifester)
                 {
 			// only hostile
-    			if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, GetAreaOfEffectCreator()))
+    			if (spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oManifester))
 			{
 
 	                    //Fire cast spell at event for the specified target

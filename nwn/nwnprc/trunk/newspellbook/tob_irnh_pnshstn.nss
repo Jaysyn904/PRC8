@@ -44,7 +44,7 @@ void main()
     if(move.bCanManeuver)
     {
        	effect eLink =                          EffectACDecrease(2);
-       	       eLink = EffectLinkEffects(eLink, EffectDamageIncrease(DAMAGE_BONUS_1d6));
+       	       eLink = EffectLinkEffects(eLink, EffectDamageIncrease(DAMAGE_BONUS_1d6, DAMAGE_TYPE_UNTYPED));
        	       eLink = EffectLinkEffects(eLink, EffectVisualEffect(VFX_DUR_ROOTED_TO_SPOT));
 		if (GetLocalInt(oInitiator, "KamateStance"))  eLink = EffectLinkEffects(eLink, EffectSavingThrowIncrease(SAVING_THROW_ALL, GetLocalInt(oInitiator, "KamateStance")));       	       
        	       

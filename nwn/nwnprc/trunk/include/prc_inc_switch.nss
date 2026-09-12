@@ -854,7 +854,15 @@ const string PRC_SPELLSLAB_NOSCROLLS                 = "PRC_SPELLSLAB_NOSCROLLS"
  *
  * @see inc_abil_damage.nss
  */
-const string PRC_PNP_ABILITY_DAMAGE_EFFECTS          = "PRC_PNP_ABILITY_DAMAGE_EFFECTS";
+const string PRC_PNP_ABILITY_DAMAGE_EFFECTS			= "PRC_PNP_ABILITY_DAMAGE_EFFECTS";
+
+/**
+ * Makes ability burn heal one point per rest insead of one point per 24
+ * hours of real time
+ *
+ * @see inc_abil_damage.nss
+ */
+const string PRC_ABILITY_BURN_HEAL_ON_REST 			= "PRC_ABILITY_BURN_HEAL_ON_REST";
 
 /**
  * Turns on the included version of supply based rest by demitious

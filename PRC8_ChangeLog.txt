@@ -1,3 +1,28 @@
+Jaysyn904 | 2026/09/12 Update
+Added Body Fuel (disabled, bug in AbilityBurn() )
+Added PRC switch to heal one point of Ability Burn per rest.
+Fixed caps on ITEM_PROPERTY_DECREASED_ABILITY_SCORE SetCompositeBonusT() & SetCompositeBonus().
+Added Archivist spellcasting marker feat for Morninglord.
+Epic Expanded Knowledge can now pick 9th level powers.
+Added Hidden Talent to GetIsPsionicCharacter()
+Punishing Stance does Untyped damage.
+Fixed bug in Wall of Blades.
+Removed old falchion crafting item.
+Fixed targetting for the Breath of the Black Dragon power.
+Made Celebrant of Sharess' Swiftness of the Tigress ability work per PnP.
+
+Jaysyn904 | 2026/09/06 Update
+Updated version nmber.
+Adding Repelling Blast invocation essence.
+Added Ability Focus: Repelling Blast.
+Added Ability Focus: Vitriolic Blast.
+Updated Volatile Mind.
+Fixed Sapphire Hierarch's prereqs.
+Removed subradials from Summon Elemental Paragon.
+Fixed Eldritch Blast and related powers not bit-packing and unpacking new damage types properly.
+Fixed Hellfire Blast only affecting the first blast in regards to Eldritch Sculptor.
+Fixed Forge Ring item typos in tlk.
+
 Jaysyn904 | 2026/09/05 Update
 Updated Wilder's default ability scores.
 Updated Soulknife to support the Hidden Talent Variant.

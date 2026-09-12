@@ -897,11 +897,12 @@ void CreateSwitchNameArray()
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFTING_TIME_SCALE);
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_CASTER_LEVEL);
 	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CREATE_INFUSION_OPTIONAL_HERBS);
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_SCEPTER_CASTER_LEVEL);
-	
-	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_SHOW_SR_CHECK_DETAILS);	
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_CRAFT_SCEPTER_CASTER_LEVEL);	
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_MATERIAL_COMPONENTS);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_DISABLE_COMPONENTS_SHOP);
+	
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_SHOW_SR_CHECK_DETAILS);
+	array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_ABILITY_BURN_HEAL_ON_REST);	
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_PNP_TRUESEEING);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_PNP_TRUESEEING_SPOT_BONUS);
     array_set_string(oWP, "Switch_Name", array_get_size(oWP, "Switch_Name"), PRC_BIOWARE_GRRESTORE);

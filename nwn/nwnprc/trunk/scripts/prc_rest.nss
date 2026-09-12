@@ -23,6 +23,25 @@
 #include "prc_nui_ap_inc"
 #include "prc_nui_sb_inc"
 
+void DelayedHealAbilityBurnOnRest(int nExpectedGeneration, object oPC)  
+{  
+    if (nExpectedGeneration != GetLocalInt(oPC, PRC_Rest_Generation))  
+    {  
+		if(DEBUG) DoDebug("prc_rest >> DelayedHealAbilityBurnOnRest(): Stale generation, skipping heal.");		
+        return;  
+    }  
+  
+    //if(DEBUG) DoDebug("prc_rest >> DelayedHealAbilityBurnOnRest(): STR before = " + IntToString(GetUnHealableAbilityDamage(oPC, ABILITY_STRENGTH)));  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_STRENGTH,     1);  
+    //if(DEBUG) DoDebug("prc_rest >> DelayedHealAbilityBurnOnRest(): STR after = " + IntToString(GetUnHealableAbilityDamage(oPC, ABILITY_STRENGTH)));  
+  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_DEXTERITY,    1);  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_CONSTITUTION, 1);  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_INTELLIGENCE, 1);  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_WISDOM,       1);  
+    RecoverUnHealableAbilityDamage(oPC, ABILITY_CHARISMA,     1); 	
+}
+
 void ClearAstarothCraftingFeat(object oPC)  
 {  
     effect eOld = GetFirstEffect(oPC);  
@@ -43,6 +62,16 @@ void ResetLionSwiftness(object oPC)
     {
         if(DEBUG) DoDebug("You have "+IntToString(nLevel)+ " rounds of Lion's Swiftness.");
 		SetLocalInt(oPC, "LION_SWIFTNESS_ROUNDS_REMAINING", nLevel);
+    }
+}
+
+void ResetTigressSwiftness(object oPC)
+{
+    int nLevel = GetLevelByClass(CLASS_TYPE_CELEBRANT_SHARESS, oPC);
+    if (nLevel > 7)
+    {
+        if(DEBUG) DoDebug("You have "+IntToString(nLevel)+ " rounds of Swiftness of the Tigress.");
+		SetLocalInt(oPC, "TIGRESS_SWIFTNESS_ROUNDS_REMAINING", nLevel);
     }
 }
 
@@ -142,22 +171,18 @@ void RestFinished(object oPC)
             AssignCommand(oSlave, ActionRest());
             //ForceRest(oSlave);
 
+    if(GetPRCSwitch(PRC_ABILITY_BURN_HEAL_ON_REST))  
+    {  
+        DelayCommand(0.0f, DelayedHealAbilityBurnOnRest(nGeneration, oPC));  
+		DelayCommand(0.5f, ReApplyUnhealableAbilityDamage(oPC));
+    }  
+
 	if (GetHasFeat(FEAT_EPIC_SPELLCASTING, oPC))
 	{
         FloatingTextStringOnCreature("*You feel refreshed*", oPC, FALSE);
         ReplenishSlots(oPC);
     }	
 	
-/*     if (GetIsEpicSpellcaster(oPC) == TRUE) 
-	{
-        FloatingTextStringOnCreature("*You feel refreshed*", oPC, FALSE);
-        ReplenishSlots(oPC);
-    }
-	else
-	{
-		if (DEBUG) DoDebug("prc_rest: Not an Epic Spellcaster");
-	}
- */
     if (GetHasFeat(FEAT_SF_CODE,oPC))
         DelayCommand(0.1, RemoveSpecificProperty(GetPCSkin(oPC),ITEM_PROPERTY_BONUS_FEAT,IP_CONST_FEAT_SF_CODE));
 
@@ -367,6 +392,7 @@ void RestFinished(object oPC)
     }
 	
 	ResetLionSwiftness(oPC);
+	ResetTigressSwiftness(oPC);
 	ClearAstarothCraftingFeat(oPC);
     
     // Execute scripts hooked to this event for the player triggering it

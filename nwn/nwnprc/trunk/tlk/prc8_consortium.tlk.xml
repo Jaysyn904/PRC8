@@ -5357,6 +5357,17 @@ Use: Selected.</entry>
 Prerequisite: Monk level 13.
 Specifics: The monk gains spell resistance equal to their class level + 10.
 Use: Automatic.</entry>
+  <entry id="16574" lang="en" sex="m">Body Fuel</entry>
+  <entry id="16575" lang="en" sex="m">Type of Feat: Psionic
+
+You can expand your power point total at the expense of your health.
+
+Specifics: You can recover 2 power points by taking 1 point of ability burn damage to each of your three ability scores: Strength, Dexterity, and Constitution. You can recover additional power points for a proportional cost; for example, you could choose to recover 6 power points by taking 3 points of ability burn damage to Strength, Dexterity, and Constitution. These recovered points are added to your power point reserve as if you had gained them by resting overnight.
+
+Special: Only living creatures can use this feat. You can take advantage of this feat only while in your own body (if you are under the effect of mind switch or metamorph, for example, you gain no benefit).
+
+Use: Selected.</entry>
+  <entry id="16576" lang="en" sex="m">&lt;CUSTOM0&gt; draws power points from their body.</entry>
   <entry id="20400" lang="en" sex="m">++++++++++ ACP Styles ++++++++++</entry>
   <entry id="20401" lang="en" sex="m">Kensai</entry>
   <entry id="20402" lang="en" sex="m">Assassin</entry>
@@ -72636,6 +72647,7 @@ Special Abilities:
   <entry id="77094" lang="en" sex="m">Combat Medic Spellcasting (Paladin)</entry>
   <entry id="77095" lang="en" sex="m">Morninglord of Lathander Spellcasting (Sohei)</entry>
   <entry id="77096" lang="en" sex="m">Thrall of Orcus Spellcasting (Ur-Priest)</entry>
+  <entry id="77097" lang="en" sex="m">Morninglord of Lathander Spellcasting (Archivist)</entry>
   <entry id="77100" lang="en" sex="m">Bardic Casting: Gloura cast spells as a Bard of their hit dice (7th level).</entry>
   <entry id="77101" lang="en" sex="m">Sorcerous Casting: Driders cast spells as a Sorcerer of their hit dice (6th level).</entry>
   <entry id="77102" lang="en" sex="m">Sorcerous Casting: Arkamoi cast spells as a Sorcerer of their hit dice (4th level).</entry>

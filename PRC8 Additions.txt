@@ -91,6 +91,9 @@ Summon Elemetnal Paragon
 PSIONICS
 Defensive Manifestation
 
+INVOCATIONS
+Repelling Blast
+
 INFUSIONS
 Armor Enhancement (Lesser / Standard / Greater)
 Resistance Item

@@ -157,6 +157,8 @@
 153        Combat_Manifestation                      4810      1    -1             0      
 154        Boost_Construct                           4833      1    -1             0      
 155        Speed_Of_Thought                          4834      1    -1             0      
+50         FEAT_PSI_BODY_FUEL                        3646      1    -1             1      
+51         Invest_Armour                             3643      1    -1             1      
 156        Psionic_Talent_1                          4835      1    -1             0      
 157        Psionic_Talent_2                          4836      1    -1             0      
 158        Psionic_Talent_3                          4837      1    -1             0      
