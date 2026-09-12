@@ -118,7 +118,7 @@ void main()
 
     ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);  
   
-	ReApplyUnhealableAbilityDamage(oPC));
+	ReApplyUnhealableAbilityDamage(oPC);
     GainPowerPoints(oPC, nPPGain);  
   
     FloatingTextStringOnCreature("You burn your body's vitality to fuel your mind, gaining " +  
