@@ -54,10 +54,14 @@ void main()
 		    // Don't hit yourself
 		    // Make sure the target is within melee range of the initiator
 		    // Don't hit the one already struck
-		    if(oAreaTarget != oInitiator &&
-		       GetIsInMeleeRange(oAreaTarget, oInitiator) &&
-		       GetIsEnemy(oTarget) && 
-		       oAreaTarget != oTarget)
+		    // if(oAreaTarget != oInitiator &&
+		       // GetIsInMeleeRange(oAreaTarget, oInitiator) &&
+		       // GetIsEnemy(oTarget) && 
+		       // oAreaTarget != oTarget)
+			if(oAreaTarget != oInitiator &&  
+			   GetIsInMeleeRange(oAreaTarget, oInitiator) &&  
+			   GetIsEnemy(oAreaTarget, oInitiator) &&   // <-- changed from GetIsEnemy(oTarget)  
+			   oAreaTarget != oTarget)			   
 		    {
 		        // Perform the Attack
 				DelayCommand(0.0, PerformAttack(oAreaTarget, oInitiator, eNone, 0.0, nAB, 0, 0, "Steel Wind Hit", "Steel Wind Miss"));

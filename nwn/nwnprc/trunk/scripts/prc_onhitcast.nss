@@ -642,7 +642,7 @@ void main()
         if (GetIsFlanked(oSpellTarget, oSpellOrigin))
         {
             int nWolfDam = GetLocalInt(oSpellOrigin, "TacticsWolf");
-            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nWolfDam), oSpellTarget);
+            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nWolfDam, DAMAGE_TYPE_UNTYPED), oSpellTarget);
         }
     }
 

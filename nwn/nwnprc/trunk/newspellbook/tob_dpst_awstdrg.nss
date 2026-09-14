@@ -49,7 +49,7 @@ void main()
 				nDC += 1;
 			}			
 			// Save check
-			if (!PRCMySavingThrow(SAVING_THROW_WILL, oProneTarget, nDC))
+			if (!PRCMySavingThrow(SAVING_THROW_REFLEX, oProneTarget, nDC))
 			{
 				ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
 				ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(d6(12)), oProneTarget);

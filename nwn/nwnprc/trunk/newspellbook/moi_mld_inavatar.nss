@@ -54,14 +54,16 @@ void main()
     if(IPGetIsMeleeWeapon(oItem))
     {        
    		if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_LAWFUL)
-   			IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+   			//IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+			SetCompositeBonusT(oItem, "IncAvatarAtk", nEssentia, ITEM_PROPERTY_ATTACK_BONUS);
 		if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_EVIL)
 			IPSafeAddItemProperty(oItem, ItemPropertyDamageBonus(DamageTypeToIPConst(GetWeaponDamageType(oItem)), IPDamageConstant((nEssentia*2) + nBonus)), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        				
 	}    
     if(GetWeaponRanged(oItem))
     {        
    		if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_CHAOTIC)
-   			IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);      				
+   			//IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE); 
+			SetCompositeBonusT(oItem, "IncAvatarAtk", nEssentia, ITEM_PROPERTY_ATTACK_BONUS);		
     }
     // In case of dual wielding
         oItem = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oMeldshaper);
@@ -70,7 +72,8 @@ void main()
     if(IPGetIsMeleeWeapon(oItem))
     {        
    		if (GetAlignmentLawChaos(oMeldshaper) == ALIGNMENT_LAWFUL)
-   			IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+   			//IPSafeAddItemProperty(oItem, ItemPropertyAttackBonus(nEssentia), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+			SetCompositeBonusT(oItem, "IncAvatarAtk", nEssentia, ITEM_PROPERTY_ATTACK_BONUS);
 		if (GetAlignmentGoodEvil(oMeldshaper) == ALIGNMENT_EVIL)
 			IPSafeAddItemProperty(oItem, ItemPropertyDamageBonus(DamageTypeToIPConst(GetWeaponDamageType(oItem)), IPDamageConstant((nEssentia*2) + nBonus)), 9999.0, X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        				
 	}    

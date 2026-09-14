@@ -45,7 +45,7 @@ void main()
     {
     	int nDuration = 1; //+ nChr;
     
-    	effect eLink = EffectDamageIncrease(DAMAGE_BONUS_5);
+    	effect eLink = EffectDamageIncrease(DAMAGE_BONUS_5, DAMAGE_TYPE_UNTYPED);
     	effect eDur = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);
     	eLink = EffectLinkEffects(eLink, eDur);
     	effect eVis = EffectVisualEffect(VFX_DUR_BARD_SONG);	

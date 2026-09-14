@@ -27,7 +27,7 @@ void main()
 {
 	object oInitiator = OBJECT_SELF;
 	object oCreature = CreateObject(OBJECT_TYPE_PLACEABLE, "tob_dpst_pillar", PRCGetSpellTargetLocation());
-	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), PRCGetSpellTargetLocation());
+	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), PRCGetSpellTargetLocation());
 	while(GetIsObjectValid(oProneTarget))
 	{
 		int nDC = 10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator);
@@ -43,6 +43,6 @@ void main()
 			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
 		}
 
-    	oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), PRCGetSpellTargetLocation());
+    	oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), PRCGetSpellTargetLocation());
 	}  	
 }

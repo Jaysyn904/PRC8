@@ -23,6 +23,8 @@ void main()
     //Declare major variables
     object oPC = OBJECT_SELF;
 	
+	int nSongHeart = GetHasFeat(FEAT_SONG_OF_THE_HEART, oPC);
+	
     //Declare major variables
     int nLevel = GetLevelByClass(CLASS_TYPE_BARD) +
                  GetLevelByClass(CLASS_TYPE_DIRGESINGER) +
@@ -32,6 +34,8 @@ void main()
 				 
     int nDuration = GetSkillRank(SKILL_PERFORM, oPC);
     int nDC = 10 + nLevel / 2 + GetAbilityModifier(ABILITY_CHARISMA, oPC);
+	
+	if(nSongHeart) nDC +=1;
 
     effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE);
     effect eFNF = EffectVisualEffect(VFX_FNF_LOS_EVIL_30);

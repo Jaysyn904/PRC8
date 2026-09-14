@@ -1612,6 +1612,7 @@ void BardSong(object oPC)
     if(GetHasFeat(FEAT_EXTRA_MUSIC, oPC)) nTotal += 4;
 
     FeatUsePerDay(oPC, FEAT_BARD_SONGS, -1, nTotal);
+	if(GetHasFeat(FEAT_MUSIC_OF_GROWTH, oPC)) FeatUsePerDay(oPC, FEAT_MUSIC_OF_GROWTH, -1, nTotal);
 }
 
 void FeatVirtuoso(object oPC)

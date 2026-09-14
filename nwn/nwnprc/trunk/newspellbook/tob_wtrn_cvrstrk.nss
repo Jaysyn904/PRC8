@@ -31,7 +31,9 @@
 void TOBAttack(object oTarget, object oInitiator)
 {
     	effect eNone;
-	PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, FALSE, "Covering Strike Hit", "Covering Strike Miss");
+	//PerformAttackRound(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, FALSE, "Covering Strike Hit", "Covering Strike Miss");
+	PerformAttack(oTarget, oInitiator, eNone, 0.0, 0, 0, 0, "Covering Strike Hit", "Covering Strike Miss");
+	
 	if (GetLocalInt(oTarget, "PRCCombat_StruckByAttack"))
     	{
 		effect eLink = ExtraordinaryEffect(EffectVisualEffect(VFX_IMP_FAERIE_FIRE));

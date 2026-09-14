@@ -119,7 +119,7 @@ void main()
                     nDamage = GetTargetSpecificChangesToDamage(oBallTarget, oManifester, nDamage, TRUE, FALSE);
 
                     // Apply the damage and VFX. No Reflex save here, they got hit by a touch attack
-                    ApplyTouchAttackDamage(oManifester, oBallTarget, nTouchAttack, nDamage, DAMAGE_TYPE_MAGICAL);
+                    ApplyTouchAttackDamage(oManifester, oBallTarget, nTouchAttack, nDamage, DAMAGE_TYPE_UNTYPED);
                     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eImpact, oBallTarget);
                 }// end if - Touch attack hit
             }// end if - A creature was targeted with the ball

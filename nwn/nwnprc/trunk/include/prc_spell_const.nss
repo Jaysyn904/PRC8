@@ -3,15 +3,16 @@
 //:: NUI Spell constants
 const int SPELL_NUI_POWER_ATTACK			= 2691;
 
-//spell
+//:: Spells
 const int SPELL_MAJOR_MAGIC_MISSILE         = 2247;
 const int SPELL_GREAT_WALL_OF_DISPEL        = 2096;
 const int SPELL_SOL_CONSECRATE              = 2108;
 const int SPELL_BLACKLIGHT                  = 2091;
 
-// bard
+//:: Bard
 const int SPELL_BARD_SONG 					= 411;
 const int SPELL_BARD_CURSE_SONG 			= 644;
+const int SPELL_MUSIC_OF_GROWTH				= 17963;
 
 //:: Monk
 const int SPELL_MONK_ABUNDANT_STEP			= 17986;
@@ -70,8 +71,8 @@ const int SPELL_MAJAUR_MOT_INT              = 3522;
 const int SPELL_MAJAUR_MOT_STR              = 3523;
 const int SPELL_MAJAUR_MOT_WIS              = 3524;
 
-//oozemaster
-const int SPELL_SLIME_WAVE = 2023;
+//:: Oozemaster
+const int SPELL_SLIME_WAVE 					= 2023;
 
 //damage increase spells for ActionCastSpellOnSelf
 const int SPELL_SET_COMPOSITE_ATTACK_BONUS  = 2732;

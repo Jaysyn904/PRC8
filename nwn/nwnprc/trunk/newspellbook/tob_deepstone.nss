@@ -94,7 +94,7 @@ void main()
             // Saving Throw
             if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, (10 + GetHitDice(oInitiator)/2 + GetAbilityModifier(ABILITY_STRENGTH, oInitiator))))
             {
-                effect eLink = ExtraordinaryEffect(EffectLinkEffects(EffectCutsceneImmobilize(), EffectVisualEffect(VFX_IMP_DOOM)));
+                effect eLink = ExtraordinaryEffect(EffectLinkEffects(EffectCutsceneImmobilize(), EffectVisualEffect(VFX_IMP_SLOW)));
                 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, 6.0);
             }
             // Once a round

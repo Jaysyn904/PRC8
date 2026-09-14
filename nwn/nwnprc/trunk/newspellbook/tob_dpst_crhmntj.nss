@@ -29,28 +29,38 @@ void main()
     if (GetHasSpellEffect(MOVE_MOUNTAIN_FORTRESS, oInitiator))
     {
 	    PRCRemoveEffectsFromSpell(oInitiator, MOVE_MOUNTAIN_FORTRESS);
-	    object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
-	    while(GetIsObjectValid(oProneTarget))
-	    {
-            int nDC = 15;
-			
-			int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));
-			if (nBladeMed)
-			{
-				nDC += 1;
-			}	
-			
-			// Skill check
-	        if (!GetIsSkillSuccessful(oProneTarget, SKILL_BALANCE, nDC))
-	        {
-		        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);
-           	}
-
-	    oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));
-	    }    		
+		object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));  
+		while(GetIsObjectValid(oProneTarget))  
+		{  
+			if (oProneTarget != oInitiator)  
+			{  
+				int nDC = 15;  
+		  
+				int nBladeMed = HasBladeMeditationForDiscipline(oInitiator, GetDisciplineByManeuver(PRCGetSpellId()));  
+				if (nBladeMed)  
+				{  
+					nDC += 1;  
+				}  
+		  
+				// Skill check  
+				if (!GetIsSkillSuccessful(oProneTarget, SKILL_BALANCE, nDC))  
+				{  
+					ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oProneTarget, 6.0);  
+				}  
+			}  
+		  
+			oProneTarget = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), GetLocation(oInitiator));  
+		}   		
 
 	    // Now the Charge
-        DoCharge(oInitiator, oTarget, TRUE, TRUE, d6(2), -1);
+		if (oTarget != oInitiator)  
+		{  
+			if (GetIsEnemy(oTarget, oInitiator))
+			{
+				// Now the Charge  
+				DoCharge(oInitiator, oTarget, TRUE, TRUE, d6(2), -1);  
+			}
+		}
 	}
 	else
 		FloatingTextStringOnCreature("You are not in Mountain Fortress Stance.", oInitiator, FALSE);

@@ -432,6 +432,17 @@ void main()
     eAttack = EffectAttackIncrease(nAttack);
     eDamage = EffectDamageIncrease(nDamage, DAMAGE_TYPE_BLUDGEONING);
     
+	if(GetHasFeat(FEAT_SONG_OF_THE_HEART))
+    {
+        if(nAttack > 0)	nAttack += 1;
+        if(nDamage > 0)	nDamage += 1;
+        if(nWill > 0)	nWill += 1;
+        if(nFort > 0)	nFort += 1;
+        if(nReflex > 0)	nReflex += 1;
+        if(nHP > 0)		nHP += d8(1);
+        if(nAC > 0)		nAC += 1;
+        if(nSkill > 0)	nSkill +=1;
+    }
     
     if(GetLocalInt(OBJECT_SELF, "DragonFireInspOn"))
     {
@@ -535,6 +546,13 @@ void main()
             }
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, RADIUS_SIZE_COLOSSAL, GetLocation(OBJECT_SELF));
     }
+	
+	int nGrowth = GetHasFeat(FEAT_MUSIC_OF_GROWTH, OBJECT_SELF);
+	
+	if(nGrowth)
+	{
+		DecrementRemainingFeatUses(OBJECT_SELF, FEAT_MUSIC_OF_GROWTH);
+	}
 	
 //:: Crystal Echoblade
 	object oRight = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, OBJECT_SELF);

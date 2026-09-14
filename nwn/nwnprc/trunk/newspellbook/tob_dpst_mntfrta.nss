@@ -2,7 +2,7 @@
     ----------------
     Mountain Fortress Stance
 
-    tob_dpst_mntfrt
+    tob_dpst_mntfrta
     ----------------
 
     27/01/08 by Stratovarius
@@ -39,6 +39,11 @@ void main()
 	}	
 
     // Cleaned up on exit
-    if (!GetIsSkillSuccessful(oTarget, SKILL_BALANCE, nDC) && GetIsEnemy(oTarget, GetAreaOfEffectCreator()))
-    	ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oTarget, 6.0);
+	if(GetIsEnemy(oTarget, oInitiator))
+	{
+		if (!GetIsSkillSuccessful(oTarget, SKILL_BALANCE, nDC))
+		{
+			ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ExtraordinaryEffect(EffectKnockdown()), oTarget, 6.0);
+		}
+	}
 }

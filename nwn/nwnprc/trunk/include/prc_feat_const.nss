@@ -2429,7 +2429,6 @@ const int FEAT_SA_SHADOWDOUBLE      = 2959;
 
 // Brawler
 const int FEAT_BRAWLER_FISTS                     = 4428;
-const int FEAT_EPIC_BRAWLER                      = 4437;
 const int FEAT_BRAWLER_BLOCK_1                   = 4438;
 const int FEAT_BRAWLER_BLOCK_2                   = 4439;
 const int FEAT_BRAWLER_BLOCK_3                   = 4440;
@@ -4021,8 +4020,10 @@ const int FEAT_MASTER_OF_KNOWLEDGE            = 5268;
 const int FEAT_UNNATURAL_WILL                 = 5267;
 
 // Eberron Campaign Setting Feats
-const int FEAT_ECCLESIARCH                    = 5275;
-const int FEAT_WAND_MASTERY                   = 5314;
+const int FEAT_SONG_OF_THE_HEART			= 4437;
+const int FEAT_MUSIC_OF_GROWTH				= 26026;
+const int FEAT_ECCLESIARCH					= 5275;
+const int FEAT_WAND_MASTERY					= 5314;
 
 // Secrets of Sarlona Feats
 const int FEAT_MOUNTAIN_STANCE                = 5193;

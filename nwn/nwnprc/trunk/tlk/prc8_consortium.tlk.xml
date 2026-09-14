@@ -58291,7 +58291,82 @@ Chakra Bind (Throat)
 
 Your soulspark burns with a fierce blue-white light.
 
-If you bind soulspark familiar to your throat chakra, you create a greater soulspark.</entry>
+If you bind soulspark familiar to your throat chakra, you create a greater soulspark.
+
+Least Soulspark
+
+Tiny Outsider (Alignment, Incarnum, Native)
+
+HD 2d8+4 (13 hp); Init +5; Speed 20 ft., fly 30 ft. (perfect)
+AC 14, touch 12, flat-footed 13; BAB/Grapple +2/–6
+Attack Soul blast +5 ranged (1d4+1); Full Attack Soul blast +5 ranged (1d4+1)
+Space/Reach 2½ ft./0 ft.
+SA Soul blast
+SQ Amorphous; DR 1/alignment; essentia pool 2; evasion; incarnum shroud
+Saves Fort +5, Ref +4, Will +4
+Abilities Str 10, Dex 13, Con 15, Int 6, Wis 13, Cha 13
+Skills Diplomacy +3, Hide +14, Knowledge (history) +3, Listen +6, Move Silently +6, Sense Motive +6, Spot +6
+Feats Improved Initiative
+CR 1; Alignment Always CN, LN, NG, or NE
+Environment Any; Organization Solitary, pair, or flood (3–8)
+Advancement 3 HD (Tiny); LA —
+
+
+Lesser Soulspark
+
+Tiny Outsider (Alignment, Incarnum, Native)
+
+HD 4d8+8 (26 hp); Init +6; Speed 20 ft., fly 30 ft. (perfect)
+AC 16, touch 14, flat-footed 14; BAB/Grapple +4/–4
+Attack Soul blast +8 ranged (1d6+2); Full Attack Soul blast +8 ranged (1d6+2)
+Space/Reach 2½ ft./0 ft.
+SA Soul blast
+SQ Amorphous; DR 3/alignment; essentia pool 4; evasion; incarnum shroud
+Saves Fort +6, Ref +8, Will +5
+Abilities Str 10, Dex 15, Con 15, Int 6, Wis 13, Cha 15
+Skills Diplomacy +4, Hide +17, Knowledge (history) +5, Listen +8, Move Silently +9, Sense Motive +8, Spot +8
+Feats Improved Initiative, Lightning Reflexes
+CR 3; Alignment Always CN, LN, NG, or NE
+Environment Any; Organization Solitary, pair, or flood (3–8)
+Advancement 5 HD (Tiny); LA —
+
+
+Soulspark
+
+Tiny Outsider (Alignment, Incarnum, Native)
+
+HD 6d8+12 (39 hp); Init +8; Speed 20 ft., fly 30 ft. (perfect)
+AC 19, touch 16, flat-footed 15; BAB/Grapple +6/–1
+Attack Soul blast +13 ranged (1d8+3); Full Attack Soul blast +13 ranged (1d8+3)
+Space/Reach 2½ ft./0 ft.
+SA Soul blast
+SQ Amorphous; DR 5/alignment; essentia pool 6; evasion; incarnum shroud
+Saves Fort +7, Ref +11, Will +6
+Abilities Str 13, Dex 18, Con 15, Int 6, Wis 13, Cha 17
+Skills Diplomacy +5, Hide +21, Knowledge (history) +7, Listen +10, Move Silently +12, Sense Motive +10, Spot +10
+Feats Improved Initiative, Lightning Reflexes, Weapon Focus (soul blast)
+CR 5; Alignment Always CN, LN, NG, or NE
+Environment Any; Organization Solitary, pair, or flood (3–8)
+Advancement 7 HD (Tiny); LA —
+
+
+Greater Soulspark
+
+Tiny Outsider (Alignment, Incarnum, Native)
+
+HD 8d8+16 (52 hp); Init +9; Speed 20 ft., fly 30 ft. (perfect)
+AC 21, touch 17, flat-footed 16; BAB/Grapple +8/+0
+Attack Soul blast +16 ranged (1d12+5); Full Attack Soul blast +16 ranged (1d12+5)
+Space/Reach 2½ ft./0 ft.
+SA Soul blast
+SQ Amorphous; DR 10/alignment; evasion; essentia pool 8; incarnum shroud
+Saves Fort +8, Ref +13, Will +7
+Abilities Str 13, Dex 21, Con 15, Int 6, Wis 13, Cha 21
+Skills Diplomacy +7, Hide +24, Knowledge (history) +9, Listen +12, Move Silently +16, Sense Motive +12, Spot +12
+Feats Improved Initiative, Lightning Reflexes, Weapon Focus (soul blast)
+CR 7; Alignment Always CN, LN, NG, or NE
+Environment Any; Organization Solitary, pair, or flood (3–8)
+Advancement 9–12 HD (Tiny); 13–20 HD (Small); LA —</entry>
   <entry id="60918" lang="en" sex="m">Soulspark Familiar Essentia Choice</entry>
   <entry id="60919" lang="en" sex="m">Type of Feat: Incarnum
 Prerequisite: Soulspark Familiar
@@ -77232,6 +77307,17 @@ Prerequisite: 21st level, Weapon Focus: Touch Attack.
 Specifics: The character gains a +2 bonus to all attack rolls with touch attack spells.
 Use: Automatic
 </entry>
+  <entry id="213114" lang="en" sex="m">Song of the Heart</entry>
+  <entry id="213115" lang="en" sex="m">Type of Feat: General
+Prerequisite: Bard Song, Perform 6
+Specifics: When you use Bardic Music, any bonus granted by your music increases by +1. Thus, a 15th-level bard with this feat grants his allies a +4 bonus on attack rolls, damage rolls, and saving throws against fear when he uses Bardic Music, rather than the +3 he would normally grant. If he uses Bardic Musics, the same bard grants up to three allies 3 bonus Hit Dice, a +3 bonus on attack rolls, and a +2 bonus on Fortitude saves. Also, when you use fascinate, suggestion, or mass suggestion, the saving throw DC increases by 1. If you have the Haunting Melody feat, the saving throw DC for that effect also increases by 1. If you have the Music of Growth feat, the bonus bestowed by that feat increases to +6. If you have the Music of Making feat, the bonus on Craft checks bestowed by that feat increases to +6. If you have the Soothe the Beast feat, you gain a +2 circumstance bonus on your Perform check to improve the attitude of an animal or magical beast.
+Use: Automatic</entry>
+  <entry id="213116" lang="en" sex="m">Music of Growth</entry>
+  <entry id="213117" lang="en" sex="m">Type of Feat: General
+Prerequisite: Bard Song, Perform 12
+Specifics: By playing this music, you grant a +4 enhancement bonus to the Strength and Constitution scores of every creature of the animal or plant type within 30 feet of you.
+Use: Selected</entry>
+  <entry id="213118" lang="en" sex="m">&lt;CUSTOM0&gt; performs the music of growth.</entry>
   <entry id="213198" lang="en" sex="m">Investigator</entry>
   <entry id="213199" lang="en" sex="m">Type of Feat: General
 Benefit: You get a +2 bonus on all Sense Motive and Search checks.

@@ -22,10 +22,8 @@
     
     You deal an extra 1d6 damage with melee attacks, but take a -2 AC penalty.
 */
-
 #include "tob_inc_move"
 #include "tob_movehook"
-////#include "prc_alterations"
 
 void main()
 {
