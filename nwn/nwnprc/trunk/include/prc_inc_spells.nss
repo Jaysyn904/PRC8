@@ -922,8 +922,8 @@ int ApplySpellBetrayalStrikeDamage(object oTarget, object oCaster, int bShowText
 int SpellDamagePerDice(object oCaster, int nDice)
 {
 	// Arcane only
-	if (!GetIsArcaneClass(PRCGetLastSpellCastClass(oCaster)))
-		return 0;
+/* 	if (!GetIsArcaneClass(PRCGetLastSpellCastClass(oCaster)))  //::  <- this completely screws druids casting sunburst.
+		return 0; */
 
     int nDam = 0;
     nDam += GetLocalInt(oCaster, "StrengthFromMagic") * nDice * 2;
@@ -2766,15 +2766,15 @@ effect PRCEffectDamage(object oTarget, int nDamageAmount, int nDamageType=DAMAGE
     	    // Elemental damage only
     	    if(IsSpellDamageElemental(nDamageType))
     	    {
-    	        // Damage magical, max 10 to magical
+    	        // Damage magical, max 10 to untyped
     	        if(nDamageAmount > 10)
     	        {
     	            nDamageAmount -= 10;
-    	            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(10), oTarget);
+    	            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(10, DAMAGE_TYPE_UNTYPED), oTarget);
     	        }
     	        else
     	        {
-    	            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDamageAmount), oTarget);
+    	            ApplyEffectToObject(DURATION_TYPE_INSTANT, EffectDamage(nDamageAmount, DAMAGE_TYPE_UNTYPED), oTarget);
     	            effect eEffect;
     	            return eEffect; // Null return
     	        }

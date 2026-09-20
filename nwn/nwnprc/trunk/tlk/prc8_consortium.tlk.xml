@@ -71093,7 +71093,7 @@ Use: Activated</entry>
   <entry id="75044" lang="en" sex="m">Summon Elemental</entry>
   <entry id="75045" lang="en" sex="m">Type of Feat: Reserve
 Prerequisite: Ability to cast 4th-level spells
-Benefit: As long as you have a summoning spell of 4th level or higher available to cast, you can summon a Small elemental (air, earth, fire, or water; your choice) within a range of 30 feet. The elemental acts as if summoned by a summon creature spell (PH 285). The duration of the summoning is equal to 1 round per level of the highest-level conjuration (summoning) spell you have available to cast. You can have only one summoned elemental from this feat at a time; if you use the ability a second time, the first elemental disappears. Also, you must remain close to the elemental you summon. If at the end of your turn you are more than 30 feet from the elemental, it disappears. If you have a conjuration (summoning) spell of 6th level or higher available to cast, you can summon a Medium elemental instead. If you have a conjuration (summoning) spell of 8th level or higher available to cast, you can summon a Large elemental instead. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting conjuration (summoning) I spells.
+Benefit: As long as you have a summoning spell of 4th level or higher available to cast, you can summon a Small elemental (air, earth, fire, or water; your choice) within a range of 30 feet. The elemental acts as if summoned by a summon creature spell. The duration of the summoning is equal to 1 round per level of the highest-level conjuration (summoning) spell you have available to cast. You can have only one summoned elemental from this feat at a time; if you use the ability a second time, the first elemental disappears. Also, you must remain close to the elemental you summon. If at the end of your turn you are more than 30 feet from the elemental, it disappears. If you have a conjuration (summoning) spell of 6th level or higher available to cast, you can summon a Medium elemental instead. If you have a conjuration (summoning) spell of 8th level or higher available to cast, you can summon a Large elemental instead. As a secondary benefit, you gain a +1 competence bonus to your caster level when casting conjuration (summoning) I spells.
 Use: Activated</entry>
   <entry id="75046" lang="en" sex="m">Dimensional Reach</entry>
   <entry id="75047" lang="en" sex="m">Type of Feat: Reserve
@@ -73146,7 +73146,9 @@ Weight 1 lb.</entry>
 One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
 Constitution damage (Fort DC 17 half) per round of exposure.
 
-Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.</entry>
+Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.
+
+Cost to Create: 2,250 gp, 180 XP, 5 days</entry>
   <entry id="80120" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
 One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
@@ -73157,7 +73159,9 @@ Constitution damage (Fort DC 17 half) per round of exposure.</entry>
 
 You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.
 
-Prerequisites: Craft Wondrous Item, alter self, darkvision, Craft (alchemy) 5 ranks.</entry>
+Prerequisites: Craft Wondrous Item, alter self, darkvision, Craft (alchemy) 5 ranks.
+
+Cost to Create: 675 gp, 54 XP, 2 days</entry>
   <entry id="80124" lang="en" sex="m">The viscous liquid in this vial has an oily brown color and smells a little like wet leaves.  Drinking beetle elixir causes your skin to harden, darken, and gloss over, and short antennae to sprout from your forehead.
 
 You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.</entry>
@@ -73599,7 +73603,7 @@ Spell Resistance: Yes
 
 This spell functions like creeping cold, causing intense cold to accumulate inside the target's body, but with extended duration and increased damage.
 
-You turn the subject's sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on-dealing 3d6 on the third round and 4d6 on the fourth.
+You turn the subject's sweat and moisture to ice, creating blisters and sharp crystals beneath the skin. The spell deals cumulative cold damage each round: 1d6 points on the first round, 2d6 on the second, and so on, dealing 3d6 on the third round and 4d6 on the fourth.
 
 If the caster is at least 15th level, the spell continues for a fifth round, dealing 5d6 cold damage. At 20th level or higher, a sixth round is added, dealing 6d6 cold damage. The spell never deals more than 6d6 damage in any round, and it ends early if the target dies.
 
@@ -74333,7 +74337,7 @@ Bard Song: The epic virtuoso's bard song continues into epic levels.
 Epic Virtuoso Bonus Feat List:
 Combat Casting, Curse Song, Epic Inspiration, Epic Leadership, Epic Reputation, Epic Skill Focus, Epic Spell Focus, Epic Spellcasting, Extra Music, Great Charisma, Great Intelligence, Improved Combat Casting, Lasting Inspiration, Lingering Song, Master Staff, Master Wand, Tenacious Magic, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205014" lang="en" sex="m">Epic Spellsword</entry>
-  <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells-each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
+  <entry id="205015" lang="en" sex="m">At epic levels, you have perfected the art of melding martial might with potent arcane force. No longer hampered by the clashing demands of armor and magic, your mastery of arcane combat has reached new heights. Your weapon becomes a flawless conduit for your spells, each strike unleashing stored arcane power with lethal precision, and your "Channel Spell" ability continues to deliver devastating magical strikes in the thick of battle.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Intelligence modifier
@@ -74380,7 +74384,7 @@ Sneak Attack: The epic unseen seer's sneak attack continues to increase by 1d6 e
 Epic Unseen Seer Bonus Feat List:
 Arcane Defense, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Great Charisma, Great Intelligence, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Penetration, Tenacious Magic, Blinding Speed, Epic Dodge, Epic Skill Focus, Improved Sneak Attack, Lingering Damage, Self-Concealment, Superior Initiative, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.</entry>
   <entry id="205020" lang="en" sex="m">Epic Celebrant Sharess</entry>
-  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature-a mesmerizing blend of irresistible charm and fierce martial prowess. 
+  <entry id="205021" lang="en" sex="m">At epic levels, you transcend the ordinary revelry to become a living embodiment of Sharess's dual nature, a mesmerizing blend of irresistible charm and fierce martial prowess. 
 
 Hit Die: d6
 Skill Points at Each Additional Level: 6 + Int Modifier
@@ -74884,7 +74888,7 @@ Visage of Terror - At 10th level you gain Visage of Terror and that increases by
 Epic Ravager Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Prowess, Epic Skill Focus, Epic Toughness, Epic Weapon Focus, Great Charisma, Great Dexterity, Great Strength, Improved Sneak Attack, Overwhelming Critical, Superior Initiative.</entry>
   <entry id="205098" lang="en" sex="m">Epic Runescarred Berserker</entry>
-  <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power-each scar a rune, each scream a spell, each rage an unstoppable storm.
+  <entry id="205099" lang="en" sex="m">Epic Runescarred Berserkers are living weapons of wrath and arcane resilience. Their rune-covered flesh blazes with potent magic, their fury eclipsing mortal limits. As chosen champions of Rashemen, they channel raw pain into devastating power, each scar a rune, each scream a spell, each rage an unstoppable storm.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.
@@ -74898,7 +74902,7 @@ Ritual Scarring : The epic Runescarred Berzerker continues to gain +1 Natural AC
 Epic Runescarred Berserkers Bonus Feat List:
 Armor Skin, Blinding Speed, Devastating Critical, Epic Damage Reduction, Epic Energy Reduction, Epic Prowess, Epic Toughness, Epic Weapon Focus, Fast Healing, Legendary Wrestler, Mighty Rage, Overwhelming Critical, Terrifying Rage, Thundering Rage</entry>
   <entry id="205100" lang="en" sex="m">Epic Talontar Blightlord</entry>
-  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona's rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion-, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
+  <entry id="205101" lang="en" sex="m">Epic Talontar Blightlords are avatars of pestilence and decay, their very presence a walking plague. With blighted blood and cursed glaives, they corrupt nature itself, spreading Talona's rot across forests and flesh alike. No longer truly mortal, these twisted priests become vessels of contagion, unfeeling, unyielding, and unstoppable harbingers of a diseased apocalypse.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74911,7 +74915,7 @@ Spellcasting: The epic Talontar Blightlord continues to increase in divine caste
 Epic Talontar Blightlords Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Damage Reduction, Epic Energy Resistance, Epic Prowess, Epic Skill Focus, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Fast Healing, Focused Spell Penetration, Great Charisma, Great Wisdom, Ignore Material Components, Improved Combat Casting, Planar Turning.</entry>
   <entry id="205102" lang="en" sex="m">Epic Child of Night</entry>
-  <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form-walking veils between this world and the shadow that lies beyond.
+  <entry id="205103" lang="en" sex="m">Epic Children of Night transcend mortal shadow and step fully into the realm of darkness. With bodies cloaked in ever-shifting umbra and minds untethered from the concerns of the flesh, they weave mysteries that distort perception and unravel reality. No longer bound by day or death, they are whispers given form, walking veils between this world and the shadow that lies beyond.
 
 Hit Die: d6
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74924,7 +74928,7 @@ Mysteries: The epic Child of Night continues to increase in mystery caster level
 Epic Child of Night Bonus Feat List:
 Armor Skin, Blinding Speed, Epic Energy Resistance, Epic Self-Concealment, Epic Skill Focus, Favored Mystery, Great Charisma, Greater Path Focus, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, and any metashadow feat. </entry>
   <entry id="205104" lang="en" sex="m">Epic Master of Shadow</entry>
-  <entry id="205105" lang="en" sex="m">Epic Masters of Shadow are no longer mere commanders of darkness-they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
+  <entry id="205105" lang="en" sex="m">Epic Masters of Shadow are no longer mere commanders of darkness, they are its avatars. Their shadow servants swell into entities of primordial gloom, answering unspoken commands with lethal grace. Cloaked in absolute cold and bolstered by unfathomable shadow-magic, these lords of twilight weave darkness into weapons, armor, and essence. In the deep, where no light dares tread, they reign supreme.
 
 Hit Die: d8
 Skill Points at Each Additional Level: 2 + Int Modifier
@@ -74950,7 +74954,7 @@ Spellcasting: The epic Noctumancer continues to increase in caster level (and sp
 Epic Noctumancer Bonus Feat List:
 Armor Skin, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Blinding Speed, Epic Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Favored Mystery, Focused Spell Penetration, Great Charisma, Great Intelligence, Greater Path Focus, Ignore Material Components, Improved Combat Casting, Nocturnal Caster, Path Focus, Shadow Cast, Superior Initiative, Tenacious Magic, and any metashadow feat. </entry>
   <entry id="205108" lang="en" sex="m">Epic Totem Rager</entry>
-  <entry id="205109" lang="en" sex="m">An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces-they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
+  <entry id="205109" lang="en" sex="m">An epic totem rager is the living embodiment of primal fury and spiritual instinct. At this level, rage and soulmeld are no longer separate forces, they are one. Her body channels the raw power of magical beasts, while her spirit roars with ancestral might. As she charges into battle, the ground trembles and the air thickens with incarnum, a visible aura of bestial power surrounding her.
 
 Hit Die: d10.
 Skill Points at Each Additional Level: 4 + Intelligence modifier.

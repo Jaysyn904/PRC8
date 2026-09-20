@@ -11,6 +11,8 @@
 #include "moi_inc_moifunc"
 #include "prc_inc_dragsham"
 #include "inc_dynconv"
+#include "prc_nui_moi_cst"
+#include "prc_inc_util"
 
 //////////////////////////////////////////////////
 /* Constant defintions                          */
@@ -418,10 +420,43 @@ void main()
 	           	 	// And we're all done
            	 		if (GetMaxBindCount(oMeldshaper, CLASS_TYPE_INCARNATE) || GetMaxBindCount(oMeldshaper, CLASS_TYPE_SOULBORN) || GetMaxBindCount(oMeldshaper, CLASS_TYPE_TOTEMIST) || GetMaxBindCount(oMeldshaper, CLASS_TYPE_SPINEMELD_WARRIOR))
            	 		{
-            			DelayCommand(0.5, AssignCommand(oMeldshaper, ClearAllActions(TRUE)));
-        				DelayCommand(0.55, StartDynamicConversation("moi_bindingcnv", oMeldshaper, DYNCONV_EXIT_ALLOWED_SHOW_CHOICE, FALSE, TRUE, oMeldshaper));           	 	
-        			}	       			
-        			DeleteLocalInt(oMeldshaper, "FirstMeldDone");
+            				DelayCommand(0.5, AssignCommand(oMeldshaper, ClearAllActions(TRUE)));
+        					DelayCommand(0.55, StartDynamicConversation("moi_bindingcnv", oMeldshaper, DYNCONV_EXIT_ALLOWED_SHOW_CHOICE, FALSE, TRUE, oMeldshaper));           	 	
+        				}	       			
+						else if (GetLevelByClass(
+								CLASS_TYPE_INCARNUM_BLADE,
+								oMeldshaper
+							) > 0
+							&& GetLocalInt(
+								oMeldshaper,
+								PRC_MOI_BLADE_REST_GENERATION_VAR
+							) == GetLocalInt(
+								oMeldshaper,
+								PRC_Rest_Generation
+							)
+							&& GetLocalInt(
+								oMeldshaper,
+								PRC_MOI_BLADE_REST_GENERATION_VAR
+							) > 0)
+						{
+							// Low-level shaping classes can finish with zero chakra
+							// binds, so they never enter moi_bindingcnv.  Complete
+							// the saved blademeld handoff here without changing the
+							// no-default legacy route.
+							SetLocalInt(
+								oMeldshaper,
+								PRC_MOI_BLADE_REST_SOURCE_VAR,
+								PRC_MOI_BLADE_REST_SOURCE_CONVERSATION
+							);
+							DelayCommand(
+								0.1f,
+								ExecuteScript(
+									"prc_nui_moi_ba",
+									oMeldshaper
+								)
+							);
+						}
+        				DeleteLocalInt(oMeldshaper, "FirstMeldDone");
         			DeleteLocalInt(oMeldshaper, "SecondMeldDone");
         			DeleteLocalInt(oMeldshaper, "ThirdMeldDone");        			
             		AllowExit(DYNCONV_EXIT_FORCE_EXIT); 

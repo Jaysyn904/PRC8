@@ -64,12 +64,16 @@ void ClearEventVariables(object oPC)
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_INDEX_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_SPELL_VAR);
+    // Declared by prc_nui_sb_inc; avoid pulling the full spellbook renderer
+    // into this target bridge solely to clear cancelled cast state.
+    DeleteLocalInt(oPC, "NUI_NativeDomainCastSpell");
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_DOMAIN_METAMAGIC_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_CAST_TYPE_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_CLASS_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_LEVEL_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_SPELL_VAR);
+    DeleteLocalInt(oPC, "NUI_NativeClassCastSpell");
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_METAMAGIC_VAR);
     DeleteLocalInt(oPC, NUI_SPELLBOOK_NATIVE_CLASS_DOMAIN_VAR);
 }

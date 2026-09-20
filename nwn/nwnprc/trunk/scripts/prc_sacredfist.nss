@@ -20,25 +20,28 @@ void main()
                   GetBaseItemType(oItemL) == BASE_ITEM_LARGESHIELD ||
                   GetBaseItemType(oItemL) == BASE_ITEM_SMALLSHIELD;
 
-    if (!iCode)
-    {
-        if(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC) == OBJECT_INVALID)
-        {
-            if (!(oItemL == OBJECT_INVALID || GetBaseItemType(oItemL)==BASE_ITEM_TORCH || iShield))
-            {
-                AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyBonusFeat(IP_CONST_FEAT_SF_CODE),oSkin);
-                iCode = TRUE;
-                FloatingTextStringOnCreature("You lost all your Sacred Fist powers.", OBJECT_SELF, FALSE);
-            }
-        }
-        else
-        {
-            AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyBonusFeat(IP_CONST_FEAT_SF_CODE),oSkin);
-            iCode = TRUE;
-            FloatingTextStringOnCreature("You lost all your Sacred Fist powers.", OBJECT_SELF, FALSE);
-        }
-    }
-
+	object oItemR = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);  
+	int iWandR = GetBaseItemType(oItemR) == BASE_ITEM_ENCHANTED_WAND || GetBaseItemType(oItemR) == BASE_ITEM_BLANK_WAND;  
+	int iWandL = GetBaseItemType(oItemL) == BASE_ITEM_ENCHANTED_WAND || GetBaseItemType(oItemL) == BASE_ITEM_BLANK_WAND;  
+	  
+	if (!iCode)  
+	{  
+		if (oItemR == OBJECT_INVALID || iWandR)  
+		{  
+			if (!(oItemL == OBJECT_INVALID || GetBaseItemType(oItemL)==BASE_ITEM_TORCH || iShield || iWandL))  
+			{  
+				AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyBonusFeat(IP_CONST_FEAT_SF_CODE),oSkin);  
+				iCode = TRUE;  
+				FloatingTextStringOnCreature("You lost all your Sacred Fist powers.", OBJECT_SELF, FALSE);  
+			}  
+		}  
+		else  
+		{  
+			AddItemProperty(DURATION_TYPE_PERMANENT,ItemPropertyBonusFeat(IP_CONST_FEAT_SF_CODE),oSkin);  
+			iCode = TRUE;  
+			FloatingTextStringOnCreature("You lost all your Sacred Fist powers.", OBJECT_SELF, FALSE);  
+		}  
+	}
     if(iCode)
     {
         SetCompositeBonus(oSkin, "SacFisAC", 0, ITEM_PROPERTY_AC_BONUS);

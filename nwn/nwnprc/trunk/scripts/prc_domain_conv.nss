@@ -113,9 +113,11 @@ void main()
         DeleteLocalInt(oPC, "DomainOrigSpell");
         DeleteLocalInt(oPC, "DomainSubChoice");
         DeleteLocalInt(oPC, "DomainCastClass");
+        DeleteLocalInt(oPC, "DomainCastMetamagic");
         DeleteLocalInt(oPC, "RunscarredLevel");
         DeleteLocalObject(oPC, "DomainTarget");
         DeleteLocalLocation(oPC, "DomainTarget");
+        DeleteLocalInt(oPC, "DomainTargetSaved");
     }
     // Handle PC responses
     else
@@ -136,6 +138,7 @@ void main()
                 int nSub = GetLocalInt(oPC, "DomainSubChoice");
                 int nRunscarred = GetLocalInt(oPC, "RunscarredLevel");
                 object oTarget = GetLocalObject(oPC, "DomainTarget");
+                location lTarget = GetLocalLocation(oPC, "DomainTarget");
 
                 if(nRunscarred)
                 {
@@ -144,13 +147,56 @@ void main()
                     int nDC = 10 + nSpellLevel + GetAbilityModifier(ABILITY_WISDOM, oPC);
                     ActionCastSpell(nSub, nRunscarred, nDC, 0, METAMAGIC_NONE, CLASS_TYPE_RUNESCARRED, FALSE, FALSE, OBJECT_INVALID, FALSE);
                 }
-                else if(TestSpellTarget(oPC, oTarget, nSub))
+                else if(GetLocalInt(oPC, "DomainTargetSaved")
+                     && (GetIsObjectValid(oTarget)
+                      || GetIsObjectValid(GetAreaFromLocation(lTarget)))
+                     && TestSpellTarget(oPC, oTarget, nSub))
                 {
                     int nClass = GetLocalInt(oPC, "DomainCastClass");
+                    int nMetamagic = GetLocalInt(oPC, "DomainCastMetamagic");
                     int nDC = 10 + GetLocalInt(oPC, "DomainCast") + GetDCAbilityModForClass(nClass, oPC);
-                    ActionCastSpell(nSub, 0, nDC, 0, METAMAGIC_NONE, nClass, FALSE, FALSE, OBJECT_INVALID, FALSE);
+
+                    if(nMetamagic & METAMAGIC_QUICKEN)
+                    {
+                        object oSkin = GetPCSkin(oPC);
+                        int nCastDur = StringToInt(Get2DACache("spells", "ConjTime", nSub))
+                                     + StringToInt(Get2DACache("spells", "CastTime", nSub));
+                        itemproperty ipAutoQuicken = ItemPropertyBonusFeat(IP_CONST_NSB_AUTO_QUICKEN);
+                        ActionDoCommand(AddItemProperty(DURATION_TYPE_TEMPORARY,
+                            ipAutoQuicken, oSkin, nCastDur / 1000.0f));
+                    }
+
+                    if(GetIsObjectValid(oTarget))
+                    {
+                        ActionCastSpell(nSub, 0, nDC, 0, nMetamagic, nClass,
+                            FALSE, TRUE, oTarget, FALSE);
+                    }
+                    else if(GetIsObjectValid(GetAreaFromLocation(lTarget)))
+                    {
+                        // ActionCastSpell reads the override location before it
+                        // queues the cast, while its flag must remain available
+                        // to the eventual spell script.
+                        SetLocalInt(oPC, PRC_SPELL_TARGET_LOCATION_OVERRIDE, TRUE);
+                        SetLocalLocation(oPC, PRC_SPELL_TARGET_LOCATION_OVERRIDE, lTarget);
+                        ActionCastSpell(nSub, 0, nDC, 0, nMetamagic, nClass,
+                            TRUE, FALSE, OBJECT_INVALID, FALSE);
+                        ActionDoCommand(DeleteLocalLocation(oPC,
+                            PRC_SPELL_TARGET_LOCATION_OVERRIDE));
+                    }
+                }
+                else if(!GetLocalInt(oPC, "DomainTargetSaved"))
+                {
+                    // Druid spontaneous summoning also uses this conversation.
+                    // That legacy caller relies on ActionCastSpell's original
+                    // target context and does not save DomainTarget locals.
+                    int nClass = GetLocalInt(oPC, "DomainCastClass");
+                    int nDC = 10 + GetLocalInt(oPC, "DomainCast")
+                            + GetDCAbilityModForClass(nClass, oPC);
+                    ActionCastSpell(nSub, 0, nDC, 0, METAMAGIC_NONE, nClass,
+                        FALSE, FALSE, OBJECT_INVALID, FALSE);
                 }
                 ActionDoCommand(DeleteLocalInt(oPC, "DomainCast"));
+                ActionDoCommand(DeleteLocalInt(oPC, "DomainCastMetamagic"));
 
                 // And we're all done
                 AllowExit(DYNCONV_EXIT_FORCE_EXIT);

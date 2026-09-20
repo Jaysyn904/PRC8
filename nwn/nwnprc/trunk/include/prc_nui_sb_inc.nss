@@ -13,6 +13,7 @@
 
 #include "prc_nui_com_inc"
 #include "prc_inc_domain"
+#include "prc_nui_mr_const"
 
 // The otherwise-unused level-0 tier on the three base initiator class tabs
 // presents the character's selected/readied maneuvers. The server-side map
@@ -20,8 +21,43 @@
 const string PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID = "spellbookReadiedManeuverButton_";
 const string NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR = "NUI_ReadiedManeuverButtonMap";
 const string NUI_SPELLBOOK_READIED_MANEUVER_READY_BIND_BASE = "sbMr";
+const string NUI_SPELLBOOK_READIED_MANEUVER_ENABLED_BIND_BASE = "sbMe";
 const string NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE = "sbMt";
 const string NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR = "NUI_ReadiedManeuverPending";
+
+// Factotum Arcane Dilettante and Runescarred Berserker use their existing
+// radial feats as the rule authority, but neither system has a conventional
+// PRC spellbook table.  One compact map supports both views.  Its actionable
+// IDs use the normal layout-generation suffix so an old mouseup cannot resolve
+// against a newly-rendered class/map.
+const string PRC_SPELLBOOK_NUI_SPECIAL_BUTTON_BASEID = "spellbookSpecialButton_";
+const string NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR = "NUI_SpecialButtonMap";
+const string NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_GENERATION_VAR = "NUI_SpecialButtonMapGeneration";
+const string NUI_SPELLBOOK_SPECIAL_PENDING_VAR = "NUI_SpecialPending";
+const string NUI_SPELLBOOK_SPECIAL_PENDING_ENTRY_VAR = "NUI_SpecialPendingEntry";
+const string NUI_SPELLBOOK_SPECIAL_PENDING_GENERATION_VAR = "NUI_SpecialPendingGeneration";
+
+// Native domain buttons use a compact server-side map just like native class
+// buttons.  Besides keeping the actionable IDs generation-stamped and small,
+// the map can retain an exact prepared slot while exposing each child of a
+// radial master as its own in-NUI choice.
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_BUTTON_MAP_VAR = "NUI_NativeDomainSpellButtonMap";
+const string NUI_SPELLBOOK_NATIVE_DOMAIN_CAST_SPELL_VAR = "NUI_NativeDomainCastSpell";
+const string NUI_SPELLBOOK_NATIVE_CLASS_CAST_SPELL_VAR = "NUI_NativeClassCastSpell";
+
+const int NUI_SPELLBOOK_SPECIAL_ACTION_FACTOTUM_SLOT = 1;
+const int NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_SCRIBE = 2;
+const int NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_CAST = 3;
+
+const string NUI_SPELLBOOK_FACTOTUM_RESOURCE_BIND = "sbFactResource";
+const string NUI_SPELLBOOK_FACTOTUM_READY_BIND_BASE = "sbFactReady";
+const string NUI_SPELLBOOK_FACTOTUM_TOOLTIP_BIND_BASE = "sbFactTip";
+const string NUI_SPELLBOOK_RUNESCAR_RESOURCE_BIND = "sbRuneResource";
+
+// feat.2da does not expose generated constants for the eight legacy
+// Runescarred radial feats, so keep their authoritative row IDs local here.
+const int NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT = 2361;
+const int NUI_SPELLBOOK_RUNESCAR_SCRIBE_SPELL = 2777;
 
 json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF);
 
@@ -66,11 +102,12 @@ json GetSupportedNUISpellbookClasses(object oPlayer);
 //   oPlayer;Object the player
 //   nClass:int the class ID
 //   spellId:int the spell ID to check
+//   nSpellbookId:int the row in the class definition table, or -1 when none
 //
 // Returns:
 //   int:Boolean TRUE if spell is known, FALSE otherwise
 //
-int IsSpellKnown(object oPlayer, int nClass, int spellId);
+int IsSpellKnown(object oPlayer, int nClass, int spellId, int nSpellbookId);
 
 //
 // IsClassAllowedToUseNUISpellbook
@@ -169,6 +206,69 @@ json GetMetaPsionicFeatList();
 //   json:Array<int> the list of FeatIDs associated with the meta feats
 //
 json GetMetaMysteryFeatList();
+
+// Gets the activation spells for the Truenamer metautterance feats.
+json GetMetaUtteranceFeatList();
+
+// Resolves the feat that owns an action spell in the selected class. Mystery
+// activations share spell rows with psionic feats, so their class feat must be
+// selected explicitly instead of trusting spells.2da's single FeatID column.
+int GetNUISpellbookMetaFeatId(int nClass, int spellId);
+
+// Resolves the selected class table's owning feat for a spellbook row. Shadow
+// radial children have blank FeatID cells and some Shadowsmith child spells
+// point at Shadowcaster masters in spells.2da, so their nearest preceding
+// radial parent in the same class table is authoritative.
+int NUISpellbookGetClassActionFeatId(int nClass, int nSpellbookId);
+
+// Special spellbook map schema:
+//   y = action type, c = class, p = Factotum slot / runescar position,
+//   f = feat, a = feat's action spell, s = displayed/real spell,
+//   n = optional base tooltip.
+// Incarnum can add its own action types to this same map without changing the
+// Factotum/Runescarred validation below.
+string NUISpellbookGetSpecialButtonId(int nIndex, int nLayoutGeneration);
+void NUISpellbookSetSpecialButtonMap(
+    object oPlayer,
+    json jMap,
+    int nLayoutGeneration
+);
+json NUISpellbookGetSpecialButtonEntry(
+    object oPlayer,
+    int nIndex,
+    int nLayoutGeneration
+);
+void NUISpellbookClearSpecialButtonMap(object oPlayer);
+
+int NUISpellbookIsFactotumClass(int nClass);
+int NUISpellbookGetFactotumSlotMinimumLevel(int nSlot);
+int NUISpellbookGetFactotumSlotSpell(object oPlayer, int nSlot);
+int NUISpellbookGetFactotumSlotActionSpell(int nSlot);
+int NUISpellbookGetFactotumSlotFeat(int nSlot);
+int NUISpellbookGetFactotumSlotFromActionSpell(int nActionSpell);
+int NUISpellbookIsFactotumSlotAvailable(object oPlayer, int nSlot);
+void NUISpellbookRefreshFactotumButtons(object oPlayer, int nToken);
+
+int NUISpellbookIsRunescarredClass(int nClass);
+string NUISpellbookGetRunescarPositionName(int nPosition);
+string NUISpellbookGetRunescarPositionVar(int nPosition);
+int NUISpellbookGetRunescarPositionFeat(int nPosition);
+int NUISpellbookGetRunescarPositionActionSpell(int nPosition);
+int NUISpellbookGetRunescarPositionFromFeat(int nFeat);
+int NUISpellbookGetRunescarPersistedSpell(object oPlayer, int nPosition);
+int NUISpellbookGetRunescarPersistedCasterLevel(object oPlayer, int nPosition);
+int NUISpellbookGetRunescarSpellTier(int nSpell);
+int NUISpellbookHasOpenRunescarPosition(object oPlayer);
+int NUISpellbookGetRunescarScribeUses(object oPlayer, int nTier);
+int NUISpellbookGetRunescarTotalScribeUses(object oPlayer);
+string NUISpellbookGetRunescarScribeUsesLabel(object oPlayer);
+void NUISpellbookRefreshRunescarResource(object oPlayer, int nToken);
+
+int NUISpellbookIsSpecialClass(int nClass);
+int NUISpellbookValidateSpecialAction(object oPlayer, json jEntry);
+void NUISpellbookSetSpecialPending(object oPlayer, json jEntry);
+void NUISpellbookClearSpecialPending(object oPlayer);
+int NUISpellbookValidateSpecialPending(object oPlayer, int nFeat);
 
 //
 // GetTrueClassIfRHD
@@ -352,6 +452,11 @@ int NUISpellbookNativeLevelHasContent(object oPlayer, int nClass, int nLevel);
 int NUISpellbookNativePreparedCount(object oPlayer, int nClass, int nLevel,
     int nSpell, int nMetamagic, int bDomain, int bReadyOnly=FALSE);
 int NUISpellbookNativeKnownAtLevel(object oPlayer, int nClass, int nLevel, int nSpell);
+int NUISpellbookNativeRadialChoiceCount(int nMasterSpell);
+int NUISpellbookNativeRadialChoiceAt(int nMasterSpell, int nChoiceIndex);
+int NUISpellbookNativeCastSpellIsValid(int nOwnerSpell, int nCastSpell);
+int NUISpellbookNativeSpontaneousMetamagicIsValid(
+    object oPlayer, int nClass, int nLevel, int nSpell, int nMetamagic);
 
 // Readied-maneuver helpers deliberately inspect the same transient locals as
 // tob_inc_recovery without calling its DEBUG-bearing query functions from the
@@ -406,6 +511,92 @@ int NUISpellbookNativeLevelHasContent(object oPlayer, int nClass, int nLevel)
         return GetMemorizedSpellCountByLevel(oPlayer, nClass, nLevel) > 0;
 
     return GetKnownSpellCount(oPlayer, nClass, nLevel) > 0;
+}
+
+int NUISpellbookNativeRadialChoiceCount(int nMasterSpell)
+{
+    if (nMasterSpell < 0)
+        return 0;
+
+    int nCount;
+    int nColumn;
+    for (nColumn = 1; nColumn <= 5; nColumn++)
+    {
+        if (StringToInt(Get2DACache(
+                "spells",
+                "SubRadSpell" + IntToString(nColumn),
+                nMasterSpell
+            )) > 0)
+            nCount++;
+    }
+    return nCount;
+}
+
+int NUISpellbookNativeRadialChoiceAt(int nMasterSpell, int nChoiceIndex)
+{
+    if (nMasterSpell < 0 || nChoiceIndex < 0)
+        return -1;
+
+    int nSeen;
+    int nColumn;
+    for (nColumn = 1; nColumn <= 5; nColumn++)
+    {
+        int nChild = StringToInt(Get2DACache(
+            "spells",
+            "SubRadSpell" + IntToString(nColumn),
+            nMasterSpell
+        ));
+        if (nChild <= 0)
+            continue;
+        if (nSeen == nChoiceIndex)
+            return nChild;
+        nSeen++;
+    }
+    return -1;
+}
+
+int NUISpellbookNativeCastSpellIsValid(int nOwnerSpell, int nCastSpell)
+{
+    if (nOwnerSpell < 0 || nCastSpell < 0)
+        return FALSE;
+
+    int nChoiceCount = NUISpellbookNativeRadialChoiceCount(nOwnerSpell);
+    if (nChoiceCount <= 0)
+        return nCastSpell == nOwnerSpell;
+
+    int nChoice;
+    for (nChoice = 0; nChoice < nChoiceCount; nChoice++)
+    {
+        if (NUISpellbookNativeRadialChoiceAt(nOwnerSpell, nChoice)
+                == nCastSpell)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+int NUISpellbookNativeSpontaneousMetamagicIsValid(
+    object oPlayer, int nClass, int nLevel, int nSpell, int nMetamagic)
+{
+    if (nMetamagic == METAMAGIC_NONE)
+        return TRUE;
+
+    if ((nClass != CLASS_TYPE_BARD && nClass != CLASS_TYPE_SORCERER)
+        || !NUISpellbookUsesNativeClassAdapter(oPlayer, nClass)
+        || nLevel < 0 || nLevel > 9 || nSpell < 0)
+        return FALSE;
+
+    int bSupported = nMetamagic == METAMAGIC_EMPOWER
+        || nMetamagic == METAMAGIC_EXTEND
+        || nMetamagic == METAMAGIC_MAXIMIZE
+        || nMetamagic == METAMAGIC_QUICKEN
+        || nMetamagic == METAMAGIC_SILENT
+        || nMetamagic == METAMAGIC_STILL;
+    if (!bSupported)
+        return FALSE;
+
+    int nAllowed = HexToInt(Get2DACache("spells", "MetaMagic", nSpell));
+    return (nAllowed & nMetamagic)
+        && nLevel + GetMetaMagicSpellLevelAdjustment(nMetamagic) <= 9;
 }
 
 int NUISpellbookNativePreparedCount(object oPlayer, int nClass, int nLevel,
@@ -561,7 +752,13 @@ string NUISpellbookGetReadiedManeuverStatus(object oPlayer, int nClass, int nMan
         return "No longer readied";
 
     if (NUISpellbookIsManeuverExpendedQuiet(oPlayer, nClass, nManeuver))
+    {
+        if (nClass == CLASS_TYPE_SWORDSAGE
+            && GetLocalInt(oPlayer, PRC_MANEUVER_RECOVER_PENDING_VAR)
+                == nManeuver)
+            return "Recovery queued";
         return "Expended";
+    }
 
     // UseManeuver applies this recovery-round lock to every initiating class,
     // including a Swordsage or Crusader tab on a multiclass Warblade.
@@ -604,8 +801,18 @@ void NUISpellbookRefreshReadiedManeuverButtons(object oPlayer, int nToken)
             ? NUISpellbookGetReadiedManeuverStatus(oPlayer, nClass, nManeuver)
             : "No longer readied";
         int bReady = sStatus == "Ready";
+        int bEnabled = bReady
+            || (nClass == CLASS_TYPE_SWORDSAGE
+                && sStatus == "Expended"
+                && GetHasFeat(PRC_MANEUVER_RECOVER_FEAT_SWORDSAGE, oPlayer));
         string sIndex = IntToString(i);
 
+        NuiSetBind(
+            oPlayer,
+            nToken,
+            NUI_SPELLBOOK_READIED_MANEUVER_ENABLED_BIND_BASE + sIndex,
+            JsonBool(bEnabled)
+        );
         NuiSetBind(
             oPlayer,
             nToken,
@@ -616,7 +823,12 @@ void NUISpellbookRefreshReadiedManeuverButtons(object oPlayer, int nToken)
             oPlayer,
             nToken,
             NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE + sIndex,
-            JsonString(sTitle + " - " + sStatus)
+            JsonString(
+                sTitle + " - " + sStatus
+                + (nClass == CLASS_TYPE_SWORDSAGE && sStatus == "Expended"
+                    ? ". Left-click to recover this maneuver."
+                    : "")
+            )
         );
     }
 }
@@ -742,16 +954,27 @@ json GetSpellListForCircle(object oPlayer, int nClass, int circle)
         if (ShouldAddSpell(nClass, currentSpell, oPlayer))
         {
             string sSpellLevel = Get2DACache("spells", "Innate", currentSpell);
+            if (nClass == CLASS_TYPE_ARCHIVIST)
+            {
+                // Archivist preparation and rest rebuilding are keyed to the
+                // class spellbook row's Level. Prefer that same authority for
+                // ordinary rows so a bad wrapper Innate value cannot hide a
+                // valid preparation. Radial children have a blank/**** class
+                // level, so they deliberately retain the wrapper fallback.
+                string sClassLevel = Get2DACache(sFile, "Level", i);
+                if (sClassLevel != "" && sClassLevel != "****")
+                    sSpellLevel = sClassLevel;
+            }
             int iSpellLevel = StringToInt(sSpellLevel);
 
-            if (nClass == CLASS_TYPE_BINDER && IsSpellKnown(oPlayer, nClass, currentSpell))
+            if (nClass == CLASS_TYPE_BINDER && IsSpellKnown(oPlayer, nClass, currentSpell, -1))
             {
                 retValue = JsonArrayInsert(retValue, JsonInt(currentSpell));
             }
             else if ((iSpellLevel == circle && IntToString(iSpellLevel) == sSpellLevel))
             {
                 //  We add the spell if it is known and is not a radial master spell (since those don't work)
-                if (IsSpellKnown(oPlayer, nClass, currentSpell))
+                if (IsSpellKnown(oPlayer, nClass, currentSpell, i))
                    retValue = JsonArrayInsert(retValue, JsonInt(i));
             }
         }
@@ -1255,6 +1478,579 @@ void NUISpellbookStartArchivistCastWatch(
     ));
 }
 
+string NUISpellbookGetSpecialButtonId(int nIndex, int nLayoutGeneration)
+{
+    return PRC_SPELLBOOK_NUI_SPECIAL_BUTTON_BASEID
+         + IntToString(nIndex)
+         + PRC_SPELLBOOK_NUI_LAYOUT_GENERATION_MARKER
+         + IntToString(nLayoutGeneration);
+}
+
+void NUISpellbookSetSpecialButtonMap(
+    object oPlayer,
+    json jMap,
+    int nLayoutGeneration
+)
+{
+    if (jMap == JsonNull())
+        jMap = JsonArray();
+
+    SetLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR, jMap);
+    SetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_GENERATION_VAR,
+        nLayoutGeneration
+    );
+}
+
+json NUISpellbookGetSpecialButtonEntry(
+    object oPlayer,
+    int nIndex,
+    int nLayoutGeneration
+)
+{
+    if (nLayoutGeneration <= 0
+        || nLayoutGeneration != GetLocalInt(
+            oPlayer,
+            PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+        )
+        || nLayoutGeneration != GetLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_GENERATION_VAR
+        ))
+        return JsonNull();
+
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR);
+    if (jMap == JsonNull()
+        || nIndex < 0
+        || nIndex >= JsonGetLength(jMap))
+        return JsonNull();
+
+    return JsonArrayGet(jMap, nIndex);
+}
+
+void NUISpellbookClearSpecialButtonMap(object oPlayer)
+{
+    DeleteLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR);
+    DeleteLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_GENERATION_VAR
+    );
+}
+
+int NUISpellbookIsFactotumClass(int nClass)
+{
+    return nClass == CLASS_TYPE_FACTOTUM;
+}
+
+int NUISpellbookGetFactotumSlotMinimumLevel(int nSlot)
+{
+    switch (nSlot)
+    {
+        case 1: return 2;
+        case 2: return 4;
+        case 3: return 7;
+        case 4: return 9;
+        case 5: return 12;
+        case 6: return 14;
+        case 7: return 17;
+        case 8: return 20;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetFactotumSlotSpell(object oPlayer, int nSlot)
+{
+    if (NUISpellbookGetFactotumSlotMinimumLevel(nSlot) < 0)
+        return -1;
+
+    return GetLocalInt(oPlayer, "ArcDilSpell" + IntToString(nSlot));
+}
+
+int NUISpellbookGetFactotumSlotActionSpell(int nSlot)
+{
+    switch (nSlot)
+    {
+        case 1: return 3887;
+        case 2: return 3888;
+        case 3: return 3889;
+        case 4: return 3890;
+        case 5: return 3891;
+        case 6: return 3892;
+        case 7: return 3893;
+        case 8: return 3894;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetFactotumSlotFeat(int nSlot)
+{
+    switch (nSlot)
+    {
+        case 1: return 5330;
+        case 2: return 5331;
+        case 3: return 5332;
+        case 4: return 5333;
+        case 5: return 5334;
+        case 6: return 5335;
+        case 7: return 5336;
+        case 8: return 5337;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetFactotumSlotFromActionSpell(int nActionSpell)
+{
+    switch (nActionSpell)
+    {
+        case 3887: return 1;
+        case 3888: return 2;
+        case 3889: return 3;
+        case 3890: return 4;
+        case 3891: return 5;
+        case 3892: return 6;
+        case 3893: return 7;
+        case 3894: return 8;
+    }
+
+    return -1;
+}
+
+int NUISpellbookIsFactotumSlotAvailable(object oPlayer, int nSlot)
+{
+    int nMinimumLevel = NUISpellbookGetFactotumSlotMinimumLevel(nSlot);
+    int nFeat = NUISpellbookGetFactotumSlotFeat(nSlot);
+    int nActionSpell = NUISpellbookGetFactotumSlotActionSpell(nSlot);
+    int nSpell = NUISpellbookGetFactotumSlotSpell(oPlayer, nSlot);
+
+    return nMinimumLevel > 0
+        && GetLevelByClass(CLASS_TYPE_FACTOTUM, oPlayer) >= nMinimumLevel
+        && nFeat > 0
+        && GetHasFeat(nFeat, oPlayer)
+        && GetFeatRemainingUses(nFeat, oPlayer) > 0
+        && StringToInt(Get2DACache("feat", "SPELLID", nFeat))
+            == nActionSpell
+        && nSpell > 0
+        && GetLocalInt(oPlayer, "InspirationPool") > 0;
+}
+
+void NUISpellbookRefreshFactotumButtons(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    int nInspiration = GetLocalInt(oPlayer, "InspirationPool");
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_FACTOTUM_RESOURCE_BIND,
+        JsonString("Inspiration: " + IntToString(nInspiration))
+    );
+
+    json jMap = GetLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR);
+    if (jMap == JsonNull())
+        return;
+
+    int i;
+    for (i = 0; i < JsonGetLength(jMap); i++)
+    {
+        json jEntry = JsonArrayGet(jMap, i);
+        if (JsonGetInt(JsonObjectGet(jEntry, "y"))
+            != NUI_SPELLBOOK_SPECIAL_ACTION_FACTOTUM_SLOT)
+            continue;
+
+        int nSlot = JsonGetInt(JsonObjectGet(jEntry, "p"));
+        int bReady = NUISpellbookIsFactotumSlotAvailable(oPlayer, nSlot);
+        string sTooltip = JsonGetString(JsonObjectGet(jEntry, "n"));
+        if (sTooltip == "")
+        {
+            int nSpell = NUISpellbookGetFactotumSlotSpell(oPlayer, nSlot);
+            sTooltip = GetStringByStrRef(StringToInt(Get2DACache(
+                "spells",
+                "Name",
+                nSpell
+            )));
+        }
+        int nFeat = NUISpellbookGetFactotumSlotFeat(nSlot);
+        if (nFeat <= 0 || GetFeatRemainingUses(nFeat, oPlayer) <= 0)
+            sTooltip += " - already used; refreshes after rest";
+        else if (nInspiration <= 0)
+            sTooltip += " - no Inspiration remaining";
+        else
+            sTooltip += " - costs 1 Inspiration ("
+                     + IntToString(nInspiration) + " available)";
+
+        string sIndex = IntToString(i);
+        NuiSetBind(
+            oPlayer,
+            nToken,
+            NUI_SPELLBOOK_FACTOTUM_READY_BIND_BASE + sIndex,
+            JsonBool(bReady)
+        );
+        NuiSetBind(
+            oPlayer,
+            nToken,
+            NUI_SPELLBOOK_FACTOTUM_TOOLTIP_BIND_BASE + sIndex,
+            JsonString(sTooltip)
+        );
+    }
+}
+
+int NUISpellbookIsRunescarredClass(int nClass)
+{
+    return nClass == CLASS_TYPE_RUNESCARRED;
+}
+
+string NUISpellbookGetRunescarPositionName(int nPosition)
+{
+    switch (nPosition)
+    {
+        case 1: return "Face";
+        case 2: return "Left Arm";
+        case 3: return "Left Chest";
+        case 4: return "Left Hand";
+        case 5: return "Right Arm";
+        case 6: return "Right Chest";
+        case 7: return "Right Hand";
+    }
+
+    return "";
+}
+
+string NUISpellbookGetRunescarPositionVar(int nPosition)
+{
+    switch (nPosition)
+    {
+        case 1: return "Runescar_Face";
+        case 2: return "Runescar_Arm_Left";
+        case 3: return "Runescar_Chest_Left";
+        case 4: return "Runescar_Hand_Left";
+        case 5: return "Runescar_Arm_Right";
+        case 6: return "Runescar_Chest_Right";
+        case 7: return "Runescar_Hand_Right";
+    }
+
+    return "";
+}
+
+int NUISpellbookGetRunescarPositionFeat(int nPosition)
+{
+    switch (nPosition)
+    {
+        case 1: return 2368;
+        case 2: return 2366;
+        case 3: return 2364;
+        case 4: return 2362;
+        case 5: return 2367;
+        case 6: return 2365;
+        case 7: return 2363;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetRunescarPositionActionSpell(int nPosition)
+{
+    switch (nPosition)
+    {
+        case 1: return 2784;
+        case 2: return 2780;
+        case 3: return 2782;
+        case 4: return 2778;
+        case 5: return 2781;
+        case 6: return 2783;
+        case 7: return 2779;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetRunescarPositionFromFeat(int nFeat)
+{
+    switch (nFeat)
+    {
+        case 2368: return 1;
+        case 2366: return 2;
+        case 2364: return 3;
+        case 2362: return 4;
+        case 2367: return 5;
+        case 2365: return 6;
+        case 2363: return 7;
+    }
+
+    return -1;
+}
+
+int NUISpellbookGetRunescarPersistedSpell(object oPlayer, int nPosition)
+{
+    string sVar = NUISpellbookGetRunescarPositionVar(nPosition);
+    if (sVar == "")
+        return -1;
+
+    int nStoredSpell = GetPersistantLocalInt(oPlayer, sVar);
+    return nStoredSpell > 0 ? nStoredSpell - 1 : -1;
+}
+
+int NUISpellbookGetRunescarPersistedCasterLevel(
+    object oPlayer,
+    int nPosition
+)
+{
+    string sVar = NUISpellbookGetRunescarPositionVar(nPosition);
+    if (sVar == "")
+        return 0;
+
+    return GetPersistantLocalInt(oPlayer, sVar + "_level");
+}
+
+int NUISpellbookGetRunescarSpellTier(int nSpell)
+{
+    // Keep this list exactly aligned with rune_convb's explicit levels.  The
+    // spells.2da innate level is not authoritative for several runescar picks.
+    switch (nSpell)
+    {
+        case SPELL_CURE_MODERATE_WOUNDS:
+        case SPELL_DIVINE_FAVOR:
+        case SPELL_PROTECTION__FROM_CHAOS:
+        case SPELL_PROTECTION_FROM_EVIL:
+        case SPELL_PROTECTION_FROM_GOOD:
+        case SPELL_PROTECTION_FROM_LAW:
+        case SPELL_RESIST_ELEMENTS:
+        case SPELL_SEE_INVISIBILITY:
+        case SPELL_TRUE_STRIKE:
+            return 1;
+
+        case SPELL_ENDURANCE:
+        case SPELL_BULLS_STRENGTH:
+        case SPELL_CURE_SERIOUS_WOUNDS:
+        case SPELL_DARKVISION:
+        case SPELL_INVISIBILITY:
+        case SPELL_KEEN_EDGE:
+        case SPELL_PROTECTION_FROM_ELEMENTS:
+            return 2;
+
+        case SPELL_CURE_CRITICAL_WOUNDS:
+        case SPELL_DEATH_WARD:
+        case SPELL_DIVINE_POWER:
+        case SPELL_FREEDOM_OF_MOVEMENT:
+        case SPELL_HASTE:
+        case SPELL_GREATER_MAGIC_WEAPON:
+            return 3;
+
+        case SPELL_IMPROVED_INVISIBILITY:
+        case SPELL_NEUTRALIZE_POISON:
+        case SPELL_RESTORATION:
+        case SPELL_RIGHTEOUS_MIGHT:
+        case SPELL_STONESKIN:
+            return 4;
+
+        case SPELL_ANTIMAGIC_FIELD:
+        case SPELL_RUNE_DIMENSION_DOOR:
+        case SPELL_HEAL:
+        case SPELL_POLYMORPH_SELF:
+        case SPELL_SPELL_RESISTANCE:
+            return 5;
+    }
+
+    return -1;
+}
+
+int NUISpellbookHasOpenRunescarPosition(object oPlayer)
+{
+    int nPosition;
+    for (nPosition = 1; nPosition <= 7; nPosition++)
+    {
+        if (NUISpellbookGetRunescarPersistedSpell(oPlayer, nPosition) < 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+int NUISpellbookGetRunescarScribeUses(object oPlayer, int nTier)
+{
+    if (nTier < 1 || nTier > 5)
+        return 0;
+
+    int nUses = GetLocalInt(
+        oPlayer,
+        "Runescar_slot_" + IntToString(nTier)
+    );
+    return nUses > 0 ? nUses : 0;
+}
+
+int NUISpellbookGetRunescarTotalScribeUses(object oPlayer)
+{
+    int nTotal;
+    int nTier;
+    for (nTier = 1; nTier <= 5; nTier++)
+        nTotal += NUISpellbookGetRunescarScribeUses(oPlayer, nTier);
+
+    return nTotal;
+}
+
+string NUISpellbookGetRunescarScribeUsesLabel(object oPlayer)
+{
+    string sLabel = "Scribing uses: ";
+    int nTier;
+    for (nTier = 1; nTier <= 5; nTier++)
+    {
+        if (nTier > 1)
+            sLabel += "  ";
+        sLabel += "L" + IntToString(nTier) + " "
+               + IntToString(NUISpellbookGetRunescarScribeUses(
+                    oPlayer,
+                    nTier
+                 ));
+    }
+
+    return sLabel;
+}
+
+void NUISpellbookRefreshRunescarResource(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_RUNESCAR_RESOURCE_BIND,
+        JsonString(NUISpellbookGetRunescarScribeUsesLabel(oPlayer))
+    );
+}
+
+int NUISpellbookIsSpecialClass(int nClass)
+{
+    return NUISpellbookIsFactotumClass(nClass)
+        || NUISpellbookIsRunescarredClass(nClass)
+        || nClass == CLASS_TYPE_ARCHMAGE;
+}
+
+int NUISpellbookValidateSpecialAction(object oPlayer, json jEntry)
+{
+    if (jEntry == JsonNull())
+        return FALSE;
+
+    int nType = JsonGetInt(JsonObjectGet(jEntry, "y"));
+    int nClass = JsonGetInt(JsonObjectGet(jEntry, "c"));
+    int nPosition = JsonGetInt(JsonObjectGet(jEntry, "p"));
+    int nFeat = JsonGetInt(JsonObjectGet(jEntry, "f"));
+    int nActionSpell = JsonGetInt(JsonObjectGet(jEntry, "a"));
+    int nDisplaySpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+
+    if (GetLevelByClass(nClass, oPlayer) <= 0
+        || nFeat <= 0
+        || !GetHasFeat(nFeat, oPlayer)
+        || StringToInt(Get2DACache("feat", "SPELLID", nFeat))
+            != nActionSpell)
+        return FALSE;
+
+    if (nType == NUI_SPELLBOOK_SPECIAL_ACTION_FACTOTUM_SLOT)
+    {
+        return nClass == CLASS_TYPE_FACTOTUM
+            && nFeat == NUISpellbookGetFactotumSlotFeat(nPosition)
+            && nActionSpell
+                == NUISpellbookGetFactotumSlotActionSpell(nPosition)
+            && nDisplaySpell
+                == NUISpellbookGetFactotumSlotSpell(oPlayer, nPosition)
+            && NUISpellbookIsFactotumSlotAvailable(oPlayer, nPosition);
+    }
+
+    if (nType == NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_SCRIBE)
+    {
+        return nClass == CLASS_TYPE_RUNESCARRED
+            && nPosition == 0
+            && nFeat == NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT
+            && nActionSpell == NUI_SPELLBOOK_RUNESCAR_SCRIBE_SPELL
+            && nDisplaySpell == NUI_SPELLBOOK_RUNESCAR_SCRIBE_SPELL
+            && NUISpellbookHasOpenRunescarPosition(oPlayer)
+            && NUISpellbookGetRunescarTotalScribeUses(oPlayer) > 0;
+    }
+
+    if (nType == NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_CAST)
+    {
+        return nClass == CLASS_TYPE_RUNESCARRED
+            && nPosition >= 1
+            && nPosition <= 7
+            && nFeat == NUISpellbookGetRunescarPositionFeat(nPosition)
+            && nActionSpell
+                == NUISpellbookGetRunescarPositionActionSpell(nPosition)
+            && nDisplaySpell
+                == NUISpellbookGetRunescarPersistedSpell(oPlayer, nPosition)
+            && NUISpellbookGetRunescarPersistedCasterLevel(
+                oPlayer,
+                nPosition
+            ) > 0
+            && NUISpellbookGetRunescarSpellTier(nDisplaySpell) > 0;
+    }
+
+    return FALSE;
+}
+
+void NUISpellbookSetSpecialPending(object oPlayer, json jEntry)
+{
+    NUISpellbookClearSpecialPending(oPlayer);
+    if (!NUISpellbookValidateSpecialAction(oPlayer, jEntry))
+        return;
+
+    int nGeneration = GetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_SPECIAL_PENDING_GENERATION_VAR
+    ) + 1;
+    if (nGeneration <= 0)
+        nGeneration = 1;
+
+    SetLocalInt(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_VAR, TRUE);
+    SetLocalInt(
+        oPlayer,
+        NUI_SPELLBOOK_SPECIAL_PENDING_GENERATION_VAR,
+        nGeneration
+    );
+    SetLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_ENTRY_VAR, jEntry);
+
+    // The legacy rune scripts read this transient local for save DC.  Rebuild
+    // it from rune_convb's fixed table so a persisted rune remains correct
+    // after relog/module reload rather than inheriting a stale or blank value.
+    if (JsonGetInt(JsonObjectGet(jEntry, "y"))
+        == NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_CAST)
+    {
+        int nSpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+        SetLocalInt(
+            oPlayer,
+            "Runescar_spell_level_" + IntToString(nSpell),
+            NUISpellbookGetRunescarSpellTier(nSpell)
+        );
+    }
+}
+
+void NUISpellbookClearSpecialPending(object oPlayer)
+{
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_VAR);
+    DeleteLocalJson(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_ENTRY_VAR);
+}
+
+int NUISpellbookValidateSpecialPending(object oPlayer, int nFeat)
+{
+    if (!GetLocalInt(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_VAR)
+        || GetLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_SPECIAL_PENDING_GENERATION_VAR
+        ) <= 0)
+        return FALSE;
+
+    json jEntry = GetLocalJson(
+        oPlayer,
+        NUI_SPELLBOOK_SPECIAL_PENDING_ENTRY_VAR
+    );
+    return jEntry != JsonNull()
+        && JsonGetInt(JsonObjectGet(jEntry, "f")) == nFeat
+        && NUISpellbookValidateSpecialAction(oPlayer, jEntry);
+}
+
 json GetSupportedNUISpellbookClasses(object oPlayer)
 {
     json retValue = JsonArray();
@@ -1280,12 +2076,85 @@ json GetSupportedNUISpellbookClasses(object oPlayer)
     return retValue;
 }
 
-int IsSpellKnown(object oPlayer, int nClass, int spellId)
+int NUISpellbookGetClassActionFeatId(int nClass, int nSpellbookId)
+{
+    if (nSpellbookId < 0)
+        return -1;
+
+    string sFile = GetClassSpellbookFile(nClass);
+    int nRows = Get2DARowCount(sFile);
+    if (nSpellbookId >= nRows)
+        return -1;
+
+    string sFeatID = Get2DACache(sFile, "FeatID", nSpellbookId);
+    int nFeatID = StringToInt(sFeatID);
+    if (nFeatID > 0 && IntToString(nFeatID) == sFeatID)
+        return nFeatID;
+
+    int nSpell = StringToInt(Get2DACache(
+        sFile,
+        "SpellID",
+        nSpellbookId
+    ));
+    if (StringToInt(Get2DACache("spells", "Master", nSpell)) <= 0)
+        return -1;
+
+    // Definition tables place radial children immediately after their owning
+    // parent. Restrict the backwards search to the same mystery path, where
+    // present, and require the candidate itself to be a radial master.
+    string sPath = Get2DACache(sFile, "Path", nSpellbookId);
+    int nRow;
+    for (nRow = nSpellbookId - 1; nRow >= 0; nRow--)
+    {
+        string sCandidatePath = Get2DACache(sFile, "Path", nRow);
+        if (sPath != "" && sPath != "****"
+            && sCandidatePath != sPath)
+            break;
+
+        sFeatID = Get2DACache(sFile, "FeatID", nRow);
+        nFeatID = StringToInt(sFeatID);
+        if (nFeatID <= 0 || IntToString(nFeatID) != sFeatID)
+            continue;
+
+        int nParentSpell = StringToInt(Get2DACache(
+            sFile,
+            "SpellID",
+            nRow
+        ));
+        if (StringToInt(Get2DACache(
+                "spells",
+                "SubRadSpell1",
+                nParentSpell
+            )) > 0)
+            return nFeatID;
+        break;
+    }
+
+    return -1;
+}
+
+int IsSpellKnown(object oPlayer, int nClass, int spellId, int nSpellbookId)
 {
     // special case for Binders since they don't have a spell book 2da.
     if (nClass == CLASS_TYPE_BINDER)
     {
         return IsBinderSpellActive(oPlayer, spellId);
+    }
+
+    // The selected mystery definition table is authoritative. In particular,
+    // Shadowsmith radial children reference Shadowcaster masters in spells.2da
+    // even though their owning activation feat is the preceding Shadowsmith
+    // parent row.
+    if ((nClass == CLASS_TYPE_SHADOWCASTER
+            || nClass == CLASS_TYPE_SHADOWSMITH)
+        && nSpellbookId >= 0)
+    {
+        int nClassFeat = NUISpellbookGetClassActionFeatId(
+            nClass,
+            nSpellbookId
+        );
+        if (nClassFeat > 0)
+            return GetHasFeat(nClassFeat, oPlayer);
     }
 
     int currentSpell = spellId;
@@ -1296,8 +2165,8 @@ int IsSpellKnown(object oPlayer, int nClass, int spellId)
     string sFeatID = Get2DACache("spells", "FeatID", currentSpell);
     int iFeatID = StringToInt(sFeatID);
 
-    if (IntToString(iFeatID) == sFeatID)
-        return GetHasFeat(iFeatID, oPlayer);
+    if (IntToString(iFeatID) == sFeatID && GetHasFeat(iFeatID, oPlayer))
+        return TRUE;
 
     return FALSE;
 }
@@ -1368,6 +2237,13 @@ int IsClassAllowedToUseNUISpellbook(object oPlayer, int nClass)
     // Truenamers
     if (nClass == CLASS_TYPE_TRUENAMER)
          return TRUE;
+
+    // Non-table spell systems. Their /sb tabs invoke the existing radial
+    // control feats through the generation-stamped special-action map.
+    if (NUISpellbookIsFactotumClass(nClass)
+        || NUISpellbookIsRunescarredClass(nClass)
+        || nClass == CLASS_TYPE_ARCHMAGE)
+        return TRUE;
 
     // RHD Casters
     if ((nClass == CLASS_TYPE_SHAPECHANGER
@@ -1570,6 +2446,43 @@ json GetMetaMysteryFeatList()
     metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
 
     return metaFeats;
+}
+
+json GetMetaUtteranceFeatList()
+{
+    json metaFeats = JsonArray();
+    int spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_EMPOWER_UTTERANCE));
+    metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
+    spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_EXTEND_UTTERANCE));
+    metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
+    spellId = StringToInt(Get2DACache("feat", "SPELLID", FEAT_QUICKEN_UTTERANCE));
+    metaFeats = JsonArrayInsert(metaFeats, JsonInt(spellId));
+
+    return metaFeats;
+}
+
+int GetNUISpellbookMetaFeatId(int nClass, int spellId)
+{
+    if (nClass == CLASS_TYPE_SHADOWCASTER
+        || nClass == CLASS_TYPE_SHADOWSMITH)
+    {
+        if (spellId == StringToInt(Get2DACache("feat", "SPELLID", FEAT_EMPOWER_MYSTERY)))
+            return FEAT_EMPOWER_MYSTERY;
+        if (spellId == StringToInt(Get2DACache("feat", "SPELLID", FEAT_EXTEND_MYSTERY)))
+            return FEAT_EXTEND_MYSTERY;
+        if (spellId == StringToInt(Get2DACache("feat", "SPELLID", FEAT_MAXIMIZE_MYSTERY)))
+            return FEAT_MAXIMIZE_MYSTERY;
+        if (spellId == StringToInt(Get2DACache("feat", "SPELLID", FEAT_QUICKEN_MYSTERY)))
+            return FEAT_QUICKEN_MYSTERY;
+        if (spellId == StringToInt(Get2DACache("feat", "SPELLID", FEAT_STILL_MYSTERY)))
+            return FEAT_STILL_MYSTERY;
+    }
+
+    int masterSpell = StringToInt(Get2DACache("spells", "Master", spellId));
+    if (masterSpell)
+        spellId = masterSpell;
+
+    return StringToInt(Get2DACache("spells", "FeatID", spellId));
 }
 
 json GetToBStanceSpellList(int nClass, object oPlayer=OBJECT_SELF)

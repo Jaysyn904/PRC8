@@ -177,9 +177,25 @@ string NUIResourceGetCompactSlotBind(int nClass, int nSpellLevel)
 
 string NUIResourceGetCompactSlotText(object oPC, int nClass, int nSpellLevel)
 {
-    return "L" + IntToString(nSpellLevel) + " "
-         + IntToString(NUIResourceGetCurrentSlots(oPC, nClass, nSpellLevel))
+    return IntToString(NUIResourceGetCurrentSlots(oPC, nClass, nSpellLevel))
          + "/" + IntToString(NUIResourceGetMaxSlots(oPC, nClass, nSpellLevel));
+}
+
+json NUIResourceCreateCompactSlotLabel(int nClass, int nSpellLevel)
+{
+    string sSuffix = "header_" + IntToString(nClass) + "_"
+                   + IntToString(nSpellLevel);
+    json jLabel = NuiId(
+        NuiButton(NuiBind(NUIResourceGetCompactSlotBind(nClass, nSpellLevel))),
+        NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE + sSuffix
+    );
+    jLabel = NuiWidth(jLabel, 42.0f);
+    jLabel = NuiHeight(jLabel, 24.0f);
+    jLabel = NuiTooltip(jLabel, JsonString(
+        NUIResourceGetClassName(nClass) + " level "
+        + IntToString(nSpellLevel) + " spell slots"
+    ));
+    return jLabel;
 }
 
 int NUIResourceHasEpicSpells(object oPC)
@@ -291,43 +307,38 @@ json NUIResourceCreateEpicRow()
 json NUIResourceCreateCompactSpellRow(int nClass)
 {
     json jRow = JsonArray();
-    int nCasterLevel = GetSpellslotLevel(nClass, OBJECT_SELF);
-    int nAbility = GetAbilityScoreForClass(nClass, OBJECT_SELF);
     int nLevel;
     for (nLevel = 0; nLevel <= 9; nLevel++)
     {
-        if (NUIResourceGetMaxSlotsFromState(
-                OBJECT_SELF,
-                nClass,
-                nLevel,
-                nCasterLevel,
-                nAbility
-            ) > 0)
-        {
-            string sSuffix = IntToString(nClass) + "_" + IntToString(nLevel);
-            json jSlot = NuiId(
-                NuiButton(NuiBind(NUIResourceGetCompactSlotBind(nClass, nLevel))),
-                NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE + sSuffix
-            );
-            jSlot = NuiWidth(jSlot, 62.0f);
-            jSlot = NuiHeight(jSlot, 24.0f);
-            jSlot = NuiTooltip(jSlot, JsonString(
-                NUIResourceGetClassName(nClass) + " level " + IntToString(nLevel) + " spell slots"
-            ));
-            jRow = JsonArrayInsert(jRow, jSlot);
-        }
+        // Keep all ten positions stable. Empty levels remain blank, so a
+        // detached multiclass row reads level 0 through 9 from left to right
+        // without restoring a wide L0/L1 prefix on every counter.
+        string sSuffix = IntToString(nClass) + "_" + IntToString(nLevel);
+        json jSlot = NuiId(
+            NuiButton(NuiBind(NUIResourceGetCompactSlotBind(nClass, nLevel))),
+            NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE + sSuffix
+        );
+        jSlot = NuiWidth(jSlot, 42.0f);
+        jSlot = NuiHeight(jSlot, 24.0f);
+        jSlot = NuiTooltip(jSlot, JsonString(
+            NUIResourceGetClassName(nClass) + " level " + IntToString(nLevel) + " spell slots"
+        ));
+        jRow = JsonArrayInsert(jRow, jSlot);
     }
 
     return NuiRow(jRow);
 }
 
-json NUIResourceCreateSpellbookRows(object oPC, int nSelectedClass)
+json NUIResourceCreateSpellbookRowsFromClasses(
+    object oPC,
+    int nSelectedClass,
+    json jClasses
+)
 {
     json jRows = JsonArray();
     if (GetMaximumPowerPoints(oPC) > 0)
         jRows = JsonArrayInsert(jRows, NUIResourceCreatePsionicRow());
 
-    json jClasses = NUIResourceGetSpontaneousClasses(oPC);
     int nClassCount = JsonGetLength(jClasses);
     int bShowClassLabels = nClassCount > 1;
     if (nClassCount == 1
@@ -338,15 +349,24 @@ json NUIResourceCreateSpellbookRows(object oPC, int nSelectedClass)
     for (i = 0; i < nClassCount; i++)
     {
         int nClass = JsonGetInt(JsonArrayGet(jClasses, i));
+        // The selected spontaneous class renders its counters directly above
+        // its circle icons. Keep every other class visible in the detached
+        // character-wide resource rows.
+        if (nClass == nSelectedClass)
+            continue;
+
         if (bShowClassLabels)
         {
             json jLabelRow = JsonArray();
             json jLabel = NuiLabel(
-                JsonString(NUIResourceGetClassName(nClass) + " Spell Slots"),
+                JsonString(
+                    NUIResourceGetClassName(nClass)
+                    + " spell slots (levels 0-9, left to right)"
+                ),
                 JsonInt(NUI_HALIGN_LEFT),
                 JsonInt(NUI_VALIGN_MIDDLE)
             );
-            jLabel = NuiWidth(jLabel, 300.0f);
+            jLabel = NuiWidth(jLabel, 470.0f);
             jLabel = NuiHeight(jLabel, 22.0f);
             jLabelRow = JsonArrayInsert(jLabelRow, jLabel);
             jRows = JsonArrayInsert(jRows, NuiRow(jLabelRow));
@@ -356,6 +376,15 @@ json NUIResourceCreateSpellbookRows(object oPC, int nSelectedClass)
     }
 
     return jRows;
+}
+
+json NUIResourceCreateSpellbookRows(object oPC, int nSelectedClass)
+{
+    return NUIResourceCreateSpellbookRowsFromClasses(
+        oPC,
+        nSelectedClass,
+        NUIResourceGetSpontaneousClasses(oPC)
+    );
 }
 
 json NUIResourceCreateRows(object oPC)
@@ -482,9 +511,10 @@ void NUIResourceRefreshTokenMode(
                             nClass,
                             nLevel
                         );
+                        string sCompactEntry = IntToString(nCurrent) + "/"
+                                             + IntToString(nMaximum);
                         string sEntry = "L" + IntToString(nLevel) + " "
-                                      + IntToString(nCurrent) + "/"
-                                      + IntToString(nMaximum);
+                                      + sCompactEntry;
 
                         if (bFullSlots)
                         {
@@ -507,8 +537,20 @@ void NUIResourceRefreshTokenMode(
                                 oPC,
                                 nToken,
                                 NUIResourceGetCompactSlotBind(nClass, nLevel),
-                                JsonString(sEntry)
+                                JsonString(sCompactEntry)
                             );
+                    }
+                    else if (bCompactSlots)
+                    {
+                        // Stable level positions require stale values to be
+                        // removed if an ability, item, or progression change
+                        // drops this level's maximum to zero while /sb is open.
+                        NUIResourceSetBindIfChanged(
+                            oPC,
+                            nToken,
+                            NUIResourceGetCompactSlotBind(nClass, nLevel),
+                            JsonString("")
+                        );
                     }
                 }
 

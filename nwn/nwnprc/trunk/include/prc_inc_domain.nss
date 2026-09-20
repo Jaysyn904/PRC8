@@ -166,6 +166,8 @@ int GetIsBioDivineClass(int nClass)
 
 void CastDomainSpell(object oPC, int nSlot, int nLevel)
 {
+    int nDomainLevel = nLevel;
+
     // The NUI class-tab view can request that its displayed spontaneous divine
     // spellbook pay first. Consume this transient request immediately so radial
     // and character-wide domain casts retain their legacy selection order.
@@ -173,13 +175,13 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
     int nPreferredClass = GetLocalInt(oPC, "NUI_DomainPreferredClass") - 1;
     DeleteLocalInt(oPC, "NUI_DomainPreferredClass");
 
-    if(GetLocalInt(oPC, "DomainCastSpell" + IntToString(nLevel))) //Already cast a spell of this level?
+    if(GetLocalInt(oPC, "DomainCastSpell" + IntToString(nDomainLevel))) //Already cast a spell of this level?
     {
-        FloatingTextStringOnCreature("You have already cast your domain spell for level " + IntToString(nLevel), oPC, FALSE);
+        FloatingTextStringOnCreature("You have already cast your domain spell for level " + IntToString(nDomainLevel), oPC, FALSE);
         return;
     }
 
-    int nSpell = GetDomainSpell(GetBonusDomain(oPC, nSlot), nLevel, oPC);
+    int nSpell = GetDomainSpell(GetBonusDomain(oPC, nSlot), nDomainLevel, oPC);
     // If there is no spell for that level, you cant cast it.
     if(nSpell == -1)
         return;
@@ -193,75 +195,99 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
         return;
 
     int nClass, nCount, nMetamagic = METAMAGIC_NONE;
+    int nSlotLevel = nDomainLevel;
 
     // Inline Favoured Soul / Justice of Weald and Woe domain buttons sit below
     // the slots they trade. Prefer that selected book when it still exists and
     // has an available slot, then preserve the original fallback behavior.
-    if(nPreferredClass >= 0
-    && GetLevelByClass(nPreferredClass, oPC) > 0
-    && !GetIsBioDivineClass(nPreferredClass)
-    && GetIsDivineClass(nPreferredClass, oPC)
-    && GetSpellbookTypeForClass(nPreferredClass) == SPELLBOOK_TYPE_SPONTANEOUS)
-    {
-        nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(nPreferredClass), nLevel);
-        if(nCount)
-        {
-            nClass = nPreferredClass;
-            SetLocalInt(oPC, "NSB_Class", nClass);
-            SetLocalInt(oPC, "NSB_SpellLevel", nLevel);
-        }
-    }
+    int bPreferredClass = nPreferredClass >= 0
+                       && GetLevelByClass(nPreferredClass, oPC) > 0
+                       && !GetIsBioDivineClass(nPreferredClass)
+                       && GetIsDivineClass(nPreferredClass, oPC)
+                       && GetSpellbookTypeForClass(nPreferredClass) == SPELLBOOK_TYPE_SPONTANEOUS;
+    int nMysticClass = GetLevelByClass(CLASS_TYPE_MYSTIC, oPC)
+                     ? CLASS_TYPE_MYSTIC
+                     : (GetLevelByClass(CLASS_TYPE_NIGHTSTALKER, oPC)
+                        ? CLASS_TYPE_NIGHTSTALKER
+                        : CLASS_TYPE_INVALID);
 
-    // Mystic is a special case - checked first
-    if(!nCount && (GetLevelByClass(CLASS_TYPE_MYSTIC, oPC) || GetLevelByClass(CLASS_TYPE_NIGHTSTALKER, oPC)))
+    // Standard metamagic abilities are exposed above spontaneous PRC class
+    // tabs. Bonus-domain spells paid from that displayed class must use the
+    // adjusted slot just like an ordinary NewSpellbook spell. Mystic and
+    // Nightstalker retain their legacy support when casting outside that view.
+    if(bPreferredClass || nMysticClass != CLASS_TYPE_INVALID)
     {
-        // Mystics can use metamagic with domain spells
-        nClass = GetLevelByClass(CLASS_TYPE_MYSTIC, oPC) ? CLASS_TYPE_MYSTIC : CLASS_TYPE_NIGHTSTALKER;
         nMetamagic = GetLocalInt(oPC, "MetamagicFeatAdjust");
-        int nSpellLevel = nLevel;
         if(nMetamagic)
         {
-            //Need to check if metamagic can be applied to a spell
-            int nMetaTest;
+            int nMetaTest = FALSE;
             int nMetaType = HexToInt(Get2DACache("spells", "MetaMagic", nSpell));
 
             switch(nMetamagic)
             {
-                case METAMAGIC_NONE:     nMetaTest = 1; break; //no need to change anything
-                case METAMAGIC_EMPOWER:  nMetaTest = nMetaType &  1; nSpellLevel += 2; break;
-                case METAMAGIC_EXTEND:   nMetaTest = nMetaType &  2; nSpellLevel += 1; break;
-                case METAMAGIC_MAXIMIZE: nMetaTest = nMetaType &  4; nSpellLevel += 3; break;
-                case METAMAGIC_QUICKEN:  nMetaTest = nMetaType &  8; nSpellLevel += 4; break;
-                case METAMAGIC_SILENT:   nMetaTest = nMetaType & 16; nSpellLevel += 1; break;
-                case METAMAGIC_STILL:    nMetaTest = nMetaType & 32; nSpellLevel += 1; break;
+                case METAMAGIC_EMPOWER:  nMetaTest = nMetaType &  1; break;
+                case METAMAGIC_EXTEND:   nMetaTest = nMetaType &  2; break;
+                case METAMAGIC_MAXIMIZE: nMetaTest = nMetaType &  4; break;
+                case METAMAGIC_QUICKEN:  nMetaTest = nMetaType &  8; break;
+                case METAMAGIC_SILENT:   nMetaTest = nMetaType & 16; break;
+                case METAMAGIC_STILL:    nMetaTest = nMetaType & 32; break;
             }
-            if(!nMetaTest)//can't use selected metamagic with this spell
-            {
-                nMetamagic = METAMAGIC_NONE;
-                ActionDoCommand(SendMessageToPC(oPC, "You can't use "+GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpell)))+"with selected metamagic."));
-                nSpellLevel = nLevel;
-            }
-            else if(nLevel > 9)//now test the spell level
-            {
-                nMetamagic = METAMAGIC_NONE;
-                ActionDoCommand(SendMessageToPC(oPC, "Modified spell level is to high! Casting spell without metamagic"));
-                nSpellLevel = nLevel;
-            }
-            else if(GetLocalInt(oPC, "PRC_metamagic_state") == 1)
-                SetLocalInt(oPC, "MetamagicFeatAdjust", 0);
-        }
 
-        nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(CLASS_TYPE_MYSTIC), nSpellLevel);
-        // we can't cast metamagiced version of the spell - assuming that player want to cast the spell anyway
-        if(!nCount)
-            nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(CLASS_TYPE_MYSTIC), nLevel);
-        // Do we have slots available?
+            if(!nMetaTest)
+            {
+                nMetamagic = METAMAGIC_NONE;
+                SendMessageToPC(oPC, "You can't use "
+                    + GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpell)))
+                    + " with selected metamagic.");
+            }
+            else
+            {
+                nSlotLevel += GetMetaMagicSpellLevelAdjustment(nMetamagic);
+                if(nSlotLevel > 9)
+                {
+                    nMetamagic = METAMAGIC_NONE;
+                    nSlotLevel = nDomainLevel;
+                    SendMessageToPC(oPC, "Modified spell level is too high! Casting spell without metamagic.");
+                }
+            }
+        }
+    }
+
+    if(bPreferredClass)
+    {
+        nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(nPreferredClass), nSlotLevel);
+        if(!nCount && nMetamagic)
+        {
+            string sMessage = ReplaceChars(GetStringByStrRef(16828409),
+                "<spelllevel>", IntToString(nSlotLevel));
+            FloatingTextStringOnCreature(sMessage, oPC, FALSE);
+            return;
+        }
         if(nCount)
         {
-            // Prepare to cast the spell
-            nLevel = nSpellLevel;//correct the spell level if we're using metamagic
+            nClass = nPreferredClass;
             SetLocalInt(oPC, "NSB_Class", nClass);
-            SetLocalInt(oPC, "NSB_SpellLevel", nLevel);
+            SetLocalInt(oPC, "NSB_SpellLevel", nSlotLevel);
+        }
+    }
+
+    // Mystic is a special case - checked first
+    if(!nCount && nMysticClass != CLASS_TYPE_INVALID)
+    {
+        nClass = nMysticClass;
+        nCount = persistant_array_get_int(oPC,
+            "NewSpellbookMem_" + IntToString(nClass), nSlotLevel);
+        if(!nCount && nMetamagic)
+        {
+            string sMessage = ReplaceChars(GetStringByStrRef(16828409),
+                "<spelllevel>", IntToString(nSlotLevel));
+            FloatingTextStringOnCreature(sMessage, oPC, FALSE);
+            return;
+        }
+        if(nCount)
+        {
+            SetLocalInt(oPC, "NSB_Class", nClass);
+            SetLocalInt(oPC, "NSB_SpellLevel", nSlotLevel);
         }
     }
 
@@ -282,17 +308,17 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
                 int nSpellbook = GetSpellbookTypeForClass(nClass);
                 if(nSpellbook == SPELLBOOK_TYPE_SPONTANEOUS)
                 {
-                    nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(nClass), nLevel);
+                    nCount = persistant_array_get_int(oPC, "NewSpellbookMem_" + IntToString(nClass), nDomainLevel);
                     if(nCount)
                     {// Prepare to cast the spell
                         SetLocalInt(oPC, "NSB_Class", nClass);
-                        SetLocalInt(oPC, "NSB_SpellLevel", nLevel);
+                        SetLocalInt(oPC, "NSB_SpellLevel", nDomainLevel);
                     }
                 }
                 else if(nSpellbook == SPELLBOOK_TYPE_PREPARED)
                 {
                     string sArray = "NewSpellbookMem_"+IntToString(nClass);
-                    string sIDX = "SpellbookIDX" + IntToString(nLevel) + "_" + IntToString(nClass);
+                    string sIDX = "SpellbookIDX" + IntToString(nDomainLevel) + "_" + IntToString(nClass);
                     int i, nSpellbookID, nMax = persistant_array_get_size(oPC, sIDX);
                     for(i = 0; i < nMax; i++)
                     {
@@ -316,7 +342,7 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
     // test bioware spellbooks
     if(!nCount)
     {
-        nCount = GetBurnableSpell(oPC, nLevel) + 1;//fix for Acid Fog spell
+        nCount = GetBurnableSpell(oPC, nDomainLevel) + 1;//fix for Acid Fog spell
         if(nCount)
         {
             SetLocalInt(oPC, "Domain_BurnableSpell", nCount);
@@ -331,13 +357,18 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
         return;
     }
 
-    SetLocalInt(oPC, "DomainCast", nLevel);
+    if(nMetamagic && GetLocalInt(oPC, "PRC_metamagic_state") == 1)
+        SetLocalInt(oPC, "MetamagicFeatAdjust", 0);
+
+    SetLocalInt(oPC, "DomainCast", nDomainLevel);
     if(bSubRadial)
     {
         SetLocalInt(oPC, "DomainOrigSpell", nSpell);
         SetLocalInt(oPC, "DomainCastClass", nClass);
+        SetLocalInt(oPC, "DomainCastMetamagic", nMetamagic);
         SetLocalObject(oPC, "DomainTarget", oTarget);
         SetLocalLocation(oPC, "DomainTarget", GetSpellTargetLocation());
+        SetLocalInt(oPC, "DomainTargetSaved", TRUE);
         StartDynamicConversation("prc_domain_conv", oPC, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oPC);
     }
     else
@@ -350,7 +381,7 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
             itemproperty ipAutoQuicken = ItemPropertyBonusFeat(IP_CONST_NSB_AUTO_QUICKEN);
             ActionDoCommand(AddItemProperty(DURATION_TYPE_TEMPORARY, ipAutoQuicken, oSkin, nCastDur/1000.0f));
         }
-        int nDC = 10 + nLevel + GetDCAbilityModForClass(nClass, oPC);
+        int nDC = 10 + nDomainLevel + GetDCAbilityModForClass(nClass, oPC);
         ActionCastSpell(nSpell, 0, nDC, 0, nMetamagic, nClass, FALSE, FALSE, OBJECT_INVALID, FALSE);
         ActionDoCommand(DeleteLocalInt(oPC, "DomainCast"));
     }

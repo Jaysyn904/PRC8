@@ -1,3 +1,21 @@
+Jaysyn904 | 2026/09/14 Update
+Added Song of the Heart feat.
+Added Music of Growth feat.
+Changed Covering Strike to use PerformAttack().
+Changed Tactics of the Wolf's damagetype to Untyped.
+Changed Lion's Roar damagetype to Untyped.
+Changed Tornado Blast's damagetype to Untyped.
+Lolth's Meat no longer stacks, grants +2 bonus for touch attack kill.
+Gated allies from 2nd target for Steel Wind.
+Mountain Fortress Stance no longer runs a Balance check on the initiator.
+Dragon's Tooth now has the correct range and area of effect.
+Crashing Mountain Juggernaught no longer targets the initiator.
+Awaken the Stone Dragon is a Swift action and now targets Reflex instead of Will.
+Stone Curse changed to use the slow VFX.
+Lifebond Vestments now use invested Essential to improve healing, can heal at-will with Heart Bind & have several new information messages added.
+Incarnate Weapon should stack with existing enhancement.
+Updated Haunted Melody to support Song of the Heart.
+
 Jaysyn904 | 2026/09/12 Update
 Added Body Fuel (disabled, bug in AbilityBurn() )
 Added PRC switch to heal one point of Ability Burn per rest.

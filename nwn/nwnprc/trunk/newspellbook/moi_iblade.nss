@@ -1,5 +1,7 @@
 #include "moi_inc_moifunc"
 #include "inc_dynconv"
+#include "prc_nui_moi_cst"
+#include "prc_inc_util"
 
 void main()
 {
@@ -67,12 +69,24 @@ void main()
             RemoveSpecificProperty(oItem, ITEM_PROPERTY_DECREASED_ATTACK_MODIFIER, -1, -1, 1, "", -1, DURATION_TYPE_TEMPORARY);
         }
     }
-    else if(nEvent == EVENT_ONPLAYERREST_FINISHED)    
+    else if(nEvent == EVENT_ONPLAYERREST_FINISHED && nClass > 0)    
     {
-    	if(GetHighestMeldshaperLevel(oMeldshaper) == 0)
-    	{
-        	AssignCommand(oMeldshaper, ClearAllActions(TRUE));
-        	StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+		if(GetHighestMeldshaperLevel(oMeldshaper) == 0)
+		{
+			// A generation-stamped saved NUI default is applied by prc_rest
+			// after the normal feat rebuild.  Without it, retain the original
+			// forced conversation exactly as before.
+			if (GetLocalInt(
+					oMeldshaper,
+					PRC_MOI_BLADE_REST_GENERATION_VAR
+				) == GetLocalInt(oMeldshaper, PRC_Rest_Generation)
+				&& GetLocalInt(
+					oMeldshaper,
+					PRC_MOI_BLADE_REST_GENERATION_VAR
+				) > 0)
+				return;
+			AssignCommand(oMeldshaper, ClearAllActions(TRUE));
+			StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
         }	
     }    
 }

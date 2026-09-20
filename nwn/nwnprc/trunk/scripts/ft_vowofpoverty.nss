@@ -19,21 +19,21 @@
 effect VoPDamage(int nTotalEnhancement) 
 {
 	effect eDamage;
-	if      (nTotalEnhancement>=15) eDamage = EffectDamageIncrease(DAMAGE_BONUS_15,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=14) eDamage = EffectDamageIncrease(DAMAGE_BONUS_14,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=13) eDamage = EffectDamageIncrease(DAMAGE_BONUS_13,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=12) eDamage = EffectDamageIncrease(DAMAGE_BONUS_12,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=11) eDamage = EffectDamageIncrease(DAMAGE_BONUS_11,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=10) eDamage = EffectDamageIncrease(DAMAGE_BONUS_10,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=9) eDamage = EffectDamageIncrease(DAMAGE_BONUS_9,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=8) eDamage = EffectDamageIncrease(DAMAGE_BONUS_8,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=7) eDamage = EffectDamageIncrease(DAMAGE_BONUS_7,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=6) eDamage = EffectDamageIncrease(DAMAGE_BONUS_6,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=5) eDamage = EffectDamageIncrease(DAMAGE_BONUS_5,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=4) eDamage = EffectDamageIncrease(DAMAGE_BONUS_4,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=3) eDamage = EffectDamageIncrease(DAMAGE_BONUS_3,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=2) eDamage = EffectDamageIncrease(DAMAGE_BONUS_2,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
-	else if (nTotalEnhancement>=1) eDamage = EffectDamageIncrease(DAMAGE_BONUS_1,DAMAGE_TYPE_BLUDGEONING || DAMAGE_TYPE_SLASHING || DAMAGE_TYPE_PIERCING);
+	if      (nTotalEnhancement>=15) eDamage = EffectDamageIncrease(DAMAGE_BONUS_15,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=14) eDamage = EffectDamageIncrease(DAMAGE_BONUS_14,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=13) eDamage = EffectDamageIncrease(DAMAGE_BONUS_13,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=12) eDamage = EffectDamageIncrease(DAMAGE_BONUS_12,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=11) eDamage = EffectDamageIncrease(DAMAGE_BONUS_11,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=10) eDamage = EffectDamageIncrease(DAMAGE_BONUS_10,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=9) eDamage = EffectDamageIncrease(DAMAGE_BONUS_9,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=8) eDamage = EffectDamageIncrease(DAMAGE_BONUS_8,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=7) eDamage = EffectDamageIncrease(DAMAGE_BONUS_7,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=6) eDamage = EffectDamageIncrease(DAMAGE_BONUS_6,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=5) eDamage = EffectDamageIncrease(DAMAGE_BONUS_5,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=4) eDamage = EffectDamageIncrease(DAMAGE_BONUS_4,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=3) eDamage = EffectDamageIncrease(DAMAGE_BONUS_3,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=2) eDamage = EffectDamageIncrease(DAMAGE_BONUS_2,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
+	else if (nTotalEnhancement>=1) eDamage = EffectDamageIncrease(DAMAGE_BONUS_1,DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_SLASHING | DAMAGE_TYPE_PIERCING);
 	
 	return eDamage;
 }
@@ -317,86 +317,89 @@ void main()
             }  
         }  
   
-        // Register unequip hook  
-        AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);  
+		// Register equip + unequip hooks  
+		AddEventScript(oPC, EVENT_ONPLAYEREQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);  
+		AddEventScript(oPC, EVENT_ONPLAYERUNEQUIPITEM, "ft_vowofpoverty", TRUE, FALSE);  
     }  
-    // OnEquip: enforce vow for equipped weapons  
-    else if (nEvent == EVENT_ONPLAYEREQUIPITEM)  
-    {  
-        int nRace = GetRacialType(oPC);  
-		if(nRace == RACIAL_TYPE_WARFORGED   
-		|| nRace == RACIAL_TYPE_WARFORGED_SCOUT   
-		|| nRace == RACIAL_TYPE_WARFORGED_CHARGER)  
-		{  
-			string sResRef = GetResRef(oItem);  
-			if(sResRef == "prc_wf_admtbody"   
-			|| sResRef == "prc_wf_compbody"  
-			|| sResRef == "prc_wf_woodbody"  
-			|| sResRef == "prc_wf_mithbody"   
-			|| sResRef == "prc_wf_helmhead"   
-			|| sResRef == "prc_wf_helmadmt"  
-			|| sResRef == "prc_wf_helmwood"  
-			|| sResRef == "prc_wf_helmmith")  
-			{  
-				return; // Skip VoP check for Warforged body armor  
-			}  
-		}
-
-		oItem = GetPCItemLastEquipped();  
-        int iWeaponAllowed = (GetBaseItemType(oItem) == BASE_ITEM_CLUB  
-            || GetBaseItemType(oItem) == BASE_ITEM_DAGGER  
-            || GetBaseItemType(oItem) == BASE_ITEM_DART  
-            || GetBaseItemType(oItem) == BASE_ITEM_HEAVYCROSSBOW  
-            || GetBaseItemType(oItem) == BASE_ITEM_LIGHTCROSSBOW  
-            || GetBaseItemType(oItem) == BASE_ITEM_LIGHTMACE  
-            || GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR  
-            || GetBaseItemType(oItem) == BASE_ITEM_QUARTERSTAFF  
-            || GetBaseItemType(oItem) == BASE_ITEM_SICKLE  
-            || GetBaseItemType(oItem) == BASE_ITEM_SLING  
-            || GetBaseItemType(oItem) == BASE_ITEM_SHORTSPEAR  
-            || GetBaseItemType(oItem) == BASE_ITEM_BOLT  
-            || GetBaseItemType(oItem) == BASE_ITEM_GOAD  
-            || GetBaseItemType(oItem) == BASE_ITEM_KATAR  
-            || GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE  
-            || GetBaseItemType(oItem) == BASE_ITEM_BULLET);  
+    // OnEquip: enforce vow for equipped weapons    
+    else if (nEvent == EVENT_ONPLAYEREQUIPITEM)    
+    {    
+        oItem = GetPCItemLastEquipped();  
   
-        int iMagic = 0;  
-        itemproperty eCheckIP = GetFirstItemProperty(oItem);  
-        while (GetIsItemPropertyValid(eCheckIP))  
-        {  
-            if (!(GetItemPropertyTag(eCheckIP) == "Sanctify1")  
-                && !(GetItemPropertyTag(eCheckIP) == "Sanctify2")  
-                && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")  
-                && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))  
-                iMagic = 1;  
-            eCheckIP = GetNextItemProperty(oItem);  
+        int nRace = GetRacialType(oPC);    
+        if(nRace == RACIAL_TYPE_WARFORGED     
+        || nRace == RACIAL_TYPE_WARFORGED_SCOUT     
+        || nRace == RACIAL_TYPE_WARFORGED_CHARGER)    
+        {    
+            string sResRef = GetResRef(oItem);    
+            if(sResRef == "prc_wf_admtbody"     
+            || sResRef == "prc_wf_compbody"    
+            || sResRef == "prc_wf_woodbody"    
+            || sResRef == "prc_wf_mithbody"     
+            || sResRef == "prc_wf_helmhead"     
+            || sResRef == "prc_wf_helmadmt"    
+            || sResRef == "prc_wf_helmwood"    
+            || sResRef == "prc_wf_helmmith")    
+            {    
+                return; // Skip VoP check for Warforged body armor    
+            }    
         }  
-        if (!(GetTag(oItem) == "xp1_mystrashand")  
-            && !(GetTag(oItem) == "H2_SenseiAmulet")  
-            && !(GetResRef(oItem) == "prc_sk_mblade_bs")  
-            && !(GetResRef(oItem) == "prc_sk_mblade_th")  
-            && !(GetResRef(oItem) == "prc_sk_mblade_ss")
-			&& !(GetResRef(oItem) == "psi_sk_tshield_0")
-            && !(GetResRef(oItem) == "prc_sk_mblade_ls"))  
-        {  
-            if ((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed))  
-            {  
-                if (!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY))  
-                {  
-                    AssignCommand(oPC, ClearAllActions(TRUE));  
-                    AssignCommand(oPC, ActionUnequipItem(oItem));  
-                    FloatingTextStringOnCreature(GetName(oItem) + " would break your vow!", oPC, FALSE);  
-                }  
-            }  
-        }  
-    }  
-    // OnUnequip: remove VoP-tagged properties from the unequipped item  
-    else if (nEvent == EVENT_ONPLAYERUNEQUIPITEM)  
-    {  
-        oItem = GetPCItemLastUnequipped();  
-        if (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))  
-            RemoveVoPProperties(oItem);  
-    }  
+  
+        int iWeaponAllowed 	= (GetBaseItemType(oItem) == BASE_ITEM_CLUB    
+							|| GetBaseItemType(oItem) == BASE_ITEM_DAGGER    
+							|| GetBaseItemType(oItem) == BASE_ITEM_DART    
+							|| GetBaseItemType(oItem) == BASE_ITEM_HEAVYCROSSBOW    
+							|| GetBaseItemType(oItem) == BASE_ITEM_LIGHTCROSSBOW    
+							|| GetBaseItemType(oItem) == BASE_ITEM_LIGHTMACE    
+							|| GetBaseItemType(oItem) == BASE_ITEM_MORNINGSTAR    
+							|| GetBaseItemType(oItem) == BASE_ITEM_QUARTERSTAFF    
+							|| GetBaseItemType(oItem) == BASE_ITEM_SICKLE    
+							|| GetBaseItemType(oItem) == BASE_ITEM_SLING    
+							|| GetBaseItemType(oItem) == BASE_ITEM_SHORTSPEAR    
+							|| GetBaseItemType(oItem) == BASE_ITEM_BOLT    
+							|| GetBaseItemType(oItem) == BASE_ITEM_TORCH
+							|| GetBaseItemType(oItem) == BASE_ITEM_GOAD    
+							|| GetBaseItemType(oItem) == BASE_ITEM_KATAR    
+							|| GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE    
+							|| GetBaseItemType(oItem) == BASE_ITEM_BULLET);    
+  
+        int iMagic = 0;    
+        itemproperty eCheckIP = GetFirstItemProperty(oItem);    
+        while (GetIsItemPropertyValid(eCheckIP))    
+        {    
+            if (!(GetItemPropertyTag(eCheckIP) == "Sanctify1")    
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify2")    
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")    
+                && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))    
+                iMagic = 1;    
+            eCheckIP = GetNextItemProperty(oItem);    
+        }    
+        if (!(GetTag(oItem) == "xp1_mystrashand")    
+            && !(GetTag(oItem) == "H2_SenseiAmulet")    
+            && !(GetResRef(oItem) == "prc_sk_mblade_bs")    
+            && !(GetResRef(oItem) == "prc_sk_mblade_th")    
+            && !(GetResRef(oItem) == "prc_sk_mblade_ss")  
+            && !(GetResRef(oItem) == "psi_sk_tshield_0")  
+            && !(GetResRef(oItem) == "prc_sk_mblade_ls"))    
+        {    
+            if ((IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem)) && (iMagic || !iWeaponAllowed))    
+            {    
+                if (!(GetBaseItemType(oItem) == BASE_ITEM_SLING && GetItemPropertyType(GetFirstItemProperty(oItem)) == ITEM_PROPERTY_MIGHTY))    
+                {    
+                    AssignCommand(oPC, ClearAllActions(TRUE));    
+                    AssignCommand(oPC, ActionUnequipItem(oItem));    
+                    FloatingTextStringOnCreature(GetName(oItem) + " would break your vow!", oPC, FALSE);    
+                }    
+            }    
+        }    
+    }    
+    // OnUnequip: remove VoP-tagged properties from the unequipped item    
+    else if (nEvent == EVENT_ONPLAYERUNEQUIPITEM)    
+    {    
+        oItem = GetPCItemLastUnequipped();    
+        if (IPGetIsMeleeWeapon(oItem) || GetWeaponRanged(oItem))    
+            RemoveVoPProperties(oItem);    
+    }    
 }
 
 /* void main()

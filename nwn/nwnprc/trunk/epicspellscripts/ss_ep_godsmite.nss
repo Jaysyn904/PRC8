@@ -1,6 +1,37 @@
-//::///////////////////////////////////////////////
-//:: Epic Spell: Godsmite
+//::////////////////////////////////////////////////////////
 //:: Author: Boneshank (Don Armstrong)
+//::
+/*
+	Godsmite
+	Epic Evocation
+
+	Target: One creature
+	Saving Throw: Fortitude half
+	Spell Resistance: No
+	Damage: Divine
+
+	The caster calls down a devastating divine strike upon a
+	single creature. The spell deals damage according to the
+	alignment relationship between caster and target, 
+	rolling separately for each alignment axis:
+
+	Good/Evil: Same = 1d4/caster level; Neutral = 1d6/caster
+	level; Opposed = 1d8/caster level.
+
+	Law/Chaos: Same = 1d4/caster level; Neutral = 1d6/caster 
+	level; Opposed = 1d8/caster level.
+
+	Add the two damage rolls together. The target may attempt 
+	a Fortitude save against the caster's epic spell save DC 
+	for half damage. 
+
+	If Epic Backlash Damage is enabled, the caster takes 1d4 
+	divine damage per caster level three seconds after casting.
+*/
+//::
+//::////////////////////////////////////////////////////////
+
+
 
 #include "prc_alterations"
 //#include "x2_inc_spellhook"

@@ -13,8 +13,18 @@
 
 #include "prc_nui_consts"
 #include "prc_nui_sb_inc"
+#include "prc_nui_moi_inc"
+#include "prc_nui_moi_lc"
 #include "prc_nui_res_inc"
 #include "prc_nui_ap_inc"
+#include "prc_nui_rb_const"
+#include "prc_nui_bnd_cst"
+#include "prc_nui_arch_inc"
+#include "prc_nui_psi_cst"
+
+// feat.2da row 9259 is Exploit Vestige. Its Constant column incorrectly names
+// Sudden Empower, so this NUI integration must use the authoritative row ID.
+const int NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT = 9259;
 
 //
 // SetWindowGeometry
@@ -28,11 +38,25 @@
 void SetWindowGeometry(object oPlayer, int nToken);
 void ClearPendingNativeDomainSelection(object oPlayer);
 void ClearPendingNativeClassSelection(object oPlayer);
+void ClearOneShotSpellbookMetamagic(object oPlayer);
 int CancelPendingSpellbookTarget(object oPlayer);
 void RequestSpellbookNavigationRefresh(object oPlayer, int bCancelledTarget);
 void FinishSpellbookNavigationRefresh(object oPlayer);
 void SetPreferredDomainClass(object oPlayer, int nClass);
 void ExpirePreferredDomainClass(object oPlayer, int nGeneration);
+
+void ExpireManeuverRecoveryRequest(object oPlayer, int nGeneration)
+{
+    if (!GetIsObjectValid(oPlayer)
+        || GetLocalInt(oPlayer, PRC_MANEUVER_RECOVER_PENDING_GENERATION_VAR)
+            != nGeneration)
+        return;
+
+    DeleteLocalInt(oPlayer, PRC_MANEUVER_RECOVER_PENDING_VAR);
+    int nToken = NuiFindWindow(oPlayer, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    if (nToken)
+        NUISpellbookRefreshReadiedManeuverButtons(oPlayer, nToken);
+}
 
 //
 // DetermineRangeForSpell
@@ -75,6 +99,69 @@ int DetermineShapeForSpell(string shape);
 //   int the bitwise int representation of the targetType
 int DetermineTargetType(string targetType);
 
+int NUISpellbookMetamagicFromAbilitySpell(int nSpell)
+{
+    switch (nSpell)
+    {
+        case SPELL_EXTEND_SPELL_ABILITY:   return METAMAGIC_EXTEND;
+        case SPELL_SILENT_SPELL_ABILITY:   return METAMAGIC_SILENT;
+        case SPELL_STILL_SPELL_ABILITY:    return METAMAGIC_STILL;
+        case SPELL_EMPOWER_SPELL_ABILITY:  return METAMAGIC_EMPOWER;
+        case SPELL_MAXIMIZE_SPELL_ABILITY: return METAMAGIC_MAXIMIZE;
+        case SPELL_QUICKEN_SPELL_ABILITY:  return METAMAGIC_QUICKEN;
+    }
+    return METAMAGIC_NONE;
+}
+
+int NUISpellbookActivateNativeSpontaneousMetamagic(
+    object oPlayer, int nClass, int nSpell)
+{
+    if ((nClass != CLASS_TYPE_BARD && nClass != CLASS_TYPE_SORCERER)
+        || !NUISpellbookUsesNativeClassAdapter(oPlayer, nClass))
+        return FALSE;
+
+    int nMetamagic = NUISpellbookMetamagicFromAbilitySpell(nSpell);
+    if (nMetamagic == METAMAGIC_NONE)
+        return FALSE;
+
+    // ft_metamagic normally runs as a queued feat action. Native spontaneous
+    // spell buttons need the selection synchronously: otherwise a fast
+    // personal spell click can snapshot the old state before that action runs.
+    // Preserve ft_metamagic's exact one-shot/persistent/off state cycle.
+    int nMetaState = GetLocalInt(oPlayer, "PRC_metamagic_state");
+    int nMetaOld = GetLocalInt(oPlayer, "MetamagicFeatAdjust");
+    string sName = GetStringByStrRef(StringToInt(
+        Get2DACache("spells", "Name", nSpell)));
+
+    if (nMetaState < 1 || (nMetaState > 0 && nMetaOld != nMetamagic))
+    {
+        SetLocalInt(oPlayer, "MetamagicFeatAdjust", nMetamagic);
+        SetLocalInt(oPlayer, "PRC_metamagic_state", 1);
+        FloatingTextStringOnCreature(
+            "*" + sName + " " + GetStringByStrRef(63798) + "*",
+            oPlayer, FALSE);
+        SendMessageToPC(oPlayer, "Metamagic activated for the next spell you cast.");
+    }
+    else if (nMetaState == 1 && nMetaOld == nMetamagic)
+    {
+        SetLocalInt(oPlayer, "PRC_metamagic_state", 2);
+        FloatingTextStringOnCreature(
+            "*" + sName + " " + GetStringByStrRef(63798) + "*",
+            oPlayer, FALSE);
+        SendMessageToPC(oPlayer, "Metamagic activated for all spells you cast.");
+    }
+    else if (nMetaState == 2)
+    {
+        SetLocalInt(oPlayer, "PRC_metamagic_state", 0);
+        SetLocalInt(oPlayer, "MetamagicFeatAdjust", 0);
+        FloatingTextStringOnCreature(
+            "*" + sName + " " + GetStringByStrRef(63799) + "*",
+            oPlayer, FALSE);
+    }
+
+    return TRUE;
+}
+
 void main()
 {
     object oPlayer   = NuiGetEventPlayer();
@@ -105,12 +192,28 @@ void main()
     // delayed click from the prior layout resolving against a new class/map.
     int bGeneratedElement =
            FindSubString(sElement, PRC_SPELLBOOK_NUI_SPELL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_MANEUVER_READY_NUI_BUTTON) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_READIED_MANEUVER_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_CLASS_SPELL_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_EPIC_SPELL_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID) == 0
         || FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID) == 0
-        || FindSubString(sElement, PRC_SPELLBOOK_NUI_META_BUTTON_BASEID) == 0;
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_SPECIAL_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_INCARNUM_CHAKRA_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_INCARNUM_ACTION_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_SPELLBOOK_NUI_META_BUTTON_BASEID) == 0
+        || FindSubString(sElement, PRC_RUNESCAR_SCRIBE_NUI_BUTTON) == 0
+        || FindSubString(sElement, PRC_RUNESCAR_DEFAULT_SAVE_BUTTON) == 0
+        || FindSubString(sElement, PRC_RUNESCAR_DEFAULT_SCRIBE_BUTTON) == 0
+        || FindSubString(sElement, PRC_MOI_LOADOUT_OPEN_BUTTON) == 0
+        || FindSubString(sElement, PRC_MOI_BLADE_OPEN_BUTTON) == 0
+        || FindSubString(sElement, PRC_MOI_LIVE_OPEN_BUTTON) == 0
+        || FindSubString(sElement, PRC_BINDER_NUI_OPEN_BUTTON) == 0
+        || FindSubString(sElement, PRC_NUI_PSI_OPEN_BUTTON) == 0
+        || FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_ARCHMAGE_BUTTON_BASEID
+        ) == 0;
     if (bGeneratedElement)
     {
         if (GetLocalInt(oPlayer, PRC_SPELLBOOK_NUI_INPUT_LOCK_VAR))
@@ -142,6 +245,13 @@ void main()
     int bDomainSpellButton;
     int bReadiedManeuverButton;
     int nReadiedManeuverSubSpell;
+    int bSpecialSpellButton;
+    int bSpecialForcePersonal;
+    int bArchmageSpellButton;
+    int bArchmageForcePersonal;
+    int bBinderExploitButton;
+    int nBinderExploitSpell;
+    int nBinderExploitVestige;
 
     if (FindSubString(sElement, NUI_PRC_RESOURCE_SB_SLOT_BUTTON_BASE) == 0
         || sElement == NUI_PRC_RESOURCE_FOCUS_STATUS_BUTTON
@@ -190,6 +300,193 @@ void main()
         return;
     }
 
+    if (sElement == PRC_BINDER_NUI_OPEN_BUTTON)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR)
+                != CLASS_TYPE_BINDER
+            || GetLevelByClass(CLASS_TYPE_BINDER, oPlayer) <= 0)
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        ExecuteScript(PRC_BINDER_NUI_OPEN_SCRIPT, oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_BINDER_NUI_OPEN_BUTTON + "Exploit")
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR)
+                != CLASS_TYPE_BINDER
+            || GetLevelByClass(CLASS_TYPE_BINDER, oPlayer) <= 0
+            || GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oPlayer) < 2
+            || !GetHasFeat(NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT, oPlayer))
+        {
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        nBinderExploitVestige = GetLocalInt(oPlayer, "ExploitVestige");
+        nBinderExploitSpell = GetLocalInt(oPlayer, "ExploitVestigeSpell");
+        if (nBinderExploitVestige <= 0 || nBinderExploitSpell <= 0)
+        {
+            SendMessageToPC(
+                oPlayer,
+                "Choose an exploited vestige ability and bonus spell through Manage Pacts first."
+            );
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+        if (GetFeatRemainingUses(
+                NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT,
+                oPlayer
+            ) <= 0)
+        {
+            SendMessageToPC(
+                oPlayer,
+                "You have no Exploit Vestige uses remaining today."
+            );
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+        if (GetPrimaryArcaneClass(oPlayer) == CLASS_TYPE_INVALID)
+        {
+            SendMessageToPC(
+                oPlayer,
+                "Exploit Vestige has no valid primary arcane class for its stored spell."
+            );
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        // Keep the feat wrapper authoritative for daily-use consumption. The
+        // stored spell only supplies accurate range/shape/personal targeting;
+        // bnd_anim_cast remains the engine-dispatched impact script.
+        DeleteLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR
+        );
+        bBinderExploitButton = TRUE;
+        featId = NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT;
+        spellId = nBinderExploitSpell;
+    }
+
+    if (sElement == PRC_NUI_PSI_OPEN_BUTTON)
+    {
+        int nPsiClass = GetLocalInt(
+            oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR
+        );
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || !CanClassUseMetaPsionicFeats(nPsiClass)
+            || GetLevelByClass(nPsiClass, oPlayer) <= 0)
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        ExecuteScript(PRC_NUI_PSI_OPEN_SCRIPT, oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_RUNESCAR_SCRIBE_NUI_BUTTON)
+    {
+        if (GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPlayer) <= 0
+            || !GetHasFeat(NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT, oPlayer)
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR)
+                != CLASS_TYPE_RUNESCARRED
+            || !NUISpellbookHasOpenRunescarPosition(oPlayer)
+            || NUISpellbookGetRunescarTotalScribeUses(oPlayer) <= 0)
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+
+        // Entering from the live spellbook always starts a fresh draft. This
+        // also discards server locals left behind by a disconnect where the
+        // client-side editor window no longer exists.
+        DeleteLocalInt(oPlayer, PRC_RUNESCAR_SCRIBE_ACTIVE_SESSION_VAR);
+        ExecuteScript("prc_nui_rb_view", oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_RUNESCAR_DEFAULT_SAVE_BUTTON
+        || sElement == PRC_RUNESCAR_DEFAULT_SCRIBE_BUTTON)
+    {
+        if (GetLevelByClass(CLASS_TYPE_RUNESCARRED, oPlayer) <= 0
+            || !GetHasFeat(NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT, oPlayer)
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR)
+                != CLASS_TYPE_RUNESCARRED)
+            return;
+
+        json jRunescarPayload = NuiGetEventPayload();
+        int nRunescarButton = JsonGetInt(JsonObjectGet(
+            jRunescarPayload,
+            "mouse_btn"
+        ));
+        int nRunescarAction;
+        if (sElement == PRC_RUNESCAR_DEFAULT_SAVE_BUTTON)
+        {
+            if (nRunescarButton == NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+                nRunescarAction = PRC_RUNESCAR_DEFAULT_ACTION_SAVE;
+            else if (nRunescarButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
+                nRunescarAction = PRC_RUNESCAR_DEFAULT_ACTION_CLEAR;
+            else
+                return;
+        }
+        else
+        {
+            if (nRunescarButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+                return;
+            nRunescarAction = PRC_RUNESCAR_DEFAULT_ACTION_SCRIBE;
+        }
+
+        CancelPendingSpellbookTarget(oPlayer);
+        SetLocalInt(
+            oPlayer,
+            PRC_RUNESCAR_DEFAULT_ACTION_VAR,
+            nRunescarAction
+        );
+        ExecuteScript("prc_nui_rb_plan", oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_MANEUVER_READY_NUI_BUTTON)
+    {
+        int nClass = GetLocalInt(
+            oPlayer,
+            PRC_SPELLBOOK_SELECTED_CLASSID_VAR
+        );
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_CLASS
+            || !NUISpellbookIsInitiatorClass(nClass)
+            || GetLevelByClass(nClass, oPlayer) <= 0)
+            return;
+
+        int nReadyFeat = -1;
+        switch (nClass)
+        {
+            case CLASS_TYPE_CRUSADER:
+                nReadyFeat = PRC_MANEUVER_READY_FEAT_CRUSADER;
+                break;
+            case CLASS_TYPE_SWORDSAGE:
+                nReadyFeat = PRC_MANEUVER_READY_FEAT_SWORDSAGE;
+                break;
+            case CLASS_TYPE_WARBLADE:
+                nReadyFeat = PRC_MANEUVER_READY_FEAT_WARBLADE;
+                break;
+        }
+        if (nReadyFeat <= 0 || !GetHasFeat(nReadyFeat, oPlayer))
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        AssignCommand(oPlayer, ActionUseFeat(nReadyFeat, oPlayer));
+        return;
+    }
+
     if (sElement == PRC_SPELLBOOK_NUI_DOMAIN_MODE_BUTTON)
     {
         if (!NUISpellbookHasDomainContent(oPlayer))
@@ -205,12 +502,102 @@ void main()
         return;
     }
 
+    if (sElement == PRC_SPELLBOOK_NUI_INCARNUM_MODE_BUTTON)
+    {
+        if (!NUISpellbookMoiHasContent(oPlayer))
+            return;
+
+        int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
+        SetLocalInt(
+            oPlayer,
+            PRC_SPELLBOOK_SELECTED_MODE_VAR,
+            PRC_SPELLBOOK_MODE_INCARNUM
+        );
+        RequestSpellbookNavigationRefresh(oPlayer, bCancelledTarget);
+        return;
+    }
+
+    if (sElement == PRC_MOI_LOADOUT_OPEN_BUTTON)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_INCARNUM
+            || !NUISpellbookMoiHasLoadoutShapingClass(oPlayer))
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        ExecuteScript("prc_nui_moi_ed", oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_MOI_BLADE_OPEN_BUTTON)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_INCARNUM
+            || GetLevelByClass(CLASS_TYPE_INCARNUM_BLADE, oPlayer) <= 0)
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        ExecuteScript("prc_nui_moi_bo", oPlayer);
+        return;
+    }
+
+    if (sElement == PRC_MOI_LIVE_OPEN_BUTTON)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_INCARNUM
+            || !NUISpellbookMoiHasContent(oPlayer))
+            return;
+
+        CancelPendingSpellbookTarget(oPlayer);
+        ExecuteScript("prc_nui_moi_lo", oPlayer);
+        return;
+    }
+
+    if (FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_INCARNUM_CHAKRA_BUTTON_BASEID
+        ) == 0)
+    {
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_INCARNUM
+            || !NUISpellbookMoiHasContent(oPlayer))
+            return;
+
+        string sChakra = GetSubString(
+            sElement,
+            GetStringLength(PRC_SPELLBOOK_NUI_INCARNUM_CHAKRA_BUTTON_BASEID),
+            GetStringLength(sElement)
+                - GetStringLength(
+                    PRC_SPELLBOOK_NUI_INCARNUM_CHAKRA_BUTTON_BASEID
+                )
+        );
+        int nChakra = StringToInt(sChakra);
+        if (sChakra == ""
+            || IntToString(nChakra) != sChakra
+            || nChakra < CHAKRA_CROWN
+            || nChakra > CHAKRA_TOTEM)
+            return;
+
+        int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
+        SetLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_INCARNUM_SELECTED_CHAKRA_VAR,
+            nChakra
+        );
+        RequestSpellbookNavigationRefresh(oPlayer, bCancelledTarget);
+        return;
+    }
+
     // Checks to see if the event button has the class button baseId
     // Then replaces the baseId with nothing and converts the end of the string to a int
     // representing the ClassID gathered. (i.e. "test_123" gets converted to 123)
     if (FindSubString(sElement, PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID) >= 0)
     {
         int classId = StringToInt(RegExpReplace(PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID, sElement, ""));
+        int nPreviousClass = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
+        if (nPreviousClass != classId)
+            ClearOneShotSpellbookMetamagic(oPlayer);
         int bCancelledTarget = CancelPendingSpellbookTarget(oPlayer);
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_DOMAIN_PREFERRED_CLASS_VAR);
         SetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR, PRC_SPELLBOOK_MODE_CLASS);
@@ -231,20 +618,291 @@ void main()
         return;
     }
 
+    // Archmage High Arcana buttons retain their existing feat/spell scripts as
+    // the authority. The NUI map records only the selected radial child or SLA
+    // targeting geometry and is revalidated again by the target callback.
+    if (FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_ARCHMAGE_BUTTON_BASEID
+        ) == 0)
+    {
+        int nArchmageIndex = NUISpellbookArchmageGetActionIndex(sElement);
+        json jArchmageEntry = NUISpellbookArchmageGetValidatedEntry(
+            oPlayer,
+            nArchmageIndex
+        );
+        if (jArchmageEntry == JsonNull())
+        {
+            NUISpellbookArchmageClearPending(oPlayer);
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        int nArchmageFeat = JsonGetInt(JsonObjectGet(jArchmageEntry, "f"));
+        int nArchmageTargetSpell = JsonGetInt(JsonObjectGet(
+            jArchmageEntry, "s"
+        ));
+        int nArchmageDescriptionSpell = JsonGetInt(JsonObjectGet(
+            jArchmageEntry, "d"
+        ));
+        int nArchmageSubSpell = JsonGetInt(JsonObjectGet(
+            jArchmageEntry, "u"
+        ));
+        int bArchmagePersonal = JsonGetInt(JsonObjectGet(
+            jArchmageEntry, "p"
+        ));
+        json jArchmagePayload = NuiGetEventPayload();
+        int nArchmageButton = JsonGetInt(JsonObjectGet(
+            jArchmagePayload, "mouse_btn"
+        ));
+        if (nArchmageButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
+        {
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                nArchmageFeat,
+                nArchmageTargetSpell,
+                nArchmageDescriptionSpell,
+                CLASS_TYPE_ARCHMAGE
+            );
+            return;
+        }
+        if (nArchmageButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+            return;
+
+        if (GetLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR)
+                == "PRC_NUI_SPELLBOOK"
+            || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR)
+            || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR))
+        {
+            SendMessageToPC(
+                oPlayer,
+                "Finish or cancel the pending spellbook target first."
+            );
+            return;
+        }
+
+        NUISpellbookClearSpecialPending(oPlayer);
+        NUISpellbookMoiClearPendingAction(oPlayer);
+        NUISpellbookArchmageClearPending(oPlayer);
+        if (!NUISpellbookArchmageSetPending(oPlayer, jArchmageEntry))
+            return;
+
+        bArchmageSpellButton = TRUE;
+        bArchmageForcePersonal = bArchmagePersonal;
+        featId = nArchmageFeat;
+        spellId = nArchmageTargetSpell;
+        realSpellId = nArchmageDescriptionSpell;
+        if (nArchmageSubSpell > 0)
+            SetLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR,
+                nArchmageSubSpell
+            );
+        else
+            DeleteLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR
+            );
+    }
+
+    // Factotum Arcane Dilettante and Runescarred Berserker buttons use a
+    // generation-stamped server map.  The displayed spell supplies Factotum's
+    // target geometry and the description shown for a stored runescar, while
+    // the mapped wrapper feat remains the only execution authority.
+    if (FindSubString(sElement, PRC_SPELLBOOK_NUI_SPECIAL_BUTTON_BASEID) == 0)
+    {
+        int nSpecialIndex = StringToInt(RegExpReplace(
+            PRC_SPELLBOOK_NUI_SPECIAL_BUTTON_BASEID,
+            sElement,
+            ""
+        ));
+        int nLayoutGeneration = GetLocalInt(
+            oPlayer,
+            PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+        );
+        json jSpecialEntry = NUISpellbookGetSpecialButtonEntry(
+            oPlayer,
+            nSpecialIndex,
+            nLayoutGeneration
+        );
+        if (!NUISpellbookValidateSpecialAction(oPlayer, jSpecialEntry))
+        {
+            NUISpellbookClearSpecialPending(oPlayer);
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        int nSpecialType = JsonGetInt(JsonObjectGet(jSpecialEntry, "y"));
+        int nSpecialClass = JsonGetInt(JsonObjectGet(jSpecialEntry, "c"));
+        int nActionSpell = JsonGetInt(JsonObjectGet(jSpecialEntry, "a"));
+        int nDisplaySpell = JsonGetInt(JsonObjectGet(jSpecialEntry, "s"));
+        featId = JsonGetInt(JsonObjectGet(jSpecialEntry, "f"));
+
+        json jSpecialPayload = NuiGetEventPayload();
+        int nSpecialButton = JsonGetInt(JsonObjectGet(
+            jSpecialPayload,
+            "mouse_btn"
+        ));
+        if (nSpecialButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
+        {
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                featId,
+                nDisplaySpell,
+                0,
+                nSpecialClass
+            );
+            return;
+        }
+        if (nSpecialButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+            return;
+
+        if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR))
+        {
+            SendMessageToPC(oPlayer, "Finish or cancel the pending native domain spell target first.");
+            return;
+        }
+        if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR))
+        {
+            SendMessageToPC(oPlayer, "Finish or cancel the pending native spell target first.");
+            return;
+        }
+
+        bSpecialSpellButton = TRUE;
+        bSpecialForcePersonal = nSpecialType
+            == NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_SCRIBE
+            || nSpecialType == NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_CAST;
+        spellId = bSpecialForcePersonal ? nActionSpell : nDisplaySpell;
+        realSpellId = nDisplaySpell;
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
+        NUISpellbookSetSpecialPending(oPlayer, jSpecialEntry);
+    }
+
+    // Character-wide Incarnum actions have their own map because shaped meld
+    // investment, radial children, forced-personal wrappers, and ordinary
+    // targeted feats each need a different validated payload.  This branch is
+    // terminal so none of those entries can fall through as spell row zero.
+    if (FindSubString(
+            sElement,
+            PRC_SPELLBOOK_NUI_INCARNUM_ACTION_BUTTON_BASEID
+        ) == 0)
+    {
+        int nMoiIndex = NUISpellbookMoiGetActionIndex(sElement);
+        json jMoiEntry = NUISpellbookMoiGetValidatedActionEntry(
+            oPlayer,
+            nMoiIndex
+        );
+        if (jMoiEntry == JsonNull())
+        {
+            NUISpellbookMoiClearPendingAction(oPlayer);
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        int nMoiFeat = JsonGetInt(JsonObjectGet(jMoiEntry, "f"));
+        int nMoiTargetSpell = JsonGetInt(JsonObjectGet(jMoiEntry, "s"));
+        int nMoiDescriptionSpell = JsonGetInt(JsonObjectGet(jMoiEntry, "d"));
+        int bMoiPersonal = JsonGetInt(JsonObjectGet(jMoiEntry, "p"));
+        json jMoiPayload = NuiGetEventPayload();
+        int nMoiButton = JsonGetInt(JsonObjectGet(jMoiPayload, "mouse_btn"));
+        if (nMoiButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
+        {
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                nMoiFeat,
+                nMoiTargetSpell,
+                nMoiDescriptionSpell,
+                CLASS_TYPE_BARBARIAN
+            );
+            return;
+        }
+        if (nMoiButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
+            return;
+
+        if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR))
+        {
+            SendMessageToPC(oPlayer, "Finish or cancel the pending native domain spell target first.");
+            return;
+        }
+        if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR))
+        {
+            SendMessageToPC(oPlayer, "Finish or cancel the pending native spell target first.");
+            return;
+        }
+
+        NUISpellbookClearSpecialPending(oPlayer);
+        DeleteLocalInt(oPlayer, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
+        if (!NUISpellbookMoiSetPendingAction(oPlayer, nMoiIndex))
+            return;
+
+        if (bMoiPersonal)
+        {
+            ExecuteScript("prc_nui_sb_trggr", oPlayer);
+            return;
+        }
+
+        SetLocalString(
+            oPlayer,
+            NUI_SPELLBOOK_ON_TARGET_ACTION_VAR,
+            "PRC_NUI_SPELLBOOK"
+        );
+        string sMoiRange = GetStringUpperCase(Get2DACache(
+            "spells",
+            "Range",
+            nMoiTargetSpell
+        ));
+        float fMoiRange = DetermineRangeForSpell(sMoiRange);
+        string sMoiShape = GetStringUpperCase(Get2DACache(
+            "spells",
+            "TargetShape",
+            nMoiTargetSpell
+        ));
+        int nMoiShape = DetermineShapeForSpell(sMoiShape);
+        float fMoiSizeX = StringToFloat(Get2DACache(
+            "spells",
+            "TargetSizeX",
+            nMoiTargetSpell
+        ));
+        float fMoiSizeY = StringToFloat(Get2DACache(
+            "spells",
+            "TargetSizeY",
+            nMoiTargetSpell
+        ));
+        int nMoiFlags = StringToInt(Get2DACache(
+            "spells",
+            "TargetFlags",
+            nMoiTargetSpell
+        ));
+        int nMoiTargetType = DetermineTargetType(Get2DACache(
+            "spells",
+            "TargetType",
+            nMoiTargetSpell
+        ));
+        SetEnterTargetingModeData(
+            oPlayer,
+            nMoiShape,
+            fMoiSizeX,
+            fMoiSizeY,
+            nMoiFlags,
+            fMoiRange
+        );
+        EnterTargetingMode(oPlayer, nMoiTargetType);
+        return;
+    }
+
     // Checks to see if the event button has the meta button baseId
     // Then replaces the baseId with nothing and converts the end of the string to a int
     // representing the SpellID gathered. (i.e. "test_123" gets converted to 123)
     if (FindSubString(sElement, PRC_SPELLBOOK_NUI_META_BUTTON_BASEID) >= 0)
     {
         spellId = StringToInt(RegExpReplace(PRC_SPELLBOOK_NUI_META_BUTTON_BASEID, sElement, ""));
+        int nMetaClass = GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
         int masterSpellId = StringToInt(Get2DACache("spells", "Master", spellId));
         if (masterSpellId)
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR, spellId);
-            featId = StringToInt(Get2DACache("spells", "FeatID", masterSpellId));
         }
-        else
-            featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+        featId = GetNUISpellbookMetaFeatId(nMetaClass, spellId);
     }
 
     // PRC bonus-domain buttons display the actual domain spell, but cast the
@@ -337,25 +995,48 @@ void main()
     }
 
     // Native prepared domain spells retain their exact class, level, slot and
-    // metamagic while manual targeting is active. The trigger revalidates that
-    // same preparation, then the engine performs the real cast and slot spend.
+    // metamagic while manual targeting is active. Radial masters map each child
+    // choice back to that same owner tuple. The trigger revalidates both before
+    // the engine performs the real cast and slot spend.
     if (FindSubString(sElement, PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID) == 0)
     {
-        int nCode = StringToInt(RegExpReplace(
+        int nButtonIndex = StringToInt(RegExpReplace(
             PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID,
             sElement,
             ""
         ));
-        int nClass = nCode / 10000;
-        int nRemainder = nCode - nClass * 10000;
-        int nLevel = nRemainder / 1000;
-        int nIndex = nRemainder - nLevel * 1000;
+        json jDomainMap = GetLocalJson(
+            oPlayer,
+            NUI_SPELLBOOK_NATIVE_DOMAIN_BUTTON_MAP_VAR
+        );
+        if (jDomainMap == JsonNull()
+            || nButtonIndex < 0
+            || nButtonIndex >= JsonGetLength(jDomainMap))
+        {
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
 
-        if (nClass == CLASS_TYPE_INVALID
+        json jDomainEntry = JsonArrayGet(jDomainMap, nButtonIndex);
+        int nClass = JsonGetInt(JsonObjectGet(jDomainEntry, "c"));
+        int nLevel = JsonGetInt(JsonObjectGet(jDomainEntry, "l"));
+        int nIndex = JsonGetInt(JsonObjectGet(jDomainEntry, "i"));
+        int nNativeSpell = JsonGetInt(JsonObjectGet(jDomainEntry, "s"));
+        int nNativeCastSpell = JsonGetInt(JsonObjectGet(jDomainEntry, "x"));
+        int nNativeMetamagic = JsonGetInt(JsonObjectGet(jDomainEntry, "m"));
+
+        if (GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_MODE_VAR)
+                != PRC_SPELLBOOK_MODE_DOMAIN
+            || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) != nLevel
+            || nClass == CLASS_TYPE_INVALID
             || GetLevelByClass(nClass, oPlayer) <= 0
             || nLevel < 1
             || nLevel > 9
-            || StringToInt(Get2DACache("classes", "MemorizesSpells", nClass)) != TRUE)
+            || StringToInt(Get2DACache("classes", "MemorizesSpells", nClass)) != TRUE
+            || !NUISpellbookNativeCastSpellIsValid(
+                nNativeSpell,
+                nNativeCastSpell
+            ))
         {
             ExecuteScript("prc_nui_sb_view", oPlayer);
             return;
@@ -364,21 +1045,28 @@ void main()
         int nCount = GetMemorizedSpellCountByLevel(oPlayer, nClass, nLevel);
 
         if (nIndex < 0 || nIndex >= nCount
-            || GetMemorizedSpellIsDomainSpell(oPlayer, nClass, nLevel, nIndex) != TRUE)
+            || nNativeSpell < 0
+            || nNativeMetamagic < METAMAGIC_NONE
+            || GetMemorizedSpellId(oPlayer, nClass, nLevel, nIndex) != nNativeSpell
+            || GetMemorizedSpellIsDomainSpell(oPlayer, nClass, nLevel, nIndex) != TRUE
+            || GetMemorizedSpellMetaMagic(oPlayer, nClass, nLevel, nIndex)
+                != nNativeMetamagic)
         {
             ExecuteScript("prc_nui_sb_view", oPlayer);
             return;
         }
 
-        int nNativeSpell = GetMemorizedSpellId(oPlayer, nClass, nLevel, nIndex);
-        if (nNativeSpell < 0)
-            return;
-
         json jNativePayload = NuiGetEventPayload();
         int nNativeButton = JsonGetInt(JsonObjectGet(jNativePayload, "mouse_btn"));
         if (nNativeButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
         {
-            CreateSpellDescriptionNUI(oPlayer, 0, nNativeSpell, 0, nClass);
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                0,
+                nNativeCastSpell,
+                0,
+                nClass
+            );
             return;
         }
         if (nNativeButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
@@ -411,31 +1099,23 @@ void main()
             return;
         }
 
-        // A memorized radial master does not identify which child spell the
-        // player intends to cast. Keep those in the native spellbook, where the
-        // engine can present its normal subradial safely.
-        if (Get2DACache("spells", "SubRadSpell1", nNativeSpell) != "")
-        {
-            SendMessageToPC(oPlayer, "This domain spell has multiple choices; cast it from the native spellbook so you can select one.");
-            return;
-        }
-
-        int nNativeMetamagic = GetMemorizedSpellMetaMagic(oPlayer, nClass, nLevel, nIndex);
-        if (nNativeMetamagic < METAMAGIC_NONE)
-        {
-            SendMessageToPC(oPlayer, "That native domain spell slot is no longer valid.");
-            ExecuteScript("prc_nui_sb_view", oPlayer);
-            return;
-        }
-
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR, TRUE);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_CLASS_VAR, nClass);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR, nLevel);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_INDEX_VAR, nIndex);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_SPELL_VAR, nNativeSpell);
+        SetLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_NATIVE_DOMAIN_CAST_SPELL_VAR,
+            nNativeCastSpell
+        );
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_METAMAGIC_VAR, nNativeMetamagic);
 
-        string sNativeRange = GetStringUpperCase(Get2DACache("spells", "Range", nNativeSpell));
+        string sNativeRange = GetStringUpperCase(Get2DACache(
+            "spells",
+            "Range",
+            nNativeCastSpell
+        ));
         if (sNativeRange == "P")
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT, TRUE);
@@ -445,12 +1125,20 @@ void main()
 
         SetLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR, "PRC_NUI_SPELLBOOK");
         float fNativeRange = DetermineRangeForSpell(sNativeRange);
-        string sNativeShape = GetStringUpperCase(Get2DACache("spells", "TargetShape", nNativeSpell));
+        string sNativeShape = GetStringUpperCase(Get2DACache(
+            "spells",
+            "TargetShape",
+            nNativeCastSpell
+        ));
         int nNativeShape = DetermineShapeForSpell(sNativeShape);
-        float fNativeSizeX = StringToFloat(Get2DACache("spells", "TargetSizeX", nNativeSpell));
-        float fNativeSizeY = StringToFloat(Get2DACache("spells", "TargetSizeY", nNativeSpell));
-        int nNativeFlags = StringToInt(Get2DACache("spells", "TargetFlags", nNativeSpell));
-        int nNativeTargetType = DetermineTargetType(Get2DACache("spells", "TargetType", nNativeSpell));
+        float fNativeSizeX = StringToFloat(Get2DACache(
+            "spells", "TargetSizeX", nNativeCastSpell));
+        float fNativeSizeY = StringToFloat(Get2DACache(
+            "spells", "TargetSizeY", nNativeCastSpell));
+        int nNativeFlags = StringToInt(Get2DACache(
+            "spells", "TargetFlags", nNativeCastSpell));
+        int nNativeTargetType = DetermineTargetType(Get2DACache(
+            "spells", "TargetType", nNativeCastSpell));
 
         SetEnterTargetingModeData(
             oPlayer,
@@ -459,7 +1147,7 @@ void main()
             fNativeSizeY,
             nNativeFlags,
             fNativeRange,
-            nNativeSpell
+            nNativeCastSpell
         );
         EnterTargetingMode(oPlayer, nNativeTargetType);
         return;
@@ -488,6 +1176,7 @@ void main()
         int nClass = JsonGetInt(JsonObjectGet(jEntry, "c"));
         int nLevel = JsonGetInt(JsonObjectGet(jEntry, "l"));
         int nNativeSpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+        int nNativeCastSpell = JsonGetInt(JsonObjectGet(jEntry, "x"));
         int nNativeMetamagic = JsonGetInt(JsonObjectGet(jEntry, "m"));
         int bNativeDomain = JsonGetInt(JsonObjectGet(jEntry, "d"));
 
@@ -496,6 +1185,10 @@ void main()
             || GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) != nLevel
             || !NUISpellbookUsesNativeClassAdapter(oPlayer, nClass)
             || nNativeSpell < 0 || nLevel < 0 || nLevel > 9
+            || !NUISpellbookNativeCastSpellIsValid(
+                nNativeSpell,
+                nNativeCastSpell
+            )
             || (nCastType != NUI_SPELLBOOK_NATIVE_CAST_PREPARED
                 && nCastType != NUI_SPELLBOOK_NATIVE_CAST_SPONTANEOUS))
         {
@@ -507,7 +1200,13 @@ void main()
         int nNativeButton = JsonGetInt(JsonObjectGet(jNativePayload, "mouse_btn"));
         if (nNativeButton == NUI_PAYLOAD_BUTTON_RIGHT_CLICK)
         {
-            CreateSpellDescriptionNUI(oPlayer, 0, nNativeSpell, 0, nClass);
+            CreateSpellDescriptionNUI(
+                oPlayer,
+                0,
+                nNativeCastSpell,
+                0,
+                nClass
+            );
             return;
         }
         if (nNativeButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
@@ -521,12 +1220,6 @@ void main()
         }
         if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR))
             ClearPendingNativeClassSelection(oPlayer);
-
-        if (Get2DACache("spells", "SubRadSpell1", nNativeSpell) != "")
-        {
-            SendMessageToPC(oPlayer, "This spell has multiple choices; cast it from the native spellbook so you can select one.");
-            return;
-        }
 
         if (nCastType == NUI_SPELLBOOK_NATIVE_CAST_PREPARED)
         {
@@ -542,12 +1235,34 @@ void main()
         else
         {
             nNativeMetamagic = METAMAGIC_NONE;
+            int nMetaState = GetLocalInt(oPlayer, "PRC_metamagic_state");
+            if ((nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+                && (nMetaState == 1 || nMetaState == 2))
+                nNativeMetamagic = GetLocalInt(oPlayer, "MetamagicFeatAdjust");
             bNativeDomain = FALSE;
             if (!NUISpellbookIsNativeSpontaneousClass(nClass)
-                || !NUISpellbookNativeKnownAtLevel(oPlayer, nClass, nLevel, nNativeSpell)
-                || GetSpellUsesLeft(oPlayer, nClass, nNativeSpell) <= 0)
+                || !NUISpellbookNativeKnownAtLevel(oPlayer, nClass, nLevel, nNativeSpell))
             {
                 SendMessageToPC(oPlayer, "You have no remaining uses of that native spell level.");
+                ExecuteScript("prc_nui_sb_view", oPlayer);
+                return;
+            }
+            if (!NUISpellbookNativeSpontaneousMetamagicIsValid(
+                    oPlayer, nClass, nLevel, nNativeSpell, nNativeMetamagic))
+            {
+                SendMessageToPC(
+                    oPlayer,
+                    "That native spontaneous spell cannot use the selected metamagic at this level."
+                );
+                return;
+            }
+            if (GetSpellUsesLeft(
+                    oPlayer, nClass, nNativeSpell, nNativeMetamagic) <= 0)
+            {
+                SendMessageToPC(oPlayer,
+                    nNativeMetamagic == METAMAGIC_NONE
+                        ? "You have no remaining uses of that native spell level."
+                        : "You have no native spell slots left at the metamagic-adjusted level.");
                 ExecuteScript("prc_nui_sb_view", oPlayer);
                 return;
             }
@@ -560,10 +1275,19 @@ void main()
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_CLASS_VAR, nClass);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_LEVEL_VAR, nLevel);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_SPELL_VAR, nNativeSpell);
+        SetLocalInt(
+            oPlayer,
+            NUI_SPELLBOOK_NATIVE_CLASS_CAST_SPELL_VAR,
+            nNativeCastSpell
+        );
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_METAMAGIC_VAR, nNativeMetamagic);
         SetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_DOMAIN_VAR, bNativeDomain);
 
-        string sNativeRange = GetStringUpperCase(Get2DACache("spells", "Range", nNativeSpell));
+        string sNativeRange = GetStringUpperCase(Get2DACache(
+            "spells",
+            "Range",
+            nNativeCastSpell
+        ));
         if (sNativeRange == "P")
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT, TRUE);
@@ -573,14 +1297,22 @@ void main()
 
         SetLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR, "PRC_NUI_SPELLBOOK");
         float fNativeRange = DetermineRangeForSpell(sNativeRange);
-        string sNativeShape = GetStringUpperCase(Get2DACache("spells", "TargetShape", nNativeSpell));
+        string sNativeShape = GetStringUpperCase(Get2DACache(
+            "spells",
+            "TargetShape",
+            nNativeCastSpell
+        ));
         int nNativeShape = DetermineShapeForSpell(sNativeShape);
-        float fNativeSizeX = StringToFloat(Get2DACache("spells", "TargetSizeX", nNativeSpell));
-        float fNativeSizeY = StringToFloat(Get2DACache("spells", "TargetSizeY", nNativeSpell));
-        int nNativeFlags = StringToInt(Get2DACache("spells", "TargetFlags", nNativeSpell));
-        int nNativeTargetType = DetermineTargetType(Get2DACache("spells", "TargetType", nNativeSpell));
+        float fNativeSizeX = StringToFloat(Get2DACache(
+            "spells", "TargetSizeX", nNativeCastSpell));
+        float fNativeSizeY = StringToFloat(Get2DACache(
+            "spells", "TargetSizeY", nNativeCastSpell));
+        int nNativeFlags = StringToInt(Get2DACache(
+            "spells", "TargetFlags", nNativeCastSpell));
+        int nNativeTargetType = DetermineTargetType(Get2DACache(
+            "spells", "TargetType", nNativeCastSpell));
         SetEnterTargetingModeData(oPlayer, nNativeShape, fNativeSizeX, fNativeSizeY,
-            nNativeFlags, fNativeRange, nNativeSpell);
+            nNativeFlags, fNativeRange, nNativeCastSpell);
         EnterTargetingMode(oPlayer, nNativeTargetType);
         return;
     }
@@ -663,6 +1395,54 @@ void main()
             nClass,
             nManeuver
         );
+        if (sStatus == "Expended" && nClass == CLASS_TYPE_SWORDSAGE)
+        {
+            if (!GetHasFeat(PRC_MANEUVER_RECOVER_FEAT_SWORDSAGE, oPlayer))
+            {
+                SendMessageToPC(
+                    oPlayer,
+                    "You do not have the Swordsage Recover Maneuver ability."
+                );
+                return;
+            }
+            if (GetLocalInt(oPlayer, PRC_MANEUVER_RECOVER_PENDING_VAR))
+            {
+                SendMessageToPC(
+                    oPlayer,
+                    "A Swordsage maneuver recovery is already queued."
+                );
+                NUISpellbookRefreshReadiedManeuverButtons(oPlayer, nToken);
+                return;
+            }
+
+            CancelPendingSpellbookTarget(oPlayer);
+            int nRecoveryGeneration = GetLocalInt(
+                oPlayer,
+                PRC_MANEUVER_RECOVER_PENDING_GENERATION_VAR
+            ) + 1;
+            if (nRecoveryGeneration <= 0)
+                nRecoveryGeneration = 1;
+            SetLocalInt(
+                oPlayer,
+                PRC_MANEUVER_RECOVER_PENDING_GENERATION_VAR,
+                nRecoveryGeneration
+            );
+            SetLocalInt(
+                oPlayer,
+                PRC_MANEUVER_RECOVER_PENDING_VAR,
+                nManeuver
+            );
+            NUISpellbookRefreshReadiedManeuverButtons(oPlayer, nToken);
+            AssignCommand(
+                oPlayer,
+                ActionUseFeat(PRC_MANEUVER_RECOVER_FEAT_SWORDSAGE, oPlayer)
+            );
+            DelayCommand(
+                30.0f,
+                ExpireManeuverRecoveryRequest(oPlayer, nRecoveryGeneration)
+            );
+            return;
+        }
         if (sStatus != "Ready")
         {
             SendMessageToPC(
@@ -753,6 +1533,21 @@ void main()
             else
                 featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
 
+            // Mystery class tables are authoritative for their activation
+            // feats. This also resolves blank radial-child rows to the nearest
+            // owning parent in the selected class table instead of accepting a
+            // cross-class spells.Master feat.
+            if (classId == CLASS_TYPE_SHADOWCASTER
+                || classId == CLASS_TYPE_SHADOWSMITH)
+            {
+                int nMysteryFeat = NUISpellbookGetClassActionFeatId(
+                    classId,
+                    spellbookId
+                );
+                if (nMysteryFeat > 0)
+                    featId = nMysteryFeat;
+            }
+
             if (classId == CLASS_TYPE_ARCHIVIST)
             {
                 json jArchivistPayload = NuiGetEventPayload();
@@ -797,7 +1592,13 @@ void main()
         int classId = (bEpicSpellButton || bDomainSpellButton)
                     ? CLASS_TYPE_BARBARIAN
                     : GetLocalInt(oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
-        CreateSpellDescriptionNUI(oPlayer, featId, spellId, realSpellId, classId);
+        CreateSpellDescriptionNUI(
+            oPlayer,
+            bBinderExploitButton ? 0 : featId,
+            spellId,
+            realSpellId,
+            classId
+        );
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
         return;
     }
@@ -813,6 +1614,11 @@ void main()
                 oPlayer,
                 NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR
             );
+        if (!bSpecialSpellButton)
+            NUISpellbookClearSpecialPending(oPlayer);
+        NUISpellbookMoiClearPendingAction(oPlayer);
+        if (!bArchmageSpellButton)
+            NUISpellbookArchmageClearPending(oPlayer);
 
         if (GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR))
         {
@@ -825,6 +1631,37 @@ void main()
             SendMessageToPC(oPlayer, "Finish or cancel the pending native spell target first.");
             return;
         }
+
+        int nSelectedClass = GetLocalInt(
+            oPlayer, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
+        if (FindSubString(sElement, PRC_SPELLBOOK_NUI_META_BUTTON_BASEID) == 0
+            && NUISpellbookIsNativeSpontaneousClass(nSelectedClass)
+            && NUISpellbookUsesNativeClassAdapter(oPlayer, nSelectedClass)
+            && NUISpellbookActivateNativeSpontaneousMetamagic(
+                oPlayer,
+                nSelectedClass,
+                spellId
+            ))
+        {
+            // Rebuild the existing window root immediately so native spell
+            // uses, tooltips, and grey state show the adjusted slot tier.
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        if (bBinderExploitButton)
+        {
+            SetLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_SELECTED_SPELLID_VAR,
+                nBinderExploitSpell
+            );
+        }
+        else
+            DeleteLocalInt(
+                oPlayer,
+                NUI_SPELLBOOK_SELECTED_SPELLID_VAR
+            );
 
         if (bReadiedManeuverButton)
         {
@@ -852,7 +1689,7 @@ void main()
 
         string sRange = GetStringUpperCase(Get2DACache("spells", "Range", spellId));
         // If its a personal spell/feat than use it directly on the player.
-        if (sRange == "P")
+        if (bSpecialForcePersonal || bArchmageForcePersonal || sRange == "P")
         {
             SetLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT, 1);
             ExecuteScript("prc_nui_sb_trggr", oPlayer);
@@ -886,6 +1723,7 @@ void ClearPendingNativeDomainSelection(object oPlayer)
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_LEVEL_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_INDEX_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_SPELL_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_CAST_SPELL_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_METAMAGIC_VAR);
     if (bWasPending)
     {
@@ -902,12 +1740,28 @@ void ClearPendingNativeClassSelection(object oPlayer)
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_CLASS_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_LEVEL_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_SPELL_VAR);
+    DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_CAST_SPELL_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_METAMAGIC_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_DOMAIN_VAR);
     if (bWasPending)
     {
         DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
         DeleteLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR);
+    }
+}
+
+void ClearOneShotSpellbookMetamagic(object oPlayer)
+{
+    // The activation feats store their selection on the character rather than
+    // on a spellbook. A one-shot armed on Sublime Chord must not survive a
+    // class-tab change, be ignored by native Bard, then fire unexpectedly when
+    // the player returns to Sublime Chord. Persistent (state 2) mode remains
+    // deliberately character-wide.
+    if (GetLocalInt(oPlayer, "PRC_metamagic_state") == 1
+        && GetLocalInt(oPlayer, "MetamagicFeatAdjust"))
+    {
+        DeleteLocalInt(oPlayer, "PRC_metamagic_state");
+        DeleteLocalInt(oPlayer, "MetamagicFeatAdjust");
     }
 }
 
@@ -918,7 +1772,10 @@ int CancelPendingSpellbookTarget(object oPlayer)
             NUI_SPELLBOOK_ON_TARGET_ACTION_VAR
         ) == "PRC_NUI_SPELLBOOK"
         || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR)
-        || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR);
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_CLASS_PENDING_VAR)
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_SPECIAL_PENDING_VAR)
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_INCARNUM_PENDING_VAR)
+        || GetLocalInt(oPlayer, NUI_SPELLBOOK_ARCHMAGE_PENDING_VAR);
 
     if (!bPending)
         return FALSE;
@@ -933,6 +1790,9 @@ int CancelPendingSpellbookTarget(object oPlayer)
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_FEATID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_SELECTED_SUBSPELL_SPELLID_VAR);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_READIED_MANEUVER_PENDING_VAR);
+    NUISpellbookClearSpecialPending(oPlayer);
+    NUISpellbookMoiClearPendingAction(oPlayer);
+    NUISpellbookArchmageClearPending(oPlayer);
     DeleteLocalInt(oPlayer, NUI_SPELLBOOK_ON_TARGET_IS_PERSONAL_FEAT);
     DeleteLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR);
     DeleteLocalObject(oPlayer, "TARGETING_OBJECT");

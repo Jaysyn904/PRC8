@@ -12,6 +12,7 @@
 //:://////////////////////////////////////////////
 
 #include "moi_inc_moifunc"
+#include "prc_nui_moi_cst"
 #include "prc_inc_combmove"
 #include "pnp_shft_main" // Silly horse system
 #include "x0_i0_modes"
@@ -942,7 +943,16 @@ void main()
     }   
     else if(nEvent == EVENT_ONPLAYERREST_FINISHED)    
     {
-    	if (GetLevelByClass(CLASS_TYPE_INCANDESCENT_CHAMPION, oMeldshaper) || GetHasFeat(FEAT_INVEST_ESSENTIA_CONV, oMeldshaper)) ClearMeldShapes(oMeldshaper);
+		int bSavedLoadout = GetPersistantLocalInt(
+			oMeldshaper,
+			PRC_MOI_LOADOUT_VERSION_VAR
+		) == PRC_MOI_LOADOUT_VERSION
+			&& GetLocalInt(oMeldshaper, PRC_MOI_LOADOUT_REST_GENERATION_VAR)
+				== GetLocalInt(oMeldshaper, PRC_Rest_Generation);
+		if (!bSavedLoadout
+			&& (GetLevelByClass(CLASS_TYPE_INCANDESCENT_CHAMPION, oMeldshaper)
+				|| GetHasFeat(FEAT_INVEST_ESSENTIA_CONV, oMeldshaper)))
+			ClearMeldShapes(oMeldshaper);
     	if (GetHasFeat(FEAT_HEART_INCARNUM, oMeldshaper)) ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectTemporaryHitpoints(GetTotalEssentia(oMeldshaper)), oMeldshaper, 9999.0);
     	if (GetHasFeat(FEAT_INCARNUM_FORTIFIED_BODY, oMeldshaper)) ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectTemporaryHitpoints(GetIncarnumFeats(oMeldshaper)*2), oMeldshaper, 9999.0);
     	while (GetHasFeat(FEAT_NECROCARNATE_HARVEST, oMeldshaper)) DecrementRemainingFeatUses(oMeldshaper, FEAT_NECROCARNATE_HARVEST);

@@ -34,6 +34,23 @@ const string CHAT_COMMAND_INDICATOR_1 = "~~";
 const string CHAT_COMMAND_INDICATOR_2 = "..";
 const int CHAT_COMMAND_INDICATOR_LENGHT = 2;
 
+void ToggleSpellbookNUI(object oPC)
+{
+    int nToken = NuiFindWindow(oPC, PRC_SPELLBOOK_NUI_WINDOW_ID);
+    if (nToken)
+    {
+        // Preserve the same geometry that an in-window refresh would retain.
+        json jGeometry = NuiGetBind(oPC, nToken, "geometry");
+        if (jGeometry != JsonNull())
+            SetLocalJson(oPC, PRC_SPELLBOOK_NUI_GEOMETRY_VAR, jGeometry);
+
+        NuiDestroy(oPC, nToken);
+        return;
+    }
+
+    ExecuteScript("prc_nui_sb_view", oPC);
+}
+
 void ForceRemoveAllSpells(object oPC)
 {
     int classId;
@@ -202,10 +219,10 @@ void main()
             SetPCChatMessage();
             return;
         }
-        // If the first word is /sb then we open the Spellbook NUI
+        // If the first word is /sb then we toggle the Spellbook NUI.
         if(firstWord == "/sb")
         {
-            ExecuteScript("prc_nui_sb_view", oPC);
+            ToggleSpellbookNUI(oPC);
 
             // clear message from chat
             SetPCChatMessage();

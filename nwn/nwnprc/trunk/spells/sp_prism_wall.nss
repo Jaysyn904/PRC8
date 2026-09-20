@@ -90,6 +90,10 @@ void main()
     SetAllAoEInts(SPELL_PRISMATIC_WALL, oAoE, PRCGetSpellSaveDC(SPELL_PRISMATIC_WALL, SPELL_SCHOOL_ABJURATION), 0, nCasterLvl);
 	
 	SetLocalObject(oAoE, "ExtraordinarySpellAim_Caster", oPC);
+	
+	WriteTimestampedLogEntry("Prismatic Wall Cast - Caster: " + GetName(OBJECT_SELF) +
+                          " | Area: " + GetName(GetArea(OBJECT_SELF)) +
+                         " | Caster Level: " + IntToString(nCasterLvl));
 
     PRCSetSchool();
 }

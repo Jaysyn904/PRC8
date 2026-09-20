@@ -22,6 +22,25 @@
 #include "prc_inc_template"
 #include "prc_nui_ap_inc"
 #include "prc_nui_sb_inc"
+#include "prc_nui_mr_inc"
+#include "prc_nui_moi_cst"
+#include "moi_inc_moifunc"
+
+int HasNormalIncarnumRestShapingFlow(object oPC)
+{
+    if (!PRCGetIsAliveCreature(oPC)
+        && !GetHasFeat(FEAT_UNDEAD_MELDSHAPER, oPC))
+        return FALSE;
+
+    if (GetLevelByClass(CLASS_TYPE_INCARNATE, oPC) > 0
+        && IncarnateAlignment(oPC))
+        return TRUE;
+    if (GetLevelByClass(CLASS_TYPE_SOULBORN, oPC) >= 4)
+        return TRUE;
+    if (GetLevelByClass(CLASS_TYPE_TOTEMIST, oPC) > 0)
+        return TRUE;
+    return GetLevelByClass(CLASS_TYPE_SPINEMELD_WARRIOR, oPC) >= 3;
+}
 
 void DelayedHealAbilityBurnOnRest(int nExpectedGeneration, object oPC)  
 {  
@@ -151,8 +170,52 @@ void RestCancelled(object oPC)
 void RestFinished(object oPC)
 {
     int nGeneration = PRC_NextGeneration(GetLocalInt(oPC, PRC_Rest_Generation));
+    int bSavedMoiLoadout = GetPersistantLocalInt(
+        oPC,
+        PRC_MOI_LOADOUT_VERSION_VAR
+    ) == PRC_MOI_LOADOUT_VERSION;
+    int bSavedMoiBlade = GetLevelByClass(
+        CLASS_TYPE_INCARNUM_BLADE,
+        oPC
+    ) > 0
+        && GetPersistantLocalInt(oPC, PRC_MOI_BLADE_VERSION_VAR)
+            == PRC_MOI_BLADE_VERSION;
     if (DEBUG > 1) DoDebug("Rest Generation: " + IntToString(nGeneration));
     SetLocalInt(oPC, PRC_Rest_Generation, nGeneration);
+
+    // A saved Incarnum loadout replaces the forced shaping conversations for
+    // this completed rest.  Stamp the same generation before firing class
+    // event hooks, then apply after the normal post-rest feat rebuild settles.
+    if (bSavedMoiLoadout)
+    {
+        SetLocalInt(
+            oPC,
+            PRC_MOI_LOADOUT_REST_GENERATION_VAR,
+            nGeneration
+        );
+        DelayCommand(0.75f, ExecuteScript("prc_nui_moi_ap", oPC));
+    }
+
+    // Incarnum Blade defaults are independent of normal soulmeld loadouts.
+    // Pure Blades apply here; mixed meldshapers hand off after their normal
+    // saved or legacy shaping flow finishes so action ordering stays intact.
+    if (bSavedMoiBlade)
+    {
+        SetLocalInt(
+            oPC,
+            PRC_MOI_BLADE_REST_GENERATION_VAR,
+            nGeneration
+        );
+        if (!HasNormalIncarnumRestShapingFlow(oPC))
+        {
+            SetLocalInt(
+                oPC,
+                PRC_MOI_BLADE_REST_SOURCE_VAR,
+                PRC_MOI_BLADE_REST_SOURCE_PURE
+            );
+            DelayCommand(0.75f, ExecuteScript("prc_nui_moi_ba", oPC));
+        }
+    }
 
     if(DEBUG) DoDebug("prc_rest: Rest finished for for " + DebugObject2Str(oPC));
     //Restore Power Points for Psionics
@@ -394,6 +457,18 @@ void RestFinished(object oPC)
 	ResetLionSwiftness(oPC);
 	ResetTigressSwiftness(oPC);
 	ClearAstarothCraftingFeat(oPC);
+
+    // Clear the previous Incarnum state once, before the delayed PRC feat
+    // rebuild runs.  The saved-plan executor only removes old meld spell
+    // effects and installs the validated replacement state afterward.
+    if (bSavedMoiLoadout
+        && GetLocalInt(oPC, PRC_MOI_LOADOUT_REST_GENERATION_VAR)
+            == nGeneration)
+    {
+        AssignCommand(oPC, ClearAllActions(TRUE));
+        ClearMeldShapes(oPC);
+        WipeMelds(oPC);
+    }
     
     // Execute scripts hooked to this event for the player triggering it
     ExecuteAllScriptsHookedToEvent(oPC, EVENT_ONPLAYERREST_FINISHED);
@@ -411,6 +486,44 @@ void RestStarted(object oPC)
         if (GetLocalInt(oPC, PRC_ARCHIVIST_PREP_ACTIVE_VAR))
             SendMessageToPC(oPC, "Your unsaved Archivist preparation draft was closed because resting began.");
         ArchivistPrepDiscardDraft(oPC);
+
+        if (GetLocalInt(oPC, PRC_MANEUVER_READY_ACTIVE_VAR))
+            SendMessageToPC(oPC, "Your unsaved maneuver readying draft was closed because resting began.");
+        ManeuverReadyDiscardDraft(oPC);
+        DeleteLocalInt(oPC, PRC_MANEUVER_RECOVER_PENDING_VAR);
+
+        if (GetLocalInt(oPC, PRC_MOI_LOADOUT_ACTIVE_VAR))
+            SendMessageToPC(oPC, "Your unsaved Incarnum loadout draft was closed because resting began.");
+
+        int nMoiLoadoutToken = NuiFindWindow(
+            oPC,
+            PRC_MOI_LOADOUT_NUI_WINDOW_ID
+        );
+        if (nMoiLoadoutToken)
+            NuiDestroy(oPC, nMoiLoadoutToken);
+
+        DeleteLocalJson(oPC, PRC_MOI_LOADOUT_DRAFT_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_LOADOUT_ACTIVE_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_LOADOUT_STAGE_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_LOADOUT_CLASS_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_LOADOUT_CHAKRA_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_LOADOUT_REBUILD_TOKEN_VAR);
+
+        if (GetLocalInt(oPC, PRC_MOI_BLADE_ACTIVE_VAR))
+            SendMessageToPC(oPC, "Your unsaved blademeld selection was closed because resting began.");
+
+        int nMoiBladeToken = NuiFindWindow(
+            oPC,
+            PRC_MOI_BLADE_NUI_WINDOW_ID
+        );
+        if (nMoiBladeToken)
+            NuiDestroy(oPC, nMoiBladeToken);
+
+        DeleteLocalInt(oPC, PRC_MOI_BLADE_ACTIVE_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_BLADE_DRAFT_FIRST_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_BLADE_DRAFT_SECOND_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_BLADE_REBUILD_TOKEN_VAR);
+        DeleteLocalInt(oPC, PRC_MOI_BLADE_APPLY_MODE_VAR);
     }
 
     // Scrying cleanup

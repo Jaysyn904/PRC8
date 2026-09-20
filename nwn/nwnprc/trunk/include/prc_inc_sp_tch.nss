@@ -4,6 +4,7 @@ int PRCDoMeleeTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object oC
 //#include "prc_inc_sneak"
 #include "prc_inc_combat"
 //#include "prc_inc_template"
+#include "moi_inc_moifunc"
 
 int PRCDoRangedTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object oCaster = OBJECT_SELF, int nAttackBonus = 0)
 {
@@ -20,7 +21,13 @@ int PRCDoRangedTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object o
     if(GetPersistantLocalInt(oCaster, "template_102")) // TEMPLATE_DEMILICH
         nAttackBonus += GetHitDice(oCaster);
     if(GetLocalInt(oCaster, "WarsoulTyrant")) // Hobgoblin Warsoul
-        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");        
+        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");
+
+	int nEssentia = GetEssentiaInvested(oCaster, MELD_INCARNATE_AVATAR);
+	if (GetIsMeldBound(oCaster, MELD_INCARNATE_AVATAR) && (GetAlignmentLawChaos(oCaster) == ALIGNMENT_CHAOTIC))
+	{	
+		nAttackBonus += nEssentia;
+	}
         
     if(GetHasFeat(FEAT_SHIELD_WARD, oTarget)) 
     {
@@ -66,7 +73,14 @@ int PRCDoMeleeTouchAttack(object oTarget, int nDisplayFeedback = TRUE, object oC
     if(GetPersistantLocalInt(oCaster, "template_102")) // TEMPLATE_DEMILICH
         nAttackBonus += GetHitDice(oCaster);
     if(GetLocalInt(oCaster, "WarsoulTyrant")) // Hobgoblin Warsoul
-        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");         
+        nAttackBonus += GetLocalInt(oCaster, "WarsoulTyrant");
+
+	int nEssentia = GetEssentiaInvested(oCaster, MELD_INCARNATE_AVATAR);
+	if (GetIsMeldBound(oCaster, MELD_INCARNATE_AVATAR) && (GetAlignmentLawChaos(oCaster) == ALIGNMENT_LAWFUL))
+	{	
+		nAttackBonus += nEssentia;
+	}
+	
     if(GetHasFeat(FEAT_SHIELD_WARD, oTarget)) 
     {
     	int nBase = GetBaseItemType(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oTarget));
@@ -167,3 +181,5 @@ void DoSpellMeleeTouch(int nSpellID, int nCasterlevel = 0, int nTotalDC = 0)
         ActionDoCommand(DeleteLocalInt(OBJECT_SELF, "AttackHasHit"));
     }
 }
+
+//:: void main(){}

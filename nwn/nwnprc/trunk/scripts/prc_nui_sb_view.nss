@@ -14,6 +14,16 @@
 #include "prc_nui_sb_inc"
 #include "prc_nui_consts"
 #include "prc_nui_res_inc"
+#include "prc_nui_moi_inc"
+#include "prc_nui_moi_lc"
+#include "prc_nui_rb_const"
+#include "prc_nui_bnd_cst"
+#include "prc_nui_arch_inc"
+#include "prc_nui_psi_cst"
+
+// feat.2da row 9259 is Exploit Vestige. Its Constant column incorrectly names
+// Sudden Empower, so this NUI integration must use the authoritative row ID.
+const int NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT = 9259;
 
 //
 // CreateSpellBookClassButtons
@@ -41,6 +51,18 @@ json CreateSpellbookSpellButtons(int nClass, int circle);
 json CreateNativeClassSpellButtons(int nClass, int circle);
 json CreateReadiedManeuverButtons(int nClass);
 
+// Factotum Arcane Dilettante and Runescarred Berserker keep their established
+// preparation/scribing rules, but expose their prepared choices through the
+// same persistent /sb shell as the conventional spellbook classes.
+json CreateFactotumHeaderRow();
+json CreateFactotumCircleButtons();
+json CreateFactotumSpellButtons();
+int GetFactotumMaximumTier();
+json CreateRunescarredHeaderRow();
+json CreateRunescarredPositionButtons();
+json CreateRunescarredSpellButtons();
+int HasEligibleRunescarScribeChoice();
+
 // Creates spell buttons for only the Epic Spells currently readied through
 // the PRC conversation menu. Readied Epic Spells are represented by their
 // granted SpellFeatID on the character skin.
@@ -62,6 +84,7 @@ void RefreshDomainModeLoop(int nToken, int nGeneration, string sPreviousState);
 string GetSpellbookTabRefreshState();
 void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState);
 void UnlockSpellbookInput(int nGeneration);
+void ForceRefreshInlineSpellSlots(int nToken, int nClass);
 string SpellbookLayoutElementId(string sId);
 json CreateSpellbookResultRegion(json jRows);
 
@@ -77,7 +100,13 @@ json CreateSpellbookResultRegion(json jRows);
 // Returns:
 //   json NuiRow the level at which the caster can or does know as buttons
 //
-json CreateSpellbookCircleButtons(int nClass);
+json CreateSpellbookCircleButtons(int nClass, int nSlotResourceClass);
+json CreateSpellbookCircleCell(
+    int nSlotResourceClass,
+    int nLevel,
+    json jButton,
+    int bShowSlotCount
+);
 
 //
 // CreateMetaMagicFeatButtons
@@ -104,7 +133,8 @@ json CreateMetaMagicFeatButtons(int nClass);
 // Returns:
 //   json:Array<NuiButtons> the row of buttons rendered for the FeatIDs.
 //
-json CreateMetaFeatButtonRow(json spellList);
+json CreateMetaFeatButtonRow(json spellList, int nClass);
+json AppendSpellbookButtonRows(json jRows, json jButtons, int nMaxPerRow);
 
 void main()
 {
@@ -143,8 +173,12 @@ void main()
             SetLocalJson(OBJECT_SELF, PRC_SPELLBOOK_NUI_GEOMETRY_VAR, jPreviousGeometry);
     }
     DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_NATIVE_CLASS_BUTTON_MAP_VAR);
+    DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_NATIVE_DOMAIN_BUTTON_MAP_VAR);
     DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_ARCHIVIST_BUTTON_MAP_VAR);
     DeleteLocalJson(OBJECT_SELF, NUI_SPELLBOOK_READIED_MANEUVER_BUTTON_MAP_VAR);
+    NUISpellbookClearSpecialButtonMap(OBJECT_SELF);
+    NUISpellbookMoiClearActionMap(OBJECT_SELF);
+    NUISpellbookArchmageClearMap(OBJECT_SELF);
 
     json jRoot = JsonArray();
     json jResultRows = JsonArray();
@@ -154,10 +188,21 @@ void main()
     int selectedClassId = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
     int nSelectedMode = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR);
     int bHasDomainContent = NUISpellbookHasDomainContent(OBJECT_SELF);
+    int bHasIncarnumContent = NUISpellbookMoiHasContent(OBJECT_SELF);
 
     if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && !bHasDomainContent)
     {
-        nSelectedMode = PRC_SPELLBOOK_MODE_CLASS;
+        nSelectedMode = bHasIncarnumContent
+                      ? PRC_SPELLBOOK_MODE_INCARNUM
+                      : PRC_SPELLBOOK_MODE_CLASS;
+        SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
+    }
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+        && !bHasIncarnumContent)
+    {
+        nSelectedMode = bHasDomainContent
+                      ? PRC_SPELLBOOK_MODE_DOMAIN
+                      : PRC_SPELLBOOK_MODE_CLASS;
         SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
     }
 
@@ -179,16 +224,243 @@ void main()
         jPrepareRow = JsonArrayInsert(jPrepareRow, jPrepareButton);
         jRoot = JsonArrayInsert(jRoot, NuiRow(jPrepareRow));
     }
+    else if (selectedClassId == CLASS_TYPE_BINDER
+        && nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && GetLevelByClass(CLASS_TYPE_BINDER, OBJECT_SELF) > 0)
+    {
+        json jBinderRow = JsonArray();
+        json jBinderButton = NuiId(
+            NuiButton(JsonString("Manage Pacts")),
+            SpellbookLayoutElementId(PRC_BINDER_NUI_OPEN_BUTTON)
+        );
+        jBinderButton = NuiWidth(jBinderButton, 138.0f);
+        jBinderButton = NuiHeight(jBinderButton, 28.0f);
+        jBinderButton = NuiTooltip(
+            jBinderButton,
+            JsonString(
+                "Bind or expel vestiges and configure Pact Augmentation, Exploit Vestige, Naberius, and Astaroth choices"
+            )
+        );
+        jBinderRow = JsonArrayInsert(jBinderRow, jBinderButton);
 
-    // Character-wide resources remain visible regardless of which spellbook
-    // class is selected. This is important for combinations such as a native
-    // Sorcerer/Wilder, where Sorcerer is not itself a PRC spellbook tab.
-    json jResourceRows = NUIResourceCreateSpellbookRows(OBJECT_SELF, selectedClassId);
-    int nResourceRow;
-    for (nResourceRow = 0; nResourceRow < JsonGetLength(jResourceRows); nResourceRow++)
-        jRoot = JsonArrayInsert(jRoot, JsonArrayGet(jResourceRows, nResourceRow));
+        if (GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, OBJECT_SELF) >= 2
+            && GetHasFeat(NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT, OBJECT_SELF))
+        {
+            int nExploit = GetLocalInt(OBJECT_SELF, "ExploitVestige");
+            int nExploitSpell = GetLocalInt(
+                OBJECT_SELF,
+                "ExploitVestigeSpell"
+            );
+            int nExploitUses = GetFeatRemainingUses(
+                NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT,
+                OBJECT_SELF
+            );
+            int bExploitReady = nExploit > 0
+                && nExploitSpell > 0
+                && nExploitUses > 0
+                && GetPrimaryArcaneClass(OBJECT_SELF) != CLASS_TYPE_INVALID;
 
-    if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && bHasDomainContent)
+            string sExploitTooltip;
+            if (nExploit <= 0 || nExploitSpell <= 0)
+            {
+                sExploitTooltip = "Choose an exploited vestige ability and bonus spell through Manage Pacts.";
+            }
+            else
+            {
+                string sSpellName = GetStringByStrRef(StringToInt(
+                    Get2DACache("spells", "Name", nExploitSpell)
+                ));
+                string sAbilityName = Get2DACache(
+                    "vestigeabil",
+                    "Ability",
+                    nExploit
+                );
+                if (nExploitUses <= 0)
+                    sExploitTooltip = "No Exploit Vestige uses remain today. Stored spell: "
+                        + sSpellName + ".";
+                else if (GetPrimaryArcaneClass(OBJECT_SELF)
+                            == CLASS_TYPE_INVALID)
+                    sExploitTooltip = "Exploit Vestige has no valid primary arcane class for its stored spell.";
+                else
+                    sExploitTooltip = "Cast " + sSpellName
+                        + " through Exploit Vestige. Forgone vestige power: "
+                        + sAbilityName + ". Right-click for spell details.";
+            }
+
+            json jExploitButton = NuiId(
+                NuiButton(JsonString(
+                    "Exploit Vestige (" + IntToString(nExploitUses) + ")"
+                )),
+                SpellbookLayoutElementId(
+                    PRC_BINDER_NUI_OPEN_BUTTON + "Exploit"
+                )
+            );
+            jExploitButton = NuiWidth(jExploitButton, 170.0f);
+            jExploitButton = NuiHeight(jExploitButton, 28.0f);
+            jExploitButton = NuiTooltip(
+                jExploitButton,
+                JsonString(sExploitTooltip)
+            );
+            jExploitButton = NuiDisabledTooltip(
+                jExploitButton,
+                JsonString(sExploitTooltip)
+            );
+            jExploitButton = NuiEnabled(
+                jExploitButton,
+                JsonBool(bExploitReady)
+            );
+            jBinderRow = JsonArrayInsert(jBinderRow, jExploitButton);
+        }
+        jRoot = JsonArrayInsert(jRoot, NuiRow(jBinderRow));
+    }
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && CanClassUseMetaPsionicFeats(selectedClassId)
+        && GetLevelByClass(selectedClassId, OBJECT_SELF) > 0)
+    {
+        json jPsiRow = JsonArray();
+        json jPsiButton = NuiId(
+            NuiButton(JsonString("Psionic Settings")),
+            SpellbookLayoutElementId(PRC_NUI_PSI_OPEN_BUTTON)
+        );
+        jPsiButton = NuiWidth(jPsiButton, 154.0f);
+        jPsiButton = NuiHeight(jPsiButton, 28.0f);
+        jPsiButton = NuiTooltip(
+            jPsiButton,
+            JsonString(
+                "Configure augmentation profiles and quick sets, automatic metapsionics, Wild Surge, and Overchannel"
+            )
+        );
+        jPsiRow = JsonArrayInsert(jPsiRow, jPsiButton);
+        jRoot = JsonArrayInsert(jRoot, NuiRow(jPsiRow));
+    }
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && NUISpellbookIsInitiatorClass(selectedClassId)
+        && GetLevelByClass(selectedClassId, OBJECT_SELF) > 0)
+    {
+        json jReadyRow = JsonArray();
+        json jReadyButton = NuiId(
+            NuiButton(JsonString("Ready Maneuvers")),
+            SpellbookLayoutElementId(PRC_MANEUVER_READY_NUI_BUTTON)
+        );
+        jReadyButton = NuiWidth(jReadyButton, 148.0f);
+        jReadyButton = NuiHeight(jReadyButton, 28.0f);
+        jReadyButton = NuiTooltip(
+            jReadyButton,
+            JsonString(
+                "Open the maneuver readying editor. Changes apply only when saved."
+            )
+        );
+        jReadyRow = JsonArrayInsert(jReadyRow, jReadyButton);
+        jRoot = JsonArrayInsert(jRoot, NuiRow(jReadyRow));
+    }
+
+    // Resolve the active spontaneous resource class so its counters can be
+    // rendered directly above the circle selector. Do not also render the old
+    // detached character-wide slot rows in this spellbook window.
+    json jResourceClasses = NUIResourceGetSpontaneousClasses(OBJECT_SELF);
+    int nInlineResourceClass = CLASS_TYPE_INVALID;
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS)
+    {
+        // Most tabs use their engine class ID directly. Racial spellcasting
+        // tabs are displayed as Sorcerer/Bard, but their slot accounting and
+        // resource binds remain keyed to the raw RHD class. Prefer an exact
+        // match, then resolve that normalized RHD case without changing the
+        // spellbook class used for spells and circle navigation.
+        int nResourceClassIndex;
+        for (nResourceClassIndex = 0;
+             nResourceClassIndex < JsonGetLength(jResourceClasses);
+             nResourceClassIndex++)
+        {
+            int nResourceClass = JsonGetInt(
+                JsonArrayGet(jResourceClasses, nResourceClassIndex)
+            );
+            if (nResourceClass == selectedClassId)
+            {
+                nInlineResourceClass = nResourceClass;
+                break;
+            }
+        }
+
+        if (nInlineResourceClass == CLASS_TYPE_INVALID)
+        {
+            for (nResourceClassIndex = 0;
+                 nResourceClassIndex < JsonGetLength(jResourceClasses);
+                 nResourceClassIndex++)
+            {
+                int nResourceClass = JsonGetInt(
+                    JsonArrayGet(jResourceClasses, nResourceClassIndex)
+                );
+                if (GetTrueClassIfRHD(OBJECT_SELF, nResourceClass) == selectedClassId)
+                {
+                    nInlineResourceClass = nResourceClass;
+                    break;
+                }
+            }
+        }
+    }
+    // Power points and psionic focus are character-wide and do not have tier
+    // counters to move into the circle selector, so keep their compact row.
+    if (GetMaximumPowerPoints(OBJECT_SELF) > 0)
+        jRoot = JsonArrayInsert(jRoot, NUIResourceCreatePsionicRow());
+
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+        && bHasIncarnumContent)
+    {
+        jRoot = JsonArrayInsert(jRoot, NUISpellbookMoiCreateHeaderRow());
+        json jLoadoutRow = JsonArray();
+        if (NUISpellbookMoiHasLoadoutShapingClass(OBJECT_SELF))
+        {
+            json jLoadoutButton = NuiId(
+                NuiButton(JsonString("Shape / Invest / Bind")),
+                SpellbookLayoutElementId(PRC_MOI_LOADOUT_OPEN_BUTTON)
+            );
+            jLoadoutButton = NuiWidth(jLoadoutButton, 178.0f);
+            jLoadoutButton = NuiHeight(jLoadoutButton, 28.0f);
+            jLoadoutButton = NuiTooltip(
+                jLoadoutButton,
+                JsonString(
+                    "Build one saved soulmeld loadout and restore it after a completed rest"
+                )
+            );
+            jLoadoutRow = JsonArrayInsert(jLoadoutRow, jLoadoutButton);
+        }
+        if (GetLevelByClass(CLASS_TYPE_INCARNUM_BLADE, OBJECT_SELF) > 0)
+        {
+            json jBladeButton = NuiId(
+                NuiButton(JsonString("Blademelds")),
+                SpellbookLayoutElementId(PRC_MOI_BLADE_OPEN_BUTTON)
+            );
+            jBladeButton = NuiWidth(jBladeButton, 128.0f);
+            jBladeButton = NuiHeight(jBladeButton, 28.0f);
+            jBladeButton = NuiTooltip(
+                jBladeButton,
+                JsonString(
+                    "Choose Incarnum Blade blademelds, save a completed-rest default, or spend Rebind Blademeld"
+                )
+            );
+            jLoadoutRow = JsonArrayInsert(jLoadoutRow, jBladeButton);
+        }
+        json jAllocateButton = NuiId(
+            NuiButton(JsonString("Live Essentia")),
+            SpellbookLayoutElementId(PRC_MOI_LIVE_OPEN_BUTTON)
+        );
+        jAllocateButton = NuiWidth(jAllocateButton, 150.0f);
+        jAllocateButton = NuiHeight(jAllocateButton, 28.0f);
+        jAllocateButton = NuiTooltip(
+            jAllocateButton,
+            JsonString(
+                "Redistribute movable essentia or invest it into supported feats, spells, and powers"
+            )
+        );
+        jLoadoutRow = JsonArrayInsert(jLoadoutRow, jAllocateButton);
+        jRoot = JsonArrayInsert(jRoot, NuiRow(jLoadoutRow));
+        jRoot = JsonArrayInsert(
+            jRoot,
+            NUISpellbookMoiCreateChakraButtons(OBJECT_SELF)
+        );
+        jResultRows = NUISpellbookMoiCreateResultRows(OBJECT_SELF);
+    }
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && bHasDomainContent)
     {
         jRow = CreateDomainHeaderRows();
         int i;
@@ -218,61 +490,128 @@ void main()
     }
     // GetLocalInt returns 0 if not set, which is Barb class which conveniently doesn't have spells :)
     // if there was no selected class then there is nothing to render
-    else if (selectedClassId != CLASS_TYPE_BARBARIAN)
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && selectedClassId != CLASS_TYPE_BARBARIAN)
     {
-        // create the metamagic/metapsionic/metamystery/sudden buttons if applicable
-        // suddens are on their own row so its possible we can have 2 NuiRows in the list
-        jRow = CreateMetaMagicFeatButtons(selectedClassId);
         int i;
-        for(i = 0; i < JsonGetLength(jRow); i++)
+        if (selectedClassId == CLASS_TYPE_ARCHMAGE)
         {
-            jRoot = JsonArrayInsert(jRoot, JsonArrayGet(jRow, i));
+            jRoot = JsonArrayInsert(
+                jRoot,
+                NUISpellbookArchmageCreateHeaderRow(OBJECT_SELF)
+            );
+            jRow = NUISpellbookArchmageCreateActionRows(OBJECT_SELF);
+            for (i = 0; i < JsonGetLength(jRow); i++)
+                jResultRows = JsonArrayInsert(
+                    jResultRows,
+                    JsonArrayGet(jRow, i)
+                );
         }
-
-        // create the spell/feat circle buttons for the class (most use 0-9, but
-        // ToB uses something similar that ranges from 1-9 and Invokers essentially
-        // go 1-4 as examples
-        jRow = CreateSpellbookCircleButtons(selectedClassId);
-        jRoot = JsonArrayInsert(jRoot, jRow);
-
-        // Get the currently selected circle's spell buttons
-        int currentCircle = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
-        if (currentCircle == PRC_SPELLBOOK_NUI_EPIC_CIRCLE)
-            jRow = CreateReadiedEpicSpellButtons();
-        else if (currentCircle == 0 && NUISpellbookIsInitiatorClass(selectedClassId))
-            jRow = CreateReadiedManeuverButtons(selectedClassId);
+        else if (NUISpellbookIsFactotumClass(selectedClassId))
+        {
+            jRoot = JsonArrayInsert(jRoot, CreateFactotumHeaderRow());
+            jRoot = JsonArrayInsert(jRoot, CreateFactotumCircleButtons());
+            jRow = CreateFactotumSpellButtons();
+            for (i = 0; i < JsonGetLength(jRow); i++)
+                jResultRows = JsonArrayInsert(
+                    jResultRows,
+                    JsonArrayGet(jRow, i)
+                );
+        }
+        else if (NUISpellbookIsRunescarredClass(selectedClassId))
+        {
+            jRoot = JsonArrayInsert(jRoot, CreateRunescarredHeaderRow());
+            jRoot = JsonArrayInsert(jRoot, CreateRunescarredPositionButtons());
+            jRow = CreateRunescarredSpellButtons();
+            for (i = 0; i < JsonGetLength(jRow); i++)
+                jResultRows = JsonArrayInsert(
+                    jResultRows,
+                    JsonArrayGet(jRow, i)
+                );
+        }
         else
-            jRow = CreateSpellbookSpellButtons(selectedClassId, currentCircle);
-
-        // since we limit how many buttons a row can have here we need to add
-        // multiple NuiRows if they exist
-        for(i = 0; i < JsonGetLength(jRow); i++)
         {
-            jResultRows = JsonArrayInsert(jResultRows, JsonArrayGet(jRow, i));
-        }
+            // Create the metamagic/metapsionic/metamystery/sudden buttons if
+            // applicable. Sudden feats can contribute a second row.
+            jRow = CreateMetaMagicFeatButtons(selectedClassId);
+            for (i = 0; i < JsonGetLength(jRow); i++)
+                jRoot = JsonArrayInsert(jRoot, JsonArrayGet(jRow, i));
 
-        // PRC bonus domains are character-wide, but a spontaneous divine
-        // caster pays for them with ordinary spell slots. Keep those choices
-        // beside the spells they trade. The existing button IDs still route
-        // through CastDomainSpell, which remains authoritative for spending.
-        if (NUISpellbookHasBonusDomains(OBJECT_SELF)
-            && HasBonusDomainSpellAtLevel(currentCircle)
-            && CanShowBonusDomainsInSpontaneousClassTab(selectedClassId, currentCircle))
-        {
-            jRow = CreateBonusDomainSpellButtons(currentCircle);
-            for(i = 0; i < JsonGetLength(jRow); i++)
+            // Most class tabs use conventional 0-9 tiers. The existing helper
+            // also covers ToB, invokers, native books, and the Epic selector.
+            jRow = CreateSpellbookCircleButtons(
+                selectedClassId,
+                nInlineResourceClass
+            );
+            jRoot = JsonArrayInsert(jRoot, jRow);
+
+            int currentCircle = GetLocalInt(
+                OBJECT_SELF,
+                PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+            );
+            if (currentCircle == PRC_SPELLBOOK_NUI_EPIC_CIRCLE)
+                jRow = CreateReadiedEpicSpellButtons();
+            else if (currentCircle == 0
+                && NUISpellbookIsInitiatorClass(selectedClassId))
+                jRow = CreateReadiedManeuverButtons(selectedClassId);
+            else
+                jRow = CreateSpellbookSpellButtons(
+                    selectedClassId,
+                    currentCircle
+                );
+
+            for (i = 0; i < JsonGetLength(jRow); i++)
                 jResultRows = JsonArrayInsert(jResultRows, JsonArrayGet(jRow, i));
+
+            // PRC bonus domains are character-wide, but a spontaneous divine
+            // caster pays for them with ordinary spell slots. Keep those
+            // choices beside the spells they trade.
+            if (NUISpellbookHasBonusDomains(OBJECT_SELF)
+                && HasBonusDomainSpellAtLevel(currentCircle)
+                && CanShowBonusDomainsInSpontaneousClassTab(
+                    selectedClassId,
+                    currentCircle
+                ))
+            {
+                jRow = CreateBonusDomainSpellButtons(currentCircle);
+                for (i = 0; i < JsonGetLength(jRow); i++)
+                    jResultRows = JsonArrayInsert(
+                        jResultRows,
+                        JsonArrayGet(jRow, i)
+                    );
+            }
         }
     }
 
     if (JsonGetLength(jResultRows) > 0)
-        jRoot = JsonArrayInsert(jRoot, CreateSpellbookResultRegion(jResultRows));
+    {
+        if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM)
+            jRoot = JsonArrayInsert(
+                jRoot,
+                NUISpellbookMoiCreateResultRegion(jResultRows)
+            );
+        else
+            jRoot = JsonArrayInsert(
+                jRoot,
+                CreateSpellbookResultRegion(jResultRows)
+            );
+    }
+
+    // Incarnum is intentionally compact.  Let one flexible spacer absorb the
+    // stable content host's unused height so its intrinsic rows remain packed
+    // at the top without imposing exact container heights on the NUI solver.
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+        && bHasIncarnumContent)
+        jRoot = JsonArrayInsert(jRoot, NuiSpacer());
 
     jRoot = NuiCol(jRoot);
 
     string title = "PRC8 Spellbook";
 
-    if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && bHasDomainContent)
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+        && bHasIncarnumContent)
+        title = title + ": " + NUISpellbookMoiGetModeLabel(OBJECT_SELF);
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && bHasDomainContent)
         title = title + ": Domains";
     else if (selectedClassId != CLASS_TYPE_BARBARIAN)
         title = title + ": " + GetStringByStrRef(StringToInt(Get2DACache("classes", "Name", selectedClassId)));
@@ -285,6 +624,12 @@ void main()
                                    OBJECT_SELF,
                                    PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
                                ) == 0;
+    int bFactotumLayout = nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+                       && NUISpellbookIsFactotumClass(selectedClassId);
+    int bRunescarredLayout = nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+                          && NUISpellbookIsRunescarredClass(selectedClassId);
+    int bIncarnumLayout = nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+                       && bHasIncarnumContent;
 
     // Seed the Archivist readiness binds before replacing an existing root.
     // This prevents the new tier from appearing with null/stale bind values and
@@ -293,6 +638,12 @@ void main()
         NUISpellbookRefreshArchivistButtons(OBJECT_SELF, nToken);
     if (bExistingWindow && bReadiedManeuverLayout)
         NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
+    if (bExistingWindow && bFactotumLayout)
+        NUISpellbookRefreshFactotumButtons(OBJECT_SELF, nToken);
+    if (bExistingWindow && bRunescarredLayout)
+        NUISpellbookRefreshRunescarResource(OBJECT_SELF, nToken);
+    if (bExistingWindow && bIncarnumLayout)
+        NUISpellbookMoiRefreshBinds(OBJECT_SELF, nToken);
 
     // Lock only during the root-layout swap so a queued click from the prior
     // button map cannot act on the new one.
@@ -340,10 +691,23 @@ void main()
     if (!bExistingWindow)
     {
         json geometry = GetLocalJson(OBJECT_SELF, PRC_SPELLBOOK_NUI_GEOMETRY_VAR);
-        float fWindowWidth = 680.0f;
-        float fWindowHeight = 351.0f
-            + NUIResourceGetSpellbookLayoutHeight(OBJECT_SELF, CLASS_TYPE_BARBARIAN);
-        if (GetLevelByClass(CLASS_TYPE_ARCHIVIST, OBJECT_SELF) > 0)
+        // Explicit two-unit selector gutters keep all eleven 42-unit cells
+        // (0-9 plus Epic) to 506 units inside this compact window.
+        float fWindowWidth = 525.0f;
+        // Reserve one additional compact button row. Long invocation, stance,
+        // or metapsionic lists are now wrapped instead of disappearing past
+        // the narrow window's right edge.
+        float fWindowHeight = 387.0f;
+        if (GetMaximumPowerPoints(OBJECT_SELF) > 0)
+            fWindowHeight += 44.0f;
+        // Archivist and initiator tabs share the same single class-action row,
+        // so reserve it once even on a multiclass character with both systems.
+        if (GetLevelByClass(CLASS_TYPE_ARCHIVIST, OBJECT_SELF) > 0
+            || GetLevelByClass(CLASS_TYPE_BINDER, OBJECT_SELF) > 0
+            || GetIsPsionicCharacter(OBJECT_SELF)
+            || GetLevelByClass(CLASS_TYPE_CRUSADER, OBJECT_SELF) > 0
+            || GetLevelByClass(CLASS_TYPE_SWORDSAGE, OBJECT_SELF) > 0
+            || GetLevelByClass(CLASS_TYPE_WARBLADE, OBJECT_SELF) > 0)
             fWindowHeight += 36.0f;
 
         // Default to the center only on the first open. A saved position keeps
@@ -385,8 +749,19 @@ void main()
         NUISpellbookRefreshArchivistButtons(OBJECT_SELF, nToken);
     if (!bExistingWindow && bReadiedManeuverLayout)
         NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bFactotumLayout)
+        NUISpellbookRefreshFactotumButtons(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bRunescarredLayout)
+        NUISpellbookRefreshRunescarResource(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bIncarnumLayout)
+        NUISpellbookMoiRefreshBinds(OBJECT_SELF, nToken);
 
-    NUIResourceRefreshTokenMode(OBJECT_SELF, nToken, FALSE, TRUE);
+    // Refresh character-wide resources normally, then force-write the active
+    // class's compact slot binds. Hidden class binds may already hold the
+    // correct values, but controls mounted by NuiSetGroupLayout still need a
+    // direct write before they can paint those values.
+    NUIResourceRefreshTokenMode(OBJECT_SELF, nToken, FALSE, FALSE);
+    ForceRefreshInlineSpellSlots(nToken, nInlineResourceClass);
     DelayCommand(1.0f, NUIResourceRefreshSpellbookLoop(
         OBJECT_SELF,
         nToken,
@@ -409,6 +784,7 @@ void main()
         && (NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, selectedClassId)
             || selectedClassId == CLASS_TYPE_BINDER
             || selectedClassId == CLASS_TYPE_ARCHIVIST
+            || NUISpellbookIsSpecialClass(selectedClassId)
             || (NUISpellbookIsInitiatorClass(selectedClassId)
                 && GetLocalInt(
                     OBJECT_SELF,
@@ -419,6 +795,53 @@ void main()
             nRefreshGeneration,
             GetSpellbookTabRefreshState()
         ));
+    if (bIncarnumLayout)
+        NUISpellbookMoiStartRefreshLoop(
+            OBJECT_SELF,
+            nToken,
+            nRefreshGeneration
+        );
+}
+
+void ForceRefreshInlineSpellSlots(int nToken, int nClass)
+{
+    if (!nToken
+        || nClass == CLASS_TYPE_INVALID
+        || GetSpellbookTypeForClass(nClass) != SPELLBOOK_TYPE_SPONTANEOUS)
+        return;
+
+    // Snapshot advancement and casting ability once for this class. This is
+    // the immediate layout-change refresh; the ordinary one-second loop keeps
+    // subsequent slot changes current.
+    int nCasterLevel = GetSpellslotLevel(nClass, OBJECT_SELF);
+    int nAbility = GetAbilityScoreForClass(nClass, OBJECT_SELF);
+    int nLevel;
+    for (nLevel = 0; nLevel <= 9; nLevel++)
+    {
+        int nMaximum = NUIResourceGetMaxSlotsFromState(
+            OBJECT_SELF,
+            nClass,
+            nLevel,
+            nCasterLevel,
+            nAbility
+        );
+        string sSlotText;
+        if (nMaximum > 0)
+        {
+            sSlotText = IntToString(NUIResourceGetCurrentSlots(
+                OBJECT_SELF,
+                nClass,
+                nLevel
+            )) + "/" + IntToString(nMaximum);
+        }
+
+        NuiSetBind(
+            OBJECT_SELF,
+            nToken,
+            NUIResourceGetCompactSlotBind(nClass, nLevel),
+            JsonString(sSlotText)
+        );
+    }
 }
 
 void UnlockSpellbookInput(int nGeneration)
@@ -451,7 +874,7 @@ json CreateSpellbookResultRegion(json jRows)
         NuiGroup(NuiCol(jRows), FALSE, nScrollbars),
         PRC_SPELLBOOK_NUI_RESULT_HOST_ID
     );
-    jRegion = NuiWidth(jRegion, 660.0f);
+    jRegion = NuiWidth(jRegion, 480.0f);
     jRegion = NuiHeight(jRegion, 140.0f);
     return jRegion;
 }
@@ -467,8 +890,35 @@ json CreateSpellBookClassButtons()
     int selectedClassId = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CLASSID_VAR);
     int nSelectedMode = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR);
     int bHasDomainContent = NUISpellbookHasDomainContent(OBJECT_SELF);
+    int bHasIncarnumContent = NUISpellbookMoiHasContent(OBJECT_SELF);
 
-    if (JsonGetLength(classList) == 0 && bHasDomainContent)
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN && !bHasDomainContent)
+    {
+        nSelectedMode = bHasIncarnumContent
+                      ? PRC_SPELLBOOK_MODE_INCARNUM
+                      : PRC_SPELLBOOK_MODE_CLASS;
+        SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
+    }
+    else if (nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+        && !bHasIncarnumContent)
+    {
+        nSelectedMode = bHasDomainContent
+                      ? PRC_SPELLBOOK_MODE_DOMAIN
+                      : PRC_SPELLBOOK_MODE_CLASS;
+        SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
+    }
+
+    if (JsonGetLength(classList) == 0
+        && nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && bHasIncarnumContent
+        && !bHasDomainContent)
+    {
+        nSelectedMode = PRC_SPELLBOOK_MODE_INCARNUM;
+        SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
+    }
+    else if (JsonGetLength(classList) == 0
+        && nSelectedMode == PRC_SPELLBOOK_MODE_CLASS
+        && bHasDomainContent)
     {
         nSelectedMode = PRC_SPELLBOOK_MODE_DOMAIN;
         SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_MODE_VAR, nSelectedMode);
@@ -489,7 +939,8 @@ json CreateSpellBookClassButtons()
         float height = 32.0f;
         // Get the class icon from the classes.2da
         json jClassButton = NuiId(NuiButtonImage(JsonString(Get2DACache("classes", "Icon", classId))), PRC_SPELLBOOK_NUI_CLASS_BUTTON_BASEID + IntToString(classId));
-        if (classId != selectedClassId || nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN)
+        if (classId != selectedClassId
+            || nSelectedMode != PRC_SPELLBOOK_MODE_CLASS)
             jClassButton = GreyOutButton(jClassButton, width, height);
         jClassButton = NuiWidth(jClassButton, width);
         jClassButton = NuiHeight(jClassButton, height);
@@ -518,9 +969,470 @@ json CreateSpellBookClassButtons()
         jRow = JsonArrayInsert(jRow, jDomainButton);
     }
 
+    if (bHasIncarnumContent)
+        jRow = JsonArrayInsert(
+            jRow,
+            NUISpellbookMoiCreateModeButton(
+                OBJECT_SELF,
+                nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
+            )
+        );
+
     jRow = NuiRow(jRow);
 
     return jRow;
+}
+
+int GetFactotumMaximumTier()
+{
+    int nLevel = GetLevelByClass(CLASS_TYPE_FACTOTUM, OBJECT_SELF);
+    if (nLevel >= 18) return 7;
+    if (nLevel >= 15) return 6;
+    if (nLevel >= 13) return 5;
+    if (nLevel >= 10) return 4;
+    if (nLevel >= 8)  return 3;
+    if (nLevel >= 5)  return 2;
+    if (nLevel >= 3)  return 1;
+    if (nLevel >= 2)  return 0;
+    return -1;
+}
+
+json CreateFactotumHeaderRow()
+{
+    json jRow = JsonArray();
+    json jLabel = NuiLabel(
+        NuiBind(NUI_SPELLBOOK_FACTOTUM_RESOURCE_BIND),
+        JsonInt(NUI_HALIGN_LEFT),
+        JsonInt(NUI_VALIGN_MIDDLE)
+    );
+    jLabel = NuiWidth(jLabel, 470.0f);
+    jLabel = NuiHeight(jLabel, 24.0f);
+    jLabel = NuiTooltip(jLabel, JsonString(
+        "Arcane Dilettante spells cost 1 Inspiration and retain their own daily use."
+    ));
+    jRow = JsonArrayInsert(jRow, jLabel);
+    return NuiRow(jRow);
+}
+
+json CreateFactotumCircleButtons()
+{
+    json jRow = JsonArray();
+    int nMaximumTier = GetFactotumMaximumTier();
+    if (nMaximumTier < 0)
+        return NuiRow(jRow);
+
+    int nCurrentTier = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+    );
+    if (nCurrentTier < 0 || nCurrentTier > nMaximumTier)
+    {
+        nCurrentTier = 0;
+        SetLocalInt(
+            OBJECT_SELF,
+            PRC_SPELLBOOK_SELECTED_CIRCLE_VAR,
+            nCurrentTier
+        );
+    }
+
+    int nTier;
+    for (nTier = 0; nTier <= nMaximumTier; nTier++)
+    {
+        float fWidth = 42.0f;
+        float fHeight = 42.0f;
+        json jButton = NuiId(
+            NuiButtonImage(JsonString(GetSpellLevelIcon(nTier))),
+            PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID + IntToString(nTier)
+        );
+        jButton = NuiWidth(jButton, fWidth);
+        jButton = NuiHeight(jButton, fHeight);
+        jButton = NuiMargin(jButton, 2.0f);
+        jButton = NuiTooltip(jButton, JsonString(
+            "Arcane Dilettante level " + IntToString(nTier)
+        ));
+        if (nTier != nCurrentTier)
+            jButton = GreyOutButton(jButton, fWidth, fHeight);
+        jRow = JsonArrayInsert(jRow, jButton);
+    }
+
+    return NuiRow(jRow);
+}
+
+json CreateFactotumSpellButtons()
+{
+    json jRows = JsonArray();
+    json jMap = JsonArray();
+    json jButtonRow = JsonArray();
+    int nGeneration = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+    int nTier = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+    );
+
+    int nSlot;
+    for (nSlot = 1; nSlot <= 8; nSlot++)
+    {
+        int nSpell = NUISpellbookGetFactotumSlotSpell(OBJECT_SELF, nSlot);
+        if (nSpell <= 0
+            || StringToInt(Get2DACache("spells", "Wiz_Sorc", nSpell))
+                != nTier)
+            continue;
+
+        int nFeat = NUISpellbookGetFactotumSlotFeat(nSlot);
+        int nActionSpell = NUISpellbookGetFactotumSlotActionSpell(nSlot);
+        if (nFeat <= 0 || nActionSpell <= 0)
+            continue;
+
+        int nIndex = JsonGetLength(jMap);
+        string sIndex = IntToString(nIndex);
+        string sName = GetSpellName(nSpell);
+        string sBaseTooltip = "Arcane Dilettante slot "
+                            + IntToString(nSlot) + ": " + sName;
+        json jEntry = JsonObject();
+        jEntry = JsonObjectSet(
+            jEntry,
+            "y",
+            JsonInt(NUI_SPELLBOOK_SPECIAL_ACTION_FACTOTUM_SLOT)
+        );
+        jEntry = JsonObjectSet(jEntry, "c", JsonInt(CLASS_TYPE_FACTOTUM));
+        jEntry = JsonObjectSet(jEntry, "p", JsonInt(nSlot));
+        jEntry = JsonObjectSet(jEntry, "f", JsonInt(nFeat));
+        jEntry = JsonObjectSet(jEntry, "a", JsonInt(nActionSpell));
+        jEntry = JsonObjectSet(jEntry, "s", JsonInt(nSpell));
+        jEntry = JsonObjectSet(jEntry, "n", JsonString(sBaseTooltip));
+        jMap = JsonArrayInsert(jMap, jEntry);
+
+        json jButton = NuiId(
+            NuiButtonImage(GetSpellIcon(nSpell)),
+            NUISpellbookGetSpecialButtonId(nIndex, nGeneration)
+        );
+        jButton = NuiWidth(jButton, 38.0f);
+        jButton = NuiHeight(jButton, 38.0f);
+        jButton = NuiEnabled(
+            jButton,
+            NuiBind(NUI_SPELLBOOK_FACTOTUM_READY_BIND_BASE + sIndex)
+        );
+        jButton = NuiEncouraged(
+            jButton,
+            NuiBind(NUI_SPELLBOOK_FACTOTUM_READY_BIND_BASE + sIndex)
+        );
+        jButton = NuiTooltip(
+            jButton,
+            NuiBind(NUI_SPELLBOOK_FACTOTUM_TOOLTIP_BIND_BASE + sIndex)
+        );
+        jButton = NuiDisabledTooltip(
+            jButton,
+            NuiBind(NUI_SPELLBOOK_FACTOTUM_TOOLTIP_BIND_BASE + sIndex)
+        );
+        jButtonRow = JsonArrayInsert(jButtonRow, jButton);
+    }
+
+    NUISpellbookSetSpecialButtonMap(
+        OBJECT_SELF,
+        jMap,
+        nGeneration
+    );
+
+    if (JsonGetLength(jButtonRow) > 0)
+        jRows = JsonArrayInsert(jRows, NuiRow(jButtonRow));
+    else if (GetFactotumMaximumTier() < 0)
+        jRows = JsonArrayInsert(jRows, CreateDomainSectionLabel(
+            "Arcane Dilettante unlocks at Factotum level 2."
+        ));
+    else
+        jRows = JsonArrayInsert(jRows, CreateDomainSectionLabel(
+            "No Arcane Dilettante spell is prepared at this level."
+        ));
+
+    return jRows;
+}
+
+json CreateRunescarredHeaderRow()
+{
+    json jRow = JsonArray();
+    json jActionRow = JsonArray();
+    json jRows = JsonArray();
+    json jMap = JsonArray();
+    int nGeneration = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+
+    if (GetHasFeat(NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT, OBJECT_SELF))
+    {
+        json jScribeButton = NuiId(
+            NuiButton(JsonString("Scribe Runescars")),
+            SpellbookLayoutElementId(PRC_RUNESCAR_SCRIBE_NUI_BUTTON)
+        );
+        jScribeButton = NuiWidth(jScribeButton, 136.0f);
+        jScribeButton = NuiHeight(jScribeButton, 32.0f);
+        jScribeButton = NuiTooltip(
+            jScribeButton,
+            JsonString("Choose an empty body location, spell, and caster level")
+        );
+        jScribeButton = NuiDisabledTooltip(
+            jScribeButton,
+            JsonString("No open body location or eligible scribing tier remains.")
+        );
+        jScribeButton = NuiEnabled(
+            jScribeButton,
+            JsonBool(NUISpellbookHasOpenRunescarPosition(OBJECT_SELF)
+                && HasEligibleRunescarScribeChoice())
+        );
+        jRow = JsonArrayInsert(jRow, jScribeButton);
+
+        int bHasDefault = GetPersistantLocalInt(
+            OBJECT_SELF,
+            PRC_RUNESCAR_DEFAULT_VERSION_VAR
+        ) == PRC_RUNESCAR_DEFAULT_VERSION;
+        int bCompleteCurrentSet = TRUE;
+        int nPosition;
+        for (nPosition = 1;
+             nPosition <= PRC_RUNESCAR_SCRIBE_POSITION_COUNT;
+             nPosition++)
+        {
+            if (NUISpellbookGetRunescarPersistedSpell(
+                    OBJECT_SELF,
+                    nPosition
+                ) < 0)
+                bCompleteCurrentSet = FALSE;
+        }
+
+        json jSaveDefault = NuiId(
+            NuiButton(JsonString("Save Current Set")),
+            SpellbookLayoutElementId(PRC_RUNESCAR_DEFAULT_SAVE_BUTTON)
+        );
+        jSaveDefault = NuiWidth(jSaveDefault, 150.0f);
+        jSaveDefault = NuiHeight(jSaveDefault, 30.0f);
+        jSaveDefault = NuiEnabled(
+            jSaveDefault,
+            JsonBool(bCompleteCurrentSet || bHasDefault)
+        );
+        jSaveDefault = NuiTooltip(jSaveDefault, JsonString(
+            "Left-click to save all seven current body-slot choices. Right-click to clear the saved set."
+        ));
+        jSaveDefault = NuiDisabledTooltip(jSaveDefault, JsonString(
+            "Fill all seven body locations before saving a set."
+        ));
+        jActionRow = JsonArrayInsert(jActionRow, jSaveDefault);
+
+        json jScribeDefault = NuiId(
+            NuiButton(JsonString("Scribe Saved Set")),
+            SpellbookLayoutElementId(PRC_RUNESCAR_DEFAULT_SCRIBE_BUTTON)
+        );
+        jScribeDefault = NuiWidth(jScribeDefault, 150.0f);
+        jScribeDefault = NuiHeight(jScribeDefault, 30.0f);
+        jScribeDefault = NuiEnabled(
+            jScribeDefault,
+            JsonBool(bHasDefault
+                && NUISpellbookHasOpenRunescarPosition(OBJECT_SELF)
+                && NUISpellbookGetRunescarTotalScribeUses(OBJECT_SELF) > 0)
+        );
+        jScribeDefault = NuiTooltip(jScribeDefault, JsonString(
+            "Fill empty locations from the saved set in H, LA, LC, LH, RA, RC, RH order. This immediately spends normal daily uses, gold, and XP and deals normal scribing damage."
+        ));
+        jScribeDefault = NuiDisabledTooltip(jScribeDefault, JsonString(
+            "Save a complete set first, then leave at least one body location empty with a scribing use available."
+        ));
+        jActionRow = JsonArrayInsert(jActionRow, jScribeDefault);
+    }
+
+    json jLabel = NuiLabel(
+        NuiBind(NUI_SPELLBOOK_RUNESCAR_RESOURCE_BIND),
+        JsonInt(NUI_HALIGN_LEFT),
+        JsonInt(NUI_VALIGN_MIDDLE)
+    );
+    jLabel = NuiWidth(jLabel, 330.0f);
+    jLabel = NuiHeight(jLabel, 32.0f);
+    jLabel = NuiTooltip(jLabel, JsonString(
+        "These are remaining runescars you may scribe at each rune tier."
+    ));
+    jRow = JsonArrayInsert(jRow, jLabel);
+
+    NUISpellbookSetSpecialButtonMap(
+        OBJECT_SELF,
+        jMap,
+        nGeneration
+    );
+    jRows = JsonArrayInsert(jRows, NuiRow(jRow));
+    if (JsonGetLength(jActionRow) > 0)
+        jRows = JsonArrayInsert(jRows, NuiRow(jActionRow));
+    return NuiCol(jRows);
+}
+
+int HasEligibleRunescarScribeChoice()
+{
+    int nClassLevel = GetLevelByClass(CLASS_TYPE_RUNESCARRED, OBJECT_SELF);
+    int nWisdom = GetAbilityScore(OBJECT_SELF, ABILITY_WISDOM);
+    int nTier;
+    for (nTier = 1; nTier <= 5; nTier++)
+    {
+        if (nClassLevel >= (nTier * 2) - 1
+            && nWisdom >= 10 + nTier
+            && NUISpellbookGetRunescarScribeUses(OBJECT_SELF, nTier) > 0)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+string GetRunescarredPositionAbbreviation(int nPosition)
+{
+    switch (nPosition)
+    {
+        case 1: return "H";
+        case 2: return "LA";
+        case 3: return "LC";
+        case 4: return "LH";
+        case 5: return "RA";
+        case 6: return "RC";
+        case 7: return "RH";
+    }
+    return "";
+}
+
+json CreateRunescarredPositionButtons()
+{
+    json jRow = JsonArray();
+    int nCurrentPosition = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+    );
+    if (nCurrentPosition < 1 || nCurrentPosition > 7)
+    {
+        nCurrentPosition = 1;
+        SetLocalInt(
+            OBJECT_SELF,
+            PRC_SPELLBOOK_SELECTED_CIRCLE_VAR,
+            nCurrentPosition
+        );
+    }
+
+    int nPosition;
+    for (nPosition = 1; nPosition <= 7; nPosition++)
+    {
+        float fMargin = 2.0f;
+        int nSpell = NUISpellbookGetRunescarPersistedSpell(
+            OBJECT_SELF,
+            nPosition
+        );
+        string sTooltip = NUISpellbookGetRunescarPositionName(nPosition)
+                        + ": ";
+        if (nSpell >= 0)
+        {
+            sTooltip += GetSpellName(nSpell) + " (caster level "
+                     + IntToString(NUISpellbookGetRunescarPersistedCasterLevel(
+                          OBJECT_SELF,
+                          nPosition
+                       )) + ")";
+        }
+        else
+            sTooltip += "Empty";
+
+        float fWidth = 48.0f;
+        float fHeight = 38.0f;
+        json jButton = NuiId(
+            NuiButton(JsonString(GetRunescarredPositionAbbreviation(nPosition))),
+            PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID + IntToString(nPosition)
+        );
+        jButton = NuiWidth(jButton, fWidth);
+        jButton = NuiHeight(jButton, fHeight);
+        jButton = NuiMargin(jButton, fMargin);
+        jButton = NuiTooltip(jButton, JsonString(sTooltip));
+        if (nPosition != nCurrentPosition)
+            jButton = GreyOutButton(jButton, fWidth, fHeight);
+        jRow = JsonArrayInsert(jRow, jButton);
+    }
+
+    return NuiRow(jRow);
+}
+
+json CreateRunescarredSpellButtons()
+{
+    json jRows = JsonArray();
+    json jButtonRow = JsonArray();
+    json jMap = GetLocalJson(
+        OBJECT_SELF,
+        NUI_SPELLBOOK_SPECIAL_BUTTON_MAP_VAR
+    );
+    if (jMap == JsonNull())
+        jMap = JsonArray();
+
+    int nGeneration = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_NUI_REFRESH_GENERATION_VAR
+    );
+    int nPosition = GetLocalInt(
+        OBJECT_SELF,
+        PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+    );
+    if (nPosition >= 1 && nPosition <= 7)
+    {
+        int nSpell = NUISpellbookGetRunescarPersistedSpell(
+            OBJECT_SELF,
+            nPosition
+        );
+        if (nSpell >= 0)
+        {
+            int nCasterLevel = NUISpellbookGetRunescarPersistedCasterLevel(
+                OBJECT_SELF,
+                nPosition
+            );
+            int nFeat = NUISpellbookGetRunescarPositionFeat(nPosition);
+            int nActionSpell = NUISpellbookGetRunescarPositionActionSpell(
+                nPosition
+            );
+            if (nCasterLevel > 0 && nFeat > 0 && nActionSpell > 0)
+            {
+                int nIndex = JsonGetLength(jMap);
+                string sTooltip = NUISpellbookGetRunescarPositionName(nPosition)
+                                + ": " + GetSpellName(nSpell)
+                                + " (caster level " + IntToString(nCasterLevel) + ")";
+                json jEntry = JsonObject();
+                jEntry = JsonObjectSet(
+                    jEntry,
+                    "y",
+                    JsonInt(NUI_SPELLBOOK_SPECIAL_ACTION_RUNESCAR_CAST)
+                );
+                jEntry = JsonObjectSet(
+                    jEntry,
+                    "c",
+                    JsonInt(CLASS_TYPE_RUNESCARRED)
+                );
+                jEntry = JsonObjectSet(jEntry, "p", JsonInt(nPosition));
+                jEntry = JsonObjectSet(jEntry, "f", JsonInt(nFeat));
+                jEntry = JsonObjectSet(jEntry, "a", JsonInt(nActionSpell));
+                jEntry = JsonObjectSet(jEntry, "s", JsonInt(nSpell));
+                jEntry = JsonObjectSet(jEntry, "n", JsonString(sTooltip));
+                jMap = JsonArrayInsert(jMap, jEntry);
+
+                json jButton = NuiId(
+                    NuiButtonImage(GetSpellIcon(nSpell)),
+                    NUISpellbookGetSpecialButtonId(nIndex, nGeneration)
+                );
+                jButton = NuiWidth(jButton, 38.0f);
+                jButton = NuiHeight(jButton, 38.0f);
+                jButton = NuiTooltip(jButton, JsonString(sTooltip));
+                jButtonRow = JsonArrayInsert(jButtonRow, jButton);
+            }
+        }
+    }
+
+    NUISpellbookSetSpecialButtonMap(
+        OBJECT_SELF,
+        jMap,
+        nGeneration
+    );
+
+    if (JsonGetLength(jButtonRow) > 0)
+        jRows = JsonArrayInsert(jRows, NuiRow(jButtonRow));
+    else
+        jRows = JsonArrayInsert(jRows, CreateDomainSectionLabel(
+            "No runescar is scribed at this body location."
+        ));
+    return jRows;
 }
 
 json CreateDomainSectionLabel(string sText)
@@ -531,7 +1443,7 @@ json CreateDomainSectionLabel(string sText)
         JsonInt(NUI_HALIGN_LEFT),
         JsonInt(NUI_VALIGN_MIDDLE)
     );
-    jLabel = NuiWidth(jLabel, 650.0f);
+    jLabel = NuiWidth(jLabel, 470.0f);
     jLabel = NuiHeight(jLabel, 20.0f);
     jRow = JsonArrayInsert(jRow, jLabel);
     return NuiRow(jRow);
@@ -629,8 +1541,78 @@ string GetSpellbookTabRefreshState()
     int nCircle = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
     string sState = IntToString(nClass) + ":" + IntToString(nCircle) + ";";
 
+    if (NUISpellbookIsFactotumClass(nClass))
+    {
+        // Prepared Arcane Dilettante selections are structural. Inspiration
+        // and remaining feat uses are live bind data and must not swap roots.
+        int nSlot;
+        for (nSlot = 1; nSlot <= 8; nSlot++)
+            sState += "F" + IntToString(nSlot) + "="
+                   + IntToString(NUISpellbookGetFactotumSlotSpell(
+                        OBJECT_SELF,
+                        nSlot
+                     )) + ";";
+        return sState;
+    }
+
+    if (NUISpellbookIsRunescarredClass(nClass))
+    {
+        // A consumed/replaced scar changes the result roster. Scribing uses
+        // also control which tiers the legacy scribe action can offer.
+        int nPosition;
+        for (nPosition = 1; nPosition <= 7; nPosition++)
+            sState += "R" + IntToString(nPosition) + "="
+                   + IntToString(NUISpellbookGetRunescarPersistedSpell(
+                        OBJECT_SELF,
+                        nPosition
+                     )) + "/"
+                   + IntToString(NUISpellbookGetRunescarPersistedCasterLevel(
+                        OBJECT_SELF,
+                        nPosition
+                     )) + ";";
+        int nTier;
+        for (nTier = 1; nTier <= 5; nTier++)
+            sState += "S" + IntToString(nTier) + "="
+                   + IntToString(NUISpellbookGetRunescarScribeUses(
+                        OBJECT_SELF,
+                        nTier
+                     )) + ";";
+        return sState;
+    }
+
+    if (nClass == CLASS_TYPE_ARCHMAGE)
+        return sState + NUISpellbookArchmageGetStructuralSignature(
+            OBJECT_SELF
+        );
+
     if (nClass == CLASS_TYPE_BINDER)
     {
+        // The Anima Mage action is structural header state rather than a
+        // vestige-granted power. Track it separately so binding, resting, or
+        // spending its daily use refreshes the existing /sb root in place.
+        sState += "X="
+               + IntToString(GetLevelByClass(
+                    CLASS_TYPE_ANIMA_MAGE,
+                    OBJECT_SELF
+                 )) + "/"
+               + IntToString(GetHasFeat(
+                    NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT,
+                    OBJECT_SELF
+                 )) + "/"
+               + IntToString(GetLocalInt(
+                    OBJECT_SELF,
+                    "ExploitVestige"
+                 )) + "/"
+               + IntToString(GetLocalInt(
+                    OBJECT_SELF,
+                    "ExploitVestigeSpell"
+                 )) + "/"
+               + IntToString(GetFeatRemainingUses(
+                    NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT,
+                    OBJECT_SELF
+                 )) + "/"
+               + IntToString(GetPrimaryArcaneClass(OBJECT_SELF)) + ";";
+
         json jDict = GetBinderSpellToFeatDictionary(OBJECT_SELF);
         json jKeys = JsonObjectKeys(jDict);
         int i;
@@ -688,6 +1670,16 @@ string GetSpellbookTabRefreshState()
     if (!NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass))
         return sState;
 
+    int nNativeMetamagic = METAMAGIC_NONE;
+    if (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+    {
+        int nMetaState = GetLocalInt(OBJECT_SELF, "PRC_metamagic_state");
+        if (nMetaState == 1 || nMetaState == 2)
+            nNativeMetamagic = GetLocalInt(OBJECT_SELF, "MetamagicFeatAdjust");
+        sState += "M=" + IntToString(nMetaState) + "/"
+               + IntToString(nNativeMetamagic) + ":";
+    }
+
     int nLevel;
     if (NUISpellbookIsNativePreparedClass(nClass))
     {
@@ -715,8 +1707,13 @@ string GetSpellbookTabRefreshState()
             for (nIndex = 0; nIndex < nKnown; nIndex++)
             {
                 int nSpell = GetKnownSpellId(OBJECT_SELF, nClass, nLevel, nIndex);
+                int nUses = 0;
+                if (NUISpellbookNativeSpontaneousMetamagicIsValid(
+                        OBJECT_SELF, nClass, nLevel, nSpell, nNativeMetamagic))
+                    nUses = GetSpellUsesLeft(
+                        OBJECT_SELF, nClass, nSpell, nNativeMetamagic);
                 sState += IntToString(nSpell) + "/"
-                       + IntToString(GetSpellUsesLeft(OBJECT_SELF, nClass, nSpell)) + ",";
+                       + IntToString(nUses) + ",";
             }
         }
     }
@@ -741,6 +1738,7 @@ void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState)
     if (!NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass)
         && nClass != CLASS_TYPE_BINDER
         && nClass != CLASS_TYPE_ARCHIVIST
+        && !NUISpellbookIsSpecialClass(nClass)
         && !(NUISpellbookIsInitiatorClass(nClass)
             && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0))
         return;
@@ -759,6 +1757,10 @@ void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState)
     if (NUISpellbookIsInitiatorClass(nClass)
         && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 0)
         NUISpellbookRefreshReadiedManeuverButtons(OBJECT_SELF, nToken);
+    if (NUISpellbookIsFactotumClass(nClass))
+        NUISpellbookRefreshFactotumButtons(OBJECT_SELF, nToken);
+    if (NUISpellbookIsRunescarredClass(nClass))
+        NUISpellbookRefreshRunescarResource(OBJECT_SELF, nToken);
 
     DelayCommand(1.0f, RefreshSpellbookTabLoop(nToken, nGeneration, sCurrentState));
 }
@@ -1014,6 +2016,7 @@ json CreateBonusDomainSpellButtons(int nLevel)
 json CreateNativePreparedDomainSpellButtons(int nLevel)
 {
     json jRows = JsonArray();
+    json jEntries = JsonArray();
     json jTempRow = JsonArray();
     int nPosition = 1;
     int nClass = GetClassByPosition(nPosition, OBJECT_SELF);
@@ -1033,37 +2036,60 @@ json CreateNativePreparedDomainSpellButtons(int nLevel)
                     {
                         int bReady = GetMemorizedSpellReady(OBJECT_SELF, nClass, nLevel, nIndex) == TRUE;
                         int nMetamagic = GetMemorizedSpellMetaMagic(OBJECT_SELF, nClass, nLevel, nIndex);
-                        int nCode = nClass * 10000 + nLevel * 1000 + nIndex;
-                        json jButton = NuiId(
-                            NuiButtonImage(GetSpellIcon(nSpell)),
-                            SpellbookLayoutElementId(
-                                PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID + IntToString(nCode)
-                            )
-                        );
-                        jButton = NuiWidth(jButton, 38.0f);
-                        jButton = NuiHeight(jButton, 38.0f);
-
-                        string sClassName = GetStringByStrRef(StringToInt(
-                            Get2DACache("classes", "Name", nClass)
-                        ));
-                        string sTooltip = sClassName + ": " + GetSpellName(nSpell);
-                        if (nMetamagic > METAMAGIC_NONE)
-                            sTooltip += " (" + GetMetaMagicString(nMetamagic) + ")";
-                        sTooltip += bReady ? " - Ready" : " - Expended";
-                        if (bReady && Get2DACache("spells", "SubRadSpell1", nSpell) != "")
-                            sTooltip += " - choose its variant from the native spellbook";
-                        else if (bReady)
-                            sTooltip += " - left-click to cast this exact slot";
-                        jButton = NuiTooltip(jButton, JsonString(sTooltip));
-
-                        if (!bReady)
-                            jButton = GreyOutButton(jButton, 38.0f, 38.0f);
-
-                        jTempRow = JsonArrayInsert(jTempRow, jButton);
-                        if (JsonGetLength(jTempRow) >= NUI_SPELLBOOK_SPELL_BUTTON_LENGTH)
+                        int nChoiceCount = NUISpellbookNativeRadialChoiceCount(nSpell);
+                        int nDisplayedChoices = nChoiceCount > 0 ? nChoiceCount : 1;
+                        int nChoice;
+                        for (nChoice = 0; nChoice < nDisplayedChoices; nChoice++)
                         {
-                            jRows = JsonArrayInsert(jRows, NuiRow(jTempRow));
-                            jTempRow = JsonArray();
+                            int nCastSpell = nChoiceCount > 0
+                                ? NUISpellbookNativeRadialChoiceAt(nSpell, nChoice)
+                                : nSpell;
+                            if (!NUISpellbookNativeCastSpellIsValid(nSpell, nCastSpell))
+                                continue;
+
+                            json jEntry = JsonObject();
+                            jEntry = JsonObjectSet(jEntry, "c", JsonInt(nClass));
+                            jEntry = JsonObjectSet(jEntry, "l", JsonInt(nLevel));
+                            jEntry = JsonObjectSet(jEntry, "i", JsonInt(nIndex));
+                            jEntry = JsonObjectSet(jEntry, "s", JsonInt(nSpell));
+                            jEntry = JsonObjectSet(jEntry, "x", JsonInt(nCastSpell));
+                            jEntry = JsonObjectSet(jEntry, "m", JsonInt(nMetamagic));
+                            int nButtonIndex = JsonGetLength(jEntries);
+                            jEntries = JsonArrayInsert(jEntries, jEntry);
+
+                            json jButton = NuiId(
+                                NuiButtonImage(GetSpellIcon(nCastSpell)),
+                                SpellbookLayoutElementId(
+                                    PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID
+                                    + IntToString(nButtonIndex)
+                                )
+                            );
+                            jButton = NuiWidth(jButton, 38.0f);
+                            jButton = NuiHeight(jButton, 38.0f);
+
+                            string sClassName = GetStringByStrRef(StringToInt(
+                                Get2DACache("classes", "Name", nClass)
+                            ));
+                            string sTooltip = sClassName + ": ";
+                            if (nCastSpell != nSpell)
+                                sTooltip += GetSpellName(nSpell) + " - ";
+                            sTooltip += GetSpellName(nCastSpell);
+                            if (nMetamagic > METAMAGIC_NONE)
+                                sTooltip += " (" + GetMetaMagicString(nMetamagic) + ")";
+                            sTooltip += bReady
+                                ? " - left-click to cast this exact slot"
+                                : " - Expended";
+                            jButton = NuiTooltip(jButton, JsonString(sTooltip));
+
+                            if (!bReady)
+                                jButton = GreyOutButton(jButton, 38.0f, 38.0f);
+
+                            jTempRow = JsonArrayInsert(jTempRow, jButton);
+                            if (JsonGetLength(jTempRow) >= NUI_SPELLBOOK_SPELL_BUTTON_LENGTH)
+                            {
+                                jRows = JsonArrayInsert(jRows, NuiRow(jTempRow));
+                                jTempRow = JsonArray();
+                            }
                         }
                     }
                 }
@@ -1074,6 +2100,12 @@ json CreateNativePreparedDomainSpellButtons(int nLevel)
         nClass = GetClassByPosition(nPosition, OBJECT_SELF);
     }
 
+    SetLocalJson(
+        OBJECT_SELF,
+        NUI_SPELLBOOK_NATIVE_DOMAIN_BUTTON_MAP_VAR,
+        jEntries
+    );
+
     if (JsonGetLength(jTempRow) > 0)
         jRows = JsonArrayInsert(jRows, NuiRow(jTempRow));
     else if (JsonGetLength(jRows) == 0)
@@ -1082,12 +2114,62 @@ json CreateNativePreparedDomainSpellButtons(int nLevel)
     return jRows;
 }
 
-json CreateSpellbookCircleButtons(int nClass)
+json CreateSpellbookCircleCell(
+    int nSlotResourceClass,
+    int nLevel,
+    json jButton,
+    int bShowSlotCount
+)
+{
+    // NUI's default four-unit leaf margins make each 42-unit selector cell
+    // occupy a 50-unit pitch at 1.0 UI scale. Eleven cells (0-9 plus Epic)
+    // then require 550 units and clip inside the compact 525-unit window.
+    // Keep the readable boxes and hit targets; only tighten their gutters.
+    float fCellMargin = 2.0f;
+    jButton = NuiMargin(jButton, fCellMargin);
+
+    if (!bShowSlotCount)
+        return jButton;
+
+    json jCell = JsonArray();
+    if (nLevel >= 0 && nLevel <= 9)
+    {
+        json jSlotLabel = NUIResourceCreateCompactSlotLabel(
+            nSlotResourceClass,
+            nLevel
+        );
+        jSlotLabel = NuiMargin(jSlotLabel, fCellMargin);
+        jCell = JsonArrayInsert(
+            jCell,
+            jSlotLabel
+        );
+    }
+    else
+    {
+        // Epic has its own character-wide counter. Reserve the same header
+        // height so the plus icon shares the ordinary circle baseline.
+        json jSpacer = NuiLabel(
+            JsonString(""),
+            JsonInt(NUI_HALIGN_CENTER),
+            JsonInt(NUI_VALIGN_MIDDLE)
+        );
+        jSpacer = NuiWidth(jSpacer, 42.0f);
+        jSpacer = NuiHeight(jSpacer, 24.0f);
+        jSpacer = NuiMargin(jSpacer, fCellMargin);
+        jCell = JsonArrayInsert(jCell, jSpacer);
+    }
+
+    jCell = JsonArrayInsert(jCell, jButton);
+    return NuiMargin(NuiCol(jCell), 0.0f);
+}
+
+json CreateSpellbookCircleButtons(int nClass, int nSlotResourceClass)
 {
     json jRow = JsonArray();
     int i;
     // Get the current selected circle and the class caster level.
     int currentCircle = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
+    int bShowSlotCounts = nSlotResourceClass != CLASS_TYPE_INVALID;
 
     if (NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass))
     {
@@ -1110,7 +2192,15 @@ json CreateSpellbookCircleButtons(int nClass)
                 jButton = NuiTooltip(jButton, JsonString(GetSpellLevelToolTip(i)));
                 if (i != currentCircle)
                     jButton = GreyOutButton(jButton, width, height);
-                jRow = JsonArrayInsert(jRow, jButton);
+                jRow = JsonArrayInsert(
+                    jRow,
+                    CreateSpellbookCircleCell(
+                        nSlotResourceClass,
+                        i,
+                        jButton,
+                        bShowSlotCounts
+                    )
+                );
             }
         }
 
@@ -1140,7 +2230,15 @@ json CreateSpellbookCircleButtons(int nClass)
                     jButton = NuiTooltip(jButton, JsonString(GetSpellLevelToolTip(i)));
                     if (i != currentCircle)
                         jButton = GreyOutButton(jButton, width, height);
-                    jRow = JsonArrayInsert(jRow, jButton);
+                    jRow = JsonArrayInsert(
+                        jRow,
+                        CreateSpellbookCircleCell(
+                            nSlotResourceClass,
+                            i,
+                            jButton,
+                            bShowSlotCounts
+                        )
+                    );
                 }
             }
         }
@@ -1158,7 +2256,15 @@ json CreateSpellbookCircleButtons(int nClass)
             jEpicButton = NuiTooltip(jEpicButton, JsonString(GetSpellLevelToolTip(PRC_SPELLBOOK_NUI_EPIC_CIRCLE)));
             if (currentCircle != PRC_SPELLBOOK_NUI_EPIC_CIRCLE)
                 jEpicButton = GreyOutButton(jEpicButton, width, height);
-            jRow = JsonArrayInsert(jRow, jEpicButton);
+            jRow = JsonArrayInsert(
+                jRow,
+                CreateSpellbookCircleCell(
+                    nSlotResourceClass,
+                    PRC_SPELLBOOK_NUI_EPIC_CIRCLE,
+                    jEpicButton,
+                    bShowSlotCounts
+                )
+            );
         }
 
         return NuiRow(jRow);
@@ -1222,8 +2328,15 @@ json CreateSpellbookCircleButtons(int nClass)
             if (i != currentCircle)
                 jButton = GreyOutButton(jButton, width, height);
 
-
-            jRow = JsonArrayInsert(jRow, jButton);
+            jRow = JsonArrayInsert(
+                jRow,
+                CreateSpellbookCircleCell(
+                    nSlotResourceClass,
+                    i,
+                    jButton,
+                    bShowSlotCounts
+                )
+            );
         }
 
         // Epic spell preparation is character-wide, but the tab belongs beside
@@ -1247,7 +2360,15 @@ json CreateSpellbookCircleButtons(int nClass)
             if (currentCircle != PRC_SPELLBOOK_NUI_EPIC_CIRCLE)
                 jEpicButton = GreyOutButton(jEpicButton, width, height);
 
-            jRow = JsonArrayInsert(jRow, jEpicButton);
+            jRow = JsonArrayInsert(
+                jRow,
+                CreateSpellbookCircleCell(
+                    nSlotResourceClass,
+                    PRC_SPELLBOOK_NUI_EPIC_CIRCLE,
+                    jEpicButton,
+                    bShowSlotCounts
+                )
+            );
         }
     }
 
@@ -1330,6 +2451,8 @@ json CreateReadiedManeuverButtons(int nClass)
             string sIndex = IntToString(nButtonIndex);
             string sReadyBind = NUI_SPELLBOOK_READIED_MANEUVER_READY_BIND_BASE
                               + sIndex;
+            string sEnabledBind = NUI_SPELLBOOK_READIED_MANEUVER_ENABLED_BIND_BASE
+                                + sIndex;
             string sTooltipBind = NUI_SPELLBOOK_READIED_MANEUVER_TOOLTIP_BIND_BASE
                                 + sIndex;
             json jButton = NuiId(
@@ -1340,7 +2463,7 @@ json CreateReadiedManeuverButtons(int nClass)
             );
             jButton = NuiWidth(jButton, 38.0f);
             jButton = NuiHeight(jButton, 38.0f);
-            jButton = NuiEnabled(jButton, NuiBind(sReadyBind));
+            jButton = NuiEnabled(jButton, NuiBind(sEnabledBind));
             jButton = NuiEncouraged(jButton, NuiBind(sReadyBind));
             jButton = NuiTooltip(jButton, NuiBind(sTooltipBind));
             jButton = NuiDisabledTooltip(jButton, NuiBind(sTooltipBind));
@@ -1584,6 +2707,14 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
     }
     else
     {
+        int nNativeMetamagic = METAMAGIC_NONE;
+        if (nClass == CLASS_TYPE_BARD || nClass == CLASS_TYPE_SORCERER)
+        {
+            int nMetaState = GetLocalInt(OBJECT_SELF, "PRC_metamagic_state");
+            if (nMetaState == 1 || nMetaState == 2)
+                nNativeMetamagic = GetLocalInt(OBJECT_SELF, "MetamagicFeatAdjust");
+        }
+
         int nKnown = GetKnownSpellCount(OBJECT_SELF, nClass, circle);
         int nIndex;
         for (nIndex = 0; nIndex < nKnown; nIndex++)
@@ -1592,7 +2723,11 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
             if (nSpell < 0)
                 continue;
 
-            int nUses = GetSpellUsesLeft(OBJECT_SELF, nClass, nSpell);
+            int nUses = 0;
+            if (NUISpellbookNativeSpontaneousMetamagicIsValid(
+                    OBJECT_SELF, nClass, circle, nSpell, nNativeMetamagic))
+                nUses = GetSpellUsesLeft(
+                    OBJECT_SELF, nClass, nSpell, nNativeMetamagic);
             if (nUses < 0)
                 nUses = 0;
             json jEntry = JsonObject();
@@ -1600,7 +2735,7 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
             jEntry = JsonObjectSet(jEntry, "c", JsonInt(nClass));
             jEntry = JsonObjectSet(jEntry, "l", JsonInt(circle));
             jEntry = JsonObjectSet(jEntry, "s", JsonInt(nSpell));
-            jEntry = JsonObjectSet(jEntry, "m", JsonInt(METAMAGIC_NONE));
+            jEntry = JsonObjectSet(jEntry, "m", JsonInt(nNativeMetamagic));
             jEntry = JsonObjectSet(jEntry, "d", JsonInt(FALSE));
             jEntry = JsonObjectSet(jEntry, "n", JsonInt(nUses));
             jEntry = JsonObjectSet(jEntry, "r", JsonInt(nUses));
@@ -1608,13 +2743,44 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
         }
     }
 
+    // A native radial master is a resource owner, not an actionable spell.
+    // Expand it into its stock child choices while retaining the owner's exact
+    // prepared tuple or spontaneous level pool in every mapped entry.
+    json jCastEntries = JsonArray();
+    int nEntryIndex;
+    for (nEntryIndex = 0; nEntryIndex < JsonGetLength(jEntries); nEntryIndex++)
+    {
+        json jOwnerEntry = JsonArrayGet(jEntries, nEntryIndex);
+        int nOwnerSpell = JsonGetInt(JsonObjectGet(jOwnerEntry, "s"));
+        int nChoiceCount = NUISpellbookNativeRadialChoiceCount(nOwnerSpell);
+        int nDisplayedChoices = nChoiceCount > 0 ? nChoiceCount : 1;
+        int nChoice;
+        for (nChoice = 0; nChoice < nDisplayedChoices; nChoice++)
+        {
+            int nCastSpell = nChoiceCount > 0
+                ? NUISpellbookNativeRadialChoiceAt(nOwnerSpell, nChoice)
+                : nOwnerSpell;
+            if (!NUISpellbookNativeCastSpellIsValid(nOwnerSpell, nCastSpell))
+                continue;
+
+            json jCastEntry = JsonObjectSet(
+                jOwnerEntry,
+                "x",
+                JsonInt(nCastSpell)
+            );
+            jCastEntries = JsonArrayInsert(jCastEntries, jCastEntry);
+        }
+    }
+    jEntries = jCastEntries;
+
     SetLocalJson(OBJECT_SELF, NUI_SPELLBOOK_NATIVE_CLASS_BUTTON_MAP_VAR, jEntries);
 
     int i;
     for (i = 0; i < JsonGetLength(jEntries); i++)
     {
         json jEntry = JsonArrayGet(jEntries, i);
-        int nSpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+        int nOwnerSpell = JsonGetInt(JsonObjectGet(jEntry, "s"));
+        int nSpell = JsonGetInt(JsonObjectGet(jEntry, "x"));
         int nMetamagic = JsonGetInt(JsonObjectGet(jEntry, "m"));
         int bDomain = JsonGetInt(JsonObjectGet(jEntry, "d"));
         int nTotal = JsonGetInt(JsonObjectGet(jEntry, "n"));
@@ -1629,7 +2795,10 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
         jButton = NuiWidth(jButton, 38.0f);
         jButton = NuiHeight(jButton, 38.0f);
 
-        string sTooltip = GetSpellName(nSpell);
+        string sTooltip;
+        if (nSpell != nOwnerSpell)
+            sTooltip = GetSpellName(nOwnerSpell) + " - ";
+        sTooltip += GetSpellName(nSpell);
         if (bDomain)
             sTooltip += " [Domain]";
         if (nMetamagic > METAMAGIC_NONE)
@@ -1638,8 +2807,6 @@ json CreateNativeClassSpellButtons(int nClass, int circle)
             sTooltip += " - " + IntToString(nReady) + " / " + IntToString(nTotal) + " ready";
         else
             sTooltip += " - " + IntToString(nReady) + " uses left";
-        if (Get2DACache("spells", "SubRadSpell1", nSpell) != "")
-            sTooltip += " - choose its variant from the native spellbook";
         jButton = NuiTooltip(jButton, JsonString(sTooltip));
 
         if (nReady <= 0)
@@ -1714,13 +2881,12 @@ json CreateMetaMagicFeatButtons(int nClass)
     json currentRow = JsonArray();
     int bEpicAdded;
 
-    // PRC metamagic activation feats arm NewSpellbook state; native engine
-    // ActionCastSpell calls do not consume that state. Hiding those controls
-    // prevents a misleading unmodified cast and a leaked one-shot toggle.
     // Prepared native metamagic remains represented by the exact memorized
-    // tuple. Native spontaneous metamagic stays in the stock spellbook for
-    // this first pass.
-    if (NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass))
+    // tuple. Native Bard and Sorcerer snapshot the selected PRC metamagic when
+    // a spell button is clicked and let the engine spend the adjusted slot.
+    if (NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass)
+        && nClass != CLASS_TYPE_BARD
+        && nClass != CLASS_TYPE_SORCERER)
     {
         if (NUIResourceHasEpicSpells(OBJECT_SELF))
             jRows = JsonArrayInsert(jRows, NUIResourceCreateEpicRow());
@@ -1732,21 +2898,15 @@ json CreateMetaMagicFeatButtons(int nClass)
         || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT
         || nClass == CLASS_TYPE_DRAGON_SHAMAN)
     {
-        currentRow = CreateMetaFeatButtonRow(GetInvokerShapeSpellList(nClass));
+        currentRow = CreateMetaFeatButtonRow(GetInvokerShapeSpellList(nClass), nClass);
 
         if (JsonGetLength(currentRow) > 0)
-        {
-            currentRow = NuiRow(currentRow);
-            jRows = JsonArrayInsert(jRows, currentRow);
-        }
+            jRows = AppendSpellbookButtonRows(jRows, currentRow, 9);
 
-        currentRow = CreateMetaFeatButtonRow(GetInvokerEssenceSpellList(nClass));
+        currentRow = CreateMetaFeatButtonRow(GetInvokerEssenceSpellList(nClass), nClass);
 
         if (JsonGetLength(currentRow) > 0)
-        {
-            currentRow = NuiRow(currentRow);
-            jRows = JsonArrayInsert(jRows, currentRow);
-        }
+            jRows = AppendSpellbookButtonRows(jRows, currentRow, 9);
     }
 
     // if a ToB class, add its stances as its own row of buttons
@@ -1754,28 +2914,31 @@ json CreateMetaMagicFeatButtons(int nClass)
         || nClass == CLASS_TYPE_CRUSADER
         || nClass == CLASS_TYPE_SWORDSAGE)
     {
-        currentRow = CreateMetaFeatButtonRow(GetToBStanceSpellList(nClass));
+        currentRow = CreateMetaFeatButtonRow(GetToBStanceSpellList(nClass), nClass);
 
         if (JsonGetLength(currentRow) > 0)
-        {
-            currentRow = NuiRow(currentRow);
-            jRows = JsonArrayInsert(jRows, currentRow);
-        }
+            jRows = AppendSpellbookButtonRows(jRows, currentRow, 9);
     }
 
     currentRow = JsonArray();
 
     // check to see if the class can use any particular meta feats
     if (CanClassUseMetamagicFeats(nClass))
-        currentRow = CreateMetaFeatButtonRow(GetMetaMagicFeatList());
+        currentRow = CreateMetaFeatButtonRow(GetMetaMagicFeatList(), nClass);
     else if (CanClassUseMetaPsionicFeats(nClass))
-        currentRow = CreateMetaFeatButtonRow(GetMetaPsionicFeatList());
+        currentRow = CreateMetaFeatButtonRow(GetMetaPsionicFeatList(), nClass);
     else if (CanClassUseMetaMysteryFeats(nClass))
-        currentRow = CreateMetaFeatButtonRow(GetMetaMysteryFeatList());
+        currentRow = CreateMetaFeatButtonRow(GetMetaMysteryFeatList(), nClass);
+    else if (nClass == CLASS_TYPE_TRUENAMER)
+        currentRow = CreateMetaFeatButtonRow(GetMetaUtteranceFeatList(), nClass);
 
     if (JsonGetLength(currentRow) > 0)
     {
-        if (NUIResourceHasEpicSpells(OBJECT_SELF))
+        // The Epic icon and text consume 202px before row spacing. Keep them
+        // inline for ordinary metamagic rows, but never let a long
+        // metapsionic row overflow the compact window.
+        if (NUIResourceHasEpicSpells(OBJECT_SELF)
+            && JsonGetLength(currentRow) <= 7)
         {
             currentRow = NUIResourceAppendEpicControls(currentRow);
             bEpicAdded = TRUE;
@@ -1786,8 +2949,10 @@ json CreateMetaMagicFeatButtons(int nClass)
 
     // and check to see if the class can use sudden meta feats
     currentRow = JsonArray();
-    if (CanClassUseSuddenMetamagicFeats(nClass))
-        currentRow = CreateMetaFeatButtonRow(GetSuddenMetaMagicFeatList());
+    if (!(NUISpellbookUsesNativeClassAdapter(OBJECT_SELF, nClass)
+            && nClass == CLASS_TYPE_BARD)
+        && CanClassUseSuddenMetamagicFeats(nClass))
+        currentRow = CreateMetaFeatButtonRow(GetSuddenMetaMagicFeatList(), nClass);
 
     if (JsonGetLength(currentRow) > 0)
     {
@@ -1806,7 +2971,7 @@ json CreateMetaMagicFeatButtons(int nClass)
     return jRows;
 }
 
-json CreateMetaFeatButtonRow(json spellList)
+json CreateMetaFeatButtonRow(json spellList, int nClass)
 {
     json jRow = JsonArray();
 
@@ -1814,12 +2979,7 @@ json CreateMetaFeatButtonRow(json spellList)
     for (i = 0; i < JsonGetLength(spellList); i++)
     {
         int spellId = JsonGetInt(JsonArrayGet(spellList, i));
-        int featId;
-        int masterSpell = StringToInt(Get2DACache("spells", "Master", spellId));
-        if (masterSpell)
-            featId = StringToInt(Get2DACache("spells", "FeatID", masterSpell));
-        else
-            featId = StringToInt(Get2DACache("spells", "FeatID", spellId));
+        int featId = GetNUISpellbookMetaFeatId(nClass, spellId);
 
         int selectedFeatId = featId;
         if (featId == FEAT_EXTEND_SPELL_ABILITY)
@@ -1832,6 +2992,8 @@ json CreateMetaFeatButtonRow(json spellList)
             selectedFeatId = FEAT_QUICKEN_SPELL;
         if (featId == FEAT_STILL_SPELL_ABILITY)
             selectedFeatId = FEAT_STILL_SPELL;
+        if (featId == FEAT_SILENT_SPELL_ABILITY)
+            selectedFeatId = FEAT_SILENCE_SPELL;
 
         if (GetHasFeat(selectedFeatId, OBJECT_SELF, TRUE))
         {
@@ -1852,4 +3014,24 @@ json CreateMetaFeatButtonRow(json spellList)
     }
 
     return jRow;
+}
+
+json AppendSpellbookButtonRows(json jRows, json jButtons, int nMaxPerRow)
+{
+    json jRow = JsonArray();
+    int i;
+    for (i = 0; i < JsonGetLength(jButtons); i++)
+    {
+        jRow = JsonArrayInsert(jRow, JsonArrayGet(jButtons, i));
+        if (JsonGetLength(jRow) >= nMaxPerRow)
+        {
+            jRows = JsonArrayInsert(jRows, NuiRow(jRow));
+            jRow = JsonArray();
+        }
+    }
+
+    if (JsonGetLength(jRow) > 0)
+        jRows = JsonArrayInsert(jRows, NuiRow(jRow));
+
+    return jRows;
 }

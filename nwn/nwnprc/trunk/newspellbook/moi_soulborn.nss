@@ -1,5 +1,6 @@
 #include "moi_inc_moifunc" 
 #include "inc_dynconv"
+#include "prc_nui_moi_cst"
 
 void main()
 {
@@ -45,12 +46,18 @@ void main()
 	        		SetLocalInt(oMeldshaper, "IncarnumDefenseCE", TRUE);
 	        }
 	    }
-	    else if(nEvent == EVENT_ONPLAYERREST_FINISHED && (PRCGetIsAliveCreature(oMeldshaper)|| GetHasFeat(FEAT_UNDEAD_MELDSHAPER, oMeldshaper)))    
+	    else if(nEvent == EVENT_ONPLAYERREST_FINISHED && nClass >= 4 && (PRCGetIsAliveCreature(oMeldshaper)|| GetHasFeat(FEAT_UNDEAD_MELDSHAPER, oMeldshaper)))    
 	    {
-	    	ClearMeldShapes(oMeldshaper);
-	        AssignCommand(oMeldshaper, ClearAllActions(TRUE));
-	        SetLocalInt(oMeldshaper, "MeldshapeClass", CLASS_TYPE_SOULBORN);
-	        StartDynamicConversation("moi_meldshapecnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+	        if (GetPersistantLocalInt(oMeldshaper, PRC_MOI_LOADOUT_VERSION_VAR)
+	            != PRC_MOI_LOADOUT_VERSION
+	            || GetLocalInt(oMeldshaper, PRC_MOI_LOADOUT_REST_GENERATION_VAR)
+	                != GetLocalInt(oMeldshaper, PRC_Rest_Generation))
+	        {
+	            ClearMeldShapes(oMeldshaper);
+	            AssignCommand(oMeldshaper, ClearAllActions(TRUE));
+	            SetLocalInt(oMeldshaper, "MeldshapeClass", CLASS_TYPE_SOULBORN);
+	            StartDynamicConversation("moi_meldshapecnv", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+	        }
 	    }    
 	    else if(nEvent == EVENT_ONPLAYEREQUIPITEM)
 	    {

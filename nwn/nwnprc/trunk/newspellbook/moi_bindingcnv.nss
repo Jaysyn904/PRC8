@@ -10,6 +10,8 @@
 
 #include "moi_inc_moifunc"
 #include "inc_dynconv"
+#include "prc_nui_moi_cst"
+#include "prc_inc_util"
 
 //////////////////////////////////////////////////
 /* Constant defintions                          */
@@ -391,11 +393,33 @@ void main()
             	else // We've finished everything
             	{           	
 	           	 	// And we're all done
-           	 		if (GetLevelByClass(CLASS_TYPE_INCARNUM_BLADE, oMeldshaper))
-           	 		{
-            			DelayCommand(0.5, AssignCommand(oMeldshaper, ClearAllActions(TRUE)));
-        				StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
-        			}	            	
+	            	 	if (GetLevelByClass(CLASS_TYPE_INCARNUM_BLADE, oMeldshaper))
+	            	 	{
+	            			if (GetLocalInt(
+	            					oMeldshaper,
+	            					PRC_MOI_BLADE_REST_GENERATION_VAR
+	            				) == GetLocalInt(oMeldshaper, PRC_Rest_Generation)
+	            				&& GetLocalInt(
+	            					oMeldshaper,
+	            					PRC_MOI_BLADE_REST_GENERATION_VAR
+	            				) > 0)
+	            			{
+	            				SetLocalInt(
+	            					oMeldshaper,
+	            					PRC_MOI_BLADE_REST_SOURCE_VAR,
+	            					PRC_MOI_BLADE_REST_SOURCE_CONVERSATION
+	            				);
+	            				DelayCommand(
+	            					0.1f,
+	            					ExecuteScript("prc_nui_moi_ba", oMeldshaper)
+	            				);
+	            			}
+	            			else
+	            			{
+	            				DelayCommand(0.5, AssignCommand(oMeldshaper, ClearAllActions(TRUE)));
+	        					StartDynamicConversation("moi_iblade_bind", oMeldshaper, DYNCONV_EXIT_NOT_ALLOWED, FALSE, TRUE, oMeldshaper);
+	        				}
+	        			}	            	
             	
         			DeleteLocalInt(oMeldshaper, "FirstMeldDone");
         			DeleteLocalInt(oMeldshaper, "SecondMeldDone");

@@ -13,6 +13,31 @@
 
 #include "prc_inc_combat"
 
+const string SKULLCLAN_ONHIT_TAG = "PRC_SKULLCLAN_ONHIT";
+
+void SkullClanAddOnHitProperty(object oItem)
+{
+    itemproperty ipOnHit = ItemPropertyOnHitCastSpell(
+        IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);
+    ipOnHit = TagItemProperty(ipOnHit, SKULLCLAN_ONHIT_TAG);
+    AddItemProperty(DURATION_TYPE_TEMPORARY, ipOnHit, oItem, 99999.0);
+}
+
+void SkullClanRemoveOnHitProperty(object oItem)
+{
+    itemproperty ipCheck = GetFirstItemProperty(oItem);
+    while(GetIsItemPropertyValid(ipCheck))
+    {
+        if(GetItemPropertyTag(ipCheck) == SKULLCLAN_ONHIT_TAG)
+        {
+            RemoveItemProperty(oItem, ipCheck);
+            return;
+        }
+
+        ipCheck = GetNextItemProperty(oItem);
+    }
+}
+
 //modification of GetWeaponAttackBonusProperty - hardcoded to NE Undead
 //Used to make reduction adjust to match weapon, due to +20/-20 cap
 int GetUndeadAttackBonusItemProperty(object oWeap)
@@ -254,18 +279,18 @@ void main()
 
             // Add the OnHitCastSpell: Unique needed to trigger the event
             // Makes sure to get ammo if its a ranged weapon
-            IPSafeAddItemProperty(oItem, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+            SkullClanAddOnHitProperty(oItem);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_BOLTS, oPC);
-            IPSafeAddItemProperty(oAmmo, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+            SkullClanAddOnHitProperty(oAmmo);
             AddEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_BULLETS, oPC);
-            IPSafeAddItemProperty(oAmmo, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+            SkullClanAddOnHitProperty(oAmmo);
             AddEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_ARROWS, oPC);
-            IPSafeAddItemProperty(oAmmo, ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1), 99999.0, X2_IP_ADDPROP_POLICY_KEEP_EXISTING, FALSE, FALSE);
+            SkullClanAddOnHitProperty(oAmmo);
             AddEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
         }
     }
@@ -284,19 +309,19 @@ void main()
 
             // Remove the temporary OnHitCastSpell: Unique
             // Makes sure to get ammo if its a ranged weapon
-            RemoveSpecificProperty(oItem, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, -1, "", -1, DURATION_TYPE_TEMPORARY);
+            SkullClanRemoveOnHitProperty(oItem);
             RemoveSpecificProperty(oItem, ITEM_PROPERTY_ATTACK_BONUS_VS_RACIAL_GROUP, RACIAL_TYPE_UNDEAD, 20, -1, "", -1, DURATION_TYPE_TEMPORARY);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_BOLTS, oPC);
-            RemoveSpecificProperty(oAmmo, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, -1, "", -1, DURATION_TYPE_TEMPORARY);
+            SkullClanRemoveOnHitProperty(oAmmo);
             RemoveEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_BULLETS, oPC);
-            RemoveSpecificProperty(oAmmo, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, -1, "", -1, DURATION_TYPE_TEMPORARY);
+            SkullClanRemoveOnHitProperty(oAmmo);
             RemoveEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
 
             oAmmo = GetItemInSlot(INVENTORY_SLOT_ARROWS, oPC);
-            RemoveSpecificProperty(oAmmo, ITEM_PROPERTY_ONHITCASTSPELL, IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 0, -1, "", -1, DURATION_TYPE_TEMPORARY);
+            SkullClanRemoveOnHitProperty(oAmmo);
             RemoveEventScript(oAmmo, EVENT_ITEM_ONHIT, "prc_skullclan", TRUE, FALSE);
         }
     }

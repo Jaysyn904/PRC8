@@ -1017,7 +1017,7 @@ int RedWizRestrictedSchool(object oCaster, int nSchool, int nCastingClass, objec
     // No need for wasting CPU on non-Red Wizards
     if(GetLevelByClass(CLASS_TYPE_RED_WIZARD, oCaster))
     {
-        //can’t cast prohibited spells from scrolls or fire them from wands
+        //canâ€™t cast prohibited spells from scrolls or fire them from wands
         if(GetIsObjectValid(oSpellCastItem))
         {
             int nType = GetBaseItemType(oSpellCastItem);
@@ -1065,7 +1065,7 @@ int PnPSpellSchools(object oCaster, int nCastingClass, int nSchool, object oSpel
     if(GetPRCSwitch(PRC_PNP_SPELL_SCHOOLS)
     && nCastingClass == CLASS_TYPE_WIZARD)
     {
-        //can’t cast prohibited spells from scrolls or fire them from wands
+        //canâ€™t cast prohibited spells from scrolls or fire them from wands
         if(GetIsObjectValid(oSpellCastItem))
         {
             int nType = GetBaseItemType(oSpellCastItem);
@@ -3454,6 +3454,10 @@ int X2PreSpellCastCode2()
     int nSchool = GetSpellSchool(nSpellID);
     int nCasterLevel = PRCGetCasterLevel(oCaster);
     int nMetamagic = PRCGetMetaMagicFeat(oCaster, FALSE);
+    // ActionCastSpell cleanup can be removed by forced conversations calling
+    // ClearAllActions(). Schedule the same cleanup outside the action queue.
+    if(GetLocalInt(oCaster, "NSB_Class"))
+        DelayCommand(0.0f, DoCleanUp(nMetamagic));
     int nSaveDC = PRCGetSaveDC(OBJECT_INVALID, oCaster);
     int bSpellIsHostile = Get2DACache("spells", "HostileSetting", nOrigSpellID) == "1";
     int nSpellbookType = GetSpellbookTypeForClass(nCastingClass);
