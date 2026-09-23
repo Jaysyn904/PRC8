@@ -429,9 +429,6 @@ void main()
     effect eVis = EffectVisualEffect(VFX_DUR_BARD_SONG);
     effect eLink;
 
-    eAttack = EffectAttackIncrease(nAttack);
-    eDamage = EffectDamageIncrease(nDamage, DAMAGE_TYPE_BLUDGEONING);
-    
 	if(GetHasFeat(FEAT_SONG_OF_THE_HEART))
     {
         if(nAttack > 0)	nAttack += 1;
@@ -444,6 +441,9 @@ void main()
         if(nSkill > 0)	nSkill +=1;
     }
     
+	eAttack = EffectAttackIncrease(nAttack);
+    eDamage = EffectDamageIncrease(nDamage, DAMAGE_TYPE_BLUDGEONING);
+	
     if(GetLocalInt(OBJECT_SELF, "DragonFireInspOn"))
     {
     	eLink = EffectVisualEffect(VFX_DUR_CESSATE_POSITIVE);

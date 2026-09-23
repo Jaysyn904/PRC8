@@ -16,6 +16,22 @@
 #include "inc_persist_loca"
 #include "inc_nwnx_funcs"
 
+// Returns TRUE only if oItem has at least one PERMANENT, non-keeper item property  
+int VoP_IsPermanentlyMagical(object oItem)  
+{  
+    itemproperty ip = GetFirstItemProperty(oItem);  
+    while (GetIsItemPropertyValid(ip))  
+    {  
+        if (GetItemPropertyDurationType(ip) != DURATION_TYPE_TEMPORARY  
+            && GetItemPropertyTag(ip) != "Tag_PRC_OnHitKeeper")  
+        {  
+            return TRUE;  
+        }  
+        ip = GetNextItemProperty(oItem);  
+    }  
+    return FALSE;  
+}
+
 effect VoPDamage(int nTotalEnhancement) 
 {
 	effect eDamage;
@@ -303,12 +319,18 @@ void main()
 				&& !(GetResRef(oItem) == "psi_sk_tshield_0") 				
                 && !(GetResRef(oItem) == "prc_sk_mblade_ls"))  
             {  
-                if ((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")  
+/*                 if ((GetIsItemPropertyValid(GetFirstItemProperty(oItem)) && !(GetItemPropertyTag(GetFirstItemProperty(oItem)) == "Tag_PRC_OnHitKeeper")  
                     && !(nSlot == 4 || nSlot == 5))  
                     || (nSlot == 1 && GetBaseAC(oItem) >= 1)  
                     || (nSlot == 5 && (GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD  
                         || GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD  
-                        || GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD)))  
+                        || GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD))) */  
+				if ((nSlot != 4 && nSlot != 5 && nSlot != 1 && VoP_IsPermanentlyMagical(oItem))  
+					|| (nSlot == 1 && GetBaseAC(oItem) >= 1 && VoP_IsPermanentlyMagical(oItem))  
+					|| (nSlot == 5 && (GetBaseItemType(oItem) == BASE_ITEM_SMALLSHIELD  
+						|| GetBaseItemType(oItem) == BASE_ITEM_LARGESHIELD  
+						|| GetBaseItemType(oItem) == BASE_ITEM_TOWERSHIELD)  
+						&& VoP_IsPermanentlyMagical(oItem)))  						
                 {  
                     AssignCommand(oPC, ClearAllActions(TRUE));  
                     AssignCommand(oPC, ActionUnequipItem(oItem));  
@@ -363,7 +385,7 @@ void main()
 							|| GetBaseItemType(oItem) == BASE_ITEM_HEAVY_MACE    
 							|| GetBaseItemType(oItem) == BASE_ITEM_BULLET);    
   
-        int iMagic = 0;    
+/*         int iMagic = 0;    
         itemproperty eCheckIP = GetFirstItemProperty(oItem);    
         while (GetIsItemPropertyValid(eCheckIP))    
         {    
@@ -373,7 +395,19 @@ void main()
                 && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))    
                 iMagic = 1;    
             eCheckIP = GetNextItemProperty(oItem);    
-        }    
+        } */ 
+		int iMagic = 0;  
+		itemproperty eCheckIP = GetFirstItemProperty(oItem);  
+		while (GetIsItemPropertyValid(eCheckIP))  
+		{  
+			if (GetItemPropertyDurationType(eCheckIP) != DURATION_TYPE_TEMPORARY  
+				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify1")  
+				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify2")  
+				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify3")  
+				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))  
+				iMagic = 1;  
+			eCheckIP = GetNextItemProperty(oItem);  
+		}		
         if (!(GetTag(oItem) == "xp1_mystrashand")    
             && !(GetTag(oItem) == "H2_SenseiAmulet")    
             && !(GetResRef(oItem) == "prc_sk_mblade_bs")    

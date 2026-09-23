@@ -25537,6 +25537,7 @@ Special Abilities:
 - Naturally Psionic: Half-giants gain 2 free power points at first level.
 - Psi-like Ability: Stomp - 1/day
 - Giant: Half-giants are considered Giants for the purpose of spells.
+- Weapon and Armor Proficiency: A half-giant is automatically proficient with all simple and martial weapons, light and medium armor, and shields.
 
 (The following may or may not be in use, depending on the module switch settings)
 Level Adjustment: +1
@@ -25808,7 +25809,7 @@ Use: Automatic.</entry>
   <entry id="50553" lang="en" sex="m">Type of Feat: Domain
 Prerequisite: Access to the Spells domain.
 Granted Power: You gain +2 Concentration and Spellcraft.
-Bonus Spells: The cleric gains access to the following spells at the specified spell level: Lesser Spell Breach (4), Spell Mantle (5), Greater Spell Breach (9), Protection From Spells (7)
+Bonus Spells: The cleric gains access to the following spells at the specified spell level: Lesser Spell Breach (4), Spell Mantle (5), Protection From Spells (7), Greater Spell Mantle (9)
 Use: Automatic.</entry>
   <entry id="50554" lang="en" sex="m">Detect Undead</entry>
   <entry id="50555" lang="en" sex="m">Type of Feat: Domain
@@ -45130,6 +45131,7 @@ Special Abilities:
 +2 racial bonus on Sense Motive
 Powerful Build - The Goliath is treated as a Large creature for wielding weapons and combat maneuvers such as grappling and tripping
 Running Jump - Goliaths treat all jump checks as running
+Simple Weapon Proficiency - Goliaths can use all simple weapons.
 
 Goliath count as monstrous humanoid for spells and abilities. They have a Level Adjustment of +1</entry>
   <entry id="55956" lang="en" sex="m">Caster Level(s): Wizard / Sorcerer 8 
@@ -55677,7 +55679,7 @@ Level
 7:  Arcane or Psionic Investment 2
 8:  Chakra binds (arm, brow, shoulders)
 9:  
-10: Magic or Psionic Distillation 
+10: Soul Distillation 
 
 BONUS SPELLS:
 
@@ -56506,10 +56508,11 @@ Psionic Slayer Favored Enemy bonuses continue to progress with Epic levels. Ever
   <entry id="60594" lang="en" sex="m">Psionic Slayer: Favored Enemy [Shapechanger]</entry>
   <entry id="60595" lang="en" sex="m">Psionic Slayer: Favored Enemy [Undead]</entry>
   <entry id="60596" lang="en" sex="m">Psionic Slayer: Favored Enemy [Vermin]</entry>
-  <entry id="60597" lang="en" sex="m">Magical Distillation</entry>
+  <entry id="60597" lang="en" sex="m">Soul Distillation</entry>
   <entry id="60598" lang="en" sex="m">Type of Feat: General
 Prerequisite: Soulcaster 10
-Specifics: Soulcaster: At 10th level, by sacrificing one arcane spell of the highest level you can cast, you gain points of bonus essentia equal to that spell's level for 1 round. This essentia can be invested or otherwise used as normal, but it disappears at the start of your next round. This ability is usable once per round as a free action.
+Specifics: 
+Soulcaster: At 10th level, by sacrificing one arcane spell of the highest level you can cast, you gain points of bonus essentia equal to that spell's level for 1 round. This essentia can be invested or otherwise used as normal, but it disappears at the start of your next round. This ability is usable once per round as a free action.
 
 Soulmanifester: At 10th level, by paying a number of power points equal to the base cost to manifest the highest-level power that you know, you gain points of essentia equal to that power's level for 1 round. This essentia can be invested or otherwise used as normal, but it disappears at the start of your next turn. This ability is usable once per round as a free action.
 Use: Selected</entry>

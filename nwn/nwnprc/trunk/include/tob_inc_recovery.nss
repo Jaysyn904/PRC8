@@ -251,8 +251,8 @@ int GetMaxReadiedCount(object oPC, int nList)
     int nMaxReadied = StringToInt(Get2DACache(GetAMSKnownFileName(nList), "ManeuversReadied", nLevel-1));
     // Add in the custom modifier
     nMaxReadied += GetReadiedManeuversModifier(oPC, nList);
-    if(nList == MANEUVER_LIST_CRUSADER)
-        nMaxReadied += GetHasFeat(FEAT_EXTRA_GRANTED_MANEUVER, oPC);
+    if(nList == MANEUVER_LIST_SWORDSAGE)
+        nMaxReadied += GetHasFeat(FEAT_EXTRA_READIED_MANEUVER, oPC);
 
     if(DEBUG) DoDebug("tob_inc_recovery: MaxManeuvers Readied: " +IntToString(nMaxReadied));
     return nMaxReadied;

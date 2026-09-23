@@ -494,5 +494,9 @@
 490        SublimeChord_VileDeath                        12693     0    99             1      
 491        SublimeChord_Wail_of_the_Banshee              12694     0    99             1      
 492        SublimeChord_Weird                            12695     0    99             1      
-493        ****                                          ****      **** ****           ****   
-494        ####END_OF_NEW_SPELLBOOK_RESERVE              ****      **** ****           ****   
+493        SUBLIMECHORD_REPAIR_CRITICAL_DAMAGE           17670     0    99             1      
+494        SUBLIMECHORD_CHASING_PERFECTION               17671     0    99             1      
+495        SUBLIMECHORD_FORCE_MISSILES                   17672     0    99             1      
+496        SUBLIMECHORD_LIMITED_WISH                     17673     0    99             1      
+497        ****                                          ****      **** ****           ****   
+498        ####END_OF_NEW_SPELLBOOK_RESERVE              ****      **** ****           ****   

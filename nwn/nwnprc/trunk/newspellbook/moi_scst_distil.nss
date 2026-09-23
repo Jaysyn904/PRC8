@@ -1,3 +1,11 @@
+//:;////////////////////////////////////////////////////////
+//::
+//:: Soul Distillation
+//::
+//:: moi_scst_distil.nss
+//::
+//::////////////////////////////////////////////////////////
+
 #include "prc_inc_burn"
 #include "moi_inc_moifunc"
 #include "psi_inc_psifunc"
@@ -6,7 +14,8 @@ void main()
 {
     object oMeldshaper = OBJECT_SELF;
     if (GetLocalInt(oMeldshaper, "DistillDelay")) return;
-    if (GetPrimaryArcaneClass(oMeldshaper))
+    //if (GetPrimaryArcaneClass(oMeldshaper))  //:: <-   -1 returns TRUE
+	if (GetLevelByTypeArcane(oMeldshaper) > 0)
     {
     	int nType = GetPrimaryArcaneClass(oMeldshaper);   
        	int nMax = GetMaxSpellLevelForCasterLevel(nType, GetLevelByTypeArcane(oMeldshaper));

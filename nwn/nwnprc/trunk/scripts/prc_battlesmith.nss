@@ -1,3 +1,7 @@
+//::
+//:: prc_battlesmith.nss
+//:: 
+
 #include "inc_newspellbook" 
 #include "prc_inc_core"
 

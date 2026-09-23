@@ -450,11 +450,24 @@ void DetectRaceAura(int nRound, int nRace, location lLoc, int nBeamVFX, float fD
                 break;//end while loop
             }
 
-            int nStrength, nRawStrength;
+/*             int nStrength, nRawStrength;
             int nCheck = MyPRCGetRacialType(oTest);
             // Detect Living is -1
     		if(nRace == nCheck || (nRace == -1 && PRCGetIsAliveCreature(oTest)))
-        		nRawStrength = GetHitDice(oTest);            
+        		nRawStrength = GetHitDice(oTest);  */
+
+			int nStrength, nRawStrength = -1;   // sentinel: -1 means "no match"  
+			int nCheck = MyPRCGetRacialType(oTest);  
+			// Detect Living is -1  
+			if(nRace == nCheck || (nRace == -1 && PRCGetIsAliveCreature(oTest)))  
+				nRawStrength = GetHitDice(oTest);  
+			  
+			if(nRawStrength < 0)  
+			{  
+				// no match - skip this creature entirely  
+				oTest = GetNextObjectInShape(SHAPE_SPELLCONE, fDist, lTarget, TRUE, OBJECT_TYPE_CREATURE);  
+				continue;  
+			}  			
 
             if(nRawStrength >= 0 && nRawStrength <= 1)
                 nStrength = AURA_STRENGTH_FAINT;

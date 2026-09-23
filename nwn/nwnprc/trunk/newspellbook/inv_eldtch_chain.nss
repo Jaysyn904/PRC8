@@ -219,18 +219,18 @@ void main()
                      }
                      if(nEssence == INVOKE_FRIGHTFUL_BLAST || nEssence2 == INVOKE_FRIGHTFUL_BLAST)
                      {
-                         effect eDur2 = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
-                         effect eFear = EffectFrightened();
-                         effect eAttackD = EffectAttackDecrease(2);
-                         effect eDmgD = EffectDamageDecrease(2,DAMAGE_TYPE_BLUDGEONING|DAMAGE_TYPE_PIERCING|DAMAGE_TYPE_SLASHING);
-                         effect SaveD = EffectSavingThrowDecrease(SAVING_THROW_ALL,2);
-                         effect Skill = EffectSkillDecrease(SKILL_ALL_SKILLS,2);
+						 effect eDur2 = EffectVisualEffect(VFX_DUR_CESSATE_NEGATIVE);
+						 effect eFear = EffectShaken();
+	/*                   effect eAttackD = EffectAttackDecrease(2);
+						 effect eDmgD = EffectDamageDecrease(2,DAMAGE_TYPE_BLUDGEONING|DAMAGE_TYPE_PIERCING|DAMAGE_TYPE_SLASHING);
+						 effect SaveD = EffectSavingThrowDecrease(SAVING_THROW_ALL,2);
+						 effect Skill = EffectSkillDecrease(SKILL_ALL_SKILLS,2); */
 
-                         eEssence = EffectLinkEffects(eDmgD, eDur2);
-                         eEssence = EffectLinkEffects(eEssence, eAttackD);
-                         eEssence = EffectLinkEffects(eEssence, SaveD);
-                         eEssence = EffectLinkEffects(eEssence, eFear);
-                         eEssence = EffectLinkEffects(eEssence, Skill);
+						 eEssence = EffectLinkEffects(eFear, eDur2);
+						 //eEssence = EffectLinkEffects(eEssence, eAttackD);
+						 //eEssence = EffectLinkEffects(eEssence, SaveD);
+						 //eEssence = EffectLinkEffects(eEssence, eFear);
+						 //eEssence = EffectLinkEffects(eEssence, Skill);
 
                          if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_FEAR))
                              ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEssence, oTarget, TurnsToSeconds(1));

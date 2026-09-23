@@ -1,6 +1,6 @@
 //::///////////////////////////////////////////////
-//:: Psycarnum Blade spellscript
-//:: moi_ft_psyblade
+//:: Psycarnum Infusion spellscript
+//:: moi_ft_psyinfuse.nss
 //:://////////////////////////////////////////////
 /*
     To use this feat, you must expend your psionic focus. 

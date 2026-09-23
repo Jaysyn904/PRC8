@@ -118,7 +118,7 @@ void main()
     if (GetHasSpellEffect(SPELL_LUMINOUS_ARMOR, oPC) || GetHasSpellEffect(SPELL_GREATER_LUMINOUS_ARMOR, oPC))
     {
         object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
-        if (GetBaseAC(oArmour) > 0)
+        if (GetArmorBaseACValue(oArmour) > 0)
         {
             ForceUnequip(oPC, oArmour, INVENTORY_SLOT_CHEST);
             SendMessageToPC(oPC, "You cannot wear armor while under the effects of Luminous Armour");          

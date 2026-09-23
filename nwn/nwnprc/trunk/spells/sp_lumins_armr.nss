@@ -113,7 +113,7 @@ void main()
 
         SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eArmor, oTarget, fDur);
         object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);
-        if (GetBaseAC(oArmour) > 0)
+        if (GetArmorBaseACValue(oArmour) >= 1)
         {
             ForceUnequip(oPC, oArmour, INVENTORY_SLOT_CHEST);
             SendMessageToPC(oPC, "You cannot wear armor while under the effects of Luminous Armour");          
