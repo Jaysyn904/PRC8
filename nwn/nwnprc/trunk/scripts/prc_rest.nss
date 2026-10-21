@@ -466,8 +466,10 @@ void RestFinished(object oPC)
             == nGeneration)
     {
         AssignCommand(oPC, ClearAllActions(TRUE));
+		SaveFullMeldState(oPC);
         ClearMeldShapes(oPC);
         WipeMelds(oPC);
+		RestoreFullMeldState(oPC, GetPrimaryIncarnumClass(oPC));
     }
     
     // Execute scripts hooked to this event for the player triggering it

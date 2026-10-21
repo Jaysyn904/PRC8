@@ -5,7 +5,6 @@ float PILLAR_CHARGE_TIME = 30.0;
 int TRAP_DUR = 5;
 //#include "X0_I0_SPELLS"
 #include "nw_i0_generic"
-#include "x2_inc_spellhook"
 #include "prc_inc_spells"
 #include "inc_dispel"
 

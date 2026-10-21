@@ -197,15 +197,31 @@ void ApplyHalfVampireBonuses(object oPC)
             SetPersistantLocalInt(oPC, "NWNX_Template_hvamp", TRUE);  
         }  
   
-        // Resistances/DR still need to survive rest, so still re-apply every tick  
-        effect eCold = EffectDamageResistance(DAMAGE_TYPE_COLD, 5);  
-        effect eElec = EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, 5);  
-        effect eDR   = EffectDamageReduction(5, DAMAGE_POWER_PLUS_ONE);  
-  
-        effect eLink = EffectLinkEffects(eCold, eElec);  
-        eLink = EffectLinkEffects(eLink, eDR);  
-  
-        ApplyEffectToObject(DURATION_TYPE_PERMANENT, UnyieldingEffect(eLink), oPC);  
+        // Keep one tagged resistance/DR packet; restore it only if absent.
+        int bHasEffects = FALSE;
+        effect eCheck = GetFirstEffect(oPC);
+        while (GetIsEffectValid(eCheck))
+        {
+            if (GetEffectTag(eCheck) == "HVampResistDR")
+            {
+                bHasEffects = TRUE;
+                break;
+            }
+            eCheck = GetNextEffect(oPC);
+        }
+
+        if (!bHasEffects)
+        {
+            effect eCold = EffectDamageResistance(DAMAGE_TYPE_COLD, 5);
+            effect eElec = EffectDamageResistance(DAMAGE_TYPE_ELECTRICAL, 5);
+            effect eDR   = EffectDamageReduction(5, DAMAGE_POWER_PLUS_ONE);
+
+            effect eLink = EffectLinkEffects(eCold, eElec);
+            eLink = EffectLinkEffects(eLink, eDR);
+            eLink = TagEffect(UnyieldingEffect(eLink), "HVampResistDR");
+
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oPC);
+        }
     }  
     else  
     {  

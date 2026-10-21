@@ -26,4 +26,4 @@
 22 Base_Attack     BAB     7             ****      
 23 ScriptVar       VAR     PRC_AllowCoC  0         
 24 ScriptVar       VAR     PRC_PrereqCoC 0         
-24 MountedCombat   FEAT    1087          0         
+25 MountedCombat   FEAT    1087          0         

@@ -13,7 +13,6 @@
 //:: Created On: Aug 1, 2001
 //:://////////////////////////////////////////////
 //#include "X0_I0_SPELLS"
-#include "x2_inc_spellhook"
 #include "prc_inc_spells"
 #include "prc_inc_skills"
 

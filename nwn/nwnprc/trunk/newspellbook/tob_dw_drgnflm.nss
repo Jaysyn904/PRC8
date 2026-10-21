@@ -48,15 +48,16 @@ void main()
     {
         location lTarget = GetLocation(oInitiator);
         int nDC = 15 + GetAbilityModifier(ABILITY_WISDOM, oInitiator);
-        effect eVis = EffectVisualEffect(VFX_IMP_FLAME_S);
-        //Get the first target in the radius around the caster
-        oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), PRCGetSpellTargetLocation(), TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
+        effect eVis = EffectVisualEffect(VFX_IMP_FLAME_S);  
+  
+        //Get the first target in the cone around the initiator  
+        oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);  
         while(GetIsObjectValid(oTarget))
         {
             if(oTarget != oInitiator)
             {
                 SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, GetSpellId()));
-                int nDamage = d6(2);
+                int nDamage = d6(6);
                 if (GetLocalInt(oInitiator, "DesertFire")) nDamage += d6();
                 //Run the damage through the various reflex save and evasion feats
                 nDamage = PRCGetReflexAdjustedDamage(nDamage, oTarget, nDC, SAVING_THROW_TYPE_FIRE);
@@ -64,12 +65,12 @@ void main()
                 {
                     effect eFire = EffectDamage(nDamage, DAMAGE_TYPE_FIRE);
                     // Apply effects to the currently selected target. 
-                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eFire, oTarget);
-                    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
-                }
-            }
-            //Get the next target in the specified area around the caster
-            oTarget = MyNextObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), PRCGetSpellTargetLocation(), TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);
-        }
-    }
+                    SPApplyEffectToObject(DURATION_TYPE_INSTANT, eFire, oTarget);  
+                    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);  
+                }  
+            }  
+            //Get the next target in the specified area around the initiator  
+            oTarget = MyNextObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_DOOR | OBJECT_TYPE_PLACEABLE);  
+        }  
+    }  
 }

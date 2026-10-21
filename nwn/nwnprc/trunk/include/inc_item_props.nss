@@ -369,6 +369,67 @@ void RemoveSpecificProperty(object oItem, int iType, int iSubType = -1, int iCos
     SetLocalInt(oItem, sFlag, 0);
 }
 
+// 5123 Body Fuel experiment: compiled only into psi_ft_bodyfuel.ncs.
+// Native ability adjustments can clip when the old and new penalties overlap.
+// Remove first; add on the next update, preserving the composite's aggregate.
+string BFCompositeSnapshot(object oItem)
+{
+    string sResult = "";
+    int nCount = array_get_size(oItem, "PRC_CBon_Names");
+    int i;
+    for(i = 0; i < nCount; i++)
+    {
+        string sName = array_get_string(oItem, "PRC_CBon_Names", i);
+        sResult += sName + "=" + IntToString(GetLocalInt(oItem, sName)) + ";";
+    }
+    return sResult;
+}
+
+int BFHasAbilityPenalty(object oItem, int nSubtype)
+{
+    itemproperty ip = GetFirstItemProperty(oItem);
+    while(GetIsItemPropertyValid(ip))
+    {
+        if(GetItemPropertyType(ip) == ITEM_PROPERTY_DECREASED_ABILITY_SCORE
+            && GetItemPropertySubType(ip) == nSubtype) return TRUE;
+        ip = GetNextItemProperty(oItem);
+    }
+    return FALSE;
+}
+
+void BFRetireStalePenalty(object oItem, int nSubtype)
+{
+    string sKey = "PRC_BFDec_" + IntToString(nSubtype);
+    if(!GetLocalInt(oItem, sKey + "_Pending")) return;
+    object oOwner = GetItemPossessor(oItem);
+    if(GetLocalInt(oItem, sKey + "_Until") <= GetCurrentUnixTimestamp()
+        || GetLocalInt(oItem, sKey + "_Scrub")
+            != GetLocalInt(oOwner, "PRC_ScrubPCSkin_Generation"))
+    {
+        DeleteLocalInt(oItem, sKey + "_Pending");
+        SetLocalInt(oItem, sKey + "_Generation", GetLocalInt(oItem, sKey + "_Generation") + 1);
+    }
+}
+
+void BFFinishAbilityPenalty(object oItem, object oOwner, int nSubtype,
+    int nGeneration, int nScrubGeneration)
+{
+    string sKey = "PRC_BFDec_" + IntToString(nSubtype);
+    if(!GetIsObjectValid(oItem)
+        || GetLocalInt(oItem, sKey + "_Generation") != nGeneration) return;
+    int nTotal = GetLocalInt(oItem, sKey + "_Total");
+    DeleteLocalInt(oItem, sKey + "_Pending");
+    if(GetItemPossessor(oItem) != oOwner
+        || GetLocalInt(oItem, sKey + "_Until") <= GetCurrentUnixTimestamp()
+        || GetItemInSlot(INVENTORY_SLOT_CARMOUR, oOwner) != oItem
+        || GetLocalInt(oOwner, "PRC_ScrubPCSkin_Generation") != nScrubGeneration
+        || BFCompositeSnapshot(oItem) != GetLocalString(oItem, "PRC_BFDec_Snapshot")
+        || BFHasAbilityPenalty(oItem, nSubtype)) return;
+    if(nTotal > 0)
+        AddItemProperty(DURATION_TYPE_PERMANENT,
+            ItemPropertyDecreaseAbility(nSubtype, nTotal), oItem);
+}
+
 //SetCompositeBonus is a special case that doesn't need to use DelayAddItemProperty because
 //the property that is added is always different from the one that was deleted by TotalAndRemoveProperty.
 void SetCompositeBonus(object oItem, string sBonus, int iVal, int iType, int iSubType = -1)
@@ -518,17 +579,38 @@ void SetCompositeBonus(object oItem, string sBonus, int iVal, int iType, int iSu
                 AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDamageBonusVsRace(iSubType, DAMAGE_TYPE_SLASHING, iCurVal + iChange), oItem);
             break;            
         case ITEM_PROPERTY_DECREASED_ABILITY_SCORE:
-            iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
+        {
+            // Coalesce same-script recovery updates while removal settles.
+            // Do not overwrite a replacement supplied by an outside caller.
+            string sBFKey = "PRC_BFDec_" + IntToString(iSubType);
+            BFRetireStalePenalty(oItem, iSubType);
+            if(GetLocalInt(oItem, sBFKey + "_Pending"))
+            {
+                if(BFHasAbilityPenalty(oItem, iSubType)
+                    || BFCompositeSnapshot(oItem) != GetLocalString(oItem, "PRC_BFDec_Snapshot"))
+                    return;
+                iCurVal = GetLocalInt(oItem, sBFKey + "_Total");
+            }
+            else
+                iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
             if ((iCurVal + iChange)  > 50)
             {
-                iVal -= iCurVal + iChange - 10;
+                iVal -= iCurVal + iChange - 50;
                 iCurVal = 50;
                 iChange = 0;
             }
-            if(iCurVal+iChange > 0)
-                AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDecreaseAbility(iSubType, iCurVal + iChange), oItem);
-				//AddItemProperty(DURATION_TYPE_PERMANENT, ItemPropertyDecreaseAbility(iSubType, nTotalAmount), oItem);
+            int nBFGeneration = GetLocalInt(oItem, sBFKey + "_Generation") + 1;
+            SetLocalInt(oItem, sBFKey + "_Generation", nBFGeneration);
+            SetLocalInt(oItem, sBFKey + "_Pending", TRUE);
+            SetLocalInt(oItem, sBFKey + "_Total", iCurVal + iChange);
+            object oBFOwner = GetItemPossessor(oItem);
+            SetLocalInt(oItem, sBFKey + "_Until", GetCurrentUnixTimestamp() + 3);
+            int nBFScrubGeneration = GetLocalInt(oBFOwner, "PRC_ScrubPCSkin_Generation");
+            SetLocalInt(oItem, sBFKey + "_Scrub", nBFScrubGeneration);
+            DelayCommand(0.1f, BFFinishAbilityPenalty(oItem, oBFOwner, iSubType,
+                nBFGeneration, nBFScrubGeneration));
             break;
+        }
         case ITEM_PROPERTY_DECREASED_AC:
             iCurVal = TotalAndRemoveProperty(oItem, iType, iSubType);
             if ((iCurVal + iChange)  > 5)
@@ -707,6 +789,8 @@ void SetCompositeBonus(object oItem, string sBonus, int iVal, int iType, int iSu
             break;
     }
     SetLocalInt(oItem, sBonus, iVal);
+    if(iType == ITEM_PROPERTY_DECREASED_ABILITY_SCORE)
+        SetLocalString(oItem, "PRC_BFDec_Snapshot", BFCompositeSnapshot(oItem));
 }
 
 int GetACBonus(object oItem)

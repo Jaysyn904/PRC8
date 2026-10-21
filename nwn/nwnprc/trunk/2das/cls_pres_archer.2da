@@ -23,5 +23,5 @@
 19 Feyri            RACE    201            ****      
 20 Base_Attack      BAB     6              ****      
 21 Grey_Elf         RACE    169            ****      
-21 ScriptVar        VAR     X1_AllowArcher 0         
-22 ScriptVar        VAR     PRC_ArcSpell1  0         
+22 ScriptVar        VAR     X1_AllowArcher 0         
+23 ScriptVar        VAR     PRC_ArcSpell1  0         

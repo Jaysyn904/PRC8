@@ -206,6 +206,12 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
 
+     if ((GetLevelByClass(CLASS_TYPE_SHIFTER)|| GetLevelByClass(CLASS_TYPE_PNP_SHIFTER)))
+     {
+		SetLocalInt(oPC, "PRC_PrereqShift", 0);
+		return;        
+     }
+	 
      //Sorcerer (if it uses the old spellbook) and Wizard (which always does) need special checks
      if ((GetLevelByClass(CLASS_TYPE_SORCERER) && !UseNewSpellBook(oPC)) || GetLevelByClass(CLASS_TYPE_WIZARD))
      {

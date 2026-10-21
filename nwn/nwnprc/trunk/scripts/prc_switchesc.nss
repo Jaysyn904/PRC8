@@ -718,11 +718,11 @@ void main()
                 if(GetCurrentCohortCount(oPC) < GetMaximumCohortCount(oPC)
                     && !GetLocalInt(oPC, "CohortRecruited")
                     && !GetPRCSwitch(PRC_DISABLE_CUSTOM_COHORTS))
-                    AddChoice("Recruit a custom cohort", 1);
+                    AddChoice("Recruit a standard cohort", 1);
                 if(GetCurrentCohortCount(oPC) < GetMaximumCohortCount(oPC)
                     && !GetLocalInt(oPC, "CohortRecruited")
                     && !GetPRCSwitch(PRC_DISABLE_STANDARD_COHORTS))
-                    AddChoice("Recruit a standard cohort", 4);
+                    AddChoice("Recruit a custom cohort", 4);
                 //not implemented, remove via radial or conversation
                 //if(GetCurrentCohortCount(oPC))
                 //    AddChoice("Dismiss an existing cohort", 2);

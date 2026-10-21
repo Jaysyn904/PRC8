@@ -74,7 +74,13 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nSpellID)
     }
     while(GetIsObjectValid(oTarget))
     {
-        if(((!bMass) || (spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))) && PRCGetIsAliveCreature(oTarget))
+		// Signal placeables even if they're not creatures  
+		if(GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE)  
+		{  
+			SignalEvent(oTarget, EventSpellCastAt(oCaster, nSpellID, FALSE));  
+		}  
+		
+		if(((!bMass) || (spellsIsTarget(oTarget, SPELL_TARGET_ALLALLIES, oCaster))) && PRCGetIsAliveCreature(oTarget))
         {
             //Fire cast spell at event for the specified target
             SignalEvent(oTarget, EventSpellCastAt(oCaster, nSpellID, FALSE));

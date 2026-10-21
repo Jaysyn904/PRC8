@@ -15,7 +15,38 @@
 #include "prc_inc_wpnrest"
 
 //adds onhit: unique power, copied from swashbuckler code
-void CritSTR(object oPC, int iEquip)
+//:: Updated to not break Vow of Poverty
+void CritSTR(object oPC, int iEquip)  
+{  
+    object oItem;  
+    itemproperty ipOnHit;  
+    if(iEquip == 1)  
+    {  
+        oItem=GetItemLastUnequipped();  
+        RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,0,1,"",-1,DURATION_TYPE_TEMPORARY);  
+        DeleteLocalInt(oItem,"CritHarm");  
+    }  
+    else  
+    {  
+        ipOnHit = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);  
+        ipOnHit = TagItemProperty(ipOnHit, "Tag_PRC_OnHitKeeper");  
+  
+        oItem=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);  
+        if(!GetLocalInt(oItem,"CritHarm"))  
+        {  
+            AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItem,9999.0);  
+            SetLocalInt(oItem,"CritHarm",1);  
+        }  
+        oItem=GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);  
+        if(!GetLocalInt(oItem,"CritHarm"))  
+        {  
+            AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItem,9999.0);  
+            SetLocalInt(oItem,"CritHarm",1);  
+        }  
+    }  
+}
+
+/* void CritSTR(object oPC, int iEquip)
 {
     object oItem;
     if(iEquip == 1)
@@ -39,7 +70,7 @@ void CritSTR(object oPC, int iEquip)
             SetLocalInt(oItem,"CritHarm",1);
         }
     }
-}
+} */
 
 void SuperiorDefense(object oPC, int nLevel)
 {

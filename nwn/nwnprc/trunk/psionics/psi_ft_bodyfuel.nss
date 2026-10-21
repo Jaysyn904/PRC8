@@ -33,10 +33,83 @@
 */  
 //:://////////////////////////////////////////////  
 #include "psi_inc_ppoints"  
+
+// The item-property penalty does not alter GetAbilityScore(..., TRUE).
+// Check both the burn ledger and the effective score: a stale skin or a
+// temporary ability bonus must not buy additional uses with unpaid health.
+int BodyFuelCanBurn(object oPC, int nAbility)
+{
+    return GetAbilityScore(oPC, nAbility) > 3
+        && GetAbilityScore(oPC, nAbility, TRUE)
+            - GetUnHealableAbilityDamage(oPC, nAbility) > 3;
+}
+
+string BodyFuelAbilityKey(int nAbility)
+{
+    if(nAbility == ABILITY_STRENGTH) return "PRC_UbHealableAbilityDamage_STR";
+    if(nAbility == ABILITY_DEXTERITY) return "PRC_UbHealableAbilityDamage_DEX";
+    return "PRC_UbHealableAbilityDamage_CON";
+}
+
+void BodyFuelFinish(object oPC, object oSkin, int nGeneration, int nScrubGeneration)
+{
+    if(!GetIsObjectValid(oPC)
+        || GetLocalInt(oPC, "BodyFuel_Generation") != nGeneration) return;
+    int nBusyUntil = GetLocalInt(oPC, "BodyFuel_BusyUntil");
+    DeleteLocalInt(oPC, "BodyFuel_BusyUntil");
+    int bPaid = GetIsObjectValid(oSkin)
+        && nBusyUntil > GetCurrentUnixTimestamp()
+        && GetItemInSlot(INVENTORY_SLOT_CARMOUR, oPC) == oSkin
+        && GetLocalInt(oPC, "PRC_ScrubPCSkin_Generation") == nScrubGeneration
+        && !GetLocalInt(oPC, "ONREST")
+        && !GetIsDead(oPC);
+    int nAbility;
+    for(nAbility = 0; nAbility < 3; nAbility++)
+    {
+        string sKey = "BodyFuel_Expected_" + IntToString(nAbility);
+        int nExpected = GetLocalInt(oPC, sKey);
+        int nCount = 0;
+        int nTotal = 0;
+        itemproperty ip = GetFirstItemProperty(oSkin);
+        while(GetIsItemPropertyValid(ip))
+        {
+            if(GetItemPropertyType(ip) == ITEM_PROPERTY_DECREASED_ABILITY_SCORE
+                && GetItemPropertySubType(ip) == nAbility)
+            {
+                nCount++;
+                nTotal += GetItemPropertyCostTableValue(ip);
+            }
+            ip = GetNextItemProperty(oSkin);
+        }
+        if(GetUnHealableAbilityDamage(oPC, nAbility) != nExpected
+            || GetLocalInt(oSkin, BodyFuelAbilityKey(nAbility)) != nExpected
+            || nCount != 1 || nTotal != GetLocalInt(oPC, sKey + "_Total")
+            || GetAbilityScore(oPC, nAbility) != GetLocalInt(oPC, sKey + "_Score"))
+            bPaid = FALSE;
+    }
+    if(!bPaid)
+    {
+        WriteTimestampedLogEntry("Body Fuel: penalty update interrupted; no power points granted to " + GetName(oPC));
+        FloatingTextStringOnCreature("Body Fuel's ability burn was interrupted; no power points were gained. Rest before trying again.", oPC, FALSE);
+        return;
+    }
+    effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE_RED);
+    eVis = EffectLinkEffects(eVis, EffectVisualEffect(VFX_IMP_HEALING_S));
+    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);
+    GainPowerPoints(oPC, 2);
+    FloatingTextStringOnCreature("You burn your body's vitality to fuel your mind, gaining 2 power points.", oPC, FALSE);
+}
   
 void main()  
 {  
     object oPC = OBJECT_SELF;  
+
+    // The short lock serializes casts until their delayed penalties settle.
+    // Wall-clock expiry avoids a saved local permanently locking out a PC
+    // whose pending callback was discarded by logout.
+    int nNow = GetCurrentUnixTimestamp();
+    if(nNow <= 0 || GetLocalInt(oPC, "BodyFuel_BusyUntil") > nNow
+        || GetLocalInt(oPC, "ONREST")) return;
   
     if(!PRCGetIsAliveCreature(oPC))  
     {  
@@ -56,9 +129,9 @@ void main()
         return;  
     }  
   
-    if(GetAbilityScore(oPC, ABILITY_STRENGTH,     TRUE) <= 3 ||  
-       GetAbilityScore(oPC, ABILITY_DEXTERITY,    TRUE) <= 3 ||  
-       GetAbilityScore(oPC, ABILITY_CONSTITUTION, TRUE) <= 3)  
+    if(!BodyFuelCanBurn(oPC, ABILITY_STRENGTH) ||
+       !BodyFuelCanBurn(oPC, ABILITY_DEXTERITY) ||
+       !BodyFuelCanBurn(oPC, ABILITY_CONSTITUTION))
     {  
         FloatingTextStringOnCreature("Your Strength, Dexterity, or Constitution is too low (3 or less) to safely use Body Fuel.", oPC, FALSE);  
         return;  
@@ -95,7 +168,49 @@ void main()
 	if(DEBUG) DoDebug("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		
     int nBurnPerAbility = 1;  
-    int nPPGain = nBurnPerAbility * 2;  
+    int nOldSTR = GetUnHealableAbilityDamage(oPC, ABILITY_STRENGTH);
+    int nOldDEX = GetUnHealableAbilityDamage(oPC, ABILITY_DEXTERITY);
+    int nOldCON = GetUnHealableAbilityDamage(oPC, ABILITY_CONSTITUTION);
+    object oSkin = GetPCSkin(oPC);
+    if(!GetIsObjectValid(oSkin)) return;
+    // A discarded callback may leave recorded burn without its property.
+    // Refuse further spending until normal skin rebuilding restores it.
+    int nAbility;
+    for(nAbility = 0; nAbility < 3; nAbility++)
+    {
+        BFRetireStalePenalty(oSkin, nAbility);
+        int nTotal = 0;
+        itemproperty ip = GetFirstItemProperty(oSkin);
+        while(GetIsItemPropertyValid(ip))
+        {
+            if(GetItemPropertyType(ip) == ITEM_PROPERTY_DECREASED_ABILITY_SCORE
+                && GetItemPropertySubType(ip) == nAbility)
+                nTotal += GetItemPropertyCostTableValue(ip);
+            ip = GetNextItemProperty(oSkin);
+        }
+        int nBurn = GetUnHealableAbilityDamage(oPC, nAbility);
+        if(nTotal >= 50)
+        {
+            FloatingTextStringOnCreature("Your existing ability penalties cannot accept more Body Fuel burn.", oPC, FALSE);
+            return;
+        }
+        if(GetLocalInt(oSkin, "PRC_BFDec_" + IntToString(nAbility) + "_Pending")
+            || GetLocalInt(oSkin, BodyFuelAbilityKey(nAbility)) != nBurn
+            || nTotal < nBurn)
+        {
+            FloatingTextStringOnCreature("Your ability burn is still settling. Rest before trying Body Fuel again.", oPC, FALSE);
+            return;
+        }
+    }
+    int nGeneration = GetLocalInt(oPC, "BodyFuel_Generation") + 1;
+    SetLocalInt(oPC, "BodyFuel_Generation", nGeneration);
+    SetLocalInt(oPC, "BodyFuel_BusyUntil", nNow + 3);
+    for(nAbility = 0; nAbility < 3; nAbility++)
+    {
+        string sKey = "BodyFuel_Expected_" + IntToString(nAbility);
+        SetLocalInt(oPC, sKey, GetUnHealableAbilityDamage(oPC, nAbility) + 1);
+        SetLocalInt(oPC, sKey + "_Score", GetAbilityScore(oPC, nAbility) - 1);
+    }
   
     // Apply ability burn to STR, DEX, CON  
 	if(GetPRCSwitch(PRC_ABILITY_BURN_HEAL_ON_REST))  
@@ -113,14 +228,21 @@ void main()
 		ApplyAbilityDamage(oPC, ABILITY_CONSTITUTION, nBurnPerAbility, DURATION_TYPE_TEMPORARY, FALSE, -1.0f);  
 	}  
   
-    effect eVis = EffectVisualEffect(VFX_IMP_REDUCE_ABILITY_SCORE_RED);  
-           eVis = EffectLinkEffects(eVis, EffectVisualEffect(VFX_IMP_HEALING_S));
+    // ApplyAbilityDamage is void; do not pay PP unless all three costs landed.
+    // Do not refund here: the temporary path already scheduled recovery.
+    if(GetUnHealableAbilityDamage(oPC, ABILITY_STRENGTH) != nOldSTR + 1
+        || GetUnHealableAbilityDamage(oPC, ABILITY_DEXTERITY) != nOldDEX + 1
+        || GetUnHealableAbilityDamage(oPC, ABILITY_CONSTITUTION) != nOldCON + 1)
+    {
+        DeleteLocalInt(oPC, "BodyFuel_BusyUntil");
+        WriteTimestampedLogEntry("Body Fuel: incomplete ability-burn payment; no power points granted to " + GetName(oPC));
+        FloatingTextStringOnCreature("Body Fuel could not apply its full ability burn; no power points were gained.", oPC, FALSE);
+        return;
+    }
 
-    ApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oPC);  
-  
-	ReApplyUnhealableAbilityDamage(oPC);
-    GainPowerPoints(oPC, nPPGain);  
-  
-    FloatingTextStringOnCreature("You burn your body's vitality to fuel your mind, gaining " +  
-        IntToString(nPPGain) + " power points.", oPC, FALSE);  
+    for(nAbility = 0; nAbility < 3; nAbility++)
+        SetLocalInt(oPC, "BodyFuel_Expected_" + IntToString(nAbility) + "_Total",
+            GetLocalInt(oSkin, "PRC_BFDec_" + IntToString(nAbility) + "_Total"));
+    int nScrubGeneration = GetLocalInt(oPC, "PRC_ScrubPCSkin_Generation");
+    DelayCommand(0.3f, BodyFuelFinish(oPC, oSkin, nGeneration, nScrubGeneration));
 }

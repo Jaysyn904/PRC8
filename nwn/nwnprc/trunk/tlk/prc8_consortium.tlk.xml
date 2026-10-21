@@ -435,7 +435,7 @@ Skill Points at Each Additional Level: 2+Int Modifier.
 Bonus Feats: The Epic Mystic Theurge gains a bonus feat every four levels after 10th.
 
 Epic Mystic Theurge Bonus Feats:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Improved Combat Casting, Planar Turning, Epic Spells.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Energy Resistance, Epic Spell Focus, Epic Spell Penetration, Improved Combat Casting, Planar Turning, Epic Spellcasting.</entry>
   <entry id="12373" lang="en" sex="m">Epic Mystic Theurge</entry>
   <entry id="12374" lang="en" sex="m">Skill Focus (Sense Motive)</entry>
   <entry id="12375" lang="en" sex="m">Epic Skill Focus (Sense Motive)</entry>
@@ -6822,17 +6822,17 @@ Specifics: The Peerless Archer can create a stack of 99 +5 Arrows for the cost o
 Use: Selected.</entry>
   <entry id="45318" lang="en" sex="m">Ranged Sneak Attack +1d6</entry>
   <entry id="45319" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Peerless Archer Level 1, Blood Archer Level 5
+Prerequisite: Peerless Archer Level 1
 Specifics: Adds +1d6 Sneak Attack damage when using a Longbow or Shortbow.
 Use: Automatic.</entry>
   <entry id="45320" lang="en" sex="m">Ranged Sneak Attack +2d6</entry>
   <entry id="45321" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Peerless Archer Level 4, Blood Archer Level 8
+Prerequisite: Peerless Archer Level 4
 Specifics: Adds +2d6 Sneak Attack damage when using a Longbow or Shortbow.
 Use: Automatic.</entry>
   <entry id="45322" lang="en" sex="m">Ranged Sneak Attack +3d6</entry>
   <entry id="45323" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Peerless Archer Level 7, Blood Archer Level 10
+Prerequisite: Peerless Archer Level 7
 Specifics: Adds +3d6 Sneak Attack damage when using a Longbow or Shortbow.
 Use: Automatic.</entry>
   <entry id="45324" lang="en" sex="m">Ranged Sneak Attack +4d6</entry>
@@ -16714,7 +16714,7 @@ Feats: Purity of Body
 CLASS FEATURES:
 
 Level
-1: Riddle of Awareness - The Henshin Mystic can use scrying as a spell-like ability once per day. This grants the Henshin Mystic a +4 insight bonus on all Listen, Search and Spot checks for 1 minute per level. Scrying isn't in Neverwinter Nights but the bonuses are translated.
+1: Riddle of Awareness - The Henshin Mystic can use scrying as a spell-like ability once per day. This grants the Henshin Mystic a +4 insight bonus on all Listen, Search and Spot checks for 1 minute per level.
 2: Blind Fight - Character gets to roll her miss chance percentile to see if it actually hits, as well invisible creatures get no bonus to hit the character in melee.
   Diamond Body - Henshin Mystic in control of his metabolism that he gains immunity to poison of all kinds.
 3: Happo Zanshin - The character gains a preternatural awareness of danger and can no longer be flanked. This gives the henshin mystic immunity to sneak attacks.
@@ -35423,7 +35423,7 @@ Use: Specified</entry>
   <entry id="52528" lang="en" sex="m">AC Bonus</entry>
   <entry id="52529" lang="en" sex="m">Type of Feat: Class Specific
 Prerequisites: Swordsage 2.
-Specifics: AC Bonus: Starting at 2nd level, you can add your Wisdom modifier as a bonus to Armor Class, so long as you wear light armor, are unencumbered, and do not use a shield. This bonus to AC applies even against touch attacks or when you are flat-footed. However, you lose this bonus when you are immobilized or helpless.
+Specifics: AC Bonus: Starting at 2nd level, you can add your Wisdom modifier as a bonus to Armor Class, so long as you wear no armor or light armor, are unencumbered, and do not use a shield. This bonus to AC applies even against touch attacks or when you are flat-footed. However, you lose this bonus when you are immobilized or helpless.
 Use: Automatic</entry>
   <entry id="52530" lang="en" sex="m">Sense Magic</entry>
   <entry id="52531" lang="en" sex="m">Type of Feat: Class Specific
@@ -37918,7 +37918,7 @@ You shift across the battlefield, timing your movements precisely to avoid any a
 You gain a 5 foot increase to your land speed.</entry>
   <entry id="52973" lang="en" sex="m">Swarm Tactics</entry>
   <entry id="52974" lang="en" sex="m">White Raven (Stance)
-Level: Crusader 5, Warblade 5
+Level: Crusader 8, Warblade 8
 Prerequisite: One White Raven maneuver
 Initiation Action: 1 Swift Action
 Range: 10 ft.
@@ -42834,7 +42834,7 @@ If you and the subject of the spell move out of range of each other, the spell e
 Focus: A pair of platinum rings (worth at least 50 gp each) worn by both you and the warded creature.
 
 NOTE: This spell does not stack and applies damage to the last caster (I think, actually depends on the order of the applied effects).</entry>
-  <entry id="55153" lang="en" sex="m">Craft(General)</entry>
+  <entry id="55153" lang="en" sex="m">Craft (General)</entry>
   <entry id="55154" lang="en" sex="m">Ability: Intelligence.
 Requires Training: no.
 Classes: All.
@@ -42884,7 +42884,7 @@ Specifics: This feat allows the caster to gain spells per day as if they had gai
   <entry id="55182" lang="en" sex="m">Spellcasting: Healer</entry>
   <entry id="55183" lang="en" sex="m">Spellcasting: Slayer of Domiel</entry>
   <entry id="55184" lang="en" sex="m">Spellcasting: Ocular Adept</entry>
-  <entry id="55185" lang="en" sex="m">Craft(Poisonmaking)</entry>
+  <entry id="55185" lang="en" sex="m">Craft (Poisonmaking)</entry>
   <entry id="55186" lang="en" sex="m">Ability: Intelligence.
 Requires Training: no.
 Classes: All.
@@ -45953,7 +45953,7 @@ Duration: Instantaneous
 Saving Throw: None (harmless)
 Spell Resistance: No (harmless)
 
-Conversing with ones patron deity is never an insignificant task, particularly when the attention of said god is demanded, rather than requested. Pious Parley guarantees council with your patron deity, if you have one, and the deity is available for conversation. The mood of your patron deity, however, is not guaranteed, as your casting essentially interrupts the deity from whatever it was doing, and imparts you with the deities undivided attention. Use this attention wisely.E</entry>
+Conversing with ones patron deity is never an insignificant task, particularly when the attention of said god is demanded, rather than requested. Pious Parley guarantees council with your patron deity, if you have one, and the deity is available for conversation. The mood of your patron deity, however, is not guaranteed, as your casting essentially interrupts the deity from whatever it was doing, and imparts you with the deities undivided attention. Use this attention wisely.</entry>
   <entry id="56257" lang="en" sex="m">Epic Spell: Planar Cell</entry>
   <entry id="56258" lang="en" sex="m">Researched Epic Spell: Planar Cell</entry>
   <entry id="56259" lang="en" sex="m">School: Transmutation [Teleportation]
@@ -51973,7 +51973,7 @@ The target creature is struck blind and deaf.</entry>
   <entry id="59217" lang="en" sex="m">Monkey Grip</entry>
   <entry id="59218" lang="en" sex="m">Type of Feat: General
 Prerequisite: BAB +1
-Benefit: You can equip a weapon of one size larger than normal. You take a -2 penalty to all attack rolls when using Monkey Grip.
+Benefit: You can equip a weapon of one size larger than normal. You take a -2 penalty to all attack rolls when using Monkey Grip. You cannot wield a larger weapon in your off hand, and you cannot use this feat with a double weapon.
 
 * due to engine limitations, Tiny, Large and Huge creatures see no benefit from Monkey Grip.
 
@@ -68842,7 +68842,7 @@ Rebuke Undead
 8: Negative Energy Burst 2/day
 Undead Mastery - Add your charisma modifier to the number of undead you can control
 9: Negative Energy Resistance - +4 saves against negative energy
-10: Immunity to Sneak Attack
+10: Light Fortification (25% chance to avoid critical hit.)
 11: Lich Body - DR 6
 Scabrous Touch 2/day
 12: Enervating Touch - Negative level touch
@@ -68851,7 +68851,7 @@ Scabrous Touch 2/day
 15: Lich Body - DR 8
 16: Scabrous Touch 3/day
 17: Enervating Touch - Double uses
-Immunity to Critical Hits
+Medium Fortification (50% chance to avoid critical hit.)
 18: Negative Energy Burst 4/day
 19: Craft Wondrous Item
 20: Lich Transformation - Gain Lich template.
@@ -73146,10 +73146,9 @@ Weight 1 lb.</entry>
   <entry id="80118" lang="en" sex="m">Aroma of Curdled Death</entry>
   <entry id="80119" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
 
-One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of
-Constitution damage (Fort DC 17 half) per round of exposure.
+One round after you apply this elixir to your skin, it creates an invisible cloud of gas in a 10-foot radius that moves with you and persists for 1 minute. You are immune to the cloud's effects, but every other creature in the area that has 3 Hit Dice or fewer immediately dies (no save). A creature that has 4-6 Hit Dice must succeed on a DC 17 Fortitude save each round it remains in the area or die. A creature that has 7 Hit Dice or more takes 1d4 points of Constitution damage (Fort DC 17 half) per round of exposure.
 
-Prerequisites: Craft Wondrous Item, cloudkill, Craft (alchemy) 4 ranks.
+Prerequisites: Craft Wondrous Item, cloudkill, Craft (Alchemy) 4 ranks.
 
 Cost to Create: 2,250 gp, 180 XP, 5 days</entry>
   <entry id="80120" lang="en" sex="m">This elegant, stoppered glass bottle holds a dark, viscous fluid.
@@ -73162,7 +73161,7 @@ Constitution damage (Fort DC 17 half) per round of exposure.</entry>
 
 You gain darkvision out to 60 feet and a +2 enhancement bonus to your existing natural armor. (A creature without natural armor has an effective natural armor bonus of +0.) These effects last for 12 hours.
 
-Prerequisites: Craft Wondrous Item, alter self, darkvision, Craft (alchemy) 5 ranks.
+Prerequisites: Craft Wondrous Item, alter self, darkvision, Craft (Alchemy) 5 ranks.
 
 Cost to Create: 675 gp, 54 XP, 2 days</entry>
   <entry id="80124" lang="en" sex="m">The viscous liquid in this vial has an oily brown color and smells a little like wet leaves.  Drinking beetle elixir causes your skin to harden, darken, and gloss over, and short antennae to sprout from your forehead.
@@ -76230,7 +76229,7 @@ Light Crossbow
   <entry id="211413" lang="en" sex="m">Beguiler (Investigator)</entry>
   <entry id="211414" lang="en" sex="m">(STARTING PACKAGE)
 
-This packkage leverages illusions, enchantments, and keen observation to uncover secrets, extract information, and reconstruct events, using subtle magic and social manipulation to solve problems without drawing attention.
+This package leverages illusions, enchantments, and keen observation to uncover secrets, extract information, and reconstruct events, using subtle magic and social manipulation to solve problems without drawing attention.
 
 Equipment:
 Torch

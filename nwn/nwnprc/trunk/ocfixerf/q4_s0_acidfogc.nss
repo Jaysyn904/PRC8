@@ -14,7 +14,6 @@
 //:://////////////////////////////////////////////
 
 //#include "X0_I0_SPELLS"
-#include "x2_inc_spellhook"
 #include "prc_inc_spells"
 
 void main()

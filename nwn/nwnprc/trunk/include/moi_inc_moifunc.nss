@@ -261,6 +261,183 @@ int GetMaxBindCount(object oMeldshaper, int nClass);
 /*             Function definitions             */
 //////////////////////////////////////////////////
 
+void SaveFullMeldState(object oMeldshaper)
+{
+    int i;
+    int nVal;
+ 
+    // 1. Save chakra bind assignments
+    for (i = 0; i <= 22; i++)
+    {
+        int nMeld = GetLocalInt(oMeldshaper, "BoundMeld" + IntToString(i));
+        if (nMeld)
+            SetLocalInt(oMeldshaper, "Saved_BoundMeld" + IntToString(i), nMeld);
+    }
+ 
+    // 2. Save meld essentia - main soulmeld range (18700-18798)
+    for (i = 18700; i < 18799; i++)
+    {
+        nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(i));
+        if (nVal)
+            SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(i), nVal);
+    }
+ 
+    // 3. Save meld essentia - class/race/prestige melds outside main range
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCARNUM_RADIANCE));        if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCARNUM_RADIANCE),        nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_SPINE_ENHANCEMENT));        if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_SPINE_ENHANCEMENT),        nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_SHIELD));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_SHIELD),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_ARMOR));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_ARMOR),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_WEAPON));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_WEAPON),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_STEP));              if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_STEP),              nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SHADOW));            if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SHADOW),            nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SIGHT));             if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SIGHT),             nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SOUL));              if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SOUL),              nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_KISS));              if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_KISS),              nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_STRIKE));      if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_STRIKE),      nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_HEAL));        if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_HEAL),        nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_COUNTENANCE)); if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_COUNTENANCE), nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_RAY));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_RAY),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_AURA));        if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_AURA),        nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_CROWN));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_CROWN),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_FEET));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_FEET),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_HANDS));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HANDS),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_ARMS));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_ARMS),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_BROW));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_BROW),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_SHOULDERS));      if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SHOULDERS),      nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_THROAT));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_THROAT),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_WAIST));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_WAIST),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_HEART));          if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HEART),          nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_SOUL));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SOUL),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_MELDSHIELD));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_MELDSHIELD),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_DISPEL));             if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_DISPEL),             nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_SHACKLES));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SHACKLES),           nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_ABROGATION));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_ABROGATION),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_SPIRITFLAY));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SPIRITFLAY),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_INTEGUMENT));         if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_INTEGUMENT),         nVal);
+    nVal = GetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_DUSKLING_SPEED));           if (nVal) SetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_DUSKLING_SPEED),           nVal);
+ 
+    // 4. Save feat essentia (8869-8888)
+    for (i = 8869; i < 8889; i++)
+    {
+        nVal = GetLocalInt(oMeldshaper, "FeatEssentia" + IntToString(i));
+        if (nVal)
+            SetLocalInt(oMeldshaper, "Saved_FeatEssentia" + IntToString(i), nVal);
+    }
+ 
+    // 5. Save spell-invest essentia
+    for (i = 0; i <= 22; i++)
+    {
+        int nCheck = GetLocalInt(oMeldshaper, "SpellInvestCheck" + IntToString(i));
+        if (nCheck)
+        {
+            nVal = GetLocalInt(oMeldshaper, "SpellEssentia" + IntToString(nCheck));
+            if (nVal)
+            {
+                SetLocalInt(oMeldshaper, "Saved_SpellInvestCheck" + IntToString(i), nCheck);
+                SetLocalInt(oMeldshaper, "Saved_SpellEssentia" + IntToString(nCheck), nVal);
+            }
+        }
+    }
+ 
+    SetLocalInt(oMeldshaper, "FullMeldStateSaved", TRUE);
+}
+ 
+void RestoreFullMeldState(object oMeldshaper, int nClass)
+{
+    if (!GetLocalInt(oMeldshaper, "FullMeldStateSaved")) return;
+ 
+    int i;
+ 
+    // 1. Restore chakra bind assignments
+    int nMaxBinds = GetMaxBindCount(oMeldshaper, nClass);
+    int nRestored = 0;
+    for (i = 0; i <= 22; i++)
+    {
+        int nMeld = GetLocalInt(oMeldshaper, "Saved_BoundMeld" + IntToString(i));
+        if (nMeld && nRestored < nMaxBinds)
+        {
+            SetLocalInt(oMeldshaper, "BoundMeld" + IntToString(i), nMeld);
+            nRestored++;
+        }
+        DeleteLocalInt(oMeldshaper, "Saved_BoundMeld" + IntToString(i));
+    }
+ 
+    // 2. Restore meld essentia - main soulmeld range (18700-18798)
+    for (i = 18700; i < 18799; i++)
+    {
+        int nVal = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(i));
+        if (nVal)
+        {
+            SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(i), nVal);
+            DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(i));
+        }
+    }
+ 
+    // 3. Restore meld essentia - class/race/prestige melds outside main range
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCARNUM_RADIANCE));        if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCARNUM_RADIANCE),        nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCARNUM_RADIANCE));        } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_SPINE_ENHANCEMENT));        if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_SPINE_ENHANCEMENT),        nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_SPINE_ENHANCEMENT));        } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_SHIELD));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_SHIELD),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_SHIELD));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_ARMOR));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_ARMOR),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_ARMOR));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_WEAPON));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_IRONSOUL_WEAPON),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_IRONSOUL_WEAPON));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_STEP));              if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_STEP),              nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_STEP));              } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SHADOW));            if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SHADOW),            nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SHADOW));            } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SIGHT));             if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SIGHT),             nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SIGHT));             } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SOUL));              if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_SOUL),              nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_SOUL));              } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_KISS));              if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_UMBRAL_KISS),              nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_UMBRAL_KISS));              } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_STRIKE));      if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_STRIKE),      nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_STRIKE));      } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_HEAL));        if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_HEAL),        nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_HEAL));        } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_COUNTENANCE)); if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_COUNTENANCE), nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_COUNTENANCE)); } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_RAY));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_RAY),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_RAY));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_AURA));        if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_INCANDESCENT_AURA),        nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_INCANDESCENT_AURA));        } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_CROWN));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_CROWN),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_CROWN));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_FEET));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_FEET),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_FEET));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HANDS));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_HANDS),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HANDS));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_ARMS));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_ARMS),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_ARMS));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_BROW));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_BROW),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_BROW));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SHOULDERS));      if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_SHOULDERS),      nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SHOULDERS));      } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_THROAT));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_THROAT),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_THROAT));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_WAIST));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_WAIST),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_WAIST));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HEART));          if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_HEART),          nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_HEART));          } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SOUL));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_BLADEMELD_SOUL),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_BLADEMELD_SOUL));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_MELDSHIELD));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_MELDSHIELD),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_MELDSHIELD));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_DISPEL));             if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_DISPEL),             nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_DISPEL));             } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SHACKLES));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_SHACKLES),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SHACKLES));           } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_ABROGATION));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_ABROGATION),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_ABROGATION));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SPIRITFLAY));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_SPIRITFLAY),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_SPIRITFLAY));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_INTEGUMENT));         if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_WITCH_INTEGUMENT),         nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_WITCH_INTEGUMENT));         } }
+    { int nV = GetLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_DUSKLING_SPEED));           if (nV) { SetLocalInt(oMeldshaper, "MeldEssentia" + IntToString(MELD_DUSKLING_SPEED),           nV); DeleteLocalInt(oMeldshaper, "Saved_MeldEssentia" + IntToString(MELD_DUSKLING_SPEED));           } }
+ 
+    // 4. Restore feat essentia (8869-8888)
+    for (i = 8869; i < 8889; i++)
+    {
+        int nVal = GetLocalInt(oMeldshaper, "Saved_FeatEssentia" + IntToString(i));
+        if (nVal)
+        {
+            SetLocalInt(oMeldshaper, "FeatEssentia" + IntToString(i), nVal);
+            DeleteLocalInt(oMeldshaper, "Saved_FeatEssentia" + IntToString(i));
+        }
+    }
+ 
+    // 5. Restore spell-invest essentia
+    for (i = 0; i <= 22; i++)
+    {
+        int nCheck = GetLocalInt(oMeldshaper, "Saved_SpellInvestCheck" + IntToString(i));
+        if (nCheck)
+        {
+            int nVal = GetLocalInt(oMeldshaper, "Saved_SpellEssentia" + IntToString(nCheck));
+            if (nVal)
+            {
+                SetLocalInt(oMeldshaper, "SpellInvestCheck" + IntToString(i), nCheck);
+                SetLocalInt(oMeldshaper, "SpellEssentia" + IntToString(nCheck), nVal);
+                DeleteLocalInt(oMeldshaper, "Saved_SpellEssentia" + IntToString(nCheck));
+            }
+            DeleteLocalInt(oMeldshaper, "Saved_SpellInvestCheck" + IntToString(i));
+        }
+    }
+ 
+    DeleteLocalInt(oMeldshaper, "FullMeldStateSaved");
+}
+
 int GetMeldshaperLevel(object oMeldshaper, int nSpecificClass, int nMeld)
 {
     int nLevel;
@@ -1616,3 +1793,5 @@ int ChakraToBlademeld(int nChakra)
     
 	return nMeld;
 }
+
+//:: void main (){}

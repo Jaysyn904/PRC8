@@ -1,4 +1,12 @@
 2DA V2.0
 
-           Label           Name                      
-0          NW_WSWRP001     Rapier_1d6                
+     Label           Name                  
+0    NW_WSWRP001     Rapier_1d6            
+1    NW_IT_TORCH001  Torch                 
+2    NW_AARCL002     Studded_Leather_Armor 
+3    NW_WSWDG001     Dagger                
+4    NW_WBWSH001     Short_Bow             
+5    NW_WAMAR001     99_Arrows             
+6    NW_WAMAR001     99_Arrows             
+7    NW_IT_MEDKIT001 Healers_Kit           
+8    NW_IT_MEDKIT001 Healers_Kit           

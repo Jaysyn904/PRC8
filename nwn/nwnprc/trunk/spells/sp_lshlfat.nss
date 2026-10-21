@@ -1,7 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 //
-// Legion's Curse of Petty Failing - Target takes a -2 penalty to 
-// attacks and saves.
+// Legion's Shield of Faith (sp_lshfat.nss) 
 //
 /////////////////////////////////////////////////////////////////////
 
@@ -9,6 +8,8 @@
 
 void main()
 {
+	if (!X2PreSpellCastCode()) { return; }
+
 	PRCSetSchool(SPELL_SCHOOL_ABJURATION);
 	
 	// Get the spell target location as opposed to the spell target.

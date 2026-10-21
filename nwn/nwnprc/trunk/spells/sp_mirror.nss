@@ -54,7 +54,7 @@ void TrackMirrorImage(object oSummoned)
 	
 	if (!GetIsObjectValid(oSummoned)) 
 	{
-		DoDebug("sp_mirror >> TrackMirrorImage: oSummoned invalid.");
+		if(DEBUG) DoDebug("sp_mirror >> TrackMirrorImage: oSummoned invalid.");
 		//SendMessageToPC(GetFirstPC(), "TrackMirrorImage >> oSummon or oMaster invalid.");
 		return;
 	}
@@ -62,7 +62,7 @@ void TrackMirrorImage(object oSummoned)
 	object oMaster = GetLocalObject(oSummoned, "oMaster");
     if (!GetIsObjectValid(oMaster)) 
 	{
-		DoDebug("sp_mirror >> TrackMirrorImage: oMaster invalid.");
+		if(DEBUG) DoDebug("sp_mirror >> TrackMirrorImage: oMaster invalid.");
 		//SendMessageToPC(GetFirstPC(), "TrackMirrorImage >> oSummon or oMaster invalid.");
 		return;
 	}	
@@ -93,7 +93,7 @@ void StartMirrorImageTracking(object oSummoned, object oMaster)
 {
 	if (!GetIsObjectValid(oMaster))
 	{
-		DoDebug("sp_mirror >> StartMirrorImageTracking: oMaster invalid.");
+		if(DEBUG) DoDebug("sp_mirror >> StartMirrorImageTracking: oMaster invalid.");
 		//SendMessageToPC(GetFirstPC(), "TrackMirrorImage >> oSummon or oMaster invalid.");
 		return;
 	}	
@@ -203,7 +203,7 @@ void MakeMoreImages(object oImage, int iImages, int nDuration)
 
     if (!GetIsObjectValid(oMaster)) 
     {
-        DoDebug("sp_mirror >> MakeMoreImages: oMaster invalid.");
+        if(DEBUG) DoDebug("sp_mirror >> MakeMoreImages: oMaster invalid.");
         return;
     }
 

@@ -13,7 +13,7 @@
 //:: Created By:   Andrew, Brent
 //:: Created On:   February 2002
 //:://////////////////////////////////////////////
-
+#include "prc_class_const"
 #include "NW_O2_CONINCLUDE"
 
 

@@ -12,6 +12,26 @@
 #include "inc_persistsql"
 #include "prc_craft_cv_inc"
 
+void RestorePrisons(object oPC)
+{
+    // Recreate Imprisonment markers this PC cast before the reset  
+    int nImprisons = GetPersistantLocalInt(oPC, "ImprisonCount");  
+    if(nImprisons > 0)  
+    {  
+        int i;  
+        for(i = 0; i < nImprisons; i++)  
+        {  
+            struct metalocation ml = GetPersistantLocalMetalocation(oPC, "ImprisonLoc_" + IntToString(i));  
+            location lP = MetalocationToLocation(ml);  
+            object oP = CreateObject(OBJECT_TYPE_PLACEABLE, "gcs_SpellPrison", lP);  
+            SetLocalString(oP, "Imprisoned_One",  
+                GetPersistantLocalString(oPC, "ImprisonName_" + IntToString(i)));  
+            SetLocalObject(oP, "PRC_IMPRISON_CASTER", oPC);  
+        }  
+    }
+}
+
+
 // Restore crafting state on login with offline time calculation  
 void RestoreCraftingStateOnLogin(object oPC)  
 {  

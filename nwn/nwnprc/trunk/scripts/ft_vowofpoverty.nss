@@ -404,7 +404,8 @@ void main()
 				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify1")  
 				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify2")  
 				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify3")  
-				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))  
+				&& !(GetItemPropertyTag(eCheckIP) == "Sanctify4")
+				&& !(GetItemPropertyTag(eCheckIP) == "Tag_PRC_OnHitKeeper"))  
 				iMagic = 1;  
 			eCheckIP = GetNextItemProperty(oItem);  
 		}		
@@ -652,8 +653,10 @@ void main()
 		itemproperty eCheckIP = GetFirstItemProperty(oItem);
 		while (GetIsItemPropertyValid(eCheckIP))
 		{
-			if(!(GetItemPropertyTag(eCheckIP) == "Sanctify1") && !(GetItemPropertyTag(eCheckIP) == "Sanctify2") && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")
-			  && !(GetItemPropertyTag(eCheckIP) == "Sanctify4"))   iMagic = 1;
+			if(!(GetItemPropertyTag(eCheckIP) == "Sanctify1") && !(GetItemPropertyTag(eCheckIP) == "Sanctify2") && !(GetItemPropertyTag(eCheckIP) == "Sanctify3")\
+			&& !(GetItemPropertyTag(eCheckIP) == "Sanctify4")
+			  && !(GetItemPropertyTag(eCheckIP) == "Tag_PRC_OnHitKeeper"))
+			  iMagic = 1;
 			eCheckIP = GetNextItemProperty(oItem);
 		}
 		if (!(GetTag(oItem) == "xp1_mystrashand") 

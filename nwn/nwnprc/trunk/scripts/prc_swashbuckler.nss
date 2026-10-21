@@ -146,9 +146,67 @@ void SmartWound(object oPC, object oSkin, int iStrike, int iEquip)
 }
  */
 
-//This makes a unique on hit which calls on the "prc_swashweak" scripts
-//to simulate a critical hit roll percentage.  On success, it deals
-//2 STR damage (and 2 CON damage at level 19)
+//This makes a unique on hit which calls on the "prc_swashweak" scripts  
+//to simulate a critical hit roll percentage.  On success, it deals  
+//2 STR damage (and 2 CON damage at level 19)  
+void CritSTR(object oPC, object oSkin,int iStrike, int iEquip)  
+{  
+  object oItem ;  
+  object oItemb ;  
+  
+  itemproperty ipOnHit = ItemPropertyOnHitCastSpell(IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER, 1);  
+  ipOnHit = TagItemProperty(ipOnHit, "Tag_PRC_OnHitKeeper");  
+  
+  if (iEquip==2)  
+     {  
+     oItem=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);  
+     if ( GetLocalInt(oItem,"CritHarm")) return;  
+  
+     AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItem,9999.0);  
+     SetLocalInt(oItem,"CritHarm",1);  
+     }  
+  else if (iEquip==1)  
+     {  
+     oItem=GetItemLastUnequipped();  
+     RemoveSpecificProperty(oItem,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,0,1,"",-1,DURATION_TYPE_TEMPORARY);  
+     DeleteLocalInt(oItem,"CritHarm");  
+     }  
+  else  
+     {  
+     oItem=GetItemInSlot(INVENTORY_SLOT_RIGHTHAND,oPC);  
+     if (!GetLocalInt(oItem,"CritHarm"))  
+        {  
+        AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItem,9999.0);  
+        SetLocalInt(oItem,"CritHarm",1);  
+        }  
+     }  
+  
+  if (iEquip==2)  
+     {  
+     oItemb=GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);  
+     if ( GetLocalInt(oItemb,"CritHarm")) return;  
+  
+     AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItemb,9999.0);  
+     SetLocalInt(oItemb,"CritHarm",1);  
+     }  
+  else if (iEquip==1)  
+     {  
+     oItemb=GetItemLastUnequipped();  
+     RemoveSpecificProperty(oItemb,ITEM_PROPERTY_ONHITCASTSPELL,IP_CONST_ONHIT_CASTSPELL_ONHIT_UNIQUEPOWER,0,1,"",-1,DURATION_TYPE_TEMPORARY);  
+     DeleteLocalInt(oItemb,"CritHarm");  
+     }  
+  else  
+     {  
+     oItemb=GetItemInSlot(INVENTORY_SLOT_LEFTHAND,oPC);  
+     if (!GetLocalInt(oItemb,"CritHarm"))  
+        {  
+        AddItemProperty(DURATION_TYPE_TEMPORARY,ipOnHit,oItemb,9999.0);  
+        SetLocalInt(oItemb,"CritHarm",1);  
+        }  
+     }  
+}
+
+/*
 void CritSTR(object oPC, object oSkin,int iStrike, int iEquip)
 {
   object oItem ;
@@ -201,7 +259,7 @@ void CritSTR(object oPC, object oSkin,int iStrike, int iEquip)
         SetLocalInt(oItemb,"CritHarm",1);
         }
      }
-}
+} */
 
 void main()
 {

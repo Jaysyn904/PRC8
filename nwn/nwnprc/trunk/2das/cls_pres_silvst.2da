@@ -1,0 +1,13 @@
+2DA V2.0
+
+   LABEL        ReqType ReqParam1             ReqParam2
+0  Base_Attack  BAB     4                     ****
+1  SenseMotive  SKILL   30                    2
+2  Spot         SKILL   17                    2
+3  BlindFight   FEAT    408                   ****
+4  Dodge        FEAT    10                    ****
+5  Mobility     FEAT    26                    ****
+6  SpringAttack FEAT    392                   ****
+7  DivineSpell2 VAR     PRC_DivSpell2         0
+8  ScriptVar    VAR     PRC_PrereqSilverstar  0
+9  ScriptVar    VAR     PRC_AllowSilverstar   0

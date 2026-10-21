@@ -91,10 +91,15 @@ void main()
     {
 	//:: Any living creature of good alignment (removed outsider check as Saints are outsiders)
 		int nRace = MyPRCGetRacialType(oPC);
-		if(!(nRace == RACIAL_TYPE_CONSTRUCT ||
+		int nExactRace = GetRacialType(oPC);
+		
+		int bWarforged = (nExactRace == RACIAL_TYPE_WARFORGED ||  
+						  nExactRace == RACIAL_TYPE_WARFORGED_SCOUT ||  
+						  nExactRace == RACIAL_TYPE_WARFORGED_CHARGER);  
+				  
+		if(!(nRace == RACIAL_TYPE_CONSTRUCT && !bWarforged)||
 			   nRace == RACIAL_TYPE_ELEMENTAL ||
-			   nRace == RACIAL_TYPE_OOZE ||
-			   nRace == RACIAL_TYPE_UNDEAD))
+			   nRace == RACIAL_TYPE_UNDEAD)
 		{
 		//:: Set ability bonuses		
 			SetCompositeBonus(oSkin, "Template_Saint_con", 2, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON);
