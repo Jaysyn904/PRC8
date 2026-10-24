@@ -20,6 +20,7 @@
 #include "prc_allow_const"
 #include "inv_inc_invfunc"
 #include "prc_inc_template"
+#include "prc_inc_domain"
 #include "moi_inc_moifunc"
 #include "bnd_inc_bndfunc"
 
@@ -280,9 +281,10 @@ void Shifter(object oPC, int iArcSpell, int iDivSpell)
          //Thousand Faces qualifies
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
-     if (GetLevelByClass(CLASS_TYPE_WEREWOLF) >= 1)
+     if(GetHasTemplate(TEMPLATE_LYCAN_NAT_WOLF, oPC)
+     || GetHasTemplate(TEMPLATE_LYCAN_ACQ_WOLF, oPC))
      {
-         //Alternate Form, Wolf qualifies
+         // Alternate Form from the active D&D 3.0 template qualifies.
          SetLocalInt(oPC, "PRC_PrereqShift", 0);
      }
      if (GetLevelByClass(CLASS_TYPE_BONDED_SUMMONNER) >= 10)
@@ -592,16 +594,9 @@ void reqDomains()
 
 void WWolf(object oPC)
 {
-    //If not a natural lycanthrope or not already leveled in werewolf, prevent the player from taking the werewolf class
-    if (!GetHasFeat(FEAT_TRUE_LYCANTHROPE, oPC) || GetLevelByClass(CLASS_TYPE_WEREWOLF, oPC) < 1)
-    {
-        SetLocalInt(oPC, "PRC_PrereqWWolf", 1);
-    }
-
-    if (GetHasFeat(FEAT_TRUE_LYCANTHROPE, oPC))
-    {
-        SetLocalInt(oPC, "PRC_PrereqWWolf", 0);
-    }
+    // Retain the old variable only as a safe blocker
+    // for stale lower-priority Werewolf prerequisite data.
+    SetLocalInt(oPC, "PRC_PrereqWWolf", 1);
 }
 
 void Maester(object oPC)
@@ -1810,6 +1805,23 @@ void UMagus(object oPC)
         SetLocalInt(oPC, "PRC_PrereqUMagus", 0);
 }
 
+void SilverstarPrereq(object oPC)
+{
+    SetLocalInt(oPC, "PRC_PrereqSilverstar", 1);
+
+    // A future FR deity system can provide its own explicitly approved rules.
+    int nDivineClass = GetPrimaryDivineClass(oPC);
+    int bHasDivineBook = SSGetDivineMarker(nDivineClass) >= 0
+        && GetLevelByClass(nDivineClass, oPC) > 0;
+    int bCleric = GetLevelByClass(CLASS_TYPE_CLERIC, oPC) > 0;
+    int bClericDomainAllowed = !bCleric
+        || GetHasDomain(oPC, PRC_DOMAIN_MOON);
+
+    // The existing PRC_DivSpell2 prerequisite separately checks spell access.
+    if(bHasDivineBook && bClericDomainAllowed)
+        SetLocalInt(oPC, "PRC_PrereqSilverstar", 0);
+}
+
 void main()
 {
     //Declare Major Variables
@@ -2055,6 +2067,7 @@ void main()
     Witchborn(oPC);
     reqCombatMedic(oPC);
 	reqLionOfTalisid(oPC);
+    SilverstarPrereq(oPC);
     // Truly massive debug message flood if activated.
    
 /*    if (DEBUG)

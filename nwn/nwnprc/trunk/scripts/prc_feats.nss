@@ -421,6 +421,23 @@ void main()
     */
 }
 
+struct PRCFeatMagicalEffect
+{
+    effect eEffect;
+    int bHasBonus;
+};
+
+struct PRCFeatMagicalEffect PRCFeat_LinkMagicalBonus(
+    struct PRCFeatMagicalEffect eAggregate, effect eBonus)
+{
+    if(eAggregate.bHasBonus)
+        eAggregate.eEffect = EffectLinkEffects(eAggregate.eEffect, eBonus);
+    else
+        eAggregate.eEffect = eBonus;
+    eAggregate.bHasBonus = TRUE;
+    return eAggregate;
+}
+
 void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
 {
     //Remove previous effects applied by prc_feats.nss
@@ -436,13 +453,14 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
         eTest = GetNextEffect(oPC);
     }
 
-    effect eFeat;
+    struct PRCFeatMagicalEffect eFeat;
+    eFeat.bHasBonus = FALSE;
 
     if(GetHasFeat(FEAT_POSITIVE_ENERGY_RESISTANCE, oPC))
-        eFeat = EffectLinkEffects(eFeat, EffectDamageResistance(DAMAGE_TYPE_POSITIVE, 10, 0));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectDamageResistance(DAMAGE_TYPE_POSITIVE, 10, 0));
 
     if(GetHasFeat(FEAT_ULTRAVISION, oPC))
-        eFeat = EffectLinkEffects(eFeat, EffectUltravision());
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectUltravision());
 
     if(GetHasFeat(FEAT_INSIGHTFUL_REFLEXES, oPC))
     {
@@ -451,9 +469,9 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
         int nMod = nInt - nDex;
 
         if(nMod > 0)
-            eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_REFLEX, nMod));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowIncrease(SAVING_THROW_REFLEX, nMod));
         else if(nMod < 0)
-            eFeat = EffectLinkEffects(eFeat, EffectSavingThrowDecrease(SAVING_THROW_REFLEX, -nMod));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowDecrease(SAVING_THROW_REFLEX, -nMod));
     }
     if(GetHasFeat(FEAT_STEADFAST_DETERMINATION, oPC))
     {
@@ -464,7 +482,7 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
         nMod += nCon - nWis;
 
         if(nMod > 0)
-            eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_WILL, nMod));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowIncrease(SAVING_THROW_WILL, nMod));
 	}
 	if(GetHasFeat(FEAT_FORCE_PERSONALITY, oPC)
     || GetHasFeat(FEAT_INDOMITABLE_SOUL, oPC))
@@ -482,7 +500,7 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
             nMod += nCha;
 
         if(nMod > 0)
-            eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_WILL, nMod));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowIncrease(SAVING_THROW_WILL, nMod));
     }
     if(GetHasFeat(FEAT_DRAGONFRIEND, oPC))
     {
@@ -490,7 +508,7 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
                eDragFriend = VersusAlignmentEffect(eDragFriend, ALIGNMENT_ALL, ALIGNMENT_GOOD);
                eDragFriend = EffectLinkEffects(eDragFriend, EffectSkillIncrease(SKILL_PERSUADE, 4));
                eDragFriend = VersusRacialTypeEffect(eDragFriend, RACIAL_TYPE_DRAGON);
-        eFeat = EffectLinkEffects(eFeat, eDragFriend);
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, eDragFriend);
     }
     if(GetHasFeat(FEAT_DRAGONTHRALL, oPC))
     {
@@ -499,30 +517,30 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
                eDragThrall = EffectLinkEffects(eDragThrall, EffectSkillIncrease(SKILL_BLUFF, 4));
                eDragThrall = EffectLinkEffects(eDragThrall, EffectSavingThrowDecrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_MIND_SPELLS));
                eDragThrall = VersusRacialTypeEffect(eDragThrall, RACIAL_TYPE_DRAGON);
-        eFeat = EffectLinkEffects(eFeat, eDragThrall);
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, eDragThrall);
     }
     if(GetHasFeat(FEAT_DEFORM_FACE, oPC) && GetAlignmentGoodEvil(oPC) == ALIGNMENT_EVIL)
     {
         effect eDeform = EffectSkillIncrease(SKILL_PERSUADE, 2);
                eDeform = VersusAlignmentEffect(eDeform, ALIGNMENT_ALL, ALIGNMENT_EVIL);
                eDeform = EffectLinkEffects(eDeform, EffectSkillIncrease(SKILL_INTIMIDATE, 2));
-        eFeat = EffectLinkEffects(eFeat, eDeform);
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, eDeform);
     }
     if(GetHasFeat(FEAT_STRENGTH_OF_MIND, oPC))
     {
-        eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_STUN));
-        eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_SLEEP));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectImmunity(IMMUNITY_TYPE_STUN));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectImmunity(IMMUNITY_TYPE_SLEEP));
     }
     // Shaman - Spirit Sight
     // Ghost-Faced Killer - Ghost Sight
     if(GetHasFeat(FEAT_SPIRIT_SIGHT, oPC)
     || GetHasFeat(FEAT_GHOST_SIGHT, oPC))
-        eFeat = EffectLinkEffects(eFeat, EffectSeeInvisible());
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSeeInvisible());
     // Henshin Mystic - Blindsight
     if(GetHasFeat(FEAT_PRESTIGE_BLINDSIGHT, oPC))
     {
-        eFeat = EffectLinkEffects(eFeat, EffectUltravision());
-        eFeat = EffectLinkEffects(eFeat, EffectSeeInvisible());
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectUltravision());
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSeeInvisible());
     }
     if(GetHasFeat(FEAT_MAD_CERTAINTY, oPC))
     {
@@ -543,7 +561,7 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
 		ePhobia = TagEffect(ePhobia, "ALIENIST_PHOBIA");	
 		ePhobia = UnyieldingEffect(ePhobia);
 
-		eFeat = EffectLinkEffects(eFeat, ePhobia);		
+		eFeat = PRCFeat_LinkMagicalBonus(eFeat, ePhobia);		
 		
 		
 /*         effect ePhob = EffectSavingThrowDecrease(SAVING_THROW_TYPE_ALL, nPenalty);
@@ -559,23 +577,23 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
     }	
 	
     if(GetHasFeat(FEAT_SH_IMMUNITY_ABILITY_DECREASE, oPC) && !GetHasFeat(FEAT_SH_IMMUNITY_LEVEL_DRAIN))
-        eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectImmunity(IMMUNITY_TYPE_ABILITY_DECREASE));
     if(GetHasFeat(FEAT_SH_IMMUNITY_DISEASE, oPC))//skullclan hunter gets protection from evil at this level
     {
         effect eProt = EffectSavingThrowIncrease(SAVING_THROW_ALL, 2);
                eProt = EffectLinkEffects(eProt, EffectACIncrease(2, AC_DEFLECTION_BONUS));
                eProt = EffectLinkEffects(eProt, EffectImmunity(IMMUNITY_TYPE_MIND_SPELLS));
                eProt = VersusAlignmentEffect(eProt, ALIGNMENT_ALL, ALIGNMENT_EVIL);
-        eFeat = EffectLinkEffects(eFeat, eProt);
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, eProt);
     }
     if(GetHasFeat(FEAT_VOWOFSILENCE, oPC))
-        eFeat = EffectLinkEffects(eFeat, EffectSilence());
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSilence());
     if(GetHasFeat(FEAT_PLANT_IMM, oPC) || GetHasFeat(FEAT_LIVING_CONSTRUCT, oPC) || GetRacialType(oPC) == RACIAL_TYPE_DOPPELGANGER || GetRacialType(oPC) == RACIAL_TYPE_MONGRELFOLK)
-        eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_SLEEP));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectImmunity(IMMUNITY_TYPE_SLEEP));
     if(GetHasFeat(FEAT_JPM_RITE_WAKING, oPC))
     {
-        eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_FEAR));
-        eFeat = EffectLinkEffects(eFeat, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_DEATH));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_FEAR));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectSavingThrowIncrease(SAVING_THROW_ALL, 2, SAVING_THROW_TYPE_DEATH));
         SetCompositeBonus(GetPCSkin(oPC), "RiteWaking", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE);
     }
     // Speed Increase Item Property
@@ -583,40 +601,42 @@ void PRCFeat_AddMagicalBonuses(object oPC, object oSkin)
     if(iSpeed)
     {
         if(iSpeed > 99) iSpeed = 99;
-        eFeat = EffectLinkEffects(eFeat, EffectMovementSpeedIncrease(iSpeed));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectMovementSpeedIncrease(iSpeed));
     }
     // Speed Decrease Item Property
     iSpeed = GetLocalInt(oPC, "player_speed_decrease");
     if(iSpeed)
     {
         if(iSpeed > 99) iSpeed = 99;
-        eFeat = EffectLinkEffects(eFeat, EffectMovementSpeedDecrease(iSpeed));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectMovementSpeedDecrease(iSpeed));
     }
     if(GetHasFeat(FEAT_TRAPFINDING, oPC) && !GetLevelByClass(CLASS_TYPE_ROGUE, oPC))
     {
-        eFeat = EffectLinkEffects(eFeat, EffectAreaOfEffect(VFX_PER_25_FT_INVIS, "", "prc_trapfind_act"));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectAreaOfEffect(VFX_PER_25_FT_INVIS, "", "prc_trapfind_act"));
         if(!GetHasFeat(FEAT_KEEN_SENSE, oPC))
-            eFeat = EffectLinkEffects(eFeat, EffectAreaOfEffect(VFX_PER_15_FT_INVIS, "", "prc_trapfind_pas"));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectAreaOfEffect(VFX_PER_15_FT_INVIS, "", "prc_trapfind_pas"));
     }
     if(GetHasFeat(FEAT_SWIFTNESS_STAG, oPC))
     {
         object oArmour = GetItemInSlot(INVENTORY_SLOT_CHEST, oPC);    
         int nArmour = GetBaseAC(oArmour); // Light armor only
         if (3 >= nArmour)
-            eFeat = EffectLinkEffects(eFeat, EffectMovementSpeedIncrease(33));
+            eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectMovementSpeedIncrease(33));
     }    
     if(GetHasFeat(FEAT_HEART_LION, oPC))
     {
-        eFeat = EffectLinkEffects(eFeat, EffectImmunity(IMMUNITY_TYPE_FEAR));
+        eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectImmunity(IMMUNITY_TYPE_FEAR));
     }  
 	if(GetHasFeat(FEAT_ABERRANT_INHUMAN_VISION, oPC))  
-		eFeat = EffectLinkEffects(eFeat, EffectUltravision());
+		eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectUltravision());
 	if(GetHasFeat(FEAT_ABERRANT_BESTIAL_HIDE, oPC))  
-		eFeat = EffectLinkEffects(eFeat, EffectACIncrease(GetAberrantFeatCount(oPC)/2, AC_NATURAL_BONUS));
+		eFeat = PRCFeat_LinkMagicalBonus(eFeat, EffectACIncrease(GetAberrantFeatCount(oPC)/2, AC_NATURAL_BONUS));
 		
-    eFeat = SupernaturalEffect(eFeat);
-
-    ApplyEffectToObject(DURATION_TYPE_PERMANENT, eFeat, oPC);
+    // Newly constructed effects are not valid until applied. Track actual
+    // contributions instead, and avoid submitting an empty aggregate.
+    if(eFeat.bHasBonus)
+        ApplyEffectToObject(DURATION_TYPE_PERMANENT,
+            SupernaturalEffect(eFeat.eEffect), oPC);
 }
 
 //////////////////////////////////////////////////////////

@@ -25,45 +25,66 @@ Created:   5/17/2009
 #include "prc_add_spell_dc"
 void main()
 {
-	if(!X2PreSpellCastCode()) return;
-	object oPC = OBJECT_SELF;
-	location lLoc = PRCGetSpellTargetLocation();
-	object oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lLoc, TRUE, OBJECT_TYPE_CREATURE);	
-	int nCasterLvl = PRCGetCasterLevel(oPC);
-	int nMetaMagic = PRCGetMetaMagicFeat();
-	int nPenalty = 2;
-	int nDC = PRCGetSaveDC(oTarget, oPC);
-	float fDur = RoundsToSeconds(nCasterLvl);
-	
-	if (nMetaMagic & METAMAGIC_EXTEND)
-	{
-		fDur = (fDur * 2);
-	}
-	
-	effect eVis = EffectVisualEffect(VFX_DUR_GLOW_BLUE);
-	effect eLink = EffectAttackDecrease(nPenalty, ATTACK_BONUS_MISC);					      
-	       eLink = EffectLinkEffects(eLink, EffectSavingThrowDecrease(SAVING_THROW_ALL, nPenalty, SAVING_THROW_TYPE_ALL));
-	       eLink = EffectLinkEffects(eLink, EffectSkillDecrease(SKILL_ALL_SKILLS, nPenalty));
-	       eLink = EffectLinkEffects(eLink, EffectDamageDecrease(nPenalty, DAMAGE_TYPE_BLUDGEONING|DAMAGE_TYPE_PIERCING|DAMAGE_TYPE_SLASHING));
-	       //eLink = EffectLinkEffects(eLink, EffectDamageDecrease(nPenalty, DAMAGE_TYPE_PIERCING));
-	       //eLink = EffectLinkEffects(eLink, EffectDamageDecrease(nPenalty, DAMAGE_TYPE_BLUDGEONING));
-	       // Physical damage reduction affects all physical, so this is actually a 3x reduction
-	       eLink = EffectLinkEffects(eLink, eVis);
-	       
-	while(GetIsObjectValid(oTarget))
-	{		
-		if(!PRCDoResistSpell(oPC, oTarget, nCasterLvl + SPGetPenetr())&& !GetIsImmune(oTarget, IMMUNITY_TYPE_MIND_SPELLS))
-		{
-			//Save
-			if(!PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC, SAVING_THROW_TYPE_MIND_SPELLS))
-			{
-				SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, fDur);
-			}
-		}
-		oTarget = MyNextObjectInShape(SHAPE_SPELLCONE, FeetToMeters(30.0), lLoc, TRUE, OBJECT_TYPE_CREATURE);
-	}
-	
-	PRCSetSchool();
+    object oCaster = OBJECT_SELF;
+
+    PRCSetSchool(SPELL_SCHOOL_ENCHANTMENT);
+    if(!X2PreSpellCastCode())
+    {
+        PRCSetSchool();
+        return;
+    }
+
+    location lTarget = PRCGetSpellTargetLocation();
+    object oTarget = MyFirstObjectInShape(SHAPE_SPELLCONE,
+        FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
+    int nCasterLevel = PRCGetCasterLevel(oCaster);
+    int nMetaMagic = PRCGetMetaMagicFeat();
+    int nPenalty = 2;
+    float fDuration = MinutesToSeconds(nCasterLevel);
+
+    if(nMetaMagic & METAMAGIC_EXTEND)
+        fDuration *= 2.0f;
+
+    effect eVisual = EffectVisualEffect(VFX_DUR_GLOW_BLUE);
+    effect eLink = EffectAttackDecrease(nPenalty, ATTACK_BONUS_MISC);
+    eLink = EffectLinkEffects(eLink,
+        EffectSavingThrowDecrease(SAVING_THROW_ALL, nPenalty,
+            SAVING_THROW_TYPE_ALL));
+    eLink = EffectLinkEffects(eLink,
+        EffectSkillDecrease(SKILL_ALL_SKILLS, nPenalty));
+    eLink = EffectLinkEffects(eLink,
+        EffectDamageDecrease(nPenalty,
+            DAMAGE_TYPE_BLUDGEONING | DAMAGE_TYPE_PIERCING |
+            DAMAGE_TYPE_SLASHING));
+    eLink = EffectLinkEffects(eLink, eVisual);
+
+    while(GetIsObjectValid(oTarget))
+    {
+        PRCSignalSpellEvent(oTarget, TRUE, SPELL_CRUSHING_DESPAIR,
+            oCaster);
+        int nDC = PRCGetSaveDC(oTarget, oCaster,
+            SPELL_CRUSHING_DESPAIR);
+
+        if(!PRCDoResistSpell(oCaster, oTarget,
+            nCasterLevel + SPGetPenetr(oCaster))
+            && !GetIsImmune(oTarget, IMMUNITY_TYPE_MIND_SPELLS,
+                oCaster)
+            && !PRCMySavingThrow(SAVING_THROW_WILL, oTarget, nDC,
+                SAVING_THROW_TYPE_MIND_SPELLS))
+        {
+            // Preserve stock Crushing Despair behavior, adding only its RAW
+            // cancellation of the custom Moon-domain Good Hope spell.
+            if(GetHasSpellEffect(SPELL_MOON_GOOD_HOPE, oTarget))
+                PRCRemoveEffectsFromSpell(oTarget, SPELL_MOON_GOOD_HOPE);
+            else
+                SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink,
+                    oTarget, fDuration, TRUE, SPELL_CRUSHING_DESPAIR,
+                    nCasterLevel, oCaster);
+        }
+
+        oTarget = MyNextObjectInShape(SHAPE_SPELLCONE,
+            FeetToMeters(30.0), lTarget, TRUE, OBJECT_TYPE_CREATURE);
+    }
+
+    PRCSetSchool();
 }
-	
-	

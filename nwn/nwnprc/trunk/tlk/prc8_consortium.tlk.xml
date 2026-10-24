@@ -3409,7 +3409,7 @@ Racial Hit Dice/Class: 4 of Monstrous Humanoid</entry>
   <entry id="13103" lang="en" sex="m">Lashemois</entry>
   <entry id="13104" lang="en" sex="m">Lashemoi are the drudge workers, low-ranking warriors, and servitors of ushemoi society. Though lashemoi typically toil under the direction of arkamoi and hadrimoi leaders, turlemoi sometimes gather lashemoi to them as hunters, scouts, and expendable advance troops. Without leadership, lashemoi keep to themselves. Though they attack other creatures for food and treasure, they are meek, cowardly, and easily driven off. Lashemoi avoid standup fights even against weaker foes and are typically content to take potshots at soft, easy targets.
 
-Lashemoi have a natural connection to their ushemoi brethren, but they are just as likely to be found in the service of ogre mages, hobgoblin chieftains, evil clerics, and the like. Other ushemoi refer to lashemoi as “mongrels,” not because of their heritage, but for the lashemoi's tendency to follow any charismatic creature.
+Lashemoi have a natural connection to their ushemoi brethren, but they are just as likely to be found in the service of ogre mages, hobgoblin chieftains, evil clerics, and the like. Other ushemoi refer to lashemoi as "mongrels," not because of their heritage, but for the lashemoi's tendency to follow any charismatic creature.
 
 Lashemoi Ability Adjustments: +2 Str, +6 Con, -6 Int, -2 Cha
 Favored Class (Barbarian): A multiclass Lashemoi's barbarian class does not count when determining whether he suffers an XP penalty for multiclassing.
@@ -3571,7 +3571,7 @@ Text</entry>
   <entry id="13138" lang="en" sex="m">13138</entry>
   <entry id="13139" lang="en" sex="m">13139</entry>
   <entry id="13140" lang="en" sex="m">Crypt Spawn</entry>
-  <entry id="13141" lang="en" sex="m">“Crypt spawn” is a template that can be applied to any living creature (referred to hereafter as the “base creature”). The base creature's type changes to “undead.” It uses all the base creature's statistics and special abilities except as noted here.
+  <entry id="13141" lang="en" sex="m">"Crypt spawn" is a template that can be applied to any living creature (referred to hereafter as the "base creature"). The base creature's type changes to "undead." It uses all the base creature's statistics and special abilities except as noted here.
 
 Hit Dice: Undead Hit Dice.
 
@@ -5004,7 +5004,7 @@ your current position.</entry>
   <entry id="13522" lang="en" sex="m">Hobgoblin Warsoul</entry>
   <entry id="13523" lang="en" sex="m">Hobgoblin Warsoul</entry>
   <entry id="13524" lang="en" sex="m">Hobgoblin Warsouls</entry>
-  <entry id="13525" lang="en" sex="m">Occasionally, a warcaster displays an incredible talent for spellcasting, quickly racing ahead of her peers and mastering potent spells. As she endures more rituals and delves deeper into her studies, the warcaster grows in power until her flesh becomes little more than a withered vessel for her soul. She even learns to consume the essence of her “lessers” to augment her spells. Invariably, she comes to either lead a tribe or die at the hands of a rival.
+  <entry id="13525" lang="en" sex="m">Occasionally, a warcaster displays an incredible talent for spellcasting, quickly racing ahead of her peers and mastering potent spells. As she endures more rituals and delves deeper into her studies, the warcaster grows in power until her flesh becomes little more than a withered vessel for her soul. She even learns to consume the essence of her "lessers" to augment her spells. Invariably, she comes to either lead a tribe or die at the hands of a rival.
 
 Hobgoblin Warsoul Ability Adjustments: -2 Str, +6 Dex, +8 Con, +4 Int, +4 Wis, +10 Cha
 Favored Class (Sorcerer): A multiclass Hobgoblin Warsoul's sorcerer class does not count when determining whether he suffers an XP penalty for multiclassing.
@@ -15687,13 +15687,15 @@ Level
 1: Str + 2, Con + 2, Natural Armor + 2, Creature attacks
 2: Dex + 4, Con + 2, Alertness, Knockdown</entry>
   <entry id="47504" lang="en" sex="m">Alternate Form (Wolf)</entry>
-  <entry id="47505" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Level 1 Werewolf
-Specifics: A werewolf is able to transform himself into a wolf. This ability does not give the werewolf any of the wolves abilities unless they take levels in the wolf class. </entry>
+  <entry id="47505" lang="en" sex="m">Type of Feat: Werewolf Template
+Specifics: Assume wolf form or return to humanoid form as a standard action. A D&amp;D 3.0 template werewolf gains +2 Strength, +4 Dexterity, +4 Constitution, +4 total natural armor (the wolf's +2, increased by the template's +2), scent, the wolf's trip attack, and the werewolf's form-dependent feats and skills. The tabletop DR 15/silver is encoded as DR 15/+1, the closest stock NWN property. Assuming wolf form restores hit points as one day of rest. Legacy 4.947 werewolf-class characters retain their staged class form.
+
+An afflicted werewolf must be aware of the curse and succeed on a Control Shape check. PRC 4.947 has no Control Shape skill row, so this implementation uses a Wisdom check at the original D&amp;D 3.0 DC.</entry>
   <entry id="47506" lang="en" sex="m">Alternate Form (Hybrid)</entry>
-  <entry id="47507" lang="en" sex="m">Type of Feat: Class Specific
-Prerequisite: Level 2 Werewolf
-Specifics: A werewolf can assume a hybrid form -- a shape between their humanoid and wolf form. As with the wolf form, this change is purely cosmetic unless the character has taken the wolf class to gain the appropriate abilities.</entry>
+  <entry id="47507" lang="en" sex="m">Type of Feat: Werewolf Template
+Specifics: Assume bipedal hybrid form or return to humanoid form as a standard action. A D&amp;D 3.0 template werewolf gains +2 Strength, +4 Dexterity, +4 Constitution, +4 total natural armor (the wolf's +2, increased by the template's +2), scent, bite and trip, and the werewolf's form-dependent feats and skills. The tabletop DR 15/silver is encoded as DR 15/+1, the closest stock NWN property. Assuming hybrid form restores hit points as one day of rest. Legacy 4.947 werewolf-class characters retain their staged class form.
+
+An afflicted werewolf must be aware of the curse and succeed on a Control Shape check. PRC 4.947 has no Control Shape skill row, so this implementation uses a Wisdom check at the original D&amp;D 3.0 DC.</entry>
   <entry id="47508" lang="en" sex="m">True Lycanthrope</entry>
   <entry id="47509" lang="en" sex="m">Type of Feat: General
 Prerequisite: Take only at 1st level
@@ -50415,7 +50417,7 @@ Overpower: You gain access to the psionic powers animal affinity, energy missile
   <entry id="58386" lang="en" sex="m">Karsite</entry>
   <entry id="58387" lang="en" sex="m">karsite</entry>
   <entry id="58388" lang="en" sex="m">Karsites</entry>
-  <entry id="58389" lang="en" sex="m">When the vestige called Karsus yet lived as a powerful wizard, he fathered many children among his slaves and supplicants. Then his failed attempt to steal power from the deity of magic shattered his people's empire and spread them across the world. Thus, over more than a thousand years, his bloodline has tainted nearly every human population, and at times it grows strong enough for a human to give birth to a karsite. When two karsites mate, they breed true. Karsites appear human overall, but they have two distinguishing traits. First, each has one pale blue eye and one eye of another color common to humans. A karsite also has a shock of white hair on his head. These traits appear infrequently among normal humans, and almost never at the same time. In communities where karsites mate exclusively with one another, other features also become common, such as straight blond or black hair, a sharp widow's peak, and a small nose and mouth. Karsite infants appear as normal humans, but as they mature, their strange appearances and powers appear. Most karsites gain their birthright by the time they reach puberty, but for some it comes sooner or later. Superstitious humans often view the change in an emerging karsite's appearance as a sign of a blessing or curse, but few suspect that it is both. Karsus's bloodline allows a matured karsite to resist nonmagical blows and to turn spells cast against him into healing magic, but it also prevents him from ever casting any spell. Karsites born among humans might live and die without ever knowing that their unusual appearance comes with wondrous abilities, but others discover their birthright when they attempt to take up the path of a spellcaster, or when violence leaves them less harmed than it should. Communities of karsites often seek out such “foundlings” to indoctrinate into their philosophy, hoping to swell their numbers and advance their evil agenda.
+  <entry id="58389" lang="en" sex="m">When the vestige called Karsus yet lived as a powerful wizard, he fathered many children among his slaves and supplicants. Then his failed attempt to steal power from the deity of magic shattered his people's empire and spread them across the world. Thus, over more than a thousand years, his bloodline has tainted nearly every human population, and at times it grows strong enough for a human to give birth to a karsite. When two karsites mate, they breed true. Karsites appear human overall, but they have two distinguishing traits. First, each has one pale blue eye and one eye of another color common to humans. A karsite also has a shock of white hair on his head. These traits appear infrequently among normal humans, and almost never at the same time. In communities where karsites mate exclusively with one another, other features also become common, such as straight blond or black hair, a sharp widow's peak, and a small nose and mouth. Karsite infants appear as normal humans, but as they mature, their strange appearances and powers appear. Most karsites gain their birthright by the time they reach puberty, but for some it comes sooner or later. Superstitious humans often view the change in an emerging karsite's appearance as a sign of a blessing or curse, but few suspect that it is both. Karsus's bloodline allows a matured karsite to resist nonmagical blows and to turn spells cast against him into healing magic, but it also prevents him from ever casting any spell. Karsites born among humans might live and die without ever knowing that their unusual appearance comes with wondrous abilities, but others discover their birthright when they attempt to take up the path of a spellcaster, or when violence leaves them less harmed than it should. Communities of karsites often seek out such "foundlings" to indoctrinate into their philosophy, hoping to swell their numbers and advance their evil agenda.
   
 Karsite Racial Traits:
 Human Traits: Karsites are humans, and gain the human bonus feat and extra skill point
@@ -54404,7 +54406,7 @@ Essentia: Every point of essentia you invest in your keeneye lenses increases th
  
 Chakra Bind (Brow) 
 
-Instead of blue lenses hovering before you, the actual lenses of your eyes gain the blue tinge of incarnum. To an outside observer, your eyes look like solid blue orbs, although some distinction between the blue “white,” the iris, and the pupil of your eyes is still noticeable. To you, the world simply seems sharp and clear-even things that are invisible to unaided sight.
+Instead of blue lenses hovering before you, the actual lenses of your eyes gain the blue tinge of incarnum. To an outside observer, your eyes look like solid blue orbs, although some distinction between the blue "white", the iris, and the pupil of your eyes is still noticeable. To you, the world simply seems sharp and clear-even things that are invisible to unaided sight.
 
 You gain the ability to see invisible creatures and objects normally (as if under the effect of a see invisibility spell). 
 
@@ -56869,7 +56871,7 @@ The spell grants the subject a +2 enhancement bonus to Strength, Dexterity, and 
 
 Truename Component: When you cast this spell, you must correctly speak the personal truename of the creature you're augmenting.</entry>
   <entry id="60657" lang="en" sex="m">Blooded One</entry>
-  <entry id="60658" lang="en" sex="m">"Blooded One" is a template that can be added to any humanoid (referred to hereafter as the “base creature”). It uses all the base creature's statistics and special abilities, except as listed here.
+  <entry id="60658" lang="en" sex="m">"Blooded One" is a template that can be added to any humanoid (referred to hereafter as the "base creature"). It uses all the base creature's statistics and special abilities, except as listed here.
 AC: Natural armor improves by +2.
 Special Attacks: A blooded one retains all the special attacks of the base creature, and also gains the following special attack. 
 War Cry (Ex): Once per day, a blooded one can scream a special war cry. This causes all blooded ones within 30 feet (including itself) to gain a +1 morale bonus on all attack and damage rolls for 2d4 rounds. This effect does not stack with other war cries. 
@@ -56987,7 +56989,7 @@ Sense Goblinoids (Sp): At 8th level, you gain the ability to detect any creature
   <entry id="60677" lang="en" sex="m">Sharakim</entry>
   <entry id="60678" lang="en" sex="m">sharakim</entry>
   <entry id="60679" lang="en" sex="m">Sharakims</entry>
-  <entry id="60680" lang="en" sex="m">The sharakim (the name means “the tainted” or “those with taint” in an old human dialect) were once human. At least, their forebears were. Legends claim that, long ago, all humans resided in the village of Desh. They lived peacefully until a hunter named Sharak killed a sacred stag, and all those who ate of the stag's flesh became ill. Many died, but others were transformed, twisted into hideous caricatures of humanity by the evil they had committed. The humans who escaped the curse scattered, leaving Desh to be lost forever. Those creatures who had once been human gathered together and fled as well, making their own way in the world but forever after hated by humans because they stood as a reminder of that sin. These became the sharakim.
+  <entry id="60680" lang="en" sex="m">The sharakim (the name means "the tainted" or "those with taint" in an old human dialect) were once human. At least, their forebears were. Legends claim that, long ago, all humans resided in the village of Desh. They lived peacefully until a hunter named Sharak killed a sacred stag, and all those who ate of the stag's flesh became ill. Many died, but others were transformed, twisted into hideous caricatures of humanity by the evil they had committed. The humans who escaped the curse scattered, leaving Desh to be lost forever. Those creatures who had once been human gathered together and fled as well, making their own way in the world but forever after hated by humans because they stood as a reminder of that sin. These became the sharakim.
 
 Sharakim Racial Traits:
 +2 Strength, -2 Dexterity, +2 Intelligence, -2 Charisma: Sharakim are naturally strong but their size makes them clumsy. Their monstrous appearance works against them in social settings, but their culture forces them to be well educated.
@@ -57036,7 +57038,7 @@ Level Adjustment +0.</entry>
   <entry id="60689" lang="en" sex="m">Skulk</entry>
   <entry id="60690" lang="en" sex="m">skulk</entry>
   <entry id="60691" lang="en" sex="m">Skulks</entry>
-  <entry id="60692" lang="en" sex="m">Once members of an underprivileged caste of an ancient empire, the humans who would become skulks withdrew from the world through a magical ceremony that solidified their “untouchable” status. The ritual granted them natural camouflage, allowing skulks to blend in perfectly with their surroundings.  Skulks gather in small bands within or near human communities. When night falls, they engage in raids that result in bloodshed as the skulks' innate hatred for humans manifests itself in murderous rage. They use ambush, deception, and superior numbers to overwhelm their victims. 
+  <entry id="60692" lang="en" sex="m">Once members of an underprivileged caste of an ancient empire, the humans who would become skulks withdrew from the world through a magical ceremony that solidified their "untouchable" status. The ritual granted them natural camouflage, allowing skulks to blend in perfectly with their surroundings.  Skulks gather in small bands within or near human communities. When night falls, they engage in raids that result in bloodshed as the skulks' innate hatred for humans manifests itself in murderous rage. They use ambush, deception, and superior numbers to overwhelm their victims. 
   
 Skulk Racial Traits:
 +4 Dexterity, -2 Wisdom, -4 Charisma: Skulks are agile and graceful, but have weak wills and subdued personalities.
@@ -57052,7 +57054,7 @@ Level adjustment +1.</entry>
   <entry id="60693" lang="en" sex="m">Doppelganger</entry>
   <entry id="60694" lang="en" sex="m">doppelganger</entry>
   <entry id="60695" lang="en" sex="m">Doppelgangers</entry>
-  <entry id="60696" lang="en" sex="m">Scholars have debated for centuries about the origin of the doppelgangers. Shadowy, mysterious, and enigmatic, these shapeshifters learned long ago how to integrate themselves into human society. For this reason, learned men and women believe that doppelgangers were once human. How doppelgangers gained their unique abilities is unknown, even to themselves. Doppelgangers do not have a society of their own. They fill any desire for companionship and social interaction through their association with other races. Although doppelgangers act independently, following their own motivations and goals, rumors persist of a “secret cabal” of elder doppelgangers who desire nothing less than control of the world. Little evidence corroborates these rumors, which may have been perpetuated by the doppelgangers themselves to lend evenmore mystery to their race's reputation.
+  <entry id="60696" lang="en" sex="m">Scholars have debated for centuries about the origin of the doppelgangers. Shadowy, mysterious, and enigmatic, these shapeshifters learned long ago how to integrate themselves into human society. For this reason, learned men and women believe that doppelgangers were once human. How doppelgangers gained their unique abilities is unknown, even to themselves. Doppelgangers do not have a society of their own. They fill any desire for companionship and social interaction through their association with other races. Although doppelgangers act independently, following their own motivations and goals, rumors persist of a "secret cabal" of elder doppelgangers who desire nothing less than control of the world. Little evidence corroborates these rumors, which may have been perpetuated by the doppelgangers themselves to lend evenmore mystery to their race's reputation.
   
 Doppelganger Racial Traits:
 +2 Strength, +2 Dexterity, +2 Constitution, +2 Intelligence, +4 Wisdom, +2 Charisma: Doppelgangers have improved their minds and bodies through centuries of mimicking humanoid forms.
@@ -58273,9 +58275,7 @@ Essentia: When you allocate essentia to your soulspark familiar, you can select 
 
 Attack Bonus: Every point of essentia grants the soulspark a +1 bonus on its attack rolls and damage rolls.
 Deflection Bonus: Every point of essentia grants the soulspark a +1 deflection bonus to Armor Class.
-Healing: Every point of essentia invested grants the soulspark a certain amount of fast healing. A least soulspark gains fast healing equal to 1 × the points of essentia invested, a lesser
-soulspark gains fast healing equal to 2 × the points of essentia invested, a standard soulspark gains fast healing equal to 3 × the points of essentia invested, and a greater soulspark gains
-fast healing equal to 4 × the points of essentia invested.
+Healing: Every point of essentia invested grants the soulspark a certain amount of fast healing. A least soulspark gains fast healing equal to 1 × the points of essentia invested, a lesser soulspark gains fast healing equal to 2 × the points of essentia invested, a standard soulspark gains fast healing equal to 3 × the points of essentia invested, and a greater soulspark gains fast healing equal to 4 × the points of essentia invested.
 Saving Throw Bonus: Every point of essentia grants the soulspark a +1 resistance bonus on all saving throws.
 
 Chakra Bind (Brow)
@@ -58301,7 +58301,7 @@ Least Soulspark
 Tiny Outsider (Alignment, Incarnum, Native)
 
 HD 2d8+4 (13 hp); Init +5; Speed 20 ft., fly 30 ft. (perfect)
-AC 14, touch 12, flat-footed 13; BAB/Grapple +2/–6
+AC 14, touch 12, flat-footed 13; BAB/Grapple +2/-6
 Attack Soul blast +5 ranged (1d4+1); Full Attack Soul blast +5 ranged (1d4+1)
 Space/Reach 2½ ft./0 ft.
 SA Soul blast
@@ -58311,8 +58311,8 @@ Abilities Str 10, Dex 13, Con 15, Int 6, Wis 13, Cha 13
 Skills Diplomacy +3, Hide +14, Knowledge (history) +3, Listen +6, Move Silently +6, Sense Motive +6, Spot +6
 Feats Improved Initiative
 CR 1; Alignment Always CN, LN, NG, or NE
-Environment Any; Organization Solitary, pair, or flood (3–8)
-Advancement 3 HD (Tiny); LA —
+Environment Any; Organization Solitary, pair, or flood (3-8)
+Advancement 3 HD (Tiny); LA -
 
 
 Lesser Soulspark
@@ -58320,7 +58320,7 @@ Lesser Soulspark
 Tiny Outsider (Alignment, Incarnum, Native)
 
 HD 4d8+8 (26 hp); Init +6; Speed 20 ft., fly 30 ft. (perfect)
-AC 16, touch 14, flat-footed 14; BAB/Grapple +4/–4
+AC 16, touch 14, flat-footed 14; BAB/Grapple +4/-4
 Attack Soul blast +8 ranged (1d6+2); Full Attack Soul blast +8 ranged (1d6+2)
 Space/Reach 2½ ft./0 ft.
 SA Soul blast
@@ -58330,8 +58330,8 @@ Abilities Str 10, Dex 15, Con 15, Int 6, Wis 13, Cha 15
 Skills Diplomacy +4, Hide +17, Knowledge (history) +5, Listen +8, Move Silently +9, Sense Motive +8, Spot +8
 Feats Improved Initiative, Lightning Reflexes
 CR 3; Alignment Always CN, LN, NG, or NE
-Environment Any; Organization Solitary, pair, or flood (3–8)
-Advancement 5 HD (Tiny); LA —
+Environment Any; Organization Solitary, pair, or flood (3-8)
+Advancement 5 HD (Tiny); LA -
 
 
 Soulspark
@@ -58339,7 +58339,7 @@ Soulspark
 Tiny Outsider (Alignment, Incarnum, Native)
 
 HD 6d8+12 (39 hp); Init +8; Speed 20 ft., fly 30 ft. (perfect)
-AC 19, touch 16, flat-footed 15; BAB/Grapple +6/–1
+AC 19, touch 16, flat-footed 15; BAB/Grapple +6/-1
 Attack Soul blast +13 ranged (1d8+3); Full Attack Soul blast +13 ranged (1d8+3)
 Space/Reach 2½ ft./0 ft.
 SA Soul blast
@@ -58349,8 +58349,8 @@ Abilities Str 13, Dex 18, Con 15, Int 6, Wis 13, Cha 17
 Skills Diplomacy +5, Hide +21, Knowledge (history) +7, Listen +10, Move Silently +12, Sense Motive +10, Spot +10
 Feats Improved Initiative, Lightning Reflexes, Weapon Focus (soul blast)
 CR 5; Alignment Always CN, LN, NG, or NE
-Environment Any; Organization Solitary, pair, or flood (3–8)
-Advancement 7 HD (Tiny); LA —
+Environment Any; Organization Solitary, pair, or flood (3-8)
+Advancement 7 HD (Tiny); LA -
 
 
 Greater Soulspark
@@ -58368,8 +58368,8 @@ Abilities Str 13, Dex 21, Con 15, Int 6, Wis 13, Cha 21
 Skills Diplomacy +7, Hide +24, Knowledge (history) +9, Listen +12, Move Silently +16, Sense Motive +12, Spot +12
 Feats Improved Initiative, Lightning Reflexes, Weapon Focus (soul blast)
 CR 7; Alignment Always CN, LN, NG, or NE
-Environment Any; Organization Solitary, pair, or flood (3–8)
-Advancement 9–12 HD (Tiny); 13–20 HD (Small); LA —</entry>
+Environment Any; Organization Solitary, pair, or flood (3-8)
+Advancement 9-12 HD (Tiny); 13-20 HD (Small); LA -</entry>
   <entry id="60918" lang="en" sex="m">Soulspark Familiar Essentia Choice</entry>
   <entry id="60919" lang="en" sex="m">Type of Feat: Incarnum
 Prerequisite: Soulspark Familiar
@@ -58572,7 +58572,7 @@ Benefit: Choose a specific chakra, such as hands. Once per day, you unbind one o
 Special: You can gain this feat multiple times. Each time you select this feat, you can select another chakra
 Use: Automatic</entry>
   <entry id="61006" lang="en" sex="m">Gravetouched Ghoul</entry>
-  <entry id="61007" lang="en" sex="m">“Gravetouched ghoul” is an acquired template that can be added to any corporeal aberration, fey, giant, humanoid, or monstrous humanoid with Intelligence and Charisma scores of 3 or higher (referred to hereafter as the base creature).
+  <entry id="61007" lang="en" sex="m">"Gravetouched ghoul" is an acquired template that can be added to any corporeal aberration, fey, giant, humanoid, or monstrous humanoid with Intelligence and Charisma scores of 3 or higher (referred to hereafter as the base creature).
 
 A gravetouched ghoul speaks all the languages it spoke in life (usually Common). It has all the base creature's statistics and special abilities except as noted here.
 
@@ -73041,7 +73041,7 @@ Benefit: At 2nd level, the verdant lord gains the ability to draw energy from th
   <entry id="78057" lang="en" sex="m">Spontaneity</entry>
   <entry id="78058" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 3
-Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn't prepared ahead of time. This works like the cleric's spontaneous casting ability, with the following exceptions. He can “lose” a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
+Benefit: Beginning at 3rd level, the verdant lord can channel stored spell energy into certain healing spells that he hasn't prepared ahead of time. This works like the cleric's spontaneous casting ability, with the following exceptions. He can "lose" a prepared spell to cast any regenerate spell of the same level or lower. For example, a verdant lord who has prepared faerie fire (a 1st-level spell) may lose that spell to cast regenerate light wounds (also a 1st-level spell) instead. Domain spells, if the character has access to them, cannot be converted into regenerate spells.</entry>
   <entry id="78059" lang="en" sex="m">Plant Facility</entry>
   <entry id="78060" lang="en" sex="m">Type of Feat: Class
 Prerequsite: Verdant Lord 4
@@ -73261,9 +73261,9 @@ Prerequisites: Forge Ring, Forge Epic Ring, miracle</entry>
   <entry id="80180" lang="en" sex="m">Like the ring of divinity, this ring comes in a variety of types useful only to divine spellcasters. The wearer's divine spells per day are doubled for one particular spell level. An epic ring of divinity V doubles 5th-level spells, an epic ring of divinity VI doubles 6th-level spells, an epic ring of divinity VII doubles 7th-level spells, an epic ring of divinity VIII doubles 8th-level spells, and an epic ring of divinity IX doubles 9th-level spells. Bonus spells from high ability scores, school specialization, or any other source are not doubled.</entry>
   <entry id="80181" lang="en" sex="m">****</entry>
   <entry id="80182" lang="en" sex="m">As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Hide checks. As a standard action, she can also command the ring to utilize the spell disguise self as often as she wants.</entry>
-  <entry id="80183" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt. A minor ring of energy resistance grants 10 points of resistance.</entry>
-  <entry id="80184" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt.  A major ring of energy resistance grants 20 points of resistance.</entry>
-  <entry id="80185" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy—acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt.  A greater ring of energy resistance grants 30 points of resistance.</entry>
+  <entry id="80183" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy; acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt. A minor ring of energy resistance grants 10 points of resistance.</entry>
+  <entry id="80184" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy; acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt.  A major ring of energy resistance grants 20 points of resistance.</entry>
+  <entry id="80185" lang="en" sex="m">This reddish iron ring continually protects the wearer from damage from one type of energy; acid, cold, electricity, fire, or sonic (chosen by the creator of the item). Each time the wearer would normally take such damage, subtract the ring's resistance value from the damage dealt.  A greater ring of energy resistance grants 30 points of resistance.</entry>
   <entry id="80186" lang="en" sex="m">This band continually provides the wearer with immunity to a single type of energy: fire, cold, electricity, acid, or sonic. The wearer takes no damage from the energy of the specific type.</entry>
   <entry id="80187" lang="en" sex="m">This ring functions as a ring of greater energy resistance for all types of energy-fire, cold, electricity, acid, and sonic. When the wearer would normally take such damage, subtract 30 points of damage per round from the amount before applying.</entry>
   <entry id="80188" lang="en" sex="m">This ring functions as a ring of energy immunity for all types of energy- fire, cold, electricity, acid, and sonic. The wearer takes no damage from energy of any of these types.</entry>
@@ -76864,11 +76864,10 @@ Prerequisite: Access to the Moon domain.
 Specifics: 
 Lycanthrope Turning: Able to turn or destroy lycanthropes as if they were undead.
 Bonus Spells: 
-The cleric gains access to the following spells at the specified spell level: Faerie Fire (1), Moonbeam* (2), Moonblade* (3), Good Hope* (4), Moon Path* (5), Countermoon* (6), Insanity (7), Animal Shapes* (8), Moonfire* (9)
+The cleric gains access to the following spells at the specified spell level: Faerie Fire (1), Moonbeam (2), Moonblade (3), Good Hope (4), Moon Path (5), Countermoon (6), Insanity (7), Animal Shapes (8), Moonfire (9)
 
 Use: Automatic.
-
-*Not implemented</entry>
+</entry>
   <entry id="211814" lang="en" sex="m">Chaos Domain Powers</entry>
   <entry id="211815" lang="en" sex="m">Law Domain Powers</entry>
   <entry id="211816" lang="en" sex="m">Luck Domain Powers</entry>
@@ -77646,4 +77645,188 @@ Specifics: You gain a +4 perfection bonus on Will saving throws against charm an
   <entry id="213330" lang="en" sex="m">Type of Feat: Exalted
 Prerequisite: Wis 13+
 Specifics: You gain a +2 bonus on saving throws to resist any fear effect, despair effect (such as the crushing despair spell), or similar mind-affecting condition, but not charms or compulsions (such as the charm person and dominate person spells)</entry>
+  <entry id="213331" lang="en" sex="m">Natural Werewolf</entry>
+  <entry id="213332" lang="en" sex="m">An inherited D&amp;D 3.0 lycanthrope template for a humanoid born as a werewolf. The base race remains intact, but its creature type is treated as Shapechanger.
+
+Humanoid form: +2 natural armor; +2 racial Fortitude and Will; +4 racial Listen, Search, and Spot; +4 Animal Empathy when influencing wolves.
+
+Wolf or hybrid form: +2 Strength, +4 Dexterity, +4 Constitution, +4 total natural armor (the wolf's +2, increased by the template's +2), a requested 50-foot land speed, scent, Blind-Fight, Improved Initiative, Weapon Finesse, bite and trip, and curse of lycanthropy (Fortitude DC 15). Form skills use +8 racial Listen, Search, and Spot. The tabletop DR 15/silver is encoded as DR 15/+1, the closest stock NWN property. Assuming a form heals as one day of rest. Natural lycanthropes have full control of their forms and are chaotic evil.
+
+Level adjustment: +2, following the playable-lycanthrope rules in Races of Faerun (D&amp;D 3.0, p. 142).</entry>
+  <entry id="213333" lang="en" sex="m">Afflicted Werewolf</entry>
+  <entry id="213334" lang="en" sex="m">An acquired D&amp;D 3.0 lycanthrope template for a humanoid infected by a werewolf's bite. The base race remains intact, but its creature type is treated as Shapechanger.
+
+Humanoid form: +2 natural armor; +2 racial Fortitude and Will; +4 racial Listen, Search, and Spot; +4 Animal Empathy when influencing wolves.
+
+Wolf or hybrid form: +2 Strength, +4 Dexterity, +4 Constitution, +4 total natural armor (the wolf's +2, increased by the template's +2), a requested 50-foot land speed, scent, Blind-Fight, Improved Initiative, Weapon Finesse, bite and trip, and curse of lycanthropy (Fortitude DC 15). Form skills use +8 racial Listen, Search, and Spot. The tabletop DR 15/silver is encoded as DR 15/+1, the closest stock NWN property. Assuming a form heals as one day of rest.
+
+Afflicted werewolves use D&amp;D 3.0 Control Shape DCs. Because PRC 4.947 has no Control Shape skill, Wisdom checks are used. A voluntary change permanently shifts alignment to chaotic evil; full-moon and injury triggers can cause involuntary wolf form.
+
+Level adjustment: +1, following the playable-lycanthrope rules in Races of Faerun (D&amp;D 3.0, p. 142).</entry>
+  <entry id="213349" lang="en" sex="m">Moonbeam</entry>
+  <entry id="213350" lang="en" sex="m">Evocation [Light]
+Level: Moon 2
+Range: 30 feet
+Area: Cone-shaped emanation
+Duration: 1 minute / level (D)
+Saving Throw: None or Will negates; see text
+Spell Resistance: No
+
+A cone of pale moonlight shines in the chosen direction. While it remains active, its temporary Redirect Moonbeam ability can aim the cone in a new direction once each round. Light-sensitive creatures are unaffected.
+
+A lycanthrope in humanoid form must make a Will save or involuntarily assume its animal form. A lycanthrope in animal form can change out of it after spending one round in that form, but must make a Will save if it is still in the cone. A successful save grants immunity to that caster's Moonbeam spells for 24 hours. Hybrid and unrelated forms are not affected.
+
+Moonbeam penetrates magical darkness of spell level 2 or lower without dispelling it. Higher-level magical darkness blocks the beam.</entry>
+  <entry id="213351" lang="en" sex="m">Moon Blade</entry>
+  <entry id="213352" lang="en" sex="m">Evocation
+Level: Moon 3
+Components: Verbal, Somatic, Divine Focus
+Range: 0 feet
+Effect: One swordlike beam
+Duration: 1 minute / level (dismissible)
+Saving Throw: None
+Spell Resistance: Yes
+
+This spell creates a three-foot swordlike beam of moonlight in the caster's empty main hand. Once per round, the caster can direct the blade to make a full attack against one creature. Every iterative and bonus attack is resolved as a melee touch attack. The blade deals no normal weapon or Strength damage.
+
+Each successful, unresisted touch attack deals 1d8 points of positive energy damage plus 1 point per two caster levels, to a maximum bonus of +10. Against undead it instead deals 2d8 points plus 1 point per caster level, to a maximum bonus of +20. Spell resistance is checked once per creature for each casting.
+
+After a hit, the target must make a Concentration check to use a spell or spell-like ability on its next turn. The DC is 10 + the Moon Blade damage dealt + the level of the attempted spell.</entry>
+  <entry id="213353" lang="en" sex="m">Good Hope</entry>
+  <entry id="213354" lang="en" sex="m">Enchantment (Compulsion) [Mind-Affecting]
+Level: Moon 4
+Components: Verbal, Somatic
+Range: Medium
+Targets: Up to one living creature per caster level, no two more than 30 feet apart
+Duration: 1 minute / level
+Saving Throw: Will negates (harmless)
+Spell Resistance: Yes (harmless)
+
+Each affected creature gains a +2 morale bonus on saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls. Good Hope counters and dispels Crushing Despair; when the two meet, both effects are removed from that subject.</entry>
+  <entry id="213355" lang="en" sex="m">Moon Path</entry>
+  <entry id="213356" lang="en" sex="m">Evocation [Force]
+Level: Moon 5
+Components: Verbal, Somatic, Divine Focus
+Range: Medium
+Effect: Straight 10-foot-wide moonlit path, up to 15 feet / level long
+Duration: 1 minute / level (Dismissible)
+Saving Throw: None; see text
+Spell Resistance: No
+
+Creates a straight ribbon of glowing white force from the caster to the chosen point. The path cannot pass through an obstruction or exceed a 45-degree incline.
+
+At casting, the caster and up to one allied creature per caster level in the area are designated. While a designated creature stands on the path, it gains sanctuary (Will DC 15 + the caster's Wisdom modifier). Leaving the path removes this protection; re-entering restores it unless any designated creature has attacked, which ends sanctuary for all designated creatures.</entry>
+  <entry id="213357" lang="en" sex="m">Countermoon</entry>
+  <entry id="213358" lang="en" sex="m">Abjuration
+Level: Moon 6
+Range: Close
+Target: One lycanthrope
+Duration: 12 hours
+Saving Throw: Will negates
+Spell Resistance: Yes
+
+Translucent chains fly from the caster and force the target back to its natural form. For the duration, the target cannot change form voluntarily through its lycanthropic alternate-form ability or involuntarily because of lycanthropy.</entry>
+  <entry id="213359" lang="en" sex="m">Animal Shapes</entry>
+  <entry id="213360" lang="en" sex="m">Transmutation
+Level: Moon 8
+Range: Close
+Targets: Up to one willing ally per caster level, all within 30 feet of one another
+Duration: 1 hour / level (dismissible)
+Saving Throw: None
+Spell Resistance: Yes (harmless)
+
+Choose brown bear, panther, wolf, boar, or badger. Every affected ally assumes the same selected animal form. The form's Hit Dice cannot exceed either the caster level or the subject's Hit Dice. An individual subject can resume its natural form before the duration ends, and the caster can dismiss the transformation for the entire group. Existing polymorphs and alternate forms must be ended before casting on that subject.</entry>
+  <entry id="213361" lang="en" sex="m">Moonfire</entry>
+  <entry id="213362" lang="en" sex="m">Evocation [Light]
+Level: Moon 9
+Range: 60 feet
+Area: Cone-shaped burst and lingering cone
+Duration: Instantaneous and 1 round / level
+Saving Throw: Reflex half; Will negates forced reversion
+Spell Resistance: Yes
+
+Moonfire erupts as a cone of fiery white moonlight. Living creatures take 1d8 divine damage per two caster levels (maximum 10d8); undead and creatures with the Shapechanger type take 1d8 per caster level (maximum 20d8). Reflex halves the damage.
+
+Polymorphed, shifted, or otherwise transformed creatures must make a Will save or return to natural form. Whether or not that save succeeds, an affected altered creature is outlined in white. Magical auras present when the spell is cast glow blue for the duration.
+
+The original cone remains fixed and brightly lit for 1 round per level. Creatures and objects within it are protected from electrical damage.</entry>
+  <entry id="213363" lang="en" sex="m">Moon Blade: Full Attack</entry>
+  <entry id="213364" lang="en" sex="m">While Moon Blade is active, select one creature to make all attacks available this round against it as melee touch attacks. Each successful attack deals Moon Blade damage. This ability can be used once per round.</entry>
+  <entry id="213365" lang="en" sex="m">Redirect Moonbeam</entry>
+  <entry id="213366" lang="en" sex="m">Range: 30-foot cone
+Duration: While Moonbeam is active
+
+Choose a new direction for the active Moonbeam cone. This temporary ability has unlimited uses and can redirect the beam once per round without consuming another spell.</entry>
+  <entry id="213433" lang="en" sex="m">Silverstar</entry>
+  <entry id="213434" lang="en" sex="m">Silverstar</entry>
+  <entry id="213435" lang="en" sex="m">Silverstars</entry>
+  <entry id="213436" lang="en" sex="m">silverstar</entry>
+  <entry id="213437" lang="en" sex="m">(PRESTIGE CLASS)
+Silverstars are wandering champions of Selune who defend the innocent, expose darkness, and oppose evil shapechangers.
+
+- Hit Die: d8.
+- Base Attack Bonus: Medium.
+- High Saves: Fortitude and Will.
+- Skill Points: 2 + Intelligence modifier.
+- Spellcasting: Every Silverstar level advances the character's primary divine spellcasting class.
+
+REQUIREMENTS:
+
+Alignment: Chaotic Good
+Base Attack Bonus: +4
+Skills: Sense Motive 2 ranks, Spot 2 ranks
+Feats: Blind-Fight, Dodge, Mobility, Spring Attack
+Spells: Able to cast 2nd-level divine spells
+Special: A Cleric must possess the Moon domain.
+
+CLASS FEATURES:
+
+Level
+1: Moon Spells - Cast Moon domain spells using spell slots of the same level from the divine spellcasting class advanced by Silverstar.
+2: Low-Light Vision.
+3: Moon's Hand - A wielded heavy mace gains +1 enhancement and +1d6 electrical damage.
+4: Tears of Selune - Dancing Lights at will.
+5: Prophet's Sight - True Seeing once per rest.
+6: Selunite Lycanthrope - A Silverstar who is a werewolf gains control over her transformations. Does not grant lycanthropy.
+    Improved Moon's Hand - The heavy mace's enhancement increases to +2, retaining +1d6 electrical damage.
+7: Moonshield - +2 on saving throws against Enchantment, Illusion, Necromancy, and Darkness spells.
+8: Prophet's Sight - Two uses per rest.
+9: Greater Moon's Hand - Adds an electrical burst, checked by a separate threat roll on each successful hit.
+10: Moonfire - Once per rest.
+
+EPIC PROGRESSION:
+
+Silverstar levels 11-30 are available from character level 21. Moon's Hand improves to +3 at class level 15, +4 at 20, +5 at 25, and +6 at 30. Prophet's Sight increases to 3 uses per rest at class level 16, 4 at 23, and 5 at 30. Gain an epic bonus feat at class levels 14, 18, 22, 26, and 30. Divine spellcasting continues to advance.</entry>
+  <entry id="213438" lang="en" sex="m">Moon Spells</entry>
+  <entry id="213439" lang="en" sex="m">A Silverstar can cast Moon domain spells by expending an available spell slot of the same level from the divine spellbook advanced by Silverstar. These casts have no daily domain limit and do not consume domain slots or grant the Moon domain's power.</entry>
+  <entry id="213440" lang="en" sex="m">Moon's Hand</entry>
+  <entry id="213441" lang="en" sex="m">At 3rd level, a heavy mace wielded by the Silverstar gains a +1 enhancement bonus and deals +1d6 electrical damage while equipped. The enhancement increases to +2 at class level 6, +3 at 15, +4 at 20, +5 at 25, and +6 at 30. Use the higher of this bonus or the weapon's existing enhancement.</entry>
+  <entry id="213442" lang="en" sex="m">Tears of Selune</entry>
+  <entry id="213443" lang="en" sex="m">At 4th level, the Silverstar can invoke Dancing Lights at will as a spell-like ability, creating four luminescent wisps that last for 1 minute. Its caster level follows the advanced divine spellcasting class.</entry>
+  <entry id="213444" lang="en" sex="m">Prophet's Sight</entry>
+  <entry id="213445" lang="en" sex="m">At 5th level, the Silverstar gains supernatural True Seeing once per rest, lasting 1 turn per character level. Uses per rest increase to 2 at class level 8, 3 at 16, 4 at 23, and 5 at 30.</entry>
+  <entry id="213446" lang="en" sex="m">Selunite Lycanthrope</entry>
+  <entry id="213447" lang="en" sex="m">At 6th level, a Silverstar who is a natural or afflicted werewolf gains control over her transformations. This ability does not grant lycanthropy. Countermoon still affects the Silverstar.</entry>
+  <entry id="213448" lang="en" sex="m">Improved Moon's Hand</entry>
+  <entry id="213449" lang="en" sex="m">At 6th level, Moon's Hand improves the equipped heavy mace's enhancement bonus to +2 while retaining +1d6 electrical damage. The enhancement increases to +3 at class level 15, +4 at 20, +5 at 25, and +6 at 30. Use the higher of this bonus or the weapon's existing enhancement.</entry>
+  <entry id="213450" lang="en" sex="m">Moonshield</entry>
+  <entry id="213451" lang="en" sex="m">At 7th level, the Silverstar gains a +2 bonus on saving throws against Enchantment, Illusion, and Necromancy spells, and spells with the Darkness descriptor.</entry>
+  <entry id="213452" lang="en" sex="m">Greater Moon's Hand</entry>
+  <entry id="213453" lang="en" sex="m">At 9th level, Moon's Hand retains its +2 enhancement bonus and +1d6 electrical damage and gains an electrical burst. Each successful hit makes a separate roll against the mace's modified critical threat range. A successful roll deals an additional 1d10 electrical damage for a x2 critical multiplier, 2d10 for x3, and so on. Creatures immune to critical hits are immune to this burst.</entry>
+  <entry id="213454" lang="en" sex="m">Moonfire</entry>
+  <entry id="213455" lang="en" sex="m">At 10th level, the Silverstar can invoke Moonfire once per rest as a spell-like ability.</entry>
+  <entry id="213456" lang="en" sex="m">Silverstar Spellcasting (Cleric)</entry>
+  <entry id="213457" lang="en" sex="m">Silverstar Spellcasting (Ranger)</entry>
+  <entry id="213458" lang="en" sex="m">At 1st level, choose your primary divine spellcasting class. Every Silverstar level advances that class. This choice cannot be changed at later levels.</entry>
+  <entry id="213459" lang="en" sex="m">Selunite Scent</entry>
+  <entry id="213460" lang="en" sex="m">A Silverstar of 6th level or higher who is a werewolf may select this feat as a normal feat choice. It grants Keen Senses and a +4 bonus to Spot, Listen, and Search while she remains a werewolf. The skill bonus does not stack with Scent.</entry>
+  <entry id="213461" lang="en" sex="m">Epic Silverstar</entry>
+  <entry id="213462" lang="en" sex="m">This feat marks a Silverstar's advancement into epic levels at 11th class level. It grants no additional ability.</entry>
+  <entry id="213463" lang="en" sex="m">Silverstar Spellcasting (Healer)</entry>
+  <entry id="213464" lang="en" sex="m">Silverstar Spellcasting (Justice of Weald and Woe)</entry>
+  <entry id="213465" lang="en" sex="m">Silverstar Spellcasting (Knight of the Middle Circle)</entry>
+  <entry id="213466" lang="en" sex="m">Silverstar Spellcasting (Archivist)</entry>
+  <entry id="213467" lang="en" sex="m">Silverstar Spellcasting (Shaman)</entry>
+  <entry id="213468" lang="en" sex="m">Silverstar Spellcasting (Favoured Soul)</entry>
+  <entry id="213469" lang="en" sex="m">Silverstar Spellcasting (Nentyar Hunter)</entry>
 </tlk>

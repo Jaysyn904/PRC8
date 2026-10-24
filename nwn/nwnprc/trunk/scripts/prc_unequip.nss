@@ -15,6 +15,7 @@
 #include "prc_inc_itmrstr"
 #include "prc_inc_combat"
 #include "prc_inc_template"
+#include "prc_inc_wwolf"
 
 //:: Shield Specialization moved here to stop Shield AC message spam
 void RemoveShieldSpecialization(object oPC, object oItem)   
@@ -33,7 +34,13 @@ void RemoveShieldSpecialization(object oPC, object oItem)
 void PrcFeats(object oPC, object oItem)
 {
      SetLocalInt(oPC,"ONEQUIP",1);
-     EvalPRCFeats(oPC);
+     if(PRCWWShouldCoalesceEquipEval(oPC))
+     {
+         PRCWWRunTransitionEquipEval(oPC);
+         PRCWWQueueFormTransitionEval(oPC);
+     }
+     else
+         EvalPRCFeats(oPC);
 
      //this is to remove effect-related itemproperties
      //in here to take advantage of the local

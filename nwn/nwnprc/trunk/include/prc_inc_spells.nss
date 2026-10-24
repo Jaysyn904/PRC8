@@ -940,6 +940,14 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
 {
     int nSpell = PRCGetSpellId(oSaveVersus);
     int nSpellSchool = GetSpellSchool(nSpell);
+
+    if(GetLevelByClass(CLASS_TYPE_SILVERSTAR, oTarget) >= 7
+    && nSpell >= 0
+    && (nSpellSchool == SPELL_SCHOOL_ENCHANTMENT
+     || nSpellSchool == SPELL_SCHOOL_ILLUSION
+     || nSpellSchool == SPELL_SCHOOL_NECROMANCY
+     || GetHasDescriptor(nSpell, DESCRIPTOR_DARKNESS)))
+        nDC -= 2;
     
 	//If bImmunityCheck == FALSE: returns 0 if failure or immune, 1 if success - same as MySavingThrow
 	//If bImmunityCheck == TRUE:  returns 0 if failure, 1 if success, 2 if immune 
@@ -1574,6 +1582,60 @@ void SetAllAoEInts(int SpellID, object oAoE, int nBaseSaveDC, int SpecDispel = 0
     }
 }
 
+// Dynamic Moon Path gate.
+int MoonPathPortableGate(object oTarget, object oArea, vector vFrom,
+    vector vTo, int nKind)
+{
+    if(!GetIsObjectValid(GetObjectByTag("MOONPATH_SURFACE")))
+        return FALSE;
+
+    SetLocalInt(OBJECT_SELF, "MP_SP_BLOCK", FALSE);
+    SetLocalInt(OBJECT_SELF, "MP_SP_MODE", nKind);
+    SetLocalObject(OBJECT_SELF, "MP_SP_TARGET", oTarget);
+    SetLocalObject(OBJECT_SELF, "MP_SP_AREA", oArea);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_X", vFrom.x);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_Y", vFrom.y);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_Z", vFrom.z);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_TX", vTo.x);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_TY", vTo.y);
+    SetLocalFloat(OBJECT_SELF, "MP_SP_TZ", vTo.z);
+    ExecuteScript("moonpath_spell", OBJECT_SELF);
+    int bBlocked = GetLocalInt(OBJECT_SELF, "MP_SP_BLOCK");
+    DeleteLocalInt(OBJECT_SELF, "MP_SP_BLOCK");
+    DeleteLocalInt(OBJECT_SELF, "MP_SP_MODE");
+    DeleteLocalObject(OBJECT_SELF, "MP_SP_TARGET");
+    DeleteLocalObject(OBJECT_SELF, "MP_SP_AREA");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_X");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_Y");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_Z");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_TX");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_TY");
+    DeleteLocalFloat(OBJECT_SELF, "MP_SP_TZ");
+    return bBlocked;
+}
+
+int MoonPathPortableShapeBlocked(object oTarget, int nShape,
+    location lTarget, int bLineOfSight, vector vOrigin)
+{
+    // Preserve searches that deliberately ignore line of sight (spreads,
+    // detection, aura bookkeeping) and shapes with no defined ray origin here.
+    if(!bLineOfSight || !GetIsObjectValid(oTarget))
+        return FALSE;
+    if(nShape != SHAPE_SPHERE && nShape != SHAPE_CONE
+        && nShape != SHAPE_SPELLCONE && nShape != SHAPE_SPELLCYLINDER)
+        return FALSE;
+
+    vector vFrom = GetPositionFromLocation(lTarget);
+    if(nShape != SHAPE_SPHERE)
+    {
+        vFrom = vOrigin;
+        if(vFrom.x == 0.0f && vFrom.y == 0.0f && vFrom.z == 0.0f)
+            vFrom = GetPosition(OBJECT_SELF);
+    }
+    return MoonPathPortableGate(oTarget, GetAreaFromLocation(lTarget),
+        vFrom, GetPosition(oTarget), 2);
+}
+
 //GetNextObjectInShape wrapper for changing the AOE of the channeled spells
 object MyNextObjectInShape(int nShape,
                            float fSize, location lTarget,
@@ -1615,7 +1677,11 @@ object MyNextObjectInShape(int nShape,
         return OBJECT_INVALID;
     }
 
-    return GetNextObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    object oCandidate = GetNextObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    while(GetIsObjectValid(oCandidate)
+        && MoonPathPortableShapeBlocked(oCandidate, nShape, lTarget, bLineOfSight, vOrigin))
+        oCandidate = GetNextObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    return oCandidate;
 }
 
 //GetFirstObjectInShape wrapper for changing the AOE of the channeled spells
@@ -1669,7 +1735,11 @@ object MyFirstObjectInShape(int nShape,
         return PRCGetSpellTargetObject(oCaster);
     }
 
-    return GetFirstObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    object oCandidate = GetFirstObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    while(GetIsObjectValid(oCandidate)
+        && MoonPathPortableShapeBlocked(oCandidate, nShape, lTarget, bLineOfSight, vOrigin))
+        oCandidate = GetNextObjectInShape(nShape,fSize,lTarget,bLineOfSight,nObjectFilter,vOrigin);
+    return oCandidate;
 }
 
 

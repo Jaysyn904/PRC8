@@ -1,0 +1,423 @@
+#MAXMODEL ASCII
+# model: vff_mfburst
+# Native Sunbeam ground crown, smoke and light; launch nodes removed.
+# All native emitter geometry, textures, particle properties and motion remain.
+# Palette changed to white; animation origin rebased from stock time 0.466667.
+# Keys crossing the cut are interpolated, retaining the native contact ramp.
+# Play at the travelling hand fan's ground contact; never rotate this upright.
+filedependancy vff_mfburst.max
+newmodel vff_mfburst
+setsupermodel vff_mfburst NULL
+classification EFFECT
+setanimationscale 1
+#MAXGEOM  ASCII
+beginmodelgeom vff_mfburst
+node dummy vff_mfburst
+  parent NULL
+endnode
+node dummy Dummy01
+  parent vff_mfburst
+  position 0 0 0
+  orientation 0 0 0 0
+endnode
+node emitter OmenEmitter04
+  parent Dummy01
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_Bstrk
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position -5 -5 -0.271233
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.3
+  mass 0
+  spread 1.0472
+  particleRot 0
+  velocity 15
+  randvel 0
+  fps 0
+  xsize 1000
+  ysize 1000
+  bounce_co 0
+  blurlength 0.7
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter OmenEmitter03
+  parent Dummy01
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_Bstrk
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position -5 5 -0.271233
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.2
+  mass 0
+  spread 1.0472
+  particleRot 0
+  velocity 15
+  randvel 0
+  fps 0
+  xsize 1000
+  ysize 1000
+  bounce_co 0
+  blurlength 0.7
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter OmenEmitter05
+  parent Dummy01
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_Bstrk
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 5 -5 -0.271233
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.4
+  mass 0
+  spread 1.0472
+  particleRot 0
+  velocity 15
+  randvel 0
+  fps 0
+  xsize 1000
+  ysize 1000
+  bounce_co 0
+  blurlength 0.7
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter OmenEmitter02
+  parent Dummy01
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_Bstrk
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 5 5 -0.271233
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 1
+  sizeStart 0.1
+  sizeEnd 0.1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.2
+  mass 0
+  spread 1.0472
+  particleRot 0
+  velocity 15
+  randvel 0
+  fps 0
+  xsize 1000
+  ysize 1000
+  bounce_co 0
+  blurlength 0.7
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter Splat
+  parent vff_mfburst
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Billboard_to_World_Z
+  blend Lighten
+  texture fxpa_Smoke01a
+  xgrid 4
+  ygrid 4
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0.200269
+  orientation 0 0 0 0
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0
+  sizeStart 20
+  sizeEnd 10
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 15
+  birthrate 0
+  lifeExp 1
+  mass 0
+  spread 0.523599
+  particleRot 0
+  velocity 0
+  randvel 0
+  fps 16
+  xsize 1000
+  ysize 1000
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node light AuroraLight01
+  parent vff_mfburst
+  ambientonly 0
+  shadow 0
+  isdynamic 1
+  affectdynamic 1
+  lightpriority 2
+  fadingLight 1
+  flareradius 0
+  position 0 0 1.7
+  orientation -0.5773503 0.5773503 0.5773503 -2.0944
+  radius 10
+  multiplier 2
+  color 0.9215690 0.9215690 0.9215690
+endnode
+endmodelgeom vff_mfburst
+
+#MAXANIM ASCII
+newanim impact vff_mfburst
+  length 2.50000
+  transtime 0.25
+  animroot vff_mfburst
+  node dummy vff_mfburst
+    parent NULL
+  endnode
+  node dummy Dummy01
+    parent vff_mfburst
+    orientationkey 10
+         0.0000000   0.0000000   0.0000000   -1.0000000   -3.4033953
+         0.1666660   0.0000000   0.0000000   -1.0000000   -4.7123899
+         0.3666660   0.0000000   0.0000000   -1.0000000   -6.2744598
+         0.6000029   0.0000000   0.0000000   1.0000000   -4.7211199
+         0.8333330   0.0000000   0.0000000   1.0000000   -3.1415901
+         1.0333330   0.0000000   0.0000000   1.0000000   -1.5707999
+         1.2333330   0.0000000   0.0000000   0.0000000   0.0000000
+         1.4333330   0.0000000   0.0000000   -1.0000000   -1.5707999
+         1.6333329   0.0000000   0.0000000   -1.0000000   -3.1415901
+         1.8333330   0.0000000   0.0000000   -1.0000000   -4.7123899
+  endnode
+  node emitter OmenEmitter04
+    parent Dummy01
+    birthratekey 6
+         0.0000000   0.0000000
+         0.0333330   100.0000000
+         0.0666660   100.0000000
+         1.4333330   100.0000000
+         1.4666631   100.0000000
+         1.8000030   0.0000000
+  endnode
+  node emitter OmenEmitter03
+    parent Dummy01
+    birthratekey 6
+         0.0000000   0.0000000
+         0.0333330   100.0000000
+         0.0666660   100.0000000
+         1.4333330   100.0000000
+         1.4666631   100.0000000
+         1.8000030   0.0000000
+  endnode
+  node emitter OmenEmitter05
+    parent Dummy01
+    birthratekey 6
+         0.0000000   0.0000000
+         0.0333330   100.0000000
+         0.0666660   100.0000000
+         1.4333330   100.0000000
+         1.4666631   100.0000000
+         1.8000030   0.0000000
+  endnode
+  node emitter OmenEmitter02
+    parent Dummy01
+    birthratekey 6
+         0.0000000   0.0000000
+         0.0333330   100.0000000
+         0.0666660   100.0000000
+         1.4333330   100.0000000
+         1.4666631   100.0000000
+         1.8000030   0.0000000
+  endnode
+  node emitter Splat
+    parent vff_mfburst
+    birthratekey 4
+         0.0000000   0.0000000
+         0.0333330   20.0000000
+         0.8333330   20.0000000
+         1.0000030   0.0000000
+  endnode
+  node light AuroraLight01
+    parent vff_mfburst
+    colorkey 7
+         0.0000000   0.9457013   0.9457013   0.9457013
+         0.3333330   0.9215690   0.9215690   0.9215690
+         0.7666630   0.9764710   0.9764710   0.9764710
+         1.3000030   0.9215690   0.9215690   0.9215690
+         1.7333330   0.9843140   0.9843140   0.9843140
+         1.9666631   0.9215690   0.9215690   0.9215690
+         2.4666631   0.0000000   0.0000000   0.0000000
+  endnode
+doneanim impact vff_mfburst
+
+donemodel vff_mfburst

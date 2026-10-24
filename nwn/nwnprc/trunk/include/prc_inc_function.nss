@@ -256,7 +256,7 @@ void SetupCharacterData(object oPC)
                 case CLASS_TYPE_WARLOCK:               sScript = "inv_warlock";      iData |= 0x01; break;
                 case CLASS_TYPE_WARMAGE:                                             iData |= 0x03; break;
                 case CLASS_TYPE_WARMIND:               sScript = "psi_warmind";      iData |= 0x01; break;
-                case CLASS_TYPE_WEREWOLF:              sScript = "prc_werewolf";                    break;                
+                case CLASS_TYPE_SILVERSTAR:            sScript = "prc_silverstar";                  break;
                 case CLASS_TYPE_WILDER:                                              iData |= 0x01; break;
                 
                 // Races that can cast spells
@@ -1346,7 +1346,8 @@ void DelayAddItemProperty(float fDelay, object oGenerationHolder, string sGenera
  */
 void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iMod = 0, int iMin = 1)
 {
-    if(!GetHasFeat(iFeat,oPC))
+    // Rest must also refill an inherent feat that has zero remaining uses.
+    if(!GetHasFeat(iFeat, oPC, TRUE))
         return;
 
     int iAbi = GetAbilityModifier(iAbiMod, oPC);
@@ -1358,13 +1359,40 @@ void FeatUsePerDay(object oPC, int iFeat, int iAbiMod = ABILITY_CHARISMA, int iM
     if(iAbi < iMin)
         iAbi = iMin;
 
-    while(GetHasFeat(iFeat, oPC))
-        DecrementRemainingFeatUses(oPC, iFeat);
+    // Native item/effect-granted feats can remain available forever while
+    // DecrementRemainingFeatUses does nothing. Never loop on availability.
+    // This is native EE bookkeeping; no NWNX function is needed.
+    int nRemaining = GetFeatRemainingUses(iFeat, oPC);
+    if(nRemaining < 0 || nRemaining == 2147483647)
+        return;
 
-    while(iAbi)
+    int nGuard = 0;
+    while(nRemaining > 0 && nGuard < 255)
     {
+        DecrementRemainingFeatUses(oPC, iFeat);
+        int nAfter = GetFeatRemainingUses(iFeat, oPC);
+        // An uncounted grant must neither hang nor receive extra uses.
+        if(nAfter < 0 || nAfter >= nRemaining)
+            return;
+        nRemaining = nAfter;
+        nGuard++;
+    }
+    if(nRemaining > 0 || GetHasFeat(iFeat, oPC))
+        return;
+
+    // Bound VM work even with malformed ability data; the native counter may
+    // reach this particular feat's own cap earlier (caught by no-progress).
+    if(iAbi > 255) iAbi = 255;
+    nGuard = 0;
+    while(iAbi > 0 && nGuard < 255)
+    {
+        int nBefore = GetFeatRemainingUses(iFeat, oPC);
         IncrementRemainingFeatUses(oPC, iFeat);
+        int nAfter = GetFeatRemainingUses(iFeat, oPC);
+        if(nAfter <= nBefore || nAfter == 2147483647)
+            return;
         iAbi--;
+        nGuard++;
     }
 }
 
@@ -1914,7 +1942,7 @@ void BlighterFeats(object oPC)
     int nClass = GetLevelByClass(CLASS_TYPE_BLIGHTER, oPC);
     if (nClass <= 0) return;
 
-    // Phase 1: Levels 3–10
+    // Phase 1: Levels 3-10
     int nWildShapeUses = 0;
     if (nClass >= 3)
     {

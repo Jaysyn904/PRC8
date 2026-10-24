@@ -13,6 +13,8 @@
 //:://////////////////////////////////////////////
 
 #include "pnp_shft_poly"
+#include "prc_inc_template"
+#include "prc_inc_wwolf"
 
 // Creates the target Hybrid Form creature that the PC will transform into
 object PnP_WereWolfHybridShifting_BuildTarget(object oPC);
@@ -25,47 +27,90 @@ void main()
 {
     object oPC = OBJECT_SELF;
     int nPoly;
+    int bTemplate = PRCWWHasTemplate(oPC);
+    int bDirectTemplateChange = bTemplate
+        && GetLocalInt(oPC, PRC_WW_FORM_SWITCH_RESUME) == PRC_WW_FORM_HYBRID;
 
     // Retrieve Module flag 
     int iPnPShifterShapchange = GetPRCSwitch(PRC_WEREWOLF_HYBRID_USE_SHIFTER_SHAPECHANGE);
-    
-    
-   if (GetLocalInt(oPC, "WWHybrid") != TRUE)
-   {
-        //Can only turn into a werewolf if level 2 in werewolf class
-        if (!GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_2))
+
+    if(GetLocalInt(oPC, "WWHybrid") != TRUE)
+    {
+        if(GetLocalInt(oPC, "WWWolf"))
+        {
+            if(!bTemplate)
+            {
+                FloatingTextStringOnCreature(
+                    "Return to humanoid form before assuming hybrid form.",
+                    oPC, FALSE);
+                return;
+            }
+
+            // D&D 3.0 permits animal <-> hybrid as one voluntary standard
+            // action. The helper rolls once, genuinely restores true form,
+            // then applies this destination after the engine teardown settles.
+            PRCWWStartFormSwitch(oPC, PRC_WW_FORM_HYBRID);
+            return;
+        }
+
+        // Existing class characters still need the old level-2 feature.
+        if(!bTemplate && !GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_2))
         {
             FloatingTextStringOnCreature("You can only assume your hybrid form if you are at least level 2 in the werewolf class", oPC, FALSE);
             return;
         }
 
-        if (!iPnPShifterShapchange) // Use Bioware Polymorph effect
+        if(bTemplate && !bDirectTemplateChange
+        && !PRCWWCanChange(oPC, FALSE))
+            return;
+
+        if(bTemplate)
         {
-            
+            // Like PRC PnP shifting, change the body without unequipping or
+            // merging real gear. Keep the template's fixed traits and its
+            // own Control Shape/episode lifecycle, not shifter class stats.
+            PRCWWBeginFormTransition(oPC);
+            if(!PRCWWApplyHybrid(oPC))
+            {
+                PRCWWRemoveHybrid(oPC);
+                if(bDirectTemplateChange)
+                    SetLocalInt(oPC, PRC_WW_FORM_SWITCH_FAILED, TRUE);
+                else
+                    DeleteLocalInt(oPC, PRC_WW_VOLUNTARY_TRANSITION);
+                PRCWWQueueFormTransitionEval(oPC);
+                FloatingTextStringOnCreature(
+                    "Hybrid form could not be applied; your existing form and equipment are preserved.",
+                    oPC, FALSE);
+                return;
+            }
+
+            SetLocalInt(oPC, "WWHybrid", TRUE);
+            if(!bDirectTemplateChange)
+                PRCWWOnAssumeForm(oPC);
+            PRCWWApplyFormProperties(oPC, TRUE);
+            DelayCommand(0.1, PRCWWRefreshHybridForm(oPC));
+            PRCWWQueueFormTransitionEval(oPC);
+            return;
+        }
+
+        if(!iPnPShifterShapchange) // Use Bioware Polymorph effect
+        {
             nPoly = POLYMORPH_TYPE_WEREWOLF_0s;
-        
-            if (GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_1))
-            {
+
+            if(GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_1))
                 nPoly = POLYMORPH_TYPE_WEREWOLF_1s;
-            }
-            if (GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_2))
-            {
+            if(GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_2))
                 nPoly = POLYMORPH_TYPE_WEREWOLF_2s;
-            }
-            if (GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
-            {
+            if(GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
                 nPoly = POLYMORPH_TYPE_WEREWOLF_0l;
-            }
-            if (GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_1)  && GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
-            {
+            if(GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_1)
+            && GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
                 nPoly = POLYMORPH_TYPE_WEREWOLF_1l;
-            }
-            if (GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_2)  && GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
-            {
+            if(GetHasFeat(FEAT_PRESTIGE_WOLFCLASS_2)
+            && GetHasFeat(FEAT_PRESTIGE_WEREWOLFCLASS_3))
                 nPoly = POLYMORPH_TYPE_WEREWOLF_2l;
-            }
-            SetLocalInt(oPC, "WWHybrid", TRUE); 
-            LycanthropePoly(oPC, nPoly);
+            LycanthropePoly(oPC, nPoly, TRUE);
+            SetLocalInt(oPC, "WWHybrid", TRUE);
         } // END Polymorph Shifting
 
         else // Use PnP Shifter Shape Change
@@ -103,8 +148,16 @@ void main()
     // PnP Unshift handed in prc_wwunpoly
     else
     {
+        if(bTemplate && !PRCWWCanChange(oPC, TRUE))
+            return;
+
         ExecuteScript("prc_wwunpoly", oPC);
-        SetLocalInt(oPC, "WWHybrid", FALSE);
+        if(bTemplate && PRCWWHasTemplateFormEffect(oPC))
+            return;
+
+        DeleteLocalInt(oPC, "WWHybrid");
+        if(bTemplate)
+            PRCWWOnReturnHumanoid(oPC);
     } // END Unpolymorph from Hybrid form
 }
 
@@ -275,13 +328,13 @@ object PnP_WereWolfHybridShifting_BuildTarget(object oPC)
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectAbilityDecrease(ABILITY_CONSTITUTION, abs(iConBoost)), oCreature, 0.0f);     
 
     // Remove all AC bonuses from the werewolf creature skin
-    itemproperty ipIPLoop = GetFirstItemProperty(oItem);
+    itemproperty ipIPLoop = GetFirstItemProperty(oSkin);
     while (GetIsItemPropertyValid(ipIPLoop))
     {
         if (GetItemPropertyType(ipIPLoop) == ITEM_PROPERTY_AC_BONUS)
-            RemoveItemProperty(oItem,ipIPLoop);
+            RemoveItemProperty(oSkin,ipIPLoop);
 
-        ipIPLoop = GetNextItemProperty(oItem);
+        ipIPLoop = GetNextItemProperty(oSkin);
     }
 
     // Calcualte AC bonus granted by the werewolf class
@@ -294,7 +347,7 @@ object PnP_WereWolfHybridShifting_BuildTarget(object oPC)
         ApplyEffectToObject(DURATION_TYPE_PERMANENT, EffectACDecrease(abs(iNaturalArmor),AC_DODGE_BONUS,AC_VS_DAMAGE_TYPE_ALL), oCreature, 0.0f);
 
     // Other feats
-    int iClassLevel = GetLevelByClass(CLASS_TYPE_WEREWOLF, oPC);
+    int iClassLevel = 0; // Legacy class row 173 is now Silverstar.
  
     // Class Level 3 Grants Weapon Focus in Creature weapons; Provide Focus in Unarmed strike to avoid Bio-Bug'd Creature Weapon Focus
     // 9  WeapFocusCreature             291       3    3              0 

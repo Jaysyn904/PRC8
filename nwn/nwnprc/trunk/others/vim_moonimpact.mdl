@@ -1,0 +1,373 @@
+#MAXMODEL ASCII
+# model: vim_moonimpact
+# Moon-white derivative of the stock Sunstrike impact. Geometry and timing
+# retain the dense burst while every warm emitter/light is pale moonlight.
+filedependancy vim_moonimpact.max
+newmodel vim_moonimpact
+setsupermodel vim_moonimpact NULL
+classification EFFECT
+ignorefog 1
+setanimationscale 1
+
+#MAXGEOM ASCII
+beginmodelgeom vim_moonimpact
+node dummy vim_moonimpact
+  parent NULL
+endnode
+node emitter moon_column
+  parent vim_moonimpact
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  inherit_part 0
+  splat 0
+  renderorder 1
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.000241483 -0.0210638 0.0120181
+  orientation -1 0 0 -4.71239
+  colorStart 1 1 1
+  colorEnd 0.784314 0.901961 1
+  alphaStart 0.90
+  alphaEnd 0.08
+  sizeStart 0.55
+  sizeEnd 1.50
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.32
+  mass 0
+  spread 1.20
+  particleRot 1
+  velocity 9
+  randvel 1
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_burst_white
+  parent vim_moonimpact
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  inherit_part 0
+  splat 0
+  renderorder 2
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_flare1
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0.0484807 -0.212761
+  orientation 1 0 0 -1.5708
+  colorStart 1 1 1
+  colorEnd 0.784314 0.901961 1
+  alphaStart 1
+  alphaEnd 0.04
+  sizeStart 0.65
+  sizeEnd 5.50
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 3
+  birthrate 0
+  lifeExp 0.55
+  mass 0
+  spread 6.28319
+  particleRot 0.6
+  velocity 0.2
+  randvel 0
+  fps 16
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_sparks
+  parent vim_moonimpact
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 1
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  inherit_part 0
+  splat 0
+  renderorder 1
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.00024149 -0.00572806 0.00503326
+  orientation -0.862856 0.357407 -0.357407 -4.56541
+  colorStart 0.941176 0.976471 1
+  colorEnd 0.549020 0.745098 1
+  alphaStart 0.85
+  alphaEnd 0.05
+  sizeStart 0.85
+  sizeEnd 0.05
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.25
+  mass 0
+  spread 6.28319
+  particleRot 1
+  velocity 11
+  randvel 2
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_burst_blue
+  parent vim_moonimpact
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  inherit_part 0
+  splat 0
+  renderorder 1
+  spawntype 0
+  update Fountain
+  render Normal
+  blend Lighten
+  texture fxpa_flare1
+  xgrid 2
+  ygrid 2
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 -0.0450576 0.0938834
+  orientation 1 0 0 -1.5708
+  colorStart 0.941176 0.976471 1
+  colorEnd 0.549020 0.745098 1
+  alphaStart 0.70
+  alphaEnd 0.03
+  sizeStart 0.55
+  sizeEnd 4.50
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 3
+  birthrate 0
+  lifeExp 0.55
+  mass 0
+  spread 6.28319
+  particleRot 0.6
+  velocity 0.2
+  randvel 0
+  fps 24
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_sparks_soft
+  parent vim_moonimpact
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 1
+  inherit 0
+  inheritvel 0
+  inherit_local 1
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0.000241492 0.051738 0.111146
+  orientation -0.862856 0.357407 -0.357407 -4.56541
+  colorStart 1 1 1
+  colorEnd 0.784314 0.901961 1
+  alphaStart 0.65
+  alphaEnd 0.04
+  sizeStart 0.35
+  sizeEnd 0.02
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 0
+  lifeExp 0.25
+  mass 0
+  spread 6.28319
+  particleRot 0
+  velocity 11
+  randvel 2
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom vim_moonimpact
+
+#MAXANIM ASCII
+newanim impact vim_moonimpact
+  length 1.30
+  transtime 0.10
+  animroot vim_moonimpact
+  node dummy vim_moonimpact
+    parent NULL
+  endnode
+  node emitter moon_column
+    parent vim_moonimpact
+    birthratekey 5
+         0.0000000    0.0000000
+         0.0333333  100.0000000
+         0.1800000   90.0000000
+         0.2300000   11.0000000
+         0.3000000    0.0000000
+  endnode
+  node emitter moon_burst_white
+    parent vim_moonimpact
+    birthratekey 5
+         0.0000000    0.0000000
+         0.0333333   16.0000000
+         0.1000000   20.0000000
+         0.1600000   20.0000000
+         0.2000000    0.0000000
+  endnode
+  node emitter moon_sparks
+    parent vim_moonimpact
+    birthratekey 5
+         0.0000000    0.0000000
+         0.0333333   90.0000000
+         0.1800000   90.0000000
+         0.2300000   11.0000000
+         0.3000000    0.0000000
+  endnode
+  node emitter moon_burst_blue
+    parent vim_moonimpact
+    birthratekey 5
+         0.0000000    0.0000000
+         0.0333333   14.0000000
+         0.1000000   18.0000000
+         0.1600000   18.0000000
+         0.2000000    0.0000000
+  endnode
+  node emitter moon_sparks_soft
+    parent vim_moonimpact
+    birthratekey 5
+         0.0000000    0.0000000
+         0.0333333   70.0000000
+         0.1800000   80.0000000
+         0.2300000   10.0000000
+         0.3000000    0.0000000
+  endnode
+doneanim impact vim_moonimpact
+donemodel vim_moonimpact

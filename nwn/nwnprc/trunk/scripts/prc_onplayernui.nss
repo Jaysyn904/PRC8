@@ -26,6 +26,9 @@ void main()
     int nToken               = NuiGetEventWindow();
     string sWindowId = NuiGetWindowId(oPlayer, nToken);
 
+    if(sWindowId == "silverstar_moon_prep")
+        ExecuteScript("ss_moonpev");
+
     // Open the Power Attack NUI
     if(sWindowId == NUI_PRC_POWER_ATTACK_WINDOW)
         ExecuteScript("prc_nui_pa_event");

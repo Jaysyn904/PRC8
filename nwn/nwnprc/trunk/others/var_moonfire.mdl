@@ -1,0 +1,432 @@
+#MAXMODEL ASCII
+# Native Sunbeam travelling streaks, attached by spells.2da CastHandVisual.
+# Source: stock vff_explsun spark_beam01 (cores) and spark_beam (soft scatter).
+# cast01 timing: native var_conecold, paired with CastTime 1700.
+# +Y is forward. Five centerlines meet y=18.28, x=-9.14..9.14, z=-1.2.
+# The 1.2m drop approximates hand height; it is visual, not damage geometry.
+# Fountain/Motion_Blur, texture, density, blur, sizes and alpha remain native.
+# Color is pure white. No Lightning/Linked, P2P endpoints or dynamic lights.
+filedependancy var_moonfire.max
+newmodel var_moonfire
+setsupermodel var_moonfire NULL
+classification EFFECT
+setanimationscale 1
+#MAXGEOM ASCII
+beginmodelgeom var_moonfire
+node dummy var_moonfire
+  parent NULL
+endnode
+node emitter moon_core_0
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -0.8944272 -0.4472136 0.0000000 1.6294441
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5849389
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_core_1
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -0.9701425 -0.2425356 0.0000000 1.6343959
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5394504
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_core_2
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -1.0000000 0.0000000 0.0000000 1.6363478
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5234099
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_core_3
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -0.9701425 0.2425356 0.0000000 1.6343959
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5394504
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_core_4
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -0.8944272 0.4472136 0.0000000 1.6294441
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 1
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 3
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5849389
+  mass 0
+  spread 0
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 0
+  ysize 0
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+node emitter moon_soft
+  parent var_moonfire
+  p2p 0
+  p2p_sel 1
+  affectedByWind 0
+  m_isTinted 0
+  bounce 0
+  random 0
+  inherit 0
+  inheritvel 0
+  inherit_local 0
+  inherit_part 0
+  splat 0
+  renderorder 0
+  spawntype 0
+  update Fountain
+  render Motion_Blur
+  blend Lighten
+  texture fxpa_flare
+  xgrid 1
+  ygrid 1
+  loop 0
+  deadspace 0
+  twosidedtex 0
+  blastRadius 0
+  blastLength 0
+  position 0 0 0
+  orientation -1.0000000 0.0000000 0.0000000 1.6363478
+  colorStart 1 1 1
+  colorEnd 1 1 1
+  alphaStart 0.3
+  alphaEnd 0.3
+  sizeStart 0.5
+  sizeEnd 0.1
+  sizeStart_y 0
+  sizeEnd_y 0
+  frameStart 0
+  frameEnd 0
+  birthrate 33
+  lifeExp 0.5234099
+  mass 0
+  spread 0.785398
+  particleRot 0
+  velocity 35
+  randvel 0
+  fps 0
+  xsize 50
+  ysize 50
+  bounce_co 0
+  blurlength 10
+  lightningDelay 0
+  lightningRadius 0
+  lightningScale 0
+  p2p_bezier2 0
+  p2p_bezier3 0
+  combinetime 0
+  drag 0
+  grav 0
+  threshold 0
+endnode
+endmodelgeom var_moonfire
+
+#MAXANIM ASCII
+newanim cast01 var_moonfire
+  length 1.96667
+  transtime 0.25
+  animroot var_moonfire
+  node dummy var_moonfire
+    parent NULL
+  endnode
+  node emitter moon_core_0
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+  node emitter moon_core_1
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+  node emitter moon_core_2
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+  node emitter moon_core_3
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+  node emitter moon_core_4
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+  node emitter moon_soft
+    parent var_moonfire
+    birthratekey 3
+         0.0000000   33.0000000
+         1.3000000   33.0000000
+         1.3333300    0.0000000
+  endnode
+doneanim cast01 var_moonfire
+donemodel var_moonfire

@@ -548,13 +548,7 @@ void UnarmedFists(object oCreature)
                 SetIdentified(oWeapL, TRUE);
                 AssignCommand(oCreature,ActionEquipItem(oWeapL, INVENTORY_SLOT_CWEAPON_L));
             }
-        }
-		
-		// Add Soul Eater onHit property if applicable  
-		if (GetLevelByClass(CLASS_TYPE_SOUL_EATER, oCreature) > 0)  
-		{  
-			Add_OnHitUniquePower(oWeapL, "prc_uni_shift");  
-		}		
+        }	
 
         int iKi = (iMonkEq > 9)  ? 1 : 0;
             iKi = (iMonkEq > 12) ? 2 : iKi;
@@ -572,17 +566,27 @@ void UnarmedFists(object oCreature)
         // The total enhancement to the fist is the sum of all the enhancements above
         int iEnh = iKi + iDragClaw + iBrawlEnh + iEpicKi;
 
-        // Strip the Fist.
-        itemproperty ip = GetFirstItemProperty(oWeapL);
-        while (GetIsItemPropertyValid(ip))
-        {
-            RemoveItemProperty(oWeapL, ip);
-            ip = GetNextItemProperty(oWeapL);
+        // Strip the Fist.  
+        itemproperty ip = GetFirstItemProperty(oWeapL);  
+        while (GetIsItemPropertyValid(ip))  
+        {  
+            RemoveItemProperty(oWeapL, ip);  
+            ip = GetNextItemProperty(oWeapL);  
+        }  
+  
+        // Leave the fist blank if weapons are equipped.  
+        if (GetIsObjectValid(oRighthand)) return;  
+  
+        // Add Soul Eater onHit property if applicable.  
+        // The strip above removes the property but not the signature locals,  
+        // so reset them or Add_OnHitUniquePower will early-return.  
+        if (GetLevelByClass(CLASS_TYPE_SOUL_EATER, oCreature) > 0)  
+        {  
+            DeleteLocalInt(oWeapL, PRC_CUSTOM_ONHIT_SIGNATURE + "prc_uni_shift");  
+            DeleteLocalInt(oWeapL, PRC_CUSTOM_ONHIT_USECOUNT);  
+            DeleteLocalInt(oWeapL, PRC_CUSTOM_ONHIT_DONOTREMOVE);  
+            Add_OnHitUniquePower(oWeapL, "prc_uni_shift");  
         }
-
-        // Leave the fist blank if weapons are equipped.  The only way a weapon will
-        // be equipped on the left hand is if there is a weapon in the right hand.
-        if (GetIsObjectValid(oRighthand)) return;
 
         // Add glove bonuses.
         object oItem = GetItemInSlot(INVENTORY_SLOT_ARMS,oCreature);

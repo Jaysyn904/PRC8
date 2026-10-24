@@ -404,6 +404,7 @@ int ReserveFeatCL(object oCaster, int iSpellId);
 //#include "prc_racial_const"
 // Not needed as it has acccess via prc_inc_newip
 //#include "prc_inc_nwscript" // gets inc_2da_cache, inc_debug, prc_inc_switch
+#include "prc_ss_cast"
 #include "prc_inc_newip"
 //#include "prc_inc_spells"
 #include "prc_inc_descrptr"
@@ -6044,6 +6045,11 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 	}
 //:: End Vassal of Bahamut Divine PrC casting calculations
 
+    // Silverstar advances exactly one real divine spellbook. The marker must
+    // agree with the primary book used by native and PRC spell-slot progression.
+    if(SSHasValidDivineSelection(oCaster, GetPrimaryDivineClass(oCaster))
+        && SSGetSelectedDivineClass(oCaster) == nCastingClass)
+        nDivine += GetLevelByClass(CLASS_TYPE_SILVERSTAR, oCaster);
    return nDivine;
 }
 

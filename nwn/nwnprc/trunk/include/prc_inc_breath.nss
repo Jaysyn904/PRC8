@@ -577,7 +577,12 @@ void ApplyBreath(struct breath BreathUsed, location lTargetArea, int bLinger = F
     while(GetIsObjectValid(oTarget))
     {
         if(DEBUG) DoDebug("prc_inc_breath: Valid Target:  " + GetName(oTarget));
-        if(oTarget != BreathUsed.oDragon && !IsBreathProtected(BreathUsed.oDragon, oTarget) && spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, BreathUsed.oDragon))
+        // Clip each target before damage, saves, and non-damage breath riders.
+        // Lingering breaths use their stored origin instead of the moving dragon.
+        if(oTarget != BreathUsed.oDragon && !IsBreathProtected(BreathUsed.oDragon, oTarget)
+            && !MoonPathPortableGate(oTarget, GetAreaFromLocation(lTargetArea),
+                vSourceOfBreath, GetPosition(oTarget), 3)
+            && spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, BreathUsed.oDragon))
         {
             if(DEBUG) DoDebug("prc_inc_breath: Not Self, Not Protected");
             //Adjust the damage based on the Reflex Save, Evasion and Improved Evasion.

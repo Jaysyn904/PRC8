@@ -12,6 +12,7 @@
 
 #include "prc_class_const"
 #include "prc_feat_const"
+#include "prc_inc_castlvl"
 
 //:; Enforces Abjurant Champion marker feats
 int AbjurantChampionMarkerFeats();
@@ -4109,6 +4110,48 @@ int WWoCMarkerFeats()
 }	
 
 
+
+//:; Enforces the Silverstar selected divine caster marker.
+int SilverstarMarkerFeats()
+{
+    // The level-up UI can test class/Shapechanger feat prerequisites, but
+    // only script can require an actual natural/afflicted Werewolf template.
+    // A previously learned feat remains known after cure; its runtime benefit
+    // is inactive until the template is present again.
+    if(GetHasFeat(FEAT_SILVERSTAR_SCENT)
+    && !GetLocalInt(OBJECT_SELF, "SS_ScentLearned")
+    && !GetLocalInt(GetPCSkin(OBJECT_SELF), "SS_ScentLearned"))
+    {
+        if(GetLevelByClass(CLASS_TYPE_SILVERSTAR) < 6
+        || !GetHasFeat(FEAT_SHAPECHANGER)
+        || !(GetPersistantLocalInt(OBJECT_SELF, "template_9")
+          || GetPersistantLocalInt(OBJECT_SELF, "template_19")))
+        {
+            FloatingTextStringOnCreature(
+                "Silverstar Scent requires Silverstar level 6 and an actual werewolf template.",
+                OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+        SetLocalInt(OBJECT_SELF, "SS_ScentLearned", TRUE);
+        SetLocalInt(GetPCSkin(OBJECT_SELF), "SS_ScentLearned", TRUE);
+    }
+    if(GetLevelByClass(CLASS_TYPE_SILVERSTAR))
+    {
+        int nSilverstar = SSGetDivineSelectionCount(OBJECT_SELF);
+        int nPrimary = GetPrimaryDivineClass(OBJECT_SELF);
+        int bSelectedPrimary = SSHasValidDivineSelection(OBJECT_SELF, nPrimary);
+        if(nSilverstar != 1 || !bSelectedPrimary)
+        {
+            FloatingTextStringOnCreature(
+                "Silverstar must advance your primary divine spellbook.",
+                OBJECT_SELF, FALSE);
+            FloatingTextStringOnCreature(
+                "Please reselect your feats.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 void main()
 {
 //:: If any of these conditions are true, relevel the character.	

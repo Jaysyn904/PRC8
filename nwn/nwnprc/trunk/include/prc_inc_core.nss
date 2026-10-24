@@ -129,6 +129,7 @@ const int METAMAGIC_QUICKEN_LEVEL = 4;
 /* Includes                                     */
 //////////////////////////////////////////////////
 
+#include "prc_ss_cast"
 #include "lookup_2da_spell"
 #include "inc_lookups"
 #include "prc_inc_damage"
@@ -418,6 +419,23 @@ void CheckConcentrationOnEffect(object oCaster, int SpellID, object oTarget, int
 
 int PRCGetSpellLevelForClass(int nSpell, int nClass)
 {
+    object oSilverstar = OBJECT_SELF;
+    int nMoonLevel = GetLocalInt(oSilverstar, "SSP_MoonBaseLevel");
+    int bSelectedMoonClass =
+        SSHasValidDivineSelection(oSilverstar, GetPrimaryDivineClass(oSilverstar))
+        && SSGetSelectedDivineClass(oSilverstar) == nClass;
+    if(GetLocalInt(oSilverstar, "SSP_CastActive") && bSelectedMoonClass
+        && GetLevelByClass(CLASS_TYPE_SILVERSTAR, oSilverstar) > 0
+        && GetHasFeat(FEAT_SILVERSTAR_MOON_SPELLS, oSilverstar)
+        && nMoonLevel >= 1 && nMoonLevel <= 9)
+    {
+        // Resolve the Moon row from PRC's domain constant (currently29).
+        int nMoonSpell = StringToInt(Get2DACache("prc_domains",
+            "Level_" + IntToString(nMoonLevel), PRC_DOMAIN_MOON - 1));
+        int nMasterSpell = StringToInt(Get2DACache("spells", "Master", nSpell));
+        if(nMoonSpell > 0 && (nSpell == nMoonSpell || nMasterSpell == nMoonSpell))
+            return nMoonLevel;
+    }
     string sSpellLevel = "";
     if (nClass == CLASS_TYPE_WIZARD || nClass == CLASS_TYPE_SORCERER)
         sSpellLevel = Get2DACache("spells", "Wiz_Sorc", nSpell);
@@ -461,6 +479,15 @@ int PRCGetSpellLevelForClass(int nSpell, int nClass)
         sSpellLevel = Get2DACache("spells", "Shaman", nSpell);            
     else if (nClass == CLASS_TYPE_INVALID)
         sSpellLevel = Get2DACache("spells", "Innate", nSpell);        
+
+    // Mystara Moon domain spells are native Cleric domain spells, not
+    // alternate-spellbook wrappers.  Their domain circle is stored in
+    // spells.2da Innate while Cleric intentionally remains blank.
+    if (sSpellLevel == ""
+        && nClass == CLASS_TYPE_CLERIC
+        && nSpell >= 19397
+        && nSpell <= 19408)
+        sSpellLevel = Get2DACache("spells", "Innate", nSpell);
 
     if (sSpellLevel != "")
         return StringToInt(sSpellLevel);

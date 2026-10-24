@@ -57,6 +57,7 @@ void main()
     while (GetIsObjectValid(oTarget) && nTargetsAffected < nCasterLevel)  
     {  
         SignalEvent(oTarget, EventSpellCastAt(OBJECT_SELF, SPELL_REMOVE_CURSE));  
+        PRCWWTryCure(OBJECT_SELF, oTarget, PRC_WW_CURE_FULL_MOON);
         DispelLoop(oTarget, nCasterLevel);  
         nTargetsAffected++;  
         oTarget = MyNextObjectInShape(SHAPE_SPHERE, 9.14f, lLocal, FALSE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE);  

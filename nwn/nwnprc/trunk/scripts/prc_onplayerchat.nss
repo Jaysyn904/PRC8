@@ -219,6 +219,13 @@ void main()
             SetPCChatMessage();
             return;
         }
+        if(firstWord == "/ssmoon")
+        {
+            DeleteLocalInt(oPC, "SSP_Level");
+            ExecuteScript("ss_moonprep", oPC);
+            SetPCChatMessage();
+            return;
+        }
         // If the first word is /sb then we toggle the Spellbook NUI.
         if(firstWord == "/sb")
         {

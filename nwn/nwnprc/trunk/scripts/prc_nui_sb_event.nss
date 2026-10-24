@@ -26,6 +26,10 @@
 // Sudden Empower, so this NUI integration must use the authoritative row ID.
 const int NUI_SPELLBOOK_ANIMA_EXPLOIT_FEAT = 9259;
 
+// The engine's "M" spells.2da range is fixed at 20 metres. Moon Path's
+// selected ground point instead uses 100 feet + 10 feet per caster level.
+const float NUI_SPELLBOOK_FEET_TO_METRES = 0.3048f;
+
 //
 // SetWindowGeometry
 // Saves the window geometry of the NUI Spellbook to the player so next time it
@@ -935,7 +939,8 @@ void main()
         if (nDomainButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
             return;
 
-        if (GetLocalInt(oPlayer, "DomainCast"))
+        if (GetLocalInt(oPlayer, "DomainCast")
+            || GetLocalInt(oPlayer, "SSP_MoonTradeLevel"))
         {
             SendMessageToPC(oPlayer, "Finish the pending domain spell selection before casting another domain spell.");
             ExecuteScript("prc_nui_sb_view", oPlayer);
@@ -954,9 +959,18 @@ void main()
             return;
         }
 
-        if (GetLocalInt(oPlayer, "DomainCastSpell" + IntToString(nLevel)))
+        int nSelectedDomain = GetBonusDomain(oPlayer, nSlot);
+        if (BonusDomainSpellSpent(oPlayer, nSelectedDomain, nLevel))
         {
             SendMessageToPC(oPlayer, "You have already cast your bonus-domain spell for level " + IntToString(nLevel) + ".");
+            ExecuteScript("prc_nui_sb_view", oPlayer);
+            return;
+        }
+
+        if (SSPIsMoonTrade(oPlayer, nSelectedDomain)
+            && SSPFindTradeSlot(oPlayer, nLevel) < 0)
+        {
+            SendMessageToPC(oPlayer, "Moon spell trading needs a ready ordinary level " + IntToString(nLevel) + " slot in your Silverstar-advanced divine spellbook.");
             ExecuteScript("prc_nui_sb_view", oPlayer);
             return;
         }
@@ -1072,7 +1086,8 @@ void main()
         if (nNativeButton != NUI_PAYLOAD_BUTTON_LEFT_CLICK)
             return;
 
-        if (GetLocalInt(oPlayer, "DomainCast"))
+        if (GetLocalInt(oPlayer, "DomainCast")
+            || GetLocalInt(oPlayer, "SSP_MoonTradeLevel"))
         {
             SendMessageToPC(oPlayer, "Finish the pending bonus-domain spell selection before casting a native domain spell.");
             return;
@@ -1125,6 +1140,19 @@ void main()
 
         SetLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR, "PRC_NUI_SPELLBOOK");
         float fNativeRange = DetermineRangeForSpell(sNativeRange);
+        if (nNativeSpell == NUI_SPELLBOOK_MOON_PATH_SPELL
+            || nNativeCastSpell == NUI_SPELLBOOK_MOON_PATH_SPELL)
+        {
+            int nMoonPathCasterLevel = GetPrCAdjustedCasterLevel(
+                nClass,
+                oPlayer
+            );
+            if (nMoonPathCasterLevel < 1)
+                nMoonPathCasterLevel = GetLevelByClass(nClass, oPlayer);
+            fNativeRange = (100.0f
+                + 10.0f * IntToFloat(nMoonPathCasterLevel))
+                * NUI_SPELLBOOK_FEET_TO_METRES;
+        }
         string sNativeShape = GetStringUpperCase(Get2DACache(
             "spells",
             "TargetShape",
@@ -1213,6 +1241,7 @@ void main()
             return;
 
         if (GetLocalInt(oPlayer, "DomainCast")
+            || GetLocalInt(oPlayer, "SSP_MoonTradeLevel")
             || GetLocalInt(oPlayer, NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR))
         {
             SendMessageToPC(oPlayer, "Finish or cancel the pending domain spell target first.");
@@ -1297,6 +1326,19 @@ void main()
 
         SetLocalString(oPlayer, NUI_SPELLBOOK_ON_TARGET_ACTION_VAR, "PRC_NUI_SPELLBOOK");
         float fNativeRange = DetermineRangeForSpell(sNativeRange);
+        if (nNativeSpell == NUI_SPELLBOOK_MOON_PATH_SPELL
+            || nNativeCastSpell == NUI_SPELLBOOK_MOON_PATH_SPELL)
+        {
+            int nMoonPathCasterLevel = GetPrCAdjustedCasterLevel(
+                nClass,
+                oPlayer
+            );
+            if (nMoonPathCasterLevel < 1)
+                nMoonPathCasterLevel = GetLevelByClass(nClass, oPlayer);
+            fNativeRange = (100.0f
+                + 10.0f * IntToFloat(nMoonPathCasterLevel))
+                * NUI_SPELLBOOK_FEET_TO_METRES;
+        }
         string sNativeShape = GetStringUpperCase(Get2DACache(
             "spells",
             "TargetShape",

@@ -42,5 +42,30 @@ void main()
     */
     int nReturn = X2PreSpellCastCode2();
 
+    if(nReturn && GetIsObjectValid(GetObjectByTag("MOONPATH_SURFACE")))
+    {
+        int nSpellID = PRCGetSpellId(oCaster);
+        string sShape = GetStringLowerCase(Get2DACache("spells", "TargetShape", nSpellID));
+        // Cones and line templates keep resolving; their target loops clip the
+        // far side of the surface. Rejecting their aiming point would erase the
+        // near side of the cone too. This does not affect PRC breath scripts.
+        int nTargetTypes = HexToInt(Get2DACache("spells", "TargetType", nSpellID));
+        int bKnownCenter = sShape == "sphere" || sShape == "hsphere";
+        int bObjectOnly = nTargetTypes != 0 && !(nTargetTypes & 4);
+        // Missing shape metadata on a location-targeted spell is ambiguous:
+        // leave it running and let any patched target loop clip its targets.
+        if(bKnownCenter || (bObjectOnly && sShape != "cone" && sShape != "rectangle"))
+        {
+            object oTarget = PRCGetSpellTargetObject(oCaster);
+            location lTarget = PRCGetSpellTargetLocation(oCaster);
+            vector vTo = GetPositionFromLocation(lTarget);
+            if(GetIsObjectValid(oTarget))
+                vTo = GetPosition(oTarget);
+            if(GetArea(oCaster) == GetAreaFromLocation(lTarget)
+                && MoonPathPortableGate(oTarget, GetArea(oCaster),
+                    GetPosition(oCaster), vTo, 1))
+                nReturn = FALSE;
+        }
+    }
     SetLocalInt(oCaster, "PSCC_Ret", nReturn);
 }

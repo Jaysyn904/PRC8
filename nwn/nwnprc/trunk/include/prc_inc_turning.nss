@@ -283,25 +283,28 @@ int GetIsTurnOrRebuke(object oTarget, int nTurnType, int nTargetRace)
 
             break;
         }
-		case FEAT_DOMAIN_POWER_MOON:  
-		{  
-			// Moon domain rebukes lycanthropes  
-			if(nTargetRace == RACIAL_TYPE_SHAPECHANGER)  
-			{  
-				string sName = GetName(oTarget);  
-				int nAppearance = GetAppearanceType(oTarget);  
-				  
-				// Check if name starts with "were" OR has lycanthrope appearance  
-				if((GetStringLeft(GetStringLowerCase(sName), 4) == "were") ||  
-				   nAppearance == APPEARANCE_TYPE_WEREWOLF ||  
-				   nAppearance == APPEARANCE_TYPE_WERECAT ||  
-				   nAppearance == APPEARANCE_TYPE_WERERAT)  
-				{  
-					nReturn = ACTION_TURN;  
-				}  
-			}  
-			break;  
-		}        
+        case SPELL_DOMAIN_POWER_MOON:
+        {
+            // Moon domain turns/rebukes stock PRC lycanthropes and were-creature NPCs.
+            int bLycanthrope = GetHasFeat(FEAT_PRESTIGE_LYCANTHROPE, oTarget)
+                || GetHasFeat(FEAT_TRUE_LYCANTHROPE, oTarget)
+                || GetPersistantLocalInt(oTarget, "template_9")
+                || GetPersistantLocalInt(oTarget, "template_19")
+                || GetLocalInt(oTarget, "WWWolf")
+                || GetLocalInt(oTarget, "WWHybrid");
+
+            string sName = GetStringLowerCase(GetName(oTarget));
+            int bWereCreature = nTargetRace == RACIAL_TYPE_SHAPECHANGER
+                && (GetStringLeft(sName, 4) == "were"
+                    || nTargetAppearance == APPEARANCE_TYPE_WEREWOLF
+                    || nTargetAppearance == APPEARANCE_TYPE_WERECAT
+                    || nTargetAppearance == APPEARANCE_TYPE_WERERAT);
+
+            if(bLycanthrope || bWereCreature)
+                nReturn = ACTION_TURN;
+
+            break;
+        }
     }
 
     //always turn baelnorns & archliches
@@ -690,5 +693,4 @@ void LightOfAurifar(object oPC, object oTarget)
 
 // Test main
 //void main(){}
-
 

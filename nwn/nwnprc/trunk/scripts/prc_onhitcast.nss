@@ -30,6 +30,7 @@
 #include "prc_inc_onhit"
 #include "tob_inc_tobfunc"
 #include "prc_inc_sp_tch"
+#include "prc_ss_burst"
 
 
 void SetRancorVar(object oPC);
@@ -162,6 +163,10 @@ void main()
     //// Champion of Corellon damage healing for sneak/critical immune creatures
     if(GetHasFeat(FEAT_COC_ELEGANT_STRIKE, oSpellOrigin) && bCorellonWeapon)
         ExecuteScript("prc_coc_heal", oSpellOrigin);
+
+    // Silverstar's native burst approximation. The helper verifies
+    // level, feat, exact equipped heavy mace, target and critical immunity.
+    SSApplyMoonBurst(oSpellOrigin, oSpellTarget, oItem);
 
     //// Stormlord Shocking & Thundering Spear
     if(GetHasFeat(FEAT_THUNDER_WEAPON, oSpellOrigin))

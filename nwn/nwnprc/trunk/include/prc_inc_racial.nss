@@ -36,8 +36,7 @@ int MyPRCGetRacialType(object oCreature)
         return RACIAL_TYPE_ELEMENTAL;
     if(GetLevelByClass(CLASS_TYPE_DRAGONDISCIPLE, oCreature) > 9)
         return RACIAL_TYPE_DRAGON;
-    if (GetLevelByClass(CLASS_TYPE_WEREWOLF, oCreature) > 9)
-        return RACIAL_TYPE_SHAPECHANGER;
+    // Werewolf identity now comes from template-granted FEAT_SHAPECHANGER.
     if (GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCreature) > 9)
         return RACIAL_TYPE_FEY;
     if (GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCreature) > 7)

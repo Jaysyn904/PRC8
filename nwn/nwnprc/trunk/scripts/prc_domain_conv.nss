@@ -109,6 +109,17 @@ void main()
     else if(nValue == DYNCONV_ABORTED
     || nValue == DYNCONV_EXITED)
     {
+        // Silverstar selection has not spent anything until confirmation.
+        // A successful generic confirmation exits before its queued spell
+        // resolves, so preserve its legacy burner only after confirmation.
+        // Unconfirmed explicit exit and abort must clear pending state.
+        SSPClearMoonTrade(oPC);
+        if(nValue == DYNCONV_ABORTED || !GetLocalInt(oPC, "SSP_DomainChoiceQueued"))
+        {
+            DeleteLocalInt(oPC, "DomainCast");
+            DeleteLocalInt(oPC, "Domain_BurnableSpell");
+        }
+        DeleteLocalInt(oPC, "SSP_DomainChoiceQueued");
         // End of conversation cleanup
         DeleteLocalInt(oPC, "DomainOrigSpell");
         DeleteLocalInt(oPC, "DomainSubChoice");
@@ -140,6 +151,20 @@ void main()
                 object oTarget = GetLocalObject(oPC, "DomainTarget");
                 location lTarget = GetLocalLocation(oPC, "DomainTarget");
 
+                int nMoonTradeLevel = GetLocalInt(oPC, SSP_MOON_TRADE_LEVEL);
+                if(nMoonTradeLevel)
+                {
+                    int nMoonSpell = GetLocalInt(oPC, "DomainOrigSpell");
+                    int bSaved = GetLocalInt(oPC, "DomainTargetSaved");
+                    SSPClearMoonTrade(oPC);
+                    if(!bSaved || !SSPCastTradedMoon(oPC, nMoonTradeLevel,
+                        nMoonSpell, nSub, oTarget, lTarget))
+                        SendMessageToPC(oPC, "That Moon spell choice is no longer valid, or no ordinary spell slot remains.");
+                    // Exit before the generic branch and its queued DomainCast
+                    // cleanup; the shared Moon cast owns only its own context.
+                    AllowExit(DYNCONV_EXIT_FORCE_EXIT);
+                    return;
+                }
                 if(nRunscarred)
                 {
                     oTarget = oPC;
@@ -195,6 +220,7 @@ void main()
                     ActionCastSpell(nSub, 0, nDC, 0, METAMAGIC_NONE, nClass,
                         FALSE, FALSE, OBJECT_INVALID, FALSE);
                 }
+                SetLocalInt(oPC, "SSP_DomainChoiceQueued", TRUE);
                 ActionDoCommand(DeleteLocalInt(oPC, "DomainCast"));
                 ActionDoCommand(DeleteLocalInt(oPC, "DomainCastMetamagic"));
 

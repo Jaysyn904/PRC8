@@ -13,6 +13,10 @@ const int TEMPLATE_HALF_CELESTIAL   = 3;
 //:: Dragons
 const int TEMPLATE_HALF_DRAGON      = 4;
 
+//:: Lycanthropes
+const int TEMPLATE_LYCAN_NAT_WOLF   = 9;
+const int TEMPLATE_LYCAN_ACQ_WOLF   = 19;
+
 //:: Undead
 const int TEMPLATE_CURST            	=	26;
 const int TEMPLATE_GRAVETOUCHED_GHOUL 	=	29;

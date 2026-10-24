@@ -21,6 +21,8 @@ const int NUI_PAYLOAD_BUTTON_RIGHT_CLICK = 2;
 //                                              //
 //////////////////////////////////////////////////
 
+const int NUI_SPELLBOOK_MOON_PATH_SPELL = 19400;
+
 // This is the NUI Spellbook window ID
 const string PRC_SPELLBOOK_NUI_WINDOW_ID = "prcSpellbookNui";
 
@@ -77,6 +79,23 @@ const string PRC_SPELLBOOK_NUI_EPIC_SPELL_BUTTON_BASEID = "spellbookEpicSpellBut
 const string PRC_SPELLBOOK_NUI_DOMAIN_MODE_BUTTON = "spellbookDomainModeButton";
 const string PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID = "spellbookDomainSpellButton_";
 const string PRC_SPELLBOOK_NUI_NATIVE_DOMAIN_SPELL_BUTTON_BASEID = "spellbookNativeDomainSpellButton_";
+
+// Temporary Moon abilities live on their corresponding Domains pages.
+const string NUI_SPELLBOOK_MOONBLADE_ENABLED_BIND = "sbMbE";
+const string NUI_SPELLBOOK_MOONBLADE_READY_BIND = "sbMbR";
+const string NUI_SPELLBOOK_MOONBLADE_ACTIVE_BLADE_VAR =
+    "PRC_MOONBLADE_ACTIVE_BLADE";
+const string NUI_SPELLBOOK_MOONBLADE_COOLDOWN_VAR =
+    "PRC_MOONBLADE_FULL_ATTACK_ACTIVE";
+const int NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_SPELL = 19409;
+const int NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_FEAT = 25145;
+
+const string NUI_SPELLBOOK_MOONBEAM_REDIRECT_ENABLED_BIND = "sbMrE";
+const string NUI_SPELLBOOK_MOONBEAM_REDIRECT_READY_BIND = "sbMrR";
+const string NUI_SPELLBOOK_MOONBEAM_REDIRECT_COOLDOWN_VAR =
+    "PRC_MOONBEAM_REDIRECT_ACTIVE";
+const int NUI_SPELLBOOK_MOONBEAM_REDIRECT_SPELL = 19410;
+const int NUI_SPELLBOOK_MOONBEAM_REDIRECT_FEAT = 25146;
 
 const string NUI_SPELLBOOK_NATIVE_DOMAIN_PENDING_VAR = "NUI_NativeDomainPending";
 const string NUI_SPELLBOOK_NATIVE_DOMAIN_CLASS_VAR = "NUI_NativeDomainClass";

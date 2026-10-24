@@ -38,7 +38,11 @@ void DoJump(object oPC, location lTarget, int bDoKnockdown)
  
 void DoSpellbookAction(object oPC, object oTarget, location lTarget)
 {
-    if (GetIsObjectValid(oTarget))
+    // A ground click reports the area as the selected object, not a valid
+    // ActionUseFeat target. Preserve its location for Moon Path instead.
+    if (GetIsObjectValid(oTarget)
+        && oTarget != GetArea(oPC)
+        && GetObjectType(oTarget))
         SetLocalObject(oPC, "TARGETING_OBJECT", oTarget);
     else
         SetLocalLocation(oPC, "TARGETING_POSITION", lTarget);
@@ -97,7 +101,9 @@ void main()
     }
  
     // When clicking ground, oTarget is the area object - use PC's area for location
-    object oArea     = GetIsObjectValid(oTarget) ? GetArea(oTarget) : GetArea(oPC);
+    object oArea     = (GetIsObjectValid(oTarget) && GetObjectType(oTarget))
+                     ? GetArea(oTarget)
+                     : GetArea(oPC);
     location lTarget = Location(oArea, vTarget, fOrientation);
  
     SetLocalObject(oPC, "TARGETING_OBJECT", oTarget);

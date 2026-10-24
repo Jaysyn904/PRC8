@@ -68,6 +68,15 @@ void BonusDomainRest(object oPC);
 #include "prc_alterations"
 #include "prc_getbest_inc"
 #include "inc_dynconv"
+#include "prc_ss_moon"
+
+// Keep this shared with every bonus-domain UI gate. Other domains retain the
+// original per-level daily cap, including other domains owned by Silverstars.
+int BonusDomainSpellSpent(object oPC, int nDomain, int nLevel)
+{
+    return GetLocalInt(oPC, "DomainCastSpell" + IntToString(nLevel))
+        && !SSPIsMoonTrade(oPC, nDomain);
+}
 
 int GetBonusDomain(object oPC, int nSlot)
 {
@@ -83,12 +92,11 @@ void AddBonusDomain(object oPC, int nDomain)
 {
     //if(DEBUG) DoDebug("AddBonusDomain is running.");
 
-    // Loop through the domain slots to see if there is an open one.
-    int nSlot = 1;
-    int nTest = GetBonusDomain(oPC, nSlot);
-    while(nTest > 0 && 5 >= nSlot)
+    int nSlot = 6;
+    int i;
+    for(i = 1; i <= 5; i++)
     {
-        nSlot += 1;
+        int nTest = GetBonusDomain(oPC, i);
         // If the test domain and the domain to be added are the same
         // shut down the function, since you don't want to add a domain twice.
         if(nTest == nDomain)
@@ -96,7 +104,7 @@ void AddBonusDomain(object oPC, int nDomain)
             //FloatingTextStringOnCreature("You already have this domain as a bonus domain.", oPC, FALSE);
             return;
         }
-        nTest = GetBonusDomain(oPC, nSlot);
+        if(nTest <= 0 && nSlot == 6) nSlot = i;
     }
     // If you run out of slots, display message and end function
     if (nSlot > 5)
@@ -115,10 +123,16 @@ int TestSpellTarget(object oPC, object oTarget, int nSpell)
 {
     int nTargetType = ~(HexToInt(Get2DACache("spells", "TargetType", nSpell)));
 
-    if(oTarget == oPC && nTargetType & 1)
+    if(oTarget == oPC)
     {
-        SendMessageToPC(oPC, "You cannot target yourself!");
-        return FALSE;
+        if(nTargetType & 1)
+        {
+            SendMessageToPC(oPC, "You cannot target yourself!");
+            return FALSE;
+        }
+        // Self and other creatures have separate TargetType bits. An allowed
+        // self target must not fall through to the other-creature check.
+        return TRUE;
     }
     else if(GetIsObjectValid(oTarget))
     {
@@ -166,6 +180,7 @@ int GetIsBioDivineClass(int nClass)
 
 void CastDomainSpell(object oPC, int nSlot, int nLevel)
 {
+    if(nSlot < 1 || nSlot > 5 || nLevel < 1 || nLevel > 9) return;
     int nDomainLevel = nLevel;
 
     // The NUI class-tab view can request that its displayed spontaneous divine
@@ -175,7 +190,48 @@ void CastDomainSpell(object oPC, int nSlot, int nLevel)
     int nPreferredClass = GetLocalInt(oPC, "NUI_DomainPreferredClass") - 1;
     DeleteLocalInt(oPC, "NUI_DomainPreferredClass");
 
-    if(GetLocalInt(oPC, "DomainCastSpell" + IntToString(nDomainLevel))) //Already cast a spell of this level?
+    int nSelectedDomain = GetBonusDomain(oPC, nSlot);
+    if(GetLocalInt(oPC, "DomainCast") || GetLocalInt(oPC, SSP_MOON_TRADE_LEVEL))
+    {
+        SendMessageToPC(oPC, "Finish or cancel your pending domain spell first.");
+        return;
+    }
+    if(SSPIsMoonTrade(oPC, nSelectedDomain))
+    {
+        int nMoonSpell = SSPMoonSpell(nDomainLevel);
+        if(nMoonSpell < 0 || SSPFindTradeSlot(oPC, nDomainLevel) < 0)
+        {
+            SendMessageToPC(oPC, "No ready ordinary spell slot of that Moon spell's level is available in your advanced divine class.");
+            return;
+        }
+        object oMoonTarget = GetSpellTargetObject();
+        location lMoonTarget = GetSpellTargetLocation();
+        string sSub = Get2DACache("spells", "SubRadSpell1", nMoonSpell);
+        if(sSub != "" && sSub != "****")
+        {
+            if(IsInConversation(oPC))
+            {
+                SendMessageToPC(oPC, "Finish your current conversation before selecting a Moon spell option.");
+                return;
+            }
+            // Do not set DomainCast: the legacy spellhook must never burn a
+            // second slot or set a per-level daily flag for this route.
+            // Selection is cancellable and revalidates/spends at confirmation.
+            SetLocalInt(oPC, SSP_MOON_TRADE_LEVEL, nDomainLevel);
+            SetLocalInt(oPC, "DomainOrigSpell", nMoonSpell);
+            SetLocalObject(oPC, "DomainTarget", oMoonTarget);
+            SetLocalLocation(oPC, "DomainTarget", lMoonTarget);
+            SetLocalInt(oPC, "DomainTargetSaved", TRUE);
+            StartDynamicConversation("prc_domain_conv", oPC,
+                DYNCONV_EXIT_ALLOWED_SHOW_CHOICE, TRUE, TRUE, oPC);
+        }
+        else if(!SSPCastTradedMoon(oPC, nDomainLevel, nMoonSpell,
+            nMoonSpell, oMoonTarget, lMoonTarget))
+            SendMessageToPC(oPC, "That Moon spell cannot use this target or no ordinary spell slot remains.");
+        return;
+    }
+
+    if(BonusDomainSpellSpent(oPC, nSelectedDomain, nDomainLevel)) //Already cast a spell of this level?
     {
         FloatingTextStringOnCreature("You have already cast your domain spell for level " + IntToString(nDomainLevel), oPC, FALSE);
         return;
@@ -443,13 +499,30 @@ string GetDomainName(int nDomain)
 
 void CheckBonusDomains(object oPC)
 {
+    // This runs on enter/levelup. A saved dialogue selection is not a cast,
+    // owns no spent slot, and must not lock the bonus spell UI after reload.
+    if(GetLocalInt(oPC, SSP_MOON_TRADE_LEVEL)) SSPClearMoonTrade(oPC);
+    // Preserve ownership of independently registered Moon spell access.
+    int bHadMoonAccess = FALSE;
+    int nMoonSlot;
+    for(nMoonSlot = 1; nMoonSlot <= 5; nMoonSlot++)
+        if(GetBonusDomain(oPC, nMoonSlot) == PRC_DOMAIN_MOON) bHadMoonAccess = TRUE;
     int nBonusDomain, nDomainFeat;
     int nSlot = 1;
     while(nSlot < 6)
     {
         nBonusDomain = GetBonusDomain(oPC, nSlot);
         nDomainFeat = GetDomainFeat(nBonusDomain);
-        if(!GetHasFeat(nDomainFeat, oPC)) SetPersistantLocalInt(oPC, "PRCBonusDomain" + IntToString(nSlot), 0);
+        // Silverstar grants spell access only, not the Moon domain power.
+        // A slot introduced by this feature is removed after losing it, even
+        // if a Cleric separately retains the native Moon-domain power.
+        int bLostSilverstarMoon = nBonusDomain == PRC_DOMAIN_MOON
+            && GetPersistantLocalInt(oPC, "SSP_MoonSpellAccess")
+            && !SSPIsMoonTrade(oPC, nBonusDomain)
+            && !GetHasFeat(FEAT_BONUS_DOMAIN_MOON, oPC);
+        if(bLostSilverstarMoon
+            || (!GetHasFeat(nDomainFeat, oPC) && !SSPIsMoonTrade(oPC, nBonusDomain)))
+            SetPersistantLocalInt(oPC, "PRCBonusDomain" + IntToString(nSlot), 0);
         //SendMessageToPC(oPC, "PRCBonusDomain"+IntToString(nSlot)" = "+IntToString(nBonusDomain));
         //SendMessageToPC(oPC, "PRCBonusDomain"+IntToString(nSlot)" feat = "+IntToString(GetDomainFeat(nDomainFeat)));
         nSlot += 1;
@@ -514,6 +587,15 @@ void CheckBonusDomains(object oPC)
 	if (GetHasFeat(FEAT_BONUS_DOMAIN_MIND,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_MIND);
 	if (GetHasFeat(FEAT_BONUS_DOMAIN_MOON,	        oPC)) AddBonusDomain(oPC, PRC_DOMAIN_MOON);	
 																			  
+    if(SSPIsMoonTrade(oPC, PRC_DOMAIN_MOON))
+    {
+        AddBonusDomain(oPC, PRC_DOMAIN_MOON);
+        SetPersistantLocalInt(oPC, "SSP_MoonSpellAccess",
+            !GetHasFeat(FEAT_BONUS_DOMAIN_MOON, oPC)
+                && (!bHadMoonAccess || GetPersistantLocalInt(oPC, "SSP_MoonSpellAccess")));
+    }
+    else
+        SetPersistantLocalInt(oPC, "SSP_MoonSpellAccess", FALSE);
     //if (DEBUG) FloatingTextStringOnCreature("Check Bonus Domains is running", oPC, FALSE);
 }
 
@@ -621,6 +703,7 @@ int GetHasDomain(object oPC, int nDomain)
 
 void BonusDomainRest(object oPC)
 {
+    if(GetLocalInt(oPC, SSP_MOON_TRADE_LEVEL)) SSPClearMoonTrade(oPC);
     // Bonus Domain ints that limit you to casting 1/day per level
     int i;
     for (i = 1; i < 10; i++)

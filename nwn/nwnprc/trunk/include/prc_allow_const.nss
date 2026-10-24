@@ -224,6 +224,7 @@ const string ALLOW_CLASS_SHADOWSMITH            = "PRC_AllowShadowsmith";
 const string ALLOW_CLASS_SHADOW_THIEF           = "PRC_AllowShadowThief";
 const string ALLOW_CLASS_SHINING_BLADE          = "PRC_AllowSBHeir";
 const string ALLOW_CLASS_SHOU                   = "PRC_AllowShou";
+const string ALLOW_CLASS_SILVERSTAR				= "PRC_AllowSilverstar";
 const string ALLOW_CLASS_SKULLCLAN_HUNTER       = "PRC_AllowSkullClan";
 const string ALLOW_CLASS_SLAYER_OF_DOMIEL       = "PRC_AllowDomiel";
 const string ALLOW_CLASS_SOLDIER_OF_LIGHT       = "PRC_AllowSoLight";

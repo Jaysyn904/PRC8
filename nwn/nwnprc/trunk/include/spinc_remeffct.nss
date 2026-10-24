@@ -22,6 +22,8 @@ void SpellRemovalCheck(object oCaster, object oTarget);
 //////////////////////////////////////////////////
 
 #include "prc_inc_spells"
+#include "prc_inc_template"
+#include "prc_inc_wwolf"
 
 
 //////////////////////////////////////////////////
@@ -32,6 +34,13 @@ void SpellRemovalCheck(object oCaster, object oTarget)
 {
     //Get Spell being cast
     int nSpellID = PRCGetSpellId();
+
+    // D&D 3.0 lycanthropy cures. Only an afflicted template can be
+    // removed; a natural lycanthrope is unaffected.
+    if(nSpellID == SPELL_REMOVE_DISEASE || nSpellID == SPELL_HEAL)
+        PRCWWTryCure(oCaster, oTarget, PRC_WW_CURE_EARLY_CLERIC);
+    else if(nSpellID == SPELL_REMOVE_CURSE)
+        PRCWWTryCure(oCaster, oTarget, PRC_WW_CURE_FULL_MOON);
 
     //Set up spell removals for individual spells
     //Remove Curse

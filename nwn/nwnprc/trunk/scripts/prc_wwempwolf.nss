@@ -28,7 +28,7 @@ void main()
         return;
     }
 
-    int nLevel = GetLevelByClass(CLASS_TYPE_WEREWOLF);
+    int nLevel = 0; // Legacy class row 173 is now Silverstar.
     string sLevel;
 
     sLevel = "00" + IntToString(nLevel);

@@ -591,6 +591,20 @@ int NSB_SpellCast(object oCaster, int nSpellID, int nCastingClass, int nMetamagi
 
     // check if the spell was cast from original spellbook or from item
     int bNormalCasting = (GetLastSpellCastClass() != CLASS_TYPE_INVALID || oSpellCastItem != OBJECT_INVALID || GetLocalInt(oCaster, "SpellIsSLA"));
+    int nSSMoonLevel = GetLocalInt(oCaster, "SSP_MoonBaseLevel");
+    if(GetLocalInt(oCaster, "SSP_CastActive")
+        && GetLevelByClass(CLASS_TYPE_SILVERSTAR, oCaster) > 0
+        && GetHasFeat(FEAT_SILVERSTAR_MOON_SPELLS, oCaster)
+        && SSHasValidDivineSelection(oCaster, GetPrimaryDivineClass(oCaster))
+        && SSGetSelectedDivineClass(oCaster) == nCastingClass
+        && nSSMoonLevel >= 1 && nSSMoonLevel <= 9)
+    {
+        int nSSMoonSpell = StringToInt(Get2DACache("prc_domains",
+            "Level_" + IntToString(nSSMoonLevel), PRC_DOMAIN_MOON - 1));
+        int nSSMaster = StringToInt(Get2DACache("spells", "Master", nSpellID));
+        if(nSSMoonSpell > 0 && (nSpellID == nSSMoonSpell || nSSMaster == nSSMoonSpell))
+            bNormalCasting = TRUE;
+    }
     int NSB_Class = GetLocalInt(oCaster, "NSB_Class");
     int nDomainCast = GetLocalInt(oCaster, "DomainCast");
 

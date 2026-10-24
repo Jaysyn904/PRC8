@@ -136,7 +136,7 @@ const int CLASS_TYPE_COMBAT_MEDIC          	= 169;
 const int CLASS_TYPE_OLLAM                 	= 170;
 const int CLASS_TYPE_HALFLING_WARSLINGER   	= 171;
 const int CLASS_TYPE_SPIRIT_SHAMAN         	= 172;
-const int CLASS_TYPE_WEREWOLF              	= 173;
+const int CLASS_TYPE_SILVERSTAR            	= 173;
 const int CLASS_TYPE_HOSPITALER            	= 174;
 const int CLASS_TYPE_MASTER_OF_SHROUDS     	= 175;
 const int CLASS_TYPE_MASTER_HARPER         	= 176;
@@ -237,6 +237,7 @@ const int CLASS_TYPE_TEMPLAR               = -1;
 const int CLASS_TYPE_MYSTIC                = -1;
 const int CLASS_TYPE_NOBLE                 = -1;
 const int CLASS_TYPE_BAELNORN              = -2;
+const int CLASS_TYPE_WEREWOLF              = -3;
 
 
 //void main (){}

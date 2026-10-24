@@ -13,6 +13,7 @@
 
 #include "prc_nui_consts"
 #include "prc_nui_sb_inc"
+#include "prc_ss_prep"
 #include "prc_nui_moi_inc"
 #include "prc_nui_arch_inc"
 
@@ -189,7 +190,41 @@ void CastPendingNativeDomainSpell()
     // spellbook. The exact owner-slot tuple was revalidated above; nCastSpell
     // is either that owner or one of its stock radial children. nDomainLevel
     // prevents an ordinary prepared copy of the same owner from being spent.
-    if (bObjectTarget)
+    if ((nSpell == NUI_SPELLBOOK_MOON_PATH_SPELL
+            || nCastSpell == NUI_SPELLBOOK_MOON_PATH_SPELL)
+        && bLocationTarget)
+    {
+        SetLocalLocation(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE,
+            lTarget
+        );
+        ActionDoCommand(SetLocalInt(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE,
+            TRUE
+        ));
+        ActionCastSpellAtObject(
+            nCastSpell,
+            OBJECT_SELF,
+            nMetamagic,
+            FALSE,
+            nDomainLevel,
+            PROJECTILE_PATH_TYPE_DEFAULT,
+            FALSE,
+            nClass,
+            FALSE
+        );
+        ActionDoCommand(DeleteLocalInt(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE
+        ));
+        ActionDoCommand(DeleteLocalLocation(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE
+        ));
+    }
+    else if (bObjectTarget)
     {
         ActionCastSpellAtObject(
             nCastSpell,
@@ -410,6 +445,19 @@ void CastPendingNativeClassSpell()
         return;
     }
 
+    // Silverstar's per-character Moon list uses ordinary native slots but
+    // has no global class-list entry. Spend a validated prepared copy and
+    // cast through PRC's normal-time spell engine at its Moon-domain level.
+    if(nCastType == NUI_SPELLBOOK_NATIVE_CAST_PREPARED
+        && SSPIsPreparedMoon(OBJECT_SELF, nClass, nLevel, nSpell, nMetamagic, bDomain))
+    {
+        if(!SSPCastPreparedMoon(OBJECT_SELF, nClass, nLevel, nSpell,
+            nCastSpell, nMetamagic, oTarget, lTarget))
+            SendMessageToPC(OBJECT_SELF, "That ordinary Moon spell is no longer ready.");
+        ClearPendingNativeClassSpell();
+        return;
+    }
+
     int nDomainLevel = bDomain
                      ? nLevel - GetMetaMagicSpellLevelAdjustment(nMetamagic)
                      : 0;
@@ -442,7 +490,42 @@ void CastPendingNativeClassSpell()
         ));
     }
 
-    if (bObjectTarget)
+    if (bDomain
+        && (nSpell == NUI_SPELLBOOK_MOON_PATH_SPELL
+            || nCastSpell == NUI_SPELLBOOK_MOON_PATH_SPELL)
+        && bLocationTarget)
+    {
+        SetLocalLocation(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE,
+            lTarget
+        );
+        ActionDoCommand(SetLocalInt(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE,
+            TRUE
+        ));
+        ActionCastSpellAtObject(
+            nCastSpell,
+            OBJECT_SELF,
+            nMetamagic,
+            FALSE,
+            nDomainLevel,
+            PROJECTILE_PATH_TYPE_DEFAULT,
+            FALSE,
+            nClass,
+            FALSE
+        );
+        ActionDoCommand(DeleteLocalInt(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE
+        ));
+        ActionDoCommand(DeleteLocalLocation(
+            OBJECT_SELF,
+            PRC_SPELL_TARGET_LOCATION_OVERRIDE
+        ));
+    }
+    else if (bObjectTarget)
     {
         ActionCastSpellAtObject(
             nCastSpell, oTarget, nMetamagic, FALSE, nDomainLevel,

@@ -378,7 +378,9 @@ int GetSpellslotLevel(int nClass, object oPC)
         if(nArcSpellMod > 0)
             nArcSpellslotLevel += (GetLevelByClass(nTempClass, oPC) + (nArcSpellMod - 1)) / nArcSpellMod;
 
-        if(nDivSpellMod > 0)
+        if(nDivSpellMod > 0
+            && (nTempClass != CLASS_TYPE_SILVERSTAR
+                || SSHasValidDivineSelection(oPC, GetPrimaryDivineClass(oPC))))
             nDivSpellslotLevel += (GetLevelByClass(nTempClass, oPC) + (nDivSpellMod - 1)) / nDivSpellMod;
     }
 

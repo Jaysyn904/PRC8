@@ -15,6 +15,7 @@
 #include "inc_timestop"
 #include "prc_inc_itmrstr"
 #include "prc_inc_template"
+#include "prc_inc_wwolf"
 
 //Added hook into EvalPRCFeats event
 //  Aaon Graywolf - 6 Jan 2004
@@ -97,7 +98,13 @@ void main()
         }
     }
 
-    EvalPRCFeats(oPC);
+    if(PRCWWShouldCoalesceEquipEval(oPC))
+    {
+        PRCWWRunTransitionEquipEval(oPC);
+        PRCWWQueueFormTransitionEval(oPC);
+    }
+    else
+        EvalPRCFeats(oPC);
     DeleteLocalInt(oPC, "ONEQUIP");
 
     //Handle lack of fingers/hands

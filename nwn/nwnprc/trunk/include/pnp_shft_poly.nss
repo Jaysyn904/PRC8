@@ -2,7 +2,9 @@
 // Merges Weapons, Armors, Items if told to by 2da.
 // - object oPC: Player to Polymorph
 // - int nPoly: POLYMORPH_TYPE_* Constant
-void LycanthropePoly(object oPC, int nPoly);
+// - int bAllowMerges: FALSE disables legacy merges and locks the template form
+// - int bTemplateWolf: TRUE uses template wolf stats and standard Wild Shape gear
+void LycanthropePoly(object oPC, int nPoly, int bAllowMerges = TRUE, int bTemplateWolf = FALSE);
 
 void DoDisguise(int nRace, object oTarget = OBJECT_SELF);
 void ShifterCheck(object oPC);
@@ -13,10 +15,22 @@ void ShifterCheck(object oPC);
 //::////////////////Begin Werewolf//////////////////
 const string PRC_PNP_SHIFTING = "PRC_Shift";
 
-void LycanthropePoly(object oPC, int nPoly)
+void LycanthropePoly(object oPC, int nPoly, int bAllowMerges, int bTemplateWolf)
 {
     effect eVis = EffectVisualEffect(VFX_IMP_POLYMORPH);
-    effect ePoly = SupernaturalEffect(EffectPolymorph(nPoly));
+    // Template forms are locked so the native Cancel Polymorph action cannot
+    // bypass their Control Shape return check. Preserve cancellable behavior
+    // for the legacy staged werewolf-class forms.
+    effect ePoly = SupernaturalEffect(EffectPolymorph(nPoly, !bAllowMerges));
+    if(bTemplateWolf)
+    {
+        // Keep racial ability bonuses separate from merged gear properties.
+        // Linking them to the polymorph gives them the same removal lifetime.
+        ePoly = EffectLinkEffects(ePoly, EffectAbilityIncrease(ABILITY_STRENGTH, 2));
+        ePoly = EffectLinkEffects(ePoly, EffectAbilityIncrease(ABILITY_DEXTERITY, 4));
+        ePoly = EffectLinkEffects(ePoly, EffectAbilityIncrease(ABILITY_CONSTITUTION, 4));
+        ePoly = SupernaturalEffect(ePoly);
+    }
 
     int bMonkGloves      = GetLocalInt(oPC, "WEARING_MONK_GLOVES");
     int bArmsSlotAllowed = GetPRCSwitch(PRC_WILDSHAPE_ALLOWS_ARMS_SLOT);
@@ -24,6 +38,17 @@ void LycanthropePoly(object oPC, int nPoly)
     int bWeapon = StringToInt(Get2DACache("polymorph","MergeW",nPoly)) == 1;
     int bArmor  = StringToInt(Get2DACache("polymorph","MergeA",nPoly)) == 1;
     int bItems  = StringToInt(Get2DACache("polymorph","MergeI",nPoly)) == 1;
+
+    // Disable the legacy merges for template forms. The explicit druid policy
+    // below can copy its permitted slots while retaining the locked effect.
+    // This also closes the legacy monk-glove exception for template forms.
+    if(!bAllowMerges)
+    {
+        bMonkGloves = FALSE;
+        bWeapon = FALSE;
+        bArmor = FALSE;
+        bItems = FALSE;
+    }
 
     object oWeaponOld = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
     object oArmorOld  = GetItemInSlot(INVENTORY_SLOT_CHEST,oPC);
@@ -58,6 +83,43 @@ void LycanthropePoly(object oPC, int nPoly)
     object oWeaponNewLeft  = GetItemInSlot(INVENTORY_SLOT_CWEAPON_L,oPC);
     object oWeaponNewBite  = GetItemInSlot(INVENTORY_SLOT_CWEAPON_B,oPC);
     object oArmorNew       = GetItemInSlot(INVENTORY_SLOT_CARMOUR,oPC);
+
+    if(bTemplateWolf)
+    {
+        // The native hide carries these same racial bonuses. Remove only its
+        // original properties before copying gear, which may use equal values.
+        RemoveSpecificProperty(oArmorNew, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_STR, 2);
+        RemoveSpecificProperty(oArmorNew, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_DEX, 4);
+        RemoveSpecificProperty(oArmorNew, ITEM_PROPERTY_ABILITY_BONUS, IP_CONST_ABILITY_CON, 4);
+
+        // Match nw_s2_wildshape's standard wolf equipment rules, independently
+        // of the template form's own statistics and its Control Shape lock.
+        bWeapon = StringToInt(Get2DACache("polymorph", "MergeW", POLYMORPH_TYPE_WOLF)) == 1;
+        bArmor  = StringToInt(Get2DACache("polymorph", "MergeA", POLYMORPH_TYPE_WOLF)) == 1;
+        bItems  = StringToInt(Get2DACache("polymorph", "MergeI", POLYMORPH_TYPE_WOLF)) == 1;
+
+        // Druid Wild Shape targets the actual right-hand item for weapon IPs;
+        // it has no arms-slot or monk-glove exception.
+        object oWeaponNew = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC);
+        if(bWeapon)
+            IPWildShapeCopyItemProperties(oWeaponOld, oWeaponNew, TRUE);
+        if(bArmor)
+        {
+            IPWildShapeCopyItemProperties(oShield, oArmorNew);
+            IPWildShapeCopyItemProperties(oHelmetOld, oArmorNew);
+            IPWildShapeCopyItemProperties(oArmorOld, oArmorNew);
+        }
+        if(bItems)
+        {
+            IPWildShapeCopyItemProperties(oRing1Old, oArmorNew);
+            IPWildShapeCopyItemProperties(oRing2Old, oArmorNew);
+            IPWildShapeCopyItemProperties(oAmuletOld, oArmorNew);
+            IPWildShapeCopyItemProperties(oCloakOld, oArmorNew);
+            IPWildShapeCopyItemProperties(oBootsOld, oArmorNew);
+            IPWildShapeCopyItemProperties(oBeltOld, oArmorNew);
+        }
+        return;
+    }
 
     //:: Weapon & Armor merge block
     object oMergeWeaponSource = OBJECT_INVALID;

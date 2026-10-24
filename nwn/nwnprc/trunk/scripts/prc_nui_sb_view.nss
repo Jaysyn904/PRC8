@@ -77,10 +77,15 @@ json CreateBonusDomainSpellButtons(int nLevel);
 json CreateNativePreparedDomainSpellButtons(int nLevel);
 json CreateDomainSectionLabel(string sText);
 int HasBonusDomainSpellAtLevel(int nLevel);
+int IsBonusDomainSpellReady(int nDomain, int nLevel);
+int HasReadyBonusDomainSpellAtLevel(int nLevel);
+int HasSilverstarMoonTradeAtLevel(int nLevel);
 int HasNativePreparedDomainSpellAtLevel(int nLevel);
 int CanShowBonusDomainsInSpontaneousClassTab(int nClass, int nLevel);
 string GetDomainRefreshState();
 void RefreshDomainModeLoop(int nToken, int nGeneration, string sPreviousState);
+void NUISpellbookRefreshMoonBladeButton(object oPlayer, int nToken);
+void NUISpellbookRefreshMoonbeamRedirectButton(object oPlayer, int nToken);
 string GetSpellbookTabRefreshState();
 void RefreshSpellbookTabLoop(int nToken, int nGeneration, string sPreviousState);
 void UnlockSpellbookInput(int nGeneration);
@@ -487,6 +492,43 @@ void main()
             for (i = 0; i < JsonGetLength(jRow); i++)
                 jResultRows = JsonArrayInsert(jResultRows, JsonArrayGet(jRow, i));
         }
+
+        // Temporary Moon abilities are feat-backed actions, not prepared
+        // spell slots. Show each on the corresponding native domain page.
+        if (nDomainLevel == 2)
+        {
+            json jMoonbeamRedirectSpells = JsonArray();
+            jMoonbeamRedirectSpells = JsonArrayInsert(
+                jMoonbeamRedirectSpells,
+                JsonInt(NUI_SPELLBOOK_MOONBEAM_REDIRECT_SPELL)
+            );
+            json jMoonbeamRedirectButtons = CreateMetaFeatButtonRow(
+                jMoonbeamRedirectSpells,
+                selectedClassId
+            );
+            if (JsonGetLength(jMoonbeamRedirectButtons) > 0)
+                jResultRows = JsonArrayInsert(
+                    jResultRows,
+                    NuiRow(jMoonbeamRedirectButtons)
+                );
+        }
+        if (nDomainLevel == 3)
+        {
+            json jMoonBladeSpells = JsonArray();
+            jMoonBladeSpells = JsonArrayInsert(
+                jMoonBladeSpells,
+                JsonInt(NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_SPELL)
+            );
+            json jMoonBladeButtons = CreateMetaFeatButtonRow(
+                jMoonBladeSpells,
+                selectedClassId
+            );
+            if (JsonGetLength(jMoonBladeButtons) > 0)
+                jResultRows = JsonArrayInsert(
+                    jResultRows,
+                    NuiRow(jMoonBladeButtons)
+                );
+        }
     }
     // GetLocalInt returns 0 if not set, which is Barb class which conveniently doesn't have spells :)
     // if there was no selected class then there is nothing to render
@@ -630,6 +672,16 @@ void main()
                           && NUISpellbookIsRunescarredClass(selectedClassId);
     int bIncarnumLayout = nSelectedMode == PRC_SPELLBOOK_MODE_INCARNUM
                        && bHasIncarnumContent;
+    int bMoonBladeLayout = nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN
+                         && GetLocalInt(
+                             OBJECT_SELF,
+                             PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+                         ) == 3;
+    int bMoonbeamLayout = nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN
+                        && GetLocalInt(
+                            OBJECT_SELF,
+                            PRC_SPELLBOOK_SELECTED_CIRCLE_VAR
+                        ) == 2;
 
     // Seed the Archivist readiness binds before replacing an existing root.
     // This prevents the new tier from appearing with null/stale bind values and
@@ -644,6 +696,10 @@ void main()
         NUISpellbookRefreshRunescarResource(OBJECT_SELF, nToken);
     if (bExistingWindow && bIncarnumLayout)
         NUISpellbookMoiRefreshBinds(OBJECT_SELF, nToken);
+    if (bExistingWindow && bMoonBladeLayout)
+        NUISpellbookRefreshMoonBladeButton(OBJECT_SELF, nToken);
+    if (bExistingWindow && bMoonbeamLayout)
+        NUISpellbookRefreshMoonbeamRedirectButton(OBJECT_SELF, nToken);
 
     // Lock only during the root-layout swap so a queued click from the prior
     // button map cannot act on the new one.
@@ -755,6 +811,10 @@ void main()
         NUISpellbookRefreshRunescarResource(OBJECT_SELF, nToken);
     if (!bExistingWindow && bIncarnumLayout)
         NUISpellbookMoiRefreshBinds(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bMoonBladeLayout)
+        NUISpellbookRefreshMoonBladeButton(OBJECT_SELF, nToken);
+    if (!bExistingWindow && bMoonbeamLayout)
+        NUISpellbookRefreshMoonbeamRedirectButton(OBJECT_SELF, nToken);
 
     // Refresh character-wide resources normally, then force-write the active
     // class's compact slot binds. Hidden class binds may already hold the
@@ -1452,6 +1512,21 @@ json CreateDomainSectionLabel(string sText)
 string GetDomainRefreshState()
 {
     string sState = "P" + IntToString(GetLocalInt(OBJECT_SELF, "DomainCast")) + ";";
+    // Rebuild the Domains page when a temporary Moon action is gained or lost.
+    // Its once-per-round readiness is tracked by live binds below.
+    sState += "MB:" + IntToString(GetHasFeat(
+        NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_FEAT,
+        OBJECT_SELF,
+        TRUE
+    )) + ";";
+    sState += "MR:" + IntToString(GetHasFeat(
+        NUI_SPELLBOOK_MOONBEAM_REDIRECT_FEAT,
+        OBJECT_SELF,
+        TRUE
+    )) + ";";
+    sState += "MT:" + IntToString(GetLocalInt(OBJECT_SELF, "SSP_MoonTradeLevel")) + ";";
+    int bMoonTrade = SSPIsMoonTrade(OBJECT_SELF, PRC_DOMAIN_MOON);
+    sState += "ME:" + IntToString(bMoonTrade) + ";";
     int nSlot;
     for (nSlot = 1; nSlot <= 5; nSlot++)
         sState += "B" + IntToString(nSlot) + ":" + IntToString(GetBonusDomain(OBJECT_SELF, nSlot)) + ";";
@@ -1462,6 +1537,9 @@ string GetDomainRefreshState()
         sState += "U" + IntToString(nLevel) + ":"
                + IntToString(GetLocalInt(OBJECT_SELF, "DomainCastSpell" + IntToString(nLevel))) + ":"
                + IntToString(GetHasFeat(SpellLevelToFeat(nLevel), OBJECT_SELF)) + ";";
+        if (bMoonTrade)
+            sState += "MS" + IntToString(nLevel) + ":"
+                   + IntToString(SSPFindTradeSlot(OBJECT_SELF, nLevel)) + ";";
     }
 
     int nPosition = 1;
@@ -1503,6 +1581,68 @@ string GetDomainRefreshState()
     return sState;
 }
 
+void NUISpellbookRefreshMoonBladeButton(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    object oBlade = GetLocalObject(
+        oPlayer,
+        NUI_SPELLBOOK_MOONBLADE_ACTIVE_BLADE_VAR
+    );
+    int bReady = GetIsObjectValid(oBlade)
+              && GetItemPossessor(oBlade) == oPlayer
+              && GetHasFeat(
+                     NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_FEAT,
+                     oPlayer,
+                     TRUE
+                 )
+              && !GetLocalInt(
+                     oPlayer,
+                     NUI_SPELLBOOK_MOONBLADE_COOLDOWN_VAR
+                 );
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_MOONBLADE_ENABLED_BIND,
+        JsonBool(bReady)
+    );
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_MOONBLADE_READY_BIND,
+        JsonBool(bReady)
+    );
+}
+
+void NUISpellbookRefreshMoonbeamRedirectButton(object oPlayer, int nToken)
+{
+    if (nToken <= 0)
+        return;
+
+    int bReady = GetHasFeat(
+                     NUI_SPELLBOOK_MOONBEAM_REDIRECT_FEAT,
+                     oPlayer,
+                     TRUE
+                 )
+              && !GetLocalInt(
+                     oPlayer,
+                     NUI_SPELLBOOK_MOONBEAM_REDIRECT_COOLDOWN_VAR
+                 );
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_MOONBEAM_REDIRECT_ENABLED_BIND,
+        JsonBool(bReady)
+    );
+    NuiSetBind(
+        oPlayer,
+        nToken,
+        NUI_SPELLBOOK_MOONBEAM_REDIRECT_READY_BIND,
+        JsonBool(bReady)
+    );
+}
+
 void RefreshDomainModeLoop(int nToken, int nGeneration, string sPreviousState)
 {
     if (NuiFindWindow(OBJECT_SELF, PRC_SPELLBOOK_NUI_WINDOW_ID) != nToken
@@ -1521,6 +1661,13 @@ void RefreshDomainModeLoop(int nToken, int nGeneration, string sPreviousState)
 
     if (!bTracksDomainState)
         return;
+
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN
+        && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 3)
+        NUISpellbookRefreshMoonBladeButton(OBJECT_SELF, nToken);
+    if (nSelectedMode == PRC_SPELLBOOK_MODE_DOMAIN
+        && GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR) == 2)
+        NUISpellbookRefreshMoonbeamRedirectButton(OBJECT_SELF, nToken);
 
     string sCurrentState = GetDomainRefreshState();
     if (sCurrentState != sPreviousState)
@@ -1777,6 +1924,42 @@ int HasBonusDomainSpellAtLevel(int nLevel)
     return FALSE;
 }
 
+int IsBonusDomainSpellReady(int nDomain, int nLevel)
+{
+    int nCastFeat = SpellLevelToFeat(nLevel);
+    return nCastFeat > 0
+        && GetHasFeat(nCastFeat, OBJECT_SELF)
+        && !GetLocalInt(OBJECT_SELF, "DomainCast")
+        && !GetLocalInt(OBJECT_SELF, "SSP_MoonTradeLevel")
+        && !BonusDomainSpellSpent(OBJECT_SELF, nDomain, nLevel)
+        && (!SSPIsMoonTrade(OBJECT_SELF, nDomain)
+            || SSPFindTradeSlot(OBJECT_SELF, nLevel) >= 0);
+}
+
+int HasReadyBonusDomainSpellAtLevel(int nLevel)
+{
+    int nSlot;
+    for (nSlot = 1; nSlot <= 5; nSlot++)
+    {
+        if (NUISpellbookGetBonusDomainSpell(OBJECT_SELF, nSlot, nLevel) >= 0
+            && IsBonusDomainSpellReady(GetBonusDomain(OBJECT_SELF, nSlot), nLevel))
+            return TRUE;
+    }
+    return FALSE;
+}
+
+int HasSilverstarMoonTradeAtLevel(int nLevel)
+{
+    int nSlot;
+    for (nSlot = 1; nSlot <= 5; nSlot++)
+    {
+        if (NUISpellbookGetBonusDomainSpell(OBJECT_SELF, nSlot, nLevel) >= 0
+            && SSPIsMoonTrade(OBJECT_SELF, GetBonusDomain(OBJECT_SELF, nSlot)))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 int HasNativePreparedDomainSpellAtLevel(int nLevel)
 {
     int nPosition = 1;
@@ -1911,7 +2094,8 @@ json CreateDomainHeaderRows()
 json CreateDomainCircleButtons()
 {
     json jRow = JsonArray();
-    int nPendingDomainCast = GetLocalInt(OBJECT_SELF, "DomainCast");
+    int nPendingDomainCast = GetLocalInt(OBJECT_SELF, "DomainCast")
+                         || GetLocalInt(OBJECT_SELF, "SSP_MoonTradeLevel");
     int nCurrentLevel = GetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR);
     if (nCurrentLevel < 1 || nCurrentLevel > 9)
     {
@@ -1923,7 +2107,7 @@ json CreateDomainCircleButtons()
     for (nLevel = 1; nLevel <= 9; nLevel++)
     {
         float width = 42.0f;
-        float height = 42.0f;
+        float height = width;
         json jButton = NuiId(
             NuiButtonImage(JsonString(GetSpellLevelIcon(nLevel))),
             PRC_SPELLBOOK_NUI_CIRCLE_BUTTON_BASEID + IntToString(nLevel)
@@ -1931,26 +2115,33 @@ json CreateDomainCircleButtons()
         jButton = NuiWidth(jButton, width);
         jButton = NuiHeight(jButton, height);
 
+        int bHasBonusSpell = HasBonusDomainSpellAtLevel(nLevel);
+        int bHasNativeSpell = HasNativePreparedDomainSpellAtLevel(nLevel);
+        int bBonusReady = HasReadyBonusDomainSpellAtLevel(nLevel);
+        int bMoonTrade = HasSilverstarMoonTradeAtLevel(nLevel);
         string sTooltip = GetSpellLevelToolTip(nLevel);
-        if (HasBonusDomainSpellAtLevel(nLevel))
+        if (bHasBonusSpell)
         {
             if (nPendingDomainCast)
                 sTooltip += " - bonus-domain cast pending";
-            else if (GetLocalInt(OBJECT_SELF, "DomainCastSpell" + IntToString(nLevel)))
-                sTooltip += " - bonus-domain use spent";
             else if (!GetHasFeat(SpellLevelToFeat(nLevel), OBJECT_SELF))
                 sTooltip += " - bonus-domain level not unlocked";
-            else
+            else if (bMoonTrade && SSPFindTradeSlot(OBJECT_SELF, nLevel) >= 0)
+                sTooltip += " - Silverstar Moon slot trading ready";
+            else if (bBonusReady)
                 sTooltip += " - bonus-domain use ready";
+            else if (bMoonTrade)
+                sTooltip += " - Moon trading needs a ready ordinary level " + IntToString(nLevel) + " slot";
+            else
+                sTooltip += " - bonus-domain use spent";
         }
         jButton = NuiTooltip(jButton, JsonString(sTooltip));
 
-        int bHasContent = HasBonusDomainSpellAtLevel(nLevel)
-                       || HasNativePreparedDomainSpellAtLevel(nLevel);
-        int bBonusOnlySpent = HasBonusDomainSpellAtLevel(nLevel)
-                           && !HasNativePreparedDomainSpellAtLevel(nLevel)
-                           && GetLocalInt(OBJECT_SELF, "DomainCastSpell" + IntToString(nLevel));
-        if (nLevel != nCurrentLevel || !bHasContent || bBonusOnlySpent)
+        int bHasContent = bHasBonusSpell || bHasNativeSpell;
+        int bBonusOnlyUnavailable = bHasBonusSpell
+                                && !bHasNativeSpell
+                                && !bBonusReady;
+        if (nLevel != nCurrentLevel || !bHasContent || bBonusOnlyUnavailable)
             jButton = GreyOutButton(jButton, width, height);
 
         jRow = JsonArrayInsert(jRow, jButton);
@@ -1964,11 +2155,8 @@ json CreateBonusDomainSpellButtons(int nLevel)
     json jRows = JsonArray();
     json jTempRow = JsonArray();
     int nCastFeat = SpellLevelToFeat(nLevel);
-    int nPendingDomainCast = GetLocalInt(OBJECT_SELF, "DomainCast");
-    int bReady = nCastFeat > 0
-              && GetHasFeat(nCastFeat, OBJECT_SELF)
-              && !nPendingDomainCast
-              && !GetLocalInt(OBJECT_SELF, "DomainCastSpell" + IntToString(nLevel));
+    int nPendingDomainCast = GetLocalInt(OBJECT_SELF, "DomainCast")
+                         || GetLocalInt(OBJECT_SELF, "SSP_MoonTradeLevel");
 
     int nSlot;
     for (nSlot = 1; nSlot <= 5; nSlot++)
@@ -1977,6 +2165,8 @@ json CreateBonusDomainSpellButtons(int nLevel)
         if (nSpell >= 0)
         {
             int nDomain = GetBonusDomain(OBJECT_SELF, nSlot);
+            int bMoonTrade = SSPIsMoonTrade(OBJECT_SELF, nDomain);
+            int bReady = IsBonusDomainSpellReady(nDomain, nLevel);
             int nCode = nSlot * 10 + nLevel;
             json jButton = NuiId(
                 NuiButtonImage(GetSpellIcon(nSpell)),
@@ -1984,22 +2174,33 @@ json CreateBonusDomainSpellButtons(int nLevel)
                     PRC_SPELLBOOK_NUI_DOMAIN_SPELL_BUTTON_BASEID + IntToString(nCode)
                 )
             );
-            jButton = NuiWidth(jButton, 38.0f);
-            jButton = NuiHeight(jButton, 38.0f);
+            float fButtonSize = 38.0f;
+            jButton = NuiWidth(jButton, fButtonSize);
+            jButton = NuiHeight(jButton, fButtonSize);
 
             string sTooltip = GetDomainName(nDomain) + ": " + GetSpellName(nSpell);
-            if (bReady)
+            if (bReady && bMoonTrade)
+                sTooltip += " - trades one ready ordinary level " + IntToString(nLevel) + " slot from your Silverstar-advanced divine spellbook";
+            else if (bReady)
                 sTooltip += " - burns one level " + IntToString(nLevel) + " spell slot";
             else if (nPendingDomainCast)
                 sTooltip += " - another domain spell is awaiting completion";
-            else if (GetLocalInt(OBJECT_SELF, "DomainCastSpell" + IntToString(nLevel)))
+            else if (BonusDomainSpellSpent(OBJECT_SELF, nDomain, nLevel))
                 sTooltip += " - domain use spent";
-            else
+            else if (nCastFeat <= 0 || !GetHasFeat(nCastFeat, OBJECT_SELF))
                 sTooltip += " - domain level not unlocked";
+            else if (bMoonTrade)
+                sTooltip += " - needs a ready ordinary level " + IntToString(nLevel) + " slot in your Silverstar-advanced divine spellbook";
+            else
+                sTooltip += " - domain use unavailable";
             jButton = NuiTooltip(jButton, JsonString(sTooltip));
 
             if (!bReady)
-                jButton = GreyOutButton(jButton, 38.0f, 38.0f);
+                jButton = GreyOutButton(
+                    jButton,
+                    fButtonSize,
+                    fButtonSize
+                );
 
             jTempRow = JsonArrayInsert(jTempRow, jButton);
         }
@@ -3008,6 +3209,28 @@ json CreateMetaFeatButtonRow(json spellList, int nClass)
             jMetaButton = NuiWidth(jMetaButton, 32.0f);
             jMetaButton = NuiHeight(jMetaButton, 32.0f);
             jMetaButton = NuiTooltip(jMetaButton, JsonString(featName));
+            if (spellId == NUI_SPELLBOOK_MOONBLADE_FULL_ATTACK_SPELL)
+            {
+                jMetaButton = NuiEnabled(
+                    jMetaButton,
+                    NuiBind(NUI_SPELLBOOK_MOONBLADE_ENABLED_BIND)
+                );
+                jMetaButton = NuiEncouraged(
+                    jMetaButton,
+                    NuiBind(NUI_SPELLBOOK_MOONBLADE_READY_BIND)
+                );
+            }
+            else if (spellId == NUI_SPELLBOOK_MOONBEAM_REDIRECT_SPELL)
+            {
+                jMetaButton = NuiEnabled(
+                    jMetaButton,
+                    NuiBind(NUI_SPELLBOOK_MOONBEAM_REDIRECT_ENABLED_BIND)
+                );
+                jMetaButton = NuiEncouraged(
+                    jMetaButton,
+                    NuiBind(NUI_SPELLBOOK_MOONBEAM_REDIRECT_READY_BIND)
+                );
+            }
 
             jRow = JsonArrayInsert(jRow, jMetaButton);
         }

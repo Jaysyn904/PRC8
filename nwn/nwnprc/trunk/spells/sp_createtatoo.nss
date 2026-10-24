@@ -59,7 +59,7 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
             SetLocalInt(OBJECT_SELF, "SP_CREATETATOO_SPELLID", nTattooSpellID);
             SetLocalInt(OBJECT_SELF, "SP_CREATETATOO_METAMAGIC", PRCGetMetaMagicFeat());
             SetLocalObject(OBJECT_SELF, "SP_CREATETATOO_TARGET", oTarget);
-            ActionStartConversation(OBJECT_SELF, "sp_createtatoo", FALSE, FALSE);
+            ActionStartConversation(OBJECT_SELF, "sp_createtatoo", TRUE, FALSE);
         }
     }
 

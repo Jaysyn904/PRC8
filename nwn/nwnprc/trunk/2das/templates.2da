@@ -10,7 +10,7 @@
 6          LycanNatBoar      ****     ****        **** 1    ****             ****        ****             
 7          LycanNatRat       ****     ****        **** 1    ****             ****        ****             
 8          LycanNatTiger     ****     ****        **** 1    ****             ****        ****             
-9          LycanNatWolf      ****     ****        **** 1    ****             ****        ****             
+9          LycanNatWolf      16990547 16990548    2    1    tmp_t_wwolf      tmp_s_wwnat tmp_m_wwolf      
 10         LycanNatDireBear  ****     ****        **** 1    ****             ****        ****             
 11         LycanNatDireBoar  ****     ****        **** 1    ****             ****        ****             
 12         LycanNatDireRat   ****     ****        **** 1    ****             ****        ****             
@@ -20,7 +20,7 @@
 16         LycanAcqBoar      ****     ****        **** 2    ****             ****        ****             
 17         LycanAcqRat       ****     ****        **** 2    ****             ****        ****             
 18         LycanAcqTiger     ****     ****        **** 2    ****             ****        ****             
-19         LycanAcqWolf      ****     ****        **** 2    ****             ****        ****             
+19         LycanAcqWolf      16990549 16990550    1    2    tmp_t_wwolf      tmp_s_wwacq tmp_m_wwolf      
 20         LycanAcqDireBear  ****     ****        **** 2    ****             ****        ****             
 21         LycanAcqDireBoar  ****     ****        **** 2    ****             ****        ****             
 22         LycanAcqDireRat   ****     ****        **** 2    ****             ****        ****             

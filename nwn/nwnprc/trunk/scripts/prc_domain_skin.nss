@@ -346,7 +346,11 @@ void main()
     // Stops the script from running if the PC has no bonus domains
     // Looks in the first slot for a bonus domain, exits if there is none
     // The first domain begins at 1
-    if (GetBonusDomain(oPC, 1) <= 0)
+    int bAnyBonusDomain = FALSE;
+    int nDomainSlot;
+    for(nDomainSlot = 1; nDomainSlot <= 5; nDomainSlot++)
+        if(GetBonusDomain(oPC, nDomainSlot) > 0) bAnyBonusDomain = TRUE;
+    if (!bAnyBonusDomain)
     {
         if(DEBUG) DoDebug("You have no bonus domains, exiting prc_domain_skin");
         return;

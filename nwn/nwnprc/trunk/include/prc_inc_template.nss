@@ -117,23 +117,42 @@ int GetTemplateLA(object oPC)
 
 int RemoveTemplateFromObject(int nTemplate, object oPC = OBJECT_SELF)
 {
-	//:: Sanity check
+    //:: Sanity check
     if(!GetHasTemplate(nTemplate, oPC))
         return FALSE;
-	
-	//:: Remove the template from the array
+
+    // Remove this template's entry without destroying the character's
+    // other templates. The old implementation treated the template row as
+    // an array length and then deleted the entire array.
     if(persistant_array_exists(oPC, "templates"))
-	{
-		persistant_array_shrink(oPC, "templates", persistant_array_get_size(oPC, "templates")-nTemplate);
-		persistant_array_delete(oPC, "templates");
-	}
-	
+    {
+        int nSize = persistant_array_get_size(oPC, "templates");
+        int bFound = FALSE;
+        int i;
+        for(i = 0; i < nSize; i++)
+        {
+            int nEntry = persistant_array_get_int(oPC, "templates", i);
+            if(!bFound && nEntry == nTemplate)
+                bFound = TRUE;
+            else if(bFound)
+                persistant_array_set_int(oPC, "templates", i - 1, nEntry);
+        }
+        if(bFound)
+            persistant_array_shrink(oPC, "templates", nSize - 1);
+    }
+
     //:: Delete template's markers
     DeletePersistantLocalInt(oPC, "template_"+IntToString(nTemplate));
-	DeletePersistantLocalInt(oPC, "template_LA");
-	
-	DelayCommand(0.01, EvalPRCFeats(oPC));
-	return TRUE;	
+
+    int nNewLA = GetPersistantLocalInt(oPC, "template_LA")
+        - StringToInt(Get2DACache("templates", "LA", nTemplate));
+    if(nNewLA > 0)
+        SetPersistantLocalInt(oPC, "template_LA", nNewLA);
+    else
+        DeletePersistantLocalInt(oPC, "template_LA");
+
+    DelayCommand(0.01, EvalPRCFeats(oPC));
+    return TRUE;
 }	
 
 int ApplyTemplateToObject(int nTemplate, object oPC = OBJECT_SELF, int bApply = TRUE)

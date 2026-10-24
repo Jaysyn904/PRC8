@@ -587,6 +587,21 @@ int PRCGetSpellSaveDC(int nSpellID = -1, int nSchool = -1, object oCaster = OBJE
     else
         nDC += StringToInt(Get2DACache("Spells", "Innate", nSpellID));
 
+    int nSilverstarMoonLevel = GetLocalInt(oCaster, "SSP_MoonBaseLevel");
+    if(GetLocalInt(oCaster, "SSP_CastActive")
+        && GetLevelByClass(CLASS_TYPE_SILVERSTAR, oCaster) > 0
+        && GetHasFeat(FEAT_SILVERSTAR_MOON_SPELLS, oCaster)
+        && nSilverstarMoonLevel >= 1 && nSilverstarMoonLevel <= 9
+        && SSHasValidDivineSelection(oCaster, GetPrimaryDivineClass(oCaster))
+        && SSGetSelectedDivineClass(oCaster) == nClass)
+    {
+        int nMoonSpell = StringToInt(Get2DACache("prc_domains",
+            "Level_" + IntToString(nSilverstarMoonLevel), PRC_DOMAIN_MOON - 1));
+        int nMasterSpell = StringToInt(Get2DACache("spells", "Master", nSpellID));
+        if(nSpellID == nMoonSpell || nMasterSpell == nMoonSpell)
+            nDC = 10 + nSilverstarMoonLevel;
+    }
+
     // This is here because a Cleric casting a domain spell like Chain Lightning has a 0 in the cleric column, resulting in a DC of 10        
     if (nDC == 10 && nClass == CLASS_TYPE_CLERIC)
         nDC += StringToInt(Get2DACache("Spells", "Innate", nSpellID));

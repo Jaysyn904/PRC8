@@ -16457,9 +16457,9 @@
 16453      16838625 IP_CONST_FEAT_TEMPLATE_HALF_VAMPIRE_CHILDREN_NIGHT        0.5  22403     
 16454      16838632 IP_CONST_FEAT_TEMPLATE_HALF_VAMPIRE_BLOOD_DEPENDENCY      0.1  22404     
 16455      16838634 IP_CONST_FEAT_TEMPLATE_HALF_VAMPIRE_FAST_HEALING          1    22405     
-16456      ****     ****                                                      **** ****      
-16457      ****     ****                                                      **** ****      
-16458      ****     ****                                                      **** ****      
+16456      16824720 IP_CONST_FEAT_TEMPLATE_WEREWOLF_WOLF_FORM                0.1  3518      
+16457      16824722 IP_CONST_FEAT_TEMPLATE_WEREWOLF_HYBRID_FORM              0.1  3519      
+16458      16833118 IP_CONST_FEAT_TEMPLATE_WEREWOLF_SHAPECHANGER             0.1  4550      
 16459      ****     ****                                                      **** ****      
 16460      ****     Templates_16300-17300                                     **** ****      
 16461      ****     ****                                                      **** ****      
