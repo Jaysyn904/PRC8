@@ -3,9 +3,10 @@ Most classes have an epic progression.
 Fochlucan Lyrist
 Verdant Lord
 Lion of Talisid
+Silverstar
 
 VARIANTS
-Educated WIlder
+Educated Wilder
 Hidden Talent Soulnife
 
 RACIAL TYPES
@@ -72,7 +73,7 @@ Creeping Cold
 Forestfold
 Greater Creeping Cold
 Immunity from Elements
-Leonal’s Roar
+Leonalâ€™s Roar
 Limited Wish
 Regenerate Circle
 Regenerate Ring
@@ -82,7 +83,7 @@ Shield of Law
 Speed of the Wind
 Spirit Worm
 Spiritual Weapon
-Summon Nature’s Ally I–IX
+Summon Natureâ€™s Ally Iâ€“IX
 Tortise Shell
 
 EPIC SPELLS
