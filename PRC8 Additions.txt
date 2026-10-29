@@ -21,6 +21,8 @@ Wispling (Planescape)
 TEMPLATES
 Baelnorn template
 Half-Vampire template
+Natural Werewolf template
+Afflicted Werewolf template
 NPC Templates
 
 CLERIC DOMAINS
