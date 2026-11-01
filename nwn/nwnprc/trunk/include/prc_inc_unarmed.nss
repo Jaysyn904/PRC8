@@ -343,7 +343,22 @@ int FindUnarmedDamage(object oCreature)
     if (iMonk > 16 && !GetPRCSwitch(PRC_3_5e_FIST_DAMAGE)) iMonk = 16;
     else if (iMonk > 20) iMonk = 20;
     
-    // Ronove is in place of monk, does not stack
+    // Ronove is in place of monk, does not stack.
+    // Check PRC_EPIC_VESTIGE_SCALING (defaults to 1 via personal_switch.2da / prc_onmodload):
+    // when off (0), cap iRonove at 20; when on (1), cap at 28 (row 10 = monk8 in unarmed_dmg.2da).
+    if (iRonove > 0)
+    {
+        object oMod = GetModule();
+        if (!GetLocalInt(oMod, "PRC_EPIC_VESTIGE_SCALING_INIT"))
+        {
+            SetLocalInt(oMod, "PRC_EPIC_VESTIGE_SCALING_INIT", TRUE);
+            string sDef = Get2DAString("personal_switch", "SwitchValue", 77);
+            if (sDef == "0") SetPRCSwitch(PRC_EPIC_VESTIGE_SCALING, 0);
+            else if (!GetPRCSwitch(PRC_EPIC_VESTIGE_SCALING)) SetPRCSwitch(PRC_EPIC_VESTIGE_SCALING, 1);
+        }
+        int nMaxRonove = (GetPRCSwitch(PRC_EPIC_VESTIGE_SCALING) > 0) ? 28 : 20;
+        if (iRonove > nMaxRonove) iRonove = nMaxRonove;
+    }
     if (iRonove > iMonk) iMonk = iRonove;
 	
     // Monk damage calculation
@@ -553,6 +568,17 @@ void UnarmedFists(object oCreature)
         int iKi = (iMonkEq > 9)  ? 1 : 0;
             iKi = (iMonkEq > 12) ? 2 : iKi;
             iKi = (iMonkEq > 15) ? 3 : iKi;
+
+        // Ronove Cold Iron and Magic Attacks (+1 DR bypass at EBL 1-6, +3 at EBL 7+)
+        if (GetHasSpellEffect(VESTIGE_RONOVE, oCreature) &&
+            GetLocalInt(oCreature, "ExploitVestige") != VESTIGE_RONOVE_COLD_IRON &&
+            !GetLocalInt(oCreature, "ExploitVestige" + IntToString(VESTIGE_RONOVE_COLD_IRON)))
+        {
+            int nRonEBL = GetLocalInt(oCreature, "RonovesFists");
+            if (nRonEBL <= 0) nRonEBL = GetLevelByClass(CLASS_TYPE_BINDER, oCreature);
+            int iRonKi = (nRonEBL >= 7) ? 3 : 1;
+            if (iRonKi > iKi) iKi = iRonKi;
+        }
 
         int iDragClaw = GetHasFeat(FEAT_CLAWDRAGON,oCreature) ? 1: 0;
             iDragClaw = GetHasFeat(FEAT_CLAWENH2,oCreature)   ? 2: iDragClaw;

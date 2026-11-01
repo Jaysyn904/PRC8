@@ -299,6 +299,12 @@ void OnLoad_Fresh(object oModule)
 void PersonalSwitch(object oModule)
 {
     DoDebug("PersonalSwitch Running");
+    // Default PRC_EPIC_VESTIGE_SCALING to 1 (ON) before reading personal_switch.2da overrides
+    if (!GetLocalInt(oModule, "PRC_EPIC_VESTIGE_SCALING_INIT"))
+    {
+        SetLocalInt(oModule, "PRC_EPIC_VESTIGE_SCALING_INIT", TRUE);
+        SetPRCSwitch(PRC_EPIC_VESTIGE_SCALING, 1);
+    }
     //load any default switch 2da
     int i = 0;
     string sSwitchName, sSwitchType, sSwitchValue;

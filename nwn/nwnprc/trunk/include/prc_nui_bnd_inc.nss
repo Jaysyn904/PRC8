@@ -337,13 +337,16 @@ void BinderNUIBuildHomeMaps(object oPC)
     json jBoundMap = JsonArray();
     json jBoundNames = JsonArray();
     int bHasRoom = GetBindCount(oPC) < GetMaxVestigeCount(oPC);
+    int nMaxLvl = GetMaxVestigeLevel(oPC);
 
     int i;
-    for (i = 1; i < 50; i++)
+    for (i = 1; i <= 44; i++)
     {
-        if (!BinderNUIIsValidVestigeRow(i))
+        string sSpell = Get2DACache("vestiges", "SpellID", i);
+        if (sSpell == "")
             continue;
-        int nSpell = BinderNUIVestigeSpell(i);
+        int nSpell = StringToInt(sSpell);
+        int nVL = GetVestigeLevel(i);
         string sName = BinderNUIVestigeName(i);
 
         if (GetHasSpellEffect(nSpell, oPC))
@@ -353,19 +356,19 @@ void BinderNUIBuildHomeMaps(object oPC)
                 sQuality = "good pact";
             jBoundMap = JsonArrayInsert(jBoundMap, JsonInt(i));
             jBoundNames = JsonArrayInsert(jBoundNames, JsonString(
-                sName + " (level " + IntToString(GetVestigeLevel(i))
+                sName + " (level " + IntToString(nVL)
                 + ", " + sQuality + ")"
             ));
         }
         else if (bHasRoom
-            && GetVestigeLevel(i) <= GetMaxVestigeLevel(oPC)
+            && nVL <= nMaxLvl
             // This is deliberately evaluated once per session, matching the
             // legacy conversation's setup-stage requirement check.
             && DoSpecialRequirements(oPC, nSpell))
         {
             jBindMap = JsonArrayInsert(jBindMap, JsonInt(i));
             jBindNames = JsonArrayInsert(jBindNames, JsonString(
-                sName + " (level " + IntToString(GetVestigeLevel(i)) + ")"
+                sName + " (level " + IntToString(nVL) + ")"
             ));
         }
     }
@@ -398,7 +401,7 @@ void BinderNUIBuildExploitChoices(object oPC, int nVestigeRow)
     json jMap = JsonArray();
     json jNames = JsonArray();
     int i;
-    for (i = 0; i < 150; i++)
+    for (i = 0; i < 200; i++)
     {
         int nOwner = StringToInt(Get2DACache("vestigeabil", "VestigeNum", i));
         if (nOwner < nVestigeRow)
@@ -427,7 +430,14 @@ void BinderNUIBuildMethodChoices(object oPC)
     jNames = JsonArrayInsert(jNames, JsonString(
         "Rushed bind (one round, -10 binding check)"
     ));
-    if (GetHasFeat(FEAT_RAPID_PACT_MAKING, oPC)
+    if (GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING, oPC))
+    {
+        jMap = JsonArrayInsert(jMap, JsonInt(PRC_BINDER_NUI_METHOD_RAPID));
+        jNames = JsonArrayInsert(jNames, JsonString(
+            "Epic Rapid Pact Making (one round, no check penalty; at will)"
+        ));
+    }
+    else if (GetHasFeat(FEAT_RAPID_PACT_MAKING, oPC)
         && !GetLocalInt(oPC, "RapidPactMaking"))
     {
         jMap = JsonArrayInsert(jMap, JsonInt(PRC_BINDER_NUI_METHOD_RAPID));
@@ -449,6 +459,33 @@ void BinderNUIBuildAugmentChoices(object oPC)
         jNames = JsonArrayInsert(jNames, JsonString(BinderNUIAugmentName(i)));
     }
     BinderNUISetChoiceMap(oPC, jMap, jNames);
+}
+
+int BinderNUIAvailableNaberiusSkills(object oPC)
+{
+    int nCount = 0;
+    int i;
+    for (i = 0; i < 40; i++)
+    {
+        string sName = GetStringByStrRef(StringToInt(Get2DACache("skills", "Name", i)));
+        if (sName != ""
+            && GetSkillRank(i, oPC, TRUE) == 0
+            && StringToInt(Get2DACache("skills", "Untrained", i))
+            && !GetLocalInt(oPC, "NaberiusSkill" + IntToString(i)))
+        {
+            nCount++;
+        }
+    }
+    return nCount;
+}
+
+int BinderNUINaberiusTargetCount(object oPC)
+{
+    int nConMod = GetAbilityModifier(ABILITY_CONSTITUTION, oPC);
+    if (nConMod <= 0)
+        return 0;
+    int nAvail = BinderNUIAvailableNaberiusSkills(oPC);
+    return nConMod < nAvail ? nConMod : nAvail;
 }
 
 void BinderNUIBuildNaberiusChoices(object oPC)
@@ -571,7 +608,7 @@ void BinderNUIBuildExploitSpellChoices(object oPC)
             && JsonObjectGet(jSeen, sKey) == JsonNull())
         {
             jSeen = JsonObjectSet(jSeen, sKey, JsonBool(TRUE));
-            string sName = GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSpell)));
+            string sName = GetStringByStrRef(StringToInt(Get2DAString("spells", "Name", nSpell)));
             if (sName != "")
             {
                 jMap = JsonArrayInsert(jMap, JsonInt(nSpell));
@@ -591,7 +628,7 @@ void BinderNUIAdvanceAfterMethod(object oPC)
         SetLocalInt(oPC, PRC_BINDER_NUI_STAGE_VAR, PRC_BINDER_NUI_STAGE_AUGMENT);
         BinderNUIBuildAugmentChoices(oPC);
     }
-    else if (nRow == 4 && GetAbilityModifier(ABILITY_CONSTITUTION, oPC) >= 1)
+    else if (nRow == 4 && BinderNUINaberiusTargetCount(oPC) >= 1)
     {
         SetLocalJson(oPC, PRC_BINDER_NUI_NABERIUS_VAR, JsonArray());
         SetLocalInt(oPC, PRC_BINDER_NUI_STAGE_VAR, PRC_BINDER_NUI_STAGE_NABERIUS);
@@ -612,7 +649,7 @@ void BinderNUIAdvanceAfterMethod(object oPC)
 void BinderNUIAdvanceAfterAugment(object oPC)
 {
     int nRow = GetLocalInt(oPC, PRC_BINDER_NUI_SELECTED_ROW_VAR);
-    if (nRow == 4 && GetAbilityModifier(ABILITY_CONSTITUTION, oPC) >= 1)
+    if (nRow == 4 && BinderNUINaberiusTargetCount(oPC) >= 1)
     {
         SetLocalJson(oPC, PRC_BINDER_NUI_NABERIUS_VAR, JsonArray());
         SetLocalInt(oPC, PRC_BINDER_NUI_STAGE_VAR, PRC_BINDER_NUI_STAGE_NABERIUS);
@@ -669,6 +706,7 @@ string BinderNUIValidateDraft(object oPC)
         || nMethod > PRC_BINDER_NUI_METHOD_RAPID)
         return "Choose a binding method.";
     if (nMethod == PRC_BINDER_NUI_METHOD_RAPID
+        && !GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING, oPC)
         && (!GetHasFeat(FEAT_RAPID_PACT_MAKING, oPC)
             || GetLocalInt(oPC, "RapidPactMaking")))
         return "Rapid Pact Making is not currently available.";
@@ -677,7 +715,7 @@ string BinderNUIValidateDraft(object oPC)
     if (BinderNUIAugmentTotal(oPC) != nAugmentTarget)
         return "Choose exactly " + IntToString(nAugmentTarget) + " Pact Augmentation benefits.";
 
-    if (nRow == 4 && GetAbilityModifier(ABILITY_CONSTITUTION, oPC) >= 1)
+    if (nRow == 4 && BinderNUINaberiusTargetCount(oPC) >= 1)
     {
         json jNab = GetLocalJson(oPC, PRC_BINDER_NUI_NABERIUS_VAR);
         int nTarget = GetAbilityModifier(ABILITY_CONSTITUTION, oPC);
@@ -776,6 +814,8 @@ void BinderNUICleanupFailedBinding(object oPC)
         DeleteLocalInt(oPC, PRC_BINDER_NUI_PENDING_SPELL_VAR);
     }
     DeleteLocalInt(oPC, "RushedBinding");
+    if (GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING, oPC))
+        DeleteLocalInt(oPC, "RapidPactMaking");
 }
 
 void BinderNUIClearRitualState(object oPC)
@@ -832,7 +872,7 @@ int BinderNUIBeginExpel(object oPC)
         SendMessageToPC(oPC, "You need the Expel Vestige feat to do that.");
         return FALSE;
     }
-    if (GetFeatRemainingUses(FEAT_EXPEL_VESTIGE, oPC) <= 0)
+    if (!GetHasFeat(FEAT_EPIC_EXPEL_VESTIGE, oPC) && GetFeatRemainingUses(FEAT_EXPEL_VESTIGE, oPC) <= 0)
     {
         SendMessageToPC(oPC, "You have already used Expel Vestige today.");
         return FALSE;
@@ -840,7 +880,7 @@ int BinderNUIBeginExpel(object oPC)
 
     // A radial activation would spend the same once-per-day feat use before
     // its conversation starts.  The NUI must account for that engine cost.
-    DecrementRemainingFeatUses(oPC, FEAT_EXPEL_VESTIGE);
+    if (!GetHasFeat(FEAT_EPIC_EXPEL_VESTIGE, oPC)) DecrementRemainingFeatUses(oPC, FEAT_EXPEL_VESTIGE);
     int nGeneration = GetLocalInt(oPC, PRC_BINDER_NUI_RITUAL_GEN_VAR) + 1;
     SetLocalInt(oPC, PRC_BINDER_NUI_RITUAL_GEN_VAR, nGeneration);
     SetLocalInt(oPC, PRC_BINDER_NUI_RITUAL_TYPE_VAR, PRC_BINDER_NUI_RITUAL_EXPEL);
@@ -930,6 +970,8 @@ void BinderNUIBindTick(object oPC, int nTime, int nVestigeRow, int nRitualType, 
         // but its automatic-good-pact branches return early.  Do not let a
         // NUI attempt leak either marker into the next pact.
         DeleteLocalInt(oPC, "RushedBinding");
+        if (GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING, oPC))
+            DeleteLocalInt(oPC, "RapidPactMaking");
         DeleteLocalInt(oPC, "ExploitVestigeTemp");
         if (nRitualType == PRC_BINDER_NUI_RITUAL_EXPEL)
         {
@@ -1022,7 +1064,7 @@ string BinderNUIBindingSummary(object oPC)
         + "\nMethod: " + BinderNUIMethodName(GetLocalInt(oPC, PRC_BINDER_NUI_METHOD_VAR));
     if (GetPactAugmentCount(oPC) > 0)
         sResult += "\nPact Augmentation: " + BinderNUIAugmentSummary(oPC);
-    if (nRow == 4 && GetAbilityModifier(ABILITY_CONSTITUTION, oPC) >= 1)
+    if (nRow == 4 && BinderNUINaberiusTargetCount(oPC) >= 1)
         sResult += "\nNaberius skills: " + BinderNUINaberiusSummary(oPC);
     if (nRow == 20)
         sResult += "\nAstaroth feat: " + BinderNUIAstarothFeatName(

@@ -36,6 +36,12 @@ Moon
 
 FEATS
 Ability Focus
+Bind Additional Epic Vestige I–III
+Bind Additional Vestige I–X
+Bind Amun-her Khepeshef
+Bind Gaia
+Bind Tkhaluuljin
+Bind Zuriel
 Choke Hold
 Combat Awareness
 Combat Defense
@@ -46,9 +52,17 @@ Combat Vitality
 Constrict
 Craft Scepter
 Create Infusion
+Epic Expel Vestige
+Epic Favored Vestige
+Epic Favored Vestige Focus
+Epic Rapid Pact Making
+Epic Rapid Recovery
+Epic Skilled Pact Making
 Epic Weapon Focus (touch attack)
 Falling Star Strike
 Favored of the Companions
+Favored Vestige (Amun-her Khepeshef / Gaia / Tkhaluuljin / Zuriel)
+Favored Vestige Focus (Amun-her Khepeshef / Gaia / Tkhaluuljin / Zuriel)
 Freezing the Lifeblood
 Great Ki Shout
 Hidden Talent
@@ -58,8 +72,10 @@ Ki Shout
 Magical Artisan: Craft Scepter
 Magical Artisan: Create Infusion
 Pain Touch
+Patron Vestige (Amun-her Khepeshef / Gaia / Tkhaluuljin / Zuriel)
 Plant Control
 Plant Defiance
+Rapid Recovery (Amun-her Khepeshef / Gaia / Tkhaluuljin / Zuriel)
 Unbalancing Strike
 Weapon Focus (touch attack)
 
@@ -96,6 +112,12 @@ Defensive Manifestation
 
 INVOCATIONS
 Repelling Blast
+
+EPIC VESTIGES
+Amun-her Khepeshef, the Desecrated Scion
+Gaia, Soul of the Land
+Tkhaluuljin, the Cephalopocalypse
+Zuriel, the Bronze God
 
 INFUSIONS
 Armor Enhancement (Lesser / Standard / Greater)
@@ -149,6 +171,7 @@ Combat / Mechanics
 Grapple removes invisibility rule enforcement
 Double chakra bind system (Incarnum expansion)
 Double totem bind system
+Epic Binder progression (levels 21–40, 9th-level Epic Vestiges, 6–10 Pact Augmentations)
 
 UI / NUI SYSTEMS
 NUI Spellcasting system

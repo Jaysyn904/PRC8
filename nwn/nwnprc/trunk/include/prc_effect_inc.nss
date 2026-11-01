@@ -150,7 +150,7 @@ effect EffectFascinate();
  *
  * @return           the Confused effect
  */
-effect PRCEffectConfused();
+effect PRCEffectConfused(object oTarget = OBJECT_INVALID);
 
 /**
  * It's EffectHeal, but allows us to manipulate the HP total healed
@@ -493,7 +493,12 @@ effect EffectShaken(){
 // are no longer fatigued.
 effect EffectFatigue(){
     effect eBlank;
-    if (GetLevelByClass(CLASS_TYPE_BATTLESMITH, PRCGetSpellTargetObject()) >= 3) return eBlank;
+    object oFatTarget = PRCGetSpellTargetObject();
+    if (!GetIsObjectValid(oFatTarget)) oFatTarget = OBJECT_SELF;
+    if (GetLevelByClass(CLASS_TYPE_BATTLESMITH, oFatTarget) >= 3) return eBlank;
+    if ((GetHasSpellEffect(VESTIGE_AMUN_HER, oFatTarget) && GetLocalInt(oFatTarget, "ExploitVestige") != VESTIGE_AMUN_HER_FIRSTBORN_GUARDIAN) ||
+        GetHasSpellEffect(VESTIGE_AMUN_FIRSTBORN_SPELL, oFatTarget))
+        return eBlank;
 
     effect eReturn = EffectAbilityDecrease(ABILITY_STRENGTH, 2);
            eReturn = EffectLinkEffects(eReturn, EffectAbilityDecrease(ABILITY_DEXTERITY, 2));
@@ -509,7 +514,12 @@ effect EffectFatigue(){
 // cause fatigue.
 effect EffectExhausted(){
     effect eBlank;
-    if (GetLevelByClass(CLASS_TYPE_BATTLESMITH, PRCGetSpellTargetObject()) >= 3) return eBlank;
+    object oExhTarget = PRCGetSpellTargetObject();
+    if (!GetIsObjectValid(oExhTarget)) oExhTarget = OBJECT_SELF;
+    if (GetLevelByClass(CLASS_TYPE_BATTLESMITH, oExhTarget) >= 3) return eBlank;
+    if ((GetHasSpellEffect(VESTIGE_AMUN_HER, oExhTarget) && GetLocalInt(oExhTarget, "ExploitVestige") != VESTIGE_AMUN_HER_FIRSTBORN_GUARDIAN) ||
+        GetHasSpellEffect(VESTIGE_AMUN_FIRSTBORN_SPELL, oExhTarget))
+        return eBlank;
     
 	if (GetLocalInt(PRCGetSpellTargetObject(), "IncarnumDefenseLE")) return EffectFatigue();
 
@@ -572,11 +582,18 @@ effect EffectFascinate(){
 }
 
 // It's just Confused
-effect PRCEffectConfused()
+effect PRCEffectConfused(object oTarget = OBJECT_INVALID)
 {
     effect eBlank;
-    if (GetLevelByClass(CLASS_TYPE_WILD_MAGE, PRCGetSpellTargetObject()) >= 6 || 
-       (GetHasSpellEffect(VESTIGE_DAHLVERNAR, PRCGetSpellTargetObject()) && GetLocalInt(PRCGetSpellTargetObject(), "ExploitVestige") != VESTIGE_DAHLVERNAR_MAD_SOUL)
+    if (!GetIsObjectValid(oTarget))
+        oTarget = PRCGetSpellTargetObject();
+    if (!GetIsObjectValid(oTarget))
+        oTarget = OBJECT_SELF;
+    if (GetLevelByClass(CLASS_TYPE_WILD_MAGE, oTarget) >= 6 ||
+       (GetHasSpellEffect(VESTIGE_DAHLVERNAR, oTarget) && GetLocalInt(oTarget, "ExploitVestige") != VESTIGE_DAHLVERNAR_MAD_SOUL) ||
+       ((GetHasSpellEffect(VESTIGE_ZCERYLL, oTarget) || GetLocalInt(oTarget, "ZceryllBoundActive")) && GetLocalInt(oTarget, "ExploitVestige") != VESTIGE_ZCERYLL_ALIEN_MIND) ||
+       GetIsImmune(oTarget, IMMUNITY_TYPE_CONFUSED) ||
+       GetIsImmune(oTarget, IMMUNITY_TYPE_MIND_SPELLS)
        ) return eBlank;
 
     effect eEffect = EffectConfused();

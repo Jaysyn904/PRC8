@@ -76,6 +76,9 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_ABJURATION);
 
     PRCRemoveEffectsFromSpell(OBJECT_SELF, GetSpellId());
 
+    // Record Force Missile Mage level for Shield penetration checks (Ruling 1)
+    SetLocalInt(oTarget, "ShieldFMM", GetLevelByClass(CLASS_TYPE_FMM, OBJECT_SELF));
+
     //Apply VFX impact and bonus effects
     SPApplyEffectToObject(DURATION_TYPE_INSTANT, eVis, oTarget);
     SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, eLink, oTarget, TurnsToSeconds(nDuration),TRUE,-1,CasterLvl);

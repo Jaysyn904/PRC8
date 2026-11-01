@@ -2308,6 +2308,27 @@ int PRCSpellEffects(object oCaster, object oTarget, int nSpellID, int nSpellLeve
     } */
 	
     
+	// Zuriel Bronze Body strict lockout: blocks spells, psionics, invocations, utterances,
+	// non-supernatural mysteries, and spell completion/trigger items, while allowing potions and Supernatural abilities
+	if (GetLocalInt(oCaster, "ZurielBronzeBodyActive") && !GetLocalInt(oCaster, "BinderSuSLA"))
+	{
+		object oBBItem = PRCGetSpellCastItem();
+		if (GetIsObjectValid(oBBItem))
+		{
+			int nBBItemType = GetBaseItemType(oBBItem);
+			if (nBBItemType != BASE_ITEM_ENCHANTED_POTION && nBBItemType != BASE_ITEM_POTIONS)
+			{
+				FloatingTextStringOnCreature("You cannot activate magical items (other than potions) while Zuriel's Bronze Body is active!", oCaster, FALSE);
+				return FALSE;
+			}
+		}
+		else
+		{
+			FloatingTextStringOnCreature("You cannot cast spells or use non-supernatural abilities while Zuriel's Bronze Body is active!", oCaster, FALSE);
+			return FALSE;
+		}
+	}
+
     // Gaseous Form check
     if(GetHasSpellEffect(SPELL_GASEOUS_FORM, oCaster))
     {

@@ -71,5 +71,5 @@ void main()
     	if (!GetIsVestigeExploited(oBinder, VESTIGE_NABERIUS_DISGUISE_SELF)) IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_VESTIGE_NABERIUS_DISGUISE), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     	if (!GetIsVestigeExploited(oBinder, VESTIGE_NABERIUS_PERSUASIVE)) IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_VESTIGE_NABERIUS_COMMAND), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
     }	
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oBinder, HoursToSeconds(24));      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SetEffectSpellId(SupernaturalEffect(eLink), VESTIGE_NABERIUS), oBinder, HoursToSeconds(24));      
 }

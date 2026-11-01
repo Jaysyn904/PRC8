@@ -32,7 +32,9 @@ void main()
     object oBinder = PRCGetSpellTargetObject(); 
     int nBinderLevel = GetBinderLevel(oBinder, VESTIGE_ELIGOR);
     int nBonus = 3;
-    if (nBinderLevel >= 20) nBonus = 5;
+    if (GetIsEpicVestigeScalingEnabled() && nBinderLevel >= 24)
+        nBonus = 5 + ((nBinderLevel - 20) / 4);
+    else if (nBinderLevel >= 20) nBonus = 5;
     else if (nBinderLevel >= 16) nBonus = 4;
 
     effect eLink = EffectLinkEffects(EffectVisualEffect(VFX_PERM_ELEMENTAL_SAVANT_WATER), EffectPact(oBinder));
@@ -46,5 +48,5 @@ void main()
     if (!GetIsVestigeExploited(oBinder, VESTIGE_ELIGOR_RESILIENCE)) eLink = EffectLinkEffects(eLink, EffectACIncrease(nBonus, AC_NATURAL_BONUS));
     if (!GetIsVestigeExploited(oBinder, VESTIGE_ELIGOR_ARMOR))      IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_FEAT_ARMOR_PROF_HEAVY), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
    
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oBinder, HoursToSeconds(24));      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SetEffectSpellId(SupernaturalEffect(eLink), VESTIGE_ELIGOR), oBinder, HoursToSeconds(24));      
 }

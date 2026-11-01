@@ -83,7 +83,12 @@ void main()
     	AssignCommand(oHammer, SetIsDestroyable(FALSE, FALSE, FALSE));
     	DelayCommand(0.25, AssignCommand(oBinder, ActionEquipItem(oHammer, INVENTORY_SLOT_RIGHTHAND))); 
     	
-    	if (nBinderLevel >= 19) IPSafeAddItemProperty(oHammer, ItemPropertyEnhancementBonus(3), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+    	int nMaulEnh = 1;
+    	if (GetIsEpicVestigeScalingEnabled() && nBinderLevel >= 23)
+    		nMaulEnh = PRCMin(8, 3 + ((nBinderLevel - 19) / 4));
+    	else if (nBinderLevel >= 19)
+    		nMaulEnh = 3;
+    	if (nMaulEnh > 1) IPSafeAddItemProperty(oHammer, ItemPropertyEnhancementBonus(nMaulEnh), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
     	if (nBinderLevel >= 15)
     	{
 			IPSafeAddItemProperty(oHammer, ItemPropertyAttackBonus(5), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);        	

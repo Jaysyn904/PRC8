@@ -184,8 +184,9 @@ const string NUI_SPELL_DESCRIPTION_OK_BUTTON = "NUIDescriptionOKButton";
 // need to start a new row on the NUI Spellbook.
 const int NUI_SPELLBOOK_SPELL_BUTTON_LENGTH = 9;
 
-const string NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR = "NUI_Spellbook_GetBinderSpellToFeatDictionaryCache";
-const string NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR = "NUI_Spellbook_GetBinderFeatToVestigeCache";
+const string NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR = "NUI_Spellbook_GetBinderSpellToFeatDictionaryCacheV2";
+const string NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR = "NUI_Spellbook_GetBinderFeatToVestigeCacheV2";
+const string NUI_SPELLBOOK_BINDER_CIRCLE_CACHE_VAR = "NUI_Spellbook_GetBinderFeatCircleCacheV2";
 const string NUI_SPELLBOOK_CLASS_STANCES_CACHE_BASE_VAR = "NUI_Spellbook_GetToBStanceSpellListCache_";
 const string NUI_SPELLBOOK_CLASS_SHAPES_CACHE_BASE_VAR = "NUI_Spellbook_GetInvokerShapeSpellListCache_";
 const string NUI_SPELLBOOK_CLASS_ESSENCE_CACHE_BASE_VAR = "NUISpellbookClassEssence_";

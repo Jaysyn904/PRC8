@@ -81,4 +81,8 @@
 77         PatronVestigeAbysm       9305      2    1              0      
 78         VestigesProtection       9306      3    2              1      
 79         VestigesPower            9307      3    4              1      
-80         VestigesSurge            9308      3    5              1      
+80         VestigesSurge            9308      3    5              1
+81         PatronVestigeAmunHer     9341      2    1              0      
+82         PatronVestigeGaia        9342      2    1              0      
+83         PatronVestigeTkhaluuljin 9343      2    1              0      
+84         PatronVestigeZuriel      9344      2    1              0      

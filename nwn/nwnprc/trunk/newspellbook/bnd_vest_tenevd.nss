@@ -32,10 +32,17 @@ void main()
 
 	if (nBinderLevel >= 11)
 	{
+		int nTier = (nBinderLevel - 7) / 4;
 		int nDam = DAMAGE_BONUS_1d8;
-		if ((nBinderLevel-7)/4 >= 3) nDam = 42; //4d8
-		else if ((nBinderLevel-7)/4 >= 2) nDam = 41; //3d8
-		else if ((nBinderLevel-7)/4 >= 1) nDam = DAMAGE_BONUS_2d8;
+		if      (nTier >= 9) nDam = 48; // 10d8 (iprp_damagecost.2da row 48)
+		else if (nTier == 8) nDam = 47; // 9d8  (EBL 39)
+		else if (nTier == 7) nDam = 46; // 8d8  (EBL 35)
+		else if (nTier == 6) nDam = 45; // 7d8  (EBL 31)
+		else if (nTier == 5) nDam = 44; // 6d8  (EBL 27)
+		else if (nTier == 4) nDam = 43; // 5d8  (EBL 23)
+		else if (nTier == 3) nDam = 42; // 4d8  (EBL 19)
+		else if (nTier == 2) nDam = 41; // 3d8  (EBL 15)
+		else if (nTier == 1) nDam = DAMAGE_BONUS_2d8; // 2d8 (EBL 11)
 		
 		ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectDamageIncrease(nDam, DAMAGE_TYPE_COLD), oBinder, 6.0);
 	}

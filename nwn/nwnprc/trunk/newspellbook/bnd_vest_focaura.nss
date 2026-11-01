@@ -15,14 +15,28 @@ Aura of Sadness: You emit an aura of depression and anguish that overtakes even 
 void main()
 {
 	object oBinder = OBJECT_SELF;
+	int nSpellId = PRCGetSpellId();
 
-    if (GetHasSpellEffect(GetSpellId(), oBinder))
+    if (GetHasSpellEffect(nSpellId, oBinder) || GetLocalInt(oBinder, "FocalorAuraActive"))
     {
-    	PRCRemoveSpellEffects(GetSpellId(), oBinder, oBinder);
+    	DeleteLocalInt(oBinder, "FocalorAuraActive");
+    	PRCRemoveSpellEffects(nSpellId, oBinder, oBinder);
+    	GZPRCRemoveSpellEffects(nSpellId, oBinder, FALSE);
+    	effect eCheck = GetFirstEffect(oBinder);
+    	while (GetIsEffectValid(eCheck))
+    	{
+    		if (GetEffectTag(eCheck) == "FocalorAuraSadnessEff" || GetEffectSpellId(eCheck) == nSpellId)
+    			RemoveEffect(oBinder, eCheck);
+    		eCheck = GetNextEffect(oBinder);
+    	}
+    	FloatingTextStringOnCreature("Focalor's Aura of Sadness suppressed.", oBinder, FALSE);
 	}	
 	else
 	{
 		effect eLink = EffectLinkEffects(EffectAreaOfEffect(AOE_PER_TELEPORTATIONCIRCLE, "bnd_vest_focaure", "", "bnd_vest_focaurx"), EffectVisualEffect(VFX_DUR_SYMB_SLEEP));
-		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(eLink), oBinder);
+		eLink = TagEffect(SupernaturalEffect(eLink), "FocalorAuraSadnessEff");
+		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oBinder);
+		SetLocalInt(oBinder, "FocalorAuraActive", TRUE);
+		FloatingTextStringOnCreature("Focalor's Aura of Sadness activated.", oBinder, FALSE);
 	}	
 }

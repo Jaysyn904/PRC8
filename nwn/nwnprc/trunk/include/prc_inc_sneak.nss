@@ -640,6 +640,12 @@ int GetCanSneakAttack(object oDefender, object oAttacker)
           if( GetIsImmune(oDefender, IMMUNITY_TYPE_SNEAK_ATTACK, OBJECT_INVALID) )   bReturnVal = FALSE;
           // Skullclan Hunters can sneak attack undead, so they return true here.
           if( GetLevelByClass(CLASS_TYPE_SKULLCLAN_HUNTER, oAttacker) && GetRacialType(oDefender) == RACIAL_TYPE_UNDEAD) bReturnVal = TRUE;
+          // Gaia's Earth's Fury allows sneak attacks and precision damage against aberrations, constructs, oozes, and undead
+          int nGaiaSneakRace = MyPRCGetRacialType(oDefender);
+          if( (GetHasSpellEffect(VESTIGE_GAIA, oAttacker) || GetLocalInt(oAttacker, "GaiaPlanetaryRegenMax") > 0) && GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_GAIA_EARTHS_FURY &&
+              (nGaiaSneakRace == RACIAL_TYPE_ABERRATION || nGaiaSneakRace == RACIAL_TYPE_CONSTRUCT ||
+               nGaiaSneakRace == RACIAL_TYPE_OOZE || nGaiaSneakRace == RACIAL_TYPE_UNDEAD))
+              bReturnVal = TRUE;
 
           if( GetIsConcealed(oDefender, oAttacker) )
           bReturnVal = FALSE;

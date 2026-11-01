@@ -996,20 +996,23 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
                 
 			// Psionic vestiges are tucked in here to override things.
 			// This assumes that there will never be a psion with this spell effect manifesting things
-            if (nSpecificClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_ARETE, oManifester) && !nMaxPowerLevel)
+            if (nSpecificClass == CLASS_TYPE_PSION && !nMaxPowerLevel)
             {
-            	nLevel = GetLocalInt(oManifester, "AretePsion");
-            	nMaxPowerLevel = TRUE;
-            }  
-            if (nSpecificClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) && !nMaxPowerLevel)
-            {
-            	nLevel = GetLocalInt(oManifester, "TheTriadPsion");
-            	nMaxPowerLevel = TRUE;
-            }
-            if (nSpecificClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_ABYSM, oManifester) && !nMaxPowerLevel)
-            {
-            	nLevel = GetLocalInt(oManifester, "AbysmPsion");
-            	nMaxPowerLevel = TRUE;
+                if (GetHasSpellEffect(VESTIGE_ARETE, oManifester) || GetLocalInt(oManifester, "AretePsion") > 0)
+                {
+                    nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "AretePsion"));
+                    nMaxPowerLevel = TRUE;
+                }
+                if (GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) || GetLocalInt(oManifester, "TheTriadPsion") > 0)
+                {
+                    nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "TheTriadPsion"));
+                    nMaxPowerLevel = TRUE;
+                }
+                if (GetHasSpellEffect(VESTIGE_ABYSM, oManifester) || GetLocalInt(oManifester, "AbysmPsion") > 0)
+                {
+                    nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "AbysmPsion"));
+                    nMaxPowerLevel = TRUE;
+                }
             }            
             if(DEBUG) DoDebug("GetManifesterLevel Specific Class Manif Level: " + IntToString(nLevel), oManifester);    
             // This is for learning powers, we need to ignore some adjustments    
@@ -1062,20 +1065,23 @@ int GetManifesterLevel(object oManifester, int nSpecificClass = CLASS_TYPE_INVAL
 		}    
 		// Psionic vestiges are tucked in here to override things.
 		// This assumes that there will never be a psion with this spell effect manifesting things
-        if (nManifestingClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_ARETE, oManifester) && !nMaxPowerLevel)
+        if (nManifestingClass == CLASS_TYPE_PSION && !nMaxPowerLevel)
         {
-        	nLevel = GetLocalInt(oManifester, "AretePsion");
-        	nMaxPowerLevel = TRUE;
-        }  
-        if (nManifestingClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) && !nMaxPowerLevel)
-        {
-        	nLevel = GetLocalInt(oManifester, "TheTriadPsion");
-        	nMaxPowerLevel = TRUE;
-        }        
-        if (nManifestingClass == CLASS_TYPE_PSION && GetHasSpellEffect(VESTIGE_ABYSM, oManifester) && !nMaxPowerLevel)
-        {
-        	nLevel = GetLocalInt(oManifester, "AbysmPsion");
-        	nMaxPowerLevel = TRUE;
+            if (GetHasSpellEffect(VESTIGE_ARETE, oManifester) || GetLocalInt(oManifester, "AretePsion") > 0)
+            {
+                nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "AretePsion"));
+                nMaxPowerLevel = TRUE;
+            }
+            if (GetHasSpellEffect(VESTIGE_THETRIAD, oManifester) || GetLocalInt(oManifester, "TheTriadPsion") > 0)
+            {
+                nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "TheTriadPsion"));
+                nMaxPowerLevel = TRUE;
+            }
+            if (GetHasSpellEffect(VESTIGE_ABYSM, oManifester) || GetLocalInt(oManifester, "AbysmPsion") > 0)
+            {
+                nLevel = PRCMax(nLevel, GetLocalInt(oManifester, "AbysmPsion"));
+                nMaxPowerLevel = TRUE;
+            }
         }         
         if(DEBUG) DoDebug("GetManifesterLevel Unspecific Class Manif Level: " + IntToString(nLevel), oManifester);  
         // This is for learning powers, we need to ignore some adjustments    

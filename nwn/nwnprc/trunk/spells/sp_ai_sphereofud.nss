@@ -71,8 +71,90 @@ void SetBusy(int value)
 //
 // Known issues: The sphere still takes AOO's, when it shouldn't.
 //
+
+void SweepForceBarriersForOriginalSphere(object oSphere)
+{
+    if (!GetIsObjectValid(oSphere)) return;
+    location lSphere = GetLocation(oSphere);
+    object oHit = MyFirstObjectInShape(SHAPE_SPHERE, 3.5f, lSphere, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE | OBJECT_TYPE_AREA_OF_EFFECT);
+    while (GetIsObjectValid(oHit))
+    {
+        int nType = GetObjectType(oHit);
+        if ((nType == OBJECT_TYPE_PLACEABLE && (GetLocalInt(oHit, "PRC_WALL_OF_FORCE") || GetLocalInt(oHit, "PRC_FORCECAGE") || GetTag(oHit) == "ZurielWallOfForce" || GetTag(oHit) == "ZurielForceCage")) ||
+            (nType == OBJECT_TYPE_CREATURE && GetIsObjectValid(GetLocalObject(oHit, "ZurielForceCageCreator"))))
+        {
+            object oCageBinder = GetLocalObject(oHit, "ZurielForceCageCreator");
+            if (!GetIsObjectValid(oCageBinder) && GetLocalInt(oHit, "PRC_FORCECAGE"))
+                oCageBinder = GetLocalObject(oHit, "PRC_WALL_CASTER");
+            if (GetIsObjectValid(oCageBinder))
+            {
+                DeleteLocalInt(oCageBinder, "ZurielForceCageActive");
+                SetLocalInt(oCageBinder, "ZurielForceCageGen", GetLocalInt(oCageBinder, "ZurielForceCageGen") + 1);
+                object oCageRoot = GetLocalObject(oCageBinder, "ZurielForceCageObj");
+                DeleteLocalObject(oCageBinder, "ZurielForceCageObj");
+                if (GetIsObjectValid(oCageRoot))
+                {
+                    int p;
+                    for (p = 0; p < 4; p++)
+                    {
+                        object oPost = GetLocalObject(oCageRoot, "PRC_CAGE_POST_" + IntToString(p));
+                        if (GetIsObjectValid(oPost)) { SetPlotFlag(oPost, FALSE); DestroyObject(oPost); }
+                    }
+                    SetPlotFlag(oCageRoot, FALSE);
+                    DestroyObject(oCageRoot);
+                }
+                DeleteLocalObject(oCageBinder, "ZurielForceCageTarget");
+                object oArea = GetArea(oSphere);
+                object oChk = GetFirstObjectInArea(oArea);
+                while (GetIsObjectValid(oChk))
+                {
+                    if (GetObjectType(oChk) == OBJECT_TYPE_CREATURE && GetLocalObject(oChk, "ZurielForceCageCreator") == oCageBinder)
+                    {
+                        effect eC = GetFirstEffect(oChk);
+                        while (GetIsEffectValid(eC))
+                        {
+                            if (GetEffectTag(eC) == "ZurielForceEffect") RemoveEffect(oChk, eC);
+                            eC = GetNextEffect(oChk);
+                        }
+                        if (GetLocalInt(oChk, "ZurielForceCageTeleportBlocked"))
+                        {
+                            DeleteLocalInt(oChk, "ZurielForceCageTeleportBlocked");
+                            DeleteLocalInt(oChk, "PRC_DISABLE_CREATURE_TELEPORT");
+                        }
+                        DeleteLocalObject(oChk, "ZurielForceCageCreator");
+                    }
+                    else if (GetObjectType(oChk) == OBJECT_TYPE_PLACEABLE && GetLocalInt(oChk, "PRC_FORCECAGE") && GetLocalObject(oChk, "PRC_WALL_CASTER") == oCageBinder)
+                    {
+                        SetPlotFlag(oChk, FALSE);
+                        DestroyObject(oChk);
+                    }
+                    oChk = GetNextObjectInArea(oArea);
+                }
+            }
+            else if (nType == OBJECT_TYPE_PLACEABLE)
+            {
+                object oWallCaster = GetLocalObject(oHit, "PRC_WALL_CASTER");
+                object oRoot = GetLocalObject(oHit, "PRC_WALL_ROOT");
+                if (!GetIsObjectValid(oRoot)) oRoot = oHit;
+                if (GetIsObjectValid(oWallCaster)) DeleteLocalObject(oWallCaster, "ZurielForceWallObj");
+                int sIdx;
+                for (sIdx = 0; sIdx < 7; sIdx++)
+                {
+                    object oSeg = GetLocalObject(oRoot, "PRC_WALL_SEG_" + IntToString(sIdx));
+                    if (GetIsObjectValid(oSeg)) { SetPlotFlag(oSeg, FALSE); DestroyObject(oSeg); }
+                }
+                SetPlotFlag(oRoot, FALSE);
+                DestroyObject(oRoot);
+                if (oHit != oRoot && GetIsObjectValid(oHit)) { SetPlotFlag(oHit, FALSE); DestroyObject(oHit); }
+            }
+        }
+        oHit = MyNextObjectInShape(SHAPE_SPHERE, 3.5f, lSphere, TRUE, OBJECT_TYPE_CREATURE | OBJECT_TYPE_PLACEABLE | OBJECT_TYPE_AREA_OF_EFFECT);
+    }
+}
+
 void main()
 {
+    SweepForceBarriersForOriginalSphere(OBJECT_SELF);
     object oCaster = GetFactionLeader(OBJECT_SELF);
     //SendMessageToPC(oCaster, "sp_ai_sphereofud entering");
     

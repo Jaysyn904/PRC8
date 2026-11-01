@@ -133,12 +133,20 @@ void main()
     DelayCommand(0.5,   ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eVis, lOff6));  
   
     // ---- Create the wall ----  
-    object oWall = CreateObject(OBJECT_TYPE_PLACEABLE, "spell_forcewall", lTarget);  
+    float fWallFacing = VectorToAngle(t - c);
+    location lCenter = Location(oArea, t, fWallFacing);
+    object oWall = CreateObject(OBJECT_TYPE_PLACEABLE, "spell_forcewall", lCenter);  
+    if (!GetIsObjectValid(oWall))
+        oWall = CreateObject(OBJECT_TYPE_PLACEABLE, "prc_walliron", lCenter);
     if (GetIsObjectValid(oWall))  
     {  
-        // Invisible per PnP; keep the faint glow so players  
-        // can see where it is (comment out for true invisibility)  
-        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eGlow, oWall, fDur);  
+        SetName(oWall, "Wall of Force");
+        // Invisible per PnP; keep the faint glow + VFX_PER_WALLBLUE barrier so players can see & cannot cross it  
+        effect eBlueWall = EffectLinkEffects(
+            eGlow,
+            EffectAreaOfEffect(212, "bnd_vest_zurwfe", "", "")
+        );
+        ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eBlueWall, oWall, fDur);  
   
         // PnP: immune to damage of all kinds  
         SetPlotFlag(oWall, TRUE);  
@@ -147,9 +155,33 @@ void main()
         // they should DestroyObject() this despite the plot flag  
         SetLocalInt(oWall, "PRC_WALL_OF_FORCE", TRUE);  
         SetLocalObject(oWall, "PRC_WALL_CASTER", oCaster);  
+        SetLocalObject(oWall, "PRC_WALL_ROOT", oWall);
+        SetLocalObject(oWall, "PRC_WALL_SEG_0", oWall);
   
         // PnP duration: 1 min/level  
         DestroyObject(oWall, fDur);  
+
+        location lSegLoc;
+        int nSeg;
+        for (nSeg = 1; nSeg <= 4; nSeg++)
+        {
+            if (nSeg == 1) lSegLoc = lOff1;
+            else if (nSeg == 2) lSegLoc = lOff2;
+            else if (nSeg == 3) lSegLoc = lOff3;
+            else lSegLoc = lOff4;
+            object oSeg = CreateObject(OBJECT_TYPE_PLACEABLE, "prc_walliron", lSegLoc);
+            if (GetIsObjectValid(oSeg))
+            {
+                SetName(oSeg, "Wall of Force");
+                SetPlotFlag(oSeg, TRUE);
+                SetLocalInt(oSeg, "PRC_WALL_OF_FORCE", TRUE);
+                SetLocalObject(oSeg, "PRC_WALL_CASTER", oCaster);
+                SetLocalObject(oSeg, "PRC_WALL_ROOT", oWall);
+                SetLocalObject(oWall, "PRC_WALL_SEG_" + IntToString(nSeg), oSeg);
+                ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eGlow, oSeg, fDur);
+                DestroyObject(oSeg, fDur);
+            }
+        }
     }  
   
     PRCSetSchool();  

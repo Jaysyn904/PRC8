@@ -65,7 +65,7 @@ void DoRend(object oTarget, object oAttacker, object oWeapon)
             nDamage += nStrBon;
         if (GetLevelByClass(CLASS_TYPE_BLACK_BLOOD_CULTIST, oAttacker) >= 6) nDamage *= 2; 
         if (GetIsMeldBound(oAttacker, MELD_GIRALLON_ARMS) == CHAKRA_ARMS) nDamage *= 2; 
-		if (GetHasSpellEffect(VESTIGE_IPOS, oAttacker) >= 6) nDamage *= 2; 
+		if (GetHasSpellEffect(VESTIGE_IPOS, oAttacker) && GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_IPOS_REND) nDamage *= 2; 
 		
         int nDamageType;
         switch(GetBaseItemType(oWeapon))

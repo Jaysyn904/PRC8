@@ -40,8 +40,25 @@ void main()
     // If she gets influence, you can't drink potions
     if (!GetLocalInt(oBinder, "PactQuality"+IntToString(VESTIGE_RONOVE))) FloatingTextStringOnCreature("You have made a poor pact, and Ronove enjoins you from drinking potions!", oBinder, FALSE);    
     
-    // Cold Iron and Magic Attacks is in bnd_events
-    
+    // Cold Iron and Magic Attacks (+1 DR bypass at EBL 1-6, +3 DR bypass at EBL 7+ on melee and unarmed/creature weapons)
+    int nRonoveEBL = GetBinderLevel(oBinder, VESTIGE_RONOVE);
+    if (!GetIsVestigeExploited(oBinder, VESTIGE_RONOVE_COLD_IRON))
+    {
+        int nDRBonus = (nRonoveEBL >= 7) ? 3 : 1;
+        object oRight = GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oBinder);
+        if (GetIsObjectValid(oRight) && IPGetIsMeleeWeapon(oRight))
+        {
+            IPSafeAddItemProperty(oRight, ItemPropertyAttackBonus(nDRBonus), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+            IPSafeAddItemProperty(oRight, ItemPropertyAttackPenalty(nDRBonus), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+        }
+        object oLeft = GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oBinder);
+        if (GetIsObjectValid(oLeft) && IPGetIsMeleeWeapon(oLeft))
+        {
+            IPSafeAddItemProperty(oLeft, ItemPropertyAttackBonus(nDRBonus), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+            IPSafeAddItemProperty(oLeft, ItemPropertyAttackPenalty(nDRBonus), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_REPLACE_EXISTING, FALSE, TRUE);
+        }
+    }
+
     // We get this with the Practiced Binder feat
     if (GetLevelByClass(CLASS_TYPE_BINDER, oBinder) || GetHasFeat(FEAT_PRACTICED_BINDER, oBinder))
     {
@@ -59,8 +76,11 @@ void main()
     	}	
 		if (!GetIsVestigeExploited(oBinder, VESTIGE_RONOVE_FISTS))
 		{
-			SetLocalInt(oBinder, "RonovesFists", GetBinderLevel(oBinder, VESTIGE_RONOVE));   	
+			SetLocalInt(oBinder, "RonovesFists", nRonoveEBL);   	
 			IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_FEAT_IMPROVED_UNARMED_STRIKE), HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
+			SetLocalInt(oBinder, "CALL_UNARMED_FEATS", TRUE);
+			SetLocalInt(oBinder, "CALL_UNARMED_FISTS", TRUE);
+			DelayCommand(0.1, ExecuteScript("unarmed_caller", oBinder));
 		}
     }	
     

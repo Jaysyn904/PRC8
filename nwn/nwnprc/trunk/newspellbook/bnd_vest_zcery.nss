@@ -45,7 +45,17 @@ void main()
     	int nHD = GetHitDice(oBinder);
     	int nResist;
     	effect eDR;
-    	if (nHD >= 12)
+    	if (GetIsEpicVestigeScalingEnabled() && nHD >= 32)
+    	{
+    	    eDR = EffectDamageReduction(20, DAMAGE_POWER_PLUS_FIVE);
+    	    nResist = 40;
+    	}
+    	else if (GetIsEpicVestigeScalingEnabled() && nHD >= 24)
+    	{
+    	    eDR = EffectDamageReduction(15, DAMAGE_POWER_PLUS_FOUR);
+    	    nResist = 30;
+    	}
+    	else if (nHD >= 12)
     	{
     	    eDR = EffectDamageReduction(10, DAMAGE_POWER_PLUS_THREE);
     	    nResist = 20;
@@ -82,5 +92,6 @@ void main()
 	if (!GetIsVestigeExploited(oBinder, VESTIGE_ZCERYLL_BOLTS))  IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_VESTIGE_ZCERYLL_BOLTS),   HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 	if (!GetIsVestigeExploited(oBinder, VESTIGE_ZCERYLL_SUMMON)) IPSafeAddItemProperty(GetPCSkin(oBinder), ItemPropertyBonusFeat(IP_CONST_VESTIGE_ZCERYLL_SUMMON),  HoursToSeconds(24), X2_IP_ADDPROP_POLICY_KEEP_EXISTING);
 	
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oBinder, HoursToSeconds(24));      
+    SetLocalInt(oBinder, "ZceryllBoundActive", TRUE);
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, TagEffect(SupernaturalEffect(eLink), "VestigeMain_Zceryll"), oBinder, HoursToSeconds(24));      
 }

@@ -58,9 +58,10 @@ void main()
 			if (DEBUG) DoDebug("prc_bab_caller: detected monk unarmed # attacks = " + IntToString(nAttackCount));
 		}
 
-		//temporary type ones (divine power, tensers transformation)
+		//temporary type ones (divine power, tensers transformation, zuriel bronze body)
 		int nDPAttackCount = 0;
 		int nTTAttackCount = 0;
+		int nZBAttackCount = 0;
 
 		if(nBAB < 4 && GetHasSpellEffect(SPELL_DIVINE_POWER, oPC) )
 		{
@@ -77,9 +78,16 @@ void main()
 			if (DEBUG) DoDebug("prc_bab_caller: detected Spell Tensers Transformation, # attacks = " + IntToString(nTTAttackCount));
 		}
 
-		int nMax = PRCMax(nDPAttackCount, nTTAttackCount);
+		if(nBAB < 5 && GetLocalInt(oPC, "ZurielBronzeBodyActive"))
+		{
+			int nZurBonus = PRCMax(0, GetHitDice(oPC) - GetBaseAttackBonus(oPC));
+			nZBAttackCount = GetMainHandAttacks(oPC, nZurBonus, TRUE);
+			if (DEBUG) DoDebug("prc_bab_caller: detected Zuriel Bronze Body, # attacks = " + IntToString(nZBAttackCount));
+		}
 
-		// we only consider any changes in # attacks, if Tenser's or DP *increases* our "normal" attack count!
+		int nMax = PRCMax(PRCMax(nDPAttackCount, nTTAttackCount), nZBAttackCount);
+
+		// we only consider any changes in # attacks, if Tenser's, DP, or Zuriel's Bronze Body *increases* our "normal" attack count!
 		// this makes sure, that we won't call SetBaseAttackBonus needlessly
 		if(	nBAB < nMax)
 		{
@@ -87,7 +95,7 @@ void main()
 			if(nMax > nAttackCount)
 			{
 				nAttackCount = nMax;
-				if (DEBUG) DoDebug("prc_bab_caller: DP/Tensers # attacks = " + IntToString(nAttackCount));
+				if (DEBUG) DoDebug("prc_bab_caller: DP/Tensers/Zuriel # attacks = " + IntToString(nAttackCount));
 			}
 		}
 	}

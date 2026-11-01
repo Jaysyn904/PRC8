@@ -24,14 +24,28 @@ Aura of Despair: Every creature within 10 feet of you takes a –2 penalty on atta
 void main()
 {
 	object oBinder = OBJECT_SELF;
+	int nSpellId = PRCGetSpellId();
 
-    if (GetHasSpellEffect(GetSpellId(), oBinder))
+    if (GetHasSpellEffect(nSpellId, oBinder) || GetLocalInt(oBinder, "ChupoclopsAuraActive"))
     {
-    	PRCRemoveSpellEffects(GetSpellId(), oBinder, oBinder);
+    	DeleteLocalInt(oBinder, "ChupoclopsAuraActive");
+    	PRCRemoveSpellEffects(nSpellId, oBinder, oBinder);
+    	GZPRCRemoveSpellEffects(nSpellId, oBinder, FALSE);
+    	effect eCheck = GetFirstEffect(oBinder);
+    	while (GetIsEffectValid(eCheck))
+    	{
+    		if (GetEffectTag(eCheck) == "ChupoclopsAuraDespairEff" || GetEffectSpellId(eCheck) == nSpellId)
+    			RemoveEffect(oBinder, eCheck);
+    		eCheck = GetNextEffect(oBinder);
+    	}
+    	FloatingTextStringOnCreature("Chupoclops's Aura of Despair suppressed.", oBinder, FALSE);
 	}	
 	else
 	{
 		effect eLink = EffectLinkEffects(EffectAreaOfEffect(VFX_PER_SNARE, "bnd_vest_chupare", "", "bnd_vest_chuparx"), EffectVisualEffect(VFX_DUR_SYMB_SLEEP));
-		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, SupernaturalEffect(eLink), oBinder);
+		eLink = TagEffect(SupernaturalEffect(eLink), "ChupoclopsAuraDespairEff");
+		SPApplyEffectToObject(DURATION_TYPE_PERMANENT, eLink, oBinder);
+		SetLocalInt(oBinder, "ChupoclopsAuraActive", TRUE);
+		FloatingTextStringOnCreature("Chupoclops's Aura of Despair activated.", oBinder, FALSE);
 	}	
 }

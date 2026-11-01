@@ -298,6 +298,9 @@ object PRCGetSpellTargetObject(object oCaster = OBJECT_SELF)
         array_delete(oBWTarget, "WildMageTargets");
     }
 
+    if (GetObjectType(oCaster) == OBJECT_TYPE_PLACEABLE && GetResRef(oCaster) == "x0_rodwonder")
+        return oBWTarget;
+
     //checking whether spells/powers should rebound on caster - assumes only creatures can have spell turning/reddopsi
     if(GetObjectType(oBWTarget) == OBJECT_TYPE_CREATURE && oCaster != oBWTarget)    //if target == caster then we're casting on ourselves or already ran through this code in the same script
     {

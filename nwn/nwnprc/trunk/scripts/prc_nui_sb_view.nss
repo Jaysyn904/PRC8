@@ -1760,6 +1760,7 @@ string GetSpellbookTabRefreshState()
                  )) + "/"
                + IntToString(GetPrimaryArcaneClass(OBJECT_SELF)) + ";";
 
+        sState += "M=" + IntToString(GetMaxSpellLevel(CLASS_TYPE_BINDER)) + ";";
         json jDict = GetBinderSpellToFeatDictionary(OBJECT_SELF);
         json jKeys = JsonObjectKeys(jDict);
         int i;
@@ -2492,6 +2493,20 @@ json CreateSpellbookCircleButtons(int nClass, int nSlotResourceClass)
                                ? 9
                                : GetMaxSpellLevel(nClass);
 
+        // Default pure Binders (with no Circle 0 PrC abilities) to Circle 1 on
+        // first open while still allowing Circle 0 to be selected manually.
+        if (nClass == CLASS_TYPE_BINDER
+            && !GetLocalInt(OBJECT_SELF, "PRC_BinderNUI_CircleInit"))
+        {
+            SetLocalInt(OBJECT_SELF, "PRC_BinderNUI_CircleInit", TRUE);
+            if (currentCircle == 0
+                && JsonGetLength(GetSpellListForCircle(OBJECT_SELF, CLASS_TYPE_BINDER, 0)) == 0)
+            {
+                currentCircle = 1;
+                SetLocalInt(OBJECT_SELF, PRC_SPELLBOOK_SELECTED_CIRCLE_VAR, currentCircle);
+            }
+        }
+
         // if the current circle is less than the minimum level (possibly due to
         // switching classes) then set it to that.
         if (currentCircle < minSpellLevel)
@@ -2520,7 +2535,9 @@ json CreateSpellbookCircleButtons(int nClass, int nSlotResourceClass)
             jButton = NuiHeight(jButton, height);
             string sCircleTooltip = i == 0 && NUISpellbookIsInitiatorClass(nClass)
                                   ? "Readied Maneuvers"
-                                  : GetSpellLevelToolTip(i);
+                                  : (nClass == CLASS_TYPE_BINDER
+                                     ? (i == 0 ? "Prestige Class Abilities" : "Vestige Level " + IntToString(i))
+                                     : GetSpellLevelToolTip(i));
             jButton = NuiTooltip(jButton, JsonString(sCircleTooltip));
 
             // if the current circle is selected or if the person can't cast at
@@ -2751,8 +2768,7 @@ json CreateSpellbookSpellButtons(int nClass, int circle)
         if (nClass == CLASS_TYPE_BINDER)
         {
             spellId = spellbookId;
-            json binderDict = GetBinderSpellToFeatDictionary(OBJECT_SELF);
-            featId = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
+            featId = GetBinderActiveFeatForSpell(OBJECT_SELF, spellId);
         }
         else
         {

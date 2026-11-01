@@ -30,6 +30,7 @@
 
 #include "tob_inc_move"
 #include "tob_movehook"
+// HasAnyBinderImmortalProtection via bnd_inc_bndfunc
 
 void FaithfulAvenger(object oInitiator);
 

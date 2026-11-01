@@ -3024,6 +3024,46 @@ const string PRC_ALLOWED_TO_REMOVE_FRIENDLY_SPELLS  = "PRC_ALLOWED_TO_REMOVE_FRI
  */
 const string PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS = "PRC_ALLOWED_TO_SEE_HOSTILE_SPELLS";
 
+/******************************************************************************\
+*                             Epic Binder Switches                             *
+\******************************************************************************/
+
+/**
+ * Controls Gaia's Planetary Healing regeneration behavior:
+ * 0 (Default): Classic NWN Troll regeneration (EffectRegenerate + SetImmortal
+ *              overcome by Fire/Acid for 1 round) for the Binder and every
+ *              ally holding at least 1 shared point of regeneration.
+ * 1 (Option 1a): Single-creature Troll cap. The Binder keeps Troll regeneration
+ *                down to 1 point, or a single ally gets Troll regeneration if
+ *                all Planetary Healing points (EBL / 4) are shared to that ally;
+ *                split points grant fast healing (EffectRegenerate) only.
+ * 2 (Fast Healing Only): Grants EffectRegenerate (1 HP/round per point) to the
+ *                        Binder and shared allies with no SetImmortal death-prevention.
+ */
+const string PRC_GAIA_PLANETARY_HEALING_NERF        = "PRC_GAIA_PLANETARY_HEALING_NERF";
+
+/**
+ * Controls Tkhaluuljin's Sphere of Annihilation duration and contact effect:
+ * 0 (Default): Web-enhancement behavior (1 round/EBL per day pool; instant
+ *              no-save annihilation on contact; auto-dismisses when returning
+ *              to the Binder out of combat).
+ * 1 (3.5e Disintegrate): Removes the 1 round/EBL daily limit (the Sphere stays
+ *                        active while bound and follows the Binder out of combat
+ *                        until dismissed) and deals 40d6 magical damage on contact
+ *                        with a Fortitude save vs. vestige DC for 5d6 damage (0 on Mettle).
+ */
+const string PRC_TKHAL_SPHERE_DISINTEGRATE          = "PRC_TKHAL_SPHERE_DISINTEGRATE";
+
+/**
+ * Enables epic level progression (EBL 21-40) for pre-epic vestige abilities
+ * whose progression tables in Tome of Magic stopped at level 17-20 (such as
+ * Savnok's Call Armor, Eligor's Resilience, Tenebrous's Vessel of Emptiness,
+ * Eurynome's Maul, Agares's Elemental Companion, Zceryll's Alien Form, and
+ * Ronove's Fists). Defaults to 1 (ON) via personal_switch.2da and prc_onmodload.
+ * Set to 0 to enforce strict pre-epic table caps on those abilities.
+ */
+const string PRC_EPIC_VESTIGE_SCALING               = "PRC_EPIC_VESTIGE_SCALING";
+
 
 
 

@@ -8,6 +8,14 @@
 
 #include "prc_inc_factotum"
 #include "inc_dynconv"
+#include "bnd_inc_bndfunc"
+
+void ClearCunningDodgeImmortal(object oPC)
+{
+    DeleteLocalInt(oPC, "CunningDodgeImmortal");
+    if (!HasAnyBinderImmortalProtection(oPC))
+        SetImmortal(oPC, FALSE);
+}
 
 void main()
 {
@@ -49,8 +57,9 @@ void main()
     }  
     else if (nSpellID == SPELL_CUNNING_DODGE && ExpendInspiration(oPC, 4))
     {
+    	SetLocalInt(oPC, "CunningDodgeImmortal", TRUE);
     	SetImmortal(oPC, TRUE);
-    	DelayCommand(5.9, SetImmortal(oPC, FALSE));
+    	DelayCommand(5.9, ClearCunningDodgeImmortal(oPC));
     }
     else if (nSpellID == SPELL_OPPORTUNISTIC_PIETY_HEAL)
     {

@@ -1344,10 +1344,10 @@ int PRCMySavingThrow(int nSavingThrow, object oTarget, int nDC, int nSaveType = 
     //Serene Guardian Unclouded Mind
     int nSerene = GetLevelByClass(CLASS_TYPE_SERENE_GUARDIAN, oTarget);
     //Applies on failed will saves from 9th level on
-    if (nSaveRoll == 1 && nSavingThrow == SAVING_THROW_WILL && nSerene >= 9)
+    if (nSaveRoll == 0 && nSavingThrow == SAVING_THROW_WILL && nSerene >= 9)
     {
         if (GetIsSkillSuccessful(oTarget, SKILL_CONCENTRATION, nDC)) // Concentration check to beat the DC
-            nSaveRoll = 0;
+            nSaveRoll = 1;
     }
     
     // Iron Mind Barbed Mind ability
@@ -2118,7 +2118,7 @@ int GetHasMettle(object oTarget, int nSavingThrow = SAVING_THROW_WILL)
     if(GetLevelByClass(CLASS_TYPE_CRUSADER, oTarget) > 12) return TRUE;
     if(GetLocalInt(oTarget, "FactotumMettle")) return TRUE;
 
-    if(nSavingThrow = SAVING_THROW_WILL)
+    if (nSavingThrow == SAVING_THROW_WILL)
     {
         // Iron Mind's ability only functions in Heavy Armour
         if(GetLevelByClass(CLASS_TYPE_IRONMIND, oTarget) > 4

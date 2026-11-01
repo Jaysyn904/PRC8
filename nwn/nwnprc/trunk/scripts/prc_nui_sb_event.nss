@@ -1541,9 +1541,8 @@ void main()
         // special case for binders, since they don't have a spell 2da of their own.
         if (classId == CLASS_TYPE_BINDER)
         {
-            json binderDict = GetBinderSpellToFeatDictionary(oPlayer);
             spellId = spellbookId;
-            featId = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
+            featId = GetBinderActiveFeatForSpell(oPlayer, spellId);
             if (!IsBinderSpellActive(oPlayer, spellId))
             {
                 SendMessageToPC(oPlayer, "That vestige is no longer bound.");

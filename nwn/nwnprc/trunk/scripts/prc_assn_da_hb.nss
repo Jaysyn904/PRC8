@@ -91,7 +91,7 @@ void main()
         int nMarruDC = 10 + (GetHitDice(oPC)/2) + GetAbilityModifier(ABILITY_CHARISMA, oPC);   
         
         if (GetRacialType(oPC) == RACIAL_TYPE_MARRULURK) nSaveDC = nMarruDC;
-        if (GetHasSpellEffect(VESTIGE_MARCHOSIAS, oPC)) nSaveDC = GetBinderDC(oPC, VESTIGE_MARCHOSIAS);
+        if (GetHasSpellEffect(VESTIGE_MARCHOSIAS, oPC) && GetLocalInt(oPC, "ExploitVestige") != VESTIGE_MARCHOSIAS_DEATH_ATTACK) nSaveDC = PRCMax(nSaveDC, GetBinderDC(oPC, VESTIGE_MARCHOSIAS));
         
         // Saves are capped at 70
         if (nSaveDC > 70)

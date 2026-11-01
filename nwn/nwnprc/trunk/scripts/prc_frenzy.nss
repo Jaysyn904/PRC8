@@ -15,6 +15,7 @@
 //:://////////////////////////////////////////////
 #include "prc_inc_spells"
 #include "inc_addragebonus"
+#include "bnd_inc_bndfunc"
 
 void TurnBasedDamage(object oTarget, object oCaster);
 void AttackNearestForDuration();
@@ -149,7 +150,8 @@ void main()
 
 void EndOfFrenzyDamage(object oSelf)
 {
-     SetImmortal(oSelf, FALSE);
+     if (!HasAnyBinderImmortalProtection(oSelf))
+         SetImmortal(oSelf, FALSE);
 
      int iDam = GetLocalInt(oSelf, "PC_Damage");
      effect eDam = EffectDamage(iDam, DAMAGE_TYPE_POSITIVE, DAMAGE_POWER_ENERGY);

@@ -27,19 +27,21 @@ void main()
     int nBinderLevel = GetBinderLevel(oBinder, VESTIGE_TENEBROUS);
     int nUses = 1;
     int nSLA = GetSpellId();
-    if (nBinderLevel >= 19) nUses = 3;
+    if (GetIsEpicVestigeScalingEnabled() && nBinderLevel >= 25)
+        nUses = 1 + ((nBinderLevel - 7) / 6);
+    else if (nBinderLevel >= 19) nUses = 3;
     else if (nBinderLevel >= 13) nUses = 2;
     
     // Check uses per day
     if (GetLegacyUses(oBinder, nSLA) >= nUses)
     {
-        FloatingTextStringOnCreature("You have used " + GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSLA))) + " the maximum amount of times today.", oBinder, FALSE);
+        FloatingTextStringOnCreature("You have used " + GetStringByStrRef(StringToInt(Get2DAString("spells", "Name", nSLA))) + " the maximum amount of times today.", oBinder, FALSE);
         return;
     }             
     else
     {
 		SetLegacyUses(oBinder, nSLA);
-    	FloatingTextStringOnCreature("You have "+IntToString(nUses - GetLegacyUses(oBinder, nSLA))+ " uses of " + GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", nSLA))) + " remaining today.", oBinder, FALSE);    		    		
+    	FloatingTextStringOnCreature("You have "+IntToString(nUses - GetLegacyUses(oBinder, nSLA))+ " uses of " + GetStringByStrRef(StringToInt(Get2DAString("spells", "Name", nSLA))) + " remaining today.", oBinder, FALSE);    		    		
 
     	float fDur = 6.0 * nBinderLevel;
     	object oSkin = GetPCSkin(oBinder);

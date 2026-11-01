@@ -70,6 +70,101 @@ int DoSpell(object oCaster, object oTarget, int nCasterLevel, int nEvent)
 
     int iAttackRoll;
 
+    // Wall of Force / Forcecage destruction check (Ruling 2: Disintegrate immediately destroys Wall of Force or Forcecage)
+    if (GetIsObjectValid(oTarget) &&
+        ((GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE && (GetLocalInt(oTarget, "PRC_WALL_OF_FORCE") || GetLocalInt(oTarget, "PRC_FORCECAGE") || GetTag(oTarget) == "ZurielWallOfForce" || GetTag(oTarget) == "ZurielForceCage")) ||
+         (GetObjectType(oTarget) == OBJECT_TYPE_CREATURE && GetIsObjectValid(GetLocalObject(oTarget, "ZurielForceCageCreator")))))
+    {
+        SPApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectBeam(VFX_BEAM_DISINTEGRATE, oCaster, BODY_NODE_HAND, FALSE), oTarget, 1.0, FALSE);
+        ApplyEffectAtLocation(DURATION_TYPE_INSTANT, EffectVisualEffect(VFX_FNF_IMPLOSION), GetLocation(oTarget));
+
+        object oCageBinder = GetLocalObject(oTarget, "ZurielForceCageCreator");
+        if (!GetIsObjectValid(oCageBinder) && GetLocalInt(oTarget, "PRC_FORCECAGE"))
+            oCageBinder = GetLocalObject(oTarget, "PRC_WALL_CASTER");
+
+        if (GetIsObjectValid(oCageBinder))
+        {
+            DeleteLocalInt(oCageBinder, "ZurielForceCageActive");
+            SetLocalInt(oCageBinder, "ZurielForceCageGen", GetLocalInt(oCageBinder, "ZurielForceCageGen") + 1);
+            object oCageRoot = GetLocalObject(oCageBinder, "ZurielForceCageObj");
+            DeleteLocalObject(oCageBinder, "ZurielForceCageObj");
+            if (GetIsObjectValid(oCageRoot))
+            {
+                int p;
+                for (p = 0; p < 4; p++)
+                {
+                    object oPost = GetLocalObject(oCageRoot, "PRC_CAGE_POST_" + IntToString(p));
+                    if (GetIsObjectValid(oPost))
+                    {
+                        SetPlotFlag(oPost, FALSE);
+                        DestroyObject(oPost);
+                    }
+                }
+                SetPlotFlag(oCageRoot, FALSE);
+                DestroyObject(oCageRoot);
+            }
+            DeleteLocalObject(oCageBinder, "ZurielForceCageTarget");
+            object oArea = GetArea(oTarget);
+            if (GetIsObjectValid(oArea))
+            {
+                object oChk = GetFirstObjectInArea(oArea);
+                while (GetIsObjectValid(oChk))
+                {
+                    if (GetObjectType(oChk) == OBJECT_TYPE_CREATURE &&
+                        GetLocalObject(oChk, "ZurielForceCageCreator") == oCageBinder)
+                    {
+                        effect eC = GetFirstEffect(oChk);
+                        while (GetIsEffectValid(eC))
+                        {
+                            if (GetEffectTag(eC) == "ZurielForceEffect")
+                                RemoveEffect(oChk, eC);
+                            eC = GetNextEffect(oChk);
+                        }
+                        if (GetLocalInt(oChk, "ZurielForceCageTeleportBlocked"))
+                        {
+                            DeleteLocalInt(oChk, "ZurielForceCageTeleportBlocked");
+                            DeleteLocalInt(oChk, "PRC_DISABLE_CREATURE_TELEPORT");
+                        }
+                        DeleteLocalObject(oChk, "ZurielForceCageCreator");
+                    }
+                    else if (GetObjectType(oChk) == OBJECT_TYPE_PLACEABLE &&
+                             GetLocalInt(oChk, "PRC_FORCECAGE") &&
+                             GetLocalObject(oChk, "PRC_WALL_CASTER") == oCageBinder)
+                    {
+                        SetPlotFlag(oChk, FALSE);
+                        DestroyObject(oChk);
+                    }
+                    oChk = GetNextObjectInArea(oArea);
+                }
+            }
+            return TRUE;
+        }
+
+        object oWallCaster = GetLocalObject(oTarget, "PRC_WALL_CASTER");
+        object oRoot = GetLocalObject(oTarget, "PRC_WALL_ROOT");
+        if (!GetIsObjectValid(oRoot)) oRoot = oTarget;
+        if (GetIsObjectValid(oWallCaster))
+            DeleteLocalObject(oWallCaster, "ZurielForceWallObj");
+        int sIdx;
+        for (sIdx = 0; sIdx < 7; sIdx++)
+        {
+            object oSeg = GetLocalObject(oRoot, "PRC_WALL_SEG_" + IntToString(sIdx));
+            if (GetIsObjectValid(oSeg))
+            {
+                SetPlotFlag(oSeg, FALSE);
+                DestroyObject(oSeg);
+            }
+        }
+        SetPlotFlag(oRoot, FALSE);
+        DestroyObject(oRoot);
+        if (oTarget != oRoot && GetIsObjectValid(oTarget))
+        {
+            SetPlotFlag(oTarget, FALSE);
+            DestroyObject(oTarget);
+        }
+        return TRUE;
+    }
+
     // Target allowed check
     if(spellsIsTarget(oTarget, SPELL_TARGET_STANDARDHOSTILE, oCaster))
     {

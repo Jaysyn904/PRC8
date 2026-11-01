@@ -726,9 +726,22 @@ int PRCGetSaveDC(object oTarget, object oCaster, int nSpellID = -1)
 
     // For when you want to assign the caster DC
     //this does not take feat/race/class into account, it is an absolute override
-    if (GetLocalInt(oCaster, PRC_DC_TOTAL_OVERRIDE) != 0)
+    if (GetLocalInt(oCaster, PRC_DC_TOTAL_OVERRIDE) != 0 || GetLocalInt(oCaster, "PRC_DC_Total_Override") != 0)
     {
         nDC = GetLocalInt(oCaster, PRC_DC_TOTAL_OVERRIDE);
+        if (!nDC) nDC = GetLocalInt(oCaster, "PRC_DC_Total_Override");
+        if (GetLocalInt(oCaster, "PRC_DC_NeedsGaiaTargetCheck") &&
+            GetIsObjectValid(oTarget) &&
+            ((GetHasSpellEffect(VESTIGE_GAIA, oCaster) || GetLocalInt(oCaster, "GaiaPlanetaryRegenMax") > 0) || GetLocalInt(oCaster, "GaiaPlanetaryRegenMax") > 0) &&
+            GetLocalInt(oCaster, "ExploitVestige") != VESTIGE_GAIA_EARTHS_FURY)
+        {
+            int nGaiaTargetRace = MyPRCGetRacialType(oTarget);
+            if (nGaiaTargetRace == RACIAL_TYPE_ABERRATION || nGaiaTargetRace == RACIAL_TYPE_CONSTRUCT ||
+                nGaiaTargetRace == RACIAL_TYPE_OOZE || nGaiaTargetRace == RACIAL_TYPE_UNDEAD)
+            {
+                nDC += 4;
+            }
+        }
         if(DEBUG) DoDebug("Forced-DC PRC_DC_TOTAL_OVERRIDE casting at DC " + IntToString(nDC));
     }
     // For when you want to assign the caster DC

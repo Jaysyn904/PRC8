@@ -4324,6 +4324,14 @@ int GetAttackRoll(object oDefender, object oAttacker, object oWeapon, int iOffha
     int iReturn = 0;
     // roll concealment check
     int iConcealment = GetIsConcealed(oDefender, oAttacker);
+    // Amun-her Khepeshef: Firstborn Guardian grants Ghost Touch to all weapons and natural attacks
+    int bAmunGhostTouch = GetIsIncorporeal(oDefender) &&
+        (((GetHasSpellEffect(VESTIGE_AMUN_HER, oAttacker) || GetLocalInt(oAttacker, "AmunScionAuraActive")) && GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_AMUN_HER_FIRSTBORN_GUARDIAN) ||
+         GetHasSpellEffect(VESTIGE_AMUN_FIRSTBORN_SPELL, oAttacker));
+    if (iConcealment > 0 && bAmunGhostTouch)
+    {
+        iConcealment = 0;
+    }
     int iConcealRoll = d100();
     int bEnemyIsConcealed = FALSE;
 
@@ -4365,7 +4373,12 @@ int GetAttackRoll(object oDefender, object oAttacker, object oWeapon, int iOffha
             //FistOfRaziels of over level 3 automatically confirm critical hits
             //when smiting evil
             int iCritThreatRoll;
-            if(GetLocalInt(oAttacker, "FistOfRazielSpecialSmiteCritical") )
+            int nGaiaDefRace = MyPRCGetRacialType(oDefender);
+            int bGaiaEarthsFury = (GetHasSpellEffect(VESTIGE_GAIA, oAttacker) || GetLocalInt(oAttacker, "GaiaPlanetaryRegenMax") > 0) &&
+                                  GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_GAIA_EARTHS_FURY &&
+                                  (nGaiaDefRace == RACIAL_TYPE_ABERRATION || nGaiaDefRace == RACIAL_TYPE_CONSTRUCT ||
+                                   nGaiaDefRace == RACIAL_TYPE_OOZE || nGaiaDefRace == RACIAL_TYPE_UNDEAD);
+            if(GetLocalInt(oAttacker, "FistOfRazielSpecialSmiteCritical") || bGaiaEarthsFury)
             {
                 iCritThreatRoll = 10000;
                 DeleteLocalInt(oAttacker, "FistOfRazielSpecialSmiteCritical");
@@ -4382,7 +4395,7 @@ int GetAttackRoll(object oDefender, object oAttacker, object oWeapon, int iOffha
             }
            // if (DEBUG) DoDebug("GetAttackRoll: End Section #4");
 
-            if(!GetIsImmune(oDefender, IMMUNITY_TYPE_CRITICAL_HIT) )
+            if(!GetIsImmune(oDefender, IMMUNITY_TYPE_CRITICAL_HIT) || bGaiaEarthsFury)
             {
                 sFeedback += "*Threat Roll*: (" + IntToString(iCritThreatRoll) + " + " + IntToString(iAttackBonus) + " = " + IntToString(iCritThreatRoll + iAttackBonus) + ")";
                 if(iCritThreatRoll + iAttackBonus > iEnemyAC)   iReturn = 2;
@@ -7344,6 +7357,15 @@ effect GetAttackDamage(object oDefender, object oAttacker, object oWeapon, struc
             	// motu99: why do we store different physical damage types (Bludg, Pierc, Slash) in the WeaponBonusDamage struct
             	// when we sum up all physical damage here and only use the weapon base damage type?
             	// wouldn't it be better to keep the different physical damage types separate and link them in one effect?
+            	if (GetIsIncorporeal(oDefender) &&
+            	    (((GetHasSpellEffect(VESTIGE_AMUN_HER, oAttacker) || GetLocalInt(oAttacker, "AmunScionAuraActive")) && GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_AMUN_HER_FIRSTBORN_GUARDIAN) ||
+            	     GetHasSpellEffect(VESTIGE_AMUN_FIRSTBORN_SPELL, oAttacker)))
+            	{
+            	    if (iDamagePower < DAMAGE_POWER_PLUS_ONE)
+            	        iDamagePower = DAMAGE_POWER_PLUS_ONE;
+            	    int nIncorpHalf = iWeaponDamage / 2;
+            	    iWeaponDamage += nIncorpHalf;
+            	}
             	effect eEffect = PRCEffectDamage(oDefender, iWeaponDamage, iDamageType, iDamagePower);
             	//if (DEBUG) DoDebug("prc_inc_combat WeaponDamage: "+IntToString(iWeaponDamage)+"  DamageType" +IntToString(iDamageType)+"  DamagePower "+IntToString(iDamagePower));
             	// create eLink starting with the melee weapon damage eEffect (calculated above)
@@ -8990,7 +9012,12 @@ void AttackLoopLogic(object oDefender, object oAttacker,
         }
 
         int bIsTouchAttackSpell = sAttackVars.iTouchAttackType == TOUCH_ATTACK_RANGED_SPELL || sAttackVars.iTouchAttackType == TOUCH_ATTACK_MELEE_SPELL;
-        int bHasCriticalImmunity = GetIsImmune(oDefender, IMMUNITY_TYPE_CRITICAL_HIT, oAttacker);
+        int nGaiaCDGRace = MyPRCGetRacialType(oDefender);
+        int bGaiaFuryCDG = (GetHasSpellEffect(VESTIGE_GAIA, oAttacker) || GetLocalInt(oAttacker, "GaiaPlanetaryRegenMax") > 0) &&
+                           GetLocalInt(oAttacker, "ExploitVestige") != VESTIGE_GAIA_EARTHS_FURY &&
+                           (nGaiaCDGRace == RACIAL_TYPE_ABERRATION || nGaiaCDGRace == RACIAL_TYPE_CONSTRUCT ||
+                            nGaiaCDGRace == RACIAL_TYPE_OOZE || nGaiaCDGRace == RACIAL_TYPE_UNDEAD);
+        int bHasCriticalImmunity = GetIsImmune(oDefender, IMMUNITY_TYPE_CRITICAL_HIT, oAttacker) && !bGaiaFuryCDG;
 
         // will be true on any instant death effects (Coup de Grace, devastating critical)
         int bInstantKill = FALSE;

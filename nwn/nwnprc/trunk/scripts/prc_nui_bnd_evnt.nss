@@ -163,7 +163,7 @@ void main()
             SendMessageToPC(oPC, "You need the Expel Vestige feat to do that.");
             return;
         }
-        if (GetFeatRemainingUses(FEAT_EXPEL_VESTIGE, oPC) <= 0)
+        if (!GetHasFeat(FEAT_EPIC_EXPEL_VESTIGE, oPC) && GetFeatRemainingUses(FEAT_EXPEL_VESTIGE, oPC) <= 0)
         {
             SendMessageToPC(oPC, "You have already used Expel Vestige today.");
             return;
@@ -199,6 +199,7 @@ void main()
         if (nStage == PRC_BINDER_NUI_STAGE_METHOD)
         {
             if (nChoice == PRC_BINDER_NUI_METHOD_RAPID
+                && !GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING, oPC)
                 && (!GetHasFeat(FEAT_RAPID_PACT_MAKING, oPC)
                     || GetLocalInt(oPC, "RapidPactMaking")))
                 return;
@@ -284,7 +285,7 @@ void main()
         {
             json jNab = GetLocalJson(oPC, PRC_BINDER_NUI_NABERIUS_VAR);
             if (JsonGetType(jNab) != JSON_TYPE_ARRAY
-                || JsonGetLength(jNab) != GetAbilityModifier(ABILITY_CONSTITUTION, oPC))
+                || JsonGetLength(jNab) != BinderNUINaberiusTargetCount(oPC))
                 return;
             BinderNUIAdvanceAfterNaberius(oPC);
             BNDRefresh(oPC, nToken);

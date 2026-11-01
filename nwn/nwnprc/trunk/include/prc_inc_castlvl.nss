@@ -828,6 +828,7 @@ int GetIsDivineClass(int nClass, object oCaster = OBJECT_SELF)
          || nClass == CLASS_TYPE_PALADIN
          || nClass == CLASS_TYPE_RANGER
          || nClass == CLASS_TYPE_SHAMAN
+         || nClass == CLASS_TYPE_SPIRIT_SHAMAN
          || nClass == CLASS_TYPE_SLAYER_OF_DOMIEL
          || nClass == CLASS_TYPE_SOHEI
          || nClass == CLASS_TYPE_SOLDIER_OF_LIGHT
@@ -6044,6 +6045,76 @@ int GetDivinePRCLevels(object oCaster, int nCastingClass = CLASS_TYPE_INVALID)
 		
 	}
 //:: End Vassal of Bahamut Divine PrC casting calculations
+
+ 	if (nCastingClass == CLASS_TYPE_SPIRIT_SHAMAN)
+    {
+		if (!GetHasFeat(FEAT_SF_CODE, oCaster) && GetHasFeat(FEAT_SACREDFIST_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDFIST, oCaster);
+		if(GetHasFeat(FEAT_BLIGHTLORD_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_BLIGHTLORD, oCaster);
+		if(GetHasFeat(FEAT_COMBAT_MEDIC_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_COMBAT_MEDIC, oCaster);
+		if(GetHasFeat(FEAT_CONTEMPLATIVE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_CONTEMPLATIVE, oCaster);
+		if(GetHasFeat(FEAT_ELDISCIPLE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_ELDRITCH_DISCIPLE, oCaster);
+		if(GetHasFeat(FEAT_FOCHLUCAN_LYRIST_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_FOCHLUCAN_LYRIST, oCaster);
+		if(GetHasFeat(FEAT_FORESTMASTER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_FORESTMASTER, oCaster);
+		if(GetHasFeat(FEAT_HEARTWARDER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_HEARTWARDER, oCaster);
+		if(GetHasFeat(FEAT_HIEROPHANT_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_HIEROPHANT, oCaster);
+		if(GetHasFeat(FEAT_HOSPITALER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_HOSPITALER, oCaster);
+		if(GetHasFeat(FEAT_LION_OF_TALISID_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_LION_OF_TALISID, oCaster);
+		if(GetHasFeat(FEAT_MASTER_OF_SHROUDS_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MASTER_OF_SHROUDS, oCaster);
+		if(GetHasFeat(FEAT_MYSTIC_THEURGE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_MYSTIC_THEURGE, oCaster);
+		if(GetHasFeat(FEAT_PSYCHIC_THEURGE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_PSYCHIC_THEURGE, oCaster);
+		if(GetHasFeat(FEAT_RUNECASTER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_RUNECASTER, oCaster);
+		if(GetHasFeat(FEAT_SACREDPURIFIER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SACREDPURIFIER, oCaster);
+		if(GetHasFeat(FEAT_SANCTIFIED_MIND_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SANCTIFIED_MIND, oCaster);
+		if(GetHasFeat(FEAT_SAPPHIRE_HIERARCH_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SAPPHIRE_HIERARCH, oCaster);
+		if(GetHasFeat(FEAT_SHADOWBANE_STALKER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SHADOWBANE_STALKER, oCaster);
+		if(GetHasFeat(FEAT_STORMLORD_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_STORMLORD, oCaster);
+		if(GetHasFeat(FEAT_SWIFT_WING_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_SWIFT_WING, oCaster);
+		if(GetHasFeat(FEAT_TENEBROUS_APOSTATE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oCaster);
+		if(GetHasFeat(FEAT_VERDANT_LORD_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += GetLevelByClass(CLASS_TYPE_VERDANT_LORD, oCaster);
+		if(GetHasFeat(FEAT_BFZ_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_BFZ, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_BRIMSTONE_SPEAKER_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_BRIMSTONE_SPEAKER, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_HATHRAN_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_HATHRAN, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_KORD_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_MIGHTY_CONTENDER_KORD, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_OLLAM_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_OLLAM, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_ORCUS_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_ORCUS, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_SHINING_BLADE_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_SHINING_BLADE, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_TEMPUS_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_TEMPUS, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_WARPRIEST_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_WARPRIEST, oCaster) + 1) / 2;
+		if(GetHasFeat(FEAT_JUDICATOR_SPELLCASTING_SPSHAMAN, oCaster))
+			nDivine += (GetLevelByClass(CLASS_TYPE_JUDICATOR, oCaster) + 1) / 3;
+    }
 
     // Silverstar advances exactly one real divine spellbook. The marker must
     // agree with the primary book used by native and PRC spell-slot progression.

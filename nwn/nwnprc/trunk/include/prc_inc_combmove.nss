@@ -1001,6 +1001,32 @@ void DoBloodDrain(object oPC, object oTarget)
 int GetCombatMoveCheckBonus(object oPC, int nCombatMove, int nDefender = FALSE, int nAttacker = FALSE)
 {
     int nBonus = 0;
+    // Amun-her Khepeshef: Scion of War 60-ft Aura (+2 * Cha mod on Bull Rush, Disarm, Grapple, Overrun, Trip for self and allies within 60 ft)
+    int nScionBonus = 0;
+    if((GetHasSpellEffect(VESTIGE_AMUN_HER, oPC) || GetLocalInt(oPC, "AmunScionAuraActive")) && GetLocalInt(oPC, "ExploitVestige") != VESTIGE_AMUN_HER_SCION_OF_WAR)
+    {
+        nScionBonus = PRCMax(nScionBonus, 2 * GetAbilityModifier(ABILITY_CHARISMA, oPC));
+    }
+    if(GetLocalInt(oPC, "AmunScionAuraBonus") > nScionBonus)
+    {
+        object oScionSrc = GetLocalObject(oPC, "AmunScionAuraSource");
+        if(GetIsObjectValid(oScionSrc) && (GetHasSpellEffect(VESTIGE_AMUN_HER, oScionSrc) || GetLocalInt(oScionSrc, "AmunScionAuraActive")) && GetDistanceBetween(oPC, oScionSrc) <= FeetToMeters(60.0))
+            nScionBonus = GetLocalInt(oPC, "AmunScionAuraBonus");
+    }
+    location lPCLoc = GetLocation(oPC);
+    object oScionAlly = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), lPCLoc, FALSE, OBJECT_TYPE_CREATURE);
+    while(GetIsObjectValid(oScionAlly))
+    {
+        if((oScionAlly == oPC || GetIsFriend(oPC, oScionAlly)) &&
+           (GetHasSpellEffect(VESTIGE_AMUN_HER, oScionAlly) || GetLocalInt(oScionAlly, "AmunScionAuraActive")) &&
+           GetLocalInt(oScionAlly, "ExploitVestige") != VESTIGE_AMUN_HER_SCION_OF_WAR)
+        {
+            int nAllyCha = 2 * GetAbilityModifier(ABILITY_CHARISMA, oScionAlly);
+            if(nAllyCha > nScionBonus) nScionBonus = nAllyCha;
+        }
+        oScionAlly = MyNextObjectInShape(SHAPE_SPHERE, FeetToMeters(60.0), lPCLoc, FALSE, OBJECT_TYPE_CREATURE);
+    }
+    if(nScionBonus > 0) nBonus += nScionBonus;
     if(nCombatMove == COMBAT_MOVE_GRAPPLE)
     {
         if(GetHasSpellEffect(MOVE_SD_STONEFOOT_STANCE, oPC)) nBonus += 2;

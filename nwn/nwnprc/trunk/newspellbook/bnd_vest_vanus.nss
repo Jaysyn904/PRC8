@@ -71,5 +71,5 @@ void main()
     	FloatingTextStringOnCreature("You have made a poor pact, and Vanus requires you to celebrate your combats!", oBinder, FALSE);    
     }		
 	
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oBinder, HoursToSeconds(24));      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SetEffectSpellId(SupernaturalEffect(eLink), VESTIGE_VANUS), oBinder, HoursToSeconds(24));      
 }

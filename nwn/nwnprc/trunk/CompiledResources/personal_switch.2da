@@ -76,3 +76,6 @@
 72   PRC_ACTIVATE_MAX_SPELL_DC_CAP                int        0           
 73   PRC_SET_MAX_SPELL_DC_CAP                     int        255         
 74   PRC_ABILITY_BURN_HEAL_ON_REST                int        1           
+75   PRC_GAIA_PLANETARY_HEALING_NERF              int        0           
+76   PRC_TKHAL_SPHERE_DISINTEGRATE                int        0
+77   PRC_EPIC_VESTIGE_SCALING                     int        1           

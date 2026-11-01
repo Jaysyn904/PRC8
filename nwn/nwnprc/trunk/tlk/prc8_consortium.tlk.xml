@@ -48979,7 +48979,20 @@ Use: Selected</entry>
     18: Bonus feat
     19: Mind blank
     20: Pact Augmentation - 5 abilities
-        Soul Binding - 4 Vestiges     </entry>
+        Soul Binding - 4 Vestiges
+    21: Epic Vestiges (9th-level vestiges unlocked via Epic Binder feats)
+    23: Epic Bonus Feat
+    24: Pact Augmentation - 6 abilities
+    25: Soul Binding - 5 Vestiges
+    26: Epic Bonus Feat
+    28: Pact Augmentation - 7 abilities
+    29: Epic Bonus Feat
+    30: Soul Binding - 6 Vestiges
+    32: Epic Bonus Feat, Pact Augmentation - 8 abilities
+    35: Epic Bonus Feat, Soul Binding - 7 Vestiges
+    36: Pact Augmentation - 9 abilities
+    38: Epic Bonus Feat
+    40: Pact Augmentation - 10 abilities, Soul Binding - 8 Vestiges     </entry>
   <entry id="58004" lang="en" sex="m">Amon, the Void Before the Altar</entry>
   <entry id="58005" lang="en" sex="m">Amon, the Void Before the Altar
   
@@ -74293,7 +74306,17 @@ Epic Divine Spell Resistance: Your mastery over stolen divinity grants you nearl
 Epic Ur-Priest Bonus Feats List:
 Armor Skin, Epic Spell Focus, Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Epic Spellcasting, Improved Combat Casting, Epic Spell Penetration, Great Wisdom, Blinding Speed, Craft Epic Wonderous Item, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Forge Epic Ring, Planar Turning.</entry>
   <entry id="205004" lang="en" sex="m">Epic Binder</entry>
-  <entry id="205005" lang="en" sex="m">Epic Binder Description PLACEHOLDER</entry>
+  <entry id="205005" lang="en" sex="m">Epic binders make pacts with the residual presences of beings and cosmic energies so powerful that these energies would drive other beings mad. These binders travel the world and the planes searching for entities forgotten or banished from reality.
+
+Hit Die: d8
+Skill Points at Each Additional Level: 2 + Int Modifier
+Bonus Feats: An epic binder gains a bonus feat every three levels higher than 20th (23rd, 26th, 29th, 32nd, 35th, and 38th).
+Special:
+Vestiges (Soul Binding): Epic binders continue to gain the ability to bind additional vestiges simultaneously. At 25th level, an epic binder can bind 5 vestiges at the same time, increasing by 1 every five binder levels thereafter (6 at 30th, 7 at 35th, and 8 at 40th). Levels taken in epic binder continue to improve binding checks, ability DCs, durations, and other abilities based on effective binder level. An epic binder can bind only one epic vestige at a time unless she takes the Bind Additional Epic Vestige feat.
+Pact Augmentation: At 24th level, an epic binder gains a 6th ability from the pact augmentation list, plus an additional ability every four levels thereafter (7 at 28th, 8 at 32nd, 9 at 36th, and 10 at 40th).
+
+Epic Binder Bonus Feat List:
+Armor Skin, Bind Additional Epic Vestige, Bind Additional Vestige, Bind Amun-her Khepeshef, Bind Gaia, Bind Tkhaluuljin, Bind Zuriel, Epic Damage Reduction, Epic Energy Resistance, Epic Expel Vestige, Epic Favored Vestige, Epic Favored Vestige Focus, Epic Fortitude, Epic Prowess, Epic Rapid Pact Making, Epic Rapid Recovery, Epic Reflexes, Epic Reputation, Epic Skill Focus, Epic Skilled Pact Making, Epic Toughness, Epic Will, Fast Healing, Great Charisma, Great Constitution, Superior Initiative.</entry>
   <entry id="205006" lang="en" sex="m">Epic Anima Mage</entry>
   <entry id="205007" lang="en" sex="m">You are a remorseless master of forbidden vestige magic, channeling displaced powers with ruthless ambition.
 
@@ -74306,7 +74329,7 @@ Vestige Metamagic: Continues increasing at a rate of 1 use per 2 epic Anima Mage
 Caster/ Binder Level: Increases as if gaining a level in both your arcane spellcasting class and your soul binding class at each level.
 
 Epic Anima Mage Bonus Feat List:
-Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not listed here.</entry>
+Automatic Quicken Spell, Automatic Silent Spell, Automatic Still Spell, Bind Additional Epic Vestige, Bind Additional Vestige, Bind Amun-her Khepeshef, Bind Gaia, Bind Tkhaluuljin, Bind Zuriel, Combat Casting, Craft Epic Magic Arms and Armor, Craft Epic Rod, Craft Epic Staff, Craft Epic Wondrous Item, Epic Expel Vestige, Epic Favored Vestige, Epic Favored Vestige Focus, Epic Rapid Pact Making, Epic Rapid Recovery, Epic Skilled Pact Making, Epic Spell Focus, Epic Spell Penetration, Epic Spellcasting, Forge Epic Ring, Ignore Material Components, Improved Combat Casting, Spell Focus, Spell Mastery, Spell Penetration, Tenacious Magic, Improved Binding, Favored Vestige, Ignore Special Requirements, Rapid Pact Making, Rapid Recovery, Skilled Pact Making, Eldritch Sculptor, Lord of All Essences, Master of the Elements, Morpheme Savant, Paragon Visionary, Shadowmaster, Verminlord, Epic Eldritch Blast, Epic Extra Invocation, Epic Fiendish Resilience.  In addition to the feats on this list, the anima mage may select any item creation feat or metamagic feat not listed here.</entry>
   <entry id="205008" lang="en" sex="m">Epic Serene Guardian</entry>
   <entry id="205009" lang="en" sex="m">You are a transcendent guardian of the Luminous Order, channeling disciplined meditation into devastating resonance with every strike.
 
@@ -77829,4 +77852,214 @@ Silverstar levels 11-30 are available from character level 21. Moon's Hand impro
   <entry id="213467" lang="en" sex="m">Silverstar Spellcasting (Shaman)</entry>
   <entry id="213468" lang="en" sex="m">Silverstar Spellcasting (Favoured Soul)</entry>
   <entry id="213469" lang="en" sex="m">Silverstar Spellcasting (Nentyar Hunter)</entry>
+  <entry id="213500" lang="en" sex="m">Bind Additional Vestige I</entry>
+  <entry id="213501" lang="en" sex="m">Bind Additional Vestige II</entry>
+  <entry id="213502" lang="en" sex="m">Bind Additional Vestige III</entry>
+  <entry id="213503" lang="en" sex="m">Bind Additional Vestige IV</entry>
+  <entry id="213504" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind 8th-level vestiges.
+Specifics: You can bind one additional nonepic vestige simultaneously, increasing the maximum number of vestiges you can have bound at once by 1. You may take this feat up to ten times; its effects stack.
+Use: Automatic.</entry>
+  <entry id="213505" lang="en" sex="m">Bind Amun-her Khepeshef</entry>
+  <entry id="213506" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind 8th-level vestiges, Lore 29 ranks
+Specifics: You can bind the epic vestige Amun-her Khepeshef, the Desecrated Scion (DC 47). Once the firstborn heir to his kingdom, Amun-her Khepeshef represents the collective souls of the empire's slain firstborn sons and grants Burst of Life, Delay Death, Firstborn Guardian, and Scion of War.
+Use: Automatic.</entry>
+  <entry id="213507" lang="en" sex="m">Bind Gaia</entry>
+  <entry id="213508" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind 8th-level vestiges, Lore 25 ranks
+Specifics: You can bind the epic vestige Gaia, Soul of the Land (DC 39). Once the living soul and nature goddess of a lost continent devoured by Tkhaluuljin, Gaia grants Earth's Fury, Earthsense, Earth's Voice, Elemental Fortitude, and Planetary Healing.
+Use: Automatic.</entry>
+  <entry id="213509" lang="en" sex="m">Bind Tkhaluuljin</entry>
+  <entry id="213510" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind 8th-level vestiges, Lore 30 ranks
+Specifics: You can bind the epic vestige Tkhaluuljin, the Cephalopocalypse (DC 49). A gargantuan alien squidlike entity of pure hunger that traveled the planes devouring worlds, Tkhaluuljin grants Aura of Madness, Flight of the Alien, Mind Blast, and Sphere of Annihilation.
+Use: Automatic.</entry>
+  <entry id="213511" lang="en" sex="m">Bind Zuriel</entry>
+  <entry id="213512" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind 8th-level vestiges, Lore 27 ranks
+Specifics: You can bind the epic vestige Zuriel, the Bronze God (DC 43). A just deity of war who sacrificed his life and divinity defending his people against a githyanki invasion, Zuriel grants Bronze Body, Forceful Speed of Thought, Pact Fortification, and Ultimate Sacrifice.
+Use: Automatic.</entry>
+  <entry id="213513" lang="en" sex="m">Bind Additional Epic Vestige I</entry>
+  <entry id="213514" lang="en" sex="m">Bind Additional Epic Vestige II</entry>
+  <entry id="213515" lang="en" sex="m">Bind Additional Epic Vestige III</entry>
+  <entry id="213516" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, ability to bind at least two epic vestiges.
+Specifics: You can bind one additional epic vestige simultaneously (up to two with I, three with II, and all four with III). Bound epic vestiges still count toward your total bound vestige limit.
+Use: Automatic.</entry>
+  <entry id="213517" lang="en" sex="m">Epic Expel Vestige</entry>
+  <entry id="213518" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Expel Vestige.
+Specifics: You can use your Expel Vestige feat at will rather than once per day.
+Use: Automatic.</entry>
+  <entry id="213519" lang="en" sex="m">Epic Skilled Pact Making</entry>
+  <entry id="213520" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Skilled Pact Making.
+Specifics: Your bonus on binding checks increases from +4 to +10.
+Use: Automatic.</entry>
+  <entry id="213521" lang="en" sex="m">Epic Favored Vestige</entry>
+  <entry id="213522" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Favored Vestige.
+Specifics: For every vestige for which you possess the Favored Vestige feat, your effective binder level bonus increases from +1 to +3.
+Use: Automatic.</entry>
+  <entry id="213523" lang="en" sex="m">Epic Favored Vestige Focus</entry>
+  <entry id="213524" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Favored Vestige Focus.
+Specifics: For every vestige for which you possess the Favored Vestige Focus feat, the saving throw DC of that vestige's abilities increases by an additional +1 (for a total bonus of +2).
+Use: Automatic.</entry>
+  <entry id="213525" lang="en" sex="m">Epic Rapid Recovery</entry>
+  <entry id="213526" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Rapid Recovery.
+Specifics: For every vestige for which you possess the Rapid Recovery feat, the cooldown of its 5-round abilities is reduced by an additional 1 round (to 3 rounds total).
+Use: Automatic.</entry>
+  <entry id="213527" lang="en" sex="m">Favored Vestige Amun-her Khepeshef</entry>
+  <entry id="213528" lang="en" sex="m">Favored Vestige Gaia</entry>
+  <entry id="213529" lang="en" sex="m">Favored Vestige Tkhaluuljin</entry>
+  <entry id="213530" lang="en" sex="m">Favored Vestige Zuriel</entry>
+  <entry id="213531" lang="en" sex="m">Favored Vestige Focus Amun-her Khepeshef</entry>
+  <entry id="213532" lang="en" sex="m">Favored Vestige Focus Gaia</entry>
+  <entry id="213533" lang="en" sex="m">Favored Vestige Focus Tkhaluuljin</entry>
+  <entry id="213534" lang="en" sex="m">Favored Vestige Focus Zuriel</entry>
+  <entry id="213535" lang="en" sex="m">Rapid Recovery Amun-her Khepeshef</entry>
+  <entry id="213536" lang="en" sex="m">Rapid Recovery Gaia</entry>
+  <entry id="213537" lang="en" sex="m">Rapid Recovery Tkhaluuljin</entry>
+  <entry id="213538" lang="en" sex="m">Rapid Recovery Zuriel</entry>
+  <entry id="213539" lang="en" sex="m">Patron Vestige Amun-her Khepeshef</entry>
+  <entry id="213540" lang="en" sex="m">Amun-her Khepeshef, the Desecrated Scion</entry>
+  <entry id="213541" lang="en" sex="m">Amun-her Khepeshef, the Desecrated Scion
+
+Once the firstborn heir to his people's kingdom, Amun-her Khepeshef represents the souls of the firstborn sons of an ancient empire, whose lives were tragically extinguished by the god of their slaves. When grave robbers and rival invaders desecrated their tombs and destroyed the sanctity of their afterlife, the furious spirits appealed to the god of the dead to banish them beyond space and time as a single bound entity. Amun-her Khepeshef grants the ability to continue to act while dying, protection from death effects and the attacks of undead, bonuses on combat maneuvers in battle, and the ability to release a powerful burst of positive energy.
+
+Vestige Level: 9th (Epic)
+Binding DC: 47
+Special Requirement: You cannot bind Amun-her Khepeshef if you are currently suffering from any negative levels or ability damage, and only living creatures can bind him.
+
+Manifestation: When Amun-her Khepeshef manifests, a handsome tanned male warrior appears in a stone sarcophagus, his body resplendent in gold and gems. Suddenly, the warrior bolts upright and wails a scream of pain that sounds like the collective voices of men and boys. His body explodes into overlapping images of thousands of men and male children with jaundiced faces and sunken cheeks, who wail in unison before merging back into the warrior as he lies still and dead once more.
+
+Sign: You take on the look of the dead: jaundiced skin, sunken cheeks, bags under the eyes, and stiff movements, exuding a faint odor of decay and preservative natron salts.
+
+Influence: You cannot abide the presence of undead, necromancers, and death spells and effects. You seek any opportunity to slay undead, and you refuse to work with anyone who uses necromancy and death effects.
+
+Granted Abilities:
+While bound to Amun-her Khepeshef, you can release a powerful burst of positive energy that heals the living and harms the dead, function even at the brink of death, gain immunity to death effects and undead attacks (and extend this protection to allies), and project an aura that enhances battle tactics.
+
+Burst of Life: As a standard action, you can release a 30-foot burst of positive energy centered on yourself. All living allies in the area (including you) receive a 1-round 50% concealment aura along with the effects of a heal spell (restoring up to 250 hit points and removing adverse conditions; Warforged receive half healing plus the full restorative scrub, Tomb-Tainted Soul and Acererak's healing are respected, and Frenzied Berserker nonlethal damage debt is cleared) and a greater restoration spell (removing ability drain, negative levels including Energy Ebb, fatigue, exhaustion, Ghoul Gauntlet, Touch of Juiblex, and afflicted lycanthropy without XP cost). Non-friendly undead in the area take positive energy damage from the heal effect (10 points per effective binder level, maximum 250; Will save for half, leaving at least 1d4 hit points). Once you have used this ability, you cannot do so again for 5 rounds.
+
+Delay Death: For a total of 1 round per effective binder level per day (split across multiple occurrences as needed), you do not die from hit point loss when reduced to 1 hit point or lower, continuing to act normally without disability. Daily Delay Death rounds are only expended when no other persistent immortality effect (such as Gaia's unlocked Planetary Healing, Deathless Frenzy, or Immortal Fortitude) is already preventing your death at 1 hit point, and the countdown pauses whenever you are healed above 1 hit point. Once your daily rounds are exhausted, this protection ends until you rest.
+
+Firstborn Guardian: You gain constant immunity to fatigue, exhaustion, ability damage and drain, energy drain, death spells, magical death effects, negative energy effects, and undead-inflicted fear, disease, paralysis, and poison. In addition, you gain Ultravision and the Blind-Fight feat, all weapons and natural attacks you wield gain the ghost touch quality (bypassing incorporeal miss chance and restoring the 50% physical weapon damage normally lost to incorporeal immunity), and you gain a +4 deflection bonus to AC against undead. As a swift action, you can extend all of these protections to up to 1 ally per 5 effective binder levels within 30 feet for 1 round per effective binder level (5-round cooldown).
+
+Scion of War: You project a 60-foot aura that enhances the battle prowess of you and your allies within 60 feet, granting twice your Charisma modifier as a bonus on bull rush, disarm, grapple, overrun, sunder, and trip checks.</entry>
+  <entry id="213542" lang="en" sex="m">Amun-her Khepeshef - Burst of Life</entry>
+  <entry id="213543" lang="en" sex="m">Amun-her Khepeshef - Firstborn Guardian</entry>
+  <entry id="213544" lang="en" sex="m">Gaia, Soul of the Land</entry>
+  <entry id="213545" lang="en" sex="m">Gaia, Soul of the Land
+
+Once the living nature goddess of a lost continent and the body of that land itself, Gaia was the patron of all living creatures and the defender of sacred life. When the gargantuan alien entity Tkhaluuljin attacked and swallowed her continent whole, Gaia continued to fight from within the beast's stomach alongside her surviving followers, mortally wounding her captor so that it plummeted into the ocean and destroyed them both. Gaia grants her summoners the ability to feel the pulse of the land, giving them potent advantages against unnatural creatures, heightened earthly senses, immunity to elemental forces, the voice of nature, and regeneration.
+
+Vestige Level: 9th (Epic)
+Binding DC: 39
+Special Requirement: You must summon Gaia outdoors and above ground. She does not answer your call if you cannot see the sky.
+
+Manifestation: When Gaia manifests, a large green sphere appears in the sky, its landmasses and oceans growing brighter until it explodes in a ball of fire and plasma. In the afterimage of the explosion, the silhouette of a beautiful green-skinned woman appears briefly before leaving behind an ethereal female figure.
+
+Sign: The hair on your face, head, and body takes on a greenish hue, as do your eyes and skin.
+
+Influence: Never allow cruelty toward living creatures to occur in your presence. Seek out every opportunity to destroy aberrations, constructs, oozes, and undead.
+
+Granted Abilities:
+While bound to Gaia, you gain potent combat advantages against unnatural creatures, a sensory connection to the land, the voice to calm living creatures, immunity to a chosen element, and wound regeneration.
+
+Earth's Fury: Your attacks and powers are more potent against aberrations, constructs, oozes, and undead. Against creatures of these types, all of your spells, binding abilities, and racial spell-like abilities gain a +4 bonus to their saving throw DCs, both your scripted and standard attacks (via weapon OnHit hooks) bypass their immunity to critical hits, sneak attacks, and precision damage, you automatically confirm critical threats against them, and you gain a +4 bonus to AC and saving throws against their attacks.
+
+Earthsense: You gain potent senses derived from your connection to the land, granting Ultravision, True Seeing, the Track feat, and Scent (+10 competence bonus on Spot and Search checks).
+
+Earth's Voice: You gain a +10 bonus on Persuade and Animal Empathy checks (representing Polyglot, speak with plants, and speak with animals) and project a persistent 30-foot aura (stays active until toggled off; 5-round cooldown after suppressing) in which any living non-friendly creature that hears your voice must succeed on a Will save each round or be charmed (scaled per PRC charm conventions to Daze against player characters and Charm against non-player creatures) for 1 round per effective binder level.
+
+Elemental Fortitude: You gain 100% immunity to one chosen element (Acid, Cold, Electricity, or Fire; defaults to Acid on binding). Once every 5 rounds, you can switch your elemental immunity to a different element via your radial menu.
+
+Planetary Healing: Living creatures (including Warforged, but excluding undead and non-living constructs) gain regeneration equal to 1 point per 4 effective binder levels (you cannot be killed by hit point damage unless dealt fire or acid damage, which suppresses your regeneration for 1 round; if reduced to 1 hit point by non-fire/acid damage, you are knocked down for 1 round while regenerating). As a standard action, you can share your regeneration 1 point at a time with touched living allies (by default, you and every living ally holding at least 1 shared point gain lethal-damage immunity overcome by fire or acid; configurable via PRC_GAIA_PLANETARY_HEALING_NERF), and you can recall all shared points to yourself at any time as an immediate action.</entry>
+  <entry id="213546" lang="en" sex="m">Gaia - Earth's Voice</entry>
+  <entry id="213547" lang="en" sex="m">Gaia - Elemental Fortitude</entry>
+  <entry id="213548" lang="en" sex="m">Gaia - Elemental Fortitude (Acid)</entry>
+  <entry id="213549" lang="en" sex="m">Gaia - Elemental Fortitude (Cold)</entry>
+  <entry id="213550" lang="en" sex="m">Gaia - Elemental Fortitude (Electricity)</entry>
+  <entry id="213551" lang="en" sex="m">Gaia - Elemental Fortitude (Fire)</entry>
+  <entry id="213552" lang="en" sex="m">Gaia - Planetary Healing</entry>
+  <entry id="213553" lang="en" sex="m">Gaia - Planetary Healing (Share)</entry>
+  <entry id="213554" lang="en" sex="m">Gaia - Planetary Healing (Recall)</entry>
+  <entry id="213555" lang="en" sex="m">Tkhaluuljin, the Cephalopocalypse</entry>
+  <entry id="213556" lang="en" sex="m">Tkhaluuljin, the Cephalopocalypse
+
+A gargantuan alien squidlike entity, Tkhaluuljin traveled the planes devouring whatever blocked its path. In the language of the gith, its name translates roughly as "living armageddon." Emerging from a planar rift or black hole as an embodiment of pure, insatiable hunger rather than malice, Tkhaluuljin met its end when it swallowed the living continent of Gaia and was torn apart from within, exploding in a cataclysmic detonation. When you bind Tkhaluuljin, you project an aura of madness, move with alien flight, unleash mind-shattering blasts, and summon a sphere of annihilation.
+
+Vestige Level: 9th (Epic)
+Binding DC: 49
+Special Requirement: None
+
+Manifestation: When Tkhaluuljin manifests, a black rift opens in the air, absorbing all light and pulling matter toward the portal. With a strange slurping sound and a flash of dark magenta light, the tentacle-mawed head and bulbous translucent body of an enormous squidlike creature emerge before the rift hurtles into you, imbuing you with the essence of destruction.
+
+Sign: Your veins appear spidery and more pronounced, emitting a pulsing magenta light.
+
+Influence: You can never pass up the opportunity to eat, and you must consume five times the amount of food you would normally eat when not bound to Tkhaluuljin.
+
+Granted Abilities:
+While bound to Tkhaluuljin, you can project an aura of madness, fly with alien speed and grace, release a cone of stunning psychic energy, and call forth a sphere of annihilation.
+
+Aura of Madness: You project a persistent 10-foot aura of alien madness (stays active until toggled off; 5-round cooldown after suppressing). All living creatures (other than you, including allies unless friendly fire is disabled) within 10 feet must succeed on a Will save or be confused for 1 round per 5 effective binder levels (respecting PRC confusion immunities including Dahlver-Nar's Mad Soul and Zceryll's Alien Mind); a creature that successfully saves is immune to your Aura of Madness for 24 hours (though still vulnerable to another binder's Aura of Madness).
+
+Flight of the Alien: You fly with bizarre, undulating alien grace at 150-foot base speed (+99% movement speed increase, exempt from medium/heavy armor speed penalties), gaining true flight (PRCIsFlying and unlimited PRC Jump), Freedom of Movement, a +20 bonus on Jump checks, and the Dodge, Mobility, and Spring Attack bonus feats.
+
+Mind Blast: As a standard action, you can release a 120-foot cone mind blast. Anyone caught in the cone (other than you, including allies unless friendly fire is disabled) must succeed on a Will save or be stunned for 12 rounds. Once you have used this ability, you must wait 5 rounds before using it again.
+
+Sphere of Annihilation: As a full-round action, you can summon a sphere of annihilation within control range (40 ft + 10 ft per effective binder level) for up to 1 round per effective binder level per day (split across multiple uses however you wish). Moving and directing the sphere rolls a DC 30 control check (1d20 + effective binder level + the higher of your Charisma or Intelligence modifier, doubled if you possess a Talisman of the Sphere; speed 10 ft + 5 ft per 5 points over DC 30, or slides 10 ft toward you on a failed check). Any creature contacted by the sphere is instantly annihilated (or dealt 40d6 damage with a Fortitude save for 5d6 and no daily round limit when PRC_TKHAL_SPHERE_DISINTEGRATE is enabled; you are immune to a sphere you summon), and any stationary area-of-effect spell or Zuriel Wall of Force / Forcecage contacted by the sphere is destroyed while mobile creature auras are preserved. When no enemies are present, the sphere returns to you and automatically dismisses itself out of combat (or follows you when PRC_TKHAL_SPHERE_DISINTEGRATE is enabled). Once dismissed or exhausted, you must wait 5 rounds before summoning it again.</entry>
+  <entry id="213557" lang="en" sex="m">Tkhaluuljin - Aura of Madness</entry>
+  <entry id="213558" lang="en" sex="m">Tkhaluuljin - Mind Blast</entry>
+  <entry id="213559" lang="en" sex="m">Tkhaluuljin - Sphere of Annihilation</entry>
+  <entry id="213560" lang="en" sex="m">Zuriel, the Bronze God</entry>
+  <entry id="213561" lang="en" sex="m">Zuriel, the Bronze God
+
+Zuriel was a just and stalwart deity of reasoned war who spoke for and defended the people of his land. When githyanki armies invaded through reawakened planar portals and slew his fellow gods, Zuriel stood as the last defense between innocent citizens and enslavement to the Lich Queen. He sacrificed his divinity and his life to erect a barrier against the invaders, but was struck down during the ritual as his life force dissipated into the ether. Zuriel grants you the ability to augment your fighting prowess in bronze armor, employ quickened force effects, double your pact augmentations, and absorb damage suffered by allies.
+
+Vestige Level: 9th (Epic)
+Binding DC: 43
+Special Requirement: You cannot bind Zuriel if you are evil-aligned.
+
+Manifestation: When Zuriel manifests, a 10-foot-tall, bronze-skinned male figure with an athletic physique stands before you in proud dignity. Suddenly, he looks up at visions of githyanki riding yrthaks and screams. The bronze covering his body shatters to reveal a mortal warrior pierced through the heart by a githyanki arrow, who whispers, "Do not let the city fall," before toppling over dead.
+
+Sign: Your skin takes on a metallic bronze sheen, your muscles tighten, and your posture becomes proud and upright.
+
+Influence: You must always intercede on behalf of innocents when their lives are threatened, slay githyanki on sight whenever the opportunity presents itself, and never retreat from a fight if leaving would endanger innocents.
+
+Granted Abilities:
+When you bind Zuriel, you can transform into a bronze-skinned juggernaut, unleash quickened force spells, double your Pact Augmentation bonuses, and shield allies with your own life.
+
+Bronze Body: As a swift action, you can activate a Tenser's Transformation effect (+4 enhancement bonus to Strength, Dexterity, and Constitution, +4 natural armor bonus to AC, +5 competence bonus on Fortitude saves, proficiency with all simple and martial weapons, base attack bonus equal to your character level/Hit Dice including extra iterative attacks and natural weapon claw/bite routines, and a strict lockout of spells, psionics, invocations, utterances, maneuvers, spell-like abilities, and non-potion item activations while allowing supernatural abilities) for up to 1 round per effective binder level per day (split across multiple uses as desired). Ending or exhausting this effect starts a 5-round cooldown before you can activate it again. You cannot use Forceful Speed of Thought while Bronze Body is active.
+
+Forceful Speed of Thought: Once every 5 rounds (while Bronze Body is not active), you can use one of three quickened supernatural force abilities: Quickened Empowered Maximized Magic Missile (5 base missiles plus up to 2 Force Missile Mage bonus missiles dealing 5 + 1/2 of 1d4+1 [6-7] force damage each, ignoring spell resistance and rolling Force Missile Mage penetration checks against Shield), Quickened Wall of Force (creates an immovable wall of force barrier lasting 1 round per effective binder level; destroyed by Disintegrate or a Sphere of Annihilation, or activate again to dismiss), or Quickened Forcecage (immobilizes and blocks teleportation for all creatures within a 10-foot radius for 2 hours per effective binder level; destroyed by Disintegrate or a Sphere of Annihilation, or activate again to dismiss). Only one Forceful Speed of Thought effect can be in place at one time; while a Wall of Force or Forcecage is active, you cannot use the other two options until its duration expires or you dismiss it.
+
+Pact Fortification: Zuriel intensifies the bonds you forge when making pacts. All bonuses you receive from your Pact Augmentation class feature are doubled (for example, +10 HP per selection instead of +5 HP, or DR 2/- per selection instead of DR 1/-).
+
+Ultimate Sacrifice: As an immediate action, you can ward a visible ally (other than yourself) within long range so that 100% of the damage dealt to that ally by the next single attack, spell, or ability is redirected to you instead (preserving the exact per-damage-type breakdown across all 13 damage types), leaving your ally unharmed even if the transferred damage kills you.</entry>
+  <entry id="213562" lang="en" sex="m">Zuriel - Bronze Body</entry>
+  <entry id="213563" lang="en" sex="m">Zuriel - Forceful Speed of Thought</entry>
+  <entry id="213564" lang="en" sex="m">Zuriel - Forceful Speed (Magic Missile)</entry>
+  <entry id="213565" lang="en" sex="m">Zuriel - Forceful Speed (Wall of Force)</entry>
+  <entry id="213566" lang="en" sex="m">Zuriel - Forceful Speed (Forcecage)</entry>
+  <entry id="213567" lang="en" sex="m">Zuriel - Ultimate Sacrifice</entry>
+  <entry id="213568" lang="en" sex="m">Patron Vestige Gaia</entry>
+  <entry id="213569" lang="en" sex="m">Patron Vestige Tkhaluuljin</entry>
+  <entry id="213570" lang="en" sex="m">Patron Vestige Zuriel</entry>
+  <entry id="213571" lang="en" sex="m">Epic Rapid Pact Making</entry>
+  <entry id="213572" lang="en" sex="m">Type of Feat: Class / Epic
+Prerequisite: Effective Binder level 21st, Rapid Pact Making
+Specifics: You can make pacts with powerful beings very quickly. You can bind vestiges in 1 round (6 seconds) with no penalty on your binding check as often as desired, removing the once-per-day limitation of Rapid Pact Making.
+Special: Binding vestiges normally requires 1 minute (or 1 round with a -10 check penalty when rushed).
+Use: Automatic.</entry>
+  <entry id="213573" lang="en" sex="m">Bind Additional Vestige V</entry>
+  <entry id="213574" lang="en" sex="m">Bind Additional Vestige VI</entry>
+  <entry id="213575" lang="en" sex="m">Bind Additional Vestige VII</entry>
+  <entry id="213576" lang="en" sex="m">Bind Additional Vestige VIII</entry>
+  <entry id="213577" lang="en" sex="m">Bind Additional Vestige IX</entry>
+  <entry id="213578" lang="en" sex="m">Bind Additional Vestige X</entry>
 </tlk>

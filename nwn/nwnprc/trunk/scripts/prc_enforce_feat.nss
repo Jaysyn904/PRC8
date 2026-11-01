@@ -12,6 +12,7 @@
 
 //#include "prc_alterations"
 #include "prc_inc_sneak"
+#include "bnd_inc_bndfunc"
 #include "psi_inc_psifunc"
 #include "tob_inc_tobfunc"
 #include "moi_inc_moifunc"
@@ -3144,6 +3145,60 @@ int ToB()
     {
         FloatingTextStringOnCreature("You must have a base Will save of 4 or greater to take Skilled Pact Making", OBJECT_SELF, FALSE);
         return TRUE;    
+    }
+    if((GetHasFeat(FEAT_BIND_ADDITIONAL_VESTIGE_1) ||
+        GetHasFeat(FEAT_BIND_AMUN_HER_KHEPESHEF) ||
+        GetHasFeat(FEAT_BIND_GAIA) ||
+        GetHasFeat(FEAT_BIND_TKHALUULJIN) ||
+        GetHasFeat(FEAT_BIND_ZURIEL) ||
+        GetHasFeat(FEAT_BIND_ADDITIONAL_EPIC_VESTIGE_1) ||
+        GetHasFeat(FEAT_EPIC_EXPEL_VESTIGE) ||
+        GetHasFeat(FEAT_EPIC_SKILLED_PACT_MAKING) ||
+        GetHasFeat(FEAT_EPIC_FAVORED_VESTIGE) ||
+        GetHasFeat(FEAT_EPIC_FAVORED_VESTIGE_FOCUS) ||
+        GetHasFeat(FEAT_EPIC_RAPID_RECOVERY) ||
+        GetHasFeat(FEAT_EPIC_RAPID_PACT_MAKING)) &&
+       GetBinderLevel(OBJECT_SELF) < 21)
+    {
+        FloatingTextStringOnCreature("You must have an effective Binder level of at least 21st to take Epic Binder feats.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+    if((GetHasFeat(FEAT_BIND_ADDITIONAL_VESTIGE_1) ||
+        GetHasFeat(FEAT_BIND_AMUN_HER_KHEPESHEF) ||
+        GetHasFeat(FEAT_BIND_GAIA) ||
+        GetHasFeat(FEAT_BIND_TKHALUULJIN) ||
+        GetHasFeat(FEAT_BIND_ZURIEL)) &&
+       GetMaxVestigeLevel(OBJECT_SELF) < 8)
+    {
+        FloatingTextStringOnCreature("You must be able to bind 8th-level vestiges to take this Epic Binder feat.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+    if(GetHasFeat(FEAT_BIND_ADDITIONAL_EPIC_VESTIGE_1))
+    {
+        int nEpicBindFeats = GetHasFeat(FEAT_BIND_AMUN_HER_KHEPESHEF) + GetHasFeat(FEAT_BIND_GAIA) + GetHasFeat(FEAT_BIND_TKHALUULJIN) + GetHasFeat(FEAT_BIND_ZURIEL);
+        int nReqEpicFeats = 2;
+        if(GetHasFeat(FEAT_BIND_ADDITIONAL_EPIC_VESTIGE_3)) nReqEpicFeats = 4;
+        else if(GetHasFeat(FEAT_BIND_ADDITIONAL_EPIC_VESTIGE_2)) nReqEpicFeats = 3;
+        if(nEpicBindFeats < nReqEpicFeats)
+        {
+            FloatingTextStringOnCreature("You must know enough Epic Vestiges to take Bind Additional Epic Vestige.", OBJECT_SELF, FALSE);
+            return TRUE;
+        }
+    }
+    if(GetHasFeat(FEAT_EPIC_FAVORED_VESTIGE) && !HasAnyFavoredVestige(OBJECT_SELF))
+    {
+        FloatingTextStringOnCreature("Epic Favored Vestige requires at least one Favored Vestige feat.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+    if(GetHasFeat(FEAT_EPIC_FAVORED_VESTIGE_FOCUS) && !HasAnyFavoredVestigeFocus(OBJECT_SELF))
+    {
+        FloatingTextStringOnCreature("Epic Favored Vestige Focus requires at least one Favored Vestige Focus feat.", OBJECT_SELF, FALSE);
+        return TRUE;
+    }
+    if(GetHasFeat(FEAT_EPIC_RAPID_RECOVERY) && !HasAnyRapidRecovery(OBJECT_SELF))
+    {
+        FloatingTextStringOnCreature("Epic Rapid Recovery requires at least one Rapid Recovery feat.", OBJECT_SELF, FALSE);
+        return TRUE;
     } 
     
     // Aligned Spell Focus

@@ -213,7 +213,7 @@ public class Main {
             }
 
             for (Data_2da entry : list)
-                data.put(entry.getName(), entry);
+                data.put(entry.getName().toLowerCase(), entry);
             verbose = oldVerbose;
             if (verbose) System.out.println("- Done");
 			/*
@@ -243,6 +243,7 @@ public class Main {
          * @throws TwoDAReadException if any errors are encountered while reading
          */
         public Data_2da get(String name) {
+            name = name.toLowerCase();
             if (data.containsKey(name))
                 return data.get(name);
             else {

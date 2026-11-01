@@ -3633,7 +3633,18 @@ int TenebrousMarkerFeats()
             return TRUE;
         }
 		
-		if(nTenebrous < 1)
+		int bHasEligibleDivine = GetLevelByClass(CLASS_TYPE_ARCHIVIST)
+						+ GetLevelByClass(CLASS_TYPE_BLACKGUARD)
+						+ GetLevelByClass(CLASS_TYPE_BLIGHTER)
+						+ GetLevelByClass(CLASS_TYPE_CLERIC)
+						+ GetLevelByClass(CLASS_TYPE_FAVOURED_SOUL)
+						+ GetLevelByClass(CLASS_TYPE_JUSTICEWW)
+						+ GetLevelByClass(CLASS_TYPE_RANGER)
+						+ GetLevelByClass(CLASS_TYPE_SHAMAN)
+						+ GetLevelByClass(CLASS_TYPE_SOHEI)
+						+ GetLevelByClass(CLASS_TYPE_SPIRIT_SHAMAN)
+						+ GetLevelByClass(CLASS_TYPE_UR_PRIEST);
+		if(nTenebrous < 1 && bHasEligibleDivine > 0)
         {
             FloatingTextStringOnCreature("A Tenebrous Apostate must pick one divine class to advance at first level.", OBJECT_SELF, FALSE);
             FloatingTextStringOnCreature("Please reselect your feats.", OBJECT_SELF, FALSE);

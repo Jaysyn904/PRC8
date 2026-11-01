@@ -49,5 +49,5 @@ void main()
 		eLink = EffectLinkEffects(eLink, VersusRacialTypeEffect(EffectAttackIncrease(2), RACIAL_TYPE_HUMANOID_REPTILIAN));
 	}	
 	
-    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SupernaturalEffect(eLink), oBinder, HoursToSeconds(24));      
+    ApplyEffectToObject(DURATION_TYPE_TEMPORARY, SetEffectSpellId(SupernaturalEffect(eLink), VESTIGE_ZAGAN), oBinder, HoursToSeconds(24));      
 }

@@ -60,6 +60,8 @@ const int NUI_SPELLBOOK_RUNESCAR_SCRIBE_FEAT = 2361;
 const int NUI_SPELLBOOK_RUNESCAR_SCRIBE_SPELL = 2777;
 
 json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF);
+int GetBinderSpellCircle(object oPlayer, int nSpellID);
+int GetBinderActiveFeatForSpell(object oPlayer, int nSpellID);
 
 string GetClassSpellbookFile(int nClass);
 
@@ -969,7 +971,8 @@ json GetSpellListForCircle(object oPlayer, int nClass, int circle)
 
             if (nClass == CLASS_TYPE_BINDER && IsSpellKnown(oPlayer, nClass, currentSpell, -1))
             {
-                retValue = JsonArrayInsert(retValue, JsonInt(currentSpell));
+                if (GetBinderSpellCircle(oPlayer, currentSpell) == circle)
+                    retValue = JsonArrayInsert(retValue, JsonInt(currentSpell));
             }
             else if ((iSpellLevel == circle && IntToString(iSpellLevel) == sSpellLevel))
             {

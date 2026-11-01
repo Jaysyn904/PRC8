@@ -9,6 +9,14 @@
 //:://////////////////////////////////////////////
 
 #include "prc_alterations"
+#include "bnd_inc_bndfunc"
+
+void ClearKnightLoyalImmortal(object oPC)
+{
+    DeleteLocalInt(oPC, "KnightLoyalImmortal");
+    if (!HasAnyBinderImmortalProtection(oPC))
+        SetImmortal(oPC, FALSE);
+}
 
 void main()
 {
@@ -19,6 +27,12 @@ void main()
 	int nClass = GetLevelByClass(CLASS_TYPE_KNIGHT, oPC);
 	int nDur = 5 + GetAbilityModifier(ABILITY_CHARISMA, oPC);
 	int nBonus = 1;
+
+	if (GetImmortal(oPC) || HasAnyBinderImmortalProtection(oPC))
+	{
+		FloatingTextStringOnCreature("You are already protected from death!", oPC, FALSE);
+		return;
+	}
 
 	int nKC = GetLocalInt(oPC, "KnightsChallenge");
 	
@@ -33,9 +47,7 @@ void main()
 		FloatingTextStringOnCreature("You have no more uses of Knight's Challenge remaining", oPC, FALSE);
 		return;
 	}
-            if(!GetImmortal(oPC))
-            {
-                SetImmortal(oPC, TRUE);
-		DelayCommand(6.0, SetImmortal(oPC, FALSE));
-            }
+	SetLocalInt(oPC, "KnightLoyalImmortal", TRUE);
+	SetImmortal(oPC, TRUE);
+	DelayCommand(6.0, ClearKnightLoyalImmortal(oPC));
 }

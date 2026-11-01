@@ -4,7 +4,6 @@
 #include "inc_lookups"
 #include "nw_inc_nui"
 #include "tob_inc_tobfunc"
-#include "prc_nui_sb_inc"
 
 //
 // GetCurrentSpellLevel
@@ -86,6 +85,11 @@ string GetClassSpellbookFile(int nClass);
 //
 json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF);
 json GetBinderFeatToVestigeDictionary(object oPlayer=OBJECT_SELF);
+json GetBinderFeatCircleDictionary(object oPlayer=OBJECT_SELF);
+int GetBinderSpellCircle(object oPlayer, int nSpellID);
+int GetBinderActiveFeatForSpell(object oPlayer, int nSpellID);
+int GetBinderEffectiveLevelForNUI(object oBinder=OBJECT_SELF);
+int GetBinderMaxVestigeLevelForNUI(object oBinder=OBJECT_SELF);
 int IsBinderFeatActive(object oPlayer, int nFeatID);
 int IsBinderSpellActive(object oPlayer, int nSpellID);
 
@@ -220,10 +224,14 @@ int GetCurrentSpellLevel(int nClass, int nLevel)
     }
 
 
-    // Binders don't really have a concept of spell level
-    if (nClass == CLASS_TYPE_BINDER
-        || nClass == CLASS_TYPE_DRAGON_SHAMAN) // they can only reach 1st circle
+    // Dragon Shamans only use 1st circle in the NUI spellbook
+    if (nClass == CLASS_TYPE_DRAGON_SHAMAN)
         return 1;
+
+    // Binders group vestige powers by vestige level (1-9) up to the character's
+    // current maximum bindable vestige level, plus circle 0 for PrC abilities.
+    if (nClass == CLASS_TYPE_BINDER)
+        return GetBinderMaxVestigeLevelForNUI(OBJECT_SELF);
 
     //Shadowsmith has no concept of spell levels
     if (nClass == CLASS_TYPE_SHADOWSMITH)
@@ -314,9 +322,11 @@ int GetMinSpellLevel(int nClass)
             || nClass == CLASS_TYPE_DRAGONFIRE_ADEPT
             || nClass == CLASS_TYPE_DRAGON_SHAMAN
             || nClass == CLASS_TYPE_SHADOWCASTER
-            || nClass == CLASS_TYPE_SHADOWSMITH
-            || nClass == CLASS_TYPE_BINDER)
+            || nClass == CLASS_TYPE_SHADOWSMITH)
             return 1;
+
+        if (nClass == CLASS_TYPE_BINDER)
+            return 0;
 
         return GetCurrentSpellLevel(nClass, 1);
     }
@@ -325,6 +335,8 @@ int GetMinSpellLevel(int nClass)
 
 int GetMaxSpellLevel(int nClass)
 {
+    if (nClass == CLASS_TYPE_BINDER)
+        return GetBinderMaxVestigeLevelForNUI(OBJECT_SELF);
     if (nClass == CLASS_TYPE_WILDER
         || nClass == CLASS_TYPE_PSION)
         return 9;
@@ -433,13 +445,19 @@ string GetSpellLevelToolTip(int spellLevel)
 
 json GetSpellIcon(int spellId,int featId=0,int nClass=0)
 {
-    // Binder's spells don't have the FeatID on the spells.2da, so we have to use
-    // the mapping we constructed to get it.
+    // Binder's spells don't all have FeatID on spells.2da, so use the Binder
+    // dictionary while preserving distinct subradial icons when present.
     if (nClass == CLASS_TYPE_BINDER)
     {
-        json binderDict = GetBinderSpellToFeatDictionary();
-        int nFeatID = JsonGetInt(JsonObjectGet(binderDict, IntToString(spellId)));
-        return JsonString(Get2DACache("feat", "Icon", nFeatID));
+        int nSubMaster = StringToInt(Get2DACache("spells", "Master", spellId));
+        if (nSubMaster > 0)
+        {
+            string sSubIcon = Get2DACache("spells", "IconResRef", spellId);
+            if (sSubIcon != "" && sSubIcon != "****")
+                return JsonString(sSubIcon);
+        }
+        int nBinderFeat = featId > 0 ? featId : GetBinderActiveFeatForSpell(OBJECT_SELF, spellId);
+        return JsonString(Get2DACache("feat", "Icon", nBinderFeat));
     }
 
     if (featId)
@@ -477,59 +495,74 @@ string GetSpellName(int spellId, int realSpellID=0, int featId=0, int nClass=0)
     return GetStringByStrRef(StringToInt(Get2DACache("spells", "Name", spellId)));
 }
 
+int GetBinderEffectiveLevelForNUI(object oBinder=OBJECT_SELF)
+{
+    int nLevel;
+    if (GetLevelByClass(CLASS_TYPE_BINDER, oBinder))
+    {
+        nLevel = GetLevelByClass(CLASS_TYPE_BINDER, oBinder)
+            + GetLevelByClass(CLASS_TYPE_ANIMA_MAGE, oBinder)
+            + GetLevelByClass(CLASS_TYPE_KNIGHT_SACRED_SEAL, oBinder)
+            + GetLevelByClass(CLASS_TYPE_SCION_DANTALION, oBinder);
+        if (GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oBinder))
+            nLevel += GetLevelByClass(CLASS_TYPE_TENEBROUS_APOSTATE, oBinder) - 1;
+    }
+    else if (GetHasFeat(FEAT_BIND_VESTIGE, oBinder))
+    {
+        nLevel = 1;
+        if (GetHasFeat(FEAT_BIND_VESTIGE_IMPROVED, oBinder))
+            nLevel += 4;
+    }
+    if (GetHasSpellEffect(VESTIGE_IPOS, oBinder)
+        && GetLocalInt(oBinder, "ExploitVestige") != VESTIGE_IPOS_INFLUENCE)
+        nLevel += 1;
+    return nLevel;
+}
+
+int GetBinderMaxVestigeLevelForNUI(object oBinder=OBJECT_SELF)
+{
+    int nLevel = GetBinderEffectiveLevelForNUI(oBinder);
+    if (GetHasFeat(FEAT_IMPROVED_BINDING, oBinder))
+        nLevel += 2;
+    int nRow = (nLevel > 40 ? 39 : (nLevel > 0 ? nLevel - 1 : 0));
+    int nMax = StringToInt(Get2DACache("cls_bind_binder", "VestigeLvl", nRow));
+    return nMax > 0 ? nMax : 1;
+}
+
 json GetBinderSpellToFeatDictionary(object oPlayer=OBJECT_SELF)
 {
-    // a dictionary of <SpellID, FeatID>
+    // A dictionary of <SpellID, FeatID> covering all vestige powers (9030..9115),
+    // Binder Prestige Class powers (9260..9265, 9306..9311), and radial children.
     json binderDict = GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR);
-    // if this hasn't been created, create it now.
-    if (binderDict == JsonNull())
-        binderDict = JsonObject();
-    else
+    if (binderDict != JsonNull())
         return binderDict;
 
-    // the starting row for binder spells
-    int spellIndex = 19070;
-    // the starting row for binder feats
-    int featIndex = 9030;
-    //the end of the binder spells/feats
-    while  (spellIndex <= 19156 && featIndex <= 9104)
+    binderDict = JsonObject();
+    int nFeat;
+    for (nFeat = 9030; nFeat <= 9311; nFeat++)
     {
-        // get the SpellID tied to the feat
-        int spellID = StringToInt(Get2DACache("feat", "SPELLID", featIndex));
-        // if the spellID matches the current index, then this is the spell
-        // attached to the feat
-        if (spellID == spellIndex)
+        if (nFeat > 9115 && nFeat < 9260)
+            continue;
+        if (nFeat > 9265 && nFeat < 9306)
+            continue;
+
+        int nSpellID = StringToInt(Get2DACache("feat", "SPELLID", nFeat));
+        if (nSpellID > 0 && JsonObjectGet(binderDict, IntToString(nSpellID)) == JsonNull())
+            binderDict = JsonObjectSet(binderDict, IntToString(nSpellID), JsonInt(nFeat));
+    }
+
+    int nSpell;
+    for (nSpell = 19070; nSpell <= 19192; nSpell++)
+    {
+        int nMasterSpell = StringToInt(Get2DACache("spells", "Master", nSpell));
+        if (nMasterSpell > 0)
         {
-            binderDict = JsonObjectSet(binderDict, IntToString(spellID), JsonInt(featIndex));
-
-            // move to next spell/feat
-            featIndex++;
-            spellIndex++;
-        }
-        // else we have reached a subdial spell
-        else
-        {
-            // loop through until we reach back at spellID
-            while (spellIndex < spellID)
-            {
-                int masterSpell = StringToInt(Get2DACache("spells", "Master", spellIndex));
-
-                // add the sub radial to the dict, tied to the master's FeatID
-                int featId = JsonGetInt(JsonObjectGet(binderDict, IntToString(masterSpell)));
-                binderDict = JsonObjectSet(binderDict, IntToString(spellIndex), JsonInt(featId));
-
-                spellIndex++;
-            }
-
-
-            // some feats overlap the same FeatID, can cause this to get stuck.
-            // if it happens then move on
-            if (spellIndex > spellID)
-                featIndex++;
+            int nMasterFeat = JsonGetInt(JsonObjectGet(binderDict, IntToString(nMasterSpell)));
+            if (nMasterFeat > 0)
+                binderDict = JsonObjectSet(binderDict, IntToString(nSpell), JsonInt(nMasterFeat));
         }
     }
 
-    // cache the result
     SetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_DICTIONARY_CACHE_VAR, binderDict);
     return binderDict;
 }
@@ -538,39 +571,109 @@ json GetBinderFeatToVestigeDictionary(object oPlayer=OBJECT_SELF)
 {
     // Granted Binder ability feats outlive Expel Vestige on the character
     // skin. Cache only the static feat -> owner-effect mapping; active state is
-    // always checked live with GetHasSpellEffect.
+    // always checked live with GetHasSpellEffect. Prestige Class feats map to -1.
     json jOwners = GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR);
     if (jOwners != JsonNull())
         return jOwners;
 
     jOwners = JsonObject();
+    json jCircles = JsonObject();
     int nVestigeRows = Get2DARowCount("vestiges");
     int nFeat;
-    for (nFeat = 9030; nFeat <= 9104; nFeat++)
+    for (nFeat = 9030; nFeat <= 9115; nFeat++)
     {
         string sFeatLabel = Get2DACache("feat", "LABEL", nFeat);
         int nVestige;
         for (nVestige = 1; nVestige < nVestigeRows; nVestige++)
         {
             string sVestigeLabel = Get2DACache("vestiges", "Label", nVestige);
-            if (sVestigeLabel != "" && sVestigeLabel != "****"
+            int bMatch = (sVestigeLabel != "" && sVestigeLabel != "****"
                 && FindSubString(sFeatLabel, sVestigeLabel) >= 0)
+                || (nVestige == 41 && FindSubString(sFeatLabel, "Amun") == 0)
+                || (nVestige == 43 && FindSubString(sFeatLabel, "Tkhal") == 0);
+            if (bMatch)
             {
                 int nOwnerSpell = StringToInt(Get2DACache("vestiges", "SpellID", nVestige));
+                int nVestigeLevel = StringToInt(Get2DACache("vestiges", "Level", nVestige));
                 if (nOwnerSpell > 0)
                     jOwners = JsonObjectSet(jOwners, IntToString(nFeat), JsonInt(nOwnerSpell));
+                if (nVestigeLevel > 0)
+                    jCircles = JsonObjectSet(jCircles, IntToString(nFeat), JsonInt(nVestigeLevel));
                 break;
             }
         }
     }
 
+    for (nFeat = 9260; nFeat <= 9265; nFeat++)
+    {
+        jOwners = JsonObjectSet(jOwners, IntToString(nFeat), JsonInt(-1));
+        jCircles = JsonObjectSet(jCircles, IntToString(nFeat), JsonInt(0));
+    }
+    for (nFeat = 9306; nFeat <= 9311; nFeat++)
+    {
+        jOwners = JsonObjectSet(jOwners, IntToString(nFeat), JsonInt(-1));
+        jCircles = JsonObjectSet(jCircles, IntToString(nFeat), JsonInt(0));
+    }
+    // Scion of Dantalion's Improved Thought Travel (9312) upgrades Dantalion's
+    // Thought Travel (19120) at Vestige Level 5 while Dantalion (19042) is bound.
+    jOwners = JsonObjectSet(jOwners, "9312", JsonInt(VESTIGE_DANTALION));
+    jCircles = JsonObjectSet(jCircles, "9312", JsonInt(5));
+
     SetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_OWNER_CACHE_VAR, jOwners);
+    SetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_CIRCLE_CACHE_VAR, jCircles);
     return jOwners;
+}
+
+json GetBinderFeatCircleDictionary(object oPlayer=OBJECT_SELF)
+{
+    json jCircles = GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_CIRCLE_CACHE_VAR);
+    if (jCircles != JsonNull())
+        return jCircles;
+
+    GetBinderFeatToVestigeDictionary(oPlayer);
+    return GetLocalJson(oPlayer, NUI_SPELLBOOK_BINDER_CIRCLE_CACHE_VAR);
+}
+
+int GetBinderSpellCircle(object oPlayer, int nSpellID)
+{
+    json jBinder = GetBinderSpellToFeatDictionary(oPlayer);
+    int nFeatID = JsonGetInt(JsonObjectGet(jBinder, IntToString(nSpellID)));
+    if (nFeatID <= 0)
+        return -1;
+    json jCircles = GetBinderFeatCircleDictionary(oPlayer);
+    json jVal = JsonObjectGet(jCircles, IntToString(nFeatID));
+    if (jVal == JsonNull())
+        return -1;
+    return JsonGetInt(jVal);
+}
+
+int GetBinderActiveFeatForSpell(object oPlayer, int nSpellID)
+{
+    // Malphas's Invisibility (19091) grants 9042 (Swift) at EBL 15+ instead of 9041 (Standard).
+    if (nSpellID == 19091)
+        return GetHasFeat(9042, oPlayer) ? 9042 : 9041;
+    // Savnok's Move Ally (19093) grants 9045 (Swift) at EBL 13+ instead of 9044 (Standard).
+    if (nSpellID == 19093)
+        return GetHasFeat(9045, oPlayer) ? 9045 : 9044;
+    // Scion of Dantalion 4+ upgrades Dantalion's Thought Travel (19120) to 9312 (Swift).
+    if (nSpellID == 19120 && GetHasFeat(9312, oPlayer) && GetHasFeat(9072, oPlayer))
+        return 9312;
+
+    json jBinder = GetBinderSpellToFeatDictionary(oPlayer);
+    return JsonGetInt(JsonObjectGet(jBinder, IntToString(nSpellID)));
 }
 
 int IsBinderFeatActive(object oPlayer, int nFeatID)
 {
-    if (nFeatID < 9030 || nFeatID > 9104 || !GetHasFeat(nFeatID, oPlayer))
+    int bIsVestigeFeat = (nFeatID >= 9030 && nFeatID <= 9115) || nFeatID == 9312;
+    int bIsPrCFeat = (nFeatID >= 9260 && nFeatID <= 9265)
+                  || (nFeatID >= 9306 && nFeatID <= 9311);
+    if ((!bIsVestigeFeat && !bIsPrCFeat) || !GetHasFeat(nFeatID, oPlayer))
+        return FALSE;
+
+    if (bIsPrCFeat)
+        return TRUE;
+    if (nFeatID == 9312 && !GetHasFeat(9072, oPlayer))
         return FALSE;
 
     json jOwners = GetBinderFeatToVestigeDictionary(oPlayer);
@@ -580,8 +683,7 @@ int IsBinderFeatActive(object oPlayer, int nFeatID)
 
 int IsBinderSpellActive(object oPlayer, int nSpellID)
 {
-    json jBinder = GetBinderSpellToFeatDictionary(oPlayer);
-    int nFeatID = JsonGetInt(JsonObjectGet(jBinder, IntToString(nSpellID)));
+    int nFeatID = GetBinderActiveFeatForSpell(oPlayer, nSpellID);
     return IsBinderFeatActive(oPlayer, nFeatID);
 }
 

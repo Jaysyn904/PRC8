@@ -30,7 +30,9 @@ void main()
     int nBinderLevel = GetBinderLevel(oBinder, VESTIGE_AGARES);
     string sSummon = "bnd_agares_small";
     
-    if (nBinderLevel >= 19) sSummon = "bnd_agares_huge";
+    if (GetIsEpicVestigeScalingEnabled() && nBinderLevel >= 27) sSummon = "earthelder";
+    else if (GetIsEpicVestigeScalingEnabled() && nBinderLevel >= 23) sSummon = "earthgreat";
+    else if (nBinderLevel >= 19) sSummon = "bnd_agares_huge";
     else if (nBinderLevel >= 15) sSummon = "bnd_agares_large";
     else if (nBinderLevel >= 11) sSummon = "bnd_agares_med";
     
@@ -42,7 +44,9 @@ void main()
         if (GetResRef(oSummon) == "bnd_agares_small" ||
             GetResRef(oSummon) == "bnd_agares_med" ||
             GetResRef(oSummon) == "bnd_agares_large" ||
-            GetResRef(oSummon) == "bnd_agares_huge")
+            GetResRef(oSummon) == "bnd_agares_huge" ||
+            GetResRef(oSummon) == "earthgreat" ||
+            GetResRef(oSummon) == "earthelder")
             return;
         
         i++;

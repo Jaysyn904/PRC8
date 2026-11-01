@@ -135,7 +135,8 @@ void main()
     if (GetResRef(oDead) == "bnd_agares_small" ||
         GetResRef(oDead) == "bnd_agares_med" ||
         GetResRef(oDead) == "bnd_agares_large" ||
-        GetResRef(oDead) == "bnd_agares_huge")
+        GetResRef(oDead) == "bnd_agares_huge" ||
+        ((GetResRef(oDead) == "earthgreat" || GetResRef(oDead) == "earthelder") && GetHasSpellEffect(VESTIGE_AGARES, GetMaster(oDead))))
     {
     	object oBinder = GetMaster(oDead);
     	FloatingTextStringOnCreature("You must wait one hour to resummon your elemental companion!", oBinder, FALSE);

@@ -806,15 +806,35 @@ int PRCGetIsRealSpellKnownByClass(int nRealSpellID, int nClass, object oPC = OBJ
 void DoRacialSLA(int nSpellID, int nCasterlevel = 0, int nTotalDC = 0, int bInstantCast = FALSE)
 {
     if(DEBUG) DoDebug("Spell DC passed to DoRacialSLA: " + IntToString(nTotalDC));
+    int bHasExplicitDC = (nTotalDC > 0);
+    int nCallerSpell = GetSpellId();
+    int bIsVestigeSu = (nCallerSpell >= 19000 && nCallerSpell <= 19200);
     if(nTotalDC == 0)
         nTotalDC = 10
             +StringToInt(Get2DACache("spells", "Innate", nSpellID))
             +GetAbilityModifier(ABILITY_CHARISMA);
 
     ActionDoCommand(SetLocalInt(OBJECT_SELF, "SpellIsSLA", TRUE));
+    if (bIsVestigeSu)
+        ActionDoCommand(SetLocalInt(OBJECT_SELF, "BinderSuSLA", TRUE));
+    if (bHasExplicitDC)
+    {
+        ActionDoCommand(SetLocalInt(OBJECT_SELF, PRC_DC_TOTAL_OVERRIDE, nTotalDC));
+        ActionDoCommand(SetLocalInt(OBJECT_SELF, "PRC_DC_Total_Override", nTotalDC));
+        if (bIsVestigeSu && !GetIsObjectValid(GetSpellTargetObject()))
+            ActionDoCommand(SetLocalInt(OBJECT_SELF, "PRC_DC_NeedsGaiaTargetCheck", TRUE));
+    }
     if(DEBUG) DoDebug("Spell DC entered in ActionCastSpell: " + IntToString(nTotalDC));
     ActionCastSpell(nSpellID, nCasterlevel, 0, nTotalDC, METAMAGIC_NONE, CLASS_TYPE_INVALID, FALSE, FALSE, OBJECT_INVALID, bInstantCast);
     //ActionCastSpell(nSpellID, nCasterlevel, 0, nTotalDC);
+    if (bHasExplicitDC)
+    {
+        ActionDoCommand(DeleteLocalInt(OBJECT_SELF, PRC_DC_TOTAL_OVERRIDE));
+        ActionDoCommand(DeleteLocalInt(OBJECT_SELF, "PRC_DC_Total_Override"));
+        ActionDoCommand(DeleteLocalInt(OBJECT_SELF, "PRC_DC_NeedsGaiaTargetCheck"));
+    }
+    if (bIsVestigeSu)
+        ActionDoCommand(DeleteLocalInt(OBJECT_SELF, "BinderSuSLA"));
     ActionDoCommand(DeleteLocalInt(OBJECT_SELF, "SpellIsSLA"));
 }
 

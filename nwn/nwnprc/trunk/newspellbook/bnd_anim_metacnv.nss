@@ -89,7 +89,7 @@ void main()
                 SetHeader(sToken);
                 
     			int i, nCount;
-    			for(i = VESTIGE_AMON; i <= VESTIGE_ABYSM; i++)
+    			for(i = VESTIGE_AMON; i <= VESTIGE_ZURIEL; i++)
     			{
     				if(GetHasSpellEffect(i, oBinder))
     					AddChoice(GetStringByStrRef(StringToInt(Get2DACache("Spells", "Name", i))), i, oBinder);
@@ -148,6 +148,7 @@ void main()
            	object oSkin = GetPCSkin(oBinder);
            	// Remove the vestige for 5 rounds
 			PRCRemoveSpellEffects(nVestige, oBinder, oBinder);
+			CleanupEpicVestigeState(oBinder, nVestige);
 			GZPRCRemoveSpellEffects(nVestige, oBinder, FALSE);
 			DelayCommand(RoundsToSeconds(5), ReapplyVestige(oBinder, nVestige));
            	

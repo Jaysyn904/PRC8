@@ -140,7 +140,7 @@ string BNDStageInstructions(object oPC, int nStage)
         int nSelected;
         if (JsonGetType(jNab) == JSON_TYPE_ARRAY)
             nSelected = JsonGetLength(jNab);
-        int nTarget = GetAbilityModifier(ABILITY_CONSTITUTION, oPC);
+        int nTarget = BinderNUINaberiusTargetCount(oPC);
         return "Choose exactly " + IntToString(nTarget)
             + " unranked skills that can be used untrained. Selected "
             + IntToString(nSelected) + "/" + IntToString(nTarget)
@@ -232,7 +232,7 @@ json BNDCreateStage(object oPC, int nStage)
         {
             json jNab = GetLocalJson(oPC, PRC_BINDER_NUI_NABERIUS_VAR);
             bEnabled = JsonGetType(jNab) == JSON_TYPE_ARRAY
-                && JsonGetLength(jNab) == GetAbilityModifier(ABILITY_CONSTITUTION, oPC);
+                && JsonGetLength(jNab) == BinderNUINaberiusTargetCount(oPC);
         }
         else if (nStage == PRC_BINDER_NUI_STAGE_BIND_CONFIRM)
             sLabel = "Begin Pact";

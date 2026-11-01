@@ -151,8 +151,13 @@ int ShadPreMystCastCode()
     //---------------------------------------------------------------------------
     // Check for PRC spell effects
     //---------------------------------------------------------------------------
+    int bMystIsSu = GetIsMysterySupernatural(oShadow, nMystID, nShadowcastingClass);
+    if (bMystIsSu)
+        SetLocalInt(oShadow, "BinderSuSLA", TRUE);
     if(nContinue)
         nContinue = PRCSpellEffects(oShadow, oTarget, nMystID, nMystLevel, nShadowcastingClass, bMystIsHostile, -1);
+    if (bMystIsSu)
+        DeleteLocalInt(oShadow, "BinderSuSLA");
         
     if(DEBUG) DoDebug("ShadPreMystCastCode nContinue #1: " + IntToString(nContinue));
         

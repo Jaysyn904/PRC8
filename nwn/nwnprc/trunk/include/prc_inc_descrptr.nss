@@ -239,6 +239,10 @@ int GetIsElementalSpell(int nSpellID, int nDescriptor = -1)
 
 int GetIsOfSubschool(int nSpellID, int nSubschoolFlag)
 {
+    if (nSpellID == 19159 && (nSubschoolFlag & SUBSCHOOL_CHARM))
+        return TRUE;
+    if ((nSpellID == 19168 || nSpellID == 19169 || nSpellID == 19170) && (nSubschoolFlag & SUBSCHOOL_COMPULSION))
+        return TRUE;
     //check for subschool override
     int nSubschool = GetLocalInt(OBJECT_SELF, PRC_SUBSCHOOL);
     if(!nSubschool)

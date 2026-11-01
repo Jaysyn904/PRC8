@@ -745,7 +745,10 @@ void main()
     // Expel Vestige removes the owner spell effect before its granted skin
     // feats expire. Revalidate the live owner at trigger time so a target mode
     // opened immediately before expulsion cannot cast a stale Binder ability.
-    if (featId >= 9030 && featId <= 9104 && !IsBinderFeatActive(OBJECT_SELF, featId))
+    if (((featId >= 9030 && featId <= 9115)
+            || (featId >= 9260 && featId <= 9265)
+            || (featId >= 9306 && featId <= 9312))
+        && !IsBinderFeatActive(OBJECT_SELF, featId))
     {
         SendMessageToPC(OBJECT_SELF, "That vestige is no longer bound.");
         DeleteLocalInt(OBJECT_SELF, NUI_SPELLBOOK_SELECTED_FEATID_VAR);

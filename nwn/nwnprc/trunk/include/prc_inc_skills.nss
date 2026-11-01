@@ -378,6 +378,8 @@ int PRCIsFlying(object oCreature)
         
     if (GetLocalInt(oCreature, "GeryonFlight"))    
         bFlying = TRUE;
+    if (GetLocalInt(oCreature, "TkhalFlight"))
+        bFlying = TRUE;
         
     if(GetRacialType(oCreature) == RACIAL_TYPE_GLOURA)
     	bFlying = TRUE;
