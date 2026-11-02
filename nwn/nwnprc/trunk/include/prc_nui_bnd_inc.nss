@@ -337,13 +337,16 @@ void BinderNUIBuildHomeMaps(object oPC)
     json jBoundMap = JsonArray();
     json jBoundNames = JsonArray();
     int bHasRoom = GetBindCount(oPC) < GetMaxVestigeCount(oPC);
+    int nMaxLvl = GetMaxVestigeLevel(oPC);
 
     int i;
     for (i = 1; i < 50; i++)
     {
-        if (!BinderNUIIsValidVestigeRow(i))
+        string sSpell = Get2DACache("vestiges", "SpellID", i);
+        if (sSpell == "")
             continue;
-        int nSpell = BinderNUIVestigeSpell(i);
+        int nSpell = StringToInt(sSpell);
+        int nVL = GetVestigeLevel(i);
         string sName = BinderNUIVestigeName(i);
 
         if (GetHasSpellEffect(nSpell, oPC))
@@ -353,19 +356,19 @@ void BinderNUIBuildHomeMaps(object oPC)
                 sQuality = "good pact";
             jBoundMap = JsonArrayInsert(jBoundMap, JsonInt(i));
             jBoundNames = JsonArrayInsert(jBoundNames, JsonString(
-                sName + " (level " + IntToString(GetVestigeLevel(i))
+                sName + " (level " + IntToString(nVL)
                 + ", " + sQuality + ")"
             ));
         }
         else if (bHasRoom
-            && GetVestigeLevel(i) <= GetMaxVestigeLevel(oPC)
+            && nVL <= nMaxLvl
             // This is deliberately evaluated once per session, matching the
             // legacy conversation's setup-stage requirement check.
             && DoSpecialRequirements(oPC, nSpell))
         {
             jBindMap = JsonArrayInsert(jBindMap, JsonInt(i));
             jBindNames = JsonArrayInsert(jBindNames, JsonString(
-                sName + " (level " + IntToString(GetVestigeLevel(i)) + ")"
+                sName + " (level " + IntToString(nVL) + ")"
             ));
         }
     }
