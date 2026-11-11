@@ -50,7 +50,7 @@ void main()
 
     if(utter.bCanUtter)
     {
-        if (!GetLocalInt(OBJECT_SELF, "DimAnchor"))
+        if (!GetLocalInt(OBJECT_SELF, "PRC_DimAnch"))
 	{
 		// This is done so Speak Unto the Masses can read it out of the structure
         	utter.fDur       = RoundsToSeconds(10);

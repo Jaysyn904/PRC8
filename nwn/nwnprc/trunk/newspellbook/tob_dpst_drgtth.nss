@@ -26,7 +26,7 @@
 void main()
 {
 	object oInitiator = OBJECT_SELF;
-	object oCreature = CreateObject(OBJECT_TYPE_PLACEABLE, "tob_dpst_pillar", PRCGetSpellTargetLocation());
+	object oCreature = CreateObject(OBJECT_TYPE_PLACEABLE, "prc_dpst_pillar", PRCGetSpellTargetLocation());
 	object oProneTarget = MyFirstObjectInShape(SHAPE_SPHERE, FeetToMeters(10.0), PRCGetSpellTargetLocation());
 	while(GetIsObjectValid(oProneTarget))
 	{

@@ -2194,12 +2194,10 @@ const int FEAT_ROGUE_SNEAK_ATTACK_18D6    = 1039;
 const int FEAT_ROGUE_SNEAK_ATTACK_19D6    = 1040;
 const int FEAT_ROGUE_SNEAK_ATTACK_20D6    = 1041;
 
-//Iaijutsu Master Feats + Skill
-
-//const int SKILL_IAIJUTSU_FOCUS = 27; //CONSTANT Moved to prc_misc_const
-const int FEAT_SKILL_FOCUS_IAI = 2377;
+//Iaijutsu Master Feats
+const int FEAT_SKILL_FOCUS_IAI 		= 2377;
 const int FEAT_EPIC_SKILL_FOCUS_IAI = 2378;
-const int FEAT_EPIC_IAIJUTSU_FOCUS = 2315; //CONSTANT
+const int FEAT_EPIC_IAIJUTSU_FOCUS	= 2315; //CONSTANT
 const int FEAT_STRIKE_VOID         = 2316; //CONSTANT
 const int FEAT_TWO_CUTS            = 2317; //CONSTANT
 const int FEAT_ECHOS_EDGE_1        = 2318; //CONSTANT

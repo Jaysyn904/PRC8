@@ -23,7 +23,7 @@ void RestorePrisons(object oPC)
         {  
             struct metalocation ml = GetPersistantLocalMetalocation(oPC, "ImprisonLoc_" + IntToString(i));  
             location lP = MetalocationToLocation(ml);  
-            object oP = CreateObject(OBJECT_TYPE_PLACEABLE, "gcs_SpellPrison", lP);  
+            object oP = CreateObject(OBJECT_TYPE_PLACEABLE, "prc_spellprison", lP);  
             SetLocalString(oP, "Imprisoned_One",  
                 GetPersistantLocalString(oPC, "ImprisonName_" + IntToString(i)));  
             SetLocalObject(oP, "PRC_IMPRISON_CASTER", oPC);  

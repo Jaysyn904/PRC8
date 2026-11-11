@@ -1,5 +1,5 @@
 CLASSES / PRESTIGE CLASSES
-Most classes have an epic progression.
+Most classes now have an epic progression.
 Fochlucan Lyrist
 Verdant Lord
 Lion of Talisid
@@ -8,9 +8,13 @@ VARIANTS
 Educated WIlder
 Hidden Talent Soulnife
 
+OPTIONAL 3.5e COMPONENTS
+Wild Shape: Plant
+
 RACIAL TYPES
 Nezumi (OA)
 Korobokuru (OA)
+Empty Vessel (Ebberon)
 Warforged Scout (Eberron)
 Shyft (Planescape)
 Maeluth (Planescape)
@@ -18,6 +22,7 @@ Mechanatrix (Planescape)
 Wispling (Planescape)
 
 TEMPLATES
+Werewolf templates
 Baelnorn template
 Half-Vampire template
 NPC Templates
@@ -54,9 +59,11 @@ Improved Critical (touch attack)
 Ki Shout
 Magical Artisan: Craft Scepter
 Magical Artisan: Create Infusion
+Music of Growth
 Pain Touch
 Plant Control
 Plant Defiance
+Song of the Heart
 Unbalancing Strike
 Weapon Focus (touch attack)
 
@@ -132,6 +139,7 @@ Source-blocked scrying variables
 Unified handling across spells/powers
 Player Appearance System
 Runtime player model swapping via racialappear.2da
+PnP Lycanthropy
 
 Spell Systems
 Spell Cancellation system

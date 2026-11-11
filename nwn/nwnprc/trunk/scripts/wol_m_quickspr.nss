@@ -34,7 +34,7 @@ void main()
     object oSkin = GetPCSkin(oPC);
     int nHD = GetHitDice(oPC);
     int nHPPen = 0;
-    object oWOL = GetItemPossessedBy(oPC, "WOL_quickspr");
+    object oWOL = GetItemPossessedBy(oPC, "WOL_Quickspur");
     object oAmmo, oItem;
     
     // You get nothing if you aren't wielding the legacy item

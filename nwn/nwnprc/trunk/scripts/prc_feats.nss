@@ -1167,85 +1167,96 @@ void PRCFeat_AddCompositeBonuses(object oPC, object oSkin)
         }
     }
 
-    //new skill focuses
-    if(GetHasFeat(FEAT_SKILL_FOCUS_ALCHEMY, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Alchemy",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_ALCHEMY);
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);  
+	int nPRCx   = GetPRCSwitch(PRC_PRCX_ENABLED);  
+	int bFuncs  = (nNWNxEE && nPRCx);
+	
+	//:: If NWNxEE is *not* running.
+	if(!bFuncs)
+	{				
+		//new skill focuses
+		if(GetHasFeat(FEAT_SKILL_FOCUS_ALCHEMY, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Alchemy",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_ALCHEMY);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_ALCHEMY, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Alchemy", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_ALCHEMY);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_ALCHEMY, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Alchemy", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_ALCHEMY);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_RIDE, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Ride",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_RIDE);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_RIDE, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Ride",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_RIDE);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_RIDE, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Ride", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_RIDE);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_RIDE, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Ride", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_RIDE);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_JUMP, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Jump",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_JUMP);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_JUMP, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Jump",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_JUMP);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_JUMP, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Jump", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_JUMP);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_JUMP, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Jump", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_JUMP);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_SENSE_MOTIVE, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_SenseMotive",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_SENSE_MOTIVE, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_SenseMotive",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_SENSE_MOTIVE, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_SenseMotive", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_SENSE_MOTIVE, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_SenseMotive", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_MARTIAL_LORE, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_MartialLore",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_MARTIAL_LORE);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_MARTIAL_LORE, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_MartialLore",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_MARTIAL_LORE);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_MARTIAL_LORE, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_MartialLore", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_MARTIAL_LORE);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_MARTIAL_LORE, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_MartialLore", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_MARTIAL_LORE);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_BALANCE, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Balance",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_BALANCE, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Balance",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_BALANCE, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Balance", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_BALANCE, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Balance", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_CRAFT_POISON, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_CraftPoison",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_POISON);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_CRAFT_POISON, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_CraftPoison",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_POISON);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CRAFT_POISON, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_CraftPoison", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_POISON);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CRAFT_POISON, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_CraftPoison", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_POISON);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_PSICRAFT, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Psicraft",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_PSICRAFT);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_PSICRAFT, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Psicraft",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_PSICRAFT);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_PSICRAFT, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Psicraft", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_PSICRAFT);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_PSICRAFT, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Psicraft", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_PSICRAFT);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_CLIMB, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_Climb",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_CLIMB, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_Climb",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CLIMB, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_Climb", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CLIMB, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_Climb", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_CRAFT_GENERAL, oPC))
-        SetCompositeBonus(oSkin, "SkillFoc_CraftGeneral",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_GENERAL);
+		if(GetHasFeat(FEAT_SKILL_FOCUS_CRAFT_GENERAL, oPC))
+			SetCompositeBonus(oSkin, "SkillFoc_CraftGeneral",  3, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_GENERAL);
 
-    if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CRAFT_GENERAL, oPC))
-        SetCompositeBonus(oSkin, "EpicSkillFoc_CraftGeneral", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_GENERAL);
+		if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_CRAFT_GENERAL, oPC))
+			SetCompositeBonus(oSkin, "EpicSkillFoc_CraftGeneral", 10, ITEM_PROPERTY_SKILL_BONUS, SKILL_CRAFT_GENERAL);
+		
+		if(GetHasFeat(FEAT_NEGOTIATOR, oPC))
+		{
+			SetCompositeBonus(oSkin, "NegotiatorPersuade", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERSUADE); 
+			SetCompositeBonus(oSkin, "NegotiatorSenseMotive", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
+		}
+		
+		if(GetHasFeat(FEAT_MASTER_OF_KNOWLEDGE, oPC))
+        SetCompositeBonus(oSkin, "MasterofKnowledge", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE);
+
+		    // Aberrant Feats here  
+		if(GetHasFeat(FEAT_ABERRANT_EYES, oPC))
+			SetCompositeBonus(oSkin, "AberrantBlood_Eye", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
+		if(GetHasFeat(FEAT_ABERRANT_SEGMENT, oPC))
+			SetCompositeBonus(oSkin, "AberrantBlood_Segment", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
+		if(GetHasFeat(FEAT_ABERRANT_FINGERS, oPC))
+			SetCompositeBonus(oSkin, "AberrantBlood_Fingers", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
+		if(GetHasFeat(FEAT_ABERRANT_TAIL, oPC))
+			SetCompositeBonus(oSkin, "AberrantBlood_Tail", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE); 
+	
+	}
         
-    if(GetHasFeat(FEAT_MASTER_OF_KNOWLEDGE, oPC))
-        SetCompositeBonus(oSkin, "MasterofKnowledge", 5, ITEM_PROPERTY_SKILL_BONUS, SKILL_LORE); 
-
-	if(GetHasFeat(FEAT_NEGOTIATOR, oPC))
-	{
-		SetCompositeBonus(oSkin, "NegotiatorPersuade", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_PERSUADE); 
-		SetCompositeBonus(oSkin, "NegotiatorSenseMotive", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SENSE_MOTIVE);
-    }
-    
-    // Aberrant Feats here
-    if(GetHasFeat(FEAT_ABERRANT_EYES, oPC))
-        SetCompositeBonus(oSkin, "AberrantBlood_Eye", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);
-    if(GetHasFeat(FEAT_ABERRANT_SEGMENT, oPC))
-        SetCompositeBonus(oSkin, "AberrantBlood_Segment", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_SEARCH);
-    if(GetHasFeat(FEAT_ABERRANT_FINGERS, oPC))
-        SetCompositeBonus(oSkin, "AberrantBlood_Fingers", 2, ITEM_PROPERTY_SKILL_BONUS, SKILL_CLIMB);
-    if(GetHasFeat(FEAT_ABERRANT_TAIL, oPC))
-        SetCompositeBonus(oSkin, "AberrantBlood_Tail", 4, ITEM_PROPERTY_SKILL_BONUS, SKILL_BALANCE);        
+    // Aberrant Feats here       
     if(GetHasFeat(FEAT_ABERRANT_INHUMAN_VISION, oPC))
         SetCompositeBonus(oSkin, "AberrantBlood_Vis", GetAberrantFeatCount(oPC), ITEM_PROPERTY_SKILL_BONUS, SKILL_SPOT);        
     if(GetHasFeat(FEAT_ABERRANT_SCAVENGING_GULLET, oPC))

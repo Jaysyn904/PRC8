@@ -149,6 +149,25 @@ void main()
     object oModule = GetModule();
     PersonalSwitch(oModule);
 	
+	//:: NWNxEE Detection
+	int nNWNxEE	= NWNXGetIsAvailable();
+
+	if (nNWNxEE)
+	{
+		SetPRCSwitch(PRC_NWNXEE_ENABLED, TRUE);
+		if(DEBUG) DoDebug("NWNxEE detected.");
+		
+	}
+ 
+	int nPRCx   = GetPRCSwitch(PRC_PRCX_ENABLED);  
+	int bFuncs  = (nNWNxEE && nPRCx);
+	
+	if(bFuncs)
+	{
+		if(DEBUG) DoDebug("NWNxEE: Setting up skill related feats.");
+		ExecuteScript("prcx_skillfeats");		
+	}
+	
 	SetAbilityBonusLimit(50);
 
     OnLoad_Always(oModule);
@@ -165,15 +184,6 @@ void main()
         OnLoad_Fresh(oModule);
     }
 
-    //:: NWNxEE Detection
-	int bNWNxEE	= NWNXGetIsAvailable();
-
-	if (bNWNxEE)
-	{
-		SetPRCSwitch(PRC_NWNXEE_ENABLED, TRUE);
-		if(DEBUG) DoDebug("NWNxEE detected.");
-	}		
-	
 	//NWNX_Funcs plugin test:
     //PRC_Funcs_Init(oModule);
 }

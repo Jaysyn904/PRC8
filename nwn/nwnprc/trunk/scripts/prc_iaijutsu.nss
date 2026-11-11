@@ -29,13 +29,24 @@ void main()
 	
 	if(DEBUG) DoDebug("prc_iaijutsu >> Initial Iaijutsu focus check is "+IntToString(iSkill)+".");
 
-    if(GetHasFeat(FEAT_SKILL_FOCUS_IAI))
-        if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_IAI))
-            iSkill = iSkill + 13;
-        else
-            iSkill = iSkill + 3;
+	int nNWNxEE = GetPRCSwitch(PRC_NWNXEE_ENABLED);  
+	int nPRCx   = GetPRCSwitch(PRC_PRCX_ENABLED);  
+	int bFuncs  = (nNWNxEE && nPRCx);
+	
+	if(!bFuncs)
+	{		
+		if(GetHasFeat(FEAT_SKILL_FOCUS_IAI))
+			if(GetHasFeat(FEAT_EPIC_SKILL_FOCUS_IAI))
+				iSkill = iSkill + 13;
+			else
+				iSkill = iSkill + 3;
+	}
+	else
+	{
+		if(DEBUG) DoDebug("prc_iaijutsu >> NwNxEE & PRCx detected.");
+	}
 		
-	if(DEBUG) DoDebug("prc_iaijutsu >> Finall Iaijutsu focus check is "+IntToString(iSkill)+".");
+	if(DEBUG) DoDebug("prc_iaijutsu >> Final Iaijutsu focus check is "+IntToString(iSkill)+".");
 	
     //string OneKat;
     int iDie = 0;

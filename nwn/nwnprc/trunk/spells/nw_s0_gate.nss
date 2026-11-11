@@ -41,7 +41,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
 // End of Spell Cast Hook
 
 
-        if (!GetLocalInt(OBJECT_SELF, "DimAnchor"))
+        if (!GetLocalInt(OBJECT_SELF, "PRC_DimAnch"))
 	    {
 		// Do the gating
             int nCasterLevel = PRCGetCasterLevel(OBJECT_SELF);
@@ -62,7 +62,7 @@ SetLocalInt(OBJECT_SELF, "X2_L_LAST_SPELLSCHOOL_VAR", SPELL_SCHOOL_CONJURATION);
         }
 
 /*
-if (!GetLocalInt(OBJECT_SELF, "DimAnchor"))
+if (!GetLocalInt(OBJECT_SELF, "PRC_DimAnch"))
 {
 
     //Declare major variables

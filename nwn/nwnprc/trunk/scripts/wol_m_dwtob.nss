@@ -32,7 +32,7 @@ void main()
     object oSkin = GetPCSkin(oPC);
     int nHD = GetHitDice(oPC);
     int nHPPen = 0;
-    object oWOL = GetItemPossessedBy(oPC, "WOL_DesertWindTOB");
+    object oWOL = GetItemPossessedBy(oPC, "WOL_DesertWindToB");
     object oAmmo, oItem;
     
     // You get nothing if you aren't wielding the legacy item

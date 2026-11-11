@@ -318,7 +318,7 @@ void main()
 
         //rest kits
         if(GetPRCSwitch(PRC_SUPPLY_BASED_REST))
-            ExecuteScript("sbr_onaquire", OBJECT_SELF);
+            ExecuteScript("sbr_onacquire", OBJECT_SELF);
 
         //PRC Companion
         //DOA visible dyepot items

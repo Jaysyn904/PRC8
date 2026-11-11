@@ -195,7 +195,7 @@ void AddCohortRaces(int nMin, int nMax, object oPC)
     int nMaxHD = GetCohortMaxLevel(GetLeadershipScore(oPC), oPC);
     int bUseSimpleRacialHD = GetPRCSwitch(PRC_XP_USE_SIMPLE_RACIAL_HD);
     string sName;
-    for(i=nMin;i<nMin+100;i++)
+    for(i=nMin;i<nMin+200;i++)
     {
         if(Get2DACache("racialtypes", "PlayerRace", i) == "1")
         {
@@ -718,11 +718,11 @@ void main()
                 if(GetCurrentCohortCount(oPC) < GetMaximumCohortCount(oPC)
                     && !GetLocalInt(oPC, "CohortRecruited")
                     && !GetPRCSwitch(PRC_DISABLE_CUSTOM_COHORTS))
-                    AddChoice("Recruit a standard cohort", 1);
+                    AddChoice("Recruit a custom cohort", 1);
                 if(GetCurrentCohortCount(oPC) < GetMaximumCohortCount(oPC)
                     && !GetLocalInt(oPC, "CohortRecruited")
                     && !GetPRCSwitch(PRC_DISABLE_STANDARD_COHORTS))
-                    AddChoice("Recruit a custom cohort", 4);
+                    AddChoice("Recruit a standard cohort", 4);
                 //not implemented, remove via radial or conversation
                 //if(GetCurrentCohortCount(oPC))
                 //    AddChoice("Dismiss an existing cohort", 2);

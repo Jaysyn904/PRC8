@@ -9,7 +9,7 @@
 void main()
 {
     // Item creation code
-    ExecuteScript("hd_o0_heartbeat", OBJECT_SELF);
+    //ExecuteScript("hd_o0_heartbeat", OBJECT_SELF);  //<< - This script doesn't exist.
 
     int bBiowareDBCache = GetPRCSwitch(PRC_USE_BIOWARE_DATABASE);
 

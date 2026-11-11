@@ -14,7 +14,7 @@ void main()
     effect eNone;
     int nInstant = FALSE;
     
-    object oWOL = GetItemPossessedBy(oPC, "WOL_DesertWindTOB");
+    object oWOL = GetItemPossessedBy(oPC, "WOL_DesertWindToB");
     
     // You get nothing if you aren't wielding the weapon
     if(oWOL != GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC)) return;  

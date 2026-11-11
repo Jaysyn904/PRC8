@@ -3409,7 +3409,7 @@ Racial Hit Dice/Class: 4 of Monstrous Humanoid</entry>
   <entry id="13103" lang="en" sex="m">Lashemois</entry>
   <entry id="13104" lang="en" sex="m">Lashemoi are the drudge workers, low-ranking warriors, and servitors of ushemoi society. Though lashemoi typically toil under the direction of arkamoi and hadrimoi leaders, turlemoi sometimes gather lashemoi to them as hunters, scouts, and expendable advance troops. Without leadership, lashemoi keep to themselves. Though they attack other creatures for food and treasure, they are meek, cowardly, and easily driven off. Lashemoi avoid standup fights even against weaker foes and are typically content to take potshots at soft, easy targets.
 
-Lashemoi have a natural connection to their ushemoi brethren, but they are just as likely to be found in the service of ogre mages, hobgoblin chieftains, evil clerics, and the like. Other ushemoi refer to lashemoi as "mongrels," not because of their heritage, but for the lashemoi's tendency to follow any charismatic creature.
+Lashemoi have a natural connection to their ushemoi brethren, but they are just as likely to be found in the service of ogre mages, hobgoblin chieftains, evil clerics, and the like. Other ushemoi refer to lashemoi as "mongrels", not because of their heritage, but for the lashemoi's tendency to follow any charismatic creature.
 
 Lashemoi Ability Adjustments: +2 Str, +6 Con, -6 Int, -2 Cha
 Favored Class (Barbarian): A multiclass Lashemoi's barbarian class does not count when determining whether he suffers an XP penalty for multiclassing.
@@ -3571,7 +3571,7 @@ Text</entry>
   <entry id="13138" lang="en" sex="m">13138</entry>
   <entry id="13139" lang="en" sex="m">13139</entry>
   <entry id="13140" lang="en" sex="m">Crypt Spawn</entry>
-  <entry id="13141" lang="en" sex="m">"Crypt spawn" is a template that can be applied to any living creature (referred to hereafter as the "base creature"). The base creature's type changes to "undead." It uses all the base creature's statistics and special abilities except as noted here.
+  <entry id="13141" lang="en" sex="m">"Crypt spawn" is a template that can be applied to any living creature (referred to hereafter as the "base creature"). The base creature's type changes to undead. It uses all the base creature's statistics and special abilities except as noted here.
 
 Hit Dice: Undead Hit Dice.
 
@@ -3897,7 +3897,7 @@ Holy Touch (Su): A saint's entire being is suffused with holy power, which likew
   <entry id="13190" lang="en" sex="m">Archliches are transformed human spellcasters-as often clerics or bards as wizards-who have deliberately and carefully accomplished their own transformation into liches.  They devote their undeath to the furtherance of whatever noble purpose motivated the transformation.
 Archliches appear as normal liches. They have all the characteristics of normal liches, including the spell ability and other class abilities they possessed in life. In addition, they can turn undead as good clerics (entitled to a number of turning attempts per day equal to 3 + their Charisma modifier). They also have the ability to animate dead as well as an immunity to Turning by good or neutral clerics. 
 
-A Archich has all the base creature's statistics and special abilities except as noted here.
+An Archich has all the base creature's statistics and special abilities except as noted here.
 
 Size and Type
 The creature's type changes to undead. Do not recalculate base attack bonus, saves, or skill points. Size is unchanged.
@@ -23803,7 +23803,7 @@ Use: Selected</entry>
 Prerequisite: Artificer level 5
 Specifics: At 5th level, an artificer gains the ability to salvage the XP from a magic item and use those points to create another magic item. The artificer must spend a day with the item, and he must also have the appropriate item creation feat for the item he is salvaging. After one day, the item is destroyed and the artificer adds the XP it took to create the item to his craft reserve. These points are lost if the artificer does not use them before gaining his next level.
 
-For example, an artificer wants to retain the essence of a wand of summon creature IV that has 20 charges. Originally created (like all wands) with 50 charges, it required 840 XP when initially made, or 16.8 XP (840 - 50) per charge. The artificer is able to recover the XP from the remaining charges. He puts 336 XP (16.8 X 20) into his craft reserve.
+For example, an artificer wants to retain the essence of a wand of Summon Creature IV that has 20 charges. Originally created (like all wands) with 50 charges, it required 840 XP when initially made, or 16.8 XP (840 - 50) per charge. The artificer is able to recover the XP from the remaining charges. He puts 336 XP (16.8 X 20) into his craft reserve.
 
 Use: Selected</entry>
   <entry id="49897" lang="en" sex="m">Metamagic Spell Trigger</entry>
@@ -67518,7 +67518,7 @@ A half-celestial with an Intelligence or Wisdom score of 8 or higher has two or 
 11+ HD, Holy word
 13+ HD, Holy aura 3/day, hallow
 15+ HD, Mass charm monster
-17+ HD, Summon monster IX
+17+ HD, summon creature IX
 19+ HD, Resurrection
 
 Special Qualities
@@ -69194,7 +69194,7 @@ HD      Abilities
 11-12   Blasphemy
 13-14   Unholy aura 3/day, unhallow
 15-16   Horrid wilting
-17-18   Summon monster IX (fiends only)
+17-18   Summon creature IX (fiends only)
 19-20   Destruction
 
 Special Qualities

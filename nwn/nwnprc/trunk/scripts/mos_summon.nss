@@ -5,7 +5,6 @@
  * edited to include epic wraith summons 2004/03/04; also removed unnecessary scripting.
  * Lockindal Linantal
  */
-
 #include "prc_inc_spells"
 //#include "inc_utility"
 #include "prc_inc_turning"

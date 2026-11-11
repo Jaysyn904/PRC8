@@ -224,7 +224,7 @@ void main()
   
     //:: Prison marker at the locale where imprisonment  
     //:: took place (PnP: freedom must be cast there)
-    object oPrison = CreateObject(OBJECT_TYPE_PLACEABLE, "gcs_SpellPrison", lTarget);  
+    object oPrison = CreateObject(OBJECT_TYPE_PLACEABLE, "gcs_spellprison", lTarget);  
     if (GetIsObjectValid(oPrison))  
     {  
         SetLocalString(oPrison, "Imprisoned_One", GetName(oTarget));  

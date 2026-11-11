@@ -155,7 +155,7 @@ void main()
         {
             if(nChoice == TRUE)
             {
-            	if (!GetLocalInt(OBJECT_SELF, "DimAnchor"))
+            	if (!GetLocalInt(OBJECT_SELF, "PRC_DimAnch"))
             	{
             		object oPM = GetLocalObject(oPC, "TrueSayPartyChoice" + IntToString(GetLocalInt(oPC, "TruePartyChoiceNum")));
             		if(DEBUG) DoDebug("Say My Name and I Am There: Target Name: " + GetName(oPM));
