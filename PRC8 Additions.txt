@@ -3,9 +3,10 @@ Most classes now have an epic progression.
 Fochlucan Lyrist
 Verdant Lord
 Lion of Talisid
+Silverstar
 
 VARIANTS
-Educated WIlder
+Educated Wilder
 Hidden Talent Soulnife
 
 OPTIONAL 3.5e COMPONENTS
@@ -25,6 +26,8 @@ TEMPLATES
 Werewolf templates
 Baelnorn template
 Half-Vampire template
+Natural Werewolf template
+Afflicted Werewolf template
 NPC Templates
 
 CLERIC DOMAINS
@@ -79,7 +82,7 @@ Creeping Cold
 Forestfold
 Greater Creeping Cold
 Immunity from Elements
-Leonal’s Roar
+Leonalâ€™s Roar
 Limited Wish
 Regenerate Circle
 Regenerate Ring
@@ -89,7 +92,7 @@ Shield of Law
 Speed of the Wind
 Spirit Worm
 Spiritual Weapon
-Summon Nature’s Ally I–IX
+Summon Natureâ€™s Ally Iâ€“IX
 Tortise Shell
 
 EPIC SPELLS
